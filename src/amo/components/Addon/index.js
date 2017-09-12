@@ -18,7 +18,12 @@ import { fetchAddon } from 'core/reducers/addons';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, ENABLED, UNKNOWN,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_THEME,
+  ENABLED,
+  UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
@@ -75,26 +80,20 @@ export class AddonBase extends React.Component {
       params,
     } = this.props;
 
-    if (addon) {
-      dispatch(setViewContext(addon.type));
-      dispatch(fetchOtherAddonsByAuthors({
-        addonType: addon.type,
-        authors: this.getAuthorUsernames(addon),
-        errorHandlerId: errorHandler.id,
-        slug: addon.slug,
-      }));
-    } else {
-      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+    // This makes sure we do not try to dispatch any new actions in the case
+    // of an error.
+    if (!errorHandler.hasError()) {
+      if (addon) {
+        dispatch(setViewContext(addon.type));
+        this.dispatchFetchOtherAddonsByAuthors({ addon });
+      } else {
+        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+      }
     }
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps({ addon: newAddon, params: newParams }) {
     const { addon: oldAddon, dispatch, errorHandler, params } = this.props;
-    const {
-      addon: newAddon,
-      addonsByAuthors: newAddonsByAuthors,
-      params: newParams,
-    } = nextProps;
 
     const oldAddonType = oldAddon ? oldAddon.type : null;
     if (newAddon && newAddon.type !== oldAddonType) {
@@ -105,13 +104,8 @@ export class AddonBase extends React.Component {
       dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
     }
 
-    if (newAddon && oldAddon !== newAddon && !newAddonsByAuthors) {
-      dispatch(fetchOtherAddonsByAuthors({
-        addonType: newAddon.type,
-        authors: this.getAuthorUsernames(newAddon),
-        errorHandlerId: errorHandler.id,
-        slug: newAddon.slug,
-      }));
+    if (newAddon && oldAddon !== newAddon) {
+      this.dispatchFetchOtherAddonsByAuthors({ addon: newAddon });
     }
   }
 
@@ -146,6 +140,17 @@ export class AddonBase extends React.Component {
       default:
         return i18n.gettext('Featured Add-on');
     }
+  }
+
+  dispatchFetchOtherAddonsByAuthors({ addon }) {
+    const { dispatch, errorHandler } = this.props;
+
+    dispatch(fetchOtherAddonsByAuthors({
+      addonType: addon.type,
+      authors: this.getAuthorUsernames(addon),
+      errorHandlerId: errorHandler.id,
+      slug: addon.slug,
+    }));
   }
 
   headerImage({ compatible } = {}) {
@@ -310,13 +315,35 @@ export class AddonBase extends React.Component {
 
     let header;
     switch (addonType) {
+      case ADDON_TYPE_DICT:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More dictionaries by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More dictionaries by these translators'),
+          authorNames.length
+        );
+        break;
+
       case ADDON_TYPE_EXTENSION:
         header = i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More extensions by %(author)s'),
             { author: authorNames[0] }
           ),
-          i18n.gettext('More extensions by these authors'),
+          i18n.gettext('More extensions by these developers'),
+          authorNames.length
+        );
+        break;
+
+      case ADDON_TYPE_LANG:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More language packs by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More language packs by these translators'),
           authorNames.length
         );
         break;
@@ -327,7 +354,7 @@ export class AddonBase extends React.Component {
             i18n.gettext('More themes by %(author)s'),
             { author: authorNames[0] }
           ),
-          i18n.gettext('More themes by these authors'),
+          i18n.gettext('More themes by these artists'),
           authorNames.length
         );
         break;
@@ -338,7 +365,7 @@ export class AddonBase extends React.Component {
             i18n.gettext('More add-ons by %(author)s'),
             { author: authorNames[0] }
           ),
-          i18n.gettext('More add-ons by these authors'),
+          i18n.gettext('More add-ons by these developers'),
           authorNames.length
         );
     }
@@ -507,12 +534,12 @@ export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
   const addon = state.addons[slug];
 
+  let addonsByAuthors;
   let installedAddon = {};
-  let addonsByAuthors = [];
 
   if (addon) {
-    installedAddon = state.installations[addon.guid] || {};
     addonsByAuthors = state.addonsByAuthors.byAddonSlug[addon.slug];
+    installedAddon = state.installations[addon.guid] || {};
   }
 
   return {

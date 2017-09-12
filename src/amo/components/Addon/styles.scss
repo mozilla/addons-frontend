@@ -182,7 +182,7 @@
       }
     }
 
-    @include respond-to(desktop) {
+    @include respond-to(extraLarge) {
       grid-template-columns: repeat(3, 1fr);
     }
   }
