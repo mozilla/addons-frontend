@@ -41,7 +41,7 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
@@ -250,6 +250,26 @@ describe('Addon', () => {
     const errorHandler = new ErrorHandler({
       id, dispatch: sinon.stub(), capturedError,
     });
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders NotFound page for unauthorized add-on - 401 error', () => {
+    const id = 'error-handler-id';
+    const { store } = dispatchClientMetadata();
+
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Authentication credentials were not provided.' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    // This makes sure the error was dispatched to state correctly.
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = createStubErrorHandler(capturedError);
 
     const root = shallowRender({ errorHandler });
     expect(root.find(NotFound)).toHaveLength(1);
