@@ -41,7 +41,7 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
@@ -257,7 +257,7 @@ describe('Addon', () => {
 
   it('renders NotFound page for unauthorized add-on - 401 error', () => {
     const id = 'error-handler-id';
-    const { store } = createStore();
+    const store = dispatchClientMetadata().store;
 
     const error = createApiError({
       response: { status: 401 },
@@ -266,12 +266,8 @@ describe('Addon', () => {
     });
     store.dispatch(setError({ id, error }));
     const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
 
-    // Set up an error handler from state like withErrorHandler().
-    const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
-    });
+    const errorHandler = createStubErrorHandler(capturedError);
 
     const root = shallowRender({ errorHandler });
     expect(root.find(NotFound)).toHaveLength(1);

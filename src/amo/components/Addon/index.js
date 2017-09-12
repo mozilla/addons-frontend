@@ -280,8 +280,8 @@ export class AddonBase extends React.Component {
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.error('Captured API Error:', errorHandler.capturedError);
-      if (errorHandler.capturedError.responseStatusCode === 404 ||
-          errorHandler.capturedError.responseStatusCode === 401
+      if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound />;
       }
