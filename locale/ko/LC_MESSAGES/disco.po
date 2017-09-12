@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:36+0000\n"
+"POT-Creation-Date: 2017-09-12 19:30+0000\n"
 "PO-Revision-Date: 2017-04-05 05:15+0000\n"
 "Last-Translator: hee <ilmag2@naver.com>\n"
 "Language-Team: none\n"
@@ -149,11 +149,11 @@ msgstr ""
 msgid "Discover Add-ons"
 msgstr "부가기능 찾기"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:121
 msgid "Personalize Your Firefox"
 msgstr "Firefox 개인화하기"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:122
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -166,19 +166,19 @@ msgstr ""
 "징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지"
 "고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:130
 msgid "Click to play"
 msgstr "클릭해서 재생"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "to find out more about add-ons"
 msgstr "부가기능 더 알아보기"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:145
 msgid "Close video"
 msgstr "동영상 닫기"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:164
 msgid "See more add-ons!"
 msgstr "다른 부가기능 보기!"
 
