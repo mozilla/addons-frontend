@@ -44,7 +44,7 @@ describe(__filename, () => {
       }));
     }
 
-    it('fetches landing page addons from the API', async () => {
+    it('fetches discovery addons from the API', async () => {
       const addon1 = {
         heading: 'Discovery Addon 1',
         description: 'informative text',
@@ -66,7 +66,7 @@ describe(__filename, () => {
       const addonResponse = createFetchDiscoveryResult([addon1, addon2]);
       mockApi
         .expects('getDiscoveryAddons')
-        .withArgs({ api: apiState })
+        .withArgs({ api: apiState, telemetryClientId: undefined })
         .returns(Promise.resolve(addonResponse));
 
       const { entities, result } = addonResponse;
@@ -81,6 +81,29 @@ describe(__filename, () => {
 
       expect(calledActions[1]).toEqual(loadAddons(entities));
       expect(calledActions[2]).toEqual(expectedLoadAction);
+    });
+
+    it('includes a telemetry client ID in the API request', async () => {
+      const telemetryClientId = 'client-id';
+      const addon = {
+        heading: 'Discovery Addon',
+        description: 'informative text',
+        addon: { ...fakeDiscoAddon },
+      };
+      const addonResponse = createFetchDiscoveryResult([addon]);
+
+      mockApi
+        .expects('getDiscoveryAddons')
+        .withArgs({ api: apiState, telemetryClientId })
+        .returns(Promise.resolve(addonResponse));
+
+      const { entities, result } = addonResponse;
+      const expectedLoadAction = loadDiscoResults({ entities, result });
+
+      _getDiscoResults({ telemetryClientId });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
     });
 
     it('dispatches an error', async () => {

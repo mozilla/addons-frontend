@@ -31,6 +31,7 @@ export class DiscoPaneBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     handleGlobalEvent: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
@@ -50,9 +51,16 @@ export class DiscoPaneBase extends React.Component {
     super(props);
     this.state = { showVideo: false };
 
-    const { dispatch, errorHandler, results } = props;
+    const { dispatch, errorHandler, location, results } = props;
+    // TODO: fix this; it's not the right way to detect whether a
+    // dispatch is needed. This should look for an undefined value
+    // instead of an empty list because an empty list could be a valid
+    // (yet unlikley) API response.
     if (!errorHandler.hasError() && !results.length) {
-      dispatch(getDiscoResults({ errorHandlerId: errorHandler.id }));
+      dispatch(getDiscoResults({
+        errorHandlerId: errorHandler.id,
+        telemetryClientId: location.query.clientId,
+      }));
     }
   }
 
