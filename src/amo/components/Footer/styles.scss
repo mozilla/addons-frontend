@@ -10,6 +10,7 @@
   @include respond-to(medium) {
     display: flex;
     justify-content: space-between;
+    padding: 20px $header-footer-gutter;
   }
 
   @include respond-to(large) {
@@ -48,8 +49,6 @@
   margin-top: 10px;
 
   @include respond-to(medium) {
-    @include margin-end(10px);
-
     margin-top: auto;
   }
 }
