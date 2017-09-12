@@ -47,9 +47,6 @@ class SearchResults extends React.Component {
         // "no extensions" found that match your search or something.
         messageText = i18n.gettext('No results were found.');
       }
-    } else if (!hasSearchFilters(filters)) {
-      messageText = i18n.gettext(
-        'Please enter a search term to search Firefox Add-ons.');
     }
 
     return (

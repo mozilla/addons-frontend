@@ -4,36 +4,34 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Search from 'amo/components/Search';
-import {
-  convertFiltersToQueryParams,
-  convertQueryParamsToFilters,
-} from 'core/searchUtils';
-
+import Card from 'ui/components/Card';
+import translate from 'core/i18n/translate';
+import { convertQueryParamsToFilters } from 'core/searchUtils';
 
 type PropTypes = {|
   filters: Object,
-  pathname: string,
+  i18n: Object,
 |};
 
-export const SearchPageBase = ({ filters, pathname, ...props }: PropTypes) => {
-  const paginationQueryParams = convertFiltersToQueryParams({
-    addonType: filters.addonType,
-    operatingSystem: filters.operatingSystem,
-    page: filters.page,
-    query: filters.query,
-    sort: filters.sort,
-  });
+export class SearchPageBase extends React.Component {
+  props: PropTypes;
+  render() {
+    const { filters, i18n } = this.props;
+    if (!filters.query || filters.query.length === 0) {
+      return (
+        <div className="Search">
+          <Card className="SearchContextCard">
+            <h1 className="SearchContextCard-header">
+              {i18n.gettext('Enter a search term and try again.')}
+            </h1>
+          </Card>
+        </div>
+      );
+    }
 
-  return (
-    <Search
-      {...props}
-      enableSearchFilters
-      filters={filters}
-      paginationQueryParams={paginationQueryParams}
-      pathname={pathname}
-    />
-  );
-};
+    return <Search filters={filters} />;
+  }
+}
 
 export function mapStateToProps(state: any, ownProps: any) {
   const { location } = ownProps;
@@ -56,5 +54,6 @@ export function mapStateToProps(state: any, ownProps: any) {
 }
 
 export default compose(
+  translate(),
   connect(mapStateToProps),
 )(SearchPageBase);

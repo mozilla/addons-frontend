@@ -7,8 +7,7 @@ import SearchPage, {
 } from 'amo/components/SearchPage';
 import { CLIENT_APP_ANDROID } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { shallowUntilTarget } from 'tests/unit/helpers';
-
+import { shallowUntilTarget, getFakeI18nInst } from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let store;
@@ -16,6 +15,7 @@ describe(__filename, () => {
   function render({
     location = { query: { page: 2, q: 'burger' } },
     pathname = '/testingsearch/',
+    i18n = getFakeI18nInst(),
     ...props
   } = {}) {
     return shallowUntilTarget(
@@ -23,6 +23,7 @@ describe(__filename, () => {
         location={location}
         pathname={pathname}
         store={store}
+        i18n={i18n}
         {...props}
       />,
       SearchPageBase,
@@ -39,30 +40,39 @@ describe(__filename, () => {
     expect(root.find(Search)).toHaveLength(1);
   });
 
-  it('enables search filters', () => {
-    const root = render();
-
-    expect(root.find(Search)).toHaveProp('enableSearchFilters', true);
-  });
-
   it("doesn't duplicate the clientApp in the URL in the queryParams", () => {
     const root = render({
       location: { query: { page: 3, q: 'fries' } },
     });
 
-    expect(root.find(Search).prop('paginationQueryParams')).toEqual({
+    expect(root.find(Search).prop('filters')).toEqual({
       page: 3,
-      q: 'fries',
+      query: 'fries',
     });
   });
 
-  it('sets the paginationQueryParams from filters', () => {
-    const root = render();
-
-    expect(root.find(Search)).toHaveProp('paginationQueryParams', {
-      page: 2,
-      q: 'burger',
+  it('should render Search results on search with query', () => {
+    const root = render({
+      location: { query: { page: 3, q: 'fries' } },
     });
+
+    expect(root.find(Search)).toHaveLength(1);
+  });
+
+  it('should render an error message on empty search', () => {
+    const root = render({
+      location: { query: { page: 3, q: null } },
+    });
+
+    expect(root.find('.SearchContextCard-header')).toHaveText('Enter a search term and try again.');
+  });
+
+  it('should render an error message on blank search', () => {
+    const root = render({
+      location: { query: { page: 3, q: '' } },
+    });
+
+    expect(root.find('.SearchContextCard-header')).toHaveText('Enter a search term and try again.');
   });
 
   describe('mapStateToProps()', () => {

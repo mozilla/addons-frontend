@@ -27,12 +27,6 @@ describe('<SearchResults />', () => {
     ), SearchResults).getWrappedInstance();
   }
 
-  it('renders empty search results container', () => {
-    const root = renderResults();
-
-    expect(root.message.textContent).toContain('enter a search term');
-  });
-
   it('renders no results when searched but nothing is found', () => {
     const root = renderResults({
       count: 0,
@@ -44,11 +38,10 @@ describe('<SearchResults />', () => {
     expect(root.message.textContent).toContain('No results were found.');
   });
 
-  it('renders error when no search params exist', () => {
+  it('renders no results when there are no search filters', () => {
     const root = renderResults({ filters: {} });
     const addonsCard = findRenderedComponentWithType(root, AddonsCard);
 
-    expect(root.message.textContent).toContain('enter a search term');
     expect(addonsCard.props.addons).toEqual(null);
   });
 
