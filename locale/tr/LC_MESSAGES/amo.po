@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-08 14:50+0000\n"
+"PO-Revision-Date: 2017-09-12 15:09+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -15,19 +15,16 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:111
-#, fuzzy
 msgid "Featured Extension"
-msgstr "Öne çıkan uzantılar"
+msgstr "Öne çıkan eklenti"
 
 #: src/amo/components/Addon/index.js:113
-#, fuzzy
 msgid "Featured Theme"
-msgstr "Öne çıkan temalar"
+msgstr "Öne çıkan tema"
 
 #: src/amo/components/Addon/index.js:115
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Firefox Eklentileri"
+msgstr "Öne çıkan eklenti"
 
 #: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
@@ -55,9 +52,8 @@ msgid "About this %(addonType)s"
 msgstr "Bu %(addonType)s hakkında"
 
 #: src/amo/components/Addon/index.js:255
-#, fuzzy
 msgid "Release notes for %(addonVersion)s"
-msgstr "%(addonName)s incelemeleri"
+msgstr "%(addonVersion)s sürüm notları"
 
 #: src/amo/components/Addon/index.js:308
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -238,9 +234,8 @@ msgid "Browse all themes in this category."
 msgstr "Bu kategorideki tüm temalara bak."
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Firefox Eklentileri"
+msgstr "Firefox'u indir"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -503,19 +498,16 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s eklenti bulundu"
 
 #: src/amo/components/SearchFilters/index.js:104
-#, fuzzy
 msgid "Filter results"
-msgstr "Arama sonuçları"
+msgstr "Sonuçları filtrele"
 
 #: src/amo/components/SearchFilters/index.js:110
-#, fuzzy
 msgid "Sort by"
-msgstr "Sıralama"
+msgstr "Sırala"
 
 #: src/amo/components/SearchFilters/index.js:128
-#, fuzzy
 msgid "Add-on Type"
-msgstr "Eklenti simgesi"
+msgstr "Eklenti türü"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
@@ -526,14 +518,12 @@ msgid "All"
 msgstr "Tümü"
 
 #: src/amo/components/SearchFilters/index.js:71
-#, fuzzy
 msgid "Extension"
-msgstr "Uzantılar"
+msgstr "Eklenti"
 
 #: src/amo/components/SearchFilters/index.js:72
-#, fuzzy
 msgid "Theme"
-msgstr "Temalar"
+msgstr "Tema"
 
 #: src/amo/components/SearchFilters/index.js:81
 msgid "Windows"
@@ -568,37 +558,32 @@ msgid "Go to the add-on page"
 msgstr "Eklentinin sayfasına git"
 
 #: src/amo/components/SearchForm/index.js:191
-#, fuzzy
 msgid "Find extensions"
-msgstr "Öne çıkan uzantılar"
+msgstr "Eklenti ara"
 
 #: src/amo/components/SearchForm/index.js:193
 msgid "Find dictionary"
 msgstr "Sözlük bul"
 
 #: src/amo/components/SearchForm/index.js:195
-#, fuzzy
 msgid "Find language pack"
-msgstr "Bu dil paketini derecelendirmek için giriş yapın"
+msgstr "Dil paketi ara"
 
 #: src/amo/components/SearchForm/index.js:197
-#, fuzzy
 msgid "Find themes"
-msgstr "Haberleri bulun"
+msgstr "Tema ara"
 
 #: src/amo/components/SearchForm/index.js:199
-#, fuzzy
 msgid "Find add-ons"
-msgstr "Eklentiler yükleniyor"
+msgstr "Eklenti ara"
 
 #: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
 msgid "Search"
 msgstr "Ara"
 
 #: src/amo/components/SearchForm/index.js:80
-#, fuzzy
 msgid "Loading"
-msgstr "Yükleniyor..."
+msgstr "Yükleniyor"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
