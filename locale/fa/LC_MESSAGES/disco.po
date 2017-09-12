@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:36+0000\n"
+"POT-Creation-Date: 2017-09-12 19:30+0000\n"
 "PO-Revision-Date: 2017-08-24 11:48+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "خطای کارگزار"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "متاسفانه خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. این خطا نگه داری شده و مورد بررسی قرار خواهد گرفت."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"متاسفانه خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. این خطا نگه "
+"داری شده و مورد بررسی قرار خواهد گرفت."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "کد خطا: %(status)s."
 
@@ -34,7 +39,8 @@ msgstr "صفحه پیدا نشد"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "متاسفیم، نتوانستیم چیزی در آدرس URL وارد شده پیدا کنیم."
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -142,34 +148,41 @@ msgstr "سیاست‌های حریم‌خصوصی"
 msgid "Discover Add-ons"
 msgstr "افزونه کشف کنید"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:121
 msgid "Personalize Your Firefox"
 msgstr "فایرفاکس خود را شخصی سازی کنید"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:122
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"هزاران افزودنی رایگان وجود دارد که توسط توسعه‌دهندگانی از سراسر دنیا ساخته شده‌اند،\n"
-"که شما می‌توانید آنها را نصب کنید و فایرفاکس را برای خود شخصی‌سازی کنید. از تم‌های نمایشی\n"
-"جالب تا ابزارهای قدرتمندی که می‌توانند مرور اینترنت را سریع‌تر و امن‌تر کنند، افزودنی‌ها\n"
-"مرورگر را با شما منطبق می‌کند. برای کمک به شما، این‌ها تعدادی از مواردی هستند که\n"
+"هزاران افزودنی رایگان وجود دارد که توسط توسعه‌دهندگانی از سراسر دنیا ساخته "
+"شده‌اند،\n"
+"که شما می‌توانید آنها را نصب کنید و فایرفاکس را برای خود شخصی‌سازی کنید. از "
+"تم‌های نمایشی\n"
+"جالب تا ابزارهای قدرتمندی که می‌توانند مرور اینترنت را سریع‌تر و امن‌تر کنند، "
+"افزودنی‌ها\n"
+"مرورگر را با شما منطبق می‌کند. برای کمک به شما، این‌ها تعدادی از مواردی هستند "
+"که\n"
 "ما به دلیل کارایی و کارکردشان به شما توصیه می کنیم."
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:130
 msgid "Click to play"
 msgstr "کلیک برای پخش"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "to find out more about add-ons"
 msgstr "برای پیداکردن اطلاعات بیشتر در مورد افزونه"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:145
 msgid "Close video"
 msgstr "بستن ویدئو"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:164
 msgid "See more add-ons!"
 msgstr "نمایش افزودنی‌های بیشتر!"
 

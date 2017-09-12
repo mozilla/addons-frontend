@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-22 21:36+0000\n"
+"POT-Creation-Date: 2017-09-12 19:30+0000\n"
 "PO-Revision-Date: 2017-08-26 22:19+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -11,7 +11,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
@@ -19,10 +20,15 @@ msgid "Server Error"
 msgstr "Ошибка сервера"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Извините, произошла ошибка и мы не смогли выполнить ваш запрос. Мы записали эту ошибку и будем с ней разбираться."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Извините, произошла ошибка и мы не смогли выполнить ваш запрос. Мы записали "
+"эту ошибку и будем с ней разбираться."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Код ошибки: %(status)s."
 
@@ -34,7 +40,8 @@ msgstr "Страница не найдена"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Извините, мы не смогли ничего найти по URL, который вы ввели."
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107
+#: src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
 
@@ -84,7 +91,8 @@ msgstr "ОК!"
 
 #: src/disco/components/Addon.js:122
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
+msgstr ""
+"Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
 
 #: src/disco/components/Addon.js:137
 msgid "Hover over the image to preview"
@@ -142,35 +150,40 @@ msgstr "Политика приватности"
 msgid "Discover Add-ons"
 msgstr "Откройте для себя дополнения"
 
-#: src/disco/containers/DiscoPane.js:113
+#: src/disco/containers/DiscoPane.js:121
 msgid "Personalize Your Firefox"
 msgstr "Настройте под себя свой Firefox"
 
-#: src/disco/containers/DiscoPane.js:114
+#: src/disco/containers/DiscoPane.js:122
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
 "Есть тысячи бесплатных дополнений, созданных разработчиками со всего мира, \n"
-"которые вы можете установить, чтобы настроить Firefox под себя. От весёлых визуальных\n"
-"тем до мощных инструментов, которые сделают ваш сёрфинг быстрее и безопаснее,\n"
+"которые вы можете установить, чтобы настроить Firefox под себя. От весёлых "
+"визуальных\n"
+"тем до мощных инструментов, которые сделают ваш сёрфинг быстрее и "
+"безопаснее,\n"
 "дополнения, которые делают браузер вашим.\n"
 "Чтобы помочь вам начать, вот несколько дополнений, которые мы рекомендуем\n"
 "из-за их превосходной производительности и функциональности."
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:130
 msgid "Click to play"
 msgstr "Щёлкните, чтобы проиграть"
 
-#: src/disco/containers/DiscoPane.js:123
+#: src/disco/containers/DiscoPane.js:131
 msgid "to find out more about add-ons"
 msgstr "чтобы узнать больше о дополнениях"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:145
 msgid "Close video"
 msgstr "Закрыть видео"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:164
 msgid "See more add-ons!"
 msgstr "Посмотрите больше дополнений!"
 
