@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-12 19:26+0000\n"
-"PO-Revision-Date: 2017-09-12 21:24+0000\n"
+"PO-Revision-Date: 2017-09-12 21:47+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -15,19 +15,16 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:111
-#, fuzzy
 msgid "Featured Extension"
-msgstr "Odporúčané rozšírenia"
+msgstr "Vybrané rozšírenie"
 
 #: src/amo/components/Addon/index.js:113
-#, fuzzy
 msgid "Featured Theme"
-msgstr "Odporúčané témy vzhľadu"
+msgstr "Vybraná téma vzhľadu"
 
 #: src/amo/components/Addon/index.js:115
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Doplnky pre Firefox"
+msgstr "Vybraný doplnok"
 
 #: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
@@ -590,28 +587,24 @@ msgid "Go to the add-on page"
 msgstr "Prejsť na stránku doplnku"
 
 #: src/amo/components/SearchForm/index.js:208
-#, fuzzy
 msgid "Find extensions"
-msgstr "Odporúčané rozšírenia"
+msgstr "Hľadať"
 
 #: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
-msgstr ""
+msgstr "Hľadať"
 
 #: src/amo/components/SearchForm/index.js:212
-#, fuzzy
 msgid "Find language pack"
-msgstr "Ak chcete ohodnotiť tento jazykový balíček, musíte sa prihlásiť"
+msgstr "Hľadať"
 
 #: src/amo/components/SearchForm/index.js:214
-#, fuzzy
 msgid "Find themes"
-msgstr "Nájsť správy"
+msgstr "Hľadať"
 
 #: src/amo/components/SearchForm/index.js:216
-#, fuzzy
 msgid "Find add-ons"
-msgstr "Načítavanie doplnkov"
+msgstr "Hľadať"
 
 #: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
