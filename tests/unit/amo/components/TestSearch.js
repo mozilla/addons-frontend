@@ -152,6 +152,12 @@ describe('Search', () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
+  it('should render category results, even with empty query', () => {
+    const root = render({ filters: { query: null, category: 'some-category' } });
+
+    expect(root.find(SearchResults)).toHaveLength(1);
+  });
+
   describe('mapStateToProps()', () => {
     const { state } = dispatchClientMetadata();
 
