@@ -59,11 +59,13 @@ describe('<AuthenticateButton />', () => {
   it('lets you customize the log in text', () => {
     const root = render({ isAuthenticated: false, logInText: 'Maybe log in?' });
     expect(root.textContent).toEqual('Maybe log in?');
+    expect(root.href).toContain('#login');
   });
 
   it('lets you customize the log out text', () => {
     const root = render({ isAuthenticated: true, logOutText: 'Maybe log out?' });
     expect(root.textContent).toEqual('Maybe log out?');
+    expect(root.href).toContain('#logout');
   });
 
   it('shows a log in button when unauthenticated', () => {
