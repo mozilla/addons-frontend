@@ -125,10 +125,6 @@ export class AddonBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  getAuthorUsernames(addon) {
-    return addon.authors.map((author) => author.username);
-  }
-
   getFeaturedText(addonType) {
     const { i18n } = this.props;
 
@@ -147,7 +143,7 @@ export class AddonBase extends React.Component {
 
     dispatch(fetchOtherAddonsByAuthors({
       addonType: addon.type,
-      authors: this.getAuthorUsernames(addon),
+      authors: addon.authors.map((author) => author.username),
       errorHandlerId: errorHandler.id,
       slug: addon.slug,
     }));
