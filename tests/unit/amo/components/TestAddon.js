@@ -257,7 +257,7 @@ describe('Addon', () => {
 
   it('renders NotFound page for unauthorized add-on - 401 error', () => {
     const id = 'error-handler-id';
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const error = createApiError({
       response: { status: 401 },
@@ -266,6 +266,8 @@ describe('Addon', () => {
     });
     store.dispatch(setError({ id, error }));
     const capturedError = store.getState().errors[id];
+    // This makes sure the error was dispatched to state correctly.
+    expect(capturedError).toBeTruthy();
 
     const errorHandler = createStubErrorHandler(capturedError);
 
