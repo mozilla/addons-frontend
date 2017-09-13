@@ -1,49 +1,5 @@
 @import "~core/css/inc/vars";
-
-// Photon colors:
-$magenta-50: #ff1ad9;
-$magenta-60: #ed00b5;
-$magenta-70: #b5007f;
-$magenta-80: #7d004f;
-$magenta-90: #440027;
-$purple-50: #9400ff;
-$purple-60: #8000d7;
-$purple-70: #6200a4;
-$purple-80: #440071;
-$purple-90: #25003e;
-$blue-50: #0a84ff;
-$blue-60: #0060df;
-$blue-70: #003eaa;
-$blue-80: #002275;
-$blue-90: #000f40;
-$teal-50: #00feff;
-$teal-60: #00c8d7;
-$teal-70: #008ea4;
-$teal-80: #005a71;
-$teal-90: #002d3e;
-$green-50: #30e60b;
-$green-60: #12bc00;
-$green-70: #058b00;
-$green-80: #006504;
-$green-90: #003706;
-$yellow-50: #ffe900;
-$yellow-60: #d7b600;
-$yellow-70: #a47f00;
-$yellow-80: #715100;
-$yellow-90: #3e2800;
-$red-50: #ff0039;
-$red-60: #d70022;
-$red-70: #a4000f;
-$red-80: #5a0002;
-$red-90: #3e0200;
-$grey-10: #f9f9fa;
-$grey-30: #d7d7db;
-$grey-50: #737373;
-$grey-70: #4a4a4f;
-$grey-90: #0c0c0d;
-$ink-70: #363959;
-$ink-80: #202340;
-$ink-90: #0f1126;
+@import "~photon-colors/colors";
 
 // Desktop variables (from specs)
 $black: #343a40;
@@ -79,10 +35,7 @@ $header-accent-color: $link-color;
 $header-text-not-active-color: transparentize($white, 0.5);
 
 // Category Colors
-$category-colors: #ff6b6b, #f06595, #cc5de8, #845ef7, #5c7cfa, #329af0, #22b8cf, #20c997, #51cf66, #94d82d, #fcc419, #ff922b;
-
-// Extension Category Colors
-$category-colors-extensions: #ff66ed, #ff7466, #ffad66, #ffc866, #95e100, #67f74a, #00d1e6, #66bdff, #747eb3, #b366ff;
+$category-colors: #fa5252, #e64980, #be4bdb, #7950f2, #4c6ef5, #228ae6, #15aabf, #12b886, #40c057, #82c91e, #fab005, #fd7e14;
 
 // Fonts
 $font-size-s: 12px;

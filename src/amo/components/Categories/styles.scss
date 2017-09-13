@@ -14,15 +14,34 @@
 }
 
 .Categories-item {
-  @include margin-end(5px);
+  @include margin-end(7px);
 
   display: inline-block;
-  margin: 0 0 5px;
+  margin: 0 0 7px;
   padding: 0;
+}
+
+.Categories-link,
+.Categories-link:link,
+.Categories-link:visited,
+.Categories-link:hover,
+.Categories-link:active {
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  font-size: $font-size-s;
+  font-weight: normal;
+  padding: 10px 12px 8px;
+  text-decoration: none;
 }
 
 @for $i from 1 through 12 {
   .Categories--category-color-#{$i} {
-    background: desaturate(nth($category-colors, $i), 20);
+    background: nth($category-colors, $i);
+
+    &:focus,
+    &:hover {
+      background: darken(nth($category-colors, $i), 20);
+    }
   }
 }

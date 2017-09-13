@@ -137,9 +137,7 @@ export class CategoriesBase extends React.Component {
               return (
                 <li className="Categories-item" key={name}>
                   <Button
-                    className={`Categories-link Button--action
-                      Button--small
-                      Categories--category-color-${getCategoryColor(category)}`}
+                    className={`Categories-link Categories--category-color-${getCategoryColor(category)}`}
                     to={`/${visibleAddonType(addonType)}/${slug}/`}
                   >
                     {name}
