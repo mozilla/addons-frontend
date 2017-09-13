@@ -32,12 +32,12 @@ describe(__filename, () => {
   });
 
   it('does renders a link <dt> if links exist', () => {
-    const partialAddon = {
+    const addon = {
       ...fakeAddon,
       homepage: null,
       support_url: 'foo.com',
     };
-    const root = render({ addon: partialAddon });
+    const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-links-title'))
       .toIncludeText('Add-on Links');
@@ -61,7 +61,8 @@ describe(__filename, () => {
   });
 
   it('renders the homepage of an add-on', () => {
-    const root = render();
+    const addon = { ...fakeAddon, homepage: 'http://hamsterdance.com/' };
+    const root = render({ addon });
     const link = root.find('.AddonMoreInfo-homepage-link');
 
     expect(link).toIncludeText('Homepage');
@@ -77,7 +78,11 @@ describe(__filename, () => {
   });
 
   it('renders the support link of an add-on', () => {
-    const root = render();
+    const addon = {
+      ...fakeAddon,
+      support_url: 'http://support.hampsterdance.com/',
+    };
+    const root = render({ addon });
     const link = root.find('.AddonMoreInfo-support-link');
 
     expect(link).toIncludeText('Support Site');
@@ -85,13 +90,27 @@ describe(__filename, () => {
   });
 
   it('renders the version number of an add-on', () => {
-    const root = render();
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        version: '2.0.1',
+      },
+    };
+    const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version')).toHaveText('2.0.0');
+    expect(root.find('.AddonMoreInfo-version')).toHaveText('2.0.1');
   });
 
   it('renders the license and link', () => {
-    const root = render();
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        license: { name: 'tofulicense', url: 'http://license.com/' },
+      },
+    };
+    const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-license-title')).toHaveText('License');
     expect(root.find('.AddonMoreInfo-license-link'))
@@ -101,8 +120,8 @@ describe(__filename, () => {
   });
 
   it('does not render a privacy policy if none exists', () => {
-    const partialAddon = { ...fakeAddon, has_privacy_policy: false };
-    const root = render({ addon: partialAddon });
+    const addon = { ...fakeAddon, has_privacy_policy: false };
+    const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-privacy-policy-title'))
       .toHaveLength(0);
@@ -116,15 +135,15 @@ describe(__filename, () => {
 
     expect(root.find('.AddonMoreInfo-privacy-policy-title'))
       .toHaveText('Privacy Policy');
-    expect(root.find('.AddonMoreInfo-privacy-policy-link'))
-      .toHaveProp('children', 'Read the privacy policy for this add-on');
+    expect(root.find('.AddonMoreInfo-privacy-policy-link').children())
+      .toHaveText('Read the privacy policy for this add-on');
     expect(root.find('.AddonMoreInfo-privacy-policy-link'))
       .toHaveProp('href', '/addon/chill-out/privacy/');
   });
 
   it('does not render a EULA if none exists', () => {
-    const partialAddon = { ...fakeAddon, has_eula: false };
-    const root = render({ addon: partialAddon });
+    const addon = { ...fakeAddon, has_eula: false };
+    const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
     expect(root.find('.AddonMoreInfo-eula-link')).toHaveLength(0);
@@ -136,14 +155,15 @@ describe(__filename, () => {
 
     expect(root.find('.AddonMoreInfo-eula-title'))
       .toHaveText('End-User License Agreement');
-    expect(root.find('.AddonMoreInfo-eula-link'))
-      .toHaveProp('children', 'Read the license agreement for this add-on');
+    expect(root.find('.AddonMoreInfo-eula-link').children())
+      .toHaveText('Read the license agreement for this add-on');
     expect(root.find('.AddonMoreInfo-eula-link'))
       .toHaveProp('href', '/addon/chill-out/eula/');
   });
 
   it('does not render an add-on ID if none exists', () => {
-    const partialAddon = { ...fakeAddon, id: undefined };
+    const partialAddon = { ...fakeAddon };
+    delete partialAddon.id;
     const root = render({ addon: partialAddon });
 
     expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(0);
