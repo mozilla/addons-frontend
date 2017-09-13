@@ -83,6 +83,8 @@ describe(__filename, () => {
     const onClick = wrapper.find(DropdownMenuItem).last().prop('onClick');
     onClick(createFakeEvent());
 
-    sinon.assert.called(handleLogOut);
+    sinon.assert.calledWith(handleLogOut, {
+      api: store.getState().api,
+    });
   });
 });

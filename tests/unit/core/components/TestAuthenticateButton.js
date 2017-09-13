@@ -5,10 +5,10 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { setAuthToken } from 'core/actions';
+import { logOutUser, setAuthToken } from 'core/actions';
 import { loadUserProfile } from 'core/reducers/user';
 import * as api from 'core/api';
-import {
+import AuthenticateButton, {
   AuthenticateButtonBase,
   createHandleLogOutFunction,
   mapStateToProps,
@@ -18,8 +18,10 @@ import {
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import {
+  createFakeEvent,
   createUserProfileResponse,
   getFakeI18nInst,
+  shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
@@ -111,21 +113,33 @@ describe(__filename, () => {
   });
 
   it('allows a signed-in user to log out', () => {
+    const { store } = dispatchSignInActions();
     const handleLogOut = sinon.stub();
+    const allProps = {
+      handleLogOut,
+      i18n: getFakeI18nInst(),
+    };
 
-    const root = render({ handleLogOut, isAuthenticated: true });
-    Simulate.click(root);
+    const wrapper = shallowUntilTarget(
+      <AuthenticateButton store={store} {...allProps} />,
+      AuthenticateButtonBase,
+    );
 
-    sinon.assert.called(handleLogOut);
+    wrapper.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(handleLogOut, {
+      api: store.getState().api,
+    });
   });
 
   describe('createHandleLogOutFunction()', () => {
-    it('gets the server to clear cookie and auth token', () => {
+    it('logs out a signed-in user on the server and client sides', () => {
       sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
 
       const { store, state } = dispatchSignInActions();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
 
-      const handleLogOut = createHandleLogOutFunction(store.dispatch);
+      const handleLogOut = createHandleLogOutFunction(dispatchSpy);
       const apiState = state.api;
       // This makes sure the state contains a token because user is logged in.
       expect(apiState.token).toBeTruthy();
@@ -133,8 +147,7 @@ describe(__filename, () => {
       return handleLogOut({ api: apiState })
         .then(() => {
           sinon.assert.calledWith(api.logOutFromServer, { api: apiState });
-          // This makes sure the logOutUser() action has been dispatched.
-          expect(store.getState().api.token).toBeFalsy();
+          sinon.assert.calledWith(dispatchSpy, logOutUser());
         });
     });
   });
