@@ -11,7 +11,8 @@ import './styles.scss';
 
 type Props = {|
   text: string,
-  children: Array<DropdownMenuItem>,
+  // TODO: Replace Array by React.ChildrenArray when we upgrade Flow to 0.53+.
+  children?: Array<React.Element<typeof DropdownMenuItem>>,
   className?: string,
 |};
 

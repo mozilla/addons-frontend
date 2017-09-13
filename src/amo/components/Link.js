@@ -19,7 +19,7 @@ export class LinkBase extends React.Component {
     prependClientApp: PropTypes.bool,
     prependLang: PropTypes.bool,
     to: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-    dispatch: PropTypes.func.isRequired,
+    dispatch: PropTypes.func,
   }
 
   static defaultProps = {

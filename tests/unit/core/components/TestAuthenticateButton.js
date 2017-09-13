@@ -1,4 +1,3 @@
-import config from 'config';
 import React from 'react';
 import {
   Simulate, findRenderedComponentWithType, renderIntoDocument,
@@ -11,7 +10,7 @@ import { loadUserProfile } from 'core/reducers/user';
 import * as api from 'core/api';
 import {
   AuthenticateButtonBase,
-  mapDispatchToProps,
+  createHandleLogOutFunction,
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
 import {
@@ -26,7 +25,7 @@ import {
 import Icon from 'ui/components/Icon';
 
 
-describe('<AuthenticateButton />', () => {
+describe(__filename, () => {
   function renderTree(props) {
     const { store } = dispatchSignInActions();
 
@@ -100,28 +99,6 @@ describe('<AuthenticateButton />', () => {
     sinon.assert.calledWith(startLoginUrlStub, { location });
   });
 
-  it('gets the server to clear cookie and auth token in handleLogOut', () => {
-    sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
-    const _config = {
-      cookieName: 'authcookie',
-      apiHost: 'http://localhost:9876',
-    };
-    sinon.stub(config, 'get').callsFake((key) => _config[key]);
-
-    const { store } = dispatchSignInActions();
-    store.dispatch(setAuthToken(userAuthToken()));
-
-    const apiConfig = { token: store.getState().api.token };
-    expect(apiConfig.token).toBeTruthy();
-
-    const { handleLogOut } = mapDispatchToProps(store.dispatch);
-    return handleLogOut({ api: apiConfig })
-      .then(() => {
-        expect(store.getState().api.token).toBeFalsy();
-        expect(api.logOutFromServer.firstCall.args[0]).toEqual({ api: apiConfig });
-      });
-  });
-
   it('retrieves `isAuthenticated` from state', () => {
     const { store } = dispatchClientMetadata();
 
@@ -131,5 +108,34 @@ describe('<AuthenticateButton />', () => {
       profile: createUserProfileResponse(),
     }));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
+  });
+
+  it('allows a signed-in user to log out', () => {
+    const handleLogOut = sinon.stub();
+
+    const root = render({ handleLogOut, isAuthenticated: true });
+    Simulate.click(root);
+
+    sinon.assert.called(handleLogOut);
+  });
+
+  describe('createHandleLogOutFunction()', () => {
+    it('gets the server to clear cookie and auth token', () => {
+      sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
+
+      const { store, state } = dispatchSignInActions();
+
+      const handleLogOut = createHandleLogOutFunction(store.dispatch);
+      const apiState = state.api;
+      // This makes sure the state contains a token because user is logged in.
+      expect(apiState.token).toBeTruthy();
+
+      return handleLogOut({ api: apiState })
+        .then(() => {
+          sinon.assert.calledWith(api.logOutFromServer, { api: apiState });
+          // This makes sure the logOutUser() action has been dispatched.
+          expect(store.getState().api.token).toBeFalsy();
+        });
+    });
   });
 });
