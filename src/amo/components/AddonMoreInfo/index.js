@@ -87,9 +87,7 @@ export class AddonMoreInfoBase extends React.Component {
             </dd>
           ) : null}
           {addon.has_privacy_policy ? (
-            <dt
-              className="AddonMoreInfo-privacy-policy-title"
-            >
+            <dt className="AddonMoreInfo-privacy-policy-title">
               {i18n.gettext('Privacy Policy')}
             </dt>
           ) : null}
@@ -104,9 +102,7 @@ export class AddonMoreInfoBase extends React.Component {
             </dd>
           ) : null}
           {addon.has_eula ? (
-            <dt
-              className="AddonMoreInfo-eula-title"
-            >
+            <dt className="AddonMoreInfo-eula-title">
               {i18n.gettext('End-User License Agreement')}
             </dt>
           ) : null}
@@ -118,6 +114,20 @@ export class AddonMoreInfoBase extends React.Component {
               >
                 {i18n.gettext('Read the license agreement for this add-on')}
               </Link>
+            </dd>
+          ) : null}
+          {addon.id ? (
+            <dt
+              className="AddonMoreInfo-database-id-title"
+              title={i18n.gettext(`This ID is useful for debugging and
+                identifying your add-on to site administrators.`)}
+            >
+              {i18n.gettext('Internal Database ID')}
+            </dt>
+          ) : null}
+          {addon.id ? (
+            <dd className="AddonMoreInfo-database-id-content">
+              {addon.id}
             </dd>
           ) : null}
         </dl>

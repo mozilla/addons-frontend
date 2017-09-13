@@ -1,3 +1,4 @@
+import { oneLine } from 'common-tags';
 import deepcopy from 'deepcopy';
 import React from 'react';
 
@@ -132,5 +133,26 @@ describe(__filename, () => {
       .toHaveProp('children', 'Read the license agreement for this add-on');
     expect(root.find('.AddonMoreInfo-eula-link'))
       .toHaveProp('href', '/addon/chill-out/eula/');
+  });
+
+  it('does not render an add-on ID if none exists', () => {
+    const partialAddon = { ...fakeAddon, id: undefined };
+    const root = render({ addon: partialAddon });
+
+    expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-database-id-content')).toHaveLength(0);
+  });
+
+  it('renders the ID and title attribute', () => {
+    const addon = { ...fakeAddon, id: 9001 };
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-database-id-title'))
+      .toHaveText('Internal Database ID');
+    expect(root.find('.AddonMoreInfo-database-id-title'))
+      .toHaveProp('title', oneLine`This ID is useful for debugging and
+        identifying your add-on to site administrators.`);
+    expect(root.find('.AddonMoreInfo-database-id-content'))
+      .toHaveText('9001');
   });
 });
