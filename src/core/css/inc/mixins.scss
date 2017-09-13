@@ -253,16 +253,16 @@ $default-arrow-margin: 3px;
 
   &.Button--outline-only {
     background: transparent;
-    border-color: $background;
+    border-color: $teal-50;
     color: $color;
 
     &:hover {
-      border-color: $background-hover;
+      border-color: $teal-70;
     }
 
     &:active,
     &:focus {
-      border-color: $background-active;
+      border-color: $teal-70;
     }
   }
 
