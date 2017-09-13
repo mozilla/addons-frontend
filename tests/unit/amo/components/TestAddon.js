@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import { match } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import {
+import Addon, {
   AddonBase,
   mapStateToProps,
 } from 'amo/components/Addon';
@@ -27,12 +27,18 @@ import createStore from 'amo/store';
 import {
   fetchAddon as fetchAddonAction, loadAddons,
 } from 'core/reducers/addons';
+import {
+  fetchOtherAddonsByAuthors,
+  loadOtherAddonsByAuthors,
+} from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLED,
@@ -41,12 +47,18 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions, dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeAddon,
+  fakeTheme,
+} from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
   getFakeI18nInst,
   sampleUserAgentParsed,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
@@ -96,19 +108,36 @@ function renderAsDOMNode(...args) {
   return findDOMNode(root);
 }
 
+function renderComponent(...args) {
+  const props = renderProps(...args);
+  return shallowUntilTarget(<Addon {...props} />, AddonBase);
+}
+
 function shallowRender(...args) {
   const props = renderProps(...args);
   return shallow(<AddonBase {...props} />, { context: { i18n: props.i18n } });
 }
 
-describe('Addon', () => {
+describe(__filename, () => {
   const incompatibleClientResult = {
     compatible: false,
     maxVersion: null,
     minVersion: null,
     reason: INCOMPATIBLE_NOT_FIREFOX,
   };
+
   const getClientCompatibilityFalse = () => incompatibleClientResult;
+
+  const _loadAddons = ({ addon = fakeAddon }) => {
+    return loadAddons(createFetchAddonResult(addon).entities);
+  };
+
+  const _loadOtherAddonsByAuthors = ({ addon, addonsByAuthors }) => {
+    return loadOtherAddonsByAuthors({
+      slug: addon.slug,
+      addons: addonsByAuthors,
+    });
+  };
 
   it('dispatches setViewContext with addonType', () => {
     const fakeDispatch = sinon.stub();
@@ -157,6 +186,29 @@ describe('Addon', () => {
     const root = shallowRender({ dispatch: fakeDispatch });
     fakeDispatch.reset();
     root.setProps({});
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any new actions if error handler has an error', () => {
+    const id = 'error-handler-id';
+    const { store } = dispatchClientMetadata();
+
+    const error = createApiError({
+      response: { status: 400 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Bad request' },
+    });
+
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    // This makes sure the error was dispatched to state correctly.
+    expect(capturedError).toBeTruthy();
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler(capturedError);
+
+    renderComponent({ store, errorHandler });
+
     sinon.assert.notCalled(fakeDispatch);
   });
 
@@ -223,7 +275,10 @@ describe('Addon', () => {
     // Update with a new slug.
     root.setProps({ params: { slug } });
 
-    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({ errorHandler, slug }));
+    sinon.assert.calledWith(fakeDispatch, fetchAddonAction({
+      errorHandler,
+      slug,
+    }));
   });
 
   it('renders an error if there is one', () => {
@@ -768,6 +823,285 @@ describe('Addon', () => {
       );
     });
   });
+
+  describe('more add-ons by authors', () => {
+    const dispatchAddonData = ({ addon, addonsByAuthors }) => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(_loadAddons({ addon }));
+
+      if (addonsByAuthors) {
+        store.dispatch(_loadOtherAddonsByAuthors({ addon, addonsByAuthors }));
+      }
+
+      return { store };
+    };
+
+    const renderMoreAddons = ({ addon, addonsByAuthors }) => {
+      const { store } = dispatchAddonData({ addon, addonsByAuthors });
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+
+      return root.find('.AddonDescription-more-addons');
+    };
+
+    it('fetches the other add-ons by authors', () => {
+      const addon = fakeAddon;
+      const { store } = dispatchAddonData({ addon });
+      const fakeDispatch = sinon.spy(store, 'dispatch');
+
+      renderComponent({ params: { slug: addon.slug }, store });
+
+      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+        addonType: addon.type,
+        authors: addon.authors.map((author) => author.username),
+        errorHandlerId: createStubErrorHandler().id,
+        slug: addon.slug,
+      }));
+    });
+
+    it('does not fetch the other add-ons when add-on is the same', () => {
+      const addon = fakeAddon;
+      const ownProps = { params: { slug: addon.slug } };
+
+      const { store } = dispatchAddonData({ addon });
+      const fakeDispatch = sinon.spy(store, 'dispatch');
+
+      const root = renderComponent(store, ...ownProps);
+      // `fakeAddon` is the API representation of an add-on, which is slightly
+      // different than the representation of an add-on in the state. That is
+      // why we need to retrieve the add-on from the state.
+      const addonFromState = mapStateToProps(store.getState(), ownProps).addon;
+      fakeDispatch.reset();
+
+      root.setProps({ addon: addonFromState });
+
+      sinon.assert.notCalled(fakeDispatch);
+    });
+
+    it('fetches the other add-ons when a new add-on is loaded', () => {
+      const addon = fakeAddon;
+      const { store } = dispatchAddonData({ addon });
+      const fakeDispatch = sinon.spy(store, 'dispatch');
+
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+      fakeDispatch.reset();
+
+      const newAddon = { ...fakeAddon, slug: 'new-addon-slug' };
+      store.dispatch(_loadAddons({ addon: newAddon }));
+
+      const addonFromState = mapStateToProps(
+        store.getState(),
+        { params: { slug: newAddon.slug } }
+      ).addon;
+      root.setProps({ addon: addonFromState });
+
+      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+        addonType: newAddon.type,
+        authors: newAddon.authors.map((author) => author.username),
+        errorHandlerId: createStubErrorHandler().id,
+        slug: newAddon.slug,
+      }));
+    });
+
+    it('is hidden when an add-on has not loaded yet', () => {
+      // We use shallowRender because we cannot dispatch a `undefined` add-on.
+      const root = shallowRender({ addon: undefined });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when other addons are not loaded yet', () => {
+      // We use shallowRender because we cannot dispatch a `undefined` add-on.
+      const root = shallowRender({ addonsByAuthors: undefined });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when there are no other add-ons', () => {
+      const root = renderMoreAddons({ addon: fakeAddon, addonsByAuthors: [] });
+      expect(root).toHaveLength(0);
+    });
+
+    it('displays the developer name when add-on is an extension', () => {
+      const root = renderMoreAddons({
+        addon: fakeAddon,
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More extensions by Krupa');
+    });
+
+    it('displays the translator name when add-on is a dictionary', () => {
+      const root = renderMoreAddons({
+        addon: { ...fakeAddon, type: ADDON_TYPE_DICT },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More dictionaries by Krupa');
+    });
+
+    it('displays the translator name when add-on is a language pack', () => {
+      const root = renderMoreAddons({
+        addon: { ...fakeAddon, type: ADDON_TYPE_LANG },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More language packs by Krupa');
+    });
+
+    it('displays the artist name when add-on is a theme', () => {
+      const root = renderMoreAddons({
+        addon: fakeTheme,
+        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More themes by MaDonna');
+    });
+
+    it('displays the author name in any other cases', () => {
+      const root = renderMoreAddons({
+        addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More add-ons by Krupa');
+    });
+
+    it('displays a plural form when extension has multiple authors', () => {
+      const root = renderMoreAddons({
+        addon: {
+          ...fakeAddon,
+          authors: Array(2).fill(fakeAddon.authors[0]),
+        },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More extensions by these developers');
+    });
+
+    it('displays a plural form when theme has multiple authors', () => {
+      const root = renderMoreAddons({
+        addon: {
+          ...fakeTheme,
+          authors: Array(2).fill(fakeTheme.authors[0]),
+        },
+        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More themes by these artists');
+    });
+
+    it('displays a plural form when language pack has multiple authors', () => {
+      const root = renderMoreAddons({
+        addon: {
+          ...fakeAddon,
+          authors: Array(2).fill(fakeAddon.authors[0]),
+          type: ADDON_TYPE_LANG,
+        },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root)
+        .toHaveProp('header', 'More language packs by these translators');
+    });
+
+    it('displays a plural form when dictionary has multiple authors', () => {
+      const root = renderMoreAddons({
+        addon: {
+          ...fakeAddon,
+          authors: Array(2).fill(fakeAddon.authors[0]),
+          type: ADDON_TYPE_DICT,
+        },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root)
+        .toHaveProp('header', 'More dictionaries by these translators');
+    });
+
+    it('displays a plural form when add-on has multiple authors', () => {
+      const root = renderMoreAddons({
+        addon: {
+          ...fakeAddon,
+          authors: Array(2).fill(fakeAddon.authors[0]),
+          type: ADDON_TYPE_OPENSEARCH,
+        },
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+      expect(root).toHaveProp('header', 'More add-ons by these developers');
+    });
+
+    it('displays more add-ons by authors', () => {
+      const addon = fakeAddon;
+      const addonsByAuthors = [
+        { ...fakeAddon, slug: 'addon-1' },
+        { ...fakeAddon, slug: 'addon-2' },
+        { ...fakeAddon, slug: 'addon-3' },
+      ];
+
+      const root = renderMoreAddons({ addon, addonsByAuthors });
+
+      expect(root).not.toHaveClassName('.AddonDescription-more-addons--theme');
+      expect(root).toHaveProp('addons', addonsByAuthors);
+    });
+
+    it('indicates when other add-ons are themes', () => {
+      const addon = fakeTheme;
+      const addonsByAuthors = [
+        { ...fakeTheme, slug: 'addon-1' },
+        { ...fakeTheme, slug: 'addon-2' },
+        { ...fakeTheme, slug: 'addon-3' },
+      ];
+
+      const root = renderMoreAddons({ addon, addonsByAuthors });
+
+      expect(root).toHaveClassName('.AddonDescription-more-addons--theme');
+      expect(root).toHaveProp('addons', addonsByAuthors);
+    });
+  });
+
+  it('displays a badge when the addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
+  });
+
+  it('adds a different badge label when a "theme" addon is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
+  });
+
+  it('adds a different badge label when an addon of a different type is featured', () => {
+    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'featured');
+    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
+  });
+
+  it('does not display the featured badge when addon is not featured', () => {
+    const addon = { ...fakeAddon, is_featured: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('displays a badge when the addon needs restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: true };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
+    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
+  });
+
+  it('does not display the "restart required" badge when addon does not need restart', () => {
+    const addon = { ...fakeAddon, isRestartRequired: false };
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
+    const root = shallowRender({ addon: fakeAddon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });
 
 describe('mapStateToProps', () => {
@@ -857,57 +1191,5 @@ describe('mapStateToProps', () => {
     const { addon } = _mapStateToProps();
 
     expect(addon).toEqual(undefined);
-  });
-
-  it('displays a badge when the addon is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
-  });
-
-  it('adds a different badge label when a "theme" addon is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
-  });
-
-  it('adds a different badge label when an addon of a different type is featured', () => {
-    const addon = { ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
-  });
-
-  it('does not display the featured badge when addon is not featured', () => {
-    const addon = { ...fakeAddon, is_featured: false };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('displays a badge when the addon needs restart', () => {
-    const addon = { ...fakeAddon, isRestartRequired: true };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
-    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
-  });
-
-  it('does not display the "restart required" badge when addon does not need restart', () => {
-    const addon = { ...fakeAddon, isRestartRequired: false };
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
-    const root = shallowRender({ addon: fakeAddon });
-
-    expect(root.find(Badge)).toHaveLength(0);
   });
 });

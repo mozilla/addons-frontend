@@ -19,7 +19,14 @@ export class SearchResultBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object,
     i18n: PropTypes.object.isRequired,
+    showMetadata: PropTypes.bool,
+    showSummary: PropTypes.bool,
   }
+
+  static defaultProps = {
+    showMetadata: true,
+    showSummary: true,
+  };
 
   addonIsTheme() {
     const { addon } = this.props;
@@ -27,7 +34,7 @@ export class SearchResultBase extends React.Component {
   }
 
   renderResult() {
-    const { addon, i18n } = this.props;
+    const { addon, i18n, showMetadata, showSummary } = this.props;
 
     const isTheme = this.addonIsTheme();
     const averageDailyUsers = addon && addon.average_daily_users;
@@ -57,11 +64,16 @@ export class SearchResultBase extends React.Component {
       );
     }
 
-    const summaryProps = {};
-    if (addon) {
-      summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary);
-    } else {
-      summaryProps.children = <LoadingText />;
+    let summary = null;
+    if (showSummary) {
+      const summaryProps = {};
+      if (addon) {
+        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary);
+      } else {
+        summaryProps.children = <LoadingText />;
+      }
+
+      summary = <p className="SearchResult-summary" {...summaryProps} />;
     }
 
     return (
@@ -80,21 +92,20 @@ export class SearchResultBase extends React.Component {
           <h2 className="SearchResult-name">
             {addon ? addon.name : <LoadingText />}
           </h2>
-          <p
-            className="SearchResult-summary"
-            {...summaryProps}
-          />
+          {summary}
 
-          <div className="SearchResult-metadata">
-            <div className="SearchResult-rating">
-              <Rating
-                rating={addon ? addon.ratings.average : 0}
-                readOnly
-                styleName="small"
-              />
+          {showMetadata ? (
+            <div className="SearchResult-metadata">
+              <div className="SearchResult-rating">
+                <Rating
+                  rating={addon ? addon.ratings.average : 0}
+                  readOnly
+                  styleName="small"
+                />
+              </div>
+              {addonAuthors}
             </div>
-            {addonAuthors}
-          </div>
+          ) : null}
         </div>
 
         <h3 className="SearchResult-users SearchResult--meta-section">
