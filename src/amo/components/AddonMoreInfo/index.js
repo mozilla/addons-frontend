@@ -6,6 +6,7 @@ import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
+import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
@@ -18,6 +19,22 @@ export class AddonMoreInfoBase extends React.Component {
 
   render() {
     const { addon, i18n } = this.props;
+
+    if (!addon) {
+      return (
+        <Card
+          className="AddonMoreInfo"
+          header={i18n.gettext('More information')}
+        >
+          <dl className="AddonMoreInfo-contents">
+            <dt><LoadingText width={55} /></dt>
+            <dd><LoadingText width={25} /></dd>
+            <dt><LoadingText width={55} /></dt>
+            <dd><LoadingText width={25} /></dd>
+          </dl>
+        </Card>
+      );
+    }
 
     let homepage = trimAndAddProtocolToUrl(addon.homepage);
     if (homepage) {

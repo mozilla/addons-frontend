@@ -237,7 +237,6 @@ describe(__filename, () => {
     // These should be empty:
     expect(root.find(InstallButton)).toHaveLength(0);
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
-    expect(root.find(AddonMoreInfo)).toHaveLength(0);
     expect(root.find(RatingManager)).toHaveLength(0);
 
     // These should show LoadingText
@@ -248,8 +247,11 @@ describe(__filename, () => {
     expect(root.find('.Addon-overall-rating').shallow().find(LoadingText))
       .toHaveLength(1);
 
-    // These should render with an empty addon.
-    expect(root.find(AddonMeta).prop('addon')).toEqual(null);
+    // These should render with an empty addon (they will show their own
+    // loading state).
+    expect(root.find(AddonMeta)).toHaveProp('addon', null);
+    expect(root.find(AddonMoreInfo)).toHaveProp('addon', null);
+    expect(root.find(AddonMoreInfo)).toHaveLength(1);
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {

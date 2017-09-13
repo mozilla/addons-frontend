@@ -7,6 +7,7 @@ import AddonMoreInfo, {
 } from 'amo/components/AddonMoreInfo';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import LoadingText from 'ui/components/LoadingText';
 
 
 describe(__filename, () => {
@@ -23,6 +24,12 @@ describe(__filename, () => {
       AddonMoreInfoBase
     );
   }
+
+  it('renders LoadingText if no add-on is present', () => {
+    const root = render({ addon: null });
+
+    expect(root.find(LoadingText)).toHaveLength(4);
+  });
 
   it('does renders a link <dt> if links exist', () => {
     const partialAddon = {

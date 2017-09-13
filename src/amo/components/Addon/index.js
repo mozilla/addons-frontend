@@ -516,7 +516,7 @@ export class AddonBase extends React.Component {
           {this.renderShowMoreCard()}
           {this.renderRatingsCard()}
 
-          {addon ? <AddonMoreInfo addon={addon} /> : null}
+          <AddonMoreInfo addon={addon} />
           {this.renderVersionReleaseNotes()}
           {this.renderMoreAddonsByAuthors()}
         </div>
