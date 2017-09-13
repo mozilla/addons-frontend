@@ -7,7 +7,7 @@
 
   display: inline-block;
   padding-bottom: 6px;
-  padding-top: 5px;
+  padding-top: 8px;
   position: relative;
 
   // This is needed because `:hover` on mobile prevents the main button to
@@ -27,18 +27,29 @@
   }
 }
 
-.DropdownMenu-text {
-  @include font-regular();
+.DropdownMenu-button {
+  .DropdownMenu-button-text {
+    @include font-regular();
 
-  color: $white;
-  font-size: $font-size-s;
-  font-weight: normal;
-  text-decoration: none;
+    color: $white;
+    display: inline-block;
+    font-size: $font-size-s;
+    font-weight: normal;
+    max-width: 100px;
+    overflow-x: hidden;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    @include respond-to(extraLarge) {
+      max-width: 300px;
+    }
+  }
 
   .Icon-inverted-caret {
     @include margin-start(5px);
 
-    height: 8px;
+    display: inline-block;
     opacity: 0.6;
     transition: opacity $transition-short ease-in-out;
     width: 9px;
