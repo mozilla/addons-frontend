@@ -861,14 +861,16 @@ describe(__filename, () => {
 
     it('does not fetch the other add-ons when add-on is the same', () => {
       const addon = fakeAddon;
+      const ownProps = { params: { slug: addon.slug } };
+
       const { store } = dispatchAddonData({ addon });
       const fakeDispatch = sinon.spy(store, 'dispatch');
 
-      const root = renderComponent({ params: { slug: addon.slug }, store });
+      const root = renderComponent(store, ...ownProps);
       // `fakeAddon` is the API representation of an add-on, which is slightly
       // different than the representation of an add-on in the state. That is
-      // we need to retreive the add-on from the state.
-      const addonFromState = store.getState().addons[addon.slug];
+      // why we need to retrieve the add-on from the state.
+      const addonFromState = mapStateToProps(store.getState(), ownProps).addon;
       fakeDispatch.reset();
 
       root.setProps({ addon: addonFromState });
@@ -885,7 +887,13 @@ describe(__filename, () => {
       fakeDispatch.reset();
 
       const newAddon = { ...fakeAddon, slug: 'new-addon-slug' };
-      root.setProps({ addon: newAddon });
+      store.dispatch(_loadAddons({ addon: newAddon }));
+
+      const addonFromState = mapStateToProps(
+        store.getState(),
+        { params: { slug: newAddon.slug } }
+      ).addon;
+      root.setProps({ addon: addonFromState });
 
       sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
         addonType: newAddon.type,
