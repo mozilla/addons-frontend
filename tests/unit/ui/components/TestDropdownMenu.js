@@ -16,7 +16,7 @@ describe(__filename, () => {
     const menu = renderComponent(<DropdownMenu text="Menu" />);
 
     expect(menu).toHaveClassName('DropdownMenu');
-    expect(menu.find('.DropdownMenu-text')).toIncludeText('Menu');
+    expect(menu.find('.DropdownMenu-button')).toIncludeText('Menu');
     expect(menu.find(Icon)).toHaveLength(1);
     expect(menu.find('.DropdownMenu-items')).toHaveLength(0);
   });
@@ -37,11 +37,11 @@ describe(__filename, () => {
     expect(menu).not.toHaveClassName('DropdownMenu--active');
 
     // User clicks the menu main button.
-    menu.find('.DropdownMenu-text').simulate('click', createFakeEvent());
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
     expect(menu).toHaveClassName('DropdownMenu--active');
 
     // User clicks the menu main button, again.
-    menu.find('.DropdownMenu-text').simulate('click', createFakeEvent());
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
     expect(menu).not.toHaveClassName('DropdownMenu--active');
   });
 
@@ -50,7 +50,7 @@ describe(__filename, () => {
     const menu = root.find('.DropdownMenu');
 
     // User clicks the menu main button.
-    menu.find('.DropdownMenu-text').simulate('click', createFakeEvent());
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
     expect(menu).toHaveClassName('DropdownMenu--active');
 
     // User clicks somewhere else.

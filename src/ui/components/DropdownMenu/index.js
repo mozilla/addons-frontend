@@ -48,10 +48,13 @@ export class DropdownMenuBase extends React.Component {
         })}
       >
         <button
-          className="DropdownMenu-text"
+          className="DropdownMenu-button"
           onClick={this.handleOnClick}
+          title={text}
         >
-          {text}
+          <span className="DropdownMenu-button-text">
+            {text}
+          </span>
           <Icon name="inverted-caret" />
         </button>
 
