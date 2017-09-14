@@ -175,7 +175,7 @@ describe(__filename, () => {
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-database-id-title'))
-      .toHaveText('Internal Database ID');
+      .toHaveText('Site Identifier');
     expect(root.find('.AddonMoreInfo-database-id-title'))
       .toHaveProp('title', oneLine`This ID is useful for debugging and
         identifying your add-on to site administrators.`);
