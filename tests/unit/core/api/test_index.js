@@ -70,7 +70,16 @@ describe(__filename, () => {
         })
         .once()
         .returns(createApiResponse());
-      return api.callApi({ endpoint }).then(() => mockWindow.verify());
+
+      // We use `cloneDeep()` to allow modifications on the `config` object,
+      // since a call to `get()` makes it immutable.
+      const serverConfig = configUtil.cloneDeep(config);
+      serverConfig.server = true;
+
+      return api.callApi({
+        _config: serverConfig,
+        endpoint,
+      }).then(() => mockWindow.verify());
     });
 
     it('clears an error handler before making a request', () => {
