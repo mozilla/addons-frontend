@@ -342,42 +342,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('login', () => {
-    const response = { token: userAuthToken() };
-    const mockResponse = () => createApiResponse({
-      jsonData: response,
-    });
-
-    it('sends the code and state', () => {
-      mockWindow
-        .expects('fetch')
-        .withArgs(`${apiHost}/api/v3/accounts/login/?lang=en-US`, {
-          body: '{"code":"my-code","state":"my-state"}',
-          credentials: 'include',
-          headers: { 'Content-type': 'application/json' },
-          method: 'POST',
-        })
-        .once()
-        .returns(mockResponse());
-      return api.login({ api: { lang: 'en-US' }, code: 'my-code', state: 'my-state' })
-        .then((apiResponse) => {
-          expect(apiResponse).toBe(response);
-          mockWindow.verify();
-        });
-    });
-
-    it('sends the config when set', () => {
-      sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
-      mockWindow
-        .expects('fetch')
-        .withArgs(`${apiHost}/api/v3/accounts/login/?config=my-config&lang=fr`)
-        .once()
-        .returns(mockResponse());
-      return api.login({ api: { lang: 'fr' }, code: 'my-code', state: 'my-state' })
-        .then(() => mockWindow.verify());
-    });
-  });
-
   describe('startLoginUrl', () => {
     const getStartLoginQs = (location) =>
       querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
