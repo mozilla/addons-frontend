@@ -1,7 +1,7 @@
 @import "./vars";
+@import "~photon-colors/colors";
 
 /* Font mixins. Changes here affect *all* apps */
-
 @mixin font-light() {
   font-family: "Fira Sans", sans-serif;
   font-style: normal;
