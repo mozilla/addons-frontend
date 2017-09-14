@@ -8,11 +8,13 @@ type Action = Object;
 export type UserStateType = {
   id: ?number,
   username: ?string,
+  displayName: ?string,
 };
 
 export const initialState: UserStateType = {
   id: null,
   username: null,
+  displayName: null,
 };
 
 export const loadUserProfile = ({ profile }: Object) => {
@@ -30,6 +32,17 @@ export const isAuthenticated = (state: { user: UserStateType }) => {
   return !!state.user.id;
 };
 
+export const selectDisplayName = (state: { user: UserStateType }) => {
+  const displayName = state.user.displayName;
+  if (displayName && displayName !== '') {
+    return displayName;
+  }
+
+  // We fallback to the username if no display name has been defined by the
+  // user.
+  return state.user.username;
+};
+
 export default function reducer(
   state: UserStateType = initialState,
   action: Action = {}
@@ -42,6 +55,7 @@ export default function reducer(
         ...state,
         id: payload.profile.id,
         username: payload.profile.username,
+        displayName: payload.profile.display_name,
       };
     case LOG_OUT_USER:
       return initialState;

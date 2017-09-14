@@ -9,7 +9,7 @@ import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
-import { isAuthenticated } from 'core/reducers/user';
+import { isAuthenticated, selectDisplayName } from 'core/reducers/user';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
@@ -22,6 +22,7 @@ import './styles.scss';
 export class HeaderBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
+    displayName: PropTypes.string,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
@@ -44,6 +45,7 @@ export class HeaderBase extends React.Component {
 
   render() {
     const {
+      displayName,
       i18n,
       isHomePage,
       location,
@@ -86,7 +88,7 @@ export class HeaderBase extends React.Component {
 
           {this.props.isAuthenticated ? (
             <DropdownMenu
-              text={username}
+              text={displayName}
               className="Header-authenticate-button Header-button"
             >
               <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
@@ -158,9 +160,10 @@ export class HeaderBase extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     api: state.api,
+    displayName: selectDisplayName(state),
     isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
-    username: state.user.username,
     isAuthenticated: isAuthenticated(state),
+    username: state.user.username,
   };
 };
 

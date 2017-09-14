@@ -65,7 +65,16 @@ describe(__filename, () => {
     expect(wrapper.find(DropdownMenu)).toHaveLength(0);
   });
 
-  it('displays a menu and the username when user is signed in', () => {
+  it('displays a menu and the display name when user is signed in', () => {
+    const displayName = 'King of the Elephants';
+    const { store } = dispatchSignInActions({ username: 'babar', displayName });
+    const wrapper = renderHeader({ store });
+
+    expect(wrapper.find(DropdownMenu)).toHaveLength(1);
+    expect(wrapper.find(DropdownMenu)).toHaveProp('text', displayName);
+  });
+
+  it('displays the username when user is signed in but has no display name', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
     const wrapper = renderHeader({ store });
 
