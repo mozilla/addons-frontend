@@ -73,6 +73,7 @@ type CallApiParams = {|
   params?: Object,
   schema?: Object,
   state?: ApiStateType,
+  _config?: config,
 |};
 
 export function callApi({
@@ -85,6 +86,7 @@ export function callApi({
   body,
   credentials,
   errorHandler,
+  _config = config,
 }: CallApiParams): Promise<any> {
   if (errorHandler) {
     errorHandler.clear();
@@ -110,8 +112,12 @@ export function callApi({
       options.headers.authorization = `Bearer ${state.token}`;
     }
   }
-  // Workaround for https://github.com/bitinn/node-fetch/issues/245
-  const apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
+
+  let apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  if (_config.get('server')) {
+    // Workaround for https://github.com/bitinn/node-fetch/issues/245
+    apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
+  }
 
   // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
