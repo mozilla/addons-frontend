@@ -24,8 +24,16 @@
   }
 }
 
-.AddonMoreInfo-links-content-list {
+.AddonMoreInfo-links-contents-list {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.AddonMoreInfo-loading-title .LoadingText {
+  margin-bottom: 3px;
+}
+
+.AddonMoreInfo-loading-content .LoadingText {
+  margin-bottom: 5px;
 }

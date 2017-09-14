@@ -24,15 +24,15 @@ export class AddonMoreInfoBase extends React.Component {
       return (
         <dl className="AddonMoreInfo-contents">
           <dt className="AddonMoreInfo-loading-title">
-            <LoadingText width={55} />
+            <LoadingText maxWidth={40} />
           </dt>
-          <dd className="AddonMoreInfo-loading-title">
+          <dd className="AddonMoreInfo-loading-content">
             <LoadingText width={25} />
           </dd>
           <dt className="AddonMoreInfo-loading-title">
-            <LoadingText width={55} />
+            <LoadingText maxWidth={40} />
           </dt>
-          <dd className="AddonMoreInfo-loading-title">
+          <dd className="AddonMoreInfo-loading-content">
             <LoadingText width={25} />
           </dd>
         </dl>
