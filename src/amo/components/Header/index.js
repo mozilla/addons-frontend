@@ -127,7 +127,11 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
 
-              <DropdownMenuItem onClick={this.handleLogOut} detached>
+              <DropdownMenuItem
+                className={'Header-logout-button'}
+                detached
+                onClick={this.handleLogOut}
+              >
                 {i18n.gettext('Log out')}
               </DropdownMenuItem>
             </DropdownMenu>

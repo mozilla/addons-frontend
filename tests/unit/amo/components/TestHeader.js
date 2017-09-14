@@ -5,7 +5,6 @@ import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import {
   dispatchClientMetadata,
@@ -80,7 +79,7 @@ describe(__filename, () => {
 
     const wrapper = renderHeader({ store, handleLogOut });
 
-    const onClick = wrapper.find(DropdownMenuItem).last().prop('onClick');
+    const onClick = wrapper.find('.Header-logout-button').prop('onClick');
     onClick(createFakeEvent());
 
     sinon.assert.calledWith(handleLogOut, {

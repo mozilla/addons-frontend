@@ -9,17 +9,20 @@ import './styles.scss';
 
 type Props = {|
   children?: string | Link,
+  className?: string,
   detached?: boolean,
   onClick?: Function,
 |};
 
-const DropdownMenuItem = ({ children, onClick, detached = false }: Props) => {
+const DropdownMenuItem = (
+  { children, className, onClick, detached = false }: Props
+) => {
   const childIsComponent = typeof children === 'object';
   const _classNames = classNames('DropdownMenuItem', {
     'DropdownMenuItem-section': !childIsComponent && !onClick,
     'DropdownMenuItem-link': childIsComponent || onClick,
     'DropdownMenuItem--detached': detached,
-  });
+  }, className);
 
   return (
     <li className={_classNames}>
