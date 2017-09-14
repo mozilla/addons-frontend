@@ -8,7 +8,6 @@ import SimulateClientError from
   'core/containers/error-simulation/SimulateClientError';
 import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
-import HandleLogin from 'core/containers/HandleLogin';
 
 import AddonReviewList from './components/AddonReviewList';
 import App from './components/App';
@@ -35,7 +34,6 @@ export default (
     <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={Category} />
-    <Route path="/api/v3/accounts/authenticate/" component={HandleLogin} />
     <Route path="search/" component={SearchPage} />
     <Route
       path="401/"

@@ -175,28 +175,6 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
   });
 }
 
-type LoginParams = {|
-  api: ApiStateType,
-  code: string,
-  state: string,
-|};
-
-export function login({ api, code, state }: LoginParams) {
-  const params = { config: undefined };
-  const configName = config.get('fxaConfig');
-  if (configName) {
-    params.config = configName;
-  }
-  return callApi({
-    endpoint: 'accounts/login',
-    method: 'POST',
-    body: { code, state },
-    params,
-    state: api,
-    credentials: true,
-  });
-}
-
 export function startLoginUrl(
   { location }: {| location: ReactRouterLocation |},
 ) {
