@@ -14,10 +14,11 @@
 }
 
 .Categories-item {
-  @include margin-end(7px);
+  $category-gutter: 7px;
+  @include margin-end($category-gutter);
 
   display: inline-block;
-  margin: 0 0 7px;
+  margin: 0 0 $category-gutter;
   padding: 0;
 }
 
