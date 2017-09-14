@@ -5,8 +5,6 @@ import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
-import * as api from 'core/api';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import {
   dispatchClientMetadata,
@@ -77,17 +75,15 @@ describe(__filename, () => {
 
   it('allows a signed-in user to log out', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
-    const wrapper = renderHeader({ store });
-    const mockApi = sinon.mock(api);
+    const handleLogOut = sinon.stub();
 
-    mockApi
-      .expects('logOutFromServer')
-      .once()
-      .returns(Promise.resolve());
+    const wrapper = renderHeader({ store, handleLogOut });
 
-    const onClick = wrapper.find(DropdownMenuItem).last().prop('onClick');
+    const onClick = wrapper.find('.Header-logout-button').prop('onClick');
     onClick(createFakeEvent());
 
-    mockApi.verify();
+    sinon.assert.calledWith(handleLogOut, {
+      api: store.getState().api,
+    });
   });
 });

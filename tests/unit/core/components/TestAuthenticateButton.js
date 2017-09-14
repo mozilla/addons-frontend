@@ -1,4 +1,3 @@
-import config from 'config';
 import React from 'react';
 import {
   Simulate, findRenderedComponentWithType, renderIntoDocument,
@@ -6,12 +5,12 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { setAuthToken } from 'core/actions';
+import { logOutUser, setAuthToken } from 'core/actions';
 import { loadUserProfile } from 'core/reducers/user';
 import * as api from 'core/api';
-import {
+import AuthenticateButton, {
   AuthenticateButtonBase,
-  mapDispatchToProps,
+  createHandleLogOutFunction,
   mapStateToProps,
 } from 'core/components/AuthenticateButton';
 import {
@@ -19,14 +18,16 @@ import {
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import {
+  createFakeEvent,
   createUserProfileResponse,
   getFakeI18nInst,
+  shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
 
 
-describe('<AuthenticateButton />', () => {
+describe(__filename, () => {
   function renderTree(props) {
     const { store } = dispatchSignInActions();
 
@@ -100,28 +101,6 @@ describe('<AuthenticateButton />', () => {
     sinon.assert.calledWith(startLoginUrlStub, { location });
   });
 
-  it('gets the server to clear cookie and auth token in handleLogOut', () => {
-    sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
-    const _config = {
-      cookieName: 'authcookie',
-      apiHost: 'http://localhost:9876',
-    };
-    sinon.stub(config, 'get').callsFake((key) => _config[key]);
-
-    const { store } = dispatchSignInActions();
-    store.dispatch(setAuthToken(userAuthToken()));
-
-    const apiConfig = { token: store.getState().api.token };
-    expect(apiConfig.token).toBeTruthy();
-
-    const { handleLogOut } = mapDispatchToProps(store.dispatch);
-    return handleLogOut({ api: apiConfig })
-      .then(() => {
-        expect(store.getState().api.token).toBeFalsy();
-        expect(api.logOutFromServer.firstCall.args[0]).toEqual({ api: apiConfig });
-      });
-  });
-
   it('retrieves `isAuthenticated` from state', () => {
     const { store } = dispatchClientMetadata();
 
@@ -131,5 +110,45 @@ describe('<AuthenticateButton />', () => {
       profile: createUserProfileResponse(),
     }));
     expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
+  });
+
+  it('allows a signed-in user to log out', () => {
+    const { store } = dispatchSignInActions();
+    const handleLogOut = sinon.stub();
+    const allProps = {
+      handleLogOut,
+      i18n: getFakeI18nInst(),
+    };
+
+    const wrapper = shallowUntilTarget(
+      <AuthenticateButton store={store} {...allProps} />,
+      AuthenticateButtonBase,
+    );
+
+    wrapper.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(handleLogOut, {
+      api: store.getState().api,
+    });
+  });
+
+  describe('createHandleLogOutFunction()', () => {
+    it('logs out a signed-in user on the server and client sides', () => {
+      sinon.stub(api, 'logOutFromServer').returns(Promise.resolve());
+
+      const { store, state } = dispatchSignInActions();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+
+      const handleLogOut = createHandleLogOutFunction(dispatchSpy);
+      const apiState = state.api;
+      // This makes sure the state contains a token because user is logged in.
+      expect(apiState.token).toBeTruthy();
+
+      return handleLogOut({ api: apiState })
+        .then(() => {
+          sinon.assert.calledWith(api.logOutFromServer, { api: apiState });
+          sinon.assert.calledWith(dispatchSpy, logOutUser());
+        });
+    });
   });
 });

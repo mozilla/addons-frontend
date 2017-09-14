@@ -69,4 +69,14 @@ describe(__filename, () => {
     expect(item).toHaveClassName('DropdownMenuItem-link');
     expect(item).toHaveClassName('DropdownMenuItem--detached');
   });
+
+  it('optionally takes a class name', () => {
+    const item = shallow(
+      <DropdownMenuItem className="custom-class">A section</DropdownMenuItem>
+    );
+
+    expect(item).toHaveClassName('DropdownMenuItem');
+    expect(item).toHaveClassName('DropdownMenuItem-section');
+    expect(item).toHaveClassName('custom-class');
+  });
 });

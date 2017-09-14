@@ -8,11 +8,12 @@ import { createFakeEvent, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
+  const renderComponent = (componentInstance) => {
+    return shallowUntilTarget(componentInstance, DropdownMenuBase);
+  };
+
   it('renders a menu', () => {
-    const menu = shallowUntilTarget(
-      <DropdownMenu text="Menu" />,
-      DropdownMenuBase
-    );
+    const menu = renderComponent(<DropdownMenu text="Menu" />);
 
     expect(menu).toHaveClassName('DropdownMenu');
     expect(menu.find('.DropdownMenu-text')).toIncludeText('Menu');
@@ -21,11 +22,10 @@ describe(__filename, () => {
   });
 
   it('renders items passed as children', () => {
-    const menu = shallowUntilTarget(
+    const menu = renderComponent(
       <DropdownMenu text="Menu">
         <DropdownMenuItem>A section</DropdownMenuItem>
-      </DropdownMenu>,
-      DropdownMenuBase
+      </DropdownMenu>
     );
 
     expect(menu.find('.DropdownMenu-items')).toHaveLength(1);
@@ -33,10 +33,7 @@ describe(__filename, () => {
   });
 
   it('toggles the menu state when button is clicked', () => {
-    const menu = shallowUntilTarget(
-      <DropdownMenu text="Menu" />,
-      DropdownMenuBase
-    );
+    const menu = renderComponent(<DropdownMenu text="Menu" />);
     expect(menu).not.toHaveClassName('DropdownMenu--active');
 
     // User clicks the menu main button.
@@ -65,9 +62,8 @@ describe(__filename, () => {
   });
 
   it('optionally takes a class name', () => {
-    const menu = shallowUntilTarget(
-      <DropdownMenu text="Menu" className="my-class" />,
-      DropdownMenuBase
+    const menu = renderComponent(
+      <DropdownMenu text="Menu" className="my-class" />
     );
 
     expect(menu).toHaveClassName('DropdownMenu');

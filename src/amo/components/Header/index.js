@@ -100,7 +100,38 @@ export class HeaderBase extends React.Component {
                   {i18n.gettext('Edit Profile')}
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={this.handleLogOut} detached>
+
+              <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link
+                  href="/developers/addon/submit/distribution"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Submit a New Add-on')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link
+                  href="/developers/theme/submit"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Submit a New Theme')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link
+                  href="/developers/addon/api/key/"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Manage API Keys')}
+                </Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem
+                className={'Header-logout-button'}
+                detached
+                onClick={this.handleLogOut}
+              >
                 {i18n.gettext('Log out')}
               </DropdownMenuItem>
             </DropdownMenu>
@@ -133,8 +164,8 @@ export const mapStateToProps = (state) => {
   };
 };
 
-export const mapDispatchToProps = (dispatch) => ({
-  handleLogOut: createHandleLogOutFunction(dispatch),
+export const mapDispatchToProps = (dispatch, ownProps) => ({
+  handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });
 
 export default compose(
