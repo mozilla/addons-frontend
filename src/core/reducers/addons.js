@@ -122,8 +122,8 @@ export function createInternalAddon(
 
     // These are custom properties not in the API response.
 
-    // TODO: remove this if possible. I think it was added by mistake
-    // but there are some things relying on it :/
+    // TODO: remove this if possible. This is used by core/installAddon
+    // for some reason.
     iconUrl: apiAddon.icon_url,
 
     installURLs: {
@@ -184,6 +184,8 @@ export function createInternalAddon(
       }
       addon.installURLs[file.platform] = file.url;
     });
+    // TODO: set installURLs.all to the first file if we don't have any
+    // matches.
     addon.isRestartRequired = apiAddon.current_version.files.some(
       (file) => !!file.is_restart_required
     );

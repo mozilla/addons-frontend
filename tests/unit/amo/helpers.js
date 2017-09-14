@@ -233,12 +233,18 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
   };
 }
 
-export function createFakeAddon({ files = {} } = {}) {
+// TODO: maybe fix old tests using files: [...]
+export function createFakeAddon({ files = [] } = {}) {
   return {
     ...fakeAddon,
     current_version: {
       ...fakeAddon.current_version,
-      files,
+      files: files.map((fileProps) => {
+        return {
+          ...fakeAddon.current_version.files[0],
+          ...fileProps,
+        };
+      }),
     },
   };
 }

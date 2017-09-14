@@ -18,6 +18,7 @@ import type {
 import type { Exact } from 'core/types/util';
 
 
+// For details, see https://github.com/faisalman/ua-parser-js
 export type UserAgentInfoType = {|
   browser: {
     major?: string,
@@ -25,7 +26,14 @@ export type UserAgentInfoType = {|
     version?: string,
   },
   os: {
-    name?: string,
+    // This is not a complete enumeration. It's just the ones
+    // we tend to deal with.
+    name?:
+      | 'Android'
+      | 'iOS'
+      | 'Linux'
+      | 'Mac OS'
+      | 'Windows',
   },
 |};
 

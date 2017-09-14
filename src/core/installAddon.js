@@ -24,6 +24,11 @@ import {
   INSTALL_CANCELLED,
   INSTALL_FAILED,
   INSTALLING,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
@@ -135,12 +140,14 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       return { WrappedComponent };
     }
 
-    if (
-      ownProps.type === ADDON_TYPE_EXTENSION &&
-      ownProps.installURL === undefined
-    ) {
-      throw new Error(oneLine`installURL is required, ensure component props
-        are set before withInstallHelpers is called`);
+    if (ownProps.installURLs === undefined) {
+      throw new Error(oneLine`installURLs is required, ensure component
+        props are set before withInstallHelpers is called`);
+    }
+
+    if (ownProps.userAgentInfo === undefined) {
+      throw new Error(oneLine`userAgentInfo is required, ensure component
+        props are set before withInstallHelpers is called`);
     }
 
     return {
@@ -150,6 +157,55 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     };
   };
 }
+
+/*
+ * This is a helper to find the correct install URL for the
+ * user agent's platform.
+ *
+ * Parameter types:
+ *
+ * import type { AddonType } from 'src/core/types/addons';
+ * import type { UserAgentInfoType } from 'src/core/reducers/api';
+ *
+ * type FindInstallUrlParams = {|
+ *   installURLs: $PropertyType<AddonType, 'installURLs'>,
+ *   userAgentInfo: UserAgentInfoType,
+ * |};
+ *
+ */
+export const findInstallUrl = ({ installURLs, userAgentInfo }) => {
+  if (!installURLs) {
+    throw new Error('The installURLs parameter is required');
+  }
+  if (!userAgentInfo) {
+    throw new Error('The userAgentInfo parameter is required');
+  }
+  let url;
+  switch(userAgentInfo.os.name) {
+    case 'Windows':
+      url = installURLs[OS_WINDOWS];
+      break;
+    case 'Mac OS':
+      url = installURLs[OS_MAC];
+      break;
+    case 'Android':
+      url = installURLs[OS_ANDROID];
+      break;
+    case 'Linux':
+      url = installURLs[OS_LINUX];
+      break;
+  }
+  if (url) {
+    return url;
+  }
+  if (installURLs[OS_ALL]) {
+    return installURLs[OS_ALL];
+  }
+
+  log.warn(oneLine`No install URL exists for platform
+    "${userAgentInfo.os.name}"; install URLs: ${installURLs}`);
+  return undefined;
+};
 
 export class WithInstallHelpers extends React.Component {
   static propTypes = {
@@ -161,7 +217,7 @@ export class WithInstallHelpers extends React.Component {
     iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool.isRequired,
     installTheme: PropTypes.func.isRequired,
-    installURL: PropTypes.string,
+    installURLs: PropTypes.string,
     name: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
@@ -189,8 +245,14 @@ export class WithInstallHelpers extends React.Component {
   }
 
   setCurrentStatus(newProps = this.props) {
-    const { _addonManager, dispatch, hasAddonManager } = this.props;
-    const { installURL } = newProps;
+    const {
+      _addonManager,
+      dispatch,
+      hasAddonManager,
+      installURLs,
+      userAgentInfo
+    } = this.props;
+    const installURL = findInstallUrl({ installURLs, userAgentInfo });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -250,13 +312,15 @@ export class WithInstallHelpers extends React.Component {
       dispatch,
       guid,
       iconUrl,
-      installURL,
+      installURLs,
       name,
       src,
+      userAgentInfo,
     } = this.props;
 
     dispatch({ type: START_DOWNLOAD, payload: { guid } });
 
+    const installURL = findInstallUrl({ installURLs, userAgentInfo });
     return _addonManager.install(
       installURL, makeProgressHandler(dispatch, guid), { src }
     )
