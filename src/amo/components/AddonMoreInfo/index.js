@@ -79,7 +79,7 @@ export class AddonMoreInfoBase extends React.Component {
         <dt>{i18n.gettext('Last updated')}</dt>
         <dd>
           {i18n.sprintf(
-            // L10n: This will output, in English:
+            // translators: This will output, in English:
             // "2 months ago (Dec 12 2016)"
             i18n.gettext('%(timeFromNow)s (%(date)s)'), {
               timeFromNow: i18n.moment(addon.last_updated).fromNow(),
@@ -138,7 +138,7 @@ export class AddonMoreInfoBase extends React.Component {
             title={i18n.gettext(`This ID is useful for debugging and
               identifying your add-on to site administrators.`)}
           >
-            {i18n.gettext('Internal Database ID')}
+            {i18n.gettext('Site Identifier')}
           </dt>
         ) : null}
         {addon.id ? (
