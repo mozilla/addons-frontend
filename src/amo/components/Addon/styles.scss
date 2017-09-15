@@ -201,13 +201,13 @@
       grid-column: 2;
       grid-row: 1 / span 5;
 
-      .Addon--has-more-addons.Addon-persona & {
-        // This span makes sure the left widdget does not move vertically when
+      .Addon--has-more-than-0-addons.Addon-persona & {
+        // This span makes sure the left widget does not move vertically when
         // there is a long description.
-        grid-row: 2 / span 1000;
+        grid-row: 2 / span 50000;
       }
 
-      .Addon--has-many-more-addons.Addon-persona & {
+      .Addon--has-more-than-3-addons.Addon-persona & {
         grid-row: 3;
       }
     }
@@ -223,7 +223,7 @@
     .AddonDescription-more-addons--theme {
       grid-column: 2;
 
-      .Addon--has-many-more-addons & {
+      .Addon--has-more-than-3-addons & {
         grid-row: 1 / span 2;
       }
     }
@@ -243,11 +243,11 @@
   .Addon-overall-rating {
     grid-column: 1 / 2;
 
-    .Addon--has-more-addons.Addon-persona & {
+    .Addon--has-more-than-0-addons.Addon-persona & {
       grid-row: 1 / span 2;
     }
 
-    .Addon--has-many-more-addons.Addon-persona & {
+    .Addon--has-more-than-3-addons.Addon-persona & {
       grid-row: 1;
     }
   }
@@ -256,11 +256,11 @@
     grid-column: 1 / 2;
     grid-row: 4 / span 1;
 
-    .Addon--has-more-addons.Addon-persona & {
+    .Addon--has-more-than-0-addons.Addon-persona & {
       grid-row: 3 / span 1;
     }
 
-    .Addon--has-many-more-addons.Addon-persona & {
+    .Addon--has-more-than-3-addons.Addon-persona & {
       grid-row: 2 / span 2;
     }
   }

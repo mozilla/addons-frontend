@@ -1052,7 +1052,7 @@ describe(__filename, () => {
       expect(root).toHaveProp('addons', addonsByAuthors);
     });
 
-    it('adds a css class to the main component when there are add-ons', () => {
+    it('adds a CSS class to the main component when there are add-ons', () => {
       const addon = fakeAddon;
       const addonsByAuthors = [
         { ...fakeAddon, slug: 'addon-1' },
@@ -1062,14 +1062,12 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root).toHaveClassName('.Addon--has-more-addons');
-      expect(root).not.toHaveClassName('.Addon--has-many-more-addons');
+      expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
+      expect(root).not.toHaveClassName('.Addon--has-more-than-3-addons');
     });
 
-    it('adds a css class when there many other add-ons by authors', () => {
+    it('adds a CSS class when there are more than 3 other add-ons', () => {
       const addon = fakeAddon;
-      // We need more than 3 add-ons to indicate that there are "many" other
-      // add-ons by authors.
       const addonsByAuthors = [
         { ...fakeAddon, slug: 'addon-1' },
         { ...fakeAddon, slug: 'addon-2' },
@@ -1080,8 +1078,8 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root).toHaveClassName('.Addon--has-more-addons');
-      expect(root).toHaveClassName('.Addon--has-many-more-addons');
+      expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
+      expect(root).toHaveClassName('.Addon--has-more-than-3-addons');
     });
   });
 

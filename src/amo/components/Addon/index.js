@@ -453,14 +453,15 @@ export class AddonBase extends React.Component {
       isRestartRequired = addon.isRestartRequired;
     }
 
-    const addonsByAuthorsLength = addonsByAuthors ? addonsByAuthors.length : 0;
-    const _classNames = classNames('Addon', `Addon-${addonType}`, {
-      'Addon--has-more-addons': addonsByAuthorsLength > 0,
-      'Addon--has-many-more-addons': addonsByAuthorsLength > 3,
-    });
+    const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
 
     return (
-      <div className={_classNames}>
+      <div
+        className={classNames('Addon', `Addon-${addonType}`, {
+          'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
+          'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
+        })}
+      >
         {errorBanner}
         <Card className="" photonStyle>
           <header className="Addon-header">
