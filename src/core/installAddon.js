@@ -173,7 +173,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
  * |};
  *
  */
-export const findInstallUrl = ({ installURLs, userAgentInfo }) => {
+export const findInstallURL = ({ installURLs, userAgentInfo }) => {
   if (!installURLs) {
     throw new Error('The installURLs parameter is required');
   }
@@ -252,7 +252,7 @@ export class WithInstallHelpers extends React.Component {
       installURLs,
       userAgentInfo
     } = this.props;
-    const installURL = findInstallUrl({ installURLs, userAgentInfo });
+    const installURL = findInstallURL({ installURLs, userAgentInfo });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -320,7 +320,7 @@ export class WithInstallHelpers extends React.Component {
 
     dispatch({ type: START_DOWNLOAD, payload: { guid } });
 
-    const installURL = findInstallUrl({ installURLs, userAgentInfo });
+    const installURL = findInstallURL({ installURLs, userAgentInfo });
     return _addonManager.install(
       installURL, makeProgressHandler(dispatch, guid), { src }
     )

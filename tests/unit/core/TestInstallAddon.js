@@ -232,8 +232,8 @@ describe(__filename, () => {
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
-  describe('findInstallUrl', () => {
-    const _findInstallUrl = ({
+  describe('findInstallURL', () => {
+    const _findInstallURL = ({
       addonFiles = [],
       userAgent = userAgentsByPlatform.windows.firefox40,
     } = {}) => {
@@ -242,13 +242,13 @@ describe(__filename, () => {
       }));
       const userAgentInfo = userAgent && UAParser(userAgent);
 
-      return installAddon.findInstallUrl({
+      return installAddon.findInstallURL({
         installURLs: addon && addon.installURLs, userAgentInfo,
       })
     };
 
     it('finds a Windows install URL', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -265,7 +265,7 @@ describe(__filename, () => {
     });
 
     it('finds a Mac OS install URL', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -282,7 +282,7 @@ describe(__filename, () => {
     });
 
     it('finds a Linux install URL', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -299,7 +299,7 @@ describe(__filename, () => {
     });
 
     it('finds an Android mobile install URL', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -316,7 +316,7 @@ describe(__filename, () => {
     });
 
     it('finds an Android tablet install URL', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -333,7 +333,7 @@ describe(__filename, () => {
     });
 
     it('returns an all-platform URL for unsupported platforms', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -351,7 +351,7 @@ describe(__filename, () => {
     });
 
     it('gives preference to a specific platform URL', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -369,7 +369,7 @@ describe(__filename, () => {
     });
 
     it('returns undefined when nothing else matches', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [
           {
             platform: OS_WINDOWS,
@@ -386,7 +386,7 @@ describe(__filename, () => {
     });
 
     it('returns undefined when no files exist', () => {
-      expect(_findInstallUrl({
+      expect(_findInstallURL({
         addonFiles: [],
         userAgent: userAgentsByPlatform.windows.firefox40,
       }))
@@ -394,12 +394,12 @@ describe(__filename, () => {
     });
 
     it('requires installURLs', () => {
-      expect(() => _findInstallUrl({ addonFiles: null }))
+      expect(() => _findInstallURL({ addonFiles: null }))
         .toThrow(/installURLs parameter is required/);
     });
 
     it('requires userAgentInfo', () => {
-      expect(() => _findInstallUrl({ userAgent: null }))
+      expect(() => _findInstallURL({ userAgent: null }))
         .toThrow(/userAgentInfo parameter is required/);
     });
   });

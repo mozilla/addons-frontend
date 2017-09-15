@@ -234,7 +234,7 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
 }
 
 // TODO: maybe fix old tests using files: [...]
-export function createFakeAddon({ files = [] } = {}) {
+export function createFakeAddon({ files = [], ...overrides } = {}) {
   return {
     ...fakeAddon,
     current_version: {
@@ -246,6 +246,7 @@ export function createFakeAddon({ files = [] } = {}) {
         };
       }),
     },
+    ...overrides,
   };
 }
 

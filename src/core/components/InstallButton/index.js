@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import InstallSwitch from 'core/components/InstallSwitch';
 import { ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import {
@@ -73,6 +74,9 @@ export class InstallButtonBase extends React.Component {
         'InstallButton-button--disabled': buttonIsDisabled,
       }
     );
+    const installURL = findInstallURL({
+      installURLs: addon.installURLs, userAgentInfo,
+    });
 
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
@@ -91,7 +95,7 @@ export class InstallButtonBase extends React.Component {
         event.stopPropagation();
 
         _log.info('Adding OpenSearch Provider', { addon });
-        _window.external.AddSearchProvider(addon.installURL);
+        _window.external.AddSearchProvider(installURL);
 
         return false;
       };
@@ -100,7 +104,7 @@ export class InstallButtonBase extends React.Component {
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
-          href={addon.installURL}
+          href={installURL}
           prependClientApp={false}
           prependLang={false}
         >
@@ -118,7 +122,7 @@ export class InstallButtonBase extends React.Component {
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
-          href={addon.installURL}
+          href={installURL}
           prependClientApp={false}
           prependLang={false}
         >
@@ -135,6 +139,7 @@ export class InstallButtonBase extends React.Component {
       >
         <InstallSwitch
           {...this.props}
+          installURL={installURL}
           className="InstallButton-switch"
           disabled={buttonIsDisabled}
         />

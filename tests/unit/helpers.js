@@ -274,6 +274,7 @@ export function createFakeEvent(extraProps = {}) {
   return {
     currentTarget: sinon.stub(),
     preventDefault: sinon.stub(),
+    stopPropagation: sinon.stub(),
     ...extraProps,
   };
 }
