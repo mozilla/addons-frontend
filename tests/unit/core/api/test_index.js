@@ -1,7 +1,7 @@
 /* global window */
 import querystring from 'querystring';
 
-import config from 'config';
+import config, { util as configUtil } from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
@@ -41,7 +41,28 @@ describe(__filename, () => {
         .then(() => mockWindow.verify());
     });
 
-    it('encodes non-ascii URLs in UTF8', () => {
+    it('does not encode non-ascii URLs in UTF8 on the client', () => {
+      const endpoint = 'project-ă-ă-â-â-日本語';
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/${endpoint}/`, {
+          body: undefined, credentials: undefined, method: 'GET', headers: {},
+        })
+        .once()
+        .returns(createApiResponse());
+
+      // We use `cloneDeep()` to allow modifications on the `config` object,
+      // since a call to `get()` makes it immutable.
+      const clientConfig = configUtil.cloneDeep(config);
+      clientConfig.client = true;
+      clientConfig.server = false;
+
+      return api.callApi({
+        _config: clientConfig,
+        endpoint,
+      }).then(() => mockWindow.verify());
+    });
+
+    it('encodes non-ascii URLs in UTF8 on the server', () => {
       const endpoint = 'diccionario-español-venezuela';
       mockWindow.expects('fetch')
         .withArgs(utf8.encode(`${apiHost}/api/v3/${endpoint}/`), {
@@ -49,7 +70,16 @@ describe(__filename, () => {
         })
         .once()
         .returns(createApiResponse());
-      return api.callApi({ endpoint }).then(() => mockWindow.verify());
+
+      // We use `cloneDeep()` to allow modifications on the `config` object,
+      // since a call to `get()` makes it immutable.
+      const serverConfig = configUtil.cloneDeep(config);
+      serverConfig.server = true;
+
+      return api.callApi({
+        _config: serverConfig,
+        endpoint,
+      }).then(() => mockWindow.verify());
     });
 
     it('clears an error handler before making a request', () => {
