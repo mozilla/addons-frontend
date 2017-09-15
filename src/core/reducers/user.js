@@ -34,7 +34,7 @@ export const isAuthenticated = (state: { user: UserStateType }) => {
 
 export const selectDisplayName = (state: { user: UserStateType }) => {
   const displayName = state.user.displayName;
-  if (displayName && displayName !== '') {
+  if (displayName && displayName.length) {
     return displayName;
   }
 
