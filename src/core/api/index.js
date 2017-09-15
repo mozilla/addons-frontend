@@ -113,8 +113,12 @@ export function callApi({
     }
   }
 
-  // Workaround for https://github.com/bitinn/node-fetch/issues/245
-  const apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
+  let apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  if (_config.get('server')) {
+    log.debug('Encoding `apiURL` in UTF8 before fetch().');
+    // Workaround for https://github.com/bitinn/node-fetch/issues/245
+    apiURL = utf8.encode(apiURL);
+  }
 
   // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
