@@ -32,8 +32,8 @@ export class SearchContextCardBase extends React.Component {
     if (!loading && query && addonType) {
       const addon = addonType === 'persona' ? 'theme' : addonType;
       searchText = i18n.sprintf(i18n.ngettext(
-        '%(count)s %(addon)s result for "%(query)s"',
-        '%(count)s %(addon)ss results for "%(query)s"',
+        '%(count)s %(addon)s found for "%(query)s"',
+        '%(count)s %(addon)ss found for "%(query)s"',
         count), { count: i18n.formatNumber(count), addon, query }
       );
     } else if (!loading && query) {
