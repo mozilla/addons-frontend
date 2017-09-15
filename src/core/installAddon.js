@@ -203,8 +203,9 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
     return installURLs[OS_ALL];
   }
 
-  log.warn(oneLine`No install URL exists for platform
-    "${userAgentInfo.os.name}"; install URLs: ${installURLs}`);
+  // This could happen for themes which do not have version files.
+  log.debug(oneLine`No install URL exists for platform
+    "${userAgentInfo.os.name}"; install URLs:`, installURLs);
   return undefined;
 };
 
