@@ -171,13 +171,14 @@ export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
   username = 'user-1234',
+  displayName = null,
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
   store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({ id: userId, username }),
+    profile: createUserProfileResponse({ id: userId, username, displayName }),
   }));
 
   return {
