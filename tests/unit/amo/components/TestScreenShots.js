@@ -25,15 +25,15 @@ describe('<ScreenShots />', () => {
         title: 'A screenshot',
         src: 'http://img.com/one',
         thumbnail_src: 'http://img.com/1',
-        h: 200,
-        w: 320,
+        h: 1024,
+        w: 1366,
       },
       {
         title: 'Another screenshot',
         src: 'http://img.com/two',
         thumbnail_src: 'http://img.com/2',
-        h: 200,
-        w: 320,
+        h: 1024,
+        w: 1366,
       },
     ];
     const root = shallow(<ScreenShots previews={previews} />);
@@ -50,8 +50,8 @@ describe('<ScreenShots />', () => {
 
     expect(thumbnail.type()).toEqual('img');
     expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(200);
-    expect(thumbnail.prop('width')).toEqual(320);
+    expect(thumbnail.prop('height')).toEqual(1024);
+    expect(thumbnail.prop('width')).toEqual(1366);
     expect(thumbnail.prop('alt')).toEqual('');
   });
 
