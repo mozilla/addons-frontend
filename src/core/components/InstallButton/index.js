@@ -6,7 +6,9 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import InstallSwitch from 'core/components/InstallSwitch';
-import { ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME, validAddonTypes,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
@@ -21,14 +23,29 @@ import './styles.scss';
 
 export class InstallButtonBase extends React.Component {
   static propTypes = {
+    accentcolor: PropTypes.string,
     addon: PropTypes.object.isRequired,
+    author: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    enable: PropTypes.func,
+    footerURL: PropTypes.string,
     getClientCompatibility: PropTypes.func,
+    guid: PropTypes.string.isRequired,
+    handleChange: PropTypes.func,
     hasAddonManager: PropTypes.bool,
+    headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    id: PropTypes.string,
+    install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    textcolor: PropTypes.string,
+    type: PropTypes.oneOf(validAddonTypes),
+    uninstall: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.string.isRequired,
     _log: PropTypes.object,
     _window: PropTypes.object,
@@ -141,8 +158,7 @@ export class InstallButtonBase extends React.Component {
           Some of these props are spread into InstallButton by the parent
           component or its parent or a state/dispatch mapper or an HOC or
           an evil clown, who knows. Also, some props are only
-          being passed to InstallSwitch so it can pass them to
-          getThemeData().
+          being passed to getThemeData() via InstallSwitch.
         */}
         <InstallSwitch
           accentcolor={this.props.accentcolor}

@@ -1,7 +1,6 @@
+/* global Node */
 import React from 'react';
 import { mount } from 'enzyme';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
 
 import createStore from 'amo/store';
 import InstallButton, { InstallButtonBase } from 'core/components/InstallButton';

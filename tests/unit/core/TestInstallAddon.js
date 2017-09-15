@@ -40,12 +40,11 @@ import {
   UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
-import { createInternalAddon, loadAddons } from 'core/reducers/addons';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
-  createFakeAddon, dispatchClientMetadata, fakeAddon, fakeTheme,
+  createFakeAddon, fakeAddon, fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
-  createFetchAddonResult,
   getFakeAddonManagerWrapper,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -74,7 +73,7 @@ function componentWithInstallHelpers({ src = 'some-src' } = {}) {
 
 const defaultProps = (overrides = {}) => {
   const { store } = createStore();
-  const dispatch = sinon.stub(store, 'dispatch');
+  sinon.stub(store, 'dispatch');
   const addon = createInternalAddon(fakeAddon);
   return {
     // TODO: remove this spread. This simulates how both
@@ -244,7 +243,7 @@ describe(__filename, () => {
 
       return installAddon.findInstallURL({
         installURLs: addon && addon.installURLs, userAgentInfo,
-      })
+      });
     };
 
     it('finds a Windows install URL', () => {
@@ -813,7 +812,6 @@ describe(`${__filename}: withInstallHelpers`, () => {
   });
 
   describe('install', () => {
-    const guid = '@install';
     const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.install()', () => {

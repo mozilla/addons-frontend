@@ -37,7 +37,6 @@ import {
   THEME_RESET_PREVIEW,
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_THEME,
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
@@ -181,7 +180,7 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
     throw new Error('The userAgentInfo parameter is required');
   }
   let url;
-  switch(userAgentInfo.os.name) {
+  switch (userAgentInfo.os.name) {
     case 'Windows':
       url = installURLs[OS_WINDOWS];
       break;
@@ -193,6 +192,8 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
       break;
     case 'Linux':
       url = installURLs[OS_LINUX];
+      break;
+    default:
       break;
   }
   if (url) {
@@ -222,6 +223,7 @@ export class WithInstallHelpers extends React.Component {
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -250,7 +252,7 @@ export class WithInstallHelpers extends React.Component {
       dispatch,
       hasAddonManager,
       installURLs,
-      userAgentInfo
+      userAgentInfo,
     } = this.props;
     const installURL = findInstallURL({ installURLs, userAgentInfo });
     if (!hasAddonManager) {
