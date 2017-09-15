@@ -5,6 +5,12 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 
 import './styles.scss';
 
@@ -28,15 +34,24 @@ export class SearchContextCardBase extends React.Component {
     const { addonType } = filters;
 
     let searchText;
+    let addOn;
+
+    if (addonType === ADDON_TYPE_EXTENSION) {
+      addOn = i18n.ngettext('extension', 'extensions', count);
+    } else if (addonType === ADDON_TYPE_DICT) {
+      addOn = i18n.ngettext('dictionary', 'dictionaries', count);
+    } else if (addonType === ADDON_TYPE_LANG) {
+      addOn = i18n.ngettext('language pack', 'language packs', count);
+    } else if (addonType === ADDON_TYPE_THEME) {
+      addOn = i18n.ngettext('theme', 'themes', count);
+    }
 
     if (!loading && query && addonType) {
-      const addon = addonType === 'persona' ? 'theme' : addonType;
-      searchText = i18n.sprintf(i18n.ngettext(
-        '%(count)s %(addon)s found for "%(query)s"',
-        '%(count)s %(addon)ss found for "%(query)s"',
-        count), { count: i18n.formatNumber(count), addon, query }
+      searchText = i18n.sprintf(i18n.gettext(
+        '%(count)s %(addOn)s found for "%(query)s"'
+      ), { count: i18n.formatNumber(count), addOn, query }
       );
-    } else if (!loading && query) {
+    } else if (!loading && query && !addonType) {
       searchText = i18n.sprintf(i18n.ngettext(
         '%(count)s result for "%(query)s"',
         '%(count)s results for "%(query)s"',
