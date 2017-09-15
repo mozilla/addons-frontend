@@ -137,11 +137,35 @@ export class InstallButtonBase extends React.Component {
           'InstallButton--use-switch': !useButton,
         })}
       >
+        {/*
+          Some of these props are spread into InstallButton by the parent
+          component or its parent or a state/dispatch mapper or an HOC or
+          an evil clown, who knows. Also, some props are only
+          being passed to InstallSwitch so it can pass them to
+          getThemeData().
+        */}
         <InstallSwitch
-          {...this.props}
-          installURL={installURL}
+          accentcolor={this.props.accentcolor}
+          addon={this.props.addon}
+          author={this.props.author}
           className="InstallButton-switch"
+          description={this.props.description}
           disabled={buttonIsDisabled}
+          enable={this.props.enable}
+          footerURL={this.props.footerURL}
+          guid={this.props.guid}
+          handleChange={this.props.handleChange}
+          headerURL={this.props.headerURL}
+          id={this.props.id}
+          install={this.props.install}
+          installURL={installURL}
+          installTheme={this.props.installTheme}
+          name={this.props.name}
+          slug={this.props.slug}
+          status={this.props.status}
+          textcolor={this.props.textcolor}
+          type={this.props.type}
+          uninstall={this.props.uninstall}
         />
         {button}
       </div>
