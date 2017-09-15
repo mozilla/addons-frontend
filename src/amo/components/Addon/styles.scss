@@ -193,13 +193,23 @@
   .Addon-details {
     display: grid;
     grid-auto-flow: column dense;
-    grid-gap: 10px;
+    grid-gap: 0 10px;
     grid-template-columns: minmax(300px, 35%) auto;
     margin: 10px 0 0;
 
     .AddonDescription {
       grid-column: 2;
       grid-row: 1 / span 5;
+
+      .Addon--has-more-than-0-addons.Addon-persona & {
+        // This span makes sure the left widget does not move vertically when
+        // there is a long description.
+        grid-row: 2 / span 50000;
+      }
+
+      .Addon--has-more-than-3-addons.Addon-persona & {
+        grid-row: 3;
+      }
     }
 
     .AddonDescription-version-notes {
@@ -212,7 +222,10 @@
 
     .AddonDescription-more-addons--theme {
       grid-column: 2;
-      grid-row: 1 / span 5;
+
+      .Addon--has-more-than-3-addons & {
+        grid-row: 1 / span 2;
+      }
     }
 
     .AddonDescription-contents {
@@ -229,10 +242,27 @@
 
   .Addon-overall-rating {
     grid-column: 1 / 2;
+
+    .Addon--has-more-than-0-addons.Addon-persona & {
+      grid-row: 1 / span 2;
+    }
+
+    .Addon--has-more-than-3-addons.Addon-persona & {
+      grid-row: 1;
+    }
   }
 
   .AddonMoreInfo {
     grid-column: 1 / 2;
+    grid-row: 4 / span 1;
+
+    .Addon--has-more-than-0-addons.Addon-persona & {
+      grid-row: 3 / span 1;
+    }
+
+    .Addon--has-more-than-3-addons.Addon-persona & {
+      grid-row: 2 / span 2;
+    }
   }
 
   // We hide this "Read reviews" link on larger displays as we actually show

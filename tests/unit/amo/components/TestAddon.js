@@ -1051,6 +1051,36 @@ describe(__filename, () => {
       expect(root).toHaveClassName('.AddonDescription-more-addons--theme');
       expect(root).toHaveProp('addons', addonsByAuthors);
     });
+
+    it('adds a CSS class to the main component when there are add-ons', () => {
+      const addon = fakeAddon;
+      const addonsByAuthors = [
+        { ...fakeAddon, slug: 'addon-1' },
+        { ...fakeAddon, slug: 'addon-2' },
+      ];
+      const { store } = dispatchAddonData({ addon, addonsByAuthors });
+
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+
+      expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
+      expect(root).not.toHaveClassName('.Addon--has-more-than-3-addons');
+    });
+
+    it('adds a CSS class when there are more than 3 other add-ons', () => {
+      const addon = fakeAddon;
+      const addonsByAuthors = [
+        { ...fakeAddon, slug: 'addon-1' },
+        { ...fakeAddon, slug: 'addon-2' },
+        { ...fakeAddon, slug: 'addon-3' },
+        { ...fakeAddon, slug: 'addon-4' },
+      ];
+      const { store } = dispatchAddonData({ addon, addonsByAuthors });
+
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+
+      expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
+      expect(root).toHaveClassName('.Addon--has-more-than-3-addons');
+    });
   });
 
   it('displays a badge when the addon is featured', () => {
