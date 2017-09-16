@@ -4,6 +4,7 @@ describe('amo createStore', () => {
   it('sets the reducers', () => {
     const { store } = createStore();
     expect(Object.keys(store.getState()).sort()).toEqual([
+      'abuse',
       'addons',
       'addonsByAuthors',
       'api',

@@ -14,6 +14,7 @@ import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
 import { ErrorHandler } from 'core/errorHandler';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -285,6 +286,22 @@ export function createApiResponse({
     ...responseProps,
   };
   return Promise.resolve(response);
+}
+
+export function createFakeAddonAbuseReport({
+  addon = fakeAddon,
+  message,
+  reporter = null,
+} = {}) {
+  return {
+    addon: {
+      guid: addon.guid,
+      id: addon.id,
+      slug: addon.slug,
+    },
+    message,
+    reporter,
+  };
 }
 
 export function createUserProfileResponse({
