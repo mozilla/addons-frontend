@@ -34,24 +34,34 @@ export class SearchContextCardBase extends React.Component {
     const { addonType } = filters;
 
     let searchText;
-    let addOn;
-
-    if (addonType === ADDON_TYPE_EXTENSION) {
-      addOn = i18n.ngettext('extension', 'extensions', count);
-    } else if (addonType === ADDON_TYPE_DICT) {
-      addOn = i18n.ngettext('dictionary', 'dictionaries', count);
-    } else if (addonType === ADDON_TYPE_LANG) {
-      addOn = i18n.ngettext('language pack', 'language packs', count);
-    } else if (addonType === ADDON_TYPE_THEME) {
-      addOn = i18n.ngettext('theme', 'themes', count);
-    }
 
     if (!loading && query && addonType) {
-      searchText = i18n.sprintf(i18n.gettext(
-        '%(count)s %(addOn)s found for "%(query)s"'
-      ), { count: i18n.formatNumber(count), addOn, query }
-      );
-    } else if (!loading && query && !addonType) {
+      if (addonType === ADDON_TYPE_EXTENSION) {
+        searchText = i18n.sprintf(i18n.ngettext(
+          '%(count)s extension found for "%(query)s"',
+          '%(count)s extensions found for "%(query)s"',
+          count), { count: i18n.formatNumber(count), query }
+        );
+      } else if (addonType === ADDON_TYPE_DICT) {
+        searchText = i18n.sprintf(i18n.ngettext(
+          '%(count)s dictionary found for "%(query)s"',
+          '%(count)s dictionaries found for "%(query)s"',
+          count), { count: i18n.formatNumber(count), query }
+        );
+      } else if (addonType === ADDON_TYPE_LANG) {
+        searchText = i18n.sprintf(i18n.ngettext(
+          '%(count)s language pack found for "%(query)s"',
+          '%(count)s language packs found for "%(query)s"',
+          count), { count: i18n.formatNumber(count), query }
+        );
+      } else if (addonType === ADDON_TYPE_THEME) {
+        searchText = i18n.sprintf(i18n.ngettext(
+          '%(count)s theme found for "%(query)s"',
+          '%(count)s themes found for "%(query)s"',
+          count), { count: i18n.formatNumber(count), query }
+        );
+      }
+    } else if (!loading && query) {
       searchText = i18n.sprintf(i18n.ngettext(
         '%(count)s result for "%(query)s"',
         '%(count)s results for "%(query)s"',
