@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-12 19:26+0000\n"
-"PO-Revision-Date: 2017-09-12 21:47+0000\n"
+"PO-Revision-Date: 2017-09-16 13:26+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -740,7 +740,7 @@ msgstr "Ak chcete pokračovať, obnovte kartu"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Prepnúť obsah"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
