@@ -110,8 +110,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('No add-ons found');
   });
 
-  // addonType = ADDON_TYPE_THEME
-  it('should render singular form when only one result is found with addonType as ADDON_TYPE_THEME', () => {
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_THEME', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -126,7 +125,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('1 theme found for "test"');
   });
 
-  it('should render plural form when multiple results are found with addonType as ADDON_TYPE_THEME', () => {
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_THEME', () => {
     const { store } = dispatchSearchResults({
       filters: {
         addonType: ADDON_TYPE_THEME,
@@ -140,8 +139,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('2 themes found for "test"');
   });
 
-  // addonType = ADDON_TYPE_DICT
-  it('should render singular form when only one result is found with addonType as ADDON_TYPE_DICT', () => {
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_DICT', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -156,7 +154,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('1 dictionary found for "test"');
   });
 
-  it('should render plural form when multipe results are found with addonType as ADDON_TYPE_DICT', () => {
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_DICT', () => {
     const { store } = dispatchSearchResults({
       filters: {
         addonType: ADDON_TYPE_DICT,
@@ -170,8 +168,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('2 dictionaries found for "test"');
   });
 
-  // addonType = ADDON_TYPE_EXTENSION
-  it('should render singular form when only one result is found with addonType = ADDON_TYPE_EXTENSION', () => {
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_EXTENSION', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -186,7 +183,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('1 extension found for "test"');
   });
 
-  it('should render plural form when multipe results are found with addonType as ADDON_TYPE_EXTENSION', () => {
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_EXTENSION', () => {
     const { store } = dispatchSearchResults({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
@@ -200,8 +197,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('2 extensions found for "test"');
   });
 
-  // addonType = ADDON_TYPE_EXTENSION
-  it('should render singular form when only one result is found with addonType as ADDON_TYPE_LANG', () => {
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_LANG', () => {
     const { store } = dispatchSearchResults({
       addons: { [fakeAddon.slug]: fakeAddon },
       filters: {
@@ -216,7 +212,7 @@ describe('SearchContextCard', () => {
       .toIncludeText('1 language pack found for "test"');
   });
 
-  it('should render plural form when multipe results are found with addonType as ADDON_TYPE_LANG', () => {
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_LANG', () => {
     const { store } = dispatchSearchResults({
       filters: {
         addonType: ADDON_TYPE_LANG,
