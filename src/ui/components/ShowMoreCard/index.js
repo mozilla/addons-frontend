@@ -11,8 +11,8 @@ import Card from 'ui/components/Card';
 
 import './ShowMoreCard.scss';
 
-
-const MAX_HEIGHT = 145;
+// This refers to height of Card-contents class, beyond which it will add read more link
+export const MAX_HEIGHT = 145;
 
 export class ShowMoreCardBase extends React.Component {
   static propTypes = {
