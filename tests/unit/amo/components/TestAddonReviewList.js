@@ -9,6 +9,7 @@ import {
   AddonReviewListBase,
   mapStateToProps,
 } from 'amo/components/AddonReviewList';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import {
@@ -16,12 +17,14 @@ import {
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
 import Rating from 'ui/components/Rating';
-import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeReview, dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
   getFakeI18nInst,
 } from 'tests/unit/helpers';
+import { setError } from 'core/actions/errors';
+import { createApiError } from 'core/api/index';
 import LoadingText from 'ui/components/LoadingText';
 
 function getLoadedReviews({
@@ -227,6 +230,46 @@ describe('amo/components/AddonReviewList', () => {
 
       const root = render({ errorHandler });
       expect(root.find(ErrorList)).toHaveLength(1);
+    });
+
+    it('renders NotFound page if API returns 401 error', () => {
+      const id = 'error-handler-id';
+      const { store } = dispatchClientMetadata();
+
+      const error = createApiError({
+        response: { status: 401 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Not Found.' },
+      });
+      store.dispatch(setError({ id, error }));
+      const capturedError = store.getState().errors[id];
+      // This makes sure the error was dispatched to state correctly.
+      expect(capturedError).toBeTruthy();
+
+      const errorHandler = createStubErrorHandler(capturedError);
+
+      const root = render({ errorHandler });
+      expect(root.find(NotFound)).toHaveLength(1);
+    });
+
+    it('renders NotFound page if API returns 404 error', () => {
+      const id = 'error-handler-id';
+      const { store } = dispatchClientMetadata();
+
+      const error = createApiError({
+        response: { status: 404 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Not Found.' },
+      });
+      store.dispatch(setError({ id, error }));
+      const capturedError = store.getState().errors[id];
+      // This makes sure the error was dispatched to state correctly.
+      expect(capturedError).toBeTruthy();
+
+      const errorHandler = createStubErrorHandler(capturedError);
+
+      const root = render({ errorHandler });
+      expect(root.find(NotFound)).toHaveLength(1);
     });
 
     it('renders a list of reviews with ratings', () => {
