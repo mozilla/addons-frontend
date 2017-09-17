@@ -12,7 +12,7 @@ import Card from 'ui/components/Card';
 import './ShowMoreCard.scss';
 
 
-const MAX_HEIGHT = 100;
+const MAX_HEIGHT = 145;
 
 export class ShowMoreCardBase extends React.Component {
   static propTypes = {

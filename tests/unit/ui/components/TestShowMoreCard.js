@@ -40,7 +40,7 @@ describe(__filename, () => {
 
   it('truncates the contents if they are too long', () => {
     const root = render({ children: 'Hello I am description' });
-    root.truncateToMaxHeight({ clientHeight: 101 });
+    root.truncateToMaxHeight({ clientHeight: 146 });
     expect(root.state.expanded).toEqual(false);
   });
 
