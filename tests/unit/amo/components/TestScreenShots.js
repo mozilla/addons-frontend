@@ -3,7 +3,11 @@ import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
-import ScreenShots, { thumbnailContent } from 'amo/components/ScreenShots';
+import ScreenShots, {
+  HEIGHT,
+  WIDTH,
+  thumbnailContent,
+} from 'amo/components/ScreenShots';
 
 describe('<ScreenShots />', () => {
   const previews = [
@@ -25,15 +29,15 @@ describe('<ScreenShots />', () => {
         title: 'A screenshot',
         src: 'http://img.com/one',
         thumbnail_src: 'http://img.com/1',
-        h: 1024,
-        w: 1366,
+        h: HEIGHT,
+        w: WIDTH,
       },
       {
         title: 'Another screenshot',
         src: 'http://img.com/two',
         thumbnail_src: 'http://img.com/2',
-        h: 1024,
-        w: 1366,
+        h: HEIGHT,
+        w: WIDTH,
       },
     ];
     const root = shallow(<ScreenShots previews={previews} />);
@@ -50,8 +54,8 @@ describe('<ScreenShots />', () => {
 
     expect(thumbnail.type()).toEqual('img');
     expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(1024);
-    expect(thumbnail.prop('width')).toEqual(1366);
+    expect(thumbnail.prop('height')).toEqual(HEIGHT);
+    expect(thumbnail.prop('width')).toEqual(WIDTH);
     expect(thumbnail.prop('alt')).toEqual('');
   });
 
