@@ -64,6 +64,8 @@ describe(__filename, () => {
 
   it('renders InstallSwitch when mozAddonManager is available', () => {
     const installURL = 'https://a.m.o/files/addon.xpi';
+    // This can't use createFakeAddon({ files: [...] }) because it needs
+    // to specify a custom object for addon.current_version.
     const addon = createInternalAddon({
       ...fakeTheme,
       current_version: {
@@ -74,7 +76,6 @@ describe(__filename, () => {
           url: installURL,
         }],
       },
-      id: 'foo@personas.mozilla.org',
     });
     const root = render({
       hasAddonManager: true,
