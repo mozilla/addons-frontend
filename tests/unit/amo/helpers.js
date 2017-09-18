@@ -9,7 +9,9 @@ import { addon as addonSchema } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  ENABLED,
   OS_ALL,
 } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
@@ -34,6 +36,7 @@ export const fakeAddon = Object.freeze({
   categories: { firefox: ['other'] },
   current_beta_version: null,
   current_version: {
+    compatibility: {},
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
@@ -121,6 +124,17 @@ export const fakeTheme = Object.freeze({
   type: ADDON_TYPE_THEME,
 });
 
+export const fakeInstalledAddon = Object.freeze({
+  downloadProgress: 0,
+  error: undefined,
+  guid: 'installed-addon@company',
+  isPreviewingTheme: false,
+  needsRestart: false,
+  stauts: ENABLED,
+  themePreviewNode: undefined,
+  url: 'https://a.m.o/addon/detail/view',
+});
+
 export const fakeReview = Object.freeze({
   id: 8876,
   // The API only provides a minimal add-on representation.
@@ -157,12 +171,12 @@ export const fakeCategory = Object.freeze({
  */
 export const signedInApiState = Object.freeze({
   ...coreSignedInApiState,
-  clientApp: 'firefox',
+  clientApp: CLIENT_APP_FIREFOX,
 });
 
 export function dispatchClientMetadata({
   store = createStore().store,
-  clientApp = 'android',
+  clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
   userAgent = sampleUserAgent,
 } = {}) {

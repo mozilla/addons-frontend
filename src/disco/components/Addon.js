@@ -49,6 +49,7 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
+    installURLs: PropTypes.func.isRequired,
     needsRestart: PropTypes.bool.isRequired,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
@@ -63,6 +64,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
+    installURLs: {},
     needsRestart: false,
     // Defaults themeAction to the imported func.
     themeAction,
@@ -269,14 +271,15 @@ export class AddonBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
-  const installation = state.installations[ownProps.guid] || {};
-  const addon = state.addons[ownProps.guid] || {};
+export function mapStateToProps(state, ownProps = {}) {
+  const installation = state.installations[ownProps.guid];
+  const addon = state.addons[ownProps.guid];
   return {
-    addon,
+    addon: addon || {},
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
+    installURLs: addon ? addon.installURLs : {},
     userAgentInfo: state.api.userAgentInfo,
   };
 }

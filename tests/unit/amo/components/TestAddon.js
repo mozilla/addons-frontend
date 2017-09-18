@@ -46,6 +46,7 @@ import {
   dispatchSignInActions,
   dispatchClientMetadata,
   fakeAddon,
+  fakeInstalledAddon,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
@@ -206,6 +207,9 @@ describe('Addon', () => {
 
     // These should render with an empty addon.
     expect(root.find(AddonMeta).prop('addon')).toEqual(null);
+
+    // Since withInstallHelpers relies on this, make sure it's initialized.
+    expect(root.instance().props.installURLs).toEqual({});
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {
@@ -818,8 +822,10 @@ describe('mapStateToProps', () => {
 
   it('can handle a missing addon', () => {
     signIn();
-    const { addon } = _mapStateToProps();
+    const { addon, installURLs } = _mapStateToProps();
     expect(addon).toBeFalsy();
+    // Make sure this isn't undefined since it gets read from `addon`.
+    expect(installURLs).toEqual({});
   });
 
   it('sets the clientApp and userAgent', () => {
@@ -837,7 +843,9 @@ describe('mapStateToProps', () => {
     signIn();
     fetchAddon();
     store.dispatch(setInstallState({
-      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+      ...fakeInstalledAddon,
+      guid: fakeAddon.guid,
+      status: INSTALLED,
     }));
     const { installStatus } = _mapStateToProps();
 
@@ -867,7 +875,9 @@ describe('mapStateToProps', () => {
     signIn();
     fetchAddon();
     store.dispatch(setInstallState({
-      guid: fakeAddon.guid, needsRestart: false, status: INSTALLED,
+      ...fakeInstalledAddon,
+      guid: fakeAddon.guid,
+      status: INSTALLED,
     }));
     const { needsRestart } = _mapStateToProps();
 

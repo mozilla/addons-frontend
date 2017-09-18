@@ -2,12 +2,15 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
+import { setInstallState } from 'core/actions/installations';
 import HoverIntent from 'core/components/HoverIntent';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   CLICK_CATEGORY,
+  CLIENT_APP_FIREFOX,
   DOWNLOAD_FAILED,
+  ENABLED,
   ERROR,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
@@ -23,6 +26,9 @@ import createStore from 'disco/store';
 import {
   createFakeEvent, getFakeI18nInst, signedInApiState,
 } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata, fakeInstalledAddon,
+} from 'tests/unit/amo/helpers';
 import {
   fakeDiscoAddon, loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
@@ -58,8 +64,7 @@ describe(__filename, () => {
   });
 
   it('renders okay without data', () => {
-    // For now, just make sure this doesn't throw an error.
-    renderAddon({
+    const root = renderAddon({
       addon: undefined,
       description: undefined,
       heading: undefined,
@@ -67,6 +72,7 @@ describe(__filename, () => {
       slug: undefined,
       type: undefined,
     });
+    expect(root.instance().props.installURLs).toEqual({});
   });
 
   describe('<Addon type="extension"/>', () => {
@@ -393,39 +399,66 @@ describe(__filename, () => {
   });
 
   describe('mapStateToProps', () => {
+    let store;
+
+    beforeEach(() => {
+      store = createStore().store;
+    });
+
     it('pulls the installation data from the state', () => {
+      const clientApp = CLIENT_APP_FIREFOX;
+      dispatchClientMetadata({ store, clientApp });
+
+      const guid = 'foo@addon';
+      const addonId = 5432111;
+
       const addon = {
-        guid: 'foo@addon',
-        downloadProgress: 75,
+        ...fakeDiscoAddon,
+        guid,
+        id: addonId,
       };
-      const props = mapStateToProps({
-        api: signedInApiState,
-        installations: { foo: { some: 'data' }, 'foo@addon': addon },
-        addons: { 'foo@addon': { addonProp: 'addonValue' } },
-      }, { guid: 'foo@addon' });
-      expect(props).toEqual({
-        addon: {
-          addonProp: 'addonValue',
-        },
-        guid: 'foo@addon',
-        downloadProgress: 75,
-        addonProp: 'addonValue',
-        clientApp: signedInApiState.clientApp,
-        userAgentInfo: signedInApiState.userAgentInfo,
+      loadDiscoResultsIntoState([{
+        heading: 'Discovery Addon 1',
+        description: 'informative text',
+        addon,
+      }], { store });
+
+      store.dispatch(setInstallState({
+        ...fakeInstalledAddon,
+        status: ENABLED,
+        guid,
+      }));
+
+      const props = mapStateToProps(
+        store.getState(), { guid }
+      );
+
+      expect(props).toMatchObject({
+        // Check that `addon` and its properties are spread.
+        addon,
+        id: addonId,
+        // Check that the installed add-on properties are spread.
+        status: ENABLED,
+        // Check that client app is copied.
+        clientApp,
       });
+
+      const userAgentInfo = store.getState().api.userAgentInfo;
+      // Do a quick check to make sure we grabbed a real object.
+      expect(userAgentInfo).toBeTruthy();
+      // Use equality to check this prop since toMatchObject will get
+      // confused by the class instances in deep properties.
+      expect(props.userAgentInfo).toEqual(userAgentInfo);
     });
 
     it('handles missing data', () => {
-      const props = mapStateToProps({
-        api: signedInApiState,
-        installations: {},
-        addons: {},
-      }, { guid: 'nope@addon' });
+      const props = mapStateToProps(
+        store.getState(), { guid: 'not-loaded-yet@addon' },
+      );
 
-      expect(props).toEqual({
+      expect(props).toMatchObject({
         addon: {},
-        clientApp: null,
-        userAgentInfo: signedInApiState.userAgentInfo,
+        installURLs: {},
       });
     });
   });

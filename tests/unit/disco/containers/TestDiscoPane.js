@@ -141,7 +141,7 @@ describe(__filename, () => {
         heading: 'The Add-on',
         iconUrl: addon.icon_url,
         installURLs: {
-          all: undefined,
+          all: 'https://a.m.o/files/321/addon.xpi',
           android: undefined,
           linux: undefined,
           mac: undefined,
@@ -178,7 +178,7 @@ describe(__filename, () => {
         heading: 'The Theme',
         iconUrl: addon.icon_url,
         installURLs: {
-          all: undefined,
+          all: 'https://a.m.o/files/321/addon.xpi',
           android: undefined,
           linux: undefined,
           mac: undefined,
