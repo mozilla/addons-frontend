@@ -123,7 +123,7 @@ export function createInternalAddon(
     // These are custom properties not in the API response.
 
     // TODO: remove this if possible. This is used by core/installAddon
-    // for some reason.
+    // and DiscoPane components for some reason.
     iconUrl: apiAddon.icon_url,
 
     installURLs: {
