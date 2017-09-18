@@ -251,7 +251,7 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
 }
 
 export function createFakeAddon({
-  files = [...fakeAddon.current_version.files], ...overrides,
+  files = [...fakeAddon.current_version.files], ...overrides
 } = {}) {
   return {
     ...fakeAddon,
