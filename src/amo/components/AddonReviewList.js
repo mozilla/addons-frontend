@@ -145,7 +145,13 @@ export class AddonReviewListBase extends React.Component {
 
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // A 401 is made to look like a 404 on purpose.
+      // The following code attempts to recover from a 401 returned
+      // by fetchAddon() but may accidentally catch a 401 from
+      // fetchReviews(). Oh well.
+      // TODO: support multiple error handlers, see
+      // https://github.com/mozilla/addons-frontend/issues/3101
+      //
+      // A 401 for an add-on lookup is made to look like a 404 on purpose.
       // See https://github.com/mozilla/addons-frontend/issues/3061
       if (errorHandler.capturedError.responseStatusCode === 401 ||
           errorHandler.capturedError.responseStatusCode === 404
