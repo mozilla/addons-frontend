@@ -139,36 +139,56 @@ describe(__filename, () => {
   });
 
   it('reads install URLs from the file', () => {
-    const addon = {
-      ...fakeAddon,
-      slug: 'installable',
-      current_version: {
-        ...fakeAddon.current_version,
-        files: [
-          {
-            ...fakeAddon.current_version.files[0],
-            platform: OS_MAC,
-            url: 'https://a.m.o/mac.xpi',
-          },
-          {
-            ...fakeAddon.current_version.files[0],
-            platform: OS_WINDOWS,
-            url: 'https://a.m.o/windows.xpi',
-          },
-          {
-            ...fakeAddon.current_version.files[0],
-            platform: OS_ALL,
-            url: 'https://a.m.o/all.xpi',
-          },
-        ],
-      },
-    };
+    const addon = createFakeAddon({
+      files: [
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_MAC,
+          url: 'https://a.m.o/mac.xpi',
+        },
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_WINDOWS,
+          url: 'https://a.m.o/windows.xpi',
+        },
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_ALL,
+          url: 'https://a.m.o/all.xpi',
+        },
+      ],
+    });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].installURLs).toEqual({
+    expect(state[addon.slug].installURLs).toMatchObject({
       [OS_MAC]: 'https://a.m.o/mac.xpi',
       [OS_WINDOWS]: 'https://a.m.o/windows.xpi',
       [OS_ALL]: 'https://a.m.o/all.xpi',
+    });
+  });
+
+  it('handles an empty array of files', () => {
+    const addon = createFakeAddon({ files: [] });
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].installURLs).toMatchObject({
+      [OS_MAC]: undefined,
+      [OS_WINDOWS]: undefined,
+      [OS_ALL]: undefined,
+    });
+  });
+
+  it('handles files for unknown platforms', () => {
+    const addon = createFakeAddon({
+      files: [{
+        platform: 'unexpectedPlatform',
+        url: 'https://a.m.o/files/somewhere.xpi',
+      }],
+    });
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].installURLs).toMatchObject({
+      unexpectedPlatform: 'https://a.m.o/files/somewhere.xpi',
     });
   });
 

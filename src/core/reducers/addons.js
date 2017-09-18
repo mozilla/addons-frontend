@@ -178,14 +178,11 @@ export function createInternalAddon(
     apiAddon.current_version.files.forEach((file) => {
       // eslint-disable-next-line no-prototype-builtins
       if (!addon.installURLs.hasOwnProperty(file.platform)) {
-        // TODO: add test coverage
         log.warn(oneLine`Add-on ID ${apiAddon.id}, slug ${apiAddon.slug}
           has a file with an unknown platform: ${file.platform}`);
       }
       addon.installURLs[file.platform] = file.url;
     });
-    // TODO: set installURLs.all to the first file if we don't have any
-    // matches.
     addon.isRestartRequired = apiAddon.current_version.files.some(
       (file) => !!file.is_restart_required
     );
