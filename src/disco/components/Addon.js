@@ -33,6 +33,7 @@ import {
   getClientCompatibility as _getClientCompatibility,
   sanitizeHTML,
 } from 'core/utils';
+import LoadingText from 'ui/components/LoadingText';
 
 import 'disco/css/Addon.scss';
 
@@ -227,6 +228,18 @@ export class AddonBase extends React.Component {
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
+    if (!addon) {
+      return (
+        <div className={addonClasses}>
+          <div className="content">
+            <div className="copy">
+              <LoadingText />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     const { compatible, minVersion, reason } = getClientCompatibility({
       addon, clientApp, userAgentInfo });
 
@@ -271,11 +284,11 @@ export class AddonBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps = {}) {
+export function mapStateToProps(state, ownProps) {
   const installation = state.installations[ownProps.guid];
   const addon = state.addons[ownProps.guid];
   return {
-    addon: addon || {},
+    addon,
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,

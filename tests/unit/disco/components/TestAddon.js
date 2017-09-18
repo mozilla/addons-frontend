@@ -32,6 +32,7 @@ import {
 import {
   fakeDiscoAddon, loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
+import LoadingText from 'ui/components/LoadingText';
 
 function renderAddon(customProps = {}) {
   const props = {
@@ -72,6 +73,8 @@ describe(__filename, () => {
       slug: undefined,
       type: undefined,
     });
+
+    expect(root.find(LoadingText)).toHaveLength(1);
     expect(root.instance().props.installURLs).toEqual({});
   });
 
@@ -457,7 +460,7 @@ describe(__filename, () => {
       );
 
       expect(props).toMatchObject({
-        addon: {},
+        addon: undefined,
         installURLs: {},
       });
     });
