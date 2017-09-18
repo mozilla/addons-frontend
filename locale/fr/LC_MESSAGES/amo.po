@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-06 01:04+0000\n"
+"POT-Creation-Date: 2017-09-12 19:26+0000\n"
+"PO-Revision-Date: 2017-09-12 20:15+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -56,19 +56,19 @@ msgstr "À propos de %(addonType)s"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Notes de version pour %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:308
+#: src/amo/components/Addon/index.js:312
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)spar %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:357
 msgid "Restart Required"
 msgstr "Redémarrage nécessaire"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "Extension Metadata"
 msgstr "Métadonnées de l’extension"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:394
 msgid "Screenshots"
 msgstr "Captures d’écran"
 
@@ -312,13 +312,29 @@ msgstr "Signaler un problème"
 msgid "View classic desktop site"
 msgstr "Afficher la version pour ordinateur"
 
-#: src/amo/components/Header/index.js:36
+#: src/amo/components/Header/index.js:100
+msgid "Edit Profile"
+msgstr "Modifier le profil"
+
+#: src/amo/components/Header/index.js:104 src/core/components/AuthenticateButton/index.js:64
+msgid "Log out"
+msgstr "Se déconnecter"
+
+#: src/amo/components/Header/index.js:59
 msgid "Firefox Add-ons"
 msgstr "Modules Firefox"
 
-#: src/amo/components/Header/index.js:58
+#: src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "Pôle développeur"
+
+#: src/amo/components/Header/index.js:92
+msgid "My Account"
+msgstr "Mon compte"
+
+#: src/amo/components/Header/index.js:95
+msgid "View Profile"
+msgstr "Afficher le profil"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -564,35 +580,35 @@ msgstr "Avec le plus d’utilisateurs"
 msgid "Top Rated"
 msgstr "Les mieux notés"
 
-#: src/amo/components/SearchForm/index.js:174
+#: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr "Ouvrir la page du module"
 
-#: src/amo/components/SearchForm/index.js:191
+#: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
 msgstr "Rechercher des extensions"
 
-#: src/amo/components/SearchForm/index.js:193
+#: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
 msgstr "Rechercher un dictionnaire"
 
-#: src/amo/components/SearchForm/index.js:195
+#: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
 msgstr "Rechercher des paquetages linguistiques"
 
-#: src/amo/components/SearchForm/index.js:197
+#: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
 msgstr "Rechercher des thèmes"
 
-#: src/amo/components/SearchForm/index.js:199
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
 msgstr "Rechercher des modules"
 
-#: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Rechercher"
 
-#: src/amo/components/SearchForm/index.js:80
+#: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
 msgstr "Chargement..."
 
@@ -631,10 +647,6 @@ msgstr "Pages suggérées"
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Page d’accueil des modules"
-
-#: src/core/components/AuthenticateButton/index.js:64
-msgid "Log out"
-msgstr "Se déconnecter"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"

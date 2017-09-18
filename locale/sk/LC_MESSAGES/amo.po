@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-06 14:36+0000\n"
+"POT-Creation-Date: 2017-09-12 19:26+0000\n"
+"PO-Revision-Date: 2017-09-16 13:26+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -15,19 +15,16 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:111
-#, fuzzy
 msgid "Featured Extension"
-msgstr "Odporúčané rozšírenia"
+msgstr "Vybrané rozšírenie"
 
 #: src/amo/components/Addon/index.js:113
-#, fuzzy
 msgid "Featured Theme"
-msgstr "Odporúčané témy vzhľadu"
+msgstr "Vybraná téma vzhľadu"
 
 #: src/amo/components/Addon/index.js:115
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Doplnky pre Firefox"
+msgstr "Vybraný doplnok"
 
 #: src/amo/components/Addon/index.js:132
 msgid "Cancel preview"
@@ -60,19 +57,19 @@ msgstr "O tomto %(addonType)s"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Poznámky k vydaniu pre verziu %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:308
+#: src/amo/components/Addon/index.js:312
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s od %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:357
 msgid "Restart Required"
 msgstr "Vyžaduje sa reštart"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "Extension Metadata"
 msgstr "Metadáta rozšírenia"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:394
 msgid "Screenshots"
 msgstr "Snímky obrazovky"
 
@@ -315,13 +312,29 @@ msgstr "Nahlásiť chybu"
 msgid "View classic desktop site"
 msgstr "Zobraziť verziu stránky pre počítače"
 
-#: src/amo/components/Header/index.js:36
+#: src/amo/components/Header/index.js:100
+msgid "Edit Profile"
+msgstr "Upraviť profil"
+
+#: src/amo/components/Header/index.js:104 src/core/components/AuthenticateButton/index.js:64
+msgid "Log out"
+msgstr "Odhlásiť sa"
+
+#: src/amo/components/Header/index.js:59
 msgid "Firefox Add-ons"
 msgstr "Doplnky pre Firefox"
 
-#: src/amo/components/Header/index.js:58
+#: src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "Centrum vývojárov"
+
+#: src/amo/components/Header/index.js:92
+msgid "My Account"
+msgstr "Môj účet"
+
+#: src/amo/components/Header/index.js:95
+msgid "View Profile"
+msgstr "Zobraziť profil"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -569,39 +582,35 @@ msgstr "Najviac používateľov"
 msgid "Top Rated"
 msgstr "Najlepšie hodnotenie"
 
-#: src/amo/components/SearchForm/index.js:174
+#: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr "Prejsť na stránku doplnku"
 
-#: src/amo/components/SearchForm/index.js:191
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
-msgstr "Odporúčané rozšírenia"
+msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:193
+#: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
-msgstr ""
+msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:195
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
-msgstr "Ak chcete ohodnotiť tento jazykový balíček, musíte sa prihlásiť"
+msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:197
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
-msgstr "Nájsť správy"
+msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:199
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
-msgstr "Načítavanie doplnkov"
+msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:80
+#: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
 msgstr "Načítavanie"
 
@@ -640,10 +649,6 @@ msgstr "Odporúčané stránky"
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Domovská stránka Doplnkov pre Firefox"
-
-#: src/core/components/AuthenticateButton/index.js:64
-msgid "Log out"
-msgstr "Odhlásiť sa"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"
@@ -735,7 +740,7 @@ msgstr "Ak chcete pokračovať, obnovte kartu"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Prepnúť obsah"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"

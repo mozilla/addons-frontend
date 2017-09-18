@@ -44,6 +44,7 @@ export type AddonVersionType = {|
 export type AddonAuthorType = {|
   name: string,
   url: string,
+  username: string,
 |};
 
 type ThemeData = {|

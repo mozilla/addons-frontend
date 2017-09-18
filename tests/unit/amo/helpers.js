@@ -31,6 +31,7 @@ export const fakeAddon = Object.freeze({
   authors: [{
     name: 'Krupa',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+    username: 'krupa',
   }],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
@@ -95,8 +96,9 @@ export const fakeAddon = Object.freeze({
 export const fakeTheme = Object.freeze({
   ...fakeAddon,
   authors: [{
-    name: 'Madonna',
+    name: 'MaDonna',
     url: 'http://olympia.dev/en-US/firefox/user/madonna/',
+    username: 'MaDonna',
   }],
   description: 'This is the add-on description',
   guid: 'dancing-daisies-theme@my-addons.firefox',
@@ -194,13 +196,14 @@ export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
   username = 'user-1234',
+  displayName = null,
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
   store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({ id: userId, username }),
+    profile: createUserProfileResponse({ id: userId, username, displayName }),
   }));
 
   return {

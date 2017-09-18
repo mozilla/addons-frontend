@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-06 17:15+0000\n"
+"POT-Creation-Date: 2017-09-12 19:26+0000\n"
+"PO-Revision-Date: 2017-09-13 10:51+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -53,23 +53,22 @@ msgid "About this %(addonType)s"
 msgstr "Om denne %(addonType)s"
 
 #: src/amo/components/Addon/index.js:255
-#, fuzzy
 msgid "Release notes for %(addonVersion)s"
-msgstr "Vurdering for %(addonName)s"
+msgstr "Versjonsnotat for %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:308
+#: src/amo/components/Addon/index.js:312
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sav %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:357
 msgid "Restart Required"
 msgstr "Omstart påkravd"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "Extension Metadata"
 msgstr "Metadata for utvidingar"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:394
 msgid "Screenshots"
 msgstr "Skjermbilde"
 
@@ -238,9 +237,8 @@ msgid "Browse all themes in this category."
 msgstr "Bla gjennom alle tema i denne kategorien."
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Utvidingar for Firefox"
+msgstr "Last ned Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -312,13 +310,29 @@ msgstr "Rapporter ein feil"
 msgid "View classic desktop site"
 msgstr "Vis klassisk desktop-side"
 
-#: src/amo/components/Header/index.js:36
+#: src/amo/components/Header/index.js:100
+msgid "Edit Profile"
+msgstr "Rediger profil"
+
+#: src/amo/components/Header/index.js:104 src/core/components/AuthenticateButton/index.js:64
+msgid "Log out"
+msgstr "Logg ut"
+
+#: src/amo/components/Header/index.js:59
 msgid "Firefox Add-ons"
 msgstr "Firefox-utvidingar"
 
-#: src/amo/components/Header/index.js:58
+#: src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "Utviklar-knutepunkt"
+
+#: src/amo/components/Header/index.js:92
+msgid "My Account"
+msgstr "Min konto"
+
+#: src/amo/components/Header/index.js:95
+msgid "View Profile"
+msgstr "Vis profil"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -509,19 +523,16 @@ msgstr[0] "%(count)s utviding funne"
 msgstr[1] "%(count)s utvidingar funne"
 
 #: src/amo/components/SearchFilters/index.js:104
-#, fuzzy
 msgid "Filter results"
-msgstr "Søkjeresultat"
+msgstr "Filtrer resultata"
 
 #: src/amo/components/SearchFilters/index.js:110
-#, fuzzy
 msgid "Sort by"
-msgstr "Sorter"
+msgstr "Sorter etter"
 
 #: src/amo/components/SearchFilters/index.js:128
-#, fuzzy
 msgid "Add-on Type"
-msgstr "Ikon for utvidingar"
+msgstr "Utvidingstype"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
@@ -532,12 +543,10 @@ msgid "All"
 msgstr "Alle"
 
 #: src/amo/components/SearchFilters/index.js:71
-#, fuzzy
 msgid "Extension"
-msgstr "Utvidingar"
+msgstr "Utviding"
 
 #: src/amo/components/SearchFilters/index.js:72
-#, fuzzy
 msgid "Theme"
 msgstr "Tema"
 
@@ -569,39 +578,35 @@ msgstr "Flest brukarar"
 msgid "Top Rated"
 msgstr "Høgast vurderte"
 
-#: src/amo/components/SearchForm/index.js:174
+#: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr "Gå til utvidings-sida"
 
-#: src/amo/components/SearchForm/index.js:191
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
-msgstr "Utvalde utvidingar"
+msgstr "Finn utvidingar"
 
-#: src/amo/components/SearchForm/index.js:193
+#: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
 msgstr "Finn ordbok"
 
-#: src/amo/components/SearchForm/index.js:195
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
-msgstr "Logg inn for å vurdere denne språkpakken"
+msgstr "Finn språkpakke"
 
-#: src/amo/components/SearchForm/index.js:197
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
-msgstr "Finn nyheiter"
+msgstr "Finn tema"
 
-#: src/amo/components/SearchForm/index.js:199
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
-msgstr "Laster utvidingar"
+msgstr "Finn utvidingar"
 
-#: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Søk"
 
-#: src/amo/components/SearchForm/index.js:80
+#: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
 msgstr "Lastar"
 
@@ -640,10 +645,6 @@ msgstr "Føreslåtte sider"
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Heimeside for utvidingar"
-
-#: src/core/components/AuthenticateButton/index.js:64
-msgid "Log out"
-msgstr "Logg ut"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"

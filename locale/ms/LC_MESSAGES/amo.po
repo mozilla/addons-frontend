@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-05 23:59+0000\n"
+"POT-Creation-Date: 2017-09-12 19:26+0000\n"
+"PO-Revision-Date: 2017-09-12 22:57+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -56,19 +56,19 @@ msgstr "Perihal %(addonType)s"
 msgid "Release notes for %(addonVersion)s"
 msgstr "Nota keluaran untuk %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:308
+#: src/amo/components/Addon/index.js:312
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)soleh %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:357
 msgid "Restart Required"
 msgstr "Perlu Mula semula"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "Extension Metadata"
 msgstr "Metadata Ekstensi"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:394
 msgid "Screenshots"
 msgstr "Skrinsyot"
 
@@ -310,14 +310,30 @@ msgstr "Laporkan pepijat"
 msgid "View classic desktop site"
 msgstr "Papar laman web klasik desktop"
 
+#: src/amo/components/Header/index.js:100
+msgid "Edit Profile"
+msgstr "Edit Profil"
+
+#: src/amo/components/Header/index.js:104 src/core/components/AuthenticateButton/index.js:64
+msgid "Log out"
+msgstr "Log keluar"
+
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:36
+#: src/amo/components/Header/index.js:59
 msgid "Firefox Add-ons"
 msgstr "Add-ons Firefox"
 
-#: src/amo/components/Header/index.js:58
+#: src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "Hab Pembangun"
+
+#: src/amo/components/Header/index.js:92
+msgid "My Account"
+msgstr "Akaun Saya"
+
+#: src/amo/components/Header/index.js:95
+msgid "View Profile"
+msgstr "Papar Profil"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -561,35 +577,35 @@ msgstr "Ramai Pengguna"
 msgid "Top Rated"
 msgstr "Tahap Tinggi"
 
-#: src/amo/components/SearchForm/index.js:174
+#: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr "Pergi ke halaman add-on"
 
-#: src/amo/components/SearchForm/index.js:191
+#: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
 msgstr "Cari ekstensi"
 
-#: src/amo/components/SearchForm/index.js:193
+#: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
 msgstr "Cari kamus"
 
-#: src/amo/components/SearchForm/index.js:195
+#: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
 msgstr "Cari pek bahasa"
 
-#: src/amo/components/SearchForm/index.js:197
+#: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
 msgstr "Cari tema"
 
-#: src/amo/components/SearchForm/index.js:199
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
 msgstr "Cari add-ons"
 
-#: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Carian"
 
-#: src/amo/components/SearchForm/index.js:80
+#: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
 msgstr "Memuatkan"
 
@@ -628,10 +644,6 @@ msgstr "Halaman Disyorkan"
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Halaman Utama Add-on"
-
-#: src/core/components/AuthenticateButton/index.js:64
-msgid "Log out"
-msgstr "Log keluar"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"

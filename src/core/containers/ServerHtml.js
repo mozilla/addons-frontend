@@ -91,7 +91,7 @@ export default class ServerHtml extends Component {
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico?v=1" />
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {this.getStyle()}

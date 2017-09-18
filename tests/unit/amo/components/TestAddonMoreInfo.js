@@ -1,43 +1,46 @@
+import { oneLine } from 'common-tags';
 import deepcopy from 'deepcopy';
 import React from 'react';
-import {
-  findRenderedComponentWithType,
-  renderIntoDocument,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
 
-import createStore from 'amo/store';
-import { AddonMoreInfoBase } from 'amo/components/AddonMoreInfo';
-import { fakeAddon } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import AddonMoreInfo, {
+  AddonMoreInfoBase,
+} from 'amo/components/AddonMoreInfo';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import LoadingText from 'ui/components/LoadingText';
 
 
-describe('<AddonMoreInfo />', () => {
-  const initialState = { api: { clientApp: 'android', lang: 'pt' } };
-  const { store } = createStore(initialState);
+describe(__filename, () => {
+  const { store } = dispatchClientMetadata();
 
   function render(props) {
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <AddonMoreInfoBase
-          i18n={getFakeI18nInst()}
-          addon={fakeAddon}
-          {...props}
-        />
-      </Provider>
-    ), AddonMoreInfoBase);
+    return shallowUntilTarget(
+      <AddonMoreInfo
+        addon={fakeAddon}
+        i18n={getFakeI18nInst()}
+        store={store}
+        {...props}
+      />,
+      AddonMoreInfoBase
+    );
   }
 
+  it('renders LoadingText if no add-on is present', () => {
+    const root = render({ addon: null });
+
+    expect(root.find(LoadingText)).toHaveLength(4);
+  });
+
   it('does renders a link <dt> if links exist', () => {
-    const partialAddon = {
+    const addon = {
       ...fakeAddon,
       homepage: null,
       support_url: 'foo.com',
     };
-    const root = render({ addon: partialAddon });
+    const root = render({ addon });
 
-    expect(root.linkTitle.textContent).toEqual('Add-on Links');
+    expect(root.find('.AddonMoreInfo-links-title'))
+      .toIncludeText('Add-on Links');
   });
 
   it('does not render a link <dt> if no links exist', () => {
@@ -46,7 +49,7 @@ describe('<AddonMoreInfo />', () => {
     delete partialAddon.support_url;
     const root = render({ addon: partialAddon });
 
-    expect(root.linkTitle).toEqual(undefined);
+    expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
   });
 
   it('does not render a homepage if none exists', () => {
@@ -54,15 +57,16 @@ describe('<AddonMoreInfo />', () => {
     delete partialAddon.homepage;
     const root = render({ addon: partialAddon });
 
-    expect(root.homepageLink).toEqual(undefined);
+    expect(root.find('.AddonMoreInfo-homepage-link')).toHaveLength(0);
   });
 
   it('renders the homepage of an add-on', () => {
-    const root = render();
+    const addon = { ...fakeAddon, homepage: 'http://hamsterdance.com/' };
+    const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-homepage-link');
 
-    expect(root.homepageLink.textContent).toEqual('Homepage');
-    expect(root.homepageLink.tagName).toEqual('A');
-    expect(root.homepageLink.href).toEqual('http://hamsterdance.com/');
+    expect(link).toIncludeText('Homepage');
+    expect(link).toHaveProp('href', 'http://hamsterdance.com/');
   });
 
   it('does not render a support link if none exists', () => {
@@ -70,63 +74,112 @@ describe('<AddonMoreInfo />', () => {
     delete partialAddon.support_url;
     const root = render({ addon: partialAddon });
 
-    expect(root.supportLink).toEqual(undefined);
+    expect(root.find('.AddonMoreInfo-support-link')).toHaveLength(0);
   });
 
   it('renders the support link of an add-on', () => {
-    const root = render();
+    const addon = {
+      ...fakeAddon,
+      support_url: 'http://support.hampsterdance.com/',
+    };
+    const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-support-link');
 
-    expect(root.supportLink.textContent).toEqual('Support Site');
-    expect(root.supportLink.tagName).toEqual('A');
-    expect(root.supportLink.href).toEqual('http://support.hampsterdance.com/');
+    expect(link).toIncludeText('Support Site');
+    expect(link).toHaveProp('href', 'http://support.hampsterdance.com/');
   });
 
   it('renders the version number of an add-on', () => {
-    const root = render();
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        version: '2.0.1',
+      },
+    };
+    const root = render({ addon });
 
-    expect(root.version.textContent).toEqual('2.0.0');
-    expect(root.version.tagName).toEqual('DD');
+    expect(root.find('.AddonMoreInfo-version')).toHaveText('2.0.1');
   });
 
   it('renders the license and link', () => {
-    const root = render();
+    const addon = {
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        license: { name: 'tofulicense', url: 'http://license.com/' },
+      },
+    };
+    const root = render({ addon });
 
-    expect(root.licenseHeader.textContent).toEqual('License');
-    expect(root.licenseLink.textContent).toEqual('tofulicense');
-    expect(root.licenseLink.tagName).toEqual('A');
-    expect(root.licenseLink.href).toEqual('http://license.com/');
+    expect(root.find('.AddonMoreInfo-license-title')).toHaveText('License');
+    expect(root.find('.AddonMoreInfo-license-link'))
+      .toHaveText('tofulicense');
+    expect(root.find('.AddonMoreInfo-license-link'))
+      .toHaveProp('href', 'http://license.com/');
   });
 
   it('does not render a privacy policy if none exists', () => {
-    const partialAddon = { ...fakeAddon, has_privacy_policy: false };
-    const root = render({ addon: partialAddon });
+    const addon = { ...fakeAddon, has_privacy_policy: false };
+    const root = render({ addon });
 
-    expect(root.privacyPolicyLink).toEqual(undefined);
+    expect(root.find('.AddonMoreInfo-privacy-policy-title'))
+      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-privacy-policy-link'))
+      .toHaveLength(0);
   });
 
   it('renders the privacy policy and link', () => {
     const addon = { ...fakeAddon, has_privacy_policy: true };
     const root = render({ addon });
 
-    expect(findDOMNode(root.privacyPolicyLink).textContent).toEqual('Read the privacy policy for this add-on');
-    // TODO: Change this to an internal `<Link>` tag and use `expect().toBe`
-    // once https://github.com/mozilla/addons-frontend/issues/1828 is fixed.
-    expect(root.privacyPolicyLink.props.href).toContain('/addon/chill-out/privacy/');
+    expect(root.find('.AddonMoreInfo-privacy-policy-title'))
+      .toHaveText('Privacy Policy');
+    expect(root.find('.AddonMoreInfo-privacy-policy-link').children())
+      .toHaveText('Read the privacy policy for this add-on');
+    expect(root.find('.AddonMoreInfo-privacy-policy-link'))
+      .toHaveProp('href', '/addon/chill-out/privacy/');
+  });
+
+  it('does not render a EULA if none exists', () => {
+    const addon = { ...fakeAddon, has_eula: false };
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-eula-link')).toHaveLength(0);
   });
 
   it('renders the EULA and link', () => {
     const addon = { ...fakeAddon, has_eula: true };
     const root = render({ addon });
 
-    expect(findDOMNode(root.eulaLink).textContent)
-      .toEqual('Read the license agreement for this add-on');
-    expect(root.eulaLink.props.href).toContain('/addon/chill-out/eula/');
+    expect(root.find('.AddonMoreInfo-eula-title'))
+      .toHaveText('End-User License Agreement');
+    expect(root.find('.AddonMoreInfo-eula-link').children())
+      .toHaveText('Read the license agreement for this add-on');
+    expect(root.find('.AddonMoreInfo-eula-link'))
+      .toHaveProp('href', '/addon/chill-out/eula/');
   });
 
-  it('does not render a EULA if none exists', () => {
-    const partialAddon = { ...fakeAddon, has_eula: false };
+  it('does not render an add-on ID if none exists', () => {
+    const partialAddon = { ...fakeAddon };
+    delete partialAddon.id;
     const root = render({ addon: partialAddon });
 
-    expect(root.eulaLink).toEqual(undefined);
+    expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-database-id-content')).toHaveLength(0);
+  });
+
+  it('renders the ID and title attribute', () => {
+    const addon = { ...fakeAddon, id: 9001 };
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-database-id-title'))
+      .toHaveText('Site Identifier');
+    expect(root.find('.AddonMoreInfo-database-id-title'))
+      .toHaveProp('title', oneLine`This ID is useful for debugging and
+        identifying your add-on to site administrators.`);
+    expect(root.find('.AddonMoreInfo-database-id-content'))
+      .toHaveText('9001');
   });
 });

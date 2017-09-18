@@ -16,6 +16,7 @@ import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
 import CardList from 'ui/components/CardList';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
@@ -141,6 +142,24 @@ export class AddonReviewListBase extends React.Component {
     const {
       addon, errorHandler, location, params, i18n, reviewCount, reviews,
     } = this.props;
+
+    if (errorHandler.hasError()) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+      // The following code attempts to recover from a 401 returned
+      // by fetchAddon() but may accidentally catch a 401 from
+      // fetchReviews(). Oh well.
+      // TODO: support multiple error handlers, see
+      // https://github.com/mozilla/addons-frontend/issues/3101
+      //
+      // A 401 for an add-on lookup is made to look like a 404 on purpose.
+      // See https://github.com/mozilla/addons-frontend/issues/3061
+      if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 404
+      ) {
+        return <NotFound />;
+      }
+    }
+
     if (!params.addonSlug) {
       throw new Error('params.addonSlug cannot be falsey');
     }

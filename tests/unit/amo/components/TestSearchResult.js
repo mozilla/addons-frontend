@@ -9,7 +9,7 @@ import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
 
-describe('<SearchResult />', () => {
+describe(__filename, () => {
   const baseAddon = {
     ...fakeAddon,
     authors: [
@@ -91,6 +91,18 @@ describe('<SearchResult />', () => {
     expect(root.find('.SearchResult-rating')).toHaveLength(1);
   });
 
+  it('renders the summary', () => {
+    const root = render();
+
+    expect(root.find('.SearchResult-summary')).toHaveLength(1);
+  });
+
+  it('renders the metadata', () => {
+    const root = render();
+
+    expect(root.find('.SearchResult-metadata')).toHaveLength(1);
+  });
+
   it('displays a placeholder if the icon is malformed', () => {
     const addon = { ...fakeAddon, icon_url: 'whatevs' };
     const root = render({ addon });
@@ -138,5 +150,17 @@ describe('<SearchResult />', () => {
       .toHaveLength(1);
     expect(root.find('.SearchResult-users-text').find(LoadingText))
       .toHaveLength(1);
+  });
+
+  it('can hide the summary section', () => {
+    const root = render({ showSummary: false });
+
+    expect(root.find('.SearchResult-summary')).toHaveLength(0);
+  });
+
+  it('can hide the metadata section', () => {
+    const root = render({ showMetadata: false });
+
+    expect(root.find('.SearchResult-metadata')).toHaveLength(0);
   });
 });

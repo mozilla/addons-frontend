@@ -18,6 +18,8 @@ export default class AddonsCard extends React.Component {
     // that will be rendered.
     placeholderCount: PropTypes.number,
     type: PropTypes.string,
+    showMetadata: PropTypes.bool,
+    showSummary: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -34,6 +36,8 @@ export default class AddonsCard extends React.Component {
       className,
       loading,
       placeholderCount,
+      showMetadata,
+      showSummary,
       type,
       ...otherProps
     } = this.props;
@@ -43,7 +47,12 @@ export default class AddonsCard extends React.Component {
     if (addons && addons.length) {
       addons.forEach((addon) => {
         searchResults.push(
-          <SearchResult addon={addon} key={addon.slug} />
+          <SearchResult
+            addon={addon}
+            key={addon.slug}
+            showMetadata={showMetadata}
+            showSummary={showSummary}
+          />
         );
       });
     } else if (loading) {
