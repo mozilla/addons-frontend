@@ -175,12 +175,11 @@ describe(__filename, () => {
 
   it('only dispatches setViewContext for a new addon type', () => {
     const fakeDispatch = sinon.stub();
-    const root = shallowRender({
-      addon: createInternalAddon(fakeAddon), dispatch: fakeDispatch,
-    });
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon, dispatch: fakeDispatch });
     fakeDispatch.reset();
     // Update with the same addon (this apparently happens in real usage).
-    root.setProps({ addon: createInternalAddon(fakeAddon) });
+    root.setProps({ addon });
     // The view context should not be dispatched.
     sinon.assert.notCalled(fakeDispatch);
   });
