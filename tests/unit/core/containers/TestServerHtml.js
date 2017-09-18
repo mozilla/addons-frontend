@@ -113,7 +113,7 @@ describe('<ServerHtml />', () => {
   it('renders favicon', () => {
     const html = findRenderedDOMComponentWithTag(render(), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
-    expect(favicon.getAttribute('href')).toEqual('/favicon.ico');
+    expect(favicon.getAttribute('href')).toEqual('/favicon.ico?v=1');
   });
 
   it('renders title', () => {
