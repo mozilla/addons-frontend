@@ -13,7 +13,7 @@ import './ShowMoreCard.scss';
 
 // This refers to height of `Card-contents` CSS class,
 // beyond which it will add read more link.
-export const MAX_HEIGHT = 145;
+export const MAX_HEIGHT = 150;
 
 export class ShowMoreCardBase extends React.Component {
   static propTypes = {
@@ -40,7 +40,7 @@ export class ShowMoreCardBase extends React.Component {
   truncateToMaxHeight = (contents) => {
     // If the contents are short enough they don't need a "show more" link; the
     // contents are expanded by default.
-    if (contents.clientHeight > MAX_HEIGHT) {
+    if (contents.clientHeight >= MAX_HEIGHT) {
       this.setState({ expanded: false });
     } else {
       this.setState({ expanded: true });
