@@ -1151,9 +1151,9 @@ describe(__filename, () => {
   });
 
   it('does not display the "restart required" badge when addon does not need restart', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon, isRestartRequired: false,
-    });
+    const addon = createInternalAddon(createFakeAddon({
+      files: [{ is_restart_required: false }],
+    }));
     const root = shallowRender({ addon });
 
     expect(root.find(Badge)).toHaveLength(0);
