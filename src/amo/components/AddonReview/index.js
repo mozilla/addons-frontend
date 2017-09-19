@@ -23,7 +23,7 @@ import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';
 
-import 'amo/css/AddonReview.scss';
+import './styles.scss';
 
 type AddonReviewProps = {|
   apiState?: ApiStateType,
