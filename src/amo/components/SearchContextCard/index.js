@@ -60,6 +60,12 @@ export class SearchContextCardBase extends React.Component {
           '%(count)s themes found for "%(query)s"',
           count), { count: i18n.formatNumber(count), query }
         );
+      } else {
+        searchText = i18n.sprintf(i18n.ngettext(
+          '%(count)s result for "%(query)s"',
+          '%(count)s results for "%(query)s"',
+          count), { count: i18n.formatNumber(count), query }
+        );
       }
     } else if (!loading && query) {
       searchText = i18n.sprintf(i18n.ngettext(
