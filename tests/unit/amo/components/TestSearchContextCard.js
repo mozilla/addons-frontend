@@ -225,5 +225,34 @@ describe('SearchContextCard', () => {
     expect(root.find('.SearchContextCard-header'))
       .toIncludeText('2 language packs found for "test"');
   });
+
+  it('should render singular form when only one result is found with addonType theme', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: 'theme',
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('1 result found for "test"');
+  });
+
+  it('should render plural form when multiple results are found with addonType theme', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: 'theme',
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('2 results found for "test"');
+  });
 });
 

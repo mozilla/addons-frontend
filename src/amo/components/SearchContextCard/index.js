@@ -62,8 +62,8 @@ export class SearchContextCardBase extends React.Component {
         );
       } else {
         searchText = i18n.sprintf(i18n.ngettext(
-          '%(count)s result for "%(query)s"',
-          '%(count)s results for "%(query)s"',
+          '%(count)s result found for "%(query)s"',
+          '%(count)s results found for "%(query)s"',
           count), { count: i18n.formatNumber(count), query }
         );
       }
