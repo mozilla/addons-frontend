@@ -170,7 +170,7 @@ describe(__filename, () => {
       mockUserApi
         .expects('userProfile')
         .once()
-        .returns(Promise.reject(new Error('example of an API error')));
+        .rejects('example of an API error');
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
@@ -180,6 +180,7 @@ describe(__filename, () => {
         .end();
 
       expect(response.statusCode).toEqual(500);
+      mockUserApi.verify();
     });
 
     it('fetches the user profile even when SSR is disabled', async () => {
@@ -259,6 +260,7 @@ describe(__filename, () => {
 
       expect(reduxStoreState.api).toEqual(api);
       expect(reduxStoreState.user).toEqual(user);
+      mockUserApi.verify();
     });
   });
 });
