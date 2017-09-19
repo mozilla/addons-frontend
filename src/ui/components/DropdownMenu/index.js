@@ -11,7 +11,8 @@ import './styles.scss';
 
 type Props = {|
   text: string,
-  children: Array<DropdownMenuItem>,
+  // TODO: Replace Array by React.ChildrenArray when we upgrade Flow to 0.53+.
+  children?: Array<React.Element<typeof DropdownMenuItem>>,
   className?: string,
 |};
 
@@ -47,10 +48,13 @@ export class DropdownMenuBase extends React.Component {
         })}
       >
         <button
-          className="DropdownMenu-text"
+          className="DropdownMenu-button"
           onClick={this.handleOnClick}
+          title={text}
         >
-          {text}
+          <span className="DropdownMenu-button-text">
+            {text}
+          </span>
           <Icon name="inverted-caret" />
         </button>
 

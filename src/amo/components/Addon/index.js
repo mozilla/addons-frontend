@@ -13,11 +13,17 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
+import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { fetchAddon } from 'core/reducers/addons';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, ENABLED, UNKNOWN,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_THEME,
+  ENABLED,
+  UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
@@ -34,6 +40,7 @@ import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 import Badge from 'ui/components/Badge';
+import AddonsCard from 'amo/components/AddonsCard';
 
 import './styles.scss';
 
@@ -57,6 +64,7 @@ export class AddonBase extends React.Component {
     installStatus: PropTypes.string.isRequired,
     toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
+    addonsByAuthors: PropTypes.array.isRequired,
   }
 
   static defaultProps = {
@@ -65,12 +73,22 @@ export class AddonBase extends React.Component {
   }
 
   componentWillMount() {
-    const { addon, dispatch, errorHandler, params } = this.props;
+    const {
+      addon,
+      dispatch,
+      errorHandler,
+      params,
+    } = this.props;
 
-    if (addon) {
-      dispatch(setViewContext(addon.type));
-    } else {
-      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+    // This makes sure we do not try to dispatch any new actions in the case
+    // of an error.
+    if (!errorHandler.hasError()) {
+      if (addon) {
+        dispatch(setViewContext(addon.type));
+        this.dispatchFetchOtherAddonsByAuthors({ addon });
+      } else {
+        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+      }
     }
   }
 
@@ -84,6 +102,10 @@ export class AddonBase extends React.Component {
 
     if (params.slug !== newParams.slug) {
       dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
+    }
+
+    if (newAddon && oldAddon !== newAddon) {
+      this.dispatchFetchOtherAddonsByAuthors({ addon: newAddon });
     }
   }
 
@@ -114,6 +136,17 @@ export class AddonBase extends React.Component {
       default:
         return i18n.gettext('Featured Add-on');
     }
+  }
+
+  dispatchFetchOtherAddonsByAuthors({ addon }) {
+    const { dispatch, errorHandler } = this.props;
+
+    dispatch(fetchOtherAddonsByAuthors({
+      addonType: addon.type,
+      authors: addon.authors.map((author) => author.username),
+      errorHandlerId: errorHandler.id,
+      slug: addon.slug,
+    }));
   }
 
   headerImage({ compatible } = {}) {
@@ -266,9 +299,93 @@ export class AddonBase extends React.Component {
     /* eslint-enable react/no-danger */
   }
 
+  renderMoreAddonsByAuthors = () => {
+    const { addon, addonsByAuthors, i18n } = this.props;
+
+    if (!addon || !addonsByAuthors || addonsByAuthors.length === 0) {
+      return null;
+    }
+
+    const addonType = addon.type;
+    const authorNames = addon.authors.map((author) => author.name);
+
+    let header;
+    switch (addonType) {
+      case ADDON_TYPE_DICT:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More dictionaries by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More dictionaries by these translators'),
+          authorNames.length
+        );
+        break;
+
+      case ADDON_TYPE_EXTENSION:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More extensions by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More extensions by these developers'),
+          authorNames.length
+        );
+        break;
+
+      case ADDON_TYPE_LANG:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More language packs by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More language packs by these translators'),
+          authorNames.length
+        );
+        break;
+
+      case ADDON_TYPE_THEME:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More themes by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More themes by these artists'),
+          authorNames.length
+        );
+        break;
+
+      default:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('More add-ons by %(author)s'),
+            { author: authorNames[0] }
+          ),
+          i18n.gettext('More add-ons by these developers'),
+          authorNames.length
+        );
+    }
+
+    const classnames = classNames('AddonDescription-more-addons', {
+      'AddonDescription-more-addons--theme': addonType === ADDON_TYPE_THEME,
+    });
+
+    return (
+      <AddonsCard
+        addons={addonsByAuthors}
+        className={classnames}
+        header={header}
+        showMetadata={false}
+        showSummary={false}
+        type="horizontal"
+      />
+    );
+  }
+
   render() {
     const {
       addon,
+      addonsByAuthors,
       clientApp,
       errorHandler,
       getClientCompatibility,
@@ -279,8 +396,12 @@ export class AddonBase extends React.Component {
 
     let errorBanner = null;
     if (errorHandler.hasError()) {
-      log.error('Captured API Error:', errorHandler.capturedError);
-      if (errorHandler.capturedError.responseStatusCode === 404) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+      // A 401 is made to look like a 404 on purpose.
+      // See https://github.com/mozilla/addons-frontend/issues/3061
+      if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 404
+      ) {
         return <NotFound />;
       }
       // Show a list of errors at the top of the add-on section.
@@ -332,8 +453,15 @@ export class AddonBase extends React.Component {
       isRestartRequired = addon.isRestartRequired;
     }
 
+    const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
+
     return (
-      <div className={classNames('Addon', `Addon-${addonType}`)}>
+      <div
+        className={classNames('Addon', `Addon-${addonType}`, {
+          'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
+          'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
+        })}
+      >
         {errorBanner}
         <Card className="" photonStyle>
           <header className="Addon-header">
@@ -396,8 +524,9 @@ export class AddonBase extends React.Component {
           {this.renderShowMoreCard()}
           {this.renderRatingsCard()}
 
-          {addon ? <AddonMoreInfo addon={addon} /> : null}
+          <AddonMoreInfo addon={addon} />
           {this.renderVersionReleaseNotes()}
+          {this.renderMoreAddonsByAuthors()}
         </div>
       </div>
     );
@@ -408,8 +537,12 @@ export class AddonBase extends React.Component {
 export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
   const addon = state.addons[slug];
+
+  let addonsByAuthors;
   let installedAddon = {};
+
   if (addon) {
+    addonsByAuthors = state.addonsByAuthors.byAddonSlug[addon.slug];
     installedAddon = state.installations[addon.guid] || {};
   }
 
@@ -431,6 +564,7 @@ export function mapStateToProps(state, ownProps) {
     installStatus: installedAddon.status || UNKNOWN,
     clientApp: state.api.clientApp,
     userAgentInfo: state.api.userAgentInfo,
+    addonsByAuthors,
   };
 }
 

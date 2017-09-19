@@ -5,8 +5,6 @@ import Header, { HeaderBase } from 'amo/components/Header';
 import Link from 'amo/components/Link';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import DropdownMenu from 'ui/components/DropdownMenu';
-import DropdownMenuItem from 'ui/components/DropdownMenuItem';
-import * as api from 'core/api';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import {
   dispatchClientMetadata,
@@ -67,7 +65,16 @@ describe(__filename, () => {
     expect(wrapper.find(DropdownMenu)).toHaveLength(0);
   });
 
-  it('displays a menu and the username when user is signed in', () => {
+  it('displays a menu and the display name when user is signed in', () => {
+    const displayName = 'King of the Elephants';
+    const { store } = dispatchSignInActions({ username: 'babar', displayName });
+    const wrapper = renderHeader({ store });
+
+    expect(wrapper.find(DropdownMenu)).toHaveLength(1);
+    expect(wrapper.find(DropdownMenu)).toHaveProp('text', displayName);
+  });
+
+  it('displays the username when user is signed in but has no display name', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
     const wrapper = renderHeader({ store });
 
@@ -77,17 +84,15 @@ describe(__filename, () => {
 
   it('allows a signed-in user to log out', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
-    const wrapper = renderHeader({ store });
-    const mockApi = sinon.mock(api);
+    const handleLogOut = sinon.stub();
 
-    mockApi
-      .expects('logOutFromServer')
-      .once()
-      .returns(Promise.resolve());
+    const wrapper = renderHeader({ store, handleLogOut });
 
-    const onClick = wrapper.find(DropdownMenuItem).last().prop('onClick');
+    const onClick = wrapper.find('.Header-logout-button').prop('onClick');
     onClick(createFakeEvent());
 
-    mockApi.verify();
+    sinon.assert.calledWith(handleLogOut, {
+      api: store.getState().api,
+    });
   });
 });

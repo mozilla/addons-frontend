@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-05 18:50+0000\n"
-"PO-Revision-Date: 2017-09-09 17:55+0000\n"
+"POT-Creation-Date: 2017-09-12 19:26+0000\n"
+"PO-Revision-Date: 2017-09-18 04:57+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -56,23 +56,22 @@ msgid "About this %(addonType)s"
 msgstr "%(addonType)s దీని గురించి"
 
 #: src/amo/components/Addon/index.js:255
-#, fuzzy
 msgid "Release notes for %(addonVersion)s"
-msgstr "%(addonName)s కోసం సమీక్షలు"
+msgstr "%(addonName)s కోసం విడుదల గమనికలు"
 
-#: src/amo/components/Addon/index.js:308
+#: src/amo/components/Addon/index.js:312
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(authorList)s%(endSpan)s చేత %(addonName)s %(startSpan)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:357
 msgid "Restart Required"
-msgstr ""
+msgstr "పునఃప్రారంభం అవసరం"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "Extension Metadata"
 msgstr "పొడిగింత మెటాడేటా"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:394
 msgid "Screenshots"
 msgstr "స్క్రీన్‌షాట్‌లు"
 
@@ -241,9 +240,8 @@ msgid "Browse all themes in this category."
 msgstr ""
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Firefox యొక్క పొడిగింతలు"
+msgstr "Firefoxను దింపుకోండి"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -311,14 +309,30 @@ msgstr ""
 msgid "View classic desktop site"
 msgstr "క్లాసిక్ డెస్క్టాప్ సైట్ను వీక్షించండి"
 
+#: src/amo/components/Header/index.js:100
+msgid "Edit Profile"
+msgstr "ప్రొఫైల్‌ను సవరించు"
+
+#: src/amo/components/Header/index.js:104 src/core/components/AuthenticateButton/index.js:64
+msgid "Log out"
+msgstr "లాగ్ అవుట్"
+
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:36
+#: src/amo/components/Header/index.js:59
 msgid "Firefox Add-ons"
 msgstr "Firefox పొడిగింతలు"
 
-#: src/amo/components/Header/index.js:58
+#: src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "డెవలపర్ కేంద్రం"
+
+#: src/amo/components/Header/index.js:92
+msgid "My Account"
+msgstr "నా ఖాతా"
+
+#: src/amo/components/Header/index.js:95
+msgid "View Profile"
+msgstr "ప్రొఫైల్‌ను వీక్షించు"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -402,7 +416,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:118
 msgid "Most popular extensions"
-msgstr ""
+msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
 #: src/amo/components/LandingPage/index.js:123
 msgid "More popular extensions"
@@ -509,19 +523,16 @@ msgstr[0] "%(count)s పొడిగింత దొరికింది"
 msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
 
 #: src/amo/components/SearchFilters/index.js:104
-#, fuzzy
 msgid "Filter results"
-msgstr "ఫలితాల శోధన"
+msgstr "ఫలితాల వడపోత"
 
 #: src/amo/components/SearchFilters/index.js:110
-#, fuzzy
 msgid "Sort by"
 msgstr "క్రమపరచు"
 
 #: src/amo/components/SearchFilters/index.js:128
-#, fuzzy
 msgid "Add-on Type"
-msgstr "పొడిగింత చిహ్నం"
+msgstr "పొడిగింత రకం"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
@@ -532,14 +543,12 @@ msgid "All"
 msgstr "అన్నీ"
 
 #: src/amo/components/SearchFilters/index.js:71
-#, fuzzy
 msgid "Extension"
-msgstr "పొడిగింతలు"
+msgstr "పొడిగింత"
 
 #: src/amo/components/SearchFilters/index.js:72
-#, fuzzy
 msgid "Theme"
-msgstr "థీములు"
+msgstr "అలంకారం"
 
 #: src/amo/components/SearchFilters/index.js:81
 msgid "Windows"
@@ -563,47 +572,44 @@ msgstr "ఇటీవలి నవీకరణలు"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Most Users"
-msgstr ""
+msgstr "చాలా మంది వాడుకరులు"
 
 #: src/amo/components/SearchFilters/index.js:94
 msgid "Top Rated"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:174
+#: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr ""
 
-#: src/amo/components/SearchForm/index.js:191
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
-msgstr "పొడిగింతలు"
+msgstr "పొడిగింతలను కనుగొనండి"
 
-#: src/amo/components/SearchForm/index.js:193
+#: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
 msgstr "నిఘంటువు కనుగొను"
 
-#: src/amo/components/SearchForm/index.js:195
+#: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
 msgstr "భాష ప్యాక్ను కనుగొనండి"
 
-#: src/amo/components/SearchForm/index.js:197
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
-msgstr "వార్తలను కనుగొనండి"
+msgstr "అలంకారాలను కనుగొనండి"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/SearchForm/index.js:199
-#, fuzzy
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
-msgstr "Firefox పొడిగింతలు"
+msgstr "పొడిగింతలను కనుగొనండి"
 
-#: src/amo/components/SearchForm/index.js:225 src/amo/components/SearchForm/index.js:255
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "వెతుకు"
 
-#: src/amo/components/SearchForm/index.js:80
+#: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
-msgstr ""
+msgstr "లోడవుతున్నది"
 
 #: src/amo/components/SearchResult/index.js:74
 msgid "No theme preview available"
@@ -641,10 +647,6 @@ msgstr "సూచించిన పేజీలు"
 msgid "Add-ons Home Page"
 msgstr "పొడిగింతల హోమ్ పేజీ"
 
-#: src/core/components/AuthenticateButton/index.js:64
-msgid "Log out"
-msgstr "లాగ్ అవుట్"
-
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"
 msgstr "నమోదు లేదా సైన్ ఇన్"
@@ -667,7 +669,7 @@ msgstr "Firefoxకు జోడించండి"
 
 #: src/core/components/InstallButton/index.js:85
 msgid "Install Theme"
-msgstr ""
+msgstr "అలంకారాన్ని స్థాపించు"
 
 #: src/core/components/InstallSwitch/index.js:55
 msgid "Downloading %(name)s."

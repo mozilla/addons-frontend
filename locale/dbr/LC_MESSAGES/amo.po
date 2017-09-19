@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-05 18:50+0000\n"
+"POT-Creation-Date: 2017-09-12 19:26+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -55,19 +55,19 @@ msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s ɹoɟ sǝʇou ǝsɐǝʅǝᴚ"
 
 # Example: The Add-On <span>by The Author</span>
-#: src/amo/components/Addon/index.js:308
+#: src/amo/components/Addon/index.js:312
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(startSpan)s%(authorList)s ʎq%(endSpan)s %(addonName)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:357
 msgid "Restart Required"
 msgstr "pǝɹınbǝᴚ ʇɹɐʇsǝᴚ"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "Extension Metadata"
 msgstr "ɐʇɐpɐʇǝW uoısuǝʇxƎ"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:394
 msgid "Screenshots"
 msgstr "sʇoɥsuǝǝɹɔS"
 
@@ -306,14 +306,31 @@ msgstr "ƃnq ɐ ʇɹodǝᴚ"
 msgid "View classic desktop site"
 msgstr "ǝʇıs doʇʞsǝp ɔıssɐʅɔ ʍǝıɅ"
 
+#: src/amo/components/Header/index.js:100
+msgid "Edit Profile"
+msgstr "ǝʅıɟoɹԀ ʇıpƎ"
+
+#: src/amo/components/Header/index.js:104
+#: src/core/components/AuthenticateButton/index.js:64
+msgid "Log out"
+msgstr "ʇno ƃo⅂"
+
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:36
+#: src/amo/components/Header/index.js:59
 msgid "Firefox Add-ons"
 msgstr "suo-pp∀ xoɟǝɹıℲ"
 
-#: src/amo/components/Header/index.js:58
+#: src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "qnH ɹǝdoʅǝʌǝᗡ"
+
+#: src/amo/components/Header/index.js:92
+msgid "My Account"
+msgstr "ʇunoɔɔ∀ ʎW"
+
+#: src/amo/components/Header/index.js:95
+msgid "View Profile"
+msgstr "ǝʅıɟoɹԀ ʍǝıɅ"
 
 #: src/amo/components/Home/index.js:100
 #: src/amo/components/Home/index.js:75
@@ -570,36 +587,36 @@ msgstr "sɹǝs∩ ʇsoW"
 msgid "Top Rated"
 msgstr "pǝʇɐᴚ do⊥"
 
-#: src/amo/components/SearchForm/index.js:174
+#: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr "ǝƃɐd uo-ppɐ ǝɥʇ oʇ o⅁"
 
-#: src/amo/components/SearchForm/index.js:191
+#: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
 msgstr "suoısuǝʇxǝ puıℲ"
 
-#: src/amo/components/SearchForm/index.js:193
+#: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
 msgstr "ʎɹɐuoıʇɔıp puıℲ"
 
-#: src/amo/components/SearchForm/index.js:195
+#: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
 msgstr "ʞɔɐd ǝƃɐnƃuɐʅ puıℲ"
 
-#: src/amo/components/SearchForm/index.js:197
+#: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
 msgstr "sǝɯǝɥʇ puıℲ"
 
-#: src/amo/components/SearchForm/index.js:199
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
 msgstr "suo-ppɐ puıℲ"
 
-#: src/amo/components/SearchForm/index.js:225
-#: src/amo/components/SearchForm/index.js:255
+#: src/amo/components/SearchForm/index.js:247
+#: src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "ɥɔɹɐǝS"
 
-#: src/amo/components/SearchForm/index.js:80
+#: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
 msgstr "ƃuıpɐo⅂"
 
@@ -638,10 +655,6 @@ msgstr "sǝƃɐԀ pǝʇsǝƃƃnS"
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "ǝƃɐԀ ǝɯoH suo-pp∀"
-
-#: src/core/components/AuthenticateButton/index.js:64
-msgid "Log out"
-msgstr "ʇno ƃo⅂"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"

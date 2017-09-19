@@ -115,9 +115,10 @@ export const createHandleLogOutFunction = (
 };
 
 export const mapDispatchToProps = (
-  dispatch: DispatchFunc
+  dispatch: DispatchFunc,
+  ownProps: AuthenticateButtonProps
 ): DispatchMappedProps => ({
-  handleLogOut: createHandleLogOutFunction(dispatch),
+  handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });
 
 export default compose(

@@ -8,8 +8,8 @@ import 'react-photoswipe/lib/photoswipe.css';
 
 import 'amo/css/ScreenShots.scss';
 
-const HEIGHT = 200;
-const WIDTH = 320;
+export const HEIGHT = 1024;
+export const WIDTH = 1366; // This is the same as our $max-content-width;
 const PHOTO_SWIPE_OPTIONS = {
   closeEl: true,
   captionEl: true,

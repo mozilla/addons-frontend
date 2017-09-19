@@ -2,6 +2,7 @@ import { logOutUser } from 'core/actions';
 import reducer, {
   isAuthenticated,
   loadUserProfile,
+  selectDisplayName,
 } from 'core/reducers/user';
 import { createUserProfileResponse } from 'tests/unit/helpers';
 import {
@@ -13,9 +14,10 @@ import {
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
-      const { id, username } = reducer(undefined);
+      const { displayName, id, username } = reducer(undefined);
       expect(id).toEqual(null);
       expect(username).toEqual(null);
+      expect(displayName).toEqual(null);
     });
 
     it('ignores unrelated actions', () => {
@@ -44,9 +46,10 @@ describe(__filename, () => {
       const state = reducer(undefined, loadUserProfile({
         profile: createUserProfileResponse({ id: 12345, username: 'john' }),
       }));
-      const { id, username } = reducer(state, logOutUser());
+      const { displayName, id, username } = reducer(state, logOutUser());
       expect(id).toEqual(null);
       expect(username).toEqual(null);
+      expect(displayName).toEqual(null);
     });
   });
 
@@ -61,6 +64,46 @@ describe(__filename, () => {
       const { state } = dispatchClientMetadata();
 
       expect(isAuthenticated(state)).toEqual(false);
+    });
+  });
+
+  describe('selectDisplayName selector', () => {
+    it('returns the display name when user has a display name', () => {
+      const displayName = 'King of the Elephants';
+      const { state } = dispatchSignInActions({ displayName });
+
+      expect(selectDisplayName(state)).toEqual(displayName);
+    });
+
+    it('returns the username when display name is null', () => {
+      const username = 'babar';
+      const displayName = null;
+      const { state } = dispatchSignInActions({ username, displayName });
+
+      expect(selectDisplayName(state)).toEqual(username);
+    });
+
+    it('returns the username when display name is undefined', () => {
+      const username = 'babar';
+      const displayName = undefined;
+      const { state } = dispatchSignInActions({ username, displayName });
+
+      expect(selectDisplayName(state)).toEqual(username);
+    });
+
+    it('returns the username when display name is an empty string', () => {
+      const username = 'babar';
+      const displayName = '';
+      const { state } = dispatchSignInActions({ username, displayName });
+
+      expect(selectDisplayName(state)).toEqual(username);
+    });
+
+    it('returns the username when user did not define a display name', () => {
+      const username = 'babar';
+      const { state } = dispatchSignInActions({ username });
+
+      expect(selectDisplayName(state)).toEqual(username);
     });
   });
 });

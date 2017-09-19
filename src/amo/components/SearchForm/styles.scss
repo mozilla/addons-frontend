@@ -24,6 +24,7 @@
   outline: 0;
   padding-bottom: 6px;
   padding-top: 6px;
+  text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
 
@@ -61,7 +62,7 @@
   padding: 0;
   position: absolute;
   width: 100%;
-  z-index: 100;
+  z-index: 5;
 }
 
 .SearchForm-suggestions-item {

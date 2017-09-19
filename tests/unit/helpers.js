@@ -252,6 +252,7 @@ export function createFakeEvent(extraProps = {}) {
   return {
     currentTarget: sinon.stub(),
     preventDefault: sinon.stub(),
+    stopPropagation: sinon.stub(),
     ...extraProps,
   };
 }
@@ -286,11 +287,16 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createUserProfileResponse({ id = 123456, username = 'user-1234' } = {}) {
+export function createUserProfileResponse({
+  id = 123456,
+  username = 'user-1234',
+  displayName = null,
+} = {}) {
   return {
     average_addon_rating: null,
     biography: '',
     created: '2017-08-15T12:01:13Z',
+    display_name: displayName,
     homepage: '',
     id,
     is_addon_developer: false,

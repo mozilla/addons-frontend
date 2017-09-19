@@ -11,7 +11,7 @@
 .Card-contents {
   @for $i from 1 through 12 {
     .CategoryHeader--category-color-#{$i} & {
-      background: desaturate(nth($category-colors, $i), 20);
+      background: nth($category-colors, $i);
     }
   }
 }

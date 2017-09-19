@@ -73,6 +73,7 @@ type CallApiParams = {|
   params?: Object,
   schema?: Object,
   state?: ApiStateType,
+  _config?: typeof config,
 |};
 
 export function callApi({
@@ -85,6 +86,7 @@ export function callApi({
   body,
   credentials,
   errorHandler,
+  _config = config,
 }: CallApiParams): Promise<any> {
   if (errorHandler) {
     errorHandler.clear();
@@ -110,8 +112,13 @@ export function callApi({
       options.headers.authorization = `Bearer ${state.token}`;
     }
   }
-  // Workaround for https://github.com/bitinn/node-fetch/issues/245
-  const apiURL = utf8.encode(`${API_BASE}/${endpoint}/${queryString}`);
+
+  let apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  if (_config.get('server')) {
+    log.debug('Encoding `apiURL` in UTF8 before fetch().');
+    // Workaround for https://github.com/bitinn/node-fetch/issues/245
+    apiURL = utf8.encode(apiURL);
+  }
 
   // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
@@ -172,28 +179,6 @@ export function fetchAddon({ api, slug }: FetchAddonParams) {
     schema: addon,
     auth: true,
     state: api,
-  });
-}
-
-type LoginParams = {|
-  api: ApiStateType,
-  code: string,
-  state: string,
-|};
-
-export function login({ api, code, state }: LoginParams) {
-  const params = { config: undefined };
-  const configName = config.get('fxaConfig');
-  if (configName) {
-    params.config = configName;
-  }
-  return callApi({
-    endpoint: 'accounts/login',
-    method: 'POST',
-    body: { code, state },
-    params,
-    state: api,
-    credentials: true,
   });
 }
 

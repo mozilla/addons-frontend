@@ -9,7 +9,7 @@ import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
-import { isAuthenticated } from 'core/reducers/user';
+import { isAuthenticated, selectDisplayName } from 'core/reducers/user';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Icon from 'ui/components/Icon';
@@ -22,6 +22,7 @@ import './styles.scss';
 export class HeaderBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
+    displayName: PropTypes.string,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
@@ -44,6 +45,7 @@ export class HeaderBase extends React.Component {
 
   render() {
     const {
+      displayName,
       i18n,
       isHomePage,
       location,
@@ -86,7 +88,7 @@ export class HeaderBase extends React.Component {
 
           {this.props.isAuthenticated ? (
             <DropdownMenu
-              text={username}
+              text={displayName}
               className="Header-authenticate-button Header-button"
             >
               <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
@@ -100,7 +102,38 @@ export class HeaderBase extends React.Component {
                   {i18n.gettext('Edit Profile')}
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem onClick={this.handleLogOut} detached>
+
+              <DropdownMenuItem>{i18n.gettext('Tools')}</DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link
+                  href="/developers/addon/submit/distribution"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Submit a New Add-on')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link
+                  href="/developers/theme/submit"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Submit a New Theme')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
+                <Link
+                  href="/developers/addon/api/key/"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Manage API Keys')}
+                </Link>
+              </DropdownMenuItem>
+
+              <DropdownMenuItem
+                className={'Header-logout-button'}
+                detached
+                onClick={this.handleLogOut}
+              >
                 {i18n.gettext('Log out')}
               </DropdownMenuItem>
             </DropdownMenu>
@@ -127,14 +160,15 @@ export class HeaderBase extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     api: state.api,
+    displayName: selectDisplayName(state),
     isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
-    username: state.user.username,
     isAuthenticated: isAuthenticated(state),
+    username: state.user.username,
   };
 };
 
-export const mapDispatchToProps = (dispatch) => ({
-  handleLogOut: createHandleLogOutFunction(dispatch),
+export const mapDispatchToProps = (dispatch, ownProps) => ({
+  handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });
 
 export default compose(
