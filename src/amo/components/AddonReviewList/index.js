@@ -25,7 +25,7 @@ import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import LoadingText from 'ui/components/LoadingText';
 
-import 'amo/css/AddonReviewList.scss';
+import './styles.scss';
 
 type AddonReviewListProps = {|
   i18n: Object,
