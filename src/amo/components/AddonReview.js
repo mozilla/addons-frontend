@@ -15,6 +15,7 @@ import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
 import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
+import Rating from 'ui/components/Rating';
 import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/index';
 import type { ApiStateType } from 'core/reducers/api';
@@ -94,6 +95,7 @@ export class AddonReviewBase extends React.Component {
       addonId: review.addonId,
       apiState,
       errorHandler,
+      rating: review.rating,
       reviewId: review.id,
       ...newReviewParams,
     };
@@ -132,6 +134,15 @@ export class AddonReviewBase extends React.Component {
     this.setState(newState);
   }
 
+  onSelectRating = (rating: number) => {
+    // Update the review object with a new rating but don't submit it
+    // to the API yet.
+    this.props.setDenormalizedReview({
+      ...this.props.review,
+      rating,
+    });
+  }
+
   render() {
     const { errorHandler, i18n, review } = this.props;
     const { reviewBody } = this.state;
@@ -160,6 +171,11 @@ export class AddonReviewBase extends React.Component {
       <OverlayCard visibleOnLoad className="AddonReview">
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
+        <Rating
+          styleName="large"
+          rating={review.rating}
+          onSelectRating={this.onSelectRating}
+        />
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
             {errorHandler.renderErrorIfPresent()}
@@ -179,7 +195,7 @@ export class AddonReviewBase extends React.Component {
           <input
             className="AddonReview-submit"
             type="submit"
-            value={i18n.gettext('Submit review')}
+            value={i18n.gettext('Update review')}
           />
         </form>
       </OverlayCard>

@@ -5,16 +5,21 @@ import {
   Simulate,
 } from 'react-addons-test-utils';
 
+import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
 import { SET_REVIEW } from 'amo/constants';
-import { setReview } from 'amo/actions/reviews';
+import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
+import createStore from 'amo/store';
 import * as coreUtils from 'core/utils';
-import {
+import AddonReview, {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
 } from 'amo/components/AddonReview';
 import { fakeAddon, fakeReview, signedInApiState } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import {
+  createStubErrorHandler, getFakeI18nInst, shallowUntilTarget,
+} from 'tests/unit/helpers';
+import Rating from 'ui/components/Rating';
 
 const defaultReview = {
   id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
@@ -29,28 +34,46 @@ function fakeLocalState(overrides = {}) {
   };
 }
 
-function render({ ...customProps } = {}) {
-  const props = {
-    createLocalState: () => fakeLocalState(),
-    errorHandler: createStubErrorHandler(),
-    i18n: getFakeI18nInst(),
-    apiState: signedInApiState,
-    onReviewSubmitted: () => {},
-    refreshAddon: () => Promise.resolve(),
-    review: defaultReview,
-    setDenormalizedReview: () => {},
-    updateReviewText: () => Promise.resolve(),
-    ...customProps,
+describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = createStore().store;
+  });
+
+  const renderProps = (customProps = {}) => {
+    return {
+      createLocalState: () => fakeLocalState(),
+      errorHandler: createStubErrorHandler(),
+      i18n: getFakeI18nInst(),
+      apiState: signedInApiState,
+      onReviewSubmitted: () => {},
+      refreshAddon: () => Promise.resolve(),
+      review: defaultReview,
+      setDenormalizedReview: () => {},
+      store,
+      updateReviewText: () => Promise.resolve(),
+      ...customProps,
+    };
   };
-  const AddonReview = translate({ withRef: true })(AddonReviewBase);
-  const root = findRenderedComponentWithType(renderIntoDocument(
-    <AddonReview {...props} />
-  ), AddonReview);
 
-  return root.getWrappedInstance();
-}
+  function render(customProps = {}) {
+    const props = renderProps(customProps);
+    const AddonReviewI18n = translate({ withRef: true })(AddonReviewBase);
+    const root = findRenderedComponentWithType(renderIntoDocument(
+      <I18nProvider i18n={props.i18n}>
+        <AddonReviewI18n {...props} />
+      </I18nProvider>
+    ), AddonReviewI18n);
 
-describe('AddonReview', () => {
+    return root.getWrappedInstance();
+  }
+
+  const shallowRender = (customProps = {}) => {
+    const props = renderProps(customProps);
+    return shallowUntilTarget(<AddonReview {...props} />, AddonReviewBase);
+  };
+
   it('can update a review', () => {
     const onReviewSubmitted = sinon.spy(() => {});
     const setDenormalizedReview = sinon.spy(() => {});
@@ -85,6 +108,7 @@ describe('AddonReview', () => {
         expect(params.body).toEqual('some review');
         expect(params.addonId).toEqual(defaultReview.addonId);
         expect(params.errorHandler).toEqual(errorHandler);
+        expect(params.rating).toEqual(defaultReview.rating);
         expect(params.reviewId).toEqual(defaultReview.id);
         expect(params.apiState).toEqual(signedInApiState);
 
@@ -246,6 +270,22 @@ describe('AddonReview', () => {
     } catch (error) {
       expect(error.message).toMatch(/Unexpected review property: {"nope".*/);
     }
+  });
+
+  it('lets you change the star rating', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const review = { ...defaultReview };
+    const root = shallowRender({ review });
+
+    const rating = root.find(Rating);
+    const onSelectRating = rating.prop('onSelectRating');
+    const newRating = 1;
+    onSelectRating(newRating);
+
+    sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
+      ...review,
+      rating: newRating,
+    }));
   });
 
   describe('mapStateToProps', () => {

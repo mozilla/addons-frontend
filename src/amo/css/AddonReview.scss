@@ -1,4 +1,5 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .AddonReview .Card-contents {
   padding-left: 0;
@@ -29,8 +30,12 @@
 }
 
 .AddonReview-textarea {
-  min-height: 200px;
+  min-height: 125px;
   resize: vertical;
+
+  @include respond-to("medium") {
+    min-height: 200px;
+  }
 }
 
 .AddonReview-submit {
