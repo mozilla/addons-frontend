@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 
-import { ShowMoreCardBase } from 'ui/components/ShowMoreCard';
+import { ShowMoreCardBase, MAX_HEIGHT } from 'ui/components/ShowMoreCard';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 
 
@@ -40,7 +40,7 @@ describe(__filename, () => {
 
   it('truncates the contents if they are too long', () => {
     const root = render({ children: 'Hello I am description' });
-    root.truncateToMaxHeight({ clientHeight: 101 });
+    root.truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
     expect(root.state.expanded).toEqual(false);
   });
 
