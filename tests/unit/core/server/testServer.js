@@ -170,7 +170,7 @@ describe(__filename, () => {
       mockUserApi
         .expects('userProfile')
         .once()
-        .rejects('example of an API error');
+        .rejects(new Error('example of an API error'));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
