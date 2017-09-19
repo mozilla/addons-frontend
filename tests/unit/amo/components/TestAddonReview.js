@@ -76,13 +76,13 @@ describe(__filename, () => {
 
   it('can update a review', () => {
     const onReviewSubmitted = sinon.spy(() => {});
-    const setDenormalizedReview = sinon.spy(() => {});
+    const _setDenormalizedReview = sinon.spy(() => {});
     const refreshAddon = sinon.spy(() => Promise.resolve());
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const errorHandler = createStubErrorHandler();
     const root = render({
       onReviewSubmitted,
-      setDenormalizedReview,
+      setDenormalizedReview: _setDenormalizedReview,
       refreshAddon,
       updateReviewText,
       errorHandler,
@@ -100,8 +100,9 @@ describe(__filename, () => {
       .then(() => {
         expect(event.preventDefault.called).toBeTruthy();
 
-        expect(setDenormalizedReview.called).toBeTruthy();
-        expect(setDenormalizedReview.firstCall.args[0]).toEqual({ ...defaultReview, body: 'some review' });
+        expect(_setDenormalizedReview.called).toBeTruthy();
+        expect(_setDenormalizedReview.firstCall.args[0])
+          .toEqual({ ...defaultReview, body: 'some review' });
 
         expect(updateReviewText.called).toBeTruthy();
         const params = updateReviewText.firstCall.args[0];
@@ -135,22 +136,22 @@ describe(__filename, () => {
   });
 
   it('looks for state in a local store at initialization', () => {
-    const store = fakeLocalState({
+    const localState = fakeLocalState({
       load: sinon.spy(() => Promise.resolve({
         reviewBody: 'stored body',
       })),
     });
-    render({ createLocalState: () => store });
-    expect(store.load.called).toBeTruthy();
+    render({ createLocalState: () => localState });
+    expect(localState.load.called).toBeTruthy();
   });
 
   it('looks for state in a local store and loads it', () => {
-    const store = fakeLocalState({
+    const localState = fakeLocalState({
       load: sinon.spy(() => Promise.resolve({
         reviewBody: 'stored body',
       })),
     });
-    const root = render({ createLocalState: () => store });
+    const root = render({ createLocalState: () => localState });
     return root.checkForStoredState()
       .then(() => {
         expect(root.state.reviewBody).toEqual('stored body');
@@ -158,11 +159,11 @@ describe(__filename, () => {
   });
 
   it('ignores null entries when retrieving locally stored state', () => {
-    const store = fakeLocalState({
+    const localState = fakeLocalState({
       load: sinon.spy(() => Promise.resolve(null)),
     });
     const root = render({
-      createLocalState: () => store,
+      createLocalState: () => localState,
       review: {
         ...defaultReview,
         body: 'Existing body',
@@ -175,13 +176,13 @@ describe(__filename, () => {
   });
 
   it('overrides existing text with locally stored text', () => {
-    const store = fakeLocalState({
+    const localState = fakeLocalState({
       load: sinon.spy(() => Promise.resolve({
         reviewBody: 'Stored text',
       })),
     });
     const root = render({
-      createLocalState: () => store,
+      createLocalState: () => localState,
       review: {
         ...defaultReview,
         body: 'Existing text',
@@ -194,11 +195,11 @@ describe(__filename, () => {
   });
 
   it('stores text locally when you type text', () => {
-    const store = fakeLocalState({
+    const localState = fakeLocalState({
       save: sinon.spy(() => Promise.resolve()),
     });
     const root = render({
-      createLocalState: () => store,
+      createLocalState: () => localState,
       debounce: (callback) => (...args) => callback(...args),
     });
 
@@ -206,18 +207,18 @@ describe(__filename, () => {
     textarea.value = 'some review';
     Simulate.input(textarea);
 
-    expect(store.save.called).toBeTruthy();
-    expect(store.save.firstCall.args[0]).toEqual({
+    expect(localState.save.called).toBeTruthy();
+    expect(localState.save.firstCall.args[0]).toEqual({
       reviewBody: 'some review',
     });
   });
 
   it('removes the stored state after a successful submission', () => {
-    const store = fakeLocalState({
+    const localState = fakeLocalState({
       clear: sinon.spy(() => Promise.resolve()),
     });
     const root = render({
-      createLocalState: () => store,
+      createLocalState: () => localState,
     });
 
     const textarea = root.reviewTextarea;
@@ -231,7 +232,7 @@ describe(__filename, () => {
 
     return root.onSubmit(event)
       .then(() => {
-        expect(store.clear.called).toBeTruthy();
+        expect(localState.clear.called).toBeTruthy();
       });
   });
 
