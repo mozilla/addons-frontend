@@ -5,17 +5,14 @@ import abuseReducer, {
   sendAddonAbuseReport,
 } from 'core/reducers/abuse';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import {
-  createFakeAddonAbuseReport,
-  createStubErrorHandler,
-} from 'tests/unit/helpers';
+import { createFakeAddonAbuseReport } from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
       const state = abuseReducer(initialState, { type: 'UNRELATED_ACTION' });
-      expect(state).toEqual({});
+      expect(state).toEqual({ bySlug: {} });
     });
 
     it('allows abuse reports for multiple add-ons', () => {
@@ -33,14 +30,14 @@ describe(__filename, () => {
       })));
 
       expect(store.getState().abuse).toMatchObject({
-        // byAddonSlug: {
+        bySlug: {
           'another-addon': {
             message: 'The add-on is boring',
           },
           'some-addon': {
             message: 'This add-on is malwaré.',
           },
-        // },
+        },
       });
     });
 
@@ -123,7 +120,7 @@ describe(__filename, () => {
         const state = abuseReducer(
           initialState, loadAddonAbuseReport(response));
 
-        expect(state[addon.slug].message).toEqual(message);
+        expect(state.bySlug[addon.slug].message).toEqual(message);
       });
 
       it('requires an addon', () => {

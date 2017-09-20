@@ -1,7 +1,4 @@
 /* @flow */
-import type { ErrorHandlerType } from 'core/errorHandler';
-
-
 export const LOAD_ADDON_ABUSE_REPORT = 'LOAD_ADDON_ABUSE_REPORT';
 export const SEND_ADDON_ABUSE_REPORT = 'SEND_ADDON_ABUSE_REPORT';
 
@@ -59,9 +56,15 @@ export function sendAddonAbuseReport(
   };
 }
 
-export const initialState = {};
+export const initialState = {
+  bySlug: {},
+};
 
-type ReducerState = {};
+type ReducerState = {|
+  bySlug: {
+    [addonSlug: string]: Array<{| message: string, reporter: string |}>,
+  },
+|};
 
 export default function abuseReducer(
   state: ReducerState = initialState,
@@ -70,7 +73,7 @@ export default function abuseReducer(
   switch (action.type) {
     case SEND_ADDON_ABUSE_REPORT: {
       const { addonSlug } = action.payload;
-      if (state[addonSlug]) {
+      if (state.bySlug[addonSlug]) {
         throw new Error('You already reported this add-on.');
       }
 
@@ -80,7 +83,10 @@ export default function abuseReducer(
       const { addon, message, reporter } = action.payload;
       return {
         ...state,
-        [addon.slug]: { message, reporter },
+        bySlug: {
+          ...state.bySlug,
+          [addon.slug]: { message, reporter },
+        },
       };
     }
     default:
