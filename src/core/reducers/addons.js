@@ -123,7 +123,8 @@ export function createInternalAddon(
     // These are custom properties not in the API response.
 
     // TODO: remove this if possible. This is used by core/installAddon
-    // and DiscoPane components for some reason.
+    // and DiscoPane components which do camel case conversions for
+    // some historic reason.
     iconUrl: apiAddon.icon_url,
 
     installURLs: {
