@@ -19,12 +19,6 @@ describe(__filename, () => {
   });
 
   describe('reportAddon', () => {
-    function _reportAddon(extraArguments = {}) {
-      return reportAddon({
-        ...extraArguments,
-      });
-    }
-
     function mockResponse({ addon, message }) {
       return createApiResponse({
         jsonData: createFakeAddonAbuseReport({ addon, message }),
@@ -38,7 +32,7 @@ describe(__filename, () => {
       mockApi
         .expects('callApi')
         .withArgs({
-          auth: false,
+          auth: true,
           endpoint: 'abuse/report/addon',
           method: 'POST',
           params: { addon: 'cool-addon', message },
@@ -49,7 +43,7 @@ describe(__filename, () => {
           addon: { ...fakeAddon, slug: 'cool-addon' },
           message,
         }));
-      return _reportAddon({
+      return reportAddon({
         addonSlug: 'cool-addon',
         api: apiState,
         message,
@@ -77,7 +71,7 @@ describe(__filename, () => {
           addon: { ...fakeAddon, slug: 'auth-addon' },
           message,
         }));
-      return _reportAddon({
+      return reportAddon({
         addonSlug: 'auth-addon',
         api: apiState,
         auth: true,

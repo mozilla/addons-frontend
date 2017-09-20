@@ -12,7 +12,7 @@ describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
       const state = abuseReducer(initialState, { type: 'UNRELATED_ACTION' });
-      expect(state).toEqual({ bySlug: {} });
+      expect(state).toEqual(initialState);
     });
 
     it('allows abuse reports for multiple add-ons', () => {
@@ -39,24 +39,6 @@ describe(__filename, () => {
           },
         },
       });
-    });
-
-    it('throws an error if multiple reports are submitted for the same add-on', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(loadAddonAbuseReport(createFakeAddonAbuseReport({
-        addon: { ...fakeAddon, slug: 'some-addon' },
-        message: 'This add-on is malwaré.',
-        reporter: null,
-      })));
-
-      expect(() => {
-        store.dispatch(sendAddonAbuseReport({
-          addonSlug: 'some-addon',
-          errorHandlerId: 'test-abuse',
-          message: 'The add-on is boring',
-        }));
-      }).toThrow('You already reported this add-on');
     });
 
     describe('sendAddonAbuseReport', () => {
@@ -106,57 +88,54 @@ describe(__filename, () => {
     });
 
     describe('loadAddonAbuseReport', () => {
-      let addon;
-      let message;
       let response;
 
       beforeEach(() => {
-        addon = { ...fakeAddon, slug: 'Ego' };
-        message = 'I am Groot!';
-        response = createFakeAddonAbuseReport({ addon, message });
+        response = createFakeAddonAbuseReport({
+          addon: { ...fakeAddon, slug: 'Ego' },
+          message: 'I am Groot!',
+        });
       });
 
       it('saves the abuse report response to the reducer', () => {
         const state = abuseReducer(
           initialState, loadAddonAbuseReport(response));
 
-        expect(state.bySlug[addon.slug].message).toEqual(message);
+        expect(state.bySlug.Ego.message).toEqual('I am Groot!');
       });
 
       it('requires an addon', () => {
         expect(() => {
-          loadAddonAbuseReport({
-            message: response.message,
-            reporter: response.reporter,
-          });
+          const partialParams = { ...response };
+          delete partialParams.addon;
+
+          loadAddonAbuseReport(partialParams);
         }).toThrow('addon is required');
       });
 
       it('requires a message', () => {
         expect(() => {
-          loadAddonAbuseReport({
-            addon: response.addon,
-            reporter: response.reporter,
-          });
+          const partialParams = { ...response };
+          delete partialParams.message;
+
+          loadAddonAbuseReport(partialParams);
         }).toThrow('message is required');
       });
 
       it('requires a defined reporter', () => {
         expect(() => {
-          loadAddonAbuseReport({
-            addon: response.addon,
-            message: response.message,
-          });
+          const partialParams = { ...response };
+          delete partialParams.reporter;
+
+          loadAddonAbuseReport(partialParams);
         }).toThrow('reporter cannot be undefined');
       });
 
       it('reporter can be `null`', () => {
         expect(() => {
-          loadAddonAbuseReport({
-            addon: response.addon,
-            message: response.message,
-            reporter: null,
-          });
+          const paramsWithNull = { ...response, reporter: null };
+
+          loadAddonAbuseReport(paramsWithNull);
         }).not.toThrow('reporter cannot be undefined');
       });
     });

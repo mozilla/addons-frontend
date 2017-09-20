@@ -62,7 +62,7 @@ export const initialState = {
 
 type ReducerState = {|
   bySlug: {
-    [addonSlug: string]: Array<{| message: string, reporter: string |}>,
+    [addonSlug: string]: {| message: string, reporter: string |},
   },
 |};
 
@@ -71,14 +71,6 @@ export default function abuseReducer(
   action: Object
 ) {
   switch (action.type) {
-    case SEND_ADDON_ABUSE_REPORT: {
-      const { addonSlug } = action.payload;
-      if (state.bySlug[addonSlug]) {
-        throw new Error('You already reported this add-on.');
-      }
-
-      return state;
-    }
     case LOAD_ADDON_ABUSE_REPORT: {
       const { addon, message, reporter } = action.payload;
       return {

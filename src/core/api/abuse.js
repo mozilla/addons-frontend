@@ -6,15 +6,14 @@ import type { ApiStateType } from 'core/reducers/api';
 export type ReportAddonParams = {|
   addonSlug: string,
   api: ApiStateType,
-  auth?: boolean,
   message: string,
 |};
 
 export function reportAddon(
-  { addonSlug, api, auth = false, message }: ReportAddonParams
+  { addonSlug, api, message }: ReportAddonParams
 ) {
   return callApi({
-    auth,
+    auth: true,
     endpoint: 'abuse/report/addon',
     method: 'POST',
     params: { addon: addonSlug, message },
