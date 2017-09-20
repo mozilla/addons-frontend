@@ -17,7 +17,7 @@
   @include padding-end(6px);
   @include padding-start(28px);
 
-  border: 0;
+  border: 1px solid $teal-50;
   border-radius: $border-radius-s;
   color: $black;
   height: 28px;
@@ -29,7 +29,6 @@
   width: 100%;
 
   &:focus {
-    border: 1px solid;
     @include focus();
   }
 
