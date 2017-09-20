@@ -98,7 +98,7 @@
 
   grid-column: 3 / span 2;
   grid-row: 1 / 2;
-  margin-top: 11px;
+  margin-top: 10px;
 
   @include respond-to(medium) {
     grid-column: 4 / -1;
