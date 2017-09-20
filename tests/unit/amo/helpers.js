@@ -7,7 +7,12 @@ import {
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_FIREFOX,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  ENABLED,
+  OS_ALL,
 } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
 import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
@@ -32,11 +37,20 @@ export const fakeAddon = Object.freeze({
   categories: { firefox: ['other'] },
   current_beta_version: null,
   current_version: {
+    compatibility: {},
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
     files: [{
+      created: '2014-11-22T10:09:01Z',
+      hash: 'a1b2c3d4',
+      id: 57721,
+      is_restart_required: false,
       is_webextension: true,
+      permissions: ['activeTab', 'webRequest'],
+      platform: OS_ALL,
+      status: 'public',
+      url: 'https://a.m.o/files/321/addon.xpi',
     }],
     is_strict_compatibility_enabled: false,
   },
@@ -112,6 +126,17 @@ export const fakeTheme = Object.freeze({
   type: ADDON_TYPE_THEME,
 });
 
+export const fakeInstalledAddon = Object.freeze({
+  downloadProgress: 0,
+  error: undefined,
+  guid: 'installed-addon@company',
+  isPreviewingTheme: false,
+  needsRestart: false,
+  status: ENABLED,
+  themePreviewNode: undefined,
+  url: 'https://a.m.o/addon/detail/view',
+});
+
 export const fakeReview = Object.freeze({
   id: 8876,
   // The API only provides a minimal add-on representation.
@@ -148,12 +173,12 @@ export const fakeCategory = Object.freeze({
  */
 export const signedInApiState = Object.freeze({
   ...coreSignedInApiState,
-  clientApp: 'firefox',
+  clientApp: CLIENT_APP_FIREFOX,
 });
 
 export function dispatchClientMetadata({
   store = createStore().store,
-  clientApp = 'android',
+  clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
   userAgent = sampleUserAgent,
 } = {}) {
@@ -225,13 +250,21 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
   };
 }
 
-export function createFakeAddon({ files = {} } = {}) {
+export function createFakeAddon({
+  files = [...fakeAddon.current_version.files], ...overrides
+} = {}) {
   return {
     ...fakeAddon,
     current_version: {
       ...fakeAddon.current_version,
-      files,
+      files: files.map((fileProps) => {
+        return {
+          ...fakeAddon.current_version.files[0],
+          ...fileProps,
+        };
+      }),
     },
+    ...overrides,
   };
 }
 

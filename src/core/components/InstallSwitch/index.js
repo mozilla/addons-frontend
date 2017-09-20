@@ -24,19 +24,26 @@ import Switch from 'ui/components/Switch';
 
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
+    accentcolor: PropTypes.string,
     addon: PropTypes.object.isRequired,
+    author: PropTypes.string,
+    description: PropTypes.string,
     disabled: PropTypes.bool,
     downloadProgress: PropTypes.number,
     enable: PropTypes.func,
+    footerURL: PropTypes.string,
     guid: PropTypes.string.isRequired,
     handleChange: PropTypes.func,
+    headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    id: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     slug: PropTypes.string.isRequired,
     status: PropTypes.oneOf(validStates),
+    textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
     uninstall: PropTypes.func.isRequired,
   }
@@ -123,7 +130,16 @@ export class InstallSwitchBase extends React.Component {
   }
 
   render() {
-    const browsertheme = JSON.stringify(getThemeData(this.props));
+    const browsertheme = JSON.stringify(getThemeData({
+      accentcolor: this.props.accentcolor,
+      author: this.props.author,
+      description: this.props.description,
+      footerURL: this.props.footerURL,
+      headerURL: this.props.headerURL,
+      id: this.props.id,
+      name: this.props.name,
+      textcolor: this.props.textcolor,
+    }));
     const { disabled, handleChange, slug, status, ...otherProps } = this.props;
 
     if (!validStates.includes(status)) {

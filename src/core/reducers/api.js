@@ -17,7 +17,14 @@ import type {
 } from 'core/actions/index';
 import type { Exact } from 'core/types/util';
 
+export const USER_AGENT_OS_ANDROID: 'Android' = 'Android';
+export const USER_AGENT_OS_IOS: 'iOS' = 'iOS';
+export const USER_AGENT_OS_LINUX: 'Linux' = 'Linux';
+export const USER_AGENT_OS_MAC: 'Mac OS' = 'Mac OS';
+export const USER_AGENT_OS_WINDOWS: 'Windows' = 'Windows';
 
+
+// For details, see https://github.com/faisalman/ua-parser-js
 export type UserAgentInfoType = {|
   browser: {
     major?: string,
@@ -25,7 +32,14 @@ export type UserAgentInfoType = {|
     version?: string,
   },
   os: {
-    name?: string,
+    // This is not a complete enumeration. They're just the ones
+    // we tend to deal with.
+    name?:
+      | typeof USER_AGENT_OS_ANDROID
+      | typeof USER_AGENT_OS_IOS
+      | typeof USER_AGENT_OS_LINUX
+      | typeof USER_AGENT_OS_MAC
+      | typeof USER_AGENT_OS_WINDOWS,
   },
 |};
 

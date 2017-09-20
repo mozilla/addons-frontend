@@ -33,6 +33,7 @@ import {
   getClientCompatibility as _getClientCompatibility,
   sanitizeHTML,
 } from 'core/utils';
+import LoadingText from 'ui/components/LoadingText';
 
 import 'disco/css/Addon.scss';
 
@@ -49,6 +50,7 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
+    installURLs: PropTypes.func.isRequired,
     needsRestart: PropTypes.bool.isRequired,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
@@ -63,6 +65,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
+    installURLs: {},
     needsRestart: false,
     // Defaults themeAction to the imported func.
     themeAction,
@@ -225,6 +228,18 @@ export class AddonBase extends React.Component {
       extension: type === ADDON_TYPE_EXTENSION,
     });
 
+    if (!addon) {
+      return (
+        <div className={addonClasses}>
+          <div className="content">
+            <div className="copy">
+              <LoadingText />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
     const { compatible, minVersion, reason } = getClientCompatibility({
       addon, clientApp, userAgentInfo });
 
@@ -270,13 +285,14 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const installation = state.installations[ownProps.guid] || {};
-  const addon = state.addons[ownProps.guid] || {};
+  const installation = state.installations[ownProps.guid];
+  const addon = state.addons[ownProps.guid];
   return {
     addon,
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
+    installURLs: addon ? addon.installURLs : {},
     userAgentInfo: state.api.userAgentInfo,
   };
 }

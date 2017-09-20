@@ -1,6 +1,9 @@
 /* @flow */
+import { oneLine } from 'common-tags';
+
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import log from 'core/logger';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 
@@ -119,10 +122,18 @@ export function createInternalAddon(
 
     // These are custom properties not in the API response.
 
-    // TODO: remove this if possible. I think it was added by mistake
-    // but there are some things relying on it :/
+    // TODO: remove this if possible. This is used by core/installAddon
+    // and DiscoPane components which do camel case conversions for
+    // some historic reason.
     iconUrl: apiAddon.icon_url,
 
+    installURLs: {
+      all: undefined,
+      android: undefined,
+      linux: undefined,
+      mac: undefined,
+      windows: undefined,
+    },
     isRestartRequired: false,
   };
 
@@ -165,9 +176,14 @@ export function createInternalAddon(
   }
 
   if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {
-    // TODO: support specific platform files.
-    // See https://github.com/mozilla/addons-frontend/issues/2998
-    addon.installURL = apiAddon.current_version.files[0].url || '';
+    apiAddon.current_version.files.forEach((file) => {
+      // eslint-disable-next-line no-prototype-builtins
+      if (!addon.installURLs.hasOwnProperty(file.platform)) {
+        log.warn(oneLine`Add-on ID ${apiAddon.id}, slug ${apiAddon.slug}
+          has a file with an unknown platform: ${file.platform}`);
+      }
+      addon.installURLs[file.platform] = file.url;
+    });
     addon.isRestartRequired = apiAddon.current_version.files.some(
       (file) => !!file.is_restart_required
     );

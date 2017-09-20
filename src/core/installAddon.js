@@ -24,6 +24,11 @@ import {
   INSTALL_CANCELLED,
   INSTALL_FAILED,
   INSTALLING,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
   SET_ENABLE_NOT_AVAILABLE,
   SHOW_INFO,
   START_DOWNLOAD,
@@ -32,7 +37,6 @@ import {
   THEME_RESET_PREVIEW,
   TRACKING_TYPE_EXTENSION,
   TRACKING_TYPE_THEME,
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   UNINSTALL_CATEGORY,
   UNINSTALLED,
@@ -40,6 +44,12 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
+import {
+  USER_AGENT_OS_ANDROID,
+  USER_AGENT_OS_LINUX,
+  USER_AGENT_OS_MAC,
+  USER_AGENT_OS_WINDOWS,
+} from 'core/reducers/api';
 
 
 export function installTheme(
@@ -135,12 +145,14 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       return { WrappedComponent };
     }
 
-    if (
-      ownProps.type === ADDON_TYPE_EXTENSION &&
-      ownProps.installURL === undefined
-    ) {
-      throw new Error(oneLine`installURL is required, ensure component props
-        are set before withInstallHelpers is called`);
+    if (ownProps.installURLs === undefined) {
+      throw new Error(oneLine`installURLs is required, ensure component
+        props are set before withInstallHelpers is called`);
+    }
+
+    if (ownProps.userAgentInfo === undefined) {
+      throw new Error(oneLine`userAgentInfo is required, ensure component
+        props are set before withInstallHelpers is called`);
     }
 
     return {
@@ -150,6 +162,52 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     };
   };
 }
+
+const userAgentOSToPlatform = {
+  [USER_AGENT_OS_ANDROID]: OS_ANDROID,
+  [USER_AGENT_OS_LINUX]: OS_LINUX,
+  [USER_AGENT_OS_MAC]: OS_MAC,
+  [USER_AGENT_OS_WINDOWS]: OS_WINDOWS,
+};
+
+/*
+ * This is a helper to find the correct install URL for the
+ * user agent's platform.
+ *
+ * Parameter types:
+ *
+ * import type { AddonType } from 'src/core/types/addons';
+ * import type { UserAgentInfoType } from 'src/core/reducers/api';
+ *
+ * type FindInstallUrlParams = {|
+ *   installURLs: $PropertyType<AddonType, 'installURLs'>,
+ *   userAgentInfo: UserAgentInfoType,
+ * |};
+ *
+ */
+export const findInstallURL = ({ installURLs, userAgentInfo }) => {
+  if (!installURLs) {
+    throw new Error('The installURLs parameter is required');
+  }
+  if (!userAgentInfo) {
+    throw new Error('The userAgentInfo parameter is required');
+  }
+
+  const platform = userAgentOSToPlatform[userAgentInfo.os.name];
+  const url = installURLs[platform];
+  if (url) {
+    return url;
+  }
+
+  if (installURLs[OS_ALL]) {
+    return installURLs[OS_ALL];
+  }
+
+  // This could happen for themes which do not have version files.
+  log.debug(oneLine`No install URL exists for platform
+    "${userAgentInfo.os.name}"; install URLs:`, installURLs);
+  return undefined;
+};
 
 export class WithInstallHelpers extends React.Component {
   static propTypes = {
@@ -161,11 +219,12 @@ export class WithInstallHelpers extends React.Component {
     iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool.isRequired,
     installTheme: PropTypes.func.isRequired,
-    installURL: PropTypes.string,
+    installURLs: PropTypes.string,
     name: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
+    userAgentInfo: PropTypes.object.isRequired,
   }
 
   static defaultProps = {
@@ -189,8 +248,14 @@ export class WithInstallHelpers extends React.Component {
   }
 
   setCurrentStatus(newProps = this.props) {
-    const { _addonManager, dispatch, hasAddonManager } = this.props;
-    const { installURL } = newProps;
+    const {
+      _addonManager,
+      dispatch,
+      hasAddonManager,
+      installURLs,
+      userAgentInfo,
+    } = this.props;
+    const installURL = findInstallURL({ installURLs, userAgentInfo });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -250,13 +315,15 @@ export class WithInstallHelpers extends React.Component {
       dispatch,
       guid,
       iconUrl,
-      installURL,
+      installURLs,
       name,
       src,
+      userAgentInfo,
     } = this.props;
 
     dispatch({ type: START_DOWNLOAD, payload: { guid } });
 
+    const installURL = findInstallURL({ installURLs, userAgentInfo });
     return _addonManager.install(
       installURL, makeProgressHandler(dispatch, guid), { src }
     )
