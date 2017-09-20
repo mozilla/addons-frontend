@@ -155,10 +155,13 @@ export class InstallButtonBase extends React.Component {
         })}
       >
         {/*
-          Some of these props are spread into InstallButton by the parent
-          component or its parent or a state/dispatch mapper or an HOC or
-          an evil clown, who knows. Also, some props are only
-          being passed to getThemeData() via InstallSwitch.
+          Some of these props are spread into InstallButton by:
+          - the parent component
+          - a state/dispatch mapper
+          - a higher-order component (HOC)
+          - evil clowns (maybe)
+          - or something else we aren't sure of
+          Also, some of these props are not used directly by `InstallSwitch`; they are required for `getThemeData()`.
         */}
         <InstallSwitch
           accentcolor={this.props.accentcolor}
