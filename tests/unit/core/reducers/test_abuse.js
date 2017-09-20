@@ -4,7 +4,7 @@ import abuseReducer, {
   loadAddonAbuseReport,
   sendAddonAbuseReport,
 } from 'core/reducers/abuse';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeAddonAbuseReport,
   createStubErrorHandler,
@@ -18,50 +18,92 @@ describe(__filename, () => {
       expect(state).toEqual({});
     });
 
-    describe('sendAddonAbuseReport', () => {
-      it('dispatches a sendAddonAbuseReport', () => {
-        const addonSlug = 'slugs-are-gross';
-        const errorHandler = createStubErrorHandler('or-are-they');
-        const message = 'They really are';
+    it('allows abuse reports for multiple add-ons', () => {
+      const { store } = dispatchClientMetadata();
 
-        const action = sendAddonAbuseReport({
-          addonSlug,
-          errorHandler,
-          message,
-        });
+      store.dispatch(loadAddonAbuseReport(createFakeAddonAbuseReport({
+        addon: { ...fakeAddon, slug: 'some-addon' },
+        message: 'This add-on is malwaré.',
+        reporter: null,
+      })));
+      store.dispatch(loadAddonAbuseReport(createFakeAddonAbuseReport({
+        addon: { ...fakeAddon, slug: 'another-addon' },
+        message: 'The add-on is boring',
+        reporter: null,
+      })));
+
+      expect(store.getState().abuse).toMatchObject({
+        // byAddonSlug: {
+          'another-addon': {
+            message: 'The add-on is boring',
+          },
+          'some-addon': {
+            message: 'This add-on is malwaré.',
+          },
+        // },
+      });
+    });
+
+    it('throws an error if multiple reports are submitted for the same add-on', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(loadAddonAbuseReport(createFakeAddonAbuseReport({
+        addon: { ...fakeAddon, slug: 'some-addon' },
+        message: 'This add-on is malwaré.',
+        reporter: null,
+      })));
+
+      expect(() => {
+        store.dispatch(sendAddonAbuseReport({
+          addonSlug: 'some-addon',
+          errorHandlerId: 'test-abuse',
+          message: 'The add-on is boring',
+        }));
+      }).toThrow('You already reported this add-on');
+    });
+
+    describe('sendAddonAbuseReport', () => {
+      let defaultParams;
+
+      beforeEach(() => {
+        defaultParams = {
+          addonSlug: 'some-addon',
+          errorHandlerId: 'some-error-handler',
+          message: 'The add-on is malware',
+        };
+      });
+
+      it('dispatches a sendAddonAbuseReport', () => {
+        const action = sendAddonAbuseReport(defaultParams);
 
         expect(action.type).toEqual(SEND_ADDON_ABUSE_REPORT);
-        expect(action.payload).toEqual({
-          addonSlug,
-          errorHandlerId: errorHandler.id,
-          message,
-        });
+        expect(action.payload).toEqual(defaultParams);
       });
 
       it('requires an addonSlug', () => {
         expect(() => {
-          sendAddonAbuseReport({
-            errorHandler: createStubErrorHandler('or-are-they'),
-            message: 'hello!',
-          });
+          const partialParams = { ...defaultParams };
+          delete partialParams.addonSlug;
+
+          sendAddonAbuseReport(partialParams);
         }).toThrow('addonSlug is required');
       });
 
-      it('requires an errorHandler', () => {
+      it('requires an errorHandlerId', () => {
         expect(() => {
-          sendAddonAbuseReport({
-            addonSlug: 'funk-music',
-            message: 'hello!',
-          });
-        }).toThrow('errorHandler is required');
+          const partialParams = { ...defaultParams };
+          delete partialParams.errorHandlerId;
+
+          sendAddonAbuseReport(partialParams);
+        }).toThrow('errorHandlerId is required');
       });
 
       it('requires a message', () => {
         expect(() => {
-          sendAddonAbuseReport({
-            addonSlug: 'i-am-sparticus',
-            errorHandler: createStubErrorHandler('or-are-they'),
-          });
+          const partialParams = { ...defaultParams };
+          delete partialParams.message;
+
+          sendAddonAbuseReport(partialParams);
         }).toThrow('message is required');
       });
     });

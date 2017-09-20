@@ -36,18 +36,18 @@ export function loadAddonAbuseReport(
 
 type SendAddonAbuseReportAction = {|
   addonSlug: string,
-  errorHandler: ErrorHandlerType,
+  errorHandlerId: string,
   message: string,
 |};
 
 export function sendAddonAbuseReport(
-  { addonSlug, errorHandler, message }: SendAddonAbuseReportAction
+  { addonSlug, errorHandlerId, message }: SendAddonAbuseReportAction
 ) {
   if (!addonSlug) {
     throw new Error('addonSlug is required');
   }
-  if (!errorHandler) {
-    throw new Error('errorHandler is required');
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
   }
   if (!message) {
     throw new Error('message is required');
@@ -55,7 +55,7 @@ export function sendAddonAbuseReport(
 
   return {
     type: SEND_ADDON_ABUSE_REPORT,
-    payload: { addonSlug, errorHandlerId: errorHandler.id, message },
+    payload: { addonSlug, errorHandlerId, message },
   };
 }
 
@@ -68,6 +68,14 @@ export default function abuseReducer(
   action: Object
 ) {
   switch (action.type) {
+    case SEND_ADDON_ABUSE_REPORT: {
+      const { addonSlug } = action.payload;
+      if (state[addonSlug]) {
+        throw new Error('You already reported this add-on.');
+      }
+
+      return state;
+    }
     case LOAD_ADDON_ABUSE_REPORT: {
       const { addon, message, reporter } = action.payload;
       return {

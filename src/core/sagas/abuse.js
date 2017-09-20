@@ -1,7 +1,7 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { call, put, select, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
 import { reportAddon as reportAddonApi } from 'core/api/abuse';
@@ -46,5 +46,5 @@ export function* reportAddon({
 }
 
 export default function* abuseSaga() {
-  yield takeEvery(SEND_ADDON_ABUSE_REPORT, reportAddon);
+  yield takeLatest(SEND_ADDON_ABUSE_REPORT, reportAddon);
 }

@@ -1,6 +1,4 @@
-/* global window */
-import config from 'config';
-
+import * as api from 'core/api';
 import { reportAddon } from 'core/api/abuse';
 import {
   dispatchClientMetadata,
@@ -14,20 +12,15 @@ import {
 
 
 describe(__filename, () => {
-  let api;
-  let mockWindow;
-  const apiHost = config.get('apiHost');
+  let mockApi;
 
   beforeEach(() => {
-    api = dispatchSignInActions().store.getState().api;
-    mockWindow = sinon.mock(window);
+    mockApi = sinon.mock(api);
   });
 
   describe('reportAddon', () => {
     function _reportAddon(extraArguments = {}) {
       return reportAddon({
-        api,
-        auth: true,
         ...extraArguments,
       });
     }
@@ -39,31 +32,60 @@ describe(__filename, () => {
     }
 
     it('should allow anonymous users to report an add-on', () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
 
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/abuse/report/addon/?addon=cool-addon&message=I%20do%20not%20like%20this!&lang=en-US`)
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: false,
+          endpoint: 'abuse/report/addon',
+          method: 'POST',
+          params: { addon: 'cool-addon', message },
+          state: apiState,
+        })
         .once()
         .returns(mockResponse({
           addon: { ...fakeAddon, slug: 'cool-addon' },
           message,
         }));
-      return _reportAddon({ addon: 'cool-addon', api, message })
-        .then(() => mockWindow.verify());
+      return _reportAddon({
+        addonSlug: 'cool-addon',
+        api: apiState,
+        message,
+      })
+        .then(() => {
+          mockApi.verify();
+        });
     });
 
     it('should allow signed-in users to report an add-on', () => {
+      const apiState = dispatchSignInActions().store.getState().api;
       const message = 'I bet everybody here is fake happy too.';
 
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/abuse/report/addon/?addon=cool-addon&message=I%20bet%20everybody%20here%20is%20fake%20happy%20too.&lang=en-US`)
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'abuse/report/addon',
+          method: 'POST',
+          params: { addon: 'auth-addon', message },
+          state: apiState,
+        })
         .once()
         .returns(mockResponse({
-          addon: { ...fakeAddon, slug: 'cool-addon' },
+          addon: { ...fakeAddon, slug: 'auth-addon' },
           message,
         }));
-      return _reportAddon({ addon: 'cool-addon', message })
-        .then(() => mockWindow.verify());
+      return _reportAddon({
+        addonSlug: 'auth-addon',
+        api: apiState,
+        auth: true,
+        message,
+      })
+        .then(() => {
+          mockApi.verify();
+        });
     });
   });
 });

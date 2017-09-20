@@ -1,7 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api/abuse';
-import { CLEAR_ERROR } from 'core/constants';
+import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 import abuseReducer, {
   loadAddonAbuseReport,
   sendAddonAbuseReport,
@@ -40,7 +40,7 @@ describe(__filename, () => {
   function _sendAddonAbuseReport(params) {
     sagaTester.dispatch(sendAddonAbuseReport({
       addonSlug: fakeAddon.slug,
-      errorHandler: createStubErrorHandler('my-abuse-error'),
+      errorHandlerId: errorHandler.id,
       message: 'Testing',
       ...params,
     }));
@@ -90,5 +90,23 @@ describe(__filename, () => {
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);
     expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+  });
+
+  it('throws an error if multiple reports are submitted for the same add-on', async () => {
+    _sendAddonAbuseReport({
+      addonSlug: 'some-addon',
+      message: 'This add-on is malwaré!',
+    });
+
+    // Report the same add-on again; this will cause the reducer to throw
+    // an error and the saga should dispatch an error.
+    _sendAddonAbuseReport({
+      addonSlug: 'some-addon',
+      message: 'Duplicate!',
+    });
+
+    await sagaTester.waitFor(SET_ERROR);
+    expect(sagaTester.getCalledActions()[1])
+      .toEqual(errorHandler.createClearingAction());
   });
 });

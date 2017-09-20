@@ -4,20 +4,20 @@ import type { ApiStateType } from 'core/reducers/api';
 
 
 export type ReportAddonParams = {|
-  addon: string, // id/guid/slug
+  addonSlug: string,
   api: ApiStateType,
-  auth: boolean,
+  auth?: boolean,
   message: string,
 |};
 
 export function reportAddon(
-  { addon, api, auth = false, message }: ReportAddonParams
+  { addonSlug, api, auth = false, message }: ReportAddonParams
 ) {
   return callApi({
     auth,
     endpoint: 'abuse/report/addon',
     method: 'POST',
-    params: { addon, message },
+    params: { addon: addonSlug, message },
     state: api,
   });
 }
