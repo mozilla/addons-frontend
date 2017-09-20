@@ -28,8 +28,11 @@
   white-space: nowrap;
   width: 100%;
 
-  &:focus,
   &:hover {
+    border-color: $teal-70;
+  }
+
+  &:focus {
     @include focus();
 
     border-color: $teal-50;
