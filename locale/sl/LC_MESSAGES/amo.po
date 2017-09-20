@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-20 15:05+0000\n"
+"PO-Revision-Date: 2017-09-20 17:19+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -180,11 +180,11 @@ msgstr "Preberite licenčno pogodbo za ta dodatek"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Ta ID je uporaben za razhroščevanje in za prepoznavanje vašega dodatka s strani spletnih mest."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Identifikator strani"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
