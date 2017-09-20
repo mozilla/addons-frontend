@@ -5,12 +5,12 @@ msgstr ""
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"MIME-Version: 1.0\n"
 
 #: src/amo/components/Addon/index.js:133
 msgid "Featured Extension"
@@ -56,43 +56,43 @@ msgstr "Řḗŀḗȧşḗ ƞǿŧḗş ƒǿř %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:317
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Ḿǿřḗ ḓīƈŧīǿƞȧřīḗş ƀẏ %(author)s"
 
 #: src/amo/components/Addon/index.js:320
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Ḿǿřḗ ḓīƈŧīǿƞȧřīḗş ƀẏ ŧħḗşḗ ŧřȧƞşŀȧŧǿřş"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Ḿǿřḗ ḗẋŧḗƞşīǿƞş ƀẏ %(author)s"
 
 #: src/amo/components/Addon/index.js:331
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "Ḿǿřḗ ḗẋŧḗƞşīǿƞş ƀẏ ŧħḗşḗ ḓḗṽḗŀǿƥḗřş"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Ḿǿřḗ ŀȧƞɠŭȧɠḗ ƥȧƈķş ƀẏ %(author)s"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Ḿǿřḗ ŀȧƞɠŭȧɠḗ ƥȧƈķş ƀẏ ŧħḗşḗ ŧřȧƞşŀȧŧǿřş"
 
 #: src/amo/components/Addon/index.js:350
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Ḿǿřḗ ŧħḗḿḗş ƀẏ %(author)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Ḿǿřḗ ŧħḗḿḗş ƀẏ ŧħḗşḗ ȧřŧīşŧş"
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Ḿǿřḗ ȧḓḓ-ǿƞş ƀẏ %(author)s"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Ḿǿřḗ ȧḓḓ-ǿƞş ƀẏ ŧħḗşḗ ḓḗṽḗŀǿƥḗřş"
 
 # Example: The Add-On <span>by The Author</span>
 #: src/amo/components/Addon/index.js:429
@@ -112,12 +112,8 @@ msgid "Screenshots"
 msgstr "Şƈřḗḗƞşħǿŧş"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Ẏǿŭ ƞḗḗḓ ŧǿ <a href=\"%(downloadUrl)s\">ḓǿẇƞŀǿȧḓ Ƒīřḗƒǿẋ</a> ŧǿ īƞşŧȧŀŀ ŧħīş "
-"ȧḓḓ-ǿƞ."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ẏǿŭ ƞḗḗḓ ŧǿ <a href=\"%(downloadUrl)s\">ḓǿẇƞŀǿȧḓ Ƒīřḗƒǿẋ</a> ŧǿ īƞşŧȧŀŀ ŧħīş ȧḓḓ-ǿƞ."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -132,20 +128,12 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ƒīřḗƒǿẋ ƒǿř īǾŞ ḓǿḗş ƞǿŧ ƈŭřřḗƞŧŀẏ şŭƥƥǿřŧ ȧḓḓ-ǿƞş."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Ŧħīş ȧḓḓ-ǿƞ řḗɋŭīřḗş ȧ <a href=\"%(downloadUrl)s\">ƞḗẇḗř ṽḗřşīǿƞ ǿƒ Ƒīřḗƒǿẋ</"
-"a> (ȧŧ ŀḗȧşŧ ṽḗřşīǿƞ %(minVersion)s). Ẏǿŭ ȧřḗ ŭşīƞɠ Ƒīřḗƒǿẋ %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Ŧħīş ȧḓḓ-ǿƞ řḗɋŭīřḗş ȧ <a href=\"%(downloadUrl)s\">ƞḗẇḗř ṽḗřşīǿƞ ǿƒ Ƒīřḗƒǿẋ</a> (ȧŧ ŀḗȧşŧ ṽḗřşīǿƞ %(minVersion)s). Ẏǿŭ ȧřḗ ŭşīƞɠ Ƒīřḗƒǿẋ %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Ẏǿŭř ƀřǿẇşḗř ḓǿḗş ƞǿŧ şŭƥƥǿřŧ ȧḓḓ-ǿƞş. Ẏǿŭ ƈȧƞ <a href=\"%(downloadUrl)s"
-"\">ḓǿẇƞŀǿȧḓ Ƒīřḗƒǿẋ</a> ŧǿ īƞşŧȧŀŀ ŧħīş ȧḓḓ-ǿƞ."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ẏǿŭř ƀřǿẇşḗř ḓǿḗş ƞǿŧ şŭƥƥǿřŧ ȧḓḓ-ǿƞş. Ẏǿŭ ƈȧƞ <a href=\"%(downloadUrl)s\">ḓǿẇƞŀǿȧḓ Ƒīřḗƒǿẋ</a> ŧǿ īƞşŧȧŀŀ ŧħīş ȧḓḓ-ǿƞ."
 
 #: src/amo/components/AddonMeta.js:27
 #: src/amo/components/SearchResult/index.js:114
@@ -185,14 +173,12 @@ msgid "Read the license agreement for this add-on"
 msgstr "Řḗȧḓ ŧħḗ ŀīƈḗƞşḗ ȧɠřḗḗḿḗƞŧ ƒǿř ŧħīş ȧḓḓ-ǿƞ"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
-msgstr ""
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+msgstr "Ŧħīş ĪḒ īş ŭşḗƒŭŀ ƒǿř ḓḗƀŭɠɠīƞɠ ȧƞḓ īḓḗƞŧīƒẏīƞɠ ẏǿŭř ȧḓḓ-ǿƞ ŧǿ şīŧḗ ȧḓḿīƞīşŧřȧŧǿřş."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Şīŧḗ Īḓḗƞŧīƒīḗř"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
@@ -218,6 +204,7 @@ msgstr "Ṽḗřşīǿƞ"
 msgid "Last updated"
 msgstr "Ŀȧşŧ ŭƥḓȧŧḗḓ"
 
+# This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:84
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
@@ -239,10 +226,8 @@ msgid "Tell the world about this extension."
 msgstr "Ŧḗŀŀ ŧħḗ ẇǿřŀḓ ȧƀǿŭŧ ŧħīş ḗẋŧḗƞşīǿƞ."
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Ŧḗŀŀ ŭş ȧƀǿŭŧ ẏǿŭř ḗẋƥḗřīḗƞƈḗ ẇīŧħ ŧħīş ḗẋŧḗƞşīǿƞ. Ɓḗ şƥḗƈīƒīƈ ȧƞḓ ƈǿƞƈīşḗ."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Ŧḗŀŀ ŭş ȧƀǿŭŧ ẏǿŭř ḗẋƥḗřīḗƞƈḗ ẇīŧħ ŧħīş ḗẋŧḗƞşīǿƞ. Ɓḗ şƥḗƈīƒīƈ ȧƞḓ ƈǿƞƈīşḗ."
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -305,36 +290,20 @@ msgid "Download Firefox"
 msgstr "Ḓǿẇƞŀǿȧḓ Ƒīřḗƒǿẋ"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
-msgstr ""
-"Īƒ ẏǿŭ ȧřḗ şīɠƞḗḓ īƞ ȧƞḓ ŧħīƞķ ŧħīş ḿḗşşȧɠḗ īş ȧƞ ḗřřǿř, ƥŀḗȧşḗ <a href="
-"\"%(url)s\">ƒīŀḗ ȧƞ īşşŭḗ</a>. Ŧḗŀŀ ŭş ẇħḗřḗ ẏǿŭ ƈȧḿḗ ƒřǿḿ ȧƞḓ ẇħȧŧ ẏǿŭ ẇḗřḗ "
-"ŧřẏīƞɠ ŧǿ ȧƈƈḗşş, ȧƞḓ ẇḗ'ŀŀ ƒīẋ ŧħḗ īşşŭḗ."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgstr "Īƒ ẏǿŭ ȧřḗ şīɠƞḗḓ īƞ ȧƞḓ ŧħīƞķ ŧħīş ḿḗşşȧɠḗ īş ȧƞ ḗřřǿř, ƥŀḗȧşḗ <a href=\"%(url)s\">ƒīŀḗ ȧƞ īşşŭḗ</a>. Ŧḗŀŀ ŭş ẇħḗřḗ ẏǿŭ ƈȧḿḗ ƒřǿḿ ȧƞḓ ẇħȧŧ ẏǿŭ ẇḗřḗ ŧřẏīƞɠ ŧǿ ȧƈƈḗşş, ȧƞḓ ẇḗ'ŀŀ ƒīẋ ŧħḗ īşşŭḗ."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Ƞǿŧ Aŭŧħǿřīẑḗḓ"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Şǿřřẏ, ƀŭŧ ẏǿŭ ȧřḗƞ'ŧ ȧŭŧħǿřīẑḗḓ ŧǿ ȧƈƈḗşş ŧħīş ƥȧɠḗ. Īƒ ẏǿŭ ȧřḗƞ'ŧ şīɠƞḗḓ "
-"īƞ, ŧřẏ şīɠƞīƞɠ īƞ ŭşīƞɠ ŧħḗ ŀīƞķ ȧŧ ŧħḗ ŧǿƥ ǿƒ ŧħḗ ƥȧɠḗ."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Şǿřřẏ, ƀŭŧ ẏǿŭ ȧřḗƞ'ŧ ȧŭŧħǿřīẑḗḓ ŧǿ ȧƈƈḗşş ŧħīş ƥȧɠḗ. Īƒ ẏǿŭ ȧřḗƞ'ŧ şīɠƞḗḓ īƞ, ŧřẏ şīɠƞīƞɠ īƞ ŭşīƞɠ ŧħḗ ŀīƞķ ȧŧ ŧħḗ ŧǿƥ ǿƒ ŧħḗ ƥȧɠḗ."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Īƒ ẏǿŭ ƒǿŀŀǿẇḗḓ ȧ ŀīƞķ ƒřǿḿ şǿḿḗẇħḗřḗ, ƥŀḗȧşḗ <a href=\"%(url)s\">ƒīŀḗ ȧƞ "
-"īşşŭḗ</a>. Ŧḗŀŀ ŭş ẇħḗřḗ ẏǿŭ ƈȧḿḗ ƒřǿḿ ȧƞḓ ẇħȧŧ ẏǿŭ ẇḗřḗ ŀǿǿķīƞɠ ƒǿř, ȧƞḓ "
-"ẇḗ'ŀŀ ḓǿ ǿŭř ƀḗşŧ ŧǿ ƒīẋ īŧ."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Īƒ ẏǿŭ ƒǿŀŀǿẇḗḓ ȧ ŀīƞķ ƒřǿḿ şǿḿḗẇħḗřḗ, ƥŀḗȧşḗ <a href=\"%(url)s\">ƒīŀḗ ȧƞ īşşŭḗ</a>. Ŧḗŀŀ ŭş ẇħḗřḗ ẏǿŭ ƈȧḿḗ ƒřǿḿ ȧƞḓ ẇħȧŧ ẏǿŭ ẇḗřḗ ŀǿǿķīƞɠ ƒǿř, ȧƞḓ ẇḗ'ŀŀ ḓǿ ǿŭř ƀḗşŧ ŧǿ ƒīẋ īŧ."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:25
@@ -342,26 +311,12 @@ msgid "Page not found"
 msgstr "Ƥȧɠḗ ƞǿŧ ƒǿŭƞḓ"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Şǿřřẏ, ƀŭŧ ẇḗ ƈȧƞ'ŧ ƒīƞḓ ȧƞẏŧħīƞɠ ȧŧ ŧħḗ ȧḓḓřḗşş ẏǿŭ ḗƞŧḗřḗḓ. Īƒ ẏǿŭ "
-"ƒǿŀŀǿẇḗḓ ȧ ŀīƞķ ŧǿ ȧƞ ȧḓḓ-ǿƞ, īŧ'ş ƥǿşşīƀŀḗ ŧħȧŧ ȧḓḓ-ǿƞ ħȧş ƀḗḗƞ řḗḿǿṽḗḓ ƀẏ "
-"īŧş ȧŭŧħǿř."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Şǿřřẏ, ƀŭŧ ẇḗ ƈȧƞ'ŧ ƒīƞḓ ȧƞẏŧħīƞɠ ȧŧ ŧħḗ ȧḓḓřḗşş ẏǿŭ ḗƞŧḗřḗḓ. Īƒ ẏǿŭ ƒǿŀŀǿẇḗḓ ȧ ŀīƞķ ŧǿ ȧƞ ȧḓḓ-ǿƞ, īŧ'ş ƥǿşşīƀŀḗ ŧħȧŧ ȧḓḓ-ǿƞ ħȧş ƀḗḗƞ řḗḿǿṽḗḓ ƀẏ īŧş ȧŭŧħǿř."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
-msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
-msgstr ""
-"Īƒ ẏǿŭ ħȧṽḗ ȧḓḓīŧīǿƞȧŀ īƞƒǿřḿȧŧīǿƞ ŧħȧŧ ẇǿŭŀḓ ħḗŀƥ ŭş ẏǿŭ ƈȧƞ <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">ƒīŀḗ ȧƞ īşşŭḗ</"
-"a>. Ŧḗŀŀ ŭş ẇħȧŧ şŧḗƥş ẏǿŭ ŧǿǿķ ŧħȧŧ ŀḗȧḓ ŧǿ ŧħḗ ḗřřǿř ȧƞḓ ẇḗ'ŀŀ ḓǿ ǿŭř ƀḗşŧ "
-"ŧǿ ƒīẋ īŧ."
+msgid "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error and we'll do our best to fix it."
+msgstr "Īƒ ẏǿŭ ħȧṽḗ ȧḓḓīŧīǿƞȧŀ īƞƒǿřḿȧŧīǿƞ ŧħȧŧ ẇǿŭŀḓ ħḗŀƥ ŭş ẏǿŭ ƈȧƞ <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">ƒīŀḗ ȧƞ īşşŭḗ</a>. Ŧḗŀŀ ŭş ẇħȧŧ şŧḗƥş ẏǿŭ ŧǿǿķ ŧħȧŧ ŀḗȧḓ ŧǿ ŧħḗ ḗřřǿř ȧƞḓ ẇḗ'ŀŀ ḓǿ ǿŭř ƀḗşŧ ŧǿ ƒīẋ īŧ."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33
 #: src/core/components/ErrorPage/GenericError/index.js:25
@@ -369,12 +324,8 @@ msgid "Server Error"
 msgstr "Şḗřṽḗř Ḗřřǿř"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Şǿřřẏ, ƀŭŧ ŧħḗřḗ ẇȧş ȧƞ ḗřřǿř ẇīŧħ ǿŭř şḗřṽḗř ȧƞḓ ẇḗ ƈǿŭŀḓƞ'ŧ ƈǿḿƥŀḗŧḗ ẏǿŭř "
-"řḗɋŭḗşŧ. Ẇḗ ħȧṽḗ ŀǿɠɠḗḓ ŧħīş ḗřřǿř ȧƞḓ ẇīŀŀ īƞṽḗşŧīɠȧŧḗ īŧ."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Şǿřřẏ, ƀŭŧ ŧħḗřḗ ẇȧş ȧƞ ḗřřǿř ẇīŧħ ǿŭř şḗřṽḗř ȧƞḓ ẇḗ ƈǿŭŀḓƞ'ŧ ƈǿḿƥŀḗŧḗ ẏǿŭř řḗɋŭḗşŧ. Ẇḗ ħȧṽḗ ŀǿɠɠḗḓ ŧħīş ḗřřǿř ȧƞḓ ẇīŀŀ īƞṽḗşŧīɠȧŧḗ īŧ."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -410,19 +361,19 @@ msgstr "Ḗḓīŧ Ƥřǿƒīŀḗ"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "Ŧǿǿŀş"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Şŭƀḿīŧ ȧ Ƞḗẇ Aḓḓ-ǿƞ"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Şŭƀḿīŧ ȧ Ƞḗẇ Ŧħḗḿḗ"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "Ḿȧƞȧɠḗ AƤĪ Ķḗẏş"
 
 #: src/amo/components/Header/index.js:137
 #: src/core/components/AuthenticateButton/index.js:64
@@ -446,15 +397,18 @@ msgstr "Ḿẏ Aƈƈǿŭƞŧ"
 msgid "View Profile"
 msgstr "Ṽīḗẇ Ƥřǿƒīŀḗ"
 
-#: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
+#: src/amo/components/Home/index.js:100
+#: src/amo/components/Home/index.js:75
 msgid "Shop online"
 msgstr "Şħǿƥ ǿƞŀīƞḗ"
 
-#: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:103
+#: src/amo/components/Home/index.js:78
 msgid "Be social"
 msgstr "Ɓḗ şǿƈīȧŀ"
 
-#: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
+#: src/amo/components/Home/index.js:106
+#: src/amo/components/Home/index.js:81
 msgid "Play games"
 msgstr "Ƥŀȧẏ ɠȧḿḗş"
 
@@ -492,12 +446,8 @@ msgid "You can change how Firefox works…"
 msgstr "Ẏǿŭ ƈȧƞ ƈħȧƞɠḗ ħǿẇ Ƒīřḗƒǿẋ ẇǿřķş…"
 
 #: src/amo/components/Home/index.js:146
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Īƞşŧȧŀŀ ƥǿẇḗřƒŭŀ ŧǿǿŀş ŧħȧŧ ḿȧķḗ ƀřǿẇşīƞɠ ƒȧşŧḗř ȧƞḓ şȧƒḗř, ȧḓḓ-ǿƞş ḿȧķḗ "
-"ẏǿŭř ƀřǿẇşḗř ẏǿŭřş."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Īƞşŧȧŀŀ ƥǿẇḗřƒŭŀ ŧǿǿŀş ŧħȧŧ ḿȧķḗ ƀřǿẇşīƞɠ ƒȧşŧḗř ȧƞḓ şȧƒḗř, ȧḓḓ-ǿƞş ḿȧķḗ ẏǿŭř ƀřǿẇşḗř ẏǿŭřş."
 
 #: src/amo/components/Home/index.js:157
 #: src/amo/components/SuggestedPages/index.js:31
@@ -509,22 +459,21 @@ msgid "…or what it looks like"
 msgstr "…ǿř ẇħȧŧ īŧ ŀǿǿķş ŀīķḗ"
 
 #: src/amo/components/Home/index.js:165
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Ƈħȧƞɠḗ ẏǿŭř ƀřǿẇşḗř'ş ȧƥƥḗȧřȧƞƈḗ. Ƈħǿǿşḗ ƒřǿḿ ŧħǿŭşȧƞḓş ǿƒ ŧħḗḿḗş ŧǿ ɠīṽḗ "
-"Ƒīřḗƒǿẋ ŧħḗ ŀǿǿķ ẏǿŭ ẇȧƞŧ."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Ƈħȧƞɠḗ ẏǿŭř ƀřǿẇşḗř'ş ȧƥƥḗȧřȧƞƈḗ. Ƈħǿǿşḗ ƒřǿḿ ŧħǿŭşȧƞḓş ǿƒ ŧħḗḿḗş ŧǿ ɠīṽḗ Ƒīřḗƒǿẋ ŧħḗ ŀǿǿķ ẏǿŭ ẇȧƞŧ."
 
-#: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
+#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:91
 msgid "Block ads"
 msgstr "Ɓŀǿƈķ ȧḓş"
 
-#: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
+#: src/amo/components/Home/index.js:69
+#: src/amo/components/Home/index.js:94
 msgid "Screenshot"
 msgstr "Şƈřḗḗƞşħǿŧ"
 
-#: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
+#: src/amo/components/Home/index.js:72
+#: src/amo/components/Home/index.js:97
 msgid "Find news"
 msgstr "Ƒīƞḓ ƞḗẇş"
 
@@ -623,39 +572,34 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Ħǿẇ ȧřḗ ẏǿŭ ḗƞĵǿẏīƞɠ ẏǿŭř ḗẋƥḗřīḗƞƈḗ ẇīŧħ %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s řḗşŭŀŧ ƒǿř \"%(query)s\""
-msgstr[1] "%(count)s řḗşŭŀŧş ƒǿř \"%(query)s\""
+msgstr[0] "%(count)s ḗẋŧḗƞşīǿƞ ƒǿŭƞḓ ƒǿř \"%(query)s\""
+msgstr[1] "%(count)s ḗẋŧḗƞşīǿƞş ƒǿŭƞḓ ƒǿř \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s řḗşŭŀŧ ƒǿř \"%(query)s\""
-msgstr[1] "%(count)s řḗşŭŀŧş ƒǿř \"%(query)s\""
+msgstr[0] "%(count)s ḓīƈŧīǿƞȧřẏ ƒǿŭƞḓ ƒǿř \"%(query)s\""
+msgstr[1] "%(count)s ḓīƈŧīǿƞȧřīḗş ƒǿŭƞḓ ƒǿř \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s řḗşŭŀŧ ƒǿř \"%(query)s\""
-msgstr[1] "%(count)s řḗşŭŀŧş ƒǿř \"%(query)s\""
+msgstr[0] "%(count)s ŀȧƞɠŭȧɠḗ ƥȧƈķ ƒǿŭƞḓ ƒǿř \"%(query)s\""
+msgstr[1] "%(count)s ŀȧƞɠŭȧɠḗ ƥȧƈķş ƒǿŭƞḓ ƒǿř \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s řḗşŭŀŧ ƒǿř \"%(query)s\""
-msgstr[1] "%(count)s řḗşŭŀŧş ƒǿř \"%(query)s\""
+msgstr[0] "%(count)s ŧħḗḿḗ ƒǿŭƞḓ ƒǿř \"%(query)s\""
+msgstr[1] "%(count)s ŧħḗḿḗş ƒǿŭƞḓ ƒǿř \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s řḗşŭŀŧ ƒǿř \"%(query)s\""
-msgstr[1] "%(count)s řḗşŭŀŧş ƒǿř \"%(query)s\""
+msgstr[0] "%(count)s řḗşŭŀŧ ƒǿŭƞḓ ƒǿř \"%(query)s\""
+msgstr[1] "%(count)s řḗşŭŀŧş ƒǿŭƞḓ ƒǿř \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -812,12 +756,8 @@ msgid "Register or Log in"
 msgstr "Řḗɠīşŧḗř ǿř Ŀǿɠ īƞ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Şǿřřẏ, ƀŭŧ ŧħḗřḗ ẇȧş ȧƞ ḗřřǿř ȧƞḓ ẇḗ ƈǿŭŀḓƞ'ŧ ƈǿḿƥŀḗŧḗ ẏǿŭř řḗɋŭḗşŧ. Ẇḗ ħȧṽḗ "
-"ŀǿɠɠḗḓ ŧħīş ḗřřǿř ȧƞḓ ẇīŀŀ īƞṽḗşŧīɠȧŧḗ īŧ."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Şǿřřẏ, ƀŭŧ ŧħḗřḗ ẇȧş ȧƞ ḗřřǿř ȧƞḓ ẇḗ ƈǿŭŀḓƞ'ŧ ƈǿḿƥŀḗŧḗ ẏǿŭř řḗɋŭḗşŧ. Ẇḗ ħȧṽḗ ŀǿɠɠḗḓ ŧħīş ḗřřǿř ȧƞḓ ẇīŀŀ īƞṽḗşŧīɠȧŧḗ īŧ."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:31
