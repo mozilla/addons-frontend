@@ -161,7 +161,8 @@ export class InstallButtonBase extends React.Component {
           - a higher-order component (HOC)
           - evil clowns (maybe)
           - or something else we aren't sure of
-          Also, some of these props are not used directly by `InstallSwitch`; they are required for `getThemeData()`.
+          Also, some of these props are not used directly by `InstallSwitch`;
+          they are required for `getThemeData()`.
         */}
         <InstallSwitch
           accentcolor={this.props.accentcolor}

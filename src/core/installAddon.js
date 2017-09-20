@@ -44,6 +44,12 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import * as addonManager from 'core/addonManager';
+import {
+  USER_AGENT_OS_ANDROID,
+  USER_AGENT_OS_LINUX,
+  USER_AGENT_OS_MAC,
+  USER_AGENT_OS_WINDOWS,
+} from 'core/reducers/api';
 
 
 export function installTheme(
@@ -157,6 +163,13 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
   };
 }
 
+const userAgentOSToPlatform = {
+  [USER_AGENT_OS_ANDROID]: OS_ANDROID,
+  [USER_AGENT_OS_LINUX]: OS_LINUX,
+  [USER_AGENT_OS_MAC]: OS_MAC,
+  [USER_AGENT_OS_WINDOWS]: OS_WINDOWS,
+};
+
 /*
  * This is a helper to find the correct install URL for the
  * user agent's platform.
@@ -179,26 +192,13 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
   if (!userAgentInfo) {
     throw new Error('The userAgentInfo parameter is required');
   }
-  let url;
-  switch (userAgentInfo.os.name) {
-    case 'Windows':
-      url = installURLs[OS_WINDOWS];
-      break;
-    case 'Mac OS':
-      url = installURLs[OS_MAC];
-      break;
-    case 'Android':
-      url = installURLs[OS_ANDROID];
-      break;
-    case 'Linux':
-      url = installURLs[OS_LINUX];
-      break;
-    default:
-      break;
-  }
+
+  const platform = userAgentOSToPlatform[userAgentInfo.os.name];
+  const url = installURLs[platform];
   if (url) {
     return url;
   }
+
   if (installURLs[OS_ALL]) {
     return installURLs[OS_ALL];
   }
