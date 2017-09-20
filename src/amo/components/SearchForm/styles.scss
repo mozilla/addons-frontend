@@ -28,6 +28,11 @@
   white-space: nowrap;
   width: 100%;
 
+  &:focus {
+    border: 1px solid;
+    @include focus();
+  }
+
   @include respond-to(medium) {
     @include padding-end(28px);
   }
