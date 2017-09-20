@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-15 18:46+0000\n"
-"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
+"PO-Revision-Date: 2017-09-20 15:27+0000\n"
+"Last-Translator: Amin Mahmudian <amin.mahmudian@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
@@ -57,15 +57,15 @@ msgstr "یادداشت‌های انتشار برای %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:317
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "واژه‌نامه‌های بیشتر توسط %(author)s"
 
 #: src/amo/components/Addon/index.js:320
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "واژه‌نامه‌های بیشتر توسط این مترجمان"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "افزونه‌های بیشتر توسط %(author)s"
 
 #: src/amo/components/Addon/index.js:331
 #, fuzzy
@@ -74,27 +74,27 @@ msgstr "جستجوی افزونه‌ها و پوسته‌ها"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "بسته‌های زبان بیشتر توسط %(author)s"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "بسته‌های زبان بیشتر توسط این مترجمان"
 
 #: src/amo/components/Addon/index.js:350
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "تم‌های بیشتر توسط %(author)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More themes by these artists"
-msgstr ""
+msgstr "تم‌های بیشتر توسط این هنرمندان"
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "افزونه‌های بیشتر توسط %(author)s"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "افزونه‌های بیشتر توسط این توسعه‌دهندگان"
 
 #: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -113,12 +113,8 @@ msgid "Screenshots"
 msgstr "تصاویر صفحه"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"شما نیاز دارید تا <a href=\"%(downloadUrl)s\"> را دریافت کرده</a> تا بتوانید "
-"این افزونه را نصب کنید."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "شما نیاز دارید تا <a href=\"%(downloadUrl)s\"> را دریافت کرده</a> تا بتوانید این افزونه را نصب کنید."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -133,24 +129,14 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "در حال حاضر فایرفاکس برای iOS از افزونه‌ها پشتیبانی نمی‌کند."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"این افزونه نیازمند یک <a href=\"%(downloadUrl)s\">نسخه جدیدتر فایرفاکس</a> "
-"است (حداقل نسخه %(minVersion)s). هم‌اکنون شما از نسخه %(yourVersion)s "
-"فایرفاکس استفاده می‌کنید."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "این افزونه نیازمند یک <a href=\"%(downloadUrl)s\">نسخه جدیدتر فایرفاکس</a> است (حداقل نسخه %(minVersion)s). هم‌اکنون شما از نسخه %(yourVersion)s فایرفاکس استفاده می‌کنید."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href="
-"\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب کنید."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "مرورگر شما از افزونه‌ها پشتیبانی نمی‌کند. شما می‌توانید <a href=\"%(downloadUrl)s\"> را دریافت کرده </a> تا بتوانید این افزونه را نصب کنید."
 
-#: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s کاربر"
@@ -185,14 +171,12 @@ msgid "Read the license agreement for this add-on"
 msgstr "موافقت‌نامه مجوز برای این افزونه را بخوانید"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
-msgstr ""
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+msgstr "این شناسه برای اشکال‌زدایی و شناسایی افزونه‌تان به مدیران سایت کاربرد دارد."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "شناسه سایت"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
@@ -239,8 +223,7 @@ msgid "Tell the world about this extension."
 msgstr "به همه دنیا درباره این افزونه بگویید."
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
+msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "از تجربه خود با این افزونه به ما بگویید. صریح و مختصر بنویسید."
 
 #: src/amo/components/AddonReview.js:161
@@ -304,76 +287,48 @@ msgid "Download Firefox"
 msgstr "دریافت فایرفاکس"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"اگر شما به حساب کاربری خود وارد شده‌اید و فکر میکنید این خطا نادرست است، لطفاً "
-"<a href=\"%(url)s\"> یک گزارش خطا ثبت کنید</a>. به ما بگویید کجا به مشکل "
-"برخوردید و سعی انجام چه کاری را داشته‌اید، و ما این مشکل را برطرف خواهیم کرد."
+"اگر شما به حساب کاربری خود وارد شده‌اید و فکر میکنید این خطا نادرست است، لطفاً <a href=\"%(url)s\"> یک گزارش خطا ثبت کنید</a>. به ما بگویید کجا به مشکل برخوردید و سعی انجام چه کاری را داشته‌اید، و "
+"ما این مشکل را برطرف خواهیم کرد."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "مجاز نیست"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"متاسفیم، اما شما برای دسترسی به این صفحه تایید نشده‌اید. اگر شما به ناحیه "
-"کاربری خود وارد نشده‌اید تلاش کنید که از لینک بالای این صفحه استفاده کنید."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "متاسفیم، اما شما برای دسترسی به این صفحه تایید نشده‌اید. اگر شما به ناحیه کاربری خود وارد نشده‌اید تلاش کنید که از لینک بالای این صفحه استفاده کنید."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
-"اگر شما یک پیوند را از جایی دنبال کرده‌اید، لطفا <a href=\"%(url)s\">یک گزارش "
-"خطا</a> ارسال کنید. به ما بگویید از کجا آمده‌اید و قصد انجام چه کاری را "
-"داشته‌اید، و ما سعی خواهیم کرد که این مشکل را برطرف کنیم."
+"اگر شما یک پیوند را از جایی دنبال کرده‌اید، لطفا <a href=\"%(url)s\">یک گزارش خطا</a> ارسال کنید. به ما بگویید از کجا آمده‌اید و قصد انجام چه کاری را داشته‌اید، و ما سعی خواهیم کرد که این مشکل را "
+"برطرف کنیم."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "صفحه پیدا نشد"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"متاسفانه نمی‌توانیم چیزی در آدرسی که شما وارد کردید پیدا کنیم. اگر به وسیله "
-"یک پیوند به این افزونه رسیده‌اید، این احتمال وجود دارد که افزونه توسط "
-"سازنده‌اش حذف شده باشد."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "متاسفانه نمی‌توانیم چیزی در آدرسی که شما وارد کردید پیدا کنیم. اگر به وسیله یک پیوند به این افزونه رسیده‌اید، این احتمال وجود دارد که افزونه توسط سازنده‌اش حذف شده باشد."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"اگر اطلاعات اضافی‌ای دارید که ممکن است به ما کمک کند می‌توانید <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">گزارش خطا</a> "
-"ارسال کنید. به ما بگویید چه کارهایی انجام داده‌اید که منجر به این خطا شده و "
-"با این مشکل را برطرف خواهیم کرد."
+"اگر اطلاعات اضافی‌ای دارید که ممکن است به ما کمک کند می‌توانید <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">گزارش خطا</a> ارسال کنید. به ما بگویید چه کارهایی انجام داده‌اید که "
+"منجر به این خطا شده و با این مشکل را برطرف خواهیم کرد."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "خطای کارگزار"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"متاسفانه خطایی در سرور ما رخ داد و نتوانستیم درخواست شما را کامل کنیم. این "
-"خطا نگه داری شده و مورد بررسی قرار خواهد گرفت."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "متاسفانه خطایی در سرور ما رخ داد و نتوانستیم درخواست شما را کامل کنیم. این خطا نگه داری شده و مورد بررسی قرار خواهد گرفت."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -409,22 +364,21 @@ msgstr "ویرایش نمایه"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "ابزارها"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "ارسال یک افزونه جدید"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "ارسال یک تم جدید"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "مدیریت کلیدهای API"
 
-#: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "خروج"
 
@@ -480,8 +434,7 @@ msgstr "ورزشی"
 msgid "Solid"
 msgstr "تک‌رنگ"
 
-#: src/amo/components/Home/index.js:138
-#: src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "مرور تمام ضمیمه‌ها"
 
@@ -490,15 +443,10 @@ msgid "You can change how Firefox works…"
 msgstr "شما می‌توانید شیوه کار فایرفاکس را تغییر دهید…"
 
 #: src/amo/components/Home/index.js:146
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"نصب ابزار قدرتمندی که اینترنت‌گردی شما را سریع‌تر و امن‌تر می‌کند، افزونه‌ها "
-"مرورگر را متعلق به شما می‌کند."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "نصب ابزار قدرتمندی که اینترنت‌گردی شما را سریع‌تر و امن‌تر می‌کند، افزونه‌ها مرورگر را متعلق به شما می‌کند."
 
-#: src/amo/components/Home/index.js:157
-#: src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "مرور تمام تم‌ها"
 
@@ -507,12 +455,8 @@ msgid "…or what it looks like"
 msgstr "…یا همینطور ظاهر آن"
 
 #: src/amo/components/Home/index.js:165
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"ظاهر مرورگر خود را تغییر دهید. از هزاران قالب انتخاب کنید و به فایرفاکسِ خود "
-"نمایی بدهید که دوست دارید."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "ظاهر مرورگر خود را تغییر دهید. از هزاران قالب انتخاب کنید و به فایرفاکسِ خود نمایی بدهید که دوست دارید."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -574,13 +518,11 @@ msgstr "پوسته‌های با بیشترین امتیاز"
 msgid "More highly rated themes"
 msgstr "پوسته‌هایی با امتیاز ِبالای بیشتر"
 
-#: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "قالب‌ها"
 
-#: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:51
+#: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "افزونه‌ها"
 
@@ -688,8 +630,7 @@ msgstr "نوع افزونه‌"
 msgid "Operating System"
 msgstr "سیستم‌عامل"
 
-#: src/amo/components/SearchFilters/index.js:70
-#: src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
 msgid "All"
 msgstr "همه"
 
@@ -753,8 +694,7 @@ msgstr "یافتن زمینه"
 msgid "Find add-ons"
 msgstr "یافتن افزونه"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "جستجو"
 
@@ -803,15 +743,10 @@ msgid "Register or Log in"
 msgstr "ثبت‌نام یا ورود"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"متاسفیم، اما خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. ما این "
-"خطا را ضبط کرده‌ایم و آن را بررسی می‌کنیم."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "متاسفیم، اما خطایی رخ داد و ما نتوانستیم درخواست شما را کامل کنیم. ما این خطا را ضبط کرده‌ایم و آن را بررسی می‌کنیم."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "کد خطا: %(status)s."
 
@@ -819,8 +754,7 @@ msgstr "کد خطا: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "متاسفیم، نمی‌توانیم چیزی در URL وارد شده پیدا کنیم."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -926,12 +860,8 @@ msgstr "<span class=\"visually-hidden\"> باز کردن </span> برای خوا
 #~ msgid "Browse by category"
 #~ msgstr "مرور بر اساس دسته‌بندی"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "افزونه‌های امکانات ویژه‌ای هستند که می‌توانید به فایرفاکس خود اضافه کنید. "
-#~ "پوسته‌ها به شما اجازه می‌دهند که ظاهر مرورگر خود را تغییر دهید."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "افزونه‌های امکانات ویژه‌ای هستند که می‌توانید به فایرفاکس خود اضافه کنید. پوسته‌ها به شما اجازه می‌دهند که ظاهر مرورگر خود را تغییر دهید."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "میانگین امتیازها: %(rating)s از ۵"
