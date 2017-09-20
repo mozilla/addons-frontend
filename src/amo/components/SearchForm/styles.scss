@@ -17,7 +17,7 @@
   @include padding-end(6px);
   @include padding-start(28px);
 
-  border: 0;
+  border: 1px solid $white;
   border-radius: $border-radius-s;
   color: $black;
   height: 28px;
@@ -27,6 +27,16 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 100%;
+
+  &:hover {
+    border-color: $teal-50;
+  }
+
+  &:focus {
+    @include focus();
+
+    border-color: $teal-50;
+  }
 
   @include respond-to(medium) {
     @include padding-end(28px);
