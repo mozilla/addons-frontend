@@ -2,7 +2,6 @@ import * as api from 'core/api';
 import { reportAddon } from 'core/api/abuse';
 import {
   dispatchClientMetadata,
-  dispatchSignInActions,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
 import {
@@ -25,7 +24,7 @@ describe(__filename, () => {
       });
     }
 
-    it('should allow anonymous users to report an add-on', () => {
+    it('calls the report add-on abuse API', () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
 
@@ -46,35 +45,6 @@ describe(__filename, () => {
       return reportAddon({
         addonSlug: 'cool-addon',
         api: apiState,
-        message,
-      })
-        .then(() => {
-          mockApi.verify();
-        });
-    });
-
-    it('should allow signed-in users to report an add-on', () => {
-      const apiState = dispatchSignInActions().store.getState().api;
-      const message = 'I bet everybody here is fake happy too.';
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint: 'abuse/report/addon',
-          method: 'POST',
-          params: { addon: 'auth-addon', message },
-          state: apiState,
-        })
-        .once()
-        .returns(mockResponse({
-          addon: { ...fakeAddon, slug: 'auth-addon' },
-          message,
-        }));
-      return reportAddon({
-        addonSlug: 'auth-addon',
-        api: apiState,
-        auth: true,
         message,
       })
         .then(() => {

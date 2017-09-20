@@ -62,7 +62,7 @@ export const initialState = {
 
 type ReducerState = {|
   bySlug: {
-    [addonSlug: string]: {| message: string, reporter: string |},
+    [addonSlug: string]: {| message: string, reporter: Object | null |},
   },
 |};
 
