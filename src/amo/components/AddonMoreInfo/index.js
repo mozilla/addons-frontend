@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import translate from 'core/i18n/translate';
 import { trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -151,7 +152,7 @@ export class AddonMoreInfoBase extends React.Component {
   }
 
   render() {
-    const { i18n } = this.props;
+    const { addon, i18n } = this.props;
 
     return (
       <Card
@@ -159,6 +160,8 @@ export class AddonMoreInfoBase extends React.Component {
         header={i18n.gettext('More information')}
       >
         {this.listContent()}
+
+        <ReportAbuseButton addon={addon} />
       </Card>
     );
   }
