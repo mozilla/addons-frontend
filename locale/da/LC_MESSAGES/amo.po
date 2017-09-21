@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-20 20:55+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2017-09-21 07:31+0000\n"
+"Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -174,7 +174,7 @@ msgstr "Læs denne tilføjelses licensaftale"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Dette ID kan anvendes til at fejlsøge, og kan bruges af websteds-administratorer til at identificere din tilføjelse."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
