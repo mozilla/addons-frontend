@@ -50,6 +50,30 @@
   font-weight: 600;
 }
 
+@mixin font-opensans-regular() {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin font-opensans-regular-italic() {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+@mixin font-opensans-bold() {
+  font-family: "Open Sans", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin font-opensans-bold-italic() {
+  font-family: "Open Sans", sans-serif;
+  font-style: italic;
+  font-weight: 700;
+}
+
 /* Shared mixins. Bear in mind changes here impact *all* apps. */
 
 @mixin focus() {

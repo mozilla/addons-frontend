@@ -33,6 +33,7 @@ import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
 
 import 'core/fonts/fira.scss';
+import 'core/fonts/opensans.scss';
 import './styles.scss';
 
 

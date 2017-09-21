@@ -47,7 +47,7 @@ export class LanguagePickerBase extends React.Component {
     return (
       <div className="LanguagePicker">
         <h3 className="LanguagePicker-header">
-          {i18n.gettext('Browse in your language')}
+          {i18n.gettext('Language')}
         </h3>
         <select
           className="LanguagePicker-selector"
