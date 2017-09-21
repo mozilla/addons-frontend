@@ -1,0 +1,27 @@
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.AboutPage {
+  margin: $page-margin;
+}
+
+.ReviewGuidePage {
+  margin: $page-margin;
+
+  dd {
+    margin: 0;
+  }
+}
+
+.staticSubHeading {
+  color: $type-black;
+  flex-grow: 1;
+  font-size: $font-size-m-smaller;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  width: 100%;
+  word-wrap: break-word;
+}

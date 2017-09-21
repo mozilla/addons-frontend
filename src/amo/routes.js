@@ -19,6 +19,8 @@ import Home from './components/Home';
 import Addon from './components/Addon';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
+import About from './components/StaticPages/About';
+import ReviewGuide from './components/StaticPages/ReviewGuide';
 import SearchPage from './components/SearchPage';
 import ServerError from './components/ErrorPage/ServerError';
 
@@ -29,6 +31,8 @@ import ServerError from './components/ErrorPage/ServerError';
 export default (
   <Route path="/:lang/:application" component={App}>
     <IndexRoute component={Home} />
+    <Route path="about" component={About} />
+    <Route path="review-guide" component={ReviewGuide} />
     <Route path="addon/:slug/" component={Addon} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
     <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
