@@ -84,6 +84,9 @@ export const storeReviewObjects = (
   const byId = { ...state.byId };
 
   reviews.forEach((review) => {
+    if (!review.id) {
+      throw new Error('Cannot store review because review.id is falsy');
+    }
     byId[review.id] = review;
   });
 

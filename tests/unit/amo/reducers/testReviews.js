@@ -286,5 +286,14 @@ describe('amo.reducers.reviews', () => {
         [review2.id]: review2,
       });
     });
+
+    it('throws an error for falsy IDs', () => {
+      const reviews = [
+        denormalizeReview({ ...fakeReview, id: undefined }),
+      ];
+      expect(() => {
+        storeReviewObjects({ state: initialState, reviews });
+      }).toThrow(/Cannot store review because review.id is falsy/);
+    });
   });
 });
