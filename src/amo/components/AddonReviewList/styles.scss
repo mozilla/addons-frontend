@@ -50,27 +50,3 @@
     padding-top: 6px;
   }
 }
-
-.AddonReviewList-li {
-  word-wrap: break-word;
-
-  > h3 {
-    margin: 0;
-    padding: 0;
-  }
-
-  > p {
-    font-size: $font-size-default;
-    margin: 0 0 5px;
-  }
-
-  .AddonReviewList-by-line {
-    color: $sub-text-color;
-    display: flex;
-    font-size: $font-size-s;
-  }
-
-  .Rating {
-    margin: 0 5px 0 0;
-  }
-}

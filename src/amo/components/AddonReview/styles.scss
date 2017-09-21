@@ -1,9 +1,15 @@
 @import "~amo/css/inc/vars";
 @import "~core/css/inc/mixins";
 
-.AddonReview .Card-contents {
-  padding-left: 0;
-  padding-right: 0;
+.Overlay-contents .AddonReview {
+  .Card-contents {
+    background: $base-color;
+    padding: 10px 0;
+  }
+
+  .Rating {
+    margin: 15px 0;
+  }
 }
 
 .AddonReview-form-input {

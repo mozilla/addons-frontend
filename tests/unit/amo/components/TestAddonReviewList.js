@@ -1,4 +1,3 @@
-import { shallow } from 'enzyme';
 import React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
@@ -7,18 +6,20 @@ import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
-  mapStateToProps,
 } from 'amo/components/AddonReviewList';
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import Paginate from 'core/components/Paginate';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
+import {
   fetchAddon, createInternalAddon, loadAddons,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
-import Rating from 'ui/components/Rating';
-import { fakeAddon, fakeReview, dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
@@ -29,13 +30,6 @@ import { setError } from 'core/actions/errors';
 import { createApiError } from 'core/api/index';
 import LoadingText from 'ui/components/LoadingText';
 
-function getLoadedReviews({
-  addonSlug = fakeAddon.slug, reviews = [fakeReview], reviewCount = 1 } = {},
-) {
-  const action = setAddonReviews({ addonSlug, reviewCount, reviews });
-  // This is how reviews look after they have been loaded.
-  return action.payload.reviews;
-}
 
 describe(__filename, () => {
   let store;
@@ -251,6 +245,36 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatch, setViewContext(addon.type));
     });
 
+    it('does not dispatch a view context for similar add-ons', () => {
+      const addon1 = fakeAddon;
+      dispatchAddon(addon1);
+      dispatchAddonReviews();
+      const dispatch = sinon.stub(store, 'dispatch');
+      const root = render();
+
+      dispatch.reset();
+      // Update the component with a different addon having the same type.
+      root.setProps({
+        addon: createInternalAddon({ ...addon1, id: 345 }),
+      });
+
+      sinon.assert.notCalled(dispatch);
+    });
+
+    it('dispatches a view context for new add-on types', () => {
+      const addon1 = { ...fakeAddon, type: ADDON_TYPE_EXTENSION };
+      const addon2 = { ...addon1, type: ADDON_TYPE_THEME };
+
+      dispatchAddon(addon1);
+      const dispatch = sinon.stub(store, 'dispatch');
+      const root = render();
+
+      dispatch.reset();
+      root.setProps({ addon: createInternalAddon(addon2) });
+
+      sinon.assert.calledWith(dispatch, setViewContext(addon2.type));
+    });
+
     it('renders an error', () => {
       const errorHandler = createStubErrorHandler(new Error('some error'));
 
@@ -260,7 +284,6 @@ describe(__filename, () => {
 
     it('renders NotFound page if API returns 401 error', () => {
       const id = 'error-handler-id';
-      const { store } = dispatchClientMetadata();
 
       const error = createApiError({
         response: { status: 401 },
@@ -280,7 +303,6 @@ describe(__filename, () => {
 
     it('renders NotFound page if API returns 404 error', () => {
       const id = 'error-handler-id';
-      const { store } = dispatchClientMetadata();
 
       const error = createApiError({
         response: { status: 404 },
@@ -300,8 +322,8 @@ describe(__filename, () => {
 
     it('renders a list of reviews with ratings', () => {
       const reviews = [
-        { ...fakeReview, rating: 1 },
-        { ...fakeReview, rating: 2 },
+        { ...fakeReview, id: 1, rating: 1 },
+        { ...fakeReview, id: 2, rating: 2 },
       ];
       dispatchAddon();
       dispatchAddonReviews({ reviews });
@@ -318,66 +340,6 @@ describe(__filename, () => {
         rating: reviews[1].rating,
       });
     });
-
-    /*
-
-    // TODO: move to AddonReviewListItem tests.
-
-    it('renders a list of reviews with ratings', () => {
-      const reviews = [
-        { ...fakeReview, rating: 1 },
-        { ...fakeReview, rating: 2 },
-      ];
-      dispatchAddon();
-      dispatchAddonReviews({ reviews });
-      const tree = render();
-      const ratings = tree.find(Rating);
-      expect(ratings).toHaveLength(2);
-
-      expect(ratings.at(1)).toHaveProp('rating', 2);
-      expect(ratings.at(1)).toHaveProp('readOnly', true);
-    });
-
-    it.skip('renders a review', () => {
-      const root = render({ reviews: [fakeReview] });
-      const fakeReviewWithNewLine = {
-        ...fakeReview,
-        body: "It's awesome \n isn't it?",
-      };
-      const wrapper = render({ reviews: [fakeReviewWithNewLine] });
-
-      expect(root.find('.AddonReviewList-li h3'))
-        .toHaveText(fakeReview.title);
-
-      expect(root.find('.AddonReviewList-li p'))
-        .toHaveHTML(`<p>${fakeReview.body}</p>`);
-
-      expect(root.find('.AddonReviewList-by-line'))
-        .toIncludeText(fakeReview.user.name);
-
-      expect(wrapper.find('.AddonReviewList-li p').render().find('br'))
-        .toHaveLength(1);
-    });
-
-    it.skip('waits for an addon and reviews to load', () => {
-      const root = render({ addon: null, reviews: null });
-      expect(root.find('.AddonReviewList-header-icon img').prop('src'))
-        .toContain('default');
-      expect(root.find('.AddonReviewList-header-text').find(LoadingText))
-        .toHaveLength(2);
-
-      // Make sure four review placeholders were rendered.
-      expect(root.find('.AddonReviewList-li')).toHaveLength(4);
-      // Do a sanity check on the first placeholder;
-      expect(root.find('.AddonReviewList-li h3').at(0).find(LoadingText))
-        .toHaveLength(1);
-      expect(root.find('.AddonReviewList-li p').at(0).find(LoadingText))
-        .toHaveLength(1);
-      expect(root.find('.AddonReviewList-by-line').at(0).find(LoadingText))
-        .toHaveLength(1);
-    });
-
-    */
 
     it("renders the add-on's icon in the header", () => {
       const addon = fakeAddon;

@@ -264,8 +264,8 @@ describe('amo.reducers.reviews', () => {
         denormalizeReview({ ...fakeReview, id: 1 }),
         denormalizeReview({ ...fakeReview, id: 2 }),
       ];
-      expect(storeReviewObjects({ state: initialState, reviews })).
-        toEqual({
+      expect(storeReviewObjects({ state: initialState, reviews }))
+        .toEqual({
           [reviews[0].id]: reviews[0],
           [reviews[1].id]: reviews[1],
         });
