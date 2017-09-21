@@ -16,7 +16,7 @@ export function reportAddon(
     auth: true,
     endpoint: 'abuse/report/addon',
     method: 'POST',
-    params: { addon: addonSlug, message },
+    body: { addon: addonSlug, message },
     state: api,
   });
 }
