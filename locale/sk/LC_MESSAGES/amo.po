@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-16 13:26+0000\n"
+"PO-Revision-Date: 2017-09-21 17:49+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -115,12 +115,8 @@ msgid "Screenshots"
 msgstr "Snímky obrazovky"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Na inštaláciu tohoto doplnku si musíte <a href=\"%(downloadUrl)s\">prevziať "
-"Firefox</a>."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Na inštaláciu tohoto doplnku si musíte <a href=\"%(downloadUrl)s\">prevziať Firefox</a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -135,23 +131,14 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pre iOS v súčasnosti nepodporuje doplnky."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Tento doplnok vyžaduje <a href=\"%(downloadUrl)s\">novšiu verziu Firefoxu</"
-"a> (aspoň verziu %(minVersion)s). Vy používate Firefox %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Tento doplnok vyžaduje <a href=\"%(downloadUrl)s\">novšiu verziu Firefoxu</a> (aspoň verziu %(minVersion)s). Vy používate Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Váš prehliadač nepodporuje doplnky. Ak si chcete tento doplnok nainštalovať, "
-"môžete si <a href=\"%(downloadUrl)s\">prevziať Firefox</a>."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Váš prehliadač nepodporuje doplnky. Ak si chcete tento doplnok nainštalovať, môžete si <a href=\"%(downloadUrl)s\">prevziať Firefox</a>."
 
-#: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s používateľ"
@@ -190,9 +177,7 @@ msgid "Read the license agreement for this add-on"
 msgstr "Prečítajte si licenčnú zmluvu pre tento doplnok"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:141
@@ -237,18 +222,15 @@ msgstr "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné!"
 
 #: src/amo/components/AddonReview.js:148
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Povedzte nám, čo sa vám na tomto doplnku páči. Buďte, prosím, konkrétni."
+msgstr "Povedzte nám, čo sa vám na tomto doplnku páči. Buďte, prosím, konkrétni."
 
 #: src/amo/components/AddonReview.js:152
 msgid "Tell the world about this extension."
 msgstr "Povedzte svetu o tomto rozšírení."
 
 #: src/amo/components/AddonReview.js:153
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Povedzte nám o vašej skúsenosti s týmto rozšírením. Buďte, prosím, konkrétni."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Povedzte nám o vašej skúsenosti s týmto rozšírením. Buďte, prosím, konkrétni."
 
 #: src/amo/components/AddonReview.js:161
 msgid "Write a review"
@@ -311,77 +293,45 @@ msgid "Download Firefox"
 msgstr "Prevziať Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Ak ste prihlásení a myslíte si, že táto správa je chybná, prosím <a href="
-"\"%(url)s\">nahláste nám ju</a>. Povedzte nám, ako ste sa sem dostali a kam "
-"ste sa chceli dostať, my sa postaráme o opravu."
+"Ak ste prihlásení a myslíte si, že táto správa je chybná, prosím <a href=\"%(url)s\">nahláste nám ju</a>. Povedzte nám, ako ste sa sem dostali a kam ste sa chceli dostať, my sa postaráme o opravu."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Žiadna autorizácia"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Ospravedlňujeme sa, ale nemáte oprávnenie na zobrazenie tejto stránky. Ak "
-"nie ste prihlásení, skúste sa prihlásiť pomocou odkazu v hornej časti "
-"stránky."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Ospravedlňujeme sa, ale nemáte oprávnenie na zobrazenie tejto stránky. Ak nie ste prihlásení, skúste sa prihlásiť pomocou odkazu v hornej časti stránky."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Ak ste sa sem dostali pomocou niektorého z odkazov, prosím, <a href=\"%(url)s"
-"\">nahláste nám chybu</a>. Povedzte nám, ako ste sa sem dostali a čo ste "
-"hľadali a my sa postaráme o opravu."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Ak ste sa sem dostali pomocou niektorého z odkazov, prosím, <a href=\"%(url)s\">nahláste nám chybu</a>. Povedzte nám, ako ste sa sem dostali a čo ste hľadali a my sa postaráme o opravu."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Stránka nebola nájdená"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť. Ak ste sa sem "
-"dostali po kliknutí na odkaz na doplnok, je možne, že daný doplnok bol jeho "
-"autorom odstránený."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť. Ak ste sa sem dostali po kliknutí na odkaz na doplnok, je možne, že daný doplnok bol jeho autorom odstránený."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Ak máte ďalšie , ktoré by nám mohli pomôcť, môžete nám <a href=\"https://"
-"github.com/mozilla/addons-frontend/issues/new/\">nahlásiť chybu</a>. "
-"Povedzte nám, ako ste sa k tejto chybe dostali a my urobíme všetko pre to, "
-"aby sme ju opravili."
+"Ak máte ďalšie , ktoré by nám mohli pomôcť, môžete nám <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">nahlásiť chybu</a>. Povedzte nám, ako ste sa k tejto chybe dostali a my "
+"urobíme všetko pre to, aby sme ju opravili."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Chyba servera"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe "
-"servera. Chybu sme zaznamenali a budeme sa jej venovať."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe servera. Chybu sme zaznamenali a budeme sa jej venovať."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -417,7 +367,7 @@ msgstr "Upraviť profil"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "Nástroje"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
@@ -431,8 +381,7 @@ msgstr ""
 msgid "Manage API Keys"
 msgstr ""
 
-#: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Odhlásiť sa"
 
@@ -488,8 +437,7 @@ msgstr "Športovo"
 msgid "Solid"
 msgstr "Jednoducho"
 
-#: src/amo/components/Home/index.js:138
-#: src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "Prehliadať všetky rozšírenia"
 
@@ -498,15 +446,10 @@ msgid "You can change how Firefox works…"
 msgstr "Môžete zmeniť to, ako Firefox funguje…"
 
 #: src/amo/components/Home/index.js:146
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Nainštalujte si mocné nástroje, vďaka ktorým bude vaše prehliadanie "
-"rýchlejšie a bezpečnejšie. Vďaka doplnkom je váš prehliadač skutočne váš."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Nainštalujte si mocné nástroje, vďaka ktorým bude vaše prehliadanie rýchlejšie a bezpečnejšie. Vďaka doplnkom je váš prehliadač skutočne váš."
 
-#: src/amo/components/Home/index.js:157
-#: src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "Prehliadať všetky témy vzhľadu"
 
@@ -515,12 +458,8 @@ msgid "…or what it looks like"
 msgstr "…alebo ako vyzerá"
 
 #: src/amo/components/Home/index.js:165
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Zmeňte vzhľad svojho prehliadača. Vyberte si jednu z tisícok tém vzhľadu a "
-"prispôsobte si Firefox."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Zmeňte vzhľad svojho prehliadača. Vyberte si jednu z tisícok tém vzhľadu a prispôsobte si Firefox."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -582,13 +521,11 @@ msgstr "Najlepšie hodnotené témy vzhľadu"
 msgid "More highly rated themes"
 msgstr "Ďalšie témy vzhľadu s vysokým hodnotením"
 
-#: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "Témy vzhľadu"
 
-#: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:51
+#: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "Rozšírenia"
 
@@ -634,8 +571,7 @@ msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
 msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] ""
-"Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:46
 #, fuzzy
@@ -643,8 +579,7 @@ msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
 msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
 msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] ""
-"Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:52
 #, fuzzy
@@ -652,8 +587,7 @@ msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
 msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
 msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] ""
-"Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:58
 #, fuzzy
@@ -661,8 +595,7 @@ msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
 msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] ""
-"Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:64
 #, fuzzy
@@ -670,16 +603,14 @@ msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
 msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] ""
-"Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
 msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" nebol nájdený žiadny výsledok"
 msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky"
-msgstr[2] ""
-"Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
+msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bolo nájdených %(count)s výsledkov"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
@@ -716,8 +647,7 @@ msgstr "Typu doplnku"
 msgid "Operating System"
 msgstr "Operačného systému"
 
-#: src/amo/components/SearchFilters/index.js:70
-#: src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
 msgid "All"
 msgstr "Všetkého"
 
@@ -781,8 +711,7 @@ msgstr "Hľadať"
 msgid "Find add-ons"
 msgstr "Hľadať"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Hľadať"
 
@@ -831,15 +760,10 @@ msgid "Register or Log in"
 msgstr "Zaregistrujte sa alebo sa prihláste"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. "
-"Chybu sme zaznamenali a budeme sa jej venovať."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Ospravedlňujeme sa, ale počas spracovávania vašej požiadavky došlo k chybe. Chybu sme zaznamenali a budeme sa jej venovať."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Kód chyby: %(status)s."
 
@@ -847,8 +771,7 @@ msgstr "Kód chyby: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
+#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
@@ -866,8 +789,7 @@ msgstr "Inštalovanie doplnku %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
+msgstr "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "%(name)s is disabled. Click to enable."
@@ -935,8 +857,7 @@ msgstr "Žiadne hodnotenie"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
-"Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
+msgstr "Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
 
 #~ msgid "Search extensions"
 #~ msgstr "Hľadať v rozšíreniach"
@@ -953,12 +874,8 @@ msgstr ""
 #~ msgid "Browse by category"
 #~ msgstr "Prehliadať podľa kategórie"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Rozšírenia predstavujú špeciálne funkcie, ktoré si môžete pridať do "
-#~ "Firefoxu. Pomocou tém vzhľadu môžete zmeniť vzhľad vášho prehliadača."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Rozšírenia predstavujú špeciálne funkcie, ktoré si môžete pridať do Firefoxu. Pomocou tém vzhľadu môžete zmeniť vzhľad vášho prehliadača."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Priemerné hodnotenie %(averageRating)s z 5"
@@ -1007,12 +924,9 @@ msgstr ""
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok."
-#~ msgstr[1] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky."
-#~ msgstr[2] ""
-#~ "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
+#~ msgstr[0] "Pre vyhľadávaný výraz \"%(query)s\" bol nájdený %(count)s výsledok."
+#~ msgstr[1] "Pre vyhľadávaný výraz \"%(query)s\" boli nájdené %(count)s výsledky."
+#~ msgstr[2] "Pre vyhľadávaný výraz \"%(query)s\" bol nájdených %(count)s výsledkov."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Prosím, zadajte platný výraz vyhľadávania"
