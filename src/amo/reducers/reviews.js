@@ -2,15 +2,20 @@
 import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
 import type { UserReviewType } from 'amo/actions/reviews';
 
+type ReviewsById = {
+  [id: number]: UserReviewType,
+}
+
 type ReviewsByAddon = {
   [slug: string]: {|
     reviewCount: number,
-    reviews: Array<UserReviewType>,
+    reviews: Array<number>,
   |},
 }
 
 export type ReviewState = {|
   byAddon: ReviewsByAddon,
+  byId: ReviewsById,
 
   // This is what the current data structure looks like:
   // [userId: string]: {
@@ -28,8 +33,26 @@ export type ReviewState = {|
   //
 |};
 
-export const initialState = {
+export const initialState: ReviewState = {
   byAddon: {},
+  byId: {},
+};
+
+type ExpandReviewObjectsParams = {|
+  state: ReviewState,
+  reviews: Array<number>,
+|};
+
+export const expandReviewObjects = (
+  { state, reviews }: ExpandReviewObjectsParams
+): Array<UserReviewType> => {
+  return reviews.map((id) => {
+    const review = state.byId[id];
+    if (!review) {
+      throw new Error(`No stored review exists for ID ${id}`);
+    }
+    return review;
+  });
 };
 
 function mergeInNewReview(
@@ -50,8 +73,24 @@ function mergeInNewReview(
   return mergedReviews;
 }
 
+type StoreReviewObjectsParams = {|
+  state: ReviewState,
+  reviews: Array<UserReviewType>,
+|};
 
-export default function reviews(
+export const storeReviewObjects = (
+  { state, reviews }: StoreReviewObjectsParams
+): ReviewsById => {
+  const byId = { ...state.byId };
+
+  reviews.forEach((review) => {
+    byId[review.id] = review;
+  });
+
+  return byId;
+};
+
+export default function reviewsReducer(
   state: ReviewState = initialState,
   { payload, type }: {| payload: any, type: string |},
 ) {
@@ -60,10 +99,14 @@ export default function reviews(
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
+      // TODO: If a review is marked as isLatest, update all other
+      // reviews for that add-on as isLatest=false
       return {
         ...state,
+        byId: storeReviewObjects({ state, reviews: [payload] }),
         [payload.userId]: {
           ...state[payload.userId],
+          // TODO: make this a list of review IDs.
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
         },
       };
@@ -71,11 +114,12 @@ export default function reviews(
     case SET_ADDON_REVIEWS: {
       return {
         ...state,
+        byId: storeReviewObjects({ state, reviews: payload.reviews }),
         byAddon: {
           ...state.byAddon,
           [payload.addonSlug]: {
             reviewCount: payload.reviewCount,
-            reviews: payload.reviews,
+            reviews: payload.reviews.map((review) => review.id),
           },
         },
       };
