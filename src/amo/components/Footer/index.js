@@ -25,17 +25,19 @@ export class FooterBase extends React.Component {
     return (
       <footer className="Footer">
         <div className="Footer-wrapper">
-          <a
-            className="Footer-mozilla-link"
-            href="https://mozilla.org/"
-            title={homepageText}
-          >
-            <Icon
-              alt={homepageText}
-              className="Footer-mozilla-logo"
-              name="mozilla"
-            />
-          </a>
+          <div className="Footer-mozilla-link-wrapper">
+            <a
+              className="Footer-mozilla-link"
+              href="https://mozilla.org/"
+              title={homepageText}
+            >
+              <Icon
+                alt={homepageText}
+                className="Footer-mozilla-logo"
+                name="mozilla"
+              />
+            </a>
+          </div>
 
           <section className="Footer-amo-links">
             <h4 className="Footer-links-header"><Link href="/">{i18n.gettext('Add-ons')}</Link></h4>
