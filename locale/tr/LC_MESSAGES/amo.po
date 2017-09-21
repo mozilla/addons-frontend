@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-20 20:57+0000\n"
+"PO-Revision-Date: 2017-09-21 20:53+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -57,15 +57,15 @@ msgstr "%(addonVersion)s sürüm notları"
 
 #: src/amo/components/Addon/index.js:317
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s tarafından diğer sözlükler"
 
 #: src/amo/components/Addon/index.js:320
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Bu çevirmenlerin diğer sözlükleri"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s tarafından geliştirilen diğer eklentiler"
 
 #: src/amo/components/Addon/index.js:331
 #, fuzzy
@@ -74,27 +74,27 @@ msgstr "Uzantılarda ve temalarda ara"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s tarafından yazılan diğer dil paketleri"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Bu çevirmenlerin diğer dil paketleri"
 
 #: src/amo/components/Addon/index.js:350
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s tarafından diğer temalar"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Bu sanatçıların diğer temaları"
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s tarafından geliştirilen diğer eklentiler"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Bu geliştiricilerin diğer eklentileri"
 
 #: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -172,11 +172,11 @@ msgstr "Bu eklentinin lisans anlaşmasını okuyun"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Bu kimlik, site yöneticilerinin hata ayıklamasına ve eklentinizi tanımlamasına yardımcı olur."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Site kimliği"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
