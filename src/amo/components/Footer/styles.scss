@@ -122,9 +122,12 @@
   }
 }
 
+.Footer-mozilla-link-wrapper {
+  grid-area: logo;
+}
+
 .Footer-mozilla-link {
   display: inline-block;
-  grid-area: logo;
   margin-top: 10px;
 
   @include respond-to(medium) {
