@@ -6,7 +6,7 @@
   @include text-align-start();
 
   display: inline-block;
-  padding-bottom: 6px;
+  padding-bottom: 2px;
   padding-top: 4px;
   position: relative;
 
@@ -24,6 +24,10 @@
         opacity: 1;
       }
     }
+  }
+
+  @include respond-to(medium) {
+    padding-bottom: 6px;
   }
 }
 
