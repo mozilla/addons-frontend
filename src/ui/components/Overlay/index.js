@@ -9,6 +9,7 @@ export default class Overlay extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    onEscapeOverlay: PropTypes.func,
     visibleOnLoad: PropTypes.bool.isRequired,
   }
 
@@ -28,6 +29,9 @@ export default class Overlay extends React.Component {
   }
 
   onClickBackground = () => {
+    if (this.props.onEscapeOverlay) {
+      this.props.onEscapeOverlay();
+    }
     this.hide();
   }
 

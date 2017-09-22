@@ -19,6 +19,7 @@ import { fakeAddon, fakeReview, signedInApiState } from 'tests/unit/amo/helpers'
 import {
   createStubErrorHandler, getFakeI18nInst, shallowUntilTarget,
 } from 'tests/unit/helpers';
+import OverlayCard from 'ui/components/OverlayCard';
 import Rating from 'ui/components/Rating';
 
 const defaultReview = {
@@ -121,6 +122,13 @@ describe(__filename, () => {
 
         expect(onReviewSubmitted.called).toBeTruthy();
       });
+  });
+
+  it('it passes onEscapeOverlay to OverlayCard', () => {
+    const onEscapeOverlay = sinon.stub();
+    const root = shallowRender({ onEscapeOverlay });
+    expect(root.find(OverlayCard))
+      .toHaveProp('onEscapeOverlay', onEscapeOverlay);
   });
 
   it('updates review state from a new review property', () => {

@@ -8,6 +8,7 @@ import AddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import { isAuthenticated } from 'core/reducers/user';
 import { nl2br, sanitizeHTML } from 'core/utils';
+import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import type { UserReviewType } from 'amo/actions/reviews';
@@ -24,20 +25,23 @@ type PropsType = {|
 
 export class AddonReviewListItemBase extends React.Component {
   props: PropsType;
-  state: {|
-    editingReview: boolean,
-  |};
+  state: {| editingReview: boolean |};
 
   constructor(props: PropsType) {
     super(props);
-    this.state = {
-      editingReview: false,
-    };
+    this.state = { editingReview: false };
   }
 
   onClickToEditReview = (event: SyntheticEvent) => {
     event.preventDefault();
     this.setState({ editingReview: true });
+  }
+
+  onEscapeReviewOverlay = () => {
+    // Even though an escaped overlay will be hidden, we still have to
+    // synchronize our show/hide state otherwise we won't be able to
+    // show the overlay after it has been escaped.
+    this.setState({ editingReview: false });
   }
 
   onReviewSubmitted = () => {
@@ -81,17 +85,18 @@ export class AddonReviewListItemBase extends React.Component {
           <div className="AddonReviewListItem-controls">
             {this.state.editingReview ?
               <AddonReview
+                onEscapeOverlay={this.onEscapeReviewOverlay}
                 onReviewSubmitted={this.onReviewSubmitted}
                 review={review}
               />
               : null
             }
-            <a
+            <Button
               onClick={this.onClickToEditReview}
-              href="#"
+              className="AddonReviewListItem-edit-button Button--action Button--small"
             >
               {i18n.gettext('Edit')}
-            </a>
+            </Button>
           </div>
           : null
         }

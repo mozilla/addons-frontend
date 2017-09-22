@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { denormalizeReview } from 'amo/actions/reviews';
+import AddonReview from 'amo/components/AddonReview';
 import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
@@ -9,6 +10,7 @@ import {
   dispatchSignInActions, fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
+  createFakeEvent,
   getFakeI18nInst,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -32,6 +34,19 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AddonReviewListItem {...props} />, AddonReviewListItemBase
     );
+  };
+
+  const signInAndDispatchSavedReview = ({
+    siteUserId = 123, reviewUserId = siteUserId,
+  } = {}) => {
+    dispatchSignInActions({ store, userId: siteUserId });
+    return denormalizeReview({
+      ...fakeReview,
+      user: {
+        ...fakeReview.user,
+        id: reviewUserId,
+      },
+    });
   };
 
   it('renders a review', () => {
@@ -87,19 +102,53 @@ describe(__filename, () => {
   });
 
   it('does not render controls for the wrong user', () => {
-    const reviewUserId = 123;
-    const otherUserId = 987;
-
-    dispatchSignInActions({ store, userId: otherUserId });
-    const review = denormalizeReview({
-      ...fakeReview,
-      user: {
-        ...fakeReview.user,
-        id: reviewUserId,
-      },
+    const review = signInAndDispatchSavedReview({
+      siteUserId: 123, reviewUserId: 987,
     });
     const root = render({ review });
 
     expect(root.find('.AddonReviewListItem-controls')).toHaveLength(0);
+  });
+
+  it('lets you edit your review', () => {
+    const review = signInAndDispatchSavedReview();
+    const root = render({ review });
+
+    const editButton = root.find('.AddonReviewListItem-edit-button');
+    editButton.simulate('click', createFakeEvent());
+
+    const reviewComponent = root.find(AddonReview);
+    expect(reviewComponent).toHaveLength(1);
+    expect(reviewComponent).toHaveProp('review', review);
+  });
+
+  it('hides AddonReview when the overlay is escaped', () => {
+    const review = signInAndDispatchSavedReview();
+    const root = render({ review });
+    root.setState({ editingReview: true });
+
+    const reviewComponent = root.find(AddonReview);
+    expect(reviewComponent).toHaveLength(1);
+
+    const onEscapeOverlay = reviewComponent.prop('onEscapeOverlay');
+    // Simulate escaping the review.
+    onEscapeOverlay();
+
+    expect(root.find(AddonReview)).toHaveLength(0);
+  });
+
+  it('hides AddonReview after a review has been submitted', () => {
+    const review = signInAndDispatchSavedReview();
+    const root = render({ review });
+    root.setState({ editingReview: true });
+
+    const reviewComponent = root.find(AddonReview);
+    expect(reviewComponent).toHaveLength(1);
+
+    const onReviewSubmitted = reviewComponent.prop('onReviewSubmitted');
+    // Simulate submitting the review.
+    onReviewSubmitted();
+
+    expect(root.find(AddonReview)).toHaveLength(0);
   });
 });

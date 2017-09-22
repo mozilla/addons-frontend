@@ -15,6 +15,7 @@ export default class OverlayCard extends React.Component {
     header: PropTypes.node,
     footerLink: PropTypes.node,
     footerText: PropTypes.node,
+    onEscapeOverlay: PropTypes.func,
     visibleOnLoad: PropTypes.bool.isRequired,
   }
 
@@ -41,6 +42,7 @@ export default class OverlayCard extends React.Component {
 
     return (
       <Overlay
+        onEscapeOverlay={this.props.onEscapeOverlay}
         visibleOnLoad={visibleOnLoad}
         ref={(ref) => { this.overlay = ref; }}
       >

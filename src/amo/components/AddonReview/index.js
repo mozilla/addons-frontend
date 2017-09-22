@@ -31,6 +31,7 @@ type AddonReviewProps = {|
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: Object,
+  onEscapeOverlay?: () => void,
   onReviewSubmitted: () => void | Promise<void>,
   refreshAddon: () => Promise<void>,
   review: UserReviewType,
@@ -168,7 +169,11 @@ export class AddonReviewBase extends React.Component {
     }
 
     return (
-      <OverlayCard visibleOnLoad className="AddonReview">
+      <OverlayCard
+        visibleOnLoad
+        onEscapeOverlay={this.props.onEscapeOverlay}
+        className="AddonReview"
+      >
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
         <Rating
