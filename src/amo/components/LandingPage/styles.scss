@@ -30,17 +30,15 @@
 
 .LandingPage-icon {
   width: 100%;
-  margin: 0;
 
-  @include respond-to(medium) {
-    height: 248px;
-    width: 473px;
+  @include respond-to(large) {
+    height: 225px;
   }
 }
 
 .LandingPage-addonType-name {
   font-size: $font-size-l;
-  font-weight: lighter;
+  font-weight: 300;
   margin: 0 0 15px;
 
   @include respond-to(medium) {
