@@ -1,20 +1,35 @@
 @import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import "~photon-colors/colors";
 
-.AboutPage,
-.ReviewGuidePage {
+.StaticPage {
   margin: $page-margin;
-}
 
-.staticSubHeading {
-  color: $type-black;
-  flex-grow: 1;
-  font-size: $font-size-m-smaller;
-  font-weight: 400;
-  line-height: 1.2;
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-  width: 100%;
-  word-wrap: break-word;
+  .Card-contents li,
+  .Card-contents p {
+    font-size: $font-size-default;
+  }
+
+  h1,
+  h2 {
+    color: $grey-90;
+  }
+
+  h1 {
+    font-size: $font-size-m;
+  }
+
+  h2,
+  h3 {
+    font-size: $font-size-default;
+  }
+
+  h3,
+  dt {
+    color: $grey-60;
+  }
+
+  dt {
+    font-size: $font-size-default;
+    font-weight: bold;
+  }
 }

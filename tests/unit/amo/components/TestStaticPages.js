@@ -13,10 +13,10 @@ describe('About', () => {
     );
   }
 
-  it('outputs a about page', () => {
+  it('outputs an about page', () => {
     const root = render();
-
-    expect(root).toHaveClassName('AboutPage');
+    expect(root).toHaveClassName('StaticPage');
+    expect(root.find('#about')).toBePresent();
   });
 });
 
@@ -29,7 +29,7 @@ describe('ReviewGuide', () => {
 
   it('outputs a review_guide page', () => {
     const root = render();
-
-    expect(root).toHaveClassName('ReviewGuidePage');
+    expect(root).toHaveClassName('StaticPage');
+    expect(root.find('#review-guide')).toBePresent();
   });
 });

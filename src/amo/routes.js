@@ -30,30 +30,36 @@ import Collection from './components/Collection';
 // https://github.com/mozilla-services/puppet-config/tree/master/amo
 
 export default (
-  <Route path="/:lang/:application" component={App}>
-    <IndexRoute component={Home} />
-    <Route path="about" component={About} />
-    <Route path="review-guide" component={ReviewGuide} />
-    <Route path="addon/:slug/" component={Addon} />
-    <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-    <Route path="collections/:user/:slug/" component={Collection} />
-    <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
-    <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
-    <Route path=":visibleAddonType/:slug/" component={Category} />
-    <Route path="search/" component={SearchPage} />
-    <Route
-      path="401/"
-      component={config.get('isDevelopment') ? NotAuthorized : NotFound}
-    />
-    <Route path="404/" component={NotFound} />
-    <Route
-      path="500/"
-      component={config.get('isDevelopment') ? ServerError : NotFound}
-    />
-    <Route path="simulate-async-error/" component={SimulateAsyncError} />
-    <Route path="simulate-sync-error/" component={SimulateSyncError} />
-    <Route path="simulate-client-error/" component={SimulateClientError} />
-    <Route path=":visibleAddonType/" component={LandingPage} />
-    <Route path="*" component={NotFound} />
-  </Route>
+  <div>
+    <Route path="/:lang" component={App}>
+      <Route path="about" component={About} />
+      <Route path="review_guide" component={ReviewGuide} />
+    </Route>
+    <Route path="/:lang/:application" component={App}>
+      <IndexRoute component={Home} />
+      <Route path="about" component={About} />
+      <Route path="review-guide" component={ReviewGuide} />
+      <Route path="addon/:slug/" component={Addon} />
+      <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
+      <Route path="collections/:user/:slug/" component={Collection} />
+      <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
+      <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
+      <Route path=":visibleAddonType/:slug/" component={Category} />
+      <Route path="search/" component={SearchPage} />
+      <Route
+        path="401/"
+        component={config.get('isDevelopment') ? NotAuthorized : NotFound}
+      />
+      <Route path="404/" component={NotFound} />
+      <Route
+        path="500/"
+        component={config.get('isDevelopment') ? ServerError : NotFound}
+      />
+      <Route path="simulate-async-error/" component={SimulateAsyncError} />
+      <Route path="simulate-sync-error/" component={SimulateSyncError} />
+      <Route path="simulate-client-error/" component={SimulateClientError} />
+      <Route path=":visibleAddonType/" component={LandingPage} />
+      <Route path="*" component={NotFound} />
+    </Route>
+  </div>
 );
