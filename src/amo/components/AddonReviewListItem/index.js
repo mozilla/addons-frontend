@@ -83,6 +83,7 @@ export class AddonReviewListItemBase extends React.Component {
         </div>
         {userIsAuthenticated && review && review.userId === siteUser.id ?
           <div className="AddonReviewListItem-controls">
+            {/* This will render an overlay to edit the review */}
             {this.state.editingReview ?
               <AddonReview
                 onEscapeOverlay={this.onEscapeReviewOverlay}
