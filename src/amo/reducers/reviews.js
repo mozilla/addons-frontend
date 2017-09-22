@@ -110,6 +110,7 @@ export default function reviewsReducer(
           // TODO: this should be a list of review IDs, not objects. It will
           // be complicated because we also need to preserve handling of the
           // isLatest flag.
+          // https://github.com/mozilla/addons-frontend/issues/3221
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
         },
       };
