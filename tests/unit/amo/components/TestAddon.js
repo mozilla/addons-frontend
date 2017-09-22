@@ -338,6 +338,26 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
+  it('renders NotFound page for forbidden add-on - 403 error', () => {
+    const id = 'error-handler-id';
+    const { store } = dispatchClientMetadata();
+
+    const error = createApiError({
+      response: { status: 403 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'You do not have permission.' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    // This makes sure the error was dispatched to state correctly.
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = createStubErrorHandler(capturedError);
+
+    const root = shallowRender({ errorHandler });
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
   it('renders a single author', () => {
     const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
     const root = shallowRender({

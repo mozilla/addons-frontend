@@ -399,9 +399,10 @@ export class AddonBase extends React.Component {
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // A 401 is made to look like a 404 on purpose.
+      // 401 and 403 are made to look like a 404 on purpose.
       // See https://github.com/mozilla/addons-frontend/issues/3061
       if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 403 ||
           errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound />;
