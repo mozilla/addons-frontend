@@ -19,7 +19,6 @@ export type UserReviewType = {|
   versionId: ?number,
 |};
 
-// TODO: rename this createInternalReview() ?
 export function denormalizeReview(review: ApiReviewType): UserReviewType {
   return {
     addonId: review.addon.id,
