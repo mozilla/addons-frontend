@@ -46,12 +46,13 @@ export class LanguagePickerBase extends React.Component {
 
     return (
       <div className="LanguagePicker">
-        <h3 className="LanguagePicker-header">
+        <label htmlFor="lang-picker" className="LanguagePicker-header">
           {i18n.gettext('Change language')}
-        </h3>
+        </label>
         <select
           className="LanguagePicker-selector"
           defaultValue={currentLocale}
+          id="lang-picker"
           ref={(ref) => { this.selector = ref; }}
           onChange={this.onChange}
         >
