@@ -1,25 +1,35 @@
+/* global Node */
 import React from 'react';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
+import { mount } from 'enzyme';
 
 import createStore from 'amo/store';
 import InstallButton, { InstallButtonBase } from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
+import I18nProvider from 'core/i18n/Provider';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  OS_ALL,
   UNKNOWN,
 } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  createFakeEvent,
+  getFakeI18nInst,
+  sampleUserAgentParsed,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import {
+  createFakeAddon, fakeAddon, fakeTheme,
+} from 'tests/unit/amo/helpers';
 import Button from 'ui/components/Button';
 
 
-describe('<InstallButton />', () => {
+describe(__filename, () => {
   const getClientCompatibilityFalse = () => ({
     compatible: false,
     reason: INCOMPATIBLE_NOT_FIREFOX,
@@ -30,11 +40,12 @@ describe('<InstallButton />', () => {
   });
 
   const renderProps = (customProps = {}) => ({
-    addon: fakeAddon,
+    addon: createInternalAddon(fakeAddon),
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: getFakeI18nInst(),
     store: createStore().store,
+    userAgentInfo: sampleUserAgentParsed,
     ...customProps,
   });
 
@@ -42,17 +53,36 @@ describe('<InstallButton />', () => {
     <InstallButton {...renderProps(props)} />, InstallButtonBase
   );
 
-  const renderToDom = (props) => findDOMNode(
-    renderIntoDocument(<InstallButtonBase {...renderProps(props)} />));
+  const renderToDom = (customProps = {}) => {
+    const props = renderProps(customProps);
+    return mount(
+      <I18nProvider i18n={props.i18n}>
+        <InstallButtonBase {...props} />
+      </I18nProvider>
+    );
+  };
 
   it('renders InstallSwitch when mozAddonManager is available', () => {
-    const i18n = getFakeI18nInst();
-    const addon = {
-      ...fakeAddon,
-      type: ADDON_TYPE_THEME,
-      id: 'foo@personas.mozilla.org',
-    };
-    const root = render({ foo: 'foo', hasAddonManager: true, i18n, addon });
+    const installURL = 'https://a.m.o/files/addon.xpi';
+    // This can't use createFakeAddon({ files: [...] }) because it needs
+    // to specify a custom object for addon.current_version.
+    const addon = createInternalAddon({
+      ...fakeTheme,
+      current_version: {
+        ...fakeTheme.current_version,
+        files: [{
+          ...fakeTheme.current_version.files[0],
+          platform: OS_ALL,
+          url: installURL,
+        }],
+      },
+    });
+    const root = render({
+      hasAddonManager: true,
+      addon,
+      // Simulate how disco/components/Addon spreads addon theme data.
+      ...addon,
+    });
     expect(root.type()).toEqual('div');
     expect(root).toHaveClassName('InstallButton');
     expect(root).toHaveClassName('InstallButton--use-switch');
@@ -62,13 +92,16 @@ describe('<InstallButton />', () => {
 
     expect(switchComponent).toHaveClassName('InstallButton-switch');
     expect(switchComponent).toHaveProp('addon', addon);
-    expect(switchComponent).toHaveProp('foo', 'foo');
-    expect(switchComponent).toHaveProp('hasAddonManager', true);
-    expect(switchComponent).toHaveProp('i18n', i18n);
+    expect(switchComponent).toHaveProp('installURL', installURL);
+    // Check a few theme properties.
+    expect(switchComponent)
+      .toHaveProp('accentcolor', fakeTheme.theme_data.accentcolor);
+    expect(switchComponent)
+      .toHaveProp('author', fakeTheme.theme_data.author);
   });
 
   it('renders a theme button when mozAddonManager is not available', () => {
-    const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
+    const addon = createInternalAddon(fakeTheme);
     const root = render({ hasAddonManager: false, addon });
 
     expect(root.type()).toEqual('div');
@@ -85,28 +118,28 @@ describe('<InstallButton />', () => {
   });
 
   it('calls installTheme when clicked', () => {
-    const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
+    const addon = createInternalAddon({
+      ...fakeAddon, type: ADDON_TYPE_THEME,
+    });
     const installTheme = sinon.spy();
     const root = renderToDom({ addon, installTheme, status: UNKNOWN });
 
     const preventDefault = sinon.spy();
-    const button = root.querySelector('.InstallButton-button');
-    Simulate.click(button, { preventDefault });
+    const button = root.find('.InstallButton-button');
+    button.simulate('click', createFakeEvent({ preventDefault }));
 
     sinon.assert.called(preventDefault);
-    sinon.assert.called(installTheme);
     sinon.assert.calledWith(installTheme,
-      button, { ...addon, status: UNKNOWN });
+      sinon.match.instanceOf(Node), { ...addon, status: UNKNOWN });
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
-      addon: {
-        ...fakeAddon,
+      addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
-        installURL,
-      },
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
       hasAddonManager: false,
     });
 
@@ -127,11 +160,10 @@ describe('<InstallButton />', () => {
   it('disables add-on install when client does not support addons', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
-      addon: {
-        ...fakeAddon,
+      addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
-        installURL,
-      },
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
       getClientCompatibility: getClientCompatibilityFalse,
     });
 
@@ -159,7 +191,9 @@ describe('<InstallButton />', () => {
 
   it('disables theme install when client does not support addons', () => {
     const root = render({
-      addon: { ...fakeAddon, type: ADDON_TYPE_THEME },
+      addon: createInternalAddon({
+        ...fakeAddon, type: ADDON_TYPE_THEME,
+      }),
       getClientCompatibility: getClientCompatibilityFalse,
     });
 
@@ -173,11 +207,11 @@ describe('<InstallButton />', () => {
 
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
     const root = render({
-      addon: {
+      addon: createInternalAddon({
         ...fakeAddon,
         hasAddonManager: true,
         type: ADDON_TYPE_OPENSEARCH,
-      },
+      }),
     });
 
     expect(root.type()).toEqual('div');
@@ -192,7 +226,9 @@ describe('<InstallButton />', () => {
 
   it('disables the OpenSearch button if not compatible', () => {
     const root = render({
-      addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
+      addon: createInternalAddon({
+        ...fakeAddon, type: ADDON_TYPE_OPENSEARCH,
+      }),
       getClientCompatibility: getClientCompatibilityFalseOpenSearch,
     });
 
@@ -208,18 +244,23 @@ describe('<InstallButton />', () => {
   it('disables install switch and uses button for OpenSearch plugins', () => {
     const fakeLog = { info: sinon.stub() };
     const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
-    const rootNode = renderToDom({
-      addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
+    const installURL = 'https://a.m.o/files/addon.xpi';
+
+    const rootNode = render({
+      addon: createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url: installURL }],
+        type: ADDON_TYPE_OPENSEARCH,
+      })),
       _log: fakeLog,
       _window: fakeWindow,
     });
-    const installButton = rootNode.querySelector('.InstallButton-button');
-    expect(installButton.textContent).toEqual('Add to Firefox');
 
-    Simulate.click(installButton);
+    const installButton = rootNode.find('.InstallButton-button');
+    expect(installButton.children().text()).toEqual('Add to Firefox');
+    installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
     sinon.assert.calledWith(
-      fakeWindow.external.AddSearchProvider, fakeAddon.installURL);
+      fakeWindow.external.AddSearchProvider, installURL);
   });
 });

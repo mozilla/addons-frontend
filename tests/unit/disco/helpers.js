@@ -5,6 +5,7 @@ import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { loadDiscoResults } from 'disco/actions';
 import { discoResult } from 'disco/api';
 import createStore from 'disco/store';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 export function createFetchDiscoveryResult(results) {
   // Simulate how getDiscoveryAddons() applies its schema.
@@ -24,9 +25,10 @@ export function createFetchDiscoveryResult(results) {
  *  };
  *  type AddonResultsType = Array<AddonResultType>;
  */
-export function loadDiscoResultsIntoState(addonResults) {
+export function loadDiscoResultsIntoState(addonResults, {
+  store = createStore().store,
+} = {}) {
   const { entities, result } = createFetchDiscoveryResult(addonResults);
-  const { store } = createStore();
   store.dispatch(loadAddons(entities));
   store.dispatch(loadDiscoResults({ entities, result }));
   return store.getState();
@@ -34,12 +36,12 @@ export function loadDiscoResultsIntoState(addonResults) {
 
 /*
  * A minimal add-on object, as returned by the API in a
- * Discovery result;
+ * Discovery result.
  */
 export const fakeDiscoAddon = Object.freeze({
   current_version: {
-    compatibility: {},
-    files: [],
+    compatibility: { ...fakeAddon.current_version.compatibility },
+    files: [...fakeAddon.current_version.files],
   },
   guid: '1234@my-addons.firefox',
   icon_url: 'https://addons.cdn.mozilla.net/webdev-64.png',

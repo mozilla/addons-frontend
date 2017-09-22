@@ -32,13 +32,19 @@ describe('Footer', () => {
     // cause a 404 error.
     // See:
     // github.com/mozilla/addons-frontend/pull/2524#pullrequestreview-42911624
-    expect(root.querySelector('.Footer-privacy').textContent).toEqual('Privacy policy');
-    expect(root.querySelector('.Footer-privacy').href).toEqual('https://www.mozilla.org/privacy/websites/');
-    expect(root.querySelector('.Footer-legal').textContent).toEqual('Legal notices');
-    expect(root.querySelector('.Footer-legal').href).toEqual('https://www.mozilla.org/about/legal/');
+    expect(root.querySelector('.Footer-privacy-link').textContent).toEqual('Privacy');
+    expect(root.querySelector('.Footer-privacy-link').href).toEqual('https://www.mozilla.org/privacy/websites/');
+    expect(root.querySelector('.Footer-legal-link').textContent).toEqual('Legal');
+    expect(root.querySelector('.Footer-legal-link').href).toEqual('https://www.mozilla.org/about/legal/');
+    expect(root.querySelector('.Footer-cookies-link').textContent).toEqual('Cookies');
+    expect(root.querySelector('.Footer-cookies-link').href).toEqual('https://www.mozilla.org/privacy/websites/#cookies');
+    expect(root.querySelector('.Footer-trademark-abuse-link').textContent).toEqual('Report Trademark Abuse');
+    expect(root.querySelector('.Footer-trademark-abuse-link').href).toEqual('https://www.mozilla.org/about/legal/fraud-report/');
+
+
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
-    expect(root.querySelector('.Footer-fileissue').href).toEqual('https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
+    expect(root.querySelector('.Footer-bug-report-link').href).toEqual('https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
   });
 });

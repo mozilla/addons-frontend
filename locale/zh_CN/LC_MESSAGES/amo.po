@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-12 19:26+0000\n"
-"PO-Revision-Date: 2017-09-19 15:06+0000\n"
+"POT-Creation-Date: 2017-09-20 02:39+0000\n"
+"PO-Revision-Date: 2017-09-20 16:40+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -14,60 +14,100 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:111
+#: src/amo/components/Addon/index.js:133
 msgid "Featured Extension"
 msgstr "精选扩展"
 
-#: src/amo/components/Addon/index.js:113
+#: src/amo/components/Addon/index.js:135
 msgid "Featured Theme"
 msgstr "精选主题"
 
-#: src/amo/components/Addon/index.js:115
+#: src/amo/components/Addon/index.js:137
 msgid "Featured Add-on"
 msgstr "精选附加组件"
 
-#: src/amo/components/Addon/index.js:132
+#: src/amo/components/Addon/index.js:165
 msgid "Cancel preview"
 msgstr "取消预览"
 
-#: src/amo/components/Addon/index.js:132
+#: src/amo/components/Addon/index.js:165
 msgid "Tap to preview"
 msgstr "点按预览"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:206
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "阅读全部 %(count)s 条评价"
 
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:222
 msgid "No reviews yet"
 msgstr "尚无评价"
 
-#: src/amo/components/Addon/index.js:198
+#: src/amo/components/Addon/index.js:231
 msgid "Rate your experience"
 msgstr "为您的体验打分"
 
-#: src/amo/components/Addon/index.js:231
+#: src/amo/components/Addon/index.js:264
 msgid "About this %(addonType)s"
 msgstr "关于此 %(addonType)s"
 
-#: src/amo/components/Addon/index.js:255
+#: src/amo/components/Addon/index.js:288
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s 的发布说明"
 
-#: src/amo/components/Addon/index.js:312
+#: src/amo/components/Addon/index.js:317
+msgid "More dictionaries by %(author)s"
+msgstr "%(author)s 制作的更多字典"
+
+#: src/amo/components/Addon/index.js:320
+msgid "More dictionaries by these translators"
+msgstr "译者制作的更多字典"
+
+#: src/amo/components/Addon/index.js:328
+msgid "More extensions by %(author)s"
+msgstr "%(author)s 制作的更多扩展"
+
+#: src/amo/components/Addon/index.js:331
+msgid "More extensions by these developers"
+msgstr "开发者制作的更多扩展"
+
+#: src/amo/components/Addon/index.js:339
+msgid "More language packs by %(author)s"
+msgstr "%(author)s 制作的更多语言包"
+
+#: src/amo/components/Addon/index.js:342
+msgid "More language packs by these translators"
+msgstr "译者制作的更多语言包"
+
+#: src/amo/components/Addon/index.js:350
+msgid "More themes by %(author)s"
+msgstr "%(author)s 制作的更多主题"
+
+#: src/amo/components/Addon/index.js:353
+msgid "More themes by these artists"
+msgstr "艺术家制作的更多主题"
+
+#: src/amo/components/Addon/index.js:361
+msgid "More add-ons by %(author)s"
+msgstr "%(author)s 制作的更多附加组件"
+
+#: src/amo/components/Addon/index.js:364
+msgid "More add-ons by these developers"
+msgstr "开发者制作的更多附加组件"
+
+#: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s（作者：%(authorList)s）%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:357
+#: src/amo/components/Addon/index.js:481
 msgid "Restart Required"
 msgstr "需要重启"
 
-#: src/amo/components/Addon/index.js:375
+#: src/amo/components/Addon/index.js:499
 msgid "Extension Metadata"
 msgstr "扩展元数据"
 
-#: src/amo/components/Addon/index.js:394
+#: src/amo/components/Addon/index.js:518
 msgid "Screenshots"
 msgstr "屏幕截图"
 
@@ -95,7 +135,7 @@ msgstr "此附加组件需要 <a href=\"%(downloadUrl)s\">较新版本的 Firefo
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "您的浏览器不支持附加组件。您可以 <a href=\"%(downloadUrl)s\">下载 Firefox</a> 以安装这个附加组件。"
 
-#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:103
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s 个用户"
@@ -113,53 +153,61 @@ msgstr "尚无评价"
 msgid "Used by"
 msgstr "用户："
 
-#: src/amo/components/AddonMoreInfo.js:106
-msgid "Read the license agreement for this add-on"
-msgstr "阅读此附加组件的许可协议"
-
-#: src/amo/components/AddonMoreInfo.js:26
-msgid "Homepage"
-msgstr "主页"
-
-#: src/amo/components/AddonMoreInfo.js:34
-msgid "Support Site"
-msgstr "支持网站"
-
-#: src/amo/components/AddonMoreInfo.js:40
-msgid "More information"
-msgstr "更多信息"
-
-#: src/amo/components/AddonMoreInfo.js:44
-msgid "Add-on Links"
-msgstr "附加组件链接"
-
-#: src/amo/components/AddonMoreInfo.js:55
-msgid "Version"
-msgstr "版本"
-
-#: src/amo/components/AddonMoreInfo.js:59
-msgid "Last updated"
-msgstr "上次更新"
-
-#: src/amo/components/AddonMoreInfo.js:64
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo.js:72
-msgid "License"
-msgstr "许可协议"
-
-#: src/amo/components/AddonMoreInfo.js:85
+#: src/amo/components/AddonMoreInfo/index.js:107
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: src/amo/components/AddonMoreInfo.js:93
+#: src/amo/components/AddonMoreInfo/index.js:116
 msgid "Read the privacy policy for this add-on"
 msgstr "阅读此附加组件的隐私政策"
 
-#: src/amo/components/AddonMoreInfo.js:98
+#: src/amo/components/AddonMoreInfo/index.js:122
 msgid "End-User License Agreement"
 msgstr "最终用户许可协议"
+
+#: src/amo/components/AddonMoreInfo/index.js:131
+msgid "Read the license agreement for this add-on"
+msgstr "阅读此附加组件的许可协议"
+
+#: src/amo/components/AddonMoreInfo/index.js:138
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+msgstr "此 ID 通常用于调试及网站管理员识别您的附加组件。"
+
+#: src/amo/components/AddonMoreInfo/index.js:141
+msgid "Site Identifier"
+msgstr "站点标识符"
+
+#: src/amo/components/AddonMoreInfo/index.js:159
+msgid "More information"
+msgstr "更多信息"
+
+#: src/amo/components/AddonMoreInfo/index.js:46
+msgid "Homepage"
+msgstr "主页"
+
+#: src/amo/components/AddonMoreInfo/index.js:55
+msgid "Support Site"
+msgstr "支持网站"
+
+#: src/amo/components/AddonMoreInfo/index.js:64
+msgid "Add-on Links"
+msgstr "附加组件链接"
+
+#: src/amo/components/AddonMoreInfo/index.js:75
+msgid "Version"
+msgstr "版本"
+
+#: src/amo/components/AddonMoreInfo/index.js:79
+msgid "Last updated"
+msgstr "上次更新"
+
+#: src/amo/components/AddonMoreInfo/index.js:84
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:92
+msgid "License"
+msgstr "许可协议"
 
 #: src/amo/components/AddonReview.js:145
 msgid "Tell the world why you think this extension is fantastic!"
@@ -189,19 +237,19 @@ msgstr "评价内容"
 msgid "Submit review"
 msgstr "提交评价"
 
-#: src/amo/components/AddonReviewList.js:114
+#: src/amo/components/AddonReviewList.js:115
 msgid "from %(authorName)s, %(timestamp)s"
 msgstr "来自 %(authorName)s，%(timestamp)s"
 
-#: src/amo/components/AddonReviewList.js:153
+#: src/amo/components/AddonReviewList.js:172
 msgid "Add-on icon"
 msgstr "附加组件图标"
 
-#: src/amo/components/AddonReviewList.js:159
+#: src/amo/components/AddonReviewList.js:178
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s 的评价"
 
-#: src/amo/components/AddonReviewList.js:180
+#: src/amo/components/AddonReviewList.js:199
 msgid "All written reviews"
 msgstr "所有撰写过的评价"
 
@@ -303,27 +351,43 @@ msgstr "报告缺陷"
 msgid "View classic desktop site"
 msgstr "查看经典版桌面网站"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
 msgstr "编辑个人资料"
 
-#: src/amo/components/Header/index.js:104 src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:106
+msgid "Tools"
+msgstr "工具"
+
+#: src/amo/components/Header/index.js:112
+msgid "Submit a New Add-on"
+msgstr "提交新附加组件"
+
+#: src/amo/components/Header/index.js:120
+msgid "Submit a New Theme"
+msgstr "提交新主题"
+
+#: src/amo/components/Header/index.js:128
+msgid "Manage API Keys"
+msgstr "管理 API 密钥"
+
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "退出登录"
 
-#: src/amo/components/Header/index.js:59
+#: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加组件"
 
-#: src/amo/components/Header/index.js:81
+#: src/amo/components/Header/index.js:83
 msgid "Developer Hub"
 msgstr "开发者中心"
 
-#: src/amo/components/Header/index.js:92
+#: src/amo/components/Header/index.js:94
 msgid "My Account"
 msgstr "我的账户"
 
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:97
 msgid "View Profile"
 msgstr "查看个人资料"
 
@@ -491,24 +555,49 @@ msgstr "登录以评价此附加组件"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "使用 %(addonName)s 的感觉如何？"
 
-#: src/amo/components/SearchContextCard/index.js:32
+#: src/amo/components/SearchContextCard/index.js:40
+msgid "%(count)s extension found for \"%(query)s\""
+msgid_plural "%(count)s extensions found for \"%(query)s\""
+msgstr[0] "找到 %(count)s 个有关“%(query)s”的扩展"
+
+#: src/amo/components/SearchContextCard/index.js:46
+msgid "%(count)s dictionary found for \"%(query)s\""
+msgid_plural "%(count)s dictionaries found for \"%(query)s\""
+msgstr[0] "找到 %(count)s 个有关“%(query)s”的字典"
+
+#: src/amo/components/SearchContextCard/index.js:52
+msgid "%(count)s language pack found for \"%(query)s\""
+msgid_plural "%(count)s language packs found for \"%(query)s\""
+msgstr[0] "找到 %(count)s 个有关“%(query)s”的语言包"
+
+#: src/amo/components/SearchContextCard/index.js:58
+msgid "%(count)s theme found for \"%(query)s\""
+msgid_plural "%(count)s themes found for \"%(query)s\""
+msgstr[0] "找到 %(count)s 个有关“%(query)s”的主题"
+
+#: src/amo/components/SearchContextCard/index.js:64
+msgid "%(count)s result found for \"%(query)s\""
+msgid_plural "%(count)s results found for \"%(query)s\""
+msgstr[0] "找到 %(count)s 条有关“%(query)s”的结果"
+
+#: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
 msgstr[0] "找到“%(query)s”的 %(count)s 个结果"
 
-#: src/amo/components/SearchContextCard/index.js:38
+#: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
 msgstr "搜索“%(query)s”"
 
-#: src/amo/components/SearchContextCard/index.js:41
+#: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
 msgstr "正在加载附加组件"
 
-#: src/amo/components/SearchContextCard/index.js:43
+#: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
 msgstr "没有找到附加组件"
 
-#: src/amo/components/SearchContextCard/index.js:45
+#: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "找到 %(count)s 个附加组件"
@@ -601,7 +690,7 @@ msgstr "搜索"
 msgid "Loading"
 msgstr "正在加载"
 
-#: src/amo/components/SearchResult/index.js:74
+#: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
 msgstr "无主题预览可用"
 
@@ -737,7 +826,7 @@ msgstr "评分 %(rating)s / 5"
 msgid "No ratings"
 msgstr "无评价"
 
-#: src/ui/components/ShowMoreCard/index.js:59
+#: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">展开</span>以详细了解"
 
@@ -746,9 +835,6 @@ msgstr "<span class=\"visually-hidden\">展开</span>以详细了解"
 
 #~ msgid "Search themes"
 #~ msgstr "搜索主题"
-
-#~ msgid "Search extensions and themes"
-#~ msgstr "搜索扩展和主题"
 
 #~ msgid "Enter"
 #~ msgstr "按 Enter 键搜索"

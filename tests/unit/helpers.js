@@ -14,6 +14,7 @@ import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
 import { ErrorHandler } from 'core/errorHandler';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
@@ -109,6 +110,30 @@ export const signedInApiState = Object.freeze({
   userId: 102345,
 });
 
+export const userAgentsByPlatform = {
+  android: {
+    firefox40Mobile: oneLine`Mozilla/5.0 (Android; Mobile; rv:40.0)
+      Gecko/40.0 Firefox/40.0`,
+    firefox40Tablet: oneLine`Mozilla/5.0 (Android; Tablet; rv:40.0)
+      Gecko/40.0 Firefox/40.0`,
+  },
+  firefoxOS: {
+    firefox26: 'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
+  },
+  linux: {
+    firefox10: oneLine`Mozilla/5.0 (X11; Linux i686; rv:10.0)
+      Gecko/20100101 Firefox/10.0`,
+  },
+  mac: {
+    firefox33: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10;
+      rv:33.0) Gecko/20100101 Firefox/33.0`,
+  },
+  windows: {
+    firefox40: oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
+      Gecko/20100101 Firefox/40.1`,
+  },
+};
+
 export const userAgents = {
   androidWebkit: [
     oneLine`Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
@@ -134,11 +159,9 @@ export const userAgents = {
       (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
   ],
   firefox: [
-    'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
-    oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
-      Gecko/20100101 Firefox/40.1`,
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0)
-      Gecko/20100101 Firefox/33.0`,
+    userAgentsByPlatform.linux.firefox10,
+    userAgentsByPlatform.windows.firefox40,
+    userAgentsByPlatform.mac.firefox33,
     'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
     // Firefox ESR 52
     oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.2.1)
@@ -148,14 +171,14 @@ export const userAgents = {
       Gecko/20100101 Firefox/57.1`,
   ],
   firefoxOS: [
-    'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
+    userAgentsByPlatform.firefoxOS.firefox26,
     'Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0',
     'Mozilla/5.0 (TV; rv:44.0) Gecko/44.0 Firefox/44.0',
     'Mozilla/5.0 (Mobile; nnnn; rv:26.0) Gecko/26.0 Firefox/26.0',
   ],
   firefoxAndroid: [
-    'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
-    'Mozilla/5.0 (Android; Tablet; rv:40.0) Gecko/40.0 Firefox/40.0',
+    userAgentsByPlatform.android.firefox40Mobile,
+    userAgentsByPlatform.android.firefox40Tablet,
     'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
@@ -285,6 +308,22 @@ export function createApiResponse({
     ...responseProps,
   };
   return Promise.resolve(response);
+}
+
+export function createFakeAddonAbuseReport({
+  addon = fakeAddon,
+  message,
+  reporter = null,
+} = {}) {
+  return {
+    addon: {
+      guid: addon.guid,
+      id: addon.id,
+      slug: addon.slug,
+    },
+    message,
+    reporter,
+  };
 }
 
 export function createUserProfileResponse({

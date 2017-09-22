@@ -288,7 +288,27 @@ describe(__filename, () => {
       const error = createApiError({
         response: { status: 401 },
         apiURL: 'https://some/api/endpoint',
-        jsonResponse: { message: 'Not Found.' },
+        jsonResponse: { message: 'Authentication Failed.' },
+      });
+      store.dispatch(setError({ id, error }));
+      const capturedError = store.getState().errors[id];
+      // This makes sure the error was dispatched to state correctly.
+      expect(capturedError).toBeTruthy();
+
+      const errorHandler = createStubErrorHandler(capturedError);
+
+      const root = render({ errorHandler });
+      expect(root.find(NotFound)).toHaveLength(1);
+    });
+
+    it('renders NotFound page if API returns 403 error', () => {
+      const id = 'error-handler-id';
+      const { store } = dispatchClientMetadata();
+
+      const error = createApiError({
+        response: { status: 403 },
+        apiURL: 'https://some/api/endpoint',
+        jsonResponse: { message: 'Not Permitted.' },
       });
       store.dispatch(setError({ id, error }));
       const capturedError = store.getState().errors[id];

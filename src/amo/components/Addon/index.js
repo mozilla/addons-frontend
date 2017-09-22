@@ -55,6 +55,7 @@ export class AddonBase extends React.Component {
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    installURLs: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
@@ -69,6 +70,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
+    installURLs: {},
     getClientCompatibility: _getClientCompatibility,
   }
 
@@ -397,9 +399,10 @@ export class AddonBase extends React.Component {
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // A 401 is made to look like a 404 on purpose.
+      // 401 and 403 are made to look like a 404 on purpose.
       // See https://github.com/mozilla/addons-frontend/issues/3061
       if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 403 ||
           errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound />;
@@ -558,6 +561,7 @@ export function mapStateToProps(state, ownProps) {
     // properties from addon.theme_data (which are spread onto addon) and
     // maybe others.
     ...addon,
+    installURLs: addon ? addon.installURLs : {},
     // The withInstallHelpers HOC also needs to access some properties in
     // here like guid and probably others.
     ...installedAddon,

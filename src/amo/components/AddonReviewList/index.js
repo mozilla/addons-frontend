@@ -120,9 +120,10 @@ export class AddonReviewListBase extends React.Component {
       // TODO: support multiple error handlers, see
       // https://github.com/mozilla/addons-frontend/issues/3101
       //
-      // A 401 for an add-on lookup is made to look like a 404 on purpose.
+      // 401 and 403 are for an add-on lookup is made to look like a 404 on purpose.
       // See https://github.com/mozilla/addons-frontend/issues/3061
       if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 403 ||
           errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound />;

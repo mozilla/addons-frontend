@@ -1,4 +1,6 @@
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION, OS_ALL, OS_ANDROID, OS_LINUX, OS_MAC, OS_WINDOWS,
+} from 'core/constants';
 import addons, {
   createInternalAddon,
   fetchAddon,
@@ -36,7 +38,6 @@ describe(__filename, () => {
       ...firstState,
       [anotherFakeAddon.slug]: {
         ...createInternalAddon(anotherFakeAddon),
-        installURL: '',
         isRestartRequired: false,
       },
     });
@@ -68,7 +69,13 @@ describe(__filename, () => {
     expect(state[extension.slug]).toEqual({
       ...extension,
       iconUrl: extension.icon_url,
-      installURL: '',
+      installURLs: {
+        [OS_ALL]: 'https://a.m.o/files/321/addon.xpi',
+        [OS_ANDROID]: undefined,
+        [OS_LINUX]: undefined,
+        [OS_MAC]: undefined,
+        [OS_WINDOWS]: undefined,
+      },
       isRestartRequired: false,
     });
   });
@@ -85,7 +92,13 @@ describe(__filename, () => {
       description: theme.description,
       guid: getGuid(theme),
       iconUrl: theme.icon_url,
-      installURL: '',
+      installURLs: {
+        [OS_ALL]: 'https://a.m.o/files/321/addon.xpi',
+        [OS_ANDROID]: undefined,
+        [OS_LINUX]: undefined,
+        [OS_MAC]: undefined,
+        [OS_WINDOWS]: undefined,
+      },
       isRestartRequired: false,
     };
     delete expectedTheme.theme_data;
@@ -125,18 +138,58 @@ describe(__filename, () => {
       .toEqual('54321@personas.mozilla.org');
   });
 
-  it('reads the install URL from the file', () => {
-    const addon = {
-      ...fakeAddon,
-      slug: 'installable',
-      current_version: {
-        ...fakeAddon.current_version,
-        files: [{ url: 'https://a.m.o/download.xpi' }, { file: 'data' }],
-      },
-    };
+  it('reads install URLs from the file', () => {
+    const addon = createFakeAddon({
+      files: [
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_MAC,
+          url: 'https://a.m.o/mac.xpi',
+        },
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_WINDOWS,
+          url: 'https://a.m.o/windows.xpi',
+        },
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_ALL,
+          url: 'https://a.m.o/all.xpi',
+        },
+      ],
+    });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].installURL).toEqual('https://a.m.o/download.xpi');
+    expect(state[addon.slug].installURLs).toMatchObject({
+      [OS_MAC]: 'https://a.m.o/mac.xpi',
+      [OS_WINDOWS]: 'https://a.m.o/windows.xpi',
+      [OS_ALL]: 'https://a.m.o/all.xpi',
+    });
+  });
+
+  it('handles an empty array of files', () => {
+    const addon = createFakeAddon({ files: [] });
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].installURLs).toMatchObject({
+      [OS_MAC]: undefined,
+      [OS_WINDOWS]: undefined,
+      [OS_ALL]: undefined,
+    });
+  });
+
+  it('handles files for unknown platforms', () => {
+    const addon = createFakeAddon({
+      files: [{
+        platform: 'unexpectedPlatform',
+        url: 'https://a.m.o/files/somewhere.xpi',
+      }],
+    });
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].installURLs).toMatchObject({
+      unexpectedPlatform: 'https://a.m.o/files/somewhere.xpi',
+    });
   });
 
   it('sets the icon_url as iconUrl', () => {

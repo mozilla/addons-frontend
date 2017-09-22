@@ -5,13 +5,15 @@ import {
 } from 'amo/api';
 import * as api from 'core/api';
 import { unexpectedSuccess } from 'tests/unit/helpers';
-import { fakeReview, signedInApiState } from 'tests/unit/amo/helpers';
+import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 
 describe('amo.api', () => {
   let mockApi;
+  let signedInApiState;
 
   beforeEach(() => {
     mockApi = sinon.mock(api);
+    signedInApiState = dispatchSignInActions().state.api;
   });
 
   describe('submitReview', () => {
@@ -25,7 +27,7 @@ describe('amo.api', () => {
       version: undefined,
     };
     const baseParams = {
-      apiState: { ...signedInApiState, token: 'new-token' },
+      apiState: signedInApiState,
     };
     // This is just a generic API response that does not
     // look like an error to callApi().

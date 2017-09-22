@@ -8,6 +8,7 @@ import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
 import viewContext from 'amo/reducers/viewContext';
+import abuse from 'core/reducers/abuse';
 import addons from 'core/reducers/addons';
 import api from 'core/reducers/api';
 import autocomplete from 'core/reducers/autocomplete';
@@ -26,6 +27,7 @@ export default function createStore(initialState = {}) {
 
   const store = _createStore(
     combineReducers({
+      abuse,
       addons,
       addonsByAuthors,
       api,

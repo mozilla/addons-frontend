@@ -73,6 +73,18 @@
   @include icon($name: "user");
 }
 
+.Icon-twitter {
+  @include icon($name: "twitter");
+}
+
+.Icon-facebook {
+  @include icon($name: "facebook");
+}
+
+.Icon-youtube {
+  @include icon($name: "youtube");
+}
+
 .Icon-star {
   @include icon($name: "star");
 }

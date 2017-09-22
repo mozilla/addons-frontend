@@ -6,8 +6,11 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import InstallSwitch from 'core/components/InstallSwitch';
-import { ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME, validAddonTypes,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
+import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import {
@@ -20,14 +23,29 @@ import './styles.scss';
 
 export class InstallButtonBase extends React.Component {
   static propTypes = {
+    accentcolor: PropTypes.string,
     addon: PropTypes.object.isRequired,
+    author: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    enable: PropTypes.func,
+    footerURL: PropTypes.string,
     getClientCompatibility: PropTypes.func,
+    guid: PropTypes.string.isRequired,
+    handleChange: PropTypes.func,
     hasAddonManager: PropTypes.bool,
+    headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    id: PropTypes.string,
+    install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    name: PropTypes.string.isRequired,
+    slug: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
+    textcolor: PropTypes.string,
+    type: PropTypes.oneOf(validAddonTypes),
+    uninstall: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.string.isRequired,
     _log: PropTypes.object,
     _window: PropTypes.object,
@@ -73,6 +91,9 @@ export class InstallButtonBase extends React.Component {
         'InstallButton-button--disabled': buttonIsDisabled,
       }
     );
+    const installURL = findInstallURL({
+      installURLs: addon.installURLs, userAgentInfo,
+    });
 
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
@@ -91,7 +112,7 @@ export class InstallButtonBase extends React.Component {
         event.stopPropagation();
 
         _log.info('Adding OpenSearch Provider', { addon });
-        _window.external.AddSearchProvider(addon.installURL);
+        _window.external.AddSearchProvider(installURL);
 
         return false;
       };
@@ -100,7 +121,7 @@ export class InstallButtonBase extends React.Component {
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
-          href={addon.installURL}
+          href={installURL}
           prependClientApp={false}
           prependLang={false}
         >
@@ -118,7 +139,7 @@ export class InstallButtonBase extends React.Component {
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
-          href={addon.installURL}
+          href={installURL}
           prependClientApp={false}
           prependLang={false}
         >
@@ -133,10 +154,38 @@ export class InstallButtonBase extends React.Component {
           'InstallButton--use-switch': !useButton,
         })}
       >
+        {/*
+          Some of these props are spread into InstallButton by:
+          - the parent component
+          - a state/dispatch mapper
+          - a higher-order component (HOC)
+          - evil clowns (maybe)
+          - or something else we aren't sure of
+          Also, some of these props are not used directly by `InstallSwitch`;
+          they are required for `getThemeData()`.
+        */}
         <InstallSwitch
-          {...this.props}
+          accentcolor={this.props.accentcolor}
+          addon={this.props.addon}
+          author={this.props.author}
           className="InstallButton-switch"
+          description={this.props.description}
           disabled={buttonIsDisabled}
+          enable={this.props.enable}
+          footerURL={this.props.footerURL}
+          guid={this.props.guid}
+          handleChange={this.props.handleChange}
+          headerURL={this.props.headerURL}
+          id={this.props.id}
+          install={this.props.install}
+          installURL={installURL}
+          installTheme={this.props.installTheme}
+          name={this.props.name}
+          slug={this.props.slug}
+          status={this.props.status}
+          textcolor={this.props.textcolor}
+          type={this.props.type}
+          uninstall={this.props.uninstall}
         />
         {button}
       </div>
