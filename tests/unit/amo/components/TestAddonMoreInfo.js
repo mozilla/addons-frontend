@@ -1,12 +1,15 @@
 import { oneLine } from 'common-tags';
-import deepcopy from 'deepcopy';
 import React from 'react';
 
 import AddonMoreInfo, {
   AddonMoreInfoBase,
 } from 'amo/components/AddonMoreInfo';
 import { createInternalAddon } from 'core/reducers/addons';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeAddon,
+} from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
@@ -60,7 +63,7 @@ describe(__filename, () => {
   });
 
   it('does not render a link <dt> if no links exist', () => {
-    const partialAddon = deepcopy(fakeAddon);
+    const partialAddon = createInternalAddon(fakeAddon);
     delete partialAddon.homepage;
     delete partialAddon.support_url;
     const root = render({ addon: createInternalAddon(partialAddon) });
@@ -69,7 +72,7 @@ describe(__filename, () => {
   });
 
   it('does not render a homepage if none exists', () => {
-    const partialAddon = deepcopy(fakeAddon);
+    const partialAddon = createInternalAddon(fakeAddon);
     delete partialAddon.homepage;
     const root = render({ addon: createInternalAddon(partialAddon) });
 
@@ -78,7 +81,8 @@ describe(__filename, () => {
 
   it('renders the homepage of an add-on', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, homepage: 'http://hamsterdance.com/',
+      ...fakeAddon,
+      homepage: 'http://hamsterdance.com/',
     });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-homepage-link');
@@ -88,7 +92,7 @@ describe(__filename, () => {
   });
 
   it('does not render a support link if none exists', () => {
-    const partialAddon = deepcopy(fakeAddon);
+    const partialAddon = createInternalAddon(fakeAddon);
     delete partialAddon.support_url;
     const root = render({ addon: createInternalAddon(partialAddon) });
 
@@ -139,7 +143,8 @@ describe(__filename, () => {
 
   it('does not render a privacy policy if none exists', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, has_privacy_policy: false,
+      ...fakeAddon,
+      has_privacy_policy: false,
     });
     const root = render({ addon });
 
@@ -151,7 +156,8 @@ describe(__filename, () => {
 
   it('renders the privacy policy and link', () => {
     const addon = createInternalAddon({
-      ...fakeAddon, has_privacy_policy: true,
+      ...fakeAddon,
+      has_privacy_policy: true,
     });
     const root = render({ addon });
 
@@ -194,6 +200,58 @@ describe(__filename, () => {
         identifying your add-on to site administrators.`);
     expect(root.find('.AddonMoreInfo-database-id-content'))
       .toHaveText('9001');
+  });
+
+  it('does not link to stats if user is not author of the add-on', () => {
+    const authorUserId = 11;
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: 'coolio',
+      authors: [
+        {
+          ...fakeAddon.authors[0],
+          id: authorUserId,
+          name: 'tofumatt',
+          picture_url: 'http://cdn.a.m.o/myphoto.jpg',
+          url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+          username: 'tofumatt',
+        },
+      ],
+    });
+    const root = render({
+      addon,
+      store: dispatchSignInActions({ userId: 5 }).store,
+    });
+
+    const statsLink = root.find('.AddonMoreInfo-stats-link');
+    expect(statsLink).toHaveLength(0);
+  });
+
+  it('links to stats if add-on author is viewing the page', () => {
+    const authorUserId = 11;
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: 'coolio',
+      authors: [
+        {
+          ...fakeAddon.authors[0],
+          id: authorUserId,
+          name: 'tofumatt',
+          picture_url: 'http://cdn.a.m.o/myphoto.jpg',
+          url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+          username: 'tofumatt',
+        },
+      ],
+    });
+    const root = render({
+      addon,
+      store: dispatchSignInActions({ userId: authorUserId }).store,
+    });
+
+    const statsLink = root.find('.AddonMoreInfo-stats-link');
+    expect(statsLink).toHaveLength(1);
+    expect(statsLink).toHaveProp('children', 'Visit stats dashboard');
+    expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
   });
 
   it('links to version history', () => {

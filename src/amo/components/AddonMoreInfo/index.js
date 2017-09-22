@@ -1,25 +1,30 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import translate from 'core/i18n/translate';
-import { trimAndAddProtocolToUrl } from 'core/utils';
+import type { AddonType } from 'core/types/addons';
+import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
 
+type PropTypes = {
+  addon: AddonType | null,
+  i18n: Object,
+  userId: number | null,
+}
+
 export class AddonMoreInfoBase extends React.Component {
-  static propTypes = {
-    addon: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
-  }
+  props: PropTypes;
 
   listContent() {
-    const { addon, i18n } = this.props;
+    const { addon, i18n, userId } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -52,6 +57,14 @@ export class AddonMoreInfoBase extends React.Component {
     return this.renderDefinitions({
       homepage,
       supportUrl,
+      statsLink: addon && isAddonAuthor({ addon, userId }) ? (
+        <a
+          className="AddonMoreInfo-stats-link"
+          href={`/addon/${addon.slug}/statistics/`}
+        >
+          {i18n.gettext('Visit stats dashboard')}
+        </a>
+      ) : null,
       version: addon.current_version.version,
       versionLastUpdated: i18n.sprintf(
         // translators: This will output, in English:
@@ -110,6 +123,7 @@ export class AddonMoreInfoBase extends React.Component {
   renderDefinitions({
     homepage = null,
     supportUrl = null,
+    statsLink = null,
     privacyPolicyLink = null,
     eulaLink = null,
     version,
@@ -118,7 +132,7 @@ export class AddonMoreInfoBase extends React.Component {
     versionHistoryLink,
     betaVersionsLink = null,
     addonId,
-  }) {
+  }: Object) {
     const { i18n } = this.props;
     return (
       <dl className="AddonMoreInfo-contents">
@@ -171,6 +185,12 @@ export class AddonMoreInfoBase extends React.Component {
           </dt>
         ) : null}
         {betaVersionsLink ? <dd>{betaVersionsLink}</dd> : null}
+        {statsLink ? (
+          <dt className="AddonMoreInfo-stats-title">
+            {i18n.gettext('Usage Statistics')}
+          </dt>
+        ) : null}
+        {statsLink ? <dd>{statsLink}</dd> : null}
         <dt
           className="AddonMoreInfo-database-id-title"
           title={i18n.gettext(`This ID is useful for debugging and
@@ -201,6 +221,13 @@ export class AddonMoreInfoBase extends React.Component {
   }
 }
 
+export const mapStateToProps = (state: Object) => {
+  return {
+    userId: state.user.id,
+  };
+};
+
 export default compose(
+  connect(mapStateToProps),
   translate(),
 )(AddonMoreInfoBase);
