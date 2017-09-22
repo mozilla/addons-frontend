@@ -45,7 +45,7 @@ describe('<Overlay />', () => {
     expect(root.overlayContainer.className).not.toContain('Overlay--visible');
   });
 
-  it('calls an onEscapeOverlay when clicking the background', () => {
+  it('calls onEscapeOverlay when clicking the background', () => {
     const onEscapeOverlay = sinon.stub();
     const root = render({ visibleOnLoad: true, onEscapeOverlay });
     Simulate.click(root.overlayBackground);
