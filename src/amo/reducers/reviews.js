@@ -102,14 +102,14 @@ export default function reviewsReducer(
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
-      // TODO: If a review is marked as isLatest, update all other
-      // reviews for that add-on as isLatest=false
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: [payload] }),
         [payload.userId]: {
           ...state[payload.userId],
-          // TODO: make this a list of review IDs.
+          // TODO: this should be a list of review IDs, not objects. It will
+          // be complicated because we also need to preserve handling of the
+          // isLatest flag.
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
         },
       };
