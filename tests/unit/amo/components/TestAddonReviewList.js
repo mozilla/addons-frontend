@@ -303,7 +303,6 @@ describe(__filename, () => {
 
     it('renders NotFound page if API returns 403 error', () => {
       const id = 'error-handler-id';
-      const { store } = dispatchClientMetadata();
 
       const error = createApiError({
         response: { status: 403 },
