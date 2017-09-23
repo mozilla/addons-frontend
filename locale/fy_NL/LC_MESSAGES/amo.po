@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-23 10:27+0000\n"
+"PO-Revision-Date: 2017-09-23 10:50+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -66,7 +66,7 @@ msgstr "Mear wurdboeken fan dizze oersetters"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Mear útwreidingen fan %(author)s"
 
 #: src/amo/components/Addon/index.js:331
 #, fuzzy
@@ -75,27 +75,27 @@ msgstr "Utwreidingen en tema's sykje"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Mear taalpakketten fan %(author)s"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Mear taalpakketten fan dizze oersetters"
 
 #: src/amo/components/Addon/index.js:350
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Mear tema’s fan %(author)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Mear tema’s fan dizze kuenstners"
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Mear add-ons fan %(author)s"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Mear add-ons fan dizze ûntwikkelers"
 
 #: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -175,11 +175,11 @@ msgstr "De lisinsjeoerienkomst foar dizze add-on lêze"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Dizze ID is handich foar it debuggen en werkennen fan jo add-on troch websitebehearders."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Website-identifikaasje"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
@@ -363,15 +363,15 @@ msgstr "Profyl bewurkje"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "Helpmiddelen"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "In nije add-on yntsjinje"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "In nij tema yntsjinje"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
