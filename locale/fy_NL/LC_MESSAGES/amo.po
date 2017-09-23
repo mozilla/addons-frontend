@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-23 10:50+0000\n"
+"PO-Revision-Date: 2017-09-23 10:52+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -69,9 +69,8 @@ msgid "More extensions by %(author)s"
 msgstr "Mear útwreidingen fan %(author)s"
 
 #: src/amo/components/Addon/index.js:331
-#, fuzzy
 msgid "More extensions by these developers"
-msgstr "Utwreidingen en tema's sykje"
+msgstr "Mear útwreidingen fan dizze ûntwikkelers"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
@@ -375,7 +374,7 @@ msgstr "In nij tema yntsjinje"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "API-kaaien beheare"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
@@ -562,11 +561,10 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hoe foldocht jo %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s resultaat foar ‘%(query)s’"
-msgstr[1] "%(count)s resultaten foar ‘%(query)s’"
+msgstr[0] "%(count)s útwreiding foar ‘%(query)s’ fûn"
+msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:46
 #, fuzzy
