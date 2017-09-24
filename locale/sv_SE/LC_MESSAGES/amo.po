@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-24 21:10+0000\n"
+"PO-Revision-Date: 2017-09-24 21:18+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -58,43 +58,43 @@ msgstr "Versionsfakta för %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:317
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Fler ordböcker av %(author)s"
 
 #: src/amo/components/Addon/index.js:320
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Fler ordböcker av dessa översättare"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Fler utökningar av %(author)s"
 
 #: src/amo/components/Addon/index.js:331
 msgid "More extensions by these developers"
-msgstr "Fler tillägg från dessa utvecklare"
+msgstr "Fler utökningar av dessa utvecklare"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Fler språkpaket av %(author)s"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Fler språkpaket av dessa översättare"
 
 #: src/amo/components/Addon/index.js:350
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Fler teman av %(author)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Fler teman av dessa artister"
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Fler tillägg av %(author)s"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Fler tillägg av dessa utvecklare"
 
 #: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -174,11 +174,11 @@ msgstr "Läs licensavtalet för detta tillägg"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Detta ID är användbart för felsökning och identifiering av ditt tillägg för webbplatsadministratörer."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Webbplatsidentifierare"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
@@ -370,11 +370,11 @@ msgstr "Verktyg"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Skicka in ett nytt tillägg"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Skicka in ett nytt tema"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
@@ -571,32 +571,28 @@ msgstr[0] "%(count)s tillägg hittades för \"%(query)s\""
 msgstr[1] "%(count)s tillägg hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s träff för \"%(query)s\""
-msgstr[1] "%(count)s träffar för \"%(query)s\""
+msgstr[0] "%(count)s ordbok hittades för \"%(query)s\""
+msgstr[1] "%(count)s ordböcker hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s träff för \"%(query)s\""
-msgstr[1] "%(count)s träffar för \"%(query)s\""
+msgstr[0] "%(count)s språkpaket hittades för \"%(query)s\""
+msgstr[1] "%(count)s språkpaket hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s träff för \"%(query)s\""
-msgstr[1] "%(count)s träffar för \"%(query)s\""
+msgstr[0] "%(count)s tema hittades för \"%(query)s\""
+msgstr[1] "%(count)s teman hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s träff för \"%(query)s\""
-msgstr[1] "%(count)s träffar för \"%(query)s\""
+msgstr[0] "%(count)s träff hittades för \"%(query)s\""
+msgstr[1] "%(count)s träffar hittades för \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
