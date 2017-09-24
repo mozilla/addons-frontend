@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-24 12:30+0000\n"
+"PO-Revision-Date: 2017-09-24 12:45+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -59,44 +59,43 @@ msgstr "Примечания к выпуску %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:317
 msgid "More dictionaries by %(author)s"
-msgstr "Больше словарей от %(author)s"
+msgstr "Другие словари от %(author)s"
 
 #: src/amo/components/Addon/index.js:320
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Другие словари от этих переводчиков"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Другие расширения от %(author)s"
 
 #: src/amo/components/Addon/index.js:331
-#, fuzzy
 msgid "More extensions by these developers"
-msgstr "Поиск расширений и тем"
+msgstr "Другие расширения от этих разработчиков"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Другие локализации от %(author)s"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Другие локализации от этих переводчиков"
 
 #: src/amo/components/Addon/index.js:350
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Другие темы от %(author)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Другие темы от этих художников"
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Другие дополнения от %(author)s"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Другие дополнения от этих разработчиков"
 
 #: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -178,11 +177,11 @@ msgstr "Прочитать лицензионное соглашение для 
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Этот идентификатор полезен для отладки и идентификации вашего дополнения для администраторов сайта."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Идентификатор сайта"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
@@ -370,19 +369,19 @@ msgstr "Редактировать профиль"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "Инструменты"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Представить новое дополнение"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Представить новую тему"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "Управление API-ключами"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
@@ -569,44 +568,39 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Как вы оцениваете ваш опыт работы с %(addonName)s?"
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результата для \"%(query)s\""
-msgstr[2] "%(count)s результатов для \"%(query)s\""
+msgstr[0] "по запросу \"%(query)s\" найдено %(count)s расширение"
+msgstr[1] "по запросу \"%(query)s\" найдено %(count)s расширения"
+msgstr[2] "по запросу \"%(query)s\" найдено %(count)s расширений"
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результата для \"%(query)s\""
-msgstr[2] "%(count)s результатов для \"%(query)s\""
+msgstr[0] "по запросу \"%(query)s\" найден %(count)s словарь"
+msgstr[1] "по запросу \"%(query)s\" найдено %(count)s словаря"
+msgstr[2] "по запросу \"%(query)s\" найдено %(count)s словарей"
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результата для \"%(query)s\""
-msgstr[2] "%(count)s результатов для \"%(query)s\""
+msgstr[0] "по запросу \"%(query)s\" найдена %(count)s локализация"
+msgstr[1] "по запросу \"%(query)s\" найдено %(count)s локализации"
+msgstr[2] "по запросу \"%(query)s\" найдено %(count)s локализаций"
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результата для \"%(query)s\""
-msgstr[2] "%(count)s результатов для \"%(query)s\""
+msgstr[0] "по запросу \"%(query)s\" найдена %(count)s тема"
+msgstr[1] "по запросу \"%(query)s\" найдено %(count)s темы"
+msgstr[2] "по запросу \"%(query)s\" найдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результата для \"%(query)s\""
-msgstr[2] "%(count)s результатов для \"%(query)s\""
+msgstr[0] "по запросу \"%(query)s\" найден %(count)s результат"
+msgstr[1] "по запросу \"%(query)s\" найдено %(count)s результата"
+msgstr[2] "по запросу \"%(query)s\" найдено %(count)s результатов"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
