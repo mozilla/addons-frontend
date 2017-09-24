@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-21 16:20+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2017-09-21 21:11+0000\n"
+"Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgstr "Consulta il contratto di licenza per questo componente aggiuntivo"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Questo ID torna utile durante il processo di debugging e agli amministratori del sito per identificare il componente aggiuntivo."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
