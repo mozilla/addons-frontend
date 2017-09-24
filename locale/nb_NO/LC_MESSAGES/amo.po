@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-24 15:10+0000\n"
+"PO-Revision-Date: 2017-09-24 15:15+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -66,7 +66,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Flere utvidelser av %(author)s"
 
 #: src/amo/components/Addon/index.js:331
 msgid "More extensions by these developers"
@@ -90,11 +90,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Flere utvidelser %(author)s"
 
 #: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Flere utvidelser fra disse utviklerne"
 
 #: src/amo/components/Addon/index.js:429
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -174,11 +174,11 @@ msgstr "Les lisensavtalen for denne utvidelsen"
 
 #: src/amo/components/AddonMoreInfo/index.js:138
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Denne ID-en kan brukes for å feilsøke, og kan brukes av nettstedsadministratorer for å identifisere din utvidelse."
 
 #: src/amo/components/AddonMoreInfo/index.js:141
 msgid "Site Identifier"
-msgstr ""
+msgstr "Nettsteds-identifikator"
 
 #: src/amo/components/AddonMoreInfo/index.js:159
 msgid "More information"
@@ -359,19 +359,19 @@ msgstr "Vis klassisk desktop-side"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
-msgstr ""
+msgstr "Rediger profil"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "Verktøy"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Send inn en ny utvidelse"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Send inn et nytt tema"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
@@ -829,7 +829,7 @@ msgstr "Oppdater for å fortsette"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Skift innhold"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
