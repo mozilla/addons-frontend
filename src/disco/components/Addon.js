@@ -145,7 +145,7 @@ export class AddonBase extends React.Component {
       <div
         className="editorial-description"
         dangerouslySetInnerHTML={
-          sanitizeHTML(description, ['blockquote', 'cite'])
+          sanitizeHTML(description, ['a', 'blockquote', 'cite'])
         }
       />
     );

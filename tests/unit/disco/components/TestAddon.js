@@ -1,5 +1,6 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+import { oneLine } from 'common-tags';
+import { shallow } from 'enzyme';
 
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import { setInstallState } from 'core/actions/installations';
@@ -242,6 +243,31 @@ describe(__filename, () => {
 
       expect(root.find('.editorial-description').html()).toContain(
         '<blockquote>This is an add-on!</blockquote> Reviewed by <cite>a person</cite>'
+      );
+    });
+
+    it('purifies an editorial description with a bad link', () => {
+      const data = {
+        ...result,
+        description: 'This is a <a href="javascript:alert(1)">description</a>',
+      };
+      const root = renderAddon({ addon: data, ...data });
+      expect(root.find('.editorial-description').html()).toContain(
+        oneLine`<div class="editorial-description">This is a <a target="_blank"
+          rel="noopener noreferrer">description</a></div>`
+      );
+    });
+
+    it('allows links in the editorial description', () => {
+      const data = {
+        ...result,
+        description: 'This is a <a href="https://mozilla.org/">description</a>',
+      };
+      const root = renderAddon({ addon: data, ...data });
+      expect(root.find('.editorial-description').html()).toContain(
+        oneLine`<div class="editorial-description">This is a <a
+          href="https://mozilla.org/" target="_blank"
+          rel="noopener noreferrer">description</a></div>`
       );
     });
 
