@@ -100,7 +100,7 @@ describe(__filename, () => {
     expect(root.find('.AddonReviewListItem-controls')).toHaveLength(0);
   });
 
-  it('does not render controls for the wrong user', () => {
+  it('does not render controls when the review belongs to another user', () => {
     const review = signInAndDispatchSavedReview({
       siteUserId: 123, reviewUserId: 987,
     });
