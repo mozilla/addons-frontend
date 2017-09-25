@@ -201,8 +201,6 @@ export class LandingPageBase extends React.Component {
       <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
         {errorHandler.renderErrorIfPresent()}
         <div className="LandingPage-header">
-          {this.icon(addonType)}
-
           <div className="LandingPage-header-text">
             <h1 className="LandingPage-addonType-name">
               {headingText[addonType]}
@@ -211,6 +209,7 @@ export class LandingPageBase extends React.Component {
               {contentText[addonType]}
             </p>
           </div>
+          {this.icon(addonType)}
         </div>
 
         <Categories addonType={addonType} />
