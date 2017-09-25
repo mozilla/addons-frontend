@@ -57,7 +57,7 @@ export class AddonReviewListItemBase extends React.Component {
     let reviewBody;
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
-      // L10n: Example: "from Jose, last week"
+      // translators: Example: "from Jose, last week"
       byLine = i18n.sprintf(
         i18n.gettext('from %(authorName)s, %(timestamp)s'),
         { authorName: review.userName, timestamp });
