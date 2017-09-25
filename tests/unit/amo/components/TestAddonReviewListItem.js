@@ -114,7 +114,7 @@ describe(__filename, () => {
     const review = signInAndDispatchSavedReview();
     const root = render({ review });
 
-    const editButton = root.find('.AddonReviewListItem-edit-button');
+    const editButton = root.find('.AddonReviewListItem-edit');
     editButton.simulate('click', createFakeEvent());
 
     const reviewComponent = root.find(AddonReview);

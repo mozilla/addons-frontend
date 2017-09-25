@@ -1,5 +1,5 @@
 /* @flow */
-/* eslint-disable react/sort-comp */
+/* eslint-disable react/sort-comp, jsx-a11y/href-no-hash */
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -8,7 +8,6 @@ import AddonReview from 'amo/components/AddonReview';
 import translate from 'core/i18n/translate';
 import { isAuthenticated } from 'core/reducers/user';
 import { nl2br, sanitizeHTML } from 'core/utils';
-import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import type { UserReviewType } from 'amo/actions/reviews';
@@ -92,12 +91,13 @@ export class AddonReviewListItemBase extends React.Component {
               />
               : null
             }
-            <Button
+            <a
+              href="#"
               onClick={this.onClickToEditReview}
-              className="AddonReviewListItem-edit-button Button--action Button--small"
+              className="AddonReviewListItem-edit"
             >
-              {i18n.gettext('Edit')}
-            </Button>
+              {i18n.gettext('Edit my review')}
+            </a>
           </div>
           : null
         }
