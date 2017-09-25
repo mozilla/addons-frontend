@@ -27,7 +27,6 @@ export class AddonMoreInfoBase extends React.Component {
         versionLicense: <LoadingText minWidth={20} />,
         addonId: <LoadingText minWidth={20} />,
         versionHistoryLink: <LoadingText minWidth={20} />,
-        betaVersionsLink: <LoadingText minWidth={20} />,
       });
     }
 
@@ -159,10 +158,12 @@ export class AddonMoreInfoBase extends React.Component {
           {i18n.gettext('Version History')}
         </dt>
         <dd>{versionHistoryLink}</dd>
-        <dt className="AddonMoreInfo-beta-versions-title">
-          {i18n.gettext('Beta Versions')}
-        </dt>
-        <dd>{betaVersionsLink}</dd>
+        {betaVersionsLink ? (
+          <dt className="AddonMoreInfo-beta-versions-title">
+            {i18n.gettext('Beta Versions')}
+          </dt>
+        ) : null}
+        {betaVersionsLink ? <dd>{betaVersionsLink}</dd> : null}
         <dt
           className="AddonMoreInfo-database-id-title"
           title={i18n.gettext(`This ID is useful for debugging and

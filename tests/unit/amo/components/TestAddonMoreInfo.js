@@ -29,7 +29,7 @@ describe(__filename, () => {
   it('renders LoadingText if no add-on is present', () => {
     const root = render({ addon: null });
 
-    expect(root.find(LoadingText)).toHaveLength(5);
+    expect(root.find(LoadingText)).toHaveLength(4);
   });
 
   it('does renders a link <dt> if links exist', () => {
