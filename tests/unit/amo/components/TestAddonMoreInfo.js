@@ -195,9 +195,9 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeAddon, slug: 'some-slug' });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-dev-channel-title'))
+    expect(root.find('.AddonMoreInfo-beta-versions-title'))
       .toHaveLength(1);
-    const link = root.find('.AddonMoreInfo-dev-channel-link');
+    const link = root.find('.AddonMoreInfo-beta-versions-link');
     expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/beta`);
   });
 });

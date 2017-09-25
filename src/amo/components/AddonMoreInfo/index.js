@@ -27,7 +27,7 @@ export class AddonMoreInfoBase extends React.Component {
         versionLicense: <LoadingText minWidth={20} />,
         addonId: <LoadingText minWidth={20} />,
         versionHistoryLink: <LoadingText minWidth={20} />,
-        versionDevChannelLink: <LoadingText minWidth={20} />,
+        betaVersionsLink: <LoadingText minWidth={20} />,
       });
     }
 
@@ -94,12 +94,12 @@ export class AddonMoreInfoBase extends React.Component {
           {i18n.gettext('See all versions')}
         </a>
       ),
-      versionDevChannelLink: (
+      betaVersionsLink: (
         <a
-          className="AddonMoreInfo-dev-channel-link"
+          className="AddonMoreInfo-beta-versions-link"
           href={`/addon/${addon.slug}/versions/beta`}
         >
-          {i18n.gettext('See experimental versions')}
+          {i18n.gettext('See all beta versions')}
         </a>
       ),
     });
@@ -114,7 +114,7 @@ export class AddonMoreInfoBase extends React.Component {
     versionLastUpdated,
     versionLicenseLink = null,
     versionHistoryLink,
-    versionDevChannelLink,
+    betaVersionsLink = null,
     addonId,
   }) {
     const { i18n } = this.props;
@@ -159,10 +159,10 @@ export class AddonMoreInfoBase extends React.Component {
           {i18n.gettext('Version History')}
         </dt>
         <dd>{versionHistoryLink}</dd>
-        <dt className="AddonMoreInfo-dev-channel-title">
-          {i18n.gettext('Development Channel')}
+        <dt className="AddonMoreInfo-beta-versions-title">
+          {i18n.gettext('Beta Versions')}
         </dt>
-        <dd>{versionDevChannelLink}</dd>
+        <dd>{betaVersionsLink}</dd>
         <dt
           className="AddonMoreInfo-database-id-title"
           title={i18n.gettext(`This ID is useful for debugging and
