@@ -93,14 +93,16 @@ export class AddonMoreInfoBase extends React.Component {
           {i18n.gettext('See all versions')}
         </a>
       ),
-      betaVersionsLink: (
+      // Since current_beta_version is just an alias to the latest beta,
+      // we can assume that no betas exist at all if it is null.
+      betaVersionsLink: addon.current_beta_version ? (
         <a
           className="AddonMoreInfo-beta-versions-link"
           href={`/addon/${addon.slug}/versions/beta`}
         >
           {i18n.gettext('See all beta versions')}
         </a>
-      ),
+      ) : null,
     });
   }
 
