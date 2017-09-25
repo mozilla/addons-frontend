@@ -155,6 +155,14 @@ export class AddonMoreInfoBase extends React.Component {
           </dt>
         ) : null}
         {eulaLink ? <dd>{eulaLink}</dd> : null}
+        <dt className="AddonMoreInfo-version-history-title">
+          {i18n.gettext('Version History')}
+        </dt>
+        <dd>{versionHistoryLink}</dd>
+        <dt className="AddonMoreInfo-dev-channel-title">
+          {i18n.gettext('Development Channel')}
+        </dt>
+        <dd>{versionDevChannelLink}</dd>
         <dt
           className="AddonMoreInfo-database-id-title"
           title={i18n.gettext(`This ID is useful for debugging and
@@ -165,14 +173,6 @@ export class AddonMoreInfoBase extends React.Component {
         <dd className="AddonMoreInfo-database-id-content">
           {addonId}
         </dd>
-        <dt className="AddonMoreInfo-version-history-title">
-          {i18n.gettext('Version History')}
-        </dt>
-        <dd>{versionHistoryLink}</dd>
-        <dt className="AddonMoreInfo-dev-channel-title">
-          {i18n.gettext('Development Channel')}
-        </dt>
-        <dd>{versionDevChannelLink}</dd>
       </dl>
     );
   }
