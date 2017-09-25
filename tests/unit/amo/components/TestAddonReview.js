@@ -100,13 +100,13 @@ describe(__filename, () => {
 
     return root.onSubmit(event)
       .then(() => {
-        expect(event.preventDefault.called).toBeTruthy();
+        sinon.assert.called(event.preventDefault);
 
-        expect(_setDenormalizedReview.called).toBeTruthy();
+        sinon.assert.called(_setDenormalizedReview);
         expect(_setDenormalizedReview.firstCall.args[0])
           .toEqual({ ...defaultReview, body: 'some review' });
 
-        expect(updateReviewText.called).toBeTruthy();
+        sinon.assert.called(updateReviewText);
         const params = updateReviewText.firstCall.args[0];
         expect(params.body).toEqual('some review');
         expect(params.addonId).toEqual(defaultReview.addonId);
@@ -115,13 +115,13 @@ describe(__filename, () => {
         expect(params.reviewId).toEqual(defaultReview.id);
         expect(params.apiState).toEqual(signedInApiState);
 
-        expect(refreshAddon.called).toBeTruthy();
+        sinon.assert.called(refreshAddon);
         expect(refreshAddon.firstCall.args[0]).toEqual({
           addonSlug: defaultReview.addonSlug,
           apiState: signedInApiState,
         });
 
-        expect(onReviewSubmitted.called).toBeTruthy();
+        sinon.assert.called(onReviewSubmitted);
       });
   });
 
@@ -151,7 +151,7 @@ describe(__filename, () => {
       })),
     });
     render({ createLocalState: () => localState });
-    expect(localState.load.called).toBeTruthy();
+    sinon.assert.called(localState.load);
   });
 
   it('looks for state in a local store and loads it', () => {
@@ -216,7 +216,7 @@ describe(__filename, () => {
     textarea.value = 'some review';
     Simulate.input(textarea);
 
-    expect(localState.save.called).toBeTruthy();
+    sinon.assert.called(localState.save);
     expect(localState.save.firstCall.args[0]).toEqual({
       reviewBody: 'some review',
     });
@@ -241,7 +241,7 @@ describe(__filename, () => {
 
     return root.onSubmit(event)
       .then(() => {
-        expect(localState.clear.called).toBeTruthy();
+        sinon.assert.called(localState.clear);
       });
   });
 
@@ -269,17 +269,13 @@ describe(__filename, () => {
     Simulate.submit(root.reviewForm);
 
     // Just make sure the submit handler is hooked up.
-    expect(updateReviewText.called).toBeTruthy();
+    sinon.assert.called(updateReviewText);
   });
 
   it('requires a review object', () => {
     const review = { nope: 'not even close' };
-    try {
-      render({ review });
-      expect(false).toBeTruthy();
-    } catch (error) {
-      expect(error.message).toMatch(/Unexpected review property: {"nope".*/);
-    }
+    expect(() => render({ review }))
+      .toThrow(/Unexpected review property: {"nope".*/);
   });
 
   it('lets you change the star rating', () => {
@@ -335,8 +331,7 @@ describe(__filename, () => {
         return actions.updateReviewText({ ...params })
           .then(() => {
             mockApi.verify();
-            expect(dispatch.called).toBeTruthy();
-            expect(dispatch.firstCall.args[0]).toEqual(setReview(fakeReview));
+            sinon.assert.calledWith(dispatch, setReview(fakeReview));
           });
       });
     });
@@ -363,7 +358,7 @@ describe(__filename, () => {
         };
         actions.setDenormalizedReview(review);
 
-        expect(dispatch.called).toBeTruthy();
+        sinon.assert.called(dispatch);
         const action = dispatch.firstCall.args[0];
         expect(action.type).toEqual(SET_REVIEW);
         expect(action.payload).toEqual(review);
