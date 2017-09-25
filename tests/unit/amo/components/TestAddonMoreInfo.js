@@ -29,7 +29,22 @@ describe(__filename, () => {
   it('renders LoadingText if no add-on is present', () => {
     const root = render({ addon: null });
 
+    // These fields will be visible during loading since
+    // they will always exist for the loaded add-on.
+    expect(root.find('.AddonMoreInfo-version-title')).toHaveLength(1);
+    expect(root.find('.AddonMoreInfo-last-updated-title')).toHaveLength(1);
+    expect(root.find('.AddonMoreInfo-version-history-title')).toHaveLength(1);
+    expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(1);
+
     expect(root.find(LoadingText)).toHaveLength(4);
+
+    // These fields will not be visible during loading
+    // since they may not exist.
+    expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-license-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-privacy-policy-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-beta-versions-title')).toHaveLength(0);
   });
 
   it('does renders a link <dt> if links exist', () => {

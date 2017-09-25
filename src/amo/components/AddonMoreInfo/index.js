@@ -132,9 +132,13 @@ export class AddonMoreInfoBase extends React.Component {
             </ul>
           </dd>
         ) : null}
-        <dt>{i18n.gettext('Version')}</dt>
+        <dt className="AddonMoreInfo-version-title">
+          {i18n.gettext('Version')}
+        </dt>
         <dd className="AddonMoreInfo-version">{version}</dd>
-        <dt>{i18n.gettext('Last updated')}</dt>
+        <dt className="AddonMoreInfo-last-updated-title">
+          {i18n.gettext('Last updated')}
+        </dt>
         <dd>{versionLastUpdated}</dd>
         {versionLicenseLink ? (
           <dt className="AddonMoreInfo-license-title">
