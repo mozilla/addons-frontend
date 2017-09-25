@@ -1,7 +1,6 @@
 import React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
-import createStore from 'amo/store';
 import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
@@ -19,7 +18,9 @@ import {
   fetchAddon, createInternalAddon, loadAddons,
 } from 'core/reducers/addons';
 import ErrorList from 'ui/components/ErrorList';
-import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata, fakeAddon, fakeReview,
+} from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
   createStubErrorHandler,
@@ -35,7 +36,7 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    store = createStore().store;
+    store = dispatchClientMetadata().store;
   });
 
   const render = ({
