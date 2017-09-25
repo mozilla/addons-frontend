@@ -69,7 +69,7 @@ describe(__filename, () => {
     expect(rating).toHaveProp('readOnly', true);
   });
 
-  it('renders new lines in review bodies', () => {
+  it('renders newlines in review bodies', () => {
     const fakeReviewWithNewLine = {
       ...fakeReview,
       body: "It's awesome \n isn't it?",
