@@ -5,6 +5,7 @@ import React from 'react';
 import AddonMoreInfo, {
   AddonMoreInfoBase,
 } from 'amo/components/AddonMoreInfo';
+import { createInternalAddon } from 'core/reducers/addons';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
@@ -16,7 +17,7 @@ describe(__filename, () => {
   function render(props) {
     return shallowUntilTarget(
       <AddonMoreInfo
-        addon={fakeAddon}
+        addon={props.addon || createInternalAddon(fakeAddon)}
         i18n={getFakeI18nInst()}
         store={store}
         {...props}
@@ -32,11 +33,11 @@ describe(__filename, () => {
   });
 
   it('does renders a link <dt> if links exist', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       homepage: null,
       support_url: 'foo.com',
-    };
+    });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-links-title'))
@@ -47,7 +48,7 @@ describe(__filename, () => {
     const partialAddon = deepcopy(fakeAddon);
     delete partialAddon.homepage;
     delete partialAddon.support_url;
-    const root = render({ addon: partialAddon });
+    const root = render({ addon: createInternalAddon(partialAddon) });
 
     expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
   });
@@ -55,13 +56,15 @@ describe(__filename, () => {
   it('does not render a homepage if none exists', () => {
     const partialAddon = deepcopy(fakeAddon);
     delete partialAddon.homepage;
-    const root = render({ addon: partialAddon });
+    const root = render({ addon: createInternalAddon(partialAddon) });
 
     expect(root.find('.AddonMoreInfo-homepage-link')).toHaveLength(0);
   });
 
   it('renders the homepage of an add-on', () => {
-    const addon = { ...fakeAddon, homepage: 'http://hamsterdance.com/' };
+    const addon = createInternalAddon({
+      ...fakeAddon, homepage: 'http://hamsterdance.com/',
+    });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-homepage-link');
 
@@ -72,16 +75,16 @@ describe(__filename, () => {
   it('does not render a support link if none exists', () => {
     const partialAddon = deepcopy(fakeAddon);
     delete partialAddon.support_url;
-    const root = render({ addon: partialAddon });
+    const root = render({ addon: createInternalAddon(partialAddon) });
 
     expect(root.find('.AddonMoreInfo-support-link')).toHaveLength(0);
   });
 
   it('renders the support link of an add-on', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       support_url: 'http://support.hampsterdance.com/',
-    };
+    });
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-support-link');
 
@@ -90,26 +93,26 @@ describe(__filename, () => {
   });
 
   it('renders the version number of an add-on', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       current_version: {
         ...fakeAddon.current_version,
         version: '2.0.1',
       },
-    };
+    });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-version')).toHaveText('2.0.1');
   });
 
   it('renders the license and link', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       current_version: {
         ...fakeAddon.current_version,
         license: { name: 'tofulicense', url: 'http://license.com/' },
       },
-    };
+    });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-license-title')).toHaveText('License');
@@ -120,7 +123,9 @@ describe(__filename, () => {
   });
 
   it('does not render a privacy policy if none exists', () => {
-    const addon = { ...fakeAddon, has_privacy_policy: false };
+    const addon = createInternalAddon({
+      ...fakeAddon, has_privacy_policy: false,
+    });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-privacy-policy-title'))
@@ -130,7 +135,9 @@ describe(__filename, () => {
   });
 
   it('renders the privacy policy and link', () => {
-    const addon = { ...fakeAddon, has_privacy_policy: true };
+    const addon = createInternalAddon({
+      ...fakeAddon, has_privacy_policy: true,
+    });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-privacy-policy-title'))
@@ -142,7 +149,7 @@ describe(__filename, () => {
   });
 
   it('does not render a EULA if none exists', () => {
-    const addon = { ...fakeAddon, has_eula: false };
+    const addon = createInternalAddon({ ...fakeAddon, has_eula: false });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
@@ -150,7 +157,7 @@ describe(__filename, () => {
   });
 
   it('renders the EULA and link', () => {
-    const addon = { ...fakeAddon, has_eula: true };
+    const addon = createInternalAddon({ ...fakeAddon, has_eula: true });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-eula-title'))
@@ -164,14 +171,14 @@ describe(__filename, () => {
   it('does not render an add-on ID if none exists', () => {
     const partialAddon = { ...fakeAddon };
     delete partialAddon.id;
-    const root = render({ addon: partialAddon });
+    const root = render({ addon: createInternalAddon(partialAddon) });
 
     expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(0);
     expect(root.find('.AddonMoreInfo-database-id-content')).toHaveLength(0);
   });
 
   it('renders the ID and title attribute', () => {
-    const addon = { ...fakeAddon, id: 9001 };
+    const addon = createInternalAddon({ ...fakeAddon, id: 9001 });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-database-id-title'))
@@ -184,7 +191,7 @@ describe(__filename, () => {
   });
 
   it('links to version history', () => {
-    const addon = { ...fakeAddon, slug: 'some-slug' };
+    const addon = createInternalAddon({ ...fakeAddon, slug: 'some-slug' });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-version-history-title'))
@@ -194,7 +201,7 @@ describe(__filename, () => {
   });
 
   it('links to development channel versions', () => {
-    const addon = { ...fakeAddon, slug: 'some-slug' };
+    const addon = createInternalAddon({ ...fakeAddon, slug: 'some-slug' });
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-dev-channel-title'))
