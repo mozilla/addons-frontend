@@ -182,4 +182,24 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-database-id-content'))
       .toHaveText('9001');
   });
+
+  it('links to version history', () => {
+    const addon = { ...fakeAddon, slug: 'some-slug' };
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-version-history-title'))
+      .toHaveLength(1);
+    const link = root.find('.AddonMoreInfo-version-history-link');
+    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+  });
+
+  it('links to development channel versions', () => {
+    const addon = { ...fakeAddon, slug: 'some-slug' };
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-dev-channel-title'))
+      .toHaveLength(1);
+    const link = root.find('.AddonMoreInfo-dev-channel-link');
+    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/beta`);
+  });
 });

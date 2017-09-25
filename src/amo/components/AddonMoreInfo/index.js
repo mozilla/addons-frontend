@@ -146,6 +146,28 @@ export class AddonMoreInfoBase extends React.Component {
             {addon.id}
           </dd>
         ) : null}
+        <dt className="AddonMoreInfo-version-history-title">
+          {i18n.gettext('Version History')}
+        </dt>
+        <dd>
+          <Link
+            className="AddonMoreInfo-version-history-link"
+            href={`/addon/${addon.slug}/versions/`}
+          >
+            {i18n.gettext('See all versions')}
+          </Link>
+        </dd>
+        <dt className="AddonMoreInfo-dev-channel-title">
+          {i18n.gettext('Development Channel')}
+        </dt>
+        <dd>
+          <Link
+            className="AddonMoreInfo-dev-channel-link"
+            href={`/addon/${addon.slug}/versions/beta`}
+          >
+            {i18n.gettext('See experimental versions')}
+          </Link>
+        </dd>
       </dl>
     );
   }
