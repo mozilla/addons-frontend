@@ -39,7 +39,7 @@
   min-height: 125px;
   resize: vertical;
 
-  @include respond-to("medium") {
+  @include respond-to(medium) {
     min-height: 200px;
   }
 }
