@@ -5,26 +5,19 @@
   padding: $padding-page;
 }
 
-.LandingPage-icon--persona {
-  @include margin-end(20px);
-}
-
-// In LTR, the spacing actually looks correct because of the icon itself
-// has built-in margins in its design.
-.LandingPage-icon--extension {
-  [dir=rtl] & {
-    margin-left: 20px;
-  }
-}
-
 .LandingPage-header {
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  font-size: $font-size-default;
-  justify-content: center;
-  margin: $padding-page auto ($padding-page * 2);
-  max-width: 600px;
+  margin: 30px 20px 20px;
+
+  @include respond-to(medium) {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    font-size: $font-size-default;
+    justify-content: center;
+    margin: 50px auto 40px;
+    max-width: 1000px;
+    padding: 0 40px;
+  }
 }
 
 .LandingPage-button {
@@ -36,18 +29,17 @@
 }
 
 .LandingPage-icon {
-  height: 89px;
-  width: 225px;
+  width: 100%;
 
-  @include respond-to(medium) {
-    height: 178px;
-    width: 450px;
+  @include respond-to(large) {
+    height: 225px;
   }
 }
 
 .LandingPage-addonType-name {
   font-size: $font-size-l;
-  margin: 0;
+  font-weight: 300;
+  margin: 0 0 15px;
 
   @include respond-to(medium) {
     font-size: $font-size-xl;
@@ -55,9 +47,14 @@
 }
 
 .LandingPage-heading-content {
-  font-size: $font-size-s;
-  margin: 0;
-  max-width: 480px;
+  font-size: $font-size-m;
+  font-weight: normal;
+  line-height: 1.5;
+  max-width: 600px;
+
+  @include respond-to(medium) {
+    @include margin-end(20px);
+  }
 }
 
 .LandingPage .Categories {
