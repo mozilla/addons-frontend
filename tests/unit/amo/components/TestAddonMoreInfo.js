@@ -29,7 +29,7 @@ describe(__filename, () => {
   it('renders LoadingText if no add-on is present', () => {
     const root = render({ addon: null });
 
-    expect(root.find(LoadingText)).toHaveLength(4);
+    expect(root.find(LoadingText)).toHaveLength(5);
   });
 
   it('does renders a link <dt> if links exist', () => {
@@ -166,15 +166,6 @@ describe(__filename, () => {
       .toHaveText('Read the license agreement for this add-on');
     expect(root.find('.AddonMoreInfo-eula-link'))
       .toHaveProp('href', '/addon/chill-out/eula/');
-  });
-
-  it('does not render an add-on ID if none exists', () => {
-    const partialAddon = { ...fakeAddon };
-    delete partialAddon.id;
-    const root = render({ addon: createInternalAddon(partialAddon) });
-
-    expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-database-id-content')).toHaveLength(0);
   });
 
   it('renders the ID and title attribute', () => {
