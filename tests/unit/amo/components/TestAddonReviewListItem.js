@@ -5,9 +5,8 @@ import AddonReview from 'amo/components/AddonReview';
 import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
-import createStore from 'amo/store';
 import {
-  dispatchSignInActions, fakeReview,
+  dispatchClientMetadata, dispatchSignInActions, fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
@@ -22,7 +21,7 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    store = createStore().store;
+    store = dispatchClientMetadata().store;
   });
 
   const render = (customProps = {}) => {
