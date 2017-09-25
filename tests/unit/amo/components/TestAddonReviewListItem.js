@@ -93,7 +93,7 @@ describe(__filename, () => {
       .find(LoadingText)).toHaveLength(1);
   });
 
-  it('does not render controls when signed in without a review', () => {
+  it('does not render review controls unless the user wrote a review', () => {
     dispatchSignInActions({ store });
     const root = render({ review: null });
 
