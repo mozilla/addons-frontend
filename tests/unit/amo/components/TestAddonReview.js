@@ -10,12 +10,13 @@ import translate from 'core/i18n/translate';
 import { SET_REVIEW } from 'amo/constants';
 import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
-import createStore from 'amo/store';
 import * as coreUtils from 'core/utils';
 import AddonReview, {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
 } from 'amo/components/AddonReview';
-import { fakeAddon, fakeReview, signedInApiState } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata, fakeAddon, fakeReview, signedInApiState,
+} from 'tests/unit/amo/helpers';
 import {
   createStubErrorHandler, getFakeI18nInst, shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -39,7 +40,7 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    store = createStore().store;
+    store = dispatchClientMetadata().store;
   });
 
   const renderProps = (customProps = {}) => {
