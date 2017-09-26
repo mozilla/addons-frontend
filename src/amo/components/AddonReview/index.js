@@ -1,6 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-/* global $Shape, Event, HTMLInputElement, Node */
+/* global $Shape */
 import { oneLine } from 'common-tags';
 import defaultDebounce from 'lodash.debounce';
 import React from 'react';
@@ -48,7 +48,7 @@ export class AddonReviewBase extends React.Component {
   props: AddonReviewProps;
   reviewForm: Node;
   reviewPrompt: Node;
-  reviewTextarea: Node;
+  reviewTextarea: HTMLElement;
   state: AddonReviewState;
 
   static defaultProps = {
@@ -89,7 +89,7 @@ export class AddonReviewBase extends React.Component {
       });
   }
 
-  onSubmit = (event: Event) => {
+  onSubmit = (event: SyntheticEvent) => {
     const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();

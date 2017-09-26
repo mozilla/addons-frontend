@@ -4,6 +4,9 @@
     "CLIENT_CONFIG": true,
     "webpackIsomorphicTools": true,
     "ga": true,
+    "HTMLElement": true,
+    "HTMLInputElement": true,
+    "Node": true,
     // See: https://github.com/facebook/flow/issues/1609
     "SyntheticEvent": true,
   },
