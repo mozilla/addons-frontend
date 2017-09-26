@@ -10,7 +10,10 @@ import config from 'config';
 
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import {
+  addVersionCompatibilityToFilters,
+  convertFiltersToQueryParams,
+} from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -243,11 +246,16 @@ type AutocompleteParams = {|
 |};
 
 export function autocomplete({ api, filters }: AutocompleteParams) {
+  const filtersWithAppVersion = addVersionCompatibilityToFilters({
+    filters,
+    userAgentInfo: api.userAgentInfo,
+  });
+
   return callApi({
     endpoint: 'addons/autocomplete',
     params: {
       app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
+      ...convertFiltersToQueryParams(filtersWithAppVersion),
     },
     state: api,
   });

@@ -7,6 +7,10 @@ import utf8 from 'utf8';
 import * as api from 'core/api';
 import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
 import {
+  createFakeAutocompleteResult,
+  dispatchClientMetadata,
+} from 'tests/unit/amo/helpers';
+import {
   createApiResponse,
   createStubErrorHandler,
   generateHeaders,
@@ -14,7 +18,6 @@ import {
   unexpectedSuccess,
   userAuthToken,
 } from 'tests/unit/helpers';
-import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
@@ -235,8 +238,14 @@ describe(__filename, () => {
         .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
+
+      const { state } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+        lang: 'en-US',
+      });
+
       return api.featured({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+        api: state.api,
         filters: { addonType: ADDON_TYPE_THEME },
       })
         .then((response) => {
@@ -448,8 +457,14 @@ describe(__filename, () => {
         .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&lang=en-US`)
         .once()
         .returns(mockResponse());
+
+      const { state } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+        lang: 'en-US',
+      });
+
       return api.autocomplete({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+        api: state.api,
         filters: {
           query: 'foo',
         },
@@ -462,8 +477,14 @@ describe(__filename, () => {
         .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
+
+      const { state } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+        lang: 'en-US',
+      });
+
       return api.autocomplete({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+        api: state.api,
         filters: {
           query: 'foo',
           addonType: ADDON_TYPE_THEME,

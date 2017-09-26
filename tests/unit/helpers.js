@@ -125,8 +125,12 @@ export const userAgentsByPlatform = {
       Gecko/20100101 Firefox/10.0`,
   },
   mac: {
+    chrome41: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
     firefox33: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10;
       rv:33.0) Gecko/20100101 Firefox/33.0`,
+    firefox57: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
+      Gecko/20100101 Firefox/57.1`,
   },
   windows: {
     firefox40: oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
@@ -155,8 +159,7 @@ export const userAgents = {
   chrome: [
     oneLine`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/41.0.2228.0 Safari/537.36`,
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36
-      (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
+    userAgentsByPlatform.mac.chrome41,
   ],
   firefox: [
     userAgentsByPlatform.linux.firefox10,
@@ -166,9 +169,7 @@ export const userAgents = {
     // Firefox ESR 52
     oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.2.1)
       Gecko/20100101 Firefox/52.2.1`,
-    // Firefox 57 (first version that is WebExtension-only) for Mac
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
-      Gecko/20100101 Firefox/57.1`,
+    userAgentsByPlatform.mac.firefox57,
   ],
   firefoxOS: [
     userAgentsByPlatform.firefoxOS.firefox26,
