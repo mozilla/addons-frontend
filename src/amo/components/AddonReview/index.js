@@ -72,6 +72,12 @@ export class AddonReviewBase extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.reviewTextarea) {
+      this.reviewTextarea.focus();
+    }
+  }
+
   checkForStoredState() {
     return this.localState.load()
       .then((storedState) => {
