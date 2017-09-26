@@ -28,6 +28,7 @@
   }
 
   @include respond-to(medium) {
+    height: auto;
     padding-bottom: 6px;
   }
 }
