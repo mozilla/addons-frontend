@@ -1,13 +1,16 @@
 import {
   getLatestUserReview,
   getReviews,
+  replyToReview,
   submitReview,
-} from 'amo/api';
+} from 'amo/api/reviews';
 import * as api from 'core/api';
-import { unexpectedSuccess } from 'tests/unit/helpers';
+import {
+  apiResponsePage, createStubErrorHandler, unexpectedSuccess,
+} from 'tests/unit/helpers';
 import { dispatchSignInActions, fakeReview } from 'tests/unit/amo/helpers';
 
-describe('amo.api', () => {
+describe(__filename, () => {
   let mockApi;
   let signedInApiState;
 
@@ -15,6 +18,12 @@ describe('amo.api', () => {
     mockApi = sinon.mock(api);
     signedInApiState = dispatchSignInActions().state.api;
   });
+
+  const getReviewsResponse = ({
+    reviews = [{ ...fakeReview }],
+  } = {}) => {
+    return apiResponsePage({ results: reviews });
+  };
 
   describe('submitReview', () => {
     // These are all the default values for fields that can be posted to the
@@ -29,23 +38,25 @@ describe('amo.api', () => {
     const baseParams = {
       apiState: signedInApiState,
     };
-    // This is just a generic API response that does not
-    // look like an error to callApi().
-    const genericApiResponse = { field: 'value' };
+    const submitReviewResponse = (review = { ...fakeReview }) => {
+      return review;
+    }
 
-    it('requires an addonId when posting', () => {
+    it('requires an addonId when posting', async () => {
       const params = {
         ...baseParams,
         addonId: null,
       };
 
-      return submitReview(params)
+      // This needs to be a promise chain because of
+      // https://github.com/facebook/jest/issues/3601
+      await submitReview(params)
         .then(unexpectedSuccess, (error) => {
           expect(error.message).toMatch(/addonId is required/);
         });
     });
 
-    it('posts a new add-on review', () => {
+    it('posts a new add-on review', async () => {
       const params = {
         ...baseParams,
         rating: 5,
@@ -54,6 +65,7 @@ describe('amo.api', () => {
         errorHandler: sinon.stub(),
       };
 
+      const fakeResponse = submitReviewResponse();
       mockApi
         .expects('callApi')
         .withArgs({
@@ -69,21 +81,21 @@ describe('amo.api', () => {
           state: params.apiState,
           errorHandler: params.errorHandler,
         })
-        .returns(Promise.resolve(genericApiResponse));
+        .returns(Promise.resolve(fakeResponse));
 
-      return submitReview(params).then((apiResponse) => {
-        expect(apiResponse).toEqual(genericApiResponse);
-        mockApi.verify();
-      });
+      const apiResponse = await submitReview(params);
+      expect(apiResponse).toEqual(fakeResponse);
+      mockApi.verify();
     });
 
-    it('patches an existing add-on review', () => {
+    it('patches an existing add-on review', async () => {
       const params = {
         ...baseParams,
         body: 'some new body',
         reviewId: 987,
       };
 
+      const fakeResponse = submitReviewResponse();
       mockApi
         .expects('callApi')
         .withArgs({
@@ -95,15 +107,14 @@ describe('amo.api', () => {
           auth: true,
           state: params.apiState,
         })
-        .returns(Promise.resolve(genericApiResponse));
+        .returns(Promise.resolve(fakeResponse));
 
-      return submitReview(params).then((apiResponse) => {
-        expect(apiResponse).toEqual(genericApiResponse);
-        mockApi.verify();
-      });
+      const apiResponse = await submitReview(params);
+      expect(apiResponse).toEqual(fakeResponse);
+      mockApi.verify();
     });
 
-    it('does not patch the version for existing reviews', () => {
+    it('does not patch the version for existing reviews', async () => {
       const params = {
         ...baseParams,
         reviewId: 987,
@@ -123,37 +134,35 @@ describe('amo.api', () => {
           auth: true,
           state: params.apiState,
         })
-        .returns(Promise.resolve(genericApiResponse));
+        .returns(Promise.resolve(submitReviewResponse()));
 
-      return submitReview(params).then(() => {
-        mockApi.verify();
-      });
+      await submitReview(params);
+      mockApi.verify();
     });
   });
 
   describe('getReviews', () => {
-    it('allows you to fetch reviews by any param', () => {
+    it('allows you to fetch reviews by any param', async () => {
       const params = {
         user: 123, addon: 321, show_grouped_ratings: 1,
       };
+      const fakeResponse = getReviewsResponse({ reviews: [fakeReview] });
       mockApi
         .expects('callApi')
         .withArgs({
-          auth: false,
+          auth: true,
           endpoint: 'reviews/review',
           params,
           state: undefined,
         })
-        .returns(Promise.resolve({ results: [fakeReview] }));
+        .returns(Promise.resolve(fakeResponse));
 
-      return getReviews(params)
-        .then((response) => {
-          expect(response.results).toEqual([fakeReview]);
-          mockApi.verify();
-        });
+      const response = await getReviews(params);
+      expect(response).toEqual(fakeResponse);
+      mockApi.verify();
     });
 
-    it('passes auth to the API when logged in', () => {
+    it('passes api state to callApi', async () => {
       const params = { addon: 321, user: 123 };
       mockApi
         .expects('callApi')
@@ -163,41 +172,20 @@ describe('amo.api', () => {
           params,
           state: signedInApiState,
         })
-        .returns(Promise.resolve({ results: [fakeReview] }));
+        .returns(Promise.resolve(getReviewsResponse()));
 
-      return getReviews({ ...params, apiState: signedInApiState })
-        .then((response) => {
-          expect(response.results).toEqual([fakeReview]);
-          mockApi.verify();
-        });
+      await getReviews({
+        ...params, apiState: signedInApiState,
+      });
+      mockApi.verify();
     });
 
-    it('does not pass auth to the API when logged out', () => {
-      const params = { addon: 321, user: 123 };
-      const signedOutApiState = { ...signedInApiState, token: null };
+    it('requires a user or addon', async () => {
       mockApi
         .expects('callApi')
-        .withArgs({
-          auth: false,
-          endpoint: 'reviews/review',
-          params,
-          state: signedOutApiState,
-        })
-        .returns(Promise.resolve({ results: [fakeReview] }));
+        .returns(Promise.resolve(getReviewsResponse()));
 
-      return getReviews({ ...params, apiState: signedOutApiState })
-        .then((response) => {
-          expect(response.results).toEqual([fakeReview]);
-          mockApi.verify();
-        });
-    });
-
-    it('requires a user or addon', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve({ results: [fakeReview] }));
-
-      return getReviews()
+      await getReviews()
         .then(unexpectedSuccess, (error) => {
           expect(error.message).toMatch(/user or addon must be specified/);
         });
@@ -205,12 +193,13 @@ describe('amo.api', () => {
   });
 
   describe('getLatestUserReview', () => {
-    it('returns the lone review result since that is the latest', () => {
+    it('returns the lone review result since that is the latest', async () => {
       const params = { user: 123, addon: 321, version: 456 };
+      const expectedReview = { ...fakeReview, id: 34 };
       mockApi
         .expects('callApi')
         .withArgs({
-          auth: false,
+          auth: true,
           endpoint: 'reviews/review',
           // Make sure it filters with the correct params:
           params: {
@@ -220,45 +209,27 @@ describe('amo.api', () => {
           },
           state: undefined,
         })
-        .returns(Promise.resolve({ results: [fakeReview] }));
+        .returns(Promise.resolve(getReviewsResponse({
+          reviews: [expectedReview],
+        })));
 
-      return getLatestUserReview(params)
-        .then((review) => {
-          mockApi.verify();
-          expect(review).toEqual(fakeReview);
-        });
+      const review = await getLatestUserReview(params);
+      mockApi.verify();
+      expect(review).toEqual(expectedReview);
     });
 
-    it('passes auth state to the API', () => {
-      const params = { user: 123, addon: 321, version: 456 };
+    it('throws an error if multple reviews are received', async () => {
       mockApi
         .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint: 'reviews/review',
-          params,
-          state: signedInApiState,
-        })
-        .returns(Promise.resolve({ results: [fakeReview] }));
-
-      return getLatestUserReview({ ...params, apiState: signedInApiState })
-        .then(() => {
-          mockApi.verify();
-        });
-    });
-
-    it('throws an error if multple reviews are received', () => {
-      mockApi
-        .expects('callApi')
-        .returns(Promise.resolve({
+        .returns(Promise.resolve(getReviewsResponse({
           // In real life, the API should never return multiple reviews like this.
-          results: [
-            fakeReview,
-            { id: 456, ...fakeReview },
+          reviews: [
+            { ...fakeReview, id: 1 },
+            { ...fakeReview, id: 2 },
           ],
-        }));
+        })));
 
-      return getLatestUserReview({
+      await getLatestUserReview({
         user: 123, addon: fakeReview.addon.id, version: fakeReview.version.id,
       })
         .then(unexpectedSuccess, (error) => {
@@ -269,7 +240,7 @@ describe('amo.api', () => {
     it('returns latest review as null when there are no reviews at all', () => {
       mockApi
         .expects('callApi')
-        .returns(Promise.resolve({ results: [] }));
+        .returns(Promise.resolve(getReviewsResponse({ reviews: [] })));
 
       return getLatestUserReview({ user: 123, addon: 321, version: 456 })
         .then((review) => {
@@ -280,7 +251,7 @@ describe('amo.api', () => {
     it('requires user, addon, and version', () => {
       mockApi
         .expects('callApi')
-        .returns(Promise.resolve({ results: [] }));
+        .returns(Promise.resolve(getReviewsResponse()));
 
       return getLatestUserReview()
         .then(unexpectedSuccess, (error) => {
@@ -291,7 +262,7 @@ describe('amo.api', () => {
     it('requires addon and version', () => {
       mockApi
         .expects('callApi')
-        .returns(Promise.resolve({ results: [] }));
+        .returns(Promise.resolve(getReviewsResponse()));
 
       return getLatestUserReview({ user: 123 })
         .then(unexpectedSuccess, (error) => {
@@ -302,12 +273,53 @@ describe('amo.api', () => {
     it('requires a version', () => {
       mockApi
         .expects('callApi')
-        .returns(Promise.resolve({ results: [] }));
+        .returns(Promise.resolve(getReviewsResponse()));
 
       return getLatestUserReview({ addon: 321, user: 123 })
         .then(unexpectedSuccess, (error) => {
           expect(error.message).toMatch(/user, addon, and version must be specified/);
         });
+    });
+  });
+
+  describe('replyToReview', () => {
+    const replyToReviewResponse = (review = { ...fakeReview }) => {
+      return review;
+    };
+
+    it('calls the API', async () => {
+      // TODO: fix all of this
+      const apiState = { ...signedInApiState };
+      const originalReview = { ...fakeReview, id: 321 };
+      const fakeResponse = replyToReviewResponse();
+
+      const body = 'this is a reply to the review';
+      const title = 'title for the reply';
+      const errorHandler = createStubErrorHandler();
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          endpoint: `reviews/review/${originalReview.id}/reply/`,
+          errorHandler,
+          body: {
+            body,
+            title,
+          },
+          method: 'POST',
+          auth: true,
+          state: apiState,
+        })
+        .returns(Promise.resolve(fakeResponse));
+
+      await replyToReview({
+        apiState,
+        body,
+        errorHandler,
+        originalReviewId: originalReview.id,
+        title,
+      });
+      mockApi.verify();
     });
   });
 });

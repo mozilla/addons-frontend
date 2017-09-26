@@ -7,7 +7,7 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { getReviews } from 'amo/api';
+import { getReviews } from 'amo/api/reviews';
 import { setAddonReviews } from 'amo/actions/reviews';
 import { FETCH_REVIEWS } from 'amo/constants';
 import log from 'core/logger';

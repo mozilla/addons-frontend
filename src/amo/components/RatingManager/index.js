@@ -8,7 +8,7 @@ import { oneLine } from 'common-tags';
 
 import { withRenderedErrorHandler } from 'core/errorHandler';
 import { setReview } from 'amo/actions/reviews';
-import { getLatestUserReview, submitReview } from 'amo/api';
+import { getLatestUserReview, submitReview } from 'amo/api/reviews';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
 import {
@@ -24,7 +24,9 @@ import log from 'core/logger';
 import DefaultRating from 'ui/components/Rating';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
-import type { GetLatestReviewParams, SubmitReviewParams } from 'amo/api';
+import type {
+  GetLatestReviewParams, SubmitReviewParams,
+} from 'amo/api/reviews';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
