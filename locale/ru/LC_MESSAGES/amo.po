@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-26 21:51+0000\n"
+"PO-Revision-Date: 2017-09-26 22:03+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -644,46 +644,46 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Как вы оцениваете ваш опыт работы с %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "Войдите, чтобы оценить это дополнение"
+msgstr "Вы сообщили о нарушении правил этим дополнением"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Мы получили ваше сообщение. Спасибо, что сообщили нам о вашей обеспокоенности этим дополнением."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Мы не можем ответить на каждое сообщение о нарушении правил, но мы рассмотрим эту проблему."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Если вы считаете, что это дополнение нарушает %(linkTagStart)sполитики Mozilla в отношении дополнений%(linkTagEnd)s, или имеет проблемы с безопасностью или приватностью, сообщите об этих проблемах в"
+" Mozilla, используя эту форму."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Перейти на страницу дополнения"
+msgstr "Сообщить о нарушении правил этим дополнением"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Не используйте эту форму, чтобы сообщать об ошибках или запрашивать новые функции в дополнении; это сообщение будет отправлено в Mozilla, а не разработчику дополнения."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Объясните, как это дополнение нарушает наши политики."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Убрать"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Отправка сообщения о нарушении правил"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Отправить сообщение о нарушении правил"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
