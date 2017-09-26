@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-26 21:50+0000\n"
+"PO-Revision-Date: 2017-09-26 22:09+0000\n"
 "Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -359,15 +359,15 @@ msgstr "Más temas promocionados"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
-msgstr ""
+msgstr "Navegador Focus"
 
 #: src/amo/components/Footer/index.js:109
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Navegador de escritorio"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
 msgid "Privacy"
@@ -375,11 +375,11 @@ msgstr "Privacidad"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "Legal"
 
 #: src/amo/components/Footer/index.js:141
 msgid "Report Trademark Abuse"
@@ -390,6 +390,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"A menos que se %(startNotedLink)sindique%(endNotedLink)s lo contrario, el contenido de este sitio está licenciado bajo la licencia %(startLicenseLink)sCreative Commons Reconocimiento Compartir-Igual"
+" v3.0%(endLicenseLink)s o una versión posterior."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -401,11 +403,11 @@ msgstr "Complementos"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Acerca de"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -413,7 +415,7 @@ msgstr "Central del desarrollador"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Foro"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -425,15 +427,15 @@ msgstr "Informar de un error"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "Estado del sitio web"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "Navegador para Android"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "Navegador para iOS"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -641,40 +643,41 @@ msgstr "Has comunicado un uso indebido en este complemento"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Hemos recibido tu notificación. Gracias por hacernos saber tus preocupaciones sobre este complemento."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "No podemos responder a todos los informes de uso indebido pero examinaremos este problema."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Si crees que este complemento viola las %(linkTagStart)spolíticas de complementos de Mozilla%(linkTagEnd)s o tiene problemas de seguridad o privacidad, por favor informa a Mozilla utilizando este "
+"formulario."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Ir a la página del complemento"
+msgstr "Informar de un uso indebido en este complemento"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Por favor, no utilices este formulario para informar de fallos en el complemento o solicitar nuevas funcionalidades; este informe se enviará a Mozilla y no al desarrollador del complemento."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Explica de qué manera este complemento viola nuestras políticas."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Enviando el informe de uso indebido"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Enviar informe de uso indebido"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
