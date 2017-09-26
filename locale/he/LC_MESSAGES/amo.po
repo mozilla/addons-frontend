@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-26 21:08+0000\n"
+"PO-Revision-Date: 2017-09-26 21:29+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -69,9 +69,8 @@ msgid "More extensions by %(author)s"
 msgstr ""
 
 #: src/amo/components/Addon/index.js:332
-#, fuzzy
 msgid "More extensions by these developers"
-msgstr "חיפוש הרחבות וערכות נושא"
+msgstr "הרחבות נוספות מאת המפתחים האלה"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
@@ -158,9 +157,8 @@ msgid "Used by"
 msgstr "בשימוש ע״י"
 
 #: src/amo/components/AddonMoreInfo/index.js:104
-#, fuzzy
 msgid "See all beta versions"
-msgstr "עיון בכל ההרחבות"
+msgstr "צפייה בכל גרסאות הבטא"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
@@ -187,14 +185,12 @@ msgid "End-User License Agreement"
 msgstr "הסכם רישיון למשתמש קצה"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
-#, fuzzy
 msgid "Version History"
-msgstr "גרסה"
+msgstr "היסטוריית הגרסאות"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
-#, fuzzy
 msgid "Beta Versions"
-msgstr "גרסה"
+msgstr "גרסאות בטא"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -229,9 +225,8 @@ msgid "Read the license agreement for this add-on"
 msgstr "קריאת הסכם הרישיון עבור תוספת זו"
 
 #: src/amo/components/AddonMoreInfo/index.js:94
-#, fuzzy
 msgid "See all versions"
-msgstr "עיון בכל ההרחבות"
+msgstr "צפייה בכל הגרסאות"
 
 #: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
@@ -278,9 +273,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr "מאת %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
-#, fuzzy
 msgid "Edit my review"
-msgstr "כתיבת סקירה"
+msgstr "עריכת הסקירה שלי"
 
 #: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
@@ -375,9 +369,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "‏Beta‏, Nightly ומהדורת מפתחים"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "מדיניות פרטיות"
+msgstr "פרטיות"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
@@ -388,9 +381,8 @@ msgid "Legal"
 msgstr "מידע משפטי"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "דיווח על תקלה"
+msgstr "דיווח על שימוש לרעה בסימן מסחרי"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
@@ -403,9 +395,8 @@ msgid "Go to Mozilla's homepage"
 msgstr "מעבר לדף הבית של Mozilla"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "קישורים לתוספת"
+msgstr "תוספות"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -421,7 +412,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "פורום"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -433,15 +424,15 @@ msgstr "דיווח על תקלה"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "מצב האתר"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "דפדפן לאנדרואיד"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "דפדפן ל־iOS"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -612,9 +603,8 @@ msgid "Explore all categories"
 msgstr "חקירת כל הקטגוריות"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "חיפוש חבילת שפה"
+msgstr "שינוי שפה"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -651,75 +641,69 @@ msgstr "יש להתחבר כדי לדרג תוספת זו"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו על החששות שלך בנוגע לתוספת זו."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "איננו יכולים להגיב לכל דיווח על שימוש לרעה אבל נבדוק את הנושא."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "מעבר לדף התוספת"
+msgstr "דיווח תוספת זו על שימוש לרעה"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "נא לא להשתמש בטופס זה כדי לדווח על תקלות או לבקש להוסיף תכונות לתוספת; דיווח זה יישלח ל־Mozilla ולא למפתח התוספת."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "נא לפרט כיצד תוספת זו מפרה את המדיניות שלנו."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "סגירה"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "דיווח על שימוש לרעה נשלח כעת"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "שליחת דיווח על שימוש לרעה"
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "תוצאה אחת עבור ״%(query)s״"
-msgstr[1] "%(count)s תוצאות עבור ״%(query)s״"
+msgstr[0] "נמצאה הרחבה אחת עבור \"%(query)s\""
+msgstr[1] "נמצאו %(count)s הרחבות עבור \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "תוצאה אחת עבור ״%(query)s״"
-msgstr[1] "%(count)s תוצאות עבור ״%(query)s״"
+msgstr[0] "נמצא מילון אחד עבור \"%(query)s\""
+msgstr[1] "נמצאו %(count)s מילונים עבור \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "תוצאה אחת עבור ״%(query)s״"
-msgstr[1] "%(count)s תוצאות עבור ״%(query)s״"
+msgstr[0] "נמצאה חבילת שפה אחת עבור \"%(query)s\""
+msgstr[1] "נמצאו %(count)s חבילות שפה עבור \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "תוצאה אחת עבור ״%(query)s״"
-msgstr[1] "%(count)s תוצאות עבור ״%(query)s״"
+msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\""
+msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)\""
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "תוצאה אחת עבור ״%(query)s״"
-msgstr[1] "%(count)s תוצאות עבור ״%(query)s״"
+msgstr[0] "נמצאה תוצאה אחת עבור \"%(query)s\""
+msgstr[1] "נמצאו %(count)s תוצאות עבור \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
