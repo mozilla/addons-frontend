@@ -174,7 +174,7 @@ export class AddonReviewListBase extends React.Component {
           <ul>
             {allReviews.map((review, index) => {
               return (
-                <li className="AddonReviewList-li" key={String(index)}>
+                <li key={String(index)}>
                   <AddonReviewListItem review={review} />
                 </li>
               );
