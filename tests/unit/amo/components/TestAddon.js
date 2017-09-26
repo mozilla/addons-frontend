@@ -947,6 +947,33 @@ describe(__filename, () => {
       }));
     });
 
+    it('puts "add-ons by author" in main content if type is theme', () => {
+      const addon = fakeTheme;
+      const { store } = dispatchAddonData({
+        addon,
+        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+      });
+
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+
+      expect(root.find('.Addon-main-content .AddonDescription-more-addons'))
+        .toHaveLength(1);
+    });
+
+    it('puts "add-ons by author" outside main if type is not theme', () => {
+      const addon = fakeAddon;
+      const { store } = dispatchAddonData({
+        addon,
+        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+      });
+
+      const root = renderComponent({ params: { slug: addon.slug }, store });
+
+      expect(root.find('.Addon-main-content .AddonDescription-more-addons'))
+        .toHaveLength(0);
+      expect(root.find('.AddonDescription-more-addons')).toHaveLength(1);
+    });
+
     it('is hidden when an add-on has not loaded yet', () => {
       // We use shallowRender because we cannot dispatch a `undefined` add-on.
       const root = shallowRender({ addon: undefined });
