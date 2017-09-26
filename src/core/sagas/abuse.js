@@ -28,9 +28,8 @@ export function* reportAddon({
     const state = yield select(getState);
 
     const response = yield call(reportAddonApi, {
-      addon: addonSlug,
+      addonSlug,
       api: state.api,
-      auth: true,
       message,
     });
 

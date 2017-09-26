@@ -34,7 +34,7 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'abuse/report/addon',
           method: 'POST',
-          params: { addon: 'cool-addon', message },
+          body: { addon: 'cool-addon', message },
           state: apiState,
         })
         .once()
