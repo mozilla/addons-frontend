@@ -48,8 +48,8 @@
 
 .Button--report {
   @include button(
-    $background: $action-base-color,
-    $background-active: $action-active-color,
-    $background-hover: $action-hover-color
+    $background: $report-base-color,
+    $background-active: $report-active-color,
+    $background-hover: $report-hover-color
   );
 }

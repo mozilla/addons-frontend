@@ -1,3 +1,5 @@
+import { oneLine } from 'common-tags';
+
 import log from 'core/logger';
 
 
@@ -20,6 +22,42 @@ export const paramsToFilter = {
   sort: 'sort',
   type: 'addonType',
 };
+
+export function addVersionCompatibilityToFilters({
+  filters,
+  userAgentInfo,
+} = {}) {
+  if (!filters) {
+    throw new Error('filters are required');
+  }
+  if (!userAgentInfo) {
+    throw new Error('userAgentInfo is required');
+  }
+
+  const newFilters = { ...filters };
+
+  // If the browser is Firefox or Firefox for Android and we're searching for
+  // extensions, send the appversion param to get extensions marked as
+  // compatible with this version.
+  if (
+    userAgentInfo.browser.name === 'Firefox' &&
+    userAgentInfo.os.name !== 'iOS'
+  ) {
+    const browserVersion = parseInt(userAgentInfo.browser.version, 10);
+
+    // We are only setting the `compatibleWithVersion` filter for browsers
+    // with a version of at least 57, at least for now. Find the explanation
+    // here: https://github.com/mozilla/addons-frontend/pull/2969#issuecomment-323551742
+    if (browserVersion >= 57) {
+      log.debug(oneLine`Setting "compatibleWithVersion" to current application
+        version (Firefox ${browserVersion}) so only relevant extensions are
+        displayed.`);
+      newFilters.compatibleWithVersion = userAgentInfo.browser.version;
+    }
+  }
+
+  return newFilters;
+}
 
 // We use our own keys internally for things like the user's clientApp
 // and addonType, but the API and our query params use different keys.

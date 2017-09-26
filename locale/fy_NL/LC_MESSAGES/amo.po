@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-23 10:52+0000\n"
+"PO-Revision-Date: 2017-09-26 08:45+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -564,35 +564,31 @@ msgstr "Hoe foldocht jo %(addonName)s?"
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "%(count)s útwreiding foar ‘%(query)s’ fûn"
-msgstr[1] ""
+msgstr[1] "%(count)s útwreidingen foar ‘%(query)s’ fûn"
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s resultaat foar ‘%(query)s’"
-msgstr[1] "%(count)s resultaten foar ‘%(query)s’"
+msgstr[0] "%(count)s wurdboek foar ‘%(query)s’ fûn"
+msgstr[1] "%(count)s wurdboeken foar ‘%(query)s’ fûn"
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s resultaat foar ‘%(query)s’"
-msgstr[1] "%(count)s resultaten foar ‘%(query)s’"
+msgstr[0] "%(count)s taalpakket foar ‘%(query)s’ fûn"
+msgstr[1] "%(count)s taalpakketen foar ‘%(query)s’ fûn"
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s resultaat foar ‘%(query)s’"
-msgstr[1] "%(count)s resultaten foar ‘%(query)s’"
+msgstr[0] "%(count)s tema foar ‘%(query)s’ fûn"
+msgstr[1] "%(count)s tema's foar ‘%(query)s’ fûn"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s resultaat foar ‘%(query)s’"
-msgstr[1] "%(count)s resultaten foar ‘%(query)s’"
+msgstr[0] "%(count)s resultaat foar ‘%(query)s’ fûn"
+msgstr[1] "%(count)s resultaten foar ‘%(query)s’ fûn"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import translate from 'core/i18n/translate';
 import { trimAndAddProtocolToUrl } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -21,22 +22,13 @@ export class AddonMoreInfoBase extends React.Component {
     const { addon, i18n } = this.props;
 
     if (!addon) {
-      return (
-        <dl className="AddonMoreInfo-contents">
-          <dt className="AddonMoreInfo-loading-title">
-            <LoadingText maxWidth={40} />
-          </dt>
-          <dd className="AddonMoreInfo-loading-content">
-            <LoadingText width={25} />
-          </dd>
-          <dt className="AddonMoreInfo-loading-title">
-            <LoadingText maxWidth={40} />
-          </dt>
-          <dd className="AddonMoreInfo-loading-content">
-            <LoadingText width={25} />
-          </dd>
-        </dl>
-      );
+      return this.renderDefinitions({
+        version: <LoadingText minWidth={20} />,
+        versionLastUpdated: <LoadingText minWidth={20} />,
+        versionLicense: <LoadingText minWidth={20} />,
+        addonId: <LoadingText minWidth={20} />,
+        versionHistoryLink: <LoadingText minWidth={20} />,
+      });
     }
 
     let homepage = trimAndAddProtocolToUrl(addon.homepage);
@@ -57,6 +49,77 @@ export class AddonMoreInfoBase extends React.Component {
       );
     }
 
+    return this.renderDefinitions({
+      homepage,
+      supportUrl,
+      version: addon.current_version.version,
+      versionLastUpdated: i18n.sprintf(
+        // translators: This will output, in English:
+        // "2 months ago (Dec 12 2016)"
+        i18n.gettext('%(timeFromNow)s (%(date)s)'), {
+          timeFromNow: i18n.moment(addon.last_updated).fromNow(),
+          date: i18n.moment(addon.last_updated).format('ll'),
+        }
+      ),
+      versionLicenseLink: addon.current_version.license ? (
+        <a
+          className="AddonMoreInfo-license-link"
+          href={addon.current_version.license.url}
+        >
+          {addon.current_version.license.name}
+        </a>
+      ) : null,
+      privacyPolicyLink: addon.has_privacy_policy ? (
+        <Link
+          className="AddonMoreInfo-privacy-policy-link"
+          href={`/addon/${addon.slug}/privacy/`}
+        >
+          {i18n.gettext('Read the privacy policy for this add-on')}
+        </Link>
+      ) : null,
+      eulaLink: addon.has_eula ? (
+        <Link
+          className="AddonMoreInfo-eula-link"
+          href={`/addon/${addon.slug}/eula/`}
+        >
+          {i18n.gettext('Read the license agreement for this add-on')}
+        </Link>
+      ) : null,
+      addonId: addon.id,
+      versionHistoryLink: (
+        <a
+          className="AddonMoreInfo-version-history-link"
+          href={`/addon/${addon.slug}/versions/`}
+        >
+          {i18n.gettext('See all versions')}
+        </a>
+      ),
+      // Since current_beta_version is just an alias to the latest beta,
+      // we can assume that no betas exist at all if it is null.
+      betaVersionsLink: addon.current_beta_version ? (
+        <a
+          className="AddonMoreInfo-beta-versions-link"
+          href={`/addon/${addon.slug}/versions/beta`}
+        >
+          {i18n.gettext('See all beta versions')}
+        </a>
+      ) : null,
+    });
+  }
+
+  renderDefinitions({
+    homepage = null,
+    supportUrl = null,
+    privacyPolicyLink = null,
+    eulaLink = null,
+    version,
+    versionLastUpdated,
+    versionLicenseLink = null,
+    versionHistoryLink,
+    betaVersionsLink = null,
+    addonId,
+  }) {
+    const { i18n } = this.props;
     return (
       <dl className="AddonMoreInfo-contents">
         {homepage || supportUrl ? (
@@ -72,86 +135,58 @@ export class AddonMoreInfoBase extends React.Component {
             </ul>
           </dd>
         ) : null}
-        <dt>{i18n.gettext('Version')}</dt>
-        <dd className="AddonMoreInfo-version">
-          {addon.current_version.version}
-        </dd>
-        <dt>{i18n.gettext('Last updated')}</dt>
-        <dd>
-          {i18n.sprintf(
-            // translators: This will output, in English:
-            // "2 months ago (Dec 12 2016)"
-            i18n.gettext('%(timeFromNow)s (%(date)s)'), {
-              timeFromNow: i18n.moment(addon.last_updated).fromNow(),
-              date: i18n.moment(addon.last_updated).format('ll'),
-            }
-          )}
-        </dd>
-        {addon.current_version.license ? (
+        <dt className="AddonMoreInfo-version-title">
+          {i18n.gettext('Version')}
+        </dt>
+        <dd className="AddonMoreInfo-version">{version}</dd>
+        <dt className="AddonMoreInfo-last-updated-title">
+          {i18n.gettext('Last updated')}
+        </dt>
+        <dd>{versionLastUpdated}</dd>
+        {versionLicenseLink ? (
           <dt className="AddonMoreInfo-license-title">
             {i18n.gettext('License')}
           </dt>
         ) : null}
-        {addon.current_version.license ? (
-          <dd>
-            <a
-              className="AddonMoreInfo-license-link"
-              href={addon.current_version.license.url}
-            >
-              {addon.current_version.license.name}
-            </a>
-          </dd>
-        ) : null}
-        {addon.has_privacy_policy ? (
+        {versionLicenseLink ? <dd>{versionLicenseLink}</dd> : null}
+        {privacyPolicyLink ? (
           <dt className="AddonMoreInfo-privacy-policy-title">
             {i18n.gettext('Privacy Policy')}
           </dt>
         ) : null}
-        {addon.has_privacy_policy ? (
-          <dd>
-            <Link
-              className="AddonMoreInfo-privacy-policy-link"
-              href={`/addon/${addon.slug}/privacy/`}
-            >
-              {i18n.gettext('Read the privacy policy for this add-on')}
-            </Link>
-          </dd>
-        ) : null}
-        {addon.has_eula ? (
+        {privacyPolicyLink ? <dd>{privacyPolicyLink}</dd> : null}
+        {eulaLink ? (
           <dt className="AddonMoreInfo-eula-title">
             {i18n.gettext('End-User License Agreement')}
           </dt>
         ) : null}
-        {addon.has_eula ? (
-          <dd>
-            <Link
-              className="AddonMoreInfo-eula-link"
-              href={`/addon/${addon.slug}/eula/`}
-            >
-              {i18n.gettext('Read the license agreement for this add-on')}
-            </Link>
-          </dd>
-        ) : null}
-        {addon.id ? (
-          <dt
-            className="AddonMoreInfo-database-id-title"
-            title={i18n.gettext(`This ID is useful for debugging and
-              identifying your add-on to site administrators.`)}
-          >
-            {i18n.gettext('Site Identifier')}
+        {eulaLink ? <dd>{eulaLink}</dd> : null}
+        <dt className="AddonMoreInfo-version-history-title">
+          {i18n.gettext('Version History')}
+        </dt>
+        <dd>{versionHistoryLink}</dd>
+        {betaVersionsLink ? (
+          <dt className="AddonMoreInfo-beta-versions-title">
+            {i18n.gettext('Beta Versions')}
           </dt>
         ) : null}
-        {addon.id ? (
-          <dd className="AddonMoreInfo-database-id-content">
-            {addon.id}
-          </dd>
-        ) : null}
+        {betaVersionsLink ? <dd>{betaVersionsLink}</dd> : null}
+        <dt
+          className="AddonMoreInfo-database-id-title"
+          title={i18n.gettext(`This ID is useful for debugging and
+            identifying your add-on to site administrators.`)}
+        >
+          {i18n.gettext('Site Identifier')}
+        </dt>
+        <dd className="AddonMoreInfo-database-id-content">
+          {addonId}
+        </dd>
       </dl>
     );
   }
 
   render() {
-    const { i18n } = this.props;
+    const { addon, i18n } = this.props;
 
     return (
       <Card
@@ -159,6 +194,8 @@ export class AddonMoreInfoBase extends React.Component {
         header={i18n.gettext('More information')}
       >
         {this.listContent()}
+
+        <ReportAbuseButton addon={addon} />
       </Card>
     );
   }

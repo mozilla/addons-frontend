@@ -1,8 +1,12 @@
 import abuseReducer, {
   SEND_ADDON_ABUSE_REPORT,
+  disableAbuseButtonUI,
+  enableAbuseButtonUI,
+  hideAddonAbuseReportUI,
   initialState,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
+  showAddonAbuseReportUI,
 } from 'core/reducers/abuse';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import { createFakeAddonAbuseReport } from 'tests/unit/helpers';
@@ -38,6 +42,86 @@ describe(__filename, () => {
             message: 'This add-on is malwaré.',
           },
         },
+      });
+    });
+
+    describe('disableAbuseButtonUI', () => {
+      it('sets the buttonEnabled state to false', () => {
+        const state = abuseReducer(
+          initialState, disableAbuseButtonUI({ addon: fakeAddon }));
+
+        expect(state).toEqual({
+          bySlug: {
+            [fakeAddon.slug]: { buttonEnabled: false },
+          },
+          loading: false,
+        });
+      });
+
+      it('requires an addon param', () => {
+        expect(() => {
+          disableAbuseButtonUI();
+        }).toThrow('addon is required');
+      });
+    });
+
+    describe('enableAbuseButtonUI', () => {
+      it('sets the buttonEnabled state to true', () => {
+        const state = abuseReducer(
+          initialState, enableAbuseButtonUI({ addon: fakeAddon }));
+
+        expect(state).toEqual({
+          bySlug: {
+            [fakeAddon.slug]: { buttonEnabled: true },
+          },
+          loading: false,
+        });
+      });
+
+      it('requires an addon param', () => {
+        expect(() => {
+          enableAbuseButtonUI();
+        }).toThrow('addon is required');
+      });
+    });
+
+    describe('hideAddonAbuseReportUI', () => {
+      it('sets the uiVisible state to false', () => {
+        const state = abuseReducer(
+          initialState, hideAddonAbuseReportUI({ addon: fakeAddon }));
+
+        expect(state).toEqual({
+          bySlug: {
+            [fakeAddon.slug]: { uiVisible: false },
+          },
+          loading: false,
+        });
+      });
+
+      it('requires an addon param', () => {
+        expect(() => {
+          hideAddonAbuseReportUI();
+        }).toThrow('addon is required');
+      });
+    });
+
+    describe('showAddonAbuseReportUI', () => {
+      it('sets the uiVisible state to true', () => {
+        const state = abuseReducer(
+          initialState, showAddonAbuseReportUI({ addon: fakeAddon }));
+
+        expect(state).toEqual({
+          bySlug: {
+            [fakeAddon.slug]: { uiVisible: true },
+          },
+          loading: false,
+        });
+      });
+
+      it('requires an addon param', () => {
+        expect(() => {
+          showAddonAbuseReportUI();
+        }).toThrow('addon is required');
       });
     });
 

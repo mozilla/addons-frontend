@@ -323,7 +323,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       case ADDON_TYPE_EXTENSION:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -334,7 +333,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       case ADDON_TYPE_LANG:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -345,7 +343,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       case ADDON_TYPE_THEME:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -356,7 +353,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       default:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -524,12 +520,20 @@ export class AddonBase extends React.Component {
             </Card>
           ) : null}
 
-          {this.renderShowMoreCard()}
+          <div className="Addon-main-content">
+            {addonType === ADDON_TYPE_THEME ?
+              this.renderMoreAddonsByAuthors() : null}
+            {this.renderShowMoreCard()}
+          </div>
+
           {this.renderRatingsCard()}
 
+          {addonType !== ADDON_TYPE_THEME ?
+            this.renderMoreAddonsByAuthors() : null}
+
           <AddonMoreInfo addon={addon} />
+
           {this.renderVersionReleaseNotes()}
-          {this.renderMoreAddonsByAuthors()}
         </div>
       </div>
     );

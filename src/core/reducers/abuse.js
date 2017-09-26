@@ -1,6 +1,57 @@
 /* @flow */
+import type { AddonType } from 'core/types/addons';
+
+export const DISABLE_ADDON_ABUSE_BUTTON_UI = 'DISABLE_ADDON_ABUSE_BUTTON_UI';
+export const ENABLE_ADDON_ABUSE_BUTTON_UI = 'ENABLE_ADDON_ABUSE_BUTTON_UI';
+export const HIDE_ADDON_ABUSE_REPORT_UI = 'HIDE_ADDON_ABUSE_REPORT_UI';
 export const LOAD_ADDON_ABUSE_REPORT = 'LOAD_ADDON_ABUSE_REPORT';
 export const SEND_ADDON_ABUSE_REPORT = 'SEND_ADDON_ABUSE_REPORT';
+export const SHOW_ADDON_ABUSE_REPORT_UI = 'SHOW_ADDON_ABUSE_REPORT_UI';
+
+type DisableAddonAbuseButtonUIType = {| addon: AddonType |};
+
+export function disableAbuseButtonUI(
+  { addon }: DisableAddonAbuseButtonUIType = {}
+) {
+  if (!addon) {
+    throw new Error('addon is required');
+  }
+
+  return {
+    type: DISABLE_ADDON_ABUSE_BUTTON_UI,
+    payload: { addon },
+  };
+}
+
+type EnableAddonAbuseButtonUIType = { addon: AddonType };
+
+export function enableAbuseButtonUI(
+  { addon }: EnableAddonAbuseButtonUIType = {}
+) {
+  if (!addon) {
+    throw new Error('addon is required');
+  }
+
+  return {
+    type: ENABLE_ADDON_ABUSE_BUTTON_UI,
+    payload: { addon },
+  };
+}
+
+type HideAddonAbuseReportUIType = { addon: AddonType };
+
+export function hideAddonAbuseReportUI(
+  { addon }: HideAddonAbuseReportUIType = {}
+) {
+  if (!addon) {
+    throw new Error('addon is required');
+  }
+
+  return {
+    type: HIDE_ADDON_ABUSE_REPORT_UI,
+    payload: { addon },
+  };
+}
 
 type LoadAddonAbuseReportType = {
   addon: {|
@@ -13,7 +64,7 @@ type LoadAddonAbuseReportType = {
 };
 
 export function loadAddonAbuseReport(
-  { addon, message, reporter }: LoadAddonAbuseReportType
+  { addon, message, reporter }: LoadAddonAbuseReportType = {}
 ) {
   if (!addon) {
     throw new Error('addon is required');
@@ -38,7 +89,7 @@ type SendAddonAbuseReportAction = {|
 |};
 
 export function sendAddonAbuseReport(
-  { addonSlug, errorHandlerId, message }: SendAddonAbuseReportAction
+  { addonSlug, errorHandlerId, message }: SendAddonAbuseReportAction = {}
 ) {
   if (!addonSlug) {
     throw new Error('addonSlug is required');
@@ -56,14 +107,36 @@ export function sendAddonAbuseReport(
   };
 }
 
+type ShowAddonAbuseReportUIType = { addon: AddonType };
+
+export function showAddonAbuseReportUI(
+  { addon }: ShowAddonAbuseReportUIType = {}
+) {
+  if (!addon) {
+    throw new Error('addon is required');
+  }
+
+  return {
+    type: SHOW_ADDON_ABUSE_REPORT_UI,
+    payload: { addon },
+  };
+}
+
 export const initialState = {
   bySlug: {},
+  loading: false,
 };
 
 type ReducerState = {|
   bySlug: {
-    [addonSlug: string]: {| message: string, reporter: Object | null |},
+    [addonSlug: string]: {|
+      buttonEnabled?: bool,
+      message: string,
+      reporter: Object | null,
+      uiVisible?: bool,
+    |},
   },
+  loading: bool,
 |};
 
 export default function abuseReducer(
@@ -71,13 +144,60 @@ export default function abuseReducer(
   action: Object
 ) {
   switch (action.type) {
+    case DISABLE_ADDON_ABUSE_BUTTON_UI: {
+      const { addon } = action.payload;
+
+      return {
+        ...state,
+        bySlug: {
+          ...state.bySlug,
+          [addon.slug]: { ...state.bySlug[addon.slug], buttonEnabled: false },
+        },
+      };
+    }
+    case ENABLE_ADDON_ABUSE_BUTTON_UI: {
+      const { addon } = action.payload;
+
+      return {
+        ...state,
+        bySlug: {
+          ...state.bySlug,
+          [addon.slug]: { ...state.bySlug[addon.slug], buttonEnabled: true },
+        },
+      };
+    }
+    case HIDE_ADDON_ABUSE_REPORT_UI: {
+      const { addon } = action.payload;
+
+      return {
+        ...state,
+        bySlug: {
+          ...state.bySlug,
+          [addon.slug]: { ...state.bySlug[addon.slug], uiVisible: false },
+        },
+      };
+    }
     case LOAD_ADDON_ABUSE_REPORT: {
       const { addon, message, reporter } = action.payload;
       return {
         ...state,
         bySlug: {
           ...state.bySlug,
-          [addon.slug]: { message, reporter },
+          [addon.slug]: { message, reporter, uiVisible: false },
+        },
+        loading: false,
+      };
+    }
+    case SEND_ADDON_ABUSE_REPORT:
+      return { ...state, loading: true };
+    case SHOW_ADDON_ABUSE_REPORT_UI: {
+      const { addon } = action.payload;
+
+      return {
+        ...state,
+        bySlug: {
+          ...state.bySlug,
+          [addon.slug]: { ...state.bySlug[addon.slug], uiVisible: true },
         },
       };
     }
