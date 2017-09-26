@@ -58,12 +58,12 @@ export class AddonMoreInfoBase extends React.Component {
       homepage,
       supportUrl,
       statsLink: addon && isAddonAuthor({ addon, userId }) ? (
-        <a
+        <Link
           className="AddonMoreInfo-stats-link"
           href={`/addon/${addon.slug}/statistics/`}
         >
           {i18n.gettext('Visit stats dashboard')}
-        </a>
+        </Link>
       ) : null,
       version: addon.current_version.version,
       versionLastUpdated: i18n.sprintf(
@@ -75,12 +75,12 @@ export class AddonMoreInfoBase extends React.Component {
         }
       ),
       versionLicenseLink: addon.current_version.license ? (
-        <a
+        <Link
           className="AddonMoreInfo-license-link"
           href={addon.current_version.license.url}
         >
           {addon.current_version.license.name}
-        </a>
+        </Link>
       ) : null,
       privacyPolicyLink: addon.has_privacy_policy ? (
         <Link
@@ -100,22 +100,22 @@ export class AddonMoreInfoBase extends React.Component {
       ) : null,
       addonId: addon.id,
       versionHistoryLink: (
-        <a
+        <Link
           className="AddonMoreInfo-version-history-link"
           href={`/addon/${addon.slug}/versions/`}
         >
           {i18n.gettext('See all versions')}
-        </a>
+        </Link>
       ),
       // Since current_beta_version is just an alias to the latest beta,
       // we can assume that no betas exist at all if it is null.
       betaVersionsLink: addon.current_beta_version ? (
-        <a
+        <Link
           className="AddonMoreInfo-beta-versions-link"
           href={`/addon/${addon.slug}/versions/beta`}
         >
           {i18n.gettext('See all beta versions')}
-        </a>
+        </Link>
       ) : null,
     });
   }

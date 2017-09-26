@@ -136,7 +136,7 @@ describe(__filename, () => {
 
     expect(root.find('.AddonMoreInfo-license-title')).toHaveText('License');
     expect(root.find('.AddonMoreInfo-license-link'))
-      .toHaveText('tofulicense');
+      .toHaveProp('children', 'tofulicense');
     expect(root.find('.AddonMoreInfo-license-link'))
       .toHaveProp('href', 'http://license.com/');
   });
