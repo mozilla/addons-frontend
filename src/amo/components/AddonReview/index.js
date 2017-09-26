@@ -1,6 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-/* global $Shape, Event, HTMLInputElement, Node */
+/* global $Shape */
 import { oneLine } from 'common-tags';
 import defaultDebounce from 'lodash.debounce';
 import React from 'react';
@@ -15,6 +15,7 @@ import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
 import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
+import Rating from 'ui/components/Rating';
 import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/index';
 import type { ApiStateType } from 'core/reducers/api';
@@ -22,7 +23,7 @@ import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';
 
-import 'amo/css/AddonReview.scss';
+import './styles.scss';
 
 type AddonReviewProps = {|
   apiState?: ApiStateType,
@@ -30,6 +31,7 @@ type AddonReviewProps = {|
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: Object,
+  onEscapeOverlay?: () => void,
   onReviewSubmitted: () => void | Promise<void>,
   refreshAddon: () => Promise<void>,
   review: UserReviewType,
@@ -46,7 +48,7 @@ export class AddonReviewBase extends React.Component {
   props: AddonReviewProps;
   reviewForm: Node;
   reviewPrompt: Node;
-  reviewTextarea: Node;
+  reviewTextarea: HTMLElement;
   state: AddonReviewState;
 
   static defaultProps = {
@@ -70,6 +72,12 @@ export class AddonReviewBase extends React.Component {
     }
   }
 
+  componentDidMount() {
+    if (this.reviewTextarea) {
+      this.reviewTextarea.focus();
+    }
+  }
+
   checkForStoredState() {
     return this.localState.load()
       .then((storedState) => {
@@ -81,7 +89,7 @@ export class AddonReviewBase extends React.Component {
       });
   }
 
-  onSubmit = (event: Event) => {
+  onSubmit = (event: SyntheticEvent) => {
     const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -94,6 +102,7 @@ export class AddonReviewBase extends React.Component {
       addonId: review.addonId,
       apiState,
       errorHandler,
+      rating: review.rating,
       reviewId: review.id,
       ...newReviewParams,
     };
@@ -132,6 +141,15 @@ export class AddonReviewBase extends React.Component {
     this.setState(newState);
   }
 
+  onSelectRating = (rating: number) => {
+    // Update the review object with a new rating but don't submit it
+    // to the API yet.
+    this.props.setDenormalizedReview({
+      ...this.props.review,
+      rating,
+    });
+  }
+
   render() {
     const { errorHandler, i18n, review } = this.props;
     const { reviewBody } = this.state;
@@ -157,9 +175,18 @@ export class AddonReviewBase extends React.Component {
     }
 
     return (
-      <OverlayCard visibleOnLoad className="AddonReview">
+      <OverlayCard
+        visibleOnLoad
+        onEscapeOverlay={this.props.onEscapeOverlay}
+        className="AddonReview"
+      >
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
         <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
+        <Rating
+          styleName="large"
+          rating={review.rating}
+          onSelectRating={this.onSelectRating}
+        />
         <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
           <div className="AddonReview-form-input">
             {errorHandler.renderErrorIfPresent()}

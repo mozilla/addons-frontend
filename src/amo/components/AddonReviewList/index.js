@@ -4,28 +4,30 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import Rating from 'ui/components/Rating';
+import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import { fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
+import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { findAddon, nl2br, parsePage, sanitizeHTML } from 'core/utils';
+import { findAddon, parsePage } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
-import CardList from 'ui/components/CardList';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import CardList from 'ui/components/CardList';
+import LoadingText from 'ui/components/LoadingText';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
+import type { UserStateType } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
-import LoadingText from 'ui/components/LoadingText';
 
-import 'amo/css/AddonReviewList.scss';
+import './styles.scss';
 
 type AddonReviewListProps = {|
   i18n: Object,
@@ -36,11 +38,6 @@ type AddonReviewListProps = {|
   params: {| addonSlug: string |},
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
-|};
-
-type RenderReviewParams = {|
-  review?: UserReviewType,
-  key: string,
 |};
 
 export class AddonReviewListBase extends React.Component {
@@ -55,6 +52,8 @@ export class AddonReviewListBase extends React.Component {
   }
 
   loadDataIfNeeded(nextProps?: AddonReviewListProps) {
+    const lastAddon = this.props.addon;
+    const nextAddon = nextProps && nextProps.addon;
     const {
       addon, dispatch, errorHandler, params, reviews,
     } = {
@@ -69,7 +68,12 @@ export class AddonReviewListBase extends React.Component {
 
     if (!addon) {
       dispatch(fetchAddon({ slug: params.addonSlug, errorHandler }));
-    } else {
+    } else if (
+      // This is the first time rendering the component.
+      !nextProps ||
+      // The component is getting updated with a new addon type.
+      (nextAddon && lastAddon && nextAddon.type !== lastAddon.type)
+    ) {
       dispatch(setViewContext(addon.type));
     }
 
@@ -101,41 +105,6 @@ export class AddonReviewListBase extends React.Component {
 
   url() {
     return `${this.addonURL()}reviews/`;
-  }
-
-  renderReview({ review, key }: RenderReviewParams) {
-    const { i18n } = this.props;
-
-    let byLine;
-    let reviewBody;
-    if (review) {
-      const timestamp = i18n.moment(review.created).fromNow();
-      // L10n: Example: "from Jose, last week"
-      byLine = i18n.sprintf(
-        i18n.gettext('from %(authorName)s, %(timestamp)s'),
-        { authorName: review.userName, timestamp });
-
-      const reviewBodySanitized = sanitizeHTML(nl2br(review.body), ['br']);
-      // eslint-disable-next-line react/no-danger
-      reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
-    } else {
-      byLine = <LoadingText />;
-      reviewBody = <p><LoadingText /></p>;
-    }
-
-    return (
-      <li className="AddonReviewList-li" key={key}>
-        <h3>{review ? review.title : <LoadingText />}</h3>
-        {reviewBody}
-        <div className="AddonReviewList-by-line">
-          {review ?
-            <Rating styleName="small" rating={review.rating} readOnly />
-            : null
-          }
-          {byLine}
-        </div>
-      </li>
-    );
   }
 
   render() {
@@ -204,7 +173,11 @@ export class AddonReviewListBase extends React.Component {
         <CardList>
           <ul>
             {allReviews.map((review, index) => {
-              return this.renderReview({ review, key: String(index) });
+              return (
+                <li key={String(index)}>
+                  <AddonReviewListItem review={review} />
+                </li>
+              );
             })}
           </ul>
         </CardList>
@@ -223,17 +196,22 @@ export class AddonReviewListBase extends React.Component {
 }
 
 export function mapStateToProps(
-  state: {| reviews: ReviewState |}, ownProps: AddonReviewListProps,
+  state: {| user: UserStateType, reviews: ReviewState |},
+  ownProps: AddonReviewListProps,
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
   }
   const addonSlug = ownProps.params.addonSlug;
   const reviewData = state.reviews.byAddon[addonSlug];
+
   return {
     addon: findAddon(state, addonSlug),
     reviewCount: reviewData && reviewData.reviewCount,
-    reviews: reviewData && reviewData.reviews,
+    reviews: reviewData && expandReviewObjects({
+      state: state.reviews,
+      reviews: reviewData.reviews,
+    }),
   };
 }
 
