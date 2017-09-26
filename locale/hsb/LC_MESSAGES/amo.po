@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-20 21:09+0000\n"
+"PO-Revision-Date: 2017-09-26 20:09+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
-"%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:135
@@ -116,12 +115,8 @@ msgid "Screenshots"
 msgstr "Fota wobrazowki"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Zo byšće tutón přidatk instalował, dyrbiće <a href=\"%(downloadUrl)s"
-"\">Firefox sćahnyć</a>."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Zo byšće tutón přidatk instalował, dyrbiće <a href=\"%(downloadUrl)s\">Firefox sćahnyć</a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -136,24 +131,14 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox za iOS tuchwilu přidatki njepodpěruje."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Tutón přidatk sej <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> "
-"wužaduje (znajmjeńša wersiju %(minVersion)s). Wužiwaće Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Tutón přidatk sej <a href=\"%(downloadUrl)s\">nowšu wersiju Firefox</a> wužaduje (znajmjeńša wersiju %(minVersion)s). Wužiwaće Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Waš wobhladowak přidatki njepodpěruje. Móžeće <a href=\"%(downloadUrl)s"
-"\">Firefox sćahnyć</a>, zo byšće tutón přidatk instalował."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Waš wobhladowak přidatki njepodpěruje. Móžeće <a href=\"%(downloadUrl)s\">Firefox sćahnyć</a>, zo byšće tutón přidatk instalował."
 
-#: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s wužiwar"
@@ -178,9 +163,8 @@ msgid "Used by"
 msgstr "Wužity wot"
 
 #: src/amo/components/AddonMoreInfo/index.js:104
-#, fuzzy
 msgid "See all beta versions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Wšě beta-wersije pokazać"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
@@ -207,22 +191,16 @@ msgid "End-User License Agreement"
 msgstr "Licencne dojednanje za kónčnych wužiwarjow"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
-#, fuzzy
 msgid "Version History"
-msgstr "Wersija"
+msgstr "Wersijowa historija"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
-#, fuzzy
 msgid "Beta Versions"
-msgstr "Wersija"
+msgstr "Beta-wersije"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
-msgstr ""
-"Tutón ID je wužitny za pytanje za zmylkami a identifikowanje wašeho přidatka "
-"za administratorow sydła."
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+msgstr "Tutón ID je wužitny za pytanje za zmylkami a identifikowanje wašeho přidatka za administratorow sydła."
 
 #: src/amo/components/AddonMoreInfo/index.js:179
 msgid "Site Identifier"
@@ -253,9 +231,8 @@ msgid "Read the license agreement for this add-on"
 msgstr "Čitajće ľicencne dojednanje za tutón přidatk"
 
 #: src/amo/components/AddonMoreInfo/index.js:94
-#, fuzzy
 msgid "See all versions"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Wšě wersije pokazać"
 
 #: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
@@ -263,20 +240,15 @@ msgstr "Zdźělće swětej, čehoždla maće tute rozšěrjenja za fantastiske!"
 
 #: src/amo/components/AddonReview/index.js:166
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Zdźělće nam, štož so wam na tutym rozšěrjenju spodoba. Zwurazńće so krótko a "
-"preciznje."
+msgstr "Zdźělće nam, štož so wam na tutym rozšěrjenju spodoba. Zwurazńće so krótko a preciznje."
 
 #: src/amo/components/AddonReview/index.js:170
 msgid "Tell the world about this extension."
 msgstr "Powědajće swětej wo tutym rozšěrjenju."
 
 #: src/amo/components/AddonReview/index.js:171
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Powědajće nam wo swojim dožiwjenju z rozšěrjenjom. Zwurazńće so krótko a "
-"preciznje."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Powědajće nam wo swojim dožiwjenju z rozšěrjenjom. Zwurazńće so krótko a preciznje."
 
 #: src/amo/components/AddonReview/index.js:183
 msgid "Write a review"
@@ -307,9 +279,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr "wot %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
-#, fuzzy
 msgid "Edit my review"
-msgstr "Pisajće pohódnoćenje"
+msgstr "Moje pohódnoćenje wobdźěłać"
 
 #: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
@@ -339,82 +310,53 @@ msgstr "Wšě rozšěrjenja w tutej kategoriji přepytować."
 msgid "Browse all themes in this category."
 msgstr "Wšě drasty w tutej kategoriji přehladować."
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38
-#: src/amo/components/Footer/index.js:89
+#: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
 msgstr "Firefox sćahnyć"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Jeli sće so přizjewił a sej mysliće, zo tuta powěsć je zmylk, <a href="
-"\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće "
-"přišoł a na čož sće chcył přistup měć, a my rozrisamy tón problem."
+"Jeli sće so přizjewił a sej mysliće, zo tuta powěsć je zmylk, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a na čož sće chcył přistup měć, a my rozrisamy"
+" tón problem."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Njeawtorizowany"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Bohužel njejsće za přistup na tutu stronu awtorizowany. Jeli njejsće "
-"přizjewjeny, přizjewće so z pomocu wotkaza horjeka na stronje."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Bohužel njejsće za přistup na tutu stronu awtorizowany. Jeli njejsće přizjewjeny, přizjewće so z pomocu wotkaza horjeka na stronje."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
-"Jeli sće so z pomocu wotkaza sem dóstał, <a href=\"%(url)s\">pisajće prošu "
-"zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a za čimž pytaće a "
-"my budźemy naše najlěpše činić, zo bychmy problem rozrisali."
+"Jeli sće so z pomocu wotkaza sem dóstał, <a href=\"%(url)s\">pisajće prošu zmylkowu rozprawu</a>. Zdźělće nam, zwotkelž sće přišoł a za čimž pytaće a my budźemy naše najlěpše činić, zo bychmy "
+"problem rozrisali."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Strona njeje so namakała"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Bohužel njemóžemy ničo na adresy namakać, kotruž sće podał. Jeli sće "
-"wotkazej k přidatkej slědował, je móžno, zo přidatk je so wot swojeho awtora "
-"wotstronił."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Bohužel njemóžemy ničo na adresy namakać, kotruž sće podał. Jeli sće wotkazej k přidatkej slědował, je móžno, zo přidatk je so wot swojeho awtora wotstronił."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Jeli maće přidatne informacije, kotrež bychu nam pomhali, móžeće <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">zmylkowu rozprawu "
-"pisać</a>. Zdźělće nam, kotre kroki su k zmylkej wjedli, a my budźemy naše "
-"najlěpše činić, zo bychmy jón rozrisali."
+"Jeli maće přidatne informacije, kotrež bychu nam pomhali, móžeće <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">zmylkowu rozprawu pisać</a>. Zdźělće nam, kotre kroki su k zmylkej"
+" wjedli, a my budźemy naše najlěpše činić, zo bychmy jón rozrisali."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serwerowy zmylk"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Bohužel je zmylk z našim serwerom wustupił a njemóžachmy waše naprašowanje "
-"dokónčić. Smy tutón zmylk protokolowali a budźemu jón přeslědźeć."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Bohužel je zmylk z našim serwerom wustupił a njemóžachmy waše naprašowanje dokónčić. Smy tutón zmylk protokolowali a budźemu jón přeslědźeć."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -426,39 +368,36 @@ msgstr "Dalše předstajene drasty"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
-msgstr ""
+msgstr "Wobhladowak Klar"
 
 #: src/amo/components/Footer/index.js:109
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Wobhladowak za desktop"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "Prawidła priwatnosće"
+msgstr "Priwatnosć"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "Placki"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "Prawniske"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Programowy zmylk zdźělić"
+msgstr "Znjewužiwanje wikowanskeho znamjenja zdźělić"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:23
@@ -466,17 +405,16 @@ msgid "Go to Mozilla's homepage"
 msgstr "K startowej stronje Mozilla"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "Přidatkowe wotkazy"
+msgstr "Přidatki"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Wo"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -484,7 +422,7 @@ msgstr "Wuwiwarski róžk"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -496,15 +434,15 @@ msgstr "Programowy zmylk zdźělić"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "Sydłowy status"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "Wobhladowak za Android"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "Wobhladowak za iOS"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -526,8 +464,7 @@ msgstr "Nowu drastu zapodać"
 msgid "Manage API Keys"
 msgstr "API-kluče rjadować"
 
-#: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Wotzjewić"
 
@@ -579,8 +516,7 @@ msgstr "Sportowsce"
 msgid "Solid"
 msgstr "Wupjelnjeny"
 
-#: src/amo/components/Home/index.js:138
-#: src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "Wšě rozšěrjenja přepytować"
 
@@ -589,15 +525,10 @@ msgid "You can change how Firefox works…"
 msgstr "Móžeće změnić, kaž Firefox funguje…"
 
 #: src/amo/components/Home/index.js:146
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Instalujće mócne nastroje, kotrež přehladowanje spěšniše a wěsćiše činja, "
-"přidatki činja waš wobhladowak k wašemu."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Instalujće mócne nastroje, kotrež přehladowanje spěšniše a wěsćiše činja, přidatki činja waš wobhladowak k wašemu."
 
-#: src/amo/components/Home/index.js:157
-#: src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "Wšě drasty přepytować"
 
@@ -606,12 +537,8 @@ msgid "…or what it looks like"
 msgstr "…abo jeho napohlad"
 
 #: src/amo/components/Home/index.js:165
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Změńće napohlad swojeho wobhladowaka. Wubjerće z tysacow drastow, zo byšće "
-"Firefox napohlad dał, kotryž chceće."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Změńće napohlad swojeho wobhladowaka. Wubjerće z tysacow drastow, zo byšće Firefox napohlad dał, kotryž chceće."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -673,13 +600,11 @@ msgstr "Wysoko pohódnoćene drasty"
 msgid "More highly rated themes"
 msgstr "Dalše wysoko pohódnoćene drasty"
 
-#: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "Drasty"
 
-#: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:51
+#: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "Rozšěrjenja"
 
@@ -688,9 +613,8 @@ msgid "Explore all categories"
 msgstr "Wšě kategorije wuslědźić"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "Rěčny pakćik pytać"
+msgstr "Rěč změnić"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -726,9 +650,7 @@ msgid "You reported this add-on for abuse"
 msgstr "Přizjewće so, zo byšće tutón přidatk pohódnoćił"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:118
@@ -736,22 +658,16 @@ msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:129
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:151
-#: src/amo/components/ReportAbuseButton/index.js:157
+#: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 #, fuzzy
 msgid "Report this add-on for abuse"
 msgstr "K stronje přidatka"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:175
@@ -760,15 +676,15 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Zaćisnyć"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Rozprawa wo znjewužiwanju pósłać"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Rozprawa wo znjewužiwanju pósłać"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -854,8 +770,7 @@ msgstr "Typ přidatkow"
 msgid "Operating System"
 msgstr "Dźěłowy system"
 
-#: src/amo/components/SearchFilters/index.js:70
-#: src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
 msgid "All"
 msgstr "Wšě"
 
@@ -919,8 +834,7 @@ msgstr "Drasty pytać"
 msgid "Find add-ons"
 msgstr "Přidatki pytać"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Pytać"
 
@@ -969,15 +883,10 @@ msgid "Register or Log in"
 msgstr "Registrować abo přizjewić"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Bohužel je zmylk wustupił a njemóžachmy waše naprašowanje dokónčić. Smy "
-"tutón zmylk protokolowali a budźemy jón přeslědźeć."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Bohužel je zmylk wustupił a njemóžachmy waše naprašowanje dokónčić. Smy tutón zmylk protokolowali a budźemy jón přeslědźeć."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Zmylkowy kod: %(status)s."
 
@@ -989,8 +898,7 @@ msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:128 src/core/components/InstallButton/index.js:146
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
@@ -1004,8 +912,7 @@ msgstr "%(name)s so instaluje."
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
-"%(name)s je instalowany a zmóžnjeny. Klikńće, zo byšće jón wotinstalował."
+msgstr "%(name)s je instalowany a zmóžnjeny. Klikńće, zo byšće jón wotinstalował."
 
 #: src/core/components/InstallSwitch/index.js:72
 msgid "%(name)s is disabled. Click to enable."
@@ -1102,12 +1009,8 @@ msgstr "<span class=\"visually-hidden\">Pokazać</span>, zo byšće wjace čita�
 #~ msgid "Browse by category"
 #~ msgstr "Po kategoriji přepytać"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Rozšěrjenja su wosebite funkcije, kotrež móžeće Firefox přidać. Drasty "
-#~ "wam zmóžnjeja, napohlad wašeho wobhladowaka změnić."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Rozšěrjenja su wosebite funkcije, kotrež móžeće Firefox přidać. Drasty wam zmóžnjeja, napohlad wašeho wobhladowaka změnić."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "Přerězne pohódnoćenje: %(averageRating)s z 5"
