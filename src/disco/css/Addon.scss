@@ -21,6 +21,20 @@ $addon-padding: 20px;
     color: $header-copy-font-color;
     font-size: 12px;
     margin: 0.75em 0;
+
+    a:link,
+    a:visited,
+    a:focus,
+    a:hover,
+    a:active {
+      color: $header-copy-font-color;
+      text-decoration: underline;
+    }
+
+    a:focus,
+    a:hover {
+      color: $link-hover-color;
+    }
   }
 
   &.theme {
