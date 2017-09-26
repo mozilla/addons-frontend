@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-26 20:30+0000\n"
+"PO-Revision-Date: 2017-09-26 20:36+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -635,15 +635,15 @@ msgstr "このアドオンの不正を報告しました"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "あなたの報告を受け取りました。このアドオンに関する懸念を知らせていただきありがとうございます。"
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "すべての不正報告に返信はできませんが、この問題について調査を行います。"
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "このアドオンが %(linkTagStart)sMozilla のアドオンポリシー%(linkTagEnd)s に違反している、あるいはセキュリティやプライバシー上の問題があると思われる場合は、このフォームを使って Mozilla へ問題を報告してください。"
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -651,11 +651,11 @@ msgstr "このアドオンの不正を報告"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "このフォームを使ってアドオンのバグを報告したり機能を要望したりしないでください。この報告はアドオン開発者ではなく Mozilla へ送信されます。"
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "このアドオンがどのようにポリシーに違反しているか説明してください。"
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
