@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-26 17:43+0000\n"
+"PO-Revision-Date: 2017-09-26 18:03+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -67,7 +67,7 @@ msgstr "Ďalšie slovníky od týchto prekladateľov"
 
 #: src/amo/components/Addon/index.js:328
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Ďalšie rozšírenia od autora %(author)s"
 
 #: src/amo/components/Addon/index.js:331
 msgid "More extensions by these developers"
