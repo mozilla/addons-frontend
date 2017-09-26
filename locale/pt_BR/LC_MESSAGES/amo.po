@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-20 02:39+0000\n"
-"PO-Revision-Date: 2017-09-25 22:38+0000\n"
+"PO-Revision-Date: 2017-09-26 04:28+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -564,31 +564,31 @@ msgstr "Como está desfrutando da sua experiência com %(addonName)s?"
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "%(count)s extensão encontrada para \"%(query)s\""
-msgstr[1] ""
+msgstr[1] "%(count)s extensões encontradas para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
 msgstr[0] "%(count)s dicionário encontrado para \"%(query)s\""
-msgstr[1] ""
+msgstr[1] "%(count)s dicionários encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
 msgstr[0] "%(count)s pacote de idioma encontrado para \"%(query)s\""
-msgstr[1] ""
+msgstr[1] "%(count)s pacotes de idioma encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s tema encontrado para \"%(query)s\""
-msgstr[1] ""
+msgstr[1] "%(count)s temas encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "%(count)s resultado encontrado para \"%(query)s\""
-msgstr[1] ""
+msgstr[1] "%(count)s resultados encontrados para \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
