@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-20 02:39+0000\n"
+"POT-Creation-Date: 2017-09-26 18:56+0000\n"
 "PO-Revision-Date: 2017-09-21 09:47+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -14,61 +14,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:133
+#: src/amo/components/Addon/index.js:135
 msgid "Featured Extension"
 msgstr "Kiemelt kiterjesztés"
 
-#: src/amo/components/Addon/index.js:135
+#: src/amo/components/Addon/index.js:137
 msgid "Featured Theme"
 msgstr "Kiemelt téma"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:139
 msgid "Featured Add-on"
 msgstr "Kiemelt kiegészítő"
 
-#: src/amo/components/Addon/index.js:165
+#: src/amo/components/Addon/index.js:167
 msgid "Cancel preview"
 msgstr "Előnézet megszüntetése"
 
-#: src/amo/components/Addon/index.js:165
+#: src/amo/components/Addon/index.js:167
 msgid "Tap to preview"
 msgstr "Nyomja meg az előnézethez"
 
-#: src/amo/components/Addon/index.js:206
+#: src/amo/components/Addon/index.js:208
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s értékelés elolvasása"
 msgstr[1] "%(count)s értékelés elolvasása"
 
-#: src/amo/components/Addon/index.js:222
+#: src/amo/components/Addon/index.js:224
 msgid "No reviews yet"
 msgstr "Még nincsenek értékelések"
 
-#: src/amo/components/Addon/index.js:231
+#: src/amo/components/Addon/index.js:233
 msgid "Rate your experience"
 msgstr "Értékelje a tapasztalatait"
 
-#: src/amo/components/Addon/index.js:264
+#: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
 msgstr "%(addonType)s névjegye"
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:290
 msgid "Release notes for %(addonVersion)s"
 msgstr "Kiadási megjegyzések ehhez: %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:317
+#: src/amo/components/Addon/index.js:319
 msgid "More dictionaries by %(author)s"
 msgstr "További szótárak tőle: %(author)s"
 
-#: src/amo/components/Addon/index.js:320
+#: src/amo/components/Addon/index.js:322
 msgid "More dictionaries by these translators"
 msgstr "További szótárak ezektől a fordítóktól"
 
-#: src/amo/components/Addon/index.js:328
+#: src/amo/components/Addon/index.js:329
 msgid "More extensions by %(author)s"
 msgstr "További kiterjesztések tőle: %(author)s"
 
-#: src/amo/components/Addon/index.js:331
+#: src/amo/components/Addon/index.js:332
 msgid "More extensions by these developers"
 msgstr "További kiterjesztések ezektől a fejlesztőktől"
 
@@ -80,41 +80,45 @@ msgstr "További nyelvi csomagok tőle: %(author)s"
 msgid "More language packs by these translators"
 msgstr "További nyelvi csomagok ezektől a fordítóktól"
 
-#: src/amo/components/Addon/index.js:350
+#: src/amo/components/Addon/index.js:349
 msgid "More themes by %(author)s"
 msgstr "További témák tőle: %(author)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:352
 msgid "More themes by these artists"
 msgstr "További témák ezektől a művészektől"
 
-#: src/amo/components/Addon/index.js:361
+#: src/amo/components/Addon/index.js:359
 msgid "More add-ons by %(author)s"
 msgstr "További kiegészítők tőle: %(author)s"
 
-#: src/amo/components/Addon/index.js:364
+#: src/amo/components/Addon/index.js:362
 msgid "More add-ons by these developers"
 msgstr "További kiegészítők ezektől a fejlesztőktől"
 
-#: src/amo/components/Addon/index.js:429
+#: src/amo/components/Addon/index.js:428
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)skészítette: %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:481
+#: src/amo/components/Addon/index.js:480
 msgid "Restart Required"
 msgstr "Újraindítás szükséges"
 
-#: src/amo/components/Addon/index.js:499
+#: src/amo/components/Addon/index.js:498
 msgid "Extension Metadata"
 msgstr "Kiterjesztés metaadatai"
 
-#: src/amo/components/Addon/index.js:518
+#: src/amo/components/Addon/index.js:521
 msgid "Screenshots"
 msgstr "Képernyőképek"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Le kell <a href=\"%(downloadUrl)s\">töltenie a Firefoxot</a> a kiegészítő telepítéséhez."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Le kell <a href=\"%(downloadUrl)s\">töltenie a Firefoxot</a> a kiegészítő "
+"telepítéséhez."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -129,14 +133,24 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "A Firefox for iOS pillanatnyilag nem támogatja a kiegészítőket."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Ez a kiegészítő a <a href=\"%(downloadUrl)s\">Firefox újabb verzióját</a> igényli (legalább Firefox %(minVersion)s). Ön a Firefox %(yourVersion)s kiadást használja."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Ez a kiegészítő a <a href=\"%(downloadUrl)s\">Firefox újabb verzióját</a> "
+"igényli (legalább Firefox %(minVersion)s). Ön a Firefox %(yourVersion)s "
+"kiadást használja."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "A böngészője nem támogatja a kiegészítőket. <a href=\"%(downloadUrl)s\">Letöltheti a Firefoxot</a> a kiegészítő telepítéséhez."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"A böngészője nem támogatja a kiegészítőket. <a href=\"%(downloadUrl)s"
+"\">Letöltheti a Firefoxot</a> a kiegészítő telepítéséhez."
 
-#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:27
+#: src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s felhasználó"
@@ -156,107 +170,141 @@ msgstr "Nincsenek értékelések"
 msgid "Used by"
 msgstr "Használja"
 
-#: src/amo/components/AddonMoreInfo/index.js:107
-msgid "Privacy Policy"
-msgstr "Adatvédelmi irányelvek"
+#: src/amo/components/AddonMoreInfo/index.js:104
+#, fuzzy
+msgid "See all beta versions"
+msgstr "Összes kiterjesztés tallózása"
 
-#: src/amo/components/AddonMoreInfo/index.js:116
-msgid "Read the privacy policy for this add-on"
-msgstr "Olvassa el a kiegészítő adatvédelmi irányelveit"
-
-#: src/amo/components/AddonMoreInfo/index.js:122
-msgid "End-User License Agreement"
-msgstr "Végfelhasználói licencmegállapodás"
-
-#: src/amo/components/AddonMoreInfo/index.js:131
-msgid "Read the license agreement for this add-on"
-msgstr "Olvassa el a kiegészítő licencmegállapodását"
-
-#: src/amo/components/AddonMoreInfo/index.js:138
-msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr "Ez az azonosító hibakeresés esetén hasznos, és azonosítja a kiegészítőt a webhely rendszergazdája számára."
-
-#: src/amo/components/AddonMoreInfo/index.js:141
-msgid "Site Identifier"
-msgstr "Webhely-azonosító"
-
-#: src/amo/components/AddonMoreInfo/index.js:159
-msgid "More information"
-msgstr "További információk"
-
-#: src/amo/components/AddonMoreInfo/index.js:46
-msgid "Homepage"
-msgstr "Kezdőlap"
-
-#: src/amo/components/AddonMoreInfo/index.js:55
-msgid "Support Site"
-msgstr "Támogatói oldal"
-
-#: src/amo/components/AddonMoreInfo/index.js:64
+#: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
 msgstr "Kiegészítő hivatkozásai"
 
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:139
 msgid "Version"
 msgstr "Verzió"
 
-#: src/amo/components/AddonMoreInfo/index.js:79
+#: src/amo/components/AddonMoreInfo/index.js:143
 msgid "Last updated"
 msgstr "Legutóbb frissítve"
 
-#: src/amo/components/AddonMoreInfo/index.js:84
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo/index.js:92
+#: src/amo/components/AddonMoreInfo/index.js:148
 msgid "License"
 msgstr "Licenc"
 
-#: src/amo/components/AddonReview.js:145
+#: src/amo/components/AddonMoreInfo/index.js:154
+msgid "Privacy Policy"
+msgstr "Adatvédelmi irányelvek"
+
+#: src/amo/components/AddonMoreInfo/index.js:160
+msgid "End-User License Agreement"
+msgstr "Végfelhasználói licencmegállapodás"
+
+#: src/amo/components/AddonMoreInfo/index.js:165
+#, fuzzy
+msgid "Version History"
+msgstr "Verzió"
+
+#: src/amo/components/AddonMoreInfo/index.js:170
+#, fuzzy
+msgid "Beta Versions"
+msgstr "Verzió"
+
+#: src/amo/components/AddonMoreInfo/index.js:176
+msgid ""
+"This ID is useful for debugging and identifying your add-on to site "
+"administrators."
+msgstr ""
+"Ez az azonosító hibakeresés esetén hasznos, és azonosítja a kiegészítőt a "
+"webhely rendszergazdája számára."
+
+#: src/amo/components/AddonMoreInfo/index.js:179
+msgid "Site Identifier"
+msgstr "Webhely-azonosító"
+
+#: src/amo/components/AddonMoreInfo/index.js:194
+msgid "More information"
+msgstr "További információk"
+
+#: src/amo/components/AddonMoreInfo/index.js:38
+msgid "Homepage"
+msgstr "Kezdőlap"
+
+#: src/amo/components/AddonMoreInfo/index.js:47
+msgid "Support Site"
+msgstr "Támogatói oldal"
+
+#: src/amo/components/AddonMoreInfo/index.js:59
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:77
+msgid "Read the privacy policy for this add-on"
+msgstr "Olvassa el a kiegészítő adatvédelmi irányelveit"
+
+#: src/amo/components/AddonMoreInfo/index.js:85
+msgid "Read the license agreement for this add-on"
+msgstr "Olvassa el a kiegészítő licencmegállapodását"
+
+#: src/amo/components/AddonMoreInfo/index.js:94
+#, fuzzy
+msgid "See all versions"
+msgstr "Összes kiterjesztés tallózása"
+
+#: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr "Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiterjesztés!"
+msgstr ""
+"Mondja el a világnak, miért gondolja, hogy ez egy fantasztikus kiterjesztés!"
 
-#: src/amo/components/AddonReview.js:148
+#: src/amo/components/AddonReview/index.js:166
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Mondja el, miért szereti ezt a kiterjesztést. Legyen konkrét és lényegretörő."
+msgstr ""
+"Mondja el, miért szereti ezt a kiterjesztést. Legyen konkrét és lényegretörő."
 
-#: src/amo/components/AddonReview.js:152
+#: src/amo/components/AddonReview/index.js:170
 msgid "Tell the world about this extension."
 msgstr "Mutassa be a világnak ezt a kiterjesztést."
 
-#: src/amo/components/AddonReview.js:153
-msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Mondja el tapasztalatait ezzel a kiterjesztéssel. Legyen konkrét és lényegretörő."
+#: src/amo/components/AddonReview/index.js:171
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+"Mondja el tapasztalatait ezzel a kiterjesztéssel. Legyen konkrét és "
+"lényegretörő."
 
-#: src/amo/components/AddonReview.js:161
+#: src/amo/components/AddonReview/index.js:183
 msgid "Write a review"
 msgstr "Értékelés írása"
 
-#: src/amo/components/AddonReview.js:167
+#: src/amo/components/AddonReview/index.js:194
 msgid "Review text"
 msgstr "Értékelés szövege"
 
-#: src/amo/components/AddonReview.js:182
+#: src/amo/components/AddonReview/index.js:209
 msgid "Submit review"
 msgstr "Értékelés beküldése"
 
-#: src/amo/components/AddonReviewList.js:115
-msgid "from %(authorName)s, %(timestamp)s"
-msgstr "készítette: %(authorName)s, %(timestamp)s"
-
-#: src/amo/components/AddonReviewList.js:172
+#: src/amo/components/AddonReviewList/index.js:142
 msgid "Add-on icon"
 msgstr "Kiegészítő ikonja"
 
-#: src/amo/components/AddonReviewList.js:178
+#: src/amo/components/AddonReviewList/index.js:148
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s értékelései"
 
-#: src/amo/components/AddonReviewList.js:199
+#: src/amo/components/AddonReviewList/index.js:169
 msgid "All written reviews"
 msgstr "Az összes értékelés"
 
-#: src/amo/components/App/index.js:202
+#: src/amo/components/AddonReviewListItem/index.js:61
+msgid "from %(authorName)s, %(timestamp)s"
+msgstr "készítette: %(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewListItem/index.js:99
+#, fuzzy
+msgid "Edit my review"
+msgstr "Értékelés írása"
+
+#: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
 msgstr "Kiegészítők a Firefoxhoz"
 
@@ -285,48 +333,81 @@ msgid "Browse all themes in this category."
 msgstr "Összes téma tallózása ebben a kategóriában."
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38
+#: src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
 msgstr "Firefox letöltése"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr "Ha bejelentkezett és úgy gondolja, hogy ez az üzenet egy hiba, akkor <a href=\"%(url)s\">jelentse be</a>. Mondja el, hogy honnan jött és mit akart elérni, és megpróbáljuk megoldani a problémát."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
+msgstr ""
+"Ha bejelentkezett és úgy gondolja, hogy ez az üzenet egy hiba, akkor <a href="
+"\"%(url)s\">jelentse be</a>. Mondja el, hogy honnan jött és mit akart "
+"elérni, és megpróbáljuk megoldani a problémát."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Nem engedélyezett"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Sajnáljuk, de nem férhet hozzá ehhez az oldalhoz. Ha nincs bejelentkezve, akkor jelentkezzen be a lap tetején lévő hivatkozással."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Sajnáljuk, de nem férhet hozzá ehhez az oldalhoz. Ha nincs bejelentkezve, "
+"akkor jelentkezzen be a lap tetején lévő hivatkozással."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "Ha egy hivatkozást követett valahonnan, akkor <a href=\"%(url)s\">nyújtson be egy hibajegyet</a>. Mondja el honnan jött, és mit keresett, és megtesszük amit tudunk, hogy javítsuk."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+"Ha egy hivatkozást követett valahonnan, akkor <a href=\"%(url)s\">nyújtson "
+"be egy hibajegyet</a>. Mondja el honnan jött, és mit keresett, és megtesszük "
+"amit tudunk, hogy javítsuk."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Az oldal nem található"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "Sajnáljuk, de nem találunk semmit a megadott címen. Ha egy hivatkozást követett a kiegészítőhöz, akkor lehetséges, hogy a szerző eltávolította a kiegészítőt."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"Sajnáljuk, de nem találunk semmit a megadott címen. Ha egy hivatkozást "
+"követett a kiegészítőhöz, akkor lehetséges, hogy a szerző eltávolította a "
+"kiegészítőt."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"Ha további információja van, amely segíthet nekünk, akkor <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">nyújtson be egy hibajegyet</a>. Mondja el milyen lépéseket tett, amely a "
-"hibához vezetett, és minden tőlünk telhetőt megteszünk, hogy javítsuk."
+"Ha további információja van, amely segíthet nekünk, akkor <a href=\"https://"
+"github.com/mozilla/addons-frontend/issues/new/\">nyújtson be egy hibajegyet</"
+"a>. Mondja el milyen lépéseket tett, amely a hibához vezetett, és minden "
+"tőlünk telhetőt megteszünk, hogy javítsuk."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Kiszolgálóhiba"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Sajnáljuk, de hiba volt a kiszolgálónkkal, és nem tudtuk teljesíteni a kérését. Naplóztuk ezt a hibát, és ki fogjuk vizsgálni."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Sajnáljuk, de hiba volt a kiszolgálónkkal, és nem tudtuk teljesíteni a "
+"kérését. Naplóztuk ezt a hibát, és ki fogjuk vizsgálni."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -336,25 +417,87 @@ msgstr "További kiemelt kiterjesztések"
 msgid "More Featured Themes"
 msgstr "További kiemelt témák"
 
-#: src/amo/components/Footer/index.js:21
+#: src/amo/components/Footer/index.js:104
+msgid "Focus Browser"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:109
+msgid "Desktop Browser"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:114
+msgid "Beta, Nightly, Developer Edition"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:138
+#, fuzzy
+msgid "Privacy"
+msgstr "Adatvédelmi irányelvek"
+
+#: src/amo/components/Footer/index.js:139
+msgid "Cookies"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:140
+msgid "Legal"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:141
+#, fuzzy
+msgid "Report Trademark Abuse"
+msgstr "Hiba jelentése"
+
+#: src/amo/components/Footer/index.js:150
+msgid ""
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+msgstr ""
+
+#: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
 msgstr "Ugrás a Mozilla honlapjára"
 
-#: src/amo/components/Footer/index.js:36
-msgid "Privacy policy"
-msgstr "Adatvédelmi irányelvek"
+#: src/amo/components/Footer/index.js:43
+#, fuzzy
+msgid "Add-ons"
+msgstr "Kiegészítő hivatkozásai"
 
-#: src/amo/components/Footer/index.js:44
-msgid "Legal notices"
-msgstr "Jogi megjegyzések"
+#: src/amo/components/Footer/index.js:50
+msgid "About"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:52
+#: src/amo/components/Footer/index.js:54
+msgid "Blog"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
+msgid "Developer Hub"
+msgstr "Fejlesztőközpont"
+
+#: src/amo/components/Footer/index.js:65
+msgid "Forum"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:74
+msgid "View classic desktop site"
+msgstr "Klasszikus asztali oldal megtekintése"
+
+#: src/amo/components/Footer/index.js:78
 msgid "Report a bug"
 msgstr "Hiba jelentése"
 
-#: src/amo/components/Footer/index.js:62
-msgid "View classic desktop site"
-msgstr "Klasszikus asztali oldal megtekintése"
+#: src/amo/components/Footer/index.js:80
+msgid "Site Status"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:94
+msgid "Android Browser"
+msgstr ""
+
+#: src/amo/components/Footer/index.js:99
+msgid "iOS Browser"
+msgstr ""
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -376,17 +519,14 @@ msgstr "Új téma beküldése"
 msgid "Manage API Keys"
 msgstr "API kulcsok kezelése"
 
-#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Kijelentkezés"
 
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "Firefox kiegészítők"
-
-#: src/amo/components/Header/index.js:83
-msgid "Developer Hub"
-msgstr "Fejlesztőközpont"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
@@ -432,7 +572,8 @@ msgstr "Sportos"
 msgid "Solid"
 msgstr "Kiforrott"
 
-#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138
+#: src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "Összes kiterjesztés tallózása"
 
@@ -441,10 +582,15 @@ msgid "You can change how Firefox works…"
 msgstr "Megváltoztathatja hogyan működik a Firefox…"
 
 #: src/amo/components/Home/index.js:146
-msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr "Telepítsen hatékony eszközöket, amelyek a böngészést gyorsabbá és biztonságosabbá teszik, a kiegészítők teszik a böngészőt a sajátjává."
+msgid ""
+"Install powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours."
+msgstr ""
+"Telepítsen hatékony eszközöket, amelyek a böngészést gyorsabbá és "
+"biztonságosabbá teszik, a kiegészítők teszik a böngészőt a sajátjává."
 
-#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157
+#: src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "Összes téma tallózása"
 
@@ -453,8 +599,12 @@ msgid "…or what it looks like"
 msgstr "…vagy ahogyan kinéz"
 
 #: src/amo/components/Home/index.js:165
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Módosítsa a böngésző kinézetét. Válasszon a témák ezreiből, hogy olyan kinézetet adjon a Firefoxnak, amilyet csak szeretne."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Módosítsa a böngésző kinézetét. Válasszon a témák ezreiből, hogy olyan "
+"kinézetet adjon a Firefoxnak, amilyet csak szeretne."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -516,21 +666,24 @@ msgstr "Legjobbra értékelt témák"
 msgid "More highly rated themes"
 msgstr "További legjobbra értékelt témák"
 
-#: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/LandingPage/index.js:189
+#: src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "Témák"
 
-#: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:51
+#: src/amo/components/LandingPage/index.js:190
+#: src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "Kiterjesztések"
 
-#: src/amo/components/LandingPage/index.js:222
+#: src/amo/components/LandingPage/index.js:221
 msgid "Explore all categories"
 msgstr "Összes kategória felfedezése"
 
 #: src/amo/components/LanguagePicker.js:50
-msgid "Browse in your language"
-msgstr "Tallózás az Ön nyelvén"
+#, fuzzy
+msgid "Change language"
+msgstr "Nyelvi csomag keresése"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -559,6 +712,56 @@ msgstr "Jelentkezzen be a kiegészítő értékeléséhez"
 #: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Mit tapasztal a(z) %(addonName)s kiegészítővel?"
+
+#: src/amo/components/ReportAbuseButton/index.js:107
+#, fuzzy
+msgid "You reported this add-on for abuse"
+msgstr "Jelentkezzen be a kiegészítő értékeléséhez"
+
+#: src/amo/components/ReportAbuseButton/index.js:111
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:118
+msgid "We can't respond to every abuse report but we'll look into this issue."
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:129
+msgid ""
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
+"%(linkTagEnd)s or has security or privacy issues, please report these issues "
+"to Mozilla using this form."
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:151
+#: src/amo/components/ReportAbuseButton/index.js:157
+#, fuzzy
+msgid "Report this add-on for abuse"
+msgstr "Ugrás a kiegészítő oldalára"
+
+#: src/amo/components/ReportAbuseButton/index.js:165
+msgid ""
+"Please don't use this form to report bugs or request add-on features; this "
+"report will be sent to Mozilla and not to the add-on developer."
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:175
+msgid "Explain how this add-on is violating our policies."
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:188
+msgid "Dismiss"
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:196
+msgid "Sending abuse report"
+msgstr ""
+
+#: src/amo/components/ReportAbuseButton/index.js:197
+msgid "Send abuse report"
+msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -630,7 +833,8 @@ msgstr "Kiegészítő típusa"
 msgid "Operating System"
 msgstr "Operációs rendszer"
 
-#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:70
+#: src/amo/components/SearchFilters/index.js:80
 msgid "All"
 msgstr "Összes"
 
@@ -694,7 +898,8 @@ msgstr "Témák keresése"
 msgid "Find add-ons"
 msgstr "Kiegészítők keresése"
 
-#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247
+#: src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Keresés"
 
@@ -743,10 +948,15 @@ msgid "Register or Log in"
 msgstr "Regisztráció vagy bejelentkezés"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk ezt a hibát, és ki fogjuk vizsgálni."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Sajnáljuk, de hiba történt, és nem tudtuk teljesíteni a kérését. Naplóztuk "
+"ezt a hibát, és ki fogjuk vizsgálni."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Hibakód: %(status)s."
 
@@ -754,39 +964,41 @@ msgstr "Hibakód: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sajnáljuk, de semmit sem találunk a megadott URL-en."
 
-#: src/core/components/InstallButton/index.js:107 src/core/components/InstallButton/index.js:125
-msgid "Add to Firefox"
-msgstr "Hozzáadás a Firefoxhoz"
-
-#: src/core/components/InstallButton/index.js:85
+#: src/core/components/InstallButton/index.js:106
 msgid "Install Theme"
 msgstr "Téma telepítése"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallButton/index.js:128
+#: src/core/components/InstallButton/index.js:146
+msgid "Add to Firefox"
+msgstr "Hozzáadás a Firefoxhoz"
+
+#: src/core/components/InstallSwitch/index.js:62
 msgid "Downloading %(name)s."
 msgstr "%(name)s letöltése."
 
-#: src/core/components/InstallSwitch/index.js:58
+#: src/core/components/InstallSwitch/index.js:65
 msgid "Installing %(name)s."
 msgstr "%(name)s telepítése."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:69
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "A(z) %(name)s telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
+msgstr ""
+"A(z) %(name)s telepítve van, és engedélyezett. Kattintson az eltávolításhoz."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:72
 msgid "%(name)s is disabled. Click to enable."
 msgstr "A(z) %(name)s le van tiltva. Kattintson az engedélyezéshez."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:75
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s eltávolítása."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:78
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "A(z) %(name)s el lett távolítva. Kattintson a telepítéshez."
 
-#: src/core/components/InstallSwitch/index.js:74
+#: src/core/components/InstallSwitch/index.js:81
 msgid "Install state for %(name)s is unknown."
 msgstr "A(z) %(name)s telepítési állapota ismeretlen."
 
@@ -840,7 +1052,17 @@ msgstr "Nincsenek értékelések"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Bontsa ki</span>, hogy többet tudjon meg"
+msgstr ""
+"<span class=\"visually-hidden\">Bontsa ki</span>, hogy többet tudjon meg"
+
+#~ msgid "Privacy policy"
+#~ msgstr "Adatvédelmi irányelvek"
+
+#~ msgid "Legal notices"
+#~ msgstr "Jogi megjegyzések"
+
+#~ msgid "Browse in your language"
+#~ msgstr "Tallózás az Ön nyelvén"
 
 #~ msgid "Search extensions"
 #~ msgstr "Kiterjesztések keresése"
@@ -860,8 +1082,12 @@ msgstr "<span class=\"visually-hidden\">Bontsa ki</span>, hogy többet tudjon me
 #~ msgid "Browse by category"
 #~ msgstr "Keresés kategória szerint"
 
-#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-#~ msgstr "A kiterjesztések a Firefoxhoz adható speciális funkciók. Témák segítségével módosíthatja a böngésző megjelenését."
+#~ msgid ""
+#~ "Extensions are special features you can add to Firefox. Themes let you "
+#~ "change your browser's appearance."
+#~ msgstr ""
+#~ "A kiterjesztések a Firefoxhoz adható speciális funkciók. Témák "
+#~ "segítségével módosíthatja a böngésző megjelenését."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s / 5"
