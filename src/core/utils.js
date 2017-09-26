@@ -154,6 +154,16 @@ export function loadAddonIfNeeded(
   return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
 }
 
+export function isAddonAuthor({ addon, userId }) {
+  if (!addon || !addon.authors || !addon.authors.length || !userId) {
+    return false;
+  }
+
+  return addon.authors.some((author) => {
+    return author.id === userId;
+  });
+}
+
 export function isAllowedOrigin(urlString, {
   allowedOrigins = [config.get('amoCDN')],
 } = {}) {

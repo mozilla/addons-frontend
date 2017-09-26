@@ -1,22 +1,29 @@
+/* @flow */
 import React from 'react';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
+import { isAddonAuthor } from 'core/utils';
+import type { AddonType } from 'core/types/addons';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
 import 'amo/css/AddonMeta.scss';
 
 
+type PropTypes = {
+  addon: AddonType | null,
+  i18n: Object,
+  userId: number | null,
+}
+
 export class AddonMetaBase extends React.Component {
-  static propTypes = {
-    addon: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
-  }
+  props: PropTypes;
 
   render() {
-    const { addon, i18n } = this.props;
+    const { addon, i18n, userId } = this.props;
     const averageRating = addon ? addon.ratings.average : null;
     const addonRatingCount = addon ? addon.ratings.count : null;
 
@@ -49,7 +56,14 @@ export class AddonMetaBase extends React.Component {
         <div className="AddonMeta-item AddonMeta-users">
           <h3 className="visually-hidden">{i18n.gettext('Used by')}</h3>
           <p className="AddonMeta-text AddonMeta-user-count">
-            {userCount}
+            {addon && isAddonAuthor({ addon, userId }) ? (
+              <Link
+                href={`/addon/${addon.slug}/statistics/`}
+                title={i18n.gettext('Click to view statistics')}
+              >
+                {userCount}
+              </Link>
+            ) : userCount}
           </p>
           <p className="AddonMeta-text AddonMeta-review-count">
             {reviewCount}
@@ -66,6 +80,13 @@ export class AddonMetaBase extends React.Component {
   }
 }
 
+export const mapStateToProps = (state: Object) => {
+  return {
+    userId: state.user.id,
+  };
+};
+
 export default compose(
-  translate({ withRef: true }),
+  connect(mapStateToProps),
+  translate(),
 )(AddonMetaBase);

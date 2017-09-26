@@ -38,6 +38,7 @@ import {
   getClientCompatibility,
   getClientConfig,
   getCompatibleVersions,
+  isAddonAuthor,
   isAllowedOrigin,
   isCompatibleWithUserAgent,
   isValidClientApp,
@@ -150,7 +151,6 @@ describe('convertBoolean', () => {
   });
 });
 
-
 describe('getClientApp', () => {
   it('should return firefox by default with no args', () => {
     expect(getClientApp()).toEqual(CLIENT_APP_FIREFOX);
@@ -206,6 +206,63 @@ describe('getClientApp', () => {
     // This UA string has android, not Android.
     const ua = 'mozilla/5.0 (android; mobile; rv:40.0) gecko/40.0 firefox/40.0';
     expect(getClientApp(ua)).toEqual(CLIENT_APP_ANDROID);
+  });
+});
+
+describe('isAddonAuthor', () => {
+  const addon = {
+    ...fakeAddon,
+    authors: [
+      {
+        id: 5838591,
+        name: 'tofumatt',
+        picture_url: 'http://cdn.a.m.o/myphoto.jpg',
+        url: 'http://a.m.o/en-GB/firefox/user/tofumatt/',
+        username: 'tofumatt',
+      },
+    ],
+  };
+
+  it('returns true when userId is in add-on author object', () => {
+    expect(isAddonAuthor({ addon, userId: 5838591 })).toEqual(true);
+  });
+
+  it('returns false when userId is not in add-on author object', () => {
+    expect(isAddonAuthor({ addon, userId: 5838592 })).toEqual(false);
+  });
+
+  it('returns false when addon is false', () => {
+    expect(isAddonAuthor({ addon: false, userId: 5838591 })).toEqual(false);
+  });
+
+  it('returns false when addon is null', () => {
+    expect(isAddonAuthor({ addon: null, userId: 5838591 })).toEqual(false);
+  });
+
+  it('returns false when addon is not set', () => {
+    expect(isAddonAuthor({ userId: 5838591 })).toEqual(false);
+  });
+
+  it('returns false when addon.authors is not set', () => {
+    expect(isAddonAuthor({ addon: {}, userId: 5838591 })).toEqual(false);
+  });
+
+  it('returns false when userId is not set', () => {
+    expect(isAddonAuthor({ addon, userId: null })).toEqual(false);
+  });
+
+  it('returns false if add-on has no authors', () => {
+    const partialAddon = { ...addon, authors: [] };
+
+    expect(isAddonAuthor({ addon: partialAddon, userId: null }))
+      .toEqual(false);
+  });
+
+  it('returns false if add-on has a null value for authors', () => {
+    const partialAddon = { ...addon, authors: null };
+
+    expect(isAddonAuthor({ addon: partialAddon, userId: null }))
+      .toEqual(false);
   });
 });
 
