@@ -511,29 +511,30 @@ export class AddonBase extends React.Component {
         </Card>
 
         <div className="Addon-details">
-          {addonPreviews.length > 0 ? (
-            <Card
-              className="Addon-screenshots"
-              header={i18n.gettext('Screenshots')}
-            >
-              <ScreenShots previews={addonPreviews} />
-            </Card>
-          ) : null}
-
           <div className="Addon-main-content">
             {addonType === ADDON_TYPE_THEME ?
               this.renderMoreAddonsByAuthors() : null}
+
+            {addonPreviews.length > 0 ? (
+              <Card
+                className="Addon-screenshots"
+                header={i18n.gettext('Screenshots')}
+              >
+                <ScreenShots previews={addonPreviews} />
+              </Card>
+            ) : null}
+
             {this.renderShowMoreCard()}
           </div>
 
+          <AddonMoreInfo addon={addon} />
+
           {this.renderRatingsCard()}
+
+          {this.renderVersionReleaseNotes()}
 
           {addonType !== ADDON_TYPE_THEME ?
             this.renderMoreAddonsByAuthors() : null}
-
-          <AddonMoreInfo addon={addon} />
-
-          {this.renderVersionReleaseNotes()}
         </div>
       </div>
     );
