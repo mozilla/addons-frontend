@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 09:51+0000\n"
+"PO-Revision-Date: 2017-09-27 10:01+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -390,6 +390,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"O ile nie %(startNotedLink)swskazano inaczej%(endNotedLink)s, treść tej strony jest dostępna na warunkach licencji %(startLicenseLink)sCreative Commons Attribution Share-Alike w wersji "
+"3.0%(endLicenseLink)s lub nowszej."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -429,11 +431,11 @@ msgstr "Stan strony"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "Przeglądarka na Androida"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "Przeglądarka na iOS"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -604,9 +606,8 @@ msgid "Explore all categories"
 msgstr "Wszystkie kategorie"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "Wyszukaj pakiety językowe"
+msgstr "Zmień język"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -637,46 +638,45 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Jak oceniasz swoje wrażenia z dodatkiem „%(addonName)s”?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "Zaloguj się, aby ocenić ten dodatek"
+msgstr "Zgłoszono ten dodatek za nadużycie"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Otrzymaliśmy Twoje zgłoszenie. Dziękujemy za poinformowanie nas o problemach z tym dodatkiem."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Nie możemy odpowiedzieć na każde zgłoszenie indywidualnie, ale przyjrzymy się sprawie."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Jeśli uważasz, że ten dodatek narusza %(linkTagStart)szasady dodatków Mozilli%(linkTagEnd)s albo ma błędy bezpieczeństwa lub prywatności, to prosimy zgłosić to do Mozilli za pomocą tego formularza."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Strona dodatku"
+msgstr "Zgłoś ten dodatek za nadużycie"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Prosimy nie używać tego formularza do zgłaszania błędów i próśb o nowe funkcje w dodatkach. Zgłoszenie zostanie wysłane do Mozilli, nie do autora dodatku."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Wyjaśnij, jak ten dodatek narusza nasze zasady."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Odrzuć"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Wysyłanie zgłoszenia o nadużyciu"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Wyślij zgłoszenie o nadużyciu"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
