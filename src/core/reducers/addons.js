@@ -9,6 +9,8 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
+export const LOAD_LANGUAGE_TOOLS = 'LOAD_LANGUAGE_TOOLS';
+export const FETCH_LANGUAGE_TOOLS = 'FETCH_LANGUAGE_TOOLS';
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -60,6 +62,35 @@ export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddon
     payload: { errorHandlerId: errorHandler.id, slug },
   };
 }
+
+type FetchLanguageToolsParams = {|
+  errorHandlerId: string,
+|};
+
+export type FetchLanguageToolsAction = {|
+  type: string,
+  payload: {|
+    errorHandlerId: string,
+  |},
+|};
+
+export function fetchLanguageTools(
+  { errorHandlerId }: FetchLanguageToolsParams
+): FetchLanguageToolsAction {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId cannot be empty');
+  }
+
+  return {
+    type: FETCH_LANGUAGE_TOOLS,
+    payload: { errorHandlerId },
+  };
+}
+
+export type LoadAddonsAction = {|
+  payload: {| addons: ExternalAddonMap |},
+  type: string,
+|};
 
 export function getGuid(addon: ExternalAddonType): string {
   if (addon.type === ADDON_TYPE_THEME) {
