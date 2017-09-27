@@ -17,7 +17,7 @@
     padding: 0 $header-footer-gutter 10px;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     grid-template-columns: max-content auto auto;
     grid-template-rows: 46px auto;
     margin: 0 auto;
@@ -46,7 +46,7 @@
     margin: 24px 0 0;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     @include margin-end(24px);
 
     align-self: center;
@@ -67,7 +67,7 @@
     vertical-align: middle;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     vertical-align: bottom;
   }
 }
@@ -105,7 +105,7 @@
     grid-row: 1 / 2;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
   }
@@ -156,7 +156,7 @@
     margin: 0;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     @include margin-end(12px);
 
     align-self: center;
@@ -182,7 +182,7 @@
     max-width: 250px;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     align-self: center;
     margin-top: 6px;
     max-width: 284px;

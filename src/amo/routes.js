@@ -15,6 +15,7 @@ import CategoriesPage from './components/CategoriesPage';
 import Category from './components/Category';
 import FeaturedAddons from './components/FeaturedAddons';
 import LandingPage from './components/LandingPage';
+import LanguageTools from './components/LanguageTools';
 import Home from './components/Home';
 import Addon from './components/Addon';
 import NotAuthorized from './components/ErrorPage/NotAuthorized';
@@ -34,6 +35,7 @@ export default (
     <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={Category} />
+    <Route path="language-tools/" component={LanguageTools} />
     <Route path="search/" component={SearchPage} />
     <Route
       path="401/"

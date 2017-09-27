@@ -10,10 +10,11 @@ import './styles.scss';
 
 
 type Props = {|
-  text: string,
   // TODO: Replace Array by React.ChildrenArray when we upgrade Flow to 0.53+.
   children?: Array<React.Element<typeof DropdownMenuItem>>,
   className?: string,
+  text: string,
+  title?: string,
 |};
 
 export class DropdownMenuBase extends React.Component {
@@ -40,6 +41,10 @@ export class DropdownMenuBase extends React.Component {
 
   render() {
     const { children, className, text } = this.props;
+    let title = this.props.title;
+    if (!title && typeof text === 'string') {
+      title = text;
+    }
 
     return (
       <div
@@ -50,7 +55,7 @@ export class DropdownMenuBase extends React.Component {
         <button
           className="DropdownMenu-button"
           onClick={this.handleOnClick}
-          title={text}
+          title={title}
         >
           <span className="DropdownMenu-button-text">
             {text}

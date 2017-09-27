@@ -4,7 +4,7 @@ import * as api from 'core/api/languageTools';
 import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 import addonsReducer, {
   fetchLanguageTools,
-  loadAddons,
+  loadLanguageTools,
 } from 'core/reducers/addons';
 import apiReducer from 'core/reducers/api';
 import languageToolsSaga from 'core/sagas/languageTools';
@@ -47,9 +47,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
     }));
 
-    const expectedLoadAction = loadAddons({
-      entities: { addons: response.results },
-    });
+    const expectedLoadAction = loadLanguageTools({ addons: response.results });
 
     await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();

@@ -75,15 +75,44 @@ export type FetchLanguageToolsAction = {|
 |};
 
 export function fetchLanguageTools(
-  { errorHandlerId }: FetchLanguageToolsParams
+  { errorHandlerId }: FetchLanguageToolsParams = {}
 ): FetchLanguageToolsAction {
   if (!errorHandlerId) {
-    throw new Error('errorHandlerId cannot be empty');
+    throw new Error('errorHandlerId is required');
   }
 
   return {
     type: FETCH_LANGUAGE_TOOLS,
     payload: { errorHandlerId },
+  };
+}
+
+export type LoadAddonsAction = {|
+  payload: {| addons: ExternalAddonMap |},
+  type: string,
+|};
+
+export function loadLanguageTools({ addons } = {}) {
+  if (!addons) {
+    throw new Error('addons are required');
+  }
+
+  return {
+    type: LOAD_LANGUAGE_TOOLS,
+    payload: { addons },
+  };
+}
+
+export function createInternalLanguageTool(apiAddon) {
+  return {
+    id: apiAddon.id,
+    current_version: apiAddon.current_version,
+    default_locale: apiAddon.default_locale,
+    locale_disambiguation: apiAddon.locale_disambiguation,
+    name: apiAddon.name,
+    target_locale: apiAddon.target_locale,
+    type: apiAddon.type,
+    url: apiAddon.url,
   };
 }
 
@@ -246,6 +275,14 @@ export default function addonsReducer(
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
         newState[key] = createInternalAddon(addons[key]);
+      });
+      return newState;
+    }
+    case LOAD_LANGUAGE_TOOLS: {
+      const { addons } = action.payload;
+      const newState = { ...state };
+      Object.keys(addons).forEach((key) => {
+        newState[key] = createInternalLanguageTool(addons[key]);
       });
       return newState;
     }

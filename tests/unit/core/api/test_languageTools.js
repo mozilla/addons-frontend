@@ -32,6 +32,7 @@ describe(__filename, () => {
         .withArgs({
           endpoint: 'addons/language-tools',
           method: 'GET',
+          params: { app: apiState.clientApp },
           state: apiState,
         })
         .once()

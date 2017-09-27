@@ -4,8 +4,10 @@ import {
 import addons, {
   createInternalAddon,
   fetchAddon,
+  fetchLanguageTools,
   getGuid,
   loadAddons,
+  loadLanguageTools,
   removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
@@ -320,6 +322,22 @@ describe(__filename, () => {
       const example = { thing: undefined };
       removeUndefinedProps(example);
       expect(example).toEqual({ thing: undefined });
+    });
+  });
+
+  describe('fetchLanguageTools', () => {
+    it('requires an errorHandlerId', () => {
+      expect(() => {
+        fetchLanguageTools();
+      }).toThrow('errorHandlerId is required');
+    });
+  });
+
+  describe('loadLanguageTools', () => {
+    it('requires addons', () => {
+      expect(() => {
+        loadLanguageTools();
+      }).toThrow('addons are required');
     });
   });
 });
