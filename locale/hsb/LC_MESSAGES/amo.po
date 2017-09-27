@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-26 20:13+0000\n"
+"PO-Revision-Date: 2017-09-27 19:31+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -399,6 +399,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Jeli nic hinak %(startNotedLink)szapisane%(endNotedLink)s, so wobsah na tutym sydle pod %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%%(endLicenseLink)s abo poždźišej "
+"wersiju licencuje."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -650,15 +652,17 @@ msgstr "Sće tutón přidatk znjewužiwanja dla zdźělił"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Smy wašu rozprawu dóstali. Dźakujemy so, zo sće nam swoje wobmyslenja nastupajo tutón přidatk zdźělił."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Njemóžemy na kóždu rozprawu wo znjewužiwanju wotmołwić, ale budźemy so z tutej naležnosću zaběrać."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Jeli so tutón přidatk přećiwo %(linkTagStart)ssměrnicy Mozilla za přidatki%(linkTagEnd)s přeńdźe abo ma problemy z wěstotu abo priwatnosću, zdźělće prošu Mozilla tute problemy z pomocu tutoho "
+"formulara."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -666,11 +670,11 @@ msgstr "Tutón přidatk znjewužiwanja dla zdźělić"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Prošu njewužiwajće tutón formular, zo byšće programowe zmylki abo přeća za nowymi funkcijemi přidatka zdźělił; tuta rozprawa so na Mozilla a nic na wuwiwarja přidatka pósćele."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Wujasńće, w kajkim nastupanju so tutón přidatk přećiwo našim prawidłam přeńdźe."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
