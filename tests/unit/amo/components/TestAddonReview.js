@@ -48,7 +48,6 @@ describe(__filename, () => {
       onReviewSubmitted: () => {},
       refreshAddon: () => Promise.resolve(),
       review: defaultReview,
-      setDenormalizedReview: () => {},
       store,
       updateReviewText: () => Promise.resolve(),
       ...customProps,
@@ -59,14 +58,13 @@ describe(__filename, () => {
   };
 
   it('can update a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
     const onReviewSubmitted = sinon.spy(() => {});
-    const _setDenormalizedReview = sinon.spy(() => {});
     const refreshAddon = sinon.spy(() => Promise.resolve());
     const updateReviewText = sinon.spy(() => Promise.resolve());
     const errorHandler = createStubErrorHandler();
     const root = render({
       onReviewSubmitted,
-      setDenormalizedReview: _setDenormalizedReview,
       refreshAddon,
       updateReviewText,
       errorHandler,
@@ -81,9 +79,9 @@ describe(__filename, () => {
       .then(() => {
         sinon.assert.called(event.preventDefault);
 
-        sinon.assert.called(_setDenormalizedReview);
-        expect(_setDenormalizedReview.firstCall.args[0])
-          .toEqual({ ...defaultReview, body: 'some review' });
+        sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
+          ...defaultReview, body: 'some review',
+        }));
 
         sinon.assert.called(updateReviewText);
         const params = updateReviewText.firstCall.args[0];
@@ -286,11 +284,7 @@ describe(__filename, () => {
   it('preserves inputted text when you change the star rating', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const review = { ...defaultReview };
-    const root = render({
-      review,
-      // Unset this so that it uses the default mapped property.
-      setDenormalizedReview: undefined,
-    });
+    const root = render({ review });
 
     const enteredReviewText = 'some text';
     root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
