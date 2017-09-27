@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 09:11+0000\n"
+"PO-Revision-Date: 2017-09-27 09:19+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -639,11 +639,11 @@ msgstr "已收到您的回報。感謝讓我們知道這個附加元件可能有
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "我們不會回應每封濫用報告，但會有人來著手確認這個問題。"
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "若您覺得此附加元件會違反 %(linkTagStart)sMozilla 的附加元件政策%(linkTagEnd)s或有安全性、隱私問題，請使用此表單回報給 Mozilla 知道。"
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -651,11 +651,11 @@ msgstr "回報此附加元件的濫用行為"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "此表單只會送到 Mozilla 而不會給附加元件開發者，請不要使用此表單來回報 Bug 或是要求附加元件的新功能。"
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "請解釋這套附加元件違反了哪些政策。"
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
@@ -663,11 +663,11 @@ msgstr "知道了！"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "正在傳送濫用報告"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "傳送濫用報告"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
