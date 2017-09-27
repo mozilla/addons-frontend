@@ -240,6 +240,9 @@ export const mapDispatchToProps = (
     refreshAddon: ownProps.refreshAddon || (({ addonSlug, apiState }) => {
       return refreshAddon({ addonSlug, apiState, dispatch });
     }),
+    // TODO: convert tests that do dependency injection for
+    // setDenormalizedReview and updateReviewText to using dispatch
+    // stubs instead.
     setDenormalizedReview: ownProps.setDenormalizedReview || ((review) => {
       dispatch(setDenormalizedReview(review));
     }),
