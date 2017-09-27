@@ -264,11 +264,7 @@ describe(__filename, () => {
   it('lets you change the star rating', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const review = { ...defaultReview };
-    const root = render({
-      review,
-      // Unset this so that it uses the default mapped property.
-      setDenormalizedReview: undefined,
-    });
+    const root = render({ review });
 
     const rating = root.find(Rating);
     const onSelectRating = rating.prop('onSelectRating');
