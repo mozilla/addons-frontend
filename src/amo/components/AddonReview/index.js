@@ -153,7 +153,7 @@ export class AddonReviewBase extends React.Component {
     // to the API yet.
     this.props.setDenormalizedReview({
       ...this.props.review,
-      body: this.state.reviewBody,
+      body: this.state.reviewBody || undefined,
       rating,
     });
   }
