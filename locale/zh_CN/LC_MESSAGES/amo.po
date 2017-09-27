@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 00:50+0000\n"
+"PO-Revision-Date: 2017-09-27 00:59+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -154,9 +154,8 @@ msgid "Used by"
 msgstr "用户："
 
 #: src/amo/components/AddonMoreInfo/index.js:104
-#, fuzzy
 msgid "See all beta versions"
-msgstr "浏览所有扩展"
+msgstr "查看所有测试版"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
@@ -183,14 +182,12 @@ msgid "End-User License Agreement"
 msgstr "最终用户许可协议"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
-#, fuzzy
 msgid "Version History"
-msgstr "版本"
+msgstr "版本历史"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
-#, fuzzy
 msgid "Beta Versions"
-msgstr "版本"
+msgstr "测试版"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -225,9 +222,8 @@ msgid "Read the license agreement for this add-on"
 msgstr "阅读此附加组件的许可协议"
 
 #: src/amo/components/AddonMoreInfo/index.js:94
-#, fuzzy
 msgid "See all versions"
-msgstr "浏览所有扩展"
+msgstr "查看所有版本"
 
 #: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
@@ -274,9 +270,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr "来自 %(authorName)s，%(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
-#, fuzzy
 msgid "Edit my review"
-msgstr "撰写评价"
+msgstr "编辑我的评价"
 
 #: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
@@ -369,45 +364,42 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta、Nightly、开发者版本"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "隐私政策"
+msgstr "隐私"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "Cookie"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "法律"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "报告缺陷"
+msgstr "报告商报滥用"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
-msgstr ""
+msgstr "除非另有%(startNotedLink)s注明%(endNotedLink)s，否则本网站上的内容可按 %(startLicenseLink)s知识共享 署名-相同方式共享 3.0%(endLicenseLink)s 或更新版本使用。"
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
 msgstr "转至 Mozilla 主页"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "附加组件链接"
+msgstr "附加组件"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "关于"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "博客"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -415,7 +407,7 @@ msgstr "开发者中心"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "论坛"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -427,15 +419,15 @@ msgstr "报告缺陷"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "网站状态"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "Android 浏览器"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS 浏览器"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -606,9 +598,8 @@ msgid "Explore all categories"
 msgstr "浏览所有分类"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "查找语言包"
+msgstr "更改语言"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -639,46 +630,44 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "使用 %(addonName)s 的感觉如何？"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "登录以评价此附加组件"
+msgstr "您已报告此附加组件的滥用"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "我们已收到您的报告。感谢您对此的关注。"
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "我们无法回应每份滥用报告，但将会研究提到的问题。"
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr ""
+msgstr "如果您认为此附加组件违背了 %(linkTagStart)sMozilla 附加组件政策%(linkTagEnd)s 或存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "访问附加组件页面"
+msgstr "举报此附加组件的滥用行为"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "请勿使用此表单报告附加组件的缺陷或请求功能。此表单将发给 Mozilla 官方，而非附加组件的开发者。"
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "解释此附加组件哪里违背了我们的政策。"
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "关闭"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "报告发送中"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "报告已发送"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
