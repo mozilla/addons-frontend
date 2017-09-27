@@ -25,8 +25,7 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
-type SetDenormalizedReviewFunction =
-  (review: $Shape<UserReviewType>) => SetReviewAction;
+type SetDenormalizedReviewFunction = (review: $Shape<UserReviewType>) => void;
 
 type RefreshAddonFunction = (
   params: {| addonSlug: string, apiState: ApiStateType |}
