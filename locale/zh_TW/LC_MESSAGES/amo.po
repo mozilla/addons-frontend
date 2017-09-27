@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 07:16+0000\n"
+"PO-Revision-Date: 2017-09-27 09:11+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -383,7 +383,7 @@ msgstr "回報商標濫用"
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
-msgstr ""
+msgstr "除另有%(startNotedLink)s註明%(endNotedLink)s外，本站內容皆採用%(startLicenseLink)s創用 CC 姓名標示—相同方式分享條款 3.0%(endLicenseLink)s 或更新版本授權大眾使用。"
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -635,7 +635,7 @@ msgstr "您已回報此附加元件的濫用行為"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "已收到您的回報。感謝讓我們知道這個附加元件可能有問題。"
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
