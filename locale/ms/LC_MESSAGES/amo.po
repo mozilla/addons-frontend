@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 00:09+0000\n"
+"PO-Revision-Date: 2017-09-27 00:20+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -155,9 +155,8 @@ msgid "Used by"
 msgstr "Digunakan oleh"
 
 #: src/amo/components/AddonMoreInfo/index.js:104
-#, fuzzy
 msgid "See all beta versions"
-msgstr "Lihat semua ekstensi"
+msgstr "Lihat semua versi beta"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
@@ -184,14 +183,12 @@ msgid "End-User License Agreement"
 msgstr "Perjanjian Lesen Pengguna Akhir"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
-#, fuzzy
 msgid "Version History"
-msgstr "Versi"
+msgstr "Sejarah Versi"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
-#, fuzzy
 msgid "Beta Versions"
-msgstr "Versi"
+msgstr "Versi Beta"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -226,9 +223,8 @@ msgid "Read the license agreement for this add-on"
 msgstr "Baca perjanjian lesen untuk add-on ini"
 
 #: src/amo/components/AddonMoreInfo/index.js:94
-#, fuzzy
 msgid "See all versions"
-msgstr "Lihat semua ekstensi"
+msgstr "Lihat semua versi"
 
 #: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
@@ -275,9 +271,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr "oleh %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
-#, fuzzy
 msgid "Edit my review"
-msgstr "Tulis ulasan"
+msgstr "Edit ulasan saya"
 
 #: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
@@ -376,9 +371,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Edisi Beta, Nightly, Pembangun"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "Dasar Privasi"
+msgstr "Privasi"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
@@ -389,9 +383,8 @@ msgid "Legal"
 msgstr "Perundangan"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Laporkan pepijat"
+msgstr "Lapor Penyalahgunaan Cap Dagangan"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
@@ -406,9 +399,8 @@ msgid "Go to Mozilla's homepage"
 msgstr "Pergi ke halaman utama Mozilla"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "Pautan Add-on"
+msgstr "Add-ons"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -616,9 +608,8 @@ msgid "Explore all categories"
 msgstr "Teroka semua kategori"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "Cari pek bahasa"
+msgstr "Tukar bahasa"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -649,9 +640,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Bagaimana anda menikmati pengalaman anda dengan %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "Log masuk untuk menilaikan add-on ini"
+msgstr "Anda telah membuat laporan terhadap add-on ini kerana ada isu penyalahgunaan"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -668,29 +658,28 @@ msgstr ""
 "ini."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Pergi ke halaman add-on"
+msgstr "Buat laporan terhadap add-on ini kerana ada isu penyalahgunaan"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Jangan gunakan borang ini untuk melaporkan pepijat atau membuat permintaan ciri add-on; laporan ini akan dihantar kepada Mozilla dan bukan kepada pembangun add-on."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Jelaskan kenapa add-on ini menyalahi polisi kami."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Abai"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Menghantar laporan penyalahgunaan"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Hantar laporan penyalahgunaan"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
