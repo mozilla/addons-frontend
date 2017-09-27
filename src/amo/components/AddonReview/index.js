@@ -237,16 +237,14 @@ export const mapDispatchToProps = (
   dispatch: DispatchFunc,
   ownProps: AddonReviewProps
 ): DispatchMappedPropTypes => {
+  // The mapped properties that allow overrides do so for testing purposes.
   return {
-    // TODO: maybe don't allow dependency injection here.
     refreshAddon: ownProps.refreshAddon || (({ addonSlug, apiState }) => {
       return refreshAddon({ addonSlug, apiState, dispatch });
     }),
     setDenormalizedReview: (review) => {
       dispatch(setDenormalizedReview(review));
     },
-    // TODO: convert tests that do dependency injection for
-    // updateReviewText to using dispatch stubs instead.
     updateReviewText: ownProps.updateReviewText || ((params) => {
       return submitReview(params)
         .then((review) => dispatch(setReview(review)));
