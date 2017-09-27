@@ -5,11 +5,17 @@
     "document": true,
     "webpackIsomorphicTools": true,
     "ga": true,
+    // https://flow.org/en/docs/types/utilities/#toc-propertytype
+    "$PropertyType": true,
+    // This is an undocumented utility that ships with Flow
+    // https://github.com/facebook/flow/issues/875
+    "$Shape": true,
+    // See: https://github.com/facebook/flow/issues/1609
+    "SyntheticEvent": true,
+    // Standard DOM globals:
     "HTMLElement": true,
     "HTMLInputElement": true,
     "Node": true,
-    // See: https://github.com/facebook/flow/issues/1609
-    "SyntheticEvent": true,
   },
   "parser": "babel-eslint",
   "plugins": [

@@ -97,6 +97,8 @@ describe(__filename, () => {
       expect(root.find(AddonReviewListItem)).toHaveLength(4);
       // Do a sanity check on the first placeholder;
       expect(root.find(AddonReviewListItem).at(0))
+        .toHaveProp('addon', undefined);
+      expect(root.find(AddonReviewListItem).at(0))
         .toHaveProp('review', null);
     });
 
@@ -341,20 +343,33 @@ describe(__filename, () => {
     });
 
     it('renders a list of reviews with ratings', () => {
+      const addon = fakeAddon;
+      const internalAddon = createInternalAddon(addon);
       const reviews = [
         { ...fakeReview, id: 1, rating: 1 },
         { ...fakeReview, id: 2, rating: 2 },
       ];
-      dispatchAddon();
+      dispatchAddon(addon);
       dispatchAddonReviews({ reviews });
+
       const tree = render();
+
       const items = tree.find(AddonReviewListItem);
       expect(items).toHaveLength(2);
+
+      // First review.
+      expect(items.at(0)).toHaveProp('addon');
+      expect(items.at(0).prop('addon')).toMatchObject(internalAddon);
 
       expect(items.at(0)).toHaveProp('review');
       expect(items.at(0).prop('review')).toMatchObject({
         rating: reviews[0].rating,
       });
+
+      // Second review.
+      expect(items.at(1)).toHaveProp('addon');
+      expect(items.at(1).prop('addon')).toMatchObject(internalAddon);
+
       expect(items.at(1)).toHaveProp('review');
       expect(items.at(1).prop('review')).toMatchObject({
         rating: reviews[1].rating,

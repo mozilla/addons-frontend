@@ -1,5 +1,17 @@
 /* @flow */
-import { SET_ADDON_REVIEWS, SET_REVIEW } from 'amo/constants';
+import { oneLine } from 'common-tags';
+
+import {
+  SEND_REPLY_TO_REVIEW,
+  SHOW_EDIT_REVIEW_FORM,
+  SHOW_REPLY_TO_REVIEW_FORM,
+  HIDE_EDIT_REVIEW_FORM,
+  HIDE_REPLY_TO_REVIEW_FORM,
+  SET_ADDON_REVIEWS,
+  SET_REVIEW,
+  SET_REVIEW_REPLY,
+} from 'amo/constants';
+import { denormalizeReview } from 'amo/actions/reviews';
 import type { UserReviewType } from 'amo/actions/reviews';
 
 type ReviewsById = {
@@ -13,9 +25,18 @@ type ReviewsByAddon = {
   |},
 }
 
+type ViewStateByReviewId = {|
+  editingReview: boolean,
+  replyingToReview: boolean,
+  submittingReply: boolean,
+|};
+
 export type ReviewState = {|
   byAddon: ReviewsByAddon,
   byId: ReviewsById,
+  view: {
+    [reviewId: number]: ViewStateByReviewId,
+  },
 
   // This is what the current data structure looks like:
   // [userId: string]: {
@@ -36,6 +57,8 @@ export type ReviewState = {|
 export const initialState: ReviewState = {
   byAddon: {},
   byId: {},
+  // This stores review-related UI state.
+  view: {},
 };
 
 type ExpandReviewObjectsParams = {|
@@ -93,11 +116,68 @@ export const storeReviewObjects = (
   return byId;
 };
 
+type ChangeViewStateParams = {|
+  state: ReviewState,
+  reviewId: number,
+  stateChange: $Shape<ViewStateByReviewId>,
+|};
+
+export const changeViewState = (
+  { state, reviewId, stateChange }: ChangeViewStateParams = {}
+): $Shape<ReviewState> => {
+  return {
+    ...state,
+    view: {
+      ...state.view,
+      [reviewId]: {
+        editingReview: false,
+        replyingToReview: false,
+        submittingReply: false,
+        ...state.view[reviewId],
+        ...stateChange,
+      },
+    },
+  };
+};
+
 export default function reviewsReducer(
   state: ReviewState = initialState,
   { payload, type }: {| payload: any, type: string |},
 ) {
   switch (type) {
+    case SEND_REPLY_TO_REVIEW:
+      return changeViewState({
+        state,
+        reviewId: payload.originalReviewId,
+        stateChange: { submittingReply: true },
+      });
+    case SHOW_EDIT_REVIEW_FORM:
+      return changeViewState({
+        state,
+        reviewId: payload.reviewId,
+        stateChange: { editingReview: true },
+      });
+    case SHOW_REPLY_TO_REVIEW_FORM:
+      return changeViewState({
+        state,
+        reviewId: payload.reviewId,
+        stateChange: { replyingToReview: true },
+      });
+    case HIDE_EDIT_REVIEW_FORM:
+      return changeViewState({
+        state,
+        reviewId: payload.reviewId,
+        stateChange: { editingReview: false },
+      });
+    case HIDE_REPLY_TO_REVIEW_FORM:
+      return changeViewState({
+        state,
+        reviewId: payload.reviewId,
+        stateChange: {
+          replyingToReview: false,
+          submittingReply: false,
+        },
+      });
     case SET_REVIEW: {
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
@@ -112,6 +192,24 @@ export default function reviewsReducer(
           // isLatest flag.
           // https://github.com/mozilla/addons-frontend/issues/3221
           [payload.addonId]: mergeInNewReview(latestReview, existingReviews),
+        },
+      };
+    }
+    case SET_REVIEW_REPLY: {
+      const reviewId = payload.originalReviewId;
+      const review = state.byId[reviewId];
+      if (!review) {
+        throw new Error(oneLine`Cannot store reply to review ID
+          ${reviewId} because it does not exist`);
+      }
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [review.id]: {
+            ...review,
+            reply: denormalizeReview(payload.reply),
+          },
         },
       };
     }

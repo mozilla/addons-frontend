@@ -62,9 +62,18 @@ export function getFakeAddonManagerWrapper({
   };
 }
 
+/*
+ * A promise resolution callback for expecting rejected promises.
+ *
+ * For example:
+ *
+ * return somePromiseThatShouldFail()
+ *   .then(unexpectedSuccess, (error) => {
+ *     expect(error.message).toMatch(/the error/);
+ *   });
+ */
 export function unexpectedSuccess() {
-  // TODO: fix this so that the failure message is better.
-  return expect(false).toBe(true);
+  return Promise.reject(new Error('The promise succeeded unexpectedly'));
 }
 
 export function JedSpy(data = {}) {

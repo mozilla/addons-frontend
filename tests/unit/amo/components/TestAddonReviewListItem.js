@@ -1,18 +1,29 @@
 import React from 'react';
 
-import { denormalizeReview } from 'amo/actions/reviews';
+import {
+  hideEditReviewForm,
+  hideReplyToReviewForm,
+  sendReplyToReview,
+  setReview,
+  setReviewReply,
+  showEditReviewForm,
+  showReplyToReviewForm,
+} from 'amo/actions/reviews';
 import AddonReview from 'amo/components/AddonReview';
 import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
+import { ErrorHandler } from 'core/errorHandler';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
-  dispatchClientMetadata, dispatchSignInActions, fakeReview,
+  dispatchClientMetadata, dispatchSignInActions, fakeAddon, fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   getFakeI18nInst,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
@@ -35,11 +46,22 @@ describe(__filename, () => {
     );
   };
 
+  const getReviewFromState = (reviewId) => {
+    const review = store.getState().reviews.byId[reviewId];
+    expect(review).toBeDefined();
+    return review;
+  };
+
+  const _setReview = (externalReview) => {
+    store.dispatch(setReview(externalReview));
+    return getReviewFromState(externalReview.id);
+  };
+
   const signInAndDispatchSavedReview = ({
     siteUserId = 123, reviewUserId = siteUserId,
   } = {}) => {
     dispatchSignInActions({ store, userId: siteUserId });
-    return denormalizeReview({
+    return _setReview({
       ...fakeReview,
       user: {
         ...fakeReview.user,
@@ -48,9 +70,23 @@ describe(__filename, () => {
     });
   };
 
+  const signInAsAddonDeveloper = ({ developerUserId = 51123 } = {}) => {
+    dispatchSignInActions({ store, userId: developerUserId });
+
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      authors: [{
+        ...fakeAddon.authors[0],
+        id: developerUserId,
+      }],
+    });
+
+    return { addon };
+  };
+
   it('renders a review', () => {
     const root = render({
-      review: denormalizeReview({
+      review: _setReview({
         ...fakeReview, id: 1, rating: 2,
       }),
     });
@@ -75,7 +111,7 @@ describe(__filename, () => {
       body: "It's awesome \n isn't it?",
     };
     const root = render({
-      review: denormalizeReview(fakeReviewWithNewLine),
+      review: _setReview(fakeReviewWithNewLine),
     });
 
     expect(root.find('p').render().find('br'))
@@ -93,61 +129,313 @@ describe(__filename, () => {
       .find(LoadingText)).toHaveLength(1);
   });
 
-  it('does not render review controls unless the user wrote a review', () => {
+  it('does not render an edit link when no review exists', () => {
     dispatchSignInActions({ store });
     const root = render({ review: null });
 
-    expect(root.find('.AddonReviewListItem-controls')).toHaveLength(0);
+    expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
   });
 
-  it('does not render controls when the review belongs to another user', () => {
+  it('cannot edit without a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review: null });
+
+    root.instance().onClickToEditReview(createFakeEvent());
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not render edit link when review belongs to another user', () => {
     const review = signInAndDispatchSavedReview({
       siteUserId: 123, reviewUserId: 987,
     });
     const root = render({ review });
 
-    expect(root.find('.AddonReviewListItem-controls')).toHaveLength(0);
+    expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
   });
 
-  it('lets you edit your review', () => {
+  it('lets you begin editing your review', () => {
     const review = signInAndDispatchSavedReview();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
 
     const editButton = root.find('.AddonReviewListItem-edit');
     editButton.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(dispatchSpy, showEditReviewForm({
+      reviewId: review.id,
+    }));
+  });
+
+  it('configures the edit-review form', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(showEditReviewForm({ reviewId: review.id }));
+    const root = render({ review });
 
     const reviewComponent = root.find(AddonReview);
     expect(reviewComponent).toHaveLength(1);
     expect(reviewComponent).toHaveProp('review', review);
   });
 
+  it('lets the developer reply to a review', () => {
+    const { addon } = signInAsAddonDeveloper();
+    const review = _setReview({
+      ...fakeReview,
+      addon: {
+        ...fakeReview.addon,
+        id: addon.id,
+      },
+    });
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ addon, review });
+
+    const editButton = root.find('.AddonReviewListItem-begin-reply');
+    expect(editButton).toHaveLength(1);
+    editButton.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(fakeDispatch, showReplyToReviewForm({
+      reviewId: review.id,
+    }));
+  });
+
+  it('cannot begin a review reply without a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review: null });
+
+    root.instance().onClickToBeginReviewReply(createFakeEvent());
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('hides reply button when already replying to a review', () => {
+    const { addon } = signInAsAddonDeveloper();
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    const root = render({ addon, review });
+
+    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+  });
+
+  it('cannot dismiss a review reply without a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review: null });
+
+    root.instance().onDismissReviewReply();
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('configures a reply-to-review text form', () => {
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+    const root = render({ review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveLength(1);
+    expect(textForm)
+      .toHaveProp('placeholder', 'Write a reply to this review.');
+    expect(textForm)
+      .toHaveProp('submitButtonText', 'Submit reply');
+    expect(textForm)
+      .toHaveProp('submitButtonInProgressText', 'Submitting reply');
+  });
+
+  it('dispatches a finish action when dismissing a reply-to-review text form', () => {
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveProp('onDismiss');
+
+    const onDismiss = textForm.prop('onDismiss');
+    onDismiss();
+
+    sinon.assert.calledWith(fakeDispatch, hideReplyToReviewForm({
+      reviewId: review.id,
+    }));
+  });
+
+  it('submits the reply-to-review form', () => {
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review });
+    const errorHandler = root.instance().props.errorHandler;
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveProp('onSubmit');
+
+    const onSubmit = textForm.prop('onSubmit');
+    const replyBody = 'Body of the review';
+    onSubmit({ text: replyBody });
+
+    sinon.assert.calledWith(fakeDispatch, sendReplyToReview({
+      errorHandlerId: errorHandler.id,
+      originalReviewId: review.id,
+      body: replyBody,
+    }));
+  });
+
+  it('sets the reply form state when submitting', () => {
+    const review = _setReview(fakeReview);
+
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    store.dispatch(sendReplyToReview({
+      body: 'A developer reply',
+      errorHandlerId: 'some-id',
+      originalReviewId: review.id,
+    }));
+
+    const root = render({ review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveProp('isSubmitting', true);
+  });
+
+  it('sets the reply form state when not submitting', () => {
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+    const root = render({ review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveProp('isSubmitting', false);
+  });
+
+  it('cannot submit a reply without a review', () => {
+    const root = render({ review: null });
+
+    expect(() => {
+      root.instance().onSubmitReviewReply({ text: 'some review' });
+    }).toThrow(/review property cannot be empty/);
+  });
+
+  it('hides the reply-to-review form according to view state', () => {
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    store.dispatch(hideReplyToReviewForm({ reviewId: review.id }));
+
+    const root = render({ review });
+
+    expect(root.find('.AddonReviewListItem-reply-form')).toHaveLength(0);
+  });
+
+  it('hides the reply-to-review link after a reply has been sent', () => {
+    const { addon } = signInAsAddonDeveloper();
+    const reviewId = 331;
+    _setReview({
+      ...fakeReview,
+      id: reviewId,
+      addon: {
+        ...fakeReview.addon,
+        id: addon.id,
+      },
+    });
+
+    store.dispatch(setReviewReply({
+      originalReviewId: reviewId,
+      reply: {
+        ...fakeReview,
+        id: 431,
+        body: 'Some reply to the review',
+      },
+    }));
+    const review = getReviewFromState(reviewId);
+
+    const root = render({ addon, review });
+
+    // This link should be hidden now that a reply has been sent.
+    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+  });
+
+  it('ignores other review related view actions', () => {
+    const thisReview = _setReview({ ...fakeReview, id: 1 });
+    const anotherReview = _setReview({ ...fakeReview, id: 2 });
+
+    store.dispatch(showReplyToReviewForm({ reviewId: anotherReview.id }));
+
+    const root = render({ review: thisReview });
+
+    expect(root.find('.AddonReviewListItem-reply-form')).toHaveLength(0);
+  });
+
   it('hides AddonReview when the overlay is escaped', () => {
     const review = signInAndDispatchSavedReview();
+    store.dispatch(showEditReviewForm({ reviewId: review.id }));
+    const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
-    root.setState({ editingReview: true });
 
     const reviewComponent = root.find(AddonReview);
-    expect(reviewComponent).toHaveLength(1);
+    expect(reviewComponent).toHaveProp('onEscapeOverlay');
 
     const onEscapeOverlay = reviewComponent.prop('onEscapeOverlay');
     // Simulate escaping the review.
     onEscapeOverlay();
 
-    expect(root.find(AddonReview)).toHaveLength(0);
+    sinon.assert.calledWith(dispatchSpy, hideEditReviewForm({
+      reviewId: review.id,
+    }));
   });
 
-  it('hides AddonReview after a review has been submitted', () => {
+  it('cannot escape a review edit form without a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review: null });
+
+    root.instance().onEscapeReviewOverlay();
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('hides AddonReview when edit review form is submitted', () => {
     const review = signInAndDispatchSavedReview();
+    store.dispatch(showEditReviewForm({ reviewId: review.id }));
+    const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ review });
-    root.setState({ editingReview: true });
 
     const reviewComponent = root.find(AddonReview);
-    expect(reviewComponent).toHaveLength(1);
+    expect(reviewComponent).toHaveProp('onReviewSubmitted');
 
     const onReviewSubmitted = reviewComponent.prop('onReviewSubmitted');
     // Simulate submitting the review.
     onReviewSubmitted();
 
+    sinon.assert.calledWith(dispatchSpy, hideEditReviewForm({
+      reviewId: review.id,
+    }));
+  });
+
+  it('cannot handle submitting a review form without a review', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ review: null });
+
+    root.instance().onReviewSubmitted();
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('hides AddonReview after the hide action is dispatched', () => {
+    const review = signInAndDispatchSavedReview();
+    store.dispatch(showEditReviewForm({ reviewId: review.id }));
+    store.dispatch(hideEditReviewForm({ reviewId: review.id }));
+    const root = render({ review });
+
     expect(root.find(AddonReview)).toHaveLength(0);
+  });
+
+  it('renders errors', () => {
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('unexpected error'));
+    const root = render({ errorHandler });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 });

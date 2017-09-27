@@ -88,7 +88,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  *     const { errorHandler } = this.props;
  *     return (
  *       <div>
- *         {errorHandler.hasErrorIfPresent()}
+ *         {errorHandler.renderErrorIfPresent()}
  *         <div>some content</div>
  *       </div>
  *     );

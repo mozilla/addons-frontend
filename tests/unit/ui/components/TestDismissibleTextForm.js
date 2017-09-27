@@ -115,7 +115,7 @@ describe(__filename, () => {
 
     // Make sure the default textarea value was cleared.
     expect(root.find('.DismissibleTextForm-textarea'))
-      .toHaveProp('defaultValue', null);
+      .toHaveProp('defaultValue', '');
   });
 
   it('calls back when submitting the form', () => {
