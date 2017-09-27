@@ -15,7 +15,7 @@
 
 .SectionLinks-link,
 .SectionLinks-link:link {
-  color: $grey-50;
+  color: $grey-40;
   font-weight: 400;
   margin: 0 12px;
   padding: 0 0 2px;
@@ -25,7 +25,7 @@
 
   &:focus,
   &:hover {
-    border-bottom: 3px solid $grey-50;
+    border-bottom: 3px solid $grey-40;
   }
 
   &:active {
