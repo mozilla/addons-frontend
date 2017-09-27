@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 01:31+0000\n"
+"PO-Revision-Date: 2017-09-27 01:44+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -400,11 +400,11 @@ msgstr "Extensões"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -412,7 +412,7 @@ msgstr "Central do Desenvolvedor"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Fórum"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -424,7 +424,7 @@ msgstr "Relatar um bug"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "Status do site"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
@@ -656,23 +656,23 @@ msgstr "Denunciar esta extensão por abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Por favor, não utilize este formulário para denunciar bugs ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Explique como esta extensão está violando nossas políticas."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Descartar"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Enviando denúncia de abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Enviar denúncia de abuso"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
