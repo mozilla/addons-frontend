@@ -281,3 +281,27 @@ export function dispatchAutocompleteResults({
 
   return { store };
 }
+
+export const createFakeCollectionDetail = ({ name = 'my-collection' } = {}) => {
+  return {
+    author: {
+      name: 'John Doe',
+    },
+    description: 'some description',
+    id: Date.now(),
+    public: true,
+    name,
+    addon_count: 123,
+  };
+};
+
+export const createFakeCollectionAddons = ({ addons = [fakeAddon] } = {}) => {
+  return {
+    count: addons.length,
+    results: addons.map((addon) => ({
+      addon,
+      downloads: 0,
+      notes: null,
+    })),
+  };
+};

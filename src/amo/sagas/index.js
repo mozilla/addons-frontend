@@ -6,6 +6,7 @@ import { all, fork } from 'redux-saga/effects';
 
 import addonsByAuthors from 'amo/sagas/addonsByAuthors';
 import categories from 'amo/sagas/categories';
+import collections from 'amo/sagas/collections';
 import featured from 'amo/sagas/featured';
 import landing from 'amo/sagas/landing';
 import reviews from 'amo/sagas/reviews';
@@ -24,6 +25,7 @@ export default function* rootSaga() {
     fork(addonsByAuthors),
     fork(autocomplete),
     fork(categories),
+    fork(collections),
     fork(featured),
     fork(landing),
     fork(reviews),

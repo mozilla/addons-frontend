@@ -10,6 +10,7 @@ describe('amo createStore', () => {
       'api',
       'autocomplete',
       'categories',
+      'collections',
       'errorPage',
       'errors',
       'featured',
