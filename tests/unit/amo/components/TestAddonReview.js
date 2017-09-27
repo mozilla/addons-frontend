@@ -17,7 +17,11 @@ import OverlayCard from 'ui/components/OverlayCard';
 import Rating from 'ui/components/Rating';
 
 const defaultReview = {
-  id: 3321, addonId: fakeAddon.id, addonSlug: fakeAddon.slug, rating: 5,
+  addonId: fakeAddon.id,
+  addonSlug: fakeAddon.slug,
+  body: undefined,
+  id: 3321,
+  rating: 5,
 };
 
 function fakeLocalState(overrides = {}) {
@@ -275,6 +279,32 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
       ...review,
+      rating: newRating,
+    }));
+  });
+
+  it('preserves inputted text when you change the star rating', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const review = { ...defaultReview };
+    const root = render({
+      review,
+      // Unset this so that it uses the default mapped property.
+      setDenormalizedReview: undefined,
+    });
+
+    const enteredReviewText = 'some text';
+    root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
+      target: { value: enteredReviewText },
+    }));
+
+    const rating = root.find(Rating);
+    const onSelectRating = rating.prop('onSelectRating');
+    const newRating = 1;
+    onSelectRating(newRating);
+
+    sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
+      ...review,
+      body: enteredReviewText,
       rating: newRating,
     }));
   });
