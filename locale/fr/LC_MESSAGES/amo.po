@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 14:11+0000\n"
+"PO-Revision-Date: 2017-09-27 14:17+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -373,9 +373,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "Politique de confidentialité"
+msgstr "Confidentialité"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
@@ -386,9 +385,8 @@ msgid "Legal"
 msgstr "Mentions légales"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Signaler un problème"
+msgstr "Signaler un abus de marque déposée"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
@@ -403,9 +401,8 @@ msgid "Go to Mozilla's homepage"
 msgstr "Aller à la page d’accueil de Mozilla"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "Liens du module"
+msgstr "Modules complémentaires"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -649,28 +646,27 @@ msgstr "Vous avez signalé ce module complémentaire"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Nous avons reçu votre rapport. Merci de nous signaler tout problème avec ce module."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Nous ne pouvons répondre à tous les signalements, mais nous allons nous pencher sur ce problème."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Ouvrir la page du module"
+msgstr "Signaler ce module"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Merci de ne pas utiliser ce formulaire pour signaler des problèmes ou pour demander l’ajout de fonctionnalités à ce module. Ce formulaire est envoyé à Mozilla et non au développeur du module."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Merci d’expliquer comment ce module va à l’encontre de nos politiques."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
@@ -682,7 +678,7 @@ msgstr "Signalement en cours"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Signaler"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -691,25 +687,22 @@ msgstr[0] "%(count)s extension trouvée pour « %(query)s »"
 msgstr[1] "%(count)s extension trouvées pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s résultat pour « %(query)s »"
-msgstr[1] "%(count)s résultats pour « %(query)s »"
+msgstr[0] "%(count)s dictionnaire trouvé pour « %(query)s »"
+msgstr[1] "%(count)s dictionnaires trouvés pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s résultat pour « %(query)s »"
-msgstr[1] "%(count)s résultats pour « %(query)s »"
+msgstr[0] "%(count)s paquetage linguistique trouvé pour « %(query)s »"
+msgstr[1] "%(count)s paquetages linguistiques trouvés pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s résultat pour « %(query)s »"
-msgstr[1] "%(count)s résultats pour « %(query)s »"
+msgstr[0] "%(count)s thème trouvé pour « %(query)s »"
+msgstr[1] "%(count)s thèmes trouvés pour « %(query)s »"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
