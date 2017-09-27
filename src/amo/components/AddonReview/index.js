@@ -16,7 +16,7 @@ import defaultLocalStateCreator, { LocalState } from 'core/localState';
 import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
 import Rating from 'ui/components/Rating';
-import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
+import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/index';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
