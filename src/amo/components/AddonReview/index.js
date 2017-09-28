@@ -16,7 +16,7 @@ import defaultLocalStateCreator, { LocalState } from 'core/localState';
 import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
 import Rating from 'ui/components/Rating';
-import type { SetReviewAction, UserReviewType } from 'amo/actions/reviews';
+import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/index';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
@@ -25,18 +25,27 @@ import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
+type SetDenormalizedReviewFunction = (review: $Shape<UserReviewType>) => void;
+
+type RefreshAddonFunction = (
+  params: {| addonSlug: string, apiState: ApiStateType |}
+) => Promise<void>;
+
+type UpdateReviewTextFunction =
+  (review: $Shape<SubmitReviewParams>) => Promise<void>;
+
 type AddonReviewProps = {|
-  apiState?: ApiStateType,
+  apiState: ApiStateType,
   createLocalState: typeof defaultLocalStateCreator,
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
   i18n: Object,
   onEscapeOverlay?: () => void,
   onReviewSubmitted: () => void | Promise<void>,
-  refreshAddon: () => Promise<void>,
+  refreshAddon: RefreshAddonFunction,
   review: UserReviewType,
-  setDenormalizedReview: (review: $Shape<UserReviewType>) => SetReviewAction,
-  updateReviewText: (review: $Shape<SubmitReviewParams>) => Promise<void>,
+  setDenormalizedReview: SetDenormalizedReviewFunction,
+  updateReviewText: UpdateReviewTextFunction,
 |};
 
 type AddonReviewState = {|
@@ -46,8 +55,6 @@ type AddonReviewState = {|
 export class AddonReviewBase extends React.Component {
   localState: LocalState;
   props: AddonReviewProps;
-  reviewForm: Node;
-  reviewPrompt: Node;
   reviewTextarea: HTMLElement;
   state: AddonReviewState;
 
@@ -146,6 +153,7 @@ export class AddonReviewBase extends React.Component {
     // to the API yet.
     this.props.setDenormalizedReview({
       ...this.props.review,
+      body: this.state.reviewBody || undefined,
       rating,
     });
   }
@@ -181,13 +189,13 @@ export class AddonReviewBase extends React.Component {
         className="AddonReview"
       >
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
-        <p ref={(ref) => { this.reviewPrompt = ref; }}>{prompt}</p>
+        <p className="AddonReview-prompt">{prompt}</p>
         <Rating
           styleName="large"
           rating={review.rating}
           onSelectRating={this.onSelectRating}
         />
-        <form onSubmit={this.onSubmit} ref={(ref) => { this.reviewForm = ref; }}>
+        <form className="AddonReview-form" onSubmit={this.onSubmit}>
           <div className="AddonReview-form-input">
             {errorHandler.renderErrorIfPresent()}
             <label htmlFor="AddonReview-textarea" className="visually-hidden">
@@ -218,20 +226,30 @@ export const mapStateToProps = (state: {| api: ApiStateType |}) => ({
   apiState: state.api,
 });
 
-export const mapDispatchToProps = (dispatch: DispatchFunc) => ({
-  refreshAddon(
-    { addonSlug, apiState }: {| addonSlug: string, apiState: ApiStateType |},
-  ) {
-    return refreshAddon({ addonSlug, apiState, dispatch });
-  },
-  setDenormalizedReview(review: UserReviewType) {
-    dispatch(setDenormalizedReview(review));
-  },
-  updateReviewText(params: SubmitReviewParams): Promise<void> {
-    return submitReview(params)
-      .then((review) => dispatch(setReview(review)));
-  },
-});
+type DispatchMappedPropTypes = {|
+  refreshAddon: RefreshAddonFunction,
+  setDenormalizedReview: SetDenormalizedReviewFunction,
+  updateReviewText: UpdateReviewTextFunction,
+|};
+
+export const mapDispatchToProps = (
+  dispatch: DispatchFunc,
+  ownProps: AddonReviewProps
+): DispatchMappedPropTypes => {
+  // The mapped properties that allow overrides do so for testing purposes.
+  return {
+    refreshAddon: ownProps.refreshAddon || (({ addonSlug, apiState }) => {
+      return refreshAddon({ addonSlug, apiState, dispatch });
+    }),
+    setDenormalizedReview: (review) => {
+      dispatch(setDenormalizedReview(review));
+    },
+    updateReviewText: ownProps.updateReviewText || ((params) => {
+      return submitReview(params)
+        .then((review) => dispatch(setReview(review)));
+    }),
+  };
+};
 
 export default compose(
   withErrorHandler({ name: 'AddonReview' }),
