@@ -1,48 +1,59 @@
 import { mount } from 'enzyme';
 import React from 'react';
 
-import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import ReportAbuseButton, {
+  ReportAbuseButtonBase,
+} from 'amo/components/ReportAbuseButton';
+import { setError } from 'core/actions/errors';
+import I18nProvider from 'core/i18n/Provider';
 import {
   disableAbuseButtonUI,
   enableAbuseButtonUI,
   loadAddonAbuseReport,
   sendAddonAbuseReport,
 } from 'core/reducers/abuse';
+import ErrorList from 'ui/components/ErrorList';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createFakeAddonAbuseReport,
   createFakeEvent,
   createStubErrorHandler,
   getFakeI18nInst,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
-  function renderMount({
-    addon = { ...fakeAddon, slug: 'my-addon' },
-    errorHandler = createStubErrorHandler(),
-    store = dispatchClientMetadata().store,
-    ...props
-  } = {}) {
+  const defaultRenderProps = {
+    addon: { ...fakeAddon, slug: 'my-addon' },
+    errorHandler: createStubErrorHandler(),
+    i18n: getFakeI18nInst(),
+    store: dispatchClientMetadata().store,
+  };
+
+  function renderMount({ ...props } = {}) {
     return mount(
-      <ReportAbuseButton
-        addon={addon}
-        errorHandler={errorHandler}
-        i18n={getFakeI18nInst()}
-        store={store}
-        {...props}
-      />
+      <I18nProvider i18n={props.i18n || defaultRenderProps.i18n}>
+        <ReportAbuseButton {...defaultRenderProps} {...props} />
+      </I18nProvider>
+    );
+  }
+
+  function renderShallow({ ...props } = {}) {
+    return shallowUntilTarget(
+      <ReportAbuseButton {...defaultRenderProps} {...props} />,
+      ReportAbuseButtonBase
     );
   }
 
   it('renders nothing if no add-on exists', () => {
-    const root = renderMount({ addon: null });
+    const root = renderShallow({ addon: null });
 
     expect(root.find('.ReportAbuseButton')).toHaveLength(0);
   });
 
   it('renders a button to report an add-on', () => {
-    const root = renderMount();
+    const root = renderShallow();
 
     expect(root.find('.ReportAbuseButton')).toHaveLength(1);
     expect(root.find('.ReportAbuseButton-show-more').prop('children'))
@@ -52,26 +63,23 @@ describe(__filename, () => {
   });
 
   it('renders a textarea with placeholder for the add-on message', () => {
-    const root = renderMount();
+    const root = renderShallow();
 
     expect(root.find('.ReportAbuseButton-textarea')).toHaveLength(1);
-    expect(
-      root
-        .find('.ReportAbuseButton-textarea')
-        .render()
-        .find('textarea')
-        .attr('placeholder')
-    ).toEqual('Explain how this add-on is violating our policies.');
+    expect(root.find('.ReportAbuseButton-textarea')).toHaveProp(
+      'placeholder', 'Explain how this add-on is violating our policies.');
   });
 
   it('shows the preview content when first rendered', () => {
-    const root = renderMount();
+    const root = renderShallow();
 
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(0);
   });
 
   it('shows more content when the "report" button is clicked', () => {
     const fakeEvent = createFakeEvent();
+    // We need to use mount here because we're interacting with refs. (In
+    // this case, the textarea.)
     const root = renderMount();
 
     root.find('.ReportAbuseButton-show-more').simulate('click', fakeEvent);
@@ -82,9 +90,11 @@ describe(__filename, () => {
 
   it('dismisses more content when the "dismiss" button is clicked', () => {
     const fakeEvent = createFakeEvent();
+    // We need to use mount here because we're interacting with refs. (In
+    // this case, the textarea.)
     const root = renderMount();
 
-    root.find('.ReportAbuseButton-show-more').simulate('click');
+    root.find('.ReportAbuseButton-show-more').simulate('click', fakeEvent);
 
     root.find('.ReportAbuseButton-dismiss-report')
       .simulate('click', fakeEvent);
@@ -94,7 +104,7 @@ describe(__filename, () => {
   });
 
   it('disables the submit button if there is no abuse report', () => {
-    const root = renderMount();
+    const root = renderShallow();
 
     expect(root.find('.ReportAbuseButton-send-report')).toHaveProp('disabled');
   });
@@ -130,7 +140,7 @@ describe(__filename, () => {
 
     // Expand the view so we can test that it wasn't contracted when
     // clicking on the disabled "dismiss" link.
-    root.find('.ReportAbuseButton-show-more').simulate('click');
+    root.find('.ReportAbuseButton-show-more').simulate('click', fakeEvent);
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
 
     const dismissButton = root.find('.ReportAbuseButton-dismiss-report');
@@ -154,7 +164,7 @@ describe(__filename, () => {
       message: 'Seriously, where is my money?!',
     });
     store.dispatch(loadAddonAbuseReport(abuseResponse));
-    const root = renderMount({ addon, store });
+    const root = renderShallow({ addon, store });
 
     expect(root.find('.ReportAbuseButton--report-sent')).toHaveLength(1);
     expect(root.find('.ReportAbuseButton-show-more')).toHaveLength(0);
@@ -303,5 +313,17 @@ describe(__filename, () => {
     // Make sure preventDefault was called; we then know the sendReport()
     // method was called.
     sinon.assert.called(fakeEvent.preventDefault);
+  });
+
+  it('renders an error if one exists', () => {
+    const errorHandler = createStubErrorHandler();
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setError({
+      error: new Error('something bad'),
+      id: errorHandler.id,
+    }));
+    const root = renderShallow({ errorHandler, store });
+
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 });
