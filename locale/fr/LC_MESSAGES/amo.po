@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 14:17+0000\n"
+"PO-Revision-Date: 2017-09-28 00:38+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -194,11 +194,11 @@ msgstr "Versions bêta"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Cette référence est utile pour déboguer et permet aux administrateurs du site d’identifier le module que vous utilisez."
 
 #: src/amo/components/AddonMoreInfo/index.js:179
 msgid "Site Identifier"
-msgstr ""
+msgstr "Référence du site"
 
 #: src/amo/components/AddonMoreInfo/index.js:194
 msgid "More information"
@@ -655,6 +655,8 @@ msgstr "Nous ne pouvons répondre à tous les signalements, mais nous allons nou
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Si vous pensez que ce module va à l’encontre de la %(linkTagStart)sPolitique de Mozilla sur les modules complémentaires%(linkTagEnd)s, ou si vous pensez que ce module peut poser des problèmes de "
+"sécurité ou porter atteinte à la vie privée, merci de signaler ces problèmes à Mozilla en utilisant ce formulaire."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
