@@ -5,7 +5,7 @@
 
 # Addons-frontend 🔥
 
-Front-end infrastructure and code to complement
+Front-end infrastructure and code created with the purpose to complement
 [mozilla/addons-server](https://github.com/mozilla/addons-server).
 
 ## Security Bug Reports
