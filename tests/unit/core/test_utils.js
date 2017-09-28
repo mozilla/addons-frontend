@@ -12,9 +12,11 @@ import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
 import * as api from 'core/api';
-import { loadAddons } from 'core/reducers/addons';
 import {
+  ADDON_TYPE_COMPLETE_THEME,
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CATEGORY_COLORS,
@@ -30,6 +32,7 @@ import {
 import {
   apiAddonTypeIsValid,
   addQueryParams,
+  addonHasVersionHistory,
   apiAddonType,
   convertBoolean,
   findAddon,
@@ -56,6 +59,7 @@ import {
 } from 'core/utils';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
+import { createInternalAddon, loadAddons } from 'core/reducers/addons';
 import {
   fakeAddon,
   signedInApiState,
@@ -67,6 +71,57 @@ import {
   userAgents,
 } from 'tests/unit/helpers';
 
+
+describe('addonHasVersionHistory', () => {
+  function createAddonWithType(type) {
+    return createInternalAddon({ ...fakeAddon, type });
+  }
+
+  it('requires an addon', () => {
+    expect(() => {
+      addonHasVersionHistory();
+    }).toThrow('addon is required');
+  });
+
+  it('returns false for complete (legacy/XUL) theme', () => {
+    const addon = createAddonWithType(ADDON_TYPE_COMPLETE_THEME);
+
+    expect(addonHasVersionHistory(addon)).toEqual(false);
+  });
+
+  it('returns true for dictionary', () => {
+    const addon = createAddonWithType(ADDON_TYPE_DICT);
+
+    expect(addonHasVersionHistory(addon)).toEqual(true);
+  });
+
+  it('returns true for extension', () => {
+    const addon = createAddonWithType(ADDON_TYPE_EXTENSION);
+
+    expect(addonHasVersionHistory(addon)).toEqual(true);
+  });
+
+  it('returns true for language pack', () => {
+    const addon = createAddonWithType(ADDON_TYPE_LANG);
+
+    expect(addonHasVersionHistory(addon)).toEqual(true);
+  });
+
+  it('returns false for search tool', () => {
+    // Search plugins only have one listed version so showing their
+    // version history is useless. It's best to just say they don't
+    // have a history.
+    const addon = createAddonWithType(ADDON_TYPE_OPENSEARCH);
+
+    expect(addonHasVersionHistory(addon)).toEqual(false);
+  });
+
+  it('returns false for theme', () => {
+    const addon = createAddonWithType(ADDON_TYPE_THEME);
+
+    expect(addonHasVersionHistory(addon)).toEqual(false);
+  });
+});
 
 describe('apiAddonType', () => {
   it('maps plural/visible addonTypes to internal types', () => {
