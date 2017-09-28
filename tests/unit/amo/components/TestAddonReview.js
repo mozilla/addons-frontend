@@ -1,5 +1,7 @@
 import React from 'react';
+import { mount } from 'enzyme';
 
+import I18nProvider from 'core/i18n/Provider';
 import { SET_REVIEW } from 'amo/constants';
 import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import * as amoApi from 'amo/api';
@@ -40,8 +42,8 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  const render = (customProps = {}) => {
-    const props = {
+  const renderProps = (customProps = {}) => {
+    return {
       createLocalState: () => fakeLocalState(),
       errorHandler: createStubErrorHandler(),
       i18n: getFakeI18nInst(),
@@ -52,8 +54,21 @@ describe(__filename, () => {
       updateReviewText: () => Promise.resolve(),
       ...customProps,
     };
+  };
+
+  const render = (customProps = {}) => {
+    const props = renderProps(customProps);
     return shallowUntilTarget(
       <AddonReview {...props} />, AddonReviewBase
+    );
+  };
+
+  const mountRender = (customProps = {}) => {
+    const props = renderProps(customProps);
+    return mount(
+      <I18nProvider i18n={props.i18n}>
+        <AddonReview {...props} />
+      </I18nProvider>
     );
   };
 
@@ -105,6 +120,15 @@ describe(__filename, () => {
 
         sinon.assert.called(onReviewSubmitted);
       });
+  });
+
+  it('focuses the review text on mount', () => {
+    const root = mountRender();
+    // This checks that reviewTextarea.focus() was called.
+    expect(
+      root.find('.AddonReview-textarea')
+        .matchesElement(document.activeElement)
+    ).toEqual(true);
   });
 
   it('it passes onEscapeOverlay to OverlayCard', () => {

@@ -2,6 +2,7 @@
   "extends": "amo",
   "globals": {
     "CLIENT_CONFIG": true,
+    "document": true,
     "webpackIsomorphicTools": true,
     "ga": true,
     "HTMLElement": true,
