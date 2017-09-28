@@ -94,7 +94,7 @@ export class ReportAbuseButtonBase extends React.Component {
   props: PropTypes;
 
   render() {
-    const { abuseReport, addon, i18n, loading } = this.props;
+    const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
 
     if (!addon) {
       return null;
@@ -167,6 +167,9 @@ export class ReportAbuseButtonBase extends React.Component {
             features; this report will be sent to Mozilla and not to the
             add-on developer.`
           )}</p>
+
+          {errorHandler.renderErrorIfPresent()}
+
           <Textarea
             className="ReportAbuseButton-textarea"
             disabled={loading}
