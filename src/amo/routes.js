@@ -21,6 +21,7 @@ import NotAuthorized from './components/ErrorPage/NotAuthorized';
 import NotFound from './components/ErrorPage/NotFound';
 import SearchPage from './components/SearchPage';
 import ServerError from './components/ErrorPage/ServerError';
+import Collection from './components/Collection';
 
 // If you add a new route here, check that the nginx rules maintained by ops
 // are in sync. See:
@@ -31,6 +32,7 @@ export default (
     <IndexRoute component={Home} />
     <Route path="addon/:slug/" component={Addon} />
     <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
+    <Route path="collections/:user/:slug/" component={Collection} />
     <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
     <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
     <Route path=":visibleAddonType/:slug/" component={Category} />

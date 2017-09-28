@@ -1,0 +1,73 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~photon-colors/colors";
+@import "~ui/css/vars";
+
+.Collection {
+  padding: 20px 10px;
+}
+
+.Collection-title {
+  @include font-light();
+
+  font-size: $font-size-l;
+}
+
+.Collection-description {
+  font-size: $font-size-s;
+}
+
+.Collection-metadata {
+  background-color: $grey-10;
+  border-radius: $border-radius-m;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.Collection-number-of-addons,
+.Collection-author-name,
+.Collection-last-updated {
+  @include text-align-start();
+
+  flex: 1;
+  margin: 10px 15px;
+  max-width: 30%;
+
+  dd {
+    margin: 0;
+  }
+
+  dt {
+    color: $grey-50;
+  }
+}
+
+.Collection-author-name-value {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@include respond-to(large) {
+  .Collection-wrapper {
+    display: grid;
+    grid-auto-flow: column dense;
+    grid-gap: 0 10px;
+    grid-template-columns: minmax(300px, 35%) auto;
+    margin: 10px 0 0;
+
+    .Collection-detail {
+      grid-column: 1;
+    }
+
+    .Collection-items {
+      grid-column: 2;
+
+      .CardList {
+        margin-top: 0;
+      }
+    }
+  }
+}

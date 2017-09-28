@@ -1,0 +1,445 @@
+import React from 'react';
+
+import Collection, {
+  CollectionBase,
+  mapStateToProps,
+} from 'amo/components/Collection';
+import AddonsCard from 'amo/components/AddonsCard';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import Paginate from 'core/components/Paginate';
+import ErrorList from 'ui/components/ErrorList';
+import LoadingText from 'ui/components/LoadingText';
+import {
+  fetchCollection,
+  fetchCollectionPage,
+  loadCollection,
+} from 'amo/reducers/collections';
+import { setError } from 'core/actions/errors';
+import { createApiError } from 'core/api/index';
+import { ErrorHandler } from 'core/errorHandler';
+import {
+  createStubErrorHandler,
+  getFakeI18nInst,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import {
+  createFakeCollectionAddons,
+  createFakeCollectionDetail,
+  dispatchClientMetadata,
+} from 'tests/unit/amo/helpers';
+
+
+describe(__filename, () => {
+  const getProps = () => ({
+    dispatch: sinon.stub(),
+    errorHandler: createStubErrorHandler(),
+    i18n: getFakeI18nInst(),
+    location: { query: {} },
+    params: {
+      user: 'user-id-or-name',
+      slug: 'collection-slug',
+    },
+    store: dispatchClientMetadata().store,
+  });
+
+  const renderComponent = ({ ...otherProps } = {}) => {
+    const allProps = {
+      ...getProps(),
+      ...otherProps,
+    };
+
+    return shallowUntilTarget(<Collection {...allProps} />, CollectionBase);
+  };
+
+  it('renders itself', () => {
+    const wrapper = renderComponent();
+
+    expect(wrapper.find('.Collection')).toHaveLength(1);
+    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
+  });
+
+  it('renders loading indicators when there is no collection', () => {
+    const wrapper = renderComponent({ collection: null });
+
+    // We display 5 items on the detail card: title, description, number of
+    // addons, creator, and last modified date.
+    expect(wrapper.find('.Collection-detail').find(LoadingText))
+      .toHaveLength(5);
+    expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
+  });
+
+  it('dispatches fetchCollection on mount', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+
+    renderComponent({ errorHandler, params: { slug, user }, store });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      slug,
+      user,
+    }));
+  });
+
+  it('passes the page from query string to fetchCollection', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+    const page = 123;
+
+    renderComponent({
+      errorHandler,
+      location: { query: { page } },
+      params: { slug, user },
+      store,
+    });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+      errorHandlerId: errorHandler.id,
+      page,
+      slug,
+      user,
+    }));
+  });
+
+  it('does not dispatch any action when nothing has changed', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const wrapper = renderComponent({ store });
+    fakeDispatch.reset();
+
+    // This will trigger the componentWillReceiveProps() method.
+    wrapper.setProps();
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when location has not changed', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const location = { query: {} };
+
+    const wrapper = renderComponent({ location, store });
+    fakeDispatch.reset();
+
+    // This will trigger the componentWillReceiveProps() method.
+    wrapper.setProps({ location });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when loading collection', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+
+    store.dispatch(fetchCollection({
+      errorHandlerId: errorHandler.id,
+      slug,
+      user,
+    }));
+
+    fakeDispatch.reset();
+    renderComponent({ store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when loading collection page', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+
+    store.dispatch(fetchCollectionPage({
+      errorHandlerId: errorHandler.id,
+      page: 123,
+      slug,
+      user,
+    }));
+
+    fakeDispatch.reset();
+    renderComponent({ store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when there is an error', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const wrapper = renderComponent({ store });
+
+    const id = 'error-handler-id';
+    const error = createApiError({
+      response: { status: 500 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Nope.' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    fakeDispatch.reset();
+    wrapper.setProps({ errorHandler });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches fetchCollection when location pathname has changed', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+    const page = 123;
+
+    const location = {
+      pathname: `/collections/${user}/${slug}/`,
+      query: { page },
+    };
+
+    const newSlug = 'other-collection';
+    const newLocation = {
+      ...location,
+      pathname: `/collections/${user}/${newSlug}/`,
+    };
+
+    const wrapper = renderComponent({
+      errorHandler,
+      location,
+      params: { slug, user },
+      store,
+    });
+    fakeDispatch.reset();
+
+    // This will trigger the componentWillReceiveProps() method.
+    wrapper.setProps({
+      location: newLocation,
+      params: { slug: newSlug, user },
+    });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+      errorHandlerId: errorHandler.id,
+      page,
+      slug: newSlug,
+      user,
+    }));
+  });
+
+  it('dispatches fetchCollectionPage when page has changed', () => {
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const page = 123;
+    const location = { query: {} };
+    const newLocation = { query: { page } };
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+
+    const wrapper = renderComponent({
+      errorHandler,
+      location,
+      params: { slug, user },
+      store,
+    });
+    fakeDispatch.reset();
+
+    // This will trigger the componentWillReceiveProps() method.
+    wrapper.setProps({ location: newLocation });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCollectionPage({
+      errorHandlerId: errorHandler.id,
+      page,
+      slug,
+      user,
+    }));
+  });
+
+  it('renders a collection', () => {
+    const store = dispatchClientMetadata().store;
+
+    const collectionAddons = createFakeCollectionAddons();
+    const collectionDetail = createFakeCollectionDetail();
+
+    store.dispatch(loadCollection({
+      addons: collectionAddons,
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
+    expect(wrapper.find(AddonsCard)).toHaveLength(1);
+    expect(wrapper.find(Paginate)).toHaveLength(1);
+  });
+
+  it('renders loading indicator on add-ons when fetching next page', () => {
+    const store = dispatchClientMetadata().store;
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'user-id-or-name';
+
+    // User loads the collection page.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const wrapper = renderComponent({
+      errorHandler,
+      params: { slug, user },
+      store,
+    });
+    expect(wrapper.find(AddonsCard)).toHaveProp('loading', false);
+
+    // User clicks on 'next' pagination link.
+    store.dispatch(fetchCollectionPage({
+      errorHandlerId: errorHandler.id,
+      page: 2,
+      slug,
+      user,
+    }));
+
+    wrapper.setProps(mapStateToProps(store.getState()));
+
+    expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
+    // We should not update the collection detail card.
+    expect(wrapper.find('.Collection-detail').find(LoadingText))
+      .toHaveLength(0);
+  });
+
+  it('renders NotFound page for unauthorized collection - 401 error', () => {
+    const id = 'error-handler-id';
+    const store = dispatchClientMetadata().store;
+
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'unauthorized' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const wrapper = renderComponent({ errorHandler });
+    expect(wrapper.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders NotFound page for forbidden collection - 403 error', () => {
+    const id = 'error-handler-id';
+    const store = dispatchClientMetadata().store;
+
+    const error = createApiError({
+      response: { status: 403 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'forbidden' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const wrapper = renderComponent({ errorHandler });
+    expect(wrapper.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders 404 page for missing collection', () => {
+    const id = 'error-handler-id';
+    const store = dispatchClientMetadata().store;
+
+    const error = createApiError({
+      response: { status: 404 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'not found' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const wrapper = renderComponent({ errorHandler });
+    expect(wrapper.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders an error if one exists', () => {
+    const id = 'error-handler-id';
+    const store = dispatchClientMetadata().store;
+
+    const error = createApiError({
+      response: { status: 500 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Nope.' },
+    });
+    store.dispatch(setError({ id, error }));
+    const capturedError = store.getState().errors[id];
+    expect(capturedError).toBeTruthy();
+
+    const errorHandler = new ErrorHandler({
+      id, dispatch: sinon.stub(), capturedError,
+    });
+
+    const wrapper = renderComponent({ errorHandler });
+    expect(wrapper.find(ErrorList)).toHaveLength(1);
+  });
+});
