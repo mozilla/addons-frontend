@@ -44,7 +44,7 @@ describe('Home', () => {
 
     expect(
       root.find('.Home-category-card--extensions .Home-description')
-    ).toIncludeText('Install powerful tools that make browsing faster');
+    ).toIncludeText('Explore powerful tools and features to customize');
     expect(
       root.find('.Home-category-card--themes .Home-description')
     ).toIncludeText("Change your browser's appearance.");
