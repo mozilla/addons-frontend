@@ -1,16 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import './styles.scss';
 
 
+export type Props = {|
+  // TODO: use React.Node when we use Flow 0.53+
+  alt?: React.Element<*>,
+  className?: string,
+  name: string,
+|};
+
 export default class Icon extends React.Component {
-  static propTypes = {
-    alt: PropTypes.node,
-    className: PropTypes.string,
-    name: PropTypes.string.isRequired,
-  }
+  props: Props;
 
   render() {
     const { alt, className, name, ...props } = this.props;
