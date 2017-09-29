@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-29 14:51+0000\n"
+"PO-Revision-Date: 2017-09-29 14:54+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -651,6 +651,8 @@ msgstr "Wy kinne net op elke misbrûkmelding reagearje, mar sille dit probleem �
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"As jo tinke dat dizze add-on yn striid is mei it %(linkTagStart)sadd-onbelied fan Mozilla%(linkTagEnd)s of befeiligings- of privacyproblemen kent, meld dizze problemen dan by Mozilla fia dit "
+"formulier."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -658,23 +660,23 @@ msgstr "Dizze add-on rapportearje fanwegen misbrûk"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Brûk dit formulier net om flaters te melden of add-on-funksjes oan te freegjen; dizze melding wurdt nei Mozilla ferstjoerd, en net nei de add-on-ûntwikkeler."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Lis út hoe't dizze add-on yn striid is mei ús belied."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Fuortsmite"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Misbrûkmelding ferstjoere"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Misbrûkmelding ferstjoere"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
