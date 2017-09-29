@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-29 19:43+0000\n"
+"PO-Revision-Date: 2017-09-29 21:43+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -370,7 +370,7 @@ msgstr "Prehliadač pre počítače"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Edícia pre vývojárov"
 
 #: src/amo/components/Footer/index.js:138
 msgid "Privacy"
@@ -393,6 +393,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Ak nie je %(startNotedLink)suvedené%(endNotedLink)s inak, je obsah tejto stránky dostupný v rámci licencie %(startLicenseLink)s Creative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s alebo jej akejkoľvek neskoršej verzie."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -448,15 +450,15 @@ msgstr "Nástroje"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Pridanie nového doplnku"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Pridanie novej témy vzhľadu"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "Spravovať kľúče API"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
