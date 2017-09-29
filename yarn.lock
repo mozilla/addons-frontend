@@ -6387,7 +6387,7 @@ promisify-node@^0.4.0:
     nodegit-promise "~4.0.0"
     object-assign "^4.0.1"
 
-prop-types@15.6.0:
+prop-types@15.6.0, prop-types@^15.6.0:
   version "15.6.0"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.0.tgz#ceaf083022fc46b4a35f69e13ef75aed0d639856"
   dependencies:
@@ -6605,9 +6605,9 @@ react-nested-status@0.1.2:
   dependencies:
     react-side-effect "~0.3.0"
 
-react-onclickoutside@6.5.0:
-  version "6.5.0"
-  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.5.0.tgz#c45b39fe0d7f087817a9f5edab8c12349856b640"
+react-onclickoutside@6.6.0:
+  version "6.6.0"
+  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.6.0.tgz#8526d0675fad26558e9f0a400c983b813c99ef3c"
 
 react-photoswipe@1.3.0:
   version "1.3.0"
@@ -6642,11 +6642,11 @@ react-redux@5.0.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
-react-router-scroll@0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-router-scroll/-/react-router-scroll-0.4.2.tgz#4b90e8707edf96eba7f066d94c5b4338bd6848b7"
+react-router-scroll@0.4.3:
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/react-router-scroll/-/react-router-scroll-0.4.3.tgz#40d8bdac2a7a4fc859e02e3f25fcb7f722a1b728"
   dependencies:
-    prop-types "^15.5.6"
+    prop-types "^15.6.0"
     scroll-behavior "^0.9.3"
     warning "^3.0.0"
 
