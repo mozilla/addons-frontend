@@ -40,7 +40,7 @@ describe(__filename, () => {
     };
     const submitReviewResponse = (review = { ...fakeReview }) => {
       return review;
-    }
+    };
 
     it('requires an addonId when posting', async () => {
       const params = {
