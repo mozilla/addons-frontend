@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 14:46+0000\n"
+"PO-Revision-Date: 2017-09-29 08:50+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -657,6 +657,7 @@ msgstr "Докладване на добавката за нарушение"
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
+"Моля не използвайте формуляра да докладвате за дефекти или да изпращате желания за нови възможности на добавката, защото този доклад ще бъде изпратен към Mozilla, а не към разработчика на добавката."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
