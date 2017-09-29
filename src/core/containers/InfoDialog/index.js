@@ -15,7 +15,7 @@ class InfoDialogRaw extends React.Component {
     i18n: PropTypes.object.isRequired,
   }
 
-  handleClickOutside() {
+  handleClickOutside = () => {
     this.props.closeAction();
   }
 
