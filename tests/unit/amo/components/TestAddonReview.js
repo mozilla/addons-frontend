@@ -3,7 +3,7 @@ import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
 import { SET_REVIEW } from 'amo/constants';
-import { setReview } from 'amo/actions/reviews';
+import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
 import * as reviewsApi from 'amo/api/reviews';
 import * as coreUtils from 'core/utils';
 import AddonReview, {
