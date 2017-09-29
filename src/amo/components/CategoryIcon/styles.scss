@@ -11,8 +11,8 @@ $default-icon-size: 64px;
   transform: scale(0.8);
   width: $default-icon-size;
 
-  // Edge does not support CSS mask, but all other browsers do. This avoids
-  // to render a colored square on Edge, because only Edge supports this rule.
+  // This prevents Edge from rendering a square block of color because it can't
+  // mask over the SVG.
   @supports (-ms-ime-align:auto) {
     background: transparent url("./#{$name}.svg") center no-repeat;
     background-size: contain;
