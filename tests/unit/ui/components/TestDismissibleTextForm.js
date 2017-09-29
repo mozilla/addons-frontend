@@ -58,6 +58,13 @@ describe(__filename, () => {
     expect(root).toHaveClassName('some-class');
   });
 
+  it('lets you configure the submit button class', () => {
+    const root = shallowRender({ submitButtonClassName: 'my-class' });
+
+    expect(root.find('.DismissibleTextForm-submit'))
+      .toHaveClassName('my-class');
+  });
+
   it('renders a placeholder', () => {
     const root = shallowRender({
       placeholder: 'Enter some text',

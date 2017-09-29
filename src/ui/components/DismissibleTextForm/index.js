@@ -28,6 +28,7 @@ type PropTypes = {|
   i18n: Object,
   isSubmitting?: boolean,
   placeholder?: string,
+  submitButtonClassName?: string,
   submitButtonText?: string,
   submitButtonInProgressText?: string,
   text?: string,
@@ -84,6 +85,7 @@ export class DismissibleTextFormBase extends React.Component {
       i18n,
       isSubmitting,
       placeholder,
+      submitButtonClassName,
       submitButtonText,
       submitButtonInProgressText,
     } = this.props;
@@ -122,7 +124,12 @@ export class DismissibleTextFormBase extends React.Component {
           </a>
           <Button
             type="submit"
-            className="DismissibleTextForm-submit Button--action Button--small"
+            className={classNames(
+              'DismissibleTextForm-submit',
+              'Button--action',
+              'Button--small',
+              submitButtonClassName,
+            )}
             disabled={sendButtonIsDisabled}
           >
             {isSubmitting ?
