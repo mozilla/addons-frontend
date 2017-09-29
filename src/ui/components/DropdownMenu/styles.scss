@@ -6,8 +6,9 @@
   @include text-align-start();
 
   display: inline-block;
-  padding-bottom: 6px;
-  padding-top: 8px;
+  height: 27px;
+  padding-bottom: 2px;
+  padding-top: 4px;
   position: relative;
 
   // This is needed because `:hover` on mobile prevents the main button to
@@ -24,6 +25,11 @@
         opacity: 1;
       }
     }
+  }
+
+  @include respond-to(medium) {
+    height: auto;
+    padding-bottom: 6px;
   }
 }
 
