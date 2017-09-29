@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
+/* global $PropertyType */
 import classNames from 'classnames';
 import React from 'react';
 import { compose } from 'redux';
@@ -31,8 +32,6 @@ type PropTypes = {|
   submitButtonInProgressText?: string,
   text?: string,
 |};
-
-// TODO: refactor ReportAbuseButton to use this?
 
 /*
  * This renders a form with an auto-resizing textarea,
