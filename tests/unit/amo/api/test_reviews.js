@@ -288,7 +288,6 @@ describe(__filename, () => {
     };
 
     it('calls the API', async () => {
-      // TODO: fix all of this
       const apiState = { ...signedInApiState };
       const originalReview = { ...fakeReview, id: 321 };
       const fakeResponse = replyToReviewResponse();
