@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-29 16:09+0000\n"
+"PO-Revision-Date: 2017-09-29 19:43+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -378,7 +378,7 @@ msgstr "Súkromie"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "Cookies"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
@@ -408,7 +408,7 @@ msgstr "O nás"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -416,7 +416,7 @@ msgstr "Centrum vývojárov"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Fórum"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -607,9 +607,8 @@ msgid "Explore all categories"
 msgstr "Preskúmajte všetky kategórie"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "Hľadať"
+msgstr "Zmeniť jazyk"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
