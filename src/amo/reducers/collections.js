@@ -2,8 +2,12 @@
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
-export const FETCH_COLLECTION = 'FETCH_COLLECTION';
-export const LOAD_COLLECTION = 'LOAD_COLLECTION';
+export const FETCH_COLLECTION: 'FETCH_COLLECTION' = 'FETCH_COLLECTION';
+export const LOAD_COLLECTION: 'LOAD_COLLECTION' = 'LOAD_COLLECTION';
+export const FETCH_COLLECTION_PAGE: 'FETCH_COLLECTION_PAGE'
+  = 'FETCH_COLLECTION_PAGE';
+export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
+  = 'LOAD_COLLECTION_PAGE';
 
 export type CollectionType = {
   addons: Array<AddonType>,
@@ -32,12 +36,17 @@ type FetchCollectionParams = {|
   user: number | string,
 |};
 
+type FetchCollectionAction = {|
+  type: 'FETCH_COLLECTION',
+  payload: FetchCollectionParams,
+|};
+
 export const fetchCollection = ({
   errorHandlerId,
   page,
   slug,
   user,
-}: FetchCollectionParams = {}) => {
+}: FetchCollectionParams = {}): FetchCollectionAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -54,37 +63,87 @@ export const fetchCollection = ({
   };
 };
 
-type CollectionAddonsResults = Array<{|
+type FetchCollectionPageParams = {|
+  ...FetchCollectionParams,
+  page: number,
+|};
+
+type FetchCollectionPageAction = {|
+  type: 'FETCH_COLLECTION_PAGE',
+  payload: FetchCollectionPageParams,
+|};
+
+export const fetchCollectionPage = ({
+  errorHandlerId,
+  page,
+  slug,
+  user,
+}: FetchCollectionPageParams = {}): FetchCollectionPageAction => {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
+  }
+  if (!slug) {
+    throw new Error('slug is required');
+  }
+  if (!user) {
+    throw new Error('user is required');
+  }
+  if (!page) {
+    throw new Error('page is required');
+  }
+
+  return {
+    type: FETCH_COLLECTION_PAGE,
+    payload: { errorHandlerId, page, slug, user },
+  };
+};
+
+type ExternalCollectionAddons = Array<{|
   addon: ExternalAddonType,
   downloads: number,
   notes: string | null,
 |}>;
 
-// The API returns more attributes than what is listed below.
-type CollectionDetail = {
+type ExternalCollectionDetail = {|
   addon_count: number,
-  author: {
+  author: {|
+    id: number,
     name: string,
-  },
+    url: string,
+    username: string,
+  |},
+  default_locale: string,
   description: string | null,
   id: number,
   modified: string,
   name: string,
-};
+  public: boolean,
+  slug: string,
+  url: string,
+  uuid: string,
+|};
+
+type CollectionAddonsListResponse = {|
+  count: number,
+  next: string,
+  previous: string,
+  results: ExternalCollectionAddons,
+|};
 
 type LoadCollectionParams = {|
-  addons: {
-    results: CollectionAddonsResults,
-  },
-  detail: CollectionDetail,
-  slug: string,
-  user: number | string,
+  addons: CollectionAddonsListResponse,
+  detail: ExternalCollectionDetail,
+|};
+
+type LoadCollectionAction = {|
+  type: 'LOAD_COLLECTION',
+  payload: LoadCollectionParams,
 |};
 
 export const loadCollection = ({
   addons,
   detail,
-}: LoadCollectionParams = {}) => {
+}: LoadCollectionParams = {}): LoadCollectionAction => {
   if (!addons) {
     throw new Error('addons are required');
   }
@@ -98,19 +157,47 @@ export const loadCollection = ({
   };
 };
 
-type CreateInternalCollectionParams = {|
-  detail: CollectionDetail,
-  items: CollectionAddonsResults,
+type LoadCollectionPageParams = {|
+  addons: CollectionAddonsListResponse,
 |};
+
+type LoadCollectionPageAction = {|
+  type: 'LOAD_COLLECTION_PAGE',
+  payload: LoadCollectionPageParams,
+|};
+
+export const loadCollectionPage = ({
+  addons,
+}: LoadCollectionPageParams = {}): LoadCollectionPageAction => {
+  if (!addons) {
+    throw new Error('addons are required');
+  }
+
+  return {
+    type: LOAD_COLLECTION_PAGE,
+    payload: { addons },
+  };
+};
+
+type CreateInternalCollectionParams = {|
+  detail: ExternalCollectionDetail,
+  items: ExternalCollectionAddons,
+|};
+
+export const createInternalAddons = (
+  items: ExternalCollectionAddons
+): Array<AddonType> => {
+  return items.map((item) => {
+    // This allows to have a consistent way to manipulate addons in the app.
+    return createInternalAddon(item.addon);
+  });
+};
 
 export const createInternalCollection = ({
   detail,
   items,
 }: CreateInternalCollectionParams): CollectionType => ({
-  addons: items.map((item) => {
-    // This allows to have a consistent way to manipulate addons in the app.
-    return createInternalAddon(item.addon);
-  }),
+  addons: createInternalAddons(items),
   authorName: detail.author.name,
   description: detail.description,
   id: detail.id,
@@ -119,22 +206,28 @@ export const createInternalCollection = ({
   numberOfAddons: detail.addon_count,
 });
 
+type Action =
+  | FetchCollectionAction
+  | LoadCollectionAction
+  | FetchCollectionPageAction
+  | LoadCollectionPageAction
+;
+
 const reducer = (
   state: CollectionsState = initialState,
-  action: Object
+  action: Action
 ): CollectionsState => {
   switch (action.type) {
     case FETCH_COLLECTION:
       return {
-        // Current collection can be null if state is the initial state,
-        // otherwise we have already loaded a collection. We cannot load
-        // another collection from the collection view, so we can keep the
-        // detail of the current collection and only use "loading indicator"
-        // for the add-ons.
-        current: state.current === null ? null : {
+        current: null,
+        loading: true,
+      };
+
+    case FETCH_COLLECTION_PAGE:
+      return {
+        current: {
           ...state.current,
-          // We reset the set of addons because they depend on pagination.
-          // Other information still hold though.
           addons: [],
         },
         loading: true,
@@ -148,6 +241,18 @@ const reducer = (
           detail,
           items: addons.results,
         }),
+        loading: false,
+      };
+    }
+
+    case LOAD_COLLECTION_PAGE: {
+      const { addons } = action.payload;
+
+      return {
+        current: {
+          ...state.current,
+          addons: createInternalAddons(addons.results),
+        },
         loading: false,
       };
     }

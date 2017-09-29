@@ -1,7 +1,9 @@
-import { all, call, put, select, takeEvery } from 'redux-saga/effects';
+import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   FETCH_COLLECTION,
+  FETCH_COLLECTION_PAGE,
   loadCollection,
+  loadCollectionPage,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -43,6 +45,36 @@ export function* fetchCollection({
   }
 }
 
+export function* fetchCollectionPage({
+  payload: {
+    errorHandlerId,
+    page,
+    slug,
+    user,
+  },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const addons = yield call(api.getCollectionAddons, {
+      api: state.api,
+      page,
+      slug,
+      user,
+    });
+
+    yield put(loadCollectionPage({ addons }));
+  } catch (error) {
+    log.warn(`Collection page failed to load: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* collectionsSaga() {
-  yield takeEvery(FETCH_COLLECTION, fetchCollection);
+  yield takeLatest(FETCH_COLLECTION, fetchCollection);
+  yield takeLatest(FETCH_COLLECTION_PAGE, fetchCollectionPage);
 }

@@ -20,13 +20,16 @@ export const getCollectionDetail = (
   }
 
   return callApi({
-    auth: Boolean(api && api.token),
+    auth: true,
     endpoint: `accounts/account/${user}/collections/${slug}`,
     state: api,
   });
 };
 
-type GetCollectionAddonsParams = GetCollectionParams & {| page?: number |};
+type GetCollectionAddonsParams = {|
+  ...GetCollectionParams,
+  page?: number,
+|};
 
 export const getCollectionAddons = (
   { api, page, slug, user }: GetCollectionAddonsParams
@@ -39,7 +42,7 @@ export const getCollectionAddons = (
   }
 
   return callApi({
-    auth: Boolean(api && api.token),
+    auth: true,
     endpoint: `accounts/account/${user}/collections/${slug}/addons`,
     params: { page },
     state: api,

@@ -5,17 +5,14 @@ import {
 } from 'amo/api/collections';
 import { parsePage } from 'core/utils';
 import { createApiResponse } from 'tests/unit/helpers';
-import {
-  dispatchClientMetadata,
-  dispatchSignInActions,
-} from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
   let mockApi;
+  let apiState;
 
   const getParams = ({
-    apiState = dispatchClientMetadata().store.getState().api,
     ...otherParams
   } = {}) => {
     return {
@@ -28,6 +25,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     mockApi = sinon.mock(api);
+    apiState = dispatchClientMetadata().store.getState().api;
   });
 
   describe('getCollectionDetail', () => {
@@ -49,45 +47,21 @@ describe(__filename, () => {
       }).toThrow('user is required');
     });
 
-    it('calls the collection detail API', () => {
-      const apiState = dispatchClientMetadata().store.getState().api;
-      const params = getParams({ api: apiState });
+    it('calls the collection detail API', async () => {
+      const params = getParams();
 
       mockApi
         .expects('callApi')
         .withArgs({
-          auth: false,
+          auth: true,
           endpoint: 'accounts/account/user-id-or-name/collections/some-slug',
           state: apiState,
         })
         .once()
         .returns(createApiResponse());
 
-      return getCollectionDetail(params)
-        .then(() => {
-          mockApi.verify();
-        });
-    });
-
-    it('makes an authenticated request when API state allows it', () => {
-      const apiState = dispatchSignInActions().store.getState().api;
-      const params = getParams({ apiState });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint:
-          'accounts/account/user-id-or-name/collections/some-slug',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      return getCollectionDetail(params)
-        .then(() => {
-          mockApi.verify();
-        });
+      await getCollectionDetail(params);
+      mockApi.verify();
     });
   });
 
@@ -110,50 +84,24 @@ describe(__filename, () => {
       }).toThrow('user is required');
     });
 
-    it('calls the collection add-ons list API', () => {
-      const apiState = dispatchClientMetadata().store.getState().api;
+    it('calls the collection add-ons list API', async () => {
       const queryParams = { page: parsePage(1) };
-      const params = getParams({ apiState, ...queryParams });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: false,
-          endpoint:
-          'accounts/account/user-id-or-name/collections/some-slug/addons',
-          params: queryParams,
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      return getCollectionAddons(params)
-        .then(() => {
-          mockApi.verify();
-        });
-    });
-
-    it('makes an authenticated request when API state allows it', () => {
-      const apiState = dispatchSignInActions().store.getState().api;
-      const queryParams = { page: parsePage(1) };
-      const params = getParams({ apiState, ...queryParams });
+      const params = getParams({ ...queryParams });
 
       mockApi
         .expects('callApi')
         .withArgs({
           auth: true,
           endpoint:
-          'accounts/account/user-id-or-name/collections/some-slug/addons',
+            'accounts/account/user-id-or-name/collections/some-slug/addons',
           params: queryParams,
           state: apiState,
         })
         .once()
         .returns(createApiResponse());
 
-      return getCollectionAddons(params)
-        .then(() => {
-          mockApi.verify();
-        });
+      await getCollectionAddons(params);
+      mockApi.verify();
     });
   });
 });

@@ -3,7 +3,9 @@ import SagaTester from 'redux-saga-tester';
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   fetchCollection,
+  fetchCollectionPage,
   loadCollection,
+  loadCollectionPage,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -37,76 +39,142 @@ describe(__filename, () => {
     sagaTester.start(collectionsSaga);
   });
 
-  function _fetchCollection(params) {
-    sagaTester.dispatch(fetchCollection({
-      errorHandlerId: errorHandler.id,
-      ...params,
-    }));
-  }
+  describe('fetchCollection', () => {
+    function _fetchCollection(params) {
+      sagaTester.dispatch(fetchCollection({
+        errorHandlerId: errorHandler.id,
+        ...params,
+      }));
+    }
 
-  it('calls the API to fetch a collection', async () => {
-    const state = sagaTester.getState();
+    it('calls the API to fetch a collection', async () => {
+      const state = sagaTester.getState();
 
-    const collectionAddons = createFakeCollectionAddons();
-    const collectionDetail = createFakeCollectionDetail();
+      const collectionAddons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail();
 
-    mockApi
-      .expects('getCollectionDetail')
-      .withArgs({
-        api: state.api,
-        slug,
-        user,
-      })
-      .once()
-      .returns(Promise.resolve(collectionDetail));
+      mockApi
+        .expects('getCollectionDetail')
+        .withArgs({
+          api: state.api,
+          slug,
+          user,
+        })
+        .once()
+        .returns(Promise.resolve(collectionDetail));
 
-    mockApi
-      .expects('getCollectionAddons')
-      .withArgs({
-        api: state.api,
-        page: parsePage(1),
-        slug,
-        user,
-      })
-      .once()
-      .returns(Promise.resolve(collectionAddons));
+      mockApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          api: state.api,
+          page: parsePage(1),
+          slug,
+          user,
+        })
+        .once()
+        .returns(Promise.resolve(collectionAddons));
 
-    _fetchCollection({ page: parsePage(1), slug, user });
+      _fetchCollection({ page: parsePage(1), slug, user });
 
-    const expectedLoadAction = loadCollection({
-      addons: collectionAddons,
-      detail: collectionDetail,
+      const expectedLoadAction = loadCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
     });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
-    mockApi.verify();
+    it('clears the error handler', async () => {
+      _fetchCollection({ slug, user });
 
-    const loadAction = sagaTester.getCalledActions()[2];
-    expect(loadAction).toEqual(expectedLoadAction);
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('getCollectionDetail')
+        .once()
+        .returns(Promise.reject(error));
+
+      _fetchCollection({ slug, user });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
   });
 
-  it('clears the error handler', async () => {
-    _fetchCollection({ slug, user });
+  describe('fetchCollectionPage', () => {
+    function _fetchCollectionPage(params) {
+      sagaTester.dispatch(fetchCollectionPage({
+        errorHandlerId: errorHandler.id,
+        ...params,
+      }));
+    }
 
-    const expectedAction = errorHandler.createClearingAction();
+    it('calls the API to fetch a collection page', async () => {
+      const state = sagaTester.getState();
 
-    await sagaTester.waitFor(expectedAction.type);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
-  });
+      const collectionAddons = createFakeCollectionAddons();
+      mockApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          api: state.api,
+          page: parsePage(1),
+          slug,
+          user,
+        })
+        .once()
+        .returns(Promise.resolve(collectionAddons));
 
-  it('dispatches an error', async () => {
-    const error = new Error('some API error maybe');
+      _fetchCollectionPage({ page: parsePage(1), slug, user });
 
-    mockApi
-      .expects('getCollectionDetail')
-      .once()
-      .returns(Promise.reject(error));
+      const expectedLoadAction = loadCollectionPage({
+        addons: collectionAddons,
+      });
 
-    _fetchCollection({ slug, user });
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
 
-    const errorAction = errorHandler.createErrorAction(error);
-    await sagaTester.waitFor(errorAction.type);
-    expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('clears the error handler', async () => {
+      _fetchCollectionPage({ page: parsePage(1), slug, user });
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('getCollectionAddons')
+        .once()
+        .returns(Promise.reject(error));
+
+      _fetchCollectionPage({ page: parsePage(1), slug, user });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
   });
 });
