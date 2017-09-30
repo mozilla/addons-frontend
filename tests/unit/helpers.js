@@ -10,7 +10,7 @@ import { oneLine } from 'common-tags';
 
 import { getDjangoBase62 } from 'amo/utils';
 import * as coreApi from 'core/api';
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
 import { ErrorHandler } from 'core/errorHandler';
@@ -324,6 +324,23 @@ export function createFakeAddonAbuseReport({
     },
     message,
     reporter,
+  };
+}
+
+export function createFakeLanguageAddon({
+  addon = fakeAddon,
+  ...otherProps
+} = {}) {
+  return {
+    id: addon.id,
+    current_version: addon.current_version,
+    default_locale: 'en-US',
+    locale_disambiguation: '',
+    name: addon.name,
+    target_locale: 'ach',
+    type: ADDON_TYPE_LANG,
+    url: 'https://addons.allizom.org/en-US/firefox/addon/acholi-ug-lp-test',
+    ...otherProps,
   };
 }
 

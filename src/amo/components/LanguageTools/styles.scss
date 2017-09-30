@@ -1,0 +1,46 @@
+@import "~photon-colors/colors";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.LanguageTools {
+  margin: 10px;
+}
+
+.LanguageTools-table {
+  width: 100%;
+}
+
+.LanguageTools-table-row {
+  border-bottom: 1px solid $grey-50;
+
+  &:nth-child(even) {
+    background: $grey-20;
+  }
+}
+
+.LanguageTools-header-row {
+  background: $grey-30;
+}
+
+.LanguageTools-header-cell {
+  @include text-align-start();
+
+  font-size: $font-size-m;
+}
+
+.LanguageTools-addon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.LanguageTools-table {
+  .responsiveTable tbody tr {
+    padding-top: 0;
+  }
+
+  th,
+  td {
+    padding: 5px;
+  }
+}
