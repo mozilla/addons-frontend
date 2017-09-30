@@ -13,6 +13,8 @@ import type {
 
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
+export const LOAD_LANGUAGE_TOOLS = 'LOAD_LANGUAGE_TOOLS';
+export const FETCH_LANGUAGE_TOOLS = 'FETCH_LANGUAGE_TOOLS';
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -62,6 +64,66 @@ export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddon
   return {
     type: FETCH_ADDON,
     payload: { errorHandlerId: errorHandler.id, slug },
+  };
+}
+
+type FetchLanguageToolsParams = {|
+  errorHandlerId: string,
+|};
+
+export type FetchLanguageToolsAction = {|
+  type: string,
+  payload: {|
+    errorHandlerId: string,
+  |},
+|};
+
+export function fetchLanguageTools(
+  { errorHandlerId }: FetchLanguageToolsParams = {}
+): FetchLanguageToolsAction {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
+  }
+
+  return {
+    type: FETCH_LANGUAGE_TOOLS,
+    payload: { errorHandlerId },
+  };
+}
+
+type LoadLanguageToolsType = {|
+  addons: Object,
+|}
+
+export type LoadLanguageToolsAction = {|
+  payload: {| addons: ExternalAddonMap |},
+  type: string,
+|};
+
+export function loadLanguageTools({
+  addons,
+}: LoadLanguageToolsType = {}): LoadLanguageToolsAction {
+  if (!addons) {
+    throw new Error('addons are required');
+  }
+
+  return {
+    type: LOAD_LANGUAGE_TOOLS,
+    payload: { addons },
+  };
+}
+
+export function createInternalLanguageTool(apiAddon: Object) {
+  return {
+    id: apiAddon.id,
+    current_version: apiAddon.current_version,
+    default_locale: apiAddon.default_locale,
+    locale_disambiguation: apiAddon.locale_disambiguation,
+    name: apiAddon.name,
+    slug: apiAddon.slug,
+    target_locale: apiAddon.target_locale,
+    type: apiAddon.type,
+    url: apiAddon.url,
   };
 }
 
@@ -235,6 +297,14 @@ export default function addonsReducer(
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
         newState[key] = createInternalAddon(addons[key]);
+      });
+      return newState;
+    }
+    case LOAD_LANGUAGE_TOOLS: {
+      const { addons } = action.payload;
+      const newState = { ...state };
+      Object.keys(addons).forEach((key) => {
+        newState[key] = createInternalLanguageTool(addons[key]);
       });
       return newState;
     }
