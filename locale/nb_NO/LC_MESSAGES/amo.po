@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-30 17:36+0000\n"
+"PO-Revision-Date: 2017-09-30 18:02+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
@@ -390,6 +390,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Med mindre annet er %(startNotedLink)sspesifisert%(endNotedLink)s, er innholdet på dette nettstedet lisensiert under %(startLicenseLink)sCreative Commons Navngivelse-del-på-samme-vilkår-lisens "
+"v3.0%(endLicenseLink)s eller en senere versjon."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -401,11 +403,11 @@ msgstr "Utvidelser"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blogg"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -413,7 +415,7 @@ msgstr "Utvikler-knutepunkt"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -425,7 +427,7 @@ msgstr "Rapporter en feil"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "Status for nettsted"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
@@ -641,15 +643,17 @@ msgstr "Du rapporterte denne utvidelsen for misbruk"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Vi har mottatt din rapport. Takk fordi du deler dine bekymringer vedrørende denne utvidelsen med oss."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Vi kan ikke svare på alle rapportene om misbruk, men vi vil undersøke problemet."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Hvis du mener at denne utvidelsen krenker %(linkTagStart)sMozilla sine retningslinjer for utvidelser%(linkTagEnd)s, privatlivets fred eller utgjør et sikkerhetsproblem, ber vi deg at du rapporterer "
+"problemene til Mozilla ved hjelp av dette formularet."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -657,23 +661,23 @@ msgstr "Rapporter denne utvidelsen for misbruk"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Bruk ikke dette formularet til feilrapporter eller forslag til funksjoner. Denne rapporten vi bli sendt til Mozilla - Ikke til utvikleren som har laget utvidelsen."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Forklar hvordan denne utvidelsen krenker våre retningslinjer."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Avvis"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Sender rapport om misbruk"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "Send rapport om misbruk"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -690,8 +694,8 @@ msgstr[1] "%(count)s resultat for \"%(query)s\""
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s språkpakke funnet for «%(query)s»"
+msgstr[1] "%(count)s språkpakker funnet for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
