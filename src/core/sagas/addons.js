@@ -3,7 +3,6 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
@@ -21,15 +20,12 @@ export function* fetchAddon(
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
   try {
-    yield put(showLoading());
     const state = yield select(getState);
     const response = yield call(fetchAddonFromApi, { api: state.api, slug });
     yield put(loadAddons(response.entities));
   } catch (error) {
     log.warn(`Failed to load add-on with slug ${slug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-  } finally {
-    yield put(hideLoading());
   }
 }
 

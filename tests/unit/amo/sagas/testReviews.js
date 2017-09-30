@@ -1,4 +1,3 @@
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
 import * as amoApi from 'amo/api';
@@ -60,11 +59,9 @@ describe('amo/sagas/reviews', () => {
       mockAmoApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(showLoading());
-      expect(calledActions[2]).toEqual(setAddonReviews({
+      expect(calledActions[1]).toEqual(setAddonReviews({
         addonSlug: fakeAddon.slug, reviews, reviewCount: 1,
       }));
-      expect(calledActions[3]).toEqual(hideLoading());
     });
 
     it('dispatches an error', async () => {
@@ -76,8 +73,7 @@ describe('amo/sagas/reviews', () => {
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[2]).toEqual(errorAction);
-      expect(calledActions[3]).toEqual(hideLoading());
+      expect(calledActions[1]).toEqual(errorAction);
     });
   });
 });

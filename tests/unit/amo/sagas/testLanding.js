@@ -1,4 +1,3 @@
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
@@ -99,11 +98,9 @@ describe('amo/sagas/landing', () => {
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(showLoading());
-      expect(calledActions[2]).toEqual(loadLanding({
+      expect(calledActions[1]).toEqual(loadLanding({
         addonType, featured, highlyRated, popular,
       }));
-      expect(calledActions[3]).toEqual(hideLoading());
     });
 
     it('dispatches an error', async () => {
@@ -116,8 +113,7 @@ describe('amo/sagas/landing', () => {
       await sagaTester.waitFor(errorAction.type);
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[2]).toEqual(errorAction);
-      expect(calledActions[3]).toEqual(hideLoading());
+      expect(calledActions[1]).toEqual(errorAction);
     });
   });
 });

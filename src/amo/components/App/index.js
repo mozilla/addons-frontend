@@ -7,7 +7,6 @@ import React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import LoadingBar from 'react-redux-loading-bar';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
@@ -199,7 +198,6 @@ export class AppBase extends React.Component {
     return (
       <NestedStatus code={200}>
         <div className="amo">
-          <LoadingBar className="App-loading-bar" />
           <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
           <InfoDialogComponent />
           <HeaderComponent
