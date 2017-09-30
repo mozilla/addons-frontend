@@ -143,8 +143,8 @@ export class HomeBase extends React.Component {
               {i18n.gettext('You can change how Firefox works…')}
             </h2>
             <p className="Home-description">
-              {i18n.gettext(
-                'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.')}
+              {i18n.gettext(`Explore powerful tools and features to customize
+                Firefox and make the browser all your own.`)}
             </p>
           </div>
 
