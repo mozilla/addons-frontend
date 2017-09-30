@@ -44,3 +44,38 @@
     border-bottom: 3px solid $white;
   }
 }
+
+.SectionLinks-explore {
+  display: none;
+
+  @include respond-to(large) {
+    display: inline-block;
+  }
+}
+
+.SectionLinks-dropdown {
+  padding: 0;
+  white-space: nowrap;
+
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    border-bottom: 0;
+  }
+
+  .DropdownMenu-button {
+    display: block;
+    margin-top: 2px;
+    padding: 0;
+  }
+
+  .DropdownMenu-button-text {
+    color: $grey-40;
+    font-size: $font-size-m-smaller;
+  }
+
+  .DropdownMenu-items {
+    top: 22px;
+  }
+}
