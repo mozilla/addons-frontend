@@ -274,7 +274,7 @@ export function createInternalAddon(
 
 const initialState = {};
 
-type AddonState = {
+export type AddonState = {
   [addonSlug: string]: AddonType,
 };
 
