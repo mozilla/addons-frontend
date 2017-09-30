@@ -1,0 +1,35 @@
+@import "~photon-colors/colors";
+
+.HomeCarousel {
+  .CarouselSection-styleName--Home-featured-extensions {
+    background-image: url("~amo/components/HomeCarousel/photos/featured-extensions.jpg");
+
+    &::before {
+      background: $teal-80;
+    }
+  }
+
+  .CarouselSection-styleName--Home-dynamic-media-downloaders {
+    background-image: url("~amo/components/HomeCarousel/photos/dynamic-media-downloaders.jpg");
+
+    &::before {
+      background: $green-80;
+    }
+  }
+
+  .CarouselSection-styleName--Home-privacy-matters {
+    background-image: url("~amo/components/HomeCarousel/photos/privacy-matters.jpg");
+
+    &::before {
+      background: $ink-80;
+    }
+  }
+
+  .CarouselSection-styleName--Home-top-rated-themes {
+    background-image: url("~amo/components/HomeCarousel/photos/top-rated-themes.jpg");
+
+    &::before {
+      background: $yellow-80;
+    }
+  }
+}

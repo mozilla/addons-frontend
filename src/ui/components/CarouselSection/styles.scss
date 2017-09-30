@@ -1,0 +1,67 @@
+@import "~photon-colors/colors";
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.CarouselSection {
+  align-content: center;
+  background: url("~ui/components/CarouselSection/icons/default.svg") no-repeat center;
+  background-size: cover;
+  border-radius: $border-radius-header-carousel;
+  font-size: $font-size-m;
+  height: $carousel-height-default;
+  line-height: 1.2;
+  margin: 0 6px 26px;
+  padding: 12px;
+  position: relative;
+  width: 256px;
+
+  @include respond-to(extraSmall) {
+    font-size: $font-size-s;
+    height: $carousel-height-extraSmall;
+    padding: 6px;
+    width: 128px;
+  }
+
+  @include respond-to(large) {
+    font-size: $font-size-l;
+    height: $carousel-height-large;
+    margin: 0 9px;
+    padding: 24px;
+    width: 384px;
+  }
+
+  @include respond-to(extraLarge) {
+    font-size: $font-size-header-carousel;
+    height: $carousel-height-extraLarge;
+    margin: 0 12px;
+    padding: 48px;
+    width: 768px;
+  }
+
+  &::before {
+    background: $teal-80;
+    border-radius: $border-radius-header-carousel;
+    content: "";
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+}
+
+.CarouselSection-wrapper,
+.CarouselSection-link-wrapper,
+.CarouselSection-link-wrapper:link, {
+  align-items: end;
+  color: $white;
+  display: flex;
+  height: 100%;
+  justify-content: start;
+  position: relative;
+  text-decoration: none;
+  z-index: 10;
+}
