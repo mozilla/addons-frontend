@@ -8,6 +8,7 @@ import 'react-super-responsive-table/src/SuperResponsiveTableStyle.css';
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
 import { withErrorHandler } from 'core/errorHandler';
+import type { ErrorHandlerType } from 'core/errorHandler';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
@@ -23,12 +24,14 @@ import './styles.scss';
 
 
 type PropTypes = {|
-  i18n: any,
+  addons: Object,
+  dispatch: Function,
+  errorHandler: ErrorHandlerType,
+  i18n: Object,
+  lang: string,
 |};
 
 export class LanguageToolsBase extends React.Component {
-  props: PropTypes;
-
   componentWillMount() {
     const { dispatch, errorHandler } = this.props;
 
@@ -39,7 +42,7 @@ export class LanguageToolsBase extends React.Component {
   languageTools() {
     return Object.values(this.props.addons).filter((addon) => {
       return addon.type === ADDON_TYPE_DICT || addon.type === ADDON_TYPE_LANG;
-    })
+    });
   }
 
   languageToolsInYourLocale() {
@@ -82,6 +85,8 @@ export class LanguageToolsBase extends React.Component {
       </div>
     );
   }
+
+  props: PropTypes;
 
   render() {
     const { i18n } = this.props;
@@ -194,7 +199,7 @@ export const mapStateToProps = (state) => {
     addons: state.addons,
     lang: state.api.lang,
   };
-}
+};
 
 export default compose(
   withErrorHandler({ name: 'LanguageTools' }),

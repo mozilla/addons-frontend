@@ -1,7 +1,4 @@
-import { oneLine } from 'common-tags';
-import deepcopy from 'deepcopy';
 import React from 'react';
-import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 
 import LanguageTools, {
   LanguageToolsBase,
@@ -9,7 +6,7 @@ import LanguageTools, {
 import Link from 'amo/components/Link';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
 import { loadLanguageTools } from 'core/reducers/addons';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeLanguageAddon,
   getFakeI18nInst,
@@ -68,7 +65,7 @@ describe(__filename, () => {
     ...props
   } = {}) {
     return shallowUntilTarget(
-      <LanguageTools i18n={getFakeI18nInst()} store={store} {...props} />,
+      <LanguageTools i18n={i18n} store={store} {...props} />,
       LanguageToolsBase
     );
   }

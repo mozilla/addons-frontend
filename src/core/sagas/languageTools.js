@@ -13,7 +13,7 @@ import {
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
-export function* languageTools({
+export function* fetchLanguageTools({
   payload: { errorHandlerId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -36,5 +36,5 @@ export function* languageTools({
 }
 
 export default function* languageToolsSaga() {
-  yield takeLatest(FETCH_LANGUAGE_TOOLS, languageTools);
+  yield takeLatest(FETCH_LANGUAGE_TOOLS, fetchLanguageTools);
 }

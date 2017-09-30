@@ -87,12 +87,18 @@ export function fetchLanguageTools(
   };
 }
 
-export type LoadAddonsAction = {|
+type LoadLanguageToolsType = {|
+  addons: Object,
+|}
+
+export type LoadLanguageToolsAction = {|
   payload: {| addons: ExternalAddonMap |},
   type: string,
 |};
 
-export function loadLanguageTools({ addons } = {}) {
+export function loadLanguageTools({
+  addons,
+}: LoadLanguageToolsType = {}): LoadLanguageToolsAction {
   if (!addons) {
     throw new Error('addons are required');
   }
@@ -115,11 +121,6 @@ export function createInternalLanguageTool(apiAddon) {
     url: apiAddon.url,
   };
 }
-
-export type LoadAddonsAction = {|
-  payload: {| addons: ExternalAddonMap |},
-  type: string,
-|};
 
 export function getGuid(addon: ExternalAddonType): string {
   if (addon.type === ADDON_TYPE_THEME) {

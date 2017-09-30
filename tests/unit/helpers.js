@@ -329,7 +329,7 @@ export function createFakeAddonAbuseReport({
 
 export function createFakeLanguageAddon({
   addon = fakeAddon,
-  ...otherProps,
+  ...otherProps
 } = {}) {
   return {
     id: addon.id,
@@ -340,7 +340,7 @@ export function createFakeLanguageAddon({
     target_locale: 'ach',
     type: ADDON_TYPE_LANG,
     url: 'https://addons.allizom.org/en-US/firefox/addon/acholi-ug-lp-test',
-    ...otherProps
+    ...otherProps,
   };
 }
 

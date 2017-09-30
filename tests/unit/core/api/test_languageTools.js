@@ -2,7 +2,6 @@ import * as api from 'core/api';
 import { languageTools } from 'core/api/languageTools';
 import {
   dispatchClientMetadata,
-  fakeAddon,
 } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
@@ -18,7 +17,7 @@ describe(__filename, () => {
   });
 
   describe('languageTools API', () => {
-    function mockResponse({ addon, message }) {
+    function mockResponse() {
       return createApiResponse({
         jsonData: { results: [createFakeLanguageAddon()] },
       });
