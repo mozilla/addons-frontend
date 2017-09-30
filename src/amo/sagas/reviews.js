@@ -3,7 +3,6 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import { call, put, select, takeEvery } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
@@ -22,7 +21,6 @@ export function* fetchReviews(
 ): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
-    yield put(showLoading());
     const state = yield select(getState);
     const response = yield call(getReviews, {
       // Hide star-only ratings (reviews that do not have a body).
@@ -34,8 +32,6 @@ export function* fetchReviews(
   } catch (error) {
     log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-  } finally {
-    yield put(hideLoading());
   }
 }
 

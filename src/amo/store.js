@@ -1,4 +1,3 @@
-import { loadingBarReducer } from 'react-redux-loading-bar';
 import { createStore as _createStore, combineReducers } from 'redux';
 import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
@@ -39,7 +38,6 @@ export default function createStore(initialState = {}) {
       infoDialog,
       installations,
       landing,
-      loadingBar: loadingBarReducer,
       reduxAsyncConnect,
       reviews,
       search,

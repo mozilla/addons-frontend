@@ -108,11 +108,3 @@ fieldset {
   margin: 0;
   padding: 0;
 }
-
-.App-loading-bar {
-  background: $loading-bar-color;
-  height: 2px;
-  position: fixed;
-  top: 0;
-  z-index: 10000;
-}

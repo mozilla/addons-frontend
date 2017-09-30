@@ -1,4 +1,3 @@
-import { hideLoading, showLoading } from 'react-redux-loading-bar';
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api';
@@ -51,18 +50,6 @@ describe('core/sagas/addons', () => {
     mockApi.verify();
   });
 
-  it('shows a progress bar', async () => {
-    mockApi
-      .expects('fetchAddon')
-      .returns(Promise.resolve(createFetchAddonResult(fakeAddon)));
-
-    _fetchAddon();
-
-    await sagaTester.waitFor(LOAD_ADDONS);
-    expect(sagaTester.getCalledActions()[2]).toEqual(showLoading());
-    expect(sagaTester.getCalledActions()[4]).toEqual(hideLoading());
-  });
-
   it('clears the error handler', async () => {
     mockApi
       .expects('fetchAddon')
@@ -83,7 +70,6 @@ describe('core/sagas/addons', () => {
 
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);
-    expect(sagaTester.getCalledActions()[3]).toEqual(errorAction);
-    expect(sagaTester.getCalledActions()[4]).toEqual(hideLoading());
+    expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
   });
 });
