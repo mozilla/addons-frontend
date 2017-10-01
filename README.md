@@ -8,6 +8,28 @@
 Front-end infrastructure and code to complement
 [mozilla/addons-server](https://github.com/mozilla/addons-server).
 
+
+Table of contents
+=================
+
+* [Security Bug Reports](#security-bug-reports)
+* [Requirements](#requirements)
+* [Get started](#get-started)
+* [Development commands](#development-commands)
+* [Running tests](#running-tests)
+* [Run a subset of the tests](#run-a-subset-of-the-tests)
+* [Run all tests](#run-all-tests)
+* [Flow](#flow)
+* [Code coverage](#code-coverage)
+* [Running AMO for local development](#running-amo-for-local-development)
+* [Configuring for local development](#configuring-for-local-development)
+* [Disabling CSP for local development](#disabling-csp-for-local-development)
+* [Working on the documentation](#working-on-the-documentation)
+* [Building and running services](#building-and-running-services)
+* [Working with UX Mocks](#working-with-ux-mocks)
+* [Overview and rationale](#overview-and-rationale)
+* [Core technologies](#core-technologies)
+
 ## Security Bug Reports
 
 This code and its associated production website are included in Mozilla’s web and services [bug bounty program]. If you find a security vulnerability, please submit it via the process outlined in the program and [FAQ pages]. Further technical details about this application are available from the [Bug Bounty Onramp page].
