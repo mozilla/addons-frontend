@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-01 23:28+0000\n"
+"PO-Revision-Date: 2017-10-01 23:35+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -84,7 +84,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:125
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
 
 #: src/disco/components/Addon.js:140
 msgid "Hover over the image to preview"

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 23:26+0000\n"
+"PO-Revision-Date: 2017-10-01 23:49+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -29,16 +29,16 @@ msgstr "რჩეული დამატება"
 
 #: src/amo/components/Addon/index.js:167
 msgid "Cancel preview"
-msgstr "გადახედვის გაუქმება"
+msgstr "შეთვალიერების გაუქმება"
 
 #: src/amo/components/Addon/index.js:167
 msgid "Tap to preview"
-msgstr "გადახედვა"
+msgstr "შეთვალიერება"
 
 #: src/amo/components/Addon/index.js:208
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] ""
+msgstr[0] "ყველა (%(count)s) მიმოხილვის ნახვა"
 
 #: src/amo/components/Addon/index.js:224
 msgid "No reviews yet"
@@ -58,11 +58,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:319
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s ავტორის სხვა ლექსიკონები"
 
 #: src/amo/components/Addon/index.js:322
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "ამ მთარგმნელების სხვა ლექსიკონები"
 
 #: src/amo/components/Addon/index.js:329
 msgid "More extensions by %(author)s"
@@ -74,11 +74,11 @@ msgstr "ამ შემმუშავებლების სხვა გა
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s ავტორის სხვა პაკეტები"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "ამ მთარგმნელების სხვა პაკეტები"
 
 #: src/amo/components/Addon/index.js:349
 msgid "More themes by %(author)s"
@@ -90,15 +90,15 @@ msgstr "ამ მხატვრების სხვა თემები"
 
 #: src/amo/components/Addon/index.js:359
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s ავტორის სხვა დამატებები"
 
 #: src/amo/components/Addon/index.js:362
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "ამ შემმუშავებლების სხვა დამატებები"
 
 #: src/amo/components/Addon/index.js:428
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)sავტორი: %(authorList)s %(endSpan)s"
 
 #: src/amo/components/Addon/index.js:480
 msgid "Restart Required"
@@ -144,15 +144,15 @@ msgstr[0] "%(total)s მომხმარებელი"
 #: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
-msgstr[0] ""
+msgstr[0] "%(total)s მიმოხილვა"
 
 #: src/amo/components/AddonMeta.js:44
 msgid "No reviews"
-msgstr ""
+msgstr "მიმოხილვები არაა"
 
 #: src/amo/components/AddonMeta.js:50
 msgid "Used by"
-msgstr ""
+msgstr "მომხმარებელი"
 
 #: src/amo/components/AddonMoreInfo/index.js:104
 #, fuzzy
@@ -264,7 +264,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewList/index.js:148
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "%(addonName)s-ის მიმოხილვები"
 
 #: src/amo/components/AddonReviewList/index.js:169
 msgid "All written reviews"
@@ -275,9 +275,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:99
-#, fuzzy
 msgid "Edit my review"
-msgstr "დაწერეთ მიმოხილვა"
+msgstr "მიმოხილვის ჩასწორება"
 
 #: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
@@ -301,7 +300,7 @@ msgstr ""
 
 #: src/amo/components/CategoryHeader/index.js:38
 msgid "Browse all extensions in this category."
-msgstr "ამ კატეგორიის ყველა გაფართოების მოძიება."
+msgstr "ამ კატეგორიის ყველა გაფართოება."
 
 #: src/amo/components/CategoryHeader/index.js:43
 msgid "Browse all themes in this category."
@@ -734,7 +733,7 @@ msgstr "გაფილტრული შედეგები"
 
 #: src/amo/components/SearchFilters/index.js:110
 msgid "Sort by"
-msgstr ""
+msgstr "დალაგება"
 
 #: src/amo/components/SearchFilters/index.js:128
 msgid "Add-on Type"
@@ -911,7 +910,7 @@ msgstr "%(currentPage)s გვერდი %(totalPages)s-დან"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
-msgstr ""
+msgstr "წინა"
 
 #: src/core/components/Paginate/index.js:122
 msgid "Next"
