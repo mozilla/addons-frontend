@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-01 19:59+0000\n"
+"PO-Revision-Date: 2017-10-01 20:25+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -88,7 +88,7 @@ msgstr ""
 
 #: src/disco/components/Addon.js:140
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "გადაატარეთ სურათზე მაჩვენებელი, თემის მოსასინჯად"
 
 #: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
@@ -136,7 +136,7 @@ msgstr ""
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
-msgstr ""
+msgstr "პირადულობის დაცვა"
 
 #: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
@@ -151,6 +151,9 @@ msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. მხიარული თემებიდან დაწყებული, მძლავრი ხელსაწყოების "
+"ჩათვლით, დაგეხმარებათ გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო მეტად თქვენებურს. დაწყება რომ გაგიადვილდეთ, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, ბრაუზერის "
+"წარმადობისა და შესაძლებლობების გასაუმჯობესებლად."
 
 #: src/disco/containers/DiscoPane.js:130
 msgid "Click to play"
@@ -166,7 +169,7 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:164
 msgid "See more add-ons!"
-msgstr ""
+msgstr "იხილეთ მეტი დამატება!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
