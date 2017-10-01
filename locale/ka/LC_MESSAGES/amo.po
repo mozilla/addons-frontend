@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 21:30+0000\n"
+"PO-Revision-Date: 2017-10-01 21:48+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -359,11 +359,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
-msgstr ""
+msgstr "Focus ბრაუზერი"
 
 #: src/amo/components/Footer/index.js:109
 msgid "Desktop Browser"
-msgstr ""
+msgstr "კომპიუტერისთვის"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
@@ -409,7 +409,7 @@ msgstr "შესახებ"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "სვეტი"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -417,7 +417,7 @@ msgstr "შემმუშავებლები"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "ფორუმი"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -429,15 +429,15 @@ msgstr "მოხსენება ხარვეზის შესახე�
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "საიტის მდგომარეობა"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "Android-ისთვის"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS-ისთვის"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -522,7 +522,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:146
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-msgstr ""
+msgstr "დაამატეთ მძლავრი ხელსაწყოები ბრაუზერს, სისწრაფისა და უსაფრთხოების გასაუმჯობესებლად, დამატებები ბრაუზერს გახდის თქვენს მოთხოვნილებებზე მეტად მორგებულს."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -534,7 +534,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:165
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "შეუცვალეთ თქვენს ბრაუზერს იერსახე. შეარჩიეთ რომელიმე, ათასობით თემიდან, Firefox-ის სურვილისამებრ გასაფორმებლად."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -647,7 +647,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი დამოკიდებულების შესახებ, ამ დამატების მიმართ."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."

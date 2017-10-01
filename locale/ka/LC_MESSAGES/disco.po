@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-01 21:16+0000\n"
+"PO-Revision-Date: 2017-10-01 21:49+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -132,7 +132,7 @@ msgstr ""
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "ეს დამატება არაა თავსებადი თქვენს ბრაუზერთან."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
@@ -161,7 +161,7 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:131
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "დამატების შესახებ მეტის ინფორმაციის მისაღებად"
 
 #: src/disco/containers/DiscoPane.js:145
 msgid "Close video"
