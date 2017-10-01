@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 11:24+0000\n"
-"Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
+"PO-Revision-Date: 2017-09-30 17:35+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -275,7 +275,7 @@ msgstr "di %(authorName)s, il %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
 msgid "Edit my review"
-msgstr ""
+msgstr "Modifica recensione"
 
 #: src/amo/components/App/index.js:203
 msgid "Add-ons for Firefox"
@@ -387,13 +387,15 @@ msgstr "Note legali"
 
 #: src/amo/components/Footer/index.js:141
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "Segnala abusi dei marchi registrati"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Eccetto dove diversamente %(startNotedLink)sindicato%(endNotedLink)s, i contenuti su questo sito sono distribuiti con licenza %(startLicenseLink)sCreative Commons Attribuzione Condividi allo stesso "
+"modo 3.0%(endLicenseLink)s o versioni successive."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -609,7 +611,7 @@ msgstr "Esplora tutte le categorie"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
-msgstr ""
+msgstr "Cambia lingua"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
@@ -641,7 +643,7 @@ msgstr "Come valuti la tua esperienza utente con %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Hai effettuato una segnalazione d’abuso per questo componente aggiuntivo"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -659,7 +661,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Segnala questo componente aggiuntivo per abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -675,7 +677,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Invio segnalazione d’abuso in corso…"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
