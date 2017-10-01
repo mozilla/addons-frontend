@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-28 15:04+0000\n"
-"Last-Translator: jakobkpetersen <jakobkpetersen@gmail.com>\n"
+"PO-Revision-Date: 2017-10-01 17:01+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -668,7 +668,7 @@ msgstr "Forklar hvordan denne tilføjelse krænker vores retningslinjer."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr "Afvis"
+msgstr "Annuller"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
