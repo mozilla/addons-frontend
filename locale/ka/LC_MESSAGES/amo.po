@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 21:48+0000\n"
+"PO-Revision-Date: 2017-10-01 22:10+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -66,11 +66,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:329
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s ავტორის სხვა გაფართოებები"
 
 #: src/amo/components/Addon/index.js:332
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "ამ შემმუშავებლების სხვა გაფართოებები"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
@@ -82,11 +82,11 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:349
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s ავტორის სხვა თემები"
 
 #: src/amo/components/Addon/index.js:352
 msgid "More themes by these artists"
-msgstr ""
+msgstr "ამ მხატვრების სხვა თემები"
 
 #: src/amo/components/Addon/index.js:359
 msgid "More add-ons by %(author)s"
@@ -106,7 +106,7 @@ msgstr "საჭიროებს გადატვირთვას"
 
 #: src/amo/components/Addon/index.js:498
 msgid "Extension Metadata"
-msgstr ""
+msgstr "გაფართოების მონაცემები"
 
 #: src/amo/components/Addon/index.js:521
 msgid "Screenshots"
@@ -134,7 +134,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "თქვენი ბრაუზერი არაა თავსებადი ამ დამატებასთან. შეგიძლიათ <a href=\"%(downloadUrl)s\">ჩამოტვირთოთ Firefox</a>, ამ დამატების გამოსაყენებლად."
 
 #: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
@@ -232,7 +232,7 @@ msgstr "ყველა გაფართოების ნახვა"
 
 #: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
-msgstr ""
+msgstr "აცნობეთ მსოფლიოს, რატომ მიგაჩნიათ ეს გაფართოება საუკეთესოდ!"
 
 #: src/amo/components/AddonReview/index.js:166
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -301,11 +301,11 @@ msgstr ""
 
 #: src/amo/components/CategoryHeader/index.js:38
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "ამ კატეგორიის ყველა გაფართოების მოძიება."
 
 #: src/amo/components/CategoryHeader/index.js:43
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "ამ კატეგორიის ყველა თემის ნახვა."
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
@@ -351,11 +351,11 @@ msgstr "ვწუხვართ, მაგრამ სერვერზე �
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
-msgstr ""
+msgstr "სხვა რჩეული გაფართოებები"
 
 #: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
-msgstr ""
+msgstr "მეტი გამორჩეული თემები"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
@@ -453,7 +453,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "ახალი თემის წარდგენა"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
@@ -526,7 +526,7 @@ msgstr "დაამატეთ მძლავრი ხელსაწყო�
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
-msgstr ""
+msgstr "ყველა თემის ნახვა"
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
@@ -550,63 +550,63 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:115
 msgid "Featured extensions"
-msgstr ""
+msgstr "რჩეული გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:117
 msgid "More featured extensions"
-msgstr ""
+msgstr "სხვა რჩეული გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:118
 msgid "Most popular extensions"
-msgstr ""
+msgstr "ყველაზე მეტად სასურველი გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:123
 msgid "More popular extensions"
-msgstr ""
+msgstr "მეტად სასურველი გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:124
 msgid "Top rated extensions"
-msgstr ""
+msgstr "საუკეთესოდ შეფასებული გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:132
 msgid "More highly rated extensions"
-msgstr ""
+msgstr "მაღალი შეფასების მქონე გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:135
 msgid "Featured themes"
-msgstr ""
+msgstr "გამორჩეული თემები"
 
 #: src/amo/components/LandingPage/index.js:137
 msgid "More featured themes"
-msgstr ""
+msgstr "მეტი გამორჩეული თემა"
 
 #: src/amo/components/LandingPage/index.js:138
 msgid "Most popular themes"
-msgstr ""
+msgstr "ყველაზე მეტად სასურველი თემები"
 
 #: src/amo/components/LandingPage/index.js:143
 msgid "More popular themes"
-msgstr ""
+msgstr "მეტად სასურველი თემები"
 
 #: src/amo/components/LandingPage/index.js:144
 msgid "Top rated themes"
-msgstr ""
+msgstr "საუკეთესოდ შეფასებული თემები"
 
 #: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated themes"
-msgstr ""
+msgstr "მაღალი შეფასების მქონე თემები"
 
 #: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
-msgstr ""
+msgstr "თემები"
 
 #: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
-msgstr ""
+msgstr "გაფართოებები"
 
 #: src/amo/components/LandingPage/index.js:221
 msgid "Explore all categories"
-msgstr ""
+msgstr "დათვალიერება ყველა კატეგორიის"
 
 #: src/amo/components/LanguagePicker.js:50
 #, fuzzy
@@ -627,11 +627,11 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "შედით ანგარიშზე თემის შესაფასებლად"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "შედით ანგარიშზე გაფართოების შესაფასებლად"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this add-on"
@@ -684,7 +684,7 @@ msgstr ""
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა %(count)s გაფართოება"
 
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
@@ -699,7 +699,7 @@ msgstr[0] ""
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა %(count)s თემა"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
@@ -754,7 +754,7 @@ msgstr "გაფართოება"
 
 #: src/amo/components/SearchFilters/index.js:72
 msgid "Theme"
-msgstr ""
+msgstr "თემა"
 
 #: src/amo/components/SearchFilters/index.js:81
 msgid "Windows"
@@ -802,7 +802,7 @@ msgstr "ენის პაკეტების მოძიება"
 
 #: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
-msgstr ""
+msgstr "თემების მოძიება"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchForm/index.js:216
@@ -819,7 +819,7 @@ msgstr ""
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
-msgstr ""
+msgstr "თემის წინასწარი შეთვალიერება შეუძლებელია"
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
@@ -843,7 +843,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:41
 msgid "Explore"
-msgstr ""
+msgstr "დათვალიერება"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
@@ -855,7 +855,7 @@ msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"
-msgstr ""
+msgstr "რეგისტრაცია ან შესვლა"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
