@@ -92,6 +92,9 @@ export const TRACKING_TYPE_INVALID = 'invalid';
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
+// Language tools contain both ADDON_TYPE_DICT and ADDON_TYPE_LANG so
+// we share a custom view context for both add-on types.
+export const VIEW_CONTEXT_LANGUAGE_TOOLS = 'VIEW_CONTEXT_LANGUAGE_TOOLS';
 
 // Add-on Search Sort Values
 export const SEARCH_SORT_POPULAR = 'hotness';
