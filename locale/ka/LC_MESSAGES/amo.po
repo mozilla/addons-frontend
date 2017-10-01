@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 21:09+0000\n"
+"PO-Revision-Date: 2017-10-01 21:30+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
-msgstr ""
+msgstr "%(addonType)s-ის შესახებ"
 
 #: src/amo/components/Addon/index.js:290
 msgid "Release notes for %(addonVersion)s"
@@ -236,15 +236,15 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:166
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "მოგვახსენეთ, ყველაზე მეტად რა მოგწონთ ამ გაფართოებაში. სასურველია კონკრეტულად და ლაკონურად."
 
 #: src/amo/components/AddonReview/index.js:170
 msgid "Tell the world about this extension."
-msgstr ""
+msgstr "აცნობეთ მსოფლიოს ამ გაფართოების შესახებ."
 
 #: src/amo/components/AddonReview/index.js:171
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "მოგვახსენეთ, თქვენი გამოცდილება ამ გაფართოებასთან დაკავშირებით. სასურველია კონკრეტულად და ლაკონურად."
 
 #: src/amo/components/AddonReview/index.js:183
 msgid "Write a review"
@@ -405,7 +405,7 @@ msgstr "Firefox დამატებები"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "შესახებ"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
