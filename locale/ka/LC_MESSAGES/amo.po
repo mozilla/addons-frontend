@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 22:10+0000\n"
+"PO-Revision-Date: 2017-10-01 22:52+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -518,7 +518,7 @@ msgstr "ყველა გაფართოების ნახვა"
 
 #: src/amo/components/Home/index.js:143
 msgid "You can change how Firefox works…"
-msgstr ""
+msgstr "თქვენ შეგიძლიათ შეცვალოთ, როგორ უნდა იმუშაოს Firefox-მა…"
 
 #: src/amo/components/Home/index.js:146
 msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
@@ -530,7 +530,7 @@ msgstr "ყველა თემის ნახვა"
 
 #: src/amo/components/Home/index.js:162
 msgid "…or what it looks like"
-msgstr ""
+msgstr "…ან როგორ უნდა გამოიყურებოდეს"
 
 #: src/amo/components/Home/index.js:165
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
