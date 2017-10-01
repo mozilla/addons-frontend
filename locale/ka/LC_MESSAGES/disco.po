@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-01 22:10+0000\n"
+"PO-Revision-Date: 2017-10-01 23:28+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -100,15 +100,15 @@ msgstr ""
 
 #: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "მოულოდნელი შეცდომა დაყენებისას."
 
 #: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "მოულოდნელი შეცდომა ამოშლისას."
 
 #: src/disco/components/Addon.js:173
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "მოულოდნელი შეცდომა."
 
 #: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -177,7 +177,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "მოულოდნელი შეცდომა"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"

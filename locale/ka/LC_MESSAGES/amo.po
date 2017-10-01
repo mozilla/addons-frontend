@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 22:52+0000\n"
+"PO-Revision-Date: 2017-10-01 23:26+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -139,7 +139,7 @@ msgstr "თქვენი ბრაუზერი არაა თავსე
 #: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
+msgstr[0] "%(total)s მომხმარებელი"
 
 #: src/amo/components/AddonMeta.js:39
 msgid "%(total)s review"
@@ -207,7 +207,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:38
 msgid "Homepage"
-msgstr ""
+msgstr "მთავარი გვერდი"
 
 #: src/amo/components/AddonMoreInfo/index.js:47
 msgid "Support Site"
@@ -395,7 +395,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Mozilla-ს მთავარ გვერდზე გადასვლა"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Footer/index.js:43
@@ -689,12 +689,12 @@ msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა %(count)s ლექსიკონი"
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა %(count)s ენის პაკეტი"
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
@@ -704,12 +704,12 @@ msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "\"%(query)s\" ფრაზისთვის მოიძებნა %(count)s შედეგი"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] ""
+msgstr[0] "%(count)s შედეგი \"%(query)s\" ფრაზისთვის"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
@@ -721,16 +721,16 @@ msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
-msgstr ""
+msgstr "დამატებები არ მოიძებნა"
 
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
+msgstr[0] "ნაპოვნია %(count)s დამატება"
 
 #: src/amo/components/SearchFilters/index.js:104
 msgid "Filter results"
-msgstr ""
+msgstr "გაფილტრული შედეგები"
 
 #: src/amo/components/SearchFilters/index.js:110
 msgid "Sort by"
@@ -778,7 +778,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Most Users"
-msgstr ""
+msgstr "მეტი მომხმარებელი"
 
 #: src/amo/components/SearchFilters/index.js:94
 msgid "Top Rated"
@@ -786,7 +786,7 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "დამატების მთავარ გვერდზე გადასვლა"
 
 #: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
@@ -827,11 +827,11 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "\"%(query)s\" ფრაზისთვის შედეგები ვერ მოიძებნა."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
-msgstr ""
+msgstr "შედეგები ვერ მოიძებნა."
 
 #: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -839,7 +839,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:60
 msgid "Search results"
-msgstr ""
+msgstr "ძიების შედეგები"
 
 #: src/amo/components/SectionLinks/index.js:41
 msgid "Explore"
@@ -847,11 +847,11 @@ msgstr "დათვალიერება"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
-msgstr ""
+msgstr "შემოთავაზებული გვერდები"
 
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "დამატების მთავარი გვერდი"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"
@@ -907,7 +907,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(currentPage)s გვერდი %(totalPages)s-დან"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
@@ -915,7 +915,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:122
 msgid "Next"
-msgstr ""
+msgstr "შემდეგი"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -935,7 +935,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "მოულოდნელი შეცდომა"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
