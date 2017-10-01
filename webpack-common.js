@@ -31,7 +31,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
         test: /\.css$/,
         use: [
           { loader: 'style-loader' },
-          { loader: 'css-loader', options: { importLoaders: 2 } },
+          { loader: 'css-raw-loader', options: { importLoaders: 2 } },
           {
             loader: 'postcss-loader',
             options: {
@@ -40,7 +40,8 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
             },
           },
         ],
-      }, {
+      },
+      {
         test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
@@ -66,7 +67,7 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
           fallback: 'style-loader',
           use: [
             {
-              loader: 'css-loader',
+              loader: 'css-raw-loader',
               options: { importLoaders: 2, sourceMap: true },
             },
             {
@@ -80,7 +81,8 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
             },
           ],
         }),
-      }, {
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',
