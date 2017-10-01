@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 20:25+0000\n"
+"PO-Revision-Date: 2017-10-01 20:49+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -321,7 +321,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "ვწუხვართ, მაგრამ ამ გვერდის ნახვის უფლება არ გაქვთ. თუ არ ხართ ანგარიშზე შესული, გამოიყენეთ გვერდის დასაწყისში არსებული ბმული, შესასვლელად."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
@@ -329,7 +329,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "გვერდი ვერ მოიძებნა"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
@@ -867,7 +867,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ URL მისამართზე, არაფერია."
 
 #: src/core/components/InstallButton/index.js:106
 msgid "Install Theme"

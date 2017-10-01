@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-01 20:25+0000\n"
+"PO-Revision-Date: 2017-10-01 20:41+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -28,11 +28,11 @@ msgstr ""
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "გვერდი ვერ მოიძებნა"
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ URL მისამართზე, არაფერია."
 
 #: src/core/components/InstallButton/index.js:106
 msgid "Install Theme"
