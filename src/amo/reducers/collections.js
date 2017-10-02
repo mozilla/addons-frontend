@@ -37,7 +37,7 @@ type FetchCollectionParams = {|
 |};
 
 type FetchCollectionAction = {|
-  type: 'FETCH_COLLECTION',
+  type: typeof FETCH_COLLECTION,
   payload: FetchCollectionParams,
 |};
 
@@ -69,7 +69,7 @@ type FetchCollectionPageParams = {|
 |};
 
 type FetchCollectionPageAction = {|
-  type: 'FETCH_COLLECTION_PAGE',
+  type: typeof FETCH_COLLECTION_PAGE,
   payload: FetchCollectionPageParams,
 |};
 
@@ -136,7 +136,7 @@ type LoadCollectionParams = {|
 |};
 
 type LoadCollectionAction = {|
-  type: 'LOAD_COLLECTION',
+  type: typeof LOAD_COLLECTION,
   payload: LoadCollectionParams,
 |};
 
@@ -162,7 +162,7 @@ type LoadCollectionPageParams = {|
 |};
 
 type LoadCollectionPageAction = {|
-  type: 'LOAD_COLLECTION_PAGE',
+  type: typeof LOAD_COLLECTION_PAGE,
   payload: LoadCollectionPageParams,
 |};
 

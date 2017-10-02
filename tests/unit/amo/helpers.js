@@ -282,16 +282,24 @@ export function dispatchAutocompleteResults({
   return { store };
 }
 
-export const createFakeCollectionDetail = ({ name = 'my-collection' } = {}) => {
+export const createFakeCollectionDetail = ({ name = 'My Addons' } = {}) => {
   return {
+    addon_count: 123,
     author: {
+      id: Date.now(),
       name: 'John Doe',
+      url: 'http://olympia.dev/en-US/firefox/user/johndoe/',
+      username: 'johndoe',
     },
+    default_locale: 'en-US',
     description: 'some description',
     id: Date.now(),
-    public: true,
+    modified: Date.now(),
     name,
-    addon_count: 123,
+    public: true,
+    slug: 'my-addons',
+    url: `https://example.org/en-US/firefox/collections/johndoe/my-addons/`,
+    uuid: 'ef7e1344-1c3d-4bbb-bbd8-df9d8c9020ec',
   };
 };
 
