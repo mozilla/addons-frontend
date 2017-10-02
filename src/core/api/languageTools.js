@@ -9,6 +9,7 @@ export type LanguageToolsParams = {|
 
 export function languageTools({ api }: LanguageToolsParams) {
   return callApi({
+    auth: true,
     endpoint: 'addons/language-tools',
     method: 'GET',
     params: { app: api.clientApp },

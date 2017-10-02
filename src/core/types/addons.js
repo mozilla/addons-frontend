@@ -136,7 +136,7 @@ export type ExternalAddonType = {|
  */
 export type AddonType = {
   ...ExternalAddonType,
-  ...LanguageToolType,
+  ...LanguageToolData,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl: string,

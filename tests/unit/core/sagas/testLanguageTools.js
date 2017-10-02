@@ -23,9 +23,8 @@ describe(__filename, () => {
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(api);
-    const initialState = dispatchClientMetadata().state;
     sagaTester = new SagaTester({
-      initialState,
+      initialState: dispatchClientMetadata().state,
       reducers: {
         api: apiReducer,
         addons: addonsReducer,

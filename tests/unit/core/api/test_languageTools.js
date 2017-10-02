@@ -23,12 +23,13 @@ describe(__filename, () => {
       });
     }
 
-    it('calls the language tools API', () => {
+    it('calls the language tools API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
 
       mockApi
         .expects('callApi')
         .withArgs({
+          auth: true,
           endpoint: 'addons/language-tools',
           method: 'GET',
           params: { app: apiState.clientApp },
@@ -36,10 +37,10 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse([createFakeLanguageAddon()]));
-      return languageTools({ api: apiState })
-        .then(() => {
-          mockApi.verify();
-        });
+
+      await languageTools({ api: apiState });
+
+      mockApi.verify();
     });
   });
 });
