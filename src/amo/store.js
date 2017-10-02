@@ -3,6 +3,7 @@ import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
+import collections from 'amo/reducers/collections';
 import featured from 'amo/reducers/featured';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
@@ -32,6 +33,7 @@ export default function createStore(initialState = {}) {
       api,
       autocomplete,
       categories,
+      collections,
       errors,
       errorPage,
       featured,
