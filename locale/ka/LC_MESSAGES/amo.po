@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 19:50+0000\n"
+"PO-Revision-Date: 2017-10-02 20:10+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -118,11 +118,11 @@ msgstr "თქვენ გესაჭიროებათ <a href=\"%(downloa
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "ეს დამატება Firefox-ის თქვენს ვერსიასთან შეუთავსებელია."
 
 #: src/amo/components/AddonCompatibilityError/index.js:64
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Firefox-ის ეს ვერსია, შეუთავსებელია საძიებო სისტემების მოდულებთან."
 
 #: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
@@ -160,7 +160,7 @@ msgstr "ყველა Beta ვერსის ნახვა"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
-msgstr ""
+msgstr "დამატების ბმულები"
 
 #: src/amo/components/AddonMoreInfo/index.js:139
 msgid "Version"
@@ -198,7 +198,7 @@ msgstr "ეს ID გამოსადეგია თქვენი დამ
 
 #: src/amo/components/AddonMoreInfo/index.js:179
 msgid "Site Identifier"
-msgstr ""
+msgstr "საიტის იდენტიფიკატორი"
 
 #: src/amo/components/AddonMoreInfo/index.js:194
 msgid "More information"
@@ -210,11 +210,11 @@ msgstr "მთავარი გვერდი"
 
 #: src/amo/components/AddonMoreInfo/index.js:47
 msgid "Support Site"
-msgstr ""
+msgstr "მხარდაჭერის საიტი"
 
 #: src/amo/components/AddonMoreInfo/index.js:59
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:77
 msgid "Read the privacy policy for this add-on"
@@ -258,7 +258,7 @@ msgstr "მიმოხილვის გაგზავნა"
 
 #: src/amo/components/AddonReviewList/index.js:142
 msgid "Add-on icon"
-msgstr ""
+msgstr "დამატების ხატულა"
 
 #: src/amo/components/AddonReviewList/index.js:148
 msgid "Reviews for %(addonName)s"
@@ -270,7 +270,7 @@ msgstr "ყველა მიმოხილვა"
 
 #: src/amo/components/AddonReviewListItem/index.js:61
 msgid "from %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "ავტორი: %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
 msgid "Edit my review"
@@ -290,7 +290,7 @@ msgstr "კატეგორიები"
 
 #: src/amo/components/Categories/index.js:113
 msgid "Loading categories."
-msgstr ""
+msgstr "კატეგორიის ჩატვირთვა."
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
@@ -311,10 +311,12 @@ msgstr "ჩამოტვირთეთ Firefox"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"თუ შესული ხართ ანგარიშზე და ფიქრობთ, რომ ეს შეტყობინება შეცდომით მიიღეთ, გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის შესახებ</a>. გვაცნობეთ, საიდან გადმოხვედით ამ ბმულზე, რის ნახვას ცდილობდით და"
+" ჩვენ აუცილებლად გამოვასწორებთ."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
-msgstr ""
+msgstr "არ ხართ შესული ანგარიშზე"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -342,7 +344,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "შეცდომა სერვერზე"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -375,11 +377,11 @@ msgstr "პირადი მონაცემების დაცვის 
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "ფუნთუშები"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "იურიდიული ინფორმაცია"
 
 #: src/amo/components/Footer/index.js:141
 msgid "Report Trademark Abuse"
@@ -390,6 +392,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"გარდა მოცემული %(startNotedLink)sშენიშვნებისა%(endNotedLink)s, ამ საიტზე არსებული შიგთავსი ვრცელდება %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0 ლიცენზიით%(endLicenseLink)s, ან"
+" უფრო ახალი ვერსიით."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -439,11 +443,11 @@ msgstr "iOS-ისთვის"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
-msgstr ""
+msgstr "პროფილის ჩასწორება"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "ხელსაწყოები"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
@@ -455,11 +459,11 @@ msgstr "ახალი თემის წარდგენა"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "API გასაღებების მართვა"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
-msgstr ""
+msgstr "გასვლა"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:61
@@ -468,11 +472,11 @@ msgstr "Firefox დამატებები"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "ჩემი ანგარიში"
 
 #: src/amo/components/Header/index.js:97
 msgid "View Profile"
-msgstr ""
+msgstr "პროფილის ნახვა"
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
@@ -536,11 +540,11 @@ msgstr "შეუცვალეთ თქვენს ბრაუზერს 
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
-msgstr "რეკლამების შეზღუდვა"
+msgstr "შეზღუდეთ რეკლამები"
 
 #: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
 msgid "Screenshot"
-msgstr "ეკრანის გადაღება"
+msgstr "გადაუღეთ სურათები ეკრანს"
 
 #: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
 msgid "Find news"
@@ -607,9 +611,8 @@ msgid "Explore all categories"
 msgstr "დათვალიერება ყველა კატეგორიის"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "ენის პაკეტების მოძიება"
+msgstr "ენის შეცვლა"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
