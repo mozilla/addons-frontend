@@ -200,6 +200,7 @@ export default compose(
   withErrorHandler({
     // This allows to sync the client and the server error handler ids, thus
     // allowing the client side to be aware of errors thrown on the server.
+    // See: https://github.com/mozilla/addons-frontend/issues/3313
     id: 'Collection-001',
     name: 'Collection',
   }),
