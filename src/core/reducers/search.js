@@ -2,6 +2,7 @@ import {
   SEARCH_STARTED,
   SEARCH_LOADED,
 } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 
 export const initialState = {
   count: 0,
@@ -26,7 +27,7 @@ export default function search(state = initialState, action) {
         count: payload.result.count,
         loading: false,
         results: payload.result.results.map((slug) => (
-          payload.entities.addons[slug]
+          createInternalAddon(payload.entities.addons[slug])
         )),
       };
     default:

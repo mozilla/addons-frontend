@@ -1,10 +1,11 @@
 import { getLanding } from 'amo/actions/landing';
 import landing, { initialState } from 'amo/reducers/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
-describe('landing reducer', () => {
+describe(__filename, () => {
   it('defaults to not loading', () => {
     const { loading } = landing(undefined, { type: 'unrelated' });
 
@@ -103,7 +104,10 @@ describe('landing reducer', () => {
       });
       expect(state.featured.count).toEqual(2);
       expect(state.featured.results)
-        .toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+        .toEqual([
+          createInternalAddon({ slug: 'foo' }),
+          createInternalAddon({ slug: 'food' }),
+        ]);
       expect(state.highlyRated).toEqual({ count: 0, results: [] });
       expect(state.popular).toEqual({ count: 0, results: [] });
       expect(state.resultsLoaded).toEqual(true);

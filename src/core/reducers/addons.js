@@ -172,6 +172,8 @@ export function createInternalAddon(
         updateURL: apiAddon.theme_data.updateURL,
         version: apiAddon.theme_data.version,
       }),
+      // We should be using this property.
+      themeData: removeUndefinedProps({ ...apiAddon.theme_data }),
     };
   }
 

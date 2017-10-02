@@ -141,4 +141,5 @@ export type AddonType = {
     windows: ?string,
   },
   isRestartRequired: boolean,
+  themeData?: ThemeData,
 };

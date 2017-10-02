@@ -164,6 +164,7 @@ describe(__filename, () => {
         addon,
       }]));
 
+      const themeData = addon.theme_data;
       // This is removed by the reducer.
       delete addon.theme_data;
 
@@ -185,6 +186,7 @@ describe(__filename, () => {
           windows: undefined,
         },
         isRestartRequired: false,
+        themeData,
       }]);
     });
   });

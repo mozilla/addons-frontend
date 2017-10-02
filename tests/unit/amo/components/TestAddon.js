@@ -1104,7 +1104,9 @@ describe(__filename, () => {
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
       expect(root).not.toHaveClassName('.AddonDescription-more-addons--theme');
-      expect(root).toHaveProp('addons', addonsByAuthors);
+      expect(root).toHaveProp('addons', addonsByAuthors.map((addonByAuthor) => (
+        createInternalAddon(addonByAuthor)
+      )));
     });
 
     it('indicates when other add-ons are themes', () => {
@@ -1118,7 +1120,9 @@ describe(__filename, () => {
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
       expect(root).toHaveClassName('.AddonDescription-more-addons--theme');
-      expect(root).toHaveProp('addons', addonsByAuthors);
+      expect(root).toHaveProp('addons', addonsByAuthors.map((addonByAuthor) => (
+        createInternalAddon(addonByAuthor)
+      )));
     });
 
     it('adds a CSS class to the main component when there are add-ons', () => {
