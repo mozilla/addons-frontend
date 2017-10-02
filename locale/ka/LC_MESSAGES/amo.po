@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-01 23:49+0000\n"
+"PO-Revision-Date: 2017-10-02 00:09+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -50,7 +50,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
-msgstr "%(addonType)s-ის შესახებ"
+msgstr "ინფორმაცია %(addonType)sზე"
 
 #: src/amo/components/Addon/index.js:290
 msgid "Release notes for %(addonVersion)s"
@@ -203,7 +203,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:194
 msgid "More information"
-msgstr ""
+msgstr "დამატებითი მონაცემები"
 
 #: src/amo/components/AddonMoreInfo/index.js:38
 msgid "Homepage"
@@ -382,9 +382,8 @@ msgid "Legal"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "მოხსენება ხარვეზის შესახებ"
+msgstr "მოხსენება სავაჭრო ნიშნების დარღვევის შესახებ"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
@@ -642,7 +641,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:107
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "თქვენ გამოგზავნეთ მოხსენება დარღვევაზე, ამ დამატებასთან დაკავშირებით"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -650,15 +649,17 @@ msgstr "ჩვენ მივიღეთ თქვენი მოხსენ
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "ჩვენ ვერ შევძლებთ დარღვევების ყველა მოხსენებაზე გამოხმაურებას, მაგრამ თითოეულ მათგანს შევისწავლით."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"თუ მიგაჩნიათ, რომ ეს დამატება არღვევს %(linkTagStart)ssMozilla-ს დამატებების დებულებებს%(linkTagEnd)s, ან ხარვეზები აქვს უსაფრთხოებასა და პირადი მონაცემების დაცვაში, გთხოვთ, გამოგვიგზავნოთ "
+"მოხსენება, მოცემული ველის საშუალებით."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "მოხსენება დარღვევის შესახებ ამ დამატებასთან დაკავშირებით"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
