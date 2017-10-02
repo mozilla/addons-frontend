@@ -14,7 +14,6 @@ import {
   fetchCollectionPage,
   loadCollection,
 } from 'amo/reducers/collections';
-import { setError } from 'core/actions/errors';
 import { createApiError } from 'core/api/index';
 import { ErrorHandler } from 'core/errorHandler';
 import {
@@ -195,25 +194,13 @@ describe(__filename, () => {
 
   it('does not dispatch any action when there is an error', () => {
     const store = dispatchClientMetadata().store;
-    const fakeDispatch = sinon.spy(store, 'dispatch');
-
     const wrapper = renderComponent({ store });
 
-    const id = 'error-handler-id';
-    const error = createApiError({
-      response: { status: 500 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'Nope.' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
+    const errorHandler = wrapper.instance().props.errorHandler;
+    errorHandler.handle(new Error('an unexpected error'));
 
-    const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
-    });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
 
-    fakeDispatch.reset();
     wrapper.setProps({ errorHandler });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -341,6 +328,7 @@ describe(__filename, () => {
       params: { slug, user },
       store,
     });
+
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', false);
 
     // User clicks on 'next' pagination link.
@@ -351,6 +339,8 @@ describe(__filename, () => {
       user,
     }));
 
+    // This is needed because shallowUntilTarget() does not trigger any
+    // lifecycle methods.
     wrapper.setProps(mapStateToProps(store.getState()));
 
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
@@ -360,86 +350,70 @@ describe(__filename, () => {
   });
 
   it('renders NotFound page for unauthorized collection - 401 error', () => {
-    const id = 'error-handler-id';
     const store = dispatchClientMetadata().store;
 
-    const error = createApiError({
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
       response: { status: 401 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { message: 'unauthorized' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
+    }));
 
-    const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
-    });
-
-    const wrapper = renderComponent({ errorHandler });
+    const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(NotFound)).toHaveLength(1);
   });
 
   it('renders NotFound page for forbidden collection - 403 error', () => {
-    const id = 'error-handler-id';
     const store = dispatchClientMetadata().store;
 
-    const error = createApiError({
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
       response: { status: 403 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { message: 'forbidden' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
+    }));
 
-    const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
-    });
-
-    const wrapper = renderComponent({ errorHandler });
+    const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(NotFound)).toHaveLength(1);
   });
 
   it('renders 404 page for missing collection', () => {
-    const id = 'error-handler-id';
     const store = dispatchClientMetadata().store;
 
-    const error = createApiError({
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
       response: { status: 404 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { message: 'not found' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
+    }));
 
-    const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
-    });
-
-    const wrapper = renderComponent({ errorHandler });
+    const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(NotFound)).toHaveLength(1);
   });
 
   it('renders an error if one exists', () => {
-    const id = 'error-handler-id';
     const store = dispatchClientMetadata().store;
 
-    const error = createApiError({
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
       response: { status: 500 },
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { message: 'Nope.' },
-    });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    expect(capturedError).toBeTruthy();
+    }));
 
-    const errorHandler = new ErrorHandler({
-      id, dispatch: sinon.stub(), capturedError,
-    });
-
-    const wrapper = renderComponent({ errorHandler });
+    const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(ErrorList)).toHaveLength(1);
   });
 });

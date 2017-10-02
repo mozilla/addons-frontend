@@ -3,28 +3,28 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import AddonsCard from 'amo/components/AddonsCard';
+import Link from 'amo/components/Link';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import { fetchCollection, fetchCollectionPage } from 'amo/reducers/collections';
+import Paginate from 'core/components/Paginate';
 import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
-import { fetchCollection, fetchCollectionPage } from 'amo/reducers/collections';
+import Card from 'ui/components/Card';
+import LoadingText from 'ui/components/LoadingText';
 import type {
   CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
-import AddonsCard from 'amo/components/AddonsCard';
-import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
-import Paginate from 'core/components/Paginate';
-import Card from 'ui/components/Card';
-import LoadingText from 'ui/components/LoadingText';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
 
-type Props = {|
+type PropTypes = {|
   collection: CollectionType | null,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
@@ -42,11 +42,11 @@ export class CollectionBase extends React.Component {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: Props) {
+  componentWillReceiveProps(nextProps: PropTypes) {
     this.loadDataIfNeeded(nextProps);
   }
 
-  loadDataIfNeeded(nextProps?: Props) {
+  loadDataIfNeeded(nextProps?: PropTypes) {
     const { collection, errorHandler, loading, params } = {
       ...this.props,
       ...nextProps,
@@ -100,7 +100,7 @@ export class CollectionBase extends React.Component {
     }
   }
 
-  props: Props;
+  props: PropTypes;
 
   url() {
     const { params } = this.props;
@@ -197,6 +197,11 @@ export const mapStateToProps = (state: { collections: CollectionsState }) => {
 
 export default compose(
   translate(),
-  withErrorHandler({ name: 'Collection' }),
+  withErrorHandler({
+    // This allows to sync the client and the server error handler ids, thus
+    // allowing the client side to be aware of errors thrown on the server.
+    id: 'Collection-001',
+    name: 'Collection',
+  }),
   connect(mapStateToProps),
 )(CollectionBase);
