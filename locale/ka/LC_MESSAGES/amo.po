@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 00:50+0000\n"
+"PO-Revision-Date: 2017-10-02 19:50+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -130,7 +130,7 @@ msgstr "Firefox iOS ვერსიას, ამჟამად არ გა�
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "დამატება საჭიროებს <a href=\"%(downloadUrl)s\">Firefox-ის ახალ ვერსიას</a> (სულ მცირე %(minVersion)s ვერსიას). თქვენ იყენებთ Firefox %(yourVersion)s ვერსიას."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -447,7 +447,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "ახალი დამატების წარდგენა"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
@@ -476,7 +476,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:100 src/amo/components/Home/index.js:75
 msgid "Shop online"
-msgstr ""
+msgstr "ივაჭრეთ ინტერნეტში"
 
 #: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
 msgid "Be social"
@@ -536,15 +536,15 @@ msgstr "შეუცვალეთ თქვენს ბრაუზერს 
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
-msgstr ""
+msgstr "რეკლამების შეზღუდვა"
 
 #: src/amo/components/Home/index.js:69 src/amo/components/Home/index.js:94
 msgid "Screenshot"
-msgstr ""
+msgstr "ეკრანის გადაღება"
 
 #: src/amo/components/Home/index.js:72 src/amo/components/Home/index.js:97
 msgid "Find news"
-msgstr ""
+msgstr "მოიძიეთ სიახლეები"
 
 #: src/amo/components/LandingPage/index.js:115
 msgid "Featured extensions"
@@ -654,8 +654,8 @@ msgstr "ჩვენ ვერ შევძლებთ დარღვევე
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
-"თუ მიგაჩნიათ, რომ ეს დამატება არღვევს %(linkTagStart)ssMozilla-ს დამატებების დებულებებს%(linkTagEnd)s, ან ხარვეზები აქვს უსაფრთხოებასა და პირადი მონაცემების დაცვაში, გთხოვთ, გამოგვიგზავნოთ "
-"მოხსენება, მოცემული ველის საშუალებით."
+"თუ მიგაჩნიათ, რომ ეს დამატება არღვევს %(linkTagStart)sMozilla-ს დამატებების დებულებებს%(linkTagEnd)s, ან ხარვეზები აქვს უსაფრთხოებასა და პირადი მონაცემების დაცვაში, გთხოვთ, გამოგვიგზავნოთ მოხსენება,"
+" მოცემული ველის საშუალებით."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -772,11 +772,11 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:91
 msgid "Relevance"
-msgstr ""
+msgstr "შესაბამისობა"
 
 #: src/amo/components/SearchFilters/index.js:92
 msgid "Recently Updated"
-msgstr ""
+msgstr "ბოლოს განახლებული"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Most Users"
@@ -953,7 +953,7 @@ msgstr "%(rating)s შეფასება 5-დან"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
-msgstr ""
+msgstr "არაა შეფასებული"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
