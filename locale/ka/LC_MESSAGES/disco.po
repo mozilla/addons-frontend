@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-02 00:49+0000\n"
+"PO-Revision-Date: 2017-10-02 20:31+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "შეცდომა სერვერზე"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -24,7 +24,7 @@ msgstr "ვწუხვართ, მაგრამ მოხდა გაუ�
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "შეცდომის კოდი: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -44,7 +44,7 @@ msgstr "Firefox-ზე დამატება"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s მიმდინარეობს ჩამოტვირთვა."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Installing %(name)s."
@@ -72,15 +72,15 @@ msgstr "დაყენების მდგომარეობა %(name)s-�
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "თქვენი დამატება მზადაა"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "%(name)s დამატებასთან წვდომა გექნებათ ხელსაწყოთა ზოლიდან."
 
 #: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
-msgstr ""
+msgstr "კარგი!"
 
 #: src/disco/components/Addon.js:125
 msgid "Hover to preview or click to install %(name)s"
@@ -96,7 +96,7 @@ msgstr "დაყენება ვერ მოხერხდა. სცა�
 
 #: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "ჩამოტვირთვა ვერ მოხერხდა. გთხოვთ შეამოწმოთ ქსელთან კავშირი."
 
 #: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
@@ -116,11 +116,11 @@ msgstr "ეს დამატება ამოიშლება Firefox-ი�
 
 #: src/disco/components/Addon.js:183
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "გთხოვთ, ხელახლა გაუშვათ Firefox, დამატების ასამოქმედებლად."
 
 #: src/disco/components/Addon.js:86
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
@@ -128,7 +128,7 @@ msgstr "Firefox iOS ვერსიას, ამჟამად არ გა�
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "ეს დამატება არაა თავსებადი თქვენს ბრაუზერთან."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
@@ -157,7 +157,7 @@ msgstr ""
 
 #: src/disco/containers/DiscoPane.js:130
 msgid "Click to play"
-msgstr ""
+msgstr "დააწკაპეთ გასაშვებად"
 
 #: src/disco/containers/DiscoPane.js:131
 msgid "to find out more about add-ons"

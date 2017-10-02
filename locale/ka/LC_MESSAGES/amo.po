@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 20:10+0000\n"
+"PO-Revision-Date: 2017-10-02 20:31+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -183,9 +183,8 @@ msgid "End-User License Agreement"
 msgstr "სამომხმარებლო სალიცენზიო შეთანხმება"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
-#, fuzzy
 msgid "Version History"
-msgstr "ვერსია"
+msgstr "ვერსიის ისტორია"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
 #, fuzzy
@@ -484,7 +483,7 @@ msgstr "ივაჭრეთ ინტერნეტში"
 
 #: src/amo/components/Home/index.js:103 src/amo/components/Home/index.js:78
 msgid "Be social"
-msgstr ""
+msgstr "იყავით კავშირზე"
 
 #: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
 msgid "Play games"
@@ -504,7 +503,7 @@ msgstr "დღესასწაული"
 
 #: src/amo/components/Home/index.js:123
 msgid "Scenic"
-msgstr ""
+msgstr "მხატვრული"
 
 #: src/amo/components/Home/index.js:124
 msgid "Sporty"
@@ -722,7 +721,7 @@ msgstr "მოძიება \"%(query)s\" ფრაზისთვის"
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
-msgstr ""
+msgstr "დამატებების ჩატვირთვა"
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
@@ -743,7 +742,7 @@ msgstr "დალაგება"
 
 #: src/amo/components/SearchFilters/index.js:128
 msgid "Add-on Type"
-msgstr ""
+msgstr "დამატების ტიპი"
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
@@ -763,15 +762,15 @@ msgstr "თემა"
 
 #: src/amo/components/SearchFilters/index.js:81
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:82
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:83
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:91
 msgid "Relevance"
@@ -816,11 +815,11 @@ msgstr "დამატებების მოძიება"
 
 #: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
-msgstr ""
+msgstr "ძიება"
 
 #: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
-msgstr ""
+msgstr "იტვირთება"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
@@ -828,7 +827,7 @@ msgstr "თემის წინასწარი შეთვალიერ�
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
-msgstr ""
+msgstr "ძიება…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
@@ -840,7 +839,7 @@ msgstr "შედეგები ვერ მოიძებნა."
 
 #: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "გთხოვთ შეიყვანოთ საძიებო ფრაზა, Firefox დამატებების მოსაძებნად."
 
 #: src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -868,7 +867,7 @@ msgstr "ვწუხვართ, მაგრამ მოხდა გაუ�
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "შეცდომის კოდი: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -884,7 +883,7 @@ msgstr "Firefox-ზე დამატება"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "%(name)s მიმდინარეობს ჩამოტვირთვა."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Installing %(name)s."
@@ -924,19 +923,19 @@ msgstr "შემდეგი"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "თქვენი დამატება მზადაა"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "%(name)s დამატებასთან წვდომა გექნებათ ხელსაწყოთა ზოლიდან."
 
 #: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
-msgstr ""
+msgstr "კარგი!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "თქვენი სეანსი ამოიწურა"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
@@ -944,11 +943,11 @@ msgstr "მოულოდნელი შეცდომა"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "გასაგრძელებლად, ხელახლა გახსენით"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "შიგთავსის გადართვა"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
