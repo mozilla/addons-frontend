@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-02 00:31+0000\n"
+"PO-Revision-Date: 2017-10-02 00:49+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -48,23 +48,23 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s ყენდება."
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ჩაიდგა და ჩართულია. დააწკაპეთ ამოსაშლელად."
 
 #: src/core/components/InstallSwitch/index.js:72
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s გამორთულია. დააწკაპეთ ჩასართავად."
 
 #: src/core/components/InstallSwitch/index.js:75
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s იშლება."
 
 #: src/core/components/InstallSwitch/index.js:78
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s წაშლილია. დააწკაპეთ დასაყენებლად."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "Install state for %(name)s is unknown."
@@ -92,7 +92,7 @@ msgstr "გადაატარეთ სურათზე მაჩვენ�
 
 #: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "დაყენება ვერ მოხერხდა. სცადეთ მოგვიანებით."
 
 #: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
@@ -112,7 +112,7 @@ msgstr "მოულოდნელი შეცდომა."
 
 #: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "ეს დამატება ამოიშლება Firefox-ის ხელახლა გაშვების შემდეგ."
 
 #: src/disco/components/Addon.js:183
 msgid "Please restart Firefox to use this add-on."
@@ -140,7 +140,7 @@ msgstr "პირადულობის დაცვა"
 
 #: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "აღმოაჩინეთ ახალი დამატებები"
 
 #: src/disco/containers/DiscoPane.js:121
 msgid "Personalize Your Firefox"

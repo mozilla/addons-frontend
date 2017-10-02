@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 00:30+0000\n"
+"PO-Revision-Date: 2017-10-02 00:50+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -54,7 +54,7 @@ msgstr "ინფორმაცია %(addonType)sზე"
 
 #: src/amo/components/Addon/index.js:290
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "%(addonVersion)s გამოშვების მონაცემები"
 
 #: src/amo/components/Addon/index.js:319
 msgid "More dictionaries by %(author)s"
@@ -114,7 +114,7 @@ msgstr "ეკრანის სურათები"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "თქვენ გესაჭიროებათ <a href=\"%(downloadUrl)s\">Firefox-ის ჩამოტვირთვა,</a> ამ დამატების დასაყენებლად."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -126,7 +126,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox iOS ვერსიას, ამჟამად არ გააჩნია დამატებების მხარდაჭერა."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -155,9 +155,8 @@ msgid "Used by"
 msgstr "მომხმარებელი"
 
 #: src/amo/components/AddonMoreInfo/index.js:104
-#, fuzzy
 msgid "See all beta versions"
-msgstr "ყველა გაფართოების ნახვა"
+msgstr "ყველა Beta ვერსის ნახვა"
 
 #: src/amo/components/AddonMoreInfo/index.js:127
 msgid "Add-on Links"
@@ -195,7 +194,7 @@ msgstr "ვერსია"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "ეს ID გამოსადეგია თქვენი დამატების გასამართად და ამოსაცნობად, საიტის ადმინისტრატორებისთვის."
 
 #: src/amo/components/AddonMoreInfo/index.js:179
 msgid "Site Identifier"
@@ -223,12 +222,11 @@ msgstr "გაეცანით ამ დამატების პირა
 
 #: src/amo/components/AddonMoreInfo/index.js:85
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "გაეცანით სალიცენზიო შეთანხმებას, ამ დამატების შესახებ"
 
 #: src/amo/components/AddonMoreInfo/index.js:94
-#, fuzzy
 msgid "See all versions"
-msgstr "ყველა გაფართოების ნახვა"
+msgstr "ყველა ვერსიის ნახვა"
 
 #: src/amo/components/AddonReview/index.js:163
 msgid "Tell the world why you think this extension is fantastic!"
@@ -296,7 +294,7 @@ msgstr ""
 
 #: src/amo/components/CategoryHeader/index.js:34
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "ამ კატეგორიის ყველა დამატების ნახვა."
 
 #: src/amo/components/CategoryHeader/index.js:38
 msgid "Browse all extensions in this category."
@@ -368,7 +366,7 @@ msgstr "კომპიუტერისთვის"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
 #, fuzzy
@@ -639,7 +637,7 @@ msgstr "შედით ანგარიშზე დამატების 
 
 #: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "კმაყოფილი დარჩით %(addonName)s დამატებით?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
 msgid "You reported this add-on for abuse"
@@ -671,11 +669,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "განმარტეთ, როგორ არღვევს ეს დამატება ჩვენს დებულებებს."
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "დახურვა"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
@@ -746,11 +744,11 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:146
 msgid "Operating System"
-msgstr ""
+msgstr "საოპერაციო სისტემა"
 
 #: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
 msgid "All"
-msgstr ""
+msgstr "ყველა"
 
 #: src/amo/components/SearchFilters/index.js:71
 msgid "Extension"
@@ -798,7 +796,7 @@ msgstr "გაფართოებების მოძიება"
 
 #: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
-msgstr ""
+msgstr "ლექსიკონის ძიება"
 
 #: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
@@ -887,23 +885,23 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "%(name)s ყენდება."
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s ჩაიდგა და ჩართულია. დააწკაპეთ ამოსაშლელად."
 
 #: src/core/components/InstallSwitch/index.js:72
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s გამორთულია. დააწკაპეთ ჩასართავად."
 
 #: src/core/components/InstallSwitch/index.js:75
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "%(name)s იშლება."
 
 #: src/core/components/InstallSwitch/index.js:78
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s წაშლილია. დააწკაპეთ დასაყენებლად."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "Install state for %(name)s is unknown."
