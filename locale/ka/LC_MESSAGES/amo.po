@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 20:31+0000\n"
+"PO-Revision-Date: 2017-10-02 20:32+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -187,9 +187,8 @@ msgid "Version History"
 msgstr "ვერსიის ისტორია"
 
 #: src/amo/components/AddonMoreInfo/index.js:170
-#, fuzzy
 msgid "Beta Versions"
-msgstr "ვერსია"
+msgstr "Beta ვერსიები"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -370,9 +369,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "პირადი მონაცემების დაცვის დებულება"
+msgstr "პირადულობის დაცვის დებულება"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
@@ -400,9 +398,8 @@ msgstr "Mozilla-ს მთავარ გვერდზე გადასვ�
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "Firefox დამატებები"
+msgstr "დამატებები"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"

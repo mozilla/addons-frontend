@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 19:01+0000\n"
-"PO-Revision-Date: 2017-10-02 20:31+0000\n"
+"PO-Revision-Date: 2017-10-02 20:33+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -173,7 +173,7 @@ msgstr "მეტი დამატება!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "თქვენი სეანსი ამოიწურა"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
@@ -181,4 +181,4 @@ msgstr "მოულოდნელი შეცდომა"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "გასაგრძელებლად, ხელახლა გახსენით"
