@@ -87,6 +87,38 @@ export function submitReview({
   });
 }
 
+type ReplyToReviewParams = {|
+  apiState?: ApiStateType,
+  body: string,
+  errorHandler?: ErrorHandlerType,
+  originalReviewId: number,
+  title?: string,
+|};
+
+export const replyToReview = ({
+  apiState,
+  body,
+  errorHandler,
+  originalReviewId,
+  title,
+}: ReplyToReviewParams = {}): Promise<ApiReviewType> => {
+  return new Promise((resolve) => {
+    const endpoint = `reviews/review/${originalReviewId}/reply/`;
+
+    resolve(callApi({
+      auth: true,
+      body: {
+        body,
+        title,
+      },
+      endpoint,
+      errorHandler,
+      method: 'POST',
+      state: apiState,
+    }));
+  });
+};
+
 type GetReviewsParams = {|
   // This is the addon ID, slug, or guid.
   addon?: number | string,
@@ -109,8 +141,7 @@ export function getReviews(
       throw new Error('Either user or addon must be specified');
     }
     resolve(callApi({
-      // Make an authenticated request if an API token exists.
-      auth: Boolean(apiState && apiState.token),
+      auth: true,
       endpoint: 'reviews/review',
       params: { user, addon, ...params },
       state: apiState,

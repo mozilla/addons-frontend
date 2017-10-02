@@ -63,6 +63,7 @@ export function getFakeAddonManagerWrapper({
 }
 
 export function unexpectedSuccess() {
+  // TODO: fix this so that the failure message is better.
   return expect(false).toBe(true);
 }
 
@@ -200,13 +201,13 @@ export const userAgents = {
 export function apiResponsePage({
   count, next, previous, pageSize = 25, results = [],
 } = {}) {
-  return Promise.resolve({
+  return {
     count: typeof count !== 'undefined' ? count : results.length,
     next,
     page_size: pageSize,
     previous,
     results,
-  });
+  };
 }
 
 export function createFetchAddonResult(addon) {

@@ -16,7 +16,7 @@ import {
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { initialApiState } from 'core/reducers/api';
-import * as amoApi from 'amo/api';
+import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
@@ -304,7 +304,7 @@ describe('RatingManager', () => {
     let actions;
 
     beforeEach(() => {
-      mockApi = sinon.mock(amoApi);
+      mockApi = sinon.mock(reviewsApi);
       dispatch = sinon.stub();
       actions = mapDispatchToProps(dispatch);
     });

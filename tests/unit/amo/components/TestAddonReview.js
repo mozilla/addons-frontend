@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import I18nProvider from 'core/i18n/Provider';
 import { SET_REVIEW } from 'amo/constants';
 import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
-import * as amoApi from 'amo/api';
+import * as reviewsApi from 'amo/api/reviews';
 import * as coreUtils from 'core/utils';
 import AddonReview, {
   mapDispatchToProps, mapStateToProps, AddonReviewBase,
@@ -338,7 +338,7 @@ describe(__filename, () => {
 
     beforeEach(() => {
       mockUtils = sinon.mock(coreUtils);
-      mockApi = sinon.mock(amoApi);
+      mockApi = sinon.mock(reviewsApi);
       dispatch = sinon.stub();
       actions = mapDispatchToProps(dispatch, {});
     });

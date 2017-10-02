@@ -1,6 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as amoApi from 'amo/api';
+import * as reviewsApi from 'amo/api/reviews';
 import { fetchReviews, setAddonReviews } from 'amo/actions/reviews';
 import { SET_ADDON_REVIEWS } from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
@@ -15,12 +15,12 @@ describe('amo/sagas/reviews', () => {
   describe('fetchReviews', () => {
     let apiState;
     let errorHandler;
-    let mockAmoApi;
+    let mockApi;
     let sagaTester;
 
     beforeEach(() => {
       errorHandler = createStubErrorHandler();
-      mockAmoApi = sinon.mock(amoApi);
+      mockApi = sinon.mock(reviewsApi);
 
       const { state } = dispatchSignInActions();
       apiState = state.api;
@@ -42,7 +42,7 @@ describe('amo/sagas/reviews', () => {
 
     it('fetches reviews from the API', async () => {
       const reviews = [fakeReview];
-      mockAmoApi
+      mockApi
         .expects('getReviews')
         .once()
         .withArgs({
@@ -51,12 +51,12 @@ describe('amo/sagas/reviews', () => {
           api: apiState,
           filter: 'without_empty_body',
         })
-        .returns(apiResponsePage({ results: reviews }));
+        .returns(Promise.resolve(apiResponsePage({ results: reviews })));
 
       _fetchReviews();
 
       await sagaTester.waitFor(SET_ADDON_REVIEWS);
-      mockAmoApi.verify();
+      mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(setAddonReviews({
@@ -66,7 +66,7 @@ describe('amo/sagas/reviews', () => {
 
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
-      mockAmoApi.expects('getReviews').returns(Promise.reject(error));
+      mockApi.expects('getReviews').returns(Promise.reject(error));
 
       _fetchReviews();
 

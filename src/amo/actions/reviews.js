@@ -2,7 +2,7 @@
 import {
   FETCH_REVIEWS, SET_ADDON_REVIEWS, SET_REVIEW,
 } from 'amo/constants';
-import type { ApiReviewType } from 'amo/api';
+import type { ApiReviewType } from 'amo/api/reviews';
 
 export type UserReviewType = {|
   addonId: number,
