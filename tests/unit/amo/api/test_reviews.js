@@ -142,7 +142,7 @@ describe(__filename, () => {
   });
 
   describe('getReviews', () => {
-    it('allows you to fetch reviews by any param', async () => {
+    it('allows you to fetch reviews with filters', async () => {
       const params = {
         user: 123, addon: 321, show_grouped_ratings: 1,
       };
