@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-27 09:17+0000\n"
+"PO-Revision-Date: 2017-10-02 07:19+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -389,6 +389,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Kivéve, ahol másként %(startNotedLink)svan jelölve%(endNotedLink)s, az oldal tartalma %(startLicenseLink)sCreative Commons Nevezd meg! – Így add tovább! licenc v3.0%(endLicenseLink)s vagy bármelyik "
+"újabb verziója alatt érhető el."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -649,6 +651,8 @@ msgstr "Nem tudunk minden bejelentésre válaszolni, de megvizsgáljuk a problé
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Ha úgy gondolja, hogy ez a kiegészítő megsérti a %(linkTagStart)sMozilla kiegészítőkről szóló irányelveit%(linkTagEnd)s, vagy biztonsági és adatvédelmi problémái vannak, jelentse ezeket a Mozillának"
+" az űrlap kitöltésével."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -656,7 +660,7 @@ msgstr "Kiegészítő jelentése visszaélésért"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Ne használja ezt az űrlapot hibajelentésre, vagy új funkciók kérésére; ez a jelentés a Mozillának kerül elküldésre, és nem a kiegészítő fejlesztőjének."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
