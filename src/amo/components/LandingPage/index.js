@@ -190,11 +190,10 @@ export class LandingPageBase extends React.Component {
       [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
     };
     const contentText = {
-      [ADDON_TYPE_THEME]: i18n.gettext(oneLine`Change your browser's
-        appearance. Choose from thousands of themes to give Firefox the look
-        you want.`),
-      [ADDON_TYPE_EXTENSION]: i18n.gettext(oneLine`Install powerful tools that
-        make browsing faster and safer, add-ons make your browser yours.`),
+      [ADDON_TYPE_THEME]: i18n.gettext(`Change your browser's appearance.
+        Choose from thousands of themes to give Firefox the look you want.`),
+      [ADDON_TYPE_EXTENSION]: i18n.gettext(`Explore powerful tools and features
+        to customize Firefox and make the browser all your own.`),
     };
 
     return (
