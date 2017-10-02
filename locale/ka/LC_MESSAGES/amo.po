@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 00:09+0000\n"
+"PO-Revision-Date: 2017-10-02 00:30+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -46,7 +46,7 @@ msgstr "მიმოხილვები ჯერ არ გაკეთებ
 
 #: src/amo/components/Addon/index.js:233
 msgid "Rate your experience"
-msgstr ""
+msgstr "თქვენი შეფასება"
 
 #: src/amo/components/Addon/index.js:266
 msgid "About this %(addonType)s"
@@ -324,7 +324,7 @@ msgstr "ვწუხვართ, მაგრამ ამ გვერდი�
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "თუ ბმულს გამოჰყევით, გთხოვთ <a href=\"%(url)s\">მოგვახსენოთ ხარვეზის შესახებ</a>. გვაცნობეთ, რომელი გვერდიდან გადმოხვედით, რას ეძებდით და აუცილებლად გავასწორებთ."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -339,6 +339,8 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"თუ გაქვთ დამატებითი ინფორმაცია, რაც შეიძლება დაგვეხმაროს, შეგიძლიათ <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">მოგვახსენოთ ამის შესახებ</a>. გვაცნობეთ, რა ნაბიჯები გადადგით, "
+"სანამ ხარვეზს წააწყდებოდით და აუცილებლად შევეცდებით მის გამოსწორებას."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
@@ -613,7 +615,7 @@ msgstr "ენის პაკეტების მოძიება"
 
 #: src/amo/components/RatingManager/index.js:125
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "შედით ანგარიშზე ლექსიკონის შესაფასებლად"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this language pack"
@@ -621,7 +623,7 @@ msgstr "შედით ანგარიშზე, ენის პაკე�
 
 #: src/amo/components/RatingManager/index.js:129
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "შედით ანგარიშზე საძიებო სისტემის შესაფასებლად"
 
 #: src/amo/components/RatingManager/index.js:131
 msgid "Log in to rate this theme"
@@ -633,7 +635,7 @@ msgstr "შედით ანგარიშზე გაფართოებ�
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "შედით ანგარიშზე დამატების შესაფასებლად"
 
 #: src/amo/components/RatingManager/index.js:163
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -664,6 +666,8 @@ msgstr "მოხსენება დარღვევის შესახ�
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
+"გთხოვთ, არ გამოიყენო ეს ველი დამატების ხარვეზების შესახებ მოსაზრებების, ან მის შესაძლებლობებთან დაკავშირებით, მოთხოვნების გამოსაგზავნად; ეს მოხსენება ეგზავნება Mozilla-ს და არა დამატების "
+"შემმუშავებელს."
 
 #: src/amo/components/ReportAbuseButton/index.js:175
 msgid "Explain how this add-on is violating our policies."
@@ -675,11 +679,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
-msgstr ""
+msgstr "მოხსენება დარღვევის შესახებ იგზავნება"
 
 #: src/amo/components/ReportAbuseButton/index.js:197
 msgid "Send abuse report"
-msgstr ""
+msgstr "დარღვევის შესახებ მოხსენების გაგზავნა"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -713,7 +717,7 @@ msgstr[0] "%(count)s შედეგი \"%(query)s\" ფრაზისთვ�
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "მოძიება \"%(query)s\" ფრაზისთვის"
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
@@ -782,7 +786,7 @@ msgstr "მეტი მომხმარებელი"
 
 #: src/amo/components/SearchFilters/index.js:94
 msgid "Top Rated"
-msgstr ""
+msgstr "საუკეთესოდ შეფასებული"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
@@ -875,7 +879,7 @@ msgstr "თემის ჩადგმა"
 
 #: src/core/components/InstallButton/index.js:128 src/core/components/InstallButton/index.js:146
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Firefox-ზე დამატება"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Downloading %(name)s."
@@ -903,7 +907,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "დაყენების მდგომარეობა %(name)s-ის შესახებ, დაუდგენელია."
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
@@ -947,7 +951,7 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "%(rating)s შეფასება 5-დან"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
@@ -955,7 +959,7 @@ msgstr ""
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">ჩამოშალეთ,</span> მეტის წასაკითხად"
 
 #~ msgid "Privacy policy"
 #~ msgstr "პირადი მონაცემების დაცვის დებულება"
