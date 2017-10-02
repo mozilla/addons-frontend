@@ -4,11 +4,18 @@ import React from 'react';
 import AddonMoreInfo, {
   AddonMoreInfoBase,
 } from 'amo/components/AddonMoreInfo';
+import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+} from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
+  fakeTheme,
 } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
@@ -34,18 +41,18 @@ describe(__filename, () => {
 
     // These fields will be visible during loading since
     // they will always exist for the loaded add-on.
-    expect(root.find('.AddonMoreInfo-version-title')).toHaveLength(1);
     expect(root.find('.AddonMoreInfo-last-updated-title')).toHaveLength(1);
-    expect(root.find('.AddonMoreInfo-version-history-title')).toHaveLength(1);
     expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(1);
 
-    expect(root.find(LoadingText)).toHaveLength(4);
+    expect(root.find(LoadingText)).toHaveLength(2);
 
     // These fields will not be visible during loading
     // since they may not exist.
     expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
     expect(root.find('.AddonMoreInfo-license-title')).toHaveLength(0);
     expect(root.find('.AddonMoreInfo-privacy-policy-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version-history-title')).toHaveLength(0);
     expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
     expect(root.find('.AddonMoreInfo-beta-versions-title')).toHaveLength(0);
   });
@@ -254,14 +261,84 @@ describe(__filename, () => {
     expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
   });
 
-  it('links to version history', () => {
-    const addon = createInternalAddon({ ...fakeAddon, slug: 'some-slug' });
+  it('links to version history if add-on is extension', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_EXTENSION,
+    });
+
     const root = render({ addon });
 
     expect(root.find('.AddonMoreInfo-version-history-title'))
       .toHaveLength(1);
     const link = root.find('.AddonMoreInfo-version-history-link');
     expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+  });
+
+  it('links to version history if add-on is a dictionary', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_DICT,
+    });
+
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-version-history-title'))
+      .toHaveLength(1);
+    const link = root.find('.AddonMoreInfo-version-history-link');
+    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+  });
+
+  it('links to version history if add-on is a language pack', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_LANG,
+    });
+
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-version-history-title'))
+      .toHaveLength(1);
+    const link = root.find('.AddonMoreInfo-version-history-link');
+    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+  });
+
+  it('omits version history for search plugins', () => {
+    // Search plugins only have one listed version so showing their
+    // version history is useless–we just omit it.
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_OPENSEARCH,
+    });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-version-history-title'))
+      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version-history-link'))
+      .toHaveLength(0);
+  });
+
+  it('omits version history for search tool', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_OPENSEARCH,
+    });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-version-history-title'))
+      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version-history-link'))
+      .toHaveLength(0);
+  });
+
+  it('omits version history for themes', () => {
+    const addon = createInternalAddon({ ...fakeTheme });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-version-history-title'))
+      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version-history-link'))
+      .toHaveLength(0);
   });
 
   it('links to beta versions', () => {

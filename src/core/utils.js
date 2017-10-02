@@ -13,7 +13,9 @@ import { fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import {
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
   VISIBLE_ADDON_TYPES_MAPPING,
@@ -462,4 +464,16 @@ export function getCategoryColor(category) {
 export function parsePage(page) {
   const parsed = parseInt(page, 10);
   return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
+}
+
+export function addonHasVersionHistory(addon) {
+  if (!addon) {
+    throw new Error('addon is required');
+  }
+
+  return ![
+    ADDON_TYPE_COMPLETE_THEME,
+    ADDON_TYPE_OPENSEARCH,
+    ADDON_TYPE_THEME,
+  ].includes(addon.type);
 }

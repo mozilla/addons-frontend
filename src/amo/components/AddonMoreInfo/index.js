@@ -7,7 +7,11 @@ import Link from 'amo/components/Link';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
-import { isAddonAuthor, trimAndAddProtocolToUrl } from 'core/utils';
+import {
+  addonHasVersionHistory,
+  isAddonAuthor,
+  trimAndAddProtocolToUrl,
+} from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 
@@ -28,11 +32,9 @@ export class AddonMoreInfoBase extends React.Component {
 
     if (!addon) {
       return this.renderDefinitions({
-        version: <LoadingText minWidth={20} />,
         versionLastUpdated: <LoadingText minWidth={20} />,
         versionLicense: <LoadingText minWidth={20} />,
         addonId: <LoadingText minWidth={20} />,
-        versionHistoryLink: <LoadingText minWidth={20} />,
       });
     }
 
@@ -65,7 +67,8 @@ export class AddonMoreInfoBase extends React.Component {
           {i18n.gettext('Visit stats dashboard')}
         </Link>
       ) : null,
-      version: addon.current_version.version,
+      version: addonHasVersionHistory(addon) ?
+        addon.current_version.version : null,
       versionLastUpdated: i18n.sprintf(
         // translators: This will output, in English:
         // "2 months ago (Dec 12 2016)"
@@ -99,14 +102,14 @@ export class AddonMoreInfoBase extends React.Component {
         </Link>
       ) : null,
       addonId: addon.id,
-      versionHistoryLink: (
+      versionHistoryLink: addonHasVersionHistory(addon) ? (
         <Link
           className="AddonMoreInfo-version-history-link"
           href={`/addon/${addon.slug}/versions/`}
         >
           {i18n.gettext('See all versions')}
         </Link>
-      ),
+      ) : null,
       // Since current_beta_version is just an alias to the latest beta,
       // we can assume that no betas exist at all if it is null.
       betaVersionsLink: addon.current_beta_version ? (
@@ -126,10 +129,10 @@ export class AddonMoreInfoBase extends React.Component {
     statsLink = null,
     privacyPolicyLink = null,
     eulaLink = null,
-    version,
+    version = null,
     versionLastUpdated,
     versionLicenseLink = null,
-    versionHistoryLink,
+    versionHistoryLink = null,
     betaVersionsLink = null,
     addonId,
   }: Object) {
@@ -149,10 +152,12 @@ export class AddonMoreInfoBase extends React.Component {
             </ul>
           </dd>
         ) : null}
-        <dt className="AddonMoreInfo-version-title">
-          {i18n.gettext('Version')}
-        </dt>
-        <dd className="AddonMoreInfo-version">{version}</dd>
+        {version ? (
+          <dt className="AddonMoreInfo-version-title">
+            {i18n.gettext('Version')}
+          </dt>
+        ) : null}
+        {version ? <dd className="AddonMoreInfo-version">{version}</dd> : null}
         <dt className="AddonMoreInfo-last-updated-title">
           {i18n.gettext('Last updated')}
         </dt>
@@ -175,10 +180,12 @@ export class AddonMoreInfoBase extends React.Component {
           </dt>
         ) : null}
         {eulaLink ? <dd>{eulaLink}</dd> : null}
-        <dt className="AddonMoreInfo-version-history-title">
-          {i18n.gettext('Version History')}
-        </dt>
-        <dd>{versionHistoryLink}</dd>
+        {versionHistoryLink ? (
+          <dt className="AddonMoreInfo-version-history-title">
+            {i18n.gettext('Version History')}
+          </dt>
+        ) : null}
+        {versionHistoryLink ? <dd>{versionHistoryLink}</dd> : null}
         {betaVersionsLink ? (
           <dt className="AddonMoreInfo-beta-versions-title">
             {i18n.gettext('Beta Versions')}

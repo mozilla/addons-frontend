@@ -38,6 +38,10 @@ export type AddonVersionType = {|
   // The `text` property is omitted from addon.current_version.license.
   license: { name: string, url: string },
   reviewed: Date,
+  // This is the developer-defined version number.
+  // It could, for example, be set to "0".
+  // See:
+  // https://github.com/mozilla/addons-frontend/pull/3271#discussion_r142159199
   version: string,
 |};
 

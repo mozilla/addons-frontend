@@ -124,6 +124,7 @@ export const fakeTheme = Object.freeze({
     version: '1.0',
   },
   type: ADDON_TYPE_THEME,
+  version: '0',
 });
 
 export const fakeInstalledAddon = Object.freeze({
