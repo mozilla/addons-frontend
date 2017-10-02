@@ -3,34 +3,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import Link from 'amo/components/Link';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 export default class LandingAddonsCard extends React.Component {
   static propTypes = {
     addons: PropTypes.array.isRequired,
     className: PropTypes.string,
-    footerLink: PropTypes.object.isRequired,
-    footerText: PropTypes.string.isRequired,
+    footerLink: PropTypes.node.isRequired,
     header: PropTypes.node.isRequired,
     loading: PropTypes.bool.isRequired,
   }
 
   render() {
     const {
-      addons, className, footerLink, footerText, header, loading,
+      addons, className, footerLink, header, loading,
     } = this.props;
-    const linkSearchURL = {
-      ...footerLink,
-      query: convertFiltersToQueryParams(footerLink.query),
-    };
-    const footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
 
     return (
       <AddonsCard
         addons={addons}
         className={classNames('LandingAddonsCard', className)}
-        footerLink={footerLinkHtml}
+        footerLink={footerLink}
         header={header}
         type="horizontal"
         loading={loading}

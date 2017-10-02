@@ -10,6 +10,8 @@ import { setViewContext } from 'amo/actions/viewContext';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Categories from 'amo/components/Categories';
+import Link from 'amo/components/Link';
+import SearchLink from 'amo/components/SearchLink';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -106,47 +108,66 @@ export class LandingPageBase extends React.Component {
     const { i18n } = this.props;
     const addonType = apiAddonType(visibleAddonType);
 
-    const featuredFooterLink = {
-      pathname: `/${getVisibleAddonType(addonType)}/featured/`,
-    };
-
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
         featuredHeader: i18n.gettext('Featured extensions'),
-        featuredFooterLink,
-        featuredFooterText: i18n.gettext('More featured extensions'),
+        featuredFooter: (
+          <Link to={`/${getVisibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}>
+            {i18n.gettext('More featured extensions')}
+          </Link>
+        ),
         popularHeader: i18n.gettext('Most popular extensions'),
-        popularFooterLink: {
-          pathname: '/search/',
-          query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
-        },
-        popularFooterText: i18n.gettext('More popular extensions'),
+        popularFooter: (
+          <SearchLink
+            filters={{
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_POPULAR,
+            }}
+          >
+            {i18n.gettext('More popular extensions')}
+          </SearchLink>
+        ),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
-        highlyRatedFooterLink: {
-          pathname: '/search/',
-          query: {
-            addonType: ADDON_TYPE_EXTENSION,
-            sort: SEARCH_SORT_TOP_RATED,
-          },
-        },
-        highlyRatedFooterText: i18n.gettext('More highly rated extensions'),
+        highlyRatedFooter: (
+          <SearchLink
+            filters={{
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_TOP_RATED,
+            }}
+          >
+            {i18n.gettext('More highly rated extensions')}
+          </SearchLink>
+        ),
       },
       [ADDON_TYPE_THEME]: {
         featuredHeader: i18n.gettext('Featured themes'),
-        featuredFooterLink,
-        featuredFooterText: i18n.gettext('More featured themes'),
+        featuredFooter: (
+          <Link to={`/${getVisibleAddonType(ADDON_TYPE_THEME)}/featured/`}>
+            {i18n.gettext('More featured themes')}
+          </Link>
+        ),
         popularHeader: i18n.gettext('Most popular themes'),
-        popularFooterLink: {
-          pathname: '/search/',
-          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
-        },
-        popularFooterText: i18n.gettext('More popular themes'),
+        popularFooter: (
+          <SearchLink
+            filters={{
+              addonType: ADDON_TYPE_THEME,
+              sort: SEARCH_SORT_POPULAR,
+            }}
+          >
+            {i18n.gettext('More popular themes')}
+          </SearchLink>
+        ),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
-        highlyRatedFooterLink: {
-          pathname: '/search/',
-          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
-        },
-        highlyRatedFooterText: i18n.gettext('More highly rated themes'),
+        highlyRatedFooter: (
+          <SearchLink
+            filters={{
+              addonType: ADDON_TYPE_THEME,
+              sort: SEARCH_SORT_TOP_RATED,
+            }}
+          >
+            {i18n.gettext('More highly rated themes')}
+          </SearchLink>
+        ),
       },
     };
 
@@ -223,24 +244,21 @@ export class LandingPageBase extends React.Component {
         <LandingAddonsCard
           addons={featuredAddons}
           className="FeaturedAddons"
-          footerText={html.featuredFooterText}
-          footerLink={html.featuredFooterLink}
+          footerLink={html.featuredFooter}
           header={html.featuredHeader}
           loading={loading}
         />
         <LandingAddonsCard
           addons={highlyRatedAddons}
           className="HighlyRatedAddons"
-          footerLink={html.highlyRatedFooterLink}
-          footerText={html.highlyRatedFooterText}
+          footerLink={html.highlyRatedFooter}
           header={html.highlyRatedHeader}
           loading={loading}
         />
         <LandingAddonsCard
           addons={popularAddons}
           className="PopularAddons"
-          footerLink={html.popularFooterLink}
-          footerText={html.popularFooterText}
+          footerLink={html.popularFooter}
           header={html.popularHeader}
           loading={loading}
         />

@@ -10,11 +10,6 @@ describe('amo/components/LandingAddonsCard', () => {
   function render(customProps = {}) {
     const props = {
       addons: [fakeAddon],
-      footerLink: {
-        pathname: '/some-path/',
-        query: { param: 'something' },
-      },
-      footerText: 'some text',
       header: 'Some Header',
       loading: false,
       ...customProps,
