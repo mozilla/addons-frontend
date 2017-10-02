@@ -100,6 +100,10 @@ export const fakeTheme = Object.freeze({
     url: 'http://olympia.dev/en-US/firefox/user/madonna/',
     username: 'MaDonna',
   }],
+  current_version: {
+    ...fakeAddon.current_version,
+    version: '0',
+  },
   description: 'This is the add-on description',
   guid: 'dancing-daisies-theme@my-addons.firefox',
   id: 54321,
@@ -124,7 +128,6 @@ export const fakeTheme = Object.freeze({
     version: '1.0',
   },
   type: ADDON_TYPE_THEME,
-  version: '0',
 });
 
 export const fakeInstalledAddon = Object.freeze({
