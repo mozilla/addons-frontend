@@ -1211,6 +1211,25 @@ describe(__filename, () => {
 
     expect(root.find(Badge)).toHaveLength(0);
   });
+
+  it('displays a badge when the addon is experimental', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      is_experimental: true,
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'experimental');
+    expect(root.find(Badge)).toHaveProp('label', 'Experimental');
+  });
+
+  it('does not display a badge when the addon is not experimental', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      is_experimental: false,
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });
 
 describe('mapStateToProps', () => {

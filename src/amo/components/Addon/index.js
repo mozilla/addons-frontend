@@ -440,6 +440,7 @@ export class AddonBase extends React.Component {
     const addonPreviews = addon ? addon.previews : [];
 
     let isCompatible = false;
+    let isExperimental = false;
     let isFeatured = false;
     let isRestartRequired = false;
     let compatibility;
@@ -448,6 +449,7 @@ export class AddonBase extends React.Component {
         addon, clientApp, userAgentInfo,
       });
       isCompatible = compatibility.compatible;
+      isExperimental = addon.is_experimental;
       isFeatured = addon.is_featured;
       isRestartRequired = addon.isRestartRequired;
     }
@@ -478,6 +480,12 @@ export class AddonBase extends React.Component {
                 <Badge
                   type="restart-required"
                   label={i18n.gettext('Restart Required')}
+                />
+              ) : null}
+              {isExperimental ? (
+                <Badge
+                  type="experimental"
+                  label={i18n.gettext('Experimental')}
                 />
               ) : null}
             </div>

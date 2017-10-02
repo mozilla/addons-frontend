@@ -160,3 +160,7 @@
 .Icon-inverted-caret {
   @include icon($name: "inverted-caret");
 }
+
+.Icon-experimental {
+  @include icon($name: "experimental");
+}
