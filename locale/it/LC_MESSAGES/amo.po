@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-30 17:35+0000\n"
+"PO-Revision-Date: 2017-10-03 13:31+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -673,7 +673,7 @@ msgstr "Spiega perché ritieni che questo componente aggiuntivo violi le politic
 
 #: src/amo/components/ReportAbuseButton/index.js:188
 msgid "Dismiss"
-msgstr ""
+msgstr "Annulla"
 
 #: src/amo/components/ReportAbuseButton/index.js:196
 msgid "Sending abuse report"
