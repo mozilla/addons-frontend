@@ -1,14 +1,19 @@
-import { shallow } from 'enzyme';
 import React from 'react';
+import ReactSlick from 'react-slick';
 
-import Carousel from 'ui/components/Carousel';
+import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import Carousel, { CarouselBase } from 'ui/components/Carousel';
 
 
 describe(__filename, () => {
   function shallowRender({
+    i18n = getFakeI18nInst(),
     ...props
   } = {}) {
-    return shallow(<Carousel {...props} />);
+    return shallowUntilTarget(
+      <Carousel i18n={i18n} {...props} />,
+      CarouselBase
+    );
   }
 
   it('renders a Carousel', () => {
@@ -21,6 +26,15 @@ describe(__filename, () => {
     expect(() => {
       shallowRender();
     }).toThrow('sections are required for a Carousel component');
+  });
+
+  it('sets RTL if the language is RTL', () => {
+    const root = shallowRender({
+      i18n: getFakeI18nInst({ lang: 'ar' }),
+      sections: [],
+    });
+
+    expect(root.find(ReactSlick)).toHaveProp('rtl', true);
   });
 
   it('renders sections inside divs', () => {

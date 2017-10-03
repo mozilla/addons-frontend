@@ -1,7 +1,10 @@
 /* @flow */
 import React from 'react';
 import ReactSlick from 'react-slick';
+import { compose } from 'redux';
 
+import translate from 'core/i18n/translate';
+import { getDirection } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
 
 // These are included in the repo via `react-slick`.
@@ -13,14 +16,15 @@ import './styles.scss';
 
 
 type PropTypes = {|
+  i18n: Object,
   sections: Array<any>,
 |};
 
-export default class Carousel extends React.Component {
+export class CarouselBase extends React.Component {
   props: PropTypes;
 
   render() {
-    const { sections } = this.props;
+    const { i18n, sections } = this.props;
 
     if (!sections) {
       throw new Error('sections are required for a Carousel component');
@@ -33,6 +37,7 @@ export default class Carousel extends React.Component {
           autoplaySpeed={5000}
           centerMode
           infinite={false}
+          rtl={getDirection(i18n.lang) === 'rtl'}
           slidesToScroll={1}
           slidesToShow={3}
           variableWidth
@@ -53,3 +58,7 @@ export default class Carousel extends React.Component {
     );
   }
 }
+
+export default compose(
+  translate(),
+)(CarouselBase);
