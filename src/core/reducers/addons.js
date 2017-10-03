@@ -4,7 +4,11 @@ import { oneLine } from 'common-tags';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type {
+  AddonType,
+  ExternalAddonType,
+  ThemeData,
+} from 'core/types/addons';
 
 
 export const LOAD_ADDONS = 'LOAD_ADDONS';
@@ -80,6 +84,42 @@ export function removeUndefinedProps(object: Object): Object {
   return newObject;
 }
 
+export function createInternalThemeData(
+  apiAddon: ExternalAddonType
+): ThemeData | null {
+  if (!apiAddon.theme_data) {
+    return null;
+  }
+
+  return {
+    accentcolor: apiAddon.theme_data.accentcolor,
+    author: apiAddon.theme_data.author,
+    category: apiAddon.theme_data.category,
+
+    // TODO: Set this back to apiAddon.theme_data.description after
+    // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
+    // theme_data will contain `description: 'None'` when the description is
+    // actually `null` and we don't want to set that on the addon itself so we
+    // reset it in case it's been overwritten.
+    //
+    // See also https://github.com/mozilla/addons-server/issues/5650.
+    description: apiAddon.description,
+
+    detailURL: apiAddon.theme_data.detailURL,
+    footer: apiAddon.theme_data.footer,
+    footerURL: apiAddon.theme_data.footerURL,
+    header: apiAddon.theme_data.header,
+    headerURL: apiAddon.theme_data.headerURL,
+    iconURL: apiAddon.theme_data.iconURL,
+    id: apiAddon.theme_data.id,
+    name: apiAddon.theme_data.name,
+    previewURL: apiAddon.theme_data.previewURL,
+    textcolor: apiAddon.theme_data.textcolor,
+    updateURL: apiAddon.theme_data.updateURL,
+    version: apiAddon.theme_data.version,
+  };
+}
+
 export function createInternalAddon(
   apiAddon: ExternalAddonType
 ): AddonType {
@@ -138,41 +178,21 @@ export function createInternalAddon(
   };
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
-    // This merges theme_data into the addon.
-    // TODO: Let's stop doing that because it's confusing. Lots of
-    // deep button / install code will need to be fixed.
-    addon = {
-      ...addon,
-      ...removeUndefinedProps({
-        accentcolor: apiAddon.theme_data.accentcolor,
-        author: apiAddon.theme_data.author,
-        category: apiAddon.theme_data.category,
+    const themeData = createInternalThemeData(apiAddon);
 
-        // TODO: Set this back to apiAddon.theme_data.description after
-        // https://github.com/mozilla/addons-frontend/issues/1416
-        // is fixed.
-        // theme_data will contain `description: 'None'` when the
-        // description
-        // is actually `null` and we don't want to set that on the addon
-        // itself so we reset it in case it's been overwritten.
-        //
-        // See also https://github.com/mozilla/addons-server/issues/5650.
-        description: apiAddon.description,
-
-        detailURL: apiAddon.theme_data.detailURL,
-        footer: apiAddon.theme_data.footer,
-        footerURL: apiAddon.theme_data.footerURL,
-        header: apiAddon.theme_data.header,
-        headerURL: apiAddon.theme_data.headerURL,
-        iconURL: apiAddon.theme_data.iconURL,
-        id: apiAddon.theme_data.id,
-        name: apiAddon.theme_data.name,
-        previewURL: apiAddon.theme_data.previewURL,
-        textcolor: apiAddon.theme_data.textcolor,
-        updateURL: apiAddon.theme_data.updateURL,
-        version: apiAddon.theme_data.version,
-      }),
-    };
+    if (themeData !== null) {
+      // This merges theme_data into the addon.
+      //
+      // TODO: Let's stop doing that because it's confusing. Lots of deep
+      // button/install code will need to be fixed.
+      //
+      // Use addon.themeData[themeProp] instead of addon[themeProp].
+      addon = {
+        ...addon,
+        ...removeUndefinedProps(themeData),
+        themeData,
+      };
+    }
   }
 
   if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {

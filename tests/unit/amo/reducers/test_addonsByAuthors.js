@@ -5,6 +5,7 @@ import reducer, {
   initialState,
   loadOtherAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
+import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
@@ -42,7 +43,7 @@ describe(__filename, () => {
         addons: [fakeAddon],
       }));
       expect(state.byAddonSlug).toEqual({
-        'addon-slug': [fakeAddon],
+        'addon-slug': [createInternalAddon(fakeAddon)],
       });
     });
 
@@ -75,7 +76,7 @@ describe(__filename, () => {
         slug,
       }));
       expect(previousState.byAddonSlug)
-        .toEqual({ 'addon-slug': [fakeAddon] });
+        .toEqual({ 'addon-slug': [createInternalAddon(fakeAddon)] });
 
       const state = reducer(previousState, fetchOtherAddonsByAuthors({
         authors: ['author1'],

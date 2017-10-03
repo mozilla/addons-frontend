@@ -1,5 +1,6 @@
 /* @flow */
-import type { AddonType } from 'core/types/addons';
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import { createInternalAddon } from 'core/reducers/addons';
 
 
 type State = {
@@ -67,7 +68,7 @@ export const fetchOtherAddonsByAuthors = (
 
 type LoadOtherAddonsByAuthorsParams = {|
   slug: string,
-  addons: Array<AddonType>,
+  addons: Array<ExternalAddonType>,
 |};
 
 type LoadOtherAddonsByAuthorsAction = {|
@@ -118,7 +119,8 @@ const reducer = (
             // This ensures we do not display the main add-on in the list of
             // "add-ons by these authors".
             .filter((addon) => addon.slug !== action.payload.slug)
-            .slice(0, OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE),
+            .slice(0, OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE)
+            .map((addon) => createInternalAddon(addon)),
         },
       };
     default:

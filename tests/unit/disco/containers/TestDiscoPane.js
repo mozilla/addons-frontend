@@ -10,6 +10,7 @@ import {
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
+import { createInternalAddon } from 'core/reducers/addons';
 import { getDiscoResults } from 'disco/actions';
 import createStore from 'disco/store';
 import {
@@ -164,27 +165,15 @@ describe(__filename, () => {
         addon,
       }]));
 
-      // This is removed by the reducer.
-      delete addon.theme_data;
-
       // Adjust the theme guid to match how Firefox code does it internally.
       const guid = '1234@personas.mozilla.org';
 
       expect(props.results).toEqual([{
-        ...addon,
+        ...createInternalAddon(addon),
         addon: guid,
         description: 'editorial text',
         guid,
         heading: 'The Theme',
-        iconUrl: addon.icon_url,
-        installURLs: {
-          all: 'https://a.m.o/files/321/addon.xpi',
-          android: undefined,
-          linux: undefined,
-          mac: undefined,
-          windows: undefined,
-        },
-        isRestartRequired: false,
       }]);
     });
   });

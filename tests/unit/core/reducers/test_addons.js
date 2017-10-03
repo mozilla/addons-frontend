@@ -85,10 +85,16 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(theme).entities));
 
+    // We manually recreate the theme addon to test that the mapper is doing
+    // what we expect it to below.
     const expectedTheme = {
       ...theme,
       // Expect theme_data to be merged into the addon.
       ...theme.theme_data,
+      themeData: {
+        ...theme.theme_data,
+        description: theme.description,
+      },
       description: theme.description,
       guid: getGuid(theme),
       iconUrl: theme.icon_url,

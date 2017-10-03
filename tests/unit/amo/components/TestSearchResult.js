@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import { SearchResultBase } from 'amo/components/SearchResult';
+import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { getFakeI18nInst } from 'tests/unit/helpers';
 import { ADDON_TYPE_THEME } from 'core/constants';
@@ -10,7 +11,7 @@ import Rating from 'ui/components/Rating';
 
 
 describe(__filename, () => {
-  const baseAddon = {
+  const baseAddon = createInternalAddon({
     ...fakeAddon,
     authors: [
       { name: 'A funky déveloper' },
@@ -19,7 +20,7 @@ describe(__filename, () => {
     average_daily_users: 5253,
     name: 'A search result',
     slug: 'a-search-result',
-  };
+  });
 
   function render({ addon = baseAddon, lang = 'en-GB', ...props } = {}) {
     return shallow(
@@ -46,7 +47,9 @@ describe(__filename, () => {
   });
 
   it('ignores an empty author list', () => {
-    const root = render({ addon: { ...fakeAddon, authors: undefined } });
+    const root = render({
+      addon: createInternalAddon({ ...fakeAddon, authors: undefined }),
+    });
 
     expect(root).not.toHaveClassName('SearchResult-author');
   });
@@ -73,7 +76,12 @@ describe(__filename, () => {
   });
 
   it('renders the user count as singular', () => {
-    const root = render({ addon: { ...fakeAddon, average_daily_users: 1 } });
+    const root = render({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        average_daily_users: 1,
+      }),
+    });
 
     expect(root.find('.SearchResult-users')).toIncludeText('1 user');
   });
@@ -104,7 +112,7 @@ describe(__filename, () => {
   });
 
   it('displays a placeholder if the icon is malformed', () => {
-    const addon = { ...fakeAddon, icon_url: 'whatevs' };
+    const addon = createInternalAddon({ ...fakeAddon, icon_url: 'whatevs' });
     const root = render({ addon });
 
     // image `require` calls in jest return the filename
@@ -113,20 +121,23 @@ describe(__filename, () => {
   });
 
   it('adds a theme-specific class', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       type: ADDON_TYPE_THEME,
       theme_data: {
         previewURL: 'https://addons.cdn.mozilla.net/user-media/addons/334902/preview_large.jpg?1313374873',
       },
-    };
+    });
     const root = render({ addon });
 
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
   it('displays a message if the theme preview image is unavailable', () => {
-    const addon = { ...fakeAddon, type: ADDON_TYPE_THEME };
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_THEME,
+    });
     const root = render({ addon });
 
     expect(root.find('.SearchResult-notheme'))
