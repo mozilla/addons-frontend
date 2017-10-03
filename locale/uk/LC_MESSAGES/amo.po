@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-09-06 21:47+0000\n"
-"Last-Translator: Yuriy Antonov <yuraantonov11@gmail.com>\n"
+"PO-Revision-Date: 2017-10-03 14:07+0000\n"
+"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/Addon/index.js:135
@@ -117,12 +116,8 @@ msgid "Screenshots"
 msgstr "Знімки екрану"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Ви маєте <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити "
-"цей додаток."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ви маєте <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити цей додаток."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -137,24 +132,14 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox для iOS поки що не підтримує додатки."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Цей додаток вимагає <a href=\"%(downloadUrl)s\">новішої версії Firefox</a> "
-"(щонайменше, версію %(minVersion)s). Ви використовуєте Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Цей додаток вимагає <a href=\"%(downloadUrl)s\">новішої версії Firefox</a> (щонайменше, версію %(minVersion)s). Ви використовуєте Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Ваш браузер не підтримує додатки. Ви можете <a href=\"%(downloadUrl)s"
-"\">завантажити Firefox</a>, щоб встановити цей додаток."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Ваш браузер не підтримує додатки. Ви можете <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити цей додаток."
 
-#: src/amo/components/AddonMeta.js:27
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:27 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s користувач"
@@ -216,9 +201,7 @@ msgid "Beta Versions"
 msgstr "Версія"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:179
@@ -260,20 +243,15 @@ msgstr "Розкажіть світу, чому ви вважаєте це ро�
 
 #: src/amo/components/AddonReview/index.js:166
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й "
-"коротко."
+msgstr "Розкажіть нам, чому ви любите це розширення. Висловлюйтесь конкретно й коротко."
 
 #: src/amo/components/AddonReview/index.js:170
 msgid "Tell the world about this extension."
 msgstr "Розкажіть світу про це розширення."
 
 #: src/amo/components/AddonReview/index.js:171
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Розкажіть про ваш досвід використання цього розширення. Будьте конкретними й "
-"стислими."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Розкажіть про ваш досвід використання цього розширення. Будьте конкретними й стислими."
 
 #: src/amo/components/AddonReview/index.js:183
 msgid "Write a review"
@@ -336,82 +314,51 @@ msgstr "Переглянути всі розширення в цій катег�
 msgid "Browse all themes in this category."
 msgstr "Переглянути всі теми в цій категорії."
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38
-#: src/amo/components/Footer/index.js:89
+#: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
 msgstr "Завантажити Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Якщо ви увійшли в систему і думаєте, що це повідомлення про помилку, будь "
-"ласка, <a href=\"%(url)s\">повідомте про неї</a>. Розкажіть нам звідки ви "
-"перейшли та що намагались знайти, і ми виправимо це."
+"Якщо ви увійшли в систему і думаєте, що це повідомлення про помилку, будь ласка, <a href=\"%(url)s\">повідомте про неї</a>. Розкажіть нам звідки ви перейшли та що намагались знайти, і ми виправимо "
+"це."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Не авторизовано"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Вибачте, але ви не маєте права доступу до цієї сторінки. Якщо ви не "
-"авторизовані, спробуйте увійти в систему, використовуючи посилання у верхній "
-"частині сторінки."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Вибачте, але ви не маєте права доступу до цієї сторінки. Якщо ви не авторизовані, спробуйте увійти в систему, використовуючи посилання у верхній частині сторінки."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Якщо ви перейшли за посиланням з іншого місця, будь ласка, <a href=\"%(url)s"
-"\">повідомте про проблему</a>. Розкажіть нам звідки ви перейшли та що "
-"намагались знайти, і ми спробуємо виправити це."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Якщо ви перейшли за посиланням з іншого місця, будь ласка, <a href=\"%(url)s\">повідомте про проблему</a>. Розкажіть нам звідки ви перейшли та що намагались знайти, і ми спробуємо виправити це."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Сторінку не знайдено"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Вибачте, але нам не вдалося знайти нічого за введеною адресою. Якщо ви "
-"перейшли за посиланням, ймовірно, автор видалив свій додаток."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Вибачте, але нам не вдалося знайти нічого за введеною адресою. Якщо ви перейшли за посиланням, ймовірно, автор видалив свій додаток."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Якщо у вас є додаткова інформація, яка допомогла б нам, ви можете <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">повідомити про "
-"проблему</a>. Розкажіть нам, які кроки призводять до помилки, і ми зробимо "
-"все можливе, щоб виправити це."
+"Якщо у вас є додаткова інформація, яка допомогла б нам, ви можете <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">повідомити про проблему</a>. Розкажіть нам, які кроки призводять "
+"до помилки, і ми зробимо все можливе, щоб виправити це."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Помилка сервера"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш "
-"запит. Ми записали цю помилку і будемо розслідувати її."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -453,9 +400,8 @@ msgstr "Повідомити про помилку"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:23
@@ -523,8 +469,7 @@ msgstr ""
 msgid "Manage API Keys"
 msgstr ""
 
-#: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Вийти"
 
@@ -576,8 +521,7 @@ msgstr "Спортивний"
 msgid "Solid"
 msgstr "Суцільні"
 
-#: src/amo/components/Home/index.js:138
-#: src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "Перегляд всіх розширень"
 
@@ -586,15 +530,10 @@ msgid "You can change how Firefox works…"
 msgstr "Ви можете змінювати роботу Firefox…"
 
 #: src/amo/components/Home/index.js:146
-msgid ""
-"Install powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours."
-msgstr ""
-"Встановіть потужні інструменти, що пришвидшують і убезпечують перегляд, "
-"додатки роблять ваш браузер вашим."
+msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+msgstr "Встановіть потужні інструменти, що пришвидшують і убезпечують перегляд, додатки роблять ваш браузер вашим."
 
-#: src/amo/components/Home/index.js:157
-#: src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "Перегляд всіх тем"
 
@@ -603,12 +542,8 @@ msgid "…or what it looks like"
 msgstr "…або на що це схоже"
 
 #: src/amo/components/Home/index.js:165
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Налаштуйте вигляд вашого браузера. Обирайте з тисяч тем, щоб Firefox "
-"виглядав так, як ви хочете."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Налаштуйте вигляд вашого браузера. Обирайте з тисяч тем, щоб Firefox виглядав так, як ви хочете."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -670,13 +605,11 @@ msgstr "Найвище оцінені теми"
 msgid "More highly rated themes"
 msgstr "Більше найвище оцінених тем"
 
-#: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:61
 msgid "Themes"
 msgstr "Теми"
 
-#: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:51
+#: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:51
 msgid "Extensions"
 msgstr "Розширення"
 
@@ -723,9 +656,7 @@ msgid "You reported this add-on for abuse"
 msgstr "Увійдіть, щоб оцінити цей додаток"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:118
@@ -733,22 +664,16 @@ msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:129
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:151
-#: src/amo/components/ReportAbuseButton/index.js:157
+#: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 #, fuzzy
 msgid "Report this add-on for abuse"
 msgstr "Перейти на сторінку додатка"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:175
@@ -850,8 +775,7 @@ msgstr "Тип додатку"
 msgid "Operating System"
 msgstr "Операційна система"
 
-#: src/amo/components/SearchFilters/index.js:70
-#: src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
 msgid "All"
 msgstr "Всі"
 
@@ -902,7 +826,7 @@ msgstr "Відібрані розширення"
 
 #: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
-msgstr ""
+msgstr "Знайти словник"
 
 #: src/amo/components/SearchForm/index.js:212
 #, fuzzy
@@ -919,8 +843,7 @@ msgstr "Знаходьте новини"
 msgid "Find add-ons"
 msgstr "Завантаження додатків"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Пошук"
 
@@ -966,18 +889,13 @@ msgstr "Початкова сторінка додатків"
 
 #: src/core/components/AuthenticateButton/index.js:65
 msgid "Register or Log in"
-msgstr ""
+msgstr "Реєстрація чи вхід"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Вибачте, але сталася помилка, і ми не змогли виконати ваш запит. Ми записали "
-"цю помилку і будемо розслідувати її."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Вибачте, але сталася помилка, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Код помилки: %(status)s."
 
@@ -989,8 +907,7 @@ msgstr "Вибачте, але ми не можемо нічого знайти 
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:128 src/core/components/InstallButton/index.js:146
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
@@ -1060,7 +977,7 @@ msgstr "Перезавантажте для продовження"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Перемкнути зміст"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
@@ -1101,12 +1018,8 @@ msgstr "<span class=\"visually-hidden\">Розгорнути до</span> Чит�
 #~ msgid "Browse by category"
 #~ msgstr "За категоріями"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Розширення - це спеціальні функції, які ви можете додати до Firefox. Теми "
-#~ "дозволяють вам змінити вигляд вашого браузера."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Розширення - це спеціальні функції, які ви можете додати до Firefox. Теми дозволяють вам змінити вигляд вашого браузера."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s з 5"
