@@ -105,8 +105,8 @@ describe(__filename, () => {
       expect(state.featured.count).toEqual(2);
       expect(state.featured.results)
         .toEqual([
-          createInternalAddon({ slug: 'foo' }),
-          createInternalAddon({ slug: 'food' }),
+          createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+          createInternalAddon({ ...fakeAddon, slug: 'food' }),
         ]);
       expect(state.highlyRated).toEqual({ count: 0, results: [] });
       expect(state.popular).toEqual({ count: 0, results: [] });

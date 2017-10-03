@@ -1,6 +1,7 @@
 import { searchLoad, searchStart } from 'core/actions/search';
 import { createInternalAddon } from 'core/reducers/addons';
 import search, { initialState } from 'core/reducers/search';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
@@ -45,9 +46,9 @@ describe(__filename, () => {
         result: { results: ['foo', 'food'] },
         entities: {
           addons: {
-            bar: { slug: 'bar' },
-            foo: { slug: 'foo' },
-            food: { slug: 'food' },
+            bar: { ...fakeAddon, slug: 'bar' },
+            foo: { ...fakeAddon, slug: 'foo' },
+            food: { ...fakeAddon, slug: 'food' },
           },
         },
       };
@@ -68,8 +69,8 @@ describe(__filename, () => {
     it('sets the results', () => {
       const { results } = getNextState();
       expect(results).toEqual([
-        createInternalAddon({ slug: 'foo' }),
-        createInternalAddon({ slug: 'food' }),
+        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+        createInternalAddon({ ...fakeAddon, slug: 'food' }),
       ]);
     });
 
@@ -77,8 +78,8 @@ describe(__filename, () => {
       response.result.results = ['food', 'foo'];
       const { results } = getNextState();
       expect(results).toEqual([
-        createInternalAddon({ slug: 'food' }),
-        createInternalAddon({ slug: 'foo' }),
+        createInternalAddon({ ...fakeAddon, slug: 'food' }),
+        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
       ]);
     });
   });

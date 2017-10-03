@@ -51,7 +51,7 @@ export type AddonAuthorType = {|
   username: string,
 |};
 
-type ThemeData = {|
+export type ThemeData = {|
   accentcolor?: string,
   author?: string,
   category?: string,
