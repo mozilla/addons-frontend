@@ -2,6 +2,7 @@ import React from 'react';
 
 import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
 import HomeCarousel, { HomeCarouselBase } from 'amo/components/HomeCarousel';
+import Carousel from 'ui/components/Carousel';
 
 
 describe(__filename, () => {
@@ -18,5 +19,6 @@ describe(__filename, () => {
     const root = shallowRender();
 
     expect(root).toHaveClassName('HomeCarousel');
+    expect(root.find(Carousel)).toHaveLength(1);
   });
 });

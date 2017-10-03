@@ -15,9 +15,10 @@ describe(__filename, () => {
     const root = shallowRender({ sections: [] });
 
     expect(root.find('.Carousel')).toHaveLength(1);
+    expect(root.find('div.Carousel-section-wrapper')).toHaveLength(0);
   });
 
-  it('throws an error if sections are not suppiled', () => {
+  it('throws an error if sections are not supplied', () => {
     expect(() => {
       shallowRender();
     }).toThrow('sections are required for a Carousel component');

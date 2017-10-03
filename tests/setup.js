@@ -62,16 +62,6 @@ if (global.Intl) {
   global.Intl = require('intl');
 }
 
-if (!global.matchMedia) {
-  global.matchMedia = function matchMedia() {
-    return {
-      addListener: function addListener() {},
-      matches: false,
-      removeListener: function removeListener() {},
-    };
-  };
-}
-
 // Patch missing console.debug in node.
 // eslint-disable-next-line no-console
 console.debug = console.log;

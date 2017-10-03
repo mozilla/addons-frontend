@@ -2,11 +2,7 @@
 import React from 'react';
 import { compose } from 'redux';
 
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
-  SEARCH_SORT_TOP_RATED,
-} from 'core/constants';
+import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
 import Carousel from 'ui/components/Carousel';
