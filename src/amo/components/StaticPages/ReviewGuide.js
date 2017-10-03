@@ -35,7 +35,7 @@ export class ReviewGuideBase extends React.Component {
               team reserves the right to refuse or remove any review that does not
               comply with these guidelines.`)}
           </p>
-          <h2>{i18n.gettext('Some tips for writing a great review')}</h2>
+          <h2>{i18n.gettext('Tips for writing a great review')}</h2>
           <h3>{i18n.gettext('Do:')}</h3>
           <ul>
             <li>{i18n.gettext('Write like you are telling a friend about your experience with the add-on.')}</li>
@@ -69,43 +69,35 @@ export class ReviewGuideBase extends React.Component {
               requires gathering data to function.`)}</li>
           </ul>
         </section>
+
         <section>
           <h2>{i18n.gettext('Frequently Asked Questions about Reviews')}</h2>
-          <dl>
-            <dt>{i18n.gettext('How can I report a problematic review?')}</dt>
-            <dd>
-              <p>{i18n.gettext(`Please report or flag any questionable reviews by clicking the
-                "Report this review" and it will be submitted to the site for moderation. Our
-                moderation team will use the Review Guidelines to evaluate whether or not to
-                delete the review or restore it back to the site.`)}</p>
-            </dd>
-          </dl>
-          <dl>
-            <dt>{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</dt>
-            <dd>
-              <p
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={
-                  sanitizeHTML(
-                    i18n.sprintf(
-                      i18n.gettext(`Yes, add-on authors can provide a single response to a review.
-                        You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional
-                        discussion or follow-up.`),
-                      { startLink: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">', endLink: '</a>' }
-                    ), ['a'])
-                }
-              />
-            </dd>
-          </dl>
-          <dl>
-            <dt>{i18n.gettext(`I'm an add-on author, can I delete unfavorable reviews or ratings?`)}</dt>
-            <dd>
-              <p>{i18n.gettext(`In general, no. But if the review did not meet the review guidelines
-                outlined above, you can click "Report this review" and have it moderated. If a review
-                included a complaint that is no longer valid due to a new release of your add-on, we
-                may consider deleting the review.`)}</p>
-            </dd>
-          </dl>
+
+          <h3>{i18n.gettext('How can I report a problematic review?')}</h3>
+          <p>{i18n.gettext(`Please report or flag any questionable reviews by clicking the
+            "Report this review" and it will be submitted to the site for moderation. Our
+            moderation team will use the Review Guidelines to evaluate whether or not to
+            delete the review or restore it back to the site.`)}</p>
+
+          <h3>{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</h3>
+          <p
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={
+              sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`Yes, add-on authors can provide a single response to a review.
+                    You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional
+                    discussion or follow-up.`),
+                  { startLink: '<a href="https://discourse.mozilla-community.org/c/add-ons/add-on-support">', endLink: '</a>' }
+                ), ['a'])
+            }
+          />
+
+          <h3>{i18n.gettext(`I'm an add-on author, can I delete unfavorable reviews or ratings?`)}</h3>
+          <p>{i18n.gettext(`In general, no. But if the review did not meet the review guidelines
+            outlined above, you can click "Report this review" and have it moderated. If a review
+            included a complaint that is no longer valid due to a new release of your add-on, we
+            may consider deleting the review.`)}</p>
         </section>
       </Card>
     );

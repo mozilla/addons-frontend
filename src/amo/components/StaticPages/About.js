@@ -4,7 +4,6 @@ import React from 'react';
 import { compose } from 'redux';
 
 import Card from 'ui/components/Card';
-import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 
@@ -20,141 +19,144 @@ export class AboutBase extends React.Component {
     const { i18n } = this.props;
 
     return (
-
       <Card
         className="StaticPage"
-        header={i18n.gettext('About Mozilla Add-ons')}
+        header={i18n.gettext('About Firefox Add-ons')}
       >
         <Helmet>
-          <title>{i18n.gettext('About')}</title>
+          <title>{i18n.gettext('About Firefox Add-ons')}</title>
         </Helmet>
 
-        <section id="about">
-          <h2>{i18n.gettext('What is this website?')}</h2>
+        <div id="about">
           <p>
-            {i18n.gettext(`addons.mozilla.org, commonly known as "AMO", is
-              Mozilla's official site for add-ons to Mozilla software, such as
-              Firefox and Firefox for Android. Add-ons let you add new features
-              and change the way your browser or application works. Take a look
-              around and explore the thousands of ways to customize the way you
-              do things online.`)}
+            {i18n.gettext(`Addons.mozilla.org (AMO), is Mozilla's official site
+              for discovering and installing add-ons for the Firefox browser.
+              Add-ons help you modify and personalize your browsing experience
+              by adding new features to Firefox, enhancing your interactions
+              with Web content, and changing the way your browser looks.`)}
           </p>
-        </section>
-        <section>
-          <h2>{i18n.gettext('Who creates these add-ons?')}</h2>
-          <p>
-            {i18n.gettext(`The add-ons listed here have been created by
-              thousands of developers from our community, ranging from
-              individual hobbyists to large corporations. All publicly
-              listed add-ons are reviewed by a team of editors before
-              being released. Add-ons marked as Experimental have not
-              been reviewed and should only be installed with caution.`)}
-          </p>
-        </section>
-        <section>
-          <h2>{i18n.gettext(`How do I keep up with what's happening at AMO?`)}</h2>
-          <p>
-            {i18n.gettext(`There are several ways to find out the latest news from
-              the world of add-ons:`)}
-          </p>
-          <ul>
-            <li
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`Our %(startLink)sAdd-ons Blog%(endLink)s
-                      is regularly updated with information for both add-on
-                      enthusiasts and developers.`),
-                    { startLink: '<a href="https://blog.mozilla.com/addons/">', endLink: '</a>' }
-                  ), ['a'])
-              }
-            />
-            <li
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`We often post news, tips, and tricks to our Twitter account,
-                      %(startLink)smozamo%(endLink)s`),
-                    { startLink: '<a href="https://twitter.com/mozamo">', endLink: '</a>' }
-                  ), ['a'])
-              }
-            />
-            <li
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`Our %(startLink)sforums%(endLink)s are a good place to
-                      interact with the add-ons community and discuss upcoming changes to AMO.`),
-                    { startLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">', endLink: '</a>' }
-                  ), ['a'])
-              }
-            />
-          </ul>
-        </section>
-        <section>
-          <h2>{i18n.gettext('This sounds great! How can I get involved?')}</h2>
-          <p>{i18n.gettext(`There are plenty of ways to get involved. If you're on the technical side:`)}</p>
-          <ul>
-            <li>
-              <Link to={'/developers'}>{i18n.gettext('Make your own add-on.')}</Link>
-              <span> {i18n.gettext('We provide free hosting and update services and can help you reach a large audience of users.')}</span>
-            </li>
-            <li
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`If you have add-on development experience,
-                      %(startLink)sbecome an Add-on Reviewer%(endLink)s! Our reviewers are add-on fans
-                      with a technical background who review add-ons for code quality and stability.`),
-                    { startLink: '<a href="https://wiki.mozilla.org/Add-ons/Reviewers/Applying">', endLink: '</a>' }
-                  ), ['a'])
-              }
-            />
-            <li
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`Help improve this website. It's open source, and you can file bugs
-                      and submit patches. %(github)s contains all of our current bugs, legacy bugs can
-                      still be found in Bugzilla.`),
-                    { github: '<a href="https://github.com/mozilla/olympia/issues">GitHub</a>' }
-                  ), ['a'])
-              }
-            />
-          </ul>
-          <p>{i18n.gettext(`If you're interested in add-ons but not quite as technical, there are still ways to help:`)}</p>
-          <ul>
-            <li>{i18n.gettext('Tell your friends! Let people know which add-ons you use.')}</li>
-            <li
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={
-                sanitizeHTML(
-                  i18n.sprintf(
-                    i18n.gettext(`Participate in our %(startLink)sforums%(endLink)s.`),
-                    { startLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">', endLink: '</a>' }
-                  ), ['a'])
-              }
-            />
-            <li>
-              {i18n.gettext(`Review add-ons on the site. Add-on authors are more likely to
-                improve their add-ons and write new ones when they know people appreciate their work.`)}
-            </li>
-          </ul>
-        </section>
-        <section>
-          <h2>{i18n.gettext('I have a question')}</h2>
           <p
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={
               sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext('A good place to start is our %(startLink)sforums%(endLink)s.'),
-                  { startLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">', endLink: '</a>' }
+                  i18n.gettext(`You can also use AMO to find add-ons for Mozilla
+                    %(startTBLink)sThunderbird%(endTBLink)s and
+                    %(startSMLink)sSeaMonkey%(endSMLink)s.`),
+                  { startTBLink: '<a href="https://addons.mozilla.org/thunderbird/">',
+                    endTBLink: '</a>',
+                    startSMLink: '<a href="https://addons.mozilla.org/en-US/seamonkey/">',
+                    endSMLink: '</a>' }
+                ), ['a'])
+            }
+          />
+        </div>
+        <section>
+          <h2>{i18n.gettext('A community of creators')}</h2>
+          <p>
+            {i18n.gettext(`The add-ons listed here are created by
+              thousands of developers and theme designers from all over the
+              world, ranging from individual hobbyists to large corporations.
+              Some add-ons listed on AMO have been automatically published
+              and may be subject to review by a team of editors once
+              publically listed.`)}
+          </p>
+        </section>
+        <section>
+          <h2>{i18n.gettext(`Get involved`)}</h2>
+          <p>
+            {i18n.gettext(`Mozilla is a non-profit champion of the Internet, and we
+              build Firefox to help keep it healthy, open and accessible. Add-ons
+              suport user choice and customization in Firefox, and you can
+              contribute in the following ways:`)}
+          </p>
+          <ul>
+            <li
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={
+                sanitizeHTML(
+                  i18n.sprintf(
+                    i18n.gettext(`%(startLink)sMake your own add-on%(endLink)s.
+                      We provide free hosting and update services and can help you
+                      reach a large audience of users.`),
+                    { startLink: '<a href="https://addons.mozilla.org/developers/">', endLink: '</a>' }
+                  ), ['a'])
+              }
+            />
+            <li
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={
+                sanitizeHTML(
+                  i18n.sprintf(
+                    i18n.gettext(`Help improve this website. It's open source, and you
+                      can file bugs and submit patches. You can get started with a
+                      %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s
+                      or view all open issues for AMO’s
+                      %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and
+                      %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s
+                      on Github.`),
+                    { startGoodFirstBugLink: '<a href="https://bit.ly/2yVT3GL">',
+                      endGoodFirstBugLink: '</a>',
+                      startAddonsServerRepoLink: '<a href="https://github.com/mozilla/addons-server/issues">',
+                      endAddonsServerRepoLink: '</a>',
+                      startAddonsFrontendRepoLink: '<a href="https://github.com/mozilla/addons-frontend/issues">',
+                      endAddonsFrontendRepoLink: '</a>' }
+                  ), ['a'])
+              }
+            />
+          </ul>
+          <p>
+            {i18n.gettext(`If you want to contribute but are not quite as technical, there are still ways to help:`)}
+          </p>
+          <ul>
+            <li
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={
+                sanitizeHTML(
+                  i18n.sprintf(
+                    i18n.gettext(`Participate in our %(startLink)sforum%(endLink)s.`),
+                    { startLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">', endLink: '</a>' }
+                  ), ['a'])
+              }
+            />
+            <li>
+              {i18n.gettext(`Leave feedback for your favorite add-ons. Add-on authors are more likely
+                to improve their add-ons and create new ones when they know people appreciate their
+                work.`)}
+            </li>
+            <li>
+              {i18n.gettext(`Tell your friends and family that Firefox is a fast, secure browser
+                that protects their privacy, and they can use add-ons to make it their own!`)}
+            </li>
+          </ul>
+          <p
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={
+              sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s`),
+                  { startLink: '<a href="https://wiki.mozilla.org/Add-ons/Contribute">',
+                    endLink: '</a>' }
+                ), ['a'])
+            }
+          />
+        </section>
+        <section>
+          <h2>{i18n.gettext('Get support')}</h2>
+          <p
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={
+              sanitizeHTML(
+                i18n.sprintf(
+                  i18n.gettext(`If you would like to learn more about how to manage add-ons in
+                    Firefox, or need to find general Firefox support, please visit
+                    %(startSUMOLink)sSupport%(endSUMOLink)s
+                    Mozilla. If you don't find an answer there, you can
+                    %(startForumLink)sask on our community forum%(endForumLink)s.`),
+                  { startSUMOLink: '<a href="https://support.mozilla.org/en-US/products/firefox/manage-preferences-and-add-ons-firefox/install-and-manage-add-ons">',
+                    endSUMOLink: '</a>',
+                    startForumLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">',
+                    endForumLink: '</a>' }
                 ), ['a'])
             }
           />
@@ -163,9 +165,9 @@ export class AboutBase extends React.Component {
             dangerouslySetInnerHTML={
               sanitizeHTML(
                 i18n.sprintf(
-                  i18n.gettext(`If you really need to contact someone from the Mozilla team,
-                    please see our %(startLink)scontact information%(endLink)s page.`),
-                  { startLink: '<a href="https://developer.mozilla.org/en-US/Add-ons#Contact_us">', endLink: '</a>' }
+                  i18n.gettext(`%(startLink)sInformation about how to contact Mozilla’s add-ons team can be found here%(endLink)s.`),
+                  { startLink: '<a href="https://wiki.mozilla.org/Add-ons#Getting_in_touch">',
+                    endLink: '</a>' }
                 ), ['a'])
             }
           />
