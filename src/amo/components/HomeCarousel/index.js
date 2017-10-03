@@ -35,41 +35,48 @@ export class HomeCarouselBase extends React.Component {
                 linkTo={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}
                 styleName="Home-featured-extensions"
               >
-                {i18n.gettext('Featured extensions')}
+                <h3>{i18n.gettext('Featured extensions')}</h3>
+
+                <p>{i18n.gettext('Excellent extensions for all situations')}</p>
               </CarouselSection>
             ),
             (
               <CarouselSection
-                key="featured-extensions"
-                linkTo="/collections/mozilla/dynamic-media-downloaders/"
-                styleName="Home-dynamic-media-downloaders"
+                key="youtube-high-definition"
+                linkTo="/addon/youtube-high-definition/"
+                styleName="Home-youtube-high-definition"
               >
-                {i18n.gettext('There are better ways to download media')}
+                <h3>{i18n.gettext('YouTube High Definition')}</h3>
+
+                <p>
+                  {i18n.gettext(`Videos in HD, turn off annotations,
+                    change player size & more`)}
+                </p>
               </CarouselSection>
             ),
             (
               <CarouselSection
-                key="featured-extensions"
+                key="privacy-matters"
                 linkTo="/collections/mozilla/privacy-matters/"
                 styleName="Home-privacy-matters"
               >
-                {i18n.gettext(`From ad blockers to anti-trackers, here are some
-                  impressive privacy extensions`)}
+                <p>
+                  {i18n.gettext(`From ad blockers to anti-trackers, here
+                    are some impressive privacy extensions`)}
+                </p>
               </CarouselSection>
             ),
             (
               <CarouselSection
-                key="featured-extensions"
-                linkTo={{
-                  pathname: '/search/',
-                  query: {
-                    addonType: ADDON_TYPE_THEME,
-                    sort: SEARCH_SORT_TOP_RATED,
-                  },
-                }}
-                styleName="Home-top-rated-themes"
+                key="ublock-origin"
+                linkTo="/addon/ublock-origin/"
+                styleName="Home-ublock-origin"
               >
-                {i18n.gettext('Top-rated themes')}
+                <h3>{i18n.gettext('uBlock Origin')}</h3>
+                <p>
+                  {i18n.gettext(`An extremely powerful ad blocker that’s simple
+                    to use`)}
+                </p>
               </CarouselSection>
             ),
           ]}

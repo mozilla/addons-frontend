@@ -9,8 +9,8 @@
     }
   }
 
-  .CarouselSection-styleName--Home-dynamic-media-downloaders {
-    background-image: url("~amo/components/HomeCarousel/photos/dynamic-media-downloaders.jpg");
+  .CarouselSection-styleName--Home-youtube-high-definition {
+    background-image: url("~amo/components/HomeCarousel/photos/youtube-high-definition.jpg");
 
     &::before {
       background: $green-80;
@@ -19,17 +19,18 @@
 
   .CarouselSection-styleName--Home-privacy-matters {
     background-image: url("~amo/components/HomeCarousel/photos/privacy-matters.jpg");
+    background-position: center 25%;
 
     &::before {
       background: $ink-80;
     }
   }
 
-  .CarouselSection-styleName--Home-top-rated-themes {
-    background-image: url("~amo/components/HomeCarousel/photos/top-rated-themes.jpg");
+  .CarouselSection-styleName--Home-ublock-origin {
+    background-image: url("~amo/components/HomeCarousel/photos/ublock-origin.jpg");
 
     &::before {
-      background: $yellow-80;
+      background: $red-80;
     }
   }
 }

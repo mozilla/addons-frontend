@@ -24,7 +24,7 @@ export default class Carousel extends React.Component {
     return (
       <Card className="Carousel">
         <NukaCarousel
-          autoplay
+          autoplay={false}
           autoplayInterval={4000}
           cellAlign="left"
           cellSpacing={10}

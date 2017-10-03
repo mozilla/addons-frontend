@@ -54,10 +54,6 @@ $extraHeightForCard: 28px;
   padding-left: 0;
   padding-right: 0;
 
-  @include respond-to(extraSmall) {
-    height: $carousel-height-extraSmall + $extraHeightForCard;
-  }
-
   @include respond-to(large) {
     height: $carousel-height-large + $extraHeightForCard;
   }
