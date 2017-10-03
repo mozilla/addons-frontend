@@ -25,7 +25,6 @@ const Carousel = ({ sections }: PropTypes) => {
         cellSpacing={10}
         framePadding="0 10%"
         frameOverflow="visible"
-        ref={(ref) => { this.carouselRef = ref; }}
         slidesToShow={1}
         slidesToScroll={1}
         slideWidth={1}
