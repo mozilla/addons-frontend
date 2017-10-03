@@ -85,9 +85,9 @@ describe(__filename, () => {
     it('sets the results', () => {
       const entities = {
         addons: {
-          bar: { slug: 'bar' },
-          foo: { slug: 'foo' },
-          food: { slug: 'food' },
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
         },
       };
       const state = landing(initialState, {
@@ -116,9 +116,9 @@ describe(__filename, () => {
     it('does not set null keys', () => {
       const entities = {
         addons: {
-          bar: { slug: 'bar' },
-          foo: { slug: 'foo' },
-          food: { slug: 'food' },
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
         },
       };
       const { highlyRated } = landing({
