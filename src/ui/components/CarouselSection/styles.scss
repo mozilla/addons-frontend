@@ -14,13 +14,11 @@
   margin: 0 6px 26px;
   padding: 12px;
   position: relative;
-  width: 256px;
 
   @include respond-to(extraSmall) {
     font-size: $font-size-s;
     height: $carousel-height-extraSmall;
     padding: 6px;
-    width: 128px;
   }
 
   @include respond-to(large) {
@@ -28,7 +26,6 @@
     height: $carousel-height-large;
     margin: 0 9px;
     padding: 24px;
-    width: 384px;
   }
 
   @include respond-to(extraLarge) {
@@ -36,7 +33,6 @@
     height: $carousel-height-extraLarge;
     margin: 0 12px;
     padding: 48px;
-    width: 768px;
   }
 
   &::before {
