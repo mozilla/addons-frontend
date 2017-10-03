@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-03 23:11+0000\n"
+"PO-Revision-Date: 2017-10-03 23:13+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -210,7 +210,7 @@ msgstr "Betaversioner"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Användningsstatistik"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -234,7 +234,7 @@ msgstr "Supportwebbplats"
 
 #: src/amo/components/AddonMoreInfo/index.js:67
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Besök statistikpanelen"
 
 #: src/amo/components/AddonMoreInfo/index.js:75
 msgid "%(timeFromNow)s (%(date)s)"
@@ -322,11 +322,11 @@ msgstr "Bläddra bland alla teman i denna kategori."
 
 #: src/amo/components/Collection/index.js:130
 msgid "Addons"
-msgstr ""
+msgstr "Tillägg"
 
 #: src/amo/components/Collection/index.js:136
 msgid "Creator"
-msgstr ""
+msgstr "Skapare"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
@@ -546,7 +546,7 @@ msgstr "Du kan ändra hur Firefox fungerar…"
 
 #: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Utforska kraftfulla verktyg och funktioner för att anpassa Firefox och göra webbläsaren till din egen."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -874,11 +874,11 @@ msgstr "Sökresultat"
 
 #: src/amo/components/SectionLinks/index.js:100
 msgid "More…"
-msgstr ""
+msgstr "Mer…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Ordlistor & språkpaket"
 
 #: src/amo/components/SectionLinks/index.js:121
 msgid "Search Tools"
@@ -898,7 +898,7 @@ msgstr "för Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "för Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
