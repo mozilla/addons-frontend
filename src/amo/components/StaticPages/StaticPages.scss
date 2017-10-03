@@ -23,13 +23,11 @@
     font-size: $font-size-default;
   }
 
-  h3,
-  dt {
+  h3 {
     color: $grey-60;
   }
+}
 
-  dt {
-    font-size: $font-size-default;
-    font-weight: bold;
-  }
+.StaticPageWrapper {
+  max-width: 960px;
 }
