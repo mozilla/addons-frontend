@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-09-26 18:56+0000\n"
-"PO-Revision-Date: 2017-10-02 07:19+0000\n"
+"PO-Revision-Date: 2017-10-03 16:43+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -958,7 +958,7 @@ msgstr "Nincsenek értékelések"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Bontsa ki</span>, hogy többet tudjon meg"
+msgstr "<span class=\"visually-hidden\">Kibontás,</span> Tudjon meg többet"
 
 #~ msgid "Privacy policy"
 #~ msgstr "Adatvédelmi irányelvek"
