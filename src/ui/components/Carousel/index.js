@@ -32,9 +32,9 @@ export default class Carousel extends React.Component {
           autoplay
           autoplaySpeed={5000}
           centerMode
-          infinite
+          infinite={false}
           slidesToScroll={1}
-          slidesToShow={1}
+          slidesToShow={3}
           variableWidth
         >
           {(sections.map((section, i) => {
