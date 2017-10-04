@@ -16,8 +16,9 @@ $extraHeightForCard: 28px;
   .slider-decorator-2 {
     direction: ltr;
 
-    [dir=rtl] & .CarouselSection * {
+    [dir=rtl] & .CarouselSection {
       direction: rtl;
+      text-align: right;
     }
   }
 

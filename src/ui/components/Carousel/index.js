@@ -1,17 +1,21 @@
 /* @flow */
-import React from 'react';
 import NukaCarousel from 'nuka-carousel';
+import React from 'react';
+import { compose } from 'redux';
 
+import translate from 'core/i18n/translate';
+import { getDirection } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
 
 import './styles.scss';
 
 
 type PropTypes = {|
-  sections: Array<any>,
+  i18n: Object,
+  sections: Array<React$Element<*>>,
 |};
 
-const Carousel = ({ sections }: PropTypes) => {
+const CarouselBase = ({ i18n, sections }: PropTypes) => {
   if (!sections) {
     throw new Error('sections are required for a Carousel component');
   }
@@ -21,7 +25,7 @@ const Carousel = ({ sections }: PropTypes) => {
       <NukaCarousel
         autoplay={false}
         autoplayInterval={4000}
-        cellAlign="left"
+        cellAlign={getDirection(i18n.lang) === 'ltr' ? 'left' : 'right'}
         cellSpacing={10}
         framePadding="0 10%"
         frameOverflow="visible"
@@ -29,20 +33,14 @@ const Carousel = ({ sections }: PropTypes) => {
         slidesToScroll={1}
         slideWidth={1}
       >
-        {(sections.map((section, i) => {
-          // We have to wrap this content in a <div> or ReactSlick
-          // won't apply the right properties to it.
-          /* eslint-disable react/no-array-index-key */
-          return (
-            <div className="Carousel-section-wrapper" key={`carousel-${i}`}>
-              {section}
-            </div>
-          );
-          /* eslint-enable react/no-array-index-key */
+        {(sections.map((section) => {
+          return section;
         }))}
       </NukaCarousel>
     </Card>
   );
 };
 
-export default Carousel;
+export default compose(
+  translate(),
+)(CarouselBase);

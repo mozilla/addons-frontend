@@ -5,9 +5,9 @@
 
 .CarouselSection {
   align-content: center;
-  background: url("~ui/components/CarouselSection/icons/default.svg") no-repeat center;
+  background: url("~./icons/default.svg") no-repeat center;
   background-size: cover;
-  border-radius: $border-radius-header-carousel;
+  border-radius: $border-radius-default;
   font-size: $font-size-m;
   height: $carousel-height-default;
   line-height: 1.2;
@@ -31,7 +31,7 @@
 
   &::before {
     background: $teal-80;
-    border-radius: $border-radius-header-carousel;
+    border-radius: $border-radius-default;
     content: "";
     display: block;
     height: 100%;
@@ -71,7 +71,6 @@
   @include font-light();
 
   font-size: $font-size-m-smaller;
-  margin-top: 0;
   width: 100%;
 
   @include respond-to(large) {

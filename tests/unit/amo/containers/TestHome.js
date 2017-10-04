@@ -8,6 +8,7 @@ import {
   ThemeLink,
   mapStateToProps,
 } from 'amo/components/Home';
+import HomeCarousel from 'amo/components/HomeCarousel';
 import Link from 'amo/components/Link';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
@@ -27,6 +28,12 @@ describe('Home', () => {
       />
     );
   }
+
+  it('renders a carousel', () => {
+    const root = render();
+
+    expect(root.find(HomeCarousel)).toHaveLength(1);
+  })
 
   it('renders headings', () => {
     const root = render();

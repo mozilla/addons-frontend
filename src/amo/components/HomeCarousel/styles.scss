@@ -2,7 +2,7 @@
 
 .HomeCarousel {
   .CarouselSection-styleName--Home-featured-extensions {
-    background-image: url("~amo/components/HomeCarousel/photos/featured-extensions.jpg");
+    background-image: url("~./photos/featured-extensions.jpg");
 
     &::before {
       background: $teal-80;
@@ -10,7 +10,7 @@
   }
 
   .CarouselSection-styleName--Home-youtube-high-definition {
-    background-image: url("~amo/components/HomeCarousel/photos/youtube-high-definition.jpg");
+    background-image: url("~./photos/youtube-high-definition.jpg");
 
     &::before {
       background: $green-80;
@@ -18,7 +18,7 @@
   }
 
   .CarouselSection-styleName--Home-privacy-matters {
-    background-image: url("~amo/components/HomeCarousel/photos/privacy-matters.jpg");
+    background-image: url("~./photos/privacy-matters.jpg");
     background-position: center 25%;
 
     &::before {
@@ -27,7 +27,7 @@
   }
 
   .CarouselSection-styleName--Home-ublock-origin {
-    background-image: url("~amo/components/HomeCarousel/photos/ublock-origin.jpg");
+    background-image: url("~./photos/ublock-origin.jpg");
 
     &::before {
       background: $red-80;
