@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-04 11:21+0000\n"
+"PO-Revision-Date: 2017-10-04 11:39+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -106,7 +106,7 @@ msgstr "Reinicialização necessária"
 
 #: src/amo/components/Addon/index.js:488
 msgid "Experimental"
-msgstr ""
+msgstr "Experimental"
 
 #: src/amo/components/Addon/index.js:506
 msgid "Extension Metadata"
@@ -162,7 +162,7 @@ msgstr "Usado por"
 
 #: src/amo/components/AddonMeta.js:62
 msgid "Click to view statistics"
-msgstr ""
+msgstr "Clique para ver as estatísticas"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
 msgid "Read the license agreement for this add-on"
@@ -210,7 +210,7 @@ msgstr "Versões beta"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Estatísticas de uso"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -322,11 +322,11 @@ msgstr "Navegue todos os temas nesta categoria."
 
 #: src/amo/components/Collection/index.js:130
 msgid "Addons"
-msgstr ""
+msgstr "Extensões"
 
 #: src/amo/components/Collection/index.js:136
 msgid "Creator"
-msgstr ""
+msgstr "Criador"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
@@ -540,7 +540,7 @@ msgstr "Você pode alterar como o Firefox funciona…"
 
 #: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Explore ferramentas poderosas e recursos para personalizar o Firefox e deixar o navegador do seu jeito."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -866,11 +866,11 @@ msgstr "Resultados da pesquisa"
 
 #: src/amo/components/SectionLinks/index.js:100
 msgid "More…"
-msgstr ""
+msgstr "Mais…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Dicionários e Pacotes de Idioma"
 
 #: src/amo/components/SectionLinks/index.js:121
 msgid "Search Tools"
@@ -890,7 +890,7 @@ msgstr "para Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "para Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
