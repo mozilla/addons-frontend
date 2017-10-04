@@ -140,12 +140,27 @@ describe(__filename, () => {
       },
     });
     const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-license-link');
 
     expect(root.find('.AddonMoreInfo-license-title')).toHaveText('License');
-    expect(root.find('.AddonMoreInfo-license-link'))
-      .toHaveProp('children', 'tofulicense');
-    expect(root.find('.AddonMoreInfo-license-link'))
-      .toHaveProp('href', 'http://license.com/');
+    expect(link).toHaveProp('children', 'tofulicense');
+    expect(link).toHaveProp('href', 'http://license.com/');
+  });
+
+  it('does not prefix a license link with the add-ons URL', () => {
+    // See: https://github.com/mozilla/addons-frontend/issues/3339
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        license: { name: 'tofulicense', url: 'www.license.com/' },
+      },
+    });
+    const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-license-link');
+
+    expect(link).toHaveProp('prependClientApp', false);
+    expect(link).toHaveProp('prependLang', false);
   });
 
   it('does not render a privacy policy if none exists', () => {
