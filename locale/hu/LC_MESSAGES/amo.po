@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-04 09:10+0000\n"
+"PO-Revision-Date: 2017-10-04 09:12+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -889,9 +889,8 @@ msgid "Add-ons for Android"
 msgstr "Kiegészítők Androidra"
 
 #: src/amo/components/SectionLinks/index.js:59
-#, fuzzy
 msgid "for Firefox"
-msgstr "Kiegészítők a Firefoxhoz"
+msgstr "Firefoxhoz"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
