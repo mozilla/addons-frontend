@@ -81,6 +81,8 @@ export class AddonMoreInfoBase extends React.Component {
         <Link
           className="AddonMoreInfo-license-link"
           href={addon.current_version.license.url}
+          prependClientApp={false}
+          prependLang={false}
         >
           {addon.current_version.license.name}
         </Link>
