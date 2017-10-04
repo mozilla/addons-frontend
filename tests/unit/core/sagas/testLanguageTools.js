@@ -1,7 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api/languageTools';
-import { CLEAR_ERROR } from 'core/constants';
 import addonsReducer, {
   fetchLanguageTools,
   loadAddonResults,
