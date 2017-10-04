@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-04 02:11+0000\n"
+"PO-Revision-Date: 2017-10-04 02:12+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -861,28 +861,24 @@ msgid "Dictionaries & Language Packs"
 msgstr "字典和语言包"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
-msgstr "搜索结果"
+msgstr "搜索工具"
 
 #: src/amo/components/SectionLinks/index.js:126
-#, fuzzy
 msgid "Other Browser Sites"
-msgstr "iOS 浏览器"
+msgstr "其他浏览器网站"
 
 #: src/amo/components/SectionLinks/index.js:137
-#, fuzzy
 msgid "Add-ons for Android"
-msgstr "Firefox 附加组件"
+msgstr "适用于 Android 的附加组件"
 
 #: src/amo/components/SectionLinks/index.js:59
-#, fuzzy
 msgid "for Firefox"
-msgstr "Firefox 附加组件"
+msgstr "适用于 Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr "适用于 Android 系统"
+msgstr "适用于 Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
