@@ -23,10 +23,7 @@ export function* fetchLanguageTools({
   try {
     const state = yield select(getState);
 
-    const response = yield call(languageToolsApi, {
-      api: state.api,
-      auth: true,
-    });
+    const response = yield call(languageToolsApi, { api: state.api });
 
     yield put(loadAddonResults({ addons: response.results }));
   } catch (error) {

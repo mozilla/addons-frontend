@@ -1,5 +1,6 @@
 import * as api from 'core/api';
 import { languageTools } from 'core/api/languageTools';
+import { CLIENT_APP_ANDROID } from 'core/constants';
 import {
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
@@ -24,7 +25,9 @@ describe(__filename, () => {
     }
 
     it('calls the language tools API', async () => {
-      const apiState = dispatchClientMetadata().store.getState().api;
+      const apiState = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+      }).store.getState().api;
 
       mockApi
         .expects('callApi')
@@ -32,7 +35,7 @@ describe(__filename, () => {
           auth: true,
           endpoint: 'addons/language-tools',
           method: 'GET',
-          params: { app: apiState.clientApp },
+          params: { app: CLIENT_APP_ANDROID },
           state: apiState,
         })
         .once()

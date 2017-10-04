@@ -40,6 +40,7 @@ describe(__filename, () => {
     mockApi
       .expects('languageTools')
       .once()
+      .withArgs({ api: sagaTester.getState().api })
       .returns(Promise.resolve(response));
 
     sagaTester.dispatch(fetchLanguageTools({
@@ -56,13 +57,15 @@ describe(__filename, () => {
   });
 
   it('clears the error handler', async () => {
+    const clearingAction = errorHandler.createClearingAction();
+
     sagaTester.dispatch(fetchLanguageTools({
       errorHandlerId: errorHandler.id,
     }));
 
-    await sagaTester.waitFor(CLEAR_ERROR);
+    await sagaTester.waitFor(clearingAction.type);
     expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+      .toEqual(clearingAction);
   });
 
   it('dispatches an error', async () => {

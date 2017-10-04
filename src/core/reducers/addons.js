@@ -94,8 +94,8 @@ export function fetchLanguageTools(
   };
 }
 
-type LoadAddonResultsType = {|
-  addons: Object,
+type LoadAddonResultsParams = {|
+  addons: ExternalAddonMap,
 |}
 
 export type LoadAddonResultsAction = {|
@@ -104,7 +104,7 @@ export type LoadAddonResultsAction = {|
 |};
 
 export function loadAddonResults(
-  { addons }: LoadAddonResultsType = {}
+  { addons }: LoadAddonResultsParams = {}
 ): LoadAddonResultsAction {
   if (!addons) {
     throw new Error('addons are required');
