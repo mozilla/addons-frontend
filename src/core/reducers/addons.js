@@ -13,7 +13,7 @@ import type {
 
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
-export const LOAD_LANGUAGE_TOOLS = 'LOAD_LANGUAGE_TOOLS';
+export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
 export const FETCH_LANGUAGE_TOOLS = 'FETCH_LANGUAGE_TOOLS';
 
 type ExternalAddonMap = {
@@ -25,6 +25,9 @@ export type LoadAddonsAction = {|
   type: string,
 |};
 
+// TODO: We should remove this method and move all calls to `loadAddonResults`.
+// This function relies on normalizr messing with our response data.
+// See: https://github.com/mozilla/addons-frontend/issues/2917
 export function loadAddons(
   entities: {| addons?: ExternalAddonMap |}
 ): LoadAddonsAction {
@@ -91,39 +94,25 @@ export function fetchLanguageTools(
   };
 }
 
-type LoadLanguageToolsType = {|
+type LoadAddonResultsType = {|
   addons: Object,
 |}
 
-export type LoadLanguageToolsAction = {|
+export type LoadAddonResultsAction = {|
   payload: {| addons: ExternalAddonMap |},
   type: string,
 |};
 
-export function loadLanguageTools({
-  addons,
-}: LoadLanguageToolsType = {}): LoadLanguageToolsAction {
+export function loadAddonResults(
+  { addons }: LoadAddonResultsType = {}
+): LoadAddonResultsAction {
   if (!addons) {
     throw new Error('addons are required');
   }
 
   return {
-    type: LOAD_LANGUAGE_TOOLS,
+    type: LOAD_ADDONS,
     payload: { addons },
-  };
-}
-
-export function createInternalLanguageTool(apiAddon: Object) {
-  return {
-    id: apiAddon.id,
-    current_version: apiAddon.current_version,
-    default_locale: apiAddon.default_locale,
-    locale_disambiguation: apiAddon.locale_disambiguation,
-    name: apiAddon.name,
-    slug: apiAddon.slug,
-    target_locale: apiAddon.target_locale,
-    type: apiAddon.type,
-    url: apiAddon.url,
   };
 }
 
@@ -206,6 +195,7 @@ export function createInternalAddon(
     is_source_public: apiAddon.is_source_public,
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
+    locale_disambiguation: apiAddon.locale_disambiguation,
     name: apiAddon.name,
     previews: apiAddon.previews,
     public_stats: apiAddon.public_stats,
@@ -218,6 +208,7 @@ export function createInternalAddon(
     support_email: apiAddon.support_email,
     support_url: apiAddon.support_url,
     tags: apiAddon.tags,
+    target_locale: apiAddon.target_locale,
     type: apiAddon.type,
     url: apiAddon.url,
     weekly_downloads: apiAddon.weekly_downloads,
@@ -297,14 +288,6 @@ export default function addonsReducer(
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
         newState[key] = createInternalAddon(addons[key]);
-      });
-      return newState;
-    }
-    case LOAD_LANGUAGE_TOOLS: {
-      const { addons } = action.payload;
-      const newState = { ...state };
-      Object.keys(addons).forEach((key) => {
-        newState[key] = createInternalLanguageTool(addons[key]);
       });
       return newState;
     }

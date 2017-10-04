@@ -7,7 +7,7 @@ import addons, {
   fetchLanguageTools,
   getGuid,
   loadAddons,
-  loadLanguageTools,
+  loadAddonResults,
   removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
@@ -339,10 +339,10 @@ describe(__filename, () => {
     });
   });
 
-  describe('loadLanguageTools', () => {
+  describe('loadAddonResults', () => {
     it('requires addons', () => {
       expect(() => {
-        loadLanguageTools();
+        loadAddonResults();
       }).toThrow('addons are required');
     });
   });

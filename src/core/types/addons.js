@@ -51,8 +51,7 @@ export type AddonAuthorType = {|
   username: string,
 |};
 
-export type LanguageToolType = {|
-  default_locale?: string,
+export type LanguageToolData = {|
   locale_disambiguation?: string,
   target_locale?: string,
 |};
@@ -105,6 +104,7 @@ export type ExternalAddonType = {|
   is_source_public: boolean,
   last_updated: Date,
   latest_unlisted_version: ?AddonVersionType,
+  locale_disambiguation?: string,
   name: string,
   previews: Array<Object>,
   public_stats: boolean,
@@ -121,6 +121,7 @@ export type ExternalAddonType = {|
   support_email?: string,
   support_url?: string,
   tags: Array<string>,
+  target_locale?: string,
   theme_data?: ThemeData,
   type: AddonTypeType,
   url: string,
