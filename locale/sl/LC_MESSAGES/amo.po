@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-04 14:59+0000\n"
+"PO-Revision-Date: 2017-10-04 19:08+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -332,7 +332,7 @@ msgstr "Dodatki"
 
 #: src/amo/components/Collection/index.js:136
 msgid "Creator"
-msgstr ""
+msgstr "Avtor"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
@@ -550,7 +550,7 @@ msgstr "Spremenite lahko, kako Firefox deluje …"
 
 #: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Raziščite zmogljiva orodja in možnosti, s katerimi lahko prilagodite Firefox po čisto svoji meri."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -901,9 +901,8 @@ msgid "Search Tools"
 msgstr "Orodja za iskanje"
 
 #: src/amo/components/SectionLinks/index.js:126
-#, fuzzy
 msgid "Other Browser Sites"
-msgstr "Brskalnik za iOS"
+msgstr "Druge strani brskalnika"
 
 #: src/amo/components/SectionLinks/index.js:137
 msgid "Add-ons for Android"
