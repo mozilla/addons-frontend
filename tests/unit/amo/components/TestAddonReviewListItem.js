@@ -160,8 +160,10 @@ describe(__filename, () => {
     const root = render({ review });
 
     const editButton = root.find('.AddonReviewListItem-edit');
-    editButton.simulate('click', createFakeEvent());
+    const clickEvent = createFakeEvent();
+    editButton.simulate('click', clickEvent);
 
+    sinon.assert.called(clickEvent.preventDefault);
     sinon.assert.calledWith(dispatchSpy, showEditReviewForm({
       reviewId: review.id,
     }));
@@ -192,8 +194,10 @@ describe(__filename, () => {
 
     const editButton = root.find('.AddonReviewListItem-begin-reply');
     expect(editButton).toHaveLength(1);
-    editButton.simulate('click', createFakeEvent());
+    const clickEvent = createFakeEvent();
+    editButton.simulate('click', clickEvent);
 
+    sinon.assert.called(clickEvent.preventDefault);
     sinon.assert.calledWith(fakeDispatch, showReplyToReviewForm({
       reviewId: review.id,
     }));
