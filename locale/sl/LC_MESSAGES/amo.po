@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-04 14:11+0000\n"
-"Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
+"PO-Revision-Date: 2017-10-04 14:59+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -108,7 +108,7 @@ msgstr "Zahtevan je ponoven zagon"
 
 #: src/amo/components/Addon/index.js:488
 msgid "Experimental"
-msgstr ""
+msgstr "Poskusen"
 
 #: src/amo/components/Addon/index.js:506
 msgid "Extension Metadata"
@@ -168,7 +168,7 @@ msgstr "Uporablja"
 
 #: src/amo/components/AddonMeta.js:62
 msgid "Click to view statistics"
-msgstr ""
+msgstr "Kliknite za ogled statistike"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
 msgid "Read the license agreement for this add-on"
@@ -216,7 +216,7 @@ msgstr "Beta različice"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Statistika uporabe"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -240,7 +240,7 @@ msgstr "Stran s podporo"
 
 #: src/amo/components/AddonMoreInfo/index.js:67
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Odpri nadzorno ploščo s statistiko"
 
 #: src/amo/components/AddonMoreInfo/index.js:75
 msgid "%(timeFromNow)s (%(date)s)"
@@ -897,9 +897,8 @@ msgid "Dictionaries & Language Packs"
 msgstr "Slovarji in jezikovni paketi"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
-msgstr "Rezultati iskanja"
+msgstr "Orodja za iskanje"
 
 #: src/amo/components/SectionLinks/index.js:126
 #, fuzzy
@@ -911,13 +910,12 @@ msgid "Add-ons for Android"
 msgstr "Dodatki za Android"
 
 #: src/amo/components/SectionLinks/index.js:59
-#, fuzzy
 msgid "for Firefox"
-msgstr "Dodatki za Firefox"
+msgstr "za Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "za Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
