@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -53,7 +53,7 @@ msgstr "關於此%(addonType)s"
 
 #: src/amo/components/Addon/index.js:290
 msgid "Release notes for %(addonVersion)s"
-msgstr "%(addonName)s 的新鮮事"
+msgstr "%(addonVersion)s 的新鮮事"
 
 #: src/amo/components/Addon/index.js:319
 msgid "More dictionaries by %(author)s"
