@@ -696,7 +696,7 @@ msgstr[1] "נמצאו %(count)s חבילות שפה עבור \"%(query)s\""
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "נמצאה ערכת נושא אחת עבור \"%(query)s\""
-msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)\""
+msgstr[1] "נמצאו %(count)s ערכות נושא עבור \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
