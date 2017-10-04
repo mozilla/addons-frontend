@@ -40,7 +40,8 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
             },
           },
         ],
-      }, {
+      },
+      {
         test: /\.scss$/,
         use: [
           { loader: 'style-loader' },
@@ -80,7 +81,8 @@ export function getRules({ babelQuery, bundleStylesWithJs = false } = {}) {
             },
           ],
         }),
-      }, {
+      },
+      {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract({
           fallback: 'style-loader',

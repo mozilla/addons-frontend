@@ -1,0 +1,64 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+// This is extra padding on the card contents to allow the Carousel
+// to fit inside it, hide the overflow, but keep the rounded corners
+// of the card.
+$extraHeightForCard: 28px;
+
+.Carousel {
+  margin: 0 0 10px;
+
+  // This hack is needed to get scrolling working with the carousel in RTL.
+  // It preserves the layout inside the CarouselSection.
+  .slider-frame {
+    direction: ltr;
+
+    [dir=rtl] & .CarouselSection {
+      direction: rtl;
+      text-align: right;
+    }
+  }
+
+  .slider-decorator-0,
+  .slider-decorator-1 {
+    display: none;
+  }
+
+  // These are set to important to override style changes made by the
+  // library on the elements themselves. :-(
+  .slider-decorator-2 {
+    bottom: 0 !important;
+    height: 24px;
+
+    @include respond-to(large) {
+      bottom: -25px !important;
+    }
+
+    ul {
+      display: flex;
+      width: 100%;
+    }
+
+    button {
+      font-size: $font-size-xl !important;
+      padding: 0 24px !important;
+    }
+  }
+}
+
+.Carousel .Card-contents {
+  height: $carousel-height-default + $extraHeightForCard;
+  overflow-y: hidden;
+  padding-left: 0;
+  padding-right: 0;
+
+  @include respond-to(large) {
+    height: $carousel-height-large + $extraHeightForCard;
+  }
+
+  @include respond-to(extraLarge) {
+    height: $carousel-height-extraLarge + $extraHeightForCard;
+  }
+}
