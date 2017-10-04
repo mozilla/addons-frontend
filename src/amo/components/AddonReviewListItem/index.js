@@ -163,25 +163,26 @@ export class AddonReviewListItemBase extends React.Component {
           {
             userIsAuthenticated && review &&
             review.userId === siteUser.id ?
-              <div>
-                {/* This will render an overlay to edit the review */}
-                {editingReview ?
-                  <AddonReview
-                    onEscapeOverlay={this.onEscapeReviewOverlay}
-                    onReviewSubmitted={this.onReviewSubmitted}
-                    review={review}
-                  />
-                  : null
-                }
-                <a
-                  href="#edit"
-                  onClick={this.onClickToEditReview}
-                  className="AddonReviewListItem-edit"
-                >
-                  {i18n.gettext('Edit my review')}
-                </a>
-              </div>
-              : null
+              (
+                <div>
+                  {/* This will render an overlay to edit the review */}
+                  {editingReview ?
+                    <AddonReview
+                      onEscapeOverlay={this.onEscapeReviewOverlay}
+                      onReviewSubmitted={this.onReviewSubmitted}
+                      review={review}
+                    />
+                    : null
+                  }
+                  <a
+                    href="#edit"
+                    onClick={this.onClickToEditReview}
+                    className="AddonReviewListItem-edit"
+                  >
+                    {i18n.gettext('Edit my review')}
+                  </a>
+                </div>
+              ) : null
           }
           {
             !replyingToReview && userIsAuthenticated &&
