@@ -7,6 +7,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 
 export const initialState = {
   addonType: null,
+  category: null,
   featured: { count: 0, results: [] },
   highlyRated: { count: 0, results: [] },
   loading: false,
@@ -21,9 +22,11 @@ export default function landing(state = initialState, action) {
       return {
         ...initialState,
         addonType: payload.addonType,
+        category: payload.category,
         loading: true,
         resultsLoaded: false,
       };
+
     case LANDING_LOADED: {
       const newState = { ...state, loading: false, resultsLoaded: true };
 
