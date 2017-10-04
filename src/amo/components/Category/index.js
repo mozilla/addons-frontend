@@ -1,37 +1,200 @@
+/* eslint-disable react/no-unused-prop-types */
 import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import { oneLine } from 'common-tags';
 
+import { getLanding } from 'amo/actions/landing';
 import CategoryHeader from 'amo/components/CategoryHeader';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import Search from 'amo/components/Search';
 import { categoriesFetch } from 'core/actions/categories';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+} from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
+import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
-import { apiAddonType, parsePage } from 'core/utils';
+import {
+  apiAddonType,
+  apiAddonTypeIsValid,
+} from 'core/utils';
 
 import './styles.scss';
 
 
 export class CategoryBase extends React.Component {
   static propTypes = {
+    addonTypeOfResults: PropTypes.string,
+    categoryOfResults: PropTypes.string,
     categories: PropTypes.object,
     clientApp: PropTypes.string,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
+    featuredAddons: PropTypes.array,
+    highlyRatedAddons: PropTypes.array,
+    i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
-    location: PropTypes.object.isRequired,
-    params: PropTypes.object.isRequired,
+    params: PropTypes.shape({
+      slug: PropTypes.string,
+      visibleAddonType: PropTypes.string,
+    }).isRequired,
+    popularAddons: PropTypes.array,
+    resultsLoaded: PropTypes.bool.isRequired,
   }
 
   componentWillMount() {
-    const { categories, dispatch, errorHandler, loading } = this.props;
+    this.loadDataIfNeeded();
+  }
 
-    if (!loading && !categories) {
-      dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
+  componentWillReceiveProps(nextProps) {
+    this.loadDataIfNeeded(nextProps);
+  }
+
+  loadDataIfNeeded(nextProps = {}) {
+    const {
+      addonTypeOfResults,
+      categoryOfResults,
+      categories,
+      clientApp,
+      dispatch,
+      errorHandler,
+      loading,
+      params,
+      resultsLoaded,
+    } = {
+      ...this.props,
+      ...nextProps,
+    };
+
+    if (errorHandler.hasError()) {
+      log.warn('Not loading data because of an error.');
+      return;
     }
+
+    if (!apiAddonTypeIsValid(params.visibleAddonType)) {
+      log.warn(oneLine`Skipping componentWillMount() because visibleAddonType
+        is invalid: ${params.visibleAddonType}`);
+      return;
+    }
+
+    if (loading) {
+      return;
+    }
+
+    const addonType = apiAddonType(params.visibleAddonType);
+
+    if (!categories) {
+      dispatch(categoriesFetch({ errorHandlerId: errorHandler.id }));
+    } else {
+      let category;
+      if (categories[clientApp] && categories[clientApp][addonType]) {
+        category = categories[clientApp][addonType][params.slug];
+      }
+
+      if (!category) {
+        log.warn(oneLine`Skipping componentWillMount() because category is
+          invalid: ${params.slug}`);
+        return;
+      }
+    }
+
+    if (
+      !resultsLoaded ||
+      addonTypeOfResults !== addonType ||
+      categoryOfResults !== params.slug
+    ) {
+      dispatch(getLanding({
+        addonType,
+        category: params.slug,
+        errorHandlerId: errorHandler.id,
+      }));
+    }
+  }
+
+  contentForType = (addonType) => {
+    const { i18n, params } = this.props;
+
+    const contentForTypes = {
+      [ADDON_TYPE_EXTENSION]: {
+        featuredHeader: i18n.gettext('Featured extensions'),
+        featuredFooterLink: {
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            category: params.slug,
+            featured: true,
+          },
+        },
+        featuredFooterText: i18n.gettext('More featured extensions'),
+        popularHeader: i18n.gettext('Most popular extensions'),
+        popularFooterLink: {
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            category: params.slug,
+            sort: SEARCH_SORT_POPULAR,
+          },
+        },
+        popularFooterText: i18n.gettext('More popular extensions'),
+        highlyRatedHeader: i18n.gettext('Top rated extensions'),
+        highlyRatedFooterLink: {
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_EXTENSION,
+            category: params.slug,
+            sort: SEARCH_SORT_TOP_RATED,
+          },
+        },
+        highlyRatedFooterText: i18n.gettext('More highly rated extensions'),
+      },
+      [ADDON_TYPE_THEME]: {
+        featuredHeader: i18n.gettext('Featured themes'),
+        featuredFooterLink: {
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_THEME,
+            category: params.slug,
+            featured: true,
+          },
+        },
+        featuredFooterText: i18n.gettext('More featured themes'),
+        popularHeader: i18n.gettext('Most popular themes'),
+        popularFooterLink: {
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_THEME,
+            category: params.slug,
+            sort: SEARCH_SORT_POPULAR,
+          },
+        },
+        popularFooterText: i18n.gettext('More popular themes'),
+        highlyRatedHeader: i18n.gettext('Top rated themes'),
+        highlyRatedFooterLink: {
+          pathname: '/search/',
+          query: {
+            addonType: ADDON_TYPE_THEME,
+            category: params.slug,
+            sort: SEARCH_SORT_TOP_RATED,
+          },
+        },
+        highlyRatedFooterText: i18n.gettext('More highly rated themes'),
+      },
+    };
+
+    return { html: contentForTypes[addonType] };
+  }
+
+  renderIfNotEmpty(component, addons) {
+    if (addons.length === 0 && !this.props.loading) {
+      return null;
+    }
+
+    return component;
   }
 
   render() {
@@ -39,65 +202,94 @@ export class CategoryBase extends React.Component {
       categories,
       clientApp,
       errorHandler,
+      featuredAddons,
+      highlyRatedAddons,
       loading,
-      location,
       params,
+      popularAddons,
     } = this.props;
 
     let addonType;
     try {
       addonType = apiAddonType(params.visibleAddonType);
     } catch (error) {
-      log.info(
-        `addonType ${params.visibleAddonType} threw an error: ${error}`);
+      log.info(`addonType ${params.visibleAddonType} threw an error: ${error}`);
       return <NotFound />;
     }
-    const categorySlug = params.slug;
-    const filters = {
-      addonType,
-      category: categorySlug,
-      page: parsePage(location.query.page),
-    };
-    const pathname = `/${params.visibleAddonType}/${categorySlug}/`;
-    const paginationQueryParams = convertFiltersToQueryParams({
-      page: filters.page,
-    });
 
     let category;
     if (categories) {
       if (categories[clientApp] && categories[clientApp][addonType]) {
-        category = categories[clientApp][addonType][categorySlug];
+        category = categories[clientApp][addonType][params.slug];
       }
 
-      if (!errorHandler.hasError() && !loading && !category) {
+      if (!errorHandler.hasError() && !category) {
         return <NotFound />;
       }
     }
 
+    const { html } = this.contentForType(addonType);
+
     return (
       <div className="Category">
         {errorHandler.renderErrorIfPresent()}
+
         <CategoryHeader category={category} />
-        <Search
-          enableSearchFilters={false}
-          filters={filters}
-          paginationQueryParams={paginationQueryParams}
-          pathname={pathname}
-        />
+
+        {this.renderIfNotEmpty(
+          <LandingAddonsCard
+            addons={featuredAddons}
+            className="FeaturedAddons"
+            footerText={html.featuredFooterText}
+            footerLink={html.featuredFooterLink}
+            header={html.featuredHeader}
+            loading={loading}
+          />,
+          featuredAddons
+        )}
+        {this.renderIfNotEmpty(
+          <LandingAddonsCard
+            addons={highlyRatedAddons}
+            className="HighlyRatedAddons"
+            footerLink={html.highlyRatedFooterLink}
+            footerText={html.highlyRatedFooterText}
+            header={html.highlyRatedHeader}
+            loading={loading}
+          />,
+          highlyRatedAddons
+        )}
+        {this.renderIfNotEmpty(
+          <LandingAddonsCard
+            addons={popularAddons}
+            className="PopularAddons"
+            footerLink={html.popularFooterLink}
+            footerText={html.popularFooterText}
+            header={html.popularHeader}
+            loading={loading}
+          />,
+          popularAddons
+        )}
       </div>
     );
   }
 }
 
-export function mapStateToProps(state) {
+function mapStateToProps(state) {
   return {
     categories: state.categories.categories,
     clientApp: state.api.clientApp,
-    loading: state.categories.loading,
+    loading: state.categories.loading || state.landing.loading,
+    addonTypeOfResults: state.landing.addonType,
+    categoryOfResults: state.landing.category,
+    featuredAddons: state.landing.featured.results,
+    highlyRatedAddons: state.landing.highlyRated.results,
+    popularAddons: state.landing.popular.results,
+    resultsLoaded: state.landing.resultsLoaded,
   };
 }
 
 export default compose(
   withErrorHandler({ name: 'Category' }),
   connect(mapStateToProps),
+  translate(),
 )(CategoryBase);

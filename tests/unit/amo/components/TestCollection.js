@@ -194,14 +194,14 @@ describe(__filename, () => {
 
   it('does not dispatch any action when there is an error', () => {
     const store = dispatchClientMetadata().store;
-    const wrapper = renderComponent({ store });
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const wrapper = renderComponent({ dispatch: store.dispatch, store });
 
     const errorHandler = wrapper.instance().props.errorHandler;
-    errorHandler.handle(new Error('an unexpected error'));
+    errorHandler.captureError(new Error('an unexpected error'));
 
-    const fakeDispatch = sinon.stub(store, 'dispatch');
-
-    wrapper.setProps({ errorHandler });
+    fakeDispatch.reset();
+    wrapper.setProps({ collection: null, errorHandler });
 
     sinon.assert.notCalled(fakeDispatch);
   });

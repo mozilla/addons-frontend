@@ -1,3 +1,9 @@
+@import "~amo/css/inc/vars";
+
+.Category {
+  padding: $padding-page;
+}
+
 .Category .ErrorList {
   margin: 10px 10px 0;
 }
