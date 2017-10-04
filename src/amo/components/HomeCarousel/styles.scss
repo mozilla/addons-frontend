@@ -1,0 +1,36 @@
+@import "~photon-colors/colors";
+
+.HomeCarousel {
+  .CarouselSection-styleName--Home-featured-extensions {
+    background-image: url("./photos/featured-extensions.jpg");
+
+    &::before {
+      background: $teal-80;
+    }
+  }
+
+  .CarouselSection-styleName--Home-youtube-high-definition {
+    background-image: url("./photos/youtube-high-definition.jpg");
+
+    &::before {
+      background: $green-80;
+    }
+  }
+
+  .CarouselSection-styleName--Home-privacy-matters {
+    background-image: url("./photos/privacy-matters.jpg");
+    background-position: center 25%;
+
+    &::before {
+      background: $ink-80;
+    }
+  }
+
+  .CarouselSection-styleName--Home-ublock-origin {
+    background-image: url("./photos/ublock-origin.jpg");
+
+    &::before {
+      background: $red-80;
+    }
+  }
+}

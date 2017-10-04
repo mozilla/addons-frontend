@@ -45,11 +45,16 @@ $font-size-m: 18px;
 $font-size-l: 24px;
 $font-size-xl: 36px;
 $font-size-xxl: 42px;
+$font-size-header-carousel: 44px;
 
 $font-size-header-title: 34px;
 
 // Border radius sizes
-// Border-Radius Variables
 $border-radius-default: 9px;
 $border-radius-s: 4px;
 $border-radius-m: 8px;
+
+// Carousel sized; these are shared between Carousel and CarouselSection
+$carousel-height-default: 124px;
+$carousel-height-large: 176px;
+$carousel-height-extraLarge: 312px;
