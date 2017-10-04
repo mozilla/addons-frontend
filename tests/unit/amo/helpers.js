@@ -29,7 +29,9 @@ import {
 
 export const fakeAddon = Object.freeze({
   authors: [{
+    id: 98811255,
     name: 'Krupa',
+    picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
     url: 'http://olympia.dev/en-US/firefox/user/krupa/',
     username: 'krupa',
   }],

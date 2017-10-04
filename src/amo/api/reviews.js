@@ -6,7 +6,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { PaginatedApiResponse } from 'core/types/api';
 
-export type ApiReviewType = {|
+type ExternalReviewTypeBase = {|
   addon: {|
     id: number,
     slug: string,
@@ -15,13 +15,23 @@ export type ApiReviewType = {|
   created: Date,
   id: number,
   is_latest: boolean,
-  rating: number,
   title: string,
   user: {|
     id: number,
     name: string,
     url: string,
   |},
+|};
+
+export type ExternalReviewReplyType = {|
+  ...ExternalReviewTypeBase,
+|};
+
+export type ExternalReviewType = {|
+  ...ExternalReviewTypeBase,
+  rating: number,
+  // This is a possible developer reply to the review.
+  reply: ExternalReviewReplyType | null,
   version: ?{|
     id: number,
   |},
@@ -34,7 +44,7 @@ export type SubmitReviewParams = {|
   apiState?: ApiStateType,
   body?: string,
   errorHandler?: ErrorHandlerType,
-  rating?: number,
+  rating?: number | null,
   reviewId?: number,
   title?: string,
   versionId?: number,
@@ -52,7 +62,7 @@ export function submitReview({
   body,
   reviewId,
   ...apiCallParams
-}: SubmitReviewParams): Promise<ApiReviewType> {
+}: SubmitReviewParams): Promise<ExternalReviewType> {
   return new Promise((resolve) => {
     const review = {
       addon: undefined,
@@ -101,7 +111,7 @@ export const replyToReview = ({
   errorHandler,
   originalReviewId,
   title,
-}: ReplyToReviewParams = {}): Promise<ApiReviewType> => {
+}: ReplyToReviewParams = {}): Promise<ExternalReviewReplyType> => {
   return new Promise((resolve) => {
     const endpoint = `reviews/review/${originalReviewId}/reply/`;
 
@@ -131,7 +141,7 @@ type GetReviewsParams = {|
   version?: number,
 |};
 
-type GetReviewsApiResponse = PaginatedApiResponse<ApiReviewType>;
+type GetReviewsApiResponse = PaginatedApiResponse<ExternalReviewType>;
 
 export function getReviews(
   { apiState, user, addon, ...params }: GetReviewsParams = {}
@@ -158,7 +168,7 @@ export type GetLatestReviewParams = {|
 
 export function getLatestUserReview(
   { apiState, user, addon, version }: GetLatestReviewParams = {}
-): Promise<null | ApiReviewType> {
+): Promise<null | ExternalReviewType> {
   return new Promise((resolve) => {
     if (!user || !addon || !version) {
       throw new Error('user, addon, and version must be specified');

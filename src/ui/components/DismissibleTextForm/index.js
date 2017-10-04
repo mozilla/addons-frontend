@@ -13,7 +13,7 @@ import type { ElementEvent } from 'core/types/dom';
 import './styles.scss';
 
 type StateType = {|
-  text: string | null,
+  text: string,
 |};
 
 export type OnSubmitParams = {|
@@ -54,7 +54,7 @@ export class DismissibleTextFormBase extends React.Component {
 
   constructor(props: PropTypes) {
     super(props);
-    this.state = { text: props.text || null };
+    this.state = { text: props.text || '' };
   }
 
   componentDidMount() {
@@ -65,7 +65,7 @@ export class DismissibleTextFormBase extends React.Component {
 
   onDismiss = (event: SyntheticEvent) => {
     event.preventDefault();
-    this.setState({ text: null });
+    this.setState({ text: '' });
     this.props.onDismiss();
   }
 

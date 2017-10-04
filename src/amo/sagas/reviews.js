@@ -3,18 +3,22 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { call, put, select, takeEvery } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { getReviews } from 'amo/api/reviews';
-import { setAddonReviews } from 'amo/actions/reviews';
-import { FETCH_REVIEWS } from 'amo/constants';
+import { getReviews, replyToReview } from 'amo/api/reviews';
+import {
+  hideReplyToReviewForm, setAddonReviews, setReviewReply,
+} from 'amo/actions/reviews';
+import { FETCH_REVIEWS, SEND_REPLY_TO_REVIEW } from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import type { FetchReviewsAction } from 'amo/actions/reviews';
+import type {
+  FetchReviewsAction, SendReplyToReviewAction,
+} from 'amo/actions/reviews';
 
 
-export function* fetchReviews(
+function* fetchReviews(
   {
     payload: { errorHandlerId, addonSlug, page },
   }: FetchReviewsAction
@@ -35,6 +39,38 @@ export function* fetchReviews(
   }
 }
 
+function* handleReplyToReview(
+  {
+    payload: { errorHandlerId, originalReviewId, body, title },
+  }: SendReplyToReviewAction
+): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+    const reviewResponse = yield call(replyToReview, {
+      apiState: state.api,
+      body,
+      // This prevents the error from being handled by callApi();
+      // we want to handle it in catch() ourselves.
+      errorHandler: undefined,
+      originalReviewId,
+      title,
+    });
+
+    yield put(setReviewReply({ originalReviewId, reply: reviewResponse }));
+
+    yield put(hideReplyToReviewForm({ reviewId: originalReviewId }));
+  } catch (error) {
+    log.warn(
+      `Failed to send reply to review ID ${originalReviewId}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* reviewsSaga(): Generator<any, any, any> {
-  yield takeEvery(FETCH_REVIEWS, fetchReviews);
+  yield takeLatest(FETCH_REVIEWS, fetchReviews);
+  yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);
 }

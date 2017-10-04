@@ -1,6 +1,5 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-/* global $Shape */
 import { oneLine } from 'common-tags';
 import defaultDebounce from 'lodash.debounce';
 import React from 'react';

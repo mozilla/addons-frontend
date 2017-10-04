@@ -46,7 +46,9 @@ export type AddonVersionType = {|
 |};
 
 export type AddonAuthorType = {|
+  id: number,
   name: string,
+  picture_url: string,
   url: string,
   username: string,
 |};
