@@ -6,14 +6,14 @@ import { compose } from 'redux';
 import translate from 'core/i18n/translate';
 import { getDirection } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
+import CarouselSection from 'ui/components/CarouselSection';
 
 import './styles.scss';
 
 
 type PropTypes = {|
   i18n: Object,
-  // eslint-disable-next-line no-undef
-  sections: Array<React$Element<*>>,
+  sections: Array<React.Element<typeof CarouselSection>>,
 |};
 
 export const CarouselBase = ({ i18n, sections }: PropTypes) => {
@@ -24,7 +24,7 @@ export const CarouselBase = ({ i18n, sections }: PropTypes) => {
   return (
     <Card className="Carousel">
       <NukaCarousel
-        autoplay={false}
+        autoplay
         autoplayInterval={4000}
         cellAlign={getDirection(i18n.lang) === 'ltr' ? 'left' : 'right'}
         cellSpacing={10}

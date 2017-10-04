@@ -12,8 +12,7 @@ $extraHeightForCard: 28px;
 
   // This hack is needed to get scrolling working with the carousel in RTL.
   // It preserves the layout inside the CarouselSection.
-  .slider-frame,
-  .slider-decorator-2 {
+  .slider-frame {
     direction: ltr;
 
     [dir=rtl] & .CarouselSection {
