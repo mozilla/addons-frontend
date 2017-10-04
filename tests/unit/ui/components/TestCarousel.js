@@ -26,7 +26,7 @@ describe(__filename, () => {
 
   it('renders a Carousel with cellAlign=right for RTL langs', () => {
     const root = shallowRender({
-      getFakeI18nInst({ lang: 'ar' }),
+      i18n: getFakeI18nInst({ lang: 'ar' }),
       sections: [],
     });
 
@@ -39,7 +39,7 @@ describe(__filename, () => {
     }).toThrow('sections are required for a Carousel component');
   });
 
-  it('renders sections inside divs', () => {
+  it('renders sections', () => {
     const root = shallowRender({
       sections: [
         <p className="something" key="1">Howdy!</p>,
@@ -47,12 +47,8 @@ describe(__filename, () => {
       ],
     });
 
-    expect(root.find('div.Carousel-section-wrapper')).toHaveLength(2);
-    expect(
-      root.find('div.Carousel-section-wrapper > .something')
-    ).toHaveLength(1);
-    expect(
-      root.find('div.Carousel-section-wrapper > .something-else')
-    ).toHaveLength(1);
+    expect(root.find('p')).toHaveLength(2);
+    expect(root.find('.something')).toHaveLength(1);
+    expect(root.find('.something-else')).toHaveLength(1);
   });
 });

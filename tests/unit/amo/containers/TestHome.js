@@ -33,7 +33,7 @@ describe('Home', () => {
     const root = render();
 
     expect(root.find(HomeCarousel)).toHaveLength(1);
-  })
+  });
 
   it('renders headings', () => {
     const root = render();

@@ -12,10 +12,11 @@ import './styles.scss';
 
 type PropTypes = {|
   i18n: Object,
+  // eslint-disable-next-line no-undef
   sections: Array<React$Element<*>>,
 |};
 
-const CarouselBase = ({ i18n, sections }: PropTypes) => {
+export const CarouselBase = ({ i18n, sections }: PropTypes) => {
   if (!sections) {
     throw new Error('sections are required for a Carousel component');
   }
