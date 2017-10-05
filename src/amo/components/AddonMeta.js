@@ -24,8 +24,9 @@ export class AddonMetaBase extends React.Component {
 
   render() {
     const { addon, i18n, userId } = this.props;
-    const averageRating = addon ? addon.ratings.average : null;
-    const addonRatingCount = addon ? addon.ratings.count : null;
+    const averageRating = addon && addon.ratings ? addon.ratings.average : null;
+    const addonRatingCount = addon && addon.ratings ?
+      addon.ratings.count : null;
 
     let userCount;
     if (addon) {

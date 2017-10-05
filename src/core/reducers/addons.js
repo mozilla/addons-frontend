@@ -13,6 +13,8 @@ import type {
 
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
+export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
+export const FETCH_LANGUAGE_TOOLS = 'FETCH_LANGUAGE_TOOLS';
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -23,6 +25,9 @@ export type LoadAddonsAction = {|
   type: string,
 |};
 
+// TODO: We should remove this method and move all calls to `loadAddonResults`.
+// This function relies on normalizr messing with our response data.
+// See: https://github.com/mozilla/addons-frontend/issues/2917
 export function loadAddons(
   entities: {| addons?: ExternalAddonMap |}
 ): LoadAddonsAction {
@@ -62,6 +67,52 @@ export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddon
   return {
     type: FETCH_ADDON,
     payload: { errorHandlerId: errorHandler.id, slug },
+  };
+}
+
+type FetchLanguageToolsParams = {|
+  errorHandlerId: string,
+|};
+
+export type FetchLanguageToolsAction = {|
+  type: string,
+  payload: {|
+    errorHandlerId: string,
+  |},
+|};
+
+export function fetchLanguageTools(
+  { errorHandlerId }: FetchLanguageToolsParams = {}
+): FetchLanguageToolsAction {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
+  }
+
+  return {
+    type: FETCH_LANGUAGE_TOOLS,
+    payload: { errorHandlerId },
+  };
+}
+
+type LoadAddonResultsParams = {|
+  addons: ExternalAddonMap,
+|}
+
+export type LoadAddonResultsAction = {|
+  payload: {| addons: ExternalAddonMap |},
+  type: string,
+|};
+
+export function loadAddonResults(
+  { addons }: LoadAddonResultsParams = {}
+): LoadAddonResultsAction {
+  if (!addons) {
+    throw new Error('addons are required');
+  }
+
+  return {
+    type: LOAD_ADDONS,
+    payload: { addons },
   };
 }
 
@@ -144,6 +195,7 @@ export function createInternalAddon(
     is_source_public: apiAddon.is_source_public,
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
+    locale_disambiguation: apiAddon.locale_disambiguation,
     name: apiAddon.name,
     previews: apiAddon.previews,
     public_stats: apiAddon.public_stats,
@@ -156,6 +208,7 @@ export function createInternalAddon(
     support_email: apiAddon.support_email,
     support_url: apiAddon.support_url,
     tags: apiAddon.tags,
+    target_locale: apiAddon.target_locale,
     type: apiAddon.type,
     url: apiAddon.url,
     weekly_downloads: apiAddon.weekly_downloads,

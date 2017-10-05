@@ -53,6 +53,11 @@ export type AddonAuthorType = {|
   username: string,
 |};
 
+export type LanguageToolData = {|
+  locale_disambiguation?: string,
+  target_locale?: string,
+|};
+
 export type ThemeData = {|
   accentcolor?: string,
   author?: string,
@@ -81,42 +86,44 @@ export type ThemeData = {|
  * See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#detail
  */
 export type ExternalAddonType = {|
-  authors: Array<AddonAuthorType>,
-  average_daily_users: number,
-  categories: Object,
+  authors?: Array<AddonAuthorType>,
+  average_daily_users?: number,
+  categories?: Object,
   current_beta_version?: AddonVersionType,
   current_version: AddonVersionType,
   default_locale: string,
-  description: string,
-  edit_url: string,
+  description?: string,
+  edit_url?: string,
   guid: string,
-  has_eula: boolean,
-  has_privacy_policy: boolean,
+  has_eula?: boolean,
+  has_privacy_policy?: boolean,
   homepage?: string,
-  icon_url: string,
+  icon_url?: string,
   id: number,
-  is_disabled: boolean,
-  is_experimental: boolean,
-  is_featured: boolean,
-  is_source_public: boolean,
-  last_updated: Date,
-  latest_unlisted_version: ?AddonVersionType,
+  is_disabled?: boolean,
+  is_experimental?: boolean,
+  is_featured?: boolean,
+  is_source_public?: boolean,
+  last_updated?: Date,
+  latest_unlisted_version?: ?AddonVersionType,
+  locale_disambiguation?: string,
   name: string,
-  previews: Array<Object>,
-  public_stats: boolean,
-  ratings: {|
+  previews?: Array<Object>,
+  public_stats?: boolean,
+  ratings?: {|
     average: number,
     bayesian_average: number,
     count: number,
   |},
-  requires_payment: boolean,
-  review_url: string,
+  requires_payment?: boolean,
+  review_url?: string,
   slug: string,
-  status: AddonStatus,
+  status?: AddonStatus,
   summary?: string,
   support_email?: string,
   support_url?: string,
-  tags: Array<string>,
+  tags?: Array<string>,
+  target_locale?: string,
   theme_data?: ThemeData,
   type: AddonTypeType,
   url: string,
@@ -132,9 +139,10 @@ export type ExternalAddonType = {|
  */
 export type AddonType = {
   ...ExternalAddonType,
+  ...LanguageToolData,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
-  iconUrl: string,
+  iconUrl?: string,
   installURLs: {
     all: ?string,
     android: ?string,
