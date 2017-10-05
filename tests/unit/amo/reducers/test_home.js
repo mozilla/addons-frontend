@@ -1,4 +1,4 @@
-import reducer, {
+import homeReducer, {
   fetchHomeAddons,
   initialState,
   loadHomeAddons,
@@ -14,12 +14,12 @@ import {
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
-      const state = reducer(undefined, {});
+      const state = homeReducer(undefined, {});
       expect(state).toEqual(initialState);
     });
 
     it('ignores unrelated actions', () => {
-      const state = reducer(initialState, { type: 'UNRELATED_ACTION' });
+      const state = homeReducer(initialState, { type: 'UNRELATED_ACTION' });
       expect(state).toEqual(initialState);
     });
 

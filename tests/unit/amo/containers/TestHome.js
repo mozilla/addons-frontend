@@ -20,6 +20,7 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
   createStubErrorHandler,
   fakeI18n,
@@ -173,18 +174,23 @@ describe(__filename, () => {
   it('does not fetch the add-ons when results are already loaded', () => {
     const store = dispatchClientMetadata().store;
 
-    const popularExtensions = createAddonsApiResult([{
-      ...fakeAddon, slug: 'popular-addon',
-    }]);
+    const addons = [{ ...fakeAddon, slug: 'popular-addon' }];
+    const popularExtensions = createAddonsApiResult(addons);
 
     store.dispatch(loadHomeAddons({
       popularExtensions,
     }));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
-    render({ store });
+    const root = render({ store });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+
+    const shelf = root.find(LandingAddonsCard);
+    expect(shelf).toHaveProp('loading', false);
+    expect(shelf).toHaveProp('addons', addons.map((addon) => (
+      createInternalAddon(addon)
+    )));
   });
 });
