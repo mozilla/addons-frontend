@@ -1,28 +1,24 @@
+import { mount } from 'enzyme';
 import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import Footer from 'amo/components/Footer';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import Footer from 'amo/components/Footer';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('Footer', () => {
   function renderFooter({ ...props }) {
-    const { store } = dispatchSignInActions();
+    const store = dispatchClientMetadata().store;
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
+    return mount(
       <Provider store={store}>
         <I18nProvider i18n={fakeI18n()}>
           <Footer {...props} />
         </I18nProvider>
       </Provider>
-    ), Footer));
+    );
   }
 
   it('renders a footer', () => {
@@ -32,19 +28,19 @@ describe('Footer', () => {
     // cause a 404 error.
     // See:
     // github.com/mozilla/addons-frontend/pull/2524#pullrequestreview-42911624
-    expect(root.querySelector('.Footer-privacy-link').textContent).toEqual('Privacy');
-    expect(root.querySelector('.Footer-privacy-link').href).toEqual('https://www.mozilla.org/privacy/websites/');
-    expect(root.querySelector('.Footer-legal-link').textContent).toEqual('Legal');
-    expect(root.querySelector('.Footer-legal-link').href).toEqual('https://www.mozilla.org/about/legal/');
-    expect(root.querySelector('.Footer-cookies-link').textContent).toEqual('Cookies');
-    expect(root.querySelector('.Footer-cookies-link').href).toEqual('https://www.mozilla.org/privacy/websites/#cookies');
-    expect(root.querySelector('.Footer-trademark-abuse-link').textContent).toEqual('Report Trademark Abuse');
-    expect(root.querySelector('.Footer-trademark-abuse-link').href).toEqual('https://www.mozilla.org/about/legal/fraud-report/');
-
+    expect(root.find('.Footer-privacy-link').text()).toEqual('Privacy');
+    expect(root.find('.Footer-privacy-link').prop('href')).toEqual('https://www.mozilla.org/privacy/websites/');
+    expect(root.find('.Footer-legal-link').text()).toEqual('Legal');
+    expect(root.find('.Footer-legal-link').prop('href')).toEqual('https://www.mozilla.org/about/legal/');
+    expect(root.find('.Footer-cookies-link').text()).toEqual('Cookies');
+    expect(root.find('.Footer-cookies-link').prop('href')).toEqual('https://www.mozilla.org/privacy/websites/#cookies');
+    expect(root.find('.Footer-trademark-abuse-link').text()).toEqual('Report Trademark Abuse');
+    expect(root.find('.Footer-trademark-abuse-link').prop('href')).toEqual('https://www.mozilla.org/about/legal/fraud-report/');
+    expect(root.find('.Footer-amo-links li').length).toEqual(6);
 
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
-    expect(root.querySelector('.Footer-bug-report-link').href).toEqual('https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
+    expect(root.find('.Footer-bug-report-link').prop('href')).toEqual('https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
   });
 });
