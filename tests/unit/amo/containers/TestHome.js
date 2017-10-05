@@ -1,7 +1,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import {
+import { setViewContext } from 'amo/actions/viewContext';
+import Home, {
   CategoryLink,
   ExtensionLink,
   HomeBase,
@@ -9,24 +10,50 @@ import {
   mapStateToProps,
 } from 'amo/components/Home';
 import HomeCarousel from 'amo/components/HomeCarousel';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
-import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n } from 'tests/unit/helpers';
+import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
+import {
+  ADDON_TYPE_EXTENSION,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  SEARCH_SORT_POPULAR,
+  VIEW_CONTEXT_HOME,
+} from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
+import {
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import {
+  createAddonsApiResult,
+  dispatchClientMetadata,
+  fakeAddon,
+} from 'tests/unit/amo/helpers';
 
 
-describe('Home', () => {
-  function render(props) {
-    const fakeDispatch = sinon.stub();
+describe(__filename, () => {
+  const getProps = () => {
+    const store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+    }).store;
 
-    return shallow(
-      <HomeBase
-        clientApp={CLIENT_APP_FIREFOX}
-        dispatch={fakeDispatch}
-        i18n={fakeI18n()}
-        {...props}
-      />
-    );
+    return {
+      dispatch: store.dispatch,
+      errorHandler: createStubErrorHandler(),
+      i18n: fakeI18n(),
+      store,
+    };
+  };
+
+  function render(otherProps) {
+    const allProps = {
+      ...getProps(),
+      ...otherProps,
+    };
+
+    return shallowUntilTarget(<Home {...allProps} />, HomeBase);
   }
 
   it('renders a carousel', () => {
@@ -66,7 +93,11 @@ describe('Home', () => {
   });
 
   it('renders Android URLs for categories', () => {
-    const root = render({ clientApp: CLIENT_APP_ANDROID });
+    const store = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+    }).store;
+
+    const root = render({ store });
     const links = shallow(root.instance().extensionsCategoriesForClientApp());
 
     expect(links.find(ExtensionLink).find('[name="block-ads"]'))
@@ -104,8 +135,62 @@ describe('Home', () => {
   });
 
   it('maps clientApp to props from state', () => {
-    const { state } = dispatchSignInActions({ clientApp: CLIENT_APP_ANDROID });
+    const { state } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
 
     expect(mapStateToProps(state).clientApp).toEqual(CLIENT_APP_ANDROID);
+  });
+
+  it('renders a popular extensions shelf', () => {
+    const root = render();
+
+    const shelf = root.find(LandingAddonsCard);
+    expect(shelf).toHaveLength(1);
+    expect(shelf).toHaveProp('header', 'Most popular extensions');
+    expect(shelf).toHaveProp('footerText', 'More popular extensions');
+    expect(shelf).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        sort: SEARCH_SORT_POPULAR,
+      },
+    });
+    expect(shelf).toHaveProp('loading', true);
+  });
+
+  it('dispatches an action to fetch the add-ons to display', () => {
+    const errorHandler = createStubErrorHandler();
+    const store = dispatchClientMetadata().store;
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
+
+    sinon.assert.callCount(fakeDispatch, 2);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+    sinon.assert.calledWith(fakeDispatch, fetchHomeAddons({
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('does not fetch the add-ons when results are already loaded', () => {
+    const store = dispatchClientMetadata().store;
+
+    const addons = [{ ...fakeAddon, slug: 'popular-addon' }];
+    const popularExtensions = createAddonsApiResult(addons);
+
+    store.dispatch(loadHomeAddons({
+      popularExtensions,
+    }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ store });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
+
+    const shelf = root.find(LandingAddonsCard);
+    expect(shelf).toHaveProp('loading', false);
+    expect(shelf).toHaveProp('addons', addons.map((addon) => (
+      createInternalAddon(addon)
+    )));
   });
 });
