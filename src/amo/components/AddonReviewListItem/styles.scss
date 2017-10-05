@@ -1,41 +1,89 @@
+@import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 
 .AddonReviewListItem {
   word-wrap: break-word;
-
-  > h3 {
-    margin: 0;
-    padding: 0;
-  }
-
-  > p {
-    font-size: $font-size-default;
-    margin: 0 0 5px;
-  }
 
   .Rating {
     margin: 0 5px 0 0;
   }
 }
 
+.AddonReviewListItem-review-header {
+  margin: 0;
+  padding: 0;
+}
+
+.AddonReviewListItem-body {
+  font-size: $font-size-default;
+  margin: 0 0 5px;
+}
+
 .AddonReviewListItem-by-line {
   color: $sub-text-color;
   display: flex;
   font-size: $font-size-s;
-}
-
-.AddonReviewListItem-controls {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  padding-top: 10px;
 
   a:link,
   a:visited,
   a:hover,
   a:active {
-    color: $link-color;
+    color: $review-reply-color;
     font-weight: normal;
     text-decoration: none;
+  }
+}
+
+.AddonReviewListItem-control {
+  display: flex;
+  margin-left: 5px;
+
+  [dir=rtl] & {
+    margin-left: 0;
+    margin-right: 5px;
+  }
+
+  @include respond-to(medium) {
+    margin-left: 22px;
+
+    [dir=rtl] & {
+      margin-left: 0;
+      margin-right: 22px;
+    }
+  }
+
+  .Icon-reply-arrow {
+    margin-right: 5px;
+
+    [dir=rtl] & {
+      margin-left: 5px;
+      margin-right: 0;
+    }
+  }
+}
+
+.AddonReviewListItem-reply {
+  background-color: transparentize($review-reply-color, 0.95);
+  border-radius: 12px;
+  margin-left: 10px;
+  margin-top: 23px;
+  padding: 19px 23px 17px;
+
+  [dir=rtl] & {
+    margin-left: 0;
+    margin-right: 10px;
+  }
+}
+
+.AddonReviewListItem-reply-header {
+  margin: 0 0 5px;
+
+  .Icon-reply-arrow {
+    margin-right: 11px;
+
+    [dir=rtl] & {
+      margin-left: 11px;
+      margin-right: 0;
+    }
   }
 }

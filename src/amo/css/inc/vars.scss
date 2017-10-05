@@ -9,6 +9,9 @@ $masthead-light-color: #495057;
 $footer-color: #212529;
 $accent-color: #ebebeb;
 
+// If this gets used by something else let's change the name.
+$review-reply-color: #0a84ff;
+
 // No "small" breakpoint is defined here because we are mobile-first.
 // Instead of adding a rule for only mobile, add a mobile rule and override
 // it with `@include respond-to(medium) { [...] }`.

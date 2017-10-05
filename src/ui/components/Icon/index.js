@@ -1,3 +1,4 @@
+/* @flow */
 import React from 'react';
 import classNames from 'classnames';
 
@@ -6,7 +7,7 @@ import './styles.scss';
 
 export type Props = {|
   // TODO: use React.Node when we use Flow 0.53+
-  alt?: React.Element<*>,
+  alt?: string | React.Element<*>,
   className?: string,
   name: string,
 |};

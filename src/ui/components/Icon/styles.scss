@@ -164,3 +164,15 @@
 .Icon-experimental {
   @include icon($name: "experimental");
 }
+
+.Icon-reply-arrow {
+  @include icon($name: "reply-arrow");
+
+  height: 11.68px;
+  width: 14px;
+
+  [dir=rtl] & {
+    // Flip the horizontal orientation of the arrow.
+    transform: scaleX(-1);
+  }
+}

@@ -24,6 +24,7 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
@@ -58,13 +59,15 @@ describe(__filename, () => {
   };
 
   const signInAndDispatchSavedReview = ({
-    siteUserId = 123, reviewUserId = siteUserId,
+    siteUserId = 123,
+    reviewUserId = siteUserId,
+    externalReview = fakeReview,
   } = {}) => {
     dispatchSignInActions({ store, userId: siteUserId });
     return _setReview({
-      ...fakeReview,
+      ...externalReview,
       user: {
-        ...fakeReview.user,
+        ...externalReview.user,
         id: reviewUserId,
       },
     });
@@ -94,8 +97,8 @@ describe(__filename, () => {
     expect(root.find('h3'))
       .toHaveText(fakeReview.title);
 
-    expect(root.find('p'))
-      .toHaveHTML(`<p>${fakeReview.body}</p>`);
+    expect(root.find('.AddonReviewListItem-body').html())
+      .toContain(fakeReview.body);
 
     expect(root.find('.AddonReviewListItem-by-line'))
       .toIncludeText(fakeReview.user.name);
@@ -184,8 +187,8 @@ describe(__filename, () => {
     const review = _setReview({
       ...fakeReview,
       addon: {
-        ...fakeReview.addon,
         id: addon.id,
+        slug: addon.slug,
       },
     });
 
@@ -216,6 +219,21 @@ describe(__filename, () => {
     const { addon } = signInAsAddonDeveloper();
     const review = _setReview(fakeReview);
     store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    const root = render({ addon, review });
+
+    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+  });
+
+  it('hides reply button if you wrote the review', () => {
+    const developerUserId = 3321;
+    const { addon } = signInAsAddonDeveloper({ developerUserId });
+    const review = _setReview({
+      ...fakeReview,
+      user: {
+        ...fakeReview.user,
+        id: developerUserId,
+      },
+    });
     const root = render({ addon, review });
 
     expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
@@ -337,8 +355,8 @@ describe(__filename, () => {
       ...fakeReview,
       id: reviewId,
       addon: {
-        ...fakeReview.addon,
         id: addon.id,
+        slug: addon.slug,
       },
     });
 
@@ -441,5 +459,89 @@ describe(__filename, () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  describe('Developer reply to a review', () => {
+    const _setReviewReply = ({ addon = fakeAddon } = {}) => {
+      const review = _setReview({
+        ...fakeReview,
+        addon: {
+          id: addon.id,
+          slug: addon.slug,
+        },
+        id: 1,
+        body: 'The original review',
+        reply: {
+          ...fakeReview,
+          id: 2,
+          body: 'Reply to the review',
+        },
+      });
+
+      return { review, reply: review.reply };
+    };
+
+    const renderReply = ({
+      addon = createInternalAddon(fakeAddon),
+      reply = _setReviewReply({ addon }).reply,
+      ...props
+    } = {}) => {
+      return render({
+        addon,
+        review: reply,
+        isReply: true,
+        ...props,
+      });
+    };
+
+    it('sets a reply class name', () => {
+      const root = renderReply();
+
+      expect(root).toHaveClassName('AddonReviewListItem-reply');
+    });
+
+    it('renders a nested reply', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const { review, reply } = _setReviewReply({ addon });
+      const root = render({ addon, review });
+
+      const replyComponent = root.find(AddonReviewListItem);
+      expect(replyComponent).toHaveLength(1);
+      expect(replyComponent).toHaveProp('addon', addon);
+      expect(replyComponent).toHaveProp('review', reply);
+      expect(replyComponent).toHaveProp('isReply', true);
+    });
+
+    it('hides ratings for replies', () => {
+      const root = renderReply();
+
+      expect(root.find(Rating)).toHaveLength(0);
+    });
+
+    it('does not include a user name in the by line', () => {
+      const { reply } = _setReviewReply();
+      const root = renderReply({ reply });
+
+      expect(root.find('.AddonReviewListItem-by-line'))
+        .not.toIncludeText(reply.userName);
+    });
+
+    it('hides the edit button for replies', () => {
+      const developerUserId = 321;
+      const review = signInAndDispatchSavedReview({
+        siteUserId: developerUserId, reviewUserId: developerUserId,
+      });
+      const root = renderReply({ reply: review });
+
+      expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
+    });
+
+    it('adds a header', () => {
+      const root = renderReply();
+
+      const header = root.find('.AddonReviewListItem-reply-header');
+      expect(header).toHaveLength(1);
+      expect(header.find(Icon)).toHaveProp('name', 'reply-arrow');
+    });
   });
 });
