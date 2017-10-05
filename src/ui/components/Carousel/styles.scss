@@ -48,6 +48,38 @@ $extraHeightForCard: 28px;
   }
 }
 
+.Carousel--first-render-wrapper .Card-contents {
+  // HACK: This fixes RTL glitches in the NukaCarousel we will eventually
+  // fix properly. This means te content in RTL doesn't change order after
+  // the client re-render.
+  direction: ltr;
+  overflow-x: auto;
+}
+
+.Carousel--first-render {
+  display: flex;
+  height: 100%;
+  margin: 0 10%;
+  overflow-y: hidden;
+  // This is set really high so even a lot of carousel items don't get cramped
+  // by the `flex` display.
+  width: 303vw;
+
+  [dir=rtl] & .CarouselSection {
+    direction: rtl;
+    text-align: right;
+  }
+
+  .CarouselSection {
+    margin: 0 17px;
+    width: 75.75vw;
+
+    &:first-of-type {
+      @include margin-start(1%);
+    }
+  }
+}
+
 .Carousel .Card-contents {
   height: $carousel-height-default + $extraHeightForCard;
   overflow-y: hidden;
