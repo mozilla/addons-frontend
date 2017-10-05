@@ -1,10 +1,7 @@
-import {
-  LANDING_GET,
-  LANDING_LOADED,
-} from 'core/constants';
+import { LANDING_GET, LANDING_LOADED } from 'core/constants';
 
 
-export function getLanding({ addonType, errorHandlerId }) {
+export function getLanding({ addonType, errorHandlerId, category = null }) {
   if (!addonType) {
     throw new Error('addonType must be set');
   }
@@ -14,7 +11,7 @@ export function getLanding({ addonType, errorHandlerId }) {
 
   return {
     type: LANDING_GET,
-    payload: { addonType, errorHandlerId },
+    payload: { addonType, errorHandlerId, category },
   };
 }
 

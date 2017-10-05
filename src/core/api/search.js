@@ -25,6 +25,7 @@ export type SearchParams = {|
     clientApp?: string,
     category?: string,
     compatibleWithVersion?: number|string,
+    featured?: boolean,
     operatingSystem?: string,
     page?: number,
     page_size?: number,
