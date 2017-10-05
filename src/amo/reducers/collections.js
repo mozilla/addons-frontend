@@ -123,7 +123,7 @@ type ExternalCollectionDetail = {|
   uuid: string,
 |};
 
-type CollectionAddonsListResponse = {|
+export type CollectionAddonsListResponse = {|
   count: number,
   next: string,
   previous: string,

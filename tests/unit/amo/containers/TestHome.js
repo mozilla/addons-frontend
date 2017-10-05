@@ -3,6 +3,8 @@ import React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
+  FEATURED_COLLECTION_SLUG,
+  FEATURED_COLLECTION_USER,
   CategoryLink,
   ExtensionLink,
   HomeBase,
@@ -13,6 +15,7 @@ import HomeCarousel from 'amo/components/HomeCarousel';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
+import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
@@ -20,7 +23,9 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
+import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
   fakeI18n,
@@ -28,6 +33,7 @@ import {
 } from 'tests/unit/helpers';
 import {
   createAddonsApiResult,
+  createFakeCollectionAddons,
   dispatchClientMetadata,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
@@ -143,8 +149,11 @@ describe(__filename, () => {
   it('renders a popular extensions shelf', () => {
     const root = render();
 
-    const shelf = root.find(LandingAddonsCard);
-    expect(shelf).toHaveLength(1);
+    const shelves = root.find(LandingAddonsCard);
+    expect(shelves).toHaveLength(2);
+
+    // The popular extensions shelf is the first one.
+    const shelf = shelves.at(0);
     expect(shelf).toHaveProp('header', 'Most popular extensions');
     expect(shelf).toHaveProp('footerText', 'More popular extensions');
     expect(shelf).toHaveProp('footerLink', {
@@ -168,6 +177,8 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
     sinon.assert.calledWith(fakeDispatch, fetchHomeAddons({
       errorHandlerId: errorHandler.id,
+      featuredCollectionSlug: FEATURED_COLLECTION_SLUG,
+      featuredCollectionUser: FEATURED_COLLECTION_USER,
     }));
   });
 
@@ -175,9 +186,11 @@ describe(__filename, () => {
     const store = dispatchClientMetadata().store;
 
     const addons = [{ ...fakeAddon, slug: 'popular-addon' }];
+    const featuredCollection = createFakeCollectionAddons({ addons });
     const popularExtensions = createAddonsApiResult(addons);
 
     store.dispatch(loadHomeAddons({
+      featuredCollection,
       popularExtensions,
     }));
 
@@ -187,10 +200,34 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, setViewContext(VIEW_CONTEXT_HOME));
 
-    const shelf = root.find(LandingAddonsCard);
-    expect(shelf).toHaveProp('loading', false);
-    expect(shelf).toHaveProp('addons', addons.map((addon) => (
-      createInternalAddon(addon)
-    )));
+    const shelves = root.find(LandingAddonsCard);
+    expect(shelves).toHaveLength(2);
+
+    const popularExtensionsShelf = shelves.at(0);
+    expect(popularExtensionsShelf).toHaveProp('loading', false);
+    expect(popularExtensionsShelf)
+      .toHaveProp('addons', addons.map((addon) => createInternalAddon(addon)));
+
+    const featuredCollectionShelf = shelves.at(1);
+    expect(featuredCollectionShelf).toHaveProp('loading', false);
+    expect(featuredCollectionShelf)
+      .toHaveProp('addons', addons.map((addon) => createInternalAddon(addon)));
+  });
+
+  it('displays an error if present', () => {
+    const store = dispatchClientMetadata().store;
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
+      response: { status: 500 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Nope.' },
+    }));
+
+    const root = render({ errorHandler, store });
+    expect(root.find(ErrorList)).toHaveLength(1);
   });
 });
