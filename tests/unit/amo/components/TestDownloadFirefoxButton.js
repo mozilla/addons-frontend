@@ -5,7 +5,7 @@ import DownloadFirefoxButton, {
 } from 'amo/components/DownloadFirefoxButton';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
   userAgents,
 } from 'tests/unit/helpers';
@@ -17,7 +17,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <DownloadFirefoxButton
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         store={store}
         {...props}
       />,

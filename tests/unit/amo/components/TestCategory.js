@@ -13,7 +13,7 @@ import {
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { visibleAddonType } from 'core/utils';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -53,7 +53,7 @@ describe('Category', () => {
       ...mapStateToProps(state),
       dispatch: store.dispatch,
       errorHandler,
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       location: { query: {} },
       params: {
         slug: fakeCategory.slug,

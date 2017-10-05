@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import I18nProvider from 'core/i18n/Provider';
 import Footer from 'amo/components/Footer';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('Footer', () => {
@@ -14,7 +14,7 @@ describe('Footer', () => {
 
     return mount(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+        <I18nProvider i18n={fakeI18n()}>
           <Footer {...props} />
         </I18nProvider>
       </Provider>

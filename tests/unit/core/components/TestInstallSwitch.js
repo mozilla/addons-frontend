@@ -19,7 +19,7 @@ import {
   UNKNOWN,
 } from 'core/constants';
 import * as themePreview from 'core/themePreview';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('<InstallSwitch />', () => {
@@ -30,7 +30,7 @@ describe('<InstallSwitch />', () => {
       install: sinon.spy(),
       installTheme: sinon.spy(),
       uninstall: sinon.spy(),
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       slug: 'foo',
       name: 'test-addon',
       ...props,
@@ -159,7 +159,7 @@ describe('<InstallSwitch />', () => {
     const guid = '@foo';
     const name = 'hai';
     const install = sinon.spy();
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
     const installURL = 'https://my.url/download';
     const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
     const root = findDOMNode(button.switchEl);
@@ -171,7 +171,7 @@ describe('<InstallSwitch />', () => {
     const guid = '@foo';
     const name = 'hai';
     const enable = sinon.spy();
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
     const installURL = 'https://my.url/download';
     const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
     const root = findDOMNode(button.switchEl);

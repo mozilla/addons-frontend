@@ -9,7 +9,7 @@ import { loadFail } from 'redux-connect/lib/store';
 
 import ErrorPage, { mapStateToProps } from 'core/components/ErrorPage';
 import { createApiError } from 'core/api';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
@@ -18,7 +18,7 @@ describe('<ErrorPage />', () => {
   function render({ ...props }, store = dispatchSignInActions().store) {
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+        <I18nProvider i18n={fakeI18n()}>
           <ErrorPage {...props} />
         </I18nProvider>
       </Provider>

@@ -9,7 +9,7 @@ import {
   dispatchSearchResults,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
@@ -28,7 +28,7 @@ describe('SearchContextCard', () => {
 
     return shallowUntilTarget(
       <SearchContextCard
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         {...props}
       />,
       SearchContextCardBase

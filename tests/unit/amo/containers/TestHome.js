@@ -12,7 +12,7 @@ import HomeCarousel from 'amo/components/HomeCarousel';
 import Link from 'amo/components/Link';
 import { CLIENT_APP_ANDROID, CLIENT_APP_FIREFOX } from 'core/constants';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('Home', () => {
@@ -23,7 +23,7 @@ describe('Home', () => {
       <HomeBase
         clientApp={CLIENT_APP_FIREFOX}
         dispatch={fakeDispatch}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         {...props}
       />
     );

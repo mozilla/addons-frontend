@@ -20,7 +20,7 @@ import {
 import {
   createFakeEvent,
   createUserProfileResponse,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -33,7 +33,7 @@ describe(__filename, () => {
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <AuthenticateButtonBase i18n={getFakeI18nInst()} {...props} />
+        <AuthenticateButtonBase i18n={fakeI18n()} {...props} />
       </Provider>
     ), AuthenticateButtonBase);
   }
@@ -117,7 +117,7 @@ describe(__filename, () => {
     const handleLogOut = sinon.stub();
     const allProps = {
       handleLogOut,
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
     };
 
     const wrapper = shallowUntilTarget(

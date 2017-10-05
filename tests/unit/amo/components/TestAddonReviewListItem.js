@@ -20,7 +20,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
@@ -37,7 +37,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       store,
       ...customProps,
     };

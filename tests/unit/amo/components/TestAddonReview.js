@@ -13,7 +13,7 @@ import {
   dispatchClientMetadata, fakeAddon, fakeReview, signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent, createStubErrorHandler, getFakeI18nInst, shallowUntilTarget,
+  createFakeEvent, createStubErrorHandler, fakeI18n, shallowUntilTarget,
 } from 'tests/unit/helpers';
 import OverlayCard from 'ui/components/OverlayCard';
 import Rating from 'ui/components/Rating';
@@ -46,7 +46,7 @@ describe(__filename, () => {
     return {
       createLocalState: () => fakeLocalState(),
       errorHandler: createStubErrorHandler(),
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       onReviewSubmitted: () => {},
       refreshAddon: () => Promise.resolve(),
       review: defaultReview,

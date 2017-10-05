@@ -10,7 +10,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import SearchResults from 'amo/components/SearchResults';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('<SearchResults />', () => {
@@ -20,7 +20,7 @@ describe('<SearchResults />', () => {
 
     return findRenderedComponentWithType(render(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+        <I18nProvider i18n={fakeI18n()}>
           <SearchResults {...props} />
         </I18nProvider>
       </Provider>

@@ -1,13 +1,13 @@
 import NukaCarousel from 'nuka-carousel';
 import React from 'react';
 
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import Carousel, { CarouselBase } from 'ui/components/Carousel';
 
 
 describe(__filename, () => {
   function shallowRender({
-    i18n = getFakeI18nInst(),
+    i18n = fakeI18n(),
     ...props
   } = {}) {
     return shallowUntilTarget(
@@ -26,7 +26,7 @@ describe(__filename, () => {
 
   it('renders a Carousel with cellAlign=right for RTL langs', () => {
     const root = shallowRender({
-      i18n: getFakeI18nInst({ lang: 'ar' }),
+      i18n: fakeI18n({ lang: 'ar' }),
       sections: [],
     });
 

@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import SuggestedPages from 'amo/components/SuggestedPages';
 import createStore from 'amo/store';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('<SuggestedPages />', () => {
@@ -17,7 +17,7 @@ describe('<SuggestedPages />', () => {
     const { store } = createStore();
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+        <I18nProvider i18n={fakeI18n()}>
           <SuggestedPages {...props} />
         </I18nProvider>
       </Provider>
