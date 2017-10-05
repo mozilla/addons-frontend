@@ -48,6 +48,26 @@ $extraHeightForCard: 28px;
   }
 }
 
+.Carousel--server-render {
+  display: flex;
+  height: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0 10%;
+  // This is set really high so even a lot of carousel items don't get cramped
+  // by the `flex` display.
+  width: 50000px;
+
+  .slider-list {
+    margin: 0 -5px;
+  }
+
+  .slider-slide {
+    display: inline-block;
+    list-style: none;
+  }
+}
+
 .Carousel .Card-contents {
   height: $carousel-height-default + $extraHeightForCard;
   overflow-y: hidden;

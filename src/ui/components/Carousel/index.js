@@ -1,7 +1,8 @@
 /* @flow */
-import NukaCarousel from 'nuka-carousel';
+import defaultConfig from 'config';
 import React from 'react';
 import { compose } from 'redux';
+import NukaCarousel from 'nuka-carousel';
 
 import translate from 'core/i18n/translate';
 import { getDirection } from 'core/i18n/utils';
@@ -12,35 +13,84 @@ import './styles.scss';
 
 
 type PropTypes = {|
+  config: Object,
   i18n: Object,
   sections: Array<React.Element<typeof CarouselSection>>,
 |};
 
-export const CarouselBase = ({ i18n, sections }: PropTypes) => {
-  if (!sections) {
-    throw new Error('sections are required for a Carousel component');
+type StateTypes = {|
+  client: boolean,
+|};
+
+export class CarouselBase extends React.Component {
+  static defaultProps = {
+    config: defaultConfig,
   }
 
-  return (
-    <Card className="Carousel">
-      <NukaCarousel
-        autoplay
-        autoplayInterval={4000}
-        cellAlign={getDirection(i18n.lang) === 'ltr' ? 'left' : 'right'}
-        cellSpacing={10}
-        framePadding="0 10%"
-        frameOverflow="visible"
-        slidesToShow={1}
-        slidesToScroll={1}
-        slideWidth={1}
-      >
-        {(sections.map((section) => {
-          return section;
-        }))}
-      </NukaCarousel>
-    </Card>
-  );
-};
+  constructor(props: PropTypes) {
+    super(props);
+
+    this.state = { client: !this.props.config.get('server') };
+  }
+
+  state: StateTypes;
+
+  // HACK: NukaCarousel uses inline styles to create the carousel effect, which
+  // work fine on the client but cause CSP issues during initial server render.
+  // To get around this, we re-render the component on the client side.
+  // We use componentDidMount to cause it to update on the client because this
+  // lifecycle method is only called on the client.
+  // See: https://github.com/mozilla/addons-frontend/issues/3349
+  componentDidMount() {
+    if (!this.state.client) {
+      // eslint-disable-next-line react/no-did-mount-set-state
+      this.setState({ client: true });
+    }
+  }
+
+  props: PropTypes;
+
+  render() {
+    const { i18n, sections } = this.props;
+
+    if (!sections) {
+      throw new Error('sections are required for a Carousel component');
+    }
+
+    return (
+      <Card className="Carousel">
+        {this.state.client ? (
+          <NukaCarousel
+            autoplay
+            autoplayInterval={4000}
+            cellAlign={getDirection(i18n.lang) === 'ltr' ? 'left' : 'right'}
+            cellSpacing={10}
+            framePadding="0 10%"
+            frameOverflow="visible"
+            slidesToShow={1}
+            slidesToScroll={1}
+            slideWidth={1}
+          >
+            {(sections.map((section) => {
+              return section;
+            }))}
+          </NukaCarousel>
+        ) : (
+          <div className="Carousel--server-render">
+            {/*
+              We render the sections here to keep the server-side content
+              similar to the client-side content so the re-render isn't as
+              jarring–and so non-JS clients can still see the carousel.
+            */}
+            {(sections.map((section) => {
+              return section;
+            }))}
+          </div>
+        )}
+      </Card>
+    );
+  }
+}
 
 export default compose(
   translate(),
