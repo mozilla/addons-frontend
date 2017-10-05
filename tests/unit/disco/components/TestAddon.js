@@ -25,7 +25,7 @@ import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import { loadedAddons } from 'disco/containers/DiscoPane';
 import createStore from 'disco/store';
 import {
-  createFakeEvent, getFakeI18nInst, signedInApiState,
+  createFakeEvent, fakeI18n, signedInApiState,
 } from 'tests/unit/helpers';
 import {
   dispatchClientMetadata, fakeInstalledAddon,
@@ -41,7 +41,7 @@ function renderAddon(customProps = {}) {
     getBrowserThemeData: () => '{"theme":"data"}',
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     hasAddonManager: true,
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     ...customProps,
   };
   return shallow(<AddonBase {...props} />);

@@ -66,7 +66,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFetchAddonResult,
-  getFakeI18nInst,
+  fakeI18n,
   unexpectedSuccess,
   userAgents,
 } from 'tests/unit/helpers';
@@ -902,7 +902,7 @@ describe('render404IfConfigKeyIsFalse', () => {
     )(SomeComponent);
 
     return renderIntoDocument(
-      <I18nProvider i18n={getFakeI18nInst()}>
+      <I18nProvider i18n={fakeI18n()}>
         <WrappedComponent {...props} />
       </I18nProvider>
     );

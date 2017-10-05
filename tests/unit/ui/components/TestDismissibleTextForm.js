@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 import I18nProvider from 'core/i18n/Provider';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent, getFakeI18nInst, shallowUntilTarget,
+  createFakeEvent, fakeI18n, shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DismissibleTextForm, {
   DismissibleTextFormBase,
@@ -15,7 +15,7 @@ describe(__filename, () => {
 
   const renderProps = (customProps = {}) => {
     return {
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       onDismiss: sinon.stub(),
       onSubmit: sinon.stub(),
       store,

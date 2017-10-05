@@ -6,14 +6,14 @@ import ExpandableCard, {
 } from 'ui/components/ExpandableCard';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 
 function render(props) {
   return shallowUntilTarget(
-    <ExpandableCard i18n={getFakeI18nInst()} {...props} />,
+    <ExpandableCard i18n={fakeI18n()} {...props} />,
     ExpandableCardBase
   );
 }
@@ -35,7 +35,7 @@ describe(__filename, () => {
   it('toggles when clicked', () => {
     // We have to mount for this test because of the usage of `setState`
     // in this component.
-    const root = mount(<ExpandableCard i18n={getFakeI18nInst()} />);
+    const root = mount(<ExpandableCard i18n={fakeI18n()} />);
     const card = root.find('.ExpandableCard');
     const fakeEvent = createFakeEvent();
 

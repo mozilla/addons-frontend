@@ -4,7 +4,7 @@ import React from 'react';
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
@@ -25,7 +25,7 @@ describe(__filename, () => {
   function render({ addon = baseAddon, lang = 'en-GB', ...props } = {}) {
     return shallow(
       <SearchResultBase
-        i18n={getFakeI18nInst({ lang })}
+        i18n={fakeI18n({ lang })}
         addon={addon}
         {...props}
       />

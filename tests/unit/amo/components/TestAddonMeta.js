@@ -8,7 +8,7 @@ import {
   dispatchSignInActions,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
@@ -22,7 +22,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AddonMeta
         addon={addon}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         store={store}
         {...props}
       />,
@@ -59,7 +59,7 @@ describe(__filename, () => {
     });
 
     it('localizes the user count', () => {
-      const i18n = getFakeI18nInst({ lang: 'de' });
+      const i18n = fakeI18n({ lang: 'de' });
       const root = render({
         addon: createInternalAddon({
           ...fakeAddon,
@@ -152,7 +152,7 @@ describe(__filename, () => {
     });
 
     it('localizes review count', () => {
-      const i18n = getFakeI18nInst({ lang: 'de' });
+      const i18n = fakeI18n({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
       expect(getReviewCount(root)).toContain('1.000');
     });

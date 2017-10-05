@@ -18,7 +18,7 @@ import {
   dispatchSignInActions,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 
 
 describe('<FeaturedAddons />', () => {
@@ -52,7 +52,7 @@ describe('<FeaturedAddons />', () => {
       addonType: ADDON_TYPE_EXTENSION,
       dispatch: sinon.stub(),
       errorHandler,
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       loading: false,
       params: {
         visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),

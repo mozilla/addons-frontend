@@ -12,7 +12,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -22,9 +22,8 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store,
     ...props
   } = {}) {
-    const fakeI18n = getFakeI18nInst();
     const allProps = {
-      i18n: fakeI18n,
+      i18n: fakeI18n(),
       location: {},
       query: '',
       ...props,

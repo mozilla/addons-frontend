@@ -24,7 +24,7 @@ import {
 import {
   createFetchAddonResult,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { setError } from 'core/actions/errors';
@@ -46,7 +46,7 @@ describe(__filename, () => {
     ...customProps
   } = {}) => {
     const props = {
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       location: { query: {} },
       params,
       store,

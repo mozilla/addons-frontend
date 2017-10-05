@@ -19,7 +19,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -43,7 +43,7 @@ describe(__filename, () => {
     addon: createInternalAddon(fakeAddon),
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     store: createStore().store,
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,

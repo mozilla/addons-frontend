@@ -22,7 +22,7 @@ import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
 
 
 describe('App', () => {
@@ -59,7 +59,7 @@ describe('App', () => {
 
   function renderProps(customProps = {}) {
     return {
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       logOutUser: sinon.stub(),
       location: sinon.stub(),
       isAuthenticated: true,

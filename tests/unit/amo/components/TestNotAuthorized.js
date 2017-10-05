@@ -11,7 +11,7 @@ import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('<NotAuthorized />', () => {
@@ -25,7 +25,7 @@ describe('<NotAuthorized />', () => {
 
     return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+        <I18nProvider i18n={fakeI18n()}>
           <NotAuthorized {...props} />
         </I18nProvider>
       </Provider>

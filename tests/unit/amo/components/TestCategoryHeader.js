@@ -10,7 +10,7 @@ import {
 } from 'core/constants';
 import { getCategoryColor } from 'core/utils';
 import LoadingText from 'ui/components/LoadingText';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -30,7 +30,7 @@ describe(__filename, () => {
     return shallow(
       <CategoryHeaderBase
         category={category}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         {...props}
       />
     );

@@ -10,7 +10,7 @@ import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -30,7 +30,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <SearchFilters
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         pathname={pathname}
         router={fakeRouter}
         store={store}

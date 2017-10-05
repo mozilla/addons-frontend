@@ -14,7 +14,7 @@ import { clearError, setError } from 'core/actions/errors';
 import { ErrorHandler, withErrorHandler, withRenderedErrorHandler }
   from 'core/errorHandler';
 import errors from 'core/reducers/errors';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -42,7 +42,7 @@ function createWrappedComponent({
   })(SomeComponent);
 
   const tree = renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
+    <I18nProvider i18n={fakeI18n()}>
       <ComponentWithErrorHandling store={store} {...customProps} />
     </I18nProvider>
   );

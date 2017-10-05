@@ -6,12 +6,12 @@ import {
 } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 import Rating, { RatingBase } from 'ui/components/Rating';
 
 function render(customProps = {}) {
   const props = {
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     ...customProps,
   };
   return findRenderedComponentWithType(renderIntoDocument(
@@ -248,7 +248,7 @@ describe('ui/components/Rating', () => {
     });
 
     it('localizes average rating', () => {
-      const i18n = getFakeI18nInst({ lang: 'de' });
+      const i18n = fakeI18n({ lang: 'de' });
       expect(getRating({ rating: 3.5, i18n })).toContain('3,5');
     });
 

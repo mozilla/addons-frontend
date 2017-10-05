@@ -12,7 +12,7 @@ import {
   LanguagePickerBase,
   changeLocaleURL,
 } from 'amo/components/LanguagePicker';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('LanguagePicker', () => {
@@ -22,7 +22,7 @@ describe('LanguagePicker', () => {
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>
-        <LanguagePickerBase i18n={getFakeI18nInst()} {...props} />
+        <LanguagePickerBase i18n={fakeI18n()} {...props} />
       </Provider>
     ), LanguagePickerBase);
   }

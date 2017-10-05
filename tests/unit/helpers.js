@@ -92,7 +92,7 @@ export function JedSpy(data = {}) {
 /*
  * Creates a stand-in for a jed instance,
  */
-export function getFakeI18nInst({ lang = config.get('defaultLang') } = {}) {
+export function fakeI18n({ lang = config.get('defaultLang') } = {}) {
   return makeI18n({}, lang, JedSpy);
 }
 

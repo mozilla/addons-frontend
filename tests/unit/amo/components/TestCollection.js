@@ -18,7 +18,7 @@ import { createApiError } from 'core/api/index';
 import { ErrorHandler } from 'core/errorHandler';
 import {
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -32,7 +32,7 @@ describe(__filename, () => {
   const getProps = () => ({
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     location: { query: {} },
     params: {
       user: 'user-id-or-name',
