@@ -14,6 +14,7 @@ describe('amo createStore', () => {
       'errorPage',
       'errors',
       'featured',
+      'home',
       'infoDialog',
       'installations',
       'landing',

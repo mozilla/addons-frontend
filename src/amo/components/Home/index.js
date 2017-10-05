@@ -6,12 +6,17 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import HomeCarousel from 'amo/components/HomeCarousel';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
+import { fetchHomeAddons } from 'amo/reducers/home';
 import {
+  ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
 
@@ -27,6 +32,7 @@ export const CategoryLink = ({ children, name, slug, type }) => {
     </li>
   );
 };
+
 CategoryLink.propTypes = {
   children: PropTypes.node.isRequired,
   name: PropTypes.string.isRequired,
@@ -46,13 +52,19 @@ export class HomeBase extends React.Component {
   static propTypes = {
     clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
+    errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
+    popularExtensions: PropTypes.array.isRequired,
   }
 
   componentWillMount() {
-    const { dispatch } = this.props;
+    const { dispatch, errorHandler, popularExtensions } = this.props;
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
+
+    if (popularExtensions.length === 0) {
+      dispatch(fetchHomeAddons({ errorHandlerId: errorHandler.id }));
+    }
   }
 
   extensionsCategoriesForClientApp() {
@@ -129,11 +141,26 @@ export class HomeBase extends React.Component {
   }
 
   render() {
-    const { i18n } = this.props;
+    const { i18n, popularExtensions } = this.props;
 
     return (
       <div className="Home">
         <HomeCarousel />
+
+        <LandingAddonsCard
+          addons={popularExtensions}
+          className="PopularExtensions"
+          header={i18n.gettext('Most popular extensions')}
+          footerText={i18n.gettext('More popular extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_POPULAR,
+            },
+          }}
+          loading={popularExtensions.length === 0}
+        />
 
         <Card
           className="Home-category-card Home-category-card--extensions"
@@ -178,11 +205,14 @@ export class HomeBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { clientApp: state.api.clientApp };
+  return {
+    clientApp: state.api.clientApp,
+    popularExtensions: state.home.popularExtensions,
+  };
 }
 
 export default compose(
-  // This allows us to dispatch from our component.
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
+  withErrorHandler({ name: 'Home' }),
 )(HomeBase);
