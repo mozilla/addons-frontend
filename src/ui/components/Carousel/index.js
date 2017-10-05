@@ -1,9 +1,9 @@
 /* @flow */
-import defaultConfig from 'config';
 import React from 'react';
 import { compose } from 'redux';
 import NukaCarousel from 'nuka-carousel';
 
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { getDirection } from 'core/i18n/utils';
 import Card from 'ui/components/Card';
@@ -13,24 +13,19 @@ import './styles.scss';
 
 
 type PropTypes = {|
-  config: Object,
   i18n: Object,
   sections: Array<React.Element<typeof CarouselSection>>,
 |};
 
 type StateTypes = {|
-  client: boolean,
+  hasRendered: boolean,
 |};
 
 export class CarouselBase extends React.Component {
-  static defaultProps = {
-    config: defaultConfig,
-  }
-
   constructor(props: PropTypes) {
     super(props);
 
-    this.state = { client: !this.props.config.get('server') };
+    this.state = { hasRendered: false };
   }
 
   state: StateTypes;
@@ -42,9 +37,10 @@ export class CarouselBase extends React.Component {
   // lifecycle method is only called on the client.
   // See: https://github.com/mozilla/addons-frontend/issues/3349
   componentDidMount() {
-    if (!this.state.client) {
+    if (!this.state.hasRendered) {
+      log.debug('Re-rendering Carousel to avoid CSP issues.');
       // eslint-disable-next-line react/no-did-mount-set-state
-      this.setState({ client: true });
+      this.setState({ hasRendered: true });
     }
   }
 
@@ -59,7 +55,7 @@ export class CarouselBase extends React.Component {
 
     return (
       <Card className="Carousel">
-        {this.state.client ? (
+        {this.state.hasRendered ? (
           <NukaCarousel
             autoplay
             autoplayInterval={4000}
