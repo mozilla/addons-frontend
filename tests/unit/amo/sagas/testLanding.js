@@ -185,5 +185,65 @@ describe(__filename, () => {
         addonType, featured, highlyRated, popular,
       }));
     });
+
+    it('does not add a falsy category to the filters', async () => {
+      const addonType = ADDON_TYPE_EXTENSION;
+      const baseArgs = { api: apiState };
+      const baseFilters = {
+        addonType,
+        page_size: LANDING_PAGE_ADDON_COUNT,
+      };
+
+      const featured = createAddonsApiResult([
+        { ...fakeAddon, slug: 'featured-addon' },
+      ]);
+      mockApi
+        .expects('featured')
+        .withArgs({
+          ...baseArgs,
+          filters: baseFilters,
+        })
+        .returns(Promise.resolve(featured));
+
+      const highlyRated = createAddonsApiResult([
+        { ...fakeAddon, slug: 'highly-rated-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            sort: SEARCH_SORT_TOP_RATED,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(highlyRated));
+
+      const popular = createAddonsApiResult([
+        { ...fakeAddon, slug: 'popular-addon' },
+      ]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            sort: SEARCH_SORT_POPULAR,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(popular));
+
+      _getLanding({ addonType, category: undefined });
+
+      await sagaTester.waitFor(LANDING_LOADED);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions[1]).toEqual(loadLanding({
+        addonType, featured, highlyRated, popular,
+      }));
+    });
   });
 });
