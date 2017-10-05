@@ -11,12 +11,12 @@ import { Route, Router, createMemoryHistory } from 'react-router';
 
 import Paginate from 'core/components/Paginate';
 import PaginatorLink from 'core/components/PaginatorLink';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('<Paginate />', () => {
   const getRenderProps = () => ({
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     count: 20,
     currentPage: 1,
     pathname: '/some/path',

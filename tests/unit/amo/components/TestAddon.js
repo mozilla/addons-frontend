@@ -58,7 +58,7 @@ import {
 import {
   createFetchAddonResult,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -73,7 +73,7 @@ function renderProps({
   setCurrentStatus = sinon.spy(),
   ...customProps
 } = {}) {
-  const i18n = getFakeI18nInst();
+  const i18n = fakeI18n();
   const addonProps = addon || {};
   return {
     addon,

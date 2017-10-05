@@ -17,7 +17,7 @@ import {
   fakeAddon,
   fakeTheme,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import LoadingText from 'ui/components/LoadingText';
 
 
@@ -28,7 +28,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <AddonMoreInfo
         addon={props.addon || createInternalAddon(fakeAddon)}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         store={store}
         {...props}
       />,

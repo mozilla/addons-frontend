@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import HomeCarousel, { HomeCarouselBase } from 'amo/components/HomeCarousel';
 import Carousel from 'ui/components/Carousel';
 
@@ -10,7 +10,7 @@ describe(__filename, () => {
     ...props
   } = {}) {
     return shallowUntilTarget(
-      <HomeCarousel i18n={getFakeI18nInst()} {...props} />,
+      <HomeCarousel i18n={fakeI18n()} {...props} />,
       HomeCarouselBase
     );
   }

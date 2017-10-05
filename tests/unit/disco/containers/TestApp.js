@@ -13,7 +13,7 @@ import { AppBase, mapStateToProps } from 'disco/containers/App';
 import createStore from 'disco/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 class MyComponent extends React.Component {
@@ -25,7 +25,7 @@ class MyComponent extends React.Component {
 function renderProps(customProps = {}) {
   return {
     browserVersion: '50',
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     store: createStore().store,
     ...customProps,
   };

@@ -15,7 +15,7 @@ import {
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -31,7 +31,7 @@ describe(__filename, () => {
   function render(customProps = {}) {
     const props = {
       store: _store,
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       ...customProps,
     };
     return shallowUntilTarget(<SectionLinks {...props} />, SectionLinksBase);

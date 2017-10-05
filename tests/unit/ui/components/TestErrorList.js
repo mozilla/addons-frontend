@@ -4,7 +4,7 @@ import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
 
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 function render(customProps = {}) {
@@ -14,7 +14,7 @@ function render(customProps = {}) {
     ...customProps,
   };
   return findDOMNode(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
+    <I18nProvider i18n={fakeI18n()}>
       <ErrorList {...props} />
     </I18nProvider>
   ));

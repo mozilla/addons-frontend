@@ -10,7 +10,7 @@ import {
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
 import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
@@ -29,7 +29,7 @@ describe('<Categories />', () => {
         addonType={ADDON_TYPE_EXTENSION}
         dispatch={store.dispatch}
         errorHandler={errorHandler}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         {...mapStateToProps(store.getState())}
         {...props}
       />

@@ -31,7 +31,7 @@ import {
 import {
   createFakeEvent,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
 } from 'tests/unit/helpers';
 
 
@@ -49,7 +49,7 @@ describe(__filename, () => {
       <SearchForm
         debounce={(callback) => (...args) => callback(...args)}
         errorHandler={errorHandler}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         pathname={pathname}
         query={query}
         router={fakeRouter}
@@ -73,7 +73,7 @@ describe(__filename, () => {
         debounce={(callback) => (...args) => callback(...args)}
         dispatch={sinon.stub()}
         errorHandler={errorHandler}
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         pathname={pathname}
         query={query}
         router={fakeRouter}

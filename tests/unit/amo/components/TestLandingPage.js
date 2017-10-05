@@ -16,7 +16,7 @@ import I18nProvider from 'core/i18n/Provider';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
@@ -25,7 +25,7 @@ describe('<LandingPage />', () => {
     return {
       dispatch: sinon.stub(),
       errorHandler: createStubErrorHandler(),
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
       resultsLoaded: false,
       ...props,
@@ -42,7 +42,7 @@ describe('<LandingPage />', () => {
     const { store } = dispatchClientMetadata();
     return mount(
       <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+        <I18nProvider i18n={fakeI18n()}>
           <LandingPageBase {...renderProps(props)} />
         </I18nProvider>
       </Provider>

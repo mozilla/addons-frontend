@@ -12,7 +12,7 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { signedInApiState } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -30,7 +30,7 @@ describe(__filename, () => {
     const { store } = createStore({ api });
 
     const defaultProps = {
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       minVersion: null,
       store,
     };

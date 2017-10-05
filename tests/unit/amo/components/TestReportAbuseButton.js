@@ -18,7 +18,7 @@ import {
   createFakeAddonAbuseReport,
   createFakeEvent,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -27,7 +27,7 @@ describe(__filename, () => {
   const defaultRenderProps = {
     addon: { ...fakeAddon, slug: 'my-addon' },
     errorHandler: createStubErrorHandler(),
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     store: dispatchClientMetadata().store,
   };
 

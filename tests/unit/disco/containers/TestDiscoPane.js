@@ -21,7 +21,7 @@ import * as helpers from 'disco/containers/DiscoPane';
 import {
   createFakeEvent,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   MockedSubComponent,
 } from 'tests/unit/helpers';
 import {
@@ -46,7 +46,7 @@ describe(__filename, () => {
   });
 
   function renderProps(customProps = {}) {
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
 
     let results;
     if (typeof customProps.results === 'undefined') {

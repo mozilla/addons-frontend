@@ -27,7 +27,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createUserProfileResponse,
-  getFakeI18nInst,
+  fakeI18n,
   userAuthToken,
 } from 'tests/unit/helpers';
 
@@ -48,7 +48,7 @@ function render(customProps = {}) {
   };
   const RatingManager = translate({ withRef: true })(RatingManagerBase);
   const root = findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
+    <I18nProvider i18n={fakeI18n()}>
       <RatingManager {...props} />
     </I18nProvider>
   ), RatingManager);
