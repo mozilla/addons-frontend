@@ -49,6 +49,7 @@ $extraHeightForCard: 28px;
 }
 
 .Carousel--server-render {
+  direction: ltr;
   display: flex;
   height: 100%;
   overflow-x: auto;
@@ -58,13 +59,9 @@ $extraHeightForCard: 28px;
   // by the `flex` display.
   width: 50000px;
 
-  .slider-list {
-    margin: 0 -5px;
-  }
-
-  .slider-slide {
-    display: inline-block;
-    list-style: none;
+  [dir=rtl] & .CarouselSection {
+    direction: rtl;
+    text-align: right;
   }
 }
 
