@@ -1,8 +1,11 @@
 import * as actions from 'amo/actions/featured';
 import featured, { initialState } from 'amo/reducers/featured';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
-describe('featured reducer', () => {
+
+describe(__filename, () => {
   it('defaults to not loading', () => {
     const { loading } = featured(initialState, { type: 'unrelated' });
     expect(loading).toBe(false);
@@ -35,9 +38,9 @@ describe('featured reducer', () => {
     it('sets the results', () => {
       const entities = {
         addons: {
-          bar: { slug: 'bar' },
-          foo: { slug: 'foo' },
-          food: { slug: 'food' },
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
         },
       };
       const { addonType, loading, results } = featured(
@@ -50,7 +53,10 @@ describe('featured reducer', () => {
       );
       expect(addonType).toEqual('theme');
       expect(loading).toBe(false);
-      expect(results).toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+      expect(results).toEqual([
+        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+        createInternalAddon({ ...fakeAddon, slug: 'food' }),
+      ]);
     });
   });
 });
