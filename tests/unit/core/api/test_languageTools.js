@@ -39,9 +39,12 @@ describe(__filename, () => {
           state: apiState,
         })
         .once()
-        .returns(mockResponse([createFakeLanguageAddon()]));
+        .returns(mockResponse());
 
-      await languageTools({ api: apiState });
+      const languageToolsResponse = await languageTools({ api: apiState });
+      const jsonResponse = await languageToolsResponse.json();
+
+      expect(jsonResponse).toEqual({ results: [createFakeLanguageAddon()] });
 
       mockApi.verify();
     });
