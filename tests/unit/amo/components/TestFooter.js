@@ -1,23 +1,14 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { Provider } from 'react-redux';
 
-import I18nProvider from 'core/i18n/Provider';
-import Footer from 'amo/components/Footer';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { fakeI18n } from 'tests/unit/helpers';
+import Footer, { FooterBase } from 'amo/components/Footer';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('Footer', () => {
   function renderFooter({ ...props }) {
-    const store = dispatchClientMetadata().store;
-
-    return mount(
-      <Provider store={store}>
-        <I18nProvider i18n={fakeI18n()}>
-          <Footer {...props} />
-        </I18nProvider>
-      </Provider>
+    return shallowUntilTarget(
+      <Footer i18n={fakeI18n()} {...props} />,
+      FooterBase
     );
   }
 
