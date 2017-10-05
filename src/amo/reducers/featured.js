@@ -1,4 +1,5 @@
 import { FEATURED_GET, FEATURED_LOADED } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 
 
 export const initialState = {
@@ -18,7 +19,7 @@ export default function featured(state = initialState, action) {
         addonType: payload.addonType,
         loading: false,
         results: payload.result.results.map((slug) => (
-          payload.entities.addons[slug]
+          createInternalAddon(payload.entities.addons[slug])
         )),
       };
     default:
