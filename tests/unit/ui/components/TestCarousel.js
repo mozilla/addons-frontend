@@ -36,7 +36,8 @@ describe(__filename, () => {
 
     expect(root.find('.Carousel')).toHaveLength(1);
     expect(root.find(NukaCarousel)).toHaveProp('cellAlign', 'left');
-    expect(root.find('.Carousel--server-render')).toHaveLength(0);
+    expect(root.find('.Carousel--first-render-wrapper')).toHaveLength(0);
+    expect(root.find('.Carousel--first-render')).toHaveLength(0);
     expect(root.find('.Carousel-section-wrapper')).toHaveLength(0);
   });
 
@@ -67,7 +68,8 @@ describe(__filename, () => {
 
     expect(root.find('.Carousel')).toHaveLength(1);
     expect(root.find(NukaCarousel)).toHaveLength(0);
-    expect(root.find('.Carousel--server-render')).toHaveLength(1);
+    expect(root.find('.Carousel--first-render-wrapper')).toHaveLength(1);
+    expect(root.find('.Carousel--first-render')).toHaveLength(1);
   });
 
   it('updates state on componentDidMount and renders a NukaCarousel', () => {
@@ -75,7 +77,8 @@ describe(__filename, () => {
 
     expect(root.find('.Carousel')).toHaveLength(1);
     expect(root.find(NukaCarousel)).toHaveLength(1);
-    expect(root.find('.Carousel--server-render')).toHaveLength(0);
+    expect(root.find('.Carousel--first-render-wrapper')).toHaveLength(0);
+    expect(root.find('.Carousel--first-render')).toHaveLength(0);
   });
 
   it('renders sections inside server render on the server', () => {
@@ -86,7 +89,8 @@ describe(__filename, () => {
       ],
     });
 
-    expect(root.find('.Carousel--server-render')).toHaveLength(1);
+    expect(root.find('.Carousel--first-render-wrapper')).toHaveLength(1);
+    expect(root.find('.Carousel--first-render')).toHaveLength(1);
     expect(root.find('p')).toHaveLength(2);
     expect(root.find('.something')).toHaveLength(1);
     expect(root.find('.something-else')).toHaveLength(1);

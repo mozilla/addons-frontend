@@ -1,4 +1,5 @@
 /* @flow */
+import classNames from 'classnames';
 import React from 'react';
 import { compose } from 'redux';
 import NukaCarousel from 'nuka-carousel';
@@ -54,7 +55,11 @@ export class CarouselBase extends React.Component {
     }
 
     return (
-      <Card className="Carousel">
+      <Card
+        className={classNames('Carousel', {
+          'Carousel--first-render-wrapper': !this.state.hasRendered,
+        })}
+      >
         {this.state.hasRendered ? (
           <NukaCarousel
             autoplay
@@ -72,7 +77,7 @@ export class CarouselBase extends React.Component {
             }))}
           </NukaCarousel>
         ) : (
-          <div className="Carousel--server-render">
+          <div className="Carousel--first-render">
             {/*
               We render the sections here to keep the server-side content
               similar to the client-side content so the re-render isn't as
