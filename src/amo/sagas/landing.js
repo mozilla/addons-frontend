@@ -30,7 +30,7 @@ export function* fetchLandingAddons(
       page_size: LANDING_PAGE_ADDON_COUNT,
     };
 
-    if (category !== null) {
+    if (category) {
       filters.category = category;
     }
 
