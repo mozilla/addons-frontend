@@ -62,7 +62,7 @@ export class HomeBase extends React.Component {
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
-    if (popularExtensions.length === 0) {
+    if (popularExtensions === null) {
       dispatch(fetchHomeAddons({ errorHandlerId: errorHandler.id }));
     }
   }
@@ -159,7 +159,7 @@ export class HomeBase extends React.Component {
               sort: SEARCH_SORT_POPULAR,
             },
           }}
-          loading={popularExtensions.length === 0}
+          loading={popularExtensions === null}
         />
 
         <Card

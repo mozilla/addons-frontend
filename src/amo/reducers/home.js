@@ -6,11 +6,11 @@ export const FETCH_HOME_ADDONS: 'FETCH_HOME_ADDONS' = 'FETCH_HOME_ADDONS';
 export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 
 export type HomeState = {
-  popularExtensions: Array<AddonType>,
+  popularExtensions: Array<AddonType>| null,
 };
 
 export const initialState: HomeState = {
-  popularExtensions: [],
+  popularExtensions: null,
 };
 
 type FetchHomeAddonsParams = {|
