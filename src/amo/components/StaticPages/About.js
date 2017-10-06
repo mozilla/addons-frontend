@@ -46,7 +46,7 @@ export class AboutBase extends React.Component {
                       %(startSMLink)sSeaMonkey%(endSMLink)s.`),
                     { startTBLink: '<a href="https://addons.mozilla.org/thunderbird/">',
                       endTBLink: '</a>',
-                      startSMLink: '<a href="https://addons.mozilla.org/en-US/seamonkey/">',
+                      startSMLink: '<a href="https://addons.mozilla.org/seamonkey/">',
                       endSMLink: '</a>' }
                   ), ['a'])
               }
@@ -66,7 +66,7 @@ export class AboutBase extends React.Component {
           <section>
             <h2>{i18n.gettext(`Get involved`)}</h2>
             <p>
-              {i18n.gettext(`Mozilla is a non-profit champion of the Internet, and we
+              {i18n.gettext(`Mozilla is a non-profit champion of the Internet, we
                 build Firefox to help keep it healthy, open and accessible. Add-ons
                 suport user choice and customization in Firefox, and you can
                 contribute in the following ways:`)}
@@ -96,7 +96,7 @@ export class AboutBase extends React.Component {
                         %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and
                         %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s
                         on Github.`),
-                      { startGoodFirstBugLink: '<a href="https://bit.ly/2yVT3GL">',
+                      { startGoodFirstBugLink: '<a href="https://github.com/search?l=&q=repo:mozilla/addons+repo:mozilla/addons-frontend+repo:mozilla/addons-linter+repo:mozilla/addons-server+label:%22contrib:+good+first+bug%22&ref=advsearch&state=open&type=Issues">',
                         endGoodFirstBugLink: '</a>',
                         startAddonsServerRepoLink: '<a href="https://github.com/mozilla/addons-server/issues">',
                         endAddonsServerRepoLink: '</a>',
@@ -154,7 +154,7 @@ export class AboutBase extends React.Component {
                       %(startSUMOLink)sSupport%(endSUMOLink)s
                       Mozilla. If you don't find an answer there, you can
                       %(startForumLink)sask on our community forum%(endForumLink)s.`),
-                    { startSUMOLink: '<a href="https://support.mozilla.org/en-US/products/firefox/manage-preferences-and-add-ons-firefox/install-and-manage-add-ons">',
+                    { startSUMOLink: '<a href="https://support.mozilla.org/products/firefox/manage-preferences-and-add-ons-firefox/install-and-manage-add-ons">',
                       endSUMOLink: '</a>',
                       startForumLink: '<a href="https://discourse.mozilla-community.org/c/add-ons">',
                       endForumLink: '</a>' }
@@ -166,7 +166,7 @@ export class AboutBase extends React.Component {
               dangerouslySetInnerHTML={
                 sanitizeHTML(
                   i18n.sprintf(
-                    i18n.gettext(`%(startLink)sInformation about how to contact Mozilla’s add-ons team can be found here%(endLink)s.`),
+                    i18n.gettext(`%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s.`),
                     { startLink: '<a href="https://wiki.mozilla.org/Add-ons#Getting_in_touch">',
                       endLink: '</a>' }
                   ), ['a'])

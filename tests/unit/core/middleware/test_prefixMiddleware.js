@@ -19,7 +19,7 @@ describe('Prefix Middleware', () => {
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
     fakeConfig.set('validLocaleUrlExceptions', ['downloads']);
     fakeConfig.set(
-      'validClientAppUrlExceptions', ['developers', 'validprefix', 'about']);
+      'validClientAppUrlExceptions', ['about', 'developers', 'validprefix']);
     fakeConfig.set('clientAppRoutes', ['about']);
     fakeConfig.set('validTrailingSlashUrlExceptions', ['about']);
   });

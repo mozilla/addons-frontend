@@ -33,12 +33,11 @@ export default (
   <div>
     <Route path="/:lang" component={App}>
       <Route path="about" component={About} />
+      { /* TODO: Post launch update this URL and redirect see #3374/ */ }
       <Route path="review_guide" component={ReviewGuide} />
     </Route>
     <Route path="/:lang/:application" component={App}>
       <IndexRoute component={Home} />
-      <Route path="about" component={About} />
-      <Route path="review-guide" component={ReviewGuide} />
       <Route path="addon/:slug/" component={Addon} />
       <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
       <Route path="collections/:user/:slug/" component={Collection} />

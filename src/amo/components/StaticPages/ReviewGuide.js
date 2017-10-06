@@ -53,10 +53,10 @@ export class ReviewGuideBase extends React.Component {
             </ul>
             <h3>{i18n.gettext(`Don't:`)}</h3>
             <ul>
-              <li>{i18n.gettext('Submit one-word reviews such as "Great!", "wonderful," or "bad." ')}</li>
+              <li>{i18n.gettext('Submit one-word reviews such as "Great!", "wonderful," or "bad".')}</li>
               <li>{i18n.gettext(`Post technical issues, support requests, or feature suggestions. Use
                 the available support options for each add-on, if available. You can find them in
-                the side column next to the About this Add-on section.`)}</li>
+                the "More information" section in the sidebar on the add-on's detail page.`)}</li>
               <li>{i18n.gettext('Write reviews for add-ons which you have not personally used.')}</li>
               <li>{i18n.gettext('Use profanity, sexual language or language that can be construed as hateful.')}</li>
               <li>{i18n.gettext('Include HTML, links, source code or code snippets. Reviews are meant to be text only.')}</li>
