@@ -23,7 +23,7 @@ export default class Icon extends React.Component {
     }
 
     return (
-      <i className={classNames('Icon', `Icon-${name}`, className)} {...props} />
+      <span className={classNames('Icon', `Icon-${name}`, className)} {...props} />
     );
   }
 }
