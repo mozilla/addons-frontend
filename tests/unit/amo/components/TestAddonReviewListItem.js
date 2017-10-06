@@ -100,7 +100,7 @@ describe(__filename, () => {
     expect(root.find('.AddonReviewListItem-body').html())
       .toContain(fakeReview.body);
 
-    expect(root.find('.AddonReviewListItem-by-line'))
+    expect(root.find('.AddonReviewListItem-byline'))
       .toIncludeText(fakeReview.user.name);
 
     const rating = root.find(Rating);
@@ -128,7 +128,7 @@ describe(__filename, () => {
       .toHaveLength(1);
     expect(root.find('p').at(0).find(LoadingText))
       .toHaveLength(1);
-    expect(root.find('.AddonReviewListItem-by-line').at(0)
+    expect(root.find('.AddonReviewListItem-byline').at(0)
       .find(LoadingText)).toHaveLength(1);
   });
 
@@ -518,11 +518,11 @@ describe(__filename, () => {
       expect(root.find(Rating)).toHaveLength(0);
     });
 
-    it('does not include a user name in the by line', () => {
+    it('does not include a user name in the byline', () => {
       const { reply } = _setReviewReply();
       const root = renderReply({ reply });
 
-      expect(root.find('.AddonReviewListItem-by-line'))
+      expect(root.find('.AddonReviewListItem-byline'))
         .not.toIncludeText(reply.userName);
     });
 

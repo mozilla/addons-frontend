@@ -136,7 +136,7 @@ export class AddonReviewListItemBase extends React.Component {
       submittingReply,
     } = this.props;
 
-    let byLine;
+    let byline;
     let reviewBody;
     const reviewBodyClass = 'AddonReviewListItem-body';
 
@@ -144,11 +144,11 @@ export class AddonReviewListItemBase extends React.Component {
       const timestamp = i18n.moment(review.created).fromNow();
       if (isReply) {
         // translators: Example in English: "posted last week"
-        byLine = i18n.sprintf(
+        byline = i18n.sprintf(
           i18n.gettext('posted %(timestamp)s'), { timestamp });
       } else {
         // translators: Example in English: "from UserName123, last week"
-        byLine = i18n.sprintf(
+        byline = i18n.sprintf(
           i18n.gettext('by %(authorName)s, %(timestamp)s'),
           { authorName: review.userName, timestamp });
       }
@@ -165,7 +165,7 @@ export class AddonReviewListItemBase extends React.Component {
       );
       /* eslint-enable react/no-danger */
     } else {
-      byLine = <LoadingText />;
+      byline = <LoadingText />;
       reviewBody = <p className={reviewBodyClass}><LoadingText /></p>;
     }
 
@@ -186,12 +186,12 @@ export class AddonReviewListItemBase extends React.Component {
           {review ? review.title : <LoadingText />}
         </h3>
         {reviewBody}
-        <div className="AddonReviewListItem-by-line">
+        <div className="AddonReviewListItem-byline">
           {review && !isReply ?
             <Rating styleName="small" rating={review.rating} readOnly />
             : null
           }
-          {byLine}
+          {byline}
           {
             userIsAuthenticated && review &&
             review.userId === siteUser.id &&

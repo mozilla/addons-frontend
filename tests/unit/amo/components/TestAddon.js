@@ -445,8 +445,8 @@ describe(__filename, () => {
     // Make sure these tags were whitelisted.
     expect(rootNode.querySelector('h1 span a').textContent).toEqual('Krupa');
     // Make sure the santizer didn't strip the class attribute:
-    const byLine = rootNode.querySelector('h1 span');
-    expect(byLine.attributes.class).toBeTruthy();
+    const byline = rootNode.querySelector('h1 span');
+    expect(byline.attributes.class).toBeTruthy();
   });
 
   it('configures the install button', () => {
