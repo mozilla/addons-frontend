@@ -10,7 +10,7 @@ export type HomeState = {
 };
 
 export const initialState: HomeState = {
-  popularExtensions: [],
+  popularExtensions: null,
 };
 
 type FetchHomeAddonsParams = {|
