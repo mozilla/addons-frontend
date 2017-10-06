@@ -189,7 +189,7 @@ export class CategoryBase extends React.Component {
     return { html: contentForTypes[addonType] };
   }
 
-  renderIfNotEmpty(component, addons) {
+  renderIfNotEmpty(addons, component) {
     if (addons.length === 0 && !this.props.loading) {
       return null;
     }
@@ -237,6 +237,7 @@ export class CategoryBase extends React.Component {
         <CategoryHeader category={category} />
 
         {this.renderIfNotEmpty(
+          featuredAddons,
           <LandingAddonsCard
             addons={featuredAddons}
             className="FeaturedAddons"
@@ -244,10 +245,10 @@ export class CategoryBase extends React.Component {
             footerLink={html.featuredFooterLink}
             header={html.featuredHeader}
             loading={loading}
-          />,
-          featuredAddons
+          />
         )}
         {this.renderIfNotEmpty(
+          highlyRatedAddons,
           <LandingAddonsCard
             addons={highlyRatedAddons}
             className="HighlyRatedAddons"
@@ -255,10 +256,10 @@ export class CategoryBase extends React.Component {
             footerText={html.highlyRatedFooterText}
             header={html.highlyRatedHeader}
             loading={loading}
-          />,
-          highlyRatedAddons
+          />
         )}
         {this.renderIfNotEmpty(
+          popularAddons,
           <LandingAddonsCard
             addons={popularAddons}
             className="PopularAddons"
@@ -266,8 +267,7 @@ export class CategoryBase extends React.Component {
             footerText={html.popularFooterText}
             header={html.popularHeader}
             loading={loading}
-          />,
-          popularAddons
+          />
         )}
       </div>
     );

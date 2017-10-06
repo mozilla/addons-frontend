@@ -61,45 +61,18 @@ describe(__filename, () => {
   function _loadLanding(params = {}) {
     store.dispatch(loadLanding({
       addonType: ADDON_TYPE_THEME,
-      featured: {
-        entities: {
-          addons: {
-            howdy: {
-              ...fakeAddon, name: 'Howdy', slug: 'howdy',
-            },
-            'howdy-again': {
-              ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['howdy', 'howdy-again'] },
-      },
-      highlyRated: {
-        entities: {
-          addons: {
-            high: {
-              ...fakeAddon, name: 'High', slug: 'high',
-            },
-            'high-again': {
-              ...fakeAddon, name: 'High again', slug: 'high-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['high', 'high-again'] },
-      },
-      popular: {
-        entities: {
-          addons: {
-            pop: {
-              ...fakeAddon, name: 'Pop', slug: 'pop',
-            },
-            'pop-again': {
-              ...fakeAddon, name: 'Pop again', slug: 'pop-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['pop', 'pop-again'] },
-      },
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      popular: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
       ...params,
     }));
   }
