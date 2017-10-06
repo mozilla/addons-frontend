@@ -30,6 +30,15 @@
   );
 }
 
+// This is intended for counter-actions like cancelling or undoing, etc.
+.Button--counter-action {
+  @include button(
+    $background: $counter-action-base-color,
+    $background-active: $counter-action-active-color,
+    $background-hover: $counter-action-hover-color
+  );
+}
+
 .Button--confirm {
   @include button(
     $background: $confirm-base-color,

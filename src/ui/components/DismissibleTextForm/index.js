@@ -113,21 +113,21 @@ export class DismissibleTextFormBase extends React.Component {
           placeholder={text.placeholder}
         />
         <div className="DismissibleTextForm-buttons">
-          <a
-            className={classNames('DismissibleTextForm-dismiss', {
-              'DismissibleTextForm-dismiss--disabled': isSubmitting,
-            })}
-            href="#dismiss"
+          <Button
             onClick={this.onDismiss}
+            className={classNames(
+              'DismissibleTextForm-dismiss',
+              'Button--counter-action',
+            )}
+            disabled={isSubmitting}
           >
-            {i18n.gettext('Dismiss')}
-          </a>
+            {i18n.gettext('Cancel')}
+          </Button>
           <Button
             type="submit"
             className={classNames(
               'DismissibleTextForm-submit',
               'Button--action',
-              'Button--small',
               submitButtonClassName,
             )}
             disabled={sendButtonIsDisabled}

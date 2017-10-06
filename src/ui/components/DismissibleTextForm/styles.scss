@@ -1,30 +1,64 @@
+@import "~photon-colors/colors";
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~core/css/inc/vars";
 @import "~ui/css/vars";
+
+.DismissibleTextForm-form {
+  margin: 6px 0;
+
+  @include respond-to(medium) {
+    margin: 12px 0;
+  }
+}
 
 .DismissibleTextForm-buttons {
   display: flex;
   justify-content: space-between;
+  margin-top: 6px;
+
+  @include respond-to(medium) {
+    justify-content: center;
+    margin-top: 24px;
+
+    .Button {
+      margin-left: 48px;
+      padding: 0 64px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
 }
 
 .DismissibleTextForm-dismiss {
   align-self: center;
 }
 
-.DismissibleTextForm-dismiss--disabled:link {
-  color: $neutral-base-color;
+.DismissibleTextForm-submit:disabled {
+  background-color: $action-hover-color;
   cursor: not-allowed;
 }
 
 .DismissibleTextForm-textarea {
+  border: 1px solid $grey-50;
+  border-radius: $border-radius-s;
+  box-shadow: none;
   font-size: $font-size-m-smaller;
   line-height: 1.4;
-  margin: 5px auto;
+  margin: 0 auto;
   // This is the height of two lines of text. Often the placeholder text
   // will span two lines–because this element will grow/shrink based on
   // the contents of the text inside it, we set a minimum height so it
   // won't shrink when the two-line placeholder is replaced with a single
   // character when the user starts typing.
   min-height: 51px;
-  padding: 5px;
+  padding: 6px;
   resize: none;
   width: 100%;
+
+  @include respond-to(medium) {
+    padding: 12px;
+  }
 }

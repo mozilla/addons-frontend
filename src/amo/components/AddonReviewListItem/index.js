@@ -252,8 +252,8 @@ export class AddonReviewListItemBase extends React.Component {
             placeholder={i18n.gettext(
               'Write a reply to this review.'
             )}
-            submitButtonText={i18n.gettext('Submit reply')}
-            submitButtonInProgressText={i18n.gettext('Submitting reply')}
+            submitButtonText={i18n.gettext('Publish reply')}
+            submitButtonInProgressText={i18n.gettext('Publishing reply')}
           />
           : null
         }

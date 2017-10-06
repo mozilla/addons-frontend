@@ -109,7 +109,7 @@ describe(__filename, () => {
 
     typeSomeText({ root, text: 'Some review text' });
 
-    // Click the dismiss link.
+    // Click the cancel button.
     root.find('.DismissibleTextForm-dismiss')
       .simulate('click', createFakeEvent());
 
@@ -169,18 +169,18 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
-  it('disables the dismiss link while submitting the form', () => {
+  it('disables the dismiss button while submitting the form', () => {
     const root = shallowRender({ isSubmitting: true });
 
     expect(root.find('.DismissibleTextForm-dismiss'))
-      .toHaveClassName('DismissibleTextForm-dismiss--disabled');
+      .toHaveProp('disabled', true);
   });
 
-  it('enables the dismiss link while not submitting the form', () => {
+  it('enables the dismiss button while not submitting the form', () => {
     const root = shallowRender({ isSubmitting: false });
 
     expect(root.find('.DismissibleTextForm-dismiss'))
-      .not.toHaveClassName('DismissibleTextForm-dismiss--disabled');
+      .toHaveProp('disabled', false);
   });
 
   it('enables the submit button after text has been entered', () => {
