@@ -6,7 +6,9 @@
   word-wrap: break-word;
 
   .Rating {
-    margin: 0 5px 0 0;
+    margin: 0;
+
+    @include margin-end(6px);
   }
 }
 
@@ -17,7 +19,7 @@
 
 .AddonReviewListItem-body {
   font-size: $font-size-default;
-  margin: 0 0 5px;
+  margin: 0 0 6px;
 }
 
 .AddonReviewListItem-byline {
@@ -37,32 +39,35 @@
 
 .AddonReviewListItem-control {
   display: flex;
-  @include margin-start(5px);
+  @include margin-start(6px);
 
   @include respond-to(medium) {
-    @include margin-start(22px);
+    @include margin-start(24px);
   }
 
   .Icon-reply-arrow {
-    @include margin-end(5px);
+    @include margin-end(6px);
   }
 }
 
 .AddonReviewListItem-reply {
   background-color: transparentize($blue-50, 0.95);
   border-radius: $border-radius-default;
-  margin-top: 23px;
-  padding: 19px 23px 17px;
+  margin-top: 12px;
+  padding: 12px;
 
   @include respond-to(medium) {
-    @include margin-start(10px);
+    margin-top: 24px;
+    padding: 24px;
+
+    @include margin-start(12px);
   }
 }
 
 .AddonReviewListItem-reply-header {
-  margin: 0 0 5px;
+  margin: 0 0 6px;
 
   .Icon-reply-arrow {
-    @include margin-end(11px);
+    @include margin-end(12px);
   }
 }
