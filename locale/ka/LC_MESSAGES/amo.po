@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-06 18:10+0000\n"
+"PO-Revision-Date: 2017-10-06 18:19+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -106,7 +106,7 @@ msgstr "საჭიროებს გადატვირთვას"
 
 #: src/amo/components/Addon/index.js:488
 msgid "Experimental"
-msgstr ""
+msgstr "საცდელი"
 
 #: src/amo/components/Addon/index.js:506
 msgid "Extension Metadata"
@@ -160,7 +160,7 @@ msgstr "მომხმარებელი"
 
 #: src/amo/components/AddonMeta.js:62
 msgid "Click to view statistics"
-msgstr ""
+msgstr "დააწკაპეთ, სტატისტიკური მონაცემების სანახავად"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
 msgid "Read the license agreement for this add-on"
@@ -208,7 +208,7 @@ msgstr "Beta ვერსიები"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
 msgid "Usage Statistics"
-msgstr ""
+msgstr "გამოყენების სტატისტიკა"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -232,7 +232,7 @@ msgstr "მხარდაჭერის საიტი"
 
 #: src/amo/components/AddonMoreInfo/index.js:67
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "სტატისტიკური მონაცემების გვერდი"
 
 #: src/amo/components/AddonMoreInfo/index.js:75
 msgid "%(timeFromNow)s (%(date)s)"
@@ -320,11 +320,11 @@ msgstr "ამ კატეგორიის ყველა თემის �
 
 #: src/amo/components/Collection/index.js:130
 msgid "Addons"
-msgstr ""
+msgstr "დამატებები"
 
 #: src/amo/components/Collection/index.js:136
 msgid "Creator"
-msgstr ""
+msgstr "შემქმნელი"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
@@ -544,7 +544,7 @@ msgstr "თქვენ შეგიძლიათ შეცვალოთ, �
 
 #: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "მოიძიეთ მძლავრი ხელსაწყოები, შემატეთ ბრაუზერს ახალი შესაძლებლობები და მოარგეთ Firefox თქვენს მოთხოვნილებებს."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -868,35 +868,31 @@ msgstr "ძიების შედეგები"
 
 #: src/amo/components/SectionLinks/index.js:100
 msgid "More…"
-msgstr ""
+msgstr "მეტი…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "ლექსიკონები & ენის პაკეტები"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
 msgstr "ძიების შედეგები"
 
 #: src/amo/components/SectionLinks/index.js:126
-#, fuzzy
 msgid "Other Browser Sites"
-msgstr "iOS-ისთვის"
+msgstr "ბრაუზერის სხვა საიტები"
 
 #: src/amo/components/SectionLinks/index.js:137
-#, fuzzy
 msgid "Add-ons for Android"
-msgstr "Firefox-ის დამატებები"
+msgstr "დამატებები Android-ისთვის"
 
 #: src/amo/components/SectionLinks/index.js:59
-#, fuzzy
 msgid "for Firefox"
-msgstr "Firefox-ის დამატებები"
+msgstr "Firefox-ისთვის"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "Android-სთვის"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
