@@ -37,54 +37,30 @@
 
 .AddonReviewListItem-control {
   display: flex;
-  margin-left: 5px;
-
-  [dir=rtl] & {
-    margin-left: 0;
-    margin-right: 5px;
-  }
+  @include margin-start(5px);
 
   @include respond-to(medium) {
-    margin-left: 22px;
-
-    [dir=rtl] & {
-      margin-left: 0;
-      margin-right: 22px;
-    }
+    @include margin-start(22px);
   }
 
   .Icon-reply-arrow {
-    margin-right: 5px;
-
-    [dir=rtl] & {
-      margin-left: 5px;
-      margin-right: 0;
-    }
+    @include margin-end(5px);
   }
 }
 
 .AddonReviewListItem-reply {
   background-color: transparentize($blue-50, 0.95);
   border-radius: 12px;
-  margin-left: 10px;
   margin-top: 23px;
   padding: 19px 23px 17px;
 
-  [dir=rtl] & {
-    margin-left: 0;
-    margin-right: 10px;
-  }
+  @include margin-start(10px);
 }
 
 .AddonReviewListItem-reply-header {
   margin: 0 0 5px;
 
   .Icon-reply-arrow {
-    margin-right: 11px;
-
-    [dir=rtl] & {
-      margin-left: 11px;
-      margin-right: 0;
-    }
+    @include margin-end(11px);
   }
 }
