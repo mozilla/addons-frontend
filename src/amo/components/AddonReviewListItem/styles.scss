@@ -50,7 +50,7 @@
 
 .AddonReviewListItem-reply {
   background-color: transparentize($blue-50, 0.95);
-  border-radius: 12px;
+  border-radius: $border-radius-default;
   margin-top: 23px;
   padding: 19px 23px 17px;
 
