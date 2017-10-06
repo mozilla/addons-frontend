@@ -179,7 +179,7 @@ export class AddonReviewListItemBase extends React.Component {
         {isReply ? (
           <h4 className="AddonReviewListItem-reply-header">
             <Icon name="reply-arrow" />
-            {i18n.gettext('Reply from the developer')}
+            {i18n.gettext('Developer response')}
           </h4>
         ) : null}
         <h3 className="AddonReviewListItem-review-header">
