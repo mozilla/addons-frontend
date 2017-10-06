@@ -1,5 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
+import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -17,6 +18,7 @@ import {
   showEditReviewForm,
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
@@ -36,6 +38,7 @@ type PropsType = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   isAuthenticated: boolean,
+  isReply: boolean,
   i18n: Object,
   review?: UserReviewType,
   replyingToReview: boolean,
@@ -45,6 +48,10 @@ type PropsType = {|
 
 export class AddonReviewListItemBase extends React.Component {
   props: PropsType;
+
+  static defaultProps = {
+    isReply: false,
+  };
 
   onClickToEditReview = (event: SyntheticEvent) => {
     const { dispatch, review } = this.props;
@@ -120,49 +127,77 @@ export class AddonReviewListItemBase extends React.Component {
       addon,
       editingReview,
       errorHandler,
-      isAuthenticated: userIsAuthenticated,
       i18n,
+      isAuthenticated: userIsAuthenticated,
+      isReply,
       replyingToReview,
       review,
       siteUser,
       submittingReply,
     } = this.props;
 
-    let byLine;
+    let byline;
     let reviewBody;
+    const reviewBodyClass = 'AddonReviewListItem-body';
+
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
-      // translators: Example: "from Jose, last week"
-      byLine = i18n.sprintf(
-        i18n.gettext('from %(authorName)s, %(timestamp)s'),
-        { authorName: review.userName, timestamp });
+      if (isReply) {
+        // translators: Example in English: "posted last week"
+        byline = i18n.sprintf(
+          i18n.gettext('posted %(timestamp)s'), { timestamp });
+      } else {
+        // translators: Example in English: "from UserName123, last week"
+        byline = i18n.sprintf(
+          i18n.gettext('by %(authorName)s, %(timestamp)s'),
+          { authorName: review.userName, timestamp });
+      }
 
       const reviewBodySanitized = sanitizeHTML(
         nl2br(review.body), ['br']
       );
-      // eslint-disable-next-line react/no-danger
-      reviewBody = <p dangerouslySetInnerHTML={reviewBodySanitized} />;
+      /* eslint-disable react/no-danger */
+      reviewBody = (
+        <p
+          className={reviewBodyClass}
+          dangerouslySetInnerHTML={reviewBodySanitized}
+        />
+      );
+      /* eslint-enable react/no-danger */
     } else {
-      byLine = <LoadingText />;
-      reviewBody = <p><LoadingText /></p>;
+      byline = <LoadingText />;
+      reviewBody = <p className={reviewBodyClass}><LoadingText /></p>;
     }
 
     return (
-      <div className="AddonReviewListItem">
+      <div
+        className={classNames('AddonReviewListItem', {
+          'AddonReviewListItem-reply': isReply,
+        })}
+      >
         {errorHandler.renderErrorIfPresent()}
-        <h3>{review ? review.title : <LoadingText />}</h3>
+        {isReply ? (
+          <h4 className="AddonReviewListItem-reply-header">
+            <Icon name="reply-arrow" />
+            {i18n.gettext('Developer response')}
+          </h4>
+        ) : null}
+        <h3 className="AddonReviewListItem-review-header">
+          {review ? review.title : <LoadingText />}
+        </h3>
         {reviewBody}
-        <div className="AddonReviewListItem-by-line">
-          {review ?
+        <div className="AddonReviewListItem-byline">
+          {review && !isReply ?
             <Rating styleName="small" rating={review.rating} readOnly />
             : null
           }
-          {byLine}
-        </div>
-        <div className="AddonReviewListItem-controls">
+          {byline}
           {
             userIsAuthenticated && review &&
-            review.userId === siteUser.id ?
+            review.userId === siteUser.id &&
+            // TODO: Allow edits of replies once they are supported:
+            // https://github.com/mozilla/addons-frontend/issues/3368
+            !isReply ?
               (
                 <div>
                   {/* This will render an overlay to edit the review */}
@@ -177,7 +212,7 @@ export class AddonReviewListItemBase extends React.Component {
                   <a
                     href="#edit"
                     onClick={this.onClickToEditReview}
-                    className="AddonReviewListItem-edit"
+                    className="AddonReviewListItem-edit AddonReviewListItem-control"
                   >
                     {i18n.gettext('Edit my review')}
                   </a>
@@ -185,19 +220,29 @@ export class AddonReviewListItemBase extends React.Component {
               ) : null
           }
           {
-            !replyingToReview && userIsAuthenticated &&
-            review && !review.reply &&
-            addon && isAddonAuthor({ addon, userId: siteUser.id }) ?
-              <a
-                href="#reply"
-                onClick={this.onClickToBeginReviewReply}
-                className="AddonReviewListItem-begin-reply"
-              >
-                {i18n.gettext('Reply to this review')}
-              </a>
-              : null
+            review && addon && siteUser &&
+            !replyingToReview && !review.reply &&
+            isAddonAuthor({ addon, userId: siteUser.id }) &&
+            review.userId !== siteUser.id ?
+              (
+                <a
+                  href="#reply"
+                  onClick={this.onClickToBeginReviewReply}
+                  className="AddonReviewListItem-begin-reply AddonReviewListItem-control"
+                >
+                  <Icon name="reply-arrow" />
+                  {i18n.gettext('Reply to this review')}
+                </a>
+              ) : null
           }
         </div>
+        {review && review.reply ? (
+          <AddonReviewListItem
+            addon={addon}
+            isReply
+            review={review.reply}
+          />
+        ) : null}
         {replyingToReview ?
           <DismissibleTextForm
             className="AddonReviewListItem-reply-form"
@@ -241,8 +286,10 @@ export function mapStateToProps(
   };
 }
 
-export default compose(
+const AddonReviewListItem = compose(
   connect(mapStateToProps),
   withErrorHandler({ name: 'AddonReviewListItem' }),
   translate({ withRef: true }),
 )(AddonReviewListItemBase);
+
+export default AddonReviewListItem;
