@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-04 20:13+0000\n"
+"PO-Revision-Date: 2017-10-06 15:40+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -543,7 +543,7 @@ msgstr "شما می‌توانید شیوه کار فایرفاکس را تغی�
 
 #: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "جست‌وجو در ابزارهای قوی و امکاناتِ پیشرفته برای سفارشی کردن فایرفاکس و تبدیلِ آن به چیزی که شما می‌خواهید."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -871,24 +871,20 @@ msgid "Dictionaries & Language Packs"
 msgstr "لغت‌نامه‌ها و بسته‌های زبان"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
-msgstr "نتایج جستجو"
+msgstr "ابزار جست‌وجو"
 
 #: src/amo/components/SectionLinks/index.js:126
-#, fuzzy
 msgid "Other Browser Sites"
-msgstr "مرورگر iOS"
+msgstr "سایر سایت‌های مرورگر"
 
 #: src/amo/components/SectionLinks/index.js:137
-#, fuzzy
 msgid "Add-ons for Android"
-msgstr "افزونه‌های فایرفاکس"
+msgstr "افزونه‌های اندروید"
 
 #: src/amo/components/SectionLinks/index.js:59
-#, fuzzy
 msgid "for Firefox"
-msgstr "افزونه‌های فایرفاکس"
+msgstr "برای فایرفاکس"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
