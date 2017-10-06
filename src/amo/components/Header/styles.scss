@@ -96,9 +96,10 @@
   @include margin-start(auto);
   @include text-align-end();
 
+  display: flex;
   grid-column: 3 / span 2;
   grid-row: 1 / 2;
-  margin-top: 10px;
+  margin-top: 11px;
 
   @include respond-to(medium) {
     grid-column: 4 / -1;
@@ -140,6 +141,18 @@
 
 .Header-authenticate-button {
   @include margin-start(12px);
+
+  &.Button--action {
+    margin-top: -2px;
+  }
+
+  @include respond-to(medium) {
+    margin-top: 1px;
+
+    &.Button--action {
+      margin-top: -1px;
+    }
+  }
 }
 
 .Header-SectionLinks {
