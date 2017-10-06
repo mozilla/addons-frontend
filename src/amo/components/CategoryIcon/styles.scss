@@ -102,11 +102,13 @@ $default-icon-size: 64px;
   @include icon($name: "other-theme");
 }
 
-.Icon-photos-music-videos {
+.Icon-photos-music-videos,
+.Icon-photos-media {
   @include icon($name: "photos-music-video");
 }
 
-.Icon-privacy-security {
+.Icon-privacy-security,
+.Icon-security-privacy {
   @include icon($name: "privacy-security");
 }
 
@@ -126,7 +128,8 @@ $default-icon-size: 64px;
   @include icon($name: "shopping");
 }
 
-.Icon-social-communication {
+.Icon-social-communication,
+.Icon-social-networking {
   @include icon($name: "social-communication");
 }
 
@@ -134,7 +137,8 @@ $default-icon-size: 64px;
   @include icon($name: "solid");
 }
 
-.Icon-sports {
+.Icon-sports,
+.Icon-sports-games {
   @include icon($name: "sports");
 }
 
@@ -148,4 +152,12 @@ $default-icon-size: 64px;
 
 .Icon-websites {
   @include icon($name: "websites");
+}
+
+// `experimental` is also the name of a `ui/components/Icon`. Because we use
+// this component to render the category icons and there is no category version
+// for it yet, we should hide it otherwise the wrong icon is displayed.
+// See: https://github.com/mozilla/addons-frontend/issues/3377
+.Icon-experimental {
+  display: none;
 }
