@@ -1,3 +1,4 @@
+@import "~photon-colors/colors";
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 
@@ -28,7 +29,7 @@
   a:visited,
   a:hover,
   a:active {
-    color: $review-reply-color;
+    color: $blue-50;
     font-weight: normal;
     text-decoration: none;
   }
@@ -63,7 +64,7 @@
 }
 
 .AddonReviewListItem-reply {
-  background-color: transparentize($review-reply-color, 0.95);
+  background-color: transparentize($blue-50, 0.95);
   border-radius: 12px;
   margin-left: 10px;
   margin-top: 23px;
