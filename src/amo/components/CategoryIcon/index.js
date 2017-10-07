@@ -20,7 +20,7 @@ const CategoryIcon = ({ alt, className, color, name }: Props) => {
         `CategoryIcon-${color}`,
         className
       )}
-      name={name}
+      name={`category-${name}`}
     />
   );
 };

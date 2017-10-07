@@ -39,6 +39,6 @@ describe(__filename, () => {
       <CategoryIcon name="bar" color="1" alt="Alt text!" />
     );
 
-    expect(root.find(Icon)).toHaveProp('name', 'bar');
+    expect(root.find(Icon)).toHaveProp('name', 'category-bar');
   });
 });
