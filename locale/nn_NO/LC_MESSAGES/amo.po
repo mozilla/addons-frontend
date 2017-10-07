@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-07 11:08+0000\n"
+"PO-Revision-Date: 2017-10-07 11:29+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -219,7 +219,7 @@ msgstr "Brukarstatistikk"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr ""
+msgstr "Denne ID-en kan brukast for å feilsøke, og kan brukast av nettstadadministratorar for å identifisere utvidinga di."
 
 #: src/amo/components/AddonMoreInfo/index.js:206
 msgid "Site Identifier"
@@ -239,7 +239,7 @@ msgstr "Brukarstøtteside"
 
 #: src/amo/components/AddonMoreInfo/index.js:67
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Gå til statistikkoversikta"
 
 #: src/amo/components/AddonMoreInfo/index.js:75
 msgid "%(timeFromNow)s (%(date)s)"
@@ -423,6 +423,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Om ikkje noko anna er %(startNotedLink)sspesifisert%(endNotedLink)s, er innhaldet på denne nettstaden lisensiert under %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s eller ein seinare versjon."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -551,7 +553,7 @@ msgstr "Du kan endre korleis Firefox fungerer…"
 
 #: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Utforsk kraftfulle verktøy og funksjonar for å tilpasse Firefox og å gjere nettlesaren til din eigen."
 
 #: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -677,15 +679,17 @@ msgstr "Logg inn for å vurdere denne utvidinga"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Vi har fått rapporten din. Takk for at du informerte oss om problema dine med denne utvidinga."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Vi kan ikkje svare på alle rapportane om misbruk, men vi vil undersøkje problemet."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Viss du meiner at denne utvidinga krenkjer %(linkTagStart)sMozilla sine retningslinjer for utvidingar%(linkTagEnd)s, privatlivets fred eller er eit sikkerheitsproblem, ber vi deg om at du "
+"rapporterer problema til Mozilla ved å bruke dette formularet."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 #, fuzzy
@@ -694,11 +698,11 @@ msgstr "Gå til utvidings-sida"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Bruk ikkje dette formularet til feilrapportar eller forslag til funksjonar. Denne rapporten vi bli sendt til Mozilla - Ikkje til utviklaren som har laga utvidinga."
 
 #: src/amo/components/ReportAbuseButton/index.js:178
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Forklar korleis denne utvidinga krenkjer retningslinjene våre."
 
 #: src/amo/components/ReportAbuseButton/index.js:191
 msgid "Dismiss"
@@ -898,7 +902,7 @@ msgstr "Søkjeresultat"
 
 #: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Andre nettlesarplassar"
 
 #: src/amo/components/SectionLinks/index.js:137
 #, fuzzy
