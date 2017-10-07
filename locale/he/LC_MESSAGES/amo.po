@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-06 11:21+0000\n"
+"PO-Revision-Date: 2017-10-07 17:51+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -143,7 +143,7 @@ msgstr "הדפדפן שלך אינו תומך בתוספות. באפשרותך <
 #: src/amo/components/AddonMeta.js:34 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] "משתמש %(total)s"
+msgstr[0] ""
 msgstr[1] "%(total)s משתמשים"
 
 #: src/amo/components/AddonMeta.js:46
@@ -506,7 +506,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:106 src/amo/components/Home/index.js:81
 msgid "Play games"
-msgstr "לשחק משחקים"
+msgstr "משחקים"
 
 #: src/amo/components/Home/index.js:120
 msgid "Wild"
