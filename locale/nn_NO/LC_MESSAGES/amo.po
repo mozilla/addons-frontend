@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-09-13 10:51+0000\n"
+"PO-Revision-Date: 2017-10-07 11:08+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -58,15 +58,15 @@ msgstr "Versjonsnotat for %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:319
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Fleire ordbøker av %(author)s"
 
 #: src/amo/components/Addon/index.js:322
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Fleire ordbøker av desse omsettarane"
 
 #: src/amo/components/Addon/index.js:329
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Fleire utvidingar av %(author)s"
 
 #: src/amo/components/Addon/index.js:332
 #, fuzzy
@@ -75,27 +75,27 @@ msgstr "Søk etter utvidingar og tema"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Fleire språkpakkar av %(author)s"
 
 #: src/amo/components/Addon/index.js:342
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Fleire språkpakkar av desse omsettarane"
 
 #: src/amo/components/Addon/index.js:349
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Fleire tema av %(author)s"
 
 #: src/amo/components/Addon/index.js:352
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Fleire tema av desse artistane"
 
 #: src/amo/components/Addon/index.js:359
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Fleire utvidingar av %(author)s"
 
 #: src/amo/components/Addon/index.js:362
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Fleire utvidingar av desse utviklarane"
 
 #: src/amo/components/Addon/index.js:428
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -107,7 +107,7 @@ msgstr "Omstart påkravd"
 
 #: src/amo/components/Addon/index.js:488
 msgid "Experimental"
-msgstr ""
+msgstr "Eksperimentell"
 
 #: src/amo/components/Addon/index.js:506
 msgid "Extension Metadata"
@@ -118,12 +118,8 @@ msgid "Screenshots"
 msgstr "Skjermbilde"
 
 #: src/amo/components/AddonCompatibilityError/index.js:56
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"Du må <a href=\"%(downloadUrl)s\">laste ned Firefox</a> for å installere "
-"denne utvidinga."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Du må <a href=\"%(downloadUrl)s\">laste ned Firefox</a> for å installere denne utvidinga."
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "This add-on is not compatible with your version of Firefox."
@@ -138,24 +134,14 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS støttar ikkje utvidingar no."
 
 #: src/amo/components/AddonCompatibilityError/index.js:70
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Denne utvidinga krev ein <a href=\"%(downloadUrl)s\">nyare versjon av "
-"Firefox</a> (minst versjon %(minVersion)s). Du brukar Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Denne utvidinga krev ein <a href=\"%(downloadUrl)s\">nyare versjon av Firefox</a> (minst versjon %(minVersion)s). Du brukar Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:84
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Nettlesaren din støttar ikkje utvidingar. Du kan <a href=\"%(downloadUrl)s"
-"\">last ned Firefox</a> for å installere denne utvidinga."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Nettlesaren din støttar ikkje utvidingar. Du kan <a href=\"%(downloadUrl)s\">last ned Firefox</a> for å installere denne utvidinga."
 
-#: src/amo/components/AddonMeta.js:34
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:34 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s brukar"
@@ -177,7 +163,7 @@ msgstr "Brukt av"
 
 #: src/amo/components/AddonMeta.js:62
 msgid "Click to view statistics"
-msgstr ""
+msgstr "Klikk for å vise statistik"
 
 #: src/amo/components/AddonMoreInfo/index.js:101
 msgid "Read the license agreement for this add-on"
@@ -201,8 +187,7 @@ msgstr "Lenker for utvidingar"
 msgid "Version"
 msgstr "Versjon"
 
-#: src/amo/components/AddonMoreInfo/index.js:162
-#: src/amo/components/Collection/index.js:144
+#: src/amo/components/AddonMoreInfo/index.js:162 src/amo/components/Collection/index.js:144
 msgid "Last updated"
 msgstr "Sist oppdatert"
 
@@ -230,17 +215,15 @@ msgstr "Versjon"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Brukarstatistikk"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:206
 msgid "Site Identifier"
-msgstr ""
+msgstr "Nettstad-identifikator"
 
 #: src/amo/components/AddonMoreInfo/index.js:221
 msgid "More information"
@@ -279,10 +262,8 @@ msgid "Tell the world about this extension."
 msgstr "Fortel verda om denne utvidinga."
 
 #: src/amo/components/AddonReview/index.js:179
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Fortel oss om opplevinga di med denne utvidinga. Ver konkret og kortfatta."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Fortel oss om opplevinga di med denne utvidinga. Ver konkret og kortfatta."
 
 #: src/amo/components/AddonReview/index.js:191
 msgid "Write a review"
@@ -317,8 +298,7 @@ msgstr "frå %(authorName)s, %(timestamp)s"
 msgid "Edit my review"
 msgstr "Skriv ei vurdering"
 
-#: src/amo/components/App/index.js:201
-#: src/amo/components/SectionLinks/index.js:150
+#: src/amo/components/App/index.js:201 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Utvidingar for Firefox"
 
@@ -348,89 +328,57 @@ msgstr "Bla gjennom alle tema i denne kategorien."
 
 #: src/amo/components/Collection/index.js:130
 msgid "Addons"
-msgstr ""
+msgstr "Utvidingar"
 
 #: src/amo/components/Collection/index.js:136
 msgid "Creator"
-msgstr ""
+msgstr "Laga av"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38
-#: src/amo/components/Footer/index.js:89
+#: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
 msgstr "Last ned Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Om du er inlogga og trur at denne meldinga er ein feil, ver snill og <a href="
-"\"%(url)s\">send inn ein feilrapport</a>. Fortel oss kvar du kom ifrå og "
-"kvar du ville gå, og vi skal prøve å fikse problemet."
+"Om du er inlogga og trur at denne meldinga er ein feil, ver snill og <a href=\"%(url)s\">send inn ein feilrapport</a>. Fortel oss kvar du kom ifrå og kvar du ville gå, og vi skal prøve å fikse "
+"problemet."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:35
 msgid "Not Authorized"
 msgstr "Ikkje autorisert"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Beklagar, men du har ikkje tilgangsløyve til denne sida. Dersom du ikkje er "
-"innlogga, kan du prøve å logge inn med lenka øvst på sida."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Beklagar, men du har ikkje tilgangsløyve til denne sida. Dersom du ikkje er innlogga, kan du prøve å logge inn med lenka øvst på sida."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Om du følgde ei lenke frå nokon stad, ver snill og <a href=\"%(url)s\">send "
-"inn ein feilrapport</a>. Fortel kvar du kom ifrå og kva du leita etter, og "
-"vi vil gjere vårt beste for å rette feilen."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Om du følgde ei lenke frå nokon stad, ver snill og <a href=\"%(url)s\">send inn ein feilrapport</a>. Fortel kvar du kom ifrå og kva du leita etter, og vi vil gjere vårt beste for å rette feilen."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Fann ikkje sida"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn. Dersom du "
-"følgde ei lenke til ei utviding, kan det vere at utvidinga er fjerna av "
-"utviklaren."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn. Dersom du følgde ei lenke til ei utviding, kan det vere at utvidinga er fjerna av utviklaren."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Om du har ytterlegare informasjon som skulle hjelpe oss, kan du <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">sende inn ein "
-"feilrapport</a>. Fortel om kva for steg du tok som leidde til feilen, og vi "
-"skal gjere vårt beste for å fikse det."
+"Om du har ytterlegare informasjon som skulle hjelpe oss, kan du <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">sende inn ein feilrapport</a>. Fortel om kva for steg du tok som "
+"leidde til feilen, og vi skal gjere vårt beste for å fikse det."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfeil"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Beklagar, men det oppstod ein feil med tenaren vår, og vi klarte ikkje å "
-"fullføre førespurnaden din. Vi har logga denne feilen og kjem til å "
-"undersøke det."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklagar, men det oppstod ein feil med tenaren vår, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
@@ -442,15 +390,15 @@ msgstr "Fleire utvalde tema"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
-msgstr ""
+msgstr "Focus nettlesar"
 
 #: src/amo/components/Footer/index.js:109
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Nettlesar for datamaskiner"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
 #, fuzzy
@@ -459,11 +407,11 @@ msgstr "Personvernpraksis"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "Infokapslar"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "Juridisk"
 
 #: src/amo/components/Footer/index.js:141
 #, fuzzy
@@ -472,9 +420,8 @@ msgstr "Rapporter ein feil"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:23
@@ -488,11 +435,11 @@ msgstr "Lenker for utvidingar"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Om"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blogg"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -500,7 +447,7 @@ msgstr "Utviklar-knutepunkt"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: src/amo/components/Footer/index.js:74
 msgid "View classic desktop site"
@@ -512,15 +459,15 @@ msgstr "Rapporter ein feil"
 
 #: src/amo/components/Footer/index.js:80
 msgid "Site Status"
-msgstr ""
+msgstr "Nettstadstatus"
 
 #: src/amo/components/Footer/index.js:94
 msgid "Android Browser"
-msgstr ""
+msgstr "Nettlesar for Android"
 
 #: src/amo/components/Footer/index.js:99
 msgid "iOS Browser"
-msgstr ""
+msgstr "Nettlesar for iOS"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -528,22 +475,21 @@ msgstr "Rediger profil"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "Verktøy"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Send inn ei ny utviding"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Send inn eit nytt tema"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "Handter API-nyklar"
 
-#: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
 msgid "Log out"
 msgstr "Logg ut"
 
@@ -595,8 +541,7 @@ msgstr "Sporty"
 msgid "Solid"
 msgstr "Einsfarga"
 
-#: src/amo/components/Home/index.js:138
-#: src/amo/components/SuggestedPages/index.js:26
+#: src/amo/components/Home/index.js:138 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
 msgstr "Bla i alle utvidingar"
 
@@ -604,15 +549,11 @@ msgstr "Bla i alle utvidingar"
 msgid "You can change how Firefox works…"
 msgstr "Du kan endre korleis Firefox fungerer…"
 
-#: src/amo/components/Home/index.js:146
-#: src/amo/components/LandingPage/index.js:195
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
+#: src/amo/components/Home/index.js:146 src/amo/components/LandingPage/index.js:195
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
 msgstr ""
 
-#: src/amo/components/Home/index.js:157
-#: src/amo/components/SuggestedPages/index.js:31
+#: src/amo/components/Home/index.js:157 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
 msgstr "Bla i alle tema"
 
@@ -620,14 +561,9 @@ msgstr "Bla i alle tema"
 msgid "…or what it looks like"
 msgstr "…eller korleis den ser ut"
 
-#: src/amo/components/Home/index.js:165
-#: src/amo/components/LandingPage/index.js:193
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Endre utsjånad på nettlesaren. Vel frå tusenvis av utvidingar for å gje "
-"Firefox den utsjånaden du vil."
+#: src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:193
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Endre utsjånad på nettlesaren. Vel frå tusenvis av utvidingar for å gje Firefox den utsjånaden du vil."
 
 #: src/amo/components/Home/index.js:66 src/amo/components/Home/index.js:91
 msgid "Block ads"
@@ -689,13 +625,11 @@ msgstr "Høgst vurderte tema"
 msgid "More highly rated themes"
 msgstr "Fleire høgt vurderte tema"
 
-#: src/amo/components/LandingPage/index.js:189
-#: src/amo/components/SectionLinks/index.js:94
+#: src/amo/components/LandingPage/index.js:189 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
 msgstr "Tema"
 
-#: src/amo/components/LandingPage/index.js:190
-#: src/amo/components/SectionLinks/index.js:84
+#: src/amo/components/LandingPage/index.js:190 src/amo/components/SectionLinks/index.js:84
 msgid "Extensions"
 msgstr "Utvidingar"
 
@@ -742,9 +676,7 @@ msgid "You reported this add-on for abuse"
 msgstr "Logg inn for å vurdere denne utvidinga"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:118
@@ -752,22 +684,16 @@ msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:129
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:151
-#: src/amo/components/ReportAbuseButton/index.js:157
+#: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 #, fuzzy
 msgid "Report this add-on for abuse"
 msgstr "Gå til utvidings-sida"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:178
@@ -776,15 +702,15 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:191
 msgid "Dismiss"
-msgstr ""
+msgstr "Avvis"
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Sender rapport om misbruk"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Send abuse report"
-msgstr ""
+msgstr "Send rapport om misbruk"
 
 #: src/amo/components/SearchContextCard/index.js:40
 #, fuzzy
@@ -861,8 +787,7 @@ msgstr "Utvidingstype"
 msgid "Operating System"
 msgstr "Operativsystem"
 
-#: src/amo/components/SearchFilters/index.js:70
-#: src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
 msgid "All"
 msgstr "Alle"
 
@@ -926,8 +851,7 @@ msgstr "Finn tema"
 msgid "Find add-ons"
 msgstr "Finn utvidingar"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Søk"
 
@@ -961,11 +885,11 @@ msgstr "Søkjeresultat"
 
 #: src/amo/components/SectionLinks/index.js:100
 msgid "More…"
-msgstr ""
+msgstr "Meir…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Ordbøker og språkpakkar"
 
 #: src/amo/components/SectionLinks/index.js:121
 #, fuzzy
@@ -988,7 +912,7 @@ msgstr "Utvidingar for Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "for Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
@@ -1007,15 +931,10 @@ msgid "Register or Log in"
 msgstr "Registrer deg eller logg inn"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre "
-"førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Beklagar, men det oppstod ein feil, og vi klarte ikkje å fullføre førespurnaden din. Vi har logga denne feilen og kjem til å undersøke det."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
@@ -1027,8 +946,7 @@ msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:128 src/core/components/InstallButton/index.js:146
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -1112,12 +1030,8 @@ msgstr "Ingen vurderingar"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese meir"
 
-#~ msgid ""
-#~ "Install powerful tools that make browsing faster and safer, add-ons make "
-#~ "your browser yours."
-#~ msgstr ""
-#~ "Installer kraftige verktyg som gjer surfinga raskare og tryggare, "
-#~ "utvidingar gjer nettlesaren til din eigen."
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+#~ msgstr "Installer kraftige verktyg som gjer surfinga raskare og tryggare, utvidingar gjer nettlesaren til din eigen."
 
 #~ msgid "Privacy policy"
 #~ msgstr "Personvernpraksis"
@@ -1146,12 +1060,8 @@ msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese meir"
 #~ msgid "Browse by category"
 #~ msgstr "Bla gjennom etter kategori"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Utvidingar er spesielle funksjonar som du kan legge til Firefox. Tema lar "
-#~ "deg endre utsjånad på nettlesaren din."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Utvidingar er spesielle funksjonar som du kan legge til Firefox. Tema lar deg endre utsjånad på nettlesaren din."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s av 5"
