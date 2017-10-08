@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-05 16:16+0000\n"
+"PO-Revision-Date: 2017-10-08 02:44+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -699,7 +699,7 @@ msgstr "Объясните, как это дополнение нарушает 
 
 #: src/amo/components/ReportAbuseButton/index.js:191
 msgid "Dismiss"
-msgstr "Убрать"
+msgstr "Закрыть"
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Sending abuse report"
