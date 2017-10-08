@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-07 11:29+0000\n"
+"PO-Revision-Date: 2017-10-08 08:25+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -69,9 +69,8 @@ msgid "More extensions by %(author)s"
 msgstr "Fleire utvidingar av %(author)s"
 
 #: src/amo/components/Addon/index.js:332
-#, fuzzy
 msgid "More extensions by these developers"
-msgstr "Søk etter utvidingar og tema"
+msgstr "Fleire utvidingar av desse utviklarane"
 
 #: src/amo/components/Addon/index.js:339
 msgid "More language packs by %(author)s"
@@ -170,14 +169,12 @@ msgid "Read the license agreement for this add-on"
 msgstr "Les lisensavtalen for denne utvidinga"
 
 #: src/amo/components/AddonMoreInfo/index.js:110
-#, fuzzy
 msgid "See all versions"
-msgstr "Bla i alle utvidingar"
+msgstr "Vis alle versjonar"
 
 #: src/amo/components/AddonMoreInfo/index.js:120
-#, fuzzy
 msgid "See all beta versions"
-msgstr "Bla i alle utvidingar"
+msgstr "Vis alle beta-versjonane"
 
 #: src/amo/components/AddonMoreInfo/index.js:144
 msgid "Add-on Links"
@@ -204,14 +201,12 @@ msgid "End-User License Agreement"
 msgstr "Lisensavtale for sluttbrukarar"
 
 #: src/amo/components/AddonMoreInfo/index.js:185
-#, fuzzy
 msgid "Version History"
-msgstr "Versjon"
+msgstr "Versjonshistorikk"
 
 #: src/amo/components/AddonMoreInfo/index.js:191
-#, fuzzy
 msgid "Beta Versions"
-msgstr "Versjon"
+msgstr "Beta-versjonar"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
 msgid "Usage Statistics"
@@ -294,9 +289,8 @@ msgid "from %(authorName)s, %(timestamp)s"
 msgstr "frå %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:99
-#, fuzzy
 msgid "Edit my review"
-msgstr "Skriv ei vurdering"
+msgstr "Rediger vurderinga mi"
 
 #: src/amo/components/App/index.js:201 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -401,9 +395,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:138
-#, fuzzy
 msgid "Privacy"
-msgstr "Personvernpraksis"
+msgstr "Personvern"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
@@ -414,9 +407,8 @@ msgid "Legal"
 msgstr "Juridisk"
 
 #: src/amo/components/Footer/index.js:141
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Rapporter ein feil"
+msgstr "Rapporter misbruk av varemerke"
 
 #: src/amo/components/Footer/index.js:150
 msgid ""
@@ -431,9 +423,8 @@ msgid "Go to Mozilla's homepage"
 msgstr "Gå til Mozilla-heimesida"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "Lenker for utvidingar"
+msgstr "Utvidingar"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -640,9 +631,8 @@ msgid "Explore all categories"
 msgstr "Utforsk alle kategoriar"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "Finn språkpakke"
+msgstr "Endre språk"
 
 #: src/amo/components/RatingManager/index.js:127
 msgid "Log in to rate this dictionary"
@@ -673,9 +663,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kva synest du om %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "Logg inn for å vurdere denne utvidinga"
+msgstr "Du rapporterte denne utvidinga for misbruk"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -692,9 +681,8 @@ msgstr ""
 "rapporterer problema til Mozilla ved å bruke dette formularet."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Gå til utvidings-sida"
+msgstr "Rapporter denne utvidinga for misbruk"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -896,23 +884,20 @@ msgid "Dictionaries & Language Packs"
 msgstr "Ordbøker og språkpakkar"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
-msgstr "Søkjeresultat"
+msgstr "Søkjeverktøy"
 
 #: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
 msgstr "Andre nettlesarplassar"
 
 #: src/amo/components/SectionLinks/index.js:137
-#, fuzzy
 msgid "Add-ons for Android"
-msgstr "Utvidingar for Firefox"
+msgstr "Utvidingar for Android"
 
 #: src/amo/components/SectionLinks/index.js:59
-#, fuzzy
 msgid "for Firefox"
-msgstr "Utvidingar for Firefox"
+msgstr "for Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
