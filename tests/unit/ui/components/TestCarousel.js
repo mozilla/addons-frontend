@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import React from 'react';
 import NukaCarousel from 'nuka-carousel';
 
+import * as coreUtils from 'core/utils';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import Carousel, { CarouselBase } from 'ui/components/Carousel';
 
@@ -94,5 +95,42 @@ describe(__filename, () => {
     expect(root.find('p')).toHaveLength(2);
     expect(root.find('.something')).toHaveLength(1);
     expect(root.find('.something-else')).toHaveLength(1);
+  });
+
+  it('does not randomize sections when random prop is false', () => {
+    const sections = [];
+    const sortSpy = sinon.spy(coreUtils, 'randomizeArray');
+
+    shallowRender({ random: false, sections });
+
+    sinon.assert.notCalled(sortSpy);
+  });
+
+  it('randomizes sections when random prop is set', () => {
+    const sections = [];
+    const sortSpy = sinon.spy(coreUtils, 'randomizeArray');
+
+    shallowRender({ random: true, sections });
+
+    sinon.assert.called(sortSpy);
+  });
+
+  it('does not re-sort sections if nextProps and props are equal', () => {
+    const sections = [
+      <p className="something" key="1">Howdy!</p>,
+      <p className="something-else" key="2">Bonjour !</p>,
+    ];
+    const root = shallowRender({ random: true, sections });
+    const sectionSortSpy = sinon.spy(root.instance(), 'storeSortedSections');
+
+    sinon.assert.notCalled(sectionSortSpy);
+
+    root.setProps({ random: true, sections });
+
+    sinon.assert.notCalled(sectionSortSpy);
+
+    root.setProps({ random: false, sections });
+
+    sinon.assert.called(sectionSortSpy);
   });
 });

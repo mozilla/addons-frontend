@@ -20,5 +20,6 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('HomeCarousel');
     expect(root.find(Carousel)).toHaveLength(1);
+    expect(root.find(Carousel)).toHaveProp('random', true);
   });
 });

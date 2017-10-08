@@ -78,7 +78,7 @@ export class HomeCarouselBase extends React.Component {
   render() {
     return (
       <div className="HomeCarousel">
-        <Carousel sections={this.carouselSections()} />
+        <Carousel random sections={this.carouselSections()} />
       </div>
     );
   }

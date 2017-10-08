@@ -4,6 +4,7 @@ import url from 'url';
 
 import { oneLine } from 'common-tags';
 import config from 'config';
+import { knuthShuffle } from 'knuth-shuffle';
 import mozCompare from 'mozilla-version-comparator';
 import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
@@ -476,4 +477,8 @@ export function addonHasVersionHistory(addon) {
     ADDON_TYPE_OPENSEARCH,
     ADDON_TYPE_THEME,
   ].includes(addon.type);
+}
+
+export function randomizeArray(array, { shuffleMethod = knuthShuffle } = {}) {
+  return shuffleMethod(Array.prototype.slice.call(array));
 }
