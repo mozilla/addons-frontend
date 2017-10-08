@@ -30,122 +30,142 @@ $default-icon-size: 64px;
   }
 }
 
-.Icon-abstract {
+.Icon-category-abstract {
   @include icon($name: "abstract");
 }
 
-.Icon-alerts-updates {
+.Icon-category-alerts-updates {
   @include icon($name: "alerts-updates");
 }
 
-.Icon-appearance {
+.Icon-category-appearance {
   @include icon($name: "appearance");
 }
 
-.Icon-bookmarks {
+.Icon-category-bookmarks {
   @include icon($name: "bookmarks");
 }
 
-.Icon-causes {
+.Icon-category-causes {
   @include icon($name: "causes");
 }
 
-.Icon-download-management {
+.Icon-category-download-management {
   @include icon($name: "download-management");
 }
 
-.Icon-fashion {
+.Icon-category-fashion {
   @include icon($name: "fashion");
 }
 
-.Icon-feeds-news-blogging {
+.Icon-category-feeds-news-blogging {
   @include icon($name: "feeds-news-blogging");
 }
 
-.Icon-film-and-tv {
+.Icon-category-film-and-tv {
   @include icon($name: "film-tv");
 }
 
-.Icon-firefox {
+.Icon-category-firefox {
   @include icon($name: "firefox");
 }
 
-.Icon-foxkeh {
+.Icon-category-foxkeh {
   @include icon($name: "foxkeh");
 }
 
-.Icon-games-entertainment {
+.Icon-category-games-entertainment {
   @include icon($name: "games-entertainment");
 }
 
-.Icon-holiday {
+.Icon-category-holiday {
   @include icon($name: "holiday");
 }
 
-.Icon-language-support {
+.Icon-category-language-support {
   @include icon($name: "language-support");
 }
 
-.Icon-music {
+.Icon-category-music {
   @include icon($name: "music");
 }
 
-.Icon-nature {
+.Icon-category-nature {
   @include icon($name: "nature");
 }
 
-.Icon-other-extension {
+.Icon-category-other-extension {
   @include icon($name: "other-extension");
 }
 
-.Icon-other-persona {
+.Icon-category-other-persona {
   @include icon($name: "other-theme");
 }
 
-.Icon-photos-music-videos {
+.Icon-category-photos-music-videos,
+.Icon-category-photos-media {
   @include icon($name: "photos-music-video");
 }
 
-.Icon-privacy-security {
+.Icon-category-privacy-security,
+.Icon-category-security-privacy {
   @include icon($name: "privacy-security");
 }
 
-.Icon-scenery {
+.Icon-category-scenery {
   @include icon($name: "scenery");
 }
 
-.Icon-search-tools {
+.Icon-category-search-tools {
   @include icon($name: "search-tools");
 }
 
-.Icon-seasonal {
+.Icon-category-seasonal {
   @include icon($name: "seasonal");
 }
 
-.Icon-shopping {
+.Icon-category-shopping {
   @include icon($name: "shopping");
 }
 
-.Icon-social-communication {
+.Icon-category-social-communication,
+.Icon-category-social-networking {
   @include icon($name: "social-communication");
 }
 
-.Icon-solid {
+.Icon-category-solid {
   @include icon($name: "solid");
 }
 
-.Icon-sports {
+.Icon-category-sports,
+.Icon-category-sports-games {
   @include icon($name: "sports");
 }
 
-.Icon-tabs {
+.Icon-category-tabs {
   @include icon($name: "tabs");
 }
 
-.Icon-web-development {
+.Icon-category-web-development {
   @include icon($name: "web-development");
 }
 
-.Icon-websites {
+.Icon-category-websites {
   @include icon($name: "websites");
+}
+
+.Icon-category-device-features-location {
+  @include icon($name: "device-features-location");
+}
+
+.Icon-category-experimental {
+  @include icon($name: "experimental");
+}
+
+.Icon-category-performance {
+  @include icon($name: "performance");
+}
+
+.Icon-category-user-interface {
+  @include icon($name: "user-interface");
 }
