@@ -105,4 +105,8 @@
   .DropdownMenu--active & {
     display: block;
   }
+
+  @include respond-to(extraLarge) {
+    max-width: 300px;
+  }
 }
