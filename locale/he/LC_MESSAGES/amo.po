@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-03 21:03+0000\n"
-"PO-Revision-Date: 2017-10-07 20:02+0000\n"
+"PO-Revision-Date: 2017-10-07 17:44+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -143,7 +143,7 @@ msgstr "הדפדפן שלך אינו תומך בתוספות. באפשרותך <
 #: src/amo/components/AddonMeta.js:34 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
+msgstr[0] "משתמש אחד"
 msgstr[1] "%(total)s משתמשים"
 
 #: src/amo/components/AddonMeta.js:46
