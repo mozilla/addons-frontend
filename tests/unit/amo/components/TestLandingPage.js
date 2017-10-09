@@ -308,4 +308,26 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
     }));
   });
+
+  it('does not dispatch setViewContext when addonType does not change', () => {
+    const { store } = dispatchClientMetadata();
+
+    const addonType = ADDON_TYPE_EXTENSION;
+    const errorHandler = createStubErrorHandler();
+    const params = { visibleAddonType: visibleAddonType(addonType) };
+
+    store.dispatch(landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(setViewContext(addonType));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ errorHandler, params, store });
+
+    fakeDispatch.reset();
+    root.setProps({ params });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
 });

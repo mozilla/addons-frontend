@@ -41,6 +41,7 @@ export class LandingPageBase extends React.Component {
     // `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
     addonTypeOfResults: PropTypes.string.isRequired,
+    context: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     featuredAddons: PropTypes.array.isRequired,
@@ -107,7 +108,10 @@ export class LandingPageBase extends React.Component {
   setViewContextType(nextProps = {}) {
     const { params } = { ...this.props, ...nextProps };
     const addonType = apiAddonType(params.visibleAddonType);
-    this.props.dispatch(setViewContext(addonType));
+
+    if (this.props.context !== addonType) {
+      this.props.dispatch(setViewContext(addonType));
+    }
   }
 
   contentForType = (visibleAddonType) => {
@@ -258,10 +262,11 @@ export class LandingPageBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  const { landing } = state;
+  const { landing, viewContext } = state;
 
   return {
     addonTypeOfResults: landing.addonType,
+    context: viewContext.context,
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,
     loading: landing.loading,
