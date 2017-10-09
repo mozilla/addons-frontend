@@ -227,6 +227,7 @@ module.exports = {
   validLocaleUrlExceptions: [],
   validClientAppUrlExceptions: [],
   validTrailingSlashUrlExceptions: [],
+  clientAppRoutes: [],
 
   // The default app used in the URL.
   defaultClientApp: 'firefox',

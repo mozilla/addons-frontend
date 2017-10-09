@@ -198,7 +198,10 @@ export class AppBase extends React.Component {
     return (
       <NestedStatus code={200}>
         <div className="amo">
-          <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
+          <Helmet
+            defaultTitle={i18n.gettext('Add-ons for Firefox')}
+            titleTemplate={i18n.gettext('%s - Add-ons for Firefox')}
+          />
           <InfoDialogComponent />
           <HeaderComponent
             SearchFormComponent={SearchForm}

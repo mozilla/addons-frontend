@@ -1,0 +1,33 @@
+@import "~amo/css/inc/vars";
+@import "~photon-colors/colors";
+
+.StaticPage {
+  margin: $page-margin;
+
+  .Card-contents li,
+  .Card-contents p {
+    font-size: $font-size-default;
+  }
+
+  h1,
+  h2 {
+    color: $grey-90;
+  }
+
+  h1 {
+    font-size: $font-size-m;
+  }
+
+  h2,
+  h3 {
+    font-size: $font-size-default;
+  }
+
+  h3 {
+    color: $grey-60;
+  }
+}
+
+.StaticPageWrapper {
+  max-width: 960px;
+}
