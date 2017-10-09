@@ -44,7 +44,7 @@ export class FooterBase extends React.Component {
             <ul className="Footer-links">
               <li>
                 <Link
-                  href="/about"
+                  to="/about"
                   prependClientApp={false}
                 >
                   {i18n.gettext('About')}
@@ -65,6 +65,18 @@ export class FooterBase extends React.Component {
                 <a href="https://discourse.mozilla-community.org/c/add-ons">{i18n.gettext('Forum')}</a>
               </li>
               <li>
+                <a className="Footer-bug-report-link" href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact">{i18n.gettext('Report a bug')}</a>
+              </li>
+              <li>
+                <Link
+                  to="/review_guide"
+                  prependClientApp={false}
+                >
+                  {i18n.gettext('Review Guide')}
+                </Link>
+              </li>
+              <li><a href="https://status.mozilla.org/#addons.mozilla.org_service_history">{i18n.gettext('Site Status')}</a></li>
+              <li>
                 <a
                   href="#desktop"
                   className="Footer-link Footer-desktop"
@@ -74,10 +86,6 @@ export class FooterBase extends React.Component {
                   {i18n.gettext('View classic desktop site')}
                 </a>
               </li>
-              <li>
-                <a className="Footer-bug-report-link" href="https://developer.mozilla.org/Add-ons/AMO/Policy/Contact">{i18n.gettext('Report a bug')}</a>
-              </li>
-              <li><a href="https://status.mozilla.org/#addons.mozilla.org_service_history">{i18n.gettext('Site Status')}</a></li>
             </ul>
           </section>
 
