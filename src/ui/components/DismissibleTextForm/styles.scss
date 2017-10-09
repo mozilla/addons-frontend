@@ -18,16 +18,10 @@
   margin-top: 6px;
 
   @include respond-to(medium) {
-    justify-content: center;
     margin-top: 24px;
 
     .Button {
-      margin-left: 48px;
       padding: 0 64px;
-
-      &:first-child {
-        margin-left: 0;
-      }
     }
   }
 }
