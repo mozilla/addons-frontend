@@ -118,6 +118,7 @@ export class DismissibleTextFormBase extends React.Component {
             className={classNames(
               'DismissibleTextForm-dismiss',
               'Button--cancel',
+              'Button--wide',
             )}
             disabled={isSubmitting}
           >
@@ -128,6 +129,7 @@ export class DismissibleTextFormBase extends React.Component {
             className={classNames(
               'DismissibleTextForm-submit',
               'Button--action',
+              'Button--wide',
               submitButtonClassName,
             )}
             disabled={sendButtonIsDisabled}

@@ -1,5 +1,6 @@
 @import "~photon-colors/colors";
 
+@import "~amo/css/inc/vars";
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
@@ -60,4 +61,11 @@
     $background-active: $report-active-color,
     $background-hover: $report-hover-color
   );
+}
+
+.Button--wide {
+  @include respond-to(medium) {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
 }

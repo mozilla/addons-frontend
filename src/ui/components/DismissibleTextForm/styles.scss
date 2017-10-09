@@ -19,10 +19,6 @@
 
   @include respond-to(medium) {
     margin-top: 24px;
-
-    .Button {
-      padding: 0 64px;
-    }
   }
 }
 
