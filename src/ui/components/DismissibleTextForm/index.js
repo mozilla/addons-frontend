@@ -117,7 +117,7 @@ export class DismissibleTextFormBase extends React.Component {
             onClick={this.onDismiss}
             className={classNames(
               'DismissibleTextForm-dismiss',
-              'Button--counter-action',
+              'Button--cancel',
             )}
             disabled={isSubmitting}
           >
