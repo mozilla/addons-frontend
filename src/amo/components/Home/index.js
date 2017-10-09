@@ -166,7 +166,7 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addons={popularExtensions}
-          className="PopularExtensions"
+          className="Home-PopularExtensions"
           header={i18n.gettext('Most popular extensions')}
           footerText={i18n.gettext('More popular extensions')}
           footerLink={{
@@ -181,7 +181,7 @@ export class HomeBase extends React.Component {
 
         <LandingAddonsCard
           addons={featuredCollection}
-          className="FeaturedCollection"
+          className="Home-FeaturedCollection"
           header={i18n.gettext('Change your tabs')}
           footerText={i18n.gettext('Browse this collection')}
           footerLink={{ pathname:

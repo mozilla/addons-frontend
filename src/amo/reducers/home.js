@@ -122,9 +122,9 @@ const reducer = (
         ...state,
         featuredCollection: featuredCollection.results
           .slice(0, LANDING_PAGE_ADDON_COUNT)
-          .map((item) => (
-            createInternalAddon(item.addon)
-          )),
+          .map((item) => {
+            return createInternalAddon(item.addon);
+          }),
         popularExtensions: popularExtensions.result.results.map((slug) => (
           createInternalAddon(popularExtensions.entities.addons[slug])
         )),
