@@ -246,7 +246,7 @@ export class AddonReviewListItemBase extends React.Component {
         {replyingToReview ?
           <DismissibleTextForm
             className="AddonReviewListItem-reply-form"
-            isSubmitting={submittingReply}
+            isSubmitting={submittingReply && !errorHandler.hasError()}
             onDismiss={this.onDismissReviewReply}
             onSubmit={this.onSubmitReviewReply}
             placeholder={i18n.gettext(
