@@ -153,11 +153,3 @@ $default-icon-size: 64px;
 .Icon-websites {
   @include icon($name: "websites");
 }
-
-// `experimental` is also the name of a `ui/components/Icon`. Because we use
-// this component to render the category icons and there is no category version
-// for it yet, we should hide it otherwise the wrong icon is displayed.
-// See: https://github.com/mozilla/addons-frontend/issues/3377
-.Icon-experimental {
-  display: none;
-}
