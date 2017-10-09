@@ -259,9 +259,9 @@ describe(__filename, () => {
     expect(textForm)
       .toHaveProp('placeholder', 'Write a reply to this review.');
     expect(textForm)
-      .toHaveProp('submitButtonText', 'Submit reply');
+      .toHaveProp('submitButtonText', 'Publish reply');
     expect(textForm)
-      .toHaveProp('submitButtonInProgressText', 'Submitting reply');
+      .toHaveProp('submitButtonInProgressText', 'Publishing reply');
   });
 
   it('dispatches a finish action when dismissing a reply-to-review text form', () => {
