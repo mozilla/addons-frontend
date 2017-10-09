@@ -37,17 +37,22 @@ const ICON_MAP = {
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
-    addonTypeOfResults: PropTypes.string,
+    // This is a bug; addonTypeOfResults is used in
+    // `componentWillReceiveProps()`.
+    // eslint-disable-next-line react/no-unused-prop-types
+    addonTypeOfResults: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    featuredAddons: PropTypes.array,
-    highlyRatedAddons: PropTypes.array,
+    featuredAddons: PropTypes.array.isRequired,
+    highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    popularAddons: PropTypes.array,
+    popularAddons: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     params: PropTypes.objectOf({
       visibleAddonType: PropTypes.string.isRequired,
     }).isRequired,
+    // This is a bug; resultsLoaded is used in `componentWillReceiveProps()`.
+    // eslint-disable-next-line react/no-unused-prop-types
     resultsLoaded: PropTypes.bool.isRequired,
   }
 
@@ -63,43 +68,46 @@ export class LandingPageBase extends React.Component {
     this.setViewContextType();
   }
 
-  componentDidUpdate() {
-    const { params } = this.props;
+  componentWillReceiveProps(nextProps) {
+    const { params } = nextProps;
+
     if (!apiAddonTypeIsValid(params.visibleAddonType)) {
-      log.warn(oneLine`Skipping componentDidUpdate() because visibleAddonType
-        is invalid: ${params.visibleAddonType}`);
+      log.warn(oneLine`Skipping componentWillReceiveProps() because
+        visibleAddonType is invalid: ${params.visibleAddonType}`);
       return;
     }
 
-    this.getLandingDataIfNeeded();
-    this.setViewContextType();
+    this.getLandingDataIfNeeded(nextProps);
+    this.setViewContextType(nextProps);
   }
 
-  getLandingDataIfNeeded() {
+  getLandingDataIfNeeded(nextProps = {}) {
     const {
       addonTypeOfResults,
-      dispatch,
       errorHandler,
       loading,
       params,
       resultsLoaded,
-    } = this.props;
+    } = {
+      ...this.props,
+      ...nextProps,
+    };
 
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
     if (!loading && !errorHandler.hasError() &&
-        (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
-      dispatch(getLanding({
+      (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
+      this.props.dispatch(getLanding({
         addonType: requestedAddonType,
         errorHandlerId: errorHandler.id,
       }));
     }
   }
 
-  setViewContextType() {
-    const { dispatch, params } = this.props;
+  setViewContextType(nextProps = {}) {
+    const { params } = { ...this.props, ...nextProps };
     const addonType = apiAddonType(params.visibleAddonType);
-    dispatch(setViewContext(addonType));
+    this.props.dispatch(setViewContext(addonType));
   }
 
   contentForType = (visibleAddonType) => {
@@ -250,13 +258,15 @@ export class LandingPageBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
+  const { landing } = state;
+
   return {
-    addonTypeOfResults: state.landing.addonType,
-    featuredAddons: state.landing.featured.results,
-    highlyRatedAddons: state.landing.highlyRated.results,
-    loading: state.landing.loading,
-    popularAddons: state.landing.popular.results,
-    resultsLoaded: state.landing.resultsLoaded,
+    addonTypeOfResults: landing.addonType,
+    featuredAddons: landing.featured.results,
+    highlyRatedAddons: landing.highlyRated.results,
+    loading: landing.loading,
+    popularAddons: landing.popular.results,
+    resultsLoaded: landing.resultsLoaded && landing.category === null,
   };
 }
 

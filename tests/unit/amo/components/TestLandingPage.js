@@ -1,11 +1,14 @@
-import { mount, shallow } from 'enzyme';
+import { mount } from 'enzyme';
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
-import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import LandingPage, {
+  LandingPageBase,
+  mapStateToProps,
+} from 'amo/components/LandingPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -15,27 +18,40 @@ import {
 import I18nProvider from 'core/i18n/Provider';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
+import {
+  createAddonsApiResult,
+  dispatchClientMetadata,
+  fakeAddon,
+} from 'tests/unit/amo/helpers';
+import {
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
-describe('<LandingPage />', () => {
-  function renderProps(props = {}) {
+describe(__filename, () => {
+  function renderProps({
+    store = dispatchClientMetadata().store,
+    ...otherProps
+  } = {}) {
     return {
-      dispatch: sinon.stub(),
+      dispatch: store.dispatch,
       errorHandler: createStubErrorHandler(),
       i18n: fakeI18n(),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
       resultsLoaded: false,
-      ...props,
+      store,
+      ...otherProps,
     };
   }
 
   function render(props = {}) {
-    return shallow(<LandingPageBase {...renderProps(props)} />, {
-      lifecycleExperimental: true,
-    });
+    return shallowUntilTarget(
+      <LandingPage {...renderProps(props)} />,
+      LandingPageBase
+    );
   }
 
   function renderAndMount(props = {}) {
@@ -50,16 +66,14 @@ describe('<LandingPage />', () => {
   }
 
   it('dispatches setViewContext on load and update', () => {
-    const fakeDispatch = sinon.stub();
-    const root = render({
-      dispatch: fakeDispatch,
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
-    });
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    const root = render({ store });
+
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+
     fakeDispatch.reset();
-
     root.setProps({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
@@ -68,97 +82,85 @@ describe('<LandingPage />', () => {
   });
 
   it('dispatches getLanding when results are not loaded', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    render({
-      dispatch,
-      errorHandler,
-      params: { visibleAddonType: visibleAddonType(addonType) },
-      resultsLoaded: false,
-    });
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
 
-    sinon.assert.calledWith(dispatch,
-      landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
-    );
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
+
+    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
+      addonType: ADDON_TYPE_EXTENSION,
+      errorHandlerId: errorHandler.id,
+    }));
   });
 
-  it('dispatches getLanding when addonType changes', () => {
+  it('dispatches getLanding when addon type changes', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-    const addonTypeOfResults = ADDON_TYPE_THEME;
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    render({
-      addonTypeOfResults,
-      dispatch,
-      errorHandler,
-      params: { visibleAddonType: visibleAddonType(addonType) },
-      resultsLoaded: true,
-      loading: false,
-    });
 
-    sinon.assert.calledWith(dispatch,
-      landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
-    );
-  });
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
 
-  it('dispatches getLanding when visibleAddonType changes', () => {
-    const firstAddonType = ADDON_TYPE_EXTENSION;
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    const root = render({
-      addonTypeOfResults: firstAddonType,
-      dispatch,
-      errorHandler,
-      params: { visibleAddonType: visibleAddonType(firstAddonType) },
-      resultsLoaded: true,
-      loading: false,
-    });
+    // Load theme add-ons.
+    store.dispatch(landingActions.getLanding({
+      addonType: ADDON_TYPE_THEME,
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([]),
+      highlyRated: createAddonsApiResult([]),
+      popular: createAddonsApiResult([]),
+    }));
 
-    dispatch.reset();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
 
-    const secondAddonType = ADDON_TYPE_THEME;
+    const root = render({ errorHandler, store });
+    fakeDispatch.reset();
+
+    // Now we request extension add-ons.
     root.setProps({
-      params: { visibleAddonType: visibleAddonType(secondAddonType) },
+      params: { visibleAddonType: visibleAddonType(addonType) },
     });
 
-    sinon.assert.calledWith(dispatch,
-      landingActions.getLanding({
-        addonType: secondAddonType, errorHandlerId: errorHandler.id,
-      })
-    );
+    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
   });
 
   it('does not dispatch getLanding while loading', () => {
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    render({
-      dispatch,
-      errorHandler,
-      resultsLoaded: false,
-      loading: true,
-    });
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
+
+    store.dispatch(landingActions.getLanding({
+      addonType: ADDON_TYPE_EXTENSION,
+      errorHandlerId: errorHandler.id,
+    }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
 
     // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.callCount(dispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('does not dispatch getLanding when there is an error', () => {
-    const dispatch = sinon.stub();
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch, capturedError: new Error('some error'),
-    });
-    render({
-      dispatch,
-      errorHandler,
-      loading: false,
-      resultsLoaded: false,
+      id: 'some-id',
+      fakeDispatch,
+      capturedError: new Error('some error'),
     });
 
+    render({ errorHandler, store });
+
     // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.callCount(dispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('renders an error', () => {
@@ -238,45 +240,18 @@ describe('<LandingPage />', () => {
     const { store } = dispatchClientMetadata();
     store.dispatch(landingActions.loadLanding({
       addonType: ADDON_TYPE_THEME,
-      featured: {
-        entities: {
-          addons: {
-            howdy: {
-              ...fakeAddon, name: 'Howdy', slug: 'howdy',
-            },
-            'howdy-again': {
-              ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['howdy', 'howdy-again'] },
-      },
-      highlyRated: {
-        entities: {
-          addons: {
-            high: {
-              ...fakeAddon, name: 'High', slug: 'high',
-            },
-            'high-again': {
-              ...fakeAddon, name: 'High again', slug: 'high-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['high', 'high-again'] },
-      },
-      popular: {
-        entities: {
-          addons: {
-            pop: {
-              ...fakeAddon, name: 'Pop', slug: 'pop',
-            },
-            'pop-again': {
-              ...fakeAddon, name: 'Pop again', slug: 'pop-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['pop', 'pop-again'] },
-      },
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      popular: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
     }));
     const root = renderAndMount({
       ...mapStateToProps(store.getState()),
@@ -302,5 +277,35 @@ describe('<LandingPage />', () => {
     });
     root.setProps({ params: { visibleAddonType: 'XUL' } });
     expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('dispatches getLanding when category filter is set', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
+
+    // This loads a set of add-ons for a category.
+    store.dispatch(landingActions.getLanding({
+      addonType,
+      category: 'some-category',
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(landingActions.loadLanding({
+      addonType,
+      featured: createAddonsApiResult([]),
+      highlyRated: createAddonsApiResult([]),
+      popular: createAddonsApiResult([]),
+    }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
+
+    sinon.assert.callCount(fakeDispatch, 2);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
   });
 });
