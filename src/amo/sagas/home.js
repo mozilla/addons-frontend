@@ -1,4 +1,5 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import { getCollectionAddons } from 'amo/api/collections';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import {
   FETCH_HOME_ADDONS,
@@ -13,7 +14,13 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
-export function* fetchHomeAddons({ payload: { errorHandlerId } }) {
+export function* fetchHomeAddons({
+  payload: {
+    errorHandlerId,
+    featuredCollectionSlug,
+    featuredCollectionUser,
+  },
+}) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -23,6 +30,7 @@ export function* fetchHomeAddons({ payload: { errorHandlerId } }) {
 
     const {
       popularExtensions,
+      featuredCollection,
     } = yield all({
       popularExtensions: call(searchApi, {
         api: state.api,
@@ -33,10 +41,17 @@ export function* fetchHomeAddons({ payload: { errorHandlerId } }) {
         },
         page: 1,
       }),
+      featuredCollection: call(getCollectionAddons, {
+        api: state.api,
+        page: 1,
+        slug: featuredCollectionSlug,
+        user: featuredCollectionUser,
+      }),
     });
 
     yield put(loadHomeAddons({
       popularExtensions,
+      featuredCollection,
     }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);

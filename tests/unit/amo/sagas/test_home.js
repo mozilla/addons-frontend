@@ -1,5 +1,6 @@
 import SagaTester from 'redux-saga-tester';
 
+import * as collectionsApi from 'amo/api/collections';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import homeReducer, {
   fetchHomeAddons,
@@ -15,6 +16,7 @@ import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createAddonsApiResult,
+  createFakeCollectionAddons,
   dispatchClientMetadata,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
@@ -22,11 +24,13 @@ import {
 
 describe(__filename, () => {
   let errorHandler;
+  let mockCollectionsApi;
   let mockSearchApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
+    mockCollectionsApi = sinon.mock(collectionsApi);
     mockSearchApi = sinon.mock(searchApi);
     sagaTester = new SagaTester({
       initialState: dispatchClientMetadata().state,
@@ -42,12 +46,17 @@ describe(__filename, () => {
     function _fetchHomeAddons(params) {
       sagaTester.dispatch(fetchHomeAddons({
         errorHandlerId: errorHandler.id,
+        featuredCollectionSlug: 'some-slug',
+        featuredCollectionUser: 'some-user',
         ...params,
       }));
     }
 
     it('calls the API to fetch the add-ons to display on home', async () => {
       const state = sagaTester.getState();
+
+      const slug = 'collection-slug';
+      const user = 'user-id-or-name';
 
       const baseArgs = { api: state.api };
       const baseFilters = {
@@ -70,9 +79,25 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(popularExtensions));
 
-      _fetchHomeAddons();
+      const featuredCollection = createFakeCollectionAddons();
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          ...baseArgs,
+          page: 1,
+          slug,
+          user,
+        })
+        .once()
+        .returns(Promise.resolve(featuredCollection));
+
+      _fetchHomeAddons({
+        featuredCollectionSlug: slug,
+        featuredCollectionUser: user,
+      });
 
       const expectedLoadAction = loadHomeAddons({
+        featuredCollection,
         popularExtensions,
       });
 

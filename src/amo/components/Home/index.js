@@ -48,22 +48,31 @@ export const ThemeLink = (props) => {
   return <CategoryLink type="themes" {...props} />;
 };
 
+export const FEATURED_COLLECTION_SLUG = 'change-up-your-tabs';
+export const FEATURED_COLLECTION_USER = 'mozilla';
+
 export class HomeBase extends React.Component {
   static propTypes = {
     clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
+    featuredCollection: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     popularExtensions: PropTypes.array.isRequired,
+    resultsLoaded: PropTypes.bool.isRequired,
   }
 
   componentWillMount() {
-    const { dispatch, errorHandler, popularExtensions } = this.props;
+    const { dispatch, errorHandler, resultsLoaded } = this.props;
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
 
-    if (popularExtensions === null) {
-      dispatch(fetchHomeAddons({ errorHandlerId: errorHandler.id }));
+    if (!resultsLoaded) {
+      dispatch(fetchHomeAddons({
+        errorHandlerId: errorHandler.id,
+        featuredCollectionSlug: FEATURED_COLLECTION_SLUG,
+        featuredCollectionUser: FEATURED_COLLECTION_USER,
+      }));
     }
   }
 
@@ -141,15 +150,23 @@ export class HomeBase extends React.Component {
   }
 
   render() {
-    const { i18n, popularExtensions } = this.props;
+    const {
+      errorHandler,
+      featuredCollection,
+      i18n,
+      popularExtensions,
+      resultsLoaded,
+    } = this.props;
 
     return (
       <div className="Home">
+        {errorHandler.renderErrorIfPresent()}
+
         <HomeCarousel />
 
         <LandingAddonsCard
           addons={popularExtensions}
-          className="PopularExtensions"
+          className="Home-PopularExtensions"
           header={i18n.gettext('Most popular extensions')}
           footerText={i18n.gettext('More popular extensions')}
           footerLink={{
@@ -159,7 +176,18 @@ export class HomeBase extends React.Component {
               sort: SEARCH_SORT_POPULAR,
             },
           }}
-          loading={popularExtensions === null}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={featuredCollection}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Change your tabs')}
+          footerText={i18n.gettext('Browse this collection')}
+          footerLink={{ pathname:
+            `/collections/${FEATURED_COLLECTION_USER}/${FEATURED_COLLECTION_SLUG}/`,
+          }}
+          loading={resultsLoaded === false}
         />
 
         <Card
@@ -207,7 +235,9 @@ export class HomeBase extends React.Component {
 export function mapStateToProps(state) {
   return {
     clientApp: state.api.clientApp,
+    featuredCollection: state.home.featuredCollection,
     popularExtensions: state.home.popularExtensions,
+    resultsLoaded: state.home.resultsLoaded,
   };
 }
 
