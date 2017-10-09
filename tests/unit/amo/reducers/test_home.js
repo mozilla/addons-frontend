@@ -10,6 +10,7 @@ import {
   createFakeCollectionAddons,
   dispatchClientMetadata,
   fakeAddon,
+  fakeTheme,
 } from 'tests/unit/amo/helpers';
 
 
@@ -32,6 +33,7 @@ describe(__filename, () => {
         featuredCollection: createFakeCollectionAddons({
           addons: Array(10).fill(fakeAddon),
         }),
+        featuredThemes: createAddonsApiResult([fakeTheme]),
         popularExtensions: createAddonsApiResult([fakeAddon]),
       }));
 
@@ -46,6 +48,9 @@ describe(__filename, () => {
       expect(homeState.featuredCollection).toEqual(
         Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
       );
+      expect(homeState.featuredThemes).toEqual([
+        createInternalAddon(fakeTheme),
+      ]);
     });
 
     it('sets `resultsLoaded` to `false` when fetching home add-ons', () => {
@@ -100,6 +105,7 @@ describe(__filename, () => {
     const defaultParams = {
       popularExtensions: {},
       featuredCollection: {},
+      featuredThemes: {},
     };
 
     it('throws an error when popular extensions are missing', () => {
@@ -118,6 +124,15 @@ describe(__filename, () => {
       expect(() => {
         loadHomeAddons(partialParams);
       }).toThrow('featuredCollection is required');
+    });
+
+    it('throws an error when featured themes are missing', () => {
+      const partialParams = { ...defaultParams };
+      delete partialParams.featuredThemes;
+
+      expect(() => {
+        loadHomeAddons(partialParams);
+      }).toThrow('featuredThemes is required');
     });
   });
 });
