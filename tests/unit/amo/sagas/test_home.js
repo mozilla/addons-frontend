@@ -7,9 +7,11 @@ import homeReducer, {
   loadHomeAddons,
 } from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
+import * as api from 'core/api';
 import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
@@ -19,17 +21,20 @@ import {
   createFakeCollectionAddons,
   dispatchClientMetadata,
   fakeAddon,
+  fakeTheme,
 } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
   let errorHandler;
+  let mockApi;
   let mockCollectionsApi;
   let mockSearchApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
+    mockApi = sinon.mock(api);
     mockCollectionsApi = sinon.mock(collectionsApi);
     mockSearchApi = sinon.mock(searchApi);
     sagaTester = new SagaTester({
@@ -91,6 +96,18 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(featuredCollection));
 
+      const featuredThemes = createAddonsApiResult([fakeTheme]);
+      mockApi
+        .expects('featured')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_THEME,
+          },
+        })
+        .returns(Promise.resolve(featuredThemes));
+
       _fetchHomeAddons({
         featuredCollectionSlug: slug,
         featuredCollectionUser: user,
@@ -98,6 +115,7 @@ describe(__filename, () => {
 
       const expectedLoadAction = loadHomeAddons({
         featuredCollection,
+        featuredThemes,
         popularExtensions,
       });
 

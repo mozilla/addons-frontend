@@ -57,6 +57,7 @@ export class HomeBase extends React.Component {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     featuredCollection: PropTypes.array.isRequired,
+    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
@@ -153,6 +154,7 @@ export class HomeBase extends React.Component {
     const {
       errorHandler,
       featuredCollection,
+      featuredThemes,
       i18n,
       popularExtensions,
       resultsLoaded,
@@ -187,6 +189,15 @@ export class HomeBase extends React.Component {
           footerLink={{ pathname:
             `/collections/${FEATURED_COLLECTION_USER}/${FEATURED_COLLECTION_SLUG}/`,
           }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={featuredThemes}
+          className="Home-FeaturedThemes"
+          header={i18n.gettext('Featured themes')}
+          footerText={i18n.gettext('More featured themes')}
+          footerLink={{ pathname: '/themes/featured/' }}
           loading={resultsLoaded === false}
         />
 
@@ -236,6 +247,7 @@ export function mapStateToProps(state) {
   return {
     clientApp: state.api.clientApp,
     featuredCollection: state.home.featuredCollection,
+    featuredThemes: state.home.featuredThemes,
     popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
   };

@@ -9,12 +9,14 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 
 export type HomeState = {
   featuredCollection: Array<AddonType>,
+  featuredThemes: Array<AddonType>,
   popularExtensions: Array<AddonType>,
   resultsLoaded: boolean,
 };
 
 export const initialState: HomeState = {
   featuredCollection: [],
+  featuredThemes: [],
   popularExtensions: [],
   resultsLoaded: false,
 };
@@ -59,17 +61,20 @@ type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
 };
 
+type ApiAddonsResponse = {|
+  result: {|
+    count: number,
+    results: Array<string>,
+  |},
+  entities: {|
+    addons: ExternalAddonMap,
+  |},
+|};
+
 type LoadHomeAddonsParams = {|
   featuredCollection: CollectionAddonsListResponse,
-  popularExtensions: {|
-    result: {|
-      count: number,
-      results: Array<string>,
-    |},
-    entities: {|
-      addons: ExternalAddonMap,
-    |},
-  |},
+  featuredThemes: ApiAddonsResponse,
+  popularExtensions: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -79,10 +84,14 @@ type LoadHomeAddonsAction = {|
 
 export const loadHomeAddons = ({
   featuredCollection,
+  featuredThemes,
   popularExtensions,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   if (!featuredCollection) {
     throw new Error('featuredCollection is required');
+  }
+  if (!featuredThemes) {
+    throw new Error('featuredThemes is required');
   }
   if (!popularExtensions) {
     throw new Error('popularExtensions is required');
@@ -92,6 +101,7 @@ export const loadHomeAddons = ({
     type: LOAD_HOME_ADDONS,
     payload: {
       featuredCollection,
+      featuredThemes,
       popularExtensions,
     },
   };
@@ -100,6 +110,14 @@ export const loadHomeAddons = ({
 type Action =
   | FetchHomeAddonsAction
   | LoadHomeAddonsAction;
+
+const createInternalAddons = (
+  response: ApiAddonsResponse
+): Array<AddonType> => {
+  return response.result.results.map((slug) => (
+    createInternalAddon(response.entities.addons[slug])
+  ));
+};
 
 const reducer = (
   state: HomeState = initialState,
@@ -115,6 +133,7 @@ const reducer = (
     case LOAD_HOME_ADDONS: {
       const {
         featuredCollection,
+        featuredThemes,
         popularExtensions,
       } = action.payload;
 
@@ -125,9 +144,8 @@ const reducer = (
           .map((item) => {
             return createInternalAddon(item.addon);
           }),
-        popularExtensions: popularExtensions.result.results.map((slug) => (
-          createInternalAddon(popularExtensions.entities.addons[slug])
-        )),
+        featuredThemes: createInternalAddons(featuredThemes),
+        popularExtensions: createInternalAddons(popularExtensions),
         resultsLoaded: true,
       };
     }

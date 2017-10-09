@@ -7,8 +7,10 @@ import {
 } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
 } from 'core/constants';
+import { featured as featuredApi } from 'core/api';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
@@ -31,6 +33,7 @@ export function* fetchHomeAddons({
     const {
       popularExtensions,
       featuredCollection,
+      featuredThemes,
     } = yield all({
       popularExtensions: call(searchApi, {
         api: state.api,
@@ -47,11 +50,19 @@ export function* fetchHomeAddons({
         slug: featuredCollectionSlug,
         user: featuredCollectionUser,
       }),
+      featuredThemes: call(featuredApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+        },
+      }),
     });
 
     yield put(loadHomeAddons({
       popularExtensions,
       featuredCollection,
+      featuredThemes,
     }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
