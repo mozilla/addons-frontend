@@ -10,6 +10,7 @@ import {
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
 import _log from 'core/logger';
 import translate from 'core/i18n/translate';
@@ -66,6 +67,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.');
+    } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
+      message = i18n.gettext(
+        'This add-on is not available on your platform.');
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
       message = i18n.sprintf(i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least

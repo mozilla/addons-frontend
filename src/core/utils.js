@@ -13,6 +13,7 @@ import { fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
@@ -24,9 +25,11 @@ import {
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
 import log from 'core/logger';
+import { findInstallURL } from 'core/installAddon';
 import purify from 'core/purify';
 
 
@@ -415,6 +418,22 @@ export function isCompatibleWithUserAgent({
       !(_window.external && 'AddSearchProvider' in _window.external)
     ) {
       return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
+    }
+
+    // Even if an extension's version is marked compatible,
+    // we need to make sure it has a matching platform file
+    // to work around some bugs.
+    // See https://github.com/mozilla/addons-server/issues/6576
+    if (
+      addon.type === ADDON_TYPE_EXTENSION &&
+      !findInstallURL({
+        installURLs: addon.installURLs, userAgentInfo,
+      })
+    ) {
+      return {
+        compatible: false,
+        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+      };
     }
 
     // If we made it here we're compatible (yay!)
