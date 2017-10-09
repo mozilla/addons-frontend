@@ -153,3 +153,19 @@ $default-icon-size: 64px;
 .Icon-websites {
   @include icon($name: "websites");
 }
+
+.Icon-device-features-location {
+  @include icon($name: "device-features-location");
+}
+
+.Icon-experimental {
+  @include icon($name: "experimental");
+}
+
+.Icon-performance {
+  @include icon($name: "performance");
+}
+
+.Icon-user-interface {
+  @include icon($name: "user-interface");
+}
