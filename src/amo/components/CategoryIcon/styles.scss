@@ -102,11 +102,13 @@ $default-icon-size: 64px;
   @include icon($name: "other-theme");
 }
 
-.Icon-photos-music-videos {
+.Icon-photos-music-videos,
+.Icon-photos-media {
   @include icon($name: "photos-music-video");
 }
 
-.Icon-privacy-security {
+.Icon-privacy-security,
+.Icon-security-privacy {
   @include icon($name: "privacy-security");
 }
 
@@ -126,7 +128,8 @@ $default-icon-size: 64px;
   @include icon($name: "shopping");
 }
 
-.Icon-social-communication {
+.Icon-social-communication,
+.Icon-social-networking {
   @include icon($name: "social-communication");
 }
 
@@ -134,7 +137,8 @@ $default-icon-size: 64px;
   @include icon($name: "solid");
 }
 
-.Icon-sports {
+.Icon-sports,
+.Icon-sports-games {
   @include icon($name: "sports");
 }
 

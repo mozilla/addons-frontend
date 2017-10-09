@@ -161,8 +161,8 @@
   @include icon($name: "inverted-caret");
 }
 
-.Icon-experimental {
-  @include icon($name: "experimental");
+.Icon-experimental-badge {
+  @include icon($name: "experimental-badge");
 }
 
 .Icon-reply-arrow {

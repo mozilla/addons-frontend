@@ -13,6 +13,8 @@ type Props = {|
 
 const getIconNameForType = (type) => {
   switch (type) {
+    case 'experimental':
+      return 'experimental-badge';
     case 'restart-required':
       return 'restart';
     default:

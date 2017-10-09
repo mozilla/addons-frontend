@@ -36,6 +36,16 @@ describe(__filename, () => {
     expect(badge.text()).toContain('restart required');
   });
 
+  it('displays the experimental badge icon for type `experimental`', () => {
+    const badge = shallow(<Badge type="experimental" label="experimental" />);
+
+    expect(badge).toHaveClassName('Badge');
+    expect(badge).toHaveClassName('Badge-experimental');
+    expect(badge.find(Icon)).toHaveLength(1);
+    expect(badge.find(Icon)).toHaveProp('name', 'experimental-badge');
+    expect(badge.text()).toContain('experimental');
+  });
+
   it('throws an error if invalid type is supplied', () => {
     expect(() => {
       shallow(<Badge type="invalid" label="foo" />);
