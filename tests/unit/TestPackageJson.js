@@ -11,4 +11,10 @@ describe('Package JSON', () => {
       expect(packageJson.devDependencies[key]).toEqual(expect.stringMatching(/^(\^|git)/));
     });
   });
+
+  Object.keys(packageJson.dependencies).forEach((key) => {
+    it(`should have dependencies[${key}] version prefixed with a number`, () => {
+      expect(packageJson.dependencies[key]).toEqual(expect.stringMatching(/^\d/));
+    });
+  });
 });
