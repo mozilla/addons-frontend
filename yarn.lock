@@ -4973,9 +4973,9 @@ loader-utils@1.1.0, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
-localforage@1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.5.0.tgz#6b994e19b56611fa85df3992df397ac4ab66e815"
+localforage@1.5.1:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.5.1.tgz#215e26204862857b83c545fc09714e84f19e80f1"
   dependencies:
     lie "3.0.2"
 
@@ -6876,7 +6876,7 @@ react-test-renderer@^15.5.4:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-textarea-autosize@^5.1.0:
+react-textarea-autosize@5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.1.0.tgz#ffbf8164fce217c79443c1c17dedf730592df224"
   dependencies:
