@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 22:01+0000\n"
+"PO-Revision-Date: 2017-10-10 22:30+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -298,9 +298,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "par %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Pôle développeur"
+msgstr "Réponse du développeur"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
@@ -443,7 +442,7 @@ msgstr "Page introuvable"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "Nous n'avons malheureusement rien trouvé à l'adresse indiquée. Si vous avez suivi un lien vers un module, il est possible que celui-ci ait été supprimé par son auteur."
+msgstr "Nous n’avons malheureusement rien trouvé à l’adresse indiquée. Si vous avez suivi un lien vers un module, il est possible que celui-ci ait été supprimé par son auteur."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
@@ -663,11 +662,11 @@ msgstr "…ou son apparence"
 
 #: src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Modifiez l'apparence de votre navigateur. Personnalisez-le en choisissant un thème. Il y en a des milliers !"
+msgstr "Modifiez l’apparence de votre navigateur. Personnalisez-le en choisissant un thème. Il y en a des milliers !"
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "D’excellentes extensions pour toutes les situations"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
@@ -1071,33 +1070,32 @@ msgid "Do:"
 msgstr "Voici quelques idées de ce que vous pouvez faire."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Nous avons reçu votre rapport. Merci de nous signaler tout problème avec ce module."
+msgstr "Écrivez comme si vous décriviez votre utilisation du module à un ami."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Assurez-vous que vos critiques restent concises et faciles à comprendre."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Donnez des détails spécifiques et pertinents. Par exemple :"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Est-ce que le module a fonctionné comme vous l’espériez ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Quelles fonctionnalités avez-vous ou n’avez-vous pas aimées ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Le module était-il utile ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Était-il facile à utiliser ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
@@ -1106,7 +1104,7 @@ msgstr "Connectez-vous pour noter ce module complémentaire"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Prenez le temps de relire votre critique pour corriger les éventuelles coquilles."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1114,43 +1112,47 @@ msgstr "Voici ce que vous devez éviter."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Ne limitez pas vos critiques à un seul mot, comme « Super ! », « Génial ! » ou « Nul »."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"N’utilisez pas les critiques pour signaler un problème technique, demander de l’assistance ou suggérer des fonctionnalités. Utilisez plutôt les fonctionnalités dédiées pour chaque module, si elles "
+"sont disponibles. Vous les trouverez dans la section « Plus d’informations » dans le panneau latéral de la page des détails du module."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "N’écrivez pas de critiques de modules que vous n’avez pas utilisés vous-même."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Interdisez-vous tout propos vulgaire, à connotation sexuelle ou pouvant être perçu comme haineux."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "N’ajoutez pas de HTML, de liens, de code source ni de snippets. Les critiques ne doivent contenir que du texte."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Ne faites pas de fausses déclarations, ne dénigrez pas le créateur d’un module, et ne l’insultez pas personnellement."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "N’incluez pas votre adresse électronique, votre numéro de téléphone ou toute autre information personnelle, ni ceux de tiers."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "N’écrivez pas de critique d’un module créé ou représenté par vous-même ou par votre organisation."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"N’écrivez pas de critique négative lorsque le module se comporte comme annoncé. Par exemple, n’écrivez pas de critique négative si un module affiche des publicités ou nécessite de collecter des "
+"données si c’est le but de ce module, ou si ces actions sont nécessaires à son fonctionnement."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
@@ -1269,9 +1271,8 @@ msgid "OK!"
 msgstr "OK"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Fermer l’aperçu"
+msgstr "Annuler"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 #, fuzzy
