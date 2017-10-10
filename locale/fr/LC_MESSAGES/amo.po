@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 18:32+0000\n"
-"Last-Translator: alizee.aubertin <alizee.aubertin@gmail.com>\n"
+"PO-Revision-Date: 2017-10-10 22:01+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox pour iOS ne prend pas en charge les modules pour le moment."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Ce module est incompatible avec votre version de Firefox."
+msgstr "Ce module n’est pas disponible pour votre plateforme."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -319,7 +318,7 @@ msgstr "Rédigez un avis"
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
-msgstr ""
+msgstr "Publier la réponse"
 
 #: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Publishing reply"
@@ -639,9 +638,8 @@ msgid "Change your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Parcourir toutes les extensions"
+msgstr "Parcourir cette collection"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -673,7 +671,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
@@ -685,11 +683,11 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Un bloqueur de publicités très puissant et facile à utiliser"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -1066,11 +1064,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Quelques astuces pour rédiger une bonne critique"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Voici quelques idées de ce que vous pouvez faire."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 #, fuzzy
@@ -1112,7 +1110,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Voici ce que vous devez éviter."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
