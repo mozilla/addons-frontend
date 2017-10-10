@@ -101,6 +101,7 @@ export const VIEW_CONTEXT_LANGUAGE_TOOLS = 'VIEW_CONTEXT_LANGUAGE_TOOLS';
 // Add-on Search Sort Values
 export const SEARCH_SORT_TRENDING = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
+export const SEARCH_SORT_POPULAR = 'users';
 
 // Operating system for add-ons and files
 export const OS_ALL = 'all';

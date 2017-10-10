@@ -13,7 +13,7 @@ import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -59,7 +59,7 @@ export class HomeBase extends React.Component {
     featuredCollection: PropTypes.array.isRequired,
     featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
-    trendingExtensions: PropTypes.array.isRequired,
+    popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
   }
 
@@ -156,7 +156,7 @@ export class HomeBase extends React.Component {
       featuredCollection,
       featuredThemes,
       i18n,
-      trendingExtensions,
+      popularExtensions,
       resultsLoaded,
     } = this.props;
 
@@ -167,15 +167,15 @@ export class HomeBase extends React.Component {
         <HomeCarousel />
 
         <LandingAddonsCard
-          addons={trendingExtensions}
-          className="Home-TrendingExtensions"
-          header={i18n.gettext('Trending extensions')}
-          footerText={i18n.gettext('More trending extensions')}
+          addons={popularExtensions}
+          className="Home-PopularExtensions"
+          header={i18n.gettext('Most popular extensions')}
+          footerText={i18n.gettext('More popular extensions')}
           footerLink={{
             pathname: '/search/',
             query: {
               addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_TRENDING,
+              sort: SEARCH_SORT_POPULAR,
             },
           }}
           loading={resultsLoaded === false}
@@ -249,7 +249,7 @@ export function mapStateToProps(state) {
     clientApp: state.api.clientApp,
     featuredCollection: state.home.featuredCollection,
     featuredThemes: state.home.featuredThemes,
-    trendingExtensions: state.home.trendingExtensions,
+    popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
   };
 }
