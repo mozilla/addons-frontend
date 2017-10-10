@@ -38,7 +38,7 @@ type PropsType = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   isAuthenticated: boolean,
-  isReply: boolean,
+  isReplyToReviewId?: number,
   i18n: Object,
   review?: UserReviewType,
   replyingToReview: boolean,
@@ -49,19 +49,20 @@ type PropsType = {|
 export class AddonReviewListItemBase extends React.Component {
   props: PropsType;
 
-  static defaultProps = {
-    isReply: false,
-  };
-
   onClickToEditReview = (event: SyntheticEvent) => {
-    const { dispatch, review } = this.props;
+    const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
-    if (!review) {
-      log.debug(
-        'Cannot edit a review because no review has been loaded.');
-      return;
+
+    if (isReplyToReviewId !== undefined) {
+      dispatch(showReplyToReviewForm({ reviewId: isReplyToReviewId }));
+    } else {
+      if (!review) {
+        log.debug(
+          'Cannot edit a review because no review has been loaded.');
+        return;
+      }
+      dispatch(showEditReviewForm({ reviewId: review.id }));
     }
-    dispatch(showEditReviewForm({ reviewId: review.id }));
   }
 
   onEscapeReviewOverlay = () => {
@@ -129,7 +130,7 @@ export class AddonReviewListItemBase extends React.Component {
       errorHandler,
       i18n,
       isAuthenticated: userIsAuthenticated,
-      isReply,
+      isReplyToReviewId,
       replyingToReview,
       review,
       siteUser,
@@ -139,6 +140,7 @@ export class AddonReviewListItemBase extends React.Component {
     let byline;
     let reviewBody;
     const reviewBodyClass = 'AddonReviewListItem-body';
+    const isReply = isReplyToReviewId !== undefined;
 
     if (review) {
       const timestamp = i18n.moment(review.created).fromNow();
@@ -169,18 +171,20 @@ export class AddonReviewListItemBase extends React.Component {
       reviewBody = <p className={reviewBodyClass}><LoadingText /></p>;
     }
 
+    const replyHeader = (
+      <h4 className="AddonReviewListItem-reply-header">
+        <Icon name="reply-arrow" />
+        {i18n.gettext('Developer response')}
+      </h4>
+    );
+
     return (
       <div
         className={classNames('AddonReviewListItem', {
           'AddonReviewListItem-reply': isReply,
         })}
       >
-        {isReply ? (
-          <h4 className="AddonReviewListItem-reply-header">
-            <Icon name="reply-arrow" />
-            {i18n.gettext('Developer response')}
-          </h4>
-        ) : null}
+        {isReply ? replyHeader : null}
         <h3 className="AddonReviewListItem-review-header">
           {review ? review.title : <LoadingText />}
         </h3>
@@ -193,10 +197,7 @@ export class AddonReviewListItemBase extends React.Component {
           {byline}
           {
             userIsAuthenticated && review &&
-            review.userId === siteUser.id &&
-            // TODO: Allow edits of replies once they are supported:
-            // https://github.com/mozilla/addons-frontend/issues/3368
-            !isReply ?
+            review.userId === siteUser.id ?
               (
                 <div>
                   {/* This will render an overlay to edit the review */}
@@ -213,7 +214,10 @@ export class AddonReviewListItemBase extends React.Component {
                     onClick={this.onClickToEditReview}
                     className="AddonReviewListItem-edit AddonReviewListItem-control"
                   >
-                    {i18n.gettext('Edit my review')}
+                    {isReply ?
+                      i18n.gettext('Edit my reply') :
+                      i18n.gettext('Edit my review')
+                    }
                   </a>
                 </div>
               ) : null
@@ -236,25 +240,35 @@ export class AddonReviewListItemBase extends React.Component {
           }
         </div>
         {errorHandler.renderErrorIfPresent()}
-        {review && review.reply ? (
+        {review && review.reply && !replyingToReview ? (
           <AddonReviewListItem
             addon={addon}
-            isReply
+            isReplyToReviewId={review.id}
             review={review.reply}
           />
         ) : null}
-        {replyingToReview ?
-          <DismissibleTextForm
-            className="AddonReviewListItem-reply-form"
-            isSubmitting={submittingReply && !errorHandler.hasError()}
-            onDismiss={this.onDismissReviewReply}
-            onSubmit={this.onSubmitReviewReply}
-            placeholder={i18n.gettext(
-              'Write a reply to this review.'
-            )}
-            submitButtonText={i18n.gettext('Publish reply')}
-            submitButtonInProgressText={i18n.gettext('Publishing reply')}
-          />
+        {review && replyingToReview ?
+          <div className="AddonReviewListItem-reply">
+            {replyHeader}
+            <DismissibleTextForm
+              className="AddonReviewListItem-reply-form"
+              isSubmitting={submittingReply && !errorHandler.hasError()}
+              onDismiss={this.onDismissReviewReply}
+              onSubmit={this.onSubmitReviewReply}
+              placeholder={i18n.gettext('Write a reply to this review.')}
+              submitButtonText={
+                review.reply ?
+                  i18n.gettext('Update reply') :
+                  i18n.gettext('Publish reply')
+              }
+              submitButtonInProgressText={
+                review.reply ?
+                  i18n.gettext('Updating reply') :
+                  i18n.gettext('Publishing reply')
+              }
+              text={review.reply && review.reply.body}
+            />
+          </div>
           : null
         }
       </div>

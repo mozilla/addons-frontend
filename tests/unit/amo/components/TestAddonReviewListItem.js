@@ -58,6 +58,28 @@ describe(__filename, () => {
     return getReviewFromState(externalReview.id);
   };
 
+  const _setReviewReply = ({
+    addon = fakeAddon,
+    replyBody = 'Reply to the review',
+  } = {}) => {
+    const review = _setReview({
+      ...fakeReview,
+      addon: {
+        id: addon.id,
+        slug: addon.slug,
+      },
+      id: 1,
+      body: 'The original review',
+      reply: {
+        ...fakeReview,
+        id: 2,
+        body: replyBody,
+      },
+    });
+
+    return { review, reply: review.reply };
+  };
+
   const signInAndDispatchSavedReview = ({
     siteUserId = 123,
     reviewUserId = siteUserId,
@@ -262,6 +284,32 @@ describe(__filename, () => {
       .toHaveProp('submitButtonText', 'Publish reply');
     expect(textForm)
       .toHaveProp('submitButtonInProgressText', 'Publishing reply');
+  });
+
+  it('configures a reply-to-review text form when editing', () => {
+    const replyBody = 'This is a developer reply';
+    const { review } = _setReviewReply({ replyBody });
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+    const root = render({ review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveLength(1);
+    expect(textForm).toHaveProp('text', replyBody);
+    expect(textForm)
+      .toHaveProp('submitButtonText', 'Update reply');
+    expect(textForm)
+      .toHaveProp('submitButtonInProgressText', 'Updating reply');
+  });
+
+  it('configures reply form with null text when no reply exists', () => {
+    const review = _setReview({ ...fakeReview, reply: null });
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+    const root = render({ review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveProp('text', null);
   });
 
   it('dispatches a finish action when dismissing a reply-to-review text form', () => {
@@ -483,34 +531,16 @@ describe(__filename, () => {
   });
 
   describe('Developer reply to a review', () => {
-    const _setReviewReply = ({ addon = fakeAddon } = {}) => {
-      const review = _setReview({
-        ...fakeReview,
-        addon: {
-          id: addon.id,
-          slug: addon.slug,
-        },
-        id: 1,
-        body: 'The original review',
-        reply: {
-          ...fakeReview,
-          id: 2,
-          body: 'Reply to the review',
-        },
-      });
-
-      return { review, reply: review.reply };
-    };
-
     const renderReply = ({
       addon = createInternalAddon(fakeAddon),
+      originalReviewId = 44321,
       reply = _setReviewReply({ addon }).reply,
       ...props
     } = {}) => {
       return render({
         addon,
         review: reply,
-        isReply: true,
+        isReplyToReviewId: originalReviewId,
         ...props,
       });
     };
@@ -530,7 +560,17 @@ describe(__filename, () => {
       expect(replyComponent).toHaveLength(1);
       expect(replyComponent).toHaveProp('addon', addon);
       expect(replyComponent).toHaveProp('review', reply);
-      expect(replyComponent).toHaveProp('isReply', true);
+      expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
+    });
+
+    it('hides a nested reply when editing it', () => {
+      const { review } = _setReviewReply();
+      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+      const root = render({ review });
+
+      const replyComponent = root.find(AddonReviewListItem);
+      expect(replyComponent).toHaveLength(0);
     });
 
     it('hides ratings for replies', () => {
@@ -547,22 +587,46 @@ describe(__filename, () => {
         .not.toIncludeText(reply.userName);
     });
 
-    it('hides the edit button for replies', () => {
+    it('shows a form to edit your reply', () => {
+      const originalReviewId = 543;
       const developerUserId = 321;
       const review = signInAndDispatchSavedReview({
         siteUserId: developerUserId, reviewUserId: developerUserId,
       });
-      const root = renderReply({ reply: review });
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      const root = renderReply({ originalReviewId, reply: review });
 
-      expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
+      const editButton = root.find('.AddonReviewListItem-edit');
+      expect(editButton.text()).toContain('Edit my reply');
+      expect(editButton).toHaveLength(1);
+      editButton.simulate('click', createFakeEvent());
+
+      sinon.assert.calledWith(dispatchSpy, showReplyToReviewForm({
+        reviewId: originalReviewId,
+      }));
     });
 
-    it('adds a header', () => {
+    it('adds a developer response header to rendered replies', () => {
       const root = renderReply();
 
       const header = root.find('.AddonReviewListItem-reply-header');
       expect(header).toHaveLength(1);
       expect(header.find(Icon)).toHaveProp('name', 'reply-arrow');
+    });
+
+    it('adds a developer response header to reply forms', () => {
+      const { review } = _setReviewReply();
+      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+      const root = render({ review });
+
+      const formContainer = root.find('.AddonReviewListItem-reply');
+      expect(formContainer).toHaveLength(1);
+      expect(
+        formContainer.find('.AddonReviewListItem-reply-header')
+      ).toHaveLength(1);
+      expect(formContainer.find('.AddonReviewListItem-reply-form'))
+        .toHaveLength(1);
     });
   });
 });
