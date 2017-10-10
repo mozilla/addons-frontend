@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 19:43+0000\n"
+"PO-Revision-Date: 2017-10-10 20:06+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -134,9 +134,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox na iOS obecnie nie obsługuje dodatków."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Ten dodatek nie jest zgodny z tą wersją Firefoksa."
+msgstr "Ten dodatek nie jest dostępny dla tej platformy."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -293,50 +292,44 @@ msgid "All written reviews"
 msgstr "Wszystkie recenzje"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "Autor: %(authorName)s, %(timestamp)s"
+msgstr "Data: %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "Autor: %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Strefa autora"
+msgstr "Odpowiedź autora"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Edytuj recenzję"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Stuknij, aby wyświetlić podgląd"
+msgstr "Odpowiedz na tę recenzję"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Napisz recenzję"
+msgstr "Napisz odpowiedź na tę recenzję."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
-msgstr ""
+msgstr "Wyślij odpowiedź"
 
 #: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Publishing reply"
-msgstr ""
+msgstr "Wysyłanie odpowiedzi"
 
 #: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Dodatki do Firefoksa"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Dodatki do Firefoksa"
+msgstr "%s — Dodatki do Firefoksa"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -634,12 +627,11 @@ msgstr "Jeden kolor"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Zmień swoje karty"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Wszystkie rozszerzenia"
+msgstr "Przeglądaj tę kolekcję"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -667,7 +659,7 @@ msgstr "Zmień wygląd przeglądarki. Wybieraj z tysięcy motywów do Firefoksa
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Doskonałe rozszerzenia na wszystkie okazje"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
@@ -675,11 +667,11 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Filmy w HD, wyłączanie adnotacji, zmiana rozmiaru odtwarzacza i nie tylko"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Oto kilka imponujących rozszerzeń chroniących prywatność, blokujących reklamy i śledzenie"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
@@ -687,7 +679,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Niezwykle potężne, ale łatwe w użyciu blokowanie reklam"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -1014,9 +1006,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Dodatki do Firefoksa"
+msgstr "O serwisie"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1077,9 +1068,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Otrzymaliśmy Twoje zgłoszenie. Dziękujemy za poinformowanie nas o problemach z tym dodatkiem."
+msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1106,9 +1096,8 @@ msgid "Was it easy to use?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Zaloguj się, aby ocenić ten dodatek"
+msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
