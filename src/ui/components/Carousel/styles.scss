@@ -53,7 +53,7 @@ $extraHeightForCard: 28px;
   // fix properly. This means te content in RTL doesn't change order after
   // the client re-render.
   direction: ltr;
-  overflow-x: auto;
+  overflow: hidden;
 }
 
 .Carousel--first-render {

@@ -1,5 +1,6 @@
 /* @flow */
 import classNames from 'classnames';
+import deepEqual from 'deep-eql';
 import React from 'react';
 import { compose } from 'redux';
 import NukaCarousel from 'nuka-carousel';
@@ -7,6 +8,7 @@ import NukaCarousel from 'nuka-carousel';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { getDirection } from 'core/i18n/utils';
+import { randomizeArray } from 'core/utils';
 import Card from 'ui/components/Card';
 import CarouselSection from 'ui/components/CarouselSection';
 
@@ -15,21 +17,37 @@ import './styles.scss';
 
 type PropTypes = {|
   i18n: Object,
+  // This is a bug; random is used in `storeSortedSections()`.
+  // eslint-disable-next-line react/no-unused-prop-types
+  random: boolean,
+  // eslint-disable-next-line react/no-unused-prop-types
   sections: Array<React.Element<typeof CarouselSection>>,
 |};
 
 type StateTypes = {|
   hasRendered: boolean,
+  sectionsSorted: Array<React.Element<typeof CarouselSection>> | null,
 |};
 
 export class CarouselBase extends React.Component {
+  static defaultProps = {
+    random: false,
+  }
+
   constructor(props: PropTypes) {
     super(props);
 
-    this.state = { hasRendered: false };
+    this.state = {
+      hasRendered: false,
+      sectionsSorted: null,
+    };
   }
 
   state: StateTypes;
+
+  componentWillMount() {
+    this.storeSortedSections(this.props);
+  }
 
   // HACK: NukaCarousel uses inline styles to create the carousel effect, which
   // work fine on the client but cause CSP issues during initial server render.
@@ -45,13 +63,34 @@ export class CarouselBase extends React.Component {
     }
   }
 
-  props: PropTypes;
+  componentWillReceiveProps(nextProps: PropTypes) {
+    if (!deepEqual(this.props, nextProps)) {
+      this.storeSortedSections(nextProps);
+    }
+  }
 
-  render() {
-    const { i18n, sections } = this.props;
+  storeSortedSections(props: PropTypes) {
+    const { random, sections } = props;
 
     if (!sections) {
       throw new Error('sections are required for a Carousel component');
+    }
+
+    // We store the sections sorted in state so the randomized order doesn't
+    // change when we re-render on the server, which causes a visual bug.
+    this.setState({
+      sectionsSorted: random ? randomizeArray(sections) : sections,
+    });
+  }
+
+  props: PropTypes;
+
+  render() {
+    const { i18n } = this.props;
+    const { hasRendered, sectionsSorted } = this.state;
+
+    if (!sectionsSorted) {
+      return null;
     }
 
     return (
@@ -60,7 +99,7 @@ export class CarouselBase extends React.Component {
           'Carousel--first-render-wrapper': !this.state.hasRendered,
         })}
       >
-        {this.state.hasRendered ? (
+        {hasRendered ? (
           <NukaCarousel
             autoplay
             autoplayInterval={4000}
@@ -72,7 +111,7 @@ export class CarouselBase extends React.Component {
             slidesToScroll={1}
             slideWidth={1}
           >
-            {(sections.map((section) => {
+            {(sectionsSorted.map((section) => {
               return section;
             }))}
           </NukaCarousel>
@@ -83,7 +122,7 @@ export class CarouselBase extends React.Component {
               similar to the client-side content so the re-render isn't as
               jarring–and so non-JS clients can still see the carousel.
             */}
-            {(sections.map((section) => {
+            {(sectionsSorted.map((section) => {
               return section;
             }))}
           </div>

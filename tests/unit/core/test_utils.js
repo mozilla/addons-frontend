@@ -1,13 +1,11 @@
 import url from 'url';
 
 import { oneLine } from 'common-tags';
-import React from 'react';
 import config from 'config';
+import { mount } from 'enzyme';
 import { sprintf } from 'jed';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+import * as knuthShuffle from 'knuth-shuffle';
+import React from 'react';
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
@@ -51,6 +49,7 @@ import {
   ngettext,
   nl2br,
   parsePage,
+  randomizeArray,
   refreshAddon,
   render404IfConfigKeyIsFalse,
   safeAsyncConnect,
@@ -981,15 +980,18 @@ describe('render404IfConfigKeyIsFalse', () => {
       render404IfConfigKeyIsFalse(configKey, { _config }),
     )(SomeComponent);
 
-    return renderIntoDocument(
+    return mount(
       <I18nProvider i18n={fakeI18n()}>
-        <WrappedComponent {...props} />
-      </I18nProvider>
+        <WrappedComponent i18n={fakeI18n()} {...props} />
+      </I18nProvider>,
+      SomeComponent
     );
   }
 
   it('requires a config key', () => {
-    expect(() => render404IfConfigKeyIsFalse()).toThrowError(/configKey cannot be empty/);
+    expect(() => {
+      render404IfConfigKeyIsFalse();
+    }).toThrowError(/configKey cannot be empty/);
   });
 
   it('returns a 404 when disabled by the config', () => {
@@ -998,11 +1000,11 @@ describe('render404IfConfigKeyIsFalse', () => {
       get: sinon.spy(() => false),
     };
     const root = render({}, { _config, configKey });
-    const node = findRenderedComponentWithType(root, NotFound);
+    const node = root.find(NotFound);
 
-    expect(node).toBeTruthy();
-    expect(_config.get.called).toBeTruthy();
-    expect(_config.get.firstCall.args[0]).toEqual(configKey);
+    expect(node).toHaveLength(1);
+    sinon.assert.called(_config.get);
+    sinon.assert.calledWith(_config.get, configKey);
   });
 
   it('passes through component and props when enabled', () => {
@@ -1010,7 +1012,7 @@ describe('render404IfConfigKeyIsFalse', () => {
     const SomeComponent = sinon.spy(() => <div />);
     render({ color: 'orange', size: 'large' }, { SomeComponent, _config });
 
-    expect(SomeComponent.called).toBeTruthy();
+    sinon.assert.called(SomeComponent);
     const props = SomeComponent.firstCall.args[0];
     expect(props.color).toEqual('orange');
     expect(props.size).toEqual('large');
@@ -1360,5 +1362,19 @@ describe('sanitizeUserHTML', () => {
 
   it('does nothing to null values', () => {
     expect(sanitize(null)).toEqual('');
+  });
+});
+
+describe('randomizeArray', () => {
+  it('returns a copy of the array', () => {
+    const shuffleSpy = sinon.spy(knuthShuffle, 'knuthShuffle');
+    const sortedArray = [1, 2, 3];
+    const randomizedArray = randomizeArray(sortedArray,
+      { shuffleMethod: knuthShuffle.knuthShuffle });
+
+    expect(sortedArray).toEqual([1, 2, 3]);
+    expect(randomizedArray).toEqual(expect.arrayContaining(sortedArray));
+    expect(sortedArray).not.toBe(randomizedArray);
+    sinon.assert.called(shuffleSpy);
   });
 });
