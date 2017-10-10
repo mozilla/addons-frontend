@@ -41,6 +41,8 @@ export class LandingPageBase extends React.Component {
     // `componentWillReceiveProps()`.
     // eslint-disable-next-line react/no-unused-prop-types
     addonTypeOfResults: PropTypes.string.isRequired,
+    // This is a bug; context is used in `setViewContextType()`.
+    // eslint-disable-next-line react/no-unused-prop-types
     context: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
@@ -85,6 +87,7 @@ export class LandingPageBase extends React.Component {
   getLandingDataIfNeeded(nextProps = {}) {
     const {
       addonTypeOfResults,
+      dispatch,
       errorHandler,
       loading,
       params,
@@ -97,8 +100,8 @@ export class LandingPageBase extends React.Component {
     const requestedAddonType = apiAddonType(params.visibleAddonType);
 
     if (!loading && !errorHandler.hasError() &&
-      (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
-      this.props.dispatch(getLanding({
+        (!resultsLoaded || addonTypeOfResults !== requestedAddonType)) {
+      dispatch(getLanding({
         addonType: requestedAddonType,
         errorHandlerId: errorHandler.id,
       }));
@@ -106,10 +109,10 @@ export class LandingPageBase extends React.Component {
   }
 
   setViewContextType(nextProps = {}) {
-    const { params } = { ...this.props, ...nextProps };
+    const { context, params } = { ...this.props, ...nextProps };
     const addonType = apiAddonType(params.visibleAddonType);
 
-    if (this.props.context !== addonType) {
+    if (context !== addonType) {
       this.props.dispatch(setViewContext(addonType));
     }
   }
@@ -276,7 +279,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  withErrorHandler({ name: 'LandingPage' }),
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
+  withErrorHandler({ name: 'LandingPage' }),
 )(LandingPageBase);
