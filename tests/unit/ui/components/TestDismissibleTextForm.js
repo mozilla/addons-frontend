@@ -169,6 +169,14 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('disables submit button before non-empty text has been entered', () => {
+    // Enter only white space:
+    const root = shallowRender({ text: '    ' });
+
+    expect(root.find('.DismissibleTextForm-submit'))
+      .toHaveProp('disabled', true);
+  });
+
   it('disables the dismiss button while submitting the form', () => {
     const root = shallowRender({ isSubmitting: true });
 

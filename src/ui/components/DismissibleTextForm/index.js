@@ -90,7 +90,7 @@ export class DismissibleTextFormBase extends React.Component {
       submitButtonInProgressText,
     } = this.props;
 
-    const sendButtonIsDisabled = isSubmitting || !this.state.text;
+    const sendButtonIsDisabled = isSubmitting || !this.state.text.trim();
 
     const text = {
       placeholder: placeholder || i18n.gettext('Enter text.'),

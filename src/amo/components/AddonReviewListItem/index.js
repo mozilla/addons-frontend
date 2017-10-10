@@ -175,7 +175,6 @@ export class AddonReviewListItemBase extends React.Component {
           'AddonReviewListItem-reply': isReply,
         })}
       >
-        {errorHandler.renderErrorIfPresent()}
         {isReply ? (
           <h4 className="AddonReviewListItem-reply-header">
             <Icon name="reply-arrow" />
@@ -236,6 +235,7 @@ export class AddonReviewListItemBase extends React.Component {
               ) : null
           }
         </div>
+        {errorHandler.renderErrorIfPresent()}
         {review && review.reply ? (
           <AddonReviewListItem
             addon={addon}
@@ -246,7 +246,7 @@ export class AddonReviewListItemBase extends React.Component {
         {replyingToReview ?
           <DismissibleTextForm
             className="AddonReviewListItem-reply-form"
-            isSubmitting={submittingReply}
+            isSubmitting={submittingReply && !errorHandler.hasError()}
             onDismiss={this.onDismissReviewReply}
             onSubmit={this.onSubmitReviewReply}
             placeholder={i18n.gettext(

@@ -330,6 +330,27 @@ describe(__filename, () => {
     expect(textForm).toHaveProp('isSubmitting', false);
   });
 
+  it('resets the reply form state when there is an error', () => {
+    // Simulate submitting a reply that will result in an error.
+    const review = _setReview(fakeReview);
+    store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+    store.dispatch(sendReplyToReview({
+      body: 'A developer reply',
+      errorHandlerId: 'some-id',
+      originalReviewId: review.id,
+    }));
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id', dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('some unexpected error'));
+
+    const root = render({ errorHandler, review });
+
+    const textForm = root.find('.AddonReviewListItem-reply-form');
+    expect(textForm).toHaveProp('isSubmitting', false);
+  });
+
   it('cannot submit a reply without a review', () => {
     const root = render({ review: null });
 
