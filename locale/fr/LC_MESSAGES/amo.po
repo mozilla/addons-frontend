@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 22:30+0000\n"
+"PO-Revision-Date: 2017-10-10 22:45+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -346,11 +346,11 @@ msgstr "Chargement des catégories."
 
 #: src/amo/components/Category/index.js:124 src/amo/components/HomeCarousel/index.js:31 src/amo/components/LandingPage/index.js:130
 msgid "Featured extensions"
-msgstr "Extensions vedettes"
+msgstr "Extensions mises en avant"
 
 #: src/amo/components/Category/index.js:133 src/amo/components/LandingPage/index.js:132
 msgid "More featured extensions"
-msgstr "Plus d’extensions vedettes"
+msgstr "Plus d’extensions mises en avant"
 
 #: src/amo/components/Category/index.js:134 src/amo/components/Home/index.js:172 src/amo/components/LandingPage/index.js:133
 msgid "Most popular extensions"
@@ -370,11 +370,11 @@ msgstr "Plus d’extensions bien notées"
 
 #: src/amo/components/Category/index.js:156 src/amo/components/Home/index.js:198 src/amo/components/LandingPage/index.js:150
 msgid "Featured themes"
-msgstr "Thèmes vedettes"
+msgstr "Thèmes mis en avant"
 
 #: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:199 src/amo/components/LandingPage/index.js:152
 msgid "More featured themes"
-msgstr "Plus de thèmes vedettes"
+msgstr "Plus de thèmes mis en avant"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:153
 msgid "Most popular themes"
@@ -390,7 +390,7 @@ msgstr "Thèmes les mieux notés"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:164
 msgid "More highly rated themes"
-msgstr "Afficher plus de thèmes vedettes"
+msgstr "Afficher plus de thèmes mis en avant"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -462,11 +462,11 @@ msgstr "Une erreur s’est malheureusement produite sur notre serveur et nous n�
 
 #: src/amo/components/FeaturedAddons/index.js:50
 msgid "More Featured Extensions"
-msgstr "Plus d’extensions vedettes"
+msgstr "Plus d’extensions mises en avant"
 
 #: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
-msgstr "Plus de thèmes vedettes"
+msgstr "Plus de thèmes mis en avant"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
@@ -650,7 +650,7 @@ msgstr "Vous pouvez modifier le comportement de Firefox..."
 
 #: src/amo/components/Home/index.js:215 src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Découvrez d’impressionnants outils et fonctionnalités pour personnaliser Firefox comme vous le souhaitez."
 
 #: src/amo/components/Home/index.js:226 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -1007,9 +1007,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Modules Firefox"
+msgstr "À propos des modules Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
