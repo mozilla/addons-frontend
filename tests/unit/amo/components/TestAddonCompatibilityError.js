@@ -22,6 +22,8 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
+    // Set up an empty store and let each test call
+    // dispatchClientMetadata().
     store = createStore().store;
   });
 
