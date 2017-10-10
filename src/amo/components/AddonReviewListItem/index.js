@@ -1,6 +1,5 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -123,6 +122,56 @@ export class AddonReviewListItemBase extends React.Component {
     }));
   }
 
+  renderReply() {
+    const {
+      addon,
+      errorHandler,
+      i18n,
+      replyingToReview,
+      review,
+      submittingReply,
+    } = this.props;
+
+    if (!review || (!review.reply && !replyingToReview)) {
+      return null;
+    }
+
+    return (
+      <div className="AddonReviewListItem-reply">
+        <h4 className="AddonReviewListItem-reply-header">
+          <Icon name="reply-arrow" />
+          {i18n.gettext('Developer response')}
+        </h4>
+        {replyingToReview ? (
+          <DismissibleTextForm
+            className="AddonReviewListItem-reply-form"
+            isSubmitting={submittingReply && !errorHandler.hasError()}
+            onDismiss={this.onDismissReviewReply}
+            onSubmit={this.onSubmitReviewReply}
+            placeholder={i18n.gettext('Write a reply to this review.')}
+            submitButtonText={
+              review.reply ?
+                i18n.gettext('Update reply') :
+                i18n.gettext('Publish reply')
+            }
+            submitButtonInProgressText={
+              review.reply ?
+                i18n.gettext('Updating reply') :
+                i18n.gettext('Publishing reply')
+            }
+            text={review.reply && review.reply.body}
+          />
+        ) : (
+          <AddonReviewListItem
+            addon={addon}
+            isReplyToReviewId={review.id}
+            review={review.reply}
+          />
+        )}
+      </div>
+    );
+  }
+
   render() {
     const {
       addon,
@@ -134,7 +183,6 @@ export class AddonReviewListItemBase extends React.Component {
       replyingToReview,
       review,
       siteUser,
-      submittingReply,
     } = this.props;
 
     let byline;
@@ -171,20 +219,8 @@ export class AddonReviewListItemBase extends React.Component {
       reviewBody = <p className={reviewBodyClass}><LoadingText /></p>;
     }
 
-    const replyHeader = (
-      <h4 className="AddonReviewListItem-reply-header">
-        <Icon name="reply-arrow" />
-        {i18n.gettext('Developer response')}
-      </h4>
-    );
-
     return (
-      <div
-        className={classNames('AddonReviewListItem', {
-          'AddonReviewListItem-reply': isReply,
-        })}
-      >
-        {isReply ? replyHeader : null}
+      <div className="AddonReviewListItem">
         <h3 className="AddonReviewListItem-review-header">
           {review ? review.title : <LoadingText />}
         </h3>
@@ -240,37 +276,7 @@ export class AddonReviewListItemBase extends React.Component {
           }
         </div>
         {errorHandler.renderErrorIfPresent()}
-        {review && review.reply && !replyingToReview ? (
-          <AddonReviewListItem
-            addon={addon}
-            isReplyToReviewId={review.id}
-            review={review.reply}
-          />
-        ) : null}
-        {review && replyingToReview ?
-          <div className="AddonReviewListItem-reply">
-            {replyHeader}
-            <DismissibleTextForm
-              className="AddonReviewListItem-reply-form"
-              isSubmitting={submittingReply && !errorHandler.hasError()}
-              onDismiss={this.onDismissReviewReply}
-              onSubmit={this.onSubmitReviewReply}
-              placeholder={i18n.gettext('Write a reply to this review.')}
-              submitButtonText={
-                review.reply ?
-                  i18n.gettext('Update reply') :
-                  i18n.gettext('Publish reply')
-              }
-              submitButtonInProgressText={
-                review.reply ?
-                  i18n.gettext('Updating reply') :
-                  i18n.gettext('Publishing reply')
-              }
-              text={review.reply && review.reply.body}
-            />
-          </div>
-          : null
-        }
+        {this.renderReply()}
       </div>
     );
   }

@@ -545,12 +545,6 @@ describe(__filename, () => {
       });
     };
 
-    it('sets a reply class name', () => {
-      const root = renderReply();
-
-      expect(root).toHaveClassName('AddonReviewListItem-reply');
-    });
-
     it('renders a nested reply', () => {
       const addon = createInternalAddon(fakeAddon);
       const { review, reply } = _setReviewReply({ addon });
@@ -606,14 +600,6 @@ describe(__filename, () => {
       }));
     });
 
-    it('adds a developer response header to rendered replies', () => {
-      const root = renderReply();
-
-      const header = root.find('.AddonReviewListItem-reply-header');
-      expect(header).toHaveLength(1);
-      expect(header.find(Icon)).toHaveProp('name', 'reply-arrow');
-    });
-
     it('adds a developer response header to reply forms', () => {
       const { review } = _setReviewReply();
       store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
@@ -625,6 +611,10 @@ describe(__filename, () => {
       expect(
         formContainer.find('.AddonReviewListItem-reply-header')
       ).toHaveLength(1);
+
+      const icon = formContainer.find(Icon);
+      expect(icon).toHaveProp('name', 'reply-arrow');
+
       expect(formContainer.find('.AddonReviewListItem-reply-form'))
         .toHaveLength(1);
     });
