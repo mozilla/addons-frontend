@@ -8,7 +8,7 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { featured as featuredApi } from 'core/api';
 import { search as searchApi } from 'core/api/search';
@@ -31,16 +31,16 @@ export function* fetchHomeAddons({
     const state = yield select(getState);
 
     const {
-      popularExtensions,
+      trendingExtensions,
       featuredCollection,
       featuredThemes,
     } = yield all({
-      popularExtensions: call(searchApi, {
+      trendingExtensions: call(searchApi, {
         api: state.api,
         filters: {
           addonType: ADDON_TYPE_EXTENSION,
           page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_POPULAR,
+          sort: SEARCH_SORT_TRENDING,
         },
         page: 1,
       }),
@@ -60,7 +60,7 @@ export function* fetchHomeAddons({
     });
 
     yield put(loadHomeAddons({
-      popularExtensions,
+      trendingExtensions,
       featuredCollection,
       featuredThemes,
     }));

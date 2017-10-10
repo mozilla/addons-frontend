@@ -12,7 +12,7 @@ import landingSaga from 'amo/sagas/landing';
 import {
   ADDON_TYPE_EXTENSION,
   LANDING_LOADED,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
@@ -86,19 +86,19 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(highlyRated));
 
-      const popular = createAddonsApiResult([{
-        ...fakeAddon, slug: 'popular-addon',
+      const trending = createAddonsApiResult([{
+        ...fakeAddon, slug: 'trending-addon',
       }]);
       mockSearchApi
         .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
-            ...baseFilters, sort: SEARCH_SORT_POPULAR,
+            ...baseFilters, sort: SEARCH_SORT_TRENDING,
           },
           page: 1,
         })
-        .returns(Promise.resolve(popular));
+        .returns(Promise.resolve(trending));
 
       _getLanding({ addonType });
 
@@ -107,7 +107,7 @@ describe(__filename, () => {
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(loadLanding({
-        addonType, featured, highlyRated, popular,
+        addonType, featured, highlyRated, trending,
       }));
     });
 
@@ -160,8 +160,8 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(highlyRated));
 
-      const popular = createAddonsApiResult([
-        { ...fakeAddon, slug: 'popular-addon' },
+      const trending = createAddonsApiResult([
+        { ...fakeAddon, slug: 'trending-addon' },
       ]);
       mockSearchApi
         .expects('search')
@@ -169,11 +169,11 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             ...baseFilters,
-            sort: SEARCH_SORT_POPULAR,
+            sort: SEARCH_SORT_TRENDING,
           },
           page: 1,
         })
-        .returns(Promise.resolve(popular));
+        .returns(Promise.resolve(trending));
 
       _getLanding({ addonType, category });
 
@@ -182,7 +182,7 @@ describe(__filename, () => {
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(loadLanding({
-        addonType, featured, highlyRated, popular,
+        addonType, featured, highlyRated, trending,
       }));
     });
 
@@ -220,8 +220,8 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(highlyRated));
 
-      const popular = createAddonsApiResult([
-        { ...fakeAddon, slug: 'popular-addon' },
+      const trending = createAddonsApiResult([
+        { ...fakeAddon, slug: 'trending-addon' },
       ]);
       mockSearchApi
         .expects('search')
@@ -229,11 +229,11 @@ describe(__filename, () => {
           ...baseArgs,
           filters: {
             ...baseFilters,
-            sort: SEARCH_SORT_POPULAR,
+            sort: SEARCH_SORT_TRENDING,
           },
           page: 1,
         })
-        .returns(Promise.resolve(popular));
+        .returns(Promise.resolve(trending));
 
       _getLanding({ addonType, category: undefined });
 
@@ -242,7 +242,7 @@ describe(__filename, () => {
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(loadLanding({
-        addonType, featured, highlyRated, popular,
+        addonType, featured, highlyRated, trending,
       }));
     });
   });

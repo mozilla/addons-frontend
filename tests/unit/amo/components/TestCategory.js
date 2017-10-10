@@ -11,7 +11,7 @@ import {
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -69,7 +69,7 @@ describe(__filename, () => {
         { ...fakeAddon, name: 'High', slug: 'high' },
         { ...fakeAddon, name: 'High again', slug: 'high-again' },
       ]),
-      popular: createAddonsApiResult([
+      trending: createAddonsApiResult([
         { ...fakeAddon, name: 'Pop', slug: 'pop' },
         { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
       ]),
@@ -374,17 +374,17 @@ describe(__filename, () => {
       },
     });
 
-    expect(landingShelves.at(2)).toHaveClassName('PopularAddons');
+    expect(landingShelves.at(2)).toHaveClassName('TrendingAddons');
     expect(landingShelves.at(2))
-      .toHaveProp('header', 'Most popular extensions');
+      .toHaveProp('header', 'Trending extensions');
     expect(landingShelves.at(2))
-      .toHaveProp('footerText', 'More popular extensions');
+      .toHaveProp('footerText', 'More trending extensions');
     expect(landingShelves.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_EXTENSION,
         category: fakeCategory.slug,
-        sort: SEARCH_SORT_POPULAR,
+        sort: SEARCH_SORT_TRENDING,
       },
     });
   });
@@ -426,25 +426,25 @@ describe(__filename, () => {
       },
     });
 
-    expect(landingShelves.at(2)).toHaveClassName('PopularAddons');
-    expect(landingShelves.at(2)).toHaveProp('header', 'Most popular themes');
+    expect(landingShelves.at(2)).toHaveClassName('TrendingAddons');
+    expect(landingShelves.at(2)).toHaveProp('header', 'Trending themes');
     expect(landingShelves.at(2))
-      .toHaveProp('footerText', 'More popular themes');
+      .toHaveProp('footerText', 'More trending themes');
     expect(landingShelves.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_THEME,
         category: fakeCategory.slug,
-        sort: SEARCH_SORT_POPULAR,
+        sort: SEARCH_SORT_TRENDING,
       },
     });
   });
 
-  it('hides the popular shelf when there are no add-ons for it', () => {
+  it('hides the trending shelf when there are no add-ons for it', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
-    _loadLanding({ popular: createAddonsApiResult([]) });
+    _loadLanding({ trending: createAddonsApiResult([]) });
 
     const root = render({}, { autoDispatchCategories: false });
     const landingShelves = root.find(LandingAddonsCard);
@@ -465,7 +465,7 @@ describe(__filename, () => {
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
     expect(landingShelves.at(0)).toHaveClassName('HighlyRatedAddons');
-    expect(landingShelves.at(1)).toHaveClassName('PopularAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 
   it('hides the highly rated shelf when there are no add-ons for it', () => {
@@ -479,7 +479,7 @@ describe(__filename, () => {
 
     expect(root.find(LandingAddonsCard)).toHaveLength(2);
     expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
-    expect(landingShelves.at(1)).toHaveClassName('PopularAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 
   describe('category lookup', () => {

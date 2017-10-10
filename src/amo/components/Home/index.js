@@ -13,7 +13,7 @@ import {
   ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -59,7 +59,7 @@ export class HomeBase extends React.Component {
     featuredCollection: PropTypes.array.isRequired,
     featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
-    popularExtensions: PropTypes.array.isRequired,
+    trendingExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
   }
 
@@ -156,7 +156,7 @@ export class HomeBase extends React.Component {
       featuredCollection,
       featuredThemes,
       i18n,
-      popularExtensions,
+      trendingExtensions,
       resultsLoaded,
     } = this.props;
 
@@ -167,15 +167,15 @@ export class HomeBase extends React.Component {
         <HomeCarousel />
 
         <LandingAddonsCard
-          addons={popularExtensions}
-          className="Home-PopularExtensions"
-          header={i18n.gettext('Most popular extensions')}
-          footerText={i18n.gettext('More popular extensions')}
+          addons={trendingExtensions}
+          className="Home-TrendingExtensions"
+          header={i18n.gettext('Trending extensions')}
+          footerText={i18n.gettext('More trending extensions')}
           footerLink={{
             pathname: '/search/',
             query: {
               addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_POPULAR,
+              sort: SEARCH_SORT_TRENDING,
             },
           }}
           loading={resultsLoaded === false}
@@ -232,7 +232,8 @@ export class HomeBase extends React.Component {
             </h2>
             <p className="Home-description">
               {i18n.gettext(
-                "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want.")}
+                `Change your browser's appearance. Choose from thousands of
+                themes to give Firefox the look you want.`)}
             </p>
           </div>
 
@@ -248,7 +249,7 @@ export function mapStateToProps(state) {
     clientApp: state.api.clientApp,
     featuredCollection: state.home.featuredCollection,
     featuredThemes: state.home.featuredThemes,
-    popularExtensions: state.home.popularExtensions,
+    trendingExtensions: state.home.trendingExtensions,
     resultsLoaded: state.home.resultsLoaded,
   };
 }

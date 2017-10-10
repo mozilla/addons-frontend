@@ -10,14 +10,14 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 export type HomeState = {
   featuredCollection: Array<AddonType>,
   featuredThemes: Array<AddonType>,
-  popularExtensions: Array<AddonType>,
+  trendingExtensions: Array<AddonType>,
   resultsLoaded: boolean,
 };
 
 export const initialState: HomeState = {
   featuredCollection: [],
   featuredThemes: [],
-  popularExtensions: [],
+  trendingExtensions: [],
   resultsLoaded: false,
 };
 
@@ -74,7 +74,7 @@ type ApiAddonsResponse = {|
 type LoadHomeAddonsParams = {|
   featuredCollection: CollectionAddonsListResponse,
   featuredThemes: ApiAddonsResponse,
-  popularExtensions: ApiAddonsResponse,
+  trendingExtensions: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -85,7 +85,7 @@ type LoadHomeAddonsAction = {|
 export const loadHomeAddons = ({
   featuredCollection,
   featuredThemes,
-  popularExtensions,
+  trendingExtensions,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   if (!featuredCollection) {
     throw new Error('featuredCollection is required');
@@ -93,8 +93,8 @@ export const loadHomeAddons = ({
   if (!featuredThemes) {
     throw new Error('featuredThemes is required');
   }
-  if (!popularExtensions) {
-    throw new Error('popularExtensions is required');
+  if (!trendingExtensions) {
+    throw new Error('trendingExtensions is required');
   }
 
   return {
@@ -102,7 +102,7 @@ export const loadHomeAddons = ({
     payload: {
       featuredCollection,
       featuredThemes,
-      popularExtensions,
+      trendingExtensions,
     },
   };
 };
@@ -134,7 +134,7 @@ const reducer = (
       const {
         featuredCollection,
         featuredThemes,
-        popularExtensions,
+        trendingExtensions,
       } = action.payload;
 
       return {
@@ -145,7 +145,7 @@ const reducer = (
             return createInternalAddon(item.addon);
           }),
         featuredThemes: createInternalAddons(featuredThemes),
-        popularExtensions: createInternalAddons(popularExtensions),
+        trendingExtensions: createInternalAddons(trendingExtensions),
         resultsLoaded: true,
       };
     }

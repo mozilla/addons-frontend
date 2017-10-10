@@ -12,6 +12,6 @@ export const SEND_REPLY_TO_REVIEW = 'SEND_REPLY_TO_REVIEW';
 // Number of total featured add-ons to load.
 export const FEATURED_ADDONS_TO_LOAD = 25;
 
-// Number of add-ons in the featured, most popular, and highest rated
-// landing page sections.
+// Number of add-ons in the featured, trending, and highest rated landing page
+// sections.
 export const LANDING_PAGE_ADDON_COUNT = 4;

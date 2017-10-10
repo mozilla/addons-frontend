@@ -58,7 +58,7 @@ describe(__filename, () => {
         addonType: ADDON_TYPE_THEME,
         featured: { count: 0, results: [] },
         highlyRated: { count: 0, results: [] },
-        popular: { count: 0, results: [] },
+        trending: { count: 0, results: [] },
       };
     }
 
@@ -93,11 +93,11 @@ describe(__filename, () => {
         .toThrow(/highlyRated parameter cannot be empty/);
     });
 
-    it('throws an error if popular is empty', () => {
+    it('throws an error if trending is empty', () => {
       const params = defaultParams();
-      delete params.popular;
+      delete params.trending;
       expect(() => loadLanding(params))
-        .toThrow(/popular parameter cannot be empty/);
+        .toThrow(/trending parameter cannot be empty/);
     });
   });
 });

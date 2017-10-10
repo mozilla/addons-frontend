@@ -34,13 +34,13 @@ describe(__filename, () => {
           addons: Array(10).fill(fakeAddon),
         }),
         featuredThemes: createAddonsApiResult([fakeTheme]),
-        popularExtensions: createAddonsApiResult([fakeAddon]),
+        trendingExtensions: createAddonsApiResult([fakeAddon]),
       }));
 
       const homeState = store.getState().home;
 
       expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.popularExtensions).toEqual([
+      expect(homeState.trendingExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);
       expect(homeState.featuredCollection)
@@ -103,18 +103,18 @@ describe(__filename, () => {
 
   describe('loadHomeAddons()', () => {
     const defaultParams = {
-      popularExtensions: {},
+      trendingExtensions: {},
       featuredCollection: {},
       featuredThemes: {},
     };
 
-    it('throws an error when popular extensions are missing', () => {
+    it('throws an error when trending extensions are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.popularExtensions;
+      delete partialParams.trendingExtensions;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('popularExtensions is required');
+      }).toThrow('trendingExtensions is required');
     });
 
     it('throws an error when featured collection add-ons are missing', () => {

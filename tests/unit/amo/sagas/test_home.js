@@ -12,7 +12,7 @@ import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -68,8 +68,8 @@ describe(__filename, () => {
         page_size: LANDING_PAGE_ADDON_COUNT,
       };
 
-      const popularExtensions = createAddonsApiResult([{
-        ...fakeAddon, slug: 'popular-addon',
+      const trendingExtensions = createAddonsApiResult([{
+        ...fakeAddon, slug: 'trending-addon',
       }]);
       mockSearchApi
         .expects('search')
@@ -78,11 +78,11 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             addonType: ADDON_TYPE_EXTENSION,
-            sort: SEARCH_SORT_POPULAR,
+            sort: SEARCH_SORT_TRENDING,
           },
           page: 1,
         })
-        .returns(Promise.resolve(popularExtensions));
+        .returns(Promise.resolve(trendingExtensions));
 
       const featuredCollection = createFakeCollectionAddons();
       mockCollectionsApi
@@ -116,7 +116,7 @@ describe(__filename, () => {
       const expectedLoadAction = loadHomeAddons({
         featuredCollection,
         featuredThemes,
-        popularExtensions,
+        trendingExtensions,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
