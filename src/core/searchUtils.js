@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 import {
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import log from 'core/logger';
 
@@ -132,8 +133,8 @@ export const fixFiltersForAndroidThemes = ({ api, filters }) => {
   ) {
     log.info(oneLine`addonType: ${newFilters.addonType}/clientApp:
       ${newFilters.clientApp} is not supported. Changing clientApp to
-      "firefox"`);
-    newFilters.clientApp = 'firefox';
+      "${CLIENT_APP_FIREFOX}"`);
+    newFilters.clientApp = CLIENT_APP_FIREFOX;
   }
 
   return newFilters;

@@ -202,10 +202,10 @@ describe(__filename, () => {
       expect(newFilters).toEqual(filters);
     });
 
-    it('does not do anything when clientApp is `firefox`', () => {
+    it('does not change filters unless clientApp is `android`', () => {
       const filters = {
         addonType: ADDON_TYPE_THEME,
-        clientApp: CLIENT_APP_FIREFOX,
+        clientApp: 'some-bogus-client',
       };
 
       const newFilters = fixFiltersForAndroidThemes({ filters });
