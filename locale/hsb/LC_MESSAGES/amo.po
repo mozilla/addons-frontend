@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 19:45+0000\n"
+"PO-Revision-Date: 2017-10-10 20:10+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -688,15 +688,15 @@ msgstr "Wideja w HD, přispomnjenki znjemóžnić, wulkosć wothrawaka změnić 
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Tu su někotre skutkowne rozšěrjenja priwatnosće, wot blokowakow hač do rozšěrjenjow přećiwo přesćěhowanju"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Jara mócny wabjenski blokowak, kotryž da so jednorje wužiwa"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -998,11 +998,11 @@ msgstr "Wuslědźić"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Jeli chceće sobu činić, ale technicse nazhonity njejsće, maće tři móžnosće, zo byšće pomhał:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Wobdźělće so na našim %(startLink)sforumje%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1018,7 +1018,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Pomoc dóstać"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1047,7 +1047,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Zhromadźenstwo wuwiwarjow"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1057,7 +1057,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Čińće sobu"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1077,7 +1077,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Směrnica za pohódnoćenja"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1087,7 +1087,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Pokiwy za pisanje wulkotneho pohódnoćenja"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1104,11 +1104,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Podajće specifiske a pomocliwe podrobnosće. Na přikład:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Je přidatk tak fungował, kak sće wočakował?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
@@ -1116,11 +1116,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Bě to pomocliwe?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Da so jednorje wužiwać?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
@@ -1177,11 +1177,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Huste prašenja wo pohódnoćenjach"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Kak móžu problematiske pohódnoćenje zdźělić?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
@@ -1191,7 +1191,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Sym wuwiwar přidatka, móžu na pohódnoćenjach wotmołwić?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
