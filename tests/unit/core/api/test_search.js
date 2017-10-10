@@ -198,36 +198,20 @@ describe(__filename, () => {
       });
   });
 
-  it('changes theme requests for android to firefox results', () => {
+  it('changes theme requests for android to firefox results', async () => {
     // FIXME: This shouldn't fail if the args are in a different order.
     mockWindow.expects('fetch')
       .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&type=persona&lang=en-US`)
       .once()
       .returns(mockResponse());
 
-    return _search({
+    await _search({
       filters: {
         addonType: ADDON_TYPE_THEME,
         clientApp: CLIENT_APP_ANDROID,
         page: parsePage(3),
       },
-    })
-      .then(() => mockWindow.verify());
-  });
-
-  it('allows overrides to clientApp', () => {
-    // FIXME: This shouldn't fail if the args are in a different order.
-    mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=android&page=3&q=foo&lang=en-US`)
-      .once()
-      .returns(mockResponse());
-    return _search({
-      filters: {
-        clientApp: CLIENT_APP_ANDROID,
-        page: parsePage(3),
-        query: 'foo',
-      },
-    })
-      .then(() => mockWindow.verify());
+    });
+    mockWindow.verify();
   });
 });

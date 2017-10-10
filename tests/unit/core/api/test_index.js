@@ -269,7 +269,7 @@ describe(__filename, () => {
         });
     });
 
-    it('sets app to `firefox` when addon type is theme for Android', () => {
+    it('changes theme requests for android to firefox results', async () => {
       // See: https://github.com/mozilla/addons-frontend/issues/3408
       mockWindow.expects('fetch')
         .withArgs(`${apiHost}/api/v3/addons/featured/?app=firefox&type=persona&lang=en-US`)
@@ -281,25 +281,11 @@ describe(__filename, () => {
         lang: 'en-US',
       });
 
-      return api.featured({
+      await api.featured({
         api: state.api,
         filters: { addonType: ADDON_TYPE_THEME },
-      })
-        .then((response) => {
-          expect(response).toEqual({
-            entities: {
-              addons: {
-                foo: { slug: 'foo' },
-                food: { slug: 'food' },
-                football: { slug: 'football' },
-              },
-            },
-            result: {
-              results: ['foo', 'food', 'football'],
-            },
-          });
-          return mockWindow.verify();
-        });
+      });
+      mockWindow.verify();
     });
   });
 

@@ -1,11 +1,17 @@
 import { oneLine } from 'common-tags';
 
-import { ADDON_TYPE_THEME } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
   convertOSToFilterValue,
+  fixFiltersForAndroidThemes,
 } from 'core/searchUtils';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { userAgents, userAgentsByPlatform } from 'tests/unit/helpers';
@@ -169,6 +175,72 @@ describe(__filename, () => {
       const osFilterValue = convertOSToFilterValue(osName);
 
       expect(osFilterValue).toEqual(undefined);
+    });
+  });
+
+  describe('fixFiltersForAndroidThemes', () => {
+    it('changes clientApp filter to `firefox` for Android themes', () => {
+      const filters = {
+        addonType: ADDON_TYPE_THEME,
+        clientApp: CLIENT_APP_ANDROID,
+      };
+
+      const newFilters = fixFiltersForAndroidThemes({ filters });
+      expect(newFilters).toEqual({
+        ...filters,
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+    });
+
+    it('does not change clientApp filter for Android extensions', () => {
+      const filters = {
+        addonType: ADDON_TYPE_EXTENSION,
+        clientApp: CLIENT_APP_ANDROID,
+      };
+
+      const newFilters = fixFiltersForAndroidThemes({ filters });
+      expect(newFilters).toEqual(filters);
+    });
+
+    it('does not do anything when clientApp is `firefox`', () => {
+      const filters = {
+        addonType: ADDON_TYPE_THEME,
+        clientApp: CLIENT_APP_FIREFOX,
+      };
+
+      const newFilters = fixFiltersForAndroidThemes({ filters });
+      expect(newFilters).toEqual(filters);
+    });
+
+    it('sets clientApp to api.clientApp when clientApp is not a filter', () => {
+      const { state } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+
+      const filters = {
+        addonType: ADDON_TYPE_THEME,
+      };
+
+      const newFilters = fixFiltersForAndroidThemes({
+        api: state.api,
+        filters,
+      });
+      expect(newFilters).toEqual({
+        ...filters,
+        clientApp: CLIENT_APP_FIREFOX,
+      });
+    });
+
+    it('does not modify the other filters', () => {
+      const filters = {
+        addonType: ADDON_TYPE_THEME,
+        category: 'some-category',
+        clientApp: CLIENT_APP_FIREFOX,
+        page: 123,
+      };
+
+      const newFilters = fixFiltersForAndroidThemes({ filters });
+      expect(newFilters).toEqual(filters);
     });
   });
 });
