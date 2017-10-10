@@ -1,5 +1,10 @@
 import { oneLine } from 'common-tags';
 
+import {
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import log from 'core/logger';
 
 
@@ -103,3 +108,34 @@ export function hasSearchFilters(filters) {
   delete filtersSubset.page_size;
   return filtersSubset && !!Object.keys(filtersSubset).length;
 }
+
+export const fixFiltersForAndroidThemes = ({ api, filters }) => {
+  const newFilters = { ...filters };
+
+  if (!newFilters.clientApp && api.clientApp) {
+    log.debug(
+      `No clientApp found in filters; using api.clientApp (${api.clientApp})`);
+    newFilters.clientApp = api.clientApp;
+  }
+
+  // TODO: This loads Firefox personas (lightweight themes) for Android
+  // until
+  // https:// github.com/mozilla/addons-frontend/issues/1723#issuecomment-278793546
+  // and https://github.com/mozilla/addons-server/issues/4766 are addressed.
+  // Essentially: right now there are no categories for the combo
+  // of "Android" + "Themes" but Firefox lightweight themes will work fine
+  // on mobile so we request "Firefox" + "Themes" for Android instead.
+  // Obviously we need to fix this on the API end so our requests aren't
+  // overridden, but for now this will work.
+  if (
+    newFilters.clientApp === CLIENT_APP_ANDROID &&
+    newFilters.addonType === ADDON_TYPE_THEME
+  ) {
+    log.info(oneLine`addonType: ${newFilters.addonType}/clientApp:
+      ${newFilters.clientApp} is not supported. Changing clientApp to
+      "${CLIENT_APP_FIREFOX}"`);
+    newFilters.clientApp = CLIENT_APP_FIREFOX;
+  }
+
+  return newFilters;
+};

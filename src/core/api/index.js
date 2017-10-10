@@ -13,6 +13,7 @@ import log from 'core/logger';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
+  fixFiltersForAndroidThemes,
 } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
@@ -207,11 +208,12 @@ type FeaturedParams = {|
 |};
 
 export function featured({ api, filters, page }: FeaturedParams) {
+  const newFilters = fixFiltersForAndroidThemes({ api, filters });
+
   return callApi({
     endpoint: 'addons/featured',
     params: {
-      app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
+      ...convertFiltersToQueryParams(newFilters),
       page,
     },
     schema: { results: [addon] },

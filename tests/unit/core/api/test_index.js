@@ -5,7 +5,11 @@ import config, { util as configUtil } from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
+import {
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
 import {
   createFakeAutocompleteResult,
   dispatchClientMetadata,
@@ -235,12 +239,12 @@ describe(__filename, () => {
 
     it('sets the app, lang, and type query', () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=firefox&type=persona&lang=en-US`)
         .once()
         .returns(mockResponse());
 
       const { state } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_ANDROID,
+        clientApp: CLIENT_APP_FIREFOX,
         lang: 'en-US',
       });
 
@@ -263,6 +267,25 @@ describe(__filename, () => {
           });
           return mockWindow.verify();
         });
+    });
+
+    it('changes theme requests for android to firefox results', async () => {
+      // See: https://github.com/mozilla/addons-frontend/issues/3408
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/addons/featured/?app=firefox&type=persona&lang=en-US`)
+        .once()
+        .returns(mockResponse());
+
+      const { state } = dispatchClientMetadata({
+        clientApp: CLIENT_APP_ANDROID,
+        lang: 'en-US',
+      });
+
+      await api.featured({
+        api: state.api,
+        filters: { addonType: ADDON_TYPE_THEME },
+      });
+      mockWindow.verify();
     });
   });
 
