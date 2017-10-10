@@ -27,6 +27,8 @@ import {
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  OS_MAC,
   validAddonTypes,
 } from 'core/constants';
 import {
@@ -69,6 +71,7 @@ import {
   fakeI18n,
   unexpectedSuccess,
   userAgents,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 
 
@@ -265,7 +268,7 @@ describe('getClientApp', () => {
 });
 
 describe('isAddonAuthor', () => {
-  const addon = {
+  const addon = createInternalAddon({
     ...fakeAddon,
     authors: [
       {
@@ -276,7 +279,7 @@ describe('isAddonAuthor', () => {
         username: 'tofumatt',
       },
     ],
-  };
+  });
 
   it('returns true when userId is in add-on author object', () => {
     expect(isAddonAuthor({ addon, userId: 5838591 })).toEqual(true);
@@ -352,7 +355,9 @@ describe('isCompatibleWithUserAgent', () => {
   it('is compatible with Firefox desktop', () => {
     userAgents.firefox.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
-        addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
+        addon: createInternalAddon(fakeAddon),
+        userAgentInfo: UAParser(userAgent),
+      }))
         .toEqual({ compatible: true, reason: null });
     });
   });
@@ -360,7 +365,9 @@ describe('isCompatibleWithUserAgent', () => {
   it('is compatible with Firefox Android', () => {
     userAgents.firefoxAndroid.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
-        addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
+        addon: createInternalAddon(fakeAddon),
+        userAgentInfo: UAParser(userAgent),
+      }))
         .toEqual({ compatible: true, reason: null });
     });
   });
@@ -368,7 +375,9 @@ describe('isCompatibleWithUserAgent', () => {
   it('is compatible with Firefox OS', () => {
     userAgents.firefoxOS.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
-        addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
+        addon: createInternalAddon(fakeAddon),
+        userAgentInfo: UAParser(userAgent),
+      }))
         .toEqual({ compatible: true, reason: null });
     });
   });
@@ -376,7 +385,9 @@ describe('isCompatibleWithUserAgent', () => {
   it('is incompatible with Firefox iOS', () => {
     userAgents.firefoxIOS.forEach((userAgent) => {
       expect(isCompatibleWithUserAgent({
-        addon: fakeAddon, userAgentInfo: UAParser(userAgent) }))
+        addon: createInternalAddon(fakeAddon),
+        userAgentInfo: UAParser(userAgent),
+      }))
         .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
     });
   });
@@ -388,7 +399,10 @@ describe('isCompatibleWithUserAgent', () => {
         os: { name: 'iOS' },
       };
       expect(isCompatibleWithUserAgent({
-        addon: fakeAddon, minVersion: '9.0', userAgentInfo }))
+        addon: createInternalAddon(fakeAddon),
+        minVersion: '9.0',
+        userAgentInfo,
+      }))
         .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
     });
 
@@ -397,7 +411,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox' },
       os: { name: 'Windows' },
     };
-    const fakeOpenSearchAddon = { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH };
+    const fakeOpenSearchAddon = createInternalAddon({
+      ...fakeAddon, type: ADDON_TYPE_OPENSEARCH,
+    });
     const fakeWindow = {};
 
     expect(isCompatibleWithUserAgent({
@@ -410,7 +426,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox' },
       os: { name: 'Windows' },
     };
-    const fakeOpenSearchAddon = { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH };
+    const fakeOpenSearchAddon = createInternalAddon({
+      ...fakeAddon, type: ADDON_TYPE_OPENSEARCH,
+    });
     const fakeWindow = { external: {} };
 
     expect(isCompatibleWithUserAgent({
@@ -423,7 +441,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox' },
       os: { name: 'Windows' },
     };
-    const fakeOpenSearchAddon = { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH };
+    const fakeOpenSearchAddon = createInternalAddon({
+      ...fakeAddon, type: ADDON_TYPE_OPENSEARCH,
+    });
     const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
 
     expect(isCompatibleWithUserAgent({
@@ -433,7 +453,9 @@ describe('isCompatibleWithUserAgent', () => {
 
   it('should mark non-Firefox UAs as incompatible', () => {
     const userAgentInfo = { browser: { name: 'Chrome' } };
-    expect(isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }))
+    expect(isCompatibleWithUserAgent({
+      addon: createInternalAddon(fakeAddon), userAgentInfo,
+    }))
       .toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 
@@ -443,7 +465,10 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'Windows' },
     };
     expect(isCompatibleWithUserAgent({
-      addon: fakeAddon, minVersion: '10.1', userAgentInfo }))
+      addon: createInternalAddon(fakeAddon),
+      minVersion: '10.1',
+      userAgentInfo,
+    }))
       .toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
   });
 
@@ -454,13 +479,13 @@ describe('isCompatibleWithUserAgent', () => {
       os: { name: 'Windows' },
     };
     expect(isCompatibleWithUserAgent({
-      addon: {
+      addon: createInternalAddon({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
           is_strict_compatibility_enabled: false,
         },
-      },
+      }),
       maxVersion: '8',
       userAgentInfo,
     })).toEqual({ compatible: true, reason: null });
@@ -471,7 +496,9 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '10.0' },
       os: { name: 'Windows' },
     };
-    expect(isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }))
+    expect(isCompatibleWithUserAgent({
+      addon: createInternalAddon(fakeAddon), userAgentInfo,
+    }))
       .toEqual({ compatible: true, reason: null });
   });
 
@@ -482,7 +509,11 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '54.0' },
       os: { name: 'Windows' },
     };
-    expect(isCompatibleWithUserAgent({ addon: fakeAddon, maxVersion: '*', userAgentInfo }))
+    expect(isCompatibleWithUserAgent({
+      addon: createInternalAddon(fakeAddon),
+      maxVersion: '*',
+      userAgentInfo,
+    }))
       .toEqual({ compatible: true, reason: null });
   });
 
@@ -495,7 +526,12 @@ describe('isCompatibleWithUserAgent', () => {
       browser: { name: 'Firefox', version: '54.0' },
       os: { name: 'Windows' },
     };
-    expect(isCompatibleWithUserAgent({ _log: fakeLog, addon: fakeAddon, minVersion: '*', userAgentInfo }))
+    expect(isCompatibleWithUserAgent({
+      _log: fakeLog,
+      addon: createInternalAddon(fakeAddon),
+      minVersion: '*',
+      userAgentInfo,
+    }))
       .toEqual({ compatible: false, reason: INCOMPATIBLE_UNDER_MIN_VERSION });
     expect(fakeLog.error.firstCall.args[0])
       .toContain('minVersion of "*" was passed to isCompatibleWithUserAgent()');
@@ -503,14 +539,58 @@ describe('isCompatibleWithUserAgent', () => {
 
   it('is incompatible with empty user agent values', () => {
     const userAgentInfo = { browser: { name: '' } };
-    expect(isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }))
+    expect(isCompatibleWithUserAgent({
+      addon: createInternalAddon(fakeAddon), userAgentInfo,
+    }))
       .toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
   });
 
   it('is incompatible with non-string user agent values', () => {
     const userAgentInfo = { browser: { name: null }, os: { name: null } };
-    expect(isCompatibleWithUserAgent({ addon: fakeAddon, userAgentInfo }))
+    expect(isCompatibleWithUserAgent({
+      addon: createInternalAddon(fakeAddon), userAgentInfo,
+    }))
       .toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
+  });
+
+  it('is incompatible if no matching platform file exists', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        files: [{
+          ...fakeAddon.current_version.files[0],
+          platform: OS_MAC,
+        }],
+      },
+    });
+    const userAgentInfo =
+      UAParser(userAgentsByPlatform.windows.firefox40);
+
+    expect(isCompatibleWithUserAgent({ addon, userAgentInfo }))
+      .toEqual({
+        compatible: false,
+        reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+      });
+  });
+
+  it('allows non-extensions to have mismatching platform files', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      current_version: {
+        ...fakeAddon.current_version,
+        files: [{
+          ...fakeAddon.current_version.files[0],
+          platform: OS_MAC,
+        }],
+      },
+      type: ADDON_TYPE_THEME,
+    });
+    const userAgentInfo =
+      UAParser(userAgentsByPlatform.windows.firefox40);
+
+    expect(isCompatibleWithUserAgent({ addon, userAgentInfo }))
+      .toMatchObject({ compatible: true });
   });
 });
 
@@ -939,7 +1019,7 @@ describe('render404IfConfigKeyIsFalse', () => {
 
 describe('getCompatibleVersions', () => {
   it('gets the min and max versions', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       current_version: {
         ...fakeAddon.current_version,
@@ -950,7 +1030,7 @@ describe('getCompatibleVersions', () => {
           },
         },
       },
-    };
+    });
     const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp: CLIENT_APP_FIREFOX });
 
@@ -959,7 +1039,7 @@ describe('getCompatibleVersions', () => {
   });
 
   it('gets null if the clientApp does not match', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       current_version: {
         ...fakeAddon.current_version,
@@ -970,7 +1050,7 @@ describe('getCompatibleVersions', () => {
           },
         },
       },
-    };
+    });
     const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp: CLIENT_APP_ANDROID });
 
@@ -979,13 +1059,13 @@ describe('getCompatibleVersions', () => {
   });
 
   it('returns null if clientApp has no compatibility', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       current_version: {
         ...fakeAddon.current_version,
         compatibility: {},
       },
-    };
+    });
     const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp: CLIENT_APP_FIREFOX });
 
@@ -994,10 +1074,10 @@ describe('getCompatibleVersions', () => {
   });
 
   it('returns null if current_version does not exist', () => {
-    const addon = {
+    const addon = createInternalAddon({
       ...fakeAddon,
       current_version: null,
-    };
+    });
     const { maxVersion, minVersion } = getCompatibleVersions({
       addon, clientApp: CLIENT_APP_FIREFOX });
 
@@ -1015,13 +1095,14 @@ describe('getCompatibleVersions', () => {
 
   it('should log info when OpenSearch type is found', () => {
     const fakeLog = { info: sinon.stub() };
-    const openSearchAddon = {
+    const openSearchAddon = createInternalAddon({
       ...fakeAddon,
       current_version: {
+        ...fakeAddon.current_version,
         compatibility: {},
       },
       type: ADDON_TYPE_OPENSEARCH,
-    };
+    });
     const { maxVersion, minVersion } = getCompatibleVersions({
       _log: fakeLog,
       addon: openSearchAddon,
@@ -1030,7 +1111,8 @@ describe('getCompatibleVersions', () => {
 
     expect(maxVersion).toEqual(null);
     expect(minVersion).toEqual(null);
-    expect(fakeLog.info.firstCall.args[0]).toContain(`addon is type ${ADDON_TYPE_OPENSEARCH}`);
+    expect(fakeLog.info.firstCall.args[0])
+      .toContain(`addon is type ${ADDON_TYPE_OPENSEARCH}`);
   });
 });
 
@@ -1040,7 +1122,7 @@ describe('getClientCompatibility', () => {
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({
-      addon: fakeAddon,
+      addon: createInternalAddon(fakeAddon),
       clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
@@ -1056,14 +1138,15 @@ describe('getClientCompatibility', () => {
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({
-      addon: {
+      addon: createInternalAddon({
         ...fakeAddon,
         current_version: {
+          ...fakeAddon.current_version,
           compatibility: {
             firefox: { max: '200.0', min: null },
           },
         },
-      },
+      }),
       clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
@@ -1079,14 +1162,15 @@ describe('getClientCompatibility', () => {
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({
-      addon: {
+      addon: createInternalAddon({
         ...fakeAddon,
         current_version: {
+          ...fakeAddon.current_version,
           compatibility: {
             firefox: { max: null, min: '2.0' },
           },
         },
-      },
+      }),
       clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
@@ -1102,7 +1186,7 @@ describe('getClientCompatibility', () => {
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({
-      addon: fakeAddon,
+      addon: createInternalAddon(fakeAddon),
       clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toEqual({
@@ -1118,7 +1202,7 @@ describe('getClientCompatibility', () => {
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({
-      addon: {
+      addon: createInternalAddon({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
@@ -1129,10 +1213,13 @@ describe('getClientCompatibility', () => {
               min: '24.0',
             },
           },
-          files: [{ is_webextension: true }],
+          files: [{
+            ...fakeAddon.current_version.files[0],
+            is_webextension: true,
+          }],
           is_strict_compatibility_enabled: false,
         },
-      },
+      }),
       clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toMatchObject({ compatible: true });
@@ -1143,7 +1230,7 @@ describe('getClientCompatibility', () => {
     const userAgentInfo = { browser, os };
 
     expect(getClientCompatibility({
-      addon: {
+      addon: createInternalAddon({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
@@ -1154,10 +1241,13 @@ describe('getClientCompatibility', () => {
               min: '24.0',
             },
           },
-          files: [{ is_webextension: false }],
+          files: [{
+            ...fakeAddon.current_version.files[0],
+            is_webextension: false,
+          }],
           is_strict_compatibility_enabled: true,
         },
-      },
+      }),
       clientApp: CLIENT_APP_FIREFOX,
       userAgentInfo,
     })).toMatchObject({

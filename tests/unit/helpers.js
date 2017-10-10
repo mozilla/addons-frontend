@@ -130,6 +130,17 @@ export const userAgentsByPlatform = {
   firefoxOS: {
     firefox26: 'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
   },
+  ios: {
+    firefox1iPad: oneLine`Mozilla/5.0 (iPad; CPU iPhone OS 8_3
+      like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko)
+      FxiOS/1.0 Mobile/12F69 Safari/600.1.4`,
+    firefox1iPhone: oneLine`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3
+      like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko)
+      FxiOS/1.0 Mobile/12F69n Safari/600.1.4`,
+    firefox1iPodTouch: oneLine`Mozilla/5.0 (iPod touch; CPU iPhone
+      OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko)
+      FxiOS/1.0 Mobile/12F69 Safari/600.1.4`,
+  },
   linux: {
     firefox10: oneLine`Mozilla/5.0 (X11; Linux i686; rv:10.0)
       Gecko/20100101 Firefox/10.0`,
@@ -195,15 +206,9 @@ export const userAgents = {
     'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
   ],
   firefoxIOS: [
-    oneLine`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
-      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
-      Safari/600.1.4`,
-    oneLine`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X)
-      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
-      Safari/600.1.4`,
-    oneLine`Mozilla/5.0 (iPad; CPU iPhone OS 8_3 like Mac OS X)
-      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
-      Safari/600.1.4`,
+    userAgentsByPlatform.ios.firefox1iPodTouch,
+    userAgentsByPlatform.ios.firefox1iPhone,
+    userAgentsByPlatform.ios.firefox1iPad,
   ],
 };
 
