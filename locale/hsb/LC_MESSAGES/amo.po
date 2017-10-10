@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 20:51+0000\n"
+"PO-Revision-Date: 2017-10-10 20:58+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -295,33 +295,28 @@ msgid "All written reviews"
 msgstr "Wšě napisane pohódnoćenja"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "wot %(authorName)s, %(timestamp)s"
+msgstr "%(timestamp)s napisany"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "wot %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Wuwiwarski róžk"
+msgstr "Wotmołwa wuwiwarja"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Moje pohódnoćenje wobdźěłać"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Podótkńće so, zo byšće sej přehlad wobhladał"
+msgstr "Na tute pohódnoćenje wotmołwić"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Pisajće pohódnoćenje"
+msgstr "Pisajće wotmołwu na tute pohódnoćenje."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -336,9 +331,8 @@ msgid "Add-ons for Firefox"
 msgstr "Přidatki za Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Přidatki za Firefox"
+msgstr "%s - Přidatki za Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -645,9 +639,8 @@ msgid "Change your tabs"
 msgstr "Změńće swoje rajtarki"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Wšě rozšěrjenja přepytować"
+msgstr "Tutu zběrku přehladować"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -1030,9 +1023,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Přidatki za Firefox"
+msgstr "Wo přidatkach za Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1093,9 +1085,8 @@ msgid "Do:"
 msgstr "Dobre:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Smy wašu rozprawu dóstali. Dźakujemy so, zo sće nam swoje wobmyslenja nastupajo tutón přidatk zdźělił."
+msgstr "Pisajće, kaž byšće přećelej wo swojich nazhonjenjach z přidatkom powědał."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1122,9 +1113,8 @@ msgid "Was it easy to use?"
 msgstr "Da so jednorje wužiwać?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Přizjewće so, zo byšće tutón přidatk pohódnoćił"
+msgstr "Budźeće tutón přidatk dale wužiwać?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1291,23 +1281,20 @@ msgid "OK!"
 msgstr "W porjadku!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Přehlad přetorhnyć"
+msgstr "Přetorhnyć"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Zapodać"
+msgstr "Tekst zapodać."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Wotpósłać"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Wotpósłać"
+msgstr "Sćele so"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
