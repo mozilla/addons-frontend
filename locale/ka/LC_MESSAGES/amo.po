@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 07:50+0000\n"
+"PO-Revision-Date: 2017-10-11 07:51+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1017,11 +1017,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "ამასთან, AMO საიტზე შეგიძლიათ Mozilla %(startTBLink)sThunderbird%(endTBLink)s-ისა და %(startSMLink)sSeaMonkey%(endSMLink)s-ის დამატებების მოძიებაც."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "შემქმნელების ერთობა"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
