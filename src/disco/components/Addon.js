@@ -30,9 +30,11 @@ import { withInstallHelpers } from 'core/installAddon';
 import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import {
-  getClientCompatibility as _getClientCompatibility,
   sanitizeHTML,
 } from 'core/utils';
+import {
+  getClientCompatibility as _getClientCompatibility,
+} from 'core/utils/compatibility';
 import LoadingText from 'ui/components/LoadingText';
 
 import 'disco/css/Addon.scss';

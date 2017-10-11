@@ -15,7 +15,7 @@ import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
 import {
   getClientCompatibility as _getClientCompatibility,
-} from 'core/utils';
+} from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
 
 import './styles.scss';

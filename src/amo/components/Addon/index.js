@@ -27,10 +27,12 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
-  getClientCompatibility as _getClientCompatibility,
   sanitizeHTML,
   sanitizeUserHTML,
 } from 'core/utils';
+import {
+  getClientCompatibility as _getClientCompatibility,
+} from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
