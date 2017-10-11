@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 17:11+0000\n"
+"PO-Revision-Date: 2017-10-11 17:19+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1049,7 +1049,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Regras gerais para análises"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1063,7 +1063,7 @@ msgstr "Dicas para escrever uma excelente análise"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "O que fazer:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 #, fuzzy
@@ -1072,7 +1072,7 @@ msgstr "Recebemos seu relatório. Obrigado por nos informar sobre suas preocupa�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Mantenha suas análises sucintas e fáceis de entender."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
@@ -1092,7 +1092,7 @@ msgstr "Foi útil?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Foi fácil de usar?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "O que não fazer:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
@@ -1119,7 +1119,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Escrever análises para extensões que você nunca chegou a usar."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
@@ -1127,11 +1127,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Incluir HTML, links, código fonte ou partes de código. As análises devem ser apenas texto."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Fazer afirmações falsas, depreciar os autores da extensão ou os insultar pessoalmente."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
@@ -1139,7 +1139,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Postar análises para uma extensão que você ou sua organização criou ou representa."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
@@ -1149,7 +1149,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Dúvidas frequentes sobre análises"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
@@ -1171,7 +1171,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Eu sou um autor de extensões, posso excluir análises ou avaliações desfavoráveis?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
