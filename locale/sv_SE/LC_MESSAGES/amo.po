@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 15:38+0000\n"
+"PO-Revision-Date: 2017-10-11 16:22+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1272,23 +1272,20 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Avbryt förhandsgranskning"
+msgstr "Avbryt"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Ange"
+msgstr "Ange text."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Skicka in"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Skicka in"
+msgstr "Skickar in"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
