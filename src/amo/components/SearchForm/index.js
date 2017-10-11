@@ -33,7 +33,7 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
+const SEARCH_TERM_MAX_LENGTH = 100;
 export class SearchFormBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string,
@@ -125,7 +125,10 @@ export class SearchFormBase extends React.Component {
   }
 
   handleSearchChange = (event) => {
-    this.setState({ searchValue: event.target.value });
+    const searchValue = event.target.value || '';
+    if (searchValue.length <= SEARCH_TERM_MAX_LENGTH) {
+      this.setState({ searchValue });
+    }
   }
 
   dispatchAutocompleteStart = this.props.debounce(({ filters }) => {
@@ -160,8 +163,9 @@ export class SearchFormBase extends React.Component {
         but filters have not changed.`);
       return;
     }
-
-    this.dispatchAutocompleteStart({ filters });
+    if (value.length <= SEARCH_TERM_MAX_LENGTH) {
+      this.dispatchAutocompleteStart({ filters });
+    }
   }
 
   handleSuggestionsClearRequested = () => {

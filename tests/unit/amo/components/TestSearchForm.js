@@ -271,6 +271,13 @@ describe(__filename, () => {
 
       wrapper.find('input').simulate('change', createFakeChangeEvent(undefined));
       expect(wrapper.state('searchValue')).toEqual('');
+
+      // Tests for allowing only 100 characters as input
+      wrapper.find('input').simulate('change', createFakeChangeEvent('asdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklp98765432111'));
+      expect(wrapper.state('searchValue')).toEqual('');
+
+      wrapper.find('input').simulate('change', createFakeChangeEvent('asdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklp9876543211'));
+      expect(wrapper.state('searchValue')).toEqual('asdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklp9876543211');
     });
 
     it('fetches suggestions on focus', () => {
