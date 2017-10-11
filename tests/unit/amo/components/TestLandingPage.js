@@ -12,7 +12,7 @@ import LandingPage, {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
@@ -83,7 +83,7 @@ describe(__filename, () => {
       addonType,
       featured: createAddonsApiResult([]),
       highlyRated: createAddonsApiResult([]),
-      popular: createAddonsApiResult([]),
+      trending: createAddonsApiResult([]),
       ...otherParams,
     }));
   };
@@ -241,7 +241,7 @@ describe(__filename, () => {
     });
     expect(root.childAt(5)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
+      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
     });
   });
 
@@ -260,7 +260,7 @@ describe(__filename, () => {
     });
     expect(root.childAt(5)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
     });
   });
 
@@ -284,7 +284,7 @@ describe(__filename, () => {
         { ...fakeAddon, name: 'High', slug: 'high' },
         { ...fakeAddon, name: 'High again', slug: 'high-again' },
       ]),
-      popular: createAddonsApiResult([
+      trending: createAddonsApiResult([
         { ...fakeAddon, name: 'Pop', slug: 'pop' },
         { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
       ]),
@@ -330,7 +330,7 @@ describe(__filename, () => {
       addonType,
       featured: createAddonsApiResult([]),
       highlyRated: createAddonsApiResult([]),
-      popular: createAddonsApiResult([]),
+      trending: createAddonsApiResult([]),
     }));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');

@@ -1,5 +1,5 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-import { SEARCH_SORT_POPULAR } from 'core/constants';
+import { SEARCH_SORT_TRENDING } from 'core/constants';
 import {
   FETCH_OTHER_ADDONS_BY_AUTHORS,
   OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
@@ -27,7 +27,7 @@ export function* fetchOtherAddonsByAuthors({ payload }) {
         // We need one more add-on than the number to display because the API
         // may return the main add-on and we cannot tell the API to exclude it.
         page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 1,
-        sort: SEARCH_SORT_POPULAR,
+        sort: SEARCH_SORT_TRENDING,
       },
     });
 

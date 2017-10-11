@@ -232,7 +232,8 @@ export class HomeBase extends React.Component {
             </h2>
             <p className="Home-description">
               {i18n.gettext(
-                "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want.")}
+                `Change your browser's appearance. Choose from thousands of
+                themes to give Firefox the look you want.`)}
             </p>
           </div>
 

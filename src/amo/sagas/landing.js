@@ -11,7 +11,7 @@ import { featured as featuredApi } from 'core/api';
 import { search as searchApi } from 'core/api/search';
 import {
   LANDING_GET,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import log from 'core/logger';
@@ -34,7 +34,7 @@ export function* fetchLandingAddons(
       filters.category = category;
     }
 
-    const [featured, highlyRated, popular] = yield all([
+    const [featured, highlyRated, trending] = yield all([
       call(featuredApi, { api, filters }),
       call(searchApi, {
         api,
@@ -43,13 +43,13 @@ export function* fetchLandingAddons(
       }),
       call(searchApi, {
         api,
-        filters: { ...filters, sort: SEARCH_SORT_POPULAR },
+        filters: { ...filters, sort: SEARCH_SORT_TRENDING },
         page: 1,
       }),
     ]);
 
     yield put(loadLanding({
-      addonType, featured, highlyRated, popular,
+      addonType, featured, highlyRated, trending,
     }));
   } catch (error) {
     log.warn(oneLine`Failed to fetch landing page add-ons for

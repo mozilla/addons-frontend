@@ -13,7 +13,7 @@ import Categories from 'amo/components/Categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -49,7 +49,7 @@ export class LandingPageBase extends React.Component {
     featuredAddons: PropTypes.array.isRequired,
     highlyRatedAddons: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
-    popularAddons: PropTypes.array.isRequired,
+    trendingAddons: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     params: PropTypes.objectOf({
       visibleAddonType: PropTypes.string.isRequired,
@@ -130,12 +130,12 @@ export class LandingPageBase extends React.Component {
         featuredHeader: i18n.gettext('Featured extensions'),
         featuredFooterLink,
         featuredFooterText: i18n.gettext('More featured extensions'),
-        popularHeader: i18n.gettext('Most popular extensions'),
-        popularFooterLink: {
+        trendingHeader: i18n.gettext('Trending extensions'),
+        trendingFooterLink: {
           pathname: '/search/',
-          query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
+          query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
         },
-        popularFooterText: i18n.gettext('More popular extensions'),
+        trendingFooterText: i18n.gettext('More trending extensions'),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -150,12 +150,12 @@ export class LandingPageBase extends React.Component {
         featuredHeader: i18n.gettext('Featured themes'),
         featuredFooterLink,
         featuredFooterText: i18n.gettext('More featured themes'),
-        popularHeader: i18n.gettext('Most popular themes'),
-        popularFooterLink: {
+        trendingHeader: i18n.gettext('Trending themes'),
+        trendingFooterLink: {
           pathname: '/search/',
-          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
+          query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
         },
-        popularFooterText: i18n.gettext('More popular themes'),
+        trendingFooterText: i18n.gettext('More trending themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -186,7 +186,7 @@ export class LandingPageBase extends React.Component {
       featuredAddons,
       highlyRatedAddons,
       loading,
-      popularAddons,
+      trendingAddons,
       i18n,
     } = this.props;
     const { visibleAddonType } = this.props.params;
@@ -252,11 +252,11 @@ export class LandingPageBase extends React.Component {
           loading={loading}
         />
         <LandingAddonsCard
-          addons={popularAddons}
-          className="PopularAddons"
-          footerLink={html.popularFooterLink}
-          footerText={html.popularFooterText}
-          header={html.popularHeader}
+          addons={trendingAddons}
+          className="TrendingAddons"
+          footerLink={html.trendingFooterLink}
+          footerText={html.trendingFooterText}
+          header={html.trendingHeader}
           loading={loading}
         />
       </div>
@@ -273,7 +273,7 @@ export function mapStateToProps(state) {
     featuredAddons: landing.featured.results,
     highlyRatedAddons: landing.highlyRated.results,
     loading: landing.loading,
-    popularAddons: landing.popular.results,
+    trendingAddons: landing.trending.results,
     resultsLoaded: landing.resultsLoaded && landing.category === null,
   };
 }

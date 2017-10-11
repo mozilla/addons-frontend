@@ -8,7 +8,7 @@ import addonsByAuthorsReducer, {
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import * as searchApi from 'core/api/search';
 import apiReducer from 'core/reducers/api';
@@ -60,7 +60,7 @@ describe(__filename, () => {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
           page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 1,
-          sort: SEARCH_SORT_POPULAR,
+          sort: SEARCH_SORT_TRENDING,
         },
       })
       .once()
@@ -115,7 +115,7 @@ describe(__filename, () => {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
           page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 1,
-          sort: SEARCH_SORT_POPULAR,
+          sort: SEARCH_SORT_TRENDING,
         },
       })
       .once()

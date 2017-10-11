@@ -13,28 +13,28 @@ describe(__filename, () => {
   });
 
   it('defaults to zero count', () => {
-    const { featured, highlyRated, popular } = landing(undefined, {
+    const { featured, highlyRated, trending } = landing(undefined, {
       type: 'unrelated',
     });
 
     expect(featured.count).toBe(0);
     expect(highlyRated.count).toBe(0);
-    expect(popular.count).toBe(0);
+    expect(trending.count).toBe(0);
   });
 
   it('defaults to empty results', () => {
-    const { featured, highlyRated, popular } = landing(undefined, {
+    const { featured, highlyRated, trending } = landing(undefined, {
       type: 'unrelated',
     });
     expect(featured.results).toEqual([]);
     expect(highlyRated.results).toEqual([]);
-    expect(popular.results).toEqual([]);
+    expect(trending.results).toEqual([]);
   });
 
   describe('LANDING_GET', () => {
     it('sets the initialState', () => {
       const {
-        addonType, featured, highlyRated, loading, popular,
+        addonType, featured, highlyRated, loading, trending,
       } = landing(initialState, getLanding({
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'some-error-handler',
@@ -44,7 +44,7 @@ describe(__filename, () => {
       expect(loading).toEqual(true);
       expect(featured).toEqual(initialState.featured);
       expect(highlyRated).toEqual(initialState.highlyRated);
-      expect(popular).toEqual(initialState.popular);
+      expect(trending).toEqual(initialState.trending);
     });
 
     it('sets resultsLoaded to false', () => {
@@ -77,7 +77,7 @@ describe(__filename, () => {
 
       expect(state.featured).toEqual(initialState.featured);
       expect(state.highlyRated).toEqual(initialState.highlyRated);
-      expect(state.popular).toEqual(initialState.popular);
+      expect(state.trending).toEqual(initialState.trending);
     });
   });
 
@@ -99,7 +99,7 @@ describe(__filename, () => {
             result: { count: 2, results: ['foo', 'food'] },
           },
           highlyRated: { entities, result: { count: 0, results: [] } },
-          popular: { entities, result: { count: 0, results: [] } },
+          trending: { entities, result: { count: 0, results: [] } },
         },
       });
       expect(state.featured.count).toEqual(2);
@@ -109,7 +109,7 @@ describe(__filename, () => {
           createInternalAddon({ ...fakeAddon, slug: 'food' }),
         ]);
       expect(state.highlyRated).toEqual({ count: 0, results: [] });
-      expect(state.popular).toEqual({ count: 0, results: [] });
+      expect(state.trending).toEqual({ count: 0, results: [] });
       expect(state.resultsLoaded).toEqual(true);
     });
 
@@ -132,7 +132,7 @@ describe(__filename, () => {
             entities,
             result: { count: 2, results: ['foo', 'food'] },
           },
-          popular: { entities, result: { count: 0, results: [] } },
+          trending: { entities, result: { count: 0, results: [] } },
         },
       });
       expect(highlyRated).toEqual('hello');

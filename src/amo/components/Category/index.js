@@ -13,7 +13,7 @@ import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -43,7 +43,7 @@ export class CategoryBase extends React.Component {
       slug: PropTypes.string,
       visibleAddonType: PropTypes.string,
     }).isRequired,
-    popularAddons: PropTypes.array,
+    trendingAddons: PropTypes.array,
     resultsLoaded: PropTypes.bool.isRequired,
   }
 
@@ -131,16 +131,16 @@ export class CategoryBase extends React.Component {
           },
         },
         featuredFooterText: i18n.gettext('More featured extensions'),
-        popularHeader: i18n.gettext('Most popular extensions'),
-        popularFooterLink: {
+        trendingHeader: i18n.gettext('Trending extensions'),
+        trendingFooterLink: {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_EXTENSION,
             category: params.slug,
-            sort: SEARCH_SORT_POPULAR,
+            sort: SEARCH_SORT_TRENDING,
           },
         },
-        popularFooterText: i18n.gettext('More popular extensions'),
+        trendingFooterText: i18n.gettext('More trending extensions'),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -163,16 +163,16 @@ export class CategoryBase extends React.Component {
           },
         },
         featuredFooterText: i18n.gettext('More featured themes'),
-        popularHeader: i18n.gettext('Most popular themes'),
-        popularFooterLink: {
+        trendingHeader: i18n.gettext('Trending themes'),
+        trendingFooterLink: {
           pathname: '/search/',
           query: {
             addonType: ADDON_TYPE_THEME,
             category: params.slug,
-            sort: SEARCH_SORT_POPULAR,
+            sort: SEARCH_SORT_TRENDING,
           },
         },
-        popularFooterText: i18n.gettext('More popular themes'),
+        trendingFooterText: i18n.gettext('More trending themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -206,7 +206,7 @@ export class CategoryBase extends React.Component {
       highlyRatedAddons,
       loading,
       params,
-      popularAddons,
+      trendingAddons,
     } = this.props;
 
     let addonType;
@@ -259,13 +259,13 @@ export class CategoryBase extends React.Component {
           />
         )}
         {this.renderIfNotEmpty(
-          popularAddons,
+          trendingAddons,
           <LandingAddonsCard
-            addons={popularAddons}
-            className="PopularAddons"
-            footerLink={html.popularFooterLink}
-            footerText={html.popularFooterText}
-            header={html.popularHeader}
+            addons={trendingAddons}
+            className="TrendingAddons"
+            footerLink={html.trendingFooterLink}
+            footerText={html.trendingFooterText}
+            header={html.trendingHeader}
             loading={loading}
           />
         )}
@@ -283,7 +283,7 @@ function mapStateToProps(state) {
     categoryOfResults: state.landing.category,
     featuredAddons: state.landing.featured.results,
     highlyRatedAddons: state.landing.highlyRated.results,
-    popularAddons: state.landing.popular.results,
+    trendingAddons: state.landing.trending.results,
     resultsLoaded: state.landing.resultsLoaded,
   };
 }
