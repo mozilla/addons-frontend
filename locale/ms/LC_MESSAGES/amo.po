@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 03:36+0000\n"
-"Last-Translator: Norman Haikal <normanh876@gmail.com>\n"
+"PO-Revision-Date: 2017-10-11 04:09+0000\n"
+"Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
@@ -1056,11 +1056,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Panduan untuk menulis ulasan yang bagus"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Buat:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1068,27 +1068,27 @@ msgstr "Tulis seperti anda bercerita kepada rakan perihal pengalaman menggunakan
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Pastikan ulasan ringkas dan mudah difahami."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Beri butiran tertentu dan membantu. Sebagai contoh:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Adakah add-on berfungsi seperti yang anda jangkakan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Ciri apa yang anda suka atau tidak suka?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Adakah add-on itu berguna?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Adakah mudah untuk digunakan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
@@ -1096,7 +1096,7 @@ msgstr "Adakah anda akan terus menggunakan add-on ini?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Luangkan masa membaca ulasan anda sebelum menghantarnya bagi meminimumkan kesilapan menaip."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
