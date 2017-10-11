@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 11:47+0000\n"
+"PO-Revision-Date: 2017-10-11 12:09+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1047,6 +1047,9 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Bantu kami memperbaiki laman web ini. Semuanya sumber terbuka dan anda boleh failkan pepijat dan menghantarkan tampalan. Anda boleh mulakan dengan melaporkan %(startGoodFirstBugLink)spepijat yang "
+"pertama%(endGoodFirstBugLink)s atau meninjau semua isu terbuka berkaitan %(startAddonsServerRepoLink)spelayan%(endAddonsServerRepoLink)s AMO dan %(startAddonsFrontendRepoLink)sbahagian "
+"depan%(endAddonsFrontendRepoLink)s dalam Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
@@ -1057,6 +1060,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Ulasan add-on adalah satu cara untuk berkongsi pendapat perihal add-ons yang anda sudah pasang dan gunakan. Pasukan moderat ulasan kami berhak untuk menolak atau membuang sebarang ulasan yang tidak "
+"mematuhi garis panduan."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1115,44 +1120,48 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Buat ulasan perihal isu teknikal, permintaan sokongan atau mencadangkan ciri. Gunakan pilihan sokongan yang disediakan untuk setiap add-on. Anda boleh mencarinya dalam bahagian \"Maklumat Lanjut\" "
+"dalam bar sisi halaman butiran add-on."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Tulis ulasan add-ons yang anda sendiri belum pernah menggunakannya."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Guna bahasa yang boleh ditafsirkan sebagai kebencian, kelakuan tidak senonoh atau bahasa seksual."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Sertakan HTML, pautan, kod sumber atau coretan kod. Ulasan adalah hanya dalam bentuk teks."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Membuat kenyataan palsu, memperkecilkan pengarang add-on atau secara peribadi menghina mereka."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Memasukkan e-mel anda sendiri atau orang lain, nombor telefon, atau butiran peribadi yang lain."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Buat ulasan add-on yang anda atau organisasi anda tulis atau wakili."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Buat kritikan atas ciri yang dijangkakan. Sebagai contoh, berikan ulasan negatif untuk add-on yang memaparkan iklan atau mengumpulkan data, jika samada inilah tujuan add-on tersebut dicipta, atau "
+"pengumpulan data memang diperlukan supaya add-on tersebut boleh berfungsi."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Soalan Lazim perihal Ulasan"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Bagaimana saya boleh melaporkan ulasan yang bermasalah?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
