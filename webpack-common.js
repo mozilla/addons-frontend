@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import autoprefixer from 'autoprefixer';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import webpack from 'webpack';
@@ -149,6 +150,10 @@ export function getPlugins({ excludeOtherAppLocales = true } = {}) {
     // This swaps the server side window object with a standard browser window.
     new webpack.NormalModuleReplacementPlugin(
       /core\/window/, 'core/browserWindow.js'),
+    new CircularDependencyPlugin({
+      exclude: /node_modules/,
+      failOnError: true,
+    }),
   ];
 
   if (excludeOtherAppLocales) {
