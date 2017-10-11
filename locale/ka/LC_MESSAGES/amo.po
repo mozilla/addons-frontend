@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 07:51+0000\n"
+"PO-Revision-Date: 2017-10-11 14:46+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -368,7 +368,7 @@ msgstr "გამორჩეული თემები"
 
 #: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:199 src/amo/components/LandingPage/index.js:152
 msgid "More featured themes"
-msgstr "მეტი გამორჩეული თემა"
+msgstr "სხვა გამორჩეული თემები"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:153
 msgid "Most popular themes"
@@ -458,7 +458,7 @@ msgstr "სხვა რჩეული გაფართოებები"
 
 #: src/amo/components/FeaturedAddons/index.js:52
 msgid "More Featured Themes"
-msgstr "მეტი გამორჩეული თემები"
+msgstr "სხვა გამორჩეული თემები"
 
 #: src/amo/components/Footer/index.js:104
 msgid "Focus Browser"
@@ -632,7 +632,7 @@ msgstr "შეცვალეთ თქვენი ჩანართები"
 
 #: src/amo/components/Home/index.js:188
 msgid "Browse this collection"
-msgstr "კრებულის ნახვა"
+msgstr "ამ კრებულების ნახვა"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -660,7 +660,7 @@ msgstr "შეუცვალეთ თქვენს ბრაუზერს 
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr "საოცარი გაფართოებები ნებისმიერი ვითარებისთვის"
+msgstr "საოცარი გაფართოებები, ყველანაირი საჭიროებისთვის"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
@@ -672,7 +672,7 @@ msgstr "ვიდეოები HD ხარისხით, ანოტაც
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr "რეკლამების შემზღუდველიდან დაწყებული, მოთვალთვალე ელემენტების ამკრძალავის ჩათვლით, პირადი მონაცემების დასაცავი, უამრავი დამატება შეგიძლიათ მოიძიოთ"
+msgstr "რეკლამების შემზღუდველიდან დაწყებული, მოთვალთვალე ელემენტების ამკრძალავის ჩათვლით, პირადი მონაცემების დასაცავად, უამრავი დამატება შეგიძლიათ მოიძიოთ"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
@@ -1028,6 +1028,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებიდან, დამთავრებული დიდი ორგანიზაციებით. ზოგიერთი დამატება AMO "
+"საიტზე ავტომატურად ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1310,7 +1312,7 @@ msgstr "არაა შეფასებული"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">ჩამოშალეთ,</span> მეტის წასაკითხად"
+msgstr "<span class=\"visually-hidden\">ჩამოშლა,</span> ვრცლად"
 
 #~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
 #~ msgstr "დაამატეთ მძლავრი ხელსაწყოები ბრაუზერს, სისწრაფისა და უსაფრთხოების გასაუმჯობესებლად, დამატებები ბრაუზერს გახდის თქვენს მოთხოვნილებებზე მეტად მორგებულს."
