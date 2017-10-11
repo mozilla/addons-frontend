@@ -1,0 +1,46 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.Hero {
+  margin: 0 0 10px;
+}
+
+.Hero .Card-contents {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.Hero-contents {
+  display: grid;
+  grid-gap: 12px;
+  grid-template: 1fr;
+  grid-template-areas:
+    "first"
+    "second"
+    "third";
+  padding-bottom: 10px;
+
+  @include respond-to(medium) {
+    grid-template: 1fr 1fr / 60% 1fr;
+    grid-template-areas:
+      "first second"
+      "first third";
+    height: auto;
+    margin-bottom: -12px;
+  }
+}
+
+.Hero .HeroSection {
+  &:first-of-type {
+    grid-area: first;
+  }
+
+  &:nth-of-type(2) {
+    grid-area: second;
+  }
+
+  &:nth-of-type(3) {
+    grid-area: third;
+  }
+}
