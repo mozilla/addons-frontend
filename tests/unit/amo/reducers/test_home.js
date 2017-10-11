@@ -35,6 +35,7 @@ describe(__filename, () => {
         }),
         featuredThemes: createAddonsApiResult([fakeTheme]),
         popularExtensions: createAddonsApiResult([fakeAddon]),
+        upAndComingExtensions: createAddonsApiResult([fakeAddon]),
       }));
 
       const homeState = store.getState().home;
@@ -50,6 +51,9 @@ describe(__filename, () => {
       );
       expect(homeState.featuredThemes).toEqual([
         createInternalAddon(fakeTheme),
+      ]);
+      expect(homeState.upAndComingExtensions).toEqual([
+        createInternalAddon(fakeAddon),
       ]);
     });
 
@@ -106,6 +110,7 @@ describe(__filename, () => {
       popularExtensions: {},
       featuredCollection: {},
       featuredThemes: {},
+      upAndComingExtensions: {},
     };
 
     it('throws an error when popular extensions are missing', () => {
@@ -133,6 +138,15 @@ describe(__filename, () => {
       expect(() => {
         loadHomeAddons(partialParams);
       }).toThrow('featuredThemes is required');
+    });
+
+    it('throws an error when up and coming extensions are missing', () => {
+      const partialParams = { ...defaultParams };
+      delete partialParams.upAndComingExtensions;
+
+      expect(() => {
+        loadHomeAddons(partialParams);
+      }).toThrow('upAndComingExtensions is required');
     });
   });
 });

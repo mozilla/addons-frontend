@@ -14,6 +14,7 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -61,6 +62,7 @@ export class HomeBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
+    upAndComingExtensions: PropTypes.array.isRequired,
   }
 
   componentWillMount() {
@@ -158,6 +160,7 @@ export class HomeBase extends React.Component {
       i18n,
       popularExtensions,
       resultsLoaded,
+      upAndComingExtensions,
     } = this.props;
 
     return (
@@ -198,6 +201,21 @@ export class HomeBase extends React.Component {
           header={i18n.gettext('Featured themes')}
           footerText={i18n.gettext('More featured themes')}
           footerLink={{ pathname: '/themes/featured/' }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={upAndComingExtensions}
+          className="Home-UpAndComingExtensions"
+          header={i18n.gettext('Up & Coming')}
+          footerText={i18n.gettext('More trending extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_TRENDING,
+            },
+          }}
           loading={resultsLoaded === false}
         />
 
@@ -251,6 +269,7 @@ export function mapStateToProps(state) {
     featuredThemes: state.home.featuredThemes,
     popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
+    upAndComingExtensions: state.home.upAndComingExtensions,
   };
 }
 

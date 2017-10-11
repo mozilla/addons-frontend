@@ -9,6 +9,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { featured as featuredApi } from 'core/api';
 import { search as searchApi } from 'core/api/search';
@@ -34,6 +35,7 @@ export function* fetchHomeAddons({
       popularExtensions,
       featuredCollection,
       featuredThemes,
+      upAndComingExtensions,
     } = yield all({
       popularExtensions: call(searchApi, {
         api: state.api,
@@ -57,12 +59,22 @@ export function* fetchHomeAddons({
           page_size: LANDING_PAGE_ADDON_COUNT,
         },
       }),
+      upAndComingExtensions: call(searchApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_TRENDING,
+        },
+        page: 1,
+      }),
     });
 
     yield put(loadHomeAddons({
       popularExtensions,
       featuredCollection,
       featuredThemes,
+      upAndComingExtensions,
     }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);

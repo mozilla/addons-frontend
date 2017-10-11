@@ -13,6 +13,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -93,7 +94,6 @@ describe(__filename, () => {
           slug,
           user,
         })
-        .once()
         .returns(Promise.resolve(featuredCollection));
 
       const featuredThemes = createAddonsApiResult([fakeTheme]);
@@ -108,6 +108,22 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(featuredThemes));
 
+      const upAndComingExtensions = createAddonsApiResult([{
+        ...fakeAddon, slug: 'trending-addon',
+      }]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_EXTENSION,
+            sort: SEARCH_SORT_TRENDING,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(upAndComingExtensions));
+
       _fetchHomeAddons({
         featuredCollectionSlug: slug,
         featuredCollectionUser: user,
@@ -117,9 +133,12 @@ describe(__filename, () => {
         featuredCollection,
         featuredThemes,
         popularExtensions,
+        upAndComingExtensions,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+      mockCollectionsApi.verify();
       mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
@@ -142,7 +161,7 @@ describe(__filename, () => {
 
       mockSearchApi
         .expects('search')
-        .once()
+        .twice()
         .returns(Promise.reject(error));
 
       _fetchHomeAddons();
