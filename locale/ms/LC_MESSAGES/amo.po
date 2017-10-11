@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 23:57+0000\n"
+"PO-Revision-Date: 2017-10-11 00:25+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox untuk iOS tidak mempunyai sokongan add-on."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Add-on ini tidak serasi dengan versi Firefox anda."
+msgstr "Add-on ini tidak tersedia untuk platform anda."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -304,14 +303,12 @@ msgid "Edit my review"
 msgstr "Edit ulasan saya"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Tap untuk previu"
+msgstr "Balas untuk ulasan ini"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Tulis ulasan"
+msgstr "Tulis balasan untuk ulasan ini."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -326,9 +323,8 @@ msgid "Add-ons for Firefox"
 msgstr "Add-on untuk Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Add-on untuk Firefox"
+msgstr "%s - Add-ons untuk Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -636,9 +632,8 @@ msgid "Change your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Lihat semua ekstensi"
+msgstr "Lihat koleksi ini"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -1063,9 +1058,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Kami telah menerima laporan anda. Terima kasih atas keprihatinan anda terhadap add-on ini."
+msgstr "Tulis seperti anda bercerita kepada rakan perihal pengalaman menggunakan add-on."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1092,9 +1086,8 @@ msgid "Was it easy to use?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Log masuk untuk menilaikan add-on ini"
+msgstr "Adakah anda akan terus menggunakan add-on ini?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1102,11 +1095,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Jangan:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Hantar ulasan satu-perkataan seperti \"Hebat!\", \"mengagumkan\" atau \"buruk\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
