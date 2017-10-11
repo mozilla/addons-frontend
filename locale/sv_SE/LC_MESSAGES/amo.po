@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 16:22+0000\n"
+"PO-Revision-Date: 2017-10-11 23:01+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox för iOS stöder för närvarande inte tillägg."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Detta tillägg är inte kompatibel med din version av Firefox."
+msgstr "Detta tillägg är inte tillgänglig för din plattform."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -290,50 +289,44 @@ msgid "All written reviews"
 msgstr "Alla skriva recensioner"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "från %(authorName)s, %(timestamp)s"
+msgstr "postad %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "från %(authorName)s, %(timestamp)s"
+msgstr "av %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Utvecklarcenter"
+msgstr "Utvecklarens svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Redigera min recension"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Tryck för att förhandsgranska"
+msgstr "Svara på den här recensionen"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Skriv en recension"
+msgstr "Skriv ett svar på den här recensionen."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
-msgstr ""
+msgstr "Publicera svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Publishing reply"
-msgstr ""
+msgstr "Publicerar svar"
 
 #: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Tillägg för Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Tillägg för Firefox"
+msgstr "%s - Tillägg för Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -637,12 +630,11 @@ msgstr "Enfärgad"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Ändra dina flikar"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Bläddra bland alla tillägg"
+msgstr "Bläddra i denna samling"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -670,7 +662,7 @@ msgstr "Ändra webbläsarens utseende. Välj från tusentals teman att ge Firefo
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Utmärkt tillägg för alla situationer"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
@@ -686,7 +678,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
