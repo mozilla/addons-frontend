@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 14:10+0000\n"
+"PO-Revision-Date: 2017-10-11 14:13+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -132,9 +132,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS 目前不支援附加元件功能。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "這個附加元件與您所使用的 Firefox 版本不相容。"
+msgstr "這個附加元件與無法在您的平台使用。"
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -287,33 +286,28 @@ msgid "All written reviews"
 msgstr "所有撰寫過的評論"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "%(timestamp)s，來自 %(authorName)s"
+msgstr "張貼於 %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "%(timestamp)s，來自 %(authorName)s"
+msgstr "來自 %(authorName)s，%(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "開發者交流中心"
+msgstr "開發者回應"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "編輯我的評論"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "點擊預覽"
+msgstr "回覆此評論"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "撰寫評論"
+msgstr "對此評論撰寫回覆。"
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -328,9 +322,8 @@ msgid "Add-ons for Firefox"
 msgstr "Firefox 的附加元件"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Firefox 的附加元件"
+msgstr "%s - Firefox 附加元件"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -629,9 +622,8 @@ msgid "Change your tabs"
 msgstr "修改您的分頁"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "瀏覽所有擴充套件"
+msgstr "瀏覽這個收藏集"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -991,9 +983,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox 附加元件"
+msgstr "關於 Firefox 附加元件"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1054,9 +1045,8 @@ msgid "Do:"
 msgstr "請做："
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "已收到您的回報。感謝讓我們知道這個附加元件可能有問題。"
+msgstr "寫得像您在和朋友分享附加元件的經驗。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1083,9 +1073,8 @@ msgid "Was it easy to use?"
 msgstr "該附加元件容易使用嗎？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "登入後即可為此附加元件評分"
+msgstr "您會繼續使用該附加元件嗎？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1155,11 +1144,11 @@ msgstr "我是附加元件作者，我可以回應評論嗎？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "可以，附加元件作者可為每則評論留下一筆回覆。您也可以在我們的%(startLink)s討論區%(endLink)s開設討論主題，作更多後續討論。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "我是附加元件作者，我可以刪除對我不利的評論和評分嗎？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
@@ -1252,23 +1241,20 @@ msgid "OK!"
 msgstr "好喔！"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "取消預覽"
+msgstr "取消"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Enter"
+msgstr "輸入文字。"
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "送出"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "送出"
+msgstr "送出中"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
