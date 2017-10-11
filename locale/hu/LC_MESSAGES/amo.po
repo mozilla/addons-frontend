@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 12:23+0000\n"
+"PO-Revision-Date: 2017-10-11 12:39+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -994,10 +994,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Ha többet szeretne megtudni arról, hogyan kezelje a Firefox kiegészítőket, vagy általános Firefox támogatásra van szüksége, keresse fel a Mozilla %(startSUMOLink)stámogatást%(endSUMOLink)s. Ha nem "
+"talál ott választ, akkor %(startForumLink)sfelteheti kérdését a közösségi fórumon%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sArról, hogy hogyan vegye fel a kapcsolatot a Mozilla kiegészítők csapattal, itt található információ%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1025,7 +1027,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Csatlakozzon"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1035,7 +1037,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sKészítse el saját kiegészítőjét%(endLink)s. Ingyenes tárhely és frissítési szolgáltatásokat biztosítunk, és segíthetünk felhasználók széles közönségét elérni."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
@@ -1045,7 +1047,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Értékelési útmutató"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1055,11 +1057,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tippek nagyszerű értékelések írásához"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Ezt tegye:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1067,27 +1069,27 @@ msgstr "Írjon úgy, mintha egy barátjának mesélne a kiegészítővel szerzet
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Legyen az értékelések tömörek, és könnyen érthetőek."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Adjon meg konkrét és hasznos részleteket. Például:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Úgy működött a kiegészítő, ahogyan azt várta?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Milyen funkciók tetszettek és milyenek nem?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Hasznos volt?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Könnyen használható volt?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
@@ -1095,15 +1097,15 @@ msgstr "Használja majd ezután is ezt a kiegészítőt?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Szánjon rá egy kis időt értékelésének átolvasására, hogy csökkenjen a gépelési hibák száma."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Ne tegye:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Ne küldjön be egyszavas értékeléseket, mint „kiváló!”, „csodálatos”, vagy „rossz”."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
@@ -1113,27 +1115,27 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Ne írjon értékelést olyan kiegészítőről, melyet nem használt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Ne káromkodjon, trágárkodjon, kerülje a gyűlölködőként értelmezhető megfogalmazásokat."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Ne fűzzön bele HTML kódot, hivatkozásokat, forráskódot vagy kódrészleteket. Az értékelés csak szöveg kell legyen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Ne tegyen valótlan kijelentést, ne becsmérelje a kiegészítő szerzőit és ne sértegesse őket."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Ne fűzze hozzá saját vagy más e-mailcímét, telefonszámát vagy más személyes adatát."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Ne írjon értékelést olyan kiegészítőhöz, amelyet Ön vagy a szervezete írt, illetve azt képviseli."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
@@ -1143,11 +1145,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Gyakran ismételt kérdések az értékelésekről"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Hogyan jelenthetek be egy problémás értékelést?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
@@ -1157,7 +1159,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Én vagyok a kiegészítő szerzője, válaszolhatok az értékelésekre?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
@@ -1165,7 +1167,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Én vagyok a kiegészítő szerzője, tudom törölni a kedvezőtlen értékeléseket vagy minősítéseket?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
