@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 06:50+0000\n"
+"PO-Revision-Date: 2017-10-11 07:04+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox voor iOS ondersteunt momenteel geen add-ons."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Deze add-on is niet compatibel met uw versie van Firefox."
+msgstr "Deze add-on is niet beschikbaar voor uw platform."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -290,33 +289,28 @@ msgid "All written reviews"
 msgstr "Alle geschreven beoordelingen"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "van %(authorName)s, %(timestamp)s"
+msgstr "geplaatst %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "van %(authorName)s, %(timestamp)s"
+msgstr "door %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Ontwikkelaarshub"
+msgstr "Antwoord ontwikkelaar"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Mijn beoordeling bewerken"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Tik voor een voorbeeld"
+msgstr "Deze beoordeling beantwoorden"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Schrijf een beoordeling"
+msgstr "Schrijf een antwoord op deze beoordeling."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -331,9 +325,8 @@ msgid "Add-ons for Firefox"
 msgstr "Add-ons voor Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Add-ons voor Firefox"
+msgstr "%s - Add-ons voor Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -637,9 +630,8 @@ msgid "Change your tabs"
 msgstr "Uw tabbladen wijzigen"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Door alle extensies bladeren"
+msgstr "Door deze collectie bladeren"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -1010,9 +1002,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr "%(startLink)sInformatie over contact opnemen met het add-ons-team van Mozilla kunt u hier vinden%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Add-ons voor Firefox"
+msgstr "Over Firefox Add-ons"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1083,9 +1074,8 @@ msgid "Do:"
 msgstr "Doen:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "We hebben uw melding ontvangen. Bedankt dat u ons op de hoogte hebt gebracht van uw zorgen over deze add-on."
+msgstr "Schrijf alsof u een vriend over uw ervaring met de add-on vertelt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1112,9 +1102,8 @@ msgid "Was it easy to use?"
 msgstr "Was de add-on eenvoudig te gebruiken?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Meld u aan om deze add-on te waarderen"
+msgstr "Blijft u deze add-on gebruiken?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1165,38 +1154,44 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Een add-on bekritiseren voor iets wat hij zou moeten doen. Bijvoorbeeld een negatieve beoordeling van een add-on vanwege het weergeven van advertenties of gegevensverzameling achterlaten, terwijl "
+"dat het doel is van de add-on, of wanneer de add-on gegevens moet verzamelen om te werken."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Veelgestelde vragen over beoordelingen"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Hoe kan ik een probleem met een beoordeling melden?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Meld of label twijfelachtige beoordelingen door op ‘Deze beoordeling melden’ te klikken, en deze wordt vervolgens voor moderatie aangemeld. Ons moderatieteam gebruikt de Beoordelingsrichtlijnen om "
+"te evalueren of de beoordeling moet worden verwijderd of worden teruggeplaatst op de website."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Ik ben een add-onschrijver, kan ik antwoorden op beoordelingen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Ja, add-onschrijvers kunnen éénmalig een beoordeling beantwoorden. U kunt een discussie starten op ons %(startLink)sforum%(endLink)s om de discussie verder te voeren."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Ik ben een add-onschrijver, kan ik negatieve beoordelingen of waarderingen verwijderen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"In het algemeen niet. Maar als de beoordeling niet voldoet aan de bovenstaande richtlijnen kunt u op ‘Deze beoordeling melden’ klikken om moderatie te starten. Als de beoordeling een klacht "
+"beschrijft die niet meer geldt vanwege een nieuwe uitgave van uw add-on, dan kunnen we overwegen de beoordeling te verwijderen."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
@@ -1283,21 +1278,18 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Voorbeeld annuleren"
+msgstr "Annuleren"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Ingeven"
+msgstr "Voer tekst in."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Indienen"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
 msgstr "Indienen"
 
