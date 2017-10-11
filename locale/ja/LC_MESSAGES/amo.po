@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 18:40+0000\n"
+"PO-Revision-Date: 2017-10-11 15:12+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -311,11 +311,11 @@ msgstr "このレビューへの返信を書きましょう。"
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
-msgstr ""
+msgstr "返信を公開"
 
 #: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Publishing reply"
-msgstr ""
+msgstr "返信を公開しています"
 
 #: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -619,7 +619,7 @@ msgstr "単色"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "タブを変更"
 
 #: src/amo/components/Home/index.js:188
 msgid "Browse this collection"
@@ -651,27 +651,27 @@ msgstr "ブラウザーの見た目を変えてみましょう。何千種類も
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "様々なシーンで活躍する優れた拡張機能"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "高解像度動画、注釈の非表示、プレーヤーサイズの変更など"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "広告ブロッカーから追跡保護まで、素晴らしいプライバシー拡張機能を集めました"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "使いやすい、非常に強力な広告ブロッカー"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -970,7 +970,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "サポートを得る"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1008,7 +1008,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "参加しよう"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1028,7 +1028,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "審査ガイドライン"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1058,19 +1058,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "このアドオンはあなたの期待通りに動作しましたか？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "どの機能が気に入りましたか？ または気に入りませんでしたか？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "このアドオンは役に立ちましたか？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "このアドオンは簡単に使えましたか？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
@@ -1078,7 +1078,7 @@ msgstr "このアドオンを使い続けますか？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "投稿前に入力ミスがないか自分のレビューを読み直してください。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1126,11 +1126,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "レビューについてのよくある質問と答え"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "問題のあるレビューを報告するには？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
