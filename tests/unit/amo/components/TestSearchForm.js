@@ -5,6 +5,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import SearchForm, {
   SearchFormBase,
   mapStateToProps,
+  SEARCH_TERM_MAX_LENGTH,
 } from 'amo/components/SearchForm';
 import Suggestion from 'amo/components/SearchSuggestion';
 import {
@@ -273,11 +274,11 @@ describe(__filename, () => {
       expect(wrapper.state('searchValue')).toEqual('');
 
       // Tests for allowing only 100 characters as input
-      wrapper.find('input').simulate('change', createFakeChangeEvent('asdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklp98765432111'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('t'.repeat(SEARCH_TERM_MAX_LENGTH + 1)));
       expect(wrapper.state('searchValue')).toEqual('');
 
-      wrapper.find('input').simulate('change', createFakeChangeEvent('asdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklp9876543211'));
-      expect(wrapper.state('searchValue')).toEqual('asdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklpasdfghjklp9876543211');
+      wrapper.find('input').simulate('change', createFakeChangeEvent('t'.repeat(SEARCH_TERM_MAX_LENGTH)));
+      expect(wrapper.state('searchValue')).toEqual('t'.repeat(SEARCH_TERM_MAX_LENGTH));
     });
 
     it('fetches suggestions on focus', () => {
