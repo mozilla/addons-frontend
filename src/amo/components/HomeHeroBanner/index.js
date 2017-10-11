@@ -5,8 +5,8 @@ import { compose } from 'redux';
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
-import Carousel from 'ui/components/Carousel';
-import CarouselSection from 'ui/components/CarouselSection';
+import Hero from 'ui/components/Hero';
+import HeroSection from 'ui/components/HeroSection';
 
 import './styles.scss';
 
@@ -15,15 +15,15 @@ type PropTypes = {|
   i18n: Object,
 |};
 
-export class HomeCarouselBase extends React.Component {
+export class HomeHeroBannerBase extends React.Component {
   props: PropTypes;
 
-  carouselSections() {
+  sections() {
     const { i18n } = this.props;
 
     return [
       (
-        <CarouselSection
+        <HeroSection
           key="featured-extensions"
           linkTo={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}
           styleName="Home-featured-extensions"
@@ -31,10 +31,10 @@ export class HomeCarouselBase extends React.Component {
           <h3>{i18n.gettext('Featured extensions')}</h3>
 
           <p>{i18n.gettext('Excellent extensions for all situations')}</p>
-        </CarouselSection>
+        </HeroSection>
       ),
       (
-        <CarouselSection
+        <HeroSection
           key="youtube-high-definition"
           linkTo="/addon/youtube-high-definition/"
           styleName="Home-youtube-high-definition"
@@ -45,22 +45,24 @@ export class HomeCarouselBase extends React.Component {
             {i18n.gettext(`Videos in HD, turn off annotations,
               change player size & more`)}
           </p>
-        </CarouselSection>
+        </HeroSection>
       ),
       (
-        <CarouselSection
+        <HeroSection
           key="privacy-matters"
           linkTo="/collections/mozilla/privacy-matters/"
           styleName="Home-privacy-matters"
         >
+          <h3>{i18n.gettext('Block ads')}</h3>
+
           <p>
             {i18n.gettext(`From ad blockers to anti-trackers, here
               are some impressive privacy extensions`)}
           </p>
-        </CarouselSection>
+        </HeroSection>
       ),
       (
-        <CarouselSection
+        <HeroSection
           key="ublock-origin"
           linkTo="/addon/ublock-origin/"
           styleName="Home-ublock-origin"
@@ -70,15 +72,19 @@ export class HomeCarouselBase extends React.Component {
             {i18n.gettext(`An extremely powerful ad blocker that’s simple
               to use`)}
           </p>
-        </CarouselSection>
+        </HeroSection>
       ),
     ];
   }
 
   render() {
     return (
-      <div className="HomeCarousel">
-        <Carousel sections={this.carouselSections()} />
+      <div className="HomeHeroBanner">
+        <Hero
+          name="Home"
+          random
+          sections={this.sections()}
+        />
       </div>
     );
   }
@@ -86,4 +92,4 @@ export class HomeCarouselBase extends React.Component {
 
 export default compose(
   translate(),
-)(HomeCarouselBase);
+)(HomeHeroBannerBase);

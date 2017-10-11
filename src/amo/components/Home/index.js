@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import HomeCarousel from 'amo/components/HomeCarousel';
+import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
@@ -164,7 +164,7 @@ export class HomeBase extends React.Component {
       <div className="Home">
         {errorHandler.renderErrorIfPresent()}
 
-        <HomeCarousel />
+        <HomeHeroBanner />
 
         <LandingAddonsCard
           addons={popularExtensions}

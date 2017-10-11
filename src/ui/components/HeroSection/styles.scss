@@ -3,30 +3,20 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
-.CarouselSection {
-  align-content: center;
+.HeroSection {
   background: url("./icons/default.svg") no-repeat center;
   background-size: cover;
   border-radius: $border-radius-default;
   font-size: $font-size-m;
-  height: $carousel-height-default;
   line-height: 1.2;
-  margin: 0 6px 26px;
-  padding: 12px;
   position: relative;
 
   @include respond-to(large) {
     font-size: $font-size-l;
-    height: $carousel-height-large;
-    margin: 0 9px;
-    padding: 24px;
   }
 
   @include respond-to(extraLarge) {
     font-size: $font-size-header-carousel;
-    height: $carousel-height-extraLarge;
-    margin: 0 12px;
-    padding: 48px;
   }
 
   &::before {
@@ -43,37 +33,48 @@
   }
 }
 
-.CarouselSection-wrapper,
-.CarouselSection-link-wrapper,
-.CarouselSection-link-wrapper:link, {
-  align-items: end;
+.HeroSection-wrapper,
+.HeroSection-link-wrapper,
+.HeroSection-link-wrapper:link, {
+  align-items: flex-end;
   color: $white;
   display: flex;
   flex-flow: row wrap;
   height: 100%;
-  justify-content: start;
+  padding: 12px;
   position: relative;
   text-decoration: none;
   z-index: 10;
 }
 
-.Carousel h3 {
+.HeroSection-content {
+  margin: auto 0 0;
+}
+
+.HeroSection-content h3 {
+  @include font-regular();
+
   font-size: $font-size-m;
-  margin: 0;
+  line-height: 1.1;
+  margin: 0 0 6px;
   width: 100%;
 
-  @include respond-to(large) {
-    font-size: $font-size-xl;
+  @include respond-to(extraLarge) {
+    @include font-bold();
+
+    font-size: $font-size-l;
   }
 }
 
-.Carousel p {
+.HeroSection-content p {
   @include font-light();
 
+  display: block;
   font-size: $font-size-m-smaller;
+  margin: 0 0 6px;
   width: 100%;
 
-  @include respond-to(large) {
-    font-size: $font-size-l;
+  @include respond-to(extraLarge) {
+    font-size: $font-size-m;
   }
 }
