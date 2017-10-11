@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 03:52+0000\n"
+"PO-Revision-Date: 2017-10-11 14:10+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -626,7 +626,7 @@ msgstr "純色"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "修改您的分頁"
 
 #: src/amo/components/Home/index.js:188
 #, fuzzy
@@ -659,7 +659,7 @@ msgstr "調整您瀏覽器的外觀，從數以千計的佈景主題中挑選一
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "各種情況下都好用的擴充套件"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
@@ -667,11 +667,11 @@ msgstr "高解析度 YouTube"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "高解析度影片、關閉註解、調整播放器大小等功能"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "不論是擋廣告還是反追蹤，以下是一些超棒的隱私保護擴充套件"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
@@ -679,7 +679,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "超強大的廣告封鎖器，使用超簡單"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -958,7 +958,7 @@ msgstr "探索"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "如果您對協助貢獻但不是技術人，還是可以幫忙:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -966,15 +966,15 @@ msgstr "參與我們的%(startLink)s討論區%(endLink)s。"
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "為您最愛的附加元件留下意見回饋。當附加元件作者知道人們欣賞他們的作品，就更會改善附加元件並推出更新版本。"
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "告訴您的親朋好友 Firefox 是一套超快、超安全的瀏覽器，會保護人們的隱私，還可以用附加元件讓瀏覽器有自己的個性！"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "歡迎看看 %(startLink)swiki%(endLink)s 來瞭解您能如何貢獻附加元件社群"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1007,7 +1007,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "創作者社群"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1047,7 +1047,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "撰寫優良評論的小秘訣"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1097,7 +1097,7 @@ msgstr "請不要:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "送出太短的評論，例如「讚！」、「酷！」、「Good!」。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
@@ -1107,27 +1107,27 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "還沒有使用過附加元件，就直接寫評論。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "使用褻瀆、性暗示或者帶有恨意的言語。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "包含 HTML、超連結、程式碼等。評論內容請只留下純文字。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "作虛假評論、貶低附加元件作者或者羞辱個人。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "包含您自己或別人的電子郵件地址、電話號碼或其他任何個資。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "為您自己或者您的組織開發的附加元件撰寫評論。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
@@ -1137,11 +1137,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "關於評論的常見問題"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "我要如何回報有問題的評論？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
@@ -1151,7 +1151,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "我是附加元件作者，我可以回應評論嗎？"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
