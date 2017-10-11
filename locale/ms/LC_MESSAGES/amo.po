@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 00:25+0000\n"
+"PO-Revision-Date: 2017-10-11 03:10+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -312,11 +312,11 @@ msgstr "Tulis balasan untuk ulasan ini."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
-msgstr ""
+msgstr "Terbitkan balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Publishing reply"
-msgstr ""
+msgstr "Menerbitkan balasan"
 
 #: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -629,7 +629,7 @@ msgstr "Padu"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Tukar tab anda"
 
 #: src/amo/components/Home/index.js:188
 msgid "Browse this collection"
@@ -661,15 +661,15 @@ msgstr "Tukar penampilan pelayar anda. Pilih satu darpada beribu-ribu tema untuk
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Ekstensi yang sangat baik untuk semua situasi"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube Definisi Tinggi"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Video dalam HD, menyahaktifkan anotasi, menukarkan saiz pemain & lain-lain"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
