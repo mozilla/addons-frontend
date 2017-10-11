@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 15:08+0000\n"
+"PO-Revision-Date: 2017-10-11 15:24+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1139,7 +1139,7 @@ msgstr "Inkludera HTML, länkar, källkod eller kodavsnitt. Omdömen är avsedda
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Skriva felaktiga uppgifter, nedvärdera upphovsmän för tillägg eller personligen förolämpa dem."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
