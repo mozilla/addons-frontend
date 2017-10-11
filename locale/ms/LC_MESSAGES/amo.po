@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 12:09+0000\n"
+"PO-Revision-Date: 2017-10-11 12:23+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1037,6 +1037,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla adalah peneraju Internet bukan untung yang membina Firefox untuk mengekalkan internet yang sihat, terbuka dan boleh diakses. Add-ons memberikan pengguna pilihan dan penyesuaian dalam "
+"Firefox, dan anda juga boleh memberikan sumbangan dengan cara berikut:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -1168,24 +1170,29 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Sila laporkan atau tandakan ulasan yang tidak sesuai dengan mengklik \"Laporkan ulasan ini\" yang akan dihantar untuk dipertimbangkan. Pasukan moderat akan menggunakan Garis Panduan Semakan untuk "
+"menilai samada ulasan tersebut akan dibuang atau dipulihkan ke dalam laman."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Saya pengarang add-on, bolehkah saya membalas ulasan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Ya, pengarang add-on boleh membuat satu balasan kepada setiap ulasan. Anda boleh tetapkan topik perbincangan dalam %(startLink)sforum%(endLink)s untuk membuat perbincangan lanjut atau susulan."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Saya seorang pengarang add-on, bolehkah saya menghapuskan ulasan atau penarafan yang tidak menyebelahi saya?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Secara umum, tidak. Tapi jika ulasan tersebut tidak mematuhi garis panduan semakan yang ditetapkan, anda boleh klik \"Laporkan semakan ini\" dan akan dipertimbangkan. Jika ulasan yang dibuat sudah "
+"tidak lagi sesuai kerana ada keluaran add-on yang baru, kami mungkin akan membuang semakan berkenaan."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
