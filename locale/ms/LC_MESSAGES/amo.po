@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 03:29+0000\n"
-"Last-Translator: manxmensch <manxmensch@gmail.com>\n"
+"PO-Revision-Date: 2017-10-11 03:36+0000\n"
+"Last-Translator: Norman Haikal <normanh876@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
 "MIME-Version: 1.0\n"
@@ -992,10 +992,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Jika anda ingin tahu lebih lanjut cara untuk menguruskan add-ons dalam Firefox, atau perlu mendapatkan sokongan Firefox, sila layari %(startSUMOLink)sSokongan%(endSUMOLink)s Mozilla. Jika anda tidak"
+" menemukan jawapan, anda boleh %(startForumLink)stanya dalam forum komuniti%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sMaklumat perihal cara untuk menghubungi pasukan add-ons Mozilla boleh didapatkan di sini%(endLink)s."
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
@@ -1024,7 +1026,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Sertainya"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1044,7 +1046,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Garis panduan Semakan"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
