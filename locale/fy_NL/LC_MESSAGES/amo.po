@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 08:28+0000\n"
+"PO-Revision-Date: 2017-10-11 08:49+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -297,23 +297,20 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "troch %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Untwikkelershub"
+msgstr "Antwurd ûntwikkeler"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Myn beoardieling bewurkje"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Tik foar in foarbyld"
+msgstr "Dizze beoardieling beantwurdzje"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "In beoardieling skriuwe"
+msgstr "Skriuw in antwurd op dizze beoardieling."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -328,9 +325,8 @@ msgid "Add-ons for Firefox"
 msgstr "Add-ons foar Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Add-ons foar Firefox"
+msgstr "%s - Add-ons foar Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -633,9 +629,8 @@ msgid "Change your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Alle útwreidingen besjen"
+msgstr "Troch dizze kolleksje blêdzje"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -1004,9 +999,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox-add-ons"
+msgstr "Oer Firefox Add-ons"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1067,9 +1061,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Wy hawwe jo melding ûntfongen. Tank dat jo ús op de hichte brocht hawwe fan jo soargen oer dizze add-on."
+msgstr "Skriuw as oft jo in freon oer jo ûnderfining mei de add-on fertelle."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1096,9 +1089,8 @@ msgid "Was it easy to use?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Meld jo oan om dizze add-on te wurdearjen"
+msgstr "Bliuwe jo dizze add-on brûke?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1265,21 +1257,18 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Foarbyld annulearje"
+msgstr "Annulearje"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Ynfiere"
+msgstr "Fier tekst yn."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Yntsjinje"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
 msgstr "Yntsjinje"
 
