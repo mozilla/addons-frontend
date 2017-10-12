@@ -159,9 +159,8 @@ describe(__filename, () => {
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
 
-      mockSearchApi
-        .expects('search')
-        .twice()
+      mockCollectionsApi
+        .expects('getCollectionAddons')
         .returns(Promise.reject(error));
 
       _fetchHomeAddons();
