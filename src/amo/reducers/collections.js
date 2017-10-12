@@ -12,11 +12,13 @@ export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
 export type CollectionType = {
   addons: Array<AddonType>,
   authorName: string,
+  authorUsername: string,
   description: string | null,
   id: number,
   lastUpdatedDate: string,
   name: string,
   numberOfAddons: number,
+  slug: string,
 };
 
 export type CollectionsState = {|
@@ -199,11 +201,13 @@ export const createInternalCollection = ({
 }: CreateInternalCollectionParams): CollectionType => ({
   addons: createInternalAddons(items),
   authorName: detail.author.name,
+  authorUsername: detail.author.username,
   description: detail.description,
   id: detail.id,
   lastUpdatedDate: detail.modified,
   name: detail.name,
   numberOfAddons: detail.addon_count,
+  slug: detail.slug,
 });
 
 type Action =
