@@ -25,7 +25,7 @@ export default function heroBannerOrderReducer(state = initialState, action) {
   switch (action.type) {
     case SET_HERO_BANNER_ORDER: {
       const { name, random, sections } = action.payload;
-      const orderArray = [...Array(sections.length).keys()].slice(0, MAX_ITEMS);
+      const orderArray = [...sections.keys()].slice(0, MAX_ITEMS);
 
       return {
         ...state,
