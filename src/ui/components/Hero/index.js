@@ -20,7 +20,7 @@ type PropTypes = {|
 |};
 
 export class HeroBase extends React.Component {
-  componentDidMount() {
+  componentWillMount() {
     const {
       dispatch,
       heroBanners,
