@@ -53,8 +53,7 @@
 
   .Paginate {
     @include respond-to(large) {
-      grid-column: 1 / -1;
-      grid-row: 4;
+      grid-column: 2;
     }
   }
 
