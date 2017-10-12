@@ -1,25 +1,17 @@
-import { shallow } from 'enzyme';
 import React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Home, {
   FEATURED_COLLECTION_SLUG,
   FEATURED_COLLECTION_USER,
-  CategoryLink,
-  ExtensionLink,
   HomeBase,
-  ThemeLink,
-  mapStateToProps,
 } from 'amo/components/Home';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import Link from 'amo/components/Link';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -43,9 +35,7 @@ import {
 
 describe(__filename, () => {
   const getProps = () => {
-    const store = dispatchClientMetadata({
-      clientApp: CLIENT_APP_FIREFOX,
-    }).store;
+    const store = dispatchClientMetadata().store;
 
     return {
       dispatch: store.dispatch,
@@ -68,84 +58,6 @@ describe(__filename, () => {
     const root = render();
 
     expect(root.find(HomeHeroBanner)).toHaveLength(1);
-  });
-
-  it('renders headings', () => {
-    const root = render();
-
-    expect(
-      root.find('.Home-category-card--extensions .Home-subheading')
-    ).toIncludeText('You can change how Firefox works…');
-    expect(
-      root.find('.Home-category-card--themes .Home-subheading')
-    ).toIncludeText('…or what it looks like');
-  });
-
-  it('renders add-on type descriptions', () => {
-    const root = render();
-
-    expect(
-      root.find('.Home-category-card--extensions .Home-description')
-    ).toIncludeText('Explore powerful tools and features to customize');
-    expect(
-      root.find('.Home-category-card--themes .Home-description')
-    ).toIncludeText("Change your browser's appearance.");
-  });
-
-  it('renders Firefox URLs for categories', () => {
-    const root = render({ clientApp: CLIENT_APP_FIREFOX });
-    const links = shallow(root.instance().extensionsCategoriesForClientApp());
-
-    expect(links.find(ExtensionLink).find('[name="block-ads"]'))
-      .toHaveProp('slug', 'privacy-security');
-  });
-
-  it('renders Android URLs for categories', () => {
-    const store = dispatchClientMetadata({
-      clientApp: CLIENT_APP_ANDROID,
-    }).store;
-
-    const root = render({ store });
-    const links = shallow(root.instance().extensionsCategoriesForClientApp());
-
-    expect(links.find(ExtensionLink).find('[name="block-ads"]'))
-      .toHaveProp('slug', 'security-privacy');
-  });
-
-  it('renders an ExtensionLink', () => {
-    const root = shallow(
-      <ExtensionLink name="scenic" slug="test">Hello</ExtensionLink>
-    );
-
-    expect(root.find(CategoryLink)).toHaveProp('children', 'Hello');
-    expect(root.find(CategoryLink)).toHaveProp('name', 'scenic');
-    expect(root.find(CategoryLink)).toHaveProp('slug', 'test');
-    expect(root.find(CategoryLink)).toHaveProp('type', 'extensions');
-  });
-
-  it('renders a ThemeLink', () => {
-    const root = shallow(
-      <ThemeLink name="scenic" slug="test">Hello</ThemeLink>
-    );
-
-    expect(root.find(CategoryLink)).toHaveProp('children', 'Hello');
-    expect(root.find(CategoryLink)).toHaveProp('name', 'scenic');
-    expect(root.find(CategoryLink)).toHaveProp('slug', 'test');
-    expect(root.find(CategoryLink)).toHaveProp('type', 'themes');
-  });
-
-  it('renders a CategoryLink', () => {
-    const root = shallow(
-      <CategoryLink name="scenic" slug="test" type="themes" />
-    );
-
-    expect(root.find(Link)).toHaveProp('to', '/themes/test/');
-  });
-
-  it('maps clientApp to props from state', () => {
-    const { state } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
-
-    expect(mapStateToProps(state).clientApp).toEqual(CLIENT_APP_ANDROID);
   });
 
   it('renders a popular extensions shelf', () => {
