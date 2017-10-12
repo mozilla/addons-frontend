@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 12:39+0000\n"
+"PO-Revision-Date: 2017-10-12 09:44+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -626,7 +626,7 @@ msgstr "Kiforrott"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "A lapok megváltoztatása"
 
 #: src/amo/components/Home/index.js:188
 msgid "Browse this collection"
@@ -1010,20 +1010,24 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Az addons.mozilla.org (AMO) a Mozilla hivatalos oldala a kiegészítők felfedezéséhez, és telepítéséhez a Firefox webböngészőhöz. A kiegészítők segítik módosítani és testreszabni a böngészési "
+"élményét, új funkciók hozzáadásával a Firefoxhoz, javítva a webtartalommal történő interakcióját, és megváltoztatva a böngésző kinézetét."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Az AMO-t Mozilla %(startTBLink)sThunderbird%(endTBLink)s és %(startSMLink)sSeaMonkey%(endSMLink)s kiegészítők keresésére is használhatja."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Alkotók közössége"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Az itt felsorolt kiegészítőket fejlesztők és témadizájnerek ezrei készítik, szerte a világon, kezdve az egyéni hobbistáktól, a nagy cégekig. Néhány az AMO-ban felsorolt kiegészítő automatikusan lett"
+" közzétéve, és a szerkesztői értékelés alanya lehet, ha nyilvánosan listázásra kerül."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
