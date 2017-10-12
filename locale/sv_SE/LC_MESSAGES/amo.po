@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-12 15:36+0000\n"
+"PO-Revision-Date: 2017-10-12 17:08+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -970,7 +970,7 @@ msgstr "Utforska"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Om du vill bidra men du är inte så teknisk, finns det fortfarande sätt att hjälpa till:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
