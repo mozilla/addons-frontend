@@ -16,6 +16,7 @@ import autocomplete from 'core/reducers/autocomplete';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
+import heroBanners from 'core/reducers/heroBanners';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import search from 'core/reducers/search';
@@ -38,6 +39,7 @@ export default function createStore(initialState = {}) {
       errors,
       errorPage,
       featured,
+      heroBanners,
       home,
       infoDialog,
       installations,

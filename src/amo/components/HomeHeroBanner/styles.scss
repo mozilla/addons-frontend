@@ -1,7 +1,7 @@
 @import "~photon-colors/colors";
 
-.HomeCarousel {
-  .CarouselSection-styleName--Home-featured-extensions {
+.HomeHeroBanner {
+  .HeroSection-styleName--Home-featured-extensions {
     background-image: url("./photos/featured-extensions.jpg");
 
     &::before {
@@ -9,7 +9,7 @@
     }
   }
 
-  .CarouselSection-styleName--Home-youtube-high-definition {
+  .HeroSection-styleName--Home-youtube-high-definition {
     background-image: url("./photos/youtube-high-definition.jpg");
 
     &::before {
@@ -17,7 +17,7 @@
     }
   }
 
-  .CarouselSection-styleName--Home-privacy-matters {
+  .HeroSection-styleName--Home-privacy-matters {
     background-image: url("./photos/privacy-matters.jpg");
     background-position: center 25%;
 
@@ -26,7 +26,7 @@
     }
   }
 
-  .CarouselSection-styleName--Home-ublock-origin {
+  .HeroSection-styleName--Home-ublock-origin {
     background-image: url("./photos/ublock-origin.jpg");
 
     &::before {

@@ -11,7 +11,7 @@ import Home, {
   ThemeLink,
   mapStateToProps,
 } from 'amo/components/Home';
-import HomeCarousel from 'amo/components/HomeCarousel';
+import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
@@ -67,7 +67,7 @@ describe(__filename, () => {
   it('renders a carousel', () => {
     const root = render();
 
-    expect(root.find(HomeCarousel)).toHaveLength(1);
+    expect(root.find(HomeHeroBanner)).toHaveLength(1);
   });
 
   it('renders headings', () => {

@@ -13,7 +13,7 @@ type PropTypes = {|
   styleName: string,
 |};
 
-export default class CarouselSection extends React.Component {
+export default class HeroSection extends React.Component {
   static defaultProps = {
     styleName: 'default',
   }
@@ -26,19 +26,25 @@ export default class CarouselSection extends React.Component {
     return (
       <div
         className={classNames(
-          'CarouselSection',
-          `CarouselSection-styleName--${styleName}`,
+          'HeroSection',
+          `HeroSection-styleName--${styleName}`,
         )}
       >
         {linkTo ? (
           <Link
-            className="CarouselSection-link-wrapper"
+            className="HeroSection-link-wrapper"
             to={linkTo}
           >
-            {children}
+            <div className="HeroSection-content">
+              {children}
+            </div>
           </Link>
         ) : (
-          <div className="CarouselSection-wrapper">{children}</div>
+          <div className="HeroSection-wrapper">
+            <div className="HeroSection-content">
+              {children}
+            </div>
+          </div>
         )}
       </div>
     );
