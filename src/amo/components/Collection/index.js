@@ -79,6 +79,13 @@ export class CollectionBase extends React.Component {
       }
     }
 
+    if (collection && (
+      collection.slug !== params.slug ||
+      collection.authorUsername !== params.user
+    )) {
+      collectionChanged = true;
+    }
+
     if (!collection || collectionChanged) {
       this.props.dispatch(fetchCollection({
         errorHandlerId: errorHandler.id,

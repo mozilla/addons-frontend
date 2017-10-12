@@ -29,14 +29,18 @@ import {
 
 
 describe(__filename, () => {
+  // These values match the `createFakeCollectionDetail()` helper data.
+  const defaultUser = 'johndoe';
+  const defaultSlug = 'my-addons';
+
   const getProps = () => ({
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
     location: { query: {} },
     params: {
-      user: 'user-id-or-name',
-      slug: 'collection-slug',
+      user: defaultUser,
+      slug: defaultSlug,
     },
     store: dispatchClientMetadata().store,
   });
@@ -268,15 +272,11 @@ describe(__filename, () => {
     const page = 123;
     const location = { query: {} };
     const newLocation = { query: { page } };
-
     const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const user = 'some-user';
 
     const wrapper = renderComponent({
       errorHandler,
       location,
-      params: { slug, user },
       store,
     });
     fakeDispatch.reset();
@@ -288,8 +288,70 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, fetchCollectionPage({
       errorHandlerId: errorHandler.id,
       page,
-      slug,
-      user,
+      user: defaultUser,
+      slug: defaultSlug,
+    }));
+  });
+
+  it('dispatches fetchCollection when user param has changed', () => {
+    const errorHandler = createStubErrorHandler();
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const wrapper = renderComponent({
+      errorHandler,
+      store,
+    });
+    fakeDispatch.reset();
+
+    const newParams = {
+      slug: defaultSlug,
+      user: 'another-user',
+    };
+    wrapper.setProps({ params: newParams });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      ...newParams,
+    }));
+  });
+
+  it('dispatches fetchCollection when slug param has changed', () => {
+    const errorHandler = createStubErrorHandler();
+    const store = dispatchClientMetadata().store;
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail(),
+    }));
+
+    const wrapper = renderComponent({
+      errorHandler,
+      store,
+    });
+    fakeDispatch.reset();
+
+    const newParams = {
+      slug: 'some-other-collection-slug',
+      user: defaultUser,
+    };
+    wrapper.setProps({ params: newParams });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      ...newParams,
     }));
   });
 
