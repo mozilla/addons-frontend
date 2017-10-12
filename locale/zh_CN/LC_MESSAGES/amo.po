@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-10 19:47+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2017-10-12 08:06+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -976,11 +976,11 @@ msgstr "获取支持"
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
-msgstr ""
+msgstr "若您想要详细了解如何在 Firefox 中管理附加组件，或需要更广泛的 Firefox 技术支持，请访问 Mozilla %(startSUMOLink)s技术支持站%(endSUMOLink)s。若您无法在此网站找到合适的答案，您可以%(startForumLink)s在我们的社区论坛提问%(endForumLink)s。"
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sMozilla 附加组件团队的联系方式可在这里找到%(endLink)s。"
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -990,11 +990,11 @@ msgstr "关于 Firefox 附加组件"
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
-msgstr ""
+msgstr "Addons.mozilla.org（AMO）是 Mozilla 的官方网站，您可在此发现和安装用于 Firefox 浏览器的附加组件。通过为 Firefox 添加新特性、增强您与 Web 内容的交互与改变浏览器的外观，附加组件能帮您改进和个性化浏览体验。"
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "您还能在 AMO 上寻找用于 Mozilla %(startTBLink)sThunderbird%(endTBLink)s 与 %(startSMLink)sSeaMonkey%(endSMLink)s 的附加组件。"
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
