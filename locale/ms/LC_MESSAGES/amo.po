@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 12:23+0000\n"
+"PO-Revision-Date: 2017-10-12 09:27+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1260,7 +1260,7 @@ msgstr "Halaman %(currentPage)s daripada %(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
-msgstr "Terdahulu"
+msgstr "Dahulu"
 
 #: src/core/components/Paginate/index.js:122
 msgid "Next"
