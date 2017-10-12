@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 23:01+0000\n"
+"PO-Revision-Date: 2017-10-12 15:36+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -666,7 +666,7 @@ msgstr "Utmärkt tillägg för alla situationer"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
@@ -1003,9 +1003,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox tillägg"
+msgstr "Om Firefox tillägg"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1049,7 +1048,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Recensionsriktlinjer"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1059,16 +1058,15 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tips för att skriva en bra recension"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
 msgstr "Gör:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Vi har fått din rapport. Tack för att du informerade oss om dina problem med detta tillägg."
+msgstr "Skriv som om du berättar för en vän om din erfarenhet av tillägget."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1095,9 +1093,8 @@ msgid "Was it easy to use?"
 msgstr "Var det enkelt att använda?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Logga in för att betygsätta detta tillägg"
+msgstr "Kommer du fortsätta att använda detta tillägg?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1149,7 +1146,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Vanliga frågor om recensioner"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
