@@ -12,6 +12,7 @@ export type HomeState = {
   featuredThemes: Array<AddonType>,
   popularExtensions: Array<AddonType>,
   resultsLoaded: boolean,
+  upAndComingExtensions: Array<AddonType>,
 };
 
 export const initialState: HomeState = {
@@ -19,6 +20,7 @@ export const initialState: HomeState = {
   featuredThemes: [],
   popularExtensions: [],
   resultsLoaded: false,
+  upAndComingExtensions: [],
 };
 
 type FetchHomeAddonsParams = {|
@@ -75,6 +77,7 @@ type LoadHomeAddonsParams = {|
   featuredCollection: CollectionAddonsListResponse,
   featuredThemes: ApiAddonsResponse,
   popularExtensions: ApiAddonsResponse,
+  upAndComingExtensions: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -86,6 +89,7 @@ export const loadHomeAddons = ({
   featuredCollection,
   featuredThemes,
   popularExtensions,
+  upAndComingExtensions,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   if (!featuredCollection) {
     throw new Error('featuredCollection is required');
@@ -96,6 +100,9 @@ export const loadHomeAddons = ({
   if (!popularExtensions) {
     throw new Error('popularExtensions is required');
   }
+  if (!upAndComingExtensions) {
+    throw new Error('upAndComingExtensions is required');
+  }
 
   return {
     type: LOAD_HOME_ADDONS,
@@ -103,6 +110,7 @@ export const loadHomeAddons = ({
       featuredCollection,
       featuredThemes,
       popularExtensions,
+      upAndComingExtensions,
     },
   };
 };
@@ -135,6 +143,7 @@ const reducer = (
         featuredCollection,
         featuredThemes,
         popularExtensions,
+        upAndComingExtensions,
       } = action.payload;
 
       return {
@@ -147,6 +156,7 @@ const reducer = (
         featuredThemes: createInternalAddons(featuredThemes),
         popularExtensions: createInternalAddons(popularExtensions),
         resultsLoaded: true,
+        upAndComingExtensions: createInternalAddons(upAndComingExtensions),
       };
     }
 
