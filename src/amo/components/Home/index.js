@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import classNames from 'classnames';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
@@ -15,6 +17,7 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import Card from 'ui/components/Card';
 
 import './styles.scss';
 
@@ -46,6 +49,49 @@ export class HomeBase extends React.Component {
         featuredCollectionUser: FEATURED_COLLECTION_USER,
       }));
     }
+  }
+
+  renderCuratedCollections() {
+    const { i18n } = this.props;
+    const curatedMozillaCollections = [
+      {
+        title: i18n.gettext('Ad blockers'),
+        collectionSlug: 'ad-blockers',
+      },
+      {
+        title: i18n.gettext('Password managers'),
+        collectionSlug: 'password-managers',
+      },
+      {
+        title: i18n.gettext('Bookmarks'),
+        collectionSlug: 'bookmark-managers',
+      },
+      {
+        title: i18n.gettext('Watching Videos'),
+        collectionSlug: 'watching-videos',
+      },
+    ];
+
+    return (
+      <ul className="Home-CuratedCollections-list">
+        {curatedMozillaCollections.map(({ collectionSlug, title }) => (
+          <li
+            className={classNames(
+              'Home-CuratedCollections-list-item',
+              `Home-CuratedCollections-${collectionSlug}`
+            )}
+            key={collectionSlug}
+          >
+            <Link
+              to={`/collections/mozilla/${collectionSlug}/`}
+              className="Home-CuratedCollections-link"
+            >
+              {title}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   render() {
@@ -90,6 +136,13 @@ export class HomeBase extends React.Component {
           }}
           loading={resultsLoaded === false}
         />
+
+        <Card
+          className="Home-CuratedCollections"
+          header={i18n.gettext("I'm interested in…")}
+        >
+          {this.renderCuratedCollections()}
+        </Card>
 
         <LandingAddonsCard
           addons={featuredThemes}
