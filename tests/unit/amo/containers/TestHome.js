@@ -101,6 +101,26 @@ describe(__filename, () => {
     expect(shelf).toHaveProp('loading', true);
   });
 
+  it('renders a shelf with curated collections', () => {
+    const expectedCollections = [
+      'ad-blockers',
+      'password-managers',
+      'bookmark-managers',
+      'watching-videos',
+    ];
+
+    const root = render();
+
+    const shelf = root.find('.Home-CuratedCollections');
+    expect(shelf).toHaveProp('header', "I'm interested in…");
+    expect(shelf.find('.Home-CuratedCollections-list-item'))
+      .toHaveLength(expectedCollections.length);
+    expectedCollections.forEach((collectionSlug) => {
+      expect(shelf.find(`.Home-CuratedCollections-${collectionSlug}`))
+        .toHaveLength(1);
+    });
+  });
+
   it('renders a up and coming extensions shelf', () => {
     const root = render();
 

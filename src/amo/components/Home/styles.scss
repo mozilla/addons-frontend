@@ -1,5 +1,73 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
+@import "~ui/css/vars";
 
 .Home {
   padding: $padding-page;
+}
+
+.Home-CuratedCollections-list {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0;
+  width: 100%;
+
+  @include respond-to(large) {
+    flex-wrap: nowrap;
+  }
+}
+
+.Home-CuratedCollections-list-item {
+  background-color: $base-color;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  display: block;
+  flex-grow: 1;
+  list-style-type: none;
+  position: relative;
+  text-align: center;
+  width: 50%;
+
+  @include respond-to(medium) {
+    background-size: 64px;
+    width: 25%;
+  }
+}
+
+.Home-CuratedCollections-link {
+  display: block;
+  height: 100%;
+  padding-top: 85px;
+  text-decoration: none;
+
+  &:link,
+  &:visited {
+    color: $black;
+  }
+
+  &:active,
+  &:focus,
+  &:hover {
+    color: $link-color;
+    text-decoration: underline;
+  }
+}
+
+.Home-CuratedCollections-ad-blockers {
+  background-image: url("./icons/ad-blockers.svg");
+}
+
+.Home-CuratedCollections-password-managers {
+  background-image: url("./icons/password-managers.svg");
+}
+
+.Home-CuratedCollections-bookmark-managers {
+  background-image: url("./icons/bookmark-managers.svg");
+}
+
+.Home-CuratedCollections-watching-videos {
+  background-image: url("./icons/watching-videos.svg");
 }
