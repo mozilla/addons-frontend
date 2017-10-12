@@ -29,9 +29,9 @@ import {
 
 
 describe(__filename, () => {
-  // These values match the `createFakeCollectionDetail()` helper data.
-  const defaultUser = 'johndoe';
-  const defaultSlug = 'my-addons';
+  const defaultCollectionDetail = createFakeCollectionDetail();
+  const defaultUser = defaultCollectionDetail.author.username;
+  const defaultSlug = defaultCollectionDetail.slug;
 
   const getProps = () => ({
     dispatch: sinon.stub(),
@@ -122,7 +122,7 @@ describe(__filename, () => {
     // We need a collection for this test case.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const wrapper = renderComponent({ store });
@@ -141,7 +141,7 @@ describe(__filename, () => {
     // We need a collection for this test case.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const location = { query: {} };
@@ -217,7 +217,7 @@ describe(__filename, () => {
     // We need a collection for this test case.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const errorHandler = createStubErrorHandler();
@@ -266,7 +266,7 @@ describe(__filename, () => {
     // We need a collection for this test case.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const page = 123;
@@ -301,7 +301,7 @@ describe(__filename, () => {
     // We need a collection for this test case.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const wrapper = renderComponent({
@@ -332,7 +332,7 @@ describe(__filename, () => {
     // We need a collection for this test case.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const wrapper = renderComponent({
@@ -382,7 +382,7 @@ describe(__filename, () => {
     // User loads the collection page.
     store.dispatch(loadCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail(),
+      detail: defaultCollectionDetail,
     }));
 
     const wrapper = renderComponent({
