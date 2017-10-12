@@ -1,4 +1,5 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
@@ -35,7 +36,9 @@ describe(__filename, () => {
     const props = renderProps(customProps);
     return mount(
       <I18nProvider i18n={props.i18n}>
-        <DismissibleTextForm {...props} />
+        <Provider store={props.store}>
+          <DismissibleTextForm {...props} />
+        </Provider>
       </I18nProvider>
     );
   };
@@ -126,13 +129,11 @@ describe(__filename, () => {
     typeSomeText({ root, text: enteredText });
 
     // Submit the form.
-    const submitEvent = createFakeEvent();
-    root.find('.DismissibleTextForm-form')
-      .simulate('submit', submitEvent);
+    const event = createFakeEvent();
+    root.find('.DismissibleTextForm-submit').simulate('click', event);
 
     sinon.assert.calledWith(onSubmit, {
-      event: submitEvent,
-      text: enteredText,
+      event, text: enteredText,
     });
   });
 

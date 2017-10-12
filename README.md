@@ -233,7 +233,22 @@ Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
 to learn more about how configuration is applied.
 
-#### Disabling CSP for local development
+### Configuring an Android device for local development
+
+If you want to access your local server on an Android device you will need to change a few settings. Let's say your local machine is accessible on your network at the IP address `10.0.0.1`. You could start your server like this:
+
+```
+API_HOST=http://10.0.0.1:3000 \
+    SERVER_HOST=10.0.0.1 \
+    WEBPACK_SERVER_HOST=10.0.0.1 \
+    yarn amo:dev
+```
+
+On your Android device, you could then access the development site at `http://10.0.0.1:3000`.
+
+**NOTE**: At this time, it is not possible to sign in with this configuration because the Firefox Accounts client redirects to `localhost:3000`. You may be able to try a different approach by editing `/etc/hosts` on your device so that `localhost` points to your development machine but this has not been fully tested.
+
+### Disabling CSP for local development
 
 When developing locally with a webpack server, the randomly generated asset
 URL will fail our Content Security Policy (CSP) and clutter your console

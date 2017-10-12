@@ -90,7 +90,7 @@ export class DismissibleTextFormBase extends React.Component {
       submitButtonInProgressText,
     } = this.props;
 
-    const sendButtonIsDisabled = isSubmitting || !this.state.text.trim();
+    const submitButtonIsDisabled = isSubmitting || !this.state.text.trim();
 
     const text = {
       placeholder: placeholder || i18n.gettext('Enter text.'),
@@ -102,7 +102,6 @@ export class DismissibleTextFormBase extends React.Component {
     return (
       <form
         className={classNames('DismissibleTextForm-form', className)}
-        onSubmit={this.onSubmit}
       >
         <Textarea
           defaultValue={this.state.text}
@@ -113,7 +112,12 @@ export class DismissibleTextFormBase extends React.Component {
           placeholder={text.placeholder}
         />
         <div className="DismissibleTextForm-buttons">
+          {/*
+            These buttons each have an href so that they become anchor tags.
+            This prevents mobile taps from triggering their hover styles.
+          */}
           <Button
+            href="#cancel"
             onClick={this.onDismiss}
             className={classNames(
               'DismissibleTextForm-dismiss',
@@ -125,14 +129,15 @@ export class DismissibleTextFormBase extends React.Component {
             {i18n.gettext('Cancel')}
           </Button>
           <Button
-            type="submit"
+            href="#submit"
+            onClick={this.onSubmit}
             className={classNames(
               'DismissibleTextForm-submit',
               'Button--action',
               'Button--wide',
               submitButtonClassName,
             )}
-            disabled={sendButtonIsDisabled}
+            disabled={submitButtonIsDisabled}
           >
             {isSubmitting ?
               text.submitButtonInProgressText : text.submitButtonText
