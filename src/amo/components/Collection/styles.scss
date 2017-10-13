@@ -55,7 +55,7 @@
     display: grid;
     grid-auto-flow: column dense;
     grid-gap: 0 10px;
-    grid-template-columns: minmax(300px, 35%) auto;
+    grid-template-columns: minmax(300px, 35%) 1fr;
     margin: 10px 0 0;
 
     .Collection-detail {
