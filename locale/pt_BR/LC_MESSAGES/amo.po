@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 17:19+0000\n"
+"PO-Revision-Date: 2017-10-13 03:41+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Atualmente, o Firefox para iOS não suporta extensões."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Esta extensão não é compatível com a sua versão do Firefox."
+msgstr "Esta extensão não está disponível na sua plataforma."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -290,12 +289,10 @@ msgid "All written reviews"
 msgstr "Todas as análises escritas"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "de %(authorName)s, %(timestamp)s"
+msgstr "postado %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
@@ -309,9 +306,8 @@ msgid "Edit my review"
 msgstr "Editar minha análise"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Toque para visualizar"
+msgstr "Responder esta análise"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
 #, fuzzy
@@ -1003,9 +999,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Extensões do Firefox"
+msgstr "Sobre extensões do Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1095,9 +1090,8 @@ msgid "Was it easy to use?"
 msgstr "Foi fácil de usar?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Identifique-se para avaliar esta extensão"
+msgstr "Você continuará utilizando esta extensão?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1264,9 +1258,8 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Cancelar visualização"
+msgstr "Cancelar"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 #, fuzzy
