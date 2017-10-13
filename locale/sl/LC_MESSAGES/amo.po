@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-13 16:53+0000\n"
+"PO-Revision-Date: 2017-10-13 17:04+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1165,6 +1165,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Ne kritizirajte dodatka zaradi tega, za kar je narejen. Na primer, ne pišite negativnih ocen za dodatek, če prikazuje oglase ali zahteva zbiranje podatkov, kadar je to njegov namen ali dodatek "
+"zahteva zbiranje podatkov za delovanje."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
@@ -1172,13 +1174,15 @@ msgstr "Pogosta vprašanja o ocenah"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Kako lahko prijavim vprašljivo oceno?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Vsakršne vprašljive ocene prijavite s klikom na \"Prijavi to oceno\", s čimer jo boste poslali na stran za moderacijo. Naša ekipa moderatorjev bo glede na smernice za ocene presodila, ali oceno "
+"izbrisati ali jo obnoviti nazaj na stran."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1186,7 +1190,7 @@ msgstr "Sem avtor dodatka, ali lahko odgovorim na oceno?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Da, avtorji dodatkov lahko na oceno objavijo en odgovor. Za nadaljevanje razprave lahko odprete temo na našem %(startLink)sforumu%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1197,6 +1201,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"V splošnem ne. Toda če ocena ne ustreza zgornjim smernicam, lahko kliknete \"Prijavi to oceno\" in jo predložite za pregled. Če ocena vključuje pritožbo, ki ni več veljavna zaradi nove izdaje vašega"
+" dodatka, bomo premislili o njenem izbrisu."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
