@@ -6,15 +6,20 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
-import { getReviews, replyToReview } from 'amo/api/reviews';
+import { flagReview, getReviews, replyToReview } from 'amo/api/reviews';
 import {
-  hideReplyToReviewForm, setAddonReviews, setReviewReply,
+  hideReplyToReviewForm,
+  setReviewWasFlagged,
+  setAddonReviews,
+  setReviewReply,
 } from 'amo/actions/reviews';
-import { FETCH_REVIEWS, SEND_REPLY_TO_REVIEW } from 'amo/constants';
+import {
+  FETCH_REVIEWS, SEND_REPLY_TO_REVIEW, SEND_REVIEW_FLAG,
+} from 'amo/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
-  FetchReviewsAction, SendReplyToReviewAction,
+  FetchReviewsAction, FlagReviewAction, SendReplyToReviewAction,
 } from 'amo/actions/reviews';
 
 
@@ -53,9 +58,6 @@ function* handleReplyToReview(
     const reviewResponse = yield call(replyToReview, {
       apiState: state.api,
       body,
-      // This prevents the error from being handled by callApi();
-      // we want to handle it in catch() ourselves.
-      errorHandler: undefined,
       originalReviewId,
       title,
     });
@@ -70,7 +72,33 @@ function* handleReplyToReview(
   }
 }
 
+function* handleFlagReview(
+  {
+    payload: { errorHandlerId, note, reason, reviewId },
+  }: FlagReviewAction
+): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+    yield call(flagReview, {
+      apiState: state.api,
+      note,
+      reason,
+      reviewId,
+    });
+
+    yield put(setReviewWasFlagged({ reason, reviewId }));
+  } catch (error) {
+    log.warn(`Failed to flag review ID ${reviewId}: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* reviewsSaga(): Generator<any, any, any> {
   yield takeLatest(FETCH_REVIEWS, fetchReviews);
   yield takeLatest(SEND_REPLY_TO_REVIEW, handleReplyToReview);
+  yield takeLatest(SEND_REVIEW_FLAG, handleFlagReview);
 }

@@ -12,7 +12,17 @@ import {
   SET_REVIEW_REPLY,
 } from 'amo/constants';
 import { denormalizeReview } from 'amo/actions/reviews';
-import type { UserReviewType } from 'amo/actions/reviews';
+import type {
+  HideEditReviewFormAction,
+  HideReplyToReviewFormAction,
+  SendReplyToReviewAction,
+  SetAddonReviewsAction,
+  SetReviewAction,
+  SetReviewReplyAction,
+  ShowEditReviewFormAction,
+  ShowReplyToReviewFormAction,
+  UserReviewType,
+} from 'amo/actions/reviews';
 
 type ReviewsById = {
   [id: number]: UserReviewType,
@@ -140,45 +150,56 @@ export const changeViewState = (
   };
 };
 
+type ReviewActionType =
+  | HideEditReviewFormAction
+  | HideReplyToReviewFormAction
+  | SendReplyToReviewAction
+  | SetAddonReviewsAction
+  | SetReviewAction
+  | SetReviewReplyAction
+  | ShowEditReviewFormAction
+  | ShowReplyToReviewFormAction;
+
 export default function reviewsReducer(
   state: ReviewState = initialState,
-  { payload, type }: {| payload: any, type: string |},
+  action: ReviewActionType,
 ) {
-  switch (type) {
+  switch (action.type) {
     case SEND_REPLY_TO_REVIEW:
       return changeViewState({
         state,
-        reviewId: payload.originalReviewId,
+        reviewId: action.payload.originalReviewId,
         stateChange: { submittingReply: true },
       });
     case SHOW_EDIT_REVIEW_FORM:
       return changeViewState({
         state,
-        reviewId: payload.reviewId,
+        reviewId: action.payload.reviewId,
         stateChange: { editingReview: true },
       });
     case SHOW_REPLY_TO_REVIEW_FORM:
       return changeViewState({
         state,
-        reviewId: payload.reviewId,
+        reviewId: action.payload.reviewId,
         stateChange: { replyingToReview: true },
       });
     case HIDE_EDIT_REVIEW_FORM:
       return changeViewState({
         state,
-        reviewId: payload.reviewId,
+        reviewId: action.payload.reviewId,
         stateChange: { editingReview: false },
       });
     case HIDE_REPLY_TO_REVIEW_FORM:
       return changeViewState({
         state,
-        reviewId: payload.reviewId,
+        reviewId: action.payload.reviewId,
         stateChange: {
           replyingToReview: false,
           submittingReply: false,
         },
       });
     case SET_REVIEW: {
+      const { payload } = action;
       const existingReviews =
         state[payload.userId] ? state[payload.userId][payload.addonId] : {};
       const latestReview = payload;
@@ -196,7 +217,7 @@ export default function reviewsReducer(
       };
     }
     case SET_REVIEW_REPLY: {
-      const reviewId = payload.originalReviewId;
+      const reviewId = action.payload.originalReviewId;
       const review = state.byId[reviewId];
       if (!review) {
         throw new Error(oneLine`Cannot store reply to review ID
@@ -208,12 +229,13 @@ export default function reviewsReducer(
           ...state.byId,
           [review.id]: {
             ...review,
-            reply: denormalizeReview(payload.reply),
+            reply: denormalizeReview(action.payload.reply),
           },
         },
       };
     }
     case SET_ADDON_REVIEWS: {
+      const { payload } = action;
       return {
         ...state,
         byId: storeReviewObjects({ state, reviews: payload.reviews }),

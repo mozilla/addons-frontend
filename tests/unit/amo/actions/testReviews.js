@@ -1,14 +1,16 @@
 import {
   denormalizeReview,
   fetchReviews,
+  flagReview,
   reviewIdAction,
   sendReplyToReview,
   setDenormalizedReview,
   setReview,
+  setReviewWasFlagged,
   setReviewReply,
   setAddonReviews,
 } from 'amo/actions/reviews';
-import { SET_REVIEW } from 'amo/constants';
+import { REVIEW_FLAG_REASON_SPAM, SET_REVIEW } from 'amo/constants';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 // See reducer tests for more coverage of review actions.
@@ -170,6 +172,65 @@ describe(__filename, () => {
 
     it('requires a reviewId', () => {
       expect(() => reviewIdAction({ type: 'SOME_TYPE' }))
+        .toThrow(/reviewId parameter is required/);
+    });
+  });
+
+  describe('flagReview', () => {
+    const defaultParams = () => {
+      return {
+        errorHandlerId: 'some-id',
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: fakeReview.id,
+      };
+    };
+
+    it('requires an errorHandlerId', () => {
+      const params = defaultParams();
+      delete params.errorHandlerId;
+
+      expect(() => flagReview(params))
+        .toThrow(/errorHandlerId parameter is required/);
+    });
+
+    it('requires a reason', () => {
+      const params = defaultParams();
+      delete params.reason;
+
+      expect(() => flagReview(params))
+        .toThrow(/reason parameter is required/);
+    });
+
+    it('requires a reviewId', () => {
+      const params = defaultParams();
+      delete params.reviewId;
+
+      expect(() => flagReview(params))
+        .toThrow(/reviewId parameter is required/);
+    });
+  });
+
+  describe('setReviewWasFlagged', () => {
+    const defaultParams = () => {
+      return {
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: fakeReview.id,
+      };
+    };
+
+    it('requires a reason', () => {
+      const params = defaultParams();
+      delete params.reason;
+
+      expect(() => setReviewWasFlagged(params))
+        .toThrow(/reason parameter is required/);
+    });
+
+    it('requires a reviewId', () => {
+      const params = defaultParams();
+      delete params.reviewId;
+
+      expect(() => setReviewWasFlagged(params))
         .toThrow(/reviewId parameter is required/);
     });
   });

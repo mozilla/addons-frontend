@@ -1,7 +1,9 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
+import { REVIEW_FLAG_REASON_OTHER } from 'amo/constants';
 import { callApi } from 'core/api';
+import type { FlagReviewReasonType } from 'amo/constants';
 import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { PaginatedApiResponse } from 'core/types/api';
@@ -188,3 +190,40 @@ export function getLatestUserReview(
         ${JSON.stringify(reviews)}`);
     });
 }
+
+type FlagReviewParams = {|
+  apiState?: ApiStateType,
+  errorHandler?: ErrorHandlerType,
+  note?: string,
+  reason: FlagReviewReasonType,
+  reviewId: number,
+|};
+
+export const flagReview = (
+  { apiState, errorHandler, note, reason, reviewId }: FlagReviewParams = {}
+): Promise<void> => {
+  return new Promise((resolve) => {
+    if (!reviewId) {
+      throw new Error('The reviewId parameter is required');
+    }
+    if (!reason) {
+      throw new Error('The reason parameter is required');
+    }
+    if (reason === REVIEW_FLAG_REASON_OTHER && !note) {
+      throw new Error(
+        `When reason is ${reason}, the note parameter is required`
+      );
+    }
+    resolve(callApi({
+      auth: true,
+      body: {
+        flag: reason,
+        note,
+      },
+      endpoint: `reviews/review/${reviewId}/flag/`,
+      errorHandler,
+      method: 'POST',
+      state: apiState,
+    }));
+  });
+};

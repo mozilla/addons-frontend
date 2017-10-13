@@ -3,13 +3,19 @@ import SagaTester from 'redux-saga-tester';
 import * as reviewsApi from 'amo/api/reviews';
 import {
   fetchReviews,
+  flagReview,
   hideReplyToReviewForm,
   setAddonReviews,
   sendReplyToReview,
   setReview,
   setReviewReply,
+  setReviewWasFlagged,
 } from 'amo/actions/reviews';
-import { SET_ADDON_REVIEWS } from 'amo/constants';
+import {
+  REVIEW_FLAG_REASON_OTHER,
+  REVIEW_FLAG_REASON_SPAM,
+  SET_ADDON_REVIEWS,
+} from 'amo/constants';
 import reviewsReducer from 'amo/reducers/reviews';
 import reviewsSaga from 'amo/sagas/reviews';
 import apiReducer from 'core/reducers/api';
@@ -80,7 +86,7 @@ describe(__filename, () => {
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(errorAction);
+      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
     });
   });
 
@@ -107,6 +113,7 @@ describe(__filename, () => {
         ...review,
         reply: {
           ...review,
+          id: 3421,
           body: 'Some developer reply to the review',
           ...reply,
         },
@@ -126,11 +133,12 @@ describe(__filename, () => {
         .withArgs({
           apiState,
           body,
-          errorHandler: undefined,
           originalReviewId,
           title,
         })
-        .returns(Promise.resolve(createReplyToReviewResponse()));
+        .returns(Promise.resolve(createReplyToReviewResponse({
+          review,
+        })));
 
       _sendReplyToReview({ originalReviewId, body, title });
       const lastExpectedAction = hideReplyToReviewForm({
@@ -141,7 +149,7 @@ describe(__filename, () => {
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[4]).toEqual(lastExpectedAction);
+      expect(calledActions.slice(-1).pop()).toEqual(lastExpectedAction);
     });
 
     it('loads a review from the reply response', async () => {
@@ -152,7 +160,7 @@ describe(__filename, () => {
       const title = 'Title of the Reply';
 
       const reviewFromResponse = createReplyToReviewResponse({
-        reply: { body, title },
+        review, reply: { body, title },
       });
 
       mockApi
@@ -183,17 +191,84 @@ describe(__filename, () => {
       await sagaTester.waitFor(errorAction.type);
 
       const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[2]).toEqual(errorAction);
+      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      mockApi.verify();
     });
 
     it('clears the error handler', async () => {
-      _sendReplyToReview();
+      const review = _setFakeReview();
+
+      mockApi
+        .expects('replyToReview')
+        .returns(Promise.resolve(createReplyToReviewResponse()));
+
+      _sendReplyToReview({ originalReviewId: review.id });
 
       const expectedAction = errorHandler.createClearingAction();
 
       await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[1])
+      expect(sagaTester.getCalledActions()[2])
         .toEqual(errorHandler.createClearingAction());
+      mockApi.verify();
+    });
+  });
+
+  describe('handleFlagReview', () => {
+    const _flagReview = (params = {}) => {
+      sagaTester.dispatch(flagReview({
+        errorHandlerId: errorHandler.id,
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: fakeReview.id,
+        ...params,
+      }));
+    };
+
+    it('clears the error handler', async () => {
+      _flagReview();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1]).toEqual(expectedAction);
+    });
+
+    it('posts a review flag to the API', async () => {
+      const reviewId = fakeReview.id;
+      const note = 'I do not like the color of this review';
+      const reason = REVIEW_FLAG_REASON_OTHER;
+
+      mockApi
+        .expects('flagReview')
+        .once()
+        .withArgs({
+          apiState,
+          note,
+          reason,
+          reviewId,
+        })
+        .returns(Promise.resolve());
+
+      _flagReview({ note, reason, reviewId });
+
+      const expectedAction = setReviewWasFlagged({ reason, reviewId });
+      await sagaTester.waitFor(expectedAction.type);
+      mockApi.verify();
+    });
+
+    it('handles API errors', async () => {
+      const error = new Error('some API error');
+      mockApi
+        .expects('flagReview')
+        .returns(Promise.reject(error));
+
+      _flagReview();
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+
+      const calledActions = sagaTester.getCalledActions();
+      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      mockApi.verify();
     });
   });
 });
