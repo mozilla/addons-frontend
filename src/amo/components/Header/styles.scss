@@ -142,10 +142,21 @@
 }
 
 .Header-SectionLinks {
+  align-items: baseline;
   grid-column: 1 / span 4;
   grid-row: 3 / 4;
   margin: 16px auto 1px;
+  min-height: 28px;
   z-index: 4;
+
+  .DropdownMenu-button-text {
+    overflow: visible;
+    padding-bottom: 3px;
+  }
+
+  .Icon-inverted-caret {
+    height: 9px;
+  }
 
   @include respond-to(medium) {
     @include margin-start(-12px);
@@ -162,7 +173,7 @@
     align-self: center;
     grid-column: 2;
     grid-row: 2 / 2;
-    margin: 20px 0 6px;
+    margin: 22px 0 0;
     padding: 0;
   }
 }
