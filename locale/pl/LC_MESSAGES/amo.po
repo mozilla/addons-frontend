@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-12 20:08+0000\n"
+"PO-Revision-Date: 2017-10-13 21:10+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -973,37 +973,39 @@ msgstr "Odkrywaj"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Jeśli chcesz wziąć udział, ale niekoniecznie od strony technicznej, oto inne sposoby pomagania:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Udzielaj się na naszym %(startLink)sforum%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Pisz opinie o swoich ulubionych dodatkach. Ich autorzy są bardziej skłonni je ulepszać i tworzyć nowe, kiedy wiedzą, że ich praca jest doceniana."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Powiedz znajomym i rodzinie, że Firefox jest szybką, bezpieczną przeglądarką, która chroni ich prywatność i którą można dostosować do własnych upodobań dodatkami."
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Nasza %(startLink)swiki%(endLink)s zawiera więcej informacji o udzielaniu się w społeczności dodatków."
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Pomoc"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"%(startSUMOLink)sPomoc%(endSUMOLink)s Mozilli zawiera więcej informacji o zarządzaniu dodatkami w Firefoksie i używaniu Firefoksa. Jeśli czegoś tam brakuje, to można %(startForumLink)szapytać na "
+"forum społeczności%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sKontakt z zespołem dodatków Mozilli%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1014,14 +1016,16 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) to oficjalna strona Mozilli do przeglądania i instalowania dodatków do przeglądarki Firefox. Dodatki pomagają modyfikować i personalizować przeglądarkę przez dodawanie "
+"nowych funkcji, ulepszanie sposobów korzystania z Internetu i zmieniając jej wygląd."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "AMO zawiera także dodatki do programów Mozilla %(startTBLink)sThunderbird%(endTBLink)s i %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Społeczność twórców"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
