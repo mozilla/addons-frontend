@@ -4,9 +4,10 @@ import path from 'path';
 import config from 'config';
 
 const packageJson = JSON.parse(fs.readFileSync(path.join(config.get('basePath'), 'package.json')));
-const skipDevDeps = [
-  'redux-saga-tester',
-];
+
+// When a dev-dep needs to be pinned the package name should be added to this list.
+// Please add a comment with a link to a bug so we know why it was added.
+const skipDevDeps = [];
 
 describe('Package JSON', () => {
   Object.keys(packageJson.devDependencies).forEach((key) => {
