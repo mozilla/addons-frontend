@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-13 03:41+0000\n"
-"Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
+"PO-Revision-Date: 2017-10-13 20:41+0000\n"
+"Last-Translator: Zilmar <zilmar.jr@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -238,7 +238,7 @@ msgstr "Site de suporte"
 
 #: src/amo/components/AddonMoreInfo/index.js:67
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Visite o painel de estatísticas"
 
 #: src/amo/components/AddonMoreInfo/index.js:75
 msgid "%(timeFromNow)s (%(date)s)"
@@ -297,9 +297,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "de %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Central do Desenvolvedor"
+msgstr "Resposta do desenvolvedor"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
@@ -310,9 +309,8 @@ msgid "Reply to this review"
 msgstr "Responder esta análise"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Escreva uma análise"
+msgstr "Escreva uma resposta para essa análise."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -327,9 +325,8 @@ msgid "Add-ons for Firefox"
 msgstr "Extensões para o Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Extensões para o Firefox"
+msgstr "%s - Extensões para o Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -469,7 +466,7 @@ msgstr "Navegador Focus"
 
 #: src/amo/components/Footer/index.js:109
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Navegador para desktop"
 
 #: src/amo/components/Footer/index.js:114
 msgid "Beta, Nightly, Developer Edition"
@@ -630,9 +627,8 @@ msgid "Change your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Navegue por todas as extensões"
+msgstr "Navegue por essa coleção"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -676,7 +672,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
@@ -1041,6 +1037,8 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Ajude a melhorar essa página web. É de código aberto e você pode reportar bugs e enviar correções. Você pode começar com %(startGoodFirstBugLink)sseu primeiro bug%(endGoodFirstBugLink)s ou "
+"visualizar todos os issues abertos para o %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s AMO e o %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s no Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
@@ -1061,9 +1059,8 @@ msgid "Do:"
 msgstr "O que fazer:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Recebemos seu relatório. Obrigado por nos informar sobre suas preocupações com esta extensão."
+msgstr "Escreva como se estivesse contando a um amigo sobre sua experiência com a extensão."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1262,18 +1259,16 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Enter"
+msgstr "Insira o texto."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Enviar"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Enviar"
+msgstr "Enviando"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
