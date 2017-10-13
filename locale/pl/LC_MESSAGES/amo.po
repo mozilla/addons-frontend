@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-13 21:10+0000\n"
+"PO-Revision-Date: 2017-10-13 21:31+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1032,40 +1032,48 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Dodatki dostępne w serwisie są tworzone przez tysiące programistów i projektantów motywów z całego świata, od pracujących samodzielnie amatorów do wielkich firm. Część dostępnych dodatków zostało "
+"opublikowanych automatycznie i mogą zostać sprawdzone przez zespół redaktorów po udostępnieniu publicznie."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Dołącz do nas"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla to organizacja non-profit broniąca Internetu, która tworzy Firefoksa po to, aby był on zawsze zdrowy, otwarty i dostępny. Dodatki dają użytkownikom możliwość wyboru i dostosowania Firefoksa."
+" Można pomagać na te sposoby:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sNapisz nowy dodatek%(endLink)s. Oferujemy bezpłatny hosting i usługi aktualizacji oraz pomagamy użytkownikom znaleźć Twój dodatek."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Pomóż ulepszać tę stronę. Jest ona open source — można zgłaszać błędy i wysyłać poprawki. Można zacząć od %(startGoodFirstBugLink)sdobrego błędu na początek%(endGoodFirstBugLink)s lub przeglądać "
+"wszystkie otwarte zgłoszenia dla %(startAddonsServerRepoLink)sserwera%(endAddonsServerRepoLink)s i %(startAddonsFrontendRepoLink)sinterfejsu%(endAddonsFrontendRepoLink)s AMO na GitHubie."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Wytyczne pisania recenzji"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Recenzje dodatków są sposobem na dzielenie się opinią o zainstalowanych i używanych dodatkach. Nasz zespół moderatorów recenzji zastrzega sobie prawo do odrzucania i usuwania recenzji "
+"niespełniających tych wytycznych."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Wskazówki pisania dobrych recenzji"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1073,31 +1081,31 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Pisz o swoich doświadczeniach z dodatkiem tak, jak do znajomego."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Pisz zwięźle i prosto."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Podawaj konkretne i przydatne informacje. Na przykład:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Czy dodatek działa zgodnie z oczekiwaniami?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Które funkcje lubisz, a których nie lubisz?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Czy jest przydatny?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Czy jest łatwy w użyciu?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
