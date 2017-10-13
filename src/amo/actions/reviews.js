@@ -1,15 +1,18 @@
 /* @flow */
 import {
-  SHOW_EDIT_REVIEW_FORM,
-  SHOW_REPLY_TO_REVIEW_FORM,
   FETCH_REVIEWS,
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
   SEND_REPLY_TO_REVIEW,
+  SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
   SET_REVIEW,
   SET_REVIEW_REPLY,
+  SET_REVIEW_WAS_FLAGGED,
+  SHOW_EDIT_REVIEW_FORM,
+  SHOW_REPLY_TO_REVIEW_FORM,
 } from 'amo/constants';
+import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   ExternalReviewReplyType, ExternalReviewType,
 } from 'amo/api/reviews';
@@ -51,7 +54,7 @@ export function denormalizeReview(
 }
 
 export type SetReviewAction = {|
-  type: string,
+  type: typeof SET_REVIEW,
   payload: UserReviewType,
 |};
 
@@ -70,7 +73,7 @@ type SetReviewReplyParams = {|
 |};
 
 export type SetReviewReplyAction = {|
-  type: string,
+  type: typeof SET_REVIEW_REPLY,
   payload: SetReviewReplyParams,
 |};
 
@@ -96,7 +99,7 @@ type FetchReviewsParams = {|
 |};
 
 export type FetchReviewsAction = {|
-  type: string,
+  type: typeof FETCH_REVIEWS,
   payload: {|
     addonSlug: string,
     errorHandlerId: string,
@@ -129,7 +132,7 @@ export const setDenormalizedReview = (
 };
 
 export type SetAddonReviewsAction = {|
-  type: string,
+  type: typeof SET_ADDON_REVIEWS,
   payload: {|
     addonSlug: string,
     reviewCount: number,
@@ -173,7 +176,7 @@ type SendReplyToReviewParams = {|
 |};
 
 export type SendReplyToReviewAction = {|
-  type: string,
+  type: typeof SEND_REPLY_TO_REVIEW,
   payload: SendReplyToReviewParams,
 |};
 
@@ -202,7 +205,7 @@ type ReviewIdActionParams = {|
 
 export const reviewIdAction = (
   { reviewId, type }: ReviewIdActionParams = {}
-) => {
+): any => {
   if (!reviewId) {
     throw new Error('The reviewId parameter is required');
   }
@@ -214,7 +217,7 @@ type ShowEditReviewFormParams = {|
 |};
 
 export type ShowEditReviewFormAction = {|
-  type: string,
+  type: typeof SHOW_EDIT_REVIEW_FORM,
   payload: ShowEditReviewFormParams,
 |};
 
@@ -229,7 +232,7 @@ type ShowReplyToReviewParams = {|
 |};
 
 export type ShowReplyToReviewFormAction = {|
-  type: string,
+  type: typeof SHOW_REPLY_TO_REVIEW_FORM,
   payload: ShowReplyToReviewParams,
 |};
 
@@ -244,7 +247,7 @@ type HideEditReviewFormParams = {|
 |};
 
 export type HideEditReviewFormAction = {|
-  type: string,
+  type: typeof HIDE_EDIT_REVIEW_FORM,
   payload: HideEditReviewFormParams,
 |};
 
@@ -259,7 +262,7 @@ type HideReplyToReviewFormParams = {|
 |};
 
 export type HideReplyToReviewFormAction = {|
-  type: string,
+  type: typeof HIDE_REPLY_TO_REVIEW_FORM,
   payload: HideReplyToReviewFormParams,
 |};
 
@@ -267,4 +270,59 @@ export const hideReplyToReviewForm = (
   { reviewId }: HideReplyToReviewFormParams = {}
 ): HideReplyToReviewFormAction => {
   return reviewIdAction({ type: HIDE_REPLY_TO_REVIEW_FORM, reviewId });
+};
+
+type FlagReviewParams = {|
+  errorHandlerId: string,
+  note?: string,
+  reason: FlagReviewReasonType,
+  reviewId: number,
+|};
+
+export type FlagReviewAction = {|
+  type: typeof SEND_REVIEW_FLAG,
+  payload: FlagReviewParams,
+|};
+
+export const flagReview = (
+  { errorHandlerId, note, reason, reviewId }: FlagReviewParams = {}
+): FlagReviewAction => {
+  if (!errorHandlerId) {
+    throw new Error('The errorHandlerId parameter is required');
+  }
+  if (!reason) {
+    throw new Error('The reason parameter is required');
+  }
+  if (!reviewId) {
+    throw new Error('The reviewId parameter is required');
+  }
+  return {
+    type: SEND_REVIEW_FLAG,
+    payload: { errorHandlerId, note, reason, reviewId },
+  };
+};
+
+type ReviewWasFlaggedParams = {|
+  reason: FlagReviewReasonType,
+  reviewId: number,
+|};
+
+export type ReviewWasFlaggedAction = {|
+  type: typeof SET_REVIEW_WAS_FLAGGED,
+  payload: ReviewWasFlaggedParams,
+|};
+
+export const setReviewWasFlagged = (
+  { reason, reviewId }: ReviewWasFlaggedParams = {}
+): ReviewWasFlaggedAction => {
+  if (!reason) {
+    throw new Error('The reason parameter is required');
+  }
+  if (!reviewId) {
+    throw new Error('The reviewId parameter is required');
+  }
+  return {
+    type: SET_REVIEW_WAS_FLAGGED,
+    payload: { reason, reviewId },
+  };
 };

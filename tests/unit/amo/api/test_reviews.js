@@ -1,4 +1,8 @@
 import {
+  REVIEW_FLAG_REASON_OTHER, REVIEW_FLAG_REASON_SPAM,
+} from 'amo/constants';
+import {
+  flagReview,
   getLatestUserReview,
   getReviews,
   replyToReview,
@@ -319,6 +323,80 @@ describe(__filename, () => {
         title,
       });
       mockApi.verify();
+    });
+  });
+
+  describe('flagReview', () => {
+    const defaultParams = () => {
+      return {
+        apiState: { ...signedInApiState },
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: fakeReview.id,
+      };
+    };
+
+    it('calls the API', async () => {
+      const params = {
+        ...defaultParams(),
+        errorHandler: createStubErrorHandler(),
+      };
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `reviews/review/${params.reviewId}/flag/`,
+          errorHandler: params.errorHandler,
+          body: {
+            flag: params.reason,
+            note: undefined,
+          },
+          method: 'POST',
+          state: params.apiState,
+        })
+        .returns(Promise.resolve());
+
+      await flagReview(params);
+      mockApi.verify();
+    });
+
+    it('requires a reviewId', async () => {
+      const params = defaultParams();
+      delete params.reviewId;
+
+      mockApi.expects('callApi').returns(Promise.resolve());
+
+      await flagReview(params)
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/reviewId parameter is required/);
+        });
+    });
+
+    it('requires a reason', async () => {
+      const params = defaultParams();
+      delete params.reason;
+
+      mockApi.expects('callApi').returns(Promise.resolve());
+
+      await flagReview(params)
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/reason parameter is required/);
+        });
+    });
+
+    it('requires a note when the reason is other', async () => {
+      const params = {
+        ...defaultParams(),
+        reason: REVIEW_FLAG_REASON_OTHER,
+        note: undefined,
+      };
+
+      mockApi.expects('callApi').returns(Promise.resolve());
+
+      await flagReview(params)
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/note parameter is required/);
+        });
     });
   });
 });
