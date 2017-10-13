@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-13 17:04+0000\n"
+"PO-Revision-Date: 2017-10-13 17:28+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -634,7 +634,7 @@ msgstr "Enobarvno"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Spremenite zavihke"
 
 #: src/amo/components/Home/index.js:188
 msgid "Browse this collection"
@@ -670,23 +670,23 @@ msgstr "Izvrstne razširitve za vse priložnosti"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Video v visoki ločljivosti, izklop pripisov, spreminjanje velikosti predvajalnika in več"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Od zavračanja oglasov do zaščite pred sledenjem – tu je nekaj izjemnih razširitev za zasebnost"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Izredno zmogljiva razširitev za zavračanje oglasov, preprosta za uporabo"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -1006,17 +1006,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Pomoč"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"V kolikor želite izvedeti več o upravljanju dodatkov v Firefoxu ali če potrebujete pomoč s Firefoxom nasploh, obiščite %(startSUMOLink)sPodporo Mozilla%(endSUMOLink)s. Če tam ne najdete odgovora, "
+"lahko %(startForumLink)szastavite vprašanje na našem forumu skupnosti%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sPodatke za stik z Mozillino ekipo za dodatke lahko najdete tukaj%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1036,7 +1038,7 @@ msgstr "Na AMO lahko najdete tudi dodatke za Mozilla %(startTBLink)sThunderbird%
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Skupnost ustvarjalcev"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1056,7 +1058,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sUstvarite lasten dodatek%(endLink)s. Ponujamo vam brezplačno gostovanje in storitev za posodobitve ter omogočamo doseg široke množice uporabnikov."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
