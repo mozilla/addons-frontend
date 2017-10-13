@@ -12,13 +12,13 @@
   padding: 0 12px;
 
   @include respond-to(medium) {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr;
     min-height: 98px;
     padding: 0 $header-footer-gutter 10px;
   }
 
   @include respond-to(extraLarge) {
-    grid-template-columns: max-content auto auto;
+    grid-template-columns: max-content 1fr auto;
     grid-template-rows: 46px auto;
     margin: 0 auto;
     max-width: $max-content-width;
@@ -93,7 +93,6 @@
 }
 
 .Header-user-and-external-links {
-  @include margin-start(auto);
   @include text-align-end();
 
   grid-column: 3 / span 2;
@@ -175,8 +174,6 @@
   min-width: 144px;
 
   @include respond-to(medium) {
-    @include margin-start(auto);
-
     grid-column: 3 / 3;
     grid-row: 2 / 2;
     margin-top: 0;
