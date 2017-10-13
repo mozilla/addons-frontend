@@ -7,13 +7,13 @@ import homeReducer, {
   loadHomeAddons,
 } from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
-import * as api from 'core/api';
 import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
+  SEARCH_SORT_RANDOM,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -28,14 +28,12 @@ import {
 
 describe(__filename, () => {
   let errorHandler;
-  let mockApi;
   let mockCollectionsApi;
   let mockSearchApi;
   let sagaTester;
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
-    mockApi = sinon.mock(api);
     mockCollectionsApi = sinon.mock(collectionsApi);
     mockSearchApi = sinon.mock(searchApi);
     sagaTester = new SagaTester({
@@ -97,14 +95,17 @@ describe(__filename, () => {
         .returns(Promise.resolve(featuredCollection));
 
       const featuredThemes = createAddonsApiResult([fakeTheme]);
-      mockApi
-        .expects('featured')
+      mockSearchApi
+        .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
             ...baseFilters,
             addonType: ADDON_TYPE_THEME,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
           },
+          page: 1,
         })
         .returns(Promise.resolve(featuredThemes));
 
@@ -137,7 +138,6 @@ describe(__filename, () => {
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
-      mockApi.verify();
       mockCollectionsApi.verify();
       mockSearchApi.verify();
 

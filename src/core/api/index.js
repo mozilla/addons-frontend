@@ -13,7 +13,6 @@ import log from 'core/logger';
 import {
   addVersionCompatibilityToFilters,
   convertFiltersToQueryParams,
-  fixFiltersForAndroidThemes,
 } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
@@ -199,26 +198,6 @@ export function startLoginUrl(
   }
   const query = makeQueryString(params);
   return `${API_BASE}/accounts/login/start/${query}`;
-}
-
-type FeaturedParams = {|
-  api: ApiStateType,
-  filters: Object,
-  page: number,
-|};
-
-export function featured({ api, filters, page }: FeaturedParams) {
-  const newFilters = fixFiltersForAndroidThemes({ api, filters });
-
-  return callApi({
-    endpoint: 'addons/featured',
-    params: {
-      ...convertFiltersToQueryParams(newFilters),
-      page,
-    },
-    schema: { results: [addon] },
-    state: api,
-  });
 }
 
 export function categories({ api }: {| api: ApiStateType |}) {
