@@ -1,8 +1,10 @@
 import classNames from 'classnames';
+import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
 
 import Link from 'amo/components/Link';
+import log from 'core/logger';
 
 
 import './Button.scss';
@@ -11,6 +13,7 @@ export default class Button extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
+    disabled: PropTypes.boolean,
     href: PropTypes.string,
     to: PropTypes.string,
   }
@@ -23,7 +26,11 @@ export default class Button extends React.Component {
       to,
       ...rest
     } = this.props;
-    const props = { className: classNames('Button', className), ...rest };
+    const props = { ...rest };
+
+    const setClassName = (...classConfig) => {
+      return classNames('Button', className, ...classConfig);
+    };
 
     if (href || to) {
       if (href) {
@@ -35,9 +42,18 @@ export default class Button extends React.Component {
         props.to = to;
       }
 
+      props.className = setClassName({ disabled: props.disabled });
+
+      if (props.disabled) {
+        props.onClick = (event) => {
+          event.preventDefault();
+          log.warn(oneLine`Not calling onClick() for Button link to
+            ${props.href || props.to} because it is disabled`);
+        };
+      }
       return <Link {...props}>{children}</Link>;
     }
 
-    return <button {...props}>{children}</button>;
+    return <button className={setClassName()} {...props}>{children}</button>;
   }
 }

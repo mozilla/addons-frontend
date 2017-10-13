@@ -3,6 +3,7 @@ import React from 'react';
 
 import Link from 'amo/components/Link';
 import Button from 'ui/components/Button';
+import { createFakeEvent } from 'tests/unit/helpers';
 
 
 describe('<Button />', () => {
@@ -42,5 +43,39 @@ describe('<Button />', () => {
     expect(button.children()).toIncludeText('Link text!');
     expect(button.find(Link)).toHaveProp('prependClientApp', false);
     expect(button.find(Link)).toHaveProp('prependLang', false);
+  });
+
+  it('can disable an anchor', () => {
+    const onClick = sinon.stub();
+    const button = shallow(
+      <Button
+        disabled
+        href="https://addons.mozilla.org"
+        onClick={onClick}
+      >
+        Link text!
+      </Button>
+    );
+
+    const event = createFakeEvent();
+    button.simulate('click', event);
+
+    sinon.assert.notCalled(onClick);
+    sinon.assert.called(event.preventDefault);
+  });
+
+  it('sets a disabled link class when disabled', () => {
+    const button = shallow(
+      <Button
+        className="CustomClass"
+        disabled
+        href="https://addons.mozilla.org"
+      >
+        Link text!
+      </Button>
+    );
+
+    expect(button).toHaveClassName('disabled');
+    expect(button).toHaveClassName('CustomClass');
   });
 });
