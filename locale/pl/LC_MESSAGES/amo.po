@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-13 21:51+0000\n"
+"PO-Revision-Date: 2017-10-13 21:55+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1077,7 +1077,7 @@ msgstr "Wskazówki pisania dobrych recenzji"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Co robić:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1117,7 +1117,7 @@ msgstr "Poświęć chwilę na przeczytanie recenzji przed jej wysłaniem, aby og
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Czego nie robić:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
@@ -1185,17 +1185,19 @@ msgstr "Czy autorzy dodatków mogę odpowiadać na recenzje?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Tak, autorzy dodatków mogą napisać jedną odpowiedź na recenzję. Można założyć temat na naszym %(startLink)sforum%(endLink)s, aby rozpocząć dyskusję lub kontynuować odpowiedź."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Czy autorzy dodatków mogą usuwać nieprzychylne recenzje i oceny?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Ogólnie rzecz biorąc, nie. Jeśli jednak recenzja nie spełnia wytycznych wyrażonych powyżej, to można kliknąć „Zgłoś tę recenzję”, a zostanie ona moderowana. Jeśli recenzja zawiera uwagę nieaktualną "
+"z powodu nowego wydania dodatku, to możemy rozważyć jej usunięcie."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
