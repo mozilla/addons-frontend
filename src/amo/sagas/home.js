@@ -9,9 +9,9 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
-import { featured as featuredApi } from 'core/api';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
@@ -52,12 +52,15 @@ export function* fetchHomeAddons({
         slug: featuredCollectionSlug,
         user: featuredCollectionUser,
       }),
-      featuredThemes: call(featuredApi, {
+      featuredThemes: call(searchApi, {
         api: state.api,
         filters: {
           addonType: ADDON_TYPE_THEME,
+          featured: true,
           page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_RANDOM,
         },
+        page: 1,
       }),
       upAndComingExtensions: call(searchApi, {
         api: state.api,

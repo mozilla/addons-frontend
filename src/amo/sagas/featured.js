@@ -6,8 +6,8 @@ import { call, put, select, takeEvery } from 'redux-saga/effects';
 
 import { loadFeatured } from 'amo/actions/featured';
 import { FEATURED_ADDONS_TO_LOAD } from 'amo/constants';
-import { featured as featuredApi } from 'core/api';
-import { FEATURED_GET } from 'core/constants';
+import { search as searchApi } from 'core/api/search';
+import { FEATURED_GET, SEARCH_SORT_RANDOM } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
@@ -18,8 +18,17 @@ export function* fetchFeaturedAddons(
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
-    const filters = { addonType, page_size: FEATURED_ADDONS_TO_LOAD };
-    const response = yield call(featuredApi, { api: state.api, filters });
+
+    const response = yield call(searchApi, {
+      api: state.api,
+      filters: {
+        addonType,
+        featured: true,
+        page_size: FEATURED_ADDONS_TO_LOAD,
+        sort: SEARCH_SORT_RANDOM,
+      },
+      page: 1,
+    });
 
     yield put(loadFeatured({
       addonType,

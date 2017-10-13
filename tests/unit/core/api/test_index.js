@@ -8,7 +8,6 @@ import * as api from 'core/api';
 import {
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import {
   createFakeAutocompleteResult,
@@ -223,69 +222,6 @@ describe(__filename, () => {
     it('handles true values', () => {
       const query = api.makeQueryString({ some_flag: true });
       expect(query).toEqual('?some_flag=true');
-    });
-  });
-
-  describe('featured add-ons api', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: {
-        results: [
-          { slug: 'foo' },
-          { slug: 'food' },
-          { slug: 'football' },
-        ],
-      },
-    });
-
-    it('sets the app, lang, and type query', () => {
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=firefox&type=persona&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-
-      const { state } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_FIREFOX,
-        lang: 'en-US',
-      });
-
-      return api.featured({
-        api: state.api,
-        filters: { addonType: ADDON_TYPE_THEME },
-      })
-        .then((response) => {
-          expect(response).toEqual({
-            entities: {
-              addons: {
-                foo: { slug: 'foo' },
-                food: { slug: 'food' },
-                football: { slug: 'football' },
-              },
-            },
-            result: {
-              results: ['foo', 'food', 'football'],
-            },
-          });
-          return mockWindow.verify();
-        });
-    });
-
-    it('changes theme requests for android to firefox results', async () => {
-      // See: https://github.com/mozilla/addons-frontend/issues/3408
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=firefox&type=persona&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-
-      const { state } = dispatchClientMetadata({
-        clientApp: CLIENT_APP_ANDROID,
-        lang: 'en-US',
-      });
-
-      await api.featured({
-        api: state.api,
-        filters: { addonType: ADDON_TYPE_THEME },
-      });
-      mockWindow.verify();
     });
   });
 

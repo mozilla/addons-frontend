@@ -1,6 +1,5 @@
 import SagaTester from 'redux-saga-tester';
 
-import * as api from 'core/api';
 import * as searchApi from 'core/api/search';
 import {
   getLanding,
@@ -14,6 +13,7 @@ import {
   LANDING_LOADED,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_RANDOM,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import {
@@ -27,13 +27,11 @@ describe(__filename, () => {
   describe('fetchLandingAddons', () => {
     let apiState;
     let errorHandler;
-    let mockApi;
     let mockSearchApi;
     let sagaTester;
 
     beforeEach(() => {
       errorHandler = createStubErrorHandler();
-      mockApi = sinon.mock(api);
       mockSearchApi = sinon.mock(searchApi);
 
       const { state } = dispatchClientMetadata();
@@ -67,9 +65,17 @@ describe(__filename, () => {
       const featured = createAddonsApiResult([{
         ...fakeAddon, slug: 'featured-addon',
       }]);
-      mockApi
-        .expects('featured')
-        .withArgs({ ...baseArgs, filters: { ...baseFilters } })
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
+        })
         .returns(Promise.resolve(featured));
 
       const highlyRated = createAddonsApiResult([{
@@ -103,7 +109,7 @@ describe(__filename, () => {
       _getLanding({ addonType });
 
       await sagaTester.waitFor(LANDING_LOADED);
-      mockApi.verify();
+      mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(loadLanding({
@@ -113,7 +119,10 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const error = new Error('some API error maybe');
-      mockApi.expects('featured').returns(Promise.reject(error));
+      mockSearchApi
+        .expects('search')
+        .exactly(3)
+        .returns(Promise.reject(error));
 
       _getLanding();
 
@@ -137,11 +146,16 @@ describe(__filename, () => {
       const featured = createAddonsApiResult([
         { ...fakeAddon, slug: 'featured-addon' },
       ]);
-      mockApi
-        .expects('featured')
+      mockSearchApi
+        .expects('search')
         .withArgs({
           ...baseArgs,
-          filters: baseFilters,
+          filters: {
+            ...baseFilters,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
         })
         .returns(Promise.resolve(featured));
 
@@ -178,7 +192,7 @@ describe(__filename, () => {
       _getLanding({ addonType, category });
 
       await sagaTester.waitFor(LANDING_LOADED);
-      mockApi.verify();
+      mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(loadLanding({
@@ -197,11 +211,16 @@ describe(__filename, () => {
       const featured = createAddonsApiResult([
         { ...fakeAddon, slug: 'featured-addon' },
       ]);
-      mockApi
-        .expects('featured')
+      mockSearchApi
+        .expects('search')
         .withArgs({
           ...baseArgs,
-          filters: baseFilters,
+          filters: {
+            ...baseFilters,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
         })
         .returns(Promise.resolve(featured));
 
@@ -238,7 +257,7 @@ describe(__filename, () => {
       _getLanding({ addonType, category: undefined });
 
       await sagaTester.waitFor(LANDING_LOADED);
-      mockApi.verify();
+      mockSearchApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
       expect(calledActions[1]).toEqual(loadLanding({
