@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-12 17:18+0000\n"
+"PO-Revision-Date: 2017-10-14 21:41+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -670,11 +670,11 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Videor i HD, stäng av kommentarer, ändra spelarens storlek och mer"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Från annonsblockerare till anti-trackers, här är några imponerande integritetstillägg"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
@@ -682,7 +682,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "En extremt kraftfull annonsblockerare som är enkel att använda"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -997,6 +997,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Om du vill lära dig mer om hur man hanterar tillägg i Firefox eller behöver hitta allmän support för Firefox, besök %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. Om du inte hittar ett svar där "
+"kan du %(startForumLink)s fråga på vårt gemenskapsforum%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
