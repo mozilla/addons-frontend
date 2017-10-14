@@ -202,6 +202,8 @@
       // This span makes sure the left widget does not move vertically when
       // there is a long description.
       grid-row: 1 / span 100000;
+      // Fixes screenshot overflow in FF 52 ESR.
+      max-width: 100%;
       overflow-x: hidden;
     }
 
