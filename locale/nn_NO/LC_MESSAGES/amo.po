@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 11:07+0000\n"
+"PO-Revision-Date: 2017-10-14 11:08+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -289,28 +289,24 @@ msgid "All written reviews"
 msgstr "Alle skrivne vurderingar"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "frå %(authorName)s, %(timestamp)s"
+msgstr "posta %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "frå %(authorName)s, %(timestamp)s"
+msgstr "av %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Utviklar-knutepunkt"
+msgstr "Svar frå utviklaren"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Rediger vurderinga mi"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Trykk for å førehandsvise"
+msgstr "Svar på denne vurderinga"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
 msgid "Write a reply to this review."
@@ -632,12 +628,11 @@ msgstr "Einsfarga"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Endre fanene dine"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Bla i alle utvidingar"
+msgstr "Bla i denne samlinga"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -665,7 +660,7 @@ msgstr "Endre utsjånad på nettlesaren. Vel frå tusenvis av utvidingar for å 
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Utmerkte utvidingar for alle høve"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
@@ -681,7 +676,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
@@ -997,7 +992,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Få hjelp"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1010,9 +1005,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox-utvidingar"
+msgstr "Om Firefox-utvidingar"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1036,7 +1030,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Ver med"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1095,11 +1089,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Var dette nyttig?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Var det enkelt å bruke?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
