@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-14 16:10+0000\n"
+"PO-Revision-Date: 2017-10-14 16:17+0000\n"
 "Last-Translator: albertdcastro <albertdcastro@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1068,19 +1068,19 @@ msgstr "Escreva como se estivesse dizer a um amigo a sua experiência com o extr
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Mantenha as suas revisões sucintas e fáceis de entender."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Forneça detalhes úteis e específicos. Por exemplo:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "O extra funciona como esperado?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Que funcionalidades você gostou ou desgostou?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
@@ -1104,7 +1104,7 @@ msgstr "O que não fazer:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Escreva revisões de uma palavra, tais como \"Ótimo!\", \"maravilhoso\" ou \"mau\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
@@ -1114,11 +1114,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Escreva revisões para extras que não utilizou pessoalmente."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Não utilize linguagem inadequada ou de conteúdo sexual que pode ser considerada odiosa."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -1130,11 +1130,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Inclua o seu email, número de telefone ou quaisquer outros dados ou os de qualquer outra pessoa."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Publicar revisões para um extra que você ou a sua organização escreveu ou representa."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
@@ -1144,29 +1144,33 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Perguntas Frequentes acerca de Revisões"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Como é que eu posso comunicar uma revisão problemática?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Por favor, comunique ou denuncie quaisquer revisões questionáveis clicando em \"Denunciar esta revisão\" e esta será submetida no site para moderação. A nossa equipa de moderação irá utilizar as "
+"Guias de Revisão para avaliar se deve ou não eliminar a revisão ou restaurá-la para o site."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Eu sou um autor de extras. Posso responder a revisões?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Sim, os autores de extras podem fornecer uma resposta única a uma revisão. Você pode configurar um tópico de uma discussão no nosso %(startLink)sfórum%(endLink)s para acompanhar em discussões ou "
+"respostas seguintes."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Eu sou autor de um extra. Posso eliminar revisões ou avaliações desfavoráveis?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
