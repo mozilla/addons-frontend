@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-15 10:49+0000\n"
+"PO-Revision-Date: 2017-10-15 11:06+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1004,7 +1004,7 @@ msgstr "創作者社群"
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
-msgstr ""
+msgstr "上架於此處的附加元件，是由全球數以千計的開發者及佈景主題設計師所創作的，這些人有的是業餘的個人，而有的則是大企業。部分在 AMO 上架的附加元件是由系統自動發佈，編輯團隊得審核這些公開上架的套件。"
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1014,11 +1014,11 @@ msgstr "參與其中"
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
-msgstr ""
+msgstr "Mozilla 是網際網路的支持者，我們打造 Firefox 來保持網際網路的健康、開放，讓任何人都可自由使用。附加元件提供使用者不同選擇及自訂的機會，您也可以透過下列方式進行貢獻:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)s打造您自己的附加元件%(endLink)s。我們提供免費的主機代管空間及更新服務，可協助您接觸大量使用者。"
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
