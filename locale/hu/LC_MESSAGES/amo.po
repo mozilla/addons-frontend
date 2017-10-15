@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-15 13:09+0000\n"
+"PO-Revision-Date: 2017-10-15 13:16+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1179,7 +1179,7 @@ msgstr "Én vagyok a kiegészítő szerzője, válaszolhatok az értékelésekre
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Igen, a kiegészítő szerzői egyszer válaszolhatnak az értékelésre. További megbeszéléshez és válaszokhoz beszélgetést kezdeményezhet a %(startLink)sfórumon%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1190,6 +1190,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Általánosságban nem. De ha az értékelés nem felel meg a fenti értékelési irányelveknek, akkor az „Értékelés jelentése” szövegre kattinthatva moderálást kérhet. Ha az értékelés olyan panaszt "
+"tartalmaz, ami a kiegészítő újabb verziójára már nem érvényes, akkor megfontoljuk az értékelés törlését."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
