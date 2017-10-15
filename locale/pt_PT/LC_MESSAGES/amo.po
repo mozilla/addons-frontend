@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-15 00:19+0000\n"
+"PO-Revision-Date: 2017-10-15 01:26+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1037,16 +1037,20 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"A Mozilla é um defensor sem fins lucrativos da Internet e construímos o Firefox para a manter saudável, aberta e acessível. Os extras apoiam a escolha dos utilizadores e a personalização no Firefox,"
+" e você pode contribuir das seguintes formas:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sFaça o seu próprio extra%(endLink)s. Nós fornecemos os serviços de alojamento e de atualização gratuitamente, e podemos ajudá-lo a atingir uma grande audiência de utilizadores."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Ajude-nos a melhorar este site. É código aberto e pode reportar erros e submeter correções. Pode começar com um %(startGoodFirstBugLink)sbom primeiro erro%(endGoodFirstBugLink)s ou ver todos os "
+"erros abertos para o %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s e %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s AMO no Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
