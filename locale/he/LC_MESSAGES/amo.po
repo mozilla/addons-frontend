@@ -289,14 +289,12 @@ msgid "All written reviews"
 msgstr "כל הסקירות הכתובות"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "מאת %(authorName)s, %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "מאת %(authorName)s, %(timestamp)s"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:181
 msgid "Developer response"
@@ -311,9 +309,8 @@ msgid "Reply to this review"
 msgstr "תגובה לסקירה זו"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "כתיבת סקירה"
+msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
