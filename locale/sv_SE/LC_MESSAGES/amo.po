@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-16 16:29+0000\n"
+"PO-Revision-Date: 2017-10-16 16:49+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1013,6 +1013,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), är Mozillas officiella webbplats för att upptäcka och installera tillägg till webbläsaren Firefox. Tillägg hjälper dig att ändra och anpassa din webbläsarupplevelse genom "
+"att lägga till nya funktioner i Firefox, förbättra dina interaktioner med webbinnehåll och ändra hur webbläsaren ser ut."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
@@ -1027,6 +1029,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Tilläggen som listas här skapas av tusentals utvecklare och temadesigners från hela världen, allt från enskilda hobbyister till stora företag. Vissa tillägg som är listade på AMO har publicerats "
+"automatiskt och kan bli föremål för granskning av en grupp av redigerare när de är publicerade."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1037,10 +1041,11 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla är en ideell mästare på Internet, vi skapar Firefox för att hålla den frisk, öppen och tillgänglig. Tillägg stöder användarval och anpassning i Firefox, och du kan bidra på följande sätt:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sGör dina egna tillägg%(endLink)s. Vi tillhandahåller gratis webbhotell och uppdateringstjänster och kan hjälpa dig att nå en stor publik av användare."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
