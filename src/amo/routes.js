@@ -15,7 +15,6 @@ import AddonReviewList from './components/AddonReviewList';
 import App from './components/App';
 import CategoriesPage from './components/CategoriesPage';
 import Category from './components/Category';
-import FeaturedAddons from './components/FeaturedAddons';
 import Home from './components/Home';
 import LandingPage from './components/LandingPage';
 import LanguageTools from './components/LanguageTools';
@@ -43,7 +42,6 @@ export default (
       <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
       <Route path="collections/:user/:slug/" component={Collection} />
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
-      <Route path=":visibleAddonType/featured/" component={FeaturedAddons} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
       <Route path="language-tools/" component={LanguageTools} />
       <Route path="search/" component={SearchPage} />
