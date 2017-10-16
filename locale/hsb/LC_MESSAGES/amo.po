@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 18:05+0000\n"
+"PO-Revision-Date: 2017-10-16 21:08+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -296,7 +296,7 @@ msgstr "Wšě napisane pohódnoćenja"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
 msgid "posted %(timestamp)s"
-msgstr "%(timestamp)s napisany"
+msgstr "je so napisał %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
 msgid "by %(authorName)s, %(timestamp)s"
@@ -688,7 +688,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr "Jara mócny wabjenski blokowak, kotryž da so jednorje wužiwa"
+msgstr "Jara mócny wabjenski blokowak, kotryž da so jednorje wužiwać"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -990,7 +990,7 @@ msgstr "Wuslědźić"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Jeli chceće sobu činić, ale technicse nazhonity njejsće, maće tři móžnosće, zo byšće pomhał:"
+msgstr "Jeli chceće sobu činić, ale technisce nazhonity njejsće, maće tři móžnosće, zo byšće pomhał:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1002,7 +1002,7 @@ msgstr "Pisajće swoje měnjenje wo swojich najlubšich přidatkach. Wuwiwarjo p
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr "Zdźělće swojim přećelam a swojej swójbje, zo Firefox je spěšny, wěsty wobhladowak, kotryž jich priwatnosć škita a zo móžeja jón z přidatkam přiměrić!"
+msgstr "Zdźělće swojim přećelam a swojej swójbje, zo Firefox je spěšny, wěsty wobhladowak, kotryž jich priwatnosć škita a zo móžeja jón z přidatkami přiměrić!"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
