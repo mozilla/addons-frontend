@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-12 20:31+0000\n"
+"PO-Revision-Date: 2017-10-16 20:29+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -135,9 +135,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox za iOS tuchylu dodanki njepódpěra."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Toś ten dodank njejo kompatibelny z wašeju wersiju Firefox."
+msgstr "Toś ten dodank njejo na wašej platformje k dispoziciji."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -296,33 +295,28 @@ msgid "All written reviews"
 msgstr "Wšykne napisane pógódnośenja"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "wót %(authorName)s, %(timestamp)s"
+msgstr "jo se napisał %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "wót %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Wuwijarski rožk"
+msgstr "Wótegrono wuwijarja"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Mójo pógódnośenje wobźěłaś"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Pótusniśo, aby se pśeglěd woglědał"
+msgstr "Na toś to pógódnośenje wótegroniś"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Pišćo pógódnośenje"
+msgstr "Pišćo wótegrono na toś to pógódnośenje."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -337,9 +331,8 @@ msgid "Add-ons for Firefox"
 msgstr "Dodanki za Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Dodanki za Firefox"
+msgstr "%s - Dodanki za Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -646,9 +639,8 @@ msgid "Change your tabs"
 msgstr "Změńśo swóje rejtarki"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Wšykne rozšyrjenja pśeglědowaś"
+msgstr "Toś tu zběrku pśeglědowaś"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -1031,9 +1023,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Dodanki za Firefox"
+msgstr "Wó dodankach za Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
