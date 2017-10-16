@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-16 16:49+0000\n"
+"PO-Revision-Date: 2017-10-16 16:58+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1052,6 +1052,8 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Hjälp till att förbättra denna webbplats. Det har öppen källkod, och du kan skicka in buggar och patchar. Du kan börja med en%(startGoodFirstBugLink)sbra första bugg%(endGoodFirstBugLink)s eller se "
+"alla öppna problem för AMOs %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s och %(startAddonsFrontendRepoLink)sgränssnitt%(endAddonsFrontendRepoLink)s på Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
@@ -1062,6 +1064,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Tilläggsrecensioner är ett sätt för dig att dela dina åsikter om de tillägg du har installerat och använt. Vår moderator förbehåller oss rätten att vägra eller ta bort eventuella recensioner som "
+"inte överensstämmer med dessa riktlinjer."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1120,6 +1124,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Skicka in tekniska problem, supportförfrågningar eller funktionsförslag. Använd de tillgängliga supportalternativen för varje tillägg, om det finns tillgängligt. Du hittar dem i avsnittet \"Mer "
+"information\" i sidofältet på sidan för tillägget."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
@@ -1150,6 +1156,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Kritisera ett tillägg för något det är tänkt att göra. Om du till exempel lämnar en negativ recension av ett tillägg för att den visar annonser eller kräver datainsamling, när det är det avsedda "
+"syftet med tillägget eller tillägget kräver datainsamling för att fungera."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
@@ -1164,6 +1172,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Var god rapportera eller flagga några tveksamma recensioner genom att klicka på \"Rapportera denna recension\" och den kommer att skickas till webbplatsen för moderering. Vårt modereringsgrupp "
+"kommer att använda granskningsriktlinjerna för att utvärdera huruvida recensionen ska raderas eller återställas till webbplatsen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1171,7 +1181,7 @@ msgstr "Jag är upphovsman för ett tillägg, kan jag svara på recensioner?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Ja, tilläggsupphovsmän kan ge ett enda svar på en recension. Du kan skapa ett diskussionsämne i vårt %(startLink)sforum%(endLink)s för att delta i ytterligare diskussioner eller uppföljning."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1182,6 +1192,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"I allmänhet nej. Men om recensionen inte uppfyllde de granskningsriktlinjer som beskrivs ovan kan du klicka på \"Rapportera denna recension\" och få det modererat. Om en recension innehöll ett "
+"klagomål som inte längre är giltigt på grund av en ny version av ditt tillägg, kan vi överväga att radera recensionen."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
