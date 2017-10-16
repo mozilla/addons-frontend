@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
+import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 export default class LandingAddonsCard extends React.Component {
@@ -14,12 +15,24 @@ export default class LandingAddonsCard extends React.Component {
     footerText: PropTypes.string.isRequired,
     header: PropTypes.node.isRequired,
     loading: PropTypes.bool.isRequired,
+    placeholderCount: PropTypes.number.isRequired,
+  }
+
+  static defaultProps = {
+    placeholderCount: LANDING_PAGE_ADDON_COUNT,
   }
 
   render() {
     const {
-      addons, className, footerLink, footerText, header, loading,
+      addons,
+      className,
+      footerLink,
+      footerText,
+      header,
+      loading,
+      placeholderCount,
     } = this.props;
+
     const linkSearchURL = {
       ...footerLink,
       query: convertFiltersToQueryParams(footerLink.query),
@@ -34,6 +47,7 @@ export default class LandingAddonsCard extends React.Component {
         header={header}
         type="horizontal"
         loading={loading}
+        placeholderCount={placeholderCount}
       />
     );
   }
