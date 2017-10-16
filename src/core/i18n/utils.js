@@ -276,8 +276,10 @@ export function makeI18n(
   // localised dates, times, etc.
   if (i18n.options && typeof i18n.options._momentDefineLocale === 'function') {
     i18n.options._momentDefineLocale();
-    moment.locale(makeMomentLocale(i18n.lang));
   }
+
+  // This makes sure moment always uses the current locale.
+  moment.locale(makeMomentLocale(i18n.lang));
 
   // Wrap the core Jed functionality so that we can always strip leading whitespace
   // from translation keys to match the same process used in extraction.
