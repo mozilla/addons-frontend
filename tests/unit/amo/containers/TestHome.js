@@ -12,6 +12,7 @@ import { fetchHomeAddons, loadHomeAddons } from 'amo/reducers/home';
 import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -97,7 +98,13 @@ describe(__filename, () => {
     const shelf = shelves.find('.Home-FeaturedThemes');
     expect(shelf).toHaveProp('header', 'Featured themes');
     expect(shelf).toHaveProp('footerText', 'More featured themes');
-    expect(shelf).toHaveProp('footerLink', { pathname: '/themes/featured/' });
+    expect(shelf).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        featured: true,
+      },
+    });
     expect(shelf).toHaveProp('loading', true);
   });
 

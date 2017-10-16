@@ -140,4 +140,38 @@ describe(__filename, () => {
 
     sinon.assert.notCalled(fakeRouter.push);
   });
+
+  it('changes the URL when featured checkbox is checked', () => {
+    const root = render({ filters: { query: 'Music player' } });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        featured: true,
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('deletes featured filter when checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        featured: true,
+        query: 'Music player',
+      },
+    });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        query: 'Music player',
+      }),
+    });
+  });
 });

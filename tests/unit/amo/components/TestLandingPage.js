@@ -233,7 +233,8 @@ describe(__filename, () => {
     const root = render({ params: fakeParams });
 
     expect(root.childAt(3)).toHaveProp('footerLink', {
-      pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_EXTENSION, featured: true },
     });
     expect(root.childAt(4)).toHaveProp('footerLink', {
       pathname: '/search/',
@@ -252,7 +253,8 @@ describe(__filename, () => {
     const root = render({ params: fakeParams });
 
     expect(root.childAt(3)).toHaveProp('footerLink', {
-      pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, featured: true },
     });
     expect(root.childAt(4)).toHaveProp('footerLink', {
       pathname: '/search/',

@@ -13,7 +13,6 @@ describe('amo createStore', () => {
       'collections',
       'errorPage',
       'errors',
-      'featured',
       'heroBanners',
       'home',
       'infoDialog',

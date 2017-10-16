@@ -4,7 +4,6 @@ import createSagaMiddleware from 'redux-saga';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
-import featured from 'amo/reducers/featured';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
@@ -38,7 +37,6 @@ export default function createStore(initialState = {}) {
       collections,
       errors,
       errorPage,
-      featured,
       heroBanners,
       home,
       infoDialog,
