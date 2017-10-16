@@ -3,6 +3,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import Tooltip from 'rc-tooltip';
 
 import AddonReview from 'amo/components/AddonReview';
 import { withErrorHandler } from 'core/errorHandler';
@@ -18,8 +19,10 @@ import {
   showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import Icon from 'ui/components/Icon';
+import ListItem from 'ui/components/ListItem';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
+import TooltipMenu from 'ui/components/TooltipMenu';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
@@ -218,6 +221,8 @@ export class AddonReviewListItemBase extends React.Component<Props> {
       reviewBody = <p className={reviewBodyClass}><LoadingText /></p>;
     }
 
+    // TODO: move TooltipMenu to FlagAddonReview component
+
     return (
       <div className="AddonReviewListItem">
         <h3 className="AddonReviewListItem-review-header">
@@ -273,6 +278,31 @@ export class AddonReviewListItemBase extends React.Component<Props> {
                 </a>
               ) : null
           }
+          <TooltipMenu
+            idPrefix="flag-review-"
+            items={[
+              <ListItem key="flag-spam">
+                <a href="#flag-review">
+                  {i18n.gettext('This review is spam')}
+                </a>
+              </ListItem>,
+              <ListItem key="flag-language">
+                <a href="#flag-review">
+                  {i18n.gettext(
+                    'This review uses inappropriate language'
+                  )}
+                </a>
+              </ListItem>,
+              <ListItem key="flag-bug-report">
+                <a href="#flag-review">
+                  {i18n.gettext('This is a bug report, not a review')}
+                </a>
+              </ListItem>,
+            ]}
+            openerClass="AddonReviewListItem-control"
+            openerText={i18n.gettext('Flag')}
+            openerTitle={i18n.gettext('Flag this review')}
+          />
         </div>
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}

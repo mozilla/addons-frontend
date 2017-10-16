@@ -11,10 +11,10 @@
   padding-top: 4px;
   position: relative;
 
-  // This is needed because `:hover` on mobile prevents the main button to
-  // close the dropdown menu. On mobile, `.DropdownMenu--active` controls the
-  // visibility of the menu. On "large" devices (and above), `:hover` also
-  // opens the menu.
+  // This media query is needed because `:hover` on mobile prevents the
+  // main button to close the dropdown menu. On mobile,
+  // `.DropdownMenu--active` controls the visibility of the menu.
+  // On "large" devices (and above), `:hover` also opens the menu.
   @include respond-to(large) {
     &:hover {
       .DropdownMenu-items {
@@ -96,6 +96,8 @@
   width: auto;
   z-index: 10;
 
+  // This is the triangle at the top of the dropdown menu which is
+  // actually just a tilted square.
   &::after {
     @include end(36px);
 
