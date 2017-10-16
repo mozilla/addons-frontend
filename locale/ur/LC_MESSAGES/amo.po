@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-16 12:09+0000\n"
+"PO-Revision-Date: 2017-10-16 12:12+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -487,11 +487,11 @@ msgstr "رازداری"
 
 #: src/amo/components/Footer/index.js:139
 msgid "Cookies"
-msgstr ""
+msgstr "کوکیاں"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "قانونی"
 
 #: src/amo/components/Footer/index.js:141
 #, fuzzy
@@ -519,7 +519,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "بلاگ"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -555,7 +555,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "آلات"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
@@ -764,7 +764,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:191
 msgid "Dismiss"
-msgstr ""
+msgstr "برخاست کریں"
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Sending abuse report"
