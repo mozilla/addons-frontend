@@ -3,10 +3,11 @@ import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
-describe('amo/components/LandingAddonsCard', () => {
+describe(__filename, () => {
   function render(customProps = {}) {
     const props = {
       addons: [fakeAddon],
@@ -33,5 +34,10 @@ describe('amo/components/LandingAddonsCard', () => {
     const addons = [{ ...fakeAddon, slug: 'custom-addon' }];
     const root = render({ addons });
     expect(root.find(AddonsCard)).toHaveProp('addons', addons);
+  });
+
+  it('sets the number of placeholders to render while loading', () => {
+    const root = render({ loading: true });
+    expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);
   });
 });
