@@ -66,6 +66,25 @@ export class SearchFiltersBase extends React.Component {
     return false;
   }
 
+  onChangeCheckbox = () => {
+    const { clientApp, filters, lang, pathname, router } = this.props;
+    const newFilters = { ...filters };
+
+    // When a checkbox changes, we want to invert its previous value.
+    // If it was checked, then we remove the filter since the API only supports
+    // `featured=true`, otherwise we set this filter.
+    if (filters.featured) {
+      delete newFilters.featured;
+    } else {
+      newFilters.featured = true;
+    }
+
+    router.push({
+      pathname: `/${lang}/${clientApp}${pathname}`,
+      query: convertFiltersToQueryParams(newFilters),
+    });
+  }
+
   addonTypeOptions() {
     const { i18n } = this.props;
 
@@ -160,6 +179,21 @@ export class SearchFiltersBase extends React.Component {
             return <option key={option.name} {...option} />;
           })}
         </select>
+
+        <input
+          className="SearchFilters-Featured"
+          checked={!!filters.featured}
+          id="SearchFilters-Featured"
+          name="featured"
+          onChange={this.onChangeCheckbox}
+          type="checkbox"
+        />
+        <label
+          className="SearchFilters-label SearchFilters-Featured-label"
+          htmlFor="SearchFilters-Featured"
+        >
+          {i18n.gettext('Featured add-ons only')}
+        </label>
       </ExpandableCard>
     );
   }

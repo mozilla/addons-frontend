@@ -11,6 +11,7 @@ import Link from 'amo/components/Link';
 import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
@@ -149,7 +150,13 @@ export class HomeBase extends React.Component {
           className="Home-FeaturedThemes"
           header={i18n.gettext('Featured themes')}
           footerText={i18n.gettext('More featured themes')}
-          footerLink={{ pathname: '/themes/featured/' }}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+            },
+          }}
           loading={resultsLoaded === false}
         />
 

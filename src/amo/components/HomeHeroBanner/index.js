@@ -4,9 +4,9 @@ import { compose } from 'redux';
 
 import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { visibleAddonType } from 'core/utils';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 
 import './styles.scss';
 
@@ -25,7 +25,13 @@ export class HomeHeroBannerBase extends React.Component {
       (
         <HeroSection
           key="featured-extensions"
-          linkTo={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}
+          linkTo={{
+            pathname: '/search/',
+            query: convertFiltersToQueryParams({
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            }),
+          }}
           styleName="Home-featured-extensions"
         >
           <h3>{i18n.gettext('Featured extensions')}</h3>

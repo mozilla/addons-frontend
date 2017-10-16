@@ -57,9 +57,18 @@ describe(__filename, () => {
   });
 
   it('sets the paginationQueryParams from filters', () => {
-    const root = render();
+    const root = render({
+      location: {
+        query: {
+          featured: true,
+          page: 2,
+          q: 'burger',
+        },
+      },
+    });
 
     expect(root.find(Search)).toHaveProp('paginationQueryParams', {
+      featured: true,
       page: 2,
       q: 'burger',
     });

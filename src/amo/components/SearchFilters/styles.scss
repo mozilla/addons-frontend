@@ -28,3 +28,9 @@
     background-position: 10px 50%;
   }
 }
+
+.SearchFilters-Featured-label {
+  @include margin-start(5px);
+
+  display: inline-block;
+}
