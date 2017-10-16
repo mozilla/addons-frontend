@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import classNames from 'classnames';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
@@ -19,6 +18,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
+import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
@@ -77,16 +77,14 @@ export class HomeBase extends React.Component {
       <ul className="Home-CuratedCollections-list">
         {curatedMozillaCollections.map(({ collectionSlug, title }) => (
           <li
-            className={classNames(
-              'Home-CuratedCollections-list-item',
-              `Home-CuratedCollections-${collectionSlug}`
-            )}
+            className="Home-CuratedCollections-list-item"
             key={collectionSlug}
           >
             <Link
               to={`/collections/mozilla/${collectionSlug}/`}
               className="Home-CuratedCollections-link"
             >
+              <Icon name={`Home-CuratedCollections-${collectionSlug}`} />
               {title}
             </Link>
           </li>

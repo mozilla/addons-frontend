@@ -123,7 +123,7 @@ describe(__filename, () => {
     expect(shelf.find('.Home-CuratedCollections-list-item'))
       .toHaveLength(expectedCollections.length);
     expectedCollections.forEach((collectionSlug) => {
-      expect(shelf.find(`.Home-CuratedCollections-${collectionSlug}`))
+      expect(shelf.find({ to: `/collections/mozilla/${collectionSlug}/` }))
         .toHaveLength(1);
     });
   });
