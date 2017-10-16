@@ -126,74 +126,76 @@ export class SearchFiltersBase extends React.Component {
         className="SearchFilters"
         header={i18n.gettext('Filter results')}
       >
-        <label
-          className="SearchFilters-label"
-          htmlFor="SearchFilters-Sort"
-        >
-          {i18n.gettext('Sort by')}
-        </label>
-        <select
-          className="SearchFilters-select"
-          id="SearchFilters-Sort"
-          name="sort"
-          onChange={this.onSelectElementChange}
-          value={filters.sort || 'relevance'}
-        >
-          {this.sortOptions().map((option) => {
-            return <option key={option.name} {...option} />;
-          })}
-        </select>
+        <form autoComplete="off">
+          <label
+            className="SearchFilters-label"
+            htmlFor="SearchFilters-Sort"
+          >
+            {i18n.gettext('Sort by')}
+          </label>
+          <select
+            className="SearchFilters-select"
+            id="SearchFilters-Sort"
+            name="sort"
+            onChange={this.onSelectElementChange}
+            value={filters.sort || 'relevance'}
+          >
+            {this.sortOptions().map((option) => {
+              return <option key={option.value} {...option} />;
+            })}
+          </select>
 
-        <label
-          className="SearchFilters-AddonType-label SearchFilters-label"
-          htmlFor="SearchFilters-AddonType"
-        >
-          {i18n.gettext('Add-on Type')}
-        </label>
-        <select
-          className="SearchFilters-AddonType SearchFilters-select"
-          id="SearchFilters-AddonType"
-          name="addonType"
-          onChange={this.onSelectElementChange}
-          value={filters.addonType || NO_FILTER}
-        >
-          {this.addonTypeOptions().map((option) => {
-            return <option key={option.name} {...option} />;
-          })}
-        </select>
+          <label
+            className="SearchFilters-AddonType-label SearchFilters-label"
+            htmlFor="SearchFilters-AddonType"
+          >
+            {i18n.gettext('Add-on Type')}
+          </label>
+          <select
+            className="SearchFilters-AddonType SearchFilters-select"
+            id="SearchFilters-AddonType"
+            name="addonType"
+            onChange={this.onSelectElementChange}
+            value={filters.addonType || NO_FILTER}
+          >
+            {this.addonTypeOptions().map((option) => {
+              return <option key={option.value} {...option} />;
+            })}
+          </select>
 
-        <label
-          className="SearchFilters-OperatingSystem-label SearchFilters-label"
-          htmlFor="SearchFilters-OperatingSystem"
-        >
-          {i18n.gettext('Operating System')}
-        </label>
-        <select
-          className="SearchFilters-OperatingSystem SearchFilters-select"
-          id="SearchFilters-OperatingSystem"
-          name="operatingSystem"
-          onChange={this.onSelectElementChange}
-          value={filters.operatingSystem || NO_FILTER}
-        >
-          {this.operatingSystemOptions().map((option) => {
-            return <option key={option.name} {...option} />;
-          })}
-        </select>
+          <label
+            className="SearchFilters-OperatingSystem-label SearchFilters-label"
+            htmlFor="SearchFilters-OperatingSystem"
+          >
+            {i18n.gettext('Operating System')}
+          </label>
+          <select
+            className="SearchFilters-OperatingSystem SearchFilters-select"
+            id="SearchFilters-OperatingSystem"
+            name="operatingSystem"
+            onChange={this.onSelectElementChange}
+            value={filters.operatingSystem || NO_FILTER}
+          >
+            {this.operatingSystemOptions().map((option) => {
+              return <option key={option.value} {...option} />;
+            })}
+          </select>
 
-        <input
-          className="SearchFilters-Featured"
-          checked={!!filters.featured}
-          id="SearchFilters-Featured"
-          name="featured"
-          onChange={this.onChangeCheckbox}
-          type="checkbox"
-        />
-        <label
-          className="SearchFilters-label SearchFilters-Featured-label"
-          htmlFor="SearchFilters-Featured"
-        >
-          {i18n.gettext('Featured add-ons only')}
-        </label>
+          <input
+            className="SearchFilters-Featured"
+            checked={!!filters.featured}
+            id="SearchFilters-Featured"
+            name="featured"
+            onChange={this.onChangeCheckbox}
+            type="checkbox"
+          />
+          <label
+            className="SearchFilters-label SearchFilters-Featured-label"
+            htmlFor="SearchFilters-Featured"
+          >
+            {i18n.gettext('Featured add-ons only')}
+          </label>
+        </form>
       </ExpandableCard>
     );
   }
