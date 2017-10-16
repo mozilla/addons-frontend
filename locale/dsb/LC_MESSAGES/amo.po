@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-16 20:29+0000\n"
+"PO-Revision-Date: 2017-10-16 20:50+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -680,7 +680,7 @@ msgstr "Wideo w HD, pśispomnjeśa znjemóžniś, wjelikosć wótgrawaka změni�
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "How su někotare gnujuce rozšyrjenja priwatnosći, wót blokěrowakow až do rozšyrjenjow pśeśiwo pśeslědowanjeju"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
@@ -688,7 +688,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Wjelgin mócny wabjeński blokěrowak, kótaryž dajo se jadnorje wužywaś"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -1010,7 +1010,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Pomoc dostaś"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1038,7 +1038,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Zgromaźeństwo wuwijarjow"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1048,7 +1048,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Cyńśo sobu"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1058,7 +1058,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sNapórajśo swójski dodank%(endLink)s. Bitujomy dermotne góspodowanje a aktualizěrowańske słužby a móžomy wam pomagaś, wjeliki krejz wužywarjow dostaś."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
@@ -1068,7 +1068,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Směrnica za pógódnośenja"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1078,57 +1078,55 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Pokaze za pisanje wjelicnego pógódnośenja"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Dobre:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja nastupajucy toś ten dodank k wěsći dał."
+msgstr "Pišćo, kaž pśijaśeloju wó swójich nazgónjenjach z dodankom wulicujośo."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Źaržćo pógódnośenja krotke a lažko k rozměśu."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Pódajśo specifiske a wužytne drobnostki. Na pśikład:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Jo dodank funkcioněrował, kak sćo wótcakał?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Kótare funkcije se wam spódobaju abo njespódobaju?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Jo to wužytne było?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Dajo se lažko wužywaś?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Pśizjawśo se, aby toś ten dodank pógódnośił"
+msgstr "Buźośo toś ten dodank dalej wužywaś?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Bjeŕśo se wokognuśe casa, aby swójo pógódnośenje pśecytał, nježli až jo wótpósćelośo, aby pisańske zmólki miniměrował."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Špatne:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "NJezapódajśo jadnosłowne pógódnośenja ako „Wjelicne!“, „Wuběrne“ abo „Špatne“."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
@@ -1138,27 +1136,27 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Njepišćo pógódnośenja za dodanki, kótarež njejsćo sam wužył."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Njewužywajśo wulgarne, seksualne wuraze abo wuraze, kótarež maju za gramoty połne."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Njewužywajśo HTML, wótkaze, žrědłowy kod abo źěle žrědłowego koda. Pógódnośenja směju jano lutny tekst wopśimowaś."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Wopacne pódaśa cyniś, awtorow dodankow pónižyś abo jich wósobinski skśiwźiś."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Njepomjeńśo e-mailowu adresu, telefonowy numer abo druge wósobinske daty, daniž swójske daniž te z drugich wósobow."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Njepišćo pógódnośenja za dodank, kótaryž jo se wót was abo wašeje organizacije wuwił abo se reprezentěrujo."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
@@ -1168,11 +1166,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Ceste pšašanja wó pógódnośenjach"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Kak mógu problematiske pógódnośenje wózjawiś?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
@@ -1182,7 +1180,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Som dodankowy awtor, mógu na pógódnośenja wótegroniś?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
@@ -1190,7 +1188,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Som awtor dodanka, mógu njepśijazne pógódnośenja lašowaś?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
@@ -1283,23 +1281,20 @@ msgid "OK!"
 msgstr "W pórěźe!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Pśeglěd pśetergnuś"
+msgstr "Pśetergnuś"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Zapódaś"
+msgstr "Tekst zapódaś."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Wótpósłaś"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Wótpósłaś"
+msgstr "Sćelo se"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
