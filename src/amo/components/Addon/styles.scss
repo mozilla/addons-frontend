@@ -120,12 +120,17 @@
   flex-basis: 100%;
   flex-grow: 1;
   order: 2;
+  word-wrap: break-word;
 
   @include respond-to(medium) {
     flex-grow: 0;
     margin-bottom: 0;
     max-width: 550px;
   }
+}
+
+.AddonDescription-contents {
+  word-wrap: break-word;
 }
 
 .Addon .InstallButton {
