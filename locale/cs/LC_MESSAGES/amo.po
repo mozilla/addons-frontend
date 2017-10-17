@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-12 08:10+0000\n"
+"PO-Revision-Date: 2017-10-17 12:30+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -217,7 +217,7 @@ msgstr "Beta verze"
 
 #: src/amo/components/AddonMoreInfo/index.js:199
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Statistiky používání"
 
 #: src/amo/components/AddonMoreInfo/index.js:205
 msgid "This ID is useful for debugging and identifying your add-on to site administrators."
@@ -241,7 +241,7 @@ msgstr "Stránka podpory"
 
 #: src/amo/components/AddonMoreInfo/index.js:67
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Přejít na hlavní panel statistik"
 
 #: src/amo/components/AddonMoreInfo/index.js:75
 msgid "%(timeFromNow)s (%(date)s)"
@@ -302,40 +302,36 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "od uživatele %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Pro vývojáře"
+msgstr "Odpověď vývojáře"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Upravit recenzi"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Pro náhled klepněte"
+msgstr "Odpovědět na recenzi"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Napsat recenzi"
+msgstr "Napište k této recenzi odpověď."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
-msgstr ""
+msgstr "Zveřejnit odpověď"
 
 #: src/amo/components/AddonReviewListItem/index.js:256
 msgid "Publishing reply"
-msgstr ""
+msgstr "Zveřejňování odpovědi"
 
 #: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Doplňky pro Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Doplňky pro Firefox"
+msgstr "%s - Doplňky pro Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -411,11 +407,11 @@ msgstr "Procházet všechny motivy v této kategorii."
 
 #: src/amo/components/Collection/index.js:130
 msgid "Addons"
-msgstr ""
+msgstr "Doplňky"
 
 #: src/amo/components/Collection/index.js:136
 msgid "Creator"
-msgstr ""
+msgstr "Autor"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
 msgid "Download Firefox"
@@ -493,7 +489,7 @@ msgstr "Cookies"
 
 #: src/amo/components/Footer/index.js:140
 msgid "Legal"
-msgstr ""
+msgstr "Právní informace"
 
 #: src/amo/components/Footer/index.js:141
 msgid "Report Trademark Abuse"
@@ -637,12 +633,11 @@ msgstr "Jednoduše"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Změňte své panely"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Procházet všechna rozšíření"
+msgstr "Procházet tuto sbírku"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -654,7 +649,7 @@ msgstr "Můžete změnit, jak Firefox funguje…"
 
 #: src/amo/components/Home/index.js:215 src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Prozkoumejte možnosti přizpůsobení a funkce, díky kterým bude váš prohlížeč skutečně váš."
 
 #: src/amo/components/Home/index.js:226 src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
@@ -674,7 +669,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
@@ -686,7 +681,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
@@ -738,19 +733,21 @@ msgstr "Jak si užíváte používání doplňku %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:107
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Nahlásili jste zneužití tohoto doplňku"
 
 #: src/amo/components/ReportAbuseButton/index.js:111
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Obdrželi jsme vaše hlášení. Děkujeme, že jste nám dali vědět o problémech s tímto doplňkem."
 
 #: src/amo/components/ReportAbuseButton/index.js:118
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Ačkoli nemůžeme reagovat na každé oznámení o zneužití, problému se budeme věnovat."
 
 #: src/amo/components/ReportAbuseButton/index.js:129
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Pokud si myslíte, že tento doplněk porušuje Mozillou stanovené %(linkTagStart)szásady tvorby a správy doplňků%(linkTagEnd)s nebo obsahuje problémy v oblasti bezpečnosti a ochrany osobních údajů, "
+"nahlaste nám je prosím pomocí tohoto fomuláře."
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
@@ -758,11 +755,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Nepoužívejte prosím tento formulář k hlášení chyb či žádosti o nové funkce doplňku, hlášení bude zasláno Mozille, ne vývojáři."
 
 #: src/amo/components/ReportAbuseButton/index.js:178
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Vysvětlete, jakým způsoben tento doplněk porušuje naše podmínky."
 
 #: src/amo/components/ReportAbuseButton/index.js:191
 msgid "Dismiss"
@@ -951,11 +948,11 @@ msgstr "Výsledky vyhledávání"
 
 #: src/amo/components/SectionLinks/index.js:100
 msgid "More…"
-msgstr ""
+msgstr "Více…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Slovníky a jazykové balíčky"
 
 #: src/amo/components/SectionLinks/index.js:121
 #, fuzzy
@@ -976,7 +973,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "pro Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
