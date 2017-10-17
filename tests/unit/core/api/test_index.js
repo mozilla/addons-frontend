@@ -1,7 +1,7 @@
 /* global window */
 import querystring from 'querystring';
 
-import config, { util as configUtil } from 'config';
+import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
@@ -17,6 +17,7 @@ import {
   createApiResponse,
   createStubErrorHandler,
   generateHeaders,
+  getFakeConfig,
   signedInApiState,
   unexpectedSuccess,
   userAuthToken,
@@ -56,11 +57,7 @@ describe(__filename, () => {
         .once()
         .returns(createApiResponse());
 
-      // We use `cloneDeep()` to allow modifications on the `config` object,
-      // since a call to `get()` makes it immutable.
-      const clientConfig = configUtil.cloneDeep(config);
-      clientConfig.client = true;
-      clientConfig.server = false;
+      const clientConfig = getFakeConfig({ client: true, server: false });
 
       return api.callApi({
         _config: clientConfig,
@@ -77,10 +74,7 @@ describe(__filename, () => {
         .once()
         .returns(createApiResponse());
 
-      // We use `cloneDeep()` to allow modifications on the `config` object,
-      // since a call to `get()` makes it immutable.
-      const serverConfig = configUtil.cloneDeep(config);
-      serverConfig.server = true;
+      const serverConfig = getFakeConfig({ server: true });
 
       return api.callApi({
         _config: serverConfig,

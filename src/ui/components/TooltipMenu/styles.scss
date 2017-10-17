@@ -1,0 +1,85 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.TooltipMenu {
+  border: 0;
+  border-radius: $border-radius-default;
+  padding: 0 10px;
+  width: 100%;
+
+  @include respond-to(medium) {
+    padding: 0;
+    width: 320px;
+  }
+}
+
+.TooltipMenu-opener {
+  color: $blue-50;
+  cursor: pointer;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+// This is the triangle at the top of the tooltip menu which is
+// actually just a tilted square.
+.TooltipMenu-arrow {
+  background-color: $white;
+  box-shadow: 0 0 2px transparentize($black, 0.5);
+  display: block;
+  height: 8px;
+  left: 50%;
+  position: absolute;
+  top: -4px;
+  transform: translateX(-50%) rotate(45deg);
+  width: 8px;
+  // Since it has a box shadow, make sure the element appears underneath
+  // TooltipMenu-list.
+  z-index: 1;
+}
+
+.TooltipMenu-inner {
+  border-radius: $border-radius-default;
+  box-shadow: 0 0 2px transparentize($black, 0.5);
+}
+
+.TooltipMenu-list {
+  background: $white;
+  border-radius: $border-radius-default;
+  list-style-type: none;
+  padding: 6px;
+  position: relative;
+  white-space: nowrap;
+  // Make sure this masks the box shadow of TooltipMenu-arrow.
+  z-index: 2;
+
+  .ListItem {
+    overflow: hidden;
+    padding: 6px;
+    padding-top: 0;
+    text-overflow: ellipsis;
+
+    &:first-child {
+      padding-top: 6px;
+    }
+
+    &,
+    a,
+    a:link {
+      @include font-medium();
+
+      color: $grey-90;
+      cursor: pointer;
+      font-size: $font-size-m-smaller;
+      line-height: 1.6;
+      text-decoration: none;
+    }
+
+    a:hover,
+    a:focus,
+    a:active {
+      color: $blue-50;
+    }
+  }
+}
