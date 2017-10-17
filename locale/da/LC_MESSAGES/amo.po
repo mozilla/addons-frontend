@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-17 06:23+0000\n"
+"PO-Revision-Date: 2017-10-17 14:55+0000\n"
 "Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -289,33 +289,28 @@ msgid "All written reviews"
 msgstr "Alle skrevne anmeldelser"
 
 #: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "fra %(authorName)s, %(timestamp)s"
+msgstr "skrevet %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "fra %(authorName)s, %(timestamp)s"
+msgstr "af %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:181
-#, fuzzy
 msgid "Developer response"
-msgstr "Udviklercentral"
+msgstr "Svar fra udvikleren"
 
 #: src/amo/components/AddonReviewListItem/index.js:216
 msgid "Edit my review"
 msgstr "Rediger min anmeldelse"
 
 #: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Tryk for at få vist eksempel"
+msgstr "Svar på denne anmeldelse"
 
 #: src/amo/components/AddonReviewListItem/index.js:252
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Skriv en anmeldelse"
+msgstr "Skriv et svar til denne anmeldelse."
 
 #: src/amo/components/AddonReviewListItem/index.js:255
 msgid "Publish reply"
@@ -330,9 +325,8 @@ msgid "Add-ons for Firefox"
 msgstr "Tilføjelser til Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Tilføjelser til Firefox"
+msgstr "%s - Tilføjelser til Firefox"
 
 #: src/amo/components/Categories/index.js:101
 msgid "No categories found."
@@ -635,9 +629,8 @@ msgid "Change your tabs"
 msgstr "Lav om på dine faneblade"
 
 #: src/amo/components/Home/index.js:188
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Gennemse alle udvidelser"
+msgstr "Gennemse denne samling"
 
 #: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
@@ -1008,9 +1001,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr "%(startLink)sHer kan du finde information om, hvordan du kontakter holdet bag Mozilla-tilføjelser%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Tilføjelser til Firefox"
+msgstr "Om tilføjelser til Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1080,9 +1072,8 @@ msgid "Do:"
 msgstr "Husk at:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende denne tilføjelse med os."
+msgstr "Skrive som hvis du fortalte en ven om din oplevelse af tilføjelsen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1109,9 +1100,8 @@ msgid "Was it easy to use?"
 msgstr "Er tilføjelsen nem at bruge?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Log ind for at bedømme denne tilføjelse"
+msgstr "Vil du fortsætte med at bruge denne tilføjelse?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1286,9 +1276,8 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Annuller forhåndsvisning"
+msgstr "Annuller"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
@@ -1299,9 +1288,8 @@ msgid "Submit"
 msgstr "Indsend"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Indsend"
+msgstr "Indsender"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
