@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-17 12:50+0000\n"
+"PO-Revision-Date: 2017-10-17 13:09+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1021,20 +1021,24 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) je oficiální server Mozilly, na který slouží k objevování a instalaci nových doplňků do prohlížeče Firefox. Doplňky pomáhají upravovat a přizpůsobovat vaše prohlížení tím, "
+"že do Firefoxu přidávají nové funkce, které vylepšují vaši práci s webem nebo upravují to, jak váš prohlížeč vypadá."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Na AMO můžete také najít doplňky pro %(startTBLink)sThunderbird%(endTBLink)s a %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Komunita tvůrců"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Všechny zde zveřejněné doplňky jsou výtvorem tisíců vývojářů a návrhářů motivů z celého světa, od jednotlivců, kteří jke tvoří ve svém volném čase, až po velké korporace s tisíci zaměstnanců. "
+"Některé doplňky na AMO byly publikovány automaticky a mohou být kontrolovány týmem editorů."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1045,6 +1049,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla je nezisková organizace bojující za zdravý a otevřený internet. Proto vytvořila Firefox - aby internet i nadále zůstal zdravý a přístupný pro každého. Doplňky dovolují uživateli svobodně si "
+"vybrat, jak Firefox bude vypadat a jak se bude chovat. V naší misi za lepší internet nám můžete pomoct těmito způsoby:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
