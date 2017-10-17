@@ -34,6 +34,13 @@
 }
 
 .DropdownMenu-button {
+  &:focus {
+    // Fix outline for Firefox (see #3110)
+    outline: 1px dotted $white;
+    // Restore default outline for webkit.
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+
   .DropdownMenu-button-text {
     @include font-regular();
 
