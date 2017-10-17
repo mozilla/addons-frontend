@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-05 05:53+0000\n"
-"Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
+"PO-Revision-Date: 2017-10-11 22:48+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -633,7 +633,7 @@ msgstr "Fast"
 
 #: src/amo/components/Home/index.js:187
 msgid "Change your tabs"
-msgstr ""
+msgstr "Lav om på dine faneblade"
 
 #: src/amo/components/Home/index.js:188
 #, fuzzy
@@ -666,11 +666,11 @@ msgstr "Skift din browsers udseende. Vælg mellem tusindvis af temaer, og giv Fi
 
 #: src/amo/components/HomeCarousel/index.js:33
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Fortræffelige udvidelser til alle situationer"
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
@@ -682,7 +682,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
@@ -974,11 +974,11 @@ msgstr "Udforsk"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Hvis du vil bidrage, men ikke er så teknisk anlagt, er det stadig muligt at hjælpe:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Deltag i vores %(startLink)sforum%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -990,11 +990,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "For at se flere måder, hvorpå du kan bidrage til fællesskabet omkring tilføjelser, besøg vores %(startLink)swiki%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Få support"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
