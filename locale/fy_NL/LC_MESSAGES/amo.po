@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-17 06:48+0000\n"
+"PO-Revision-Date: 2017-10-17 11:10+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -993,10 +993,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"As jo mear witte wolle oer hoe't jo add-ons yn Firefox beheare, of op syk binne nei algemiene stipe foar Firefox, besykje dan %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. As jo dêr gjin antwurd "
+"fine, dan kinne jo jo %(startForumLink)sfraach stelle op ús mienskipsfoarum%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sYnformaasje oer kontakt opnimme mei it add-ons-team fan Mozilla kinne jo hjir fine%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1007,10 +1009,12 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) is de offisjele website fan Mozilla foar it ûntdekken en ynstallearjen fan add-ons foar de Firefox-browser. Mei add-ons kinne jo, troch it tafoegjen fan nije funksjes, it "
+"ferbetterjen fan jo ynteraksjes mei webynhâld en it wizigjen fan it úterlik fan jo browser, jo surfûnderfining oanpasse en personalisearje."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Jo kinne AMO ek brûke om add-ons foar Mozilla %(startTBLink)sThunderbird%(endTBLink)s en %(startSMLink)sSeaMonkey%(endSMLink)s te sykjen."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
