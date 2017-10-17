@@ -1,6 +1,7 @@
 @import "~amo/css/inc/vars";
 @import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
+@import "~photon-colors/colors";
 @import "~ui/css/vars";
 
 .Home {
@@ -10,6 +11,7 @@
 .Home-CuratedCollections-list {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
   margin: 0 auto;
   overflow: auto;
   padding: 0;
@@ -21,26 +23,21 @@
 }
 
 .Home-CuratedCollections-list-item {
-  background-color: $base-color;
-  background-position: 50% 35%;
-  background-repeat: no-repeat;
-  display: block;
+  @include text-align-start();
+
   flex-grow: 1;
   list-style-type: none;
-  position: relative;
-  text-align: center;
-  width: 50%;
+  margin: 5px;
+  width: 40%;
 
-  @include respond-to(medium) {
-    background-size: 64px;
-    width: 25%;
+  @include respond-to(large) {
+    margin: 15px;
+    width: 220px;
   }
 }
 
 .Home-CuratedCollections-link {
-  display: block;
-  height: 100%;
-  padding-top: 85px;
+  font-size: 13px;
   text-decoration: none;
 
   &:link,
@@ -56,18 +53,39 @@
   }
 }
 
-.Home-CuratedCollections-ad-blockers {
+.Home-CuratedCollections-list-item .Icon {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 64px;
+  border-radius: $border-radius-default;
+  content: "";
+  display: block;
+  height: 100px;
+  margin-bottom: 8px;
+  width: 100%;
+
+  @include respond-to(medium) {
+    background-size: 96px;
+    height: 140px;
+  }
+}
+
+.Icon-Home-CuratedCollections-ad-blockers {
+  background-color: $teal-50;
   background-image: url("./icons/ad-blockers.svg");
 }
 
-.Home-CuratedCollections-password-managers {
+.Icon-Home-CuratedCollections-password-managers {
+  background-color: $magenta-50;
   background-image: url("./icons/password-managers.svg");
 }
 
-.Home-CuratedCollections-bookmark-managers {
+.Icon-Home-CuratedCollections-bookmark-managers {
+  background-color: $green-50;
   background-image: url("./icons/bookmark-managers.svg");
 }
 
-.Home-CuratedCollections-watching-videos {
+.Icon-Home-CuratedCollections-watching-videos {
+  background-color: $purple-50;
   background-image: url("./icons/watching-videos.svg");
 }
