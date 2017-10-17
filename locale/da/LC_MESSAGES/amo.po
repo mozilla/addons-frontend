@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-17 05:57+0000\n"
+"PO-Revision-Date: 2017-10-17 06:13+0000\n"
 "Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox til iOS understøtter i øjeblikket ikke tilføjelser."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Denne tilføjelse er ikke kompatibel med din version af Firefox."
+msgstr "Denne tilføjelse er ikke tilgængelig på din platform."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -674,7 +673,7 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Videoer i HD, slå anmærkninger fra, ændre størrelse på afspilleren med mere"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
@@ -982,11 +981,11 @@ msgstr "Deltag i vores %(startLink)sforum%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Efterlad feedback om dine foretrukne tilføjelser. Udviklerne af tilføjelser er mere tilbøjelige til at forbedre deres tilføjelser og lave nye, hvis de ved, at deres arbejde værdsættes."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Fortæl dine venner og familie, at Firefox er en hurtig, sikker browser, der beskytter deres privatliv, og at de kan tilpasse den med tilføjelser, så den opfylder lige netop deres behov."
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
@@ -1001,6 +1000,8 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Hvis du vil lære mere om, hvordan du håndterer tilføjelser i Firefox, eller du har brug for generel hjælp til Firefox, så besøg %(startSUMOLink)sMozillas support%(endSUMOLink)s. Hvis du ikke finder "
+"et svar der, kan du %(startForumLink)sspørge i vores forum%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
@@ -1016,10 +1017,12 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) er Mozillas officielle websted til at finde og installere tilføjelser til Firefox. Tilføjelser hjælper dig med at tilpasse og personliggøre din Firefox ved at tilføje nye "
+"funktioner og ved at forbedre håndteringen af indhold på internettet. Du kan også ændre udseendet på Firefox."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Du kan også bruge AMO til at finde tilføjelser til %(startTBLink)sMozilla Thunderbird%(endTBLink)s og %(endSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1040,6 +1043,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla er en nonprofit-forkæmper for det åbne internet. Vi udvikler Firefox for at holde nettet sundt, åbent og tilgængeligt for alle. Tilføjelser understøtter valgfrihed og tilpasning i Firefox, "
+"og du kan bidrage på følgende måder:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
