@@ -19,6 +19,7 @@ $breakpoints: (
   medium: only screen and (min-width: 500px),
   large: only screen and (min-width: 720px),
   extraLarge: only screen and (min-width: 900px),
+  extraExtraLarge: only screen and (min-width: 1150px),
 );
 $page-margin: 20px 10px;
 
