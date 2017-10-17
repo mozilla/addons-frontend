@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-17 12:30+0000\n"
+"PO-Revision-Date: 2017-10-17 12:50+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -673,11 +673,11 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Přehrávejte videa v HD, vypněte poznámky, změňte velikost přehrávače a mnohem více"
 
 #: src/amo/components/HomeCarousel/index.js:57
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Rozšíření týkající se ochrany soukromí, od blokovačů reklam po ochranu proti sledovacím prvkům"
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
@@ -685,7 +685,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Extrémně výkonný blokovač reklam, který se navíc snadno používá"
 
 #: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -751,7 +751,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Nahlásit zneužití tohoto doplňku"
 
 #: src/amo/components/ReportAbuseButton/index.js:165
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -763,50 +763,50 @@ msgstr "Vysvětlete, jakým způsoben tento doplněk porušuje naše podmínky."
 
 #: src/amo/components/ReportAbuseButton/index.js:191
 msgid "Dismiss"
-msgstr ""
+msgstr "Zavřít"
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Odesílání hlášení o zneužití"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Send abuse report"
-msgstr ""
+msgstr "Odeslat hlášení o zneužití"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nalezeno jedno rozšíření pro dotaz „%(query)s“"
+msgstr[1] "Nalezena %(count)s rozšíření pro dotaz „%(query)s“"
+msgstr[2] "Nalezeno %(count)s rozšíření pro dotaz „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nalezen jeden slovník pro dotaz „%(query)s“"
+msgstr[1] "Nalezeny %(count)s slovníky pro dotaz „%(query)s“"
+msgstr[2] "Nalezeno %(count)s slovníků pro dotaz „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nalezen jeden jazykový balíček pro dotaz „%(query)s“"
+msgstr[1] "Nalezeny %(count)s jazykové balíčky pro dotaz „%(query)s“"
+msgstr[2] "Nalezeno %(count)s jazykových balíčků pro dotaz „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nalezen jeden motiv pro dotaz „%(query)s“"
+msgstr[1] "Nalezeny %(count)s motivy pro dotaz „%(query)s“"
+msgstr[2] "Nalezeno %(count)s motivů pro dotaz „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Nalezen jeden výsledek pro dotaz „%(query)s“"
+msgstr[1] "Nalezeny %(count)s výsledky pro dotaz „%(query)s“"
+msgstr[2] "Nalezeno %(count)s výsledků pro dotaz „%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -955,21 +955,20 @@ msgid "Dictionaries & Language Packs"
 msgstr "Slovníky a jazykové balíčky"
 
 #: src/amo/components/SectionLinks/index.js:121
-#, fuzzy
 msgid "Search Tools"
-msgstr "Výsledky vyhledávání"
+msgstr "Nástroje pro vyhledávání"
 
 #: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Ostatní stránky prohlížeče"
 
 #: src/amo/components/SectionLinks/index.js:137
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Doplňky pro Android"
 
 #: src/amo/components/SectionLinks/index.js:59
 msgid "for Firefox"
-msgstr ""
+msgstr "pro Firefox"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
@@ -981,15 +980,15 @@ msgstr "Prozkoumat"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Pokud máte zájem přispět k vývoji doplňku, ale nejste technicky založení, stále existuje několik možností, jak se zapojit:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Zapojte se v našem %(startLink)sfóru%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Pošlete zpětnou vazbu autorovi svého oblíbeného doplňku. Vývojáři doplňků rádi vylepšují své doplňky a vytváří nové, když vědí, že se lidem jejich práce líbí."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -1001,7 +1000,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Podpora"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1014,9 +1013,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Doplňky pro Firefox"
+msgstr "O serveru Doplňky pro Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1040,7 +1038,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Zapojte se"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1050,144 +1048,156 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sVytvořte svůj vlastní doplněk%(endLink)s. Bezplatně vám pro něj poskytneme hosting a správu aktualizací, díky čemuž můžete snadno získat velké množství uživatelů."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Pomozte nám tuto stránku vylepšit. Její zdrojový kód je otevřený, a vždy uvítáme hlášení chyb či tvorbu patchů. Můžete začít s chybami označenými jako „%(startGoodFirstBugLink)sgood first "
+"bug%(endGoodFirstBugLink)s“ nebo zobrazením všech nevyřešených chyb v %(startAddonsServerRepoLink)sserverové%(endAddonsServerRepoLink)s nebo "
+"%(startAddonsFrontendRepoLink)sfrontendové%(endAddonsFrontendRepoLink)s části na GitHubu."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Příručka recenzenta"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Recenze doplňků jsou způsob, jak sdílet váš názor na doplněk, který jste si nainstalovali a vyzkoušeli. Náš tým kontrolující recenze si vyhrazuje právo recenze odmítnout nebo smazat, pokud "
+"neodpovídají těmto pokynům."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tipy pro psaní skvělých recenzí"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Pište:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Popište své zkušenosti s doplňkem tak, jako byste jej popisovali svému příteli."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Pište recenze stručně a srozumitelně."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Popište konkrétní a užitečné detaily. Například:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Funguje doplněk podle očekávání?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Které funkce se vám líbí a které naopak ne?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Je užitečný?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Používá se snadno?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Pro hodnocení tohoto doplňku se přihlaste"
+msgstr "Budete doplněk i nadále používat?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Před odesláním své recenze si prosím znovu přečtěte a opravte případné překlepy."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Nepište:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Nepište pouze jednoslovné recenze jako \"Úžasné!\", \"Vynikající\" nebo \"Nefunguje\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Nepište technické problémy, požadavky na podporu nebo návrhy na nové funkce. Pro ně můžete použít kontakty, které jsou pro daný doplněk dostupné. Najdete je na stránce s detaily doplňku v postranním"
+" sloupci v sekci \"Více informací\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Nepište recenze k doplňkům, které osobně nepoužíváte."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Nepoužívejte hrubý, sexuálně orientovaný či jinak nevhodný jazyk."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Nevkládejte HTML kód, odkazy, zdrojový kód nebo jeho části. Recenze jsou určeny pouze pro psaní textu."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Nepiště nepravdivé informace, nezlehčujte práci autorů doplňků ani je osobně neurážejte."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Nevkládejte svou ani cizí e-mailovou adresu, telefonní číslo ani jiné osobní informace."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Nepřidávejte recenze ke svému doplňku či organizaci, kterou reprezentujete."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Nekritizujte doplněk za něco, k čemu je určen. Např. nepište negativní recenze kvůli zobrazování reklam nebo sběru dat, pokud je to právě účel fungování daného doplňku, nebo doplněk sběr dat pro své"
+" fungování potřebuje."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Často kladené otázky k recenzím"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Jak mohu nahlásit problematickou recenzi?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Sporné recenze prosím nahlaste nebo označte klepnutím na odkaz \"Nahlásit recenzi\". Bude tak přidána na seznam ke kontrole a případné úpravě. Náš tým zkontrolujte, jestli recenze odpovídá Příručce "
+"recenzenta a zda ji případně smazat nebo naopak vrátit zpět k zobrazení."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Jsem autor doplňku, mohu odpovídat na recenze?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Ano, autor doplňku může odeslat k recenzi odpověď. Pro delší diskuzi můžete založit téma na %(startLink)sfóru%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Jsem autor doplňku, mohu smazat nepravdivé recenze či hodnocení?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"V obecném případě ne. Pokud ale recenze nesplňuje pravidla uvedená výše, můžete klepnout na \"Nahlásit recenzi\" pro její moderování. Pokud recenze obsahuje stížnost, která již není relevantní s "
+"ohledem na vydání nové verze doplňku, můžeme zvážit její smazání."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
@@ -1274,22 +1284,20 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Zrušit náhled"
+msgstr "Zrušit"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
-msgstr ""
+msgstr "Zadejte text."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Odeslat"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Odeslat"
+msgstr "Odesílá se"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -1305,7 +1313,7 @@ msgstr "Pro pokračování obnovte stránku"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Přepnout obsah"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
