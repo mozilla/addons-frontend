@@ -427,6 +427,7 @@ describe('i18n utils', () => {
       };
       const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
       expect(i18n.moment.locale()).toEqual('fr');
+      sinon.assert.called(i18nData.options._momentDefineLocale);
     });
 
     it('does not localise if _momentDefineLocale is not a function', () => {
@@ -439,6 +440,17 @@ describe('i18n utils', () => {
 
       const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
       expect(i18n.moment.locale()).toEqual('en');
+    });
+
+    it('always passes the locale to moment', () => {
+      const i18nData = {
+        options: {
+          _momentDefineLocale: null,
+          locale_data: { messages: { '': { lang: 'fr' } } },
+        },
+      };
+      const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
+      expect(i18n.moment.locale()).toEqual('fr');
     });
 
     it('formats a number', () => {
