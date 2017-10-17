@@ -120,6 +120,7 @@
   flex-basis: 100%;
   flex-grow: 1;
   order: 2;
+  overflow-x: auto;
   word-wrap: break-word;
 
   @include respond-to(medium) {
