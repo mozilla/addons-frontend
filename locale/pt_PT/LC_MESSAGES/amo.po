@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-15 01:26+0000\n"
+"PO-Revision-Date: 2017-10-17 01:45+0000\n"
 "Last-Translator: Cláudio Esperança <cesperanc@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1061,6 +1061,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"As análises de extras são uma forma de partilhas as suas opiniões sobre os extras que instalou e utilizou. A nossa equipa de moderação reserva o direito de recusar ou de remover qualquer análise "
+"não-conforme com as diretrizes."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1104,7 +1106,7 @@ msgstr "Irá continuar a utilizar este extra?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Dispense um momento para ler a sua análise antes de a submeter para minimizar gralhas."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
