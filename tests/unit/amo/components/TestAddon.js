@@ -454,6 +454,11 @@ describe(__filename, () => {
     expect(root.prop('slug')).toEqual(fakeAddon.slug);
   });
 
+  it('always uses a button and not a switch for the InstallButton', () => {
+    const root = shallowRender().find(InstallButton);
+    expect(root.prop('useButton')).toEqual(true);
+  });
+
   it('sets the type in the header', () => {
     const root = shallowRender();
     expect(root.find('.AddonDescription').prop('header'))
