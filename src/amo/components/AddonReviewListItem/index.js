@@ -282,21 +282,21 @@ export class AddonReviewListItemBase extends React.Component<Props> {
             idPrefix="flag-review-"
             items={[
               <ListItem key="flag-spam">
-                <a href="#flag-review">
+                <button>
                   {i18n.gettext('This review is spam')}
-                </a>
+                </button>
               </ListItem>,
               <ListItem key="flag-language">
-                <a href="#flag-review">
+                <button>
                   {i18n.gettext(
                     'This review uses inappropriate language'
                   )}
-                </a>
+                </button>
               </ListItem>,
               <ListItem key="flag-bug-report">
-                <a href="#flag-review">
+                <button>
                   {i18n.gettext('This is a bug report, not a review')}
-                </a>
+                </button>
               </ListItem>,
             ]}
             openerClass="AddonReviewListItem-control"

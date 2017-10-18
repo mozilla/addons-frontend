@@ -66,7 +66,8 @@
 
     &,
     a,
-    a:link {
+    a:link,
+    button {
       @include font-medium();
 
       color: $grey-90;
@@ -80,6 +81,13 @@
     a:focus,
     a:active {
       color: $blue-50;
+    }
+
+    @include respond-to(medium) {
+      button:hover,
+      button:focus {
+        color: $blue-50;
+      }
     }
   }
 }
