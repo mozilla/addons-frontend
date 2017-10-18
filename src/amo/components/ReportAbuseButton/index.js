@@ -19,7 +19,7 @@ import {
 } from 'core/reducers/abuse';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
-import type { AddonAbuseState, ReducerState } from 'core/reducers/abuse';
+import type { AddonAbuseState, AbuseState } from 'core/reducers/abuse';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -209,7 +209,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| abuse: ReducerState |}, ownProps: Props
+  state: {| abuse: AbuseState |}, ownProps: Props
 ) => {
   const addon = ownProps.addon;
 

@@ -134,7 +134,7 @@ export type AddonAbuseState = {|
   uiVisible?: boolean,
 |}
 
-export type ReducerState = {|
+export type AbuseState = {|
   bySlug: {
     [addonSlug: string]: AddonAbuseState,
   },
@@ -142,7 +142,7 @@ export type ReducerState = {|
 |};
 
 export default function abuseReducer(
-  state: ReducerState = initialState,
+  state: AbuseState = initialState,
   action: Object
 ) {
   switch (action.type) {

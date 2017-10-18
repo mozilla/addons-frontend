@@ -25,7 +25,7 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
-  onDismiss: Function,
+  onDismiss: () => void,
   onSubmit: (params: OnSubmitParams) => void,
   i18n: I18nType,
   isSubmitting?: boolean,
