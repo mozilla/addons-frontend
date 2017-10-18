@@ -71,21 +71,25 @@
 }
 
 .Icon-Home-CuratedCollections-ad-blockers {
-  background-color: $teal-50;
+  background-color: $teal-70;
   background-image: url("./icons/ad-blockers.svg");
 }
 
 .Icon-Home-CuratedCollections-password-managers {
-  background-color: $magenta-50;
+  background-color: $magenta-70;
   background-image: url("./icons/password-managers.svg");
 }
 
 .Icon-Home-CuratedCollections-bookmark-managers {
-  background-color: $green-50;
+  background-color: $green-70;
   background-image: url("./icons/bookmark-managers.svg");
 }
 
 .Icon-Home-CuratedCollections-watching-videos {
-  background-color: $purple-50;
+  background-color: $purple-70;
   background-image: url("./icons/watching-videos.svg");
+
+  @include respond-to(medium) {
+    background-size: 90px;
+  }
 }
