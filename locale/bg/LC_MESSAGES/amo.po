@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 08:57+0000\n"
+"PO-Revision-Date: 2017-10-18 08:41+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -667,7 +667,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:42
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeCarousel/index.js:45
 msgid "Videos in HD, turn off annotations, change player size & more"
@@ -679,7 +679,7 @@ msgstr ""
 
 #: src/amo/components/HomeCarousel/index.js:68
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeCarousel/index.js:70
 msgid "An extremely powerful ad blocker that’s simple to use"
