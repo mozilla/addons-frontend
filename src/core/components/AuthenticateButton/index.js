@@ -15,6 +15,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { UserStateType } from 'core/reducers/user';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
+import type { I18nType } from 'core/types/i18n';
 
 
 type HandleLogInFunc = (
@@ -23,12 +24,12 @@ type HandleLogInFunc = (
 
 type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
 
-type AuthenticateButtonProps = {|
+type Props = {|
   api: ApiStateType,
   className?: string,
   handleLogIn: HandleLogInFunc,
   handleLogOut: HandleLogOutFunction,
-  i18n: Object,
+  i18n: I18nType,
   isAuthenticated: boolean,
   location: ReactRouterLocation,
   logInText?: string,
@@ -36,9 +37,7 @@ type AuthenticateButtonProps = {|
   noIcon: boolean,
 |};
 
-export class AuthenticateButtonBase extends React.Component {
-  props: AuthenticateButtonProps;
-
+export class AuthenticateButtonBase extends React.Component<Props> {
   static defaultProps = {
     noIcon: false,
   }
@@ -116,7 +115,7 @@ export const createHandleLogOutFunction = (
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
-  ownProps: AuthenticateButtonProps
+  ownProps: Props
 ): DispatchMappedProps => ({
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),
 });

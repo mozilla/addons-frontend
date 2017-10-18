@@ -26,11 +26,12 @@ import type { UserStateType } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type AddonReviewListProps = {|
-  i18n: Object,
+type Props = {|
+  i18n: I18nType,
   addon?: AddonType,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -40,18 +41,16 @@ type AddonReviewListProps = {|
   reviews?: Array<UserReviewType>,
 |};
 
-export class AddonReviewListBase extends React.Component {
-  props: AddonReviewListProps;
-
+export class AddonReviewListBase extends React.Component<Props> {
   componentWillMount() {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: AddonReviewListProps) {
+  componentWillReceiveProps(nextProps: Props) {
     this.loadDataIfNeeded(nextProps);
   }
 
-  loadDataIfNeeded(nextProps?: AddonReviewListProps) {
+  loadDataIfNeeded(nextProps?: Props) {
     const lastAddon = this.props.addon;
     const nextAddon = nextProps && nextProps.addon;
     const {
@@ -197,7 +196,7 @@ export class AddonReviewListBase extends React.Component {
 
 export function mapStateToProps(
   state: {| user: UserStateType, reviews: ReviewState |},
-  ownProps: AddonReviewListProps,
+  ownProps: Props,
 ) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');

@@ -123,7 +123,6 @@ export function callApi({
     apiURL = utf8.encode(apiURL);
   }
 
-  // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
     .then((response) => {
       const contentType = response.headers.get('Content-Type').toLowerCase();

@@ -14,19 +14,18 @@ import {
 } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type PropTypes = {
+type Props = {|
   addon: AddonType | null,
-  i18n: Object,
+  i18n: I18nType,
   userId: number | null,
-}
+|};
 
-export class AddonMoreInfoBase extends React.Component {
-  props: PropTypes;
-
+export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
     const { addon, i18n, userId } = this.props;
 

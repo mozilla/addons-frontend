@@ -127,20 +127,22 @@ export const initialState = {
   loading: false,
 };
 
-type ReducerState = {|
+export type AddonAbuseState = {|
+  buttonEnabled?: bool,
+  message: string,
+  reporter: Object | null,
+  uiVisible?: boolean,
+|}
+
+export type AbuseState = {|
   bySlug: {
-    [addonSlug: string]: {|
-      buttonEnabled?: bool,
-      message: string,
-      reporter: Object | null,
-      uiVisible?: bool,
-    |},
+    [addonSlug: string]: AddonAbuseState,
   },
   loading: bool,
 |};
 
 export default function abuseReducer(
-  state: ReducerState = initialState,
+  state: AbuseState = initialState,
   action: Object
 ) {
   switch (action.type) {

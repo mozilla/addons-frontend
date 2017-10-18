@@ -7,19 +7,19 @@ import { compose } from 'redux';
 import translate from 'core/i18n/translate';
 import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
 import Button from 'ui/components/Button';
+import type { I18nType } from 'core/types/i18n';
 
-
-type PropTypes = {
-  className?: 'string',
-  i18n: Object,
+type Props = {|
+  className?: string,
+  i18n: I18nType,
   userAgentInfo: UserAgentInfoType,
-}
+|};
 
 export const DownloadFirefoxButtonBase = ({
   className,
   i18n,
   userAgentInfo,
-}: PropTypes = {}) => {
+}: Props = {}) => {
   if (userAgentInfo.browser.name === 'Firefox') {
     return null;
   }

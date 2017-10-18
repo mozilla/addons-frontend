@@ -11,15 +11,15 @@ import HeroSection from 'ui/components/HeroSection';
 import './styles.scss';
 
 
-type PropTypes = {|
+type Props = {|
   dispatch: Function,
   heroBanners: Object,
   name: string,
   random?: boolean,
-  sections: Array<React.Element<typeof HeroSection>>,
+  sections: Array<HeroSection>,
 |};
 
-export class HeroBase extends React.Component {
+export class HeroBase extends React.Component<Props> {
   componentWillMount() {
     const {
       dispatch,
@@ -33,8 +33,6 @@ export class HeroBase extends React.Component {
       dispatch(setHeroBannerOrder({ name, random, sections }));
     }
   }
-
-  props: PropTypes;
 
   render() {
     const { heroBanners, name, sections } = this.props;

@@ -8,14 +8,16 @@ import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
+import type { ReactRouterLocation } from 'core/types/router';
 
 
-type PropTypes = {|
+type Props = {|
   filters: Object,
+  location: ReactRouterLocation,
   pathname: string,
 |};
 
-export const SearchPageBase = ({ filters, pathname, ...props }: PropTypes) => {
+export const SearchPageBase = ({ filters, pathname, ...props }: Props) => {
   const paginationQueryParams = convertFiltersToQueryParams({
     addonType: filters.addonType,
     featured: filters.featured,
@@ -36,7 +38,7 @@ export const SearchPageBase = ({ filters, pathname, ...props }: PropTypes) => {
   );
 };
 
-export function mapStateToProps(state: any, ownProps: any) {
+export function mapStateToProps(state: any, ownProps: Props) {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);

@@ -3,7 +3,7 @@
 /* global $PropertyType, Event, Navigator, Node, navigator, window */
 import config from 'config';
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -30,6 +30,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
+import type { I18nType } from 'core/types/i18n';
 
 import 'core/fonts/fira.scss';
 import 'core/fonts/opensans.scss';
@@ -40,29 +41,28 @@ interface MozNavigator extends Navigator {
   mozAddonManager?: Object,
 }
 
-type AppProps = {
+type Props = {|
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
   HeaderComponent: typeof Header,
-  _addChangeListeners: () => void,
+  _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
   children: any,
   handleGlobalEvent: () => void,
-  i18n: Object,
+  i18n: I18nType,
   isHomePage: boolean,
   location: ReactRouterLocation,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
-  setUserAgent: () => void,
+  setUserAgent: (userAgent: string) => void,
   userAgent: string,
-}
+|}
 
-export class AppBase extends React.Component {
-  header: Node;
-  props: AppProps;
+export class AppBase extends React.Component<Props> {
+  header: React.ElementRef<typeof Header>;
   scheduledLogout: number;
 
   static defaultProps = {
@@ -106,7 +106,7 @@ export class AppBase extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps: AppProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const { authToken } = nextProps;
     if (authToken) {
       this.setLogOutTimer(authToken);
