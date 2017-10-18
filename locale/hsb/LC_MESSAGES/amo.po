@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-16 21:08+0000\n"
+"PO-Revision-Date: 2017-10-18 18:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1033,10 +1033,12 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addon.mozilla.org (AMO) je oficielne sydło Mozilla za wotkrywanje a instalowanje přidatkow za wobhladowak Firefox. Přidajće nowe funkcije Firefox, polěpšće swoje interakcije z webwobsahom a změńće "
+"napohlad swojeho wobhladowaka, zo byšće swoje přehladowanske dožiwjenje změnił a přiměrił."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Móžeće AMO tež wužiwać, zo byšće přidatki za Mozilla %(startTBLink)sThunderbird%(endTBLink)s a %(startSMLink)sSeaMonkey%(endSMLink)s namakał."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
