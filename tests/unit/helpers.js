@@ -1,6 +1,6 @@
 /* global Response */
 import base64url from 'base64url';
-import config from 'config';
+import config, { util as configUtil } from 'config';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
@@ -383,3 +383,15 @@ export function createUserProfileResponse({
     username,
   };
 }
+
+// Returns a real-ish config object with custom parameters.
+//
+// Example:
+//
+// const fakeConfig = getFakeConfig({ isDevelopment: true });
+// if (fakeConfig.get('isDevelopment')) {
+//   ...
+// }
+export const getFakeConfig = (params = {}) => {
+  return Object.assign(configUtil.cloneDeep(config), params);
+};
