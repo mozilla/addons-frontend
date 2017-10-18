@@ -499,6 +499,7 @@ export class AddonBase extends React.Component {
                 disabled={!isCompatible}
                 ref={(ref) => { this.installButton = ref; }}
                 status={installStatus}
+                useButton
               /> : null
             }
 

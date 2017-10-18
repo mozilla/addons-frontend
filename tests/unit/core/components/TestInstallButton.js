@@ -205,6 +205,25 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', true);
   });
 
+  it('renders a switch button if useButton is false', () => {
+    const root = render({ useButton: false });
+
+    expect(root).toHaveClassName('InstallButton--use-switch');
+  });
+
+  it('renders a button if useButton is true', () => {
+    const root = render({ useButton: true });
+
+    expect(root).toHaveClassName('InstallButton--use-button');
+
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button).toHaveClassName('Button--action');
+    expect(button).toHaveClassName('InstallButton-button');
+    expect(button.children()).toIncludeText('Add to Firefox');
+  });
+
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
     const root = render({
       addon: createInternalAddon({
