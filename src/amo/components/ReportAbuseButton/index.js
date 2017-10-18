@@ -19,30 +19,26 @@ import {
 } from 'core/reducers/abuse';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
+import type { AddonAbuseState, ReducerState } from 'core/reducers/abuse';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type Props = {
-  abuseReport: {|
-    buttonEnabled: boolean,
-    message: string,
-    reporter: Object | null,
-    uiVisible: boolean,
-  |},
+type Props = {|
+  abuseReport: AddonAbuseState,
   addon: AddonType,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
   loading: bool,
   i18n: I18nType,
-};
+|};
 
 export class ReportAbuseButtonBase extends React.Component<Props> {
   textarea: React.ElementRef<typeof Textarea>;
 
-  dismissReportUI = (event: SyntheticEvent<*>) => {
+  dismissReportUI = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     const { addon, dispatch, loading } = this.props;
@@ -56,7 +52,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
     dispatch(hideAddonAbuseReportUI({ addon }));
   }
 
-  sendReport = (event: SyntheticEvent<*>) => {
+  sendReport = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     // The button isn't clickable if there is no content, but just in case:
@@ -76,7 +72,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
     }));
   }
 
-  showReportUI = (event: SyntheticEvent<*>) => {
+  showReportUI = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     const { addon, dispatch } = this.props;
@@ -212,7 +208,9 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: Object, ownProps: Props) => {
+export const mapStateToProps = (
+  state: {| abuse: ReducerState |}, ownProps: Props
+) => {
   const addon = ownProps.addon;
 
   return {

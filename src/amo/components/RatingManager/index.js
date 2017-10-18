@@ -27,7 +27,9 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type {
   GetLatestReviewParams, SubmitReviewParams,
 } from 'amo/api/reviews';
+import type { ReviewState } from 'amo/reducers/reviews';
 import type { ApiStateType } from 'core/reducers/api';
+import type { UserStateType } from 'core/reducers/user';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -198,9 +200,8 @@ export class RatingManagerBase extends React.Component<Props, State> {
   }
 }
 
-// TODO: when all state types are exported, define `state`.
 export const mapStateToProps = (
-  state: Object,
+  state: {| api: ApiStateType, reviews: ReviewState, user: UserStateType |},
   ownProps: Props
 ) => {
   const userId = state.user.id;

@@ -19,7 +19,7 @@ type State = {|
 |};
 
 export type OnSubmitParams = {|
-  event: SyntheticEvent<*>,
+  event: SyntheticEvent<any>,
   text: $PropertyType<State, 'text'>,
 |};
 
@@ -63,13 +63,13 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
     }
   }
 
-  onDismiss = (event: SyntheticEvent<*>) => {
+  onDismiss = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.setState({ text: '' });
     this.props.onDismiss();
   }
 
-  onSubmit = (event: SyntheticEvent<*>) => {
+  onSubmit = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
   }

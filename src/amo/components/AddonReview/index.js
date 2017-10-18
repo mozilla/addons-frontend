@@ -2,7 +2,7 @@
 /* eslint-disable react/sort-comp */
 import { oneLine } from 'common-tags';
 import defaultDebounce from 'lodash.debounce';
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -54,7 +54,7 @@ type State = {|
 
 export class AddonReviewBase extends React.Component<Props, State> {
   localState: LocalState;
-  reviewTextarea: HTMLElement;
+  reviewTextarea: React.ElementRef<'textarea'> | null;
 
   static defaultProps = {
     createLocalState: defaultLocalStateCreator,
@@ -94,7 +94,7 @@ export class AddonReviewBase extends React.Component<Props, State> {
       });
   }
 
-  onSubmit = (event: SyntheticEvent<*>) => {
+  onSubmit = (event: SyntheticEvent<any>) => {
     const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -201,7 +201,7 @@ export class AddonReviewBase extends React.Component<Props, State> {
             </label>
             <textarea
               id="AddonReview-textarea"
-              ref={(ref: any) => { this.reviewTextarea = ref; }}
+              ref={(ref) => { this.reviewTextarea = ref; }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"

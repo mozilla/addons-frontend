@@ -46,7 +46,7 @@ type Props = {|
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
   HeaderComponent: typeof Header,
-  _addChangeListeners: Function,
+  _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
@@ -57,7 +57,7 @@ type Props = {|
   location: ReactRouterLocation,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
-  setUserAgent: Function,
+  setUserAgent: (userAgent: string) => void,
   userAgent: string,
 |}
 

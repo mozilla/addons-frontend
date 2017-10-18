@@ -127,14 +127,16 @@ export const initialState = {
   loading: false,
 };
 
-type ReducerState = {|
+export type AddonAbuseState = {|
+  buttonEnabled?: bool,
+  message: string,
+  reporter: Object | null,
+  uiVisible?: boolean,
+|}
+
+export type ReducerState = {|
   bySlug: {
-    [addonSlug: string]: {|
-      buttonEnabled?: bool,
-      message: string,
-      reporter: Object | null,
-      uiVisible?: bool,
-    |},
+    [addonSlug: string]: AddonAbuseState,
   },
   loading: bool,
 |};

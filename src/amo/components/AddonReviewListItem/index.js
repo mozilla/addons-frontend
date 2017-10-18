@@ -47,7 +47,7 @@ type Props = {|
 |};
 
 export class AddonReviewListItemBase extends React.Component<Props> {
-  onClickToEditReview = (event: SyntheticEvent<*>) => {
+  onClickToEditReview = (event: SyntheticEvent<any>) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -86,7 +86,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   }
 
-  onClickToBeginReviewReply = (event: SyntheticEvent<*>) => {
+  onClickToBeginReviewReply = (event: SyntheticEvent<any>) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
     if (!review) {

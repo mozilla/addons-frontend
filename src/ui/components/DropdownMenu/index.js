@@ -26,7 +26,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     this.state = { buttonIsActive: false };
   }
 
-  handleOnClick = (event: SyntheticEvent<*>) => {
+  handleOnClick = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     this.setState((previousState) => ({
