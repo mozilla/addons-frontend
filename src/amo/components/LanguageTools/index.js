@@ -22,15 +22,16 @@ import LoadingText from 'ui/components/LoadingText';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonState } from 'core/reducers/addons';
 import type { AddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type ListItemPropTypes = {
+type LanguageToolListProps = {|
   addons?: Array<AddonType>,
-};
+|};
 
-export const LanguageToolList = ({ addons }: ListItemPropTypes) => {
+export const LanguageToolList = ({ addons }: LanguageToolListProps) => {
   if (!addons) {
     return null;
   }
@@ -50,15 +51,15 @@ export const LanguageToolList = ({ addons }: ListItemPropTypes) => {
   );
 };
 
-type PropTypes = {|
+type Props = {|
   addons: Array<AddonType>,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
-  i18n: Object,
+  i18n: I18nType,
   lang: string,
 |};
 
-export class LanguageToolsBase extends React.Component {
+export class LanguageToolsBase extends React.Component<Props> {
   componentWillMount() {
     const { addons, dispatch, errorHandler } = this.props;
 
@@ -119,8 +120,6 @@ export class LanguageToolsBase extends React.Component {
       </div>
     );
   }
-
-  props: PropTypes;
 
   render() {
     const { addons, errorHandler, i18n } = this.props;

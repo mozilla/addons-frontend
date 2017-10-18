@@ -2,30 +2,32 @@
 /* eslint-disable react/sort-comp */
 /* global $PropertyType */
 import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 import Textarea from 'react-textarea-autosize';
 
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import type { ElementEvent } from 'core/types/dom';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type StateType = {|
+
+type State = {|
   text: string,
 |};
 
 export type OnSubmitParams = {|
-  event: SyntheticEvent,
-  text: $PropertyType<StateType, 'text'>,
+  event: SyntheticEvent<*>,
+  text: $PropertyType<State, 'text'>,
 |};
 
-type PropTypes = {|
+type Props = {|
   className?: string,
-  onDismiss: () => void,
+  onDismiss: Function,
   onSubmit: (params: OnSubmitParams) => void,
-  i18n: Object,
+  i18n: I18nType,
   isSubmitting?: boolean,
   placeholder?: string,
   submitButtonClassName?: string,
@@ -43,16 +45,14 @@ type PropTypes = {|
  * be shown and hidden, controlled by some other button but
  * the parent must do the showing and hiding.
  */
-export class DismissibleTextFormBase extends React.Component {
-  textarea: HTMLElement;
-  props: PropTypes;
-  state: StateType;
+export class DismissibleTextFormBase extends React.Component<Props, State> {
+  textarea: React.ElementRef<typeof Textarea>;
 
   static defaultProps = {
     isSubmitting: false,
   }
 
-  constructor(props: PropTypes) {
+  constructor(props: Props) {
     super(props);
     this.state = { text: props.text || '' };
   }
@@ -63,13 +63,13 @@ export class DismissibleTextFormBase extends React.Component {
     }
   }
 
-  onDismiss = (event: SyntheticEvent) => {
+  onDismiss = (event: SyntheticEvent<*>) => {
     event.preventDefault();
     this.setState({ text: '' });
     this.props.onDismiss();
   }
 
-  onSubmit = (event: SyntheticEvent) => {
+  onSubmit = (event: SyntheticEvent<*>) => {
     event.preventDefault();
     this.props.onSubmit({ event, text: this.state.text });
   }

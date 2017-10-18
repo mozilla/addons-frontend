@@ -28,27 +28,26 @@ import type { UserStateType } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type PropsType = {|
+type Props = {|
   addon?: AddonType,
   editingReview: boolean,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   isAuthenticated: boolean,
   isReplyToReviewId?: number,
-  i18n: Object,
+  i18n: I18nType,
   review?: UserReviewType,
   replyingToReview: boolean,
   siteUser: UserStateType,
   submittingReply: boolean,
 |};
 
-export class AddonReviewListItemBase extends React.Component {
-  props: PropsType;
-
-  onClickToEditReview = (event: SyntheticEvent) => {
+export class AddonReviewListItemBase extends React.Component<Props> {
+  onClickToEditReview = (event: SyntheticEvent<*>) => {
     const { dispatch, isReplyToReviewId, review } = this.props;
     event.preventDefault();
 
@@ -87,7 +86,7 @@ export class AddonReviewListItemBase extends React.Component {
     dispatch(hideEditReviewForm({ reviewId: review.id }));
   }
 
-  onClickToBeginReviewReply = (event: SyntheticEvent) => {
+  onClickToBeginReviewReply = (event: SyntheticEvent<*>) => {
     event.preventDefault();
     const { dispatch, review } = this.props;
     if (!review) {
@@ -284,7 +283,7 @@ export class AddonReviewListItemBase extends React.Component {
 
 export function mapStateToProps(
   state: {| user: UserStateType, reviews: ReviewState |},
-  ownProps: PropsType,
+  ownProps: Props,
 ) {
   let editingReview = false;
   let replyingToReview = false;

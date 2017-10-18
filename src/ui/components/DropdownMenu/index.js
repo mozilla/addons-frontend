@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 
@@ -11,22 +11,22 @@ import './styles.scss';
 
 type Props = {|
   text: string,
-  // TODO: Replace Array by React.ChildrenArray when we upgrade Flow to 0.53+.
-  children?: Array<React.Element<typeof DropdownMenuItem>>,
+  children?: React.ChildrenArray<React.Element<typeof DropdownMenuItem>>,
   className?: string,
 |};
 
-export class DropdownMenuBase extends React.Component {
+type State = {|
+  buttonIsActive: boolean,
+|};
+
+export class DropdownMenuBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
 
     this.state = { buttonIsActive: false };
   }
 
-  state: {| buttonIsActive: bool |};
-  props: Props;
-
-  handleOnClick = (event: SyntheticEvent) => {
+  handleOnClick = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     this.setState((previousState) => ({

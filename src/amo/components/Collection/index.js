@@ -20,15 +20,16 @@ import type {
 } from 'amo/reducers/collections';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ReactRouterLocation } from 'core/types/router';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type PropTypes = {|
+type Props = {|
   collection: CollectionType | null,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
-  i18n: Object,
+  i18n: I18nType,
   loading: boolean,
   location: ReactRouterLocation,
   params: {|
@@ -37,16 +38,16 @@ type PropTypes = {|
   |},
 |};
 
-export class CollectionBase extends React.Component {
+export class CollectionBase extends React.Component<Props> {
   componentWillMount() {
     this.loadDataIfNeeded();
   }
 
-  componentWillReceiveProps(nextProps: PropTypes) {
+  componentWillReceiveProps(nextProps: Props) {
     this.loadDataIfNeeded(nextProps);
   }
 
-  loadDataIfNeeded(nextProps?: PropTypes) {
+  loadDataIfNeeded(nextProps?: Props) {
     const { collection, errorHandler, loading, params } = {
       ...this.props,
       ...nextProps,
@@ -106,8 +107,6 @@ export class CollectionBase extends React.Component {
       }));
     }
   }
-
-  props: PropTypes;
 
   url() {
     const { params } = this.props;

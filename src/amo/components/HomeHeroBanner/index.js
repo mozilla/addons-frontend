@@ -7,17 +7,16 @@ import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type PropTypes = {|
-  i18n: Object,
+type Props = {|
+  i18n: I18nType,
 |};
 
-export class HomeHeroBannerBase extends React.Component {
-  props: PropTypes;
-
+export class HomeHeroBannerBase extends React.Component<Props> {
   sections() {
     const { i18n } = this.props;
 

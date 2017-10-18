@@ -7,18 +7,18 @@ import Link from 'amo/components/Link';
 import './styles.scss';
 
 
-type PropTypes = {|
+type Props = {|
   children?: any,
   linkTo?: Object | string,
   styleName: string,
 |};
 
-export default class HeroSection extends React.Component {
+export default class HeroSection extends React.Component<Props> {
   static defaultProps = {
     styleName: 'default',
   }
 
-  props: PropTypes;
+  props: Props;
 
   render() {
     const { children, linkTo, styleName } = this.props;

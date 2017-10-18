@@ -21,6 +21,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { ErrorHandler as ErrorHandlerType } from 'core/errorHandler';
 import type { ElementEvent } from 'core/types/dom';
 import type { DispatchFunc } from 'core/types/redux';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -33,12 +34,12 @@ type RefreshAddonFunction = (
 type UpdateReviewTextFunction =
   (review: $Shape<SubmitReviewParams>) => Promise<void>;
 
-type AddonReviewProps = {|
+type Props = {|
   apiState: ApiStateType,
   createLocalState: typeof defaultLocalStateCreator,
   debounce: typeof defaultDebounce,
   errorHandler: ErrorHandlerType,
-  i18n: Object,
+  i18n: I18nType,
   onEscapeOverlay?: () => void,
   onReviewSubmitted: () => void | Promise<void>,
   refreshAddon: RefreshAddonFunction,
@@ -47,22 +48,20 @@ type AddonReviewProps = {|
   updateReviewText: UpdateReviewTextFunction,
 |};
 
-type AddonReviewState = {|
+type State = {|
   reviewBody: ?string,
 |};
 
-export class AddonReviewBase extends React.Component {
+export class AddonReviewBase extends React.Component<Props, State> {
   localState: LocalState;
-  props: AddonReviewProps;
   reviewTextarea: HTMLElement;
-  state: AddonReviewState;
 
   static defaultProps = {
     createLocalState: defaultLocalStateCreator,
     debounce: defaultDebounce,
   };
 
-  constructor(props: AddonReviewProps) {
+  constructor(props: Props) {
     super(props);
     this.state = {
       reviewBody: props.review.body,
@@ -71,7 +70,7 @@ export class AddonReviewBase extends React.Component {
     this.checkForStoredState();
   }
 
-  componentWillReceiveProps(nextProps: AddonReviewProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const { review } = nextProps;
     if (review) {
       this.setState({ reviewBody: review.body });
@@ -95,7 +94,7 @@ export class AddonReviewBase extends React.Component {
       });
   }
 
-  onSubmit = (event: SyntheticEvent) => {
+  onSubmit = (event: SyntheticEvent<*>) => {
     const { apiState, errorHandler, onReviewSubmitted, review } = this.props;
     const { reviewBody } = this.state;
     event.preventDefault();
@@ -202,7 +201,7 @@ export class AddonReviewBase extends React.Component {
             </label>
             <textarea
               id="AddonReview-textarea"
-              ref={(ref) => { this.reviewTextarea = ref; }}
+              ref={(ref: any) => { this.reviewTextarea = ref; }}
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"
@@ -225,7 +224,7 @@ export const mapStateToProps = (state: {| api: ApiStateType |}) => ({
   apiState: state.api,
 });
 
-type DispatchMappedPropTypes = {|
+type DispatchMappedProps = {|
   refreshAddon: RefreshAddonFunction,
   setDenormalizedReview: SetDenormalizedReviewFunction,
   updateReviewText: UpdateReviewTextFunction,
@@ -233,8 +232,8 @@ type DispatchMappedPropTypes = {|
 
 export const mapDispatchToProps = (
   dispatch: DispatchFunc,
-  ownProps: AddonReviewProps
-): DispatchMappedPropTypes => {
+  ownProps: Props
+): DispatchMappedProps => {
   // The mapped properties that allow overrides do so for testing purposes.
   return {
     refreshAddon: ownProps.refreshAddon || (({ addonSlug, apiState }) => {

@@ -1,6 +1,7 @@
+/* @flow */
 import classNames from 'classnames';
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Textarea from 'react-textarea-autosize';
 import { compose } from 'redux';
@@ -18,24 +19,30 @@ import {
 } from 'core/reducers/abuse';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
+import type { AddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type PropTypes = {
+type Props = {
   abuseReport: {|
+    buttonEnabled: boolean,
     message: string,
     reporter: Object | null,
+    uiVisible: boolean,
   |},
-  addon: Object | null,
+  addon: AddonType,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
   loading: bool,
-  i18n: Object,
+  i18n: I18nType,
 };
 
-export class ReportAbuseButtonBase extends React.Component {
-  dismissReportUI = (event) => {
+export class ReportAbuseButtonBase extends React.Component<Props> {
+  textarea: React.ElementRef<typeof Textarea>;
+
+  dismissReportUI = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     const { addon, dispatch, loading } = this.props;
@@ -49,7 +56,7 @@ export class ReportAbuseButtonBase extends React.Component {
     dispatch(hideAddonAbuseReportUI({ addon }));
   }
 
-  sendReport = (event) => {
+  sendReport = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     // The button isn't clickable if there is no content, but just in case:
@@ -69,7 +76,7 @@ export class ReportAbuseButtonBase extends React.Component {
     }));
   }
 
-  showReportUI = (event) => {
+  showReportUI = (event: SyntheticEvent<*>) => {
     event.preventDefault();
 
     const { addon, dispatch } = this.props;
@@ -90,8 +97,6 @@ export class ReportAbuseButtonBase extends React.Component {
       dispatch(disableAbuseButtonUI({ addon }));
     }
   }
-
-  props: PropTypes;
 
   render() {
     const { abuseReport, addon, errorHandler, i18n, loading } = this.props;
@@ -207,7 +212,7 @@ export class ReportAbuseButtonBase extends React.Component {
   }
 }
 
-export const mapStateToProps = (state, ownProps) => {
+export const mapStateToProps = (state: Object, ownProps: Props) => {
   const addon = ownProps.addon;
 
   return {

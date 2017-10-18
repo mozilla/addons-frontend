@@ -22,20 +22,21 @@ import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import type { ViewContextType } from 'amo/reducers/viewContext';
 import type { ApiStateType } from 'core/reducers/api';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-type SectionLinksProps = {|
+type Props = {|
   className?: string,
   clientApp: string,
   dispatch: Function,
-  i18n: Object,
+  i18n: I18nType,
   router: Object,
   viewContext: ViewContextType,
 |};
 
-export class SectionLinksBase extends React.Component {
+export class SectionLinksBase extends React.Component<Props> {
   setClientApp = (event: Object) => {
     event.preventDefault();
 
@@ -46,8 +47,6 @@ export class SectionLinksBase extends React.Component {
     dispatch(setClientApp(clientApp));
     router.push(event.currentTarget.getAttribute('href'));
   }
-
-  props: SectionLinksProps;
 
   render() {
     const { className, clientApp, i18n, viewContext } = this.props;

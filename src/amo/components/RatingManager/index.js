@@ -1,7 +1,7 @@
 /* @flow */
 /* global $PropertyType, Node */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { oneLine } from 'common-tags';
@@ -31,6 +31,7 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
 import type { ReactRouterLocation } from 'core/types/router';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -43,14 +44,14 @@ type LoadSavedReviewFunc = ({|
 
 type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 
-type RatingManagerProps = {|
+type Props = {|
   AddonReview: typeof DefaultAddonReview,
   AuthenticateButton: typeof DefaultAuthenticateButton,
   Rating: typeof DefaultRating,
   addon: AddonType,
   apiState: ApiStateType,
   errorHandler: ErrorHandlerType,
-  i18n: Object,
+  i18n: I18nType,
   loadSavedReview: LoadSavedReviewFunc,
   location: ReactRouterLocation,
   submitReview: SubmitReviewFunc,
@@ -59,10 +60,12 @@ type RatingManagerProps = {|
   version: AddonVersionType,
 |};
 
-export class RatingManagerBase extends React.Component {
-  props: RatingManagerProps;
-  ratingLegend: Node;
-  state: {| showTextEntry: boolean |};
+type State = {|
+  showTextEntry: boolean,
+|};
+
+export class RatingManagerBase extends React.Component<Props, State> {
+  ratingLegend: React.ElementRef<'legend'> | null;
 
   static defaultProps = {
     AddonReview: DefaultAddonReview,
@@ -70,7 +73,7 @@ export class RatingManagerBase extends React.Component {
     Rating: DefaultRating,
   }
 
-  constructor(props: RatingManagerProps) {
+  constructor(props: Props) {
     super(props);
     const { apiState, loadSavedReview, userId, addon, version } = props;
     this.state = { showTextEntry: false };
@@ -197,7 +200,8 @@ export class RatingManagerBase extends React.Component {
 
 // TODO: when all state types are exported, define `state`.
 export const mapStateToProps = (
-  state: Object, ownProps: RatingManagerProps
+  state: Object,
+  ownProps: Props
 ) => {
   const userId = state.user.id;
   let userReview;
