@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-11 16:08+0000\n"
+"PO-Revision-Date: 2017-10-19 07:45+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -802,7 +802,7 @@ msgstr[0] "%(count)s შედეგი \"%(query)s\" ფრაზისთვ�
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr "მოძიება \"%(query)s\" ფრაზისთვის"
+msgstr "\"%(query)s\" ფრაზის მოძიება"
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
