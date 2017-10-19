@@ -40,10 +40,12 @@ export class FlagReviewBase extends React.Component<Props> {
       errorHandler, flagState, promptText, wasFlaggedText,
     } = this.props;
 
-    if (flagState && flagState.inProgress && !errorHandler.hasError()) {
-      return <LoadingText minWidth={60} />;
-    } else if (flagState && flagState.wasFlagged) {
-      return wasFlaggedText;
+    if (flagState) {
+      if (flagState.inProgress && !errorHandler.hasError()) {
+        return <LoadingText minWidth={60} />;
+      } else if (flagState.wasFlagged) {
+        return wasFlaggedText;
+      }
     }
 
     return (
