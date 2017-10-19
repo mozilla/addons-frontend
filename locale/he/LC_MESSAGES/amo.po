@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-11 07:21+0000\n"
+"PO-Revision-Date: 2017-10-19 15:55+0000\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -298,19 +298,19 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:153
 msgid "Update reply"
-msgstr ""
+msgstr "עדכון התגובה"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Publish reply"
-msgstr ""
+msgstr "פרסום תגובה"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Updating reply"
-msgstr ""
+msgstr "התגובה מתעדכנת"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
-msgstr ""
+msgstr "התגובה מפורסמת"
 
 #: src/amo/components/AddonReviewListItem/index.js:197
 msgid "posted %(timestamp)s"
@@ -322,7 +322,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:253
 msgid "Edit my reply"
-msgstr ""
+msgstr "עריכת התגובה שלי"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
@@ -539,9 +539,8 @@ msgid "Report a bug"
 msgstr "דיווח על תקלה"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "מלל סקירה"
+msgstr ""
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -605,31 +604,31 @@ msgstr "עיון באוסף זה"
 
 #: src/amo/components/Home/index.js:141
 msgid "I'm interested in…"
-msgstr ""
+msgstr "מעניין אותי…"
 
 #: src/amo/components/Home/index.js:164
 msgid "Up & Coming"
-msgstr ""
+msgstr "בקרוב"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "חוסמי פרסומות"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "מנהלי ססמאות"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "סימניות"
 
 #: src/amo/components/Home/index.js:71
 msgid "Watching Videos"
-msgstr ""
+msgstr "צפייה בווידאו"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "הרחבות מצוינות לכל מצב שהוא"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "YouTube High Definition"
@@ -637,7 +636,7 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "סרטונים באיכות גבוהה, כיבוי הערות, החלפת גודל הנגן ועוד"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -645,7 +644,7 @@ msgstr "חסימת פרסומות"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "החל מחוסמי פרסומות ועד חוסמי מעקב, להלן מספר הרחבות אבטחה מרשימות"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
@@ -653,7 +652,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "חוסם פרסומות עוצמתי ביותר הקל לשימוש"
 
 #: src/amo/components/LandingPage/index.js:212 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -681,36 +680,35 @@ msgstr "שינוי שפה"
 
 #: src/amo/components/LanguageTools/index.js:130
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "מילונים וחבילות שפה"
 
 #: src/amo/components/LanguageTools/index.js:135
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "התקנת תוספת מילון תוסיף אפשרות שפה חדשה לבודק האיות שלך שתבדוק עבורך את האיות במהלך ההקלדה ב־Firefox."
 
 #: src/amo/components/LanguageTools/index.js:140
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "חבילות שפה משנות את שפת ממשק המשתמש של הדפדפן שלך לרבות תפריטי האפשרויות וההגדרות."
 
 #: src/amo/components/LanguageTools/index.js:146
 msgid "All Locales"
-msgstr ""
+msgstr "כל השפות"
 
 #: src/amo/components/LanguageTools/index.js:152
 msgid "Locale Name"
-msgstr ""
+msgstr "שם השפה"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "חיפוש חבילת שפה"
+msgstr "חבילות שפה"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
-msgstr ""
+msgstr "מילונים"
 
 #: src/amo/components/LanguageTools/index.js:91
 msgid "Available for your locale"
-msgstr ""
+msgstr "זמין לשפה שלך"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
@@ -887,9 +885,8 @@ msgid "Operating System"
 msgstr "מערכת הפעלה"
 
 #: src/amo/components/SearchFilters/index.js:196
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "תוספת מומלצת"
+msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
@@ -1097,19 +1094,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "האם התוספת עבדה כפי שציפית?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "אילו תכונות אהבת או לא אהבת?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "האם התוספת שימושית?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "האם היא קלה לשימוש?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
