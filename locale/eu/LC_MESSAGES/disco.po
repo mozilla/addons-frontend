@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-26 19:01+0000\n"
+"POT-Creation-Date: 2017-10-19 14:50+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,12 +35,12 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:106
+#: src/core/components/InstallButton/index.js:108
 msgid "Install Theme"
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:130
+#: src/core/components/InstallButton/index.js:148
 msgid "Add to Firefox"
 msgstr ""
 
@@ -84,43 +84,43 @@ msgstr ""
 msgid "OK!"
 msgstr ""
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:127
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:142
 msgid "Hover over the image to preview"
 msgstr ""
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
 msgstr ""
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
 msgstr ""
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
 msgstr ""
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr ""
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr ""
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:88
 msgid "Close"
 msgstr ""
 
