@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-19 18:31+0000\n"
+"PO-Revision-Date: 2017-10-19 18:39+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -305,9 +305,8 @@ msgid "Publish reply"
 msgstr "Publicar resposta"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
 msgid "Updating reply"
-msgstr "A publicar resposta"
+msgstr "A atualizar resposta"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
@@ -322,9 +321,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "por %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Editar a minha análise"
+msgstr "Editar a minha resposta"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
@@ -363,14 +361,12 @@ msgid "More featured extensions"
 msgstr "Mais extensões em destaque"
 
 #: src/amo/components/Category/index.js:134 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Extensões no top de avaliações"
+msgstr "Extensões em tendência"
 
 #: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:140
-#, fuzzy
 msgid "More trending extensions"
-msgstr "Mais extensões em destaque"
+msgstr "Mais extensões em tendência"
 
 #: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
@@ -389,14 +385,12 @@ msgid "More featured themes"
 msgstr "Mais temas em destaque"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "Trending themes"
-msgstr "Temas no top de avaliações"
+msgstr "Temas em tendência"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:166
-#, fuzzy
 msgid "More trending themes"
-msgstr "Mais temas em destaque"
+msgstr "Mais temas em tendência"
 
 #: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
@@ -543,9 +537,8 @@ msgid "Report a bug"
 msgstr "Reportar um bug"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Diretrizes de análises"
+msgstr "Guia de análise"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -617,19 +610,19 @@ msgstr "Futuramente"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Bloqueadores de anúncios"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "Gestores de palavras-passe"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcadores"
 
 #: src/amo/components/Home/index.js:71
 msgid "Watching Videos"
-msgstr ""
+msgstr "Ver vídeos"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -684,38 +677,36 @@ msgid "Change language"
 msgstr "Alterar idioma"
 
 #: src/amo/components/LanguageTools/index.js:130
-#, fuzzy
 msgid "Dictionaries and Language Packs"
 msgstr "Dicionários e pacotes de idiomas"
 
 #: src/amo/components/LanguageTools/index.js:135
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Instalar um extra de dicionário irá adicionar uma nova opção de idioma para o seu verificador de ortografia, que verifica a sua ortografia ao escrever no Firefox."
 
 #: src/amo/components/LanguageTools/index.js:140
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Os pacotes de idiomas alteram o idioma da interface do seu navegador, incluindo opções de menu e definições."
 
 #: src/amo/components/LanguageTools/index.js:146
 msgid "All Locales"
-msgstr ""
+msgstr "Todos os idiomas"
 
 #: src/amo/components/LanguageTools/index.js:152
 msgid "Locale Name"
-msgstr ""
+msgstr "Nome do idioma"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "Encontrar pacote de idioma"
+msgstr "Pacotes de idiomas"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
-msgstr ""
+msgstr "Dicionários"
 
 #: src/amo/components/LanguageTools/index.js:91
 msgid "Available for your locale"
-msgstr ""
+msgstr "Disponível para o seu idioma"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
@@ -875,7 +866,7 @@ msgstr "Top de avaliações"
 
 #: src/amo/components/SearchFilters/index.js:117
 msgid "Trending"
-msgstr ""
+msgstr "Tendência"
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "Filter results"
@@ -894,9 +885,8 @@ msgid "Operating System"
 msgstr "Sistema operativo"
 
 #: src/amo/components/SearchFilters/index.js:196
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Extra em destaque"
+msgstr "Extras em destaque apenas"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
