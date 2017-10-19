@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-26 19:01+0000\n"
+"POT-Creation-Date: 2017-10-19 14:50+0000\n"
 "PO-Revision-Date: 2017-09-23 13:32+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,12 +39,12 @@ msgstr "Sayfa bulunamadı"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Üzgünüz, yazdığınız adreste bir şey bulamadık."
 
-#: src/core/components/InstallButton/index.js:106
+#: src/core/components/InstallButton/index.js:108
 msgid "Install Theme"
 msgstr "Temayı yükle"
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:130
+#: src/core/components/InstallButton/index.js:148
 msgid "Add to Firefox"
 msgstr "Firefox’a ekle"
 
@@ -88,44 +88,44 @@ msgstr "%(name)s artık araç çubuğunuzda."
 msgid "OK!"
 msgstr "Tamam!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:127
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 " %(name)s temasını ön izlemek için üzerine gidin veya yüklemek için tıklayın"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:142
 msgid "Hover over the image to preview"
 msgstr "Ön izlemesini görmek için resmin üzerine gidin"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
 msgstr "Yükleme başarısız oldu. Lütfen yeniden deneyin."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
 msgstr "İndirme başarısız oldu. Lütfen bağlantınızı kontrol edin."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
 msgstr "Yükleme sırasında beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Kaldırma sırasında beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
 msgstr "Beklenmeyen bir hata oluştu."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Firefox’u yeniden başlattığınızda bu eklenti kaldırılacak."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr "Bu eklentiyi kullanabilmek için lütfen Firefox’u yeniden başlatın."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:88
 msgid "Close"
 msgstr "Kapat"
 

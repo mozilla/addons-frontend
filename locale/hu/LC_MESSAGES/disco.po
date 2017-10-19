@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-26 19:01+0000\n"
+"POT-Creation-Date: 2017-10-19 14:50+0000\n"
 "PO-Revision-Date: 2017-08-23 18:45+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -39,12 +39,12 @@ msgstr "Az oldal nem található"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sajnáljuk, de semmit sem találunk a megadott URL-en."
 
-#: src/core/components/InstallButton/index.js:106
+#: src/core/components/InstallButton/index.js:108
 msgid "Install Theme"
 msgstr "Téma telepítése"
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:130
+#: src/core/components/InstallButton/index.js:148
 msgid "Add to Firefox"
 msgstr "Hozzáadás a Firefoxhoz"
 
@@ -89,45 +89,45 @@ msgstr "Most már elérheti ezt az eszköztáron: %(name)s."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:127
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Vigye fölé az egeret az előnézethez, vagy kattintson a(z) %(name)s "
 "telepítéséhez"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:142
 msgid "Hover over the image to preview"
 msgstr "Az előnézethez vigye a kép fölé az egeret"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:166
 msgid "Installation failed. Please try again."
 msgstr "A telepítés sikertelen. Kérjük, próbálja meg újra."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:168
 msgid "Download failed. Please check your connection."
 msgstr "A letöltés sikertelen. Kérjük, ellenőrizze kapcsolatát."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during installation."
 msgstr "Váratlan hiba történt a telepítés során."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:172
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Váratlan hiba történt az eltávolítás során."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:175
 msgid "An unexpected error occurred."
 msgstr "Váratlan hiba történt."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:183
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ez a kiegészítő a Firefox újraindítása után el lesz távolítva."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:185
 msgid "Please restart Firefox to use this add-on."
 msgstr "A kiegészítő használatához kérjük, indítsa újra a Firefoxot."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:88
 msgid "Close"
 msgstr "Bezárás"
 
