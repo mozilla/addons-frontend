@@ -13,6 +13,7 @@ import AddonReview from 'amo/components/AddonReview';
 import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
+import FlagAddonReview from 'amo/components/FlagAddonReview';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -202,6 +203,19 @@ describe(__filename, () => {
     const reviewComponent = root.find(AddonReview);
     expect(reviewComponent).toHaveLength(1);
     expect(reviewComponent).toHaveProp('review', review);
+  });
+
+  it('lets you flag a review', () => {
+    const review = _setReview(fakeReview);
+    const root = render({ review });
+
+    expect(root.find(FlagAddonReview)).toHaveProp('review', review);
+  });
+
+  it('does not let you flag a review before one has loaded', () => {
+    const root = render({ review: null });
+
+    expect(root.find(FlagAddonReview)).toHaveLength(0);
   });
 
   it('lets the developer reply to a review', () => {
