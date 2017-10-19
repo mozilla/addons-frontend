@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-10 18:17+0000\n"
+"POT-Creation-Date: 2017-10-19 14:47+0000\n"
 "PO-Revision-Date: 2017-10-13 17:28+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
@@ -11,30 +11,31 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:135
+#: src/amo/components/Addon/index.js:137
 msgid "Featured Extension"
 msgstr "Izbrana razširitev"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:139
 msgid "Featured Theme"
 msgstr "Izbrana tema"
 
-#: src/amo/components/Addon/index.js:139
+#: src/amo/components/Addon/index.js:141
 msgid "Featured Add-on"
 msgstr "Izbran dodatek"
 
-#: src/amo/components/Addon/index.js:167
+#: src/amo/components/Addon/index.js:169
 msgid "Cancel preview"
 msgstr "Prekliči predogled"
 
-#: src/amo/components/Addon/index.js:167
+#: src/amo/components/Addon/index.js:169
 msgid "Tap to preview"
 msgstr "Tapnite za predogled"
 
-#: src/amo/components/Addon/index.js:208
+#: src/amo/components/Addon/index.js:210
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Preberi %(count)s oceno"
@@ -42,85 +43,89 @@ msgstr[1] "Preberi %(count)s oceni"
 msgstr[2] "Preberi vse %(count)s ocene"
 msgstr[3] "Preberi vseh %(count)s ocen"
 
-#: src/amo/components/Addon/index.js:224
+#: src/amo/components/Addon/index.js:226
 msgid "No reviews yet"
 msgstr "Še ni ocenjeno"
 
-#: src/amo/components/Addon/index.js:233
+#: src/amo/components/Addon/index.js:235
 msgid "Rate your experience"
 msgstr "Ocenite svojo izkušnjo"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:268
 msgid "About this %(addonType)s"
 msgstr "O tem %(addonType)s"
 
-#: src/amo/components/Addon/index.js:290
+#: src/amo/components/Addon/index.js:292
 msgid "Release notes for %(addonVersion)s"
 msgstr "Opombe ob izdaji %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:319
+#: src/amo/components/Addon/index.js:321
 msgid "More dictionaries by %(author)s"
 msgstr "Več slovarjev avtorja %(author)s"
 
-#: src/amo/components/Addon/index.js:322
+#: src/amo/components/Addon/index.js:324
 msgid "More dictionaries by these translators"
 msgstr "Več slovarjev teh prevajalcev"
 
-#: src/amo/components/Addon/index.js:329
+#: src/amo/components/Addon/index.js:331
 msgid "More extensions by %(author)s"
 msgstr "Več razširitev razvijalca %(author)s"
 
-#: src/amo/components/Addon/index.js:332
+#: src/amo/components/Addon/index.js:334
 msgid "More extensions by these developers"
 msgstr "Več razširitev teh razvijalcev"
 
-#: src/amo/components/Addon/index.js:339
+#: src/amo/components/Addon/index.js:341
 msgid "More language packs by %(author)s"
 msgstr "Več jezikovnih paketov avtorja %(author)s"
 
-#: src/amo/components/Addon/index.js:342
+#: src/amo/components/Addon/index.js:344
 msgid "More language packs by these translators"
 msgstr "Več jezikovnih paketov teh prevajalcev"
 
-#: src/amo/components/Addon/index.js:349
+#: src/amo/components/Addon/index.js:351
 msgid "More themes by %(author)s"
 msgstr "Več tem avtorja %(author)s"
 
-#: src/amo/components/Addon/index.js:352
+#: src/amo/components/Addon/index.js:354
 msgid "More themes by these artists"
 msgstr "Več tem teh ustvarjalcev"
 
-#: src/amo/components/Addon/index.js:359
+#: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
 msgstr "Več dodatkov razvijalca %(author)s"
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
 msgstr "Več dodatkov izpod rok teh razvijalcev"
 
-#: src/amo/components/Addon/index.js:428
+#: src/amo/components/Addon/index.js:430
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s– %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:482
+#: src/amo/components/Addon/index.js:484
 msgid "Restart Required"
 msgstr "Zahtevan je ponoven zagon"
 
-#: src/amo/components/Addon/index.js:488
+#: src/amo/components/Addon/index.js:490
 msgid "Experimental"
 msgstr "Poskusen"
 
-#: src/amo/components/Addon/index.js:506
+#: src/amo/components/Addon/index.js:509
 msgid "Extension Metadata"
 msgstr "Metapodatki o razširitvi"
 
-#: src/amo/components/Addon/index.js:529
+#: src/amo/components/Addon/index.js:532
 msgid "Screenshots"
 msgstr "Posnetki zaslona"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Za namestitev tega dodatka potrebujete <a href=\"%(downloadUrl)s\">Firefox</a>."
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"Za namestitev tega dodatka potrebujete <a href=\"%(downloadUrl)s\">Firefox</"
+"a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
@@ -139,14 +144,23 @@ msgid "This add-on is not available on your platform."
 msgstr "Ta dodatek ni na voljo za vašo platformo."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "Ta dodatek zahteva <a href=\"%(downloadUrl)s\">novejšo različico Firefoxa</a> (vsaj različico %(minVersion)s). Uporabljate Firefox %(yourVersion)s."
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"Ta dodatek zahteva <a href=\"%(downloadUrl)s\">novejšo različico Firefoxa</"
+"a> (vsaj različico %(minVersion)s). Uporabljate Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:88
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Vaš brskalnik ne podpira dodatkov. Za namestitev tega dodatka lahko <a href=\"%(downloadUrl)s\">prenesete Firefox</a>."
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"Vaš brskalnik ne podpira dodatkov. Za namestitev tega dodatka lahko <a href="
+"\"%(downloadUrl)s\">prenesete Firefox</a>."
 
-#: src/amo/components/AddonMeta.js:35 src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:34
+#: src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s uporabnik"
@@ -154,7 +168,7 @@ msgstr[1] "%(total)s uporabnika"
 msgstr[2] "%(total)s uporabniki"
 msgstr[3] "%(total)s uporabnikov"
 
-#: src/amo/components/AddonMeta.js:47
+#: src/amo/components/AddonMeta.js:46
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s ocena"
@@ -162,171 +176,192 @@ msgstr[1] "%(total)s oceni"
 msgstr[2] "%(total)s ocene"
 msgstr[3] "%(total)s ocen"
 
-#: src/amo/components/AddonMeta.js:52
+#: src/amo/components/AddonMeta.js:51
 msgid "No reviews"
 msgstr "Ni ocen"
 
-#: src/amo/components/AddonMeta.js:58
+#: src/amo/components/AddonMeta.js:57
 msgid "Used by"
 msgstr "Uporablja"
 
-#: src/amo/components/AddonMeta.js:63
+#: src/amo/components/AddonMeta.js:62
 msgid "Click to view statistics"
 msgstr "Kliknite za ogled statistike"
 
-#: src/amo/components/AddonMoreInfo/index.js:103
+#: src/amo/components/AddonMoreInfo/index.js:102
 msgid "Read the license agreement for this add-on"
 msgstr "Preberite licenčno pogodbo za ta dodatek"
 
-#: src/amo/components/AddonMoreInfo/index.js:112
+#: src/amo/components/AddonMoreInfo/index.js:111
 msgid "See all versions"
 msgstr "Ogled vseh različic"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:121
 msgid "See all beta versions"
 msgstr "Ogled vseh beta različic"
 
-#: src/amo/components/AddonMoreInfo/index.js:146
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "Add-on Links"
 msgstr "Povezave dodatka"
 
-#: src/amo/components/AddonMoreInfo/index.js:159
+#: src/amo/components/AddonMoreInfo/index.js:158
 msgid "Version"
 msgstr "Različica"
 
-#: src/amo/components/AddonMoreInfo/index.js:164 src/amo/components/Collection/index.js:144
+#: src/amo/components/AddonMoreInfo/index.js:163
+#: src/amo/components/Collection/index.js:150
 msgid "Last updated"
 msgstr "Zadnja posodobitev"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:168
 msgid "License"
 msgstr "Licenca"
 
-#: src/amo/components/AddonMoreInfo/index.js:175
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Privacy Policy"
 msgstr "Pravilnik o zasebnosti"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:180
 msgid "End-User License Agreement"
 msgstr "Licenčna pogodba za končnega uporabnika"
 
-#: src/amo/components/AddonMoreInfo/index.js:187
+#: src/amo/components/AddonMoreInfo/index.js:186
 msgid "Version History"
 msgstr "Zgodovina različic"
 
-#: src/amo/components/AddonMoreInfo/index.js:193
+#: src/amo/components/AddonMoreInfo/index.js:192
 msgid "Beta Versions"
 msgstr "Beta različice"
 
-#: src/amo/components/AddonMoreInfo/index.js:199
+#: src/amo/components/AddonMoreInfo/index.js:198
 msgid "Usage Statistics"
 msgstr "Statistika uporabe"
 
-#: src/amo/components/AddonMoreInfo/index.js:205
-msgid "This ID is useful for debugging and identifying your add-on to site administrators."
-msgstr "Ta ID je uporaben za razhroščevanje in za prepoznavanje vašega dodatka s strani spletnih mest."
+#: src/amo/components/AddonMoreInfo/index.js:204
+msgid ""
+"This ID is useful for debugging and identifying your add-on to site "
+"administrators."
+msgstr ""
+"Ta ID je uporaben za razhroščevanje in za prepoznavanje vašega dodatka s "
+"strani spletnih mest."
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:207
 msgid "Site Identifier"
 msgstr "Identifikator strani"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:222
 msgid "More information"
 msgstr "Več informacij"
 
-#: src/amo/components/AddonMoreInfo/index.js:45
+#: src/amo/components/AddonMoreInfo/index.js:44
 msgid "Homepage"
 msgstr "Domača stran"
 
-#: src/amo/components/AddonMoreInfo/index.js:54
+#: src/amo/components/AddonMoreInfo/index.js:53
 msgid "Support Site"
 msgstr "Stran s podporo"
 
-#: src/amo/components/AddonMoreInfo/index.js:67
+#: src/amo/components/AddonMoreInfo/index.js:66
 msgid "Visit stats dashboard"
 msgstr "Odpri nadzorno ploščo s statistiko"
 
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:74
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:95
+#: src/amo/components/AddonMoreInfo/index.js:94
 msgid "Read the privacy policy for this add-on"
 msgstr "Preberite pravilnik o zasebnosti za ta dodatek"
 
-#: src/amo/components/AddonReview/index.js:170
+#: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "Pojasnite svetu, zakaj se vam ta razširitev zdi odlična!"
 
-#: src/amo/components/AddonReview/index.js:173
+#: src/amo/components/AddonReview/index.js:172
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "Povejte, zakaj vam je ta razširitev všeč. Bodite določni in jedrnati."
 
-#: src/amo/components/AddonReview/index.js:177
+#: src/amo/components/AddonReview/index.js:176
 msgid "Tell the world about this extension."
 msgstr "Povejte svetu za to razširitev."
 
-#: src/amo/components/AddonReview/index.js:178
-msgid "Tell us about your experience with this extension. Be specific and concise."
+#: src/amo/components/AddonReview/index.js:177
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr "Opišite nam svojo izkušnjo z dodatkom. Bodite določni in jedrnati."
 
-#: src/amo/components/AddonReview/index.js:190
+#: src/amo/components/AddonReview/index.js:189
 msgid "Write a review"
 msgstr "Napišite oceno"
 
-#: src/amo/components/AddonReview/index.js:201
+#: src/amo/components/AddonReview/index.js:200
 msgid "Review text"
 msgstr "Besedilo ocene"
 
-#: src/amo/components/AddonReview/index.js:216
+#: src/amo/components/AddonReview/index.js:215
 msgid "Submit review"
 msgstr "Objavi oceno"
 
-#: src/amo/components/AddonReviewList/index.js:142
+#: src/amo/components/AddonReviewList/index.js:141
 msgid "Add-on icon"
 msgstr "Ikona dodatka"
 
-#: src/amo/components/AddonReviewList/index.js:148
+#: src/amo/components/AddonReviewList/index.js:147
 msgid "Reviews for %(addonName)s"
 msgstr "Ocene za %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:169
+#: src/amo/components/AddonReviewList/index.js:168
 msgid "All written reviews"
 msgstr "Vse napisane ocene"
 
-#: src/amo/components/AddonReviewListItem/index.js:148
-msgid "posted %(timestamp)s"
-msgstr "objavljeno ob %(timestamp)s"
-
-#: src/amo/components/AddonReviewListItem/index.js:152
-msgid "by %(authorName)s, %(timestamp)s"
-msgstr "— %(authorName)s, %(timestamp)s"
-
-#: src/amo/components/AddonReviewListItem/index.js:181
+#: src/amo/components/AddonReviewListItem/index.js:142
 msgid "Developer response"
 msgstr "Odgovor razvijalca"
 
-#: src/amo/components/AddonReviewListItem/index.js:216
-msgid "Edit my review"
-msgstr "Uredi oceno"
-
-#: src/amo/components/AddonReviewListItem/index.js:233
-msgid "Reply to this review"
-msgstr "Odgovori na to oceno"
-
-#: src/amo/components/AddonReviewListItem/index.js:252
+#: src/amo/components/AddonReviewListItem/index.js:150
 msgid "Write a reply to this review."
 msgstr "Napišite odgovor na to oceno."
 
-#: src/amo/components/AddonReviewListItem/index.js:255
+#: src/amo/components/AddonReviewListItem/index.js:153
+msgid "Update reply"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Publish reply"
 msgstr "Objavi odgovor"
 
-#: src/amo/components/AddonReviewListItem/index.js:256
+#: src/amo/components/AddonReviewListItem/index.js:158
+#, fuzzy
+msgid "Updating reply"
+msgstr "Objavljanje odgovora"
+
+#: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
 msgstr "Objavljanje odgovora"
 
-#: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:150
+#: src/amo/components/AddonReviewListItem/index.js:197
+msgid "posted %(timestamp)s"
+msgstr "objavljeno ob %(timestamp)s"
+
+#: src/amo/components/AddonReviewListItem/index.js:201
+msgid "by %(authorName)s, %(timestamp)s"
+msgstr "— %(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewListItem/index.js:253
+#, fuzzy
+msgid "Edit my reply"
+msgstr "Uredi oceno"
+
+#: src/amo/components/AddonReviewListItem/index.js:254
+msgid "Edit my review"
+msgstr "Uredi oceno"
+
+#: src/amo/components/AddonReviewListItem/index.js:272
+msgid "Reply to this review"
+msgstr "Odgovori na to oceno"
+
+#: src/amo/components/App/index.js:202
+#: src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Dodatki za Firefox"
 
@@ -334,63 +369,83 @@ msgstr "Dodatki za Firefox"
 msgid "%s - Add-ons for Firefox"
 msgstr "%s - Dodatki za Firefox"
 
-#: src/amo/components/Categories/index.js:101
+#: src/amo/components/Categories/index.js:100
 msgid "No categories found."
 msgstr "Ni najdenih kategorij."
 
-#: src/amo/components/Categories/index.js:108
+#: src/amo/components/Categories/index.js:107
 msgid "Categories"
 msgstr "Kategorije"
 
-#: src/amo/components/Categories/index.js:113
+#: src/amo/components/Categories/index.js:112
 msgid "Loading categories."
 msgstr "Nalaganje kategorij."
 
-#: src/amo/components/Category/index.js:124 src/amo/components/HomeCarousel/index.js:31 src/amo/components/LandingPage/index.js:130
+#: src/amo/components/Category/index.js:124
+#: src/amo/components/HomeHeroBanner/index.js:36
+#: src/amo/components/LandingPage/index.js:126
 msgid "Featured extensions"
 msgstr "Izbrane razširitve"
 
-#: src/amo/components/Category/index.js:133 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:133
+#: src/amo/components/LandingPage/index.js:134
 msgid "More featured extensions"
 msgstr "Več izbranih razširitev"
 
-#: src/amo/components/Category/index.js:134 src/amo/components/Home/index.js:172 src/amo/components/LandingPage/index.js:133
-msgid "Most popular extensions"
-msgstr "Najbolj priljubljene razširitve"
+#: src/amo/components/Category/index.js:134
+#: src/amo/components/LandingPage/index.js:135
+#, fuzzy
+msgid "Trending extensions"
+msgstr "Najbolje ocenjene razširitve"
 
-#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:173 src/amo/components/LandingPage/index.js:138
-msgid "More popular extensions"
-msgstr "Več priljubljenih razširitev"
+#: src/amo/components/Category/index.js:143
+#: src/amo/components/Home/index.js:165
+#: src/amo/components/LandingPage/index.js:140
+#, fuzzy
+msgid "More trending extensions"
+msgstr "Več izbranih razširitev"
 
-#: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:139
+#: src/amo/components/Category/index.js:144
+#: src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
 msgstr "Najbolje ocenjene razširitve"
 
-#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:147
+#: src/amo/components/Category/index.js:153
+#: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated extensions"
 msgstr "Več visoko ocenjenih razširitev"
 
-#: src/amo/components/Category/index.js:156 src/amo/components/Home/index.js:198 src/amo/components/LandingPage/index.js:150
+#: src/amo/components/Category/index.js:156
+#: src/amo/components/Home/index.js:149
+#: src/amo/components/LandingPage/index.js:152
 msgid "Featured themes"
 msgstr "Izbrane teme"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:199 src/amo/components/LandingPage/index.js:152
+#: src/amo/components/Category/index.js:165
+#: src/amo/components/Home/index.js:150
+#: src/amo/components/LandingPage/index.js:160
 msgid "More featured themes"
 msgstr "Več izbranih tem"
 
-#: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:153
-msgid "Most popular themes"
-msgstr "Najbolj priljubljene teme"
+#: src/amo/components/Category/index.js:166
+#: src/amo/components/LandingPage/index.js:161
+#, fuzzy
+msgid "Trending themes"
+msgstr "Najbolje ocenjene teme"
 
-#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:158
-msgid "More popular themes"
-msgstr "Več priljubljenih tem"
+#: src/amo/components/Category/index.js:175
+#: src/amo/components/LandingPage/index.js:166
+#, fuzzy
+msgid "More trending themes"
+msgstr "Več izbranih tem"
 
-#: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:159
+#: src/amo/components/Category/index.js:176
+#: src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
 msgstr "Najbolje ocenjene teme"
 
-#: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:164
+#: src/amo/components/Category/index.js:185
+#: src/amo/components/LandingPage/index.js:172
 msgid "More highly rated themes"
 msgstr "Več visoko ocenjenih tem"
 
@@ -406,103 +461,136 @@ msgstr "Prebrskaj vse razširitve v tej kategoriji."
 msgid "Browse all themes in this category."
 msgstr "Prebrskaj vse teme v tej kategoriji."
 
-#: src/amo/components/Collection/index.js:130
+#: src/amo/components/Collection/index.js:136
 msgid "Addons"
 msgstr "Dodatki"
 
-#: src/amo/components/Collection/index.js:136
+#: src/amo/components/Collection/index.js:142
 msgid "Creator"
 msgstr "Avtor"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:89
+#: src/amo/components/DownloadFirefoxButton/index.js:38
+#: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Prenesite Firefox"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:22
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:23
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
-"Če ste prijavljeni in se vam zdi to sporočilo napaka, <a href=\"%(url)s\">izpolnite poročilo o težavi</a>. Povejte nam, od kod ste prišli in do česa ste poskušali dostopati, mi pa bomo težavo "
-"odpravili."
+"Če ste prijavljeni in se vam zdi to sporočilo napaka, <a href=\"%(url)s"
+"\">izpolnite poročilo o težavi</a>. Povejte nam, od kod ste prišli in do "
+"česa ste poskušali dostopati, mi pa bomo težavo odpravili."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
 msgstr "Niste pooblaščeni"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:38
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr "Niste pooblaščeni za dostop do te strani. Če niste prijavljeni, se poskusite prijaviti prek povezave na vrhu strani."
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:39
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
+msgstr ""
+"Niste pooblaščeni za dostop do te strani. Če niste prijavljeni, se poskusite "
+"prijaviti prek povezave na vrhu strani."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "Če ste sledili povezavi na tem spletnem mestu, <a href=\"%(url)s\">izpolnite poročilo o težavi</a>. Povejte nam, od kod ste prišli in kaj ste iskali, mi pa se bomo potrudili, da težavo odpravimo."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
+msgstr ""
+"Če ste sledili povezavi na tem spletnem mestu, <a href=\"%(url)s\">izpolnite "
+"poročilo o težavi</a>. Povejte nam, od kod ste prišli in kaj ste iskali, mi "
+"pa se bomo potrudili, da težavo odpravimo."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Strani ni mogoče najti"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr "Žal na naslovu, ki ste ga vnesli, ne najdemo ničesar. Če ste sledili povezavi do dodatka, je mogoče, da je avtor odstranil dodatek."
+msgid ""
+"Sorry, but we can't find anything at the address you entered. If you "
+"followed a link to an add-on, it's possible that add-on has been removed by "
+"its author."
+msgstr ""
+"Žal na naslovu, ki ste ga vnesli, ne najdemo ničesar. Če ste sledili "
+"povezavi do dodatka, je mogoče, da je avtor odstranil dodatek."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
-"Če imate dodatne informacije, ki bi nam lahko pomagale, lahko <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">prijavite težavo</a>. Povejte nam, s kakšnimi koraki ste prišli do "
-"napake, mi pa se bomo potrudili, da jo odpravimo."
+"Če imate dodatne informacije, ki bi nam lahko pomagale, lahko <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">prijavite težavo</"
+"a>. Povejte nam, s kakšnimi koraki ste prišli do napake, mi pa se bomo "
+"potrudili, da jo odpravimo."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Napaka strežnika"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Žal je prišlo do napake na našem strežniku in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
+msgstr ""
+"Žal je prišlo do napake na našem strežniku in vaše zahteve nismo mogli "
+"izpolniti. Napako smo zabeležili in se ji bomo posvetili."
 
-#: src/amo/components/FeaturedAddons/index.js:50
-msgid "More Featured Extensions"
-msgstr "Več izbranih razširitev"
+#: src/amo/components/Footer/index.js:102
+msgid "Android Browser"
+msgstr "Brskalnik za Android"
 
-#: src/amo/components/FeaturedAddons/index.js:52
-msgid "More Featured Themes"
-msgstr "Več izbranih tem"
+#: src/amo/components/Footer/index.js:107
+msgid "iOS Browser"
+msgstr "Brskalnik za iOS"
 
-#: src/amo/components/Footer/index.js:104
+#: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
 msgstr "Brskalnik Focus"
 
-#: src/amo/components/Footer/index.js:109
+#: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
 msgstr "Namizni brskalnik"
 
-#: src/amo/components/Footer/index.js:114
+#: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
 msgstr "Beta, Nightly, Developer Edition"
 
-#: src/amo/components/Footer/index.js:138
+#: src/amo/components/Footer/index.js:146
 msgid "Privacy"
 msgstr "Zasebnost"
 
-#: src/amo/components/Footer/index.js:139
+#: src/amo/components/Footer/index.js:147
 msgid "Cookies"
 msgstr "Piškotki"
 
-#: src/amo/components/Footer/index.js:140
+#: src/amo/components/Footer/index.js:148
 msgid "Legal"
 msgstr "Pravno obvestilo"
 
-#: src/amo/components/Footer/index.js:141
+#: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
 msgstr "Prijavi zlorabo blagovne znamke"
 
-#: src/amo/components/Footer/index.js:150
+#: src/amo/components/Footer/index.js:158
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
-"Če ni %(startNotedLink)snavedeno%(endNotedLink)s drugače, je vsebina te spletne strani na voljo pod licenco %(startLicenseLink)sCreative Commons Attribution Share-Alike v3.0%(endLicenseLink)s ali "
-"pod katerokoli novejšo različico."
+"Če ni %(startNotedLink)snavedeno%(endNotedLink)s drugače, je vsebina te "
+"spletne strani na voljo pod licenco %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike v3.0%(endLicenseLink)s ali pod katerokoli novejšo "
+"različico."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -528,25 +616,22 @@ msgstr "Razvojni center"
 msgid "Forum"
 msgstr "Forum"
 
-#: src/amo/components/Footer/index.js:74
-msgid "View classic desktop site"
-msgstr "Ogled strani za namizja"
-
-#: src/amo/components/Footer/index.js:78
+#: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
 msgstr "Prijavi hrošča"
 
-#: src/amo/components/Footer/index.js:80
+#: src/amo/components/Footer/index.js:75
+#, fuzzy
+msgid "Review Guide"
+msgstr "Smernice za ocene"
+
+#: src/amo/components/Footer/index.js:78
 msgid "Site Status"
 msgstr "Stanje strani"
 
-#: src/amo/components/Footer/index.js:94
-msgid "Android Browser"
-msgstr "Brskalnik za Android"
-
-#: src/amo/components/Footer/index.js:99
-msgid "iOS Browser"
-msgstr "Brskalnik za iOS"
+#: src/amo/components/Footer/index.js:86
+msgid "View classic desktop site"
+msgstr "Ogled strani za namizja"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -568,7 +653,8 @@ msgstr "Pošlji novo temo"
 msgid "Manage API Keys"
 msgstr "Upravljaj ključe API"
 
-#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:64
+#: src/amo/components/Header/index.js:137
+#: src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
 msgstr "Odjava"
 
@@ -584,119 +670,108 @@ msgstr "Moj račun"
 msgid "View Profile"
 msgstr "Prikaži profil"
 
-#: src/amo/components/Home/index.js:101 src/amo/components/Home/index.js:126
-msgid "Be social"
-msgstr "Postane družaben"
+#: src/amo/components/Home/index.js:116
+msgid "Most popular extensions"
+msgstr "Najbolj priljubljene razširitve"
 
-#: src/amo/components/Home/index.js:104 src/amo/components/Home/index.js:129
-msgid "Play games"
-msgstr "Igra igre"
+#: src/amo/components/Home/index.js:117
+msgid "More popular extensions"
+msgstr "Več priljubljenih razširitev"
 
-#: src/amo/components/Home/index.js:114 src/amo/components/Home/index.js:89
-msgid "Block ads"
-msgstr "Zavrača oglase"
-
-#: src/amo/components/Home/index.js:117 src/amo/components/Home/index.js:92
-msgid "Screenshot"
-msgstr "Ustvarja posnetke zaslona"
-
-#: src/amo/components/Home/index.js:120 src/amo/components/Home/index.js:95
-msgid "Find news"
-msgstr "Vas zalaga z novicami"
-
-#: src/amo/components/Home/index.js:123 src/amo/components/Home/index.js:98
-msgid "Shop online"
-msgstr "Nakupuje na spletu"
-
-#: src/amo/components/Home/index.js:143
-msgid "Wild"
-msgstr "Divje"
-
-#: src/amo/components/Home/index.js:144
-msgid "Abstract"
-msgstr "Abstraktno"
-
-#: src/amo/components/Home/index.js:145
-msgid "Holiday"
-msgstr "Počitnice"
-
-#: src/amo/components/Home/index.js:146
-msgid "Scenic"
-msgstr "Slikovito"
-
-#: src/amo/components/Home/index.js:147
-msgid "Sporty"
-msgstr "Športno"
-
-#: src/amo/components/Home/index.js:148
-msgid "Solid"
-msgstr "Enobarvno"
-
-#: src/amo/components/Home/index.js:187
+#: src/amo/components/Home/index.js:131
 msgid "Change your tabs"
 msgstr "Spremenite zavihke"
 
-#: src/amo/components/Home/index.js:188
+#: src/amo/components/Home/index.js:132
 msgid "Browse this collection"
 msgstr "Prebrskaj to zbirko"
 
-#: src/amo/components/Home/index.js:207 src/amo/components/SuggestedPages/index.js:26
-msgid "Browse all extensions"
-msgstr "Prebrskaj vse razširitve"
+#: src/amo/components/Home/index.js:141
+msgid "I'm interested in…"
+msgstr ""
 
-#: src/amo/components/Home/index.js:212
-msgid "You can change how Firefox works…"
-msgstr "Spremenite lahko, kako Firefox deluje …"
+#: src/amo/components/Home/index.js:164
+msgid "Up & Coming"
+msgstr ""
 
-#: src/amo/components/Home/index.js:215 src/amo/components/LandingPage/index.js:210
-msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Raziščite zmogljiva orodja in možnosti, s katerimi lahko prilagodite Firefox po čisto svoji meri."
+#: src/amo/components/Home/index.js:59
+msgid "Ad blockers"
+msgstr ""
 
-#: src/amo/components/Home/index.js:226 src/amo/components/SuggestedPages/index.js:31
-msgid "Browse all themes"
-msgstr "Prebrskaj vse teme"
+#: src/amo/components/Home/index.js:63
+msgid "Password managers"
+msgstr ""
 
-#: src/amo/components/Home/index.js:231
-msgid "…or what it looks like"
-msgstr "… ali kako je videti"
+#: src/amo/components/Home/index.js:67
+msgid "Bookmarks"
+msgstr ""
 
-#: src/amo/components/Home/index.js:234 src/amo/components/LandingPage/index.js:208
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr "Spremenite videz svojega brskalnika. Izbirajte med tisoči tem in Firefoxu vdahnite svojo osebnost."
+#: src/amo/components/Home/index.js:71
+msgid "Watching Videos"
+msgstr ""
 
-#: src/amo/components/HomeCarousel/index.js:33
+#: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
 msgstr "Izvrstne razširitve za vse priložnosti"
 
-#: src/amo/components/HomeCarousel/index.js:42
+#: src/amo/components/HomeHeroBanner/index.js:47
 msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
-#: src/amo/components/HomeCarousel/index.js:45
+#: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Videos in HD, turn off annotations, change player size & more"
-msgstr "Video v visoki ločljivosti, izklop pripisov, spreminjanje velikosti predvajalnika in več"
+msgstr ""
+"Video v visoki ločljivosti, izklop pripisov, spreminjanje velikosti "
+"predvajalnika in več"
 
-#: src/amo/components/HomeCarousel/index.js:57
-msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr "Od zavračanja oglasov do zaščite pred sledenjem – tu je nekaj izjemnih razširitev za zasebnost"
+#: src/amo/components/HomeHeroBanner/index.js:61
+msgid "Block ads"
+msgstr "Zavrača oglase"
 
-#: src/amo/components/HomeCarousel/index.js:68
+#: src/amo/components/HomeHeroBanner/index.js:64
+msgid ""
+"From ad blockers to anti-trackers, here are some impressive privacy "
+"extensions"
+msgstr ""
+"Od zavračanja oglasov do zaščite pred sledenjem – tu je nekaj izjemnih "
+"razširitev za zasebnost"
+
+#: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
-#: src/amo/components/HomeCarousel/index.js:70
+#: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr "Izredno zmogljiva razširitev za zavračanje oglasov, preprosta za uporabo"
+msgstr ""
+"Izredno zmogljiva razširitev za zavračanje oglasov, preprosta za uporabo"
 
-#: src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
+#: src/amo/components/LandingPage/index.js:212
+#: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Teme"
 
-#: src/amo/components/LandingPage/index.js:205 src/amo/components/SectionLinks/index.js:84
+#: src/amo/components/LandingPage/index.js:213
+#: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Razširitve"
 
-#: src/amo/components/LandingPage/index.js:235
+#: src/amo/components/LandingPage/index.js:216
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Spremenite videz svojega brskalnika. Izbirajte med tisoči tem in Firefoxu "
+"vdahnite svojo osebnost."
+
+#: src/amo/components/LandingPage/index.js:218
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
+msgstr ""
+"Raziščite zmogljiva orodja in možnosti, s katerimi lahko prilagodite Firefox "
+"po čisto svoji meri."
+
+#: src/amo/components/LandingPage/index.js:243
 msgid "Explore all categories"
 msgstr "Raziščite vse kategorije"
 
@@ -704,71 +779,126 @@ msgstr "Raziščite vse kategorije"
 msgid "Change language"
 msgstr "Spremeni jezik"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/LanguageTools/index.js:130
+#, fuzzy
+msgid "Dictionaries and Language Packs"
+msgstr "Slovarji in jezikovni paketi"
+
+#: src/amo/components/LanguageTools/index.js:135
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:140
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:146
+msgid "All Locales"
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:152
+msgid "Locale Name"
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:155
+#, fuzzy
+msgid "Language Packs"
+msgstr "Najdi jezikovni paket"
+
+#: src/amo/components/LanguageTools/index.js:158
+msgid "Dictionaries"
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:91
+msgid "Available for your locale"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
 msgstr "Prijavite se, da ocenite ta slovar"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:134
 msgid "Log in to rate this language pack"
 msgstr "Prijavite se, da ocenite ta jezikovni paket"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this search plugin"
 msgstr "Prijavite se, da ocenite ta iskalnik"
 
-#: src/amo/components/RatingManager/index.js:133
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this theme"
 msgstr "Prijavite se, da ocenite to temo"
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this extension"
 msgstr "Prijavite se, da ocenite to razširitev"
 
-#: src/amo/components/RatingManager/index.js:141
+#: src/amo/components/RatingManager/index.js:146
 msgid "Log in to rate this add-on"
 msgstr "Prijavite se, da ocenite ta dodatek"
 
-#: src/amo/components/RatingManager/index.js:165
+#: src/amo/components/RatingManager/index.js:170
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Kako vam ugaja %(addonName)s?"
 
-#: src/amo/components/ReportAbuseButton/index.js:107
+#: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"
 msgstr "Ta dodatek ste prijavili kot zlorabo"
 
-#: src/amo/components/ReportAbuseButton/index.js:111
-msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr "Prejeli smo vaše poročilo. Hvala, ker ste nas obvestili o svojih pomislekih glede tega dodatka."
+#: src/amo/components/ReportAbuseButton/index.js:112
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
+msgstr ""
+"Prejeli smo vaše poročilo. Hvala, ker ste nas obvestili o svojih pomislekih "
+"glede tega dodatka."
 
-#: src/amo/components/ReportAbuseButton/index.js:118
+#: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr "Na vsako poročilo o zlorabi se ne moremo odzvati, vendar bomo vašo prijavo preverili."
+msgstr ""
+"Na vsako poročilo o zlorabi se ne moremo odzvati, vendar bomo vašo prijavo "
+"preverili."
 
-#: src/amo/components/ReportAbuseButton/index.js:129
-msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
-msgstr "Če sumite, da ta dodatek krši %(linkTagStart)sMozilline pravilnike za dodatke%(linkTagEnd)s ali da ima težave z zasebnostjo ali varnostjo, prijavite te težave Mozilli prek tega obrazca."
+#: src/amo/components/ReportAbuseButton/index.js:130
+msgid ""
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
+"%(linkTagEnd)s or has security or privacy issues, please report these issues "
+"to Mozilla using this form."
+msgstr ""
+"Če sumite, da ta dodatek krši %(linkTagStart)sMozilline pravilnike za dodatke"
+"%(linkTagEnd)s ali da ima težave z zasebnostjo ali varnostjo, prijavite te "
+"težave Mozilli prek tega obrazca."
 
-#: src/amo/components/ReportAbuseButton/index.js:151 src/amo/components/ReportAbuseButton/index.js:157
+#: src/amo/components/ReportAbuseButton/index.js:152
+#: src/amo/components/ReportAbuseButton/index.js:158
 msgid "Report this add-on for abuse"
 msgstr "Prijavi ta dodatek kot zlorabo"
 
-#: src/amo/components/ReportAbuseButton/index.js:165
-msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Ne uporabljajte tega obrazca za poročanje o napakah ali zahtevanje novih funkcij; poročilo bo poslano Mozilli in ne razvijalcu dodatka."
+#: src/amo/components/ReportAbuseButton/index.js:166
+msgid ""
+"Please don't use this form to report bugs or request add-on features; this "
+"report will be sent to Mozilla and not to the add-on developer."
+msgstr ""
+"Ne uporabljajte tega obrazca za poročanje o napakah ali zahtevanje novih "
+"funkcij; poročilo bo poslano Mozilli in ne razvijalcu dodatka."
 
-#: src/amo/components/ReportAbuseButton/index.js:178
+#: src/amo/components/ReportAbuseButton/index.js:179
 msgid "Explain how this add-on is violating our policies."
 msgstr "Opišite, kako ta dodatek krši naše pravilnike."
 
-#: src/amo/components/ReportAbuseButton/index.js:191
+#: src/amo/components/ReportAbuseButton/index.js:192
 msgid "Dismiss"
 msgstr "Opusti"
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Sending abuse report"
 msgstr "Pošiljanje poročila o zlorabi"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:201
 msgid "Send abuse report"
 msgstr "Pošlji poročilo o zlorabi"
 
@@ -840,61 +970,71 @@ msgstr[1] "%(count)s najdena dodatka"
 msgstr[2] "%(count)s najdeni dodatki"
 msgstr[3] "%(count)s najdenih dodatkov"
 
-#: src/amo/components/SearchFilters/index.js:104
-msgid "Filter results"
-msgstr "Filtriranje rezultatov"
-
-#: src/amo/components/SearchFilters/index.js:110
-msgid "Sort by"
-msgstr "Razvrsti po"
-
-#: src/amo/components/SearchFilters/index.js:128
-msgid "Add-on Type"
-msgstr "Vrsta dodatka"
-
-#: src/amo/components/SearchFilters/index.js:146
-msgid "Operating System"
-msgstr "Operacijski sistem"
-
-#: src/amo/components/SearchFilters/index.js:70 src/amo/components/SearchFilters/index.js:80
+#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:92
 msgid "All"
 msgstr "Vse"
 
-#: src/amo/components/SearchFilters/index.js:71
-msgid "Extension"
-msgstr "Razširitev"
-
-#: src/amo/components/SearchFilters/index.js:72
-msgid "Theme"
-msgstr "Tema"
-
-#: src/amo/components/SearchFilters/index.js:81
+#: src/amo/components/SearchFilters/index.js:103
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:82
+#: src/amo/components/SearchFilters/index.js:104
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:83
+#: src/amo/components/SearchFilters/index.js:105
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:91
+#: src/amo/components/SearchFilters/index.js:113
 msgid "Relevance"
 msgstr "Ustreznost"
 
-#: src/amo/components/SearchFilters/index.js:92
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Recently Updated"
 msgstr "Nedavno posodobljeno"
 
-#: src/amo/components/SearchFilters/index.js:93
+#: src/amo/components/SearchFilters/index.js:115
 msgid "Most Users"
 msgstr "Največ uporabnikov"
 
-#: src/amo/components/SearchFilters/index.js:94
+#: src/amo/components/SearchFilters/index.js:116
 msgid "Top Rated"
 msgstr "Najbolje ocenjeni"
+
+#: src/amo/components/SearchFilters/index.js:117
+msgid "Trending"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:127
+msgid "Filter results"
+msgstr "Filtriranje rezultatov"
+
+#: src/amo/components/SearchFilters/index.js:134
+msgid "Sort by"
+msgstr "Razvrsti po"
+
+#: src/amo/components/SearchFilters/index.js:152
+msgid "Add-on Type"
+msgstr "Vrsta dodatka"
+
+#: src/amo/components/SearchFilters/index.js:170
+msgid "Operating System"
+msgstr "Operacijski sistem"
+
+#: src/amo/components/SearchFilters/index.js:196
+#, fuzzy
+msgid "Featured add-ons only"
+msgstr "Izbran dodatek"
+
+#: src/amo/components/SearchFilters/index.js:93
+msgid "Extension"
+msgstr "Razširitev"
+
+#: src/amo/components/SearchFilters/index.js:94
+msgid "Theme"
+msgstr "Tema"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
@@ -920,7 +1060,8 @@ msgstr "Najdi teme"
 msgid "Find add-ons"
 msgstr "Najdi dodatke"
 
-#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247
+#: src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Išči"
 
@@ -952,56 +1093,72 @@ msgstr "Vnesite iskalno poizvedbo za iskanje po Dodatkih za Firefox."
 msgid "Search results"
 msgstr "Rezultati iskanja"
 
-#: src/amo/components/SectionLinks/index.js:100
-msgid "More…"
-msgstr "Več …"
-
-#: src/amo/components/SectionLinks/index.js:113
+#: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
 msgstr "Slovarji in jezikovni paketi"
 
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
 msgstr "Orodja za iskanje"
 
-#: src/amo/components/SectionLinks/index.js:126
+#: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
 msgstr "Druge strani brskalnika"
 
-#: src/amo/components/SectionLinks/index.js:137
+#: src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Dodatki za Android"
 
-#: src/amo/components/SectionLinks/index.js:59
+#: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
 msgstr "za Firefox"
 
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
 msgstr "za Android"
 
-#: src/amo/components/SectionLinks/index.js:73
+#: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
 msgstr "Razišči"
 
+#: src/amo/components/SectionLinks/index.js:99
+msgid "More…"
+msgstr "Več …"
+
 #: src/amo/components/StaticPages/About.js:110
-msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Če želite sodelovati, vendar niste tako tehnično podkovani, nam lahko pomagate tudi na druge načine:"
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
+msgstr ""
+"Če želite sodelovati, vendar niste tako tehnično podkovani, nam lahko "
+"pomagate tudi na druge načine:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Sodelujte na našem %(startLink)sforumu%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
-msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "Ocenite svoje najljubše dodatke. Avtorji dodatkov bodo verjetneje izboljševali svoje dodatke in ustvarjali nove, če bodo videli, da uporabniki cenijo njihovo delo."
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
+msgstr ""
+"Ocenite svoje najljubše dodatke. Avtorji dodatkov bodo verjetneje "
+"izboljševali svoje dodatke in ustvarjali nove, če bodo videli, da uporabniki "
+"cenijo njihovo delo."
 
 #: src/amo/components/StaticPages/About.js:129
-msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr "Povejte prijateljem in družini, da je Firefox hiter in varen brskalnik, ki ščiti vašo zasebnost ter ki ga lahko z dodatki prilagodijo po svoje!"
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
+msgstr ""
+"Povejte prijateljem in družini, da je Firefox hiter in varen brskalnik, ki "
+"ščiti vašo zasebnost ter ki ga lahko z dodatki prilagodijo po svoje!"
 
 #: src/amo/components/StaticPages/About.js:138
-msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
@@ -1010,31 +1167,51 @@ msgstr "Pomoč"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
-"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"V kolikor želite izvedeti več o upravljanju dodatkov v Firefoxu ali če potrebujete pomoč s Firefoxom nasploh, obiščite %(startSUMOLink)sPodporo Mozilla%(endSUMOLink)s. Če tam ne najdete odgovora, "
-"lahko %(startForumLink)szastavite vprašanje na našem forumu skupnosti%(endForumLink)s."
+"V kolikor želite izvedeti več o upravljanju dodatkov v Firefoxu ali če "
+"potrebujete pomoč s Firefoxom nasploh, obiščite %(startSUMOLink)sPodporo "
+"Mozilla%(endSUMOLink)s. Če tam ne najdete odgovora, lahko "
+"%(startForumLink)szastavite vprašanje na našem forumu skupnosti"
+"%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
-msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr "%(startLink)sPodatke za stik z Mozillino ekipo za dodatke lahko najdete tukaj%(endLink)s."
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
+msgstr ""
+"%(startLink)sPodatke za stik z Mozillino ekipo za dodatke lahko najdete tukaj"
+"%(endLink)s."
 
-#: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
+#: src/amo/components/StaticPages/About.js:24
+#: src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
 msgstr "O dodatkih za Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
-"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) je Mozillina uradna spletna stran za raziskovanje in nameščanje dodatkov za brskalnik Firefox. Dodatki vam omogočajo spremeniti ter prilagoditi izkušnjo brskanja z "
-"dodajanjem novih funkcij v Firefox, obogatitvijo možnosti obravnavanja spletne vsebine ali spreminjanjem videza brskalnika."
+"Addons.mozilla.org (AMO) je Mozillina uradna spletna stran za raziskovanje "
+"in nameščanje dodatkov za brskalnik Firefox. Dodatki vam omogočajo "
+"spremeniti ter prilagoditi izkušnjo brskanja z dodajanjem novih funkcij v "
+"Firefox, obogatitvijo možnosti obravnavanja spletne vsebine ali "
+"spreminjanjem videza brskalnika."
 
 #: src/amo/components/StaticPages/About.js:44
-msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr "Na AMO lahko najdete tudi dodatke za Mozilla %(startTBLink)sThunderbird%(endTBLink)s in %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgid ""
+"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr ""
+"Na AMO lahko najdete tudi dodatke za Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s in %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1042,8 +1219,11 @@ msgstr "Skupnost ustvarjalcev"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
-"been automatically published and may be subject to review by a team of editors once publically listed."
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publically "
+"listed."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
@@ -1052,31 +1232,44 @@ msgstr "Pridružite se"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
-"the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons suport user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
-msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr "%(startLink)sUstvarite lasten dodatek%(endLink)s. Ponujamo vam brezplačno gostovanje in storitev za posodobitve ter omogočamo doseg široke množice uporabnikov."
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
+msgstr ""
+"%(startLink)sUstvarite lasten dodatek%(endLink)s. Ponujamo vam brezplačno "
+"gostovanje in storitev za posodobitve ter omogočamo doseg široke množice "
+"uporabnikov."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
-"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+"Help improve this website. It's open source, and you can file bugs and "
+"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
+"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
+"Github."
 msgstr ""
 
-#: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
+#: src/amo/components/StaticPages/ReviewGuide.js:24
+#: src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
 msgstr "Smernice za ocene"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
-" with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons "
+"you’ve installed and used. Our review moderation team reserves the right to "
+"refuse or remove any review that does not comply with these guidelines."
 msgstr ""
-"Ocene dodatkov vam omogočajo, da objavite svoja mnenja in izkušnje z dodatki, ki ste jih uporabljali. Naša ekipa moderatorjev ocen si pridržuje pravico zavrniti ali odstraniti ocene, ki ne ustrezajo"
-" tem smernicam."
+"Ocene dodatkov vam omogočajo, da objavite svoja mnenja in izkušnje z "
+"dodatki, ki ste jih uporabljali. Naša ekipa moderatorjev ocen si pridržuje "
+"pravico zavrniti ali odstraniti ocene, ki ne ustrezajo tem smernicam."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1087,7 +1280,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-msgid "Write like you are telling a friend about your experience with the add-on."
+msgid ""
+"Write like you are telling a friend about your experience with the add-on."
 msgstr "Pišite, kot da pripovedujete prijatelju o svojih izkušnjah z dodatkom."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
@@ -1119,8 +1313,11 @@ msgid "Will you continue to use this add-on?"
 msgstr "Ali boste ta dodatek še naprej uporabljali?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
-msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr "Pred objavo si vzemite trenutek in preberite svojo oceno, da zmanjšate število tipkarskih napak."
+msgid ""
+"Take a moment to read your review before submitting it to minimize typos."
+msgstr ""
+"Pred objavo si vzemite trenutek in preberite svojo oceno, da zmanjšate "
+"število tipkarskih napak."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1128,47 +1325,72 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "Ne pišite ocen z eno besedo, kot so \"Super!\", \"Izvrstno\" ali \"Zanič\"."
+msgstr ""
+"Ne pišite ocen z eno besedo, kot so \"Super!\", \"Izvrstno\" ali \"Zanič\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
-" on the add-on's detail page."
+"Post technical issues, support requests, or feature suggestions. Use the "
+"available support options for each add-on, if available. You can find them "
+"in the \"More information\" section in the sidebar on the add-on's detail "
+"page."
 msgstr ""
-"Ne objavljajte poročil o tehničnih težavah, zahtev za podporo ali predlogov za nove funkcije. V te namene uporabite razpoložljive možnosti podpore, če so na voljo. Najdete jih v stranski vrstici "
-"strani s podrobnostmi o dodatku v odseku \"Več informacij\"."
+"Ne objavljajte poročil o tehničnih težavah, zahtev za podporo ali predlogov "
+"za nove funkcije. V te namene uporabite razpoložljive možnosti podpore, če "
+"so na voljo. Najdete jih v stranski vrstici strani s podrobnostmi o dodatku "
+"v odseku \"Več informacij\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Ne pišite ocen za dodatke, ki jih sami niste uporabljali."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
-msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr "Ne uporabljajte prostaških izrazov ali jezika, ki ga je lahko razumeti kot sovražnega."
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
+msgstr ""
+"Ne uporabljajte prostaških izrazov ali jezika, ki ga je lahko razumeti kot "
+"sovražnega."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
-msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr "Ne vključujte HTML-ja, povezav, izvorne kode ali izrezkov kode. V ocenah uporabite samo besedilo."
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
+msgstr ""
+"Ne vključujte HTML-ja, povezav, izvorne kode ali izrezkov kode. V ocenah "
+"uporabite samo besedilo."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
-msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "Ne pišite neresničnih trditev, ne omalovažujte avtorjev dodatka in ne žalite jih osebno."
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
+msgstr ""
+"Ne pišite neresničnih trditev, ne omalovažujte avtorjev dodatka in ne žalite "
+"jih osebno."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr "Ne vključujte svoje e-pošte, telefonske številke in drugih osebnih podatkov ali podatkov drugih oseb."
+msgid ""
+"Include your own or anyone else’s email, phone number, or other personal "
+"details."
+msgstr ""
+"Ne vključujte svoje e-pošte, telefonske številke in drugih osebnih podatkov "
+"ali podatkov drugih oseb."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr "Ne objavljajte ocen za dodatek, ki ste ga razvili vi sami ali vaša organizacija ali ki ga zastopate."
+msgstr ""
+"Ne objavljajte ocen za dodatek, ki ste ga razvili vi sami ali vaša "
+"organizacija ali ki ga zastopate."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
-"add-on, or the add-on requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving "
+"a negative review of an add-on for displaying ads or requiring data "
+"gathering, when that is the intended purpose of the add-on, or the add-on "
+"requires gathering data to function."
 msgstr ""
-"Ne kritizirajte dodatka zaradi tega, za kar je narejen. Na primer, ne pišite negativnih ocen za dodatek, če prikazuje oglase ali zahteva zbiranje podatkov, kadar je to njegov namen ali dodatek "
-"zahteva zbiranje podatkov za delovanje."
+"Ne kritizirajte dodatka zaradi tega, za kar je narejen. Na primer, ne pišite "
+"negativnih ocen za dodatek, če prikazuje oglase ali zahteva zbiranje "
+"podatkov, kadar je to njegov namen ali dodatek zahteva zbiranje podatkov za "
+"delovanje."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
@@ -1180,19 +1402,28 @@ msgstr "Kako lahko prijavim vprašljivo oceno?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
-"evaluate whether or not to delete the review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this "
+"review\" and it will be submitted to the site for moderation. Our moderation "
+"team will use the Review Guidelines to evaluate whether or not to delete the "
+"review or restore it back to the site."
 msgstr ""
-"Vsakršne vprašljive ocene prijavite s klikom na \"Prijavi to oceno\", s čimer jo boste poslali na stran za moderacijo. Naša ekipa moderatorjev bo glede na smernice za ocene presodila, ali oceno "
-"izbrisati ali jo obnoviti nazaj na stran."
+"Vsakršne vprašljive ocene prijavite s klikom na \"Prijavi to oceno\", s "
+"čimer jo boste poslali na stran za moderacijo. Naša ekipa moderatorjev bo "
+"glede na smernice za ocene presodila, ali oceno izbrisati ali jo obnoviti "
+"nazaj na stran."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Sem avtor dodatka, ali lahko odgovorim na oceno?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
-msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "Da, avtorji dodatkov lahko na oceno objavijo en odgovor. Za nadaljevanje razprave lahko odprete temo na našem %(startLink)sforumu%(endLink)s."
+msgid ""
+"Yes, add-on authors can provide a single response to a review. You can set "
+"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
+"additional discussion or follow-up."
+msgstr ""
+"Da, avtorji dodatkov lahko na oceno objavijo en odgovor. Za nadaljevanje "
+"razprave lahko odprete temo na našem %(startLink)sforumu%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1200,29 +1431,46 @@ msgstr "Sem avtor dodatka, ali lahko izbrišem neugodne ocene?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
-"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
-"valid due to a new release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines "
+"outlined above, you can click \"Report this review\" and have it moderated. "
+"If a review included a complaint that is no longer valid due to a new "
+"release of your add-on, we may consider deleting the review."
 msgstr ""
-"V splošnem ne. Toda če ocena ne ustreza zgornjim smernicam, lahko kliknete \"Prijavi to oceno\" in jo predložite za pregled. Če ocena vključuje pritožbo, ki ni več veljavna zaradi nove izdaje vašega"
-" dodatka, bomo premislili o njenem izbrisu."
+"V splošnem ne. Toda če ocena ne ustreza zgornjim smernicam, lahko kliknete "
+"\"Prijavi to oceno\" in jo predložite za pregled. Če ocena vključuje "
+"pritožbo, ki ni več veljavna zaradi nove izdaje vašega dodatka, bomo "
+"premislili o njenem izbrisu."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
 msgstr "Predlagane strani"
 
+#: src/amo/components/SuggestedPages/index.js:26
+msgid "Browse all extensions"
+msgstr "Prebrskaj vse razširitve"
+
+#: src/amo/components/SuggestedPages/index.js:31
+msgid "Browse all themes"
+msgstr "Prebrskaj vse teme"
+
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Domača stran dodatkov"
 
-#: src/core/components/AuthenticateButton/index.js:65
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Register or Log in"
 msgstr "Registrirajte se ali se prijavite"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo zabeležili in se ji bomo posvetili."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Žal je prišlo do napake in vaše zahteve nismo mogli izpolniti. Napako smo "
+"zabeležili in se ji bomo posvetili."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Koda napake: %(status)s."
 
@@ -1230,11 +1478,12 @@ msgstr "Koda napake: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Žal na spletnem naslovu, ki ste ga vnesli, ne najdemo ničesar."
 
-#: src/core/components/InstallButton/index.js:106
+#: src/core/components/InstallButton/index.js:108
 msgid "Install Theme"
 msgstr "Namesti temo"
 
-#: src/core/components/InstallButton/index.js:128 src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:130
+#: src/core/components/InstallButton/index.js:148
 msgid "Add to Firefox"
 msgstr "Dodaj v Firefox"
 
@@ -1290,7 +1539,7 @@ msgstr "Sedaj lahko do %(name)s dostopate iz orodne vrstice."
 msgid "OK!"
 msgstr "V redu!"
 
-#: src/ui/components/DismissibleTextForm/index.js:125
+#: src/ui/components/DismissibleTextForm/index.js:129
 msgid "Cancel"
 msgstr "Prekliči"
 
@@ -1334,8 +1583,63 @@ msgstr "Ni ocen"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Razširite</span> za več informacij"
 
-#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
-#~ msgstr "Namestite zmogljiva orodja, ki brskanje naredijo hitrejše in varnejše, brskalnik pa samo vaš."
+#~ msgid "Most popular themes"
+#~ msgstr "Najbolj priljubljene teme"
+
+#~ msgid "More popular themes"
+#~ msgstr "Več priljubljenih tem"
+
+#~ msgid "More Featured Extensions"
+#~ msgstr "Več izbranih razširitev"
+
+#~ msgid "More Featured Themes"
+#~ msgstr "Več izbranih tem"
+
+#~ msgid "Be social"
+#~ msgstr "Postane družaben"
+
+#~ msgid "Play games"
+#~ msgstr "Igra igre"
+
+#~ msgid "Screenshot"
+#~ msgstr "Ustvarja posnetke zaslona"
+
+#~ msgid "Find news"
+#~ msgstr "Vas zalaga z novicami"
+
+#~ msgid "Shop online"
+#~ msgstr "Nakupuje na spletu"
+
+#~ msgid "Wild"
+#~ msgstr "Divje"
+
+#~ msgid "Abstract"
+#~ msgstr "Abstraktno"
+
+#~ msgid "Holiday"
+#~ msgstr "Počitnice"
+
+#~ msgid "Scenic"
+#~ msgstr "Slikovito"
+
+#~ msgid "Sporty"
+#~ msgstr "Športno"
+
+#~ msgid "Solid"
+#~ msgstr "Enobarvno"
+
+#~ msgid "You can change how Firefox works…"
+#~ msgstr "Spremenite lahko, kako Firefox deluje …"
+
+#~ msgid "…or what it looks like"
+#~ msgstr "… ali kako je videti"
+
+#~ msgid ""
+#~ "Install powerful tools that make browsing faster and safer, add-ons make "
+#~ "your browser yours."
+#~ msgstr ""
+#~ "Namestite zmogljiva orodja, ki brskanje naredijo hitrejše in varnejše, "
+#~ "brskalnik pa samo vaš."
 
 #~ msgid "Privacy policy"
 #~ msgstr "Pravilnik o zasebnosti"
@@ -1361,8 +1665,12 @@ msgstr "<span class=\"visually-hidden\">Razširite</span> za več informacij"
 #~ msgid "Browse by category"
 #~ msgstr "Brskaj po kategorijah"
 
-#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
-#~ msgstr "Razširitve so posebne funkcije, ki jih lahko dodate v Firefox. Teme vam omogočajo spremeniti videz vašega brskalnika."
+#~ msgid ""
+#~ "Extensions are special features you can add to Firefox. Themes let you "
+#~ "change your browser's appearance."
+#~ msgstr ""
+#~ "Razširitve so posebne funkcije, ki jih lahko dodate v Firefox. Teme vam "
+#~ "omogočajo spremeniti videz vašega brskalnika."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s od 5"
