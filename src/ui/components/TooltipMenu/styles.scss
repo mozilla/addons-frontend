@@ -48,17 +48,15 @@
   background: $white;
   border-radius: $border-radius-default;
   list-style-type: none;
+  margin: 0;
   padding: 6px;
   position: relative;
-  white-space: nowrap;
   // Make sure this masks the box shadow of TooltipMenu-arrow.
   z-index: 2;
 
   .ListItem {
-    overflow: hidden;
     padding: 6px;
     padding-top: 0;
-    text-overflow: ellipsis;
 
     &:first-child {
       padding-top: 6px;
@@ -71,6 +69,11 @@
       color: $grey-90;
       font-size: $font-size-m-smaller;
       line-height: 1.6;
+      overflow: hidden;
+      text-align: left;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
     }
 
     a,

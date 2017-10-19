@@ -81,6 +81,20 @@ describe(__filename, () => {
     return { review, reply: review.reply };
   };
 
+  const renderReply = ({
+    addon = createInternalAddon(fakeAddon),
+    originalReviewId = 44321,
+    reply = _setReviewReply({ addon }).reply,
+    ...props
+  } = {}) => {
+    return render({
+      addon,
+      review: reply,
+      isReplyToReviewId: originalReviewId,
+      ...props,
+    });
+  };
+
   const signInAndDispatchSavedReview = ({
     siteUserId = 123,
     reviewUserId = siteUserId,
@@ -209,7 +223,18 @@ describe(__filename, () => {
     const review = _setReview(fakeReview);
     const root = render({ review });
 
-    expect(root.find(FlagAddonReview)).toHaveProp('review', review);
+    const flag = root.find(FlagAddonReview);
+    expect(flag).toHaveProp('review', review);
+    expect(flag).toHaveProp('isDeveloperReply', false);
+  });
+
+  it('lets you flag a developer reply', () => {
+    const { reply } = _setReviewReply();
+    const root = renderReply({ reply });
+
+    const flag = root.find(FlagAddonReview);
+    expect(flag).toHaveProp('review', reply);
+    expect(flag).toHaveProp('isDeveloperReply', true);
   });
 
   it('does not let you flag a review before one has loaded', () => {
@@ -545,20 +570,6 @@ describe(__filename, () => {
   });
 
   describe('Developer reply to a review', () => {
-    const renderReply = ({
-      addon = createInternalAddon(fakeAddon),
-      originalReviewId = 44321,
-      reply = _setReviewReply({ addon }).reply,
-      ...props
-    } = {}) => {
-      return render({
-        addon,
-        review: reply,
-        isReplyToReviewId: originalReviewId,
-        ...props,
-      });
-    };
-
     it('renders a nested reply', () => {
       const addon = createInternalAddon(fakeAddon);
       const { review, reply } = _setReviewReply({ addon });

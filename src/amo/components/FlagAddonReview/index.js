@@ -35,6 +35,7 @@ type Props = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  isDeveloperReply?: boolean,
   openerClass?: string,
   review: UserReviewType,
   siteUser: UserStateType,
@@ -42,6 +43,10 @@ type Props = {|
 |};
 
 export class FlagAddonReviewBase extends React.Component<Props> {
+  static defaultProps = {
+    isDeveloperReply: false,
+  };
+
   flagReview({ event, reason }: FlagReviewParams) {
     const { errorHandler, dispatch, review } = this.props;
     event.preventDefault();
@@ -69,11 +74,17 @@ export class FlagAddonReviewBase extends React.Component<Props> {
     const {
       errorHandler,
       i18n,
+      isDeveloperReply,
       openerClass,
       review,
       siteUser,
       userIsAuthenticated,
     } = this.props;
+
+    // TODO:
+    // - pass in location to AuthenticateButton
+    // - render LoadingText while flagging
+    // - show '...has been flagged' text after flagging
 
     let items;
     if (!userIsAuthenticated) {
@@ -89,7 +100,10 @@ export class FlagAddonReviewBase extends React.Component<Props> {
     } else if (siteUser.id === review.userId) {
       items = [
         <ListItem key="flagging-not-allowed">
-          {i18n.gettext('You cannot flag your own review')}
+          {isDeveloperReply ?
+            i18n.gettext('You cannot flag your own response') :
+            i18n.gettext('You cannot flag your own review')
+          }
         </ListItem>,
       ];
     } else {
@@ -104,7 +118,7 @@ export class FlagAddonReviewBase extends React.Component<Props> {
             className="FlagAddonReview-flag-spam"
             onClick={this.flagAsSpam}
           >
-            {i18n.gettext('This review is spam')}
+            {i18n.gettext('This is spam')}
           </button>
         </ListItem>,
         <ListItem key="flag-language">
@@ -112,19 +126,19 @@ export class FlagAddonReviewBase extends React.Component<Props> {
             className="FlagAddonReview-flag-language"
             onClick={this.flagForLanguage}
           >
-            {i18n.gettext(
-              'This review contains inappropriate language'
-            )}
+            {i18n.gettext('This contains inappropriate language')}
           </button>
         </ListItem>,
-        <ListItem key="flag-bug-support">
-          <button
-            className="FlagAddonReview-flag-bug-support"
-            onClick={this.flagAsBugOrSupport}
-          >
-            {i18n.gettext('This is a bug report or support request')}
-          </button>
-        </ListItem>,
+        isDeveloperReply ? null : (
+          <ListItem key="flag-bug-support">
+            <button
+              className="FlagAddonReview-flag-bug-support"
+              onClick={this.flagAsBugOrSupport}
+            >
+              {i18n.gettext('This is a bug report or support request')}
+            </button>
+          </ListItem>
+        ),
       ];
     }
 
@@ -134,7 +148,10 @@ export class FlagAddonReviewBase extends React.Component<Props> {
         items={items}
         openerClass={openerClass}
         openerText={i18n.gettext('Flag')}
-        openerTitle={i18n.gettext('Flag this review')}
+        openerTitle={isDeveloperReply ?
+          i18n.gettext('Flag this developer response') :
+          i18n.gettext('Flag this review')
+        }
       />
     );
   }
