@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-19 17:09+0000\n"
+"PO-Revision-Date: 2017-10-19 17:27+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -367,14 +367,12 @@ msgid "More featured extensions"
 msgstr "Več izbranih razširitev"
 
 #: src/amo/components/Category/index.js:134 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Najbolje ocenjene razširitve"
+msgstr "Trenutno priljubljene razširitve"
 
 #: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:140
-#, fuzzy
 msgid "More trending extensions"
-msgstr "Več izbranih razširitev"
+msgstr "Več priljubljenih razširitev"
 
 #: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
@@ -393,14 +391,12 @@ msgid "More featured themes"
 msgstr "Več izbranih tem"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "Trending themes"
-msgstr "Najbolje ocenjene teme"
+msgstr "Trenutno priljubljene teme"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:166
-#, fuzzy
 msgid "More trending themes"
-msgstr "Več izbranih tem"
+msgstr "Več priljubljenih tem"
 
 #: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
@@ -890,7 +886,7 @@ msgstr "Najbolje ocenjeni"
 
 #: src/amo/components/SearchFilters/index.js:117
 msgid "Trending"
-msgstr ""
+msgstr "Priljubljeno"
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "Filter results"
@@ -1026,7 +1022,7 @@ msgstr "Povejte prijateljem in družini, da je Firefox hiter in varen brskalnik,
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Če si želite ogledati več načinov, kako lahko sodelujete, obiščite naš %(startLink)swiki%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1081,6 +1077,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla je neprofitna organizacija, ki ustvarja Firefox, da bi internet ohranila zdrav, odprt in dostopen. Dodatki podpirajo uporabniško izbiro in prilagoditev v Firefoxu ter na naslednje načine nam"
+" lahko pomagate:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -1110,7 +1108,7 @@ msgstr "Nasveti, kako napisati dobro oceno"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Držite se naslednjih napotkov:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1150,7 +1148,7 @@ msgstr "Pred objavo si vzemite trenutek in preberite svojo oceno, da zmanjšate 
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Izogibajte se naslednjemu:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
