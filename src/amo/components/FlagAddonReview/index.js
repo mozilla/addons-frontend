@@ -8,31 +8,21 @@ import {
   REVIEW_FLAG_REASON_LANGUAGE,
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
-import { flagReview } from 'amo/actions/reviews';
+import FlagReview from 'amo/components/FlagReview';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { withErrorHandler } from 'core/errorHandler';
 import { isAuthenticated } from 'core/reducers/user';
 import translate from 'core/i18n/translate';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
-import type { FlagReviewReasonType } from 'amo/constants';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { I18nType } from 'core/types/i18n';
-import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserStateType } from 'core/reducers/user';
 import type { UserReviewType } from 'amo/actions/reviews';
 
 
-/* eslint-disable react/no-unused-prop-types */
-type FlagReviewParams = {|
-  event: SyntheticEvent<any>,
-  reason: FlagReviewReasonType,
-|};
-/* eslint-enable react/no-unused-prop-types */
-
 type Props = {|
-  dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isDeveloperReply?: boolean,
@@ -42,33 +32,11 @@ type Props = {|
   userIsAuthenticated: boolean,
 |};
 
+// TODO: rename to FlagReviewMenu
 export class FlagAddonReviewBase extends React.Component<Props> {
   static defaultProps = {
     isDeveloperReply: false,
   };
-
-  flagReview({ event, reason }: FlagReviewParams) {
-    const { errorHandler, dispatch, review } = this.props;
-    event.preventDefault();
-
-    dispatch(flagReview({
-      errorHandlerId: errorHandler.id,
-      reason,
-      reviewId: review.id,
-    }));
-  }
-
-  flagAsSpam = (event: SyntheticEvent<any>) => {
-    this.flagReview({ event, reason: REVIEW_FLAG_REASON_SPAM });
-  }
-
-  flagForLanguage = (event: SyntheticEvent<any>) => {
-    this.flagReview({ event, reason: REVIEW_FLAG_REASON_LANGUAGE });
-  }
-
-  flagAsBugOrSupport = (event: SyntheticEvent<any>) => {
-    this.flagReview({ event, reason: REVIEW_FLAG_REASON_BUG_SUPPORT });
-  }
 
   render() {
     const {
@@ -113,30 +81,47 @@ export class FlagAddonReviewBase extends React.Component<Props> {
             {errorHandler.renderError()}
           </ListItem>
         ) : null,
-        <ListItem key="flag-spam">
-          <button
-            className="FlagAddonReview-flag-spam"
-            onClick={this.flagAsSpam}
-          >
-            {i18n.gettext('This is spam')}
-          </button>
+        <ListItem
+          className="FlagAddonReview-flag-spam-item"
+          key="flag-spam"
+        >
+          <FlagReview
+            reason={REVIEW_FLAG_REASON_SPAM}
+            review={review}
+            promptText={i18n.gettext('This is spam')}
+            wasFlaggedText={i18n.gettext('Flagged as spam')}
+          />
         </ListItem>,
-        <ListItem key="flag-language">
-          <button
-            className="FlagAddonReview-flag-language"
-            onClick={this.flagForLanguage}
-          >
-            {i18n.gettext('This contains inappropriate language')}
-          </button>
+        <ListItem
+          className="FlagAddonReview-flag-language-item"
+          key="flag-language"
+        >
+          <FlagReview
+            reason={REVIEW_FLAG_REASON_LANGUAGE}
+            review={review}
+            promptText={i18n.gettext(
+              'This contains inappropriate language'
+            )}
+            wasFlaggedText={i18n.gettext(
+              'Flagged for inappropriate language'
+            )}
+          />
         </ListItem>,
         isDeveloperReply ? null : (
-          <ListItem key="flag-bug-support">
-            <button
-              className="FlagAddonReview-flag-bug-support"
-              onClick={this.flagAsBugOrSupport}
-            >
-              {i18n.gettext('This is a bug report or support request')}
-            </button>
+          <ListItem
+            className="FlagAddonReview-flag-bug-support-item"
+            key="flag-bug-support"
+          >
+            <FlagReview
+              reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
+              review={review}
+              promptText={i18n.gettext(
+                'This is a bug report or support request'
+              )}
+              wasFlaggedText={i18n.gettext(
+                'Flagged as a bug report or support request'
+              )}
+            />
           </ListItem>
         ),
       ];
@@ -158,7 +143,7 @@ export class FlagAddonReviewBase extends React.Component<Props> {
 }
 
 const mapStateToProps = (
-  state: {| user: UserStateType, reviews: ReviewState |}
+  state: {| user: UserStateType, reviews: ReviewState |},
 ) => {
   return {
     siteUser: state.user,

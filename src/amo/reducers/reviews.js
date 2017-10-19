@@ -14,7 +14,6 @@ import {
   HIDE_REPLY_TO_REVIEW_FORM,
 } from 'amo/constants';
 import { denormalizeReview } from 'amo/actions/reviews';
-import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   HideEditReviewFormAction,
   HideReplyToReviewFormAction,
@@ -38,13 +37,15 @@ type ReviewsByAddon = {
   |},
 }
 
+export type FlagState = {
+  inProgress: boolean,
+  wasFlagged: boolean,
+};
+
 type ViewStateByReviewId = {|
   editingReview: boolean,
   flags: {
-    [reason: string]: {
-      inProgress: boolean,
-      wasFlagged: boolean,
-    },
+    [reason: string]: FlagState,
   },
   replyingToReview: boolean,
   submittingReply: boolean,
@@ -144,9 +145,10 @@ type ChangeViewStateParams = {|
 export const changeViewState = (
   { state, reviewId, stateChange }: ChangeViewStateParams = {}
 ): $Shape<ReviewState> => {
-  const newFlags = stateChange.flags;
-  // Make sure the shallow spread doesn't override old values.
-  delete stateChange.flags;
+  const change = { ...stateChange };
+  const newFlags = change.flags;
+  // Make sure the shallow spread doesn't override old objects.
+  delete change.flags;
 
   const newState = {
     ...state,
@@ -158,7 +160,7 @@ export const changeViewState = (
         replyingToReview: false,
         submittingReply: false,
         ...state.view[reviewId],
-        ...stateChange,
+        ...change,
       },
     },
   };
@@ -271,7 +273,7 @@ export default function reviewsReducer(
               inProgress: true,
               wasFlagged: false,
             },
-          }
+          },
         },
       });
     }
@@ -286,7 +288,7 @@ export default function reviewsReducer(
               inProgress: false,
               wasFlagged: true,
             },
-          }
+          },
         },
       });
     }

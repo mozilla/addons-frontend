@@ -6,22 +6,20 @@ import {
   REVIEW_FLAG_REASON_LANGUAGE,
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
-import { denormalizeReview, flagReview } from 'amo/actions/reviews';
+import { denormalizeReview } from 'amo/actions/reviews';
+import FlagReview from 'amo/components/FlagReview';
 import FlagAddonReview, {
   FlagAddonReviewBase,
 } from 'amo/components/FlagAddonReview';
 import { logOutUser } from 'core/actions';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { ErrorHandler } from 'core/errorHandler';
 import {
   dispatchSignInActions, fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
-import ErrorList from 'ui/components/ErrorList';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 
@@ -64,75 +62,6 @@ describe(__filename, () => {
     expect(root.find(TooltipMenu)).toHaveProp('openerClass', openerClass);
   });
 
-  it('renders an error', () => {
-    const errorHandler = new ErrorHandler({
-      id: 'some-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(new Error('Unexpected API error'));
-
-    const { menu } = renderMenu({ errorHandler });
-    expect(menu.find(ErrorList)).toHaveLength(1);
-  });
-
-  describe('flagging behavior', () => {
-    it('can flag a review', () => {
-      const review = denormalizeReview({ ...fakeReview, id: 3321 });
-      const fakeDispatch = sinon.stub(store, 'dispatch');
-      const root = render({ review });
-
-      const event = createFakeEvent();
-      root.instance().flagReview({
-        event, reason: REVIEW_FLAG_REASON_SPAM,
-      });
-
-      sinon.assert.calledWith(fakeDispatch, flagReview({
-        errorHandlerId: root.instance().props.errorHandler.id,
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: review.id,
-      }));
-
-      sinon.assert.called(event.preventDefault);
-    });
-
-    it('can flag a review as spam', () => {
-      const { root, menu } = renderMenu();
-      const flagReviewStub = sinon.stub(root.instance(), 'flagReview');
-
-      const event = createFakeEvent();
-      menu.find('.FlagAddonReview-flag-spam').simulate('click', event);
-
-      sinon.assert.calledWith(flagReviewStub, {
-        event, reason: REVIEW_FLAG_REASON_SPAM,
-      });
-    });
-
-    it('can flag a review for inappropriate language', () => {
-      const { root, menu } = renderMenu();
-      const flagReviewStub = sinon.stub(root.instance(), 'flagReview');
-
-      const event = createFakeEvent();
-      menu.find('.FlagAddonReview-flag-language').simulate('click', event);
-
-      sinon.assert.calledWith(flagReviewStub, {
-        event, reason: REVIEW_FLAG_REASON_LANGUAGE,
-      });
-    });
-
-    it('can flag a review as a bug report or support request', () => {
-      const { root, menu } = renderMenu();
-      const flagReviewStub = sinon.stub(root.instance(), 'flagReview');
-
-      const event = createFakeEvent();
-      menu.find('.FlagAddonReview-flag-bug-support')
-        .simulate('click', event);
-
-      sinon.assert.calledWith(flagReviewStub, {
-        event, reason: REVIEW_FLAG_REASON_BUG_SUPPORT,
-      });
-    });
-  });
-
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
@@ -167,7 +96,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('prompts', () => {
+  describe('prompts and FlagReview configuration', () => {
     it('provides a tooltip to flag reviews', () => {
       const root = render();
 
@@ -182,31 +111,48 @@ describe(__filename, () => {
         .toHaveProp('openerTitle', 'Flag this developer response');
     });
 
-    it('prompts you to flag as spam', () => {
-      const { menu } = renderMenu();
+    it('configures FlagReview to flag as spam', () => {
+      const review = denormalizeReview(fakeReview);
+      const { menu } = renderMenu({ review });
 
-      expect(menu.find('.FlagAddonReview-flag-spam').html())
-        .toContain('This is spam');
+      const flag = menu.find('.FlagAddonReview-flag-spam-item')
+        .find(FlagReview);
+      expect(flag).toHaveProp('review', review);
+      expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_SPAM);
+      expect(flag).toHaveProp('wasFlaggedText');
+      expect(flag).toHaveProp('promptText');
     });
 
-    it('prompts you to flag for language', () => {
-      const { menu } = renderMenu();
+    it('configures FlagReview to flag for language', () => {
+      const review = denormalizeReview(fakeReview);
+      const { menu } = renderMenu({ review });
 
-      expect(menu.find('.FlagAddonReview-flag-language').html())
-        .toContain('This contains inappropriate language');
+      const flag = menu.find('.FlagAddonReview-flag-language-item')
+        .find(FlagReview);
+      expect(flag).toHaveProp('review', review);
+      expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_LANGUAGE);
+      expect(flag).toHaveProp('wasFlaggedText');
+      expect(flag).toHaveProp('promptText');
     });
 
-    it('prompts you to flag as a bug or support request', () => {
-      const { menu } = renderMenu();
+    it('configures FlagReview to flag as bug/support', () => {
+      const review = denormalizeReview(fakeReview);
+      const { menu } = renderMenu({ review });
 
-      expect(menu.find('.FlagAddonReview-flag-bug-support').html())
-        .toContain('This is a bug report or support request');
+      const flag = menu.find('.FlagAddonReview-flag-bug-support-item')
+        .find(FlagReview);
+      expect(flag).toHaveProp('review', review);
+      expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_BUG_SUPPORT);
+      expect(flag).toHaveProp('wasFlaggedText');
+      expect(flag).toHaveProp('promptText');
     });
 
     it('does not prompt you to flag a response as a bug/support', () => {
       const { menu } = renderMenu({ isDeveloperReply: true });
 
-      expect(menu.find('.FlagAddonReview-flag-bug-support')).toHaveLength(0);
+      expect(
+        menu.find('.FlagAddonReview-flag-bug-support-item')
+      ).toHaveLength(0);
     });
   });
 });
