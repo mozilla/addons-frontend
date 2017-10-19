@@ -30,7 +30,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
-      promptText: 'flag the thing',
+      buttonText: 'flag the thing',
       i18n: fakeI18n(),
       reason: REVIEW_FLAG_REASON_SPAM,
       review: denormalizeReview(fakeReview),
@@ -73,10 +73,10 @@ describe(__filename, () => {
   });
 
   it('renders a prompt', () => {
-    const promptText = 'flag this review';
-    const root = render({ promptText });
+    const buttonText = 'flag this review';
+    const root = render({ buttonText });
 
-    expect(root).toHaveText(promptText);
+    expect(root).toHaveText(buttonText);
   });
 
   it('renders post-flagged text', () => {

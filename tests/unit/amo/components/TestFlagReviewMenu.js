@@ -124,7 +124,7 @@ describe(__filename, () => {
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_SPAM);
       expect(flag).toHaveProp('wasFlaggedText');
-      expect(flag).toHaveProp('promptText');
+      expect(flag).toHaveProp('buttonText');
     });
 
     it('configures FlagReview to flag for language', () => {
@@ -136,7 +136,7 @@ describe(__filename, () => {
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_LANGUAGE);
       expect(flag).toHaveProp('wasFlaggedText');
-      expect(flag).toHaveProp('promptText');
+      expect(flag).toHaveProp('buttonText');
     });
 
     it('configures FlagReview to flag as bug/support', () => {
@@ -148,7 +148,7 @@ describe(__filename, () => {
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_BUG_SUPPORT);
       expect(flag).toHaveProp('wasFlaggedText');
-      expect(flag).toHaveProp('promptText');
+      expect(flag).toHaveProp('buttonText');
     });
 
     it('does not prompt you to flag a response as a bug/support', () => {

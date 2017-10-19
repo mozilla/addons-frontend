@@ -16,7 +16,7 @@ import type { DispatchFunc } from 'core/types/redux';
 type Props = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  promptText: string,
+  buttonText: string,
   reason: FlagReviewReasonType,
   review: UserReviewType,
   flagState: FlagState,
@@ -37,7 +37,7 @@ export class FlagReviewBase extends React.Component<Props> {
 
   renderControls() {
     const {
-      errorHandler, flagState, promptText, wasFlaggedText,
+      errorHandler, flagState, buttonText, wasFlaggedText,
     } = this.props;
 
     if (flagState) {
@@ -53,7 +53,7 @@ export class FlagReviewBase extends React.Component<Props> {
         className="FlagReview-button"
         onClick={this.onClick}
       >
-        {promptText}
+        {buttonText}
       </button>
     );
   }

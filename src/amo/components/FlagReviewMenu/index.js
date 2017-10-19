@@ -10,21 +10,18 @@ import {
 } from 'amo/constants';
 import FlagReview from 'amo/components/FlagReview';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { withErrorHandler } from 'core/errorHandler';
 import { isAuthenticated } from 'core/reducers/user';
 import translate from 'core/i18n/translate';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { I18nType } from 'core/types/i18n';
-import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserStateType } from 'core/reducers/user';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReactRouterLocation } from 'core/types/router';
 
 
 type Props = {|
-  errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isDeveloperReply?: boolean,
   location: ReactRouterLocation,
@@ -41,7 +38,6 @@ export class FlagReviewMenuBase extends React.Component<Props> {
 
   render() {
     const {
-      errorHandler,
       i18n,
       isDeveloperReply,
       location,
@@ -73,11 +69,6 @@ export class FlagReviewMenuBase extends React.Component<Props> {
       ];
     } else {
       items = [
-        errorHandler.hasError() ? (
-          <ListItem key="error">
-            {errorHandler.renderError()}
-          </ListItem>
-        ) : null,
         <ListItem
           className="FlagReviewMenu-flag-spam-item"
           key="flag-spam"
@@ -85,7 +76,7 @@ export class FlagReviewMenuBase extends React.Component<Props> {
           <FlagReview
             reason={REVIEW_FLAG_REASON_SPAM}
             review={review}
-            promptText={i18n.gettext('This is spam')}
+            buttonText={i18n.gettext('This is spam')}
             wasFlaggedText={i18n.gettext('Flagged as spam')}
           />
         </ListItem>,
@@ -96,7 +87,7 @@ export class FlagReviewMenuBase extends React.Component<Props> {
           <FlagReview
             reason={REVIEW_FLAG_REASON_LANGUAGE}
             review={review}
-            promptText={i18n.gettext(
+            buttonText={i18n.gettext(
               'This contains inappropriate language'
             )}
             wasFlaggedText={i18n.gettext(
@@ -112,7 +103,7 @@ export class FlagReviewMenuBase extends React.Component<Props> {
             <FlagReview
               reason={REVIEW_FLAG_REASON_BUG_SUPPORT}
               review={review}
-              promptText={i18n.gettext(
+              buttonText={i18n.gettext(
                 'This is a bug report or support request'
               )}
               wasFlaggedText={i18n.gettext(
@@ -150,6 +141,5 @@ const mapStateToProps = (
 
 export default compose(
   connect(mapStateToProps),
-  withErrorHandler({ name: 'FlagReviewMenu' }),
   translate(),
 )(FlagReviewMenuBase);
