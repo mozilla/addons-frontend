@@ -13,7 +13,7 @@ import AddonReview from 'amo/components/AddonReview';
 import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
-import FlagAddonReview from 'amo/components/FlagAddonReview';
+import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -223,7 +223,7 @@ describe(__filename, () => {
     const review = _setReview(fakeReview);
     const root = render({ review });
 
-    const flag = root.find(FlagAddonReview);
+    const flag = root.find(FlagReviewMenu);
     expect(flag).toHaveProp('review', review);
     expect(flag).toHaveProp('isDeveloperReply', false);
   });
@@ -232,7 +232,7 @@ describe(__filename, () => {
     const { reply } = _setReviewReply();
     const root = renderReply({ reply });
 
-    const flag = root.find(FlagAddonReview);
+    const flag = root.find(FlagReviewMenu);
     expect(flag).toHaveProp('review', reply);
     expect(flag).toHaveProp('isDeveloperReply', true);
   });
@@ -240,7 +240,7 @@ describe(__filename, () => {
   it('does not let you flag a review before one has loaded', () => {
     const root = render({ review: null });
 
-    expect(root.find(FlagAddonReview)).toHaveLength(0);
+    expect(root.find(FlagReviewMenu)).toHaveLength(0);
   });
 
   it('lets the developer reply to a review', () => {

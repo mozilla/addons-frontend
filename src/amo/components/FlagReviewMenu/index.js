@@ -32,8 +32,7 @@ type Props = {|
   userIsAuthenticated: boolean,
 |};
 
-// TODO: rename to FlagReviewMenu
-export class FlagAddonReviewBase extends React.Component<Props> {
+export class FlagReviewMenuBase extends React.Component<Props> {
   static defaultProps = {
     isDeveloperReply: false,
   };
@@ -51,8 +50,6 @@ export class FlagAddonReviewBase extends React.Component<Props> {
 
     // TODO:
     // - pass in location to AuthenticateButton
-    // - render LoadingText while flagging
-    // - show '...has been flagged' text after flagging
 
     let items;
     if (!userIsAuthenticated) {
@@ -82,7 +79,7 @@ export class FlagAddonReviewBase extends React.Component<Props> {
           </ListItem>
         ) : null,
         <ListItem
-          className="FlagAddonReview-flag-spam-item"
+          className="FlagReviewMenu-flag-spam-item"
           key="flag-spam"
         >
           <FlagReview
@@ -93,7 +90,7 @@ export class FlagAddonReviewBase extends React.Component<Props> {
           />
         </ListItem>,
         <ListItem
-          className="FlagAddonReview-flag-language-item"
+          className="FlagReviewMenu-flag-language-item"
           key="flag-language"
         >
           <FlagReview
@@ -109,7 +106,7 @@ export class FlagAddonReviewBase extends React.Component<Props> {
         </ListItem>,
         isDeveloperReply ? null : (
           <ListItem
-            className="FlagAddonReview-flag-bug-support-item"
+            className="FlagReviewMenu-flag-bug-support-item"
             key="flag-bug-support"
           >
             <FlagReview
@@ -153,6 +150,6 @@ const mapStateToProps = (
 
 export default compose(
   connect(mapStateToProps),
-  withErrorHandler({ name: 'FlagAddonReview' }),
+  withErrorHandler({ name: 'FlagReviewMenu' }),
   translate(),
-)(FlagAddonReviewBase);
+)(FlagReviewMenuBase);

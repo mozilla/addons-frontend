@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReview from 'amo/components/AddonReview';
-import FlagAddonReview from 'amo/components/FlagAddonReview';
+import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -275,7 +275,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
               ) : null
           }
           {review ? (
-            <FlagAddonReview
+            <FlagReviewMenu
               isDeveloperReply={isReply}
               openerClass="AddonReviewListItem-control"
               review={review}

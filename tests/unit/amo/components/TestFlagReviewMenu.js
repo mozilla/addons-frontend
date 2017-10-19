@@ -8,9 +8,9 @@ import {
 } from 'amo/constants';
 import { denormalizeReview } from 'amo/actions/reviews';
 import FlagReview from 'amo/components/FlagReview';
-import FlagAddonReview, {
-  FlagAddonReviewBase,
-} from 'amo/components/FlagAddonReview';
+import FlagReviewMenu, {
+  FlagReviewMenuBase,
+} from 'amo/components/FlagReviewMenu';
 import { logOutUser } from 'core/actions';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
@@ -39,7 +39,7 @@ describe(__filename, () => {
       ...customProps,
     };
     return shallowUntilTarget(
-      <FlagAddonReview {...props} />, FlagAddonReviewBase,
+      <FlagReviewMenu {...props} />, FlagReviewMenuBase,
     );
   };
 
@@ -115,7 +115,7 @@ describe(__filename, () => {
       const review = denormalizeReview(fakeReview);
       const { menu } = renderMenu({ review });
 
-      const flag = menu.find('.FlagAddonReview-flag-spam-item')
+      const flag = menu.find('.FlagReviewMenu-flag-spam-item')
         .find(FlagReview);
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_SPAM);
@@ -127,7 +127,7 @@ describe(__filename, () => {
       const review = denormalizeReview(fakeReview);
       const { menu } = renderMenu({ review });
 
-      const flag = menu.find('.FlagAddonReview-flag-language-item')
+      const flag = menu.find('.FlagReviewMenu-flag-language-item')
         .find(FlagReview);
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_LANGUAGE);
@@ -139,7 +139,7 @@ describe(__filename, () => {
       const review = denormalizeReview(fakeReview);
       const { menu } = renderMenu({ review });
 
-      const flag = menu.find('.FlagAddonReview-flag-bug-support-item')
+      const flag = menu.find('.FlagReviewMenu-flag-bug-support-item')
         .find(FlagReview);
       expect(flag).toHaveProp('review', review);
       expect(flag).toHaveProp('reason', REVIEW_FLAG_REASON_BUG_SUPPORT);
@@ -150,9 +150,8 @@ describe(__filename, () => {
     it('does not prompt you to flag a response as a bug/support', () => {
       const { menu } = renderMenu({ isDeveloperReply: true });
 
-      expect(
-        menu.find('.FlagAddonReview-flag-bug-support-item')
-      ).toHaveLength(0);
+      expect(menu.find('.FlagReviewMenu-flag-bug-support-item'))
+        .toHaveLength(0);
     });
   });
 });
