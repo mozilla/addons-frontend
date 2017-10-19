@@ -318,7 +318,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:201
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "מאת %(authorName)s,‏ %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
 msgid "Edit my reply"
@@ -886,7 +886,7 @@ msgstr "מערכת הפעלה"
 
 #: src/amo/components/SearchFilters/index.js:196
 msgid "Featured add-ons only"
-msgstr ""
+msgstr "תוספות מומלצות בלבד"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
@@ -986,7 +986,7 @@ msgstr "עוד…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "אם ברצונך לתרום אך אין לך ידע טכני נרחב, ישנן מספר דרכים נוספות לסייע:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1016,7 +1016,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sמידע על אופן יצירת הקשר עם צוות התוספות של Mozilla ניתן למצוא כאן%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1064,13 +1064,13 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "כללי סקירה"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
-msgstr ""
+msgstr "סקירות של תוספות הן הדרך שלך לשתף את דעתך בנוגע לתוספות שהתקנת והשתמשת בהן. צוות הפיקוח על הסקירה שומר לו את הזכות לסרב או להסיר סקירות שאינן עומדות בכללים אלו."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1290,7 +1290,7 @@ msgstr "ביטול"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
-msgstr ""
+msgstr "נא להקליד טקסט."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
