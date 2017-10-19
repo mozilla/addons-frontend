@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-19 22:52+0000\n"
+"PO-Revision-Date: 2017-10-19 22:56+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -303,9 +303,8 @@ msgid "Publish reply"
 msgstr "Terbitkan balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
 msgid "Updating reply"
-msgstr "Menerbitkan balasan"
+msgstr "Mengemaskini balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
@@ -320,9 +319,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "oleh %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Edit ulasan saya"
+msgstr "Edit balasan saya"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
@@ -361,14 +359,12 @@ msgid "More featured extensions"
 msgstr "Lanjutan ekstensi sorotan"
 
 #: src/amo/components/Category/index.js:134 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Ekstensi tahap tinggi"
+msgstr "Ekstensi sohor kini"
 
 #: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:140
-#, fuzzy
 msgid "More trending extensions"
-msgstr "Lanjutan ekstensi sorotan"
+msgstr "Lanjutan ekstensi sohor kini"
 
 #: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
@@ -387,14 +383,12 @@ msgid "More featured themes"
 msgstr "Lanjutan tema sorotan"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "Trending themes"
-msgstr "Tema tahap tinggi"
+msgstr "Tema sohor kini"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:166
-#, fuzzy
 msgid "More trending themes"
-msgstr "Lanjutan tema sorotan"
+msgstr "Lanjutan tema sohor kini"
 
 #: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
@@ -545,9 +539,8 @@ msgid "Report a bug"
 msgstr "Laporkan pepijat"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Garis panduan Semakan"
+msgstr "Panduan Semakan"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -687,9 +680,8 @@ msgid "Change language"
 msgstr "Tukar bahasa"
 
 #: src/amo/components/LanguageTools/index.js:130
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Kamus & Pek Bahasa"
+msgstr "Kamus dan Pek Bahasa"
 
 #: src/amo/components/LanguageTools/index.js:135
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -708,9 +700,8 @@ msgid "Locale Name"
 msgstr "Nama Lokaliti"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "Cari pek bahasa"
+msgstr "Pek Bahasa"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
@@ -891,9 +882,8 @@ msgstr "Sistem Pengoperasian"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchFilters/index.js:196
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Add-ons Sorotan"
+msgstr "Add-ons sorotan sahaja"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
