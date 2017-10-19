@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-10 18:17+0000\n"
+"POT-Creation-Date: 2017-10-19 14:47+0000\n"
 "PO-Revision-Date: 2017-07-24 19:39+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
@@ -14,110 +14,110 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:135
+#: src/amo/components/Addon/index.js:137
 #, fuzzy
 msgid "Featured Extension"
 msgstr "Featured extensions"
 
-#: src/amo/components/Addon/index.js:137
+#: src/amo/components/Addon/index.js:139
 #, fuzzy
 msgid "Featured Theme"
 msgstr "Featured themes"
 
-#: src/amo/components/Addon/index.js:139
+#: src/amo/components/Addon/index.js:141
 #, fuzzy
 msgid "Featured Add-on"
 msgstr "Firefox Add-ons"
 
-#: src/amo/components/Addon/index.js:167
+#: src/amo/components/Addon/index.js:169
 msgid "Cancel preview"
 msgstr "Cancel preview"
 
-#: src/amo/components/Addon/index.js:167
+#: src/amo/components/Addon/index.js:169
 msgid "Tap to preview"
 msgstr "Tap to preview"
 
-#: src/amo/components/Addon/index.js:208
+#: src/amo/components/Addon/index.js:210
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Read %(count)s review"
 msgstr[1] "Read all %(count)s reviews"
 
-#: src/amo/components/Addon/index.js:224
+#: src/amo/components/Addon/index.js:226
 msgid "No reviews yet"
 msgstr "No reviews yet"
 
-#: src/amo/components/Addon/index.js:233
+#: src/amo/components/Addon/index.js:235
 msgid "Rate your experience"
 msgstr "Rate your experience"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:268
 msgid "About this %(addonType)s"
 msgstr "About this %(addonType)s"
 
-#: src/amo/components/Addon/index.js:290
+#: src/amo/components/Addon/index.js:292
 #, fuzzy
 msgid "Release notes for %(addonVersion)s"
 msgstr "Reviews for %(addonName)s"
 
-#: src/amo/components/Addon/index.js:319
+#: src/amo/components/Addon/index.js:321
 msgid "More dictionaries by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:322
+#: src/amo/components/Addon/index.js:324
 msgid "More dictionaries by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:329
+#: src/amo/components/Addon/index.js:331
 msgid "More extensions by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:332
+#: src/amo/components/Addon/index.js:334
 #, fuzzy
 msgid "More extensions by these developers"
 msgstr "Search extensions and themes"
 
-#: src/amo/components/Addon/index.js:339
+#: src/amo/components/Addon/index.js:341
 msgid "More language packs by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:342
+#: src/amo/components/Addon/index.js:344
 msgid "More language packs by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:349
+#: src/amo/components/Addon/index.js:351
 msgid "More themes by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:352
+#: src/amo/components/Addon/index.js:354
 msgid "More themes by these artists"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:359
+#: src/amo/components/Addon/index.js:361
 msgid "More add-ons by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:364
 msgid "More add-ons by these developers"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:428
+#: src/amo/components/Addon/index.js:430
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:482
+#: src/amo/components/Addon/index.js:484
 msgid "Restart Required"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:488
+#: src/amo/components/Addon/index.js:490
 msgid "Experimental"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:506
+#: src/amo/components/Addon/index.js:509
 msgid "Extension Metadata"
 msgstr "Extension Metadata"
 
-#: src/amo/components/Addon/index.js:529
+#: src/amo/components/Addon/index.js:532
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -161,200 +161,213 @@ msgstr ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 
-#: src/amo/components/AddonMeta.js:35
+#: src/amo/components/AddonMeta.js:34
 #: src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s user"
 msgstr[1] "%(total)s users"
 
-#: src/amo/components/AddonMeta.js:47
+#: src/amo/components/AddonMeta.js:46
 msgid "%(total)s review"
 msgid_plural "%(total)s reviews"
 msgstr[0] "%(total)s review"
 msgstr[1] "%(total)s reviews"
 
-#: src/amo/components/AddonMeta.js:52
+#: src/amo/components/AddonMeta.js:51
 msgid "No reviews"
 msgstr "No reviews"
 
-#: src/amo/components/AddonMeta.js:58
+#: src/amo/components/AddonMeta.js:57
 msgid "Used by"
 msgstr "Used by"
 
-#: src/amo/components/AddonMeta.js:63
+#: src/amo/components/AddonMeta.js:62
 msgid "Click to view statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:103
+#: src/amo/components/AddonMoreInfo/index.js:102
 msgid "Read the license agreement for this add-on"
 msgstr "Read the licence agreement for this add-on"
 
-#: src/amo/components/AddonMoreInfo/index.js:112
+#: src/amo/components/AddonMoreInfo/index.js:111
 #, fuzzy
 msgid "See all versions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:121
 #, fuzzy
 msgid "See all beta versions"
 msgstr "Browse all extensions"
 
-#: src/amo/components/AddonMoreInfo/index.js:146
+#: src/amo/components/AddonMoreInfo/index.js:145
 msgid "Add-on Links"
 msgstr "Add-on Links"
 
-#: src/amo/components/AddonMoreInfo/index.js:159
+#: src/amo/components/AddonMoreInfo/index.js:158
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
-#: src/amo/components/Collection/index.js:144
+#: src/amo/components/AddonMoreInfo/index.js:163
+#: src/amo/components/Collection/index.js:150
 msgid "Last updated"
 msgstr "Last updated"
 
-#: src/amo/components/AddonMoreInfo/index.js:169
+#: src/amo/components/AddonMoreInfo/index.js:168
 msgid "License"
 msgstr "Licence"
 
-#: src/amo/components/AddonMoreInfo/index.js:175
+#: src/amo/components/AddonMoreInfo/index.js:174
 msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
-#: src/amo/components/AddonMoreInfo/index.js:181
+#: src/amo/components/AddonMoreInfo/index.js:180
 msgid "End-User License Agreement"
 msgstr "End-User Licence Agreement"
 
-#: src/amo/components/AddonMoreInfo/index.js:187
+#: src/amo/components/AddonMoreInfo/index.js:186
 #, fuzzy
 msgid "Version History"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:193
+#: src/amo/components/AddonMoreInfo/index.js:192
 #, fuzzy
 msgid "Beta Versions"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:199
+#: src/amo/components/AddonMoreInfo/index.js:198
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:205
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid ""
 "This ID is useful for debugging and identifying your add-on to site "
 "administrators."
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:208
+#: src/amo/components/AddonMoreInfo/index.js:207
 msgid "Site Identifier"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:222
 msgid "More information"
 msgstr "More information"
 
-#: src/amo/components/AddonMoreInfo/index.js:45
+#: src/amo/components/AddonMoreInfo/index.js:44
 msgid "Homepage"
 msgstr "Homepage"
 
-#: src/amo/components/AddonMoreInfo/index.js:54
+#: src/amo/components/AddonMoreInfo/index.js:53
 msgid "Support Site"
 msgstr "Support Site"
 
-#: src/amo/components/AddonMoreInfo/index.js:67
+#: src/amo/components/AddonMoreInfo/index.js:66
 msgid "Visit stats dashboard"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:75
+#: src/amo/components/AddonMoreInfo/index.js:74
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:95
+#: src/amo/components/AddonMoreInfo/index.js:94
 msgid "Read the privacy policy for this add-on"
 msgstr "Read the privacy policy for this add-on"
 
-#: src/amo/components/AddonReview/index.js:170
+#: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic!"
 msgstr "Tell the world why you think this extension is fantastic!"
 
-#: src/amo/components/AddonReview/index.js:173
+#: src/amo/components/AddonReview/index.js:172
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr "Tell us what you love about this extension. Be specific and concise."
 
-#: src/amo/components/AddonReview/index.js:177
+#: src/amo/components/AddonReview/index.js:176
 msgid "Tell the world about this extension."
 msgstr "Tell the world about this extension."
 
-#: src/amo/components/AddonReview/index.js:178
+#: src/amo/components/AddonReview/index.js:177
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Tell us about your experience with this extension. Be specific and concise."
 
-#: src/amo/components/AddonReview/index.js:190
+#: src/amo/components/AddonReview/index.js:189
 msgid "Write a review"
 msgstr "Write a review"
 
-#: src/amo/components/AddonReview/index.js:201
+#: src/amo/components/AddonReview/index.js:200
 msgid "Review text"
 msgstr "Review text"
 
-#: src/amo/components/AddonReview/index.js:216
+#: src/amo/components/AddonReview/index.js:215
 msgid "Submit review"
 msgstr "Submit review"
 
-#: src/amo/components/AddonReviewList/index.js:142
+#: src/amo/components/AddonReviewList/index.js:141
 msgid "Add-on icon"
 msgstr "Add-on icon"
 
-#: src/amo/components/AddonReviewList/index.js:148
+#: src/amo/components/AddonReviewList/index.js:147
 msgid "Reviews for %(addonName)s"
 msgstr "Reviews for %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:169
+#: src/amo/components/AddonReviewList/index.js:168
 msgid "All written reviews"
 msgstr "All written reviews"
 
-#: src/amo/components/AddonReviewListItem/index.js:148
-#, fuzzy
-msgid "posted %(timestamp)s"
-msgstr "from %(authorName)s, %(timestamp)s"
-
-#: src/amo/components/AddonReviewListItem/index.js:152
-#, fuzzy
-msgid "by %(authorName)s, %(timestamp)s"
-msgstr "from %(authorName)s, %(timestamp)s"
-
-#: src/amo/components/AddonReviewListItem/index.js:181
+#: src/amo/components/AddonReviewListItem/index.js:142
 #, fuzzy
 msgid "Developer response"
 msgstr "Developer Hub"
 
-#: src/amo/components/AddonReviewListItem/index.js:216
-#, fuzzy
-msgid "Edit my review"
-msgstr "Write a review"
-
-#: src/amo/components/AddonReviewListItem/index.js:233
-#, fuzzy
-msgid "Reply to this review"
-msgstr "Tap to preview"
-
-#: src/amo/components/AddonReviewListItem/index.js:252
+#: src/amo/components/AddonReviewListItem/index.js:150
 #, fuzzy
 msgid "Write a reply to this review."
 msgstr "Write a review"
 
-#: src/amo/components/AddonReviewListItem/index.js:255
+#: src/amo/components/AddonReviewListItem/index.js:153
+msgid "Update reply"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Publish reply"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:256
+#: src/amo/components/AddonReviewListItem/index.js:158
+msgid "Updating reply"
+msgstr ""
+
+#: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
 msgstr ""
 
+#: src/amo/components/AddonReviewListItem/index.js:197
+#, fuzzy
+msgid "posted %(timestamp)s"
+msgstr "from %(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewListItem/index.js:201
+#, fuzzy
+msgid "by %(authorName)s, %(timestamp)s"
+msgstr "from %(authorName)s, %(timestamp)s"
+
+#: src/amo/components/AddonReviewListItem/index.js:253
+#, fuzzy
+msgid "Edit my reply"
+msgstr "Write a review"
+
+#: src/amo/components/AddonReviewListItem/index.js:254
+#, fuzzy
+msgid "Edit my review"
+msgstr "Write a review"
+
+#: src/amo/components/AddonReviewListItem/index.js:272
+#, fuzzy
+msgid "Reply to this review"
+msgstr "Tap to preview"
+
 #: src/amo/components/App/index.js:202
-#: src/amo/components/SectionLinks/index.js:150
+#: src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Add-ons for Firefox"
 
@@ -363,80 +376,83 @@ msgstr "Add-ons for Firefox"
 msgid "%s - Add-ons for Firefox"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/Categories/index.js:101
+#: src/amo/components/Categories/index.js:100
 msgid "No categories found."
 msgstr "No categories found."
 
-#: src/amo/components/Categories/index.js:108
+#: src/amo/components/Categories/index.js:107
 msgid "Categories"
 msgstr "Categories"
 
-#: src/amo/components/Categories/index.js:113
+#: src/amo/components/Categories/index.js:112
 msgid "Loading categories."
 msgstr "Loading categories."
 
 #: src/amo/components/Category/index.js:124
-#: src/amo/components/HomeCarousel/index.js:31
-#: src/amo/components/LandingPage/index.js:130
+#: src/amo/components/HomeHeroBanner/index.js:36
+#: src/amo/components/LandingPage/index.js:126
 msgid "Featured extensions"
 msgstr "Featured extensions"
 
 #: src/amo/components/Category/index.js:133
-#: src/amo/components/LandingPage/index.js:132
+#: src/amo/components/LandingPage/index.js:134
 msgid "More featured extensions"
 msgstr "More featured extensions"
 
 #: src/amo/components/Category/index.js:134
-#: src/amo/components/Home/index.js:172
-#: src/amo/components/LandingPage/index.js:133
-msgid "Most popular extensions"
-msgstr "Most popular extensions"
+#: src/amo/components/LandingPage/index.js:135
+#, fuzzy
+msgid "Trending extensions"
+msgstr "Top rated extensions"
 
 #: src/amo/components/Category/index.js:143
-#: src/amo/components/Home/index.js:173
-#: src/amo/components/LandingPage/index.js:138
-msgid "More popular extensions"
-msgstr "More popular extensions"
+#: src/amo/components/Home/index.js:165
+#: src/amo/components/LandingPage/index.js:140
+#, fuzzy
+msgid "More trending extensions"
+msgstr "More featured extensions"
 
 #: src/amo/components/Category/index.js:144
-#: src/amo/components/LandingPage/index.js:139
+#: src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
 msgstr "Top rated extensions"
 
 #: src/amo/components/Category/index.js:153
-#: src/amo/components/LandingPage/index.js:147
+#: src/amo/components/LandingPage/index.js:149
 msgid "More highly rated extensions"
 msgstr "More highly rated extensions"
 
 #: src/amo/components/Category/index.js:156
-#: src/amo/components/Home/index.js:198
-#: src/amo/components/LandingPage/index.js:150
+#: src/amo/components/Home/index.js:149
+#: src/amo/components/LandingPage/index.js:152
 msgid "Featured themes"
 msgstr "Featured themes"
 
 #: src/amo/components/Category/index.js:165
-#: src/amo/components/Home/index.js:199
-#: src/amo/components/LandingPage/index.js:152
+#: src/amo/components/Home/index.js:150
+#: src/amo/components/LandingPage/index.js:160
 msgid "More featured themes"
 msgstr "More featured themes"
 
 #: src/amo/components/Category/index.js:166
-#: src/amo/components/LandingPage/index.js:153
-msgid "Most popular themes"
-msgstr "Most popular themes"
+#: src/amo/components/LandingPage/index.js:161
+#, fuzzy
+msgid "Trending themes"
+msgstr "Top rated themes"
 
 #: src/amo/components/Category/index.js:175
-#: src/amo/components/LandingPage/index.js:158
-msgid "More popular themes"
-msgstr "More popular themes"
+#: src/amo/components/LandingPage/index.js:166
+#, fuzzy
+msgid "More trending themes"
+msgstr "More featured themes"
 
 #: src/amo/components/Category/index.js:176
-#: src/amo/components/LandingPage/index.js:159
+#: src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
 msgstr "Top rated themes"
 
 #: src/amo/components/Category/index.js:185
-#: src/amo/components/LandingPage/index.js:164
+#: src/amo/components/LandingPage/index.js:172
 msgid "More highly rated themes"
 msgstr "More highly rated themes"
 
@@ -452,21 +468,21 @@ msgstr "Browse all extensions in this category."
 msgid "Browse all themes in this category."
 msgstr "Browse all themes in this category."
 
-#: src/amo/components/Collection/index.js:130
+#: src/amo/components/Collection/index.js:136
 msgid "Addons"
 msgstr ""
 
-#: src/amo/components/Collection/index.js:136
+#: src/amo/components/Collection/index.js:142
 msgid "Creator"
 msgstr ""
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38
-#: src/amo/components/Footer/index.js:89
+#: src/amo/components/Footer/index.js:97
 #, fuzzy
 msgid "Download Firefox"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:22
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
 "If you are signed in and think this message is an error, please <a href="
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
@@ -476,11 +492,11 @@ msgstr ""
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
 "trying to access, and we'll fix the issue."
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:35
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
 msgstr "Not Authorised"
 
-#: src/amo/components/ErrorPage/NotAuthorized/index.js:38
+#: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid ""
 "Sorry, but you aren't authorized to access this page. If you aren't signed "
 "in, try signing in using the link at the top of the page."
@@ -538,45 +554,45 @@ msgstr ""
 "Sorry, but there was an error with our server and we couldn't complete your "
 "request. We have logged this error and will investigate it."
 
-#: src/amo/components/FeaturedAddons/index.js:50
-msgid "More Featured Extensions"
-msgstr "More Featured Extensions"
+#: src/amo/components/Footer/index.js:102
+msgid "Android Browser"
+msgstr ""
 
-#: src/amo/components/FeaturedAddons/index.js:52
-msgid "More Featured Themes"
-msgstr "More Featured Themes"
+#: src/amo/components/Footer/index.js:107
+msgid "iOS Browser"
+msgstr ""
 
-#: src/amo/components/Footer/index.js:104
+#: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:109
+#: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:114
+#: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:138
+#: src/amo/components/Footer/index.js:146
 #, fuzzy
 msgid "Privacy"
 msgstr "Privacy Policy"
 
-#: src/amo/components/Footer/index.js:139
+#: src/amo/components/Footer/index.js:147
 msgid "Cookies"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:140
+#: src/amo/components/Footer/index.js:148
 msgid "Legal"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:141
+#: src/amo/components/Footer/index.js:149
 #, fuzzy
 msgid "Report Trademark Abuse"
 msgstr "Report a bug"
 
-#: src/amo/components/Footer/index.js:150
+#: src/amo/components/Footer/index.js:158
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
 "this site is licensed under the %(startLicenseLink)sCreative Commons "
@@ -608,25 +624,22 @@ msgstr "Developer Hub"
 msgid "Forum"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:74
-msgid "View classic desktop site"
-msgstr "View classic desktop site"
-
-#: src/amo/components/Footer/index.js:78
+#: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
 msgstr "Report a bug"
 
-#: src/amo/components/Footer/index.js:80
+#: src/amo/components/Footer/index.js:75
+#, fuzzy
+msgid "Review Guide"
+msgstr "Review text"
+
+#: src/amo/components/Footer/index.js:78
 msgid "Site Status"
 msgstr ""
 
-#: src/amo/components/Footer/index.js:94
-msgid "Android Browser"
-msgstr ""
-
-#: src/amo/components/Footer/index.js:99
-msgid "iOS Browser"
-msgstr ""
+#: src/amo/components/Footer/index.js:86
+msgid "View classic desktop site"
+msgstr "View classic desktop site"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -649,7 +662,7 @@ msgid "Manage API Keys"
 msgstr ""
 
 #: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
 msgstr "Log out"
 
@@ -665,134 +678,102 @@ msgstr ""
 msgid "View Profile"
 msgstr ""
 
-#: src/amo/components/Home/index.js:101 src/amo/components/Home/index.js:126
-msgid "Be social"
-msgstr "Be social"
+#: src/amo/components/Home/index.js:116
+msgid "Most popular extensions"
+msgstr "Most popular extensions"
 
-#: src/amo/components/Home/index.js:104 src/amo/components/Home/index.js:129
-msgid "Play games"
-msgstr "Play games"
+#: src/amo/components/Home/index.js:117
+msgid "More popular extensions"
+msgstr "More popular extensions"
 
-#: src/amo/components/Home/index.js:114 src/amo/components/Home/index.js:89
-msgid "Block ads"
-msgstr "Block ads"
-
-#: src/amo/components/Home/index.js:117 src/amo/components/Home/index.js:92
-msgid "Screenshot"
-msgstr "Screenshot"
-
-#: src/amo/components/Home/index.js:120 src/amo/components/Home/index.js:95
-msgid "Find news"
-msgstr "Find news"
-
-#: src/amo/components/Home/index.js:123 src/amo/components/Home/index.js:98
-msgid "Shop online"
-msgstr "Shop online"
-
-#: src/amo/components/Home/index.js:143
-msgid "Wild"
-msgstr "Wild"
-
-#: src/amo/components/Home/index.js:144
-msgid "Abstract"
-msgstr "Abstract"
-
-#: src/amo/components/Home/index.js:145
-msgid "Holiday"
-msgstr "Holiday"
-
-#: src/amo/components/Home/index.js:146
-msgid "Scenic"
-msgstr "Scenic"
-
-#: src/amo/components/Home/index.js:147
-msgid "Sporty"
-msgstr "Sporty"
-
-#: src/amo/components/Home/index.js:148
-msgid "Solid"
-msgstr "Solid"
-
-#: src/amo/components/Home/index.js:187
+#: src/amo/components/Home/index.js:131
 msgid "Change your tabs"
 msgstr ""
 
-#: src/amo/components/Home/index.js:188
+#: src/amo/components/Home/index.js:132
 #, fuzzy
 msgid "Browse this collection"
 msgstr "Browse all extensions"
 
-#: src/amo/components/Home/index.js:207
-#: src/amo/components/SuggestedPages/index.js:26
-msgid "Browse all extensions"
-msgstr "Browse all extensions"
-
-#: src/amo/components/Home/index.js:212
-msgid "You can change how Firefox works…"
-msgstr "You can change how Firefox works…"
-
-#: src/amo/components/Home/index.js:215
-#: src/amo/components/LandingPage/index.js:210
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
+#: src/amo/components/Home/index.js:141
+msgid "I'm interested in…"
 msgstr ""
 
-#: src/amo/components/Home/index.js:226
-#: src/amo/components/SuggestedPages/index.js:31
-msgid "Browse all themes"
-msgstr "Browse all themes"
-
-#: src/amo/components/Home/index.js:231
-msgid "…or what it looks like"
-msgstr "…or what it looks like"
-
-#: src/amo/components/Home/index.js:234
-#: src/amo/components/LandingPage/index.js:208
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
+#: src/amo/components/Home/index.js:164
+msgid "Up & Coming"
 msgstr ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
 
-#: src/amo/components/HomeCarousel/index.js:33
+#: src/amo/components/Home/index.js:59
+msgid "Ad blockers"
+msgstr ""
+
+#: src/amo/components/Home/index.js:63
+msgid "Password managers"
+msgstr ""
+
+#: src/amo/components/Home/index.js:67
+msgid "Bookmarks"
+msgstr ""
+
+#: src/amo/components/Home/index.js:71
+msgid "Watching Videos"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
 msgstr ""
 
-#: src/amo/components/HomeCarousel/index.js:42
+#: src/amo/components/HomeHeroBanner/index.js:47
 msgid "YouTube High Definition"
 msgstr ""
 
-#: src/amo/components/HomeCarousel/index.js:45
+#: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Videos in HD, turn off annotations, change player size & more"
 msgstr ""
 
-#: src/amo/components/HomeCarousel/index.js:57
+#: src/amo/components/HomeHeroBanner/index.js:61
+msgid "Block ads"
+msgstr "Block ads"
+
+#: src/amo/components/HomeHeroBanner/index.js:64
 msgid ""
 "From ad blockers to anti-trackers, here are some impressive privacy "
 "extensions"
 msgstr ""
 
-#: src/amo/components/HomeCarousel/index.js:68
+#: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
 msgstr ""
 
-#: src/amo/components/HomeCarousel/index.js:70
+#: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:204
-#: src/amo/components/SectionLinks/index.js:94
+#: src/amo/components/LandingPage/index.js:212
+#: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Themes"
 
-#: src/amo/components/LandingPage/index.js:205
-#: src/amo/components/SectionLinks/index.js:84
+#: src/amo/components/LandingPage/index.js:213
+#: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Extensions"
 
-#: src/amo/components/LandingPage/index.js:235
+#: src/amo/components/LandingPage/index.js:216
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+msgstr ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
+
+#: src/amo/components/LandingPage/index.js:218
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
+msgstr ""
+
+#: src/amo/components/LandingPage/index.js:243
 msgid "Explore all categories"
 msgstr "Explore all categories"
 
@@ -801,80 +782,118 @@ msgstr "Explore all categories"
 msgid "Change language"
 msgstr "Log in to rate this language pack"
 
-#: src/amo/components/RatingManager/index.js:127
+#: src/amo/components/LanguageTools/index.js:130
+#, fuzzy
+msgid "Dictionaries and Language Packs"
+msgstr "Log in to rate this language pack"
+
+#: src/amo/components/LanguageTools/index.js:135
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:140
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:146
+msgid "All Locales"
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:152
+msgid "Locale Name"
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:155
+#, fuzzy
+msgid "Language Packs"
+msgstr "Log in to rate this language pack"
+
+#: src/amo/components/LanguageTools/index.js:158
+msgid "Dictionaries"
+msgstr ""
+
+#: src/amo/components/LanguageTools/index.js:91
+msgid "Available for your locale"
+msgstr ""
+
+#: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
 msgstr "Log in to rate this dictionary"
 
-#: src/amo/components/RatingManager/index.js:129
+#: src/amo/components/RatingManager/index.js:134
 msgid "Log in to rate this language pack"
 msgstr "Log in to rate this language pack"
 
-#: src/amo/components/RatingManager/index.js:131
+#: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this search plugin"
 msgstr "Log in to rate this search plugin"
 
-#: src/amo/components/RatingManager/index.js:133
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this theme"
 msgstr "Log in to rate this theme"
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this extension"
 msgstr "Log in to rate this extension"
 
-#: src/amo/components/RatingManager/index.js:141
+#: src/amo/components/RatingManager/index.js:146
 msgid "Log in to rate this add-on"
 msgstr "Log in to rate this add-on"
 
-#: src/amo/components/RatingManager/index.js:165
+#: src/amo/components/RatingManager/index.js:170
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "How are you enjoying your experience with %(addonName)s?"
 
-#: src/amo/components/ReportAbuseButton/index.js:107
+#: src/amo/components/ReportAbuseButton/index.js:108
 #, fuzzy
 msgid "You reported this add-on for abuse"
 msgstr "Log in to rate this add-on"
 
-#: src/amo/components/ReportAbuseButton/index.js:111
+#: src/amo/components/ReportAbuseButton/index.js:112
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:118
+#: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:129
+#: src/amo/components/ReportAbuseButton/index.js:130
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
 "to Mozilla using this form."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:151
-#: src/amo/components/ReportAbuseButton/index.js:157
+#: src/amo/components/ReportAbuseButton/index.js:152
+#: src/amo/components/ReportAbuseButton/index.js:158
 msgid "Report this add-on for abuse"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:165
+#: src/amo/components/ReportAbuseButton/index.js:166
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:178
+#: src/amo/components/ReportAbuseButton/index.js:179
 msgid "Explain how this add-on is violating our policies."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:191
+#: src/amo/components/ReportAbuseButton/index.js:192
 msgid "Dismiss"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:199
+#: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Sending abuse report"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:201
 msgid "Send abuse report"
 msgstr ""
 
@@ -937,67 +956,76 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s add-on found"
 msgstr[1] "%(count)s add-ons found"
 
+#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:92
+msgid "All"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:103
+msgid "Windows"
+msgstr ""
+
 #: src/amo/components/SearchFilters/index.js:104
+msgid "macOS"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:105
+msgid "Linux"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:113
+msgid "Relevance"
+msgstr "Relevance"
+
+#: src/amo/components/SearchFilters/index.js:114
+msgid "Recently Updated"
+msgstr "Recently Updated"
+
+#: src/amo/components/SearchFilters/index.js:115
+msgid "Most Users"
+msgstr "Most Users"
+
+#: src/amo/components/SearchFilters/index.js:116
+msgid "Top Rated"
+msgstr "Top Rated"
+
+#: src/amo/components/SearchFilters/index.js:117
+msgid "Trending"
+msgstr ""
+
+#: src/amo/components/SearchFilters/index.js:127
 #, fuzzy
 msgid "Filter results"
 msgstr "Search results"
 
-#: src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:134
 #, fuzzy
 msgid "Sort by"
 msgstr "Sort"
 
-#: src/amo/components/SearchFilters/index.js:128
+#: src/amo/components/SearchFilters/index.js:152
 #, fuzzy
 msgid "Add-on Type"
 msgstr "Add-on icon"
 
-#: src/amo/components/SearchFilters/index.js:146
+#: src/amo/components/SearchFilters/index.js:170
 msgid "Operating System"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:70
-#: src/amo/components/SearchFilters/index.js:80
-msgid "All"
-msgstr ""
+#: src/amo/components/SearchFilters/index.js:196
+#, fuzzy
+msgid "Featured add-ons only"
+msgstr "Firefox Add-ons"
 
-#: src/amo/components/SearchFilters/index.js:71
+#: src/amo/components/SearchFilters/index.js:93
 #, fuzzy
 msgid "Extension"
 msgstr "Extensions"
 
-#: src/amo/components/SearchFilters/index.js:72
+#: src/amo/components/SearchFilters/index.js:94
 #, fuzzy
 msgid "Theme"
 msgstr "Themes"
-
-#: src/amo/components/SearchFilters/index.js:81
-msgid "Windows"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:82
-msgid "macOS"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:83
-msgid "Linux"
-msgstr ""
-
-#: src/amo/components/SearchFilters/index.js:91
-msgid "Relevance"
-msgstr "Relevance"
-
-#: src/amo/components/SearchFilters/index.js:92
-msgid "Recently Updated"
-msgstr "Recently Updated"
-
-#: src/amo/components/SearchFilters/index.js:93
-msgid "Most Users"
-msgstr "Most Users"
-
-#: src/amo/components/SearchFilters/index.js:94
-msgid "Top Rated"
-msgstr "Top Rated"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
@@ -1061,40 +1089,40 @@ msgstr "Please enter a search term to search Firefox Add-ons."
 msgid "Search results"
 msgstr "Search results"
 
-#: src/amo/components/SectionLinks/index.js:100
-msgid "More…"
-msgstr ""
-
-#: src/amo/components/SectionLinks/index.js:113
+#: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:121
+#: src/amo/components/SectionLinks/index.js:120
 #, fuzzy
 msgid "Search Tools"
 msgstr "Search results"
 
-#: src/amo/components/SectionLinks/index.js:126
+#: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:137
+#: src/amo/components/SectionLinks/index.js:136
 #, fuzzy
 msgid "Add-ons for Android"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/SectionLinks/index.js:59
+#: src/amo/components/SectionLinks/index.js:58
 #, fuzzy
 msgid "for Firefox"
 msgstr "Add-ons for Firefox"
 
-#: src/amo/components/SectionLinks/index.js:61
+#: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
 msgstr ""
 
-#: src/amo/components/SectionLinks/index.js:73
+#: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
 msgstr "Explore"
+
+#: src/amo/components/SectionLinks/index.js:99
+msgid "More…"
+msgstr ""
 
 #: src/amo/components/StaticPages/About.js:110
 msgid ""
@@ -1360,11 +1388,19 @@ msgstr ""
 msgid "Suggested Pages"
 msgstr "Suggested Pages"
 
+#: src/amo/components/SuggestedPages/index.js:26
+msgid "Browse all extensions"
+msgstr "Browse all extensions"
+
+#: src/amo/components/SuggestedPages/index.js:31
+msgid "Browse all themes"
+msgstr "Browse all themes"
+
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
 msgstr "Add-ons Home Page"
 
-#: src/core/components/AuthenticateButton/index.js:65
+#: src/core/components/AuthenticateButton/index.js:64
 msgid "Register or Log in"
 msgstr ""
 
@@ -1385,12 +1421,12 @@ msgstr "Error code: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, but we can't find anything at the URL you entered."
 
-#: src/core/components/InstallButton/index.js:106
+#: src/core/components/InstallButton/index.js:108
 msgid "Install Theme"
 msgstr "Install Theme"
 
-#: src/core/components/InstallButton/index.js:128
-#: src/core/components/InstallButton/index.js:146
+#: src/core/components/InstallButton/index.js:130
+#: src/core/components/InstallButton/index.js:148
 msgid "Add to Firefox"
 msgstr "Add to Firefox"
 
@@ -1446,7 +1482,7 @@ msgstr "Now you can access %(name)s from the toolbar."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/ui/components/DismissibleTextForm/index.js:125
+#: src/ui/components/DismissibleTextForm/index.js:129
 #, fuzzy
 msgid "Cancel"
 msgstr "Cancel preview"
@@ -1491,6 +1527,57 @@ msgstr "No ratings"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Expand to</span> Read more"
+
+#~ msgid "Most popular themes"
+#~ msgstr "Most popular themes"
+
+#~ msgid "More popular themes"
+#~ msgstr "More popular themes"
+
+#~ msgid "More Featured Extensions"
+#~ msgstr "More Featured Extensions"
+
+#~ msgid "More Featured Themes"
+#~ msgstr "More Featured Themes"
+
+#~ msgid "Be social"
+#~ msgstr "Be social"
+
+#~ msgid "Play games"
+#~ msgstr "Play games"
+
+#~ msgid "Screenshot"
+#~ msgstr "Screenshot"
+
+#~ msgid "Find news"
+#~ msgstr "Find news"
+
+#~ msgid "Shop online"
+#~ msgstr "Shop online"
+
+#~ msgid "Wild"
+#~ msgstr "Wild"
+
+#~ msgid "Abstract"
+#~ msgstr "Abstract"
+
+#~ msgid "Holiday"
+#~ msgstr "Holiday"
+
+#~ msgid "Scenic"
+#~ msgstr "Scenic"
+
+#~ msgid "Sporty"
+#~ msgstr "Sporty"
+
+#~ msgid "Solid"
+#~ msgstr "Solid"
+
+#~ msgid "You can change how Firefox works…"
+#~ msgstr "You can change how Firefox works…"
+
+#~ msgid "…or what it looks like"
+#~ msgstr "…or what it looks like"
 
 #~ msgid ""
 #~ "Install powerful tools that make browsing faster and safer, add-ons make "
