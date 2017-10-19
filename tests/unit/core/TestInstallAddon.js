@@ -297,6 +297,20 @@ describe(__filename, () => {
         .toEqual('https://a.m.o/files/linux.xpi');
     });
 
+    it('finds a Linux Ubuntu install URL', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        // This parses to the name Ubuntu instead of Linux.
+        userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
+      }))
+        .toEqual('https://a.m.o/files/linux.xpi');
+    });
+
     it('finds an Android mobile install URL', () => {
       expect(_findInstallURL({
         addonFiles: [

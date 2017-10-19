@@ -18,9 +18,24 @@ import type {
 import type { Exact } from 'core/types/util';
 
 export const USER_AGENT_OS_ANDROID: 'Android' = 'Android';
+export const USER_AGENT_OS_BSD_FREEBSD: 'FreeBSD' = 'FreeBSD';
+export const USER_AGENT_OS_BSD_NETBSD: 'NetBSD' = 'NetBSD';
+export const USER_AGENT_OS_BSD_OPENBSD: 'OpenBSD' = 'OpenBSD';
+export const USER_AGENT_OS_BSD_PC: 'PC-BSD' = 'PC-BSD';
 export const USER_AGENT_OS_IOS: 'iOS' = 'iOS';
 export const USER_AGENT_OS_LINUX: 'Linux' = 'Linux';
+export const USER_AGENT_OS_LINUX_ARCH: 'Arch' = 'Arch';
+export const USER_AGENT_OS_LINUX_CENTOS: 'CentOS' = 'CentOS';
+export const USER_AGENT_OS_LINUX_DEBIAN: 'Debian' = 'Debian';
+export const USER_AGENT_OS_LINUX_FEDORA: 'Fedora' = 'Fedora';
+export const USER_AGENT_OS_LINUX_GENTOO: 'Gentoo' = 'Gentoo';
+export const USER_AGENT_OS_LINUX_GNU: 'GNU' = 'GNU';
+export const USER_AGENT_OS_LINUX_PCLINUXOS: 'PCLinuxOS' = 'PCLinuxOS';
+export const USER_AGENT_OS_LINUX_REDHAT: 'RedHat' = 'RedHat';
+export const USER_AGENT_OS_LINUX_UBUNTU: 'Ubuntu' = 'Ubuntu';
+export const USER_AGENT_OS_LINUX_VECTOR: 'VectorLinux' = 'VectorLinux';
 export const USER_AGENT_OS_MAC: 'Mac OS' = 'Mac OS';
+export const USER_AGENT_OS_UNIX: 'UNIX' = 'UNIX';
 export const USER_AGENT_OS_WINDOWS: 'Windows' = 'Windows';
 
 

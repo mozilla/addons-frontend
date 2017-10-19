@@ -144,6 +144,8 @@ export const userAgentsByPlatform = {
   linux: {
     firefox10: oneLine`Mozilla/5.0 (X11; Linux i686; rv:10.0)
       Gecko/20100101 Firefox/10.0`,
+    firefox57Ubuntu: oneLine`Mozilla/5.0 (X11; Ubuntu; Linux i686;
+      rv:57.0) Gecko/20100101 Firefox/57.0`,
   },
   mac: {
     chrome41: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1)
