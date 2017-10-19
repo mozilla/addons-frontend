@@ -34,6 +34,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
+      location: { path: '/review-list', query: {} },
       review: denormalizeReview(fakeReview),
       store,
       ...customProps,
@@ -65,10 +66,13 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const { menu } = renderMenu();
+      const location = { path: '/somewhere', query: {} };
+      const { menu } = renderMenu({ location });
 
       expect(menu.find(ListItem)).toHaveLength(1);
-      expect(menu.find(AuthenticateButton)).toHaveLength(1);
+      const authButton = menu.find(AuthenticateButton);
+      expect(authButton).toHaveLength(1);
+      expect(authButton).toHaveProp('location', location);
     });
 
     it('does not let you flag your own review', () => {

@@ -39,6 +39,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
+      location: { path: '/review-list', query: {} },
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -221,10 +222,12 @@ describe(__filename, () => {
 
   it('lets you flag a review', () => {
     const review = _setReview(fakeReview);
-    const root = render({ review });
+    const location = { path: '/somewhere', query: {} };
+    const root = render({ location, review });
 
     const flag = root.find(FlagReviewMenu);
     expect(flag).toHaveProp('review', review);
+    expect(flag).toHaveProp('location', location);
     expect(flag).toHaveProp('isDeveloperReply', false);
   });
 

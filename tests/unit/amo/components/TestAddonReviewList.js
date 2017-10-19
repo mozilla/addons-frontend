@@ -87,7 +87,8 @@ describe(__filename, () => {
     });
 
     it('waits for an addon and reviews to load', () => {
-      const root = render({ addon: null });
+      const location = { path: '/review-list', query: {} };
+      const root = render({ addon: null, location });
       expect(root.find('.AddonReviewList-header-icon img').prop('src'))
         .toEqual(fallbackIcon);
       expect(root.find('.AddonReviewList-header-text').find(LoadingText))
@@ -98,6 +99,8 @@ describe(__filename, () => {
       // Do a sanity check on the first placeholder;
       expect(root.find(AddonReviewListItem).at(0))
         .toHaveProp('addon', undefined);
+      expect(root.find(AddonReviewListItem).at(0))
+        .toHaveProp('location', location);
       expect(root.find(AddonReviewListItem).at(0))
         .toHaveProp('review', null);
     });

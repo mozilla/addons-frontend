@@ -20,12 +20,14 @@ import type { I18nType } from 'core/types/i18n';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserStateType } from 'core/reducers/user';
 import type { UserReviewType } from 'amo/actions/reviews';
+import type { ReactRouterLocation } from 'core/types/router';
 
 
 type Props = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isDeveloperReply?: boolean,
+  location: ReactRouterLocation,
   openerClass?: string,
   review: UserReviewType,
   siteUser: UserStateType,
@@ -42,14 +44,12 @@ export class FlagReviewMenuBase extends React.Component<Props> {
       errorHandler,
       i18n,
       isDeveloperReply,
+      location,
       openerClass,
       review,
       siteUser,
       userIsAuthenticated,
     } = this.props;
-
-    // TODO:
-    // - pass in location to AuthenticateButton
 
     let items;
     if (!userIsAuthenticated) {
@@ -57,7 +57,7 @@ export class FlagReviewMenuBase extends React.Component<Props> {
         <ListItem key="login-required">
           <AuthenticateButton
             noIcon
-            location={'/TODO'}
+            location={location}
             logInText={i18n.gettext('Log in to flag this review')}
           />
         </ListItem>,
