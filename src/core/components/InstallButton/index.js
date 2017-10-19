@@ -46,6 +46,7 @@ export class InstallButtonBase extends React.Component {
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
     uninstall: PropTypes.func.isRequired,
+    useButton: PropTypes.bool,
     userAgentInfo: PropTypes.string.isRequired,
     _log: PropTypes.object,
     _window: PropTypes.object,
@@ -53,6 +54,7 @@ export class InstallButtonBase extends React.Component {
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
+    useButton: false,
     _log: log,
     _window: typeof window !== 'undefined' ? window : {},
   }
@@ -79,7 +81,7 @@ export class InstallButtonBase extends React.Component {
     // OpenSearch plugins display their own prompt so using the "Add to
     // Firefox" button regardless on mozAddonManager support is a better UX.
     const useButton = (hasAddonManager !== undefined && !hasAddonManager) ||
-      addon.type === ADDON_TYPE_OPENSEARCH;
+      addon.type === ADDON_TYPE_OPENSEARCH || this.props.useButton;
     let button;
 
     const { compatible } = getClientCompatibility({

@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-10 18:17+0000\n"
-"PO-Revision-Date: 2017-10-17 11:10+0000\n"
+"PO-Revision-Date: 2017-10-19 12:19+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1025,44 +1025,52 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"De hjir fermelde add-ons binne makke troch tûzenen ûntwikkelers en tema-ûntwerpers wrâldwiid, fariearjend fan yndividuele hobbyisten oant grutte bedriuwen. Guon add-ons op AMO wurde automatysk "
+"publisearre en wurde nei publikaasje mooglik noch beoardiele troch in team fan editors."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Meiwurkje"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla is in nonprofitfoarfjochter fan it ynternet, wy bouwe Firefox om it sûn, iepen en tagonklik te helpen te wêzen. Add-ons stypje karfrijheid en oanpassing yn Firefox, en jo kinne op de "
+"folgjende manieren bydrage:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sMeitsje jo eigen add-on%(endLink)s. Wy biede fergees host- en fernijingstsjinsten en kinne jo helpe in grut brûkerspublyk te berikjen."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Help dizze website te ferbetterjen. Hy is opensource, en jo kinne bugs en patches yntsjinje. Jo kinne starte mei in %(startGoodFirstBugLink)sgoede earste bug%(endGoodFirstBugLink)s of alle iepen "
+"saken foar de %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s en %(startAddonsFrontendRepoLink)sfront-end%(endAddonsFrontendRepoLink)s op GitHub besjen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Beoardielingsrjochtlinen"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Add-onbeoardielingen binne in manier om jo miening oer de troch jo ynstallearre en brûkte add-ons te dielen. Us beoardielingsmoderaasjeteam behâldt harren it rjocht foar om elke beoardieling dy't "
+"net oan dizze rjochtline foldocht te wegerjen of fuort te smiten."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tips foar it skriuwen fan in goede beoardieling"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Dwaan:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1070,27 +1078,27 @@ msgstr "Skriuw as oft jo in freon oer jo ûnderfining mei de add-on fertelle."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Hâld beoardielingen koart en ienfâldich te begripen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Jou spesifike en behelpsume details. Bygelyks:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Wurke de add-on lykas jo ferwachten?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Hokker funksjes fûne jo fijn of minder fijn?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Wie de add-on nuttich?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Wie de add-on ienfâldich te brûken?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
@@ -1098,83 +1106,91 @@ msgstr "Bliuwe jo dizze add-on brûke?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Nim in momint om jo beoardieling troch te lêzen eardat jo dy yntsjinje, om sa typflaters te minimalisearjen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Net dwaan:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Ekstreem koarte beoardielingen as ‘Bjusterbaarlik!’, ‘prachtich’ of ‘slim’ yntsjinje."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Technyske problemen, stipefragen of oanfragen foar funksjes pleatse. Brûk hjirfoar, wannear beskikber, de stipeopsjes foar elke add-on. Jo fine dizze yn de seksje ‘Mear ynformaasje’ yn de sidebalke "
+"op de detailside fan de add-on."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Beoardielingen skriuwe foar add-ons dy't jo net sels brûkt hawwe."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Grouwélich, seksueel tinte of mooglik haatsjend taalgebrûk."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "HTML, keppelingen, boarnekoade of koadefragminten opnimme. Beoardielingen binne útslutend tekstueel."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Falske ferklearringen ôflizze, add-onskriuwers unhoask bejegenje of se persoanlik beledigje."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Jo eigen of in oar syn e-mailadres, telefoannûmer of oare persoansgegevens opnimme."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Beoardielingen foar in add-on dy't jo of jo organisaasje skreaun of fertsjinwurdige hat skriuwe."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"In add-on bekritisearje foar eat wat hy dwaan moatte soe. Bygelyks in negative beoardieling fan in add-on fanwegen it werjaan fan advertinsjes of gegevenssamling efterlitte, wylst dat it doel is fan"
+" de add-on, of wannear't de add-on gegevens sammelje moat om te wurkjen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Faak stelde fragen oer beoardielingen"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Hoe kin ik in probleem mei in beoardieling melde?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Meld of label twiveleftige beoardielingen troch op ‘Dizze beoardieling melde’ te klikken, en dizze wurdt dernei foar moderaasje oanmeld. Us moderaasjeteam brûkt de Beoardielingsrjochtlinen om te "
+"evaluearjen of de beoardieling fuortsmiten wurde moat of werompleatst wurdt op de website."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Ik bin in add-onskriuwer, kin ik antwurdzje op beoardielingen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Ja, add-onskriuwers kinne foar ien kear ien beoardieling beäntwurdzje. Jo kinne in diskusje starte op ús %(startLink)sfoarum%(endLink)s om de diskusje fierder te fieren."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Ik bin in add-onskriuwer, kin ik negative beoardielingen of wurdearringen fuortsmite?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Oer it algemien net. Mar as de beoardieling net foldocht oan de boppesteande rjochtlinen kinne jo op ‘Dizze beoardieling melde’ klikke om moderaasje te starten. As de beoardieling in klacht "
+"beskriuwt dy't net mear jildt fanwegen in nije útjefte fan jo add-on, dan kinne wy oerweage de beoardieling fuort te smiten."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
