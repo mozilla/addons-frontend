@@ -99,5 +99,13 @@
         color: $blue-50;
       }
     }
+
+    .ErrorList {
+      margin-bottom: 6px;
+    }
+
+    .ErrorList-item {
+      white-space: normal;
+    }
   }
 }

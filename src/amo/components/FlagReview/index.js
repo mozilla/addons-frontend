@@ -36,9 +36,11 @@ export class FlagReviewBase extends React.Component<Props> {
   }
 
   renderControls() {
-    const { flagState, promptText, wasFlaggedText } = this.props;
+    const {
+      errorHandler, flagState, promptText, wasFlaggedText,
+    } = this.props;
 
-    if (flagState && flagState.inProgress) {
+    if (flagState && flagState.inProgress && !errorHandler.hasError()) {
       return <LoadingText minWidth={60} />;
     } else if (flagState && flagState.wasFlagged) {
       return wasFlaggedText;

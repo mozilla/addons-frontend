@@ -98,9 +98,23 @@ describe(__filename, () => {
       id: 'some-id',
       dispatch: store.dispatch,
     });
+
+    // The user flags a review:
+    const reason = REVIEW_FLAG_REASON_BUG_SUPPORT;
+    const review = denormalizeReview(fakeReview);
+    store.dispatch(flagReview({
+      errorHandlerId: errorHandler.id,
+      reason,
+      reviewId: review.id,
+    }));
+
+    // The user triggers an error:
     errorHandler.handle(new Error('Unexpected API error'));
 
-    const root = render({ errorHandler });
+    const root = render({ errorHandler, reason });
     expect(root.find(ErrorList)).toHaveLength(1);
+
+    // It should still display a button so they can try again.
+    expect(root.find('.FlagReview-button')).toHaveLength(1);
   });
 });
