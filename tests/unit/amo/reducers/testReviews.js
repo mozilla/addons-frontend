@@ -1,5 +1,7 @@
 import {
+  flagReview,
   sendReplyToReview,
+  setReviewWasFlagged,
   showEditReviewForm,
   showReplyToReviewForm,
   denormalizeReview,
@@ -9,12 +11,15 @@ import {
   setReview,
   setReviewReply,
 } from 'amo/actions/reviews';
+import {
+  REVIEW_FLAG_REASON_BUG_SUPPORT, REVIEW_FLAG_REASON_SPAM,
+} from 'amo/constants';
 import reviewsReducer, {
   changeViewState, expandReviewObjects, initialState, storeReviewObjects,
 } from 'amo/reducers/reviews';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
-describe('amo.reducers.reviews', () => {
+describe(__filename, () => {
   function setFakeReview({
     userId = fakeReview.user.id,
     addonId = fakeReview.addon.id,
@@ -429,6 +434,41 @@ describe('amo.reducers.reviews', () => {
     });
   });
 
+  describe('review flagging', () => {
+    it('stores view state about flagging a review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, flagReview({
+        errorHandlerId: 'some-id',
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].flags).toMatchObject({
+        [REVIEW_FLAG_REASON_SPAM]: {
+          inProgress: true,
+          wasFlagged: false,
+        },
+      });
+    });
+
+    it('stores view state about a flagged review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, setReviewWasFlagged({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].flags).toMatchObject({
+        [REVIEW_FLAG_REASON_SPAM]: {
+          inProgress: false,
+          wasFlagged: true,
+        },
+      });
+    });
+  });
+
   describe('changeViewState', () => {
     it('preserves view state for other reviews', () => {
       const review1 = { ...fakeReview, id: 1 };
@@ -477,6 +517,74 @@ describe('amo.reducers.reviews', () => {
       expect(newState.view[review.id].secondFlag).toEqual(true);
     });
 
+    it('preserves existing flags per `reason` value', () => {
+      const review = { ...fakeReview, id: 987 };
+
+      const state = changeViewState({
+        state: initialState,
+        reviewId: review.id,
+        stateChange: {
+          flags: {
+            [REVIEW_FLAG_REASON_SPAM]: {
+              inProgress: true,
+            },
+          },
+        },
+      });
+
+      const newState = changeViewState({
+        state,
+        reviewId: review.id,
+        stateChange: {
+          flags: {
+            [REVIEW_FLAG_REASON_BUG_SUPPORT]: {
+              inProgress: false,
+            },
+          },
+        },
+      });
+
+      const newFlags = newState.view[review.id].flags;
+      expect(newFlags[REVIEW_FLAG_REASON_SPAM].inProgress)
+        .toEqual(true);
+      expect(newFlags[REVIEW_FLAG_REASON_BUG_SUPPORT].inProgress)
+        .toEqual(false);
+    });
+
+    it('preserves existing flag values for the same `reason`', () => {
+      const review = { ...fakeReview, id: 987 };
+
+      const state = changeViewState({
+        state: initialState,
+        reviewId: review.id,
+        stateChange: {
+          flags: {
+            [REVIEW_FLAG_REASON_SPAM]: {
+              inProgress: true,
+            },
+          },
+        },
+      });
+
+      const newState = changeViewState({
+        state,
+        reviewId: review.id,
+        stateChange: {
+          flags: {
+            [REVIEW_FLAG_REASON_SPAM]: {
+              wasFlagged: true,
+            },
+          },
+        },
+      });
+
+      const newFlags = newState.view[review.id].flags;
+      expect(newFlags[REVIEW_FLAG_REASON_SPAM].inProgress)
+        .toEqual(true);
+      expect(newFlags[REVIEW_FLAG_REASON_SPAM].wasFlagged)
+        .toEqual(true);
+    });
+
     it('sets default view states', () => {
       const review = { ...fakeReview, id: 987 };
 
@@ -488,6 +596,7 @@ describe('amo.reducers.reviews', () => {
 
       expect(state.view[review.id]).toEqual({
         editingReview: false,
+        flags: {},
         replyingToReview: false,
         submittingReply: false,
       });

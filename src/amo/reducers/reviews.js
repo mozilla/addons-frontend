@@ -3,15 +3,18 @@ import { oneLine } from 'common-tags';
 
 import {
   SEND_REPLY_TO_REVIEW,
+  SEND_REVIEW_FLAG,
+  SET_ADDON_REVIEWS,
+  SET_REVIEW,
+  SET_REVIEW_REPLY,
+  SET_REVIEW_WAS_FLAGGED,
   SHOW_EDIT_REVIEW_FORM,
   SHOW_REPLY_TO_REVIEW_FORM,
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
-  SET_ADDON_REVIEWS,
-  SET_REVIEW,
-  SET_REVIEW_REPLY,
 } from 'amo/constants';
 import { denormalizeReview } from 'amo/actions/reviews';
+import type { FlagReviewReasonType } from 'amo/constants';
 import type {
   HideEditReviewFormAction,
   HideReplyToReviewFormAction,
@@ -37,6 +40,12 @@ type ReviewsByAddon = {
 
 type ViewStateByReviewId = {|
   editingReview: boolean,
+  flags: {
+    [reason: string]: {
+      inProgress: boolean,
+      wasFlagged: boolean,
+    },
+  },
   replyingToReview: boolean,
   submittingReply: boolean,
 |};
@@ -135,12 +144,17 @@ type ChangeViewStateParams = {|
 export const changeViewState = (
   { state, reviewId, stateChange }: ChangeViewStateParams = {}
 ): $Shape<ReviewState> => {
-  return {
+  const newFlags = stateChange.flags;
+  // Make sure the shallow spread doesn't override old values.
+  delete stateChange.flags;
+
+  const newState = {
     ...state,
     view: {
       ...state.view,
       [reviewId]: {
         editingReview: false,
+        flags: {},
         replyingToReview: false,
         submittingReply: false,
         ...state.view[reviewId],
@@ -148,6 +162,18 @@ export const changeViewState = (
       },
     },
   };
+
+  if (newFlags) {
+    Object.keys(newFlags).forEach((key) => {
+      const newValue = newFlags[key];
+      newState.view[reviewId].flags[key] = {
+        ...newState.view[reviewId].flags[key],
+        ...newValue,
+      };
+    });
+  }
+
+  return newState;
 };
 
 type ReviewActionType =
@@ -233,6 +259,36 @@ export default function reviewsReducer(
           },
         },
       };
+    }
+    case SEND_REVIEW_FLAG: {
+      const { payload } = action;
+      return changeViewState({
+        state,
+        reviewId: payload.reviewId,
+        stateChange: {
+          flags: {
+            [payload.reason]: {
+              inProgress: true,
+              wasFlagged: false,
+            },
+          }
+        },
+      });
+    }
+    case SET_REVIEW_WAS_FLAGGED: {
+      const { payload } = action;
+      return changeViewState({
+        state,
+        reviewId: payload.reviewId,
+        stateChange: {
+          flags: {
+            [payload.reason]: {
+              inProgress: false,
+              wasFlagged: true,
+            },
+          }
+        },
+      });
     }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;
