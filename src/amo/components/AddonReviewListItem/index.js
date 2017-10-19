@@ -277,7 +277,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           {review ? (
             <FlagAddonReview
               openerClass="AddonReviewListItem-control"
-              reviewId={review.id}
+              review={review}
             />
           ) : null}
         </div>

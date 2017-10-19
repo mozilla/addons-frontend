@@ -68,12 +68,17 @@
     a,
     a:link,
     button {
-      @include font-medium();
-
       color: $grey-90;
-      cursor: pointer;
       font-size: $font-size-m-smaller;
       line-height: 1.6;
+    }
+
+    a,
+    a:link,
+    button {
+      @include font-medium();
+
+      cursor: pointer;
       text-decoration: none;
     }
 

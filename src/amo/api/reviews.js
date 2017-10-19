@@ -220,7 +220,7 @@ export const flagReview = (
         flag: reason,
         note,
       },
-      endpoint: `reviews/review/${reviewId}/flag/`,
+      endpoint: `reviews/review/${reviewId}/flag`,
       errorHandler,
       method: 'POST',
       state: apiState,

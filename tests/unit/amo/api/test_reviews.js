@@ -345,7 +345,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `reviews/review/${params.reviewId}/flag/`,
+          endpoint: `reviews/review/${params.reviewId}/flag`,
           errorHandler: params.errorHandler,
           body: {
             flag: params.reason,
