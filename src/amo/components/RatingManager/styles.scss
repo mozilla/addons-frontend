@@ -20,3 +20,14 @@ $button-height:
   position: absolute;
   width: 100%;
 }
+
+.RatingManager {
+  fieldset {
+    // Prevent content overflow.
+    min-width: 0;
+  }
+
+  legend {
+    word-wrap: break-word;
+  }
+}
