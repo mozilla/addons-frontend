@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-20 10:07+0000\n"
+"PO-Revision-Date: 2017-10-20 10:16+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -1046,6 +1046,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Los complementos que aparecen aquí los han creado miles de desarrolladores y diseñadores de temas de todo el mundo, desde usuarios aficionados hasta grandes corporaciones. Puede que algunos "
+"complementos se publiquen automáticamente y estén sujetos a revisión por parte del equipo de revisores una vez publicado."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1056,10 +1058,12 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla es un héroe de Internet sin ánimo de lucro. Creamos Firefox para que Internet siga siendo saludable, gratis y accesible. Los complementos apoyan las elecciones de los usuarios y la "
+"personalización de Firefox y puedes colaborar así:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sCrea tu propio complemento%(endLink)s. Te proporcionamos alojamiento gratuito y servicios de actualización y te ayudamos a llegar al mayor número de usuarios."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
