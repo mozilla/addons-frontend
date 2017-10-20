@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-19 15:39+0000\n"
+"PO-Revision-Date: 2017-10-20 14:38+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -649,11 +649,11 @@ msgstr "Affichez les vidéos en HD, désactivez les annotations, changez la tail
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
-msgstr "Bloquer les publicités"
+msgstr "Bloquez les publicités"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Des bloqueurs de publicité aux anti-traqueurs, voici quelques extensions impressionnantes pour la protection de votre vie privée"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
