@@ -54,7 +54,10 @@ export class FlagReviewMenuBase extends React.Component<Props> {
           <AuthenticateButton
             noIcon
             location={location}
-            logInText={i18n.gettext('Log in to flag this review')}
+            logInText={isDeveloperReply ?
+              i18n.gettext('Log in to flag this response') :
+              i18n.gettext('Log in to flag this review')
+            }
           />
         </ListItem>,
       ];
@@ -95,6 +98,8 @@ export class FlagReviewMenuBase extends React.Component<Props> {
             )}
           />
         </ListItem>,
+        // Only reviews (not developer responses) can be flagged as
+        // misplaced bug reports or support requests.
         isDeveloperReply ? null : (
           <ListItem
             className="FlagReviewMenu-flag-bug-support-item"

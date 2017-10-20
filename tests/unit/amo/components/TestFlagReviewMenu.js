@@ -69,10 +69,32 @@ describe(__filename, () => {
       const location = { path: '/somewhere', query: {} };
       const { menu } = renderMenu({ location });
 
+      // Only the button item should be rendered.
       expect(menu.find(ListItem)).toHaveLength(1);
+
       const authButton = menu.find(AuthenticateButton);
       expect(authButton).toHaveLength(1);
       expect(authButton).toHaveProp('location', location);
+    });
+
+    it('prompts you to flag a review after login', () => {
+      store.dispatch(logOutUser());
+      const { menu } = renderMenu();
+
+      const authButton = menu.find(AuthenticateButton);
+      expect(authButton).toHaveProp('logInText');
+      expect(authButton.prop('logInText'))
+        .toEqual('Log in to flag this review');
+    });
+
+    it('prompts you to flag a developer response after login', () => {
+      store.dispatch(logOutUser());
+      const { menu } = renderMenu({ isDeveloperReply: true });
+
+      const authButton = menu.find(AuthenticateButton);
+      expect(authButton).toHaveProp('logInText');
+      expect(authButton.prop('logInText'))
+        .toEqual('Log in to flag this response');
     });
 
     it('does not let you flag your own review', () => {
