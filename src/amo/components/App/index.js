@@ -21,7 +21,11 @@ import {
   setUserAgent as setUserAgentAction,
 } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
-import { VIEW_CONTEXT_HOME, maximumSetTimeoutDelay } from 'core/constants';
+import {
+  CLIENT_APP_ANDROID,
+  VIEW_CONTEXT_HOME,
+  maximumSetTimeoutDelay,
+} from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -51,6 +55,7 @@ type Props = {|
   authToken?: string,
   authTokenValidFor?: number,
   children: any,
+  clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
   isHomePage: boolean,
@@ -189,18 +194,28 @@ export class AppBase extends React.Component<Props> {
       HeaderComponent,
       InfoDialogComponent,
       children,
+      clientApp,
       i18n,
       isHomePage,
       location,
     } = this.props;
 
     const query = location.query ? location.query.q : null;
+
+    let defaultTitle = i18n.gettext('Add-ons for Firefox');
+    let titleTemplate = i18n.gettext('%s - Add-ons for Firefox');
+
+    if (clientApp === CLIENT_APP_ANDROID) {
+      defaultTitle = i18n.gettext('Add-ons for Android');
+      titleTemplate = i18n.gettext('%s - Add-ons for Android');
+    }
+
     return (
       <NestedStatus code={200}>
         <div className="amo">
           <Helmet
-            defaultTitle={i18n.gettext('Add-ons for Firefox')}
-            titleTemplate={i18n.gettext('%s - Add-ons for Firefox')}
+            defaultTitle={defaultTitle}
+            titleTemplate={titleTemplate}
           />
           <InfoDialogComponent />
           <HeaderComponent
@@ -232,6 +247,7 @@ export const mapStateToProps = (state: {
   viewContext: ViewContextType,
 }) => ({
   authToken: state.api && state.api.token,
+  clientApp: state.api.clientApp,
   isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
   userAgent: state.api.userAgent,
 });
@@ -252,5 +268,5 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  translate({ withRef: true }),
+  translate(),
 )(AppBase);

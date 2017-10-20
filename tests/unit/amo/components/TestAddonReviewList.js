@@ -465,5 +465,17 @@ describe(__filename, () => {
       const root = render({ location: { query: { page: 3 } } });
       expect(root.find(Paginate)).toHaveProp('currentPage', 3);
     });
+
+    it('renders an HTML title', () => {
+      const addon = fakeAddon;
+      dispatchAddon(addon);
+      const root = render();
+      expect(root.find('title')).toHaveText(`Reviews for ${addon.name}`);
+    });
+
+    it('does not render an HTML title when there is no add-on', () => {
+      const root = render();
+      expect(root.find('title')).toHaveLength(0);
+    });
   });
 });

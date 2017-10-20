@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
 import { getLanding } from 'amo/actions/landing';
@@ -205,9 +206,7 @@ export class LandingPageBase extends React.Component {
       return <NotFound />;
     }
 
-    const content = this.contentForType(visibleAddonType);
-
-    const { addonType, html } = content;
+    const { addonType, html } = this.contentForType(visibleAddonType);
     const headingText = {
       [ADDON_TYPE_THEME]: i18n.gettext('Themes'),
       [ADDON_TYPE_EXTENSION]: i18n.gettext('Extensions'),
@@ -221,7 +220,12 @@ export class LandingPageBase extends React.Component {
 
     return (
       <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
+        <Helmet>
+          <title>{headingText[addonType]}</title>
+        </Helmet>
+
         {errorHandler.renderErrorIfPresent()}
+
         <div className="LandingPage-header">
           <div className="LandingPage-header-text">
             <h1 className="LandingPage-addonType-name">

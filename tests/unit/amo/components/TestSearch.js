@@ -7,15 +7,23 @@ import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
-import { ADDON_TYPE_EXTENSION, VIEW_CONTEXT_EXPLORE } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_THEME,
+  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_POPULAR,
+  VIEW_CONTEXT_EXPLORE,
+} from 'core/constants';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
 } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler } from 'tests/unit/helpers';
+import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
 
-describe('Search', () => {
+describe(__filename, () => {
   let props;
 
   function render(extra = {}) {
@@ -30,6 +38,7 @@ describe('Search', () => {
       filters: { page: 3, query: 'foo' },
       pathname: '/search/',
       handleSearch: sinon.spy(),
+      i18n: fakeI18n(),
       loading: false,
       results: [{ name: 'Foo', slug: 'foo' }, { name: 'Bar', slug: 'bar' }],
     };
@@ -150,6 +159,117 @@ describe('Search', () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('renders an HTML title', () => {
+    const filters = {};
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Search results');
+  });
+
+  it('renders an HTML title for featured extensions', () => {
+    const filters = { addonType: ADDON_TYPE_EXTENSION, featured: true };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Featured extensions');
+  });
+
+  it('renders an HTML title for featured themes', () => {
+    const filters = { addonType: ADDON_TYPE_THEME, featured: true };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Featured themes');
+  });
+
+  it('renders an HTML title for featured add-ons', () => {
+    const filters = { addonType: ADDON_TYPE_LANG, featured: true };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Featured add-ons');
+  });
+
+  it('renders an HTML title for trending extensions', () => {
+    const filters = {
+      addonType: ADDON_TYPE_EXTENSION,
+      sort: SEARCH_SORT_TRENDING,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Trending extensions');
+  });
+
+  it('renders an HTML title for trending themes', () => {
+    const filters = {
+      addonType: ADDON_TYPE_THEME,
+      sort: SEARCH_SORT_TRENDING,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Trending themes');
+  });
+
+  it('renders an HTML title for trending add-ons', () => {
+    const filters = {
+      addonType: ADDON_TYPE_LANG,
+      sort: SEARCH_SORT_TRENDING,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Trending add-ons');
+  });
+
+  it('renders an HTML title for top rated extensions', () => {
+    const filters = {
+      addonType: ADDON_TYPE_EXTENSION,
+      sort: SEARCH_SORT_TOP_RATED,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Top rated extensions');
+  });
+
+  it('renders an HTML title for top rated themes', () => {
+    const filters = {
+      addonType: ADDON_TYPE_THEME,
+      sort: SEARCH_SORT_TOP_RATED,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Top rated themes');
+  });
+
+  it('renders an HTML title for top rated add-ons', () => {
+    const filters = {
+      addonType: ADDON_TYPE_LANG,
+      sort: SEARCH_SORT_TOP_RATED,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Top rated add-ons');
+  });
+
+  it('renders an HTML title for popular extensions', () => {
+    const filters = {
+      addonType: ADDON_TYPE_EXTENSION,
+      sort: SEARCH_SORT_POPULAR,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Popular extensions');
+  });
+
+  it('renders an HTML title for popular themes', () => {
+    const filters = {
+      addonType: ADDON_TYPE_THEME,
+      sort: SEARCH_SORT_POPULAR,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Popular themes');
+  });
+
+  it('renders an HTML title for popular add-ons', () => {
+    const filters = {
+      addonType: ADDON_TYPE_LANG,
+      sort: SEARCH_SORT_POPULAR,
+    };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Popular add-ons');
+  });
+
+  it('renders an HTML title for search query', () => {
+    const filters = { query: 'some terms' };
+    const wrapper = render({ filters });
+    expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
   });
 
   describe('mapStateToProps()', () => {

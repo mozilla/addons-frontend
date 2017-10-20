@@ -204,5 +204,14 @@ describe(__filename, () => {
     const root = shallow(<LanguageToolList addons={null} />);
 
     expect(root.find('.LanguageTools-addon-list')).toHaveLength(0);
+    expect(root.find('title')).toHaveLength(0);
+  });
+
+  it('renders an HTML title', () => {
+    const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
+    store.dispatch(loadAddonResults({ addons }));
+    const root = renderShallow({ store });
+
+    expect(root.find('title')).toHaveText('Dictionaries and Language Packs');
   });
 });

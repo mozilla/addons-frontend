@@ -7,6 +7,7 @@ import {
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import { loadFail } from 'redux-connect/lib/store';
+import Helmet from 'react-helmet';
 
 import App, {
   AppBase,
@@ -20,12 +21,21 @@ import {
 } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
-import { INSTALL_STATE, maximumSetTimeoutDelay } from 'core/constants';
+import {
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  INSTALL_STATE,
+  maximumSetTimeoutDelay,
+} from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
-import { fakeI18n, shallowUntilTarget, userAuthToken } from 'tests/unit/helpers';
+import {
+  fakeI18n,
+  shallowUntilTarget,
+  userAuthToken,
+} from 'tests/unit/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
-
-describe('App', () => {
+describe(__filename, () => {
   class FakeErrorPageComponent extends React.Component {
     render() {
       // eslint-disable-next-line react/prop-types
@@ -88,6 +98,15 @@ describe('App', () => {
       </Provider>
     ), AppBase);
   }
+
+  const shallowRender = ({ ...props }) => {
+    const allProps = {
+      ...renderProps(),
+      ...props,
+    };
+
+    return shallowUntilTarget(<App {...allProps} />, AppBase);
+  };
 
   it('renders its children', () => {
     // eslint-disable-next-line react/no-multi-comp
@@ -185,8 +204,20 @@ describe('App', () => {
   });
 
   it('renders a response with a 200 status', () => {
-    const root = shallowUntilTarget(<App {...renderProps()} />, AppBase);
+    const root = shallowRender();
     expect(root.find(NestedStatus)).toHaveProp('code', 200);
+  });
+
+  it('configures a default HTML title for Firefox', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_FIREFOX });
+    const root = shallowRender({ store });
+    expect(root.find(Helmet)).toHaveProp('defaultTitle', 'Add-ons for Firefox');
+  });
+
+  it('configures a default HTML title for Android', () => {
+    const { store } = dispatchClientMetadata({ clientApp: CLIENT_APP_ANDROID });
+    const root = shallowRender({ store });
+    expect(root.find(Helmet)).toHaveProp('defaultTitle', 'Add-ons for Android');
   });
 
   describe('handling expired auth tokens', () => {

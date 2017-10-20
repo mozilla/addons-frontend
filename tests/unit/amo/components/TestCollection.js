@@ -478,4 +478,22 @@ describe(__filename, () => {
     const wrapper = renderComponent({ errorHandler, store });
     expect(wrapper.find(ErrorList)).toHaveLength(1);
   });
+
+  it('renders an HTML title', () => {
+    const store = dispatchClientMetadata().store;
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('title')).toHaveText(defaultCollectionDetail.name);
+  });
+
+  it('does not render an HTML when there is no collection loaded', () => {
+    const wrapper = renderComponent();
+    expect(wrapper.find('title')).toHaveLength(0);
+  });
 });

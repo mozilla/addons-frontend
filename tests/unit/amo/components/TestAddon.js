@@ -1246,6 +1246,19 @@ describe(__filename, () => {
 
     expect(root.find('.Addon')).toHaveProp('data-site-identifier', 9001);
   });
+
+  it('renders an HTML title', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+
+    expect(root.find('title')).toHaveText(addon.name);
+  });
+
+  it('does not render an HTML title when there is no add-on', () => {
+    const root = shallowRender({ addon: null, params: { slug: 'some-slug' } });
+
+    expect(root.find('title')).toHaveLength(0);
+  });
 });
 
 describe('mapStateToProps', () => {

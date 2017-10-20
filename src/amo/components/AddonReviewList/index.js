@@ -1,6 +1,7 @@
 /* @flow */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
 import React from 'react';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -158,7 +159,14 @@ export class AddonReviewListBase extends React.Component<Props> {
 
     return (
       <div className="AddonReviewList">
+        {addon && (
+          <Helmet>
+            <title>{header}</title>
+          </Helmet>
+        )}
+
         {errorHandler.renderErrorIfPresent()}
+
         <div className="AddonReviewList-header">
           <div className="AddonReviewList-header-icon">
             {addon ? <Link to={this.addonURL()}>{iconImage}</Link> : iconImage}
