@@ -18,6 +18,7 @@ import type {
 import type { Exact } from 'core/types/util';
 
 export const USER_AGENT_OS_ANDROID: 'Android' = 'Android';
+export const USER_AGENT_OS_BSD_DRAGONFLY: 'DragonFly' = 'DragonFly';
 export const USER_AGENT_OS_BSD_FREEBSD: 'FreeBSD' = 'FreeBSD';
 export const USER_AGENT_OS_BSD_NETBSD: 'NetBSD' = 'NetBSD';
 export const USER_AGENT_OS_BSD_OPENBSD: 'OpenBSD' = 'OpenBSD';
@@ -30,10 +31,14 @@ export const USER_AGENT_OS_LINUX_DEBIAN: 'Debian' = 'Debian';
 export const USER_AGENT_OS_LINUX_FEDORA: 'Fedora' = 'Fedora';
 export const USER_AGENT_OS_LINUX_GENTOO: 'Gentoo' = 'Gentoo';
 export const USER_AGENT_OS_LINUX_GNU: 'GNU' = 'GNU';
-export const USER_AGENT_OS_LINUX_PCLINUXOS: 'PCLinuxOS' = 'PCLinuxOS';
+export const USER_AGENT_OS_LINUX_LINPUS: 'Linpus' = 'Linpus';
+export const USER_AGENT_OS_LINUX_PC: 'PCLinuxOS' = 'PCLinuxOS';
 export const USER_AGENT_OS_LINUX_REDHAT: 'RedHat' = 'RedHat';
+export const USER_AGENT_OS_LINUX_SLACKWARE: 'Slackware' = 'Slackware';
+export const USER_AGENT_OS_LINUX_SUSE: 'SUSE' = 'SUSE';
 export const USER_AGENT_OS_LINUX_UBUNTU: 'Ubuntu' = 'Ubuntu';
 export const USER_AGENT_OS_LINUX_VECTOR: 'VectorLinux' = 'VectorLinux';
+export const USER_AGENT_OS_LINUX_ZENWALK: 'Zenwalk' = 'Zenwalk';
 export const USER_AGENT_OS_MAC: 'Mac OS' = 'Mac OS';
 export const USER_AGENT_OS_UNIX: 'UNIX' = 'UNIX';
 export const USER_AGENT_OS_WINDOWS: 'Windows' = 'Windows';

@@ -311,6 +311,32 @@ describe(__filename, () => {
         .toEqual('https://a.m.o/files/linux.xpi');
     });
 
+    it('gives a Linux install URL to Unix platforms', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        userAgent: userAgentsByPlatform.unix.firefox51,
+      }))
+        .toEqual('https://a.m.o/files/linux.xpi');
+    });
+
+    it('gives a Linux install URL to BSD platforms', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
+      }))
+        .toEqual('https://a.m.o/files/linux.xpi');
+    });
+
     it('finds an Android mobile install URL', () => {
       expect(_findInstallURL({
         addonFiles: [

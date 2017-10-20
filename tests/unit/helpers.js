@@ -127,6 +127,10 @@ export const userAgentsByPlatform = {
     firefox40Tablet: oneLine`Mozilla/5.0 (Android; Tablet; rv:40.0)
       Gecko/40.0 Firefox/40.0`,
   },
+  bsd: {
+    firefox40FreeBSD: oneLine`Mozilla/5.0 (X11; FreeBSD amd64; rv:40.0)
+      Gecko/20100101 Firefox/40.0`,
+  },
   firefoxOS: {
     firefox26: 'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
   },
@@ -154,6 +158,10 @@ export const userAgentsByPlatform = {
       rv:33.0) Gecko/20100101 Firefox/33.0`,
     firefox57: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
       Gecko/20100101 Firefox/57.1`,
+  },
+  unix: {
+    firefox51: oneLine`Mozilla/51.0.2 (X11; Unix x86_64; rv:29.0)
+      Gecko/20170101 Firefox/51.0.2`,
   },
   windows: {
     firefox40: oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
