@@ -1239,6 +1239,13 @@ describe(__filename, () => {
 
     expect(root.find(Badge)).toHaveLength(0);
   });
+
+  it('renders the site identifier as a data attribute', () => {
+    const addon = createInternalAddon({ ...fakeAddon, id: 9001 });
+    const root = shallowRender({ addon });
+
+    expect(root.find('.Addon')).toHaveProp('data-site-identifier', 9001);
+  });
 });
 
 describe('mapStateToProps', () => {

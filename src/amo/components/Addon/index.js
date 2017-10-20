@@ -464,6 +464,7 @@ export class AddonBase extends React.Component {
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
+        data-site-identifier={addon ? addon.id : null}
       >
         {errorBanner}
         <Card className="" photonStyle>
