@@ -173,6 +173,8 @@ export class HomeBase extends React.Component {
               {i18n.gettext('Extensions change how Firefox works')}
             </h2>
             <p className="Home-SubjectShelf-description">
+              {/* translators: The ending ellipsis alludes to a row of icons
+              for each type of extension */}
               {i18n.gettext(`Customize the way Firefox works with extensions.
                 Are you interested in…`)}
             </p>

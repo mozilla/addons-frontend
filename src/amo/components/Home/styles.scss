@@ -18,7 +18,7 @@
     width: 100%;
 
     @include respond-to(medium) {
-      padding: 26px 36px;
+      padding: 24px 36px;
     }
 
     @include respond-to(large) {
@@ -29,17 +29,18 @@
 
 .Home-SubjectShelf-text-wrapper {
   align-self: auto;
+  height: auto;
 
   @include respond-to(medium) {
     align-self: center;
   }
 
   @include respond-to(large) {
-    height: 86px;
     max-width: 150px;
   }
 
   @include respond-to(extraLarge) {
+    height: 86px;
     max-width: 250px;
   }
 }
@@ -51,7 +52,7 @@
 
 .Home-SubjectShelf-description {
   font-size: $font-size-default;
-  margin-top: 0;
+  margin: 0;
 }
 
 .Home-SubjectShelf-list {
