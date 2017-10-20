@@ -297,6 +297,46 @@ describe(__filename, () => {
         .toEqual('https://a.m.o/files/linux.xpi');
     });
 
+    it('finds a Linux Ubuntu install URL', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        // This parses to the name Ubuntu instead of Linux.
+        userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
+      }))
+        .toEqual('https://a.m.o/files/linux.xpi');
+    });
+
+    it('gives a Linux install URL to Unix platforms', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        userAgent: userAgentsByPlatform.unix.firefox51,
+      }))
+        .toEqual('https://a.m.o/files/linux.xpi');
+    });
+
+    it('gives a Linux install URL to BSD platforms', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
+      }))
+        .toEqual('https://a.m.o/files/linux.xpi');
+    });
+
     it('finds an Android mobile install URL', () => {
       expect(_findInstallURL({
         addonFiles: [
@@ -380,6 +420,19 @@ describe(__filename, () => {
           },
         ],
         userAgent: userAgentsByPlatform.android.firefox40Tablet,
+      }))
+        .toEqual(undefined);
+    });
+
+    it('returns undefined for user agents with an unknown platform', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        userAgent: 'some-completely-wacko-user-agent-string',
       }))
         .toEqual(undefined);
     });

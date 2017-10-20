@@ -46,8 +46,28 @@ import {
 import * as addonManager from 'core/addonManager';
 import {
   USER_AGENT_OS_ANDROID,
+  USER_AGENT_OS_BSD_DRAGONFLY,
+  USER_AGENT_OS_BSD_FREEBSD,
+  USER_AGENT_OS_BSD_NETBSD,
+  USER_AGENT_OS_BSD_OPENBSD,
+  USER_AGENT_OS_BSD_PC,
   USER_AGENT_OS_LINUX,
+  USER_AGENT_OS_LINUX_ARCH,
+  USER_AGENT_OS_LINUX_CENTOS,
+  USER_AGENT_OS_LINUX_DEBIAN,
+  USER_AGENT_OS_LINUX_FEDORA,
+  USER_AGENT_OS_LINUX_GENTOO,
+  USER_AGENT_OS_LINUX_GNU,
+  USER_AGENT_OS_LINUX_LINPUS,
+  USER_AGENT_OS_LINUX_PC,
+  USER_AGENT_OS_LINUX_REDHAT,
+  USER_AGENT_OS_LINUX_SLACKWARE,
+  USER_AGENT_OS_LINUX_SUSE,
+  USER_AGENT_OS_LINUX_UBUNTU,
+  USER_AGENT_OS_LINUX_VECTOR,
+  USER_AGENT_OS_LINUX_ZENWALK,
   USER_AGENT_OS_MAC,
+  USER_AGENT_OS_UNIX,
   USER_AGENT_OS_WINDOWS,
 } from 'core/reducers/api';
 
@@ -164,10 +184,32 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
 }
 
 const userAgentOSToPlatform = {
-  [USER_AGENT_OS_ANDROID]: OS_ANDROID,
-  [USER_AGENT_OS_LINUX]: OS_LINUX,
-  [USER_AGENT_OS_MAC]: OS_MAC,
-  [USER_AGENT_OS_WINDOWS]: OS_WINDOWS,
+  [USER_AGENT_OS_ANDROID.toLowerCase()]: OS_ANDROID,
+  [USER_AGENT_OS_MAC.toLowerCase()]: OS_MAC,
+  [USER_AGENT_OS_WINDOWS.toLowerCase()]: OS_WINDOWS,
+  // Not all of these are strictly Linux but giving them a Linux XPI
+  // will probably work 99% of the time.
+  [USER_AGENT_OS_BSD_DRAGONFLY.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_FREEBSD.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_NETBSD.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_OPENBSD.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_BSD_PC.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_ARCH.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_CENTOS.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_DEBIAN.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_FEDORA.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_GENTOO.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_GNU.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_LINPUS.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_PC.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_REDHAT.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_SLACKWARE.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_SUSE.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_UBUNTU.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_VECTOR.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_LINUX_ZENWALK.toLowerCase()]: OS_LINUX,
+  [USER_AGENT_OS_UNIX.toLowerCase()]: OS_LINUX,
 };
 
 /*
@@ -193,7 +235,9 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
     throw new Error('The userAgentInfo parameter is required');
   }
 
-  const platform = userAgentOSToPlatform[userAgentInfo.os.name];
+  const agentOsName =
+    userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
+  const platform = userAgentOSToPlatform[agentOsName];
   const url = installURLs[platform];
   if (url) {
     return url;
@@ -204,8 +248,8 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
   }
 
   // This could happen for themes which do not have version files.
-  log.debug(oneLine`No install URL exists for platform
-    "${userAgentInfo.os.name}"; install URLs:`, installURLs);
+  log.debug(oneLine`No install URL exists for platform "${agentOsName}"
+    (mapped to "${platform}"); install URLs:`, installURLs);
   return undefined;
 };
 
