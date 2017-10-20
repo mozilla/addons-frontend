@@ -84,7 +84,6 @@
   order: 1;
 
   @include respond-to(medium) {
-    flex-basis: 100%;
     flex-grow: 1;
 
     .Addon-persona & {
