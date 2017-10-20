@@ -8,7 +8,54 @@
   padding: $padding-page;
 }
 
-.Home-CuratedCollections-list {
+.Home-SubjectShelf {
+  .Card-contents {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    overflow: auto;
+    width: 100%;
+
+    @include respond-to(medium) {
+      padding: 26px 36px;
+    }
+
+    @include respond-to(large) {
+      flex-wrap: nowrap;
+    }
+  }
+}
+
+.Home-SubjectShelf-text-wrapper {
+  align-self: auto;
+
+  @include respond-to(medium) {
+    align-self: center;
+  }
+
+  @include respond-to(large) {
+    height: 86px;
+    max-width: 150px;
+  }
+
+  @include respond-to(extraLarge) {
+    max-width: 250px;
+  }
+}
+
+.Home-SubjectShelf-subheading {
+  font-size: $font-size-default;
+  margin: 0 0 3px;
+}
+
+.Home-SubjectShelf-description {
+  font-size: $font-size-default;
+  margin-top: 0;
+}
+
+.Home-SubjectShelf-list {
+  align-self: center;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
@@ -18,26 +65,25 @@
   width: 100%;
 
   @include respond-to(large) {
+    align-self: auto;
     flex-wrap: nowrap;
   }
 }
 
-.Home-CuratedCollections-list-item {
-  @include text-align-start();
-
+.Home-SubjectShelf-list-item {
   flex-grow: 1;
   list-style-type: none;
-  margin: 5px;
+  margin: 15px 0;
+  text-align: center;
   width: 40%;
 
   @include respond-to(large) {
-    margin: 15px;
-    width: 220px;
+    margin: 0;
   }
 }
 
-.Home-CuratedCollections-link {
-  font-size: 13px;
+.Home-SubjectShelf-link {
+  font-size: $font-size-m-smaller;
   text-decoration: none;
 
   &:link,
@@ -53,43 +99,43 @@
   }
 }
 
-.Home-CuratedCollections-list-item .Icon {
+.Home-SubjectShelf-list-item .Icon {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 64px;
   border-radius: $border-radius-default;
   content: "";
   display: block;
-  height: 100px;
-  margin-bottom: 8px;
+  height: 64px;
+  margin-bottom: 5px;
+  transform: scale(0.8);
   width: 100%;
 
   @include respond-to(medium) {
-    background-size: 96px;
-    height: 140px;
+    transform: initial;
   }
 }
 
-.Icon-Home-CuratedCollections-ad-blockers {
-  background-color: $teal-70;
+.Icon-Home-SubjectShelf-ad-blockers {
   background-image: url("./icons/ad-blockers.svg");
 }
 
-.Icon-Home-CuratedCollections-password-managers {
-  background-color: $magenta-70;
+.Icon-Home-SubjectShelf-password-managers {
   background-image: url("./icons/password-managers.svg");
 }
 
-.Icon-Home-CuratedCollections-bookmark-managers {
-  background-color: $green-70;
+.Icon-Home-SubjectShelf-bookmark-managers {
   background-image: url("./icons/bookmark-managers.svg");
 }
 
-.Icon-Home-CuratedCollections-watching-videos {
-  background-color: $purple-70;
+.Icon-Home-SubjectShelf-watching-videos {
   background-image: url("./icons/watching-videos.svg");
+}
 
-  @include respond-to(medium) {
-    background-size: 90px;
-  }
+.Icon-Home-SubjectShelf-smarter-shopping {
+  background-image: url("./icons/smarter-shopping.svg");
+}
+
+.Icon-Home-SubjectShelf-be-more-productive {
+  background-image: url("./icons/be-more-productive.svg");
 }
