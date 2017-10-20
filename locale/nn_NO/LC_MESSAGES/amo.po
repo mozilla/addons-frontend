@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-19 15:38+0000\n"
+"PO-Revision-Date: 2017-10-20 13:34+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -305,9 +305,8 @@ msgid "Publish reply"
 msgstr "Publiser svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
 msgid "Updating reply"
-msgstr "Publiserer svar"
+msgstr "Oppdaterer svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
@@ -322,9 +321,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "av %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Rediger vurderinga mi"
+msgstr "Rediger svaret mitt"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
@@ -707,9 +705,8 @@ msgid "Locale Name"
 msgstr "Språknamn"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "Finn språkpakke"
+msgstr "Språkpakkar"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
