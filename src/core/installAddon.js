@@ -235,7 +235,8 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
     throw new Error('The userAgentInfo parameter is required');
   }
 
-  const agentOsName = userAgentInfo.os.name.toLowerCase();
+  const agentOsName =
+    userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
   const platform = userAgentOSToPlatform[agentOsName];
   const url = installURLs[platform];
   if (url) {

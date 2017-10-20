@@ -424,6 +424,19 @@ describe(__filename, () => {
         .toEqual(undefined);
     });
 
+    it('returns undefined for user agents with an unknown platform', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_LINUX,
+            url: 'https://a.m.o/files/linux.xpi',
+          },
+        ],
+        userAgent: 'some-completely-wacko-user-agent-string',
+      }))
+        .toEqual(undefined);
+    });
+
     it('returns undefined when no files exist', () => {
       expect(_findInstallURL({
         addonFiles: [],
