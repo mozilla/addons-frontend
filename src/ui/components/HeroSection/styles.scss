@@ -46,6 +46,13 @@
   text-decoration: none;
 }
 
+.HeroSection-link-wrapper:focus {
+  .HeroSection-content {
+    outline: 1px dotted $white;
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+}
+
 .HeroSection-content {
   margin: auto 0 0;
 }
