@@ -123,7 +123,7 @@
       }
     },
     "test-ci": {
-      "command": "npm run version-check && npm run flow:check && npm run test-coverage-once",
+      "command": "npm run version-check && npm run flow:check && bin/config-check.js && better-npm-run jest --color=false --coverage",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src",
