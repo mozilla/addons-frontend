@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-20 17:10+0000\n"
+"PO-Revision-Date: 2017-10-20 17:14+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -721,7 +721,7 @@ msgstr "Imawalen"
 
 #: src/amo/components/LanguageTools/index.js:91
 msgid "Available for your locale"
-msgstr ""
+msgstr "Yella di tutlayt inek"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
@@ -1117,11 +1117,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "D acu iwulmen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Fessus i useqdec?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
