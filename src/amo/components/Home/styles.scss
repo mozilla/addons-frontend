@@ -6,6 +6,10 @@
 
 .Home {
   padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 }
 
 .Home-SubjectShelf {

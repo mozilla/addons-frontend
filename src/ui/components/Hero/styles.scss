@@ -3,12 +3,19 @@
 @import "~ui/css/vars";
 
 .Hero {
-  margin: 0 0 10px;
+  margin: 0 0 $padding-page;
+
+  @include respond-to(large) {
+    margin: 0 0 $padding-page-l;
+  }
 }
 
 .Hero .Card-contents {
-  padding-left: 12px;
-  padding-right: 12px;
+  padding: 12px;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 }
 
 .Hero-contents {
@@ -28,6 +35,10 @@
       "first third";
     height: auto;
     margin-bottom: -12px;
+  }
+
+  @include respond-to(large) {
+    grid-gap: $padding-page-l;
   }
 }
 

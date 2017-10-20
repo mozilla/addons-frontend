@@ -5,9 +5,9 @@
   @include respond-to(large) {
     display: grid;
     grid-auto-flow: column dense;
-    grid-gap: 10px;
+    grid-gap: $padding-page-l;
     grid-template-columns: minmax(300px, 35%) 1fr;
-    padding: $padding-page;
+    padding: $padding-page-l;
   }
 
   .Card {

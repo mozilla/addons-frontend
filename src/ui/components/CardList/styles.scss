@@ -1,8 +1,9 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
 .CardList {
-  margin: 10px 0;
+  margin: $padding-page 0;
 
   .Card-contents {
     background: none;
@@ -21,6 +22,14 @@
       &:last-of-type {
         margin-bottom: 0;
       }
+
+      @include respond-to(large) {
+        padding: $padding-page-l;
+      }
     }
+  }
+
+  @include respond-to(large) {
+    margin: $padding-page-l 0;
   }
 }

@@ -132,7 +132,7 @@ export class CategoryBase extends React.Component {
             featured: true,
           },
         },
-        featuredFooterText: i18n.gettext('More featured extensions'),
+        featuredFooterText: i18n.gettext('See more'),
         trendingHeader: i18n.gettext('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
@@ -142,7 +142,7 @@ export class CategoryBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('More trending extensions'),
+        trendingFooterText: i18n.gettext('See more'),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -152,7 +152,7 @@ export class CategoryBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('More highly rated extensions'),
+        highlyRatedFooterText: i18n.gettext('See more'),
       },
       [ADDON_TYPE_THEME]: {
         title: i18n.gettext('Themes'),
@@ -165,7 +165,7 @@ export class CategoryBase extends React.Component {
             featured: true,
           },
         },
-        featuredFooterText: i18n.gettext('More featured themes'),
+        featuredFooterText: i18n.gettext('See more'),
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
@@ -175,7 +175,7 @@ export class CategoryBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('More trending themes'),
+        trendingFooterText: i18n.gettext('See more'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -185,7 +185,7 @@ export class CategoryBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('More highly rated themes'),
+        highlyRatedFooterText: i18n.gettext('See more'),
       },
     };
 

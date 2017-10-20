@@ -3,7 +3,11 @@
 @import "~ui/css/vars";
 
 .LanguageTools {
-  margin: 12px;
+  padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 }
 
 .LanguageTools-table {

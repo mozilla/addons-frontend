@@ -4,8 +4,12 @@
 
 .CategoryHeader {
   border-radius: $border-radius-default;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   width: 100%;
+
+  @include respond-to(large) {
+    margin-bottom: 30px;
+  }
 }
 
 .CategoryHeader-wrapper {

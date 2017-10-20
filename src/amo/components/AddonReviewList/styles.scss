@@ -1,7 +1,12 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .AddonReviewList {
-  padding: 10px;
+  padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 
   .CardList {
     margin-bottom: $vertical-space-xs;
