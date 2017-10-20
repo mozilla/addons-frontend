@@ -174,4 +174,74 @@ describe(__filename, () => {
       }),
     });
   });
+
+  it('resets the page filter when checkbox is checked', () => {
+    const root = render({
+      filters: {
+        page: 42,
+        query: 'Music player',
+      },
+    });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        featured: true,
+        page: 1,
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('resets the page filter when checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        featured: true,
+        page: 42,
+        query: 'Music player',
+      },
+    });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        page: 1,
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('resets the page filter when a select is updated', () => {
+    const root = render({
+      filters: {
+        page: 42,
+        query: 'Cool things',
+      },
+    });
+
+    const select = root.find('.SearchFilters-AddonType');
+    const currentTarget = {
+      getAttribute: () => {
+        return select.prop('name');
+      },
+      value: ADDON_TYPE_EXTENSION,
+    };
+
+    select.simulate('change', createFakeEvent({ currentTarget }));
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        addonType: ADDON_TYPE_EXTENSION,
+        page: 1,
+        query: 'Cool things',
+      }),
+    });
+  });
 });

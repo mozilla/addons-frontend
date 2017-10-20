@@ -39,7 +39,7 @@ export class SearchFiltersBase extends React.Component {
   onSelectElementChange = (event) => {
     event.preventDefault();
 
-    const { clientApp, filters, lang, pathname, router } = this.props;
+    const { filters } = this.props;
     const newFilters = { ...filters };
 
     // Get the filter we're supposed to change and set it.
@@ -57,17 +57,13 @@ export class SearchFiltersBase extends React.Component {
       delete newFilters[filterName];
     }
 
-    // TODO: We do this in a few places; make a helper for it.
-    router.push({
-      pathname: `/${lang}/${clientApp}${pathname}`,
-      query: convertFiltersToQueryParams(newFilters),
-    });
+    this.doSearch({ newFilters });
 
     return false;
   }
 
   onChangeCheckbox = () => {
-    const { clientApp, filters, lang, pathname, router } = this.props;
+    const { filters } = this.props;
     const newFilters = { ...filters };
 
     // When a checkbox changes, we want to invert its previous value.
@@ -77,6 +73,18 @@ export class SearchFiltersBase extends React.Component {
       delete newFilters.featured;
     } else {
       newFilters.featured = true;
+    }
+
+    this.doSearch({ newFilters });
+  }
+
+  doSearch({ newFilters }) {
+    const { clientApp, lang, pathname, router } = this.props;
+
+    if (newFilters.page) {
+      // Since it's now a new search, reset the page.
+      // eslint-disable-next-line
+      newFilters.page = 1;
     }
 
     router.push({
