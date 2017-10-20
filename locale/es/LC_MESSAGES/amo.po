@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-20 09:41+0000\n"
+"PO-Revision-Date: 2017-10-20 10:07+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -867,7 +867,7 @@ msgstr "Mejor valorados"
 
 #: src/amo/components/SearchFilters/index.js:117
 msgid "Trending"
-msgstr ""
+msgstr "Más popular"
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "Filter results"
@@ -1014,10 +1014,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Si quieres saber más sobre cómo gestionamos los complementos en Firefox o necesitas ayuda en general, visita la %(startSUMOLink)sAyuda%(endSUMOLink)s de Mozilla. Si no encuentras tu respuesta, "
+"siempre puedes %(startForumLink)spreguntar en el foro de la comunidad.%(endForumLink)s"
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sAquí encontrarás información sobre cómo ponerte en contacto con el equipo de complementos de Mozilla%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1028,10 +1030,12 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) es el sitio oficial de Mozilla para descubrir e instalar complementos en Firefox. Los complementos te ayudan a modificar y personalizar tu experiencia de navegación "
+"agregando nuevas funciones a Firefox, mejorando tu interacción con el contenido web y cambiando la apariencia de tu navegador."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "También puedes usar AMO para buscar complementos para %(startTBLink)sThunderbird%(endTBLink)s y %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1163,7 +1167,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Preguntas más frecuentes sobre las revisiones"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
