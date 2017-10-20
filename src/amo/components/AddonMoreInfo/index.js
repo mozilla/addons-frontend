@@ -33,7 +33,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       return this.renderDefinitions({
         versionLastUpdated: <LoadingText minWidth={20} />,
         versionLicense: <LoadingText minWidth={20} />,
-        addonId: <LoadingText minWidth={20} />,
       });
     }
 
@@ -102,7 +101,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
           {i18n.gettext('Read the license agreement for this add-on')}
         </Link>
       ) : null,
-      addonId: addon.id,
       versionHistoryLink: addonHasVersionHistory(addon) ? (
         <Link
           className="AddonMoreInfo-version-history-link"
@@ -135,7 +133,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     versionLicenseLink = null,
     versionHistoryLink = null,
     betaVersionsLink = null,
-    addonId,
   }: Object) {
     const { i18n } = this.props;
     return (
@@ -199,16 +196,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
           </dt>
         ) : null}
         {statsLink ? <dd>{statsLink}</dd> : null}
-        <dt
-          className="AddonMoreInfo-database-id-title"
-          title={i18n.gettext(`This ID is useful for debugging and
-            identifying your add-on to site administrators.`)}
-        >
-          {i18n.gettext('Site Identifier')}
-        </dt>
-        <dd className="AddonMoreInfo-database-id-content">
-          {addonId}
-        </dd>
       </dl>
     );
   }

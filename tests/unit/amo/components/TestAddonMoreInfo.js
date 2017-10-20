@@ -1,4 +1,3 @@
-import { oneLine } from 'common-tags';
 import React from 'react';
 
 import AddonMoreInfo, {
@@ -42,9 +41,8 @@ describe(__filename, () => {
     // These fields will be visible during loading since
     // they will always exist for the loaded add-on.
     expect(root.find('.AddonMoreInfo-last-updated-title')).toHaveLength(1);
-    expect(root.find('.AddonMoreInfo-database-id-title')).toHaveLength(1);
 
-    expect(root.find(LoadingText)).toHaveLength(2);
+    expect(root.find(LoadingText)).toHaveLength(1);
 
     // These fields will not be visible during loading
     // since they may not exist.
@@ -209,19 +207,6 @@ describe(__filename, () => {
       .toHaveText('Read the license agreement for this add-on');
     expect(root.find('.AddonMoreInfo-eula-link'))
       .toHaveProp('href', '/addon/chill-out/eula/');
-  });
-
-  it('renders the ID and title attribute', () => {
-    const addon = createInternalAddon({ ...fakeAddon, id: 9001 });
-    const root = render({ addon });
-
-    expect(root.find('.AddonMoreInfo-database-id-title'))
-      .toHaveText('Site Identifier');
-    expect(root.find('.AddonMoreInfo-database-id-title'))
-      .toHaveProp('title', oneLine`This ID is useful for debugging and
-        identifying your add-on to site administrators.`);
-    expect(root.find('.AddonMoreInfo-database-id-content'))
-      .toHaveText('9001');
   });
 
   it('does not link to stats if user is not author of the add-on', () => {
