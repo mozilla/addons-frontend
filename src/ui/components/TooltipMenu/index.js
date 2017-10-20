@@ -10,7 +10,7 @@ import './styles.scss';
 
 type Props = {|
   idPrefix?: string,
-  items: Array<React.Element<typeof ListItem>>,
+  items: Array<null | React.Element<typeof ListItem>>,
   openerClass?: string,
   openerText: string,
   openerTitle?: string,

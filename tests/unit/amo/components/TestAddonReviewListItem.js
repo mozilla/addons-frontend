@@ -13,6 +13,7 @@ import AddonReview from 'amo/components/AddonReview';
 import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
+import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -38,6 +39,7 @@ describe(__filename, () => {
 
   const render = (customProps = {}) => {
     const props = {
+      location: { path: '/review-list', query: {} },
       i18n: fakeI18n(),
       store,
       ...customProps,
@@ -78,6 +80,20 @@ describe(__filename, () => {
     });
 
     return { review, reply: review.reply };
+  };
+
+  const renderReply = ({
+    addon = createInternalAddon(fakeAddon),
+    originalReviewId = 44321,
+    reply = _setReviewReply({ addon }).reply,
+    ...props
+  } = {}) => {
+    return render({
+      addon,
+      review: reply,
+      isReplyToReviewId: originalReviewId,
+      ...props,
+    });
   };
 
   const signInAndDispatchSavedReview = ({
@@ -202,6 +218,32 @@ describe(__filename, () => {
     const reviewComponent = root.find(AddonReview);
     expect(reviewComponent).toHaveLength(1);
     expect(reviewComponent).toHaveProp('review', review);
+  });
+
+  it('lets you flag a review', () => {
+    const review = _setReview(fakeReview);
+    const location = { path: '/somewhere', query: {} };
+    const root = render({ location, review });
+
+    const flag = root.find(FlagReviewMenu);
+    expect(flag).toHaveProp('review', review);
+    expect(flag).toHaveProp('location', location);
+    expect(flag).toHaveProp('isDeveloperReply', false);
+  });
+
+  it('lets you flag a developer reply', () => {
+    const { reply } = _setReviewReply();
+    const root = renderReply({ reply });
+
+    const flag = root.find(FlagReviewMenu);
+    expect(flag).toHaveProp('review', reply);
+    expect(flag).toHaveProp('isDeveloperReply', true);
+  });
+
+  it('does not let you flag a review before one has loaded', () => {
+    const root = render({ review: null });
+
+    expect(root.find(FlagReviewMenu)).toHaveLength(0);
   });
 
   it('lets the developer reply to a review', () => {
@@ -531,20 +573,6 @@ describe(__filename, () => {
   });
 
   describe('Developer reply to a review', () => {
-    const renderReply = ({
-      addon = createInternalAddon(fakeAddon),
-      originalReviewId = 44321,
-      reply = _setReviewReply({ addon }).reply,
-      ...props
-    } = {}) => {
-      return render({
-        addon,
-        review: reply,
-        isReplyToReviewId: originalReviewId,
-        ...props,
-      });
-    };
-
     it('renders a nested reply', () => {
       const addon = createInternalAddon(fakeAddon);
       const { review, reply } = _setReviewReply({ addon });

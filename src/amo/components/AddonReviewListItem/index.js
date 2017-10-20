@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonReview from 'amo/components/AddonReview';
+import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -29,6 +30,7 @@ import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterLocation } from 'core/types/router';
 
 import './styles.scss';
 
@@ -40,6 +42,7 @@ type Props = {|
   isAuthenticated: boolean,
   isReplyToReviewId?: number,
   i18n: I18nType,
+  location: ReactRouterLocation,
   review?: UserReviewType,
   replyingToReview: boolean,
   siteUser: UserStateType,
@@ -179,6 +182,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
       i18n,
       isAuthenticated: userIsAuthenticated,
       isReplyToReviewId,
+      location,
       replyingToReview,
       review,
       siteUser,
@@ -273,6 +277,14 @@ export class AddonReviewListItemBase extends React.Component<Props> {
                 </a>
               ) : null
           }
+          {review ? (
+            <FlagReviewMenu
+              isDeveloperReply={isReply}
+              location={location}
+              openerClass="AddonReviewListItem-control"
+              review={review}
+            />
+          ) : null}
         </div>
         {errorHandler.renderErrorIfPresent()}
         {this.renderReply()}

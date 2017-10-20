@@ -48,17 +48,15 @@
   background: $white;
   border-radius: $border-radius-default;
   list-style-type: none;
+  margin: 0;
   padding: 6px;
   position: relative;
-  white-space: nowrap;
   // Make sure this masks the box shadow of TooltipMenu-arrow.
   z-index: 2;
 
   .ListItem {
-    overflow: hidden;
     padding: 6px;
     padding-top: 0;
-    text-overflow: ellipsis;
 
     &:first-child {
       padding-top: 6px;
@@ -66,13 +64,27 @@
 
     &,
     a,
-    a:link {
-      @include font-medium();
+    a:link,
+    button {
+      @include text-align-start();
 
       color: $grey-90;
-      cursor: pointer;
       font-size: $font-size-m-smaller;
       line-height: 1.6;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 100%;
+    }
+
+    a,
+    a:link,
+    button {
+      @include font-medium();
+
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
       text-decoration: none;
     }
 
@@ -80,6 +92,21 @@
     a:focus,
     a:active {
       color: $blue-50;
+    }
+
+    @include respond-to(medium) {
+      button:hover,
+      button:focus {
+        color: $blue-50;
+      }
+    }
+
+    .ErrorList {
+      margin-bottom: 6px;
+    }
+
+    .ErrorList-item {
+      white-space: normal;
     }
   }
 }
