@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import LandingPage, {
   LandingPageBase,
   mapStateToProps,
@@ -232,15 +233,16 @@ describe(__filename, () => {
     };
     const root = render({ params: fakeParams });
 
-    expect(root.childAt(3)).toHaveProp('footerLink', {
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, featured: true },
     });
-    expect(root.childAt(4)).toHaveProp('footerLink', {
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(5)).toHaveProp('footerLink', {
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
     });
@@ -252,15 +254,16 @@ describe(__filename, () => {
     };
     const root = render({ params: fakeParams });
 
-    expect(root.childAt(3)).toHaveProp('footerLink', {
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, featured: true },
     });
-    expect(root.childAt(4)).toHaveProp('footerLink', {
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(5)).toHaveProp('footerLink', {
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
     });
@@ -386,5 +389,21 @@ describe(__filename, () => {
     root.setProps({ context });
 
     sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('renders an HTML title for themes', () => {
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+    };
+    const wrapper = render({ params: fakeParams });
+    expect(wrapper.find('title')).toHaveText('Themes');
+  });
+
+  it('renders an HTML title for extensions', () => {
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+    const wrapper = render({ params: fakeParams });
+    expect(wrapper.find('title')).toHaveText('Extensions');
   });
 });

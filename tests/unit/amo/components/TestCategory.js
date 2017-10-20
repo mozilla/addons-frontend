@@ -482,6 +482,33 @@ describe(__filename, () => {
     expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 
+  it('renders an HTML title for a theme category', () => {
+    const wrapper = render();
+    expect(wrapper.find('title')).toHaveText('Testing category - Themes');
+  });
+
+  it('renders an HTML title for an extension category', () => {
+    _categoriesFetch();
+    _categoriesLoad({
+      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
+    });
+    _getLanding();
+    _loadLanding();
+
+    const wrapper = render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      },
+    });
+    expect(wrapper.find('title')).toHaveText('Testing category - Extensions');
+  });
+
+  it('does not render an HTML title when there is no category', () => {
+    const wrapper = render({}, { autoDispatchCategories: false });
+    expect(wrapper.find('title')).toHaveLength(0);
+  });
+
   describe('category lookup', () => {
     const decoyCategory = {
       ...fakeCategory,

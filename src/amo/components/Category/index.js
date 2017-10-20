@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import Helmet from 'react-helmet';
 import { oneLine } from 'common-tags';
 
 import { getLanding } from 'amo/actions/landing';
@@ -121,6 +122,7 @@ export class CategoryBase extends React.Component {
 
     const contentForTypes = {
       [ADDON_TYPE_EXTENSION]: {
+        title: i18n.gettext('Extensions'),
         featuredHeader: i18n.gettext('Featured extensions'),
         featuredFooterLink: {
           pathname: '/search/',
@@ -153,6 +155,7 @@ export class CategoryBase extends React.Component {
         highlyRatedFooterText: i18n.gettext('More highly rated extensions'),
       },
       [ADDON_TYPE_THEME]: {
+        title: i18n.gettext('Themes'),
         featuredHeader: i18n.gettext('Featured themes'),
         featuredFooterLink: {
           pathname: '/search/',
@@ -232,6 +235,12 @@ export class CategoryBase extends React.Component {
 
     return (
       <div className="Category">
+        {category && (
+          <Helmet>
+            <title>{`${category.name} - ${html.title}`}</title>
+          </Helmet>
+        )}
+
         {errorHandler.renderErrorIfPresent()}
 
         <CategoryHeader category={category} />

@@ -1,6 +1,7 @@
 import deepEqual from 'deep-eql';
 import PropTypes from 'prop-types';
 import React from 'react';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -11,8 +12,16 @@ import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { searchStart } from 'core/actions/search';
 import Paginate from 'core/components/Paginate';
-import { VIEW_CONTEXT_EXPLORE } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_POPULAR,
+  VIEW_CONTEXT_EXPLORE,
+} from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
+import translate from 'core/i18n/translate';
 import {
   convertFiltersToQueryParams,
   hasSearchFilters,
@@ -31,6 +40,7 @@ export class SearchBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     filters: PropTypes.object,
     filtersUsedForResults: PropTypes.object,
+    i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool.isRequired,
     paginationQueryParams: PropTypes.object,
     pathname: PropTypes.string,
@@ -80,6 +90,76 @@ export class SearchBase extends React.Component {
     }
   }
 
+  renderHelmetTitle() {
+    const { i18n, filters } = this.props;
+
+    let title = i18n.gettext('Search results');
+
+    if (filters.featured) {
+      switch (filters.addonType) {
+        case ADDON_TYPE_EXTENSION:
+          title = i18n.gettext('Featured extensions');
+          break;
+        case ADDON_TYPE_THEME:
+          title = i18n.gettext('Featured themes');
+          break;
+        default:
+          title = i18n.gettext('Featured add-ons');
+      }
+    } else if (filters.sort) {
+      switch (filters.sort) {
+        case SEARCH_SORT_TRENDING:
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Trending extensions');
+              break;
+            case ADDON_TYPE_THEME:
+              title = i18n.gettext('Trending themes');
+              break;
+            default:
+              title = i18n.gettext('Trending add-ons');
+          }
+          break;
+        case SEARCH_SORT_TOP_RATED:
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Top rated extensions');
+              break;
+            case ADDON_TYPE_THEME:
+              title = i18n.gettext('Top rated themes');
+              break;
+            default:
+              title = i18n.gettext('Top rated add-ons');
+          }
+          break;
+        case SEARCH_SORT_POPULAR:
+          switch (filters.addonType) {
+            case ADDON_TYPE_EXTENSION:
+              title = i18n.gettext('Popular extensions');
+              break;
+            case ADDON_TYPE_THEME:
+              title = i18n.gettext('Popular themes');
+              break;
+            default:
+              title = i18n.gettext('Popular add-ons');
+          }
+          break;
+        default:
+      }
+    } else if (filters.query) {
+      title = i18n.sprintf(
+        i18n.gettext('Search results for "%(query)s"'),
+        { query: filters.query }
+      );
+    }
+
+    return (
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
+    );
+  }
+
   render() {
     const {
       LinkComponent,
@@ -119,6 +199,8 @@ export class SearchBase extends React.Component {
 
     return (
       <div className="Search">
+        {this.renderHelmetTitle()}
+
         {errorHandler.renderErrorIfPresent()}
 
         <SearchContextCard />
@@ -151,6 +233,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
-  withErrorHandler({ name: 'Search' }),
   connect(mapStateToProps),
+  translate(),
+  withErrorHandler({ name: 'Search' }),
 )(SearchBase);

@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -170,7 +171,7 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   render() {
-    const { errorHandler } = this.props;
+    const { collection, errorHandler } = this.props;
 
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
@@ -186,6 +187,12 @@ export class CollectionBase extends React.Component<Props> {
 
     return (
       <div className="Collection">
+        {collection && (
+          <Helmet>
+            <title>{collection.name}</title>
+          </Helmet>
+        )}
+
         {errorHandler.renderErrorIfPresent()}
 
         {this.renderCollection()}

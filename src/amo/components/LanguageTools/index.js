@@ -2,6 +2,7 @@
 import classNames from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
+import Helmet from 'react-helmet';
 import { compose } from 'redux';
 import { Table, Thead, Tbody, Tr, Th, Td } from 'react-super-responsive-table';
 import 'react-super-responsive-table/src/SuperResponsiveTableStyle.css';
@@ -124,11 +125,17 @@ export class LanguageToolsBase extends React.Component<Props> {
   render() {
     const { addons, errorHandler, i18n } = this.props;
 
+    const header = i18n.gettext('Dictionaries and Language Packs');
+
     return (
       <Card
         className="LanguageTools"
-        header={i18n.gettext('Dictionaries and Language Packs')}
+        header={header}
       >
+        <Helmet>
+          <title>{header}</title>
+        </Helmet>
+
         {errorHandler.renderErrorIfPresent()}
 
         <p>

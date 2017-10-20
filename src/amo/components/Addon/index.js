@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
@@ -466,7 +467,14 @@ export class AddonBase extends React.Component {
         })}
         data-site-identifier={addon ? addon.id : null}
       >
+        {addon && (
+          <Helmet>
+            <title>{addon.name}</title>
+          </Helmet>
+        )}
+
         {errorBanner}
+
         <Card className="" photonStyle>
           <header className="Addon-header">
             <h1 className="Addon-title" {...titleProps} />
