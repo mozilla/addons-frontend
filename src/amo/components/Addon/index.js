@@ -495,7 +495,7 @@ export class AddonBase extends React.Component {
             {addon ?
               <InstallButton
                 {...this.props}
-                className="Button--action Button--small"
+                className="Button--wide"
                 disabled={!isCompatible}
                 ref={(ref) => { this.installButton = ref; }}
                 status={installStatus}

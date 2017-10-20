@@ -1,7 +1,7 @@
 @import "~ui/css/vars";
 
 .ReportAbuseButton {
-  margin: 10px auto;
+  margin: 12px auto;
 }
 
 .ReportAbuseButton-header {
@@ -13,7 +13,7 @@
 }
 
 .ReportAbuseButton--preview {
-  display: block;
+  display: inline-block;
 
   .ReportAbuseButton--is-expanded & {
     display: none;
