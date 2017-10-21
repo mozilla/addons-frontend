@@ -17,6 +17,8 @@ type Props = {|
 |};
 
 export default class TooltipMenu extends React.Component<Props> {
+  container: React.ElementRef<'div'> | null;
+
   render() {
     const {
       idPrefix, items, openerClass, openerText, openerTitle,
@@ -27,27 +29,30 @@ export default class TooltipMenu extends React.Component<Props> {
     const describedBy = `${idPrefix || ''}TooltipMenu`;
 
     return (
-      <RCTooltip
-        align={{ offset: [0, 6] }}
-        destroyTooltipOnHide
-        id={describedBy}
-        overlay={
-          <ul className="TooltipMenu-list">
-            {items}
-          </ul>
-        }
-        placement="bottom"
-        prefixCls="TooltipMenu"
-        trigger={['click']}
-      >
-        <button
-          className={makeClassName('TooltipMenu-opener', openerClass)}
-          aria-describedby={describedBy}
-          title={openerTitle}
+      <div ref={(ref) => { this.container = ref; }}>
+        <RCTooltip
+          align={{ offset: [0, 6] }}
+          getTooltipContainer={() => this.container}
+          destroyTooltipOnHide
+          id={describedBy}
+          overlay={
+            <ul className="TooltipMenu-list">
+              {items}
+            </ul>
+          }
+          placement="bottom"
+          prefixCls="TooltipMenu"
+          trigger={['click']}
         >
-          {openerText}
-        </button>
-      </RCTooltip>
+          <button
+            className={makeClassName('TooltipMenu-opener', openerClass)}
+            aria-describedby={describedBy}
+            title={openerTitle}
+          >
+            {openerText}
+          </button>
+        </RCTooltip>
+      </div>
     );
   }
 }

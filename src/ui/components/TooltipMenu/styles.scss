@@ -44,7 +44,8 @@
   box-shadow: 0 0 2px transparentize($black, 0.5);
 }
 
-.TooltipMenu-list {
+.TooltipMenu-list,
+.CardList .TooltipMenu-list {
   background: $white;
   border-radius: $border-radius-default;
   list-style-type: none;
@@ -54,7 +55,10 @@
   // Make sure this masks the box shadow of TooltipMenu-arrow.
   z-index: 2;
 
-  .ListItem {
+  .ListItem,
+  .CardList .ListItem {
+    background: none;
+    margin: 0;
     padding: 6px;
     padding-top: 0;
 

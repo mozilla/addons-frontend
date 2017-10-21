@@ -1,4 +1,4 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
 import React from 'react';
 import RCTooltip from 'rc-tooltip';
 
@@ -7,13 +7,20 @@ import TooltipMenu from 'ui/components/TooltipMenu';
 
 
 describe(__filename, () => {
-  const render = (customProps = {}) => {
-    const props = {
+  const renderProps = (customProps = {}) => {
+    return {
       openerText: 'Open menu',
       items: [<ListItem key="first" />],
       ...customProps,
     };
-    return shallow(<TooltipMenu {...props} />);
+  };
+
+  const render = (customProps = {}) => {
+    return shallow(<TooltipMenu {...renderProps(customProps)} />);
+  };
+
+  const renderAndMount = (customProps = {}) => {
+    return mount(<TooltipMenu {...renderProps(customProps)} />);
   };
 
   it('renders an opener with a custom class', () => {
@@ -57,5 +64,20 @@ describe(__filename, () => {
     const overlay = shallow(rcTooltip.prop('overlay'));
     expect(overlay.find('.FirstItem')).toHaveLength(1);
     expect(overlay.find('.SecondItem')).toHaveLength(1);
+  });
+
+  it('attaches the tooltip to a container element', () => {
+    const root = renderAndMount();
+
+    const tooltip = root.find(RCTooltip);
+    expect(tooltip).toHaveProp('getTooltipContainer');
+
+    const getContainer = tooltip.prop('getTooltipContainer');
+    const div = getContainer();
+
+    // This checks that a DOM node ref was returned.
+    // Attaching the tooltip to a nearby container (as opposed to the
+    // body) is necessary for keyboard accessibility.
+    expect(div).toBeDefined();
   });
 });
