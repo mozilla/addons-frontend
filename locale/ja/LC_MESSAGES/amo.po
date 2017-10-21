@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-21 19:30+0000\n"
+"PO-Revision-Date: 2017-10-21 19:38+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1166,7 +1166,7 @@ msgstr "私はアドオンの作者ですが、レビューに返答できます
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "はい、アドオン作者は各レビューに対して 1 件の返信を残すことができます。また、%(startLink)sフォーラム%(endLink)s にトピックを立てて、さらに議論を進めたり追跡調査を行ったりすることもできます。"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1176,7 +1176,7 @@ msgstr "私はアドオンの作者ですが、気に入らないレビューや
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
-msgstr ""
+msgstr "通常はできません。ただし、レビューが上記のガイドラインに従っていない場合は、「このレビューを報告」をクリックして管理者に通知できます。アドオンの新バージョンが公開されたことで妥当性がなくなった苦情がレビューに含まれている場合は、そのレビューの削除を検討します。"
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
