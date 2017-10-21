@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-20 13:34+0000\n"
+"PO-Revision-Date: 2017-10-21 11:55+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -543,9 +543,8 @@ msgid "Report a bug"
 msgstr "Rapporter ein feil"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Vurderingstekst"
+msgstr "Vurderingsguide"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -629,7 +628,7 @@ msgstr "Bokmerke"
 
 #: src/amo/components/Home/index.js:71
 msgid "Watching Videos"
-msgstr ""
+msgstr "Ser på videoar"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -684,9 +683,8 @@ msgid "Change language"
 msgstr "Endre språk"
 
 #: src/amo/components/LanguageTools/index.js:130
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Ordbøker og språkpakkar"
+msgstr "Ordlister og språkpakkar"
 
 #: src/amo/components/LanguageTools/index.js:135
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
