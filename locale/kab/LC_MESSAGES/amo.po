@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-20 17:14+0000\n"
-"Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
+"PO-Revision-Date: 2017-10-21 14:01+0000\n"
+"Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
 "MIME-Version: 1.0\n"
@@ -290,14 +290,12 @@ msgid "All written reviews"
 msgstr "Akk iceggiren yettwarun"
 
 #: src/amo/components/AddonReviewListItem/index.js:142
-#, fuzzy
 msgid "Developer response"
-msgstr "Tarbaɛt n ineflayen"
+msgstr "Tiririt n ineflayen"
 
 #: src/amo/components/AddonReviewListItem/index.js:150
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Aru acegger"
+msgstr "Aru tiririt γef ucegger-agi."
 
 #: src/amo/components/AddonReviewListItem/index.js:153
 msgid "Update reply"
@@ -327,27 +325,24 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "si %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Aru acegger-iw"
+msgstr "Ẓreg tiririt-iw"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
 msgstr "Aru acegger-iw"
 
 #: src/amo/components/AddonReviewListItem/index.js:272
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Senned akken ad tsekned"
+msgstr "Err i ucegger-agi"
 
 #: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Izegrar i Firefox"
 
 #: src/amo/components/App/index.js:203
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Izegrar i Firefox"
+msgstr "%s -Izegrar i Firefox"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -711,9 +706,8 @@ msgid "Locale Name"
 msgstr "Isem n tutlayt"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "Aff akemmus utlayan"
+msgstr "Akemmus utlayan"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
@@ -1033,9 +1027,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Izegrar Firefox"
+msgstr "Γef Izegrar Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1124,9 +1117,8 @@ msgid "Was it easy to use?"
 msgstr "Fessus i useqdec?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Qqen akken ad ternud tazmilt i uzegrir-agi"
+msgstr "Ad tkemleḍ aseqdec n uzegrir-agi?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1301,9 +1293,8 @@ msgid "OK!"
 msgstr "IH!"
 
 #: src/ui/components/DismissibleTextForm/index.js:129
-#, fuzzy
 msgid "Cancel"
-msgstr "Sefsex taskant"
+msgstr "Sefsex"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
@@ -1314,9 +1305,8 @@ msgid "Submit"
 msgstr "Azen"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Azen"
+msgstr "Tuzna"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
