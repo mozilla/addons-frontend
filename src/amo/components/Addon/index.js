@@ -424,8 +424,13 @@ export class AddonBase extends React.Component {
 
     const titleProps = {};
     if (addon) {
-      const authorList = addon.authors.map(
-        (author) => `<a href="${author.url}">${author.name}</a>`);
+      const authorList = addon.authors.map((author) => {
+        if (author.url) {
+          return `<a href="${author.url}">${author.name}</a>`;
+        }
+
+        return author.name;
+      });
       const title = i18n.sprintf(
         // translators: Example: The Add-On <span>by The Author</span>
         i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
