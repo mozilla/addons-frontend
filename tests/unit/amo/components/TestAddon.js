@@ -390,6 +390,20 @@ describe(__filename, () => {
     expect(root.find('h1').html()).toContain('Fligtar');
   });
 
+  it('renders an author without url', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        authors: [{
+          name: 'Krupa',
+          url: null,
+        }],
+      }),
+    });
+    expect(root.find('.Addon-title').html()).toContain('Krupa');
+    expect(root.find('.Addon-title').render().find('a')).toHaveLength(0);
+  });
+
   it('sanitizes a title', () => {
     const root = shallowRender({
       addon: createInternalAddon({
