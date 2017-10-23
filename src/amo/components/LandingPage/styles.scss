@@ -3,6 +3,10 @@
 
 .LandingPage {
   padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 }
 
 .LandingPage-header {

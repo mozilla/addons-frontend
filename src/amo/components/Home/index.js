@@ -186,8 +186,8 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={popularExtensions}
           className="Home-PopularExtensions"
-          header={i18n.gettext('Most popular extensions')}
-          footerText={i18n.gettext('More popular extensions')}
+          header={i18n.gettext('Most Popular Extensions')}
+          footerText={i18n.gettext('See more')}
           footerLink={{
             pathname: '/search/',
             query: {
@@ -201,8 +201,8 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={featuredCollection}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Change your tabs')}
-          footerText={i18n.gettext('Browse this collection')}
+          header={i18n.gettext('Change up your tabs')}
+          footerText={i18n.gettext('See more')}
           footerLink={{ pathname:
             `/collections/${FEATURED_COLLECTION_USER}/${FEATURED_COLLECTION_SLUG}/`,
           }}
@@ -210,25 +210,10 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
-          addons={featuredThemes}
-          className="Home-FeaturedThemes"
-          header={i18n.gettext('Featured themes')}
-          footerText={i18n.gettext('More featured themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_THEME,
-              featured: true,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
           addons={upAndComingExtensions}
           className="Home-UpAndComingExtensions"
-          header={i18n.gettext('Up & Coming')}
-          footerText={i18n.gettext('More trending extensions')}
+          header={i18n.gettext('Up & Coming Extensions')}
+          footerText={i18n.gettext('See more')}
           footerLink={{
             pathname: '/search/',
             query: {
@@ -251,6 +236,21 @@ export class HomeBase extends React.Component {
 
           {this.renderCuratedThemes()}
         </Card>
+
+        <LandingAddonsCard
+          addons={featuredThemes}
+          className="Home-FeaturedThemes"
+          header={i18n.gettext('Featured themes')}
+          footerText={i18n.gettext('See more')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
       </div>
     );
   }

@@ -35,6 +35,13 @@ $footer-padding: 10px;
   .Card--photon & {
     padding: 20px 15px;
   }
+
+  &,
+  .Card--photon & {
+    @include respond-to(large) {
+      padding: $padding-page-l 36px;
+    }
+  }
 }
 
 .Card-footer-link,
@@ -68,4 +75,14 @@ $footer-padding: 10px;
 
 .Card-footer-text {
   padding: $footer-padding;
+
+  @include respond-to(large) {
+    padding: 15px;
+  }
+}
+
+.Card-footer-link {
+  @include respond-to(large) {
+    padding: 5px 26px;
+  }
 }

@@ -47,8 +47,8 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           <h3>{i18n.gettext('YouTube High Definition')}</h3>
 
           <p>
-            {i18n.gettext(`Videos in HD, turn off annotations,
-              change player size & more`)}
+            {i18n.gettext(`Play videos in HD, turn off annotations, change
+              player size & more`)}
           </p>
         </HeroSection>
       ),

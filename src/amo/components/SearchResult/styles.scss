@@ -30,6 +30,10 @@
     overflow: hidden;
     width: calc(100% + 20px);
   }
+
+  @include respond-to(large) {
+    border-radius: $border-radius-default;
+  }
 }
 
 .SearchResult-icon-wrapper--no-theme-image {

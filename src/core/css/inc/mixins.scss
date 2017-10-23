@@ -1,4 +1,5 @@
 @import "./vars";
+@import "~amo/css/inc/vars";
 @import "~photon-colors/colors";
 
 /* Font mixins. Changes here affect *all* apps */
@@ -385,4 +386,8 @@ $default-arrow-margin: 3px;
   background: $base-color;
   overflow: hidden;
   padding: 10px 20px;
+
+  @include respond-to(large) {
+    padding: 15px 36px;
+  }
 }

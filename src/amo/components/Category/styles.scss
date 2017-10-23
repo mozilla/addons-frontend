@@ -1,7 +1,12 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .Category {
   padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 }
 
 .Category .ErrorList {

@@ -10,7 +10,7 @@
       background: $white;
       border-bottom-left-radius: $border-radius-default;
       border-bottom-right-radius: $border-radius-default;
-      padding: 0 20px;
+      padding: 0 36px;
     }
 
     .Card-footer,
@@ -22,6 +22,10 @@
       border: 0;
       position: absolute;
       top: 0;
+
+      @include respond-to(large) {
+        @include end(0);
+      }
     }
 
     ul.AddonsCard-list {
@@ -71,9 +75,9 @@
       }
 
       .SearchResult--theme {
-        @include margin-end(25px);
+        @include margin-end(24px);
 
-        padding: 10px 0;
+        padding: 24px 0;
 
         // stylelint-disable max-nesting-depth
         .SearchResult-result {
@@ -81,7 +85,9 @@
         }
 
         .SearchResult-icon-wrapper {
+          border-radius: $border-radius-default;
           margin: 0 0 5px;
+          width: 100%;
         }
         // stylelint-enable max-nesting-depth
       }
