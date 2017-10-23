@@ -43,6 +43,7 @@ import {
   render404IfConfigKeyIsFalse,
   safeAsyncConnect,
   safePromise,
+  sanitizeHTML,
   sanitizeUserHTML,
   visibleAddonType,
   trimAndAddProtocolToUrl,
@@ -825,9 +826,7 @@ describe('sanitizeUserHTML', () => {
   it('allows some tags', () => {
     const customHtml =
       '<b>check</b> <i>out</i> <a href="http://mysite">my site</a>';
-    expect(sanitize(customHtml)).toMatch(new RegExp(
-      '<b>check</b> <i>out</i> <a href="http://mysite" .*>my site</a>'
-    ));
+    expect(sanitize(customHtml)).toEqual(customHtml);
   });
 
   it('does not allow certain tags', () => {
@@ -837,5 +836,22 @@ describe('sanitizeUserHTML', () => {
 
   it('does nothing to null values', () => {
     expect(sanitize(null)).toEqual('');
+  });
+});
+
+describe('sanitizeHTML', () => {
+  it('does not change links', () => {
+    const html = '<a href="http://example.org">link</a>';
+    expect(sanitizeHTML(html, ['a'])).toEqual({
+      __html: html,
+    });
+  });
+
+  // This is a built-in feature of dompurify.
+  it('removes `target` attribute on links', () => {
+    const html = '<a href="http://example.org" target="_blank">link</a>';
+    expect(sanitizeHTML(html, ['a'])).toEqual({
+      __html: '<a href="http://example.org">link</a>',
+    });
   });
 });

@@ -8,7 +8,7 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { sanitizeHTMLWithNewTabLinks } from 'disco/utils';
 
 import './style.scss';
 
@@ -52,7 +52,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     return (
       <div
         className="AddonCompatibilityError"
-        dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
+        dangerouslySetInnerHTML={sanitizeHTMLWithNewTabLinks(message, ['a'])}
       />
     );
   }
