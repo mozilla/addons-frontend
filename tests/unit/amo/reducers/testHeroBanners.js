@@ -77,6 +77,27 @@ describe(__filename, () => {
     });
   });
 
+  it('randomizes first and then picks three sections', () => {
+    const sections = [0, 1, 2, 3, 4, 5];
+    // Our sort algorithm is reverse ordering.
+    const knuthShuffleSpy = sinon
+      .stub(knuthShuffle, 'knuthShuffle')
+      .callsFake((sectionsToSort) => {
+        return sectionsToSort.reverse();
+      });
+
+    const state = heroBannerOrderReducer(initialState, setHeroBannerOrder({
+      name: 'CoolPage',
+      random: true,
+      sections,
+    }));
+
+    sinon.assert.called(knuthShuffleSpy);
+    expect(state).toMatchObject({
+      CoolPage: { order: [5, 4, 3] },
+    });
+  });
+
   describe('carousel actions', () => {
     it('requires name', () => {
       const partialParams = { ...defaultParams };
