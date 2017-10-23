@@ -113,14 +113,16 @@ describe(__filename, () => {
       'ad-blockers',
       'password-managers',
       'bookmark-managers',
+      'smarter-shopping',
+      'be-more-productive',
       'watching-videos',
     ];
 
     const root = render();
 
     const shelf = root.find('.Home-CuratedCollections');
-    expect(shelf).toHaveProp('header', "I'm interested in…");
-    expect(shelf.find('.Home-CuratedCollections-list-item'))
+    expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
+    expect(shelf.find('.Home-SubjectShelf-list-item'))
       .toHaveLength(expectedCollections.length);
     expectedCollections.forEach((collectionSlug) => {
       expect(shelf.find({ to: `/collections/mozilla/${collectionSlug}/` }))
@@ -143,6 +145,27 @@ describe(__filename, () => {
       },
     });
     expect(shelf).toHaveProp('loading', true);
+  });
+
+  it('renders a shelf with curated themes', () => {
+    const expectedThemes = [
+      'abstract',
+      'nature',
+      'film-and-tv',
+      'scenery',
+      'music',
+      'seasonal',
+    ];
+
+    const root = render();
+
+    const shelf = root.find('.Home-CuratedThemes');
+    expect(shelf.find('.Home-SubjectShelf-text-wrapper')).toHaveLength(1);
+    expect(shelf.find('.Home-SubjectShelf-list-item'))
+      .toHaveLength(expectedThemes.length);
+    expectedThemes.forEach((slug) => {
+      expect(shelf.find({ to: `/themes/${slug}/` })).toHaveLength(1);
+    });
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {

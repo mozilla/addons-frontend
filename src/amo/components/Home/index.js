@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import CategoryIcon from 'amo/components/CategoryIcon';
 import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
@@ -21,7 +22,6 @@ import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 
 import './styles.scss';
-
 
 export const FEATURED_COLLECTION_SLUG = 'change-up-your-tabs';
 export const FEATURED_COLLECTION_USER = 'mozilla';
@@ -68,24 +68,81 @@ export class HomeBase extends React.Component {
         collectionSlug: 'bookmark-managers',
       },
       {
+        title: i18n.gettext('Smarter Shopping'),
+        collectionSlug: 'smarter-shopping',
+      },
+      {
+        title: i18n.gettext('Productivity'),
+        collectionSlug: 'be-more-productive',
+      },
+      {
         title: i18n.gettext('Watching Videos'),
         collectionSlug: 'watching-videos',
       },
     ];
 
     return (
-      <ul className="Home-CuratedCollections-list">
+      <ul className="Home-SubjectShelf-list">
         {curatedMozillaCollections.map(({ collectionSlug, title }) => (
           <li
-            className="Home-CuratedCollections-list-item"
+            className="Home-SubjectShelf-list-item"
             key={collectionSlug}
           >
             <Link
               to={`/collections/mozilla/${collectionSlug}/`}
-              className="Home-CuratedCollections-link"
+              className="Home-SubjectShelf-link"
             >
-              <Icon name={`Home-CuratedCollections-${collectionSlug}`} />
-              {title}
+              <Icon name={`Home-SubjectShelf-${collectionSlug}`} />
+              <span>{title}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  renderCuratedThemes() {
+    const { i18n } = this.props;
+    const curatedThemes = [
+      {
+        color: 8,
+        slug: 'abstract',
+        title: i18n.gettext('Abstract'),
+      },
+      {
+        color: 8,
+        slug: 'nature',
+        title: i18n.gettext('Nature'),
+      },
+      {
+        color: 10,
+        slug: 'film-and-tv',
+        title: i18n.gettext('Film & TV'),
+      },
+      {
+        color: 8,
+        slug: 'scenery',
+        title: i18n.gettext('Scenery'),
+      },
+      {
+        color: 10,
+        slug: 'music',
+        title: i18n.gettext('Music'),
+      },
+      {
+        color: 9,
+        slug: 'seasonal',
+        title: i18n.gettext('Seasonal'),
+      },
+    ];
+
+    return (
+      <ul className="Home-SubjectShelf-list">
+        {curatedThemes.map(({ color, slug, title }) => (
+          <li className="Home-SubjectShelf-list-item" key={slug}>
+            <Link to={`/themes/${slug}/`} className="Home-SubjectShelf-link">
+              <CategoryIcon name={slug} color={color} />
+              <span>{title}</span>
             </Link>
           </li>
         ))}
@@ -109,6 +166,22 @@ export class HomeBase extends React.Component {
         {errorHandler.renderErrorIfPresent()}
 
         <HomeHeroBanner />
+
+        <Card className="Home-SubjectShelf Home-CuratedCollections">
+          <div className="Home-SubjectShelf-text-wrapper">
+            <h2 className="Home-SubjectShelf-subheading">
+              {i18n.gettext('Extensions change how Firefox works')}
+            </h2>
+            <p className="Home-SubjectShelf-description">
+              {/* translators: The ending ellipsis alludes to a row of icons
+              for each type of extension */}
+              {i18n.gettext(`Customize the way Firefox works with extensions.
+                Are you interested in…`)}
+            </p>
+          </div>
+
+          {this.renderCuratedCollections()}
+        </Card>
 
         <LandingAddonsCard
           addons={popularExtensions}
@@ -135,13 +208,6 @@ export class HomeBase extends React.Component {
           }}
           loading={resultsLoaded === false}
         />
-
-        <Card
-          className="Home-CuratedCollections"
-          header={i18n.gettext("I'm interested in…")}
-        >
-          {this.renderCuratedCollections()}
-        </Card>
 
         <LandingAddonsCard
           addons={featuredThemes}
@@ -172,6 +238,19 @@ export class HomeBase extends React.Component {
           }}
           loading={resultsLoaded === false}
         />
+
+        <Card className="Home-SubjectShelf Home-CuratedThemes">
+          <div className="Home-SubjectShelf-text-wrapper">
+            <h2 className="Home-SubjectShelf-subheading">
+              {i18n.gettext('Themes change how Firefox looks')}
+            </h2>
+            <p className="Home-SubjectShelf-description">
+              {i18n.gettext(`Change the way Firefox looks with themes.`)}
+            </p>
+          </div>
+
+          {this.renderCuratedThemes()}
+        </Card>
       </div>
     );
   }
