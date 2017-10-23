@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-11 07:04+0000\n"
+"PO-Revision-Date: 2017-10-23 10:07+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -117,12 +117,8 @@ msgid "Screenshots"
 msgstr "Schermafbeeldingen"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
-msgstr ""
-"U dient <a href=\"%(downloadUrl)s\">Firefox te downloaden</a> om deze add-on "
-"te installeren."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "U dient <a href=\"%(downloadUrl)s\">Firefox te downloaden</a> om deze add-on te installeren."
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "This add-on is not compatible with your version of Firefox."
@@ -141,24 +137,14 @@ msgid "This add-on is not available on your platform."
 msgstr "Deze add-on is niet beschikbaar voor uw platform."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
-"Deze add-on vereist een <a href=\"%(downloadUrl)s\">nieuwere versie van "
-"Firefox</a> (minstens versie %(minVersion)s). U gebruikt Firefox "
-"%(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr "Deze add-on vereist een <a href=\"%(downloadUrl)s\">nieuwere versie van Firefox</a> (minstens versie %(minVersion)s). U gebruikt Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:88
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
-msgstr ""
-"Uw browser ondersteunt geen add-ons. U kunt <a href=\"%(downloadUrl)s"
-"\">Firefox downloaden</a> om deze add-on te installeren."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
+msgstr "Uw browser ondersteunt geen add-ons. U kunt <a href=\"%(downloadUrl)s\">Firefox downloaden</a> om deze add-on te installeren."
 
-#: src/amo/components/AddonMeta.js:34
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/AddonMeta.js:34 src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s gebruiker"
@@ -202,8 +188,7 @@ msgstr "Add-on-koppelingen"
 msgid "Version"
 msgstr "Versie"
 
-#: src/amo/components/AddonMoreInfo/index.js:163
-#: src/amo/components/Collection/index.js:150
+#: src/amo/components/AddonMoreInfo/index.js:163 src/amo/components/Collection/index.js:150
 msgid "Last updated"
 msgstr "Laatst bijgewerkt"
 
@@ -232,12 +217,8 @@ msgid "Usage Statistics"
 msgstr "Gebruiksstatistieken"
 
 #: src/amo/components/AddonMoreInfo/index.js:204
-msgid ""
-"This ID is useful for debugging and identifying your add-on to site "
-"administrators."
-msgstr ""
-"Deze ID is handig voor het debuggen en herkennen van uw add-on door "
-"websitebeheerders."
+msgid "This ID is useful for debugging and identifying your add-on to site administrators."
+msgstr "Deze ID is handig voor het debuggen en herkennen van uw add-on door websitebeheerders."
 
 #: src/amo/components/AddonMoreInfo/index.js:207
 msgid "Site Identifier"
@@ -273,18 +254,15 @@ msgstr "Beschrijf waarom u deze extensie fantastisch vindt!"
 
 #: src/amo/components/AddonReview/index.js:172
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"Vertel ons wat u zo bevalt aan deze extensie. Wees concreet en beknopt."
+msgstr "Vertel ons wat u zo bevalt aan deze extensie. Wees concreet en beknopt."
 
 #: src/amo/components/AddonReview/index.js:176
 msgid "Tell the world about this extension."
 msgstr "Geef een beschrijving over deze extensie."
 
 #: src/amo/components/AddonReview/index.js:177
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
-"Vertel ons over uw ervaring met deze extensie. Wees concreet en beknopt."
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr "Vertel ons over uw ervaring met deze extensie. Wees concreet en beknopt."
 
 #: src/amo/components/AddonReview/index.js:189
 msgid "Write a review"
@@ -320,16 +298,15 @@ msgstr "Schrijf een antwoord op deze beoordeling."
 
 #: src/amo/components/AddonReviewListItem/index.js:153
 msgid "Update reply"
-msgstr ""
+msgstr "Antwoord bijwerken"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Publish reply"
 msgstr "Antwoord publiceren"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
 msgid "Updating reply"
-msgstr "Antwoord publiceren"
+msgstr "Antwoord bijwerken"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
@@ -344,9 +321,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "door %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Mijn beoordeling bewerken"
+msgstr "Mijn antwoord bewerken"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
@@ -356,8 +332,7 @@ msgstr "Mijn beoordeling bewerken"
 msgid "Reply to this review"
 msgstr "Deze beoordeling beantwoorden"
 
-#: src/amo/components/App/index.js:202
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/App/index.js:202 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Add-ons voor Firefox"
 
@@ -377,71 +352,51 @@ msgstr "Categorieën"
 msgid "Loading categories."
 msgstr "Categorieën worden geladen."
 
-#: src/amo/components/Category/index.js:124
-#: src/amo/components/HomeHeroBanner/index.js:36
-#: src/amo/components/LandingPage/index.js:126
+#: src/amo/components/Category/index.js:124 src/amo/components/HomeHeroBanner/index.js:36 src/amo/components/LandingPage/index.js:126
 msgid "Featured extensions"
 msgstr "Aanbevolen extensies"
 
-#: src/amo/components/Category/index.js:133
-#: src/amo/components/LandingPage/index.js:134
+#: src/amo/components/Category/index.js:133 src/amo/components/LandingPage/index.js:134
 msgid "More featured extensions"
 msgstr "Meer aanbevolen extensies"
 
-#: src/amo/components/Category/index.js:134
-#: src/amo/components/LandingPage/index.js:135
-#, fuzzy
+#: src/amo/components/Category/index.js:134 src/amo/components/LandingPage/index.js:135
 msgid "Trending extensions"
-msgstr "Hoogst gewaardeerde extensies"
+msgstr "Populaire extensies"
 
-#: src/amo/components/Category/index.js:143
-#: src/amo/components/Home/index.js:165
-#: src/amo/components/LandingPage/index.js:140
-#, fuzzy
+#: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:140
 msgid "More trending extensions"
-msgstr "Meer aanbevolen extensies"
+msgstr "Meer populaire extensies"
 
-#: src/amo/components/Category/index.js:144
-#: src/amo/components/LandingPage/index.js:141
+#: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
 msgstr "Hoogst gewaardeerde extensies"
 
-#: src/amo/components/Category/index.js:153
-#: src/amo/components/LandingPage/index.js:149
+#: src/amo/components/Category/index.js:153 src/amo/components/LandingPage/index.js:149
 msgid "More highly rated extensions"
 msgstr "Meer hoog gewaardeerde extensies"
 
-#: src/amo/components/Category/index.js:156
-#: src/amo/components/Home/index.js:149
-#: src/amo/components/LandingPage/index.js:152
+#: src/amo/components/Category/index.js:156 src/amo/components/Home/index.js:149 src/amo/components/LandingPage/index.js:152
 msgid "Featured themes"
 msgstr "Aanbevolen thema’s"
 
-#: src/amo/components/Category/index.js:165
-#: src/amo/components/Home/index.js:150
-#: src/amo/components/LandingPage/index.js:160
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:150 src/amo/components/LandingPage/index.js:160
 msgid "More featured themes"
 msgstr "Meer aanbevolen thema’s"
 
-#: src/amo/components/Category/index.js:166
-#: src/amo/components/LandingPage/index.js:161
-#, fuzzy
+#: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:161
 msgid "Trending themes"
-msgstr "Hoogst gewaardeerde thema’s"
+msgstr "Populaire thema’s"
 
-#: src/amo/components/Category/index.js:175
-#: src/amo/components/LandingPage/index.js:166
-#, fuzzy
+#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:166
 msgid "More trending themes"
-msgstr "Meer aanbevolen thema’s"
+msgstr "Meer populaire thema’s"
 
-#: src/amo/components/Category/index.js:176
-#: src/amo/components/LandingPage/index.js:167
+#: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
 msgstr "Hoogst gewaardeerde thema’s"
 
-#: src/amo/components/Category/index.js:185
-#: src/amo/components/LandingPage/index.js:172
+#: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:172
 msgid "More highly rated themes"
 msgstr "Meer hoog gewaardeerde thema’s"
 
@@ -465,83 +420,50 @@ msgstr "Add-ons"
 msgid "Creator"
 msgstr "Auteur"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38
-#: src/amo/components/Footer/index.js:97
+#: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Firefox downloaden"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Als u bent aangemeld en denkt dat deze melding onterecht is, <a href="
-"\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en wat "
-"u probeerde te openen, en we zullen het verhelpen."
+"Als u bent aangemeld en denkt dat deze melding onterecht is, <a href=\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en wat u probeerde te openen, en we zullen het verhelpen."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
 msgstr "Niet geautoriseerd"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
-msgstr ""
-"Sorry, maar u hebt geen toegang tot deze pagina. Als u niet bent aangemeld, "
-"probeer u dan aan te melden via de koppeling boven in de pagina."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgstr "Sorry, maar u hebt geen toegang tot deze pagina. Als u niet bent aangemeld, probeer u dan aan te melden via de koppeling boven in de pagina."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
-msgstr ""
-"Als u een koppeling ergens vandaan hebt gevolgd, <a href=\"%(url)s\">meld "
-"dan een probleem</a>. Vertel ons waar u vandaan kwam en waar u naar op zoek "
-"was, en we zullen proberen het op te lossen."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgstr "Als u een koppeling ergens vandaan hebt gevolgd, <a href=\"%(url)s\">meld dan een probleem</a>. Vertel ons waar u vandaan kwam en waar u naar op zoek was, en we zullen proberen het op te lossen."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
 msgstr "Pagina niet gevonden"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Sorry, maar we kunnen niets op het ingevoerde adres vinden. Als u een "
-"koppeling naar een add-on hebt gevolgd, is het mogelijk dat de add-on door "
-"de schrijver is verwijderd."
+msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
+msgstr "Sorry, maar we kunnen niets op het ingevoerde adres vinden. Als u een koppeling naar een add-on hebt gevolgd, is het mogelijk dat de add-on door de schrijver is verwijderd."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
-"Als u aanvullende gegevens hebt die ons zouden kunnen helpen, kunt u <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">een probleem "
-"melden</a>. Vertel ons welke stappen u volgde die naar de fout leidden, en "
-"we zullen proberen het op te lossen."
+"Als u aanvullende gegevens hebt die ons zouden kunnen helpen, kunt u <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">een probleem melden</a>. Vertel ons welke stappen u volgde die"
+" naar de fout leidden, en we zullen proberen het op te lossen."
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "Serverfout"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
-msgstr ""
-"Sorry, maar er is een fout opgetreden met onze server, en we konden uw "
-"aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem "
-"onderzoeken."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sorry, maar er is een fout opgetreden met onze server, en we konden uw aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -581,13 +503,11 @@ msgstr "Misbruik van handelsmerk melden"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
-"Tenzij anders %(startNotedLink)svermeld%(endNotedLink)s, is op de inhoud van "
-"deze website de %(startLicenseLink)sCreative Commons Attribution Share-Alike "
-"License v3.0%(endLicenseLink)s of latere versie van toepassing."
+"Tenzij anders %(startNotedLink)svermeld%(endNotedLink)s, is op de inhoud van deze website de %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s of latere "
+"versie van toepassing."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -618,7 +538,6 @@ msgid "Report a bug"
 msgstr "Een bug melden"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
 msgstr "Beoordelingsrichtlijnen"
 
@@ -650,8 +569,7 @@ msgstr "Een nieuw thema indienen"
 msgid "Manage API Keys"
 msgstr "API-sleutels beheren"
 
-#: src/amo/components/Header/index.js:137
-#: src/core/components/AuthenticateButton/index.js:63
+#: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
 msgstr "Afmelden"
 
@@ -685,27 +603,27 @@ msgstr "Door deze collectie bladeren"
 
 #: src/amo/components/Home/index.js:141
 msgid "I'm interested in…"
-msgstr ""
+msgstr "Ik ben geïnteresseerd in…"
 
 #: src/amo/components/Home/index.js:164
 msgid "Up & Coming"
-msgstr ""
+msgstr "Nieuw en veelbelovend"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Adblockers"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "Wachtwoordbeheerders"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bladwijzers"
 
 #: src/amo/components/Home/index.js:71
 msgid "Watching Videos"
-msgstr ""
+msgstr "Video’s bekijken"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -724,12 +642,8 @@ msgid "Block ads"
 msgstr "Advertenties blokkeren"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
-msgid ""
-"From ad blockers to anti-trackers, here are some impressive privacy "
-"extensions"
-msgstr ""
-"Hier zijn enkele indrukwekkende privacy-extensies, van adblockers tot "
-"antitrackers"
+msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
+msgstr "Hier zijn enkele indrukwekkende privacy-extensies, van adblockers tot antitrackers"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
@@ -739,31 +653,21 @@ msgstr "uBlock Origin"
 msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "Een extreem krachtige adblocker die eenvoudig te gebruiken is"
 
-#: src/amo/components/LandingPage/index.js:212
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/LandingPage/index.js:212 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Thema’s"
 
-#: src/amo/components/LandingPage/index.js:213
-#: src/amo/components/SectionLinks/index.js:83
+#: src/amo/components/LandingPage/index.js:213 src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Extensies"
 
 #: src/amo/components/LandingPage/index.js:216
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
-msgstr ""
-"Wijzig de vormgeving van uw browser. Maak een keuze uit duizenden thema’s om "
-"Firefox het gewenste uiterlijk te geven."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgstr "Wijzig de vormgeving van uw browser. Maak een keuze uit duizenden thema’s om Firefox het gewenste uiterlijk te geven."
 
 #: src/amo/components/LandingPage/index.js:218
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
-msgstr ""
-"Verken krachtige hulpmiddelen en functies om Firefox aan te passen en de "
-"browser helemaal van uzelf te maken."
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
+msgstr "Verken krachtige hulpmiddelen en functies om Firefox aan te passen en de browser helemaal van uzelf te maken."
 
 #: src/amo/components/LandingPage/index.js:243
 msgid "Explore all categories"
@@ -774,42 +678,36 @@ msgid "Change language"
 msgstr "Taal wijzigen"
 
 #: src/amo/components/LanguageTools/index.js:130
-#, fuzzy
 msgid "Dictionaries and Language Packs"
 msgstr "Woordenboeken en taalpakketten"
 
 #: src/amo/components/LanguageTools/index.js:135
-msgid ""
-"Installing a dictionary add-on will add a new language option to your spell-"
-"checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgstr "Door installatie van een woordenboek-add-on wordt een nieuwe taaloptie aan uw spellingscontrole toegevoegd, die uw spelling tijdens het typen in Firefox controleert."
 
 #: src/amo/components/LanguageTools/index.js:140
-msgid ""
-"Language packs change your browser's interface language, including menu "
-"options and settings."
-msgstr ""
+msgid "Language packs change your browser's interface language, including menu options and settings."
+msgstr "Taalpakketten wijzigen de interfacetaal van uw browser, inclusief menu-opties en instellingen."
 
 #: src/amo/components/LanguageTools/index.js:146
 msgid "All Locales"
-msgstr ""
+msgstr "Alle talen"
 
 #: src/amo/components/LanguageTools/index.js:152
 msgid "Locale Name"
-msgstr ""
+msgstr "Localenaam"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "Taalpakket zoeken"
+msgstr "Taalpakketten"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
-msgstr ""
+msgstr "Woordenboeken"
 
 #: src/amo/components/LanguageTools/index.js:91
 msgid "Available for your locale"
-msgstr ""
+msgstr "Beschikbaar voor uw taal"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
@@ -844,42 +742,26 @@ msgid "You reported this add-on for abuse"
 msgstr "U hebt deze add-on gerapporteerd wegens misbruik"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
-msgstr ""
-"We hebben uw melding ontvangen. Bedankt dat u ons op de hoogte hebt gebracht "
-"van uw zorgen over deze add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+msgstr "We hebben uw melding ontvangen. Bedankt dat u ons op de hoogte hebt gebracht van uw zorgen over deze add-on."
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
-"We kunnen niet op elke misbruikmelding reageren, maar zullen dit probleem "
-"onderzoeken."
+msgstr "We kunnen niet op elke misbruikmelding reageren, maar zullen dit probleem onderzoeken."
 
 #: src/amo/components/ReportAbuseButton/index.js:130
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
-"Als u denkt dat deze add-on in strijd is met het %(linkTagStart)sadd-"
-"onbeleid van Mozilla%(linkTagEnd)s of beveiligings- of privacyproblemen "
-"kent, meld deze problemen dan bij Mozilla via dit formulier."
+"Als u denkt dat deze add-on in strijd is met het %(linkTagStart)sadd-onbeleid van Mozilla%(linkTagEnd)s of beveiligings- of privacyproblemen kent, meld deze problemen dan bij Mozilla via dit "
+"formulier."
 
-#: src/amo/components/ReportAbuseButton/index.js:152
-#: src/amo/components/ReportAbuseButton/index.js:158
+#: src/amo/components/ReportAbuseButton/index.js:152 src/amo/components/ReportAbuseButton/index.js:158
 msgid "Report this add-on for abuse"
 msgstr "Deze add-on rapporteren wegens misbruik"
 
 #: src/amo/components/ReportAbuseButton/index.js:166
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
-"Gebruik dit formulier niet om fouten te melden of add-on-functies aan te "
-"vragen; deze melding wordt naar Mozilla verstuurd, en niet naar de add-on-"
-"ontwikkelaar."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+msgstr "Gebruik dit formulier niet om fouten te melden of add-on-functies aan te vragen; deze melding wordt naar Mozilla verstuurd, en niet naar de add-on-ontwikkelaar."
 
 #: src/amo/components/ReportAbuseButton/index.js:179
 msgid "Explain how this add-on is violating our policies."
@@ -951,8 +833,7 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s add-on gevonden"
 msgstr[1] "%(count)s add-ons gevonden"
 
-#: src/amo/components/SearchFilters/index.js:102
-#: src/amo/components/SearchFilters/index.js:92
+#: src/amo/components/SearchFilters/index.js:102 src/amo/components/SearchFilters/index.js:92
 msgid "All"
 msgstr "Alle"
 
@@ -986,7 +867,7 @@ msgstr "Hoogst gewaardeerd"
 
 #: src/amo/components/SearchFilters/index.js:117
 msgid "Trending"
-msgstr ""
+msgstr "Trends"
 
 #: src/amo/components/SearchFilters/index.js:127
 msgid "Filter results"
@@ -1005,9 +886,8 @@ msgid "Operating System"
 msgstr "Besturingssysteem"
 
 #: src/amo/components/SearchFilters/index.js:196
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Aanbevolen add-on"
+msgstr "Alleen aanbevolen add-ons"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
@@ -1041,8 +921,7 @@ msgstr "Thema’s zoeken"
 msgid "Find add-ons"
 msgstr "Add-ons zoeken"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
 msgstr "Zoeken"
 
@@ -1107,43 +986,24 @@ msgid "More…"
 msgstr "Meer…"
 
 #: src/amo/components/StaticPages/About.js:110
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
-msgstr ""
-"Als u wilt bijdragen, maar niet zo technisch bent, zijn er nog steeds "
-"manieren om te helpen:"
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgstr "Als u wilt bijdragen, maar niet zo technisch bent, zijn er nog steeds manieren om te helpen:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr "Doe mee aan ons %(startLink)sforum%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
-msgstr ""
-"Laat feedback voor uw favoriete add-ons achter. De kans dat dd-onschrijvers "
-"hun add-ons verbeteren en nieuwe add-ons maken is groter als ze weten dat "
-"hun werk wordt gewaardeerd."
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgstr "Laat feedback voor uw favoriete add-ons achter. De kans dat dd-onschrijvers hun add-ons verbeteren en nieuwe add-ons maken is groter als ze weten dat hun werk wordt gewaardeerd."
 
 #: src/amo/components/StaticPages/About.js:129
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
-"Vertel uw vrienden en familie dat Firefox een snelle, veilige browser is die "
-"hun privacy beschermt, en dat ze add-ons kunnen gebruiken om hem naar wens "
-"aan te passen!"
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgstr "Vertel uw vrienden en familie dat Firefox een snelle, veilige browser is die hun privacy beschermt, en dat ze add-ons kunnen gebruiken om hem naar wens aan te passen!"
 
 #: src/amo/components/StaticPages/About.js:138
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s"
-msgstr ""
-"Bezoek onze %(startLink)swiki%(endLink)s voor meer manieren waarop u kunt "
-"bijdragen aan de add-ongemeenschap"
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
+msgstr "Bezoek onze %(startLink)swiki%(endLink)s voor meer manieren waarop u kunt bijdragen aan de add-ongemeenschap"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1151,50 +1011,31 @@ msgstr "Ondersteuning verkrijgen"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
-"Als u meer wilt weten over hoe u add-ons in Firefox beheert, of op zoek bent "
-"naar algemene ondersteuning voor Firefox, bezoek dan %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. Als u daar geen antwoord vindt, dan kunt u uw "
-"%(startForumLink)svraag stellen op ons gemeenschapsforum%(endForumLink)s."
+"Als u meer wilt weten over hoe u add-ons in Firefox beheert, of op zoek bent naar algemene ondersteuning voor Firefox, bezoek dan %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. Als u daar geen "
+"antwoord vindt, dan kunt u uw %(startForumLink)svraag stellen op ons gemeenschapsforum%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
-msgstr ""
-"%(startLink)sInformatie over contact opnemen met het add-ons-team van "
-"Mozilla kunt u hier vinden%(endLink)s."
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgstr "%(startLink)sInformatie over contact opnemen met het add-ons-team van Mozilla kunt u hier vinden%(endLink)s."
 
-#: src/amo/components/StaticPages/About.js:24
-#: src/amo/components/StaticPages/About.js:27
+#: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
 msgstr "Over Firefox Add-ons"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
-"Addons.mozilla.org (AMO) is de officiële website van Mozilla voor het "
-"ontdekken en installeren van add-ons voor de Firefox-browser. Met add-ons "
-"kunt u, door het toevoegen van nieuwe functies, het verbeteren van uw "
-"interacties met webinhoud en het wijzigen van het uiterlijk van uw browser, "
-"uw surfervaring aanpassen en personaliseren."
+"Addons.mozilla.org (AMO) is de officiële website van Mozilla voor het ontdekken en installeren van add-ons voor de Firefox-browser. Met add-ons kunt u, door het toevoegen van nieuwe functies, het "
+"verbeteren van uw interacties met webinhoud en het wijzigen van het uiterlijk van uw browser, uw surfervaring aanpassen en personaliseren."
 
 #: src/amo/components/StaticPages/About.js:44
-msgid ""
-"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
-"U kunt AMO ook gebruiken om add-ons voor Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s en %(startSMLink)sSeaMonkey%(endSMLink)s te zoeken."
+msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgstr "U kunt AMO ook gebruiken om add-ons voor Mozilla %(startTBLink)sThunderbird%(endTBLink)s en %(startSMLink)sSeaMonkey%(endSMLink)s te zoeken."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1202,16 +1043,11 @@ msgstr "Een gemeenschap van makers"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
-"listed."
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
-"De hier vermelde add-ons zijn gemaakt door duizenden ontwikkelaars en thema-"
-"ontwerpers wereldwijd, variërend van individuele hobbyisten tot grote "
-"bedrijven. Sommige add-ons op AMO worden automatisch gepubliceerd en worden "
-"na publicatie mogelijk nog beoordeeld door een team van editors."
+"De hier vermelde add-ons zijn gemaakt door duizenden ontwikkelaars en thema-ontwerpers wereldwijd, variërend van individuele hobbyisten tot grote bedrijven. Sommige add-ons op AMO worden automatisch"
+" gepubliceerd en worden na publicatie mogelijk nog beoordeeld door een team van editors."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1219,54 +1055,35 @@ msgstr "Meedoen"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons suport user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
 msgstr ""
-"Mozilla is een nonprofitvoorvechter van het internet, we bouwen Firefox om "
-"het gezond, open en toegankelijk te helpen zijn. Add-ons ondersteunen "
-"keuzevrijheid en aanpassing in Firefox, en u kunt op de volgende manieren "
-"bijdragen:"
+"Mozilla is een nonprofitvoorvechter van het internet, we bouwen Firefox om het gezond, open en toegankelijk te helpen zijn. Add-ons ondersteunen keuzevrijheid en aanpassing in Firefox, en u kunt op "
+"de volgende manieren bijdragen:"
 
 #: src/amo/components/StaticPages/About.js:80
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
-msgstr ""
-"%(startLink)sMaak uw eigen add-on%(endLink)s. We bieden gratis host- en "
-"updatediensten en kunnen u helpen een groot gebruikerspubliek te bereiken."
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgstr "%(startLink)sMaak uw eigen add-on%(endLink)s. We bieden gratis host- en updatediensten en kunnen u helpen een groot gebruikerspubliek te bereiken."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and "
-"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
-"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
-"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
-"Github."
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Help deze website te verbeteren. Hij is opensource, en u kunt bugs en "
-"patches indienen. U kunt starten met een %(startGoodFirstBugLink)sgoede "
-"eerste bug%(endGoodFirstBugLink)s of alle open issues voor de "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s en "
-"%(startAddonsFrontendRepoLink)sfront-end%(endAddonsFrontendRepoLink)s op "
-"GitHub bekijken."
+"Help deze website te verbeteren. Hij is opensource, en u kunt bugs en patches indienen. U kunt starten met een %(startGoodFirstBugLink)sgoede eerste bug%(endGoodFirstBugLink)s of alle open issues "
+"voor de %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s en %(startAddonsFrontendRepoLink)sfront-end%(endAddonsFrontendRepoLink)s op GitHub bekijken."
 
-#: src/amo/components/StaticPages/ReviewGuide.js:24
-#: src/amo/components/StaticPages/ReviewGuide.js:27
+#: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
 msgstr "Beoordelingsrichtlijnen"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons "
-"you’ve installed and used. Our review moderation team reserves the right to "
-"refuse or remove any review that does not comply with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
 msgstr ""
-"Add-onbeoordelingen zijn een manier om uw mening over de door u "
-"geïnstalleerde en gebruikte add-ons te delen. Ons beoordelingsmoderatieteam "
-"behoudt zich het recht voor om elke beoordeling die niet aan deze "
-"richtlijnen voldoet te weigeren of te verwijderen."
+"Add-onbeoordelingen zijn een manier om uw mening over de door u geïnstalleerde en gebruikte add-ons te delen. Ons beoordelingsmoderatieteam behoudt zich het recht voor om elke beoordeling die niet "
+"aan deze richtlijnen voldoet te weigeren of te verwijderen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1277,8 +1094,7 @@ msgid "Do:"
 msgstr "Doen:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-msgid ""
-"Write like you are telling a friend about your experience with the add-on."
+msgid "Write like you are telling a friend about your experience with the add-on."
 msgstr "Schrijf alsof u een vriend over uw ervaring met de add-on vertelt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
@@ -1310,11 +1126,8 @@ msgid "Will you continue to use this add-on?"
 msgstr "Blijft u deze add-on gebruiken?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
-msgid ""
-"Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
-"Neem een moment om uw beoordeling door te lezen voordat u hem indient, om zo "
-"typefouten te minimaliseren."
+msgid "Take a moment to read your review before submitting it to minimize typos."
+msgstr "Neem een moment om uw beoordeling door te lezen voordat u hem indient, om zo typefouten te minimaliseren."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1322,70 +1135,47 @@ msgstr "Niet doen:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
-"Extreem korte beoordelingen als ‘Geweldig!’, ‘prachtig’ of ‘slecht’ indienen."
+msgstr "Extreem korte beoordelingen als ‘Geweldig!’, ‘prachtig’ of ‘slecht’ indienen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the "
-"available support options for each add-on, if available. You can find them "
-"in the \"More information\" section in the sidebar on the add-on's detail "
-"page."
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
 msgstr ""
-"Technische problemen, ondersteuningsvragen of aanvragen voor functies "
-"plaatsen. Gebruik hiervoor, indien beschikbaar, de ondersteuningsopties voor "
-"elke add-on. U vindt deze in de sectie ‘Meer informatie’ in de zijbalk op de "
-"detailpagina van de add-on."
+"Technische problemen, ondersteuningsvragen of aanvragen voor functies plaatsen. Gebruik hiervoor, indien beschikbaar, de ondersteuningsopties voor elke add-on. U vindt deze in de sectie ‘Meer "
+"informatie’ in de zijbalk op de detailpagina van de add-on."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
 msgstr "Beoordelingen schrijven voor add-ons die u niet zelf hebt gebruikt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
+msgid "Use profanity, sexual language or language that can be construed as hateful."
 msgstr "Grof, seksueel getint of mogelijk haatzaaiend taalgebruik."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
-msgstr ""
-"HTML, koppelingen, broncode of codefragmenten opnemen. Beoordelingen zijn "
-"uitsluitend tekstueel."
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
+msgstr "HTML, koppelingen, broncode of codefragmenten opnemen. Beoordelingen zijn uitsluitend tekstueel."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
-"Valse verklaringen afleggen, add-onschrijvers onheus bejegenen of ze "
-"persoonlijk beledigen."
+msgid "Make false statements, disparage add-on authors or personally insult them."
+msgstr "Valse verklaringen afleggen, add-onschrijvers onheus bejegenen of ze persoonlijk beledigen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid ""
-"Include your own or anyone else’s email, phone number, or other personal "
-"details."
-msgstr ""
-"Uw eigen of andermans e-mailadres, telefoonnummer of andere persoonsgegevens "
-"opnemen."
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgstr "Uw eigen of andermans e-mailadres, telefoonnummer of andere persoonsgegevens opnemen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
-"Beoordelingen voor een add-on die u of uw organisatie heeft geschreven of "
-"vertegenwoordigt schrijven."
+msgstr "Beoordelingen voor een add-on die u of uw organisatie heeft geschreven of vertegenwoordigt schrijven."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving "
-"a negative review of an add-on for displaying ads or requiring data "
-"gathering, when that is the intended purpose of the add-on, or the add-on "
-"requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
 msgstr ""
-"Een add-on bekritiseren voor iets wat hij zou moeten doen. Bijvoorbeeld een "
-"negatieve beoordeling van een add-on vanwege het weergeven van advertenties "
-"of gegevensverzameling achterlaten, terwijl dat het doel is van de add-on, "
-"of wanneer de add-on gegevens moet verzamelen om te werken."
+"Een add-on bekritiseren voor iets wat hij zou moeten doen. Bijvoorbeeld een negatieve beoordeling van een add-on vanwege het weergeven van advertenties of gegevensverzameling achterlaten, terwijl "
+"dat het doel is van de add-on, of wanneer de add-on gegevens moet verzamelen om te werken."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
@@ -1397,48 +1187,31 @@ msgstr "Hoe kan ik een probleem met een beoordeling melden?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this "
-"review\" and it will be submitted to the site for moderation. Our moderation "
-"team will use the Review Guidelines to evaluate whether or not to delete the "
-"review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
-"Meld of label twijfelachtige beoordelingen door op ‘Deze beoordeling melden’ "
-"te klikken, en deze wordt vervolgens voor moderatie aangemeld. Ons "
-"moderatieteam gebruikt de Beoordelingsrichtlijnen om te evalueren of de "
-"beoordeling moet worden verwijderd of worden teruggeplaatst op de website."
+"Meld of label twijfelachtige beoordelingen door op ‘Deze beoordeling melden’ te klikken, en deze wordt vervolgens voor moderatie aangemeld. Ons moderatieteam gebruikt de Beoordelingsrichtlijnen om "
+"te evalueren of de beoordeling moet worden verwijderd of worden teruggeplaatst op de website."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
 msgstr "Ik ben een add-onschrijver, kan ik antwoorden op beoordelingen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
-msgid ""
-"Yes, add-on authors can provide a single response to a review. You can set "
-"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
-"additional discussion or follow-up."
-msgstr ""
-"Ja, add-onschrijvers kunnen éénmalig een beoordeling beantwoorden. U kunt "
-"een discussie starten op ons %(startLink)sforum%(endLink)s om de discussie "
-"verder te voeren."
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgstr "Ja, add-onschrijvers kunnen éénmalig een beoordeling beantwoorden. U kunt een discussie starten op ons %(startLink)sforum%(endLink)s om de discussie verder te voeren."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
-"Ik ben een add-onschrijver, kan ik negatieve beoordelingen of waarderingen "
-"verwijderen?"
+msgstr "Ik ben een add-onschrijver, kan ik negatieve beoordelingen of waarderingen verwijderen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
-"In general, no. But if the review did not meet the review guidelines "
-"outlined above, you can click \"Report this review\" and have it moderated. "
-"If a review included a complaint that is no longer valid due to a new "
-"release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"In het algemeen niet. Maar als de beoordeling niet voldoet aan de "
-"bovenstaande richtlijnen kunt u op ‘Deze beoordeling melden’ klikken om "
-"moderatie te starten. Als de beoordeling een klacht beschrijft die niet meer "
-"geldt vanwege een nieuwe uitgave van uw add-on, dan kunnen we overwegen de "
-"beoordeling te verwijderen."
+"In het algemeen niet. Maar als de beoordeling niet voldoet aan de bovenstaande richtlijnen kunt u op ‘Deze beoordeling melden’ klikken om moderatie te starten. Als de beoordeling een klacht "
+"beschrijft die niet meer geldt vanwege een nieuwe uitgave van uw add-on, dan kunnen we overwegen de beoordeling te verwijderen."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
@@ -1461,15 +1234,10 @@ msgid "Register or Log in"
 msgstr "Registreren of aanmelden"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Sorry, maar er is een fout opgetreden, en we konden uw aanvraag niet "
-"voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Sorry, maar er is een fout opgetreden, en we konden uw aanvraag niet voltooien. We hebben deze fout vastgelegd en zullen hem onderzoeken."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
 msgstr "Foutcode: %(status)s."
 
@@ -1481,8 +1249,7 @@ msgstr "Sorry, maar we kunnen niets op de ingevoerde URL vinden."
 msgid "Install Theme"
 msgstr "Thema installeren"
 
-#: src/core/components/InstallButton/index.js:130
-#: src/core/components/InstallButton/index.js:148
+#: src/core/components/InstallButton/index.js:130 src/core/components/InstallButton/index.js:148
 msgid "Add to Firefox"
 msgstr "Toevoegen aan Firefox"
 
@@ -1633,12 +1400,8 @@ msgstr "<span class=\"visually-hidden\">Vouw uit voor</span> Meer info"
 #~ msgid "…or what it looks like"
 #~ msgstr "…of hoe het eruitziet"
 
-#~ msgid ""
-#~ "Install powerful tools that make browsing faster and safer, add-ons make "
-#~ "your browser yours."
-#~ msgstr ""
-#~ "Installeer krachtige hulpmiddelen die het surfen sneller en veiliger "
-#~ "maken; add-ons maken uw browser persoonlijk."
+#~ msgid "Install powerful tools that make browsing faster and safer, add-ons make your browser yours."
+#~ msgstr "Installeer krachtige hulpmiddelen die het surfen sneller en veiliger maken; add-ons maken uw browser persoonlijk."
 
 #~ msgid "Privacy policy"
 #~ msgstr "Privacybeleid"
@@ -1664,12 +1427,8 @@ msgstr "<span class=\"visually-hidden\">Vouw uit voor</span> Meer info"
 #~ msgid "Browse by category"
 #~ msgstr "Bladeren op categorie"
 
-#~ msgid ""
-#~ "Extensions are special features you can add to Firefox. Themes let you "
-#~ "change your browser's appearance."
-#~ msgstr ""
-#~ "Extensies zijn speciale functies die u aan Firefox kunt toevoegen. Met "
-#~ "thema’s kunt u de vormgeving van uw browser wijzigen."
+#~ msgid "Extensions are special features you can add to Firefox. Themes let you change your browser's appearance."
+#~ msgstr "Extensies zijn speciale functies die u aan Firefox kunt toevoegen. Met thema’s kunt u de vormgeving van uw browser wijzigen."
 
 #~ msgid "%(averageRating)s out of 5"
 #~ msgstr "%(averageRating)s van 5"
@@ -1715,10 +1474,8 @@ msgstr "<span class=\"visually-hidden\">Vouw uit voor</span> Meer info"
 
 #~ msgid "Your search for \"%(query)s\" returned %(count)s result."
 #~ msgid_plural "Your search for \"%(query)s\" returned %(count)s results."
-#~ msgstr[0] ""
-#~ "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd."
-#~ msgstr[1] ""
-#~ "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
+#~ msgstr[0] "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaat opgeleverd."
+#~ msgstr[1] "Uw zoekopdracht naar ‘%(query)s’ heeft %(count)s resultaten opgeleverd."
 
 #~ msgid "Please supply a valid search"
 #~ msgstr "Geef een geldige zoekopdracht op"
