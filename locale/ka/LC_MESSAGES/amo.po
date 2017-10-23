@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-23 14:51+0000\n"
+"PO-Revision-Date: 2017-10-23 14:53+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -303,9 +303,8 @@ msgid "Publish reply"
 msgstr "პასუხის გამოქვეყნება"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
 msgid "Updating reply"
-msgstr "პასუხის ქვეყნდება"
+msgstr "პასუხი ახლდება"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
@@ -320,9 +319,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "ავტორი: %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:253
-#, fuzzy
 msgid "Edit my reply"
-msgstr "მიმოხილვის ჩასწორება"
+msgstr "პასუხის ჩასწორება"
 
 #: src/amo/components/AddonReviewListItem/index.js:254
 msgid "Edit my review"
@@ -361,14 +359,12 @@ msgid "More featured extensions"
 msgstr "სხვა რჩეული გაფართოებები"
 
 #: src/amo/components/Category/index.js:134 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "Trending extensions"
-msgstr "საუკეთესოდ შეფასებული გაფართოებები"
+msgstr "ყველაზე მეტად სასურველი გაფართოებები"
 
 #: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:140
-#, fuzzy
 msgid "More trending extensions"
-msgstr "სხვა რჩეული გაფართოებები"
+msgstr "სხვა სასურველი გაფართოებები"
 
 #: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
@@ -387,14 +383,12 @@ msgid "More featured themes"
 msgstr "სხვა გამორჩეული თემები"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "Trending themes"
-msgstr "საუკეთესოდ შეფასებული თემები"
+msgstr "ყველაზე მეტად სასურველი თემები"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:166
-#, fuzzy
 msgid "More trending themes"
-msgstr "სხვა გამორჩეული თემები"
+msgstr "სხვა სასურველი თემები"
 
 #: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
@@ -544,7 +538,6 @@ msgid "Report a bug"
 msgstr "მოხსენება ხარვეზის შესახებ"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
 msgstr "მითითებები მიმოხილვის გასაკეთებლად"
 
@@ -686,9 +679,8 @@ msgid "Change language"
 msgstr "ენის შეცვლა"
 
 #: src/amo/components/LanguageTools/index.js:130
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "ლექსიკონები & ენის პაკეტები"
+msgstr "ლექსიკონები და ენის პაკეტები"
 
 #: src/amo/components/LanguageTools/index.js:135
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -707,9 +699,8 @@ msgid "Locale Name"
 msgstr "ენის სახელი"
 
 #: src/amo/components/LanguageTools/index.js:155
-#, fuzzy
 msgid "Language Packs"
-msgstr "ენის პაკეტების მოძიება"
+msgstr "ენის პაკეტები"
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Dictionaries"
@@ -892,9 +883,8 @@ msgstr "საოპერაციო სისტემა"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/SearchFilters/index.js:196
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "რჩეული დამატება"
+msgstr "მხოლოდ რჩეული დამატებები"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
