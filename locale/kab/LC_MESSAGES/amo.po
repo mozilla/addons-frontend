@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-23 13:11+0000\n"
+"PO-Revision-Date: 2017-10-23 13:17+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox i iOS ur isefrak-ara yakan azegrir-agi."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Asentel agi ur imṣada ara kked lqem inek n Firefox"
+msgstr "Azegrir-agi ur yelli ara i telɣubliṭ inek."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -306,18 +305,16 @@ msgid "Publish reply"
 msgstr "Suffeɣ tiririt"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
 msgid "Updating reply"
-msgstr "Asuffeɣ n tririt"
+msgstr "Snifel tiririt"
 
 #: src/amo/components/AddonReviewListItem/index.js:159
 msgid "Publishing reply"
 msgstr "Asuffeɣ n tririt"
 
 #: src/amo/components/AddonReviewListItem/index.js:197
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "si %(authorName)s, %(timestamp)s"
+msgstr "sγur %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
 msgid "by %(authorName)s, %(timestamp)s"
@@ -542,7 +539,6 @@ msgid "Report a bug"
 msgstr "Azen-d abug"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
 msgstr "Aḍris n ucegger"
 
@@ -603,9 +599,8 @@ msgid "Change your tabs"
 msgstr "Snifel iccaren-ik"
 
 #: src/amo/components/Home/index.js:132
-#, fuzzy
 msgid "Browse this collection"
-msgstr "Inig akk isiɣzaf"
+msgstr "Inig akk taggayt"
 
 #: src/amo/components/Home/index.js:141
 msgid "I'm interested in…"
