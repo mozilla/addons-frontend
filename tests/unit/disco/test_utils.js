@@ -1,9 +1,9 @@
-import { sanitizeHTMLWithNewTabLinks } from 'disco/utils';
+import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 
-describe('sanitizeHTMLWithNewTabLinks', () => {
+describe('sanitizeHTMLWithExternalLinks', () => {
   it('adds `target` and `rel` attributes to HTML "targetable" elements', () => {
     const html = '<a href="http://example.org">link</a>';
-    expect(sanitizeHTMLWithNewTabLinks(html, ['a'])).toEqual({
+    expect(sanitizeHTMLWithExternalLinks(html, ['a'])).toEqual({
       __html: [
         '<a href="http://example.org" target="_blank" rel="noopener noreferrer">',
         'link',
