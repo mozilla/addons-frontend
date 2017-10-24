@@ -668,7 +668,6 @@ msgid "Most Popular Extensions"
 msgstr "Populäraste utökningar"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
 msgstr "Ändra dina flikar"
 
@@ -682,7 +681,7 @@ msgstr "Teman ändrar hur Firefox ser ut"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Ändra hur Firefox ser ut med teman."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
