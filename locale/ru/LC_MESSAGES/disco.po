@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-19 14:50+0000\n"
+"POT-Creation-Date: 2017-10-24 19:55+0000\n"
 "PO-Revision-Date: 2017-08-26 22:19+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -40,12 +40,12 @@ msgstr "Страница не найдена"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Извините, мы не смогли ничего найти по URL, который вы ввели."
 
-#: src/core/components/InstallButton/index.js:108
+#: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
 msgstr "Установить тему"
 
-#: src/core/components/InstallButton/index.js:130
-#: src/core/components/InstallButton/index.js:148
+#: src/core/components/InstallButton/index.js:132
+#: src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
 
@@ -89,44 +89,44 @@ msgstr "Теперь вы можете получить доступ к %(name)s
 msgid "OK!"
 msgstr "ОК!"
 
-#: src/disco/components/Addon.js:127
+#: src/disco/components/Addon.js:125
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Наведите мышь для предпросмотра, или щёлкните, чтобы установить %(name)s"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:140
 msgid "Hover over the image to preview"
 msgstr "Наведите мышь на изображение для предпросмотра"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
 msgstr "Установка не удалась. Пожалуйста, попробуйте позже."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
 msgstr "Загрузка не удалась. Пожалуйста, проверьте ваше соединение."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
 msgstr "При установке произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during uninstallation."
 msgstr "При удалении произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:173
 msgid "An unexpected error occurred."
 msgstr "Произошла непредвиденная ошибка."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Это дополнение будет удалено после перезапуска вами Firefox."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:183
 msgid "Please restart Firefox to use this add-on."
 msgstr "Пожалуйста, перезапустите Firefox для использования этого дополнения."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon.js:86
 msgid "Close"
 msgstr "Закрыть"
 
