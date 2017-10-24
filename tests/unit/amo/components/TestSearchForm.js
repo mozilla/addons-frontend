@@ -279,6 +279,9 @@ describe(__filename, () => {
 
       wrapper.find('input').simulate('change', createFakeChangeEvent('t'.repeat(SEARCH_TERM_MAX_LENGTH)));
       expect(wrapper.state('searchValue')).toEqual('t'.repeat(SEARCH_TERM_MAX_LENGTH));
+
+      wrapper.find('input').simulate('change', createFakeChangeEvent());
+      expect(wrapper.state('searchValue')).toEqual('');
     });
 
     it('fetches suggestions on focus', () => {
