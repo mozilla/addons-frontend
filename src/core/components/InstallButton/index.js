@@ -7,12 +7,17 @@ import { connect } from 'react-redux';
 
 import InstallSwitch from 'core/components/InstallSwitch';
 import {
-  ADDON_TYPE_OPENSEARCH, ADDON_TYPE_THEME, validAddonTypes,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+  INSTALL_CATEGORY,
+  TRACKING_TYPE_EXTENSION,
+  validAddonTypes,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 import { getThemeData } from 'core/themePreview';
+import tracking from 'core/tracking';
 import {
   getClientCompatibility as _getClientCompatibility,
 } from 'core/utils/compatibility';
@@ -50,6 +55,7 @@ export class InstallButtonBase extends React.Component {
     useButton: PropTypes.bool,
     userAgentInfo: PropTypes.string.isRequired,
     _log: PropTypes.object,
+    _tracking: PropTypes.object,
     _window: PropTypes.object,
   }
 
@@ -57,6 +63,7 @@ export class InstallButtonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
     useButton: false,
     _log: log,
+    _tracking: tracking,
     _window: typeof window !== 'undefined' ? window : {},
   }
 
@@ -64,6 +71,16 @@ export class InstallButtonBase extends React.Component {
     event.preventDefault();
     const { addon, status, installTheme } = this.props;
     installTheme(event.currentTarget, { ...addon, status });
+  }
+
+  trackInstall({ addonName }) {
+    const { _tracking } = this.props;
+
+    _tracking.sendEvent({
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_CATEGORY,
+      label: addonName,
+    });
   }
 
   render() {
@@ -117,6 +134,7 @@ export class InstallButtonBase extends React.Component {
 
         _log.info('Adding OpenSearch Provider', { addon });
         _window.external.AddSearchProvider(installURL);
+        this.trackInstall({ addonName: addon.name });
 
         return false;
       };
@@ -137,7 +155,9 @@ export class InstallButtonBase extends React.Component {
         event.preventDefault();
         event.stopPropagation();
         return false;
-      } : null;
+      } : () => {
+        this.trackInstall({ addonName: addon.name });
+      };
       button = (
         <Button
           className={buttonClass}

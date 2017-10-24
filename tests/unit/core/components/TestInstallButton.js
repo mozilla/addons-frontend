@@ -12,7 +12,9 @@ import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALL_CATEGORY,
   OS_ALL,
+  TRACKING_TYPE_EXTENSION,
   UNKNOWN,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -34,10 +36,15 @@ describe(__filename, () => {
     compatible: false,
     reason: INCOMPATIBLE_NOT_FIREFOX,
   });
+
   const getClientCompatibilityFalseOpenSearch = () => ({
     compatible: false,
     reason: INCOMPATIBLE_NO_OPENSEARCH,
   });
+
+  const createFakeMozWindow = () => {
+    return { external: { AddSearchProvider: sinon.stub() } };
+  };
 
   const renderProps = (customProps = {}) => ({
     addon: createInternalAddon(fakeAddon),
@@ -294,7 +301,7 @@ describe(__filename, () => {
 
   it('disables install switch and uses button for OpenSearch plugins', () => {
     const fakeLog = { info: sinon.stub() };
-    const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
+    const fakeWindow = createFakeMozWindow();
     const installURL = 'https://a.m.o/files/addon.xpi';
 
     const rootNode = render({
@@ -313,5 +320,48 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
     sinon.assert.calledWith(
       fakeWindow.external.AddSearchProvider, installURL);
+  });
+
+  it('tracks install analytics when installing an extension', () => {
+    const _tracking = { sendEvent: sinon.stub() };
+    const addon = createInternalAddon(createFakeAddon({
+      name: 'some-extension',
+      files: [{ platform: OS_ALL, url: 'https://a.m.o/files/addon.xpi' }],
+      type: ADDON_TYPE_EXTENSION,
+    }));
+
+    const rootNode = render({ addon, useButton: true, _tracking });
+
+    const installButton = rootNode.find('.InstallButton-button');
+    installButton.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_CATEGORY,
+      label: addon.name,
+    });
+  });
+
+  it('tracks install analytics when installing a search provider', () => {
+    const _tracking = { sendEvent: sinon.stub() };
+    const _window = createFakeMozWindow();
+    const addon = createInternalAddon(createFakeAddon({
+      name: 'some-search-provider',
+      files: [{ platform: OS_ALL, url: 'https://a.m.o/files/addon.xpi' }],
+      type: ADDON_TYPE_OPENSEARCH,
+    }));
+
+    const rootNode = render({
+      addon, useButton: true, _tracking, _window,
+    });
+
+    const installButton = rootNode.find('.InstallButton-button');
+    installButton.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_CATEGORY,
+      label: addon.name,
+    });
   });
 });
