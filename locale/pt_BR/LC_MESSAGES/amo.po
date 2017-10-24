@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-23 21:46+0000\n"
+"PO-Revision-Date: 2017-10-23 21:43+0000\n"
 "Last-Translator: keren_xv <keren_xv@yahoo.com.br>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -692,7 +692,7 @@ msgstr "Todas as localidades"
 
 #: src/amo/components/LanguageTools/index.js:152
 msgid "Locale Name"
-msgstr ""
+msgstr "Nome do idioma/dialeto"
 
 #: src/amo/components/LanguageTools/index.js:155
 msgid "Language Packs"
