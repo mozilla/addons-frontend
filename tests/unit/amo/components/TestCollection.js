@@ -9,6 +9,7 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import Paginate from 'core/components/Paginate';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import MetadataCard from 'ui/components/MetadataCard';
 import {
   fetchCollection,
   fetchCollectionPage,
@@ -66,8 +67,18 @@ describe(__filename, () => {
 
     // We display 5 items on the detail card: title, description, number of
     // addons, creator, and last modified date.
+    // 3 items are rendered by `MetadataCard` though and will render
+    // as `LoadingText` if null; so we just make sure it has `null`
+    // props for the last three.
     expect(wrapper.find('.Collection-detail').find(LoadingText))
-      .toHaveLength(5);
+      .toHaveLength(2);
+    const contents = wrapper
+      .find(MetadataCard)
+      .prop('metadata')
+      .map(({ content } = {}) => {
+        return content;
+      });
+    expect(contents).toEqual([null, null, null]);
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
   });
 

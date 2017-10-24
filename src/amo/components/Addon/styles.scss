@@ -28,10 +28,31 @@
   }
 }
 
+.Addon-header-wrapper {
+  @include respond-to(large) {
+    display: flex;
+  }
+}
+
+.Addon-header-info-card {
+  @include respond-to(large) {
+    @include margin-end($padding-page-l);
+
+    width: 65%;
+  }
+}
+
+.Addon-header-meta-and-ratings {
+  @include respond-to(large) {
+    min-width: 300px;
+    width: 35%;
+  }
+}
+
 .Addon-title {
   color: $black;
   font-size: $font-size-l;
-  margin: 10px 0;
+  margin: $padding-page-l 0;
   width: 100%;
   word-wrap: break-word;
 
@@ -203,7 +224,7 @@
     grid-auto-flow: column dense;
     grid-gap: 0 $padding-page-l;
     grid-template-columns: minmax(300px, 35%) auto;
-    margin: 10px 0 0;
+    margin: 0;
 
     .Addon-main-content {
       grid-column: 2;

@@ -1,57 +1,83 @@
-@import "~amo/css/inc/vars";
 @import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
 
 .AddonReviewList {
   padding: $padding-page;
 
   @include respond-to(large) {
+    display: flex;
     padding: $padding-page-l;
   }
 
+  .Card {
+    margin-bottom: $padding-page;
+
+    @include respond-to(large) {
+      margin-bottom: $padding-page-l;
+    }
+  }
+
   .CardList {
-    margin-bottom: $vertical-space-xs;
+    margin: 0 0 $vertical-space-xs;
+  }
+}
+
+.AddonReviewList-addon {
+  @include respond-to(large) {
+    min-width: 300px;
+    width: 35%;
+  }
+}
+
+.AddonReviewList-reviews {
+  @include respond-to(large) {
+    @include margin-start($padding-page-l);
+
+    width: 65%;
   }
 }
 
 .AddonReviewList-header {
   align-items: center;
   display: flex;
-  margin: 15px 0;
+  justify-content: start;
+  padding: 0 0 12px;
+}
 
-  .AddonReviewList-header-text {
-    // Flex implicitly sets `min-width: auto`; to force the overflow fix
-    // for https://github.com/mozilla/addons-frontend/issues/2415
-    // we set a min-width.
-    min-width: 1%;
+.AddonReviewList-header-icon {
+  @include margin-end(12px);
 
-    > h2,
-    > h3 {
-      font-size: 1.1em;
-    }
+  align-items: center;
+  display: flex;
+  height: 36px;
+}
 
-    > h2 {
-      margin: 0 0 5px;
-      padding-top: 10px;
-    }
+.AddonReviewList-header-icon-image {
+  border-radius: $border-radius-default;
+  display: block;
+  height: 36px;
+}
 
-    > h3 {
-      font-weight: normal;
-      margin: 0;
-    }
+.AddonReviewList-header-addonName {
+  font-size: $font-size-m;
+  margin: 0;
+  padding: 0;
 
-    a:link,
-    a:visited,
-    a:hover,
-    a:active {
-      color: $primary-font-color;
-      font-weight: normal;
-      text-decoration: none;
-      word-wrap: break-word;
-    }
+  a,
+  a:link {
+    color: $link-color;
+    text-decoration: none;
   }
+}
 
-  .AddonReviewList-header-icon {
-    margin: 0 20px;
-    padding-top: 6px;
+.AddonReviewList-header-authors {
+  font-size: font-size-m;
+  margin: 0;
+  padding: 0;
+
+  a,
+  a:link {
+    color: $black;
   }
 }
