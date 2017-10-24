@@ -10,22 +10,18 @@
       background: $white;
       border-bottom-left-radius: $border-radius-default;
       border-bottom-right-radius: $border-radius-default;
-      padding: 0 36px;
+      padding: 12px 6px;
     }
 
     .Card-footer,
     .Card-footer-link {
-      @include end(20px);
+      @include end(0);
       @include text-align-end();
 
       background: none;
       border: 0;
       position: absolute;
       top: 0;
-
-      @include respond-to(large) {
-        @include end(0);
-      }
     }
 
     ul.AddonsCard-list {
@@ -34,12 +30,17 @@
       grid-template-columns: repeat(4, 25%);
 
       .SearchResult {
-        @include padding-start(0);
-
         grid-column: auto;
-        margin-bottom: 0;
+        margin: 0 6px 1px;
         // Prevents content overflow.
         min-width: 0;
+        padding: 12px 24px;
+        transition: background-color $transition-short ease-in-out;
+      }
+
+      .SearchResult:hover {
+        background-color: $grey-10;
+        border-radius: $border-radius-default;
       }
 
       .SearchResult-result {
@@ -75,10 +76,6 @@
       }
 
       .SearchResult--theme {
-        @include margin-end(24px);
-
-        padding: 24px 0;
-
         // stylelint-disable max-nesting-depth
         .SearchResult-result {
           display: block;
