@@ -167,6 +167,8 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
 
     if (config.get('server')) {
       // Return early without validating properties.
+      // I think this returns early because a user agent prop isn't
+      // guaranteed on the server.
       return mappedProps;
     }
 
