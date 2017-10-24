@@ -260,6 +260,10 @@ export const findInstallURL = ({ installURLs, userAgentInfo, src }) => {
     return undefined;
   }
 
+  if (!src) {
+    return installURL;
+  }
+
   // Add ?src=...
   const parseQuery = true;
   const urlParts = url.parse(installURL, parseQuery);

@@ -263,7 +263,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.windows.firefox40,
       }))
-        .toEqual('https://a.m.o/files/windows.xpi?src=');
+        .toEqual('https://a.m.o/files/windows.xpi');
     });
 
     it('finds a Mac OS install URL', () => {
@@ -280,7 +280,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.mac.firefox33,
       }))
-        .toEqual('https://a.m.o/files/mac.xpi?src=');
+        .toEqual('https://a.m.o/files/mac.xpi');
     });
 
     it('finds a Linux install URL', () => {
@@ -297,7 +297,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.linux.firefox10,
       }))
-        .toEqual('https://a.m.o/files/linux.xpi?src=');
+        .toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('finds a Linux Ubuntu install URL', () => {
@@ -311,7 +311,7 @@ describe(__filename, () => {
         // This parses to the name Ubuntu instead of Linux.
         userAgent: userAgentsByPlatform.linux.firefox57Ubuntu,
       }))
-        .toEqual('https://a.m.o/files/linux.xpi?src=');
+        .toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('gives a Linux install URL to Unix platforms', () => {
@@ -324,7 +324,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.unix.firefox51,
       }))
-        .toEqual('https://a.m.o/files/linux.xpi?src=');
+        .toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('gives a Linux install URL to BSD platforms', () => {
@@ -337,7 +337,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.bsd.firefox40FreeBSD,
       }))
-        .toEqual('https://a.m.o/files/linux.xpi?src=');
+        .toEqual('https://a.m.o/files/linux.xpi');
     });
 
     it('finds an Android mobile install URL', () => {
@@ -354,7 +354,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.android.firefox40Mobile,
       }))
-        .toEqual('https://a.m.o/files/android.xpi?src=');
+        .toEqual('https://a.m.o/files/android.xpi');
     });
 
     it('finds an Android tablet install URL', () => {
@@ -371,7 +371,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.android.firefox40Tablet,
       }))
-        .toEqual('https://a.m.o/files/android.xpi?src=');
+        .toEqual('https://a.m.o/files/android.xpi');
     });
 
     it('returns an all-platform URL for unsupported platforms', () => {
@@ -389,7 +389,7 @@ describe(__filename, () => {
         // This platform is unsupported.
         userAgent: userAgentsByPlatform.firefoxOS.firefox26,
       }))
-        .toEqual('https://a.m.o/files/all.xpi?src=');
+        .toEqual('https://a.m.o/files/all.xpi');
     });
 
     it('gives preference to a specific platform URL', () => {
@@ -407,7 +407,7 @@ describe(__filename, () => {
         ],
         userAgent: userAgentsByPlatform.windows.firefox40,
       }))
-        .toEqual('https://a.m.o/files/windows.xpi?src=');
+        .toEqual('https://a.m.o/files/windows.xpi');
     });
 
     it('returns undefined when nothing else matches', () => {
@@ -472,6 +472,20 @@ describe(__filename, () => {
         .toEqual('https://a.m.o/files/mac.xpi?src=homepage');
     });
 
+    it('only adds src to the URL when necessary', () => {
+      expect(_findInstallURL({
+        addonFiles: [
+          {
+            platform: OS_MAC,
+            url: 'https://a.m.o/files/mac.xpi',
+          },
+        ],
+        userAgent: userAgentsByPlatform.mac.firefox33,
+        src: null,
+      }))
+        .toEqual('https://a.m.o/files/mac.xpi');
+    });
+
     it('preserves the install URL query string', () => {
       const url = _findInstallURL({
         addonFiles: [
@@ -517,7 +531,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
   describe('setCurrentStatus', () => {
     it('sets the status to ENABLED when an enabled add-on found', () => {
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -537,7 +551,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
     });
 
     it('lets you pass custom props to setCurrentStatus', () => {
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -558,7 +572,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
     });
 
     it('sets the status to DISABLED when a disabled add-on found', () => {
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -587,7 +601,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
     });
 
     it('sets the status to DISABLED when an inactive add-on found', () => {
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -619,7 +633,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.resolve({ type: ADDON_TYPE_THEME, isActive: true, isEnabled: true }),
       });
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -648,7 +662,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
           type: ADDON_TYPE_THEME,
         }),
       });
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -677,7 +691,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
           type: ADDON_TYPE_THEME,
         }),
       });
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -702,7 +716,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const fakeAddonManager = getFakeAddonManagerWrapper({
         getAddon: Promise.reject(),
       });
-      const installURL = 'http://the.url/?src=';
+      const installURL = 'http://the.url/';
       const addon = createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       }));
@@ -898,7 +912,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
   });
 
   describe('install', () => {
-    const installURL = 'https://mysite.com/download.xpi?src=';
+    const installURL = 'https://mysite.com/download.xpi';
 
     it('calls addonManager.install()', () => {
       const addon = createInternalAddon(createFakeAddon({

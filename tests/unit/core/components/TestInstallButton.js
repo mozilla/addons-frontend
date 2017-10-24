@@ -63,7 +63,7 @@ describe(__filename, () => {
   };
 
   it('renders InstallSwitch when mozAddonManager is available', () => {
-    const installURL = 'https://a.m.o/files/addon.xpi?src=';
+    const installURL = 'https://a.m.o/files/addon.xpi';
     // This can't use createFakeAddon({ files: [...] }) because it needs
     // to specify a custom object for addon.current_version.
     const addon = createInternalAddon({
@@ -134,7 +134,7 @@ describe(__filename, () => {
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
-    const installURL = 'https://addons.mozilla.org/download?src=';
+    const installURL = 'https://addons.mozilla.org/download';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
@@ -158,7 +158,7 @@ describe(__filename, () => {
   });
 
   it('disables add-on install when client does not support addons', () => {
-    const installURL = 'https://addons.mozilla.org/download?src=';
+    const installURL = 'https://addons.mozilla.org/download';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
@@ -295,7 +295,7 @@ describe(__filename, () => {
   it('disables install switch and uses button for OpenSearch plugins', () => {
     const fakeLog = { info: sinon.stub() };
     const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
-    const installURL = 'https://a.m.o/files/addon.xpi?src=';
+    const installURL = 'https://a.m.o/files/addon.xpi';
 
     const rootNode = render({
       addon: createInternalAddon(createFakeAddon({
