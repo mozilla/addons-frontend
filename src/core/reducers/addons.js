@@ -57,7 +57,9 @@ export type FetchAddonAction = {|
   |},
 |};
 
-export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddonAction {
+export function fetchAddon(
+  { errorHandler, slug }: FetchAddonParams
+): FetchAddonAction {
   if (!errorHandler) {
     throw new Error('errorHandler cannot be empty');
   }
@@ -287,7 +289,10 @@ export default function addonsReducer(
       const { addons } = action.payload;
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
-        newState[key] = createInternalAddon(addons[key]);
+        const addon = createInternalAddon(addons[key]);
+
+        newState[addon.id] = addon;
+        newState[key] = addon;
       });
       return newState;
     }

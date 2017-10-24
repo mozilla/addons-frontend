@@ -42,18 +42,22 @@ describe(__filename, () => {
         ...createInternalAddon(anotherFakeAddon),
         isRestartRequired: false,
       },
+      [anotherFakeAddon.id]: {
+        ...createInternalAddon(anotherFakeAddon),
+        isRestartRequired: false,
+      },
     });
   });
 
-  it('stores all add-ons', () => {
+  it('stores all add-ons, indexed by id and slug', () => {
     const addonResults = [
-      { ...fakeAddon, slug: 'first-slug' },
-      { ...fakeAddon, slug: 'second-slug' },
+      { ...fakeAddon, slug: 'first-slug', id: 123 },
+      { ...fakeAddon, slug: 'second-slug', id: 456 },
     ];
     const state = addons(undefined,
       loadAddons(createFetchAllAddonsResult(addonResults).entities));
     expect(Object.keys(state).sort())
-      .toEqual(['first-slug', 'second-slug']);
+      .toEqual(['123', '456', 'first-slug', 'second-slug']);
   });
 
   it('ignores empty results', () => {
