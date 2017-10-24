@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-24 12:32+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2017-10-24 13:22+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -429,7 +429,7 @@ msgstr "Télécharger Firefox"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
-"Si vous êtes connecté et pensez que ce message est une erreur, s’il vous plaît <a href=\"%(url)s\">reportez un problème</a>. Dites nous d'où vous venez et ce à quoi vous tentiez d’accéder, nous "
+"Si vous êtes connecté et pensez que ce message est une erreur, s’il vous plaît <a href=\"%(url)s\">reportez un problème</a>. Dites nous d’où vous venez et ce à quoi vous tentiez d’accéder, nous "
 "allons corriger ce problème."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
@@ -994,7 +994,7 @@ msgstr "Plus…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Si vous voulez contribuer sans être une pointure en technique, il existe d’autres moyens d'aider :"
+msgstr "Si vous voulez contribuer sans être une pointure en technique, il existe d’autres moyens d’aider :"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1016,7 +1016,7 @@ msgstr "Pour trouver d’autres de façons d’aider la communauté s’occupant
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr "Recevoir de l'aide"
+msgstr "Recevoir de l’aide"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1068,17 +1068,20 @@ msgid ""
 "the following ways:"
 msgstr ""
 "Mozilla est une organisation à but non lucratif qui promeut Internet. Nous développons Firefox pour contribuer à le maintenir en bonne santé, ouvert et accessible. Les modules renforcent la liberté "
-"de l’utilisateur et la personnalisation de Firefox, voici plusieurs manières de contribuer :"
+"de l’utilisateur et la personnalisation de Firefox, voici plusieurs manières de contribuer :"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sCréez votre propre module%(endLink)s. Nous nous chargeons de l’hébergement et d’un service de mise à jour qui vous permet d’être visible auprès d’un large public d’utilisateurs."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Contribuez à l’amélioration de ce site web. Il est ouvert et vous pouvez ouvrir des bugs et soumettre des correctifs. Vous pouvez commencer avec un %(startGoodFirstBugLink)stout premier "
+"bug%(endGoodFirstBugLink)s ou parcourir l’ensemble des problèmes d’AMO que ce soit le %(startAddonsServerRepoLink)sserveur%(endAddonsServerRepoLink)s ou "
+"l’%(startAddonsFrontendRepoLink)sinterface%(endAddonsFrontendRepoLink)s sur Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
@@ -1089,6 +1092,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Vous pouvez aussi donner votre avis, les évaluations vous permettent de partager votre opinion au sujet des modules que vous avez installés et utilisés. Notre équipe de modérateurs se réserve le "
+"droit de refuser ou supprimer tout évaluation qui ne respecte pas ces règles."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1185,35 +1190,40 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Foire aux questions sur les évaluations"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Comment puis-je signaler un avis inapproprié ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Signalez ou mentionnez tout avis inapproprié en cliquant sur « Signaler » et ce dernier sera soumis à une modération. Notre équipe de modérateurs s’appuiera sur les règles de rédaction des avis pour"
+" évaluer si l’avis doit, le cas échéant, être supprimé ou rester sur le site."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "J’ai créé un module complémentaire, comment répondre aux retours ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Les développeurs d’un module peuvent répondre une fois à un avis. Vous pouvez établir un sujet de discussion sur notre %(startLink)sforum%(endLink)s pour poursuivre une discussion plus approfondie."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Je suis le développeur d’un module, ai-je la possibilité de supprimer des avis ou des notes défavorables ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"De manière générale, ce n’est pas possible. En revanche, si l’avis ne respecte pas les règles précisées ci-dessus, vous pouvez cliquer sur « Signaler » pour qu’il soit modéré. Si un avis inclus une "
+"plainte qui n’est plus valide car ce défaut a été corrigé dans une nouvelle version de votre module, nous pourrons être amené à supprimer cet avis."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
