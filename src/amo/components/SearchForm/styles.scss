@@ -17,6 +17,8 @@
   @include padding-end(6px);
   @include padding-start(28px);
 
+  // This prevents a flicker of black when focusing on mobile.
+  background-color: $white;
   border: 1px solid $white;
   border-radius: $border-radius-s;
   color: $black;
