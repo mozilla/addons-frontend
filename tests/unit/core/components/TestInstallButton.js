@@ -205,6 +205,38 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', true);
   });
 
+  it('adds a src to extension buttons', () => {
+    const installURL = 'https://addons.mozilla.org/download';
+    const src = 'homepage';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        type: ADDON_TYPE_EXTENSION,
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      hasAddonManager: false,
+      src,
+    });
+
+    const button = root.childAt(1);
+    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+  });
+
+  it('adds a src to search provider buttons', () => {
+    const installURL = 'https://addons.mozilla.org/download';
+    const src = 'homepage';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        type: ADDON_TYPE_OPENSEARCH,
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      hasAddonManager: false,
+      src,
+    });
+
+    const button = root.childAt(1);
+    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+  });
+
   it('renders a switch button if useButton is false', () => {
     const root = render({ useButton: false });
 

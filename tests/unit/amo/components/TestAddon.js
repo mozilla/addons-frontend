@@ -643,6 +643,19 @@ describe(__filename, () => {
     expect(button.prop('status')).toEqual(UNKNOWN);
   });
 
+  it('sets an install source', () => {
+    const addon = fakeAddon;
+    const { store } = dispatchClientMetadata();
+    store.dispatch(_loadAddons({ addon }));
+    const root = renderComponent({
+      params: { slug: addon.slug }, store,
+    });
+
+    const button = root.find(InstallButton);
+    // This value is passed to <Addon/> by the withInstallHelpers() HOC.
+    expect(button).toHaveProp('src', 'dp-btn-primary');
+  });
+
   it('enables a theme preview for non-enabled add-ons', () => {
     const root = shallowRender({
       addon: createInternalAddon({
