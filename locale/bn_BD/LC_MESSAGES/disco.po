@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-19 14:50+0000\n"
+"POT-Creation-Date: 2017-10-24 19:55+0000\n"
 "PO-Revision-Date: 2017-08-12 18:49+0000\n"
 "Last-Translator: Belayet Hossain <bellayet@gmail.com>\n"
 "Language-Team: none\n"
@@ -39,12 +39,12 @@ msgstr "পাতা পাওয়া যায়নি"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "দুঃখিত, কিন্তু আমরা আপনার লেখা URL এ কিছু খুঁজে পাচ্ছি না।"
 
-#: src/core/components/InstallButton/index.js:108
+#: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
 msgstr "থিম ইন্সটল করুন"
 
-#: src/core/components/InstallButton/index.js:130
-#: src/core/components/InstallButton/index.js:148
+#: src/core/components/InstallButton/index.js:132
+#: src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"
 msgstr "Firefox এ যুক্ত করুন"
 
@@ -88,43 +88,43 @@ msgstr "আপনি এখন টুলবার থেকে %(name)s এ প�
 msgid "OK!"
 msgstr "ওকে!"
 
-#: src/disco/components/Addon.js:127
+#: src/disco/components/Addon.js:125
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:140
 msgid "Hover over the image to preview"
 msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
 msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
 msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during uninstallation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:173
 msgid "An unexpected error occurred."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:183
 msgid "Please restart Firefox to use this add-on."
 msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon.js:86
 msgid "Close"
 msgstr "বন্ধ"
 

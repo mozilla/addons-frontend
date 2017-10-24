@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-19 14:50+0000\n"
+"POT-Creation-Date: 2017-10-24 19:55+0000\n"
 "PO-Revision-Date: 2017-07-24 10:09+0000\n"
 "Last-Translator: Rahmat Subekti <rahmatsubekti@live.com>\n"
 "Language-Team: none\n"
@@ -40,12 +40,12 @@ msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 "Maaf, tetapi kami tidak dapat menemukan apapun pada URL yang Anda masukkan."
 
-#: src/core/components/InstallButton/index.js:108
+#: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/InstallButton/index.js:130
-#: src/core/components/InstallButton/index.js:148
+#: src/core/components/InstallButton/index.js:132
+#: src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"
 msgstr "Tambahkan ke Firefox"
 
@@ -89,43 +89,43 @@ msgstr "Sekarang Anda dapat mengakses %(name)s dari bilah alat."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:127
+#: src/disco/components/Addon.js:125
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Layangkan kursor untuk pratinjau atau klik untuk memasang %(name)s"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:140
 msgid "Hover over the image to preview"
 msgstr "Layangkan kursor di area gambar untuk pratinjau"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
 msgstr "Pemasangan gagal. Mohon coba lagi."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
 msgstr "Pengunduhan gagal. Mohon periksa koneksi anda."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
 msgstr "Terjadi kesalahan yang tidak diharapkan selama pemasangan."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Terjadi kesalahan yang tidak diharapkan saat pencopotan."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:173
 msgid "An unexpected error occurred."
 msgstr "Terjadi kesalahan yang tidak diharapkan."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:183
 msgid "Please restart Firefox to use this add-on."
 msgstr "Silakan mulai ulang Firefox Anda untuk menggunakan pengaya ini."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon.js:86
 msgid "Close"
 msgstr "Tutup"
 

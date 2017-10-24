@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-19 14:50+0000\n"
+"POT-Creation-Date: 2017-10-24 19:55+0000\n"
 "PO-Revision-Date: 2017-09-14 19:19+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -40,12 +40,12 @@ msgstr "Nie odnaleziono strony"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Nie ma nic pod podanym adresem."
 
-#: src/core/components/InstallButton/index.js:108
+#: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
 msgstr "Zainstaluj motyw"
 
-#: src/core/components/InstallButton/index.js:130
-#: src/core/components/InstallButton/index.js:148
+#: src/core/components/InstallButton/index.js:132
+#: src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"
 msgstr "Dodaj do Firefoksa"
 
@@ -90,45 +90,45 @@ msgstr "Można używać dodatku „%(name)s” z ikony na pasku narzędzi."
 msgid "OK!"
 msgstr "OK"
 
-#: src/disco/components/Addon.js:127
+#: src/disco/components/Addon.js:125
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek "
 "„%(name)s”"
 
-#: src/disco/components/Addon.js:142
+#: src/disco/components/Addon.js:140
 msgid "Hover over the image to preview"
 msgstr "Najedź na obraz, aby wyświetlić podgląd"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
 msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
 msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
 msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
 
-#: src/disco/components/Addon.js:175
+#: src/disco/components/Addon.js:173
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
 
-#: src/disco/components/Addon.js:185
+#: src/disco/components/Addon.js:183
 msgid "Please restart Firefox to use this add-on."
 msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
 
-#: src/disco/components/Addon.js:88
+#: src/disco/components/Addon.js:86
 msgid "Close"
 msgstr "Zamknij"
 
