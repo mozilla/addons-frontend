@@ -2,6 +2,8 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
+$cell-padding: 6px;
+
 .LanguageTools {
   padding: $padding-page;
 
@@ -45,6 +47,10 @@
 
   th,
   td {
-    padding: 6px;
+    padding: $cell-padding;
+  }
+
+  td {
+    min-height: $font-size-m + (2 * $cell-padding);
   }
 }
