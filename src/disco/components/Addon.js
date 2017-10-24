@@ -29,9 +29,7 @@ import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
-import {
-  sanitizeHTML,
-} from 'core/utils';
+import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import {
   getClientCompatibility as _getClientCompatibility,
 } from 'core/utils/compatibility';
@@ -147,7 +145,7 @@ export class AddonBase extends React.Component {
       <div
         className="editorial-description"
         dangerouslySetInnerHTML={
-          sanitizeHTML(description, ['a', 'blockquote', 'cite'])
+          sanitizeHTMLWithExternalLinks(description, ['a', 'blockquote', 'cite'])
         }
       />
     );
@@ -265,7 +263,9 @@ export class AddonBase extends React.Component {
             <h2
               onClick={this.clickHeadingLink}
               className="heading"
-              dangerouslySetInnerHTML={sanitizeHTML(heading, ['a', 'span'])}
+              dangerouslySetInnerHTML={
+                sanitizeHTMLWithExternalLinks(heading, ['a', 'span'])
+              }
             />
             {this.getDescription()}
           </div>

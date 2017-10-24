@@ -77,10 +77,10 @@ export function isValidClientApp(value, { _config = config } = {}) {
   return _config.get('validClientApplications').includes(value);
 }
 
-export function sanitizeHTML(text, allowTags = []) {
+export function sanitizeHTML(text, allowTags = [], _purify = purify) {
   // TODO: Accept tags to allow and run through dom-purify.
   return {
-    __html: purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
+    __html: _purify.sanitize(text, { ALLOWED_TAGS: allowTags }),
   };
 }
 
