@@ -25,7 +25,7 @@
 
   .SearchResult--theme & {
     flex-grow: 1;
-    margin: -10px -10px 10px;
+    margin-bottom: 10px;
     min-height: 64px;
     overflow: hidden;
     width: calc(100% + 20px);
@@ -82,10 +82,11 @@
 }
 
 .SearchResult-name {
+  @include font-medium();
+
   color: $type-black;
   flex-grow: 1;
   font-size: $font-size-m-smaller;
-  font-weight: 400;
   line-height: 1.2;
   margin: 0;
   padding: 0;
@@ -96,7 +97,6 @@
   .SearchResult-link:focus &,
   .SearchResult-link:hover & {
     color: $link-color;
-    text-decoration: underline;
   }
 
   .LoadingText {
