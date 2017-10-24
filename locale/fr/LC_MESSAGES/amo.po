@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-19 14:47+0000\n"
-"PO-Revision-Date: 2017-10-22 11:49+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2017-10-24 12:31+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -363,14 +363,12 @@ msgid "More featured extensions"
 msgstr "Plus d’extensions mises en avant"
 
 #: src/amo/components/Category/index.js:134 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Extensions les mieux notées"
+msgstr "Modules vedettes"
 
 #: src/amo/components/Category/index.js:143 src/amo/components/Home/index.js:165 src/amo/components/LandingPage/index.js:140
-#, fuzzy
 msgid "More trending extensions"
-msgstr "Plus d’extensions mises en avant"
+msgstr "Plus de modules vedettes"
 
 #: src/amo/components/Category/index.js:144 src/amo/components/LandingPage/index.js:141
 msgid "Top rated extensions"
@@ -389,14 +387,12 @@ msgid "More featured themes"
 msgstr "Plus de thèmes mis en avant"
 
 #: src/amo/components/Category/index.js:166 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "Trending themes"
-msgstr "Thèmes les mieux notés"
+msgstr "Thèmes vedettes"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:166
-#, fuzzy
 msgid "More trending themes"
-msgstr "Plus de thèmes mis en avant"
+msgstr "Plus de thèmes vedettes"
 
 #: src/amo/components/Category/index.js:176 src/amo/components/LandingPage/index.js:167
 msgid "Top rated themes"
@@ -694,6 +690,7 @@ msgstr "Dictionnaires et paquetages linguistiques"
 #: src/amo/components/LanguageTools/index.js:135
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
 msgstr ""
+"Si vous installez un module de type dictionnaire, une nouvelle langue sera disponible pour le correcteur orthographique qui se charge de vérifier l’orthographe lorsque vous écrivez dans Firefox."
 
 #: src/amo/components/LanguageTools/index.js:140
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -896,9 +893,8 @@ msgid "Operating System"
 msgstr "Système d’exploitation"
 
 #: src/amo/components/SearchFilters/index.js:196
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Module mis en avant"
+msgstr "Modules mis en vedette uniquement"
 
 #: src/amo/components/SearchFilters/index.js:93
 msgid "Extension"
@@ -998,7 +994,7 @@ msgstr "Plus…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Si vous voulez contribuer sans être une pointure en technique, il existe d’autres moyens d'aider :"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1020,7 +1016,7 @@ msgstr "Pour trouver d’autres de façons d’aider la communauté s’occupant
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Recevoir de l'aide"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1043,20 +1039,24 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), est le site officiel Mozilla pour découvrir et installer des modules complémentaires pour le navigateur Firefox. Les modules vous permettent de modifier et de personnaliser"
+" votre expérience de navigation en ajoutant de nouvelles fonctionnalités à Firefox, en améliorant votre manière d’interagir avec le Web ou en changeant le style de votre navigateur."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Vous pouvez aussi utiliser AMO pour trouver des modules pour %(startTBLink)sThunderbird%(endTBLink)s et %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Une communauté de créateurs et créatrices"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Les modules répertoriés ici ont été développés par des milliers de développeurs, développeuses et graphistes du monde entier, que ce soit des personnes qui codent leur temps libre ou de grandes "
+"entreprises. Certains modules listés sur AMO on été publiés automatiquement et peuvent être sujets à une validation éditoriale une fois publics."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
