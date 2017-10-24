@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-24 22:11+0000\n"
+"PO-Revision-Date: 2017-10-24 22:28+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -372,7 +372,7 @@ msgstr "Więcej"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
-msgstr "Popularne rozszerzenia"
+msgstr "Rozszerzenia na czasie"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -388,7 +388,7 @@ msgstr "Polecane motywy"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
-msgstr "Popularne motywy"
+msgstr "Motywy na czasie"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -494,19 +494,19 @@ msgstr "Nie można zgłosić własnej recenzji"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "To jest spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Zgłoszono jako spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Zawiera nieodpowiedni język"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Zgłoszono za nieodpowiedni język"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -634,57 +634,51 @@ msgstr "Abstrakcyjnie"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Przyroda"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Filmy i telewizja"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Malowniczo"
+msgstr "Krajobrazy"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Muzyka"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Pory roku"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Można zmienić sposób działania Firefoksa…"
+msgstr "Rozszerzenia zmieniają sposób działania Firefoksa"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Dostosuj sposób działania Firefoksa za pomocą rozszerzeń. Interesuje mnie…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Najpopularniejsze rozszerzenia"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
-msgstr "Zmień swoje karty"
+msgstr "Odmień swoje karty"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Na czasie"
+msgstr "Rozszerzenia na czasie"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Można zmienić sposób działania Firefoksa…"
+msgstr "Motywy zmieniają wygląd Firefoksa"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Zmień wygląd Firefoksa za pomocą motywów."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -700,11 +694,11 @@ msgstr "Zakładki"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Sprytniejsze zakupy"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Praca biurowa"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -719,9 +713,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "Filmy w HD, wyłączanie adnotacji, zmiana rozmiaru odtwarzacza i nie tylko"
+msgstr "Oglądaj filmy w HD, wyłącz adnotacje, zmień rozmiar odtwarzacza i nie tylko"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -857,39 +850,32 @@ msgid "Send abuse report"
 msgstr "Wyślij zgłoszenie o nadużyciu"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Polecany dodatek"
+msgstr "Polecane dodatki"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Wczytywanie dodatków"
+msgstr "Dodatki na czasie"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Najwyżej oceniane rozszerzenia"
+msgstr "Najwyżej oceniane dodatki"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Najpopularniejsze rozszerzenia"
+msgstr "Popularne rozszerzenia"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Najpopularniejsze motywy"
+msgstr "Popularne motywy"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Wczytywanie dodatków"
+msgstr "Popularne dodatki"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Wyszukiwanie „%(query)s”"
+msgstr "Wyniki wyszukiwania „%(query)s”"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -998,7 +984,7 @@ msgstr "Najwyżej oceniane"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr "Popularne"
+msgstr "Zdobywające popularność"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
