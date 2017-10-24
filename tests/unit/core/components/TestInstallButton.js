@@ -63,7 +63,7 @@ describe(__filename, () => {
   };
 
   it('renders InstallSwitch when mozAddonManager is available', () => {
-    const installURL = 'https://a.m.o/files/addon.xpi';
+    const installURL = 'https://a.m.o/files/addon.xpi?src=';
     // This can't use createFakeAddon({ files: [...] }) because it needs
     // to specify a custom object for addon.current_version.
     const addon = createInternalAddon({
@@ -134,7 +134,7 @@ describe(__filename, () => {
   });
 
   it('renders an add-on button when mozAddonManager is not available', () => {
-    const installURL = 'https://addons.mozilla.org/download';
+    const installURL = 'https://addons.mozilla.org/download?src=';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
@@ -158,7 +158,7 @@ describe(__filename, () => {
   });
 
   it('disables add-on install when client does not support addons', () => {
-    const installURL = 'https://addons.mozilla.org/download';
+    const installURL = 'https://addons.mozilla.org/download?src=';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
@@ -203,6 +203,38 @@ describe(__filename, () => {
 
     expect(button.type()).toEqual(Button);
     expect(button).toHaveProp('disabled', true);
+  });
+
+  it('adds a src to extension buttons', () => {
+    const installURL = 'https://addons.mozilla.org/download';
+    const src = 'homepage';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        type: ADDON_TYPE_EXTENSION,
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      hasAddonManager: false,
+      src,
+    });
+
+    const button = root.childAt(1);
+    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+  });
+
+  it('adds a src to search provider buttons', () => {
+    const installURL = 'https://addons.mozilla.org/download';
+    const src = 'homepage';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        type: ADDON_TYPE_OPENSEARCH,
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      hasAddonManager: false,
+      src,
+    });
+
+    const button = root.childAt(1);
+    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
   });
 
   it('renders a switch button if useButton is false', () => {
@@ -263,7 +295,7 @@ describe(__filename, () => {
   it('disables install switch and uses button for OpenSearch plugins', () => {
     const fakeLog = { info: sinon.stub() };
     const fakeWindow = { external: { AddSearchProvider: sinon.stub() } };
-    const installURL = 'https://a.m.o/files/addon.xpi';
+    const installURL = 'https://a.m.o/files/addon.xpi?src=';
 
     const rootNode = render({
       addon: createInternalAddon(createFakeAddon({

@@ -1,3 +1,5 @@
+import url from 'url';
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -161,8 +163,11 @@ export function mapStateToProps(state, ownProps) {
 
 export function makeMapDispatchToProps({ WrappedComponent, src }) {
   return function mapDispatchToProps(dispatch, ownProps) {
+    const mappedProps = { dispatch, src, WrappedComponent };
+
     if (config.get('server')) {
-      return { WrappedComponent };
+      // Return early without validating properties.
+      return mappedProps;
     }
 
     if (ownProps.installURLs === undefined) {
@@ -175,11 +180,7 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
         props are set before withInstallHelpers is called`);
     }
 
-    return {
-      WrappedComponent,
-      dispatch,
-      src,
-    };
+    return mappedProps;
   };
 }
 
@@ -223,11 +224,12 @@ const userAgentOSToPlatform = {
  *
  * type FindInstallUrlParams = {|
  *   installURLs: $PropertyType<AddonType, 'installURLs'>,
+ *   src?: string,
  *   userAgentInfo: UserAgentInfoType,
  * |};
  *
  */
-export const findInstallURL = ({ installURLs, userAgentInfo }) => {
+export const findInstallURL = ({ installURLs, userAgentInfo, src }) => {
   if (!installURLs) {
     throw new Error('The installURLs parameter is required');
   }
@@ -238,19 +240,33 @@ export const findInstallURL = ({ installURLs, userAgentInfo }) => {
   const agentOsName =
     userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
   const platform = userAgentOSToPlatform[agentOsName];
-  const url = installURLs[platform];
-  if (url) {
-    return url;
+  const platformURL = installURLs[platform];
+
+  let installURL;
+  if (platformURL) {
+    installURL = platformURL;
   }
 
-  if (installURLs[OS_ALL]) {
-    return installURLs[OS_ALL];
+  if (!installURL) {
+    installURL = installURLs[OS_ALL];
   }
 
-  // This could happen for themes which do not have version files.
-  log.debug(oneLine`No install URL exists for platform "${agentOsName}"
-    (mapped to "${platform}"); install URLs:`, installURLs);
-  return undefined;
+  if (!installURL) {
+    // This could happen for themes which do not have version files.
+    log.debug(oneLine`No install URL exists for platform "${agentOsName}"
+      (mapped to "${platform}"); install URLs:`, installURLs);
+    return undefined;
+  }
+
+  // Add ?src=...
+  const parseQuery = true;
+  const urlParts = url.parse(installURL, parseQuery);
+  return url.format({
+    ...urlParts,
+    // Reset the search string so we can define a new one.
+    search: undefined,
+    query: { ...urlParts.query, src },
+  });
 };
 
 export class WithInstallHelpers extends React.Component {
