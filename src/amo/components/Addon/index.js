@@ -63,7 +63,7 @@ export class AddonBase extends React.Component {
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
-    // This prop is passed in by WithInstallHelpers.
+    // This prop is passed in by withInstallHelpers({ src: '...' })
     src: PropTypes.string.isRequired,
     // eslint-disable-next-line react/require-default-props
     themePreviewNode: PropTypes.element,
