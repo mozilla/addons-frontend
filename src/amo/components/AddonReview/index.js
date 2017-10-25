@@ -168,7 +168,7 @@ export class AddonReviewBase extends React.Component<Props, State> {
     if (review.rating && review.rating > 3) {
       promptText = i18n.gettext(
         `Tell the world why you think this extension is fantastic!
-        Please read our %(linkStart)sreview guidelines%(linkEnd)s first.`
+        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`
       );
       placeholder = i18n.gettext(
         'Tell us what you love about this extension. Be specific and concise.'
@@ -176,7 +176,7 @@ export class AddonReviewBase extends React.Component<Props, State> {
     } else {
       promptText = i18n.gettext(
         `Tell the world about this extension.
-        Please read our %(linkStart)sreview guidelines%(linkEnd)s first.`
+        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`
       );
       placeholder = i18n.gettext(
         'Tell us about your experience with this extension. ' +

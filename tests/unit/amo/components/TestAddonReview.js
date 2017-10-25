@@ -268,7 +268,7 @@ describe(__filename, () => {
     it(`rating=${rating} adds a link to the review guide`, () => {
       const root = render({ review: { ...defaultReview, rating } });
       expect(root.find('.AddonReview-prompt').html()).toMatch(new RegExp(
-        'Please read our <a href="/review_guide">review guidelines</a>'
+        'Please follow our <a href="/review_guide">review guidelines</a>'
       ));
     });
   });
