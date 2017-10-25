@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 09:50+0000\n"
+"PO-Revision-Date: 2017-10-25 09:58+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -585,7 +585,7 @@ msgstr "Докладване на дефект"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr ""
+msgstr "Насоки за писане на рецензии"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -637,36 +637,33 @@ msgstr "Абстрактен"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Природа"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Филми и телевизия"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Жовиписен"
+msgstr "Пейзажи"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Сезонни"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Може да промените как Firefox работи…"
+msgstr "Разширенията променят работата на Firefox"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Най-известни разширения"
 
@@ -675,14 +672,12 @@ msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Търсене на разширения"
+msgstr "Нови и свежи разширения"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Може да промените как Firefox работи…"
+msgstr "Темите променят облика на Firefox"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
@@ -690,31 +685,31 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Спиране на реклами"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "Управление на пароли"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Отметки"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Пазаруване"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Продуктивност"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr ""
+msgstr "Гледане на видео"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Отлични разширения за всяка ситуация"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "YouTube High Definition"
@@ -774,7 +769,7 @@ msgstr "Всички езици"
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
-msgstr ""
+msgstr "Име на езика"
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language Packs"
@@ -860,39 +855,32 @@ msgid "Send abuse report"
 msgstr "Изпращане"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Препоръчана добавка"
+msgstr "Препоръчани добавки"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Зареждане на добавки"
+msgstr "Популярни на добавки"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Най-високо оценени разширения"
+msgstr "Най-високо оценени добавки"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Най-известни разширения"
+msgstr "Известни добавки"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Най-популярни теми"
+msgstr "Известни теми"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Зареждане на добавки"
+msgstr "Известни разширения"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Търсене на „%(query)s“"
+msgstr "Резултати от търсене на „%(query)s“"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
