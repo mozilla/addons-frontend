@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-24 23:05+0000\n"
+"PO-Revision-Date: 2017-10-25 01:30+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -335,9 +335,8 @@ msgid "Add-ons for Android"
 msgstr "Add-ons untuk Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Add-ons untuk Android"
+msgstr "%s - Add-ons untuk Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -460,59 +459,55 @@ msgstr "Maaf, tetapi ada ralat dengan pelayan kami dan kami tidak dapat melengka
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Ini adalah laporan pepijat atau permintaan sokongan"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Ditanda sebagai laporan pepijat atau permintaan sokongan"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "Tanda"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Respons pembangun"
+msgstr "Tandakan respons pembangun ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Balas untuk ulasan ini"
+msgstr "Tandakan ulasan ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Log masuk untuk menilaikan ekstensi ini"
+msgstr "Log masuk untuk menanda respons ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Log masuk untuk menilaikan tema ini"
+msgstr "Log masuk untuk menanda ulasan ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Anda tidak boleh tandakan respon anda sendiri"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Anda tidak boleh tandakan ulasan anda sendiri"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Ini adalah spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Ditanda sebagai spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Ini mengandungi bahasa yang tidak sesuai"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Ditanda kerana bahasa yang tidak sesuai"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -641,57 +636,51 @@ msgstr "Abstrak"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Alam"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Filem & TV"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
 msgstr "Pemandangan"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Muzik"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Musim"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Anda boleh tukar cara Firefox berfungsi…"
+msgstr "Ekstensi mengubah cara Firefox berfungsi"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Menyesuaikan cara Firefox berfungsi dengan ekstensi. Adakah anda berminat dengan…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
-msgstr "Ekstensi paling popular"
+msgstr "Ekstensi Paling Popular"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
-msgstr "Tukar tab anda"
+msgstr "Mengubah tab anda"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Penampilan"
+msgstr "Ekstensi Penampilan"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Anda boleh tukar cara Firefox berfungsi…"
+msgstr "Tema mengubah penampilan Firefox"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -707,11 +696,11 @@ msgstr "Tandabuku"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Membeli-belah Lebih Bijak"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Produktiviti"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -726,9 +715,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube Definisi Tinggi"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "Video dalam HD, menyahaktifkan anotasi, menukarkan saiz pemain & lain-lain"
+msgstr "Memainkan video dalam HD, menyahaktifkan anotasi, mengubah saiz pemain & lain-lain"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -866,39 +854,32 @@ msgstr "Hantar laporan penyalahgunaan"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Add-ons Sorotan"
+msgstr "Add-ons sorotan"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Memuat add-on"
+msgstr "Add-ons sohor kini"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Ekstensi tahap tinggi"
+msgstr "Add-ons tahap tinggi"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Ekstensi paling popular"
+msgstr "Ekstensi popular"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Tema paling popular"
+msgstr "Tema popular"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Memuat add-on"
+msgstr "Add-ons popular"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Mencari \"%(query)s\""
+msgstr "Hasil carian \"%(query)s\""
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
