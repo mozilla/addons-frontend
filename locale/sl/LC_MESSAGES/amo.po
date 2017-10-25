@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 14:30+0000\n"
+"PO-Revision-Date: 2017-10-25 15:28+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -501,19 +501,19 @@ msgstr "Svoje lastne ocene ne morete prijaviti"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "To je nepovezana ali reklamna vsebina"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Označeno kot nepovezana vsebina"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "To vsebuje neprimeren jezik"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Označeno zaradi neprimernega jezika"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -648,9 +648,8 @@ msgid "Film & TV"
 msgstr "Film in televizija"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Slikovito"
+msgstr "Naravne lepote"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
@@ -658,7 +657,7 @@ msgstr "Glasba"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Sezonsko"
 
 #: src/amo/components/Home/index.js:173
 msgid "Extensions change how Firefox works"
@@ -673,9 +672,8 @@ msgid "Most Popular Extensions"
 msgstr "Najbolj priljubljene razširitve"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
-msgstr "Spremenite zavihke"
+msgstr "Spremenite svoje zavihke"
 
 #: src/amo/components/Home/index.js:215
 msgid "Up & Coming Extensions"
