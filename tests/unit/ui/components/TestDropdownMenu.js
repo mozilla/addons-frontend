@@ -61,6 +61,68 @@ describe(__filename, () => {
     expect(menu).not.toHaveClassName('DropdownMenu--active');
   });
 
+  it('resets the menu state on click', () => {
+    // See: https://github.com/mozilla/addons-frontend/issues/3452
+    const root = mount(
+      <DropdownMenu text="Menu">
+        <DropdownMenuItem>
+          <a className="TestLink" href="/test-link/">Test!</a>
+        </DropdownMenuItem>
+      </DropdownMenu>
+    );
+    const menu = root.find('.DropdownMenu');
+
+    // User clicks the menu main button to open it.
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    expect(menu).toHaveClassName('DropdownMenu--active');
+
+    // User clicks a link.
+    menu.find('.TestLink').simulate('click', createFakeEvent());
+    expect(menu).not.toHaveClassName('DropdownMenu--active');
+  });
+
+  it('sets active on mouseEnter/clears on mouseLeave', () => {
+    // We do this instead of a :hover with CSS to allow clearing the active
+    // state after a click.
+    const root = mount(<DropdownMenu text="Menu" />);
+    const menu = root.find('.DropdownMenu');
+
+    // User hovers on the menu.
+    menu.simulate('mouseEnter', createFakeEvent());
+    expect(menu).toHaveClassName('DropdownMenu--active');
+
+    // User's mouse leaves the menu.
+    menu.simulate('mouseLeave', createFakeEvent());
+    expect(menu).not.toHaveClassName('DropdownMenu--active');
+  });
+
+  it('allows the user to hover then click without dismissing the menu', () => {
+    const root = mount(<DropdownMenu text="Menu" />);
+    const menu = root.find('.DropdownMenu');
+
+    // User hovers on the menu.
+    menu.simulate('mouseEnter', createFakeEvent());
+    expect(menu).toHaveClassName('DropdownMenu--active');
+
+    // User clicks the menu's main button once, which should not hide it.
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    expect(menu).toHaveClassName('DropdownMenu--active');
+  });
+
+  it('allows the user to hover, then dismiss the menu with a click', () => {
+    const root = mount(<DropdownMenu text="Menu" />);
+    const menu = root.find('.DropdownMenu');
+
+    // User hovers on the menu.
+    menu.simulate('mouseEnter', createFakeEvent());
+    expect(menu).toHaveClassName('DropdownMenu--active');
+
+    // User clicks the menu's main button twice, which will dismiss it.
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    menu.find('.DropdownMenu-button').simulate('click', createFakeEvent());
+    expect(menu).not.toHaveClassName('DropdownMenu--active');
+  });
+
   it('optionally takes a class name', () => {
     const menu = renderComponent(
       <DropdownMenu text="Menu" className="my-class" />
