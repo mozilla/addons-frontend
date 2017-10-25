@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 20:31+0000\n"
+"PO-Revision-Date: 2017-10-25 20:35+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -722,9 +722,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "Wideja w HD, přispomnjenki znjemóžnić, wulkosć wothrawaka změnić a wjace"
+msgstr "Wideja w HD wothrać, přispomnjenki znjemóžnić, wulkosć wothrawaka změnić a wjace"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -861,39 +860,32 @@ msgid "Send abuse report"
 msgstr "Rozprawa wo znjewužiwanju pósłać"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Předstajeny přidatk"
+msgstr "Předstajene přidatki"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Přidatki so wužiwaja"
+msgstr "Woblubowane přidatki"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Najwyše pohódnoćene rozšěrjenja"
+msgstr "Najwyše pohódnoćene přidatki"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Najbóle woblubowane rozšěrjenja"
+msgstr "Woblubowane rozšěrjenja"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Najbóle woblubowane drasty"
+msgstr "Woblubowane drasty"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Přidatki so wužiwaja"
+msgstr "Woblubowane přidatki"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "\"%(query)s\" so pyta"
+msgstr "Pytanske wuslědki za \"%(query)s\""
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
