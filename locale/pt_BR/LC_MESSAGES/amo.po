@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 23:08+0000\n"
+"PO-Revision-Date: 2017-10-25 23:22+0000\n"
 "Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -458,11 +458,11 @@ msgstr "Desculpe, mas ocorreu um erro com o nosso servidor e não conseguimos co
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Isso é um relatório de erro ou solicitação de suporte"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr "Sinalizado como um relatório de erro ou solicitação de ajuda"
+msgstr "Sinalizado como um relatório de erro ou solicitação de suporte"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
@@ -580,7 +580,7 @@ msgstr "Fórum"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
-msgstr "Relatar um bug"
+msgstr "Relatar um erro"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
@@ -660,7 +660,7 @@ msgstr "Extensões mudam o funcionamento do Firefox"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Personalize o modo como o Firefox funciona com extensões. Você tem interesse em…"
 
 #: src/amo/components/Home/index.js:189
 msgid "Most Popular Extensions"
@@ -832,7 +832,7 @@ msgstr "Denunciar esta extensão por abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:166
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Por favor, não utilize este formulário para denunciar bugs ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
+msgstr "Por favor, não utilize este formulário para denunciar erros ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
 
 #: src/amo/components/ReportAbuseButton/index.js:179
 msgid "Explain how this add-on is violating our policies."
