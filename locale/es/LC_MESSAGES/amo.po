@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 10:11+0000\n"
+"PO-Revision-Date: 2017-10-25 10:15+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -337,9 +337,8 @@ msgid "Add-ons for Android"
 msgstr "Complementos para Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Complementos para Android"
+msgstr "%s - Complementos para Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -470,24 +469,20 @@ msgid "Flag"
 msgstr "Etiquetar"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Respuesta del desarrollador"
+msgstr "Marcar esta respuesta del desarrollador"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Responder a esta revisión"
+msgstr "Marcar esta revisión"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Inicia sesión para evaluar esta extensión"
+msgstr "Iniciar sesión para marcar esta respuesta"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Iniciar sesión para evaluar este tema"
+msgstr "Iniciar sesión para marcar esta revisión"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -646,9 +641,8 @@ msgid "Film & TV"
 msgstr "Películas y TV"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Escénico"
+msgstr "Vistas"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
@@ -659,37 +653,32 @@ msgid "Seasonal"
 msgstr "Estacional"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Puedes cambiar el funcionamiento de Firefox…"
+msgstr "Las extensiones cambian el funcionamiento de Firefox"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Personaliza el funcionamiento de Firefox con extensiones. Te interesan…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Extensiones más populares"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
 msgstr "Cambiar tus pestañas"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Próximas novedades"
+msgstr "Próximas extensiones"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Puedes cambiar el funcionamiento de Firefox…"
+msgstr "Los temas cambian la apariencia de Firefox"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Cambia la apariencia de Firefox con los temas."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -705,11 +694,11 @@ msgstr "Marcadores"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Las compras inteligentes"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Productividad"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -724,9 +713,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "Videos en HD, desactivar anotaciones, cambiar tamaño del reproductor y más"
+msgstr "Reproduce videos en HD, desactiva las anotaciones, cambia el tamaño del reproductor y más"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -863,39 +851,32 @@ msgid "Send abuse report"
 msgstr "Enviar informe de uso indebido"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Complemento promocionado"
+msgstr "Complementos promocionados"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Cargando los complementos"
+msgstr "Complementos más populares"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Extensiones más aloradas"
+msgstr "Complementos más valorados"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Extensiones más populares"
+msgstr "Extensiones populares"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Temas más populares"
+msgstr "Temas populares"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Cargando los complementos"
+msgstr "Complementos populares"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Buscando \"%(query)s\""
+msgstr "Buscar resultados para \"%(query)s\""
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
