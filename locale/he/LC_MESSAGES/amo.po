@@ -337,9 +337,8 @@ msgid "Add-ons for Android"
 msgstr "תוספות עבור אנדרואיד"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "תוספות עבור אנדרואיד"
+msgstr ""
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -477,14 +476,12 @@ msgid "Flag this review"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "יש להתחבר כדי לדרג הרחבה זו"
+msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "יש להתחבר כדי לדרג ערכת נושא זו"
+msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -643,9 +640,8 @@ msgid "Film & TV"
 msgstr ""
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "נופי"
+msgstr ""
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
