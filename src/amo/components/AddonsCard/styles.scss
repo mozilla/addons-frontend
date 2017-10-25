@@ -34,11 +34,19 @@
         margin: 0 6px 1px;
         // Prevents content overflow.
         min-width: 0;
-        padding: 12px 24px;
-        transition: background-color $transition-short ease-in-out;
+        padding: 0;
       }
 
-      .SearchResult:hover {
+      .SearchResult-link {
+        display: inline-block;
+        height: 100%;
+        padding: 12px 24px;
+        transition: background-color $transition-short ease-in-out;
+        width: 100%;
+      }
+
+      .SearchResult-link:focus,
+      .SearchResult-link:hover {
         background-color: $grey-10;
         border-radius: $border-radius-default;
       }
