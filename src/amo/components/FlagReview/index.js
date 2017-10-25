@@ -76,8 +76,8 @@ const mapStateToProps = (
   let flagState = {};
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
-    if (view && view.flags) {
-      flagState = view.flags[ownProps.reason];
+    if (view && view.flag && view.flag.reason === ownProps.reason) {
+      flagState = view.flag;
     }
   }
   return {

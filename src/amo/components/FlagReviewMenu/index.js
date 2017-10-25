@@ -146,7 +146,7 @@ const mapStateToProps = (
   let wasFlagged = false;
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
-    if (view && view.flags) {
+    if (view && view.flag) {
       wasFlagged = true;
     }
   }
