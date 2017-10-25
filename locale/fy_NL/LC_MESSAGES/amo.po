@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 09:11+0000\n"
+"PO-Revision-Date: 2017-10-25 09:13+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -505,7 +505,7 @@ msgstr "Dit befettet ûnpaslike taal"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Markearre fanwegen ûnpaslike taal"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -633,11 +633,11 @@ msgstr "Abstrakt"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Natuer"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Film en telefyzje"
 
 #: src/amo/components/Home/index.js:125
 msgid "Scenery"
@@ -645,11 +645,11 @@ msgstr "Lânskip"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Muzyk"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Seizoensbûn"
 
 #: src/amo/components/Home/index.js:173
 msgid "Extensions change how Firefox works"
@@ -657,7 +657,7 @@ msgstr "Utwreidingen wizigje hoe Firefox wurket"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Pas de manier wêrop Firefox wurket oan mei útwreidingen. Binne jo ynteressearre yn…"
 
 #: src/amo/components/Home/index.js:189
 msgid "Most Popular Extensions"
@@ -677,7 +677,7 @@ msgstr "Tema's wizigje hoe Firefox der út sjocht"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Wizigje it úterlik fan Firefox mei tema’s."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -693,11 +693,11 @@ msgstr "Blêdwizers"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Tûker winkelje"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Produktiviteit"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
