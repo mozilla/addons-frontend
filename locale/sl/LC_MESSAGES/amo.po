@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 06:09+0000\n"
+"PO-Revision-Date: 2017-10-25 06:13+0000\n"
 "Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -372,7 +372,7 @@ msgstr "Izbrane razširitve"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "Več"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
@@ -466,7 +466,7 @@ msgstr "Žal je prišlo do napake na našem strežniku in vaše zahteve nismo mo
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "To je poročilo o napaki ali zahteva za podporo"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
@@ -672,7 +672,7 @@ msgstr "Spremenite lahko, kako Firefox deluje …"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Prilagodite delovanje Firefoxa z razširitvami. Ali vas zanima …"
 
 #: src/amo/components/Home/index.js:189
 #, fuzzy
@@ -690,13 +690,12 @@ msgid "Up & Coming Extensions"
 msgstr "Kmalu"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Spremenite lahko, kako Firefox deluje …"
+msgstr "Teme spremenijo videz Firefoxa"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Spremenite videz Firefoxa z uporabo tem."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -712,7 +711,7 @@ msgstr "Zaznamki"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Pametnejše nakupovanje"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
@@ -868,9 +867,8 @@ msgid "Send abuse report"
 msgstr "Pošlji poročilo o zlorabi"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Izbran dodatek"
+msgstr "Izbrani dodatki"
 
 #: src/amo/components/Search/index.js:120
 #, fuzzy
@@ -878,9 +876,8 @@ msgid "Trending add-ons"
 msgstr "Nalaganje dodatkov"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Najbolje ocenjene razširitve"
+msgstr "Najbolje ocenjeni dodatki"
 
 #: src/amo/components/Search/index.js:138
 #, fuzzy
@@ -893,9 +890,8 @@ msgid "Popular themes"
 msgstr "Najbolj priljubljene teme"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Nalaganje dodatkov"
+msgstr "Priljubljeni dodatki"
 
 #: src/amo/components/Search/index.js:151
 #, fuzzy
