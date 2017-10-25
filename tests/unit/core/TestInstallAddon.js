@@ -21,6 +21,7 @@ import {
   INSTALL_CATEGORY,
   INSTALL_CANCELLED,
   INSTALL_FAILED,
+  INSTALL_STARTED_CATEGORY,
   INSTALLED,
   INSTALLING,
   OS_ALL,
@@ -935,6 +936,36 @@ describe(`${__filename}: withInstallHelpers`, () => {
         });
     });
 
+    it('tracks the start of an addon install', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const fakeTracking = {
+        sendEvent: sinon.spy(),
+      };
+      const { root } = renderWithInstallHelpers({
+        ...addon,
+        _addonManager: getFakeAddonManagerWrapper({
+          // Make the install fail so that we can be sure only
+          // the 'start' event gets tracked.
+          install: sinon.stub()
+            .returns(Promise.reject(new Error('install error'))),
+        }),
+        _tracking: fakeTracking,
+      });
+      const { install } = root.instance().props;
+
+      return install(addon)
+        .then(() => {
+          // Even though the install() promise fails, it gets caught
+          // and resolved successfully.
+          sinon.assert.calledWith(fakeTracking.sendEvent, {
+            action: TRACKING_TYPE_EXTENSION,
+            category: INSTALL_STARTED_CATEGORY,
+            label: addon.name,
+          });
+          sinon.assert.calledOnce(fakeTracking.sendEvent);
+        });
+    });
+
     it('tracks an addon install', () => {
       const addon = createInternalAddon(fakeAddon);
       const fakeTracking = {
@@ -1288,11 +1319,17 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      expect(stubs._tracking.sendEvent.calledWith({
+      sinon.assert.calledWith(stubs._tracking.sendEvent, {
+        action: TRACKING_TYPE_THEME,
+        category: INSTALL_STARTED_CATEGORY,
+        label: 'hai-theme',
+      });
+      sinon.assert.calledWith(stubs._tracking.sendEvent, {
         action: TRACKING_TYPE_THEME,
         category: INSTALL_CATEGORY,
         label: 'hai-theme',
-      })).toBeTruthy();
+      });
+      sinon.assert.calledTwice(stubs._tracking.sendEvent);
     });
 
     it('does not try to install theme if INSTALLED', () => {

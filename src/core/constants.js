@@ -166,6 +166,7 @@ export const INSTALL_ERROR = 'INSTALL_ERROR';
 
 // Tracking categories.
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
+export const INSTALL_STARTED_CATEGORY = 'AMO Addon / Theme Installs Started';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 

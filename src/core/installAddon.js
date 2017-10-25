@@ -25,6 +25,7 @@ import {
   INSTALL_ERROR,
   INSTALL_CANCELLED,
   INSTALL_FAILED,
+  INSTALL_STARTED_CATEGORY,
   INSTALLING,
   OS_ALL,
   OS_ANDROID,
@@ -83,6 +84,12 @@ export function installTheme(
     [DISABLED, UNINSTALLED, UNKNOWN].includes(status)
   ) {
     _themeAction(node, THEME_INSTALL);
+    // For consistency, track both a start-install and an install event.
+    _tracking.sendEvent({
+      action: TRACKING_TYPE_THEME,
+      category: INSTALL_STARTED_CATEGORY,
+      label: name,
+    });
     _tracking.sendEvent({
       action: TRACKING_TYPE_THEME,
       category: INSTALL_CATEGORY,
@@ -388,6 +395,11 @@ export class WithInstallHelpers extends React.Component {
     } = this.props;
 
     dispatch({ type: START_DOWNLOAD, payload: { guid } });
+    _tracking.sendEvent({
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_STARTED_CATEGORY,
+      label: name,
+    });
 
     const installURL = findInstallURL({ installURLs, userAgentInfo });
     return _addonManager.install(
