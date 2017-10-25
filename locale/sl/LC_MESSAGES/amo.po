@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 14:07+0000\n"
+"PO-Revision-Date: 2017-10-25 14:30+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -469,39 +469,35 @@ msgstr "To je poročilo o napaki ali zahteva za podporo"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Označeno kot poročilo o napaki ali zahteva za podporo"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "Prijavi"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Odgovor razvijalca"
+msgstr "Prijavi ta razvijalčev odgovor"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Odgovori na to oceno"
+msgstr "Prijavi to oceno"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Prijavite se, da ocenite to razširitev"
+msgstr "Prijavite se, da prijavite ta odgovor"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Prijavite se, da ocenite to temo"
+msgstr "Prijavite se, da prijavite to oceno"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Svojega lastnega odgovora ne morete prijaviti"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Svoje lastne ocene ne morete prijaviti"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
@@ -649,7 +645,7 @@ msgstr "Narava"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Film in televizija"
 
 #: src/amo/components/Home/index.js:125
 #, fuzzy
@@ -665,9 +661,8 @@ msgid "Seasonal"
 msgstr ""
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Spremenite lahko, kako Firefox deluje …"
+msgstr "Razširitve spremenijo delovanje Firefoxa"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -712,7 +707,7 @@ msgstr "Pametnejše nakupovanje"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Produktivnost"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
