@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 12:11+0000\n"
+"PO-Revision-Date: 2017-10-25 12:19+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -334,9 +334,8 @@ msgid "Add-ons for Android"
 msgstr "Android 版的附加元件"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Android 版的附加元件"
+msgstr "%s - Android 版附加元件"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -453,35 +452,31 @@ msgstr "抱歉，我們的伺服器上有錯誤發生，無法完成請求。我
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "這是臭蟲回報或技術支援請求"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "已標示為臭蟲回報或技術支援請求"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
 msgstr "標示"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "開發者回應"
+msgstr "標示這則開發者回應"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "回覆此評論"
+msgstr "標示此評論"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "登入後即可幫此擴充套件評分"
+msgstr "登入後即可標示此回應"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "登入後即可為此佈景主題評分"
+msgstr "登入後即可標示此評論"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -631,57 +626,51 @@ msgstr "抽象派"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "自然"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "電影與電視"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "風景圖"
+msgstr "風景"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "音樂"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "季節"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "您可以調整 Firefox 的功能…"
+msgstr "擴充套件可調整 Firefox 的功能"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "使用擴充套件，自訂 Firefox 的運作方式。您有沒有興趣…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
-msgstr "最熱門的擴充套件"
+msgstr "更多熱門擴充套件"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
 msgstr "修改您的分頁"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "即將到來"
+msgstr "嶄露頭角的擴充套件"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "您可以調整 Firefox 的功能…"
+msgstr "佈景主題可調整 Firefox 的外觀"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "使用佈景主題修改 Firefox 外觀。"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -697,11 +686,11 @@ msgstr "書籤"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "聰明消費"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "生產力"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -716,9 +705,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "高解析度影片、關閉註解、調整播放器大小等功能"
+msgstr "使用高解析度播放影片、關閉註解、調整播放器大小等功能"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -853,39 +841,32 @@ msgid "Send abuse report"
 msgstr "傳送濫用報告"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
 msgstr "精選附加元件"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "正在載入附加元件"
+msgstr "嶄露頭角的附加元件"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "分數最高的擴充套件"
+msgstr "分數最高的附加元件"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "最熱門的擴充套件"
+msgstr "熱門擴充套件"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "最熱門的佈景主題"
+msgstr "熱門佈景主題"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "正在載入附加元件"
+msgstr "熱門附加元件"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "正在搜尋「%(query)s」"
+msgstr "「%(query)s」的搜尋結果"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
