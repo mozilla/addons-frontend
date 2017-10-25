@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 14:51+0000\n"
+"PO-Revision-Date: 2017-10-25 14:56+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -362,7 +362,7 @@ msgstr "精选扩展"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "查看更多"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
@@ -452,7 +452,7 @@ msgstr "很抱歉，但目前遇到一个服务器错误，我们无法完成您
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
@@ -488,7 +488,7 @@ msgstr "您不能标记自己的评价"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "这是垃圾信息"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
@@ -496,7 +496,7 @@ msgstr "已标记为垃圾信息"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "这包含不当语言"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
@@ -626,57 +626,51 @@ msgstr "抽象"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "自然"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "电影和电视"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
 msgstr "风景"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "音乐"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "季节"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "您可以改变 Firefox 的工作方式…"
+msgstr "使用扩展改变使用 Firefox 的工作方式"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "使用扩展定制使用 Firefox 的工作方式。您的兴趣点是…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "最流行的扩展"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
-msgstr "更改您的标签页"
+msgstr "助力您的标签页"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "崭露头角"
+msgstr "崭露头角的扩展"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "您可以改变 Firefox 的工作方式…"
+msgstr "使用主题改变 Firefox 的外观"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "使用主题改变 Firefox 的外观。"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -692,11 +686,11 @@ msgstr "书签"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "智慧购物"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "生产力"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -711,9 +705,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "高清视频、关闭注释、更改播放器大小等功能"
+msgstr "播放高清版视频、关闭注释、更改播放器大小等功能"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -848,39 +841,32 @@ msgid "Send abuse report"
 msgstr "报告已发送"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
 msgstr "精选附加组件"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "正在加载附加组件"
+msgstr "热门附加组件"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "最受好评的扩展"
+msgstr "最受好评附加组件"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
 msgstr "最流行的扩展"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
 msgstr "最流行的主题"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "正在加载附加组件"
+msgstr "最流行的附加组件"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "搜索“%(query)s”"
+msgstr "“%(query)s”的搜索结果"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
