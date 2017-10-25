@@ -12,7 +12,7 @@ import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
-  INSTALL_CATEGORY,
+  INSTALL_STARTED_CATEGORY,
   OS_ALL,
   TRACKING_TYPE_EXTENSION,
   UNKNOWN,
@@ -337,7 +337,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_CATEGORY,
+      category: INSTALL_STARTED_CATEGORY,
       label: addon.name,
     });
   });
@@ -360,7 +360,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(_tracking.sendEvent, {
       action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_CATEGORY,
+      category: INSTALL_STARTED_CATEGORY,
       label: addon.name,
     });
   });

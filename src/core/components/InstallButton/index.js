@@ -9,7 +9,7 @@ import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
-  INSTALL_CATEGORY,
+  INSTALL_STARTED_CATEGORY,
   TRACKING_TYPE_EXTENSION,
   validAddonTypes,
 } from 'core/constants';
@@ -73,12 +73,12 @@ export class InstallButtonBase extends React.Component {
     installTheme(event.currentTarget, { ...addon, status });
   }
 
-  trackInstall({ addonName }) {
+  trackInstallStarted({ addonName }) {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
       action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_CATEGORY,
+      category: INSTALL_STARTED_CATEGORY,
       label: addonName,
     });
   }
@@ -134,7 +134,7 @@ export class InstallButtonBase extends React.Component {
 
         _log.info('Adding OpenSearch Provider', { addon });
         _window.external.AddSearchProvider(installURL);
-        this.trackInstall({ addonName: addon.name });
+        this.trackInstallStarted({ addonName: addon.name });
 
         return false;
       };
@@ -156,7 +156,7 @@ export class InstallButtonBase extends React.Component {
         event.stopPropagation();
         return false;
       } : () => {
-        this.trackInstall({ addonName: addon.name });
+        this.trackInstallStarted({ addonName: addon.name });
       };
       button = (
         <Button
