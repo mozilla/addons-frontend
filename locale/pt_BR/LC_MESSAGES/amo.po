@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 22:29+0000\n"
+"PO-Revision-Date: 2017-10-25 22:40+0000\n"
 "Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -494,7 +494,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Você não pode sinalizar sua própria análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
