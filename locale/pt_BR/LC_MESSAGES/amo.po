@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 01:50+0000\n"
+"PO-Revision-Date: 2017-10-25 01:57+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -370,7 +370,7 @@ msgstr "Veja mais"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
-msgstr "Extensões em destaque"
+msgstr "Extensões em tendência"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -386,7 +386,7 @@ msgstr "Temas em destaque"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
-msgstr "Temas em destaque"
+msgstr "Temas em tendência"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -643,9 +643,8 @@ msgid "Film & TV"
 msgstr "Filmes e TV"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Cênico"
+msgstr "Paisagem"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
@@ -653,7 +652,7 @@ msgstr "Música"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Estações"
 
 #: src/amo/components/Home/index.js:173
 #, fuzzy
@@ -862,9 +861,8 @@ msgid "Featured add-ons"
 msgstr "Extensão em destaque"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Carregando extensões"
+msgstr "Extensões em tendência"
 
 #: src/amo/components/Search/index.js:132
 #, fuzzy
@@ -991,7 +989,7 @@ msgstr "Melhor avaliadas"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "Tendência"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
