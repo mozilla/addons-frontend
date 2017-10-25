@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 08:31+0000\n"
+"PO-Revision-Date: 2017-10-25 08:45+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -365,11 +365,11 @@ msgstr "Kiemelt kiterjesztések"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "Tovább"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
-msgstr "Népszerű kiterjesztések"
+msgstr "Felkapott kiterjesztések"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -385,7 +385,7 @@ msgstr "Kiemelt témák"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
-msgstr "Népszerű témák"
+msgstr "Felkapott témák"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -457,15 +457,15 @@ msgstr "Sajnáljuk, de hiba volt a kiszolgálónkkal, és nem tudtuk teljesíten
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Ez egy hibajelentés vagy támogatási kérés"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Hibajelentésként vagy támogatási kérésként jelölt"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "Megjelölés"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
 msgid "Flag this developer response"
@@ -485,27 +485,27 @@ msgstr "Jelentkezzen be az értékelés megjelöléséhez"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Nem jelölheti meg a saját válaszát"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Nem jelölheti meg a saját értékelését"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Kéretlen tartalom"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Megjelölve kéretlenként"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Nem megfelelő nyelvezetet tartalmaz"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Megjelölve a nem megfelelő nyelvezet miatt"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -633,11 +633,11 @@ msgstr "Absztrakt"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Természet"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Film és TV"
 
 #: src/amo/components/Home/index.js:125
 msgid "Scenery"
@@ -645,11 +645,11 @@ msgstr "Tájkép"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Zene"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Időszakos"
 
 #: src/amo/components/Home/index.js:173
 msgid "Extensions change how Firefox works"
@@ -657,7 +657,7 @@ msgstr "A kiterjesztések megváltoztatják a Firefox működését"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Szabja testre a Firefox működését kiterjesztésekkel. Érdekli-e a…"
 
 #: src/amo/components/Home/index.js:189
 msgid "Most Popular Extensions"
@@ -677,7 +677,7 @@ msgstr "A témák megváltoztatják a Firefox kinézetét"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Szabja testre a Firefox kinézetet témákkal."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -693,11 +693,11 @@ msgstr "Könyvjelzők"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Okosabb vásárlás"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Hasznos appok"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -712,9 +712,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "Videók HD-ban, kommentárok kikapcsolása, videolejátszó méretének módosítása, stb."
+msgstr "Videók lejátszása HD-ban, kommentárok kikapcsolása, videolejátszó méretének módosítása, stb."
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -851,39 +850,32 @@ msgid "Send abuse report"
 msgstr "Visszaélési jelentés elküldése"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Kiemelt kiegészítő"
+msgstr "Kiemelt kiegészítők"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Kiegészítők betöltése"
+msgstr "Felkapott kiegészítők"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Legjobbra értékelt kiterjesztések"
+msgstr "Legjobbra értékelt kiegészítők"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Legnépszerűbb kiterjesztések"
+msgstr "Népszerű kiterjesztések"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Legnépszerűbb témák"
+msgstr "Népszerű témák"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Kiegészítők betöltése"
+msgstr "Népszerű kiegészítők"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Keresés erre: „%(query)s”"
+msgstr "Találatok a következőre: „%(query)s”"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -985,7 +977,7 @@ msgstr "Legjobbra értékelt"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr "Népszerű"
+msgstr "Felkapott"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
