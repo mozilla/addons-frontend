@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 15:30+0000\n"
+"PO-Revision-Date: 2017-10-25 15:50+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -365,11 +365,11 @@ msgstr "הרחבות מומלצות"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "להציג עוד"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
-msgstr ""
+msgstr "ההרחבות שמובילות לאחרונה"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -385,7 +385,7 @@ msgstr "ערכות נושא מומלצות"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
-msgstr ""
+msgstr "ערכות הנושא שמובילות לאחרונה"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -425,7 +425,7 @@ msgstr "לא מורשה"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "מצטערים, אבל אין לך גישה לעמוד זה. אם לא התחברת, כדאי לנסות להתחבר באמצעות הקישור שבראש העמוד."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
@@ -485,27 +485,27 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "אין לך אפשרות לסמן את התגובה של עצמך"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "אין לך אפשרות לסמן את הסקירה של עצמך"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "זה ספאם"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "סומן כספאם"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "מכיל שפה בוטה"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "סומן כמכיל שפה בוטה"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -657,7 +657,7 @@ msgstr "הרחבות משנות את אופן הפעולה של Firefox"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "התאמת אופן הפעולה של Firefox עם הרחבות. האם מעניין אותך…"
 
 #: src/amo/components/Home/index.js:189
 msgid "Most Popular Extensions"
@@ -677,7 +677,7 @@ msgstr "ערכות נושא משנות את המראה של Firefox"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -697,7 +697,7 @@ msgstr "רכישה מקוונת חכמה יותר"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "כלי עבודה"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -853,7 +853,7 @@ msgstr "תוספות מומלצות"
 
 #: src/amo/components/Search/index.js:120
 msgid "Trending add-ons"
-msgstr ""
+msgstr "התוספות שמובילות לאחרונה"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
@@ -975,7 +975,7 @@ msgstr "המדורגים ביותר"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "מוביל לאחרונה"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
