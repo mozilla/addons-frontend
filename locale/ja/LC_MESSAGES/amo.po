@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 14:06+0000\n"
-"Last-Translator: dskmori <ghoti.fish.dsk@gmail.com>\n"
+"PO-Revision-Date: 2017-10-25 18:09+0000\n"
+"Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -334,9 +334,8 @@ msgid "Add-ons for Android"
 msgstr "Android 向けアドオン"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Android 向けアドオン"
+msgstr "%s - Android 向けアドオン"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -363,7 +362,7 @@ msgstr "おすすめ拡張機能"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "もっと見る"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
@@ -453,59 +452,55 @@ msgstr "申し訳ありませんが、サーバー上でエラーが発生した
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "これはバグ報告またはサポートリクエストです"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "バグ報告またはサポートリクエストとしてフラグが立てられました"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "フラグ"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "開発者の返信"
+msgstr "この開発者の返信にフラグを立てる"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "このレビューに返信"
+msgstr "このレビューにフラグを立てる"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "ログインしてこの拡張機能を評価"
+msgstr "ログインしてこの返信にフラグを立てる"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "ログインしてこのテーマを評価"
+msgstr "ログインしてこのレビューにフラグを立てる"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "自分自身の返信にフラグを立てることはできません"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "自分自身のレビューにフラグを立てることはできません"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "これはスパムです"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "スパムとしてフラグが立てられました"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "これには不適切な言葉遣いが含まれています"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "不適切な言葉遣いとしてフラグが立てられました"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -631,57 +626,51 @@ msgstr "抽象的"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "自然"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "映画とテレビ"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
 msgstr "風景"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "音楽"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "季節"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Firefox に好きな機能を追加できます..."
+msgstr "拡張機能は Firefox の挙動を変えることができます"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "拡張機能で Firefox の挙動をカスタマイズしてみましょう。以下から興味があるものを選んでください。"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "最も人気の拡張機能"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
-msgstr "タブを変更"
+msgstr "タブをパワフルに"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "注目"
+msgstr "注目の拡張機能"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Firefox に好きな機能を追加できます..."
+msgstr "テーマは Firefox の見た目を変えることができます"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "テーマで Firefox の見た目を変えてみましょう。"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -697,11 +686,11 @@ msgstr "ブックマーク"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "より賢い買い物"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "仕事効率化"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -716,9 +705,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "高解像度動画、注釈の非表示、プレーヤーサイズの変更など"
+msgstr "高解像度での動画再生、注釈の非表示、プレーヤーサイズの変更など"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -857,9 +845,8 @@ msgid "Featured add-ons"
 msgstr "注目のアドオン"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "アドオンを読み込んでいます"
+msgstr "流行のアドオン"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
@@ -878,9 +865,8 @@ msgid "Popular add-ons"
 msgstr "人気のアドオン"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "「%(query)s」を検索しています"
+msgstr "「%(query)s」の検索結果"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
