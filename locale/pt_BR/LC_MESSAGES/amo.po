@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 23:22+0000\n"
+"PO-Revision-Date: 2017-10-25 23:38+0000\n"
 "Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -337,9 +337,8 @@ msgid "Add-ons for Android"
 msgstr "Extensões para Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Extensões para Android"
+msgstr "%s - Extensões para Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -469,24 +468,20 @@ msgid "Flag"
 msgstr "Sinalizar"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Resposta do desenvolvedor"
+msgstr "Sinalize essa resposta do desenvolvedor"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Responder esta análise"
+msgstr "Sinalizar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Identifique-se para avaliar esta extensão"
+msgstr "Identifique-se para sinalizar esta resposta"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Identifique-se para avaliar este tema"
+msgstr "Identifique-se para sinalizar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -859,9 +854,8 @@ msgid "Trending add-ons"
 msgstr "Extensões em tendência"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Extensões melhor avaliadas"
+msgstr "Extensões mais avaliadas"
 
 #: src/amo/components/Search/index.js:138
 msgid "Popular extensions"
@@ -1158,8 +1152,8 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
-"Ajude a melhorar essa página web. É de código aberto e você pode reportar bugs e enviar correções. Você pode começar com %(startGoodFirstBugLink)sseu primeiro bug%(endGoodFirstBugLink)s ou "
-"visualizar todos os issues abertos para o %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s AMO e o %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s no Github."
+"Ajude a melhorar essa página web. É de código aberto e você pode reportar erros e enviar correções. Você pode começar com %(startGoodFirstBugLink)sseu primeiro erro%(endGoodFirstBugLink)s ou "
+"visualizar todos os issues abertos para o %(startAddonsServerRepoLink)sservidor%(endAddonsServerRepoLink)s AMO e o %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s no GitHub."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
