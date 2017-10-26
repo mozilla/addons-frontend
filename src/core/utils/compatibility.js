@@ -19,15 +19,19 @@ import log from 'core/logger';
 export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
+  let supportsClientApp = false;
   if (
     addon && addon.current_version && addon.current_version.compatibility
   ) {
     if (addon.current_version.compatibility[clientApp]) {
+      supportsClientApp = true;
       maxVersion = addon.current_version.compatibility[clientApp].max;
       minVersion = addon.current_version.compatibility[clientApp].min;
     } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
       _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
-        compatibility info found but this is expected.`, { addon, clientApp });
+        compatibility info found but this is expected.`,
+        { addon, clientApp });
+      supportsClientApp = true;
     } else {
       _log.error(
         'addon found with no compatibility info for valid clientApp',
@@ -36,12 +40,16 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
     }
   }
 
-  return { maxVersion, minVersion };
+  return { supportsClientApp, maxVersion, minVersion };
 }
 
 export function isCompatibleWithUserAgent({
-  _log = log, _window = typeof window !== 'undefined' ? window : {},
-  addon, maxVersion, minVersion, userAgentInfo,
+  addon,
+  maxVersion,
+  minVersion,
+  userAgentInfo,
+  _log = log,
+  _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
   // If the userAgent is false there was likely a programming error.
   if (!userAgentInfo) {
@@ -126,12 +134,32 @@ export function isCompatibleWithUserAgent({
 }
 
 export function getClientCompatibility({
-  addon, clientApp, userAgentInfo,
+  addon,
+  clientApp,
+  userAgentInfo,
+  _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
-  const { maxVersion, minVersion } = getCompatibleVersions({
-    addon, clientApp });
-  const { compatible, reason } = isCompatibleWithUserAgent({
-    addon, maxVersion, minVersion, userAgentInfo });
+  // Check compatibility with client app.
+  const {
+    supportsClientApp, maxVersion, minVersion,
+  } = getCompatibleVersions({ addon, clientApp });
 
-  return { compatible, maxVersion, minVersion, reason };
+  // Check compatibility with user agent.
+  const agent = isCompatibleWithUserAgent({
+    addon, maxVersion, minVersion, userAgentInfo, _window,
+  });
+
+  let reason;
+  if (!supportsClientApp) {
+    reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
+  } else {
+    reason = agent.reason;
+  }
+
+  return {
+    compatible: agent.compatible && supportsClientApp,
+    maxVersion,
+    minVersion,
+    reason,
+  };
 }
