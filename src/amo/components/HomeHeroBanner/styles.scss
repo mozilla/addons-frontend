@@ -9,7 +9,7 @@ $colors: ("blue", #228ae6, #1c7cd6)
 
 /* stylelint-enable indentation */
 
-@function encodeColor($string) { /* stylelint-disable-line */
+@function encodeColor($string) {
   @if type-of($string) == "color" {
     $hex: str-slice(ie-hex-str($string), 4);
     $string:unquote("#{$hex}");
@@ -17,7 +17,7 @@ $colors: ("blue", #228ae6, #1c7cd6)
 
   $string: "%23" + $string;
 
-  @return $string; /* stylelint-disable-line */
+  @return $string;
 }
 
 @mixin four-point-stars($foreground, $background) {
