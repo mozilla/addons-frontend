@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-26 13:10+0000\n"
+"PO-Revision-Date: 2017-10-26 20:31+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -238,7 +238,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:93
 msgid "Read the privacy policy for this add-on"
-msgstr "Leia a política de privacidade para este extra"
+msgstr "Ler a política de privacidade para este extra"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic!"
@@ -477,11 +477,11 @@ msgstr "Sinalizar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr "Inicie sessão para assinalar esta resposta"
+msgstr "Iniciar sessão para assinalar esta resposta"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr "Inicie sessão para assinalar esta análise"
+msgstr "Iniciar sessão para assinalar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -781,27 +781,27 @@ msgstr "Disponível para o seu idioma"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
-msgstr "Inicie sessão para avaliar este dicionário"
+msgstr "Iniciar sessão para avaliar este dicionário"
 
 #: src/amo/components/RatingManager/index.js:134
 msgid "Log in to rate this language pack"
-msgstr "Inicie sessão para avaliar este pacote de idioma"
+msgstr "Iniciar sessão para avaliar este pacote de idioma"
 
 #: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this search plugin"
-msgstr "Inicie sessão para avaliar este plugin de pesquisa"
+msgstr "Iniciar sessão para avaliar este plugin de pesquisa"
 
 #: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this theme"
-msgstr "Inicie sessão para avaliar este tema"
+msgstr "Iniciar sessão para avaliar este tema"
 
 #: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this extension"
-msgstr "Inicie sessão para avaliar esta extensão"
+msgstr "Iniciar sessão para avaliar esta extensão"
 
 #: src/amo/components/RatingManager/index.js:146
 msgid "Log in to rate this add-on"
-msgstr "Inicie sessão para avaliar este extra"
+msgstr "Iniciar sessão para avaliar este extra"
 
 #: src/amo/components/RatingManager/index.js:170
 msgid "How are you enjoying your experience with %(addonName)s?"
