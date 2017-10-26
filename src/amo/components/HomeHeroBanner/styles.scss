@@ -1,10 +1,10 @@
 /* stylelint-disable indentation */
-$colors: ("blue", #228ae6, #1c7cd6)
+$colors: ("blue", #228ae6, #1b6ec2)
          ("cyan", #15aabf, #1098ad)
          ("grape", #be4bdb, #ae3ec9)
-         ("indigo", #4c6ef5, #4263eb)
+         ("indigo", #4c6ef5, #3b5bdb)
          ("pink", #e64980, #d6336c)
-         ("violet", #7950f2, #7048e8)
+         ("violet", #7950f2, #6741d9)
          ("teal", #12b886, #0ca678);
 
 /* stylelint-enable indentation */
@@ -50,6 +50,12 @@ $colors: ("blue", #228ae6, #1c7cd6)
   background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
 
+@mixin hover($background) {
+  &:hover {
+    background-color: darken($background, 20%);
+  }
+}
+
 // Generate CSS classes depending on the order (indexes) of the Hero sections.
 @for $x from 0 through 3 {
   @for $y from 0 through 3 {
@@ -59,98 +65,74 @@ $colors: ("blue", #228ae6, #1c7cd6)
       @if ($x != $y and $y != $z and $z != $x) {
         .Hero-order-#{$x}-#{$y}-#{$z} {
           .HeroSection-styleName--Home-featured-extensions {
+            $color: nth($colors, $y + 1);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
             @if $x == 0 {
-              @include bubbles(
-                nth(nth($colors, $y + 1), 3),
-                nth(nth($colors, $y + 1), 2)
-              );
+              @include bubbles($fg-color, $bg-color);
             } @else if $x == 1 {
-              @include floor-tile(
-                nth(nth($colors, $y + 1), 3),
-                nth(nth($colors, $y + 1), 2)
-              );
+              @include floor-tile($fg-color, $bg-color);
             } @else if $x == 2 {
-              @include four-point-stars(
-                nth(nth($colors, $y + 1), 3),
-                nth(nth($colors, $y + 1), 2)
-              );
+              @include four-point-stars($fg-color, $bg-color);
             } @else if $x == 3 {
-              @include polka-dots(
-                nth(nth($colors, $y + 1), 3),
-                nth(nth($colors, $y + 1), 2)
-              );
+              @include polka-dots($fg-color, $bg-color);
             }
           }
 
           .HeroSection-styleName--Home-youtube-high-definition {
+            $color: nth($colors, $y + 2);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
             @if $x == 0 {
-              @include tic-tac-toe(
-                nth(nth($colors, $y + 2), 3),
-                nth(nth($colors, $y + 2), 2)
-              );
+              @include tic-tac-toe($fg-color, $bg-color);
             } @else if $x == 1 {
-              @include wiggle(
-                nth(nth($colors, $y + 2), 3),
-                nth(nth($colors, $y + 2), 2)
-              );
+              @include wiggle($fg-color, $bg-color);
             } @else if $x == 2 {
-              @include bubbles(
-                nth(nth($colors, $y + 2), 3),
-                nth(nth($colors, $y + 2), 2)
-              );
+              @include bubbles($fg-color, $bg-color);
             } @else if $x == 3 {
-              @include floor-tile(
-                nth(nth($colors, $y + 2), 3),
-                nth(nth($colors, $y + 2), 2)
-              );
+              @include floor-tile($fg-color, $bg-color);
             }
           }
 
           .HeroSection-styleName--Home-privacy-matters {
+            $color: nth($colors, $y + 3);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
             @if $x == 0 {
-              @include four-point-stars(
-                nth(nth($colors, $y + 3), 3),
-                nth(nth($colors, $y + 3), 2)
-              );
+              @include four-point-stars($fg-color, $bg-color);
             } @else if $x == 1 {
-              @include polka-dots(
-                nth(nth($colors, $y + 3), 3),
-                nth(nth($colors, $y + 3), 2)
-              );
+              @include polka-dots($fg-color, $bg-color);
             } @else if $x == 2 {
-              @include tic-tac-toe(
-                nth(nth($colors, $y + 3), 3),
-                nth(nth($colors, $y + 3), 2)
-              );
+              @include tic-tac-toe($fg-color, $bg-color);
             } @else if $x == 3 {
-              @include wiggle(
-                nth(nth($colors, $y + 3), 3),
-                nth(nth($colors, $y + 3), 2)
-              );
+              @include wiggle($fg-color, $bg-color);
             }
           }
 
           .HeroSection-styleName--Home-ublock-origin {
+            $color: nth($colors, $y + 4);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
             @if $x == 0 {
-              @include floor-tile(
-                nth(nth($colors, $y + 4), 3),
-                nth(nth($colors, $y + 4), 2)
-              );
+              @include floor-tile($fg-color, $bg-color);
             } @else if $x == 1 {
-              @include four-point-stars(
-                nth(nth($colors, $y + 4), 3),
-                nth(nth($colors, $y + 4), 2)
-              );
+              @include four-point-stars($fg-color, $bg-color);
             } @else if $x == 2 {
-              @include polka-dots(
-                nth(nth($colors, $y + 4), 3),
-                nth(nth($colors, $y + 4), 2)
-              );
+              @include polka-dots($fg-color, $bg-color);
             } @else if $x == 3 {
-              @include tic-tac-toe(
-                nth(nth($colors, $y + 4), 3),
-                nth(nth($colors, $y + 4), 2)
-              );
+              @include tic-tac-toe($fg-color, $bg-color);
             }
           }
         }
