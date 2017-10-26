@@ -135,20 +135,6 @@
   width: 46.3px;
 }
 
-.Icon-artistic-unicorn {
-  @include icon($name: "artistic-unicorn");
-
-  height: 198.6px;
-  width: 394px;
-}
-
-.Icon-multitasking-octopus {
-  @include icon($name: "multitasking-octopus");
-
-  height: 199.3px;
-  width: 366px;
-}
-
 .Icon-featured {
   @include icon($name: "featured");
 }
