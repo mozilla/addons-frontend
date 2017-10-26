@@ -61,23 +61,23 @@ $colors: ("blue", #228ae6, #1c7cd6)
           .HeroSection-styleName--Home-featured-extensions {
             @if $x == 0 {
               @include bubbles(
-                nth(nth($colors, $y + 1), 2),
-                nth(nth($colors, $y + 1), 3)
+                nth(nth($colors, $y + 1), 3),
+                nth(nth($colors, $y + 1), 2)
               );
             } @else if $x == 1 {
               @include floor-tile(
-                nth(nth($colors, $y + 1), 2),
-                nth(nth($colors, $y + 1), 3)
+                nth(nth($colors, $y + 1), 3),
+                nth(nth($colors, $y + 1), 2)
               );
             } @else if $x == 2 {
               @include four-point-stars(
-                nth(nth($colors, $y + 1), 2),
-                nth(nth($colors, $y + 1), 3)
+                nth(nth($colors, $y + 1), 3),
+                nth(nth($colors, $y + 1), 2)
               );
             } @else if $x == 3 {
               @include polka-dots(
-                nth(nth($colors, $y + 1), 2),
-                nth(nth($colors, $y + 1), 3)
+                nth(nth($colors, $y + 1), 3),
+                nth(nth($colors, $y + 1), 2)
               );
             }
           }
@@ -85,23 +85,23 @@ $colors: ("blue", #228ae6, #1c7cd6)
           .HeroSection-styleName--Home-youtube-high-definition {
             @if $x == 0 {
               @include tic-tac-toe(
-                nth(nth($colors, $y + 2), 2),
-                nth(nth($colors, $y + 2), 3)
+                nth(nth($colors, $y + 2), 3),
+                nth(nth($colors, $y + 2), 2)
               );
             } @else if $x == 1 {
               @include wiggle(
-                nth(nth($colors, $y + 2), 2),
-                nth(nth($colors, $y + 2), 3)
+                nth(nth($colors, $y + 2), 3),
+                nth(nth($colors, $y + 2), 2)
               );
             } @else if $x == 2 {
               @include bubbles(
-                nth(nth($colors, $y + 2), 2),
-                nth(nth($colors, $y + 2), 3)
+                nth(nth($colors, $y + 2), 3),
+                nth(nth($colors, $y + 2), 2)
               );
             } @else if $x == 3 {
               @include floor-tile(
-                nth(nth($colors, $y + 2), 2),
-                nth(nth($colors, $y + 2), 3)
+                nth(nth($colors, $y + 2), 3),
+                nth(nth($colors, $y + 2), 2)
               );
             }
           }
@@ -109,23 +109,23 @@ $colors: ("blue", #228ae6, #1c7cd6)
           .HeroSection-styleName--Home-privacy-matters {
             @if $x == 0 {
               @include four-point-stars(
-                nth(nth($colors, $y + 3), 2),
-                nth(nth($colors, $y + 3), 3)
+                nth(nth($colors, $y + 3), 3),
+                nth(nth($colors, $y + 3), 2)
               );
             } @else if $x == 1 {
               @include polka-dots(
-                nth(nth($colors, $y + 3), 2),
-                nth(nth($colors, $y + 3), 3)
+                nth(nth($colors, $y + 3), 3),
+                nth(nth($colors, $y + 3), 2)
               );
             } @else if $x == 2 {
               @include tic-tac-toe(
-                nth(nth($colors, $y + 3), 2),
-                nth(nth($colors, $y + 3), 3)
+                nth(nth($colors, $y + 3), 3),
+                nth(nth($colors, $y + 3), 2)
               );
             } @else if $x == 3 {
               @include wiggle(
-                nth(nth($colors, $y + 3), 2),
-                nth(nth($colors, $y + 3), 3)
+                nth(nth($colors, $y + 3), 3),
+                nth(nth($colors, $y + 3), 2)
               );
             }
           }
@@ -133,23 +133,23 @@ $colors: ("blue", #228ae6, #1c7cd6)
           .HeroSection-styleName--Home-ublock-origin {
             @if $x == 0 {
               @include floor-tile(
-                nth(nth($colors, $y + 4), 2),
-                nth(nth($colors, $y + 4), 3)
+                nth(nth($colors, $y + 4), 3),
+                nth(nth($colors, $y + 4), 2)
               );
             } @else if $x == 1 {
               @include four-point-stars(
-                nth(nth($colors, $y + 4), 2),
-                nth(nth($colors, $y + 4), 3)
+                nth(nth($colors, $y + 4), 3),
+                nth(nth($colors, $y + 4), 2)
               );
             } @else if $x == 2 {
               @include polka-dots(
-                nth(nth($colors, $y + 4), 2),
-                nth(nth($colors, $y + 4), 3)
+                nth(nth($colors, $y + 4), 3),
+                nth(nth($colors, $y + 4), 2)
               );
             } @else if $x == 3 {
               @include tic-tac-toe(
-                nth(nth($colors, $y + 4), 2),
-                nth(nth($colors, $y + 4), 3)
+                nth(nth($colors, $y + 4), 3),
+                nth(nth($colors, $y + 4), 2)
               );
             }
           }
