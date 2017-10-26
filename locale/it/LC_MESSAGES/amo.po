@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 20:01+0000\n"
+"PO-Revision-Date: 2017-10-22 10:05+0000\n"
 "Last-Translator: Gens <gensvv@rocketmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -784,7 +784,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:147
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "I language pack cambiano la lingua dell'interfaccia del browser, incluse le preferenze del menu e le impostazioni."
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
@@ -792,7 +792,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
-msgstr ""
+msgstr "Nome lingua"
 
 #: src/amo/components/LanguageTools/index.js:162
 #, fuzzy
@@ -801,11 +801,11 @@ msgstr "Trova un language pack"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
-msgstr ""
+msgstr "Dizionari"
 
 #: src/amo/components/LanguageTools/index.js:92
 msgid "Available for your locale"
-msgstr ""
+msgstr "Disponibile nella tua lingua"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
@@ -1126,6 +1126,7 @@ msgstr ""
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
 msgstr ""
+"Recensisci i componenti aggiuntivi sul sito. Gli autori si sentono spronati a migliorare i propri componenti aggiuntivi e svilupparne di nuovi quando vedono che gli utenti apprezzano il loro lavoro."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -1137,7 +1138,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Ottieni supporto"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
