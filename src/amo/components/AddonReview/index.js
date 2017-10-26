@@ -8,7 +8,7 @@ import { compose } from 'redux';
 
 import { submitReview } from 'amo/api/reviews';
 import { setDenormalizedReview, setReview } from 'amo/actions/reviews';
-import { refreshAddon } from 'core/utils';
+import { refreshAddon, sanitizeHTML } from 'core/utils';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
@@ -164,21 +164,29 @@ export class AddonReviewBase extends React.Component<Props, State> {
     }
 
     let placeholder;
-    let prompt;
+    let promptText;
     if (review.rating && review.rating > 3) {
-      prompt = i18n.gettext(
-        'Tell the world why you think this extension is fantastic!'
+      promptText = i18n.gettext(
+        `Tell the world why you think this extension is fantastic!
+        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`
       );
       placeholder = i18n.gettext(
         'Tell us what you love about this extension. Be specific and concise.'
       );
     } else {
-      prompt = i18n.gettext('Tell the world about this extension.');
+      promptText = i18n.gettext(
+        `Tell the world about this extension.
+        Please follow our %(linkStart)sreview guidelines%(linkEnd)s.`
+      );
       placeholder = i18n.gettext(
         'Tell us about your experience with this extension. ' +
         'Be specific and concise.'
       );
     }
+
+    const prompt = i18n.sprintf(promptText, {
+      linkStart: '<a href="/review_guide">', linkEnd: '</a>',
+    });
 
     return (
       <OverlayCard
@@ -187,7 +195,12 @@ export class AddonReviewBase extends React.Component<Props, State> {
         className="AddonReview"
       >
         <h2 className="AddonReview-header">{i18n.gettext('Write a review')}</h2>
-        <p className="AddonReview-prompt">{prompt}</p>
+        {/* eslint-disable react/no-danger */}
+        <p
+          className="AddonReview-prompt"
+          dangerouslySetInnerHTML={sanitizeHTML(prompt, ['a'])}
+        />
+        {/* eslint-enable react/no-danger */}
         <Rating
           styleName="large"
           rating={review.rating}

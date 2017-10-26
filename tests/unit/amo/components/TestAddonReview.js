@@ -248,18 +248,29 @@ describe(__filename, () => {
 
   it('prompts you appropriately when you are happy', () => {
     const root = render({ review: { ...defaultReview, rating: 4 } });
-    expect(root.find('.AddonReview-prompt').text())
-      .toContain('Tell the world why you think this extension is fantastic!');
+    expect(root.find('.AddonReview-prompt').html())
+      .toMatch(/Tell the world why you think this extension is fantastic!/);
     expect(root.find('.AddonReview-textarea').prop('placeholder'))
       .toMatch(/Tell us what you love/);
   });
 
   it('prompts you appropriately when you are unhappy', () => {
     const root = render({ review: { ...defaultReview, rating: 3 } });
-    expect(root.find('.AddonReview-prompt').text())
-      .toContain('Tell the world about this extension.');
+    expect(root.find('.AddonReview-prompt').html())
+      .toMatch(/Tell the world about this extension/);
     expect(root.find('.AddonReview-textarea').prop('placeholder'))
       .toMatch(/Tell us about your experience/);
+  });
+
+  // Due to L10n constraints, the HTML for the link is duplicated
+  // so we need to test both a high and low rating.
+  [1, 5].forEach((rating) => {
+    it(`rating=${rating} adds a link to the review guide`, () => {
+      const root = render({ review: { ...defaultReview, rating } });
+      expect(root.find('.AddonReview-prompt').html()).toMatch(new RegExp(
+        'Please follow our <a href="/review_guide">review guidelines</a>'
+      ));
+    });
   });
 
   it('allows you to edit existing review text', () => {
