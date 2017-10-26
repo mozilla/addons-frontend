@@ -36,9 +36,11 @@ export class HeroBase extends React.Component<Props> {
 
   render() {
     const { heroBanners, name, sections } = this.props;
+    const orderStyle = heroBanners[name] ?
+      `Hero-order-${heroBanners[name].order.join('-')}` : null;
 
     return (
-      <Card className={classNames('Hero', `Hero-name-${name}`)}>
+      <Card className={classNames('Hero', `Hero-name-${name}`, orderStyle)}>
         <div className="Hero-contents">
           {heroBanners[name] ? heroBanners[name].order.map((index) => {
             return sections[index];

@@ -46,7 +46,7 @@
   padding: 0;
   width: 100%;
 
-  @include respond-to(large) {
+  @include respond-to(medium) {
     font-size: $hero-title-font-size;
   }
 }
@@ -61,7 +61,7 @@
   padding: 0;
   width: 100%;
 
-  @include respond-to(large) {
+  @include respond-to(medium) {
     font-size: $hero-subtitle-font-size;
     margin: 20px 0 0;
   }
