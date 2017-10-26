@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-26 18:44+0000\n"
+"PO-Revision-Date: 2017-10-26 18:57+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -38,8 +38,8 @@ msgstr ""
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Citește %(count)s recenzie"
-msgstr[1] "Citește %(count)s recenzii"
-msgstr[2] "Citește %(count)s de recenzii"
+msgstr[1] "Citește toate cele %(count)s recenzii"
+msgstr[2] "Citește toate cele %(count)s de recenzii"
 
 #: src/amo/components/Addon/index.js:229
 msgid "No reviews yet"
@@ -177,7 +177,7 @@ msgstr "Citește acordul de licență pentru acest supliment"
 
 #: src/amo/components/AddonMoreInfo/index.js:109
 msgid "See all versions"
-msgstr ""
+msgstr "Vezi toate versiunile"
 
 #: src/amo/components/AddonMoreInfo/index.js:119
 msgid "See all beta versions"
@@ -1009,7 +1009,7 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
-msgstr ""
+msgstr "Găsește extensii"
 
 #: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
@@ -1021,11 +1021,11 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
-msgstr ""
+msgstr "Găsește teme"
 
 #: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
-msgstr ""
+msgstr "Găsește suplimente"
 
 #: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
