@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-22 10:05+0000\n"
+"PO-Revision-Date: 2017-10-25 20:08+0000\n"
 "Last-Translator: Gens <gensvv@rocketmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1207,7 +1207,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Suggerimenti per scrivere una buona recensione"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1224,15 +1224,15 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Condividi dettagli specifici e utili. Per esempio:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Il componente aggiuntivo funziona come ti aspettavi?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Quali funzioni hai apprezzato e quali no?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
@@ -1240,7 +1240,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "È facile da utilizzare?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
@@ -1249,7 +1249,7 @@ msgstr "Effettua l’accesso per dare un voto a questo componente aggiuntivo"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Prima di pubblicare la recensione, rileggila con calma per correggere eventuali errori di battitura."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1319,7 +1319,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Sono un autore di componenti aggiuntivi, posso eliminare recensioni e valutazioni sfavorevoli?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
