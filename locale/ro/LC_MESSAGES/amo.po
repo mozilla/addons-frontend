@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-26 18:31+0000\n"
+"PO-Revision-Date: 2017-10-26 18:44+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -173,7 +173,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:101
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Citește acordul de licență pentru acest supliment"
 
 #: src/amo/components/AddonMoreInfo/index.js:109
 msgid "See all versions"
@@ -197,7 +197,7 @@ msgstr "Ultima actualizare"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
 msgid "License"
-msgstr ""
+msgstr "Licență"
 
 #: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Privacy Policy"
@@ -205,7 +205,7 @@ msgstr "Politica de confidențialitate"
 
 #: src/amo/components/AddonMoreInfo/index.js:177
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Acord de licență pentru utilizatorul final"
 
 #: src/amo/components/AddonMoreInfo/index.js:183
 msgid "Version History"
@@ -345,15 +345,15 @@ msgstr "%s - Suplimente pentru Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
-msgstr ""
+msgstr "Nicio categorie găsită."
 
 #: src/amo/components/Categories/index.js:107
 msgid "Categories"
-msgstr ""
+msgstr "Categorii"
 
 #: src/amo/components/Categories/index.js:112
 msgid "Loading categories."
-msgstr ""
+msgstr "Se încarcă categoriile."
 
 #: src/amo/components/Category/index.js:125 src/amo/components/LandingPage/index.js:212 src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
@@ -368,11 +368,11 @@ msgstr "Extensii deosebite"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "Vezi mai multe"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
-msgstr ""
+msgstr "Extensii în tendințe"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -384,11 +384,11 @@ msgstr ""
 
 #: src/amo/components/Category/index.js:159 src/amo/components/Home/index.js:243 src/amo/components/LandingPage/index.js:153 src/amo/components/Search/index.js:104
 msgid "Featured themes"
-msgstr ""
+msgstr "Teme deosebite"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
-msgstr ""
+msgstr "Teme în tendințe"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -592,7 +592,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
-msgstr ""
+msgstr "Editează profilul"
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
@@ -620,11 +620,11 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Contul meu"
 
 #: src/amo/components/Header/index.js:97
 msgid "View Profile"
-msgstr ""
+msgstr "Vezi profilul"
 
 #: src/amo/components/Home/index.js:110
 msgid "Abstract"
@@ -636,7 +636,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Film și TV"
 
 #: src/amo/components/Home/index.js:125
 msgid "Scenery"
@@ -652,15 +652,15 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:173
 msgid "Extensions change how Firefox works"
-msgstr ""
+msgstr "Extensiile schimbă felul în care Firefox funcționează"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Personalizează felul în care Firefox funcționează cu extensii. Ești interesat de…"
 
 #: src/amo/components/Home/index.js:189
 msgid "Most Popular Extensions"
-msgstr ""
+msgstr "Cele mai populare extensii"
 
 #: src/amo/components/Home/index.js:204
 msgid "Change up your tabs"
@@ -668,27 +668,27 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:215
 msgid "Up & Coming Extensions"
-msgstr ""
+msgstr "Extensii în ascensiune"
 
 #: src/amo/components/Home/index.js:230
 msgid "Themes change how Firefox looks"
-msgstr ""
+msgstr "Temele schimbă felul în care Firefox arată"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Schimbă felul în care Firefox arată cu teme."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Blockere de reclame"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "Managere de parole"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Marcaje"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
@@ -696,11 +696,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Productivitate"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr ""
+msgstr "Vizionarea de videoclipuri"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -740,7 +740,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:247
 msgid "Explore all categories"
-msgstr ""
+msgstr "Explorează toate categoriile"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
@@ -760,7 +760,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
-msgstr ""
+msgstr "Toate limbile"
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
@@ -852,7 +852,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:120
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Suplimente în tendințe"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
@@ -872,11 +872,11 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:151
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Rezultatele căutării pentru „%(query)s”"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
-msgstr ""
+msgstr "Rezultatele căutării"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -930,18 +930,18 @@ msgstr ""
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
-msgstr ""
+msgstr "Niciun supliment găsit"
 
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s supliment găsit"
+msgstr[1] "%(count)s suplimente găsite"
+msgstr[2] "%(count)s de suplimente găsite"
 
 #: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
 msgid "All"
-msgstr ""
+msgstr "Toate"
 
 #: src/amo/components/SearchFilters/index.js:101
 msgid "Extension"
@@ -981,27 +981,27 @@ msgstr "În topul evaluărilor"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "În tendințe"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
-msgstr ""
+msgstr "Filtrează rezultatele"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Sort by"
-msgstr ""
+msgstr "Sortează după"
 
 #: src/amo/components/SearchFilters/index.js:160
 msgid "Add-on Type"
-msgstr ""
+msgstr "Tipul suplimentului"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "Operating System"
-msgstr ""
+msgstr "Sistem de operare"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Featured add-ons only"
-msgstr ""
+msgstr "Doar suplimente deosebite"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
@@ -1057,11 +1057,11 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Dicționare și pachete lingvistice"
 
 #: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
-msgstr ""
+msgstr "Instrumente pentru căutare"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
@@ -1069,7 +1069,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
-msgstr ""
+msgstr "pentru Firefox"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
@@ -1077,7 +1077,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
-msgstr ""
+msgstr "Explorează"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
@@ -1325,7 +1325,7 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
-msgstr ""
+msgstr "Instalează tema"
 
 #: src/core/components/InstallButton/index.js:132 src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"
