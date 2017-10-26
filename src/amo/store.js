@@ -6,6 +6,7 @@ import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
+import redirectTo from 'amo/reducers/redirectTo';
 import reviews from 'amo/reducers/reviews';
 import viewContext from 'amo/reducers/viewContext';
 import abuse from 'core/reducers/abuse';
@@ -43,6 +44,7 @@ export default function createStore(initialState = {}) {
       installations,
       landing,
       reduxAsyncConnect,
+      redirectTo,
       reviews,
       search,
       user,

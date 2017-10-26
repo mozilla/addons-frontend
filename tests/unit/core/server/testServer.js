@@ -9,20 +9,29 @@ import supertest from 'supertest';
 import defaultConfig, { util as configUtil } from 'config';
 import cheerio from 'cheerio';
 
+import createAmoStore from 'amo/store';
+import amoRoutes from 'amo/routes';
 import baseServer from 'core/server/base';
 import apiReducer from 'core/reducers/api';
 import userReducer from 'core/reducers/user';
+import addonsSaga from 'core/sagas/addons';
 import userSaga from 'core/sagas/user';
+import * as coreApi from 'core/api';
 import * as userApi from 'core/api/user';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
+import {
+  createAddonsApiResult,
+  fakeAddon,
+} from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
+  let mockApi;
   let mockUserApi;
 
   const _helmetCanUseDOM = Helmet.canUseDOM;
-  const defaultStubRoutes = (
+  const stubRoutes = (
     <Router>
       <Route path="*" component={FakeApp} />
     </Router>
@@ -33,6 +42,7 @@ describe(__filename, () => {
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
+    mockApi = sinon.mock(coreApi);
     mockUserApi = sinon.mock(userApi);
   });
 
@@ -56,7 +66,7 @@ describe(__filename, () => {
   }
 
   function testClient({
-    stubRoutes = defaultStubRoutes,
+    routes = stubRoutes,
     store = null,
     sagaMiddleware = null,
     appSagas = null,
@@ -73,7 +83,7 @@ describe(__filename, () => {
     // eslint-disable-next-line no-empty-function
     function* fakeSaga() {}
 
-    const app = baseServer(stubRoutes, _createStoreAndSagas, {
+    const app = baseServer(routes, _createStoreAndSagas, {
       appSagas: appSagas || fakeSaga,
       appInstanceName: 'testapp',
       config,
@@ -103,13 +113,13 @@ describe(__filename, () => {
         }
       }
 
-      const stubRoutes = (
+      const notFoundStubRoutes = (
         <Router>
           <Route path="*" component={NotFound} />
         </Router>
       );
 
-      const response = await testClient({ stubRoutes })
+      const response = await testClient({ routes: notFoundStubRoutes })
         .get('/en-US/firefox/simulation-of-a-non-existent-page')
         .end();
 
@@ -261,6 +271,32 @@ describe(__filename, () => {
       expect(reduxStoreState.api).toEqual(api);
       expect(reduxStoreState.user).toEqual(user);
       mockUserApi.verify();
+    });
+
+    it('performs a server redirect when requested by the app', async () => {
+      const { store, sagaMiddleware } = createAmoStore();
+
+      const addon = fakeAddon;
+      mockApi
+        .expects('fetchAddon')
+        .once()
+        .resolves(createAddonsApiResult([addon]));
+
+      const client = testClient({
+        routes: amoRoutes,
+        appSagas: addonsSaga,
+        sagaMiddleware,
+        store,
+      });
+
+      const response = await client
+        .get(`/en-US/firefox/addon/${addon.id}/`)
+        .end();
+
+      expect(response.status).toEqual(301);
+      expect(response.headers.location)
+        .toEqual(`/en-US/firefox/addon/${addon.slug}/`);
+      mockApi.verify();
     });
   });
 });
