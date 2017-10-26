@@ -15,6 +15,7 @@ import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
+import MetadataCard from 'ui/components/MetadataCard';
 import type {
   CollectionsState,
   CollectionType,
@@ -129,28 +130,24 @@ export class CollectionBase extends React.Component<Props> {
           <p className="Collection-description">
             {collection ? collection.description : <LoadingText />}
           </p>
-          <div className="Collection-metadata">
-            <dl className="Collection-number-of-addons">
-              <dd>
-                {collection ? collection.numberOfAddons : <LoadingText />}
-              </dd>
-              <dt>{i18n.gettext('Addons')}</dt>
-            </dl>
-            <dl className="Collection-author-name">
-              <dd className="Collection-author-name-value">
-                {collection ? collection.authorName : <LoadingText />}
-              </dd>
-              <dt>{i18n.gettext('Creator')}</dt>
-            </dl>
-            <dl className="Collection-last-updated">
-              <dd>
-                {collection ?
-                  i18n.moment(collection.lastUpdatedDate).format('ll')
-                  : <LoadingText />}
-              </dd>
-              <dt>{i18n.gettext('Last updated')}</dt>
-            </dl>
-          </div>
+          <MetadataCard
+            metadata={[
+              {
+                content: collection ? collection.numberOfAddons : null,
+                title: i18n.gettext('Add-ons'),
+              },
+              {
+                content: collection ? collection.authorName : null,
+                title: i18n.gettext('Creator'),
+              },
+              {
+                content: collection ?
+                  i18n.moment(collection.lastUpdatedDate).format('ll') :
+                  null,
+                title: i18n.gettext('Last updated'),
+              },
+            ]}
+          />
         </Card>
         <div className="Collection-items">
           <AddonsCard

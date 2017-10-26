@@ -92,7 +92,7 @@ describe(__filename, () => {
       expect(root.find('.AddonReviewList-header-icon img').prop('src'))
         .toEqual(fallbackIcon);
       expect(root.find('.AddonReviewList-header-text').find(LoadingText))
-        .toHaveLength(2);
+        .toHaveLength(3);
 
       // Make sure four review placeholders were rendered.
       expect(root.find(AddonReviewListItem)).toHaveLength(4);
@@ -422,6 +422,48 @@ describe(__filename, () => {
     it('requires an addon prop to produce a URL', () => {
       expect(() => render({ addon: null }).instance().addonURL())
         .toThrowError(/cannot access addonURL/);
+    });
+
+    it('renders author names without links if no URLs', () => {
+      const addon = {
+        ...fakeAddon,
+        authors: [
+          {
+            name: 'Hayley',
+            url: null,
+          },
+        ],
+      };
+      dispatchAddon(addon);
+      const root = render();
+
+      const h3 = root.find('.AddonReviewList-header-authors');
+
+      expect(h3.render().text()).toEqual('by Hayley');
+      expect(h3.render().find('a')).toHaveLength(0);
+    });
+
+    it('renders author names with URLs if they exist', () => {
+      const addon = {
+        ...fakeAddon,
+        authors: [
+          {
+            name: 'Chantal',
+            url: 'http://www.carolynmark.com/',
+          },
+          {
+            name: 'Leroy',
+            url: 'http://www.carolynmark.com/',
+          },
+        ],
+      };
+      dispatchAddon(addon);
+      const root = render();
+
+      const h3 = root.find('.AddonReviewList-header-authors');
+
+      expect(h3.render().text()).toEqual('by Chantal, Leroy');
+      expect(h3.render().find('a')).toHaveLength(2);
     });
 
     it('configures a paginator with the right URL', () => {

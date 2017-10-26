@@ -482,62 +482,65 @@ export class AddonBase extends React.Component {
         )}
 
         {errorBanner}
+        <div className="Addon-header-wrapper">
+          <Card className="Addon-header-info-card" photonStyle>
+            <header className="Addon-header">
+              <h1 className="Addon-title" {...titleProps} />
+              <p className="Addon-summary" {...summaryProps} />
 
-        <Card className="" photonStyle>
-          <header className="Addon-header">
-            <h1 className="Addon-title" {...titleProps} />
-            <p className="Addon-summary" {...summaryProps} />
+              <div className="Addon-badges">
+                {isFeatured ? (
+                  <Badge
+                    type="featured"
+                    label={this.getFeaturedText(addonType)}
+                  />
+                ) : null}
+                {isRestartRequired ? (
+                  <Badge
+                    type="restart-required"
+                    label={i18n.gettext('Restart Required')}
+                  />
+                ) : null}
+                {isExperimental ? (
+                  <Badge
+                    type="experimental"
+                    label={i18n.gettext('Experimental')}
+                  />
+                ) : null}
+              </div>
 
-            <div className="Addon-badges">
-              {isFeatured ? (
-                <Badge
-                  type="featured"
-                  label={this.getFeaturedText(addonType)}
-                />
-              ) : null}
-              {isRestartRequired ? (
-                <Badge
-                  type="restart-required"
-                  label={i18n.gettext('Restart Required')}
-                />
-              ) : null}
-              {isExperimental ? (
-                <Badge
-                  type="experimental"
-                  label={i18n.gettext('Experimental')}
-                />
-              ) : null}
-            </div>
+              {addon ?
+                <InstallButton
+                  {...this.props}
+                  className="Button--wide"
+                  disabled={!isCompatible}
+                  ref={(ref) => { this.installButton = ref; }}
+                  src={src}
+                  status={installStatus}
+                  useButton
+                /> : null
+              }
 
-            {addon ?
-              <InstallButton
-                {...this.props}
-                className="Button--wide"
-                disabled={!isCompatible}
-                ref={(ref) => { this.installButton = ref; }}
-                src={src}
-                status={installStatus}
-                useButton
-              /> : null
-            }
+              {this.headerImage({ compatible: isCompatible })}
 
-            {this.headerImage({ compatible: isCompatible })}
+              <h2 className="visually-hidden">
+                {i18n.gettext('Extension Metadata')}
+              </h2>
+            </header>
 
-            <h2 className="visually-hidden">
-              {i18n.gettext('Extension Metadata')}
-            </h2>
+            {compatibility && !isCompatible ? (
+              <AddonCompatibilityError
+                maxVersion={compatibility.maxVersion}
+                minVersion={compatibility.minVersion}
+                reason={compatibility.reason}
+              />
+            ) : null}
+          </Card>
 
+          <Card className="Addon-header-meta-and-ratings" photonStyle>
             <AddonMeta addon={addon} />
-          </header>
-
-          {compatibility && !isCompatible ? (
-            <AddonCompatibilityError
-              maxVersion={compatibility.maxVersion}
-              minVersion={compatibility.minVersion}
-              reason={compatibility.reason}
-            />
-          ) : null}
-        </Card>
+          </Card>
+        </div>
 
         <div className="Addon-details">
           <div className="Addon-main-content">
