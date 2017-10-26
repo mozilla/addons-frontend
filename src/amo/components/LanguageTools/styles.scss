@@ -54,3 +54,9 @@ $cell-padding: 6px;
     min-height: $font-size-m + (2 * $cell-padding);
   }
 }
+
+.LanguageTool-localeName {
+  @include respond-to(large) {
+    width: 25%;
+  }
+}

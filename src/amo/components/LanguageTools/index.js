@@ -155,7 +155,7 @@ export class LanguageToolsBase extends React.Component<Props> {
         <Table className="LanguageTools-table">
           <Thead>
             <Tr className="LanguageTools-header-row">
-              <Th className="LanguageTools-header-cell">
+              <Th className="LanguageTools-header-cell LanguageTool-localeName">
                 {i18n.gettext('Locale Name')}
               </Th>
               <Th className="LanguageTools-header-cell">
@@ -194,7 +194,9 @@ export class LanguageToolsBase extends React.Component<Props> {
                   )}
                   key={langKey}
                 >
-                  <Td lang={langKey}>{languages[langKey].native}</Td>
+                  <Td lang={langKey}>
+                    {languages[langKey].native}
+                  </Td>
                   <Td className={`LanguageTools-lang-${langKey}-languagePacks`}>
                     {languagePacks.length ?
                       <LanguageToolList addons={languagePacks} /> : null}
