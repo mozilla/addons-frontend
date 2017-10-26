@@ -1,19 +1,146 @@
-@import "~photon-colors/colors";
+@import "~core/css/inc/vars";
 
-.HomeHeroBanner {
-  .HeroSection-styleName--Home-featured-extensions {
-    background: $teal-70;
+/* stylelint-disable indentation */
+$colors: ("blue", #228ae6, #1b6ec2)
+         ("cyan", #15aabf, #1098ad)
+         ("grape", #be4bdb, #ae3ec9)
+         ("indigo", #4c6ef5, #3b5bdb)
+         ("pink", #e64980, #d6336c)
+         ("violet", #7950f2, #6741d9)
+         ("teal", #12b886, #0ca678);
+
+/* stylelint-enable indentation */
+
+@function encodeColor($string) {
+  @if type-of($string) == "color" {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string:unquote("#{$hex}");
   }
 
-  .HeroSection-styleName--Home-youtube-high-definition {
-    background: $green-70;
-  }
+  $string: "%23" + $string;
 
-  .HeroSection-styleName--Home-privacy-matters {
-    background: $ink-70;
-  }
+  @return $string;
+}
 
-  .HeroSection-styleName--Home-ublock-origin {
-    background: $red-70;
+@mixin four-point-stars($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='#{encodeColor($foreground)}' fill-opacity='0.4'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin wiggle($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='#{encodeColor($foreground)}' fill-opacity='0.4'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin bubbles($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin polka-dots($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin floor-tile($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10v10H0V10zM10 0h10v10H10V0z' fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin tic-tac-toe($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin hover($background) {
+  transition: background-color $transition-short ease-in-out;
+
+  &:hover {
+    background-color: darken($background, 20%);
+  }
+}
+
+// Generate CSS classes depending on the order (indexes) of the Hero sections.
+@for $x from 0 through 3 {
+  @for $y from 0 through 3 {
+    @for $z from 0 through 3 {
+      // It is not possible to have the same values for two (or more) different
+      // indexes.
+      @if ($x != $y and $y != $z and $z != $x) {
+        .Hero-order-#{$x}-#{$y}-#{$z} {
+          .HeroSection-styleName--Home-featured-extensions {
+            $color: nth($colors, $y + 1);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
+            @if $x == 0 {
+              @include bubbles($fg-color, $bg-color);
+            } @else if $x == 1 {
+              @include floor-tile($fg-color, $bg-color);
+            } @else if $x == 2 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 3 {
+              @include polka-dots($fg-color, $bg-color);
+            }
+          }
+
+          .HeroSection-styleName--Home-youtube-high-definition {
+            $color: nth($colors, $y + 2);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
+            @if $x == 0 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 1 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 2 {
+              @include bubbles($fg-color, $bg-color);
+            } @else if $x == 3 {
+              @include floor-tile($fg-color, $bg-color);
+            }
+          }
+
+          .HeroSection-styleName--Home-privacy-matters {
+            $color: nth($colors, $y + 3);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
+            @if $x == 0 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 1 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 2 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 3 {
+              @include wiggle($fg-color, $bg-color);
+            }
+          }
+
+          .HeroSection-styleName--Home-ublock-origin {
+            $color: nth($colors, $y + 4);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
+            @if $x == 0 {
+              @include floor-tile($fg-color, $bg-color);
+            } @else if $x == 1 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 2 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 3 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            }
+          }
+        }
+      }
+    }
   }
 }
