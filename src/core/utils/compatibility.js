@@ -19,7 +19,17 @@ import log from 'core/logger';
 export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
-  let supportsClientApp = false;
+  let supportsClientApp;
+  if (addon && addon.type === ADDON_TYPE_EXTENSION) {
+    // Extensions must opt into compatibility for each client app by
+    // defining min/max versions. Until we see that definition, assume
+    // they are incompatible.
+    supportsClientApp = false;
+  } else {
+    // Non-extension add-ons do not need to define min/max client app
+    // versions so assume they are compatible.
+    supportsClientApp = true;
+  }
   if (
     addon && addon.current_version && addon.current_version.compatibility
   ) {
@@ -31,7 +41,6 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
       _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
         compatibility info found but this is expected.`,
         { addon, clientApp });
-      supportsClientApp = true;
     } else {
       _log.error(
         'addon found with no compatibility info for valid clientApp',

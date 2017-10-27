@@ -2,7 +2,9 @@ import { oneLine } from 'common-tags';
 import UAParser from 'ua-parser-js';
 
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
@@ -21,7 +23,7 @@ import {
   getClientCompatibility,
   isCompatibleWithUserAgent,
 } from 'core/utils/compatibility';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   createFakeMozWindow,
   userAgents,
@@ -447,10 +449,60 @@ describe(__filename, () => {
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
-          // No clientApp is supported.
+          // Search providers do not declare clientApp compatibility.
           compatibility: {},
         },
         type: ADDON_TYPE_OPENSEARCH,
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_ANDROID,
+      });
+
+      expect(supportsClientApp).toEqual(true);
+    });
+
+    it('always marks clientApp as supported for themes', () => {
+      const addon = createInternalAddon({
+        ...fakeTheme,
+        current_version: {
+          ...fakeTheme.current_version,
+          // Themes do not declare clientApp compatibility.
+          compatibility: {},
+        },
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_ANDROID,
+      });
+
+      expect(supportsClientApp).toEqual(true);
+    });
+
+    it('always marks clientApp as supported for dictionaries', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          // Dictionaries do not declare clientApp compatibility.
+          compatibility: {},
+        },
+        type: ADDON_TYPE_DICT,
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_ANDROID,
+      });
+
+      expect(supportsClientApp).toEqual(true);
+    });
+
+    it('always marks clientApp as supported for lang packs', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          // Lang packs do not declare clientApp compatibility.
+          compatibility: {},
+        },
+        type: ADDON_TYPE_LANG,
       });
       const { supportsClientApp } = getCompatibleVersions({
         addon, clientApp: CLIENT_APP_ANDROID,
