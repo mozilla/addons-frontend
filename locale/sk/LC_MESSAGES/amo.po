@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-27 19:51+0000\n"
+"PO-Revision-Date: 2017-10-27 21:48+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -368,7 +368,7 @@ msgstr "Odporúčané rozšírenia"
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "Viac"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 #, fuzzy
@@ -474,14 +474,12 @@ msgid "Flag"
 msgstr "Nahlásiť"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Centrum vývojárov"
+msgstr "Nahlásiť túto odpoveď od vývojára"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Ťuknutím zobrazíte ukážku"
+msgstr "Nahlásiť túto recenziu"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 #, fuzzy
@@ -495,11 +493,11 @@ msgstr "Ak chcete ohodnotiť túto tému vzhľadu, musíte sa prihlásiť"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Nemôžete nahlásiť svoju odpoveď"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Nemôžete nahlásiť svoju vlastnú recenziu"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
