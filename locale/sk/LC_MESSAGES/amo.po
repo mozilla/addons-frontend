@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-27 19:10+0000\n"
+"PO-Revision-Date: 2017-10-27 19:51+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -308,14 +308,12 @@ msgid "Publishing reply"
 msgstr "Publikujem odpoveď"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "od %(authorName)s, %(timestamp)s"
+msgstr "uverejnené %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:205
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "od %(authorName)s, %(timestamp)s"
+msgstr "autor: %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:257
 msgid "Edit my reply"
