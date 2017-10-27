@@ -68,7 +68,7 @@ export class AboutBase extends React.Component {
             <p>
               {i18n.gettext(`Mozilla is a non-profit champion of the Internet, we
                 build Firefox to help keep it healthy, open and accessible. Add-ons
-                suport user choice and customization in Firefox, and you can
+                support user choice and customization in Firefox, and you can
                 contribute in the following ways:`)}
             </p>
             <ul>
