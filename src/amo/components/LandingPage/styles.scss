@@ -1,5 +1,6 @@
 @import "~amo/css/inc/vars";
 @import "~core/css/inc/mixins";
+@import "~ui/css/vars";
 
 .LandingPage {
   padding: $padding-page;
@@ -10,17 +11,17 @@
 }
 
 .LandingPage-header {
-  margin: 30px 20px 20px;
+  background-color: $white;
+  border-radius: $border-radius-default;
+  margin-bottom: 12px;
+  padding: 24px;
 
   @include respond-to(medium) {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    font-size: $font-size-default;
-    justify-content: center;
-    margin: 50px auto 40px;
-    max-width: 1000px;
-    padding: 0 40px;
+    padding: 48px 36px;
+  }
+
+  @include respond-to(large) {
+    margin-bottom: 24px;
   }
 }
 
@@ -32,32 +33,28 @@
   }
 }
 
-.LandingPage-icon {
-  width: 100%;
-
-  @include respond-to(large) {
-    height: 225px;
-  }
-}
-
 .LandingPage-addonType-name {
+  @include font-bold();
+
   font-size: $font-size-l;
-  font-weight: 300;
-  margin: 0 0 15px;
+  margin: 0 0 6px;
 
   @include respond-to(medium) {
     font-size: $font-size-xl;
+    margin: 0 0 12px;
   }
 }
 
 .LandingPage-heading-content {
-  font-size: $font-size-m;
-  font-weight: normal;
+  @include font-regular();
+
+  font-size: $font-size-s;
   line-height: 1.5;
+  margin: 0;
   max-width: 600px;
 
   @include respond-to(medium) {
-    @include margin-end(20px);
+    font-size: $font-size-m;
   }
 }
 

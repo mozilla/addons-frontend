@@ -26,15 +26,9 @@ import {
 } from 'core/utils';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
-import Icon from 'ui/components/Icon/index';
 
 import './styles.scss';
 
-
-const ICON_MAP = {
-  [ADDON_TYPE_EXTENSION]: 'multitasking-octopus',
-  [ADDON_TYPE_THEME]: 'artistic-unicorn',
-};
 
 export class LandingPageBase extends React.Component {
   static propTypes = {
@@ -177,18 +171,6 @@ export class LandingPageBase extends React.Component {
     return { addonType, html: contentForTypes[addonType] };
   }
 
-  icon(addonType) {
-    return (
-      <Icon
-        className={classNames(
-          'LandingPage-icon',
-          `LandingPage-icon--${addonType}`,
-        )}
-        name={ICON_MAP[addonType]}
-      />
-    );
-  }
-
   render() {
     const {
       errorHandler,
@@ -227,15 +209,12 @@ export class LandingPageBase extends React.Component {
         {errorHandler.renderErrorIfPresent()}
 
         <div className="LandingPage-header">
-          <div className="LandingPage-header-text">
-            <h1 className="LandingPage-addonType-name">
-              {headingText[addonType]}
-            </h1>
-            <p className="LandingPage-heading-content">
-              {contentText[addonType]}
-            </p>
-          </div>
-          {this.icon(addonType)}
+          <h1 className="LandingPage-addonType-name">
+            {headingText[addonType]}
+          </h1>
+          <p className="LandingPage-heading-content">
+            {contentText[addonType]}
+          </p>
         </div>
 
         <Categories addonType={addonType} />
