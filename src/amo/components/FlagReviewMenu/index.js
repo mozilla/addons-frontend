@@ -29,6 +29,7 @@ type Props = {|
   review: UserReviewType,
   siteUser: UserStateType,
   userIsAuthenticated: boolean,
+  wasFlagged: boolean,
 |};
 
 export class FlagReviewMenuBase extends React.Component<Props> {
@@ -45,6 +46,7 @@ export class FlagReviewMenuBase extends React.Component<Props> {
       review,
       siteUser,
       userIsAuthenticated,
+      wasFlagged,
     } = this.props;
 
     let items;
@@ -125,7 +127,9 @@ export class FlagReviewMenuBase extends React.Component<Props> {
         idPrefix="flag-review-"
         items={items}
         openerClass={openerClass}
-        openerText={i18n.gettext('Flag')}
+        openerText={wasFlagged ?
+          i18n.gettext('Flagged') : i18n.gettext('Flag')
+        }
         openerTitle={isDeveloperReply ?
           i18n.gettext('Flag this developer response') :
           i18n.gettext('Flag this review')
@@ -137,8 +141,17 @@ export class FlagReviewMenuBase extends React.Component<Props> {
 
 const mapStateToProps = (
   state: {| user: UserStateType, reviews: ReviewState |},
+  ownProps: Props,
 ) => {
+  let wasFlagged = false;
+  if (ownProps.review) {
+    const view = state.reviews.view[ownProps.review.id];
+    if (view && view.flag) {
+      wasFlagged = true;
+    }
+  }
   return {
+    wasFlagged,
     siteUser: state.user,
     userIsAuthenticated: isAuthenticated(state),
   };

@@ -6,7 +6,9 @@ import {
   REVIEW_FLAG_REASON_LANGUAGE,
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
-import { denormalizeReview } from 'amo/actions/reviews';
+import {
+  denormalizeReview, setReviewWasFlagged,
+} from 'amo/actions/reviews';
 import FlagReview from 'amo/components/FlagReview';
 import FlagReviewMenu, {
   FlagReviewMenuBase,
@@ -178,6 +180,18 @@ describe(__filename, () => {
 
       expect(menu.find('.FlagReviewMenu-flag-bug-support-item'))
         .toHaveLength(0);
+    });
+
+    it('changes prompt after review has been flagged', () => {
+      const review = denormalizeReview(fakeReview);
+      store.dispatch(setReviewWasFlagged({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: review.id,
+      }));
+
+      const root = render({ review });
+
+      expect(root.find(TooltipMenu)).toHaveProp('openerText', 'Flagged');
     });
   });
 });

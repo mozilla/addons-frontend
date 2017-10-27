@@ -11,9 +11,7 @@ import {
   setReview,
   setReviewReply,
 } from 'amo/actions/reviews';
-import {
-  REVIEW_FLAG_REASON_BUG_SUPPORT, REVIEW_FLAG_REASON_SPAM,
-} from 'amo/constants';
+import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
 import reviewsReducer, {
   changeViewState, expandReviewObjects, initialState, storeReviewObjects,
 } from 'amo/reducers/reviews';
@@ -444,11 +442,10 @@ describe(__filename, () => {
         reviewId: review.id,
       }));
 
-      expect(state.view[review.id].flags).toMatchObject({
-        [REVIEW_FLAG_REASON_SPAM]: {
-          inProgress: true,
-          wasFlagged: false,
-        },
+      expect(state.view[review.id].flag).toMatchObject({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        inProgress: true,
+        wasFlagged: false,
       });
     });
 
@@ -460,11 +457,10 @@ describe(__filename, () => {
         reviewId: review.id,
       }));
 
-      expect(state.view[review.id].flags).toMatchObject({
-        [REVIEW_FLAG_REASON_SPAM]: {
-          inProgress: false,
-          wasFlagged: true,
-        },
+      expect(state.view[review.id].flag).toMatchObject({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        inProgress: false,
+        wasFlagged: true,
       });
     });
   });
@@ -517,17 +513,16 @@ describe(__filename, () => {
       expect(newState.view[review.id].secondFlag).toEqual(true);
     });
 
-    it('preserves existing flags per `reason` value', () => {
+    it('preserves existing flag review values', () => {
       const review = { ...fakeReview, id: 987 };
 
       const state = changeViewState({
         state: initialState,
         reviewId: review.id,
         stateChange: {
-          flags: {
-            [REVIEW_FLAG_REASON_SPAM]: {
-              inProgress: true,
-            },
+          flag: {
+            reason: REVIEW_FLAG_REASON_SPAM,
+            inProgress: true,
           },
         },
       });
@@ -536,53 +531,17 @@ describe(__filename, () => {
         state,
         reviewId: review.id,
         stateChange: {
-          flags: {
-            [REVIEW_FLAG_REASON_BUG_SUPPORT]: {
-              inProgress: false,
-            },
+          flag: {
+            reason: REVIEW_FLAG_REASON_SPAM,
+            wasFlagged: true,
           },
         },
       });
 
-      const newFlags = newState.view[review.id].flags;
-      expect(newFlags[REVIEW_FLAG_REASON_SPAM].inProgress)
-        .toEqual(true);
-      expect(newFlags[REVIEW_FLAG_REASON_BUG_SUPPORT].inProgress)
-        .toEqual(false);
-    });
-
-    it('preserves existing flag values for the same `reason`', () => {
-      const review = { ...fakeReview, id: 987 };
-
-      const state = changeViewState({
-        state: initialState,
-        reviewId: review.id,
-        stateChange: {
-          flags: {
-            [REVIEW_FLAG_REASON_SPAM]: {
-              inProgress: true,
-            },
-          },
-        },
-      });
-
-      const newState = changeViewState({
-        state,
-        reviewId: review.id,
-        stateChange: {
-          flags: {
-            [REVIEW_FLAG_REASON_SPAM]: {
-              wasFlagged: true,
-            },
-          },
-        },
-      });
-
-      const newFlags = newState.view[review.id].flags;
-      expect(newFlags[REVIEW_FLAG_REASON_SPAM].inProgress)
-        .toEqual(true);
-      expect(newFlags[REVIEW_FLAG_REASON_SPAM].wasFlagged)
-        .toEqual(true);
+      const newFlag = newState.view[review.id].flag;
+      expect(newFlag.inProgress).toEqual(true);
+      expect(newFlag.wasFlagged).toEqual(true);
+      expect(newFlag.reason).toEqual(REVIEW_FLAG_REASON_SPAM);
     });
 
     it('sets default view states', () => {
@@ -596,7 +555,7 @@ describe(__filename, () => {
 
       expect(state.view[review.id]).toEqual({
         editingReview: false,
-        flags: {},
+        flag: {},
         replyingToReview: false,
         submittingReply: false,
       });
