@@ -33,7 +33,7 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-
+export const SEARCH_TERM_MAX_LENGTH = 100;
 export class SearchFormBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string,
@@ -125,7 +125,10 @@ export class SearchFormBase extends React.Component {
   }
 
   handleSearchChange = (event) => {
-    this.setState({ searchValue: event.target.value });
+    const searchValue = event.target.value || '';
+    if (searchValue.trim().length <= SEARCH_TERM_MAX_LENGTH) {
+      this.setState({ searchValue });
+    }
   }
 
   dispatchAutocompleteStart = this.props.debounce(({ filters }) => {
@@ -141,6 +144,11 @@ export class SearchFormBase extends React.Component {
     if (!value) {
       log.debug(oneLine`Ignoring suggestions fetch requested because value
         is not supplied: ${value}`);
+      return;
+    }
+
+    if (value.length > SEARCH_TERM_MAX_LENGTH) {
+      log.debug(oneLine`SEARCH_TERM_MAX_LENGTH: ${SEARCH_TERM_MAX_LENGTH} exceeds`);
       return;
     }
 
@@ -218,6 +226,7 @@ export class SearchFormBase extends React.Component {
 
     const inputProps = {
       className: 'SearchForm-query',
+      maxLength: SEARCH_TERM_MAX_LENGTH,
       name: 'q',
       onChange: this.handleSearchChange,
       placeholder: placeholderText,
