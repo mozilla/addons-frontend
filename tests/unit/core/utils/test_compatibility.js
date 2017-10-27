@@ -400,20 +400,32 @@ describe(__filename, () => {
         .toContain(`addon is type ${ADDON_TYPE_OPENSEARCH}`);
     });
 
-    it('marks clientApp as unsupported without compatibility', () => {
+    it('marks clientApp as unsupported without extension compatibility', () => {
       const addon = createInternalAddon({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
-          compatibility: {
-            // Add Android compatibility but not Firefox compatibility.
-            [CLIENT_APP_ANDROID]: {
-              min: '48.0',
-              max: '*',
-            },
-          },
+          // This add-on is not compatible with any client apps.
+          compatibility: {},
         },
         type: ADDON_TYPE_EXTENSION,
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_FIREFOX,
+      });
+
+      expect(supportsClientApp).toEqual(false);
+    });
+
+    it('marks clientApp as unsupported without lang pack compatibility', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          // This add-on is not compatible with any client apps.
+          compatibility: {},
+        },
+        type: ADDON_TYPE_LANG,
       });
       const { supportsClientApp } = getCompatibleVersions({
         addon, clientApp: CLIENT_APP_FIREFOX,
@@ -486,23 +498,6 @@ describe(__filename, () => {
           compatibility: {},
         },
         type: ADDON_TYPE_DICT,
-      });
-      const { supportsClientApp } = getCompatibleVersions({
-        addon, clientApp: CLIENT_APP_ANDROID,
-      });
-
-      expect(supportsClientApp).toEqual(true);
-    });
-
-    it('always marks clientApp as supported for lang packs', () => {
-      const addon = createInternalAddon({
-        ...fakeAddon,
-        current_version: {
-          ...fakeAddon.current_version,
-          // Lang packs do not declare clientApp compatibility.
-          compatibility: {},
-        },
-        type: ADDON_TYPE_LANG,
       });
       const { supportsClientApp } = getCompatibleVersions({
         addon, clientApp: CLIENT_APP_ANDROID,

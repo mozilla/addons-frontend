@@ -3,8 +3,10 @@ import { oneLine } from 'common-tags';
 import mozCompare from 'mozilla-version-comparator';
 
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -20,15 +22,20 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
   let supportsClientApp;
-  if (addon && addon.type === ADDON_TYPE_EXTENSION) {
-    // Extensions must opt into compatibility for each client app by
-    // defining min/max versions. Until we see that definition, assume
-    // they are incompatible.
-    supportsClientApp = false;
-  } else {
-    // Non-extension add-ons do not need to define min/max client app
-    // versions so assume they are compatible.
+  if (
+    addon &&
+    [ADDON_TYPE_OPENSEARCH, ADDON_TYPE_DICT, ADDON_TYPE_THEME]
+      .includes(addon.type)
+  ) {
+    // For now we need to assume that the compatibility object for these
+    // add-ons cannot be trusted.
+    // TODO: default this to false when
+    // https://github.com/mozilla/addons-server/issues/6781 is fixed.
     supportsClientApp = true;
+  } else {
+    // Assume the add-on is incompatible until we see explicit support
+    // in current_version.compatibility
+    supportsClientApp = false;
   }
   if (
     addon && addon.current_version && addon.current_version.compatibility
