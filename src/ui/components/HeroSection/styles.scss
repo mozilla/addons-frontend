@@ -5,7 +5,6 @@
 
 .HeroSection {
   border-radius: $border-radius-default;
-  min-height: 128px;
   position: relative;
 }
 
@@ -17,6 +16,7 @@
   display: flex;
   flex-flow: row wrap;
   height: 100%;
+  min-height: 128px;
   padding: $padding-page;
   position: relative;
   text-decoration: none;
