@@ -17,8 +17,11 @@
   padding: 24px;
 
   @include respond-to(medium) {
-    margin-bottom: 24px;
     padding: 48px 36px;
+  }
+
+  @include respond-to(large) {
+    margin-bottom: 24px;
   }
 }
 
