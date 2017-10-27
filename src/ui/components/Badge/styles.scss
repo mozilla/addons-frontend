@@ -3,22 +3,18 @@
 @import "~ui/css/vars";
 
 .Badge {
-  @include margin-end(10px);
-
-  border: 1px solid $grey-30;
-  border-radius: 3px;
   color: $grey-90;
-  display: inline-block;
   font-size: $font-size-m-smaller;
   line-height: 1.4;
-  margin-top: 10px;
-  padding: 8px 12px 6px;
-  text-align: center;
+  margin: 0 0 6px;
+
+  @include respond-to(medium) {
+    margin: 0 0 12px;
+  }
 
   .Icon {
-    @include margin-end(10px);
+    @include margin-start(6px);
 
-    margin-top: -2px;
-    vertical-align: middle;
+    vertical-align: top;
   }
 }

@@ -9,6 +9,12 @@
   @include respond-to(large) {
     padding: $padding-page-l;
   }
+
+  .MetadataCard {
+    @include respond-to(large) {
+      margin-top: 12px;
+    }
+  }
 }
 
 .Collection-title {
@@ -19,37 +25,6 @@
 
 .Collection-description {
   font-size: $font-size-s;
-}
-
-.Collection-metadata {
-  background-color: $grey-10;
-  border-radius: $border-radius-m;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 10px;
-
-  @include respond-to(large) {
-    margin: 10px -10px 0;
-  }
-}
-
-.Collection-number-of-addons,
-.Collection-author-name,
-.Collection-last-updated {
-  @include text-align-start();
-
-  flex: 1;
-  margin: 10px 15px;
-  max-width: 30%;
-
-  dd {
-    margin: 0;
-  }
-
-  dt {
-    color: $grey-50;
-  }
 }
 
 .Collection-author-name-value {

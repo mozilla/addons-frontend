@@ -18,6 +18,14 @@
   }
 }
 
+.Addon-icon {
+  min-height: 72px;
+
+  @include respond-to(medium) {
+    min-height: 96px;
+  }
+}
+
 .Addon-icon-image {
   height: 48px;
   width: 48px;
@@ -50,11 +58,17 @@
 }
 
 .Addon-title {
+  @include font-regular();
+
   color: $black;
   font-size: $font-size-l;
-  margin: $padding-page-l 0;
+  margin: 0 0 $padding-page-l;
   width: 100%;
   word-wrap: break-word;
+
+  .Addon-persona & {
+    margin: $padding-page-l 0;
+  }
 
   @include respond-to(medium) {
     font-size: $font-size-xl;
@@ -62,6 +76,8 @@
 }
 
 .Addon-author {
+  @include font-light();
+
   display: block;
   word-wrap: break-word;
 
@@ -83,6 +99,7 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+  position: relative;
 }
 
 .Addon-theme-header {
@@ -109,46 +126,23 @@
   width: 100%;
 }
 
-.Addon-title {
-  order: 1;
+.Addon-summary-and-install-button-wrapper {
+  width: 100%;
 
   @include respond-to(medium) {
-    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
   }
-}
-
-.Addon .AddonMeta {
-  order: 2;
-
-  @include respond-to(medium) {
-    @include margin-start(auto);
-
-    margin: 10px 0;
-    order: 0;
-    text-align: right;
-  }
-}
-
-.Addon-persona .AddonMeta {
-  @include respond-to(medium) {
-    order: 1;
-  }
-}
-
-.Addon .AddonMeta-item {
-  @include margin-start(auto);
 }
 
 .Addon-summary {
-  flex-basis: 100%;
-  flex-grow: 1;
-  order: 2;
+  font-size: $font-size-m-smaller;
   overflow-x: auto;
   word-wrap: break-word;
 
   @include respond-to(medium) {
-    flex-grow: 0;
-    margin-bottom: 0;
+    @include margin-end(24px);
+
     max-width: 550px;
   }
 }
@@ -158,23 +152,20 @@
 }
 
 .Addon .InstallButton {
-  margin-top: auto;
-  order: 3;
-}
-
-.Addon .InstallButton {
   @include respond-to(medium) {
     @include margin-start(auto);
 
-    align-self: flex-end;
+    align-content: center;
+    align-self: center;
   }
 }
 
-.Addon-badges {
-  flex-basis: 100%;
-  flex-grow: 1;
-  margin-bottom: 10px;
-  order: 4;
+.Addon .InstallButton-button {
+  width: 100%;
+
+  @include respond-to(medium) {
+    width: auto;
+  }
 }
 
 .AddonDescription-more-addons {

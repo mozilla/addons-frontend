@@ -1,0 +1,22 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.AddonBadges {
+  @include respond-to(medium) {
+    display: flex;
+  }
+}
+
+.AddonBadges .Badge {
+  @include text-align-end();
+
+  @include respond-to(medium) {
+    @include margin-end(6px);
+    @include text-align-start();
+  }
+
+  @include respond-to(extraLarge) {
+    @include margin-end($padding-page-l);
+  }
+}
