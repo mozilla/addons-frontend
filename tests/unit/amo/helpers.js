@@ -39,7 +39,16 @@ export const fakeAddon = Object.freeze({
   categories: { firefox: ['other'] },
   current_beta_version: null,
   current_version: {
-    compatibility: {},
+    compatibility: {
+      [CLIENT_APP_ANDROID]: {
+        min: '48.0',
+        max: '*',
+      },
+      [CLIENT_APP_FIREFOX]: {
+        min: '48.0',
+        max: '*',
+      },
+    },
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',

@@ -21,6 +21,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
 import {
   createFakeEvent,
+  createFakeMozWindow,
   fakeI18n,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -41,10 +42,6 @@ describe(__filename, () => {
     compatible: false,
     reason: INCOMPATIBLE_NO_OPENSEARCH,
   });
-
-  const createFakeMozWindow = () => {
-    return { external: { AddSearchProvider: sinon.stub() } };
-  };
 
   const renderProps = (customProps = {}) => ({
     addon: createInternalAddon(fakeAddon),
