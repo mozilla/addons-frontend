@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-27 21:48+0000\n"
+"PO-Revision-Date: 2017-10-27 21:56+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -662,16 +662,14 @@ msgid "Seasonal"
 msgstr ""
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Môžete zmeniť to, ako Firefox funguje…"
+msgstr "Rozšírenia upravujú funkcie Firefoxu"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Najpopulárnejšie rozšírenia"
 
@@ -685,9 +683,8 @@ msgid "Up & Coming Extensions"
 msgstr "Hľadať"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Môžete zmeniť to, ako Firefox funguje…"
+msgstr "Témy vzhľadu upravujú vzhľad Firefoxu"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
@@ -727,7 +724,7 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Prehrávajte videá v HD kvalite, vypnite anotácie, zmeňte veľkosť prehrávača a mnoho ďalších vecí"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -894,9 +891,8 @@ msgid "Popular add-ons"
 msgstr "Načítavanie doplnkov"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Vyhľadávanie \"%(query)s\""
+msgstr "Výsledky vyhľadávania pre \"%(query)s\""
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -1149,9 +1145,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Doplnky pre Firefox"
+msgstr "O Doplnkoch pre Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
