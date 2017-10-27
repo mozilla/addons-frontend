@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Router, Route } from 'react-router';
@@ -9,25 +10,19 @@ import supertest from 'supertest';
 import defaultConfig, { util as configUtil } from 'config';
 import cheerio from 'cheerio';
 
-import createAmoStore from 'amo/store';
-import amoRoutes from 'amo/routes';
+import redirectToReducer, {
+  sendServerRedirect,
+} from 'amo/reducers/redirectTo';
 import baseServer from 'core/server/base';
 import apiReducer from 'core/reducers/api';
 import userReducer from 'core/reducers/user';
-import addonsSaga from 'core/sagas/addons';
 import userSaga from 'core/sagas/user';
-import * as coreApi from 'core/api';
 import * as userApi from 'core/api/user';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
-import {
-  createAddonsApiResult,
-  fakeAddon,
-} from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
-  let mockApi;
   let mockUserApi;
 
   const _helmetCanUseDOM = Helmet.canUseDOM;
@@ -42,7 +37,6 @@ describe(__filename, () => {
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
-    mockApi = sinon.mock(coreApi);
     mockUserApi = sinon.mock(userApi);
   });
 
@@ -274,29 +268,43 @@ describe(__filename, () => {
     });
 
     it('performs a server redirect when requested by the app', async () => {
-      const { store, sagaMiddleware } = createAmoStore();
+      const { store, sagaMiddleware } = createStoreAndSagas({
+        reducers: {
+          redirectTo: redirectToReducer,
+          reduxAsyncConnect,
+        },
+      });
+      const newURL = '/redirect/to/this/url';
 
-      const addon = fakeAddon;
-      mockApi
-        .expects('fetchAddon')
-        .once()
-        .resolves(createAddonsApiResult([addon]));
+      class Redirect extends React.Component {
+        componentWillMount() {
+          store.dispatch(sendServerRedirect({
+            status: 301,
+            url: newURL,
+          }));
+        }
+
+        render() {
+          return <p>a component that requests a server redirect</p>;
+        }
+      }
+
+      const redirectRoutes = (
+        <Router>
+          <Route path="*" component={Redirect} />
+        </Router>
+      );
 
       const client = testClient({
-        routes: amoRoutes,
-        appSagas: addonsSaga,
+        routes: redirectRoutes,
         sagaMiddleware,
         store,
       });
 
-      const response = await client
-        .get(`/en-US/firefox/addon/${addon.id}/`)
-        .end();
+      const response = await client.get(`/en-US/firefox/`).end();
 
       expect(response.status).toEqual(301);
-      expect(response.headers.location)
-        .toEqual(`/en-US/firefox/addon/${addon.slug}/`);
-      mockApi.verify();
+      expect(response.headers.location).toEqual(newURL);
     });
   });
 });

@@ -291,6 +291,10 @@ export default function addonsReducer(
       Object.keys(addons).forEach((key) => {
         const addon = createInternalAddon(addons[key]);
 
+        // We index add-ons by id and slug to be able to retrieve them by any
+        // of these parameters. This is needed to redirect an add-on detail
+        // page loaded by ID.
+        // See: https://github.com/mozilla/addons-frontend/issues/342
         newState[addon.id] = addon;
         newState[key] = addon;
       });

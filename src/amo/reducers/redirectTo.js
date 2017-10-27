@@ -1,4 +1,8 @@
 /* @flow */
+import config from 'config';
+
+import log from 'core/logger';
+
 
 const SEND_SERVER_REDIRECT: 'SEND_SERVER_REDIRECT' = 'SEND_SERVER_REDIRECT';
 
@@ -29,6 +33,10 @@ export const sendServerRedirect = (
   }
   if (!url) {
     throw new Error('url is required');
+  }
+  if (!config.get('server')) {
+    log.warn(`sendServerRedirect() currently does nothing when run from client
+      code`);
   }
 
   return {

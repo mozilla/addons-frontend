@@ -36,16 +36,11 @@ describe(__filename, () => {
     const newState = addons(firstState,
       loadAddons(createFetchAddonResult(anotherFakeAddon).entities));
 
+    const internalAddon = createInternalAddon(anotherFakeAddon);
     expect(newState).toEqual({
       ...firstState,
-      [anotherFakeAddon.slug]: {
-        ...createInternalAddon(anotherFakeAddon),
-        isRestartRequired: false,
-      },
-      [anotherFakeAddon.id]: {
-        ...createInternalAddon(anotherFakeAddon),
-        isRestartRequired: false,
-      },
+      [anotherFakeAddon.slug]: internalAddon,
+      [anotherFakeAddon.id]: internalAddon,
     });
   });
 

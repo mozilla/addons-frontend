@@ -96,7 +96,8 @@ export class AddonBase extends React.Component {
     if (!errorHandler.hasError()) {
       if (addon) {
         if (!isNaN(params.slug)) {
-          // The slug was a numeric ID.
+          // We only load add-ons by slug, but ID must be supported too because
+          // it is a legacy behavior.
           dispatch(sendServerRedirect({
             status: 301,
             url: `/${lang}/${clientApp}/addon/${addon.slug}/`,

@@ -422,6 +422,7 @@ describe(__filename, () => {
       status: 301,
       url: `/en-US/${clientApp}/addon/${addon.slug}/`,
     }));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('sanitizes a title', () => {
