@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 12:17+0000\n"
+"PO-Revision-Date: 2017-10-28 14:27+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -322,9 +322,8 @@ msgid "Edit my review"
 msgstr "Modifier mon avis"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Appuyer pour afficher l’aperçu"
+msgstr "Répondre à cet avis"
 
 #: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
@@ -474,24 +473,20 @@ msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Réponse du développeur"
+msgstr "Signaler la réponse du développeur"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Appuyer pour afficher l’aperçu"
+msgstr "Signaler cet avis"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Connectez-vous pour noter cette extension"
+msgstr "Connectez-vous pour signaler cette réponse"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Connectez-vous pour noter ce thème"
+msgstr "Connectez-vous pour signaler cet avis"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -590,9 +585,8 @@ msgid "Report a bug"
 msgstr "Signaler un problème"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Mon avis"
+msgstr "Guide de revue"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -1232,9 +1226,8 @@ msgid "Was it easy to use?"
 msgstr "Était-il facile à utiliser ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Connectez-vous pour noter ce module complémentaire"
+msgstr "Continuerez-vous d’utiliser ce module ?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1422,9 +1415,8 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Valider"
+msgstr "Saisissez du texte."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
