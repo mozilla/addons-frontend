@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 16:10+0000\n"
+"PO-Revision-Date: 2017-10-28 16:22+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:527
 msgid "Extension Metadata"
-msgstr ""
+msgstr "بيانات الامتداد الوصفية"
 
 #: src/amo/components/Addon/index.js:550
 msgid "Screenshots"
@@ -230,15 +230,15 @@ msgstr "إحصائيات الاستخدام"
 
 #: src/amo/components/AddonMoreInfo/index.js:209
 msgid "More information"
-msgstr ""
+msgstr "معلومات أكثر"
 
 #: src/amo/components/AddonMoreInfo/index.js:43
 msgid "Homepage"
-msgstr ""
+msgstr "صفحة البداية"
 
 #: src/amo/components/AddonMoreInfo/index.js:52
 msgid "Support Site"
-msgstr ""
+msgstr "موقع الدعم"
 
 #: src/amo/components/AddonMoreInfo/index.js:65
 msgid "Visit stats dashboard"
@@ -246,7 +246,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:73
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:93
 msgid "Read the privacy policy for this add-on"
@@ -605,7 +605,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:106
 msgid "Tools"
-msgstr ""
+msgstr "أدوات"
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
@@ -617,11 +617,11 @@ msgstr "أرسِل سمة جديدة"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
-msgstr ""
+msgstr "أدِر مفاتيح API"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
-msgstr ""
+msgstr "اخرج"
 
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
@@ -741,7 +741,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:215
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "غيّر مظهر متصفحك. اختر من بين آلاف السمات لتُلبس فَيَرفُكس الثوب الملائم لك."
 
 #: src/amo/components/LandingPage/index.js:217
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
@@ -1111,7 +1111,7 @@ msgstr "استكشف"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "أكثر…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -1307,7 +1307,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "أنا مطور إضافات، هل يمكنني الرد على المراجعات؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
@@ -1315,7 +1315,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "أنا مطور إضافات، هل يمكنني حذف المراجعات أو التقييمات غير الملائمة؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
@@ -1433,15 +1433,15 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "انتهت صلاحية الجلسة"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "حدث خطأ غير متوقع"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "أعِد التحميل للمتابعة"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
@@ -1449,11 +1449,11 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "مقيّمة بِ‍ %(rating)s من ٥"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
-msgstr ""
+msgstr "لا تقييمات"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
