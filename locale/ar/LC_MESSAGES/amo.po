@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 15:31+0000\n"
+"PO-Revision-Date: 2017-10-28 15:48+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -102,7 +102,7 @@ msgstr "إضافات أخرى من هؤلاء المطورين"
 
 #: src/amo/components/Addon/index.js:439
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)sمن %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:501
 msgid "Restart Required"
@@ -322,7 +322,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:205
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "كتبها %(authorName)s، %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:257
 msgid "Edit my reply"
@@ -381,11 +381,11 @@ msgstr "اطّلع على المزيد"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
-msgstr ""
+msgstr "الامتدادات المُتداولة"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
-msgstr ""
+msgstr "الامتدادات الأعلى تقييما"
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:211 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -405,15 +405,15 @@ msgstr "السمات الأعلى تقييما"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "تصفح كل الإضافات في هذه الفئة."
 
 #: src/amo/components/CategoryHeader/index.js:46
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "تصفح كل الامتدادات في هذه الفئة."
 
 #: src/amo/components/CategoryHeader/index.js:51
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "تصفح كل السمات في هذه الفئة."
 
 #: src/amo/components/Collection/index.js:137
 msgid "Addons"
@@ -429,7 +429,7 @@ msgstr "نزّل فَيَرفُكس"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
+msgstr "إن كنت قد ولجت وتظن أن هذه الرسالة أتتك عن طريق الخطأ، فرجاء <a href=\"%(url)s\">أبلغنا بهذه العلة</a>. وضّح الصفحة التي كنت فيها قبل هذه وما الذي كنت تحاول الوصول إليه، وسنحاول إصلاح المشكلة."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
@@ -441,7 +441,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:22
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "إن اتبعت رابطا من مكان ما، فرجاء <a href=\"%(url)s\">أبلغنا بهذه العلة</a>. وضّح الصفحة التي كنت تبحث عنها، وسنحاول إصلاحها بقدر استطاعتنا."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
@@ -449,7 +449,7 @@ msgstr "لم يُعثر على الصفحة"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
-msgstr ""
+msgstr "نأسف ولكننا لم نجد شيئا في العنوان الذي أدخلته. إن اتبعت رابطا يشير إلى إضافة، فقد يعني ذلك أن كاتب الإضافة أزالها من الموقع."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
@@ -551,7 +551,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "بلّغ عن إساءة استخدام للعلامات التجارية"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -561,7 +561,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "انتقل إلى صفحة بداية موزيلا"
 
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -673,11 +673,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:204
 msgid "Change up your tabs"
-msgstr ""
+msgstr "غيّر طابع ألسنتك"
 
 #: src/amo/components/Home/index.js:215
 msgid "Up & Coming Extensions"
-msgstr ""
+msgstr "الامتدادات القادمة"
 
 #: src/amo/components/Home/index.js:230
 msgid "Themes change how Firefox looks"
@@ -813,7 +813,7 @@ msgstr "لِج لتقييم الإضافة هذه"
 
 #: src/amo/components/RatingManager/index.js:170
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "أأنت مستمع بتجربتك مع %(addonName)s؟"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"
@@ -857,11 +857,11 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:107
 msgid "Featured add-ons"
-msgstr ""
+msgstr "إضافات مُختارة"
 
 #: src/amo/components/Search/index.js:120
 msgid "Trending add-ons"
-msgstr ""
+msgstr "إضافات مُتداولة"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
@@ -869,15 +869,15 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:138
 msgid "Popular extensions"
-msgstr ""
+msgstr "امتدادات شعبية"
 
 #: src/amo/components/Search/index.js:141
 msgid "Popular themes"
-msgstr ""
+msgstr "سمات شعبية"
 
 #: src/amo/components/Search/index.js:144
 msgid "Popular add-ons"
-msgstr ""
+msgstr "إضافات شعبية"
 
 #: src/amo/components/Search/index.js:151
 msgid "Search results for \"%(query)s\""
@@ -999,19 +999,19 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:122
 msgid "Recently Updated"
-msgstr ""
+msgstr "المُحدّثة مؤخرا"
 
 #: src/amo/components/SearchFilters/index.js:123
 msgid "Most Users"
-msgstr ""
+msgstr "عدد المستخدمين"
 
 #: src/amo/components/SearchFilters/index.js:124
 msgid "Top Rated"
-msgstr ""
+msgstr "التقييم"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "المُتداول"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
@@ -1023,7 +1023,7 @@ msgstr "رتّب حسب"
 
 #: src/amo/components/SearchFilters/index.js:160
 msgid "Add-on Type"
-msgstr ""
+msgstr "نوع الإضافة"
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "Operating System"
@@ -1031,31 +1031,31 @@ msgstr "نظام التشغيل"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Featured add-ons only"
-msgstr ""
+msgstr "الإضافات المُختارة فقط"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "انتقل إلى صفحة الإضافة"
 
 #: src/amo/components/SearchForm/index.js:208
 msgid "Find extensions"
-msgstr ""
+msgstr "ابحث في الامتدادات"
 
 #: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
-msgstr ""
+msgstr "ابحث عن قاموس"
 
 #: src/amo/components/SearchForm/index.js:212
 msgid "Find language pack"
-msgstr ""
+msgstr "ابحث عن حزمة لغة"
 
 #: src/amo/components/SearchForm/index.js:214
 msgid "Find themes"
-msgstr ""
+msgstr "ابحث في السمات"
 
 #: src/amo/components/SearchForm/index.js:216
 msgid "Find add-ons"
-msgstr ""
+msgstr "ابحث في الإضافات"
 
 #: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
@@ -1067,7 +1067,7 @@ msgstr "يُحمّل"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
-msgstr ""
+msgstr "لا تتوفر معاينة للسمة"
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
@@ -1075,7 +1075,7 @@ msgstr "يبحث…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "لم يُعثر على نتائج ”%(query)s“."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
@@ -1107,7 +1107,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
-msgstr ""
+msgstr "استكشف"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
@@ -1337,7 +1337,7 @@ msgstr "تصفّح كل السمات"
 
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
-msgstr ""
+msgstr "صفحة الإضافات الرئيسية"
 
 #: src/core/components/AuthenticateButton/index.js:64
 msgid "Register or Log in"
@@ -1345,7 +1345,7 @@ msgstr "سجّل أو لِج"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "نأسف ولكن حدث عطل ولم نقدر على إكمال طلبك. لقد سجلنا هذا الخطأ وسننظر فيه."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
@@ -1405,7 +1405,7 @@ msgstr "التالي"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "الإضافة جاهزة"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
