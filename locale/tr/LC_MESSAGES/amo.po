@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 16:08+0000\n"
+"PO-Revision-Date: 2017-10-28 13:14+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -372,9 +372,8 @@ msgid "See more"
 msgstr "Daha fazlasını gör"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
-#, fuzzy
 msgid "Trending extensions"
-msgstr "En yüksek puanlı uzantılar"
+msgstr "Gündemdeki eklentiler"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -484,9 +483,8 @@ msgid "Flag this review"
 msgstr "Ön izleme için dokunun"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Bu uzantıyı derecelendirmek için giriş yapın"
+msgstr "Bu yanıtı işaretlemek için giriş yapın"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 #, fuzzy
@@ -495,11 +493,11 @@ msgstr "Bu temayı derecelendirmek için giriş yapın"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Kendi yanıtını işaretleyemezsin"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Kendi incelemeni işaretleyemezsin"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
@@ -507,15 +505,15 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Spam olarak işaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Bu uygunsuz bir dil içeriyor"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Uygunsuz dil olarak işaretlendi"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -693,7 +691,7 @@ msgstr "Firefox’un çalışma şeklini…"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -774,7 +772,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:147
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Dil paketleri, menü seçenekleri ve ayarlar da dahil olmak üzere tarayıcınızın arayüz dilini değiştirir."
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
@@ -878,14 +876,12 @@ msgid "Trending add-ons"
 msgstr "Eklentiler yükleniyor"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "En yüksek puanlı uzantılar"
+msgstr "En yüksek puanlı eklentiler"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "En popüler uzantılar"
+msgstr "Popüler eklentiler"
 
 #: src/amo/components/Search/index.js:141
 #, fuzzy
@@ -995,7 +991,7 @@ msgstr "En yüksek puan"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "Popüler"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
@@ -1159,7 +1155,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Bize katılın"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1179,7 +1175,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "İnceleme Yönergeleri"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1209,15 +1205,15 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Eklenti beklediğiniz gibi çalıştı mı?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Hangi özellikleri beğendiniz veya beğenmediniz?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Kullanışlı mıydı?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
