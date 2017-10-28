@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 14:51+0000\n"
+"PO-Revision-Date: 2017-10-28 15:10+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -370,14 +370,14 @@ msgstr "الامتدادات"
 
 #: src/amo/components/Category/index.js:126 src/amo/components/HomeHeroBanner/index.js:36 src/amo/components/LandingPage/index.js:127 src/amo/components/Search/index.js:101
 msgid "Featured extensions"
-msgstr ""
+msgstr "الامتدادات المُختارة"
 
 #: src/amo/components/Category/index.js:135 src/amo/components/Category/index.js:145 src/amo/components/Category/index.js:155 src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188 src/amo/components/Home/index.js:190 src/amo/components/Home/index.js:205 src/amo/components/Home/index.js:216
 #: src/amo/components/Home/index.js:244 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:141 src/amo/components/LandingPage/index.js:150
 #: src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167 src/amo/components/LandingPage/index.js:173
 msgid "See more"
-msgstr ""
+msgstr "اطّلع على المزيد"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
@@ -389,11 +389,11 @@ msgstr ""
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:211 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
-msgstr ""
+msgstr "السمات"
 
 #: src/amo/components/Category/index.js:159 src/amo/components/Home/index.js:243 src/amo/components/LandingPage/index.js:153 src/amo/components/Search/index.js:104
 msgid "Featured themes"
-msgstr ""
+msgstr "السمات المُختارة"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
@@ -417,7 +417,7 @@ msgstr ""
 
 #: src/amo/components/Collection/index.js:137
 msgid "Addons"
-msgstr ""
+msgstr "الإضافات"
 
 #: src/amo/components/Collection/index.js:143
 msgid "Creator"
@@ -425,7 +425,7 @@ msgstr ""
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
-msgstr ""
+msgstr "نزّل فَيَرفُكس"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -527,7 +527,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
-msgstr ""
+msgstr "متصفح فوكَس"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
@@ -543,7 +543,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "الكعكات"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
@@ -565,7 +565,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
-msgstr ""
+msgstr "الإضافات"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -577,7 +577,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
-msgstr ""
+msgstr "مركز المطورين"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
@@ -593,11 +593,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "حالة الموقع"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
-msgstr ""
+msgstr "اعرض الموقع بنسخة سطح المكتب"
 
 #: src/amo/components/Header/index.js:102
 msgid "Edit Profile"
@@ -609,11 +609,11 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:112
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "أرسِل إضافة جديدة"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "أرسِل سمة جديدة"
 
 #: src/amo/components/Header/index.js:128
 msgid "Manage API Keys"
@@ -625,7 +625,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "إضافات فَيَرفُكس"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
@@ -661,11 +661,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:173
 msgid "Extensions change how Firefox works"
-msgstr ""
+msgstr "تُغيّر الامتدادات من طريقة عمل فَيَرفُكس"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "خصّص طريقة عمل فَيَرفُكس باستخدامك الامتدادات. أأنت مهتم بِ‍…"
 
 #: src/amo/components/Home/index.js:189
 msgid "Most Popular Extensions"
@@ -681,11 +681,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:230
 msgid "Themes change how Firefox looks"
-msgstr ""
+msgstr "تغيّر السمات من مظهر فَيَرفُكس"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -769,19 +769,19 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
-msgstr ""
+msgstr "كل المحليات"
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
-msgstr ""
+msgstr "اسم المحلية"
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language Packs"
-msgstr ""
+msgstr "حزم اللغات"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
-msgstr ""
+msgstr "القواميس"
 
 #: src/amo/components/LanguageTools/index.js:92
 msgid "Available for your locale"
@@ -1063,7 +1063,7 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
-msgstr ""
+msgstr "يُحمّل"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
@@ -1071,7 +1071,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
-msgstr ""
+msgstr "يبحث…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
@@ -1083,11 +1083,11 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "رجاء أدخِل كلمة بحث للبحث في إضافات فَيَرفُكس."
 
 #: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "القواميس وحزم اللغات"
 
 #: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
@@ -1149,13 +1149,15 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "عن إضافات فَيَرفُكس"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"يُعتبر Addons.mozilla.org (AMO اختصارا) موقع موزيلا الرسمي لاستكشاف الإضافات وتثبيتها لمتصفح فَيَرفُكس لديك. تساعدك الإضافات على تعديل تجربة التصفح وتخصيصها بإضافة مزايا جديدة إلى فَيَرفُكس، مما "
+"يحسّن من تفاعلك مع محتوى الوِب، عدا عن تغيير شكل المتصفح لديك."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
@@ -1203,7 +1205,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "نصائح لكتابة مراجعات جيدة"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1327,11 +1329,11 @@ msgstr ""
 
 #: src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
-msgstr ""
+msgstr "تصفّح كل الامتدادات"
 
 #: src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
-msgstr ""
+msgstr "تصفّح كل السمات"
 
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
@@ -1339,7 +1341,7 @@ msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:64
 msgid "Register or Log in"
-msgstr ""
+msgstr "سجّل أو لِج"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -1347,11 +1349,11 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "رمز العطل: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "نأسف لكننا لم نجد شيئا يشير إليه المسار الذي أدخلته."
 
 #: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
@@ -1359,47 +1361,47 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:132 src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"
-msgstr ""
+msgstr "أضِف إلى فَيَرفُكس"
 
 #: src/core/components/InstallSwitch/index.js:62
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "يُنزّل %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:65
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "يُثبّت %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:69
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "ثُبّت %(name)s وفُعّل. انقر لإزالة تثبيته."
 
 #: src/core/components/InstallSwitch/index.js:72
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "عُطّل %(name)s. انقر لتفعيله."
 
 #: src/core/components/InstallSwitch/index.js:75
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "يُلغي تثبيت %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:78
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "أُلغي تثبيت %(name)s. انقر لتثبيته."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "حالة تثبيت %(name)s مجهولة."
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "صفحة %(currentPage)s من أصل %(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
-msgstr ""
+msgstr "السابق"
 
 #: src/core/components/Paginate/index.js:122
 msgid "Next"
-msgstr ""
+msgstr "التالي"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -1407,7 +1409,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "بات بإمكانك الآن الوصول إلى %(name)s من شريط الأدوات."
 
 #: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
@@ -1415,7 +1417,7 @@ msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:129
 msgid "Cancel"
-msgstr ""
+msgstr "ألغِ"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
