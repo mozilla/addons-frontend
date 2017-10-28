@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 15:10+0000\n"
+"PO-Revision-Date: 2017-10-28 15:31+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -118,7 +118,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:550
 msgid "Screenshots"
-msgstr ""
+msgstr "لقطات الشاشة"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -206,7 +206,7 @@ msgstr "آخر تحديث"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
 msgid "License"
-msgstr ""
+msgstr "الرخصة"
 
 #: src/amo/components/AddonMoreInfo/index.js:171
 msgid "Privacy Policy"
@@ -397,11 +397,11 @@ msgstr "السمات المُختارة"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
 msgid "Trending themes"
-msgstr ""
+msgstr "السمات المُتداولة"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
-msgstr ""
+msgstr "السمات الأعلى تقييما"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -421,7 +421,7 @@ msgstr "الإضافات"
 
 #: src/amo/components/Collection/index.js:143
 msgid "Creator"
-msgstr ""
+msgstr "الصانع"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34 src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "لم يُعثر على الصفحة"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "Sorry, but we can't find anything at the address you entered. If you followed a link to an add-on, it's possible that add-on has been removed by its author."
@@ -459,7 +459,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "عطل في الخادوم"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -519,11 +519,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr ""
+msgstr "متصفح أندرويد"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr ""
+msgstr "متصفح آي أو إس"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
@@ -531,15 +531,15 @@ msgstr "متصفح فوكَس"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "متصفح سطح المكتب"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "النسخة التجريبية والنسخة الليلية وإصدار المطوّرين"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
-msgstr ""
+msgstr "الخصوصية"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
@@ -569,11 +569,11 @@ msgstr "الإضافات"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "عن"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "المدونة"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -581,11 +581,11 @@ msgstr "مركز المطورين"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "المنتدى"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
-msgstr ""
+msgstr "أبلِغ عن علة"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
@@ -629,7 +629,7 @@ msgstr "إضافات فَيَرفُكس"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "حسابي"
 
 #: src/amo/components/Header/index.js:97
 msgid "View Profile"
@@ -689,27 +689,27 @@ msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "حاجبات الإعلانات"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "مدراء كلمات السر"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "العلامات"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "التسوق الذكي"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "الإنتاجية"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr ""
+msgstr "مشاهدة الڤديو"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -717,7 +717,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "يوتيوب بالجودة العالية"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Play videos in HD, turn off annotations, change player size & more"
@@ -725,7 +725,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
-msgstr ""
+msgstr "احجب الإعلانات"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
@@ -753,19 +753,19 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
-msgstr ""
+msgstr "غيّر اللغة"
 
 #: src/amo/components/LanguageTools/index.js:128
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "القواميس وحزم اللغات"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "سيتيح لك تثبيت إضافة قاموس خيار لغة جديد إلى مدقق الإملاء، والذي يتأكد من صحة الإملاء وأنت تكتب في فَيَرفُكس."
 
 #: src/amo/components/LanguageTools/index.js:147
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "تُغيّر حزم اللغات لغة واجهة المتصفح، بما في ذلك خيارات القوائم والإعدادات."
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
@@ -785,31 +785,31 @@ msgstr "القواميس"
 
 #: src/amo/components/LanguageTools/index.js:92
 msgid "Available for your locale"
-msgstr ""
+msgstr "مُتاحة لمحليتك"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "لِج لتقييم القاموس هذا"
 
 #: src/amo/components/RatingManager/index.js:134
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "لِج لتقييم حزمة اللغة هذه"
 
 #: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "لِج لتقييم ملحقة البحث هذه"
 
 #: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "لِج لتقييم السمة هذه"
 
 #: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "لِج لتقييم الامتداد هذا"
 
 #: src/amo/components/RatingManager/index.js:146
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "لِج لتقييم الإضافة هذه"
 
 #: src/amo/components/RatingManager/index.js:170
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -881,11 +881,11 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:151
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "نتائج البحث عن ”%(query)s“"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
-msgstr ""
+msgstr "نتائج البحث"
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
@@ -949,49 +949,49 @@ msgstr[5] ""
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "يبحث عن ”%(query)s“"
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
-msgstr ""
+msgstr "يُحمّل الإضافات"
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
-msgstr ""
+msgstr "لم يُعثر على إضافات"
 
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
-msgstr[4] ""
-msgstr[5] ""
+msgstr[0] "لم يُعثر على أية إضافة"
+msgstr[1] "عُثر على إضافة واحدة"
+msgstr[2] "عُثر على إضافتين"
+msgstr[3] "عُثر على %(count)s إضافات"
+msgstr[4] "عُثر على %(count)s إضافة"
+msgstr[5] "عُثر على %(count)s إضافة"
 
 #: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
 msgid "All"
-msgstr ""
+msgstr "الكل"
 
 #: src/amo/components/SearchFilters/index.js:101
 msgid "Extension"
-msgstr ""
+msgstr "الامتدادات"
 
 #: src/amo/components/SearchFilters/index.js:102
 msgid "Theme"
-msgstr ""
+msgstr "السمات"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Windows"
-msgstr ""
+msgstr "وِندوز"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "macOS"
-msgstr ""
+msgstr "ماك أو إس"
 
 #: src/amo/components/SearchFilters/index.js:113
 msgid "Linux"
-msgstr ""
+msgstr "لينكس"
 
 #: src/amo/components/SearchFilters/index.js:121
 msgid "Relevance"
@@ -1015,11 +1015,11 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
-msgstr ""
+msgstr "رشّح النتائج"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Sort by"
-msgstr ""
+msgstr "رتّب حسب"
 
 #: src/amo/components/SearchFilters/index.js:160
 msgid "Add-on Type"
@@ -1027,7 +1027,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:178
 msgid "Operating System"
-msgstr ""
+msgstr "نظام التشغيل"
 
 #: src/amo/components/SearchFilters/index.js:204
 msgid "Featured add-ons only"
@@ -1079,7 +1079,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
-msgstr ""
+msgstr "لم يُعثر على نتائج."
 
 #: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
@@ -1091,7 +1091,7 @@ msgstr "القواميس وحزم اللغات"
 
 #: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
-msgstr ""
+msgstr "أدوات البحث"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
@@ -1357,7 +1357,7 @@ msgstr "نأسف لكننا لم نجد شيئا يشير إليه المسار 
 
 #: src/core/components/InstallButton/index.js:110
 msgid "Install Theme"
-msgstr ""
+msgstr "ثبّت السمة"
 
 #: src/core/components/InstallButton/index.js:132 src/core/components/InstallButton/index.js:150
 msgid "Add to Firefox"

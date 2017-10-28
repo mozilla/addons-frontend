@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:55+0000\n"
-"PO-Revision-Date: 2017-10-28 15:02+0000\n"
+"PO-Revision-Date: 2017-10-28 15:28+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "عطل في الخادوم"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
@@ -24,11 +24,11 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:31
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "رمز العطل: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:25
 msgid "Page not found"
-msgstr ""
+msgstr "لم يُعثر على الصفحة"
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -68,7 +68,7 @@ msgstr "أُلغي تثبيت %(name)s. انقر لتثبيته."
 
 #: src/core/components/InstallSwitch/index.js:81
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "حالة تثبيت %(name)s مجهولة."
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -76,7 +76,7 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "بات بإمكانك الآن الوصول إلى %(name)s من شريط الأدوات."
 
 #: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
@@ -92,23 +92,23 @@ msgstr ""
 
 #: src/disco/components/Addon.js:164
 msgid "Installation failed. Please try again."
-msgstr ""
+msgstr "فشل التثبيت. رجاء أعِد المحاولة."
 
 #: src/disco/components/Addon.js:166
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "فشل التنزيل. رجاء افحص اتصالك."
 
 #: src/disco/components/Addon.js:168
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "حدث عطل غير متوقع أثناء التثبيت."
 
 #: src/disco/components/Addon.js:170
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "حدث عطل غير متوقع أثناء إلغاء التثبيت."
 
 #: src/disco/components/Addon.js:173
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "حدث عطل غير متوقع."
 
 #: src/disco/components/Addon.js:181
 msgid "This add-on will be uninstalled after you restart Firefox."
@@ -124,15 +124,15 @@ msgstr "أغلق"
 
 #: src/disco/components/AddonCompatibilityError/index.js:41
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "لا يدعم فَيَرفُكس لآي أو إس الإضافات حاليا."
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "لا تدعم هذه الإضافة إصدارة فَيَرفُكس لديك."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "لا تدعم هذه الإضافة المتصفح لديك."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
@@ -178,4 +178,4 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "أعِد التحميل للمتابعة"
