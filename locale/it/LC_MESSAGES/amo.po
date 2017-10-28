@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-22 10:05+0000\n"
-"Last-Translator: Gens <gensvv@rocketmail.com>\n"
+"PO-Revision-Date: 2017-10-28 11:58+0000\n"
+"Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -283,14 +283,12 @@ msgid "All written reviews"
 msgstr "Scrivi una recensione"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
-#, fuzzy
 msgid "Developer response"
-msgstr "Centro di sviluppo"
+msgstr "Replica dello sviluppatore"
 
 #: src/amo/components/AddonReviewListItem/index.js:153
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Scrivi una recensione"
+msgstr "Scrivi una risposta a questa recensione."
 
 #: src/amo/components/AddonReviewListItem/index.js:156
 msgid "Update reply"
@@ -309,46 +307,40 @@ msgid "Publishing reply"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:201
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "di %(authorName)s, il %(timestamp)s"
+msgstr "pubblicato il %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:205
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "di %(authorName)s, il %(timestamp)s"
+msgstr "di %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:257
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Modifica recensione"
+msgstr "Modifica risposta"
 
 #: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my review"
 msgstr "Modifica recensione"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Tocca qui per l’anteprima"
+msgstr "Rispondi a questa recensione"
 
 #: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Componenti aggiuntivi per Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Componenti aggiuntivi per Firefox"
+msgstr "%s - Componenti aggiuntivi per Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Componenti aggiuntivi per Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Componenti aggiuntivi per Android"
+msgstr "%s - Componenti aggiuntivi per Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -674,40 +666,36 @@ msgid "Seasonal"
 msgstr "Stagioni"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "In Firefox puoi personalizzare tutto, dalle funzioni…"
+msgstr "Le estensioni modificano il funzionamento di Firefox"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Personalizza il funzionamento di Firefox grazie alle estensioni. Potrebbero interessarti…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Estensioni più popolari"
 
 #: src/amo/components/Home/index.js:204
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Rinnova le schede"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Trova un’estensione"
+msgstr "Estensioni emergenti"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "In Firefox puoi personalizzare tutto, dalle funzioni…"
+msgstr "I temi modificano l’aspetto di Firefox"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Modifica l’aspetto di Firefox con i temi."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Blocco pubblicità"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
@@ -727,7 +715,7 @@ msgstr "Produttività"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr ""
+msgstr "Riproduzione video"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -747,7 +735,7 @@ msgstr "Blocco di annunci pubblicitari"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Dal blocco degli annunci pubblicitari all‘antitracciamento, qui puoi trovare estensioni per la privacy incredibili"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
@@ -774,13 +762,12 @@ msgid "Change language"
 msgstr "Cambia lingua"
 
 #: src/amo/components/LanguageTools/index.js:128
-#, fuzzy
 msgid "Dictionaries and Language Packs"
 msgstr "Dizionari e language pack"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Installando un dizionario aggiungerai una nuova lingua al correttore ortografico, lo strumento che controlla i testi digitati in Firefox."
 
 #: src/amo/components/LanguageTools/index.js:147
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -795,9 +782,8 @@ msgid "Locale Name"
 msgstr "Nome lingua"
 
 #: src/amo/components/LanguageTools/index.js:162
-#, fuzzy
 msgid "Language Packs"
-msgstr "Trova un language pack"
+msgstr "Language pack"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
@@ -878,9 +864,8 @@ msgid "Send abuse report"
 msgstr "Invia segnalazione d’abuso"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Componente aggiuntivo consigliato"
+msgstr "Componenti aggiuntivi consigliati"
 
 #: src/amo/components/Search/index.js:120
 #, fuzzy
@@ -893,24 +878,20 @@ msgid "Top rated add-ons"
 msgstr "Estensioni più votate"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
 msgstr "Estensioni più popolari"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
 msgstr "Temi più popolari"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Caricamento dei componenti aggiuntivi in corso…"
+msgstr "Componenti aggiuntivi più popolari"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Ricerca di “%(query)s”"
+msgstr "Risultati di ricerca per “%(query)s”"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -1031,9 +1012,8 @@ msgid "Operating System"
 msgstr "Sistema operativo"
 
 #: src/amo/components/SearchFilters/index.js:204
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Componente aggiuntivo consigliato"
+msgstr "Solo componenti aggiuntivi consigliati"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
@@ -1151,9 +1131,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Componenti aggiuntivi per Firefox"
+msgstr "Informazioni sui componenti aggiuntivi per Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1216,9 +1195,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Abbiamo ricevuto la tua segnalazione. Grazie per averci comunicato i tuoi dubbi su questo componente aggiuntivo."
+msgstr "Scrivi come se stessi descrivendo la tua esperienza col componente aggiuntivo a un amico."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1245,9 +1223,8 @@ msgid "Was it easy to use?"
 msgstr "È facile da utilizzare?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Effettua l’accesso per dare un voto a questo componente aggiuntivo"
+msgstr "Continuerai ad utilizzare questo componente aggiuntivo?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1426,9 +1403,8 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:129
-#, fuzzy
 msgid "Cancel"
-msgstr "Annulla anteprima"
+msgstr "Annulla"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 #, fuzzy
