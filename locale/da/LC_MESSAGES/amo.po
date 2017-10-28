@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-27 09:47+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2017-10-28 18:14+0000\n"
+"Last-Translator: jakobkpetersen <jakobkpetersen@gmail.com>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -297,9 +297,8 @@ msgid "Publish reply"
 msgstr "Offentliggør svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:161
-#, fuzzy
 msgid "Updating reply"
-msgstr "Offentliggør svar"
+msgstr "Opdaterer svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Publishing reply"
@@ -314,9 +313,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "af %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:257
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Rediger min anmeldelse"
+msgstr "Rediger mit svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my review"
@@ -478,38 +476,36 @@ msgid "Flag this review"
 msgstr "Rapportér denne anmeldelse"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Log ind for at bedømme denne udvidelse"
+msgstr "Log ind for at rapportere dette svar"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Log ind for at bedømme dette tema"
+msgstr "Log ind for at rapportere denne anmeldelse"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Du kan ikke rapportere dit eget svar"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Du kan ikke rapportere din egen anmeldelse"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Dette er spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Anmeldt som spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Dette indeholder upassende sprogbrug"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Anmeldt for upassende sprogbrug"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -584,7 +580,6 @@ msgid "Report a bug"
 msgstr "Rapportér en fejl"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
 msgstr "Retningslinjer for anmeldelser"
 
@@ -638,81 +633,75 @@ msgstr "Abstrakt"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Natur"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Film & TV"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Malerisk"
+msgstr "Landskab"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Sæsonbestemt"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Du kan ændre, hvordan Firefox virker ..."
+msgstr "Gør Firefox bedre"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Få nye funktioner ved hjælp af udvidelser. Er du interesseret i…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Mest populære udvidelser"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
 msgstr "Lav om på dine faneblade"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Find udvidelser"
+msgstr "Up & Coming udvidelser"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Du kan ændre, hvordan Firefox virker ..."
+msgstr "Nyt udseende"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Skift udseende på Firefox ved hjælp af temaer."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Annonceblokering"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "Håndtering af adgangskoder"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Bogmærker"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Smartere shopping"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Produktivitet"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr ""
+msgstr "At se videoer"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -723,9 +712,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "Videoer i HD, slå anmærkninger fra, ændre størrelse på afspilleren med mere"
+msgstr "Afspil videoer i HD, slå anmærkninger fra, ændre størrelse på afspilleren med mere"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -760,38 +748,36 @@ msgid "Change language"
 msgstr "Skift sprog"
 
 #: src/amo/components/LanguageTools/index.js:128
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Ordbøger & sprogpakker"
+msgstr "Ordbøger og sprogpakker"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Hvis du installerer en ordbog, tilføjes et nyt sprog til din stavekontrol, som kontrollerer din stavning, mens du skriver i Firefox."
 
 #: src/amo/components/LanguageTools/index.js:147
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Sprogpakker ændrer sproget i din browsers brugerflade, herunder menuer og indstillinger."
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
-msgstr ""
+msgstr "Alle sprog"
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
-msgstr ""
+msgstr "Sprognavn"
 
 #: src/amo/components/LanguageTools/index.js:162
-#, fuzzy
 msgid "Language Packs"
-msgstr "Find sprogpakke"
+msgstr "Sprogpakker"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
-msgstr ""
+msgstr "Ordbøger"
 
 #: src/amo/components/LanguageTools/index.js:92
 msgid "Available for your locale"
-msgstr ""
+msgstr "Tilgængelig på dit sprog"
 
 #: src/amo/components/RatingManager/index.js:132
 msgid "Log in to rate this dictionary"
@@ -864,39 +850,32 @@ msgid "Send abuse report"
 msgstr "Send rapport om misbrug"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Udvalgt tilføjelse"
+msgstr "Udvalgte tilføjelser"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Indlæser tilføjelser"
+msgstr "Trending tilføjelser"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Bedst bedømte udvidelser"
+msgstr "Bedst bedømte tilføjelser"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Mest populære udvidelser"
+msgstr "Populære udvidelser"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Mest populære temaer"
+msgstr "Populære temaer"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Indlæser tilføjelser"
+msgstr "Populære tilføjelser"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Søger efter \"%(query)s\""
+msgstr "Resultat af søgning efter \"%(query)s\""
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -998,7 +977,7 @@ msgstr "Bedst bedømte"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "Trending"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
@@ -1017,9 +996,8 @@ msgid "Operating System"
 msgstr "Styresystem"
 
 #: src/amo/components/SearchFilters/index.js:204
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Udvalgt tilføjelse"
+msgstr "Kun udvalgte tilføjelser"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
