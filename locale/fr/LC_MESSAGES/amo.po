@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 14:27+0000\n"
+"PO-Revision-Date: 2017-10-28 14:36+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -305,9 +305,8 @@ msgid "Publishing reply"
 msgstr "Publication de la réponse"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "par %(authorName)s, %(timestamp)s"
+msgstr "posté %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:205
 msgid "by %(authorName)s, %(timestamp)s"
@@ -462,15 +461,15 @@ msgstr "Une erreur s’est malheureusement produite sur notre serveur et nous n�
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Ce message est un rapport de bogue ou une demande d’assistance"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Signalé comme un rapport de bogue ou une demande d’assistance"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "Signaler"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
 msgid "Flag this developer response"
@@ -490,27 +489,27 @@ msgstr "Connectez-vous pour signaler cet avis"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Vous ne pouvez pas signaler votre propre réponse"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Vous ne pouvez pas signaler votre propre avis"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Ce message est indésirable"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Signalé comme étant indésirable"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Ce message a recours à un vocabulaire inapproprié"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Signalé comme comportant un vocabulaire inapproprié"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -669,9 +668,8 @@ msgid "Most Popular Extensions"
 msgstr "Extensions les plus populaires"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
-msgstr "Modifiez vos onglets"
+msgstr "Personnalisation des onglets"
 
 #: src/amo/components/Home/index.js:215
 msgid "Up & Coming Extensions"
@@ -699,7 +697,7 @@ msgstr "Marque-pages"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Achats en ligne"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
