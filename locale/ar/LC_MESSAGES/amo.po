@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 15:48+0000\n"
+"PO-Revision-Date: 2017-10-28 16:10+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ar\n"
@@ -58,7 +58,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:295
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "ملاحظات إصدار %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:324
 msgid "More dictionaries by %(author)s"
@@ -282,7 +282,7 @@ msgstr "أرسِل المراجعة"
 
 #: src/amo/components/AddonReviewList/index.js:142
 msgid "Add-on icon"
-msgstr ""
+msgstr "أيقونة الإضافة"
 
 #: src/amo/components/AddonReviewList/index.js:148
 msgid "Reviews for %(addonName)s"
@@ -318,7 +318,7 @@ msgstr "يُرسل الرد"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
 msgid "posted %(timestamp)s"
-msgstr ""
+msgstr "نُشرت %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:205
 msgid "by %(authorName)s, %(timestamp)s"
@@ -995,7 +995,7 @@ msgstr "لينكس"
 
 #: src/amo/components/SearchFilters/index.js:121
 msgid "Relevance"
-msgstr ""
+msgstr "الصِلة"
 
 #: src/amo/components/SearchFilters/index.js:122
 msgid "Recently Updated"
@@ -1119,7 +1119,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "شارِك في %(startLink)sالمنتدى%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1195,7 +1195,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "إرشادات المراجعات"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1209,65 +1209,65 @@ msgstr "نصائح لكتابة مراجعات جيدة"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "يجب أن:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "تكتب وكأنك تخبر صديقا لك عن تجربتك مع الإضافة."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "تجعل تعليقاتك موجزة وسهلة الفهم."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "تُعطي تفاصيل مُحددة ومُفيدة. مثل:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "هل عملت الإضافة كما هو متوقع منها؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "ما هي المميزات التي أعجبتك أو لم تعجبك في الإضافة؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "هل الإضافة مفيدة بالفعل؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "هل الإضافة سهلة الإستخدام؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "هل ستستمر باستخدام هذه الإضافة؟"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "خذ وقتك في قراءة المراجعة قبل إرسالها لتقليل نسبة الأخطاء الإملائية."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "تجنّب أن:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "تُرسل مراجعات فيها كلمة واحدة مثل ”رائعة!“، أو ”مذهلة“ أو ”سيئة“."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
-msgstr ""
+msgstr "تُرسل المشاكل التقنية، أو طلب المزايا أو اقتراح الميزات. استخدم خيارات الدعم المتوفرة لكل إضافة (إن تواجدت). يمكنك الاطلاع عليها في قسم ”معلومات أكثر“ في الشريط الجانبي لصفحة تفاصيل الإضافة."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "تكتب مراجعات على الإضافات التي لم تستخدمها مُسبقا بنفسك."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "تستخدم الألفاظ النابية، أو الجنسية، أو أي ألفاظ تدعو إلى الكراهية والضغينة."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -1275,7 +1275,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "تدلي بمعلومات كاذبة، أو تنتقص من قدر المطوّرين أو تهينهم."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
