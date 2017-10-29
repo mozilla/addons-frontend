@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 04:09+0000\n"
+"PO-Revision-Date: 2017-10-29 04:12+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -859,9 +859,8 @@ msgid "Featured add-ons"
 msgstr "რჩეული დამატებები"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "დამატებების ჩატვირთვა"
+msgstr "სასურველი დამატებები ამ დროისთვის"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
