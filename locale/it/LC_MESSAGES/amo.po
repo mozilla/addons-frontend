@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 11:59+0000\n"
+"PO-Revision-Date: 2017-10-28 11:55+0000\n"
 "Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -869,9 +869,8 @@ msgid "Trending add-ons"
 msgstr "Caricamento dei componenti aggiuntivi in corso…"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Estensioni più votate"
+msgstr "Componenti aggiuntivi più votati"
 
 #: src/amo/components/Search/index.js:138
 msgid "Popular extensions"
@@ -1140,11 +1139,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Su AMO puoi anche trovare componenti aggiuntivi per Mozilla %(startTBLink)sThunderbird%(endTBLink)s e %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Una comunità di creativi"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1154,7 +1153,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Collabora con noi"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1165,6 +1164,8 @@ msgstr ""
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
 msgstr ""
+"%(startLink)sCrea un componente aggiuntivo tuo%(endLink)s. AMO mette a disposizione un servizio di hosting gratuito e aggiornamenti automatici, oltre a incrementare la tua visibilità per raggiungere"
+" un pubblico più ampio."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
@@ -1181,6 +1182,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Le recensioni sono un modo per condividere le tue opinioni sui componenti aggiuntivi che hai installato e usi. Il nostro team di moderazione si riserva il diritto di rifiutare o rimuovere ogni "
+"recensione che non rispetti queste linee guida."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1188,7 +1191,7 @@ msgstr "Suggerimenti per scrivere una buona recensione"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Utilizzo corretto:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1212,7 +1215,7 @@ msgstr "Quali funzioni hai apprezzato e quali no?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Lo trovi utile?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
@@ -1228,7 +1231,7 @@ msgstr "Prima di pubblicare la recensione, rileggila con calma per correggere ev
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Utilizzo scorretto:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
@@ -1239,6 +1242,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Usare la recensione per esporre problemi tecnici, richieste di supporto o suggerimenti per nuove funzioni. Quando presenti, utilizza invece i canali di supporto specificati dall‘autore del "
+"componente aggiuntivo. Si trovano nella sezione “Ulteriore informazioni” nella barra laterale nella pagina dedicata del componente;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
@@ -1285,6 +1290,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Se trovi una recensione discutibile, sottoponila a moderazione attraverso il link “Segnala questa recensione”. Il team di moderatori valuterà, in base alle linee guida delle recensioni, se eliminare"
+" la recensione o ripristinarla sul sito."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1293,6 +1300,8 @@ msgstr "Sono un autore di componenti aggiuntivi, posso rispondere a una recensio
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Sì, i creatori di componenti aggiuntivi hanno diritto a scrivere una sola risposta per recensione. Per continuare la conversazione o approfondire l‘argomento apri una discussione sul "
+"%(startLink)sforum%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
