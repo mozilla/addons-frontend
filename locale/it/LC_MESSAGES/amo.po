@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 11:58+0000\n"
+"PO-Revision-Date: 2017-10-28 11:59+0000\n"
 "Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -133,9 +133,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Al momento non è possibile installare componenti aggiuntivi su Firefox per iOS."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Questo componente aggiuntivo non è compatibile con la versione di Firefox in uso."
+msgstr "Questo componente aggiuntivo non è disponibile sulla piattaforma in uso."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -300,11 +299,11 @@ msgstr "Pubblica la risposta"
 
 #: src/amo/components/AddonReviewListItem/index.js:161
 msgid "Updating reply"
-msgstr ""
+msgstr "Modifica della risposta in corso…"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Publishing reply"
-msgstr ""
+msgstr "Pubblicazione risposta in corso…"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
 msgid "posted %(timestamp)s"
@@ -465,15 +464,15 @@ msgstr "Attenzione: la richiesta non è stata elaborata a causa di un errore del
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Segnalazione bug o richiesta di supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Segnalato per segnalazione bug o richiesta di supporto"
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "Segnala"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
 #, fuzzy
@@ -481,19 +480,16 @@ msgid "Flag this developer response"
 msgstr "Centro di sviluppo"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Tocca qui per l’anteprima"
+msgstr "Segnala questa recensione"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Effettua l’accesso per dare un voto a questa estensione"
+msgstr "Effettua l’accesso per segnalare questa replica"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Effettua l’accesso per dare un voto a questo tema"
+msgstr "Effettua l’accesso per segnalare questa recensione"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -501,23 +497,23 @@ msgstr "Non puoi segnalare le tue risposte"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Non puoi segnalare le tue recensioni"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Segnalato per spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Linguaggio inappropriato"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Segnalato per linguaggio inappropriato"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -727,7 +723,7 @@ msgstr "YouTube Alta Definizione"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Riproduci video in HD, disattiva le annotazioni, cambia la dimensione della finestra di riproduzione e molto altro"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -743,7 +739,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Un componente per il blocco delle pubblicità estremamente efficace e facile da usare"
 
 #: src/amo/components/LandingPage/index.js:215
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1101,7 +1097,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Partecipa alle discussioni sul %(startLink)sforum%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1110,11 +1106,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Raccomanda Firefox ai tuoi amici e familiari: spiega loro che è un browser veloce e sicuro, che protegge la loro privacy e che possono personalizzarlo con i componenti aggiuntivi!"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Per scoprire altri modi di collaborare alla comunità dei componenti aggiuntivi, visita lo %(startLink)swiki%(endLink)s dedicato."
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1416,9 +1412,8 @@ msgid "Submit"
 msgstr "Invia"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Invia"
+msgstr "Invio"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
