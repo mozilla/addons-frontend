@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 15:03+0000\n"
+"PO-Revision-Date: 2017-10-29 16:29+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -316,38 +316,32 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "від %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:257
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Напишіть відгук"
+msgstr "Змінити відповідь"
 
 #: src/amo/components/AddonReviewListItem/index.js:258
-#, fuzzy
 msgid "Edit my review"
-msgstr "Напишіть відгук"
+msgstr "Змінити відгук"
 
 #: src/amo/components/AddonReviewListItem/index.js:276
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Торкніться для перегляду"
+msgstr "Відповісти на цей відгук"
 
 #: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s - Add-ons for Firefox"
-msgstr "Додатки для Firefox"
+msgstr "%s - Додатки для Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
-#, fuzzy
 msgid "Add-ons for Android"
-msgstr "Додатки для Firefox"
+msgstr "Додатки для Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s - Add-ons for Android"
-msgstr "Додатки для Firefox"
+msgstr "%s - Додатки для Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -377,9 +371,8 @@ msgid "See more"
 msgstr ""
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Найвище оцінені розширення"
+msgstr "Популярні розширення"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -394,9 +387,8 @@ msgid "Featured themes"
 msgstr "Відібрані теми"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
-#, fuzzy
 msgid "Trending themes"
-msgstr "Найвище оцінені теми"
+msgstr "Популярні теми"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -481,24 +473,20 @@ msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Центр розробника"
+msgstr "Позначити цю відповідь розробника"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "Торкніться для перегляду"
+msgstr "Позначити цей відгук"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Увійдіть, щоб оцінити це розширення"
+msgstr "Увійдіть, щоб позначити цю відповідь"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Увійдіть, щоб оцінити цю тему"
+msgstr "Увійдіть, щоб позначити цей відгук"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -545,9 +533,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:146
-#, fuzzy
 msgid "Privacy"
-msgstr "Політика приватності"
+msgstr "Приватність"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
@@ -558,9 +545,8 @@ msgid "Legal"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:149
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Повідомити про помилку"
+msgstr "Повідомити про зловживання торговою маркою"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -573,9 +559,8 @@ msgid "Go to Mozilla's homepage"
 msgstr "Перейти на домівку Mozilla"
 
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "Посилання додатку"
+msgstr "Додатки"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
@@ -598,9 +583,8 @@ msgid "Report a bug"
 msgstr "Повідомити про помилку"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Перегляд тексту"
+msgstr "Настанови з написання відгуків"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -659,9 +643,8 @@ msgid "Film & TV"
 msgstr ""
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Сценічний"
+msgstr "Пейзажі"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
@@ -672,16 +655,14 @@ msgid "Seasonal"
 msgstr ""
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "Ви можете змінювати роботу Firefox…"
+msgstr "Розширення, що змінюють роботу Firefox"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Найпопулярніші розширення"
 
@@ -690,14 +671,12 @@ msgid "Change up your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Відібрані розширення"
+msgstr "Розширення, які набирають популярність"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "Ви можете змінювати роботу Firefox…"
+msgstr "Теми, що змінюють зовнішній вигляд Firefox"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
@@ -768,14 +747,12 @@ msgid "Explore all categories"
 msgstr "Переглянути всі категорії"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "Увійдіть, щоб оцінити цей мовний пакет"
+msgstr "Змінити мову"
 
 #: src/amo/components/LanguageTools/index.js:128
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Увійдіть, щоб оцінити цей мовний пакет"
+msgstr "Словники та мовні пакунки"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -794,9 +771,8 @@ msgid "Locale Name"
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:162
-#, fuzzy
 msgid "Language Packs"
-msgstr "Увійдіть, щоб оцінити цей мовний пакет"
+msgstr "Мовні пакунки"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
@@ -835,9 +811,8 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Які ваші враження від роботи з %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "Увійдіть, щоб оцінити цей додаток"
+msgstr "Ви повідомили про порушення цього додатку"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -852,9 +827,8 @@ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on polici
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:152 src/amo/components/ReportAbuseButton/index.js:158
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Перейти на сторінку додатка"
+msgstr "Повідомити про порушення цього додатку"
 
 #: src/amo/components/ReportAbuseButton/index.js:166
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
