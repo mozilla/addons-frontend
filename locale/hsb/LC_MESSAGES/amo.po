@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 21:03+0000\n"
+"PO-Revision-Date: 2017-10-29 21:13+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1318,7 +1318,7 @@ msgstr "Sym wuwiwar přidatka, móžu na pohódnoćenjach wotmołwić?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Haj, awtorojo přidatkow móžeja jednotliwu wotmołwu na pohódnoćenje dać. W našim %(startLink)sforumje%(endLink)s móžeće diskusijnu temu wotewrić, zo byšće dalšu diskusiju zastorčił."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
