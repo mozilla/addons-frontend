@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 19:04+0000\n"
+"PO-Revision-Date: 2017-10-29 19:23+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1250,7 +1250,7 @@ msgstr "Bjerće sej wokomik časa, zo byšće swoje pohódnoćenje přečitał, 
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr "Špatne:"
+msgstr "Kedźbu:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
@@ -1261,8 +1261,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
-"Zo byšće techniske problemy, próstwy wo pomoc abo namjety za nowe funkcije zdźělił, wužiwajće k dispoziciji stejace móžnosće pomocy wotpowědneho přidatka, jeli k dispoziciji. Namakaće je we wotrězku"
-" „Dalše informacije“ w bócnicy na stronje podrobnosćow přidatka."
+"Njepisajće techniske problemy, próstwy wo pomoc abo namjety za nowe funkcije. Wužiwajće k dispoziciji stejace móžnosće pomocy wotpowědneho přidatka město toho, jeli k dispoziciji. Namakaće je we "
+"wotrězku „Dalše informacije“ w bócnicy na stronje podrobnosćow přidatka."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
@@ -1278,7 +1278,7 @@ msgstr "Njewužiwajće HTML, wotkazy, žórłowy kod abo dźěle žórłoweho ko
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr "Wopačne podaća činić, awtorow přidatkow ponižić abo jich wosobinsce skřiwdźić."
+msgstr "Nječińće wopačne podaća, njeponižujće awtorow přidatkow abo njekřiwdźće jich wosobinsce."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
@@ -1293,6 +1293,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Njekritizujće přidatk za něšto, za čož je mysleny. Njezawostajejće na přikład negatiwne pohódnoćenje přidatka, kotryž wabjenje pokazuje abo dyrbi daty zběrać, jeli to je zaměr přidatka, abo jeli "
+"přidatk dyrbi daty zběrać, zo by fungował."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
