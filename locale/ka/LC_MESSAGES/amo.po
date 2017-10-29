@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 02:45+0000\n"
+"PO-Revision-Date: 2017-10-29 03:05+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -465,51 +465,47 @@ msgstr "მონიშნულია როგორც მოხსენე�
 
 #: src/amo/components/FlagReviewMenu/index.js:128
 msgid "Flag"
-msgstr ""
+msgstr "ჩანიშვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "შემმუშავებლის პასუხი"
+msgstr "შემმუშავებლის პასუხის მონიშვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flag this review"
-msgstr "პასუხი მიმოხილვაზე"
+msgstr "მიმოხილვის მონიშვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "შედით ანგარიშზე გაფართოების შესაფასებლად"
+msgstr "შედით ანგარიშზე პასუხის მოსანიშნად"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "შედით ანგარიშზე თემის შესაფასებლად"
+msgstr "შედით ანგარიშზე მიმოხილვის მოსანიშნად"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "საკუთარი პასუხის მონიშვნა, შეუძლებელია"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "საკუთარი მიმოხილვის მონიშვნა, შეუძლებელია"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "სპამია"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "სპამად მონიშვნა"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "შეიცავს შეუფერებელ ლექსიკას"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "შეუფერებელი ლექსიკის შემცველ ტექსტად მონიშვნა"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -639,11 +635,11 @@ msgstr "აბსტრაქტული"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "ბუნება"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "ფილმი და ტელევიზია"
 
 #: src/amo/components/Home/index.js:125
 #, fuzzy
