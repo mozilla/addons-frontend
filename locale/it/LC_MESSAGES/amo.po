@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 11:55+0000\n"
+"PO-Revision-Date: 2017-10-28 11:52+0000\n"
 "Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -475,9 +475,8 @@ msgid "Flag"
 msgstr "Segnala"
 
 #: src/amo/components/FlagReviewMenu/index.js:130
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Centro di sviluppo"
+msgstr "Segnala questa replica dello sviluppatore"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag this review"
@@ -588,9 +587,8 @@ msgid "Report a bug"
 msgstr "Segnala malfunzionamento"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Testo recensione"
+msgstr "Guida per le recensioni"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -1120,10 +1118,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Se vuoi saperne di più su come gestire i componenti aggiuntivi in Firefox, o cerchi assistenza per Firefox, visita il %(startSUMOLink)ssito di Supporto%(endSUMOLink)s Mozilla. Se non trovi lì le "
+"risposte che cerchi, puoi %(startForumLink)schiedere aiuto alla comunità sul forum%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sUlteriori informazioni su come contattare il team dei componenti aggiuntivi Mozilla%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1150,6 +1150,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"I componenti aggiuntivi che trovi su questo sito sono opera di migliaia di sviluppatori e designer da tutto il mondo molto diversi tra loro, dai singoli individui che si dedicano alla programmazione"
+" a livello amatoriale fino a grandi aziende informatiche. Alcuni dei componenti aggiuntivi di AMO vengono pubblicati in automatico, ma potrebbero essere sottoposti a revisione dopo la pubblicazione."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
@@ -1172,6 +1174,9 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Aiutaci a migliorare questo sito. Il suo codice è open source: chiunque può segnalare bug e proporre patch. Puoi iniziare provando a risolvere un problema etichettato %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s oppure esaminare gli issue elencati su GitHub per il %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s AMO e il suo "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
