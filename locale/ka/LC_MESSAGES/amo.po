@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 03:13+0000\n"
+"PO-Revision-Date: 2017-10-29 04:09+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -654,37 +654,32 @@ msgid "Seasonal"
 msgstr "სეზონური"
 
 #: src/amo/components/Home/index.js:173
-#, fuzzy
 msgid "Extensions change how Firefox works"
-msgstr "თქვენ შეგიძლიათ შეცვალოთ, როგორ უნდა იმუშაოს Firefox-მა…"
+msgstr "გაფართოებებს შეუძლია შეცვალოს, Firefox-ის მუშაობის თავისებურებები"
 
 #: src/amo/components/Home/index.js:178
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "განსაზღვრეთ, როგორ გსურთ იმუშაოს Firefox-მა, გაფართოებების საშუალებით. გაეცანით…"
 
 #: src/amo/components/Home/index.js:189
-#, fuzzy
 msgid "Most Popular Extensions"
 msgstr "ყველაზე მეტად სასურველი გაფართოებები"
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Change up your tabs"
 msgstr "შეცვალეთ თქვენი ჩანართები"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Up & Coming Extensions"
 msgstr "ზრდადი მოთხოვნის"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "Themes change how Firefox looks"
-msgstr "თქვენ შეგიძლიათ შეცვალოთ, როგორ უნდა იმუშაოს Firefox-მა…"
+msgstr "თემებს შეუძლია სრულად შეცვალოს, Firefox-ის იერსახე"
 
 #: src/amo/components/Home/index.js:233
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "გააფორმეთ Firefox თქვენი გემოვნებით."
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -700,11 +695,11 @@ msgstr "სანიშნეები"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "მოსახერხებელი ვაჭრობა"
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "სასარგებლო"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
@@ -719,9 +714,8 @@ msgid "YouTube High Definition"
 msgstr "YouTube მაღალი გარჩევადობით"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
-#, fuzzy
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "ვიდეოები HD ხარისხით, ანოტაციების გამორთვა, დამკვრელის ზომის ცვლილება და ა.შ."
+msgstr "ვიდეოების გაშვება HD ხარისხით, ანოტაციების გამორთვა, დამკვრელის ზომის ცვლილება და ა.შ."
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -861,9 +855,8 @@ msgstr "დარღვევის შესახებ მოხსენე�
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "რჩეული დამატება"
+msgstr "რჩეული დამატებები"
 
 #: src/amo/components/Search/index.js:120
 #, fuzzy
@@ -871,29 +864,24 @@ msgid "Trending add-ons"
 msgstr "დამატებების ჩატვირთვა"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "საუკეთესოდ შეფასებული გაფართოებები"
+msgstr "საუკეთესოდ შეფასებული დამატებები"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
 msgstr "ყველაზე მეტად სასურველი გაფართოებები"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
 msgstr "ყველაზე მეტად სასურველი თემები"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "დამატებების ჩატვირთვა"
+msgstr "ყველაზე მეტად სასურველი დამატებები"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "\"%(query)s\" ფრაზის მოძიება"
+msgstr "ძიების შედეგები \"%(query)s\" ფრაზისთვის"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
