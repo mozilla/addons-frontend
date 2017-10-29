@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-29 16:29+0000\n"
+"PO-Revision-Date: 2017-10-29 16:49+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -851,83 +851,71 @@ msgid "Send abuse report"
 msgstr ""
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Відібраний додаток"
+msgstr "Відібрані додатки"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Завантаження додатків"
+msgstr "Популярні додатки"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Найвище оцінені розширення"
+msgstr "Найвище оцінені додатки"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Найпопулярніші розширення"
+msgstr "Популярні розширення"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Найпопулярніші теми"
+msgstr "Популярні теми"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Завантаження додатків"
+msgstr "Популярні додатки"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Пошук \"%(query)s\""
+msgstr "Результати пошуку для \"%(query)s\""
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
 msgstr "Результати пошуку"
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результати для \"%(query)s\""
-msgstr[2] "%(count)s результатів для \"%(query)s\""
+msgstr[0] "на запит \"%(query)s\" знайдено %(count)s розширення"
+msgstr[1] "на запит \"%(query)s\" знайдено %(count)s розширення"
+msgstr[2] "на запит \"%(query)s\" знайдено %(count)s розширень"
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результати для \"%(query)s\""
-msgstr[2] "%(count)s результатів для \"%(query)s\""
+msgstr[0] "на запит \"%(query)s\" знайдено %(count)s словник"
+msgstr[1] "на запит \"%(query)s\" знайдено %(count)s словника"
+msgstr[2] "на запит \"%(query)s\" знайдено %(count)s словників"
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результати для \"%(query)s\""
-msgstr[2] "%(count)s результатів для \"%(query)s\""
+msgstr[0] "на запит \"%(query)s\" знайдено %(count)s мовний пакунок"
+msgstr[1] "на запит \"%(query)s\" знайдено %(count)s мовні пакунки"
+msgstr[2] "на запит \"%(query)s\" знайдено %(count)s мовних пакунків"
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результати для \"%(query)s\""
-msgstr[2] "%(count)s результатів для \"%(query)s\""
+msgstr[0] "на запит \"%(query)s\" знайдено %(count)s тема"
+msgstr[1] "на запит \"%(query)s\" знайдено %(count)s теми"
+msgstr[2] "на запит \"%(query)s\" знайдено %(count)s тем"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s результат для \"%(query)s\""
-msgstr[1] "%(count)s результати для \"%(query)s\""
-msgstr[2] "%(count)s результатів для \"%(query)s\""
+msgstr[0] "на запит \"%(query)s\" знайдено %(count)s результат"
+msgstr[1] "на запит \"%(query)s\" знайдено %(count)s результати"
+msgstr[2] "на запит \"%(query)s\" знайдено %(count)s результатів"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -1004,9 +992,8 @@ msgid "Filter results"
 msgstr "Фільтрувати результати"
 
 #: src/amo/components/SearchFilters/index.js:142
-#, fuzzy
 msgid "Sort by"
-msgstr "Впорядкувати"
+msgstr "Сортувати за"
 
 #: src/amo/components/SearchFilters/index.js:160
 msgid "Add-on Type"
@@ -1017,37 +1004,32 @@ msgid "Operating System"
 msgstr "Операційна система"
 
 #: src/amo/components/SearchFilters/index.js:204
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Відібраний додаток"
+msgstr "Лише відібрані додатки"
 
 #: src/amo/components/SearchForm/index.js:192
 msgid "Go to the add-on page"
 msgstr "Перейти на сторінку додатка"
 
 #: src/amo/components/SearchForm/index.js:208
-#, fuzzy
 msgid "Find extensions"
-msgstr "Відібрані розширення"
+msgstr "Знайти розширення"
 
 #: src/amo/components/SearchForm/index.js:210
 msgid "Find dictionary"
 msgstr "Знайти словник"
 
 #: src/amo/components/SearchForm/index.js:212
-#, fuzzy
 msgid "Find language pack"
-msgstr "Увійдіть, щоб оцінити цей мовний пакет"
+msgstr "Знайти мовний пакунок"
 
 #: src/amo/components/SearchForm/index.js:214
-#, fuzzy
 msgid "Find themes"
-msgstr "Знаходьте новини"
+msgstr "Знайти теми"
 
 #: src/amo/components/SearchForm/index.js:216
-#, fuzzy
 msgid "Find add-ons"
-msgstr "Завантаження додатків"
+msgstr "Знайти додатки"
 
 #: src/amo/components/SearchForm/index.js:247 src/amo/components/SearchForm/index.js:277
 msgid "Search"
@@ -1082,18 +1064,16 @@ msgid "Dictionaries & Language Packs"
 msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:120
-#, fuzzy
 msgid "Search Tools"
-msgstr "Результати пошуку"
+msgstr "Засоби пошуку"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
 msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:58
-#, fuzzy
 msgid "for Firefox"
-msgstr "Додатки для Firefox"
+msgstr "для Firefox"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
@@ -1142,9 +1122,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Додатки Firefox"
+msgstr "Про додатки Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1233,9 +1212,8 @@ msgid "Was it easy to use?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Увійдіть, щоб оцінити цей додаток"
+msgstr "Чи будете ви й надалі використовувати цей додаток?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1410,23 +1388,20 @@ msgid "OK!"
 msgstr "ОК!"
 
 #: src/ui/components/DismissibleTextForm/index.js:129
-#, fuzzy
 msgid "Cancel"
-msgstr "Скасувати перегляд"
+msgstr "Скасувати"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Ввести"
+msgstr "Введіть текст."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Відправити"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#, fuzzy
 msgid "Submitting"
-msgstr "Відправити"
+msgstr "Відправлення"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
