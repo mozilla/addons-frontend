@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-27 21:56+0000\n"
+"PO-Revision-Date: 2017-10-29 21:39+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -233,7 +233,7 @@ msgstr "Stránka podpory"
 
 #: src/amo/components/AddonMoreInfo/index.js:65
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Prejsť na nástenku štatistických údajov"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
 msgid "%(timeFromNow)s (%(date)s)"
@@ -482,14 +482,12 @@ msgid "Flag this review"
 msgstr "Nahlásiť túto recenziu"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Ak chcete ohodnotiť toto rozšírenie, musíte sa prihlásiť"
+msgstr "Ak chcete nahlásiť túto odpoveď, musíte sa prihlásiť"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Ak chcete ohodnotiť túto tému vzhľadu, musíte sa prihlásiť"
+msgstr "Ak chcete nahlásiť túto recenziu, musíte sa prihlásiť"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -505,7 +503,7 @@ msgstr "Toto je spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Recenzia bola nahlásená ako spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
@@ -871,24 +869,20 @@ msgid "Trending add-ons"
 msgstr "Načítavanie doplnkov"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Najlepšie hodnotené rozšírenia"
+msgstr "Najlepšie hodnotené doplnky"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Najpopulárnejšie rozšírenia"
+msgstr "Populárne rozšírenia"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "Najpopulárnejšie témy vzhľadu"
+msgstr "Populárne témy vzhľadu"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Načítavanie doplnkov"
+msgstr "Populárne doplnky"
 
 #: src/amo/components/Search/index.js:151
 msgid "Search results for \"%(query)s\""
