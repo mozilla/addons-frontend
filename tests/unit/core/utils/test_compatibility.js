@@ -378,8 +378,8 @@ describe(__filename, () => {
       expect(minVersion).toEqual(null);
     });
 
-    it('should log info when OpenSearch type is found', () => {
-      const fakeLog = { info: sinon.stub() };
+    it('should not log an error when OpenSearch type is found', () => {
+      const fakeLog = { error: sinon.stub() };
       const openSearchAddon = createInternalAddon({
         ...fakeAddon,
         current_version: {
@@ -388,16 +388,14 @@ describe(__filename, () => {
         },
         type: ADDON_TYPE_OPENSEARCH,
       });
-      const { maxVersion, minVersion } = getCompatibleVersions({
+
+      getCompatibleVersions({
         _log: fakeLog,
         addon: openSearchAddon,
         clientApp: CLIENT_APP_FIREFOX,
       });
 
-      expect(maxVersion).toEqual(null);
-      expect(minVersion).toEqual(null);
-      expect(fakeLog.info.firstCall.args[0])
-        .toContain(`addon is type ${ADDON_TYPE_OPENSEARCH}`);
+      sinon.assert.notCalled(fakeLog.error);
     });
 
     it('marks clientApp as unsupported without extension compatibility', () => {

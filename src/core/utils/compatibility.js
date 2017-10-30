@@ -37,23 +37,21 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
     // in current_version.compatibility
     supportsClientApp = false;
   }
+
   if (
-    addon && addon.current_version && addon.current_version.compatibility
+    addon && addon.current_version && addon.current_version.compatibility &&
+    addon.current_version.compatibility[clientApp]
   ) {
-    if (addon.current_version.compatibility[clientApp]) {
-      supportsClientApp = true;
-      maxVersion = addon.current_version.compatibility[clientApp].max;
-      minVersion = addon.current_version.compatibility[clientApp].min;
-    } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
-        compatibility info found but this is expected.`,
-        { addon, clientApp });
-    } else {
-      _log.error(
-        'addon found with no compatibility info for valid clientApp',
-        { addon, clientApp }
-      );
-    }
+    supportsClientApp = true;
+    maxVersion = addon.current_version.compatibility[clientApp].max;
+    minVersion = addon.current_version.compatibility[clientApp].min;
+  }
+
+  if (addon && !supportsClientApp) {
+    _log.error(
+      'addon found with no compatibility info for valid clientApp',
+      { addon, clientApp }
+    );
   }
 
   return { supportsClientApp, maxVersion, minVersion };
