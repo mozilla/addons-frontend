@@ -214,6 +214,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       slug: 'coolio',
+      public_stats: false,
       authors: [
         {
           ...fakeAddon.authors[0],
@@ -232,6 +233,20 @@ describe(__filename, () => {
 
     const statsLink = root.find('.AddonMoreInfo-stats-link');
     expect(statsLink).toHaveLength(0);
+  });
+
+  it('link to stats if add-on public_stats is true', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: 'coolio',
+    });
+    const root = render({
+      addon,
+      store: dispatchClientMetadata().store,
+    });
+
+    const statsLink = root.find('.AddonMoreInfo-stats-link');
+    expect(statsLink).toHaveLength(1);
   });
 
   it('links to stats if add-on author is viewing the page', () => {
