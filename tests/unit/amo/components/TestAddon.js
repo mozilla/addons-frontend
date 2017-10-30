@@ -31,7 +31,6 @@ import {
   fetchOtherAddonsByAuthors,
   loadOtherAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
-import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
@@ -49,6 +48,7 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   createFakeAddon,
   dispatchClientMetadata,

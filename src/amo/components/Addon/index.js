@@ -15,8 +15,8 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
-import { sendServerRedirect } from 'amo/reducers/redirectTo';
 import { fetchAddon } from 'core/reducers/addons';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {

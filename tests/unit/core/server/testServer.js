@@ -10,11 +10,11 @@ import supertest from 'supertest';
 import defaultConfig, { util as configUtil } from 'config';
 import cheerio from 'cheerio';
 
-import redirectToReducer, {
-  sendServerRedirect,
-} from 'amo/reducers/redirectTo';
 import baseServer from 'core/server/base';
 import apiReducer from 'core/reducers/api';
+import redirectToReducer, {
+  sendServerRedirect,
+} from 'core/reducers/redirectTo';
 import userReducer from 'core/reducers/user';
 import userSaga from 'core/sagas/user';
 import * as userApi from 'core/api/user';

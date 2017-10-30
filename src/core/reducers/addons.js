@@ -294,7 +294,8 @@ export default function addonsReducer(
         // We index add-ons by id and slug to be able to retrieve them by any
         // of these parameters. This is needed to redirect an add-on detail
         // page loaded by ID.
-        // See: https://github.com/mozilla/addons-frontend/issues/342
+        // See: https://github.com/mozilla/addons-frontend/issues/3610
+        // TODO: https://github.com/mozilla/addons-frontend/issues/3421
         newState[addon.id] = addon;
         newState[key] = addon;
       });

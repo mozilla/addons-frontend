@@ -287,7 +287,6 @@ function baseServer(routes, createStore, {
       try {
         await loadOnServer({ ...renderProps, store });
 
-        // eslint-disable-next-line global-require
         let i18nData = {};
         try {
           if (locale !== langToLocale(config.get('defaultLang'))) {
@@ -309,6 +308,12 @@ function baseServer(routes, createStore, {
             </Provider>
           </I18nProvider>
         );
+
+        const errorPage = store.getState().errorPage;
+        if (errorPage && errorPage.hasError) {
+          log.info(`Error page was dispatched to state: ${errorPage.error}`);
+          throw errorPage.error;
+        }
 
         const props = { component: InitialComponent };
 

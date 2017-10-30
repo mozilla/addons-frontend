@@ -1,7 +1,10 @@
+import defaultConfig, { util as configUtil } from 'config';
+
 import redirectToReducer, {
   initialState,
   sendServerRedirect,
-} from 'amo/reducers/redirectTo';
+} from 'core/reducers/redirectTo';
+
 
 describe(__filename, () => {
   describe('reducer', () => {
@@ -50,6 +53,16 @@ describe(__filename, () => {
       expect(() => {
         sendServerRedirect(params);
       }).toThrow(/url is required/);
+    });
+
+    it('does not throw an error when not in server context', () => {
+      // We log a warning in the action creator when we are not in server context.
+      const config = configUtil.cloneDeep(defaultConfig);
+      config.server = false;
+
+      expect(() => {
+        sendServerRedirect({ ...getParams(), _config: config });
+      }).not.toThrow();
     });
   });
 });

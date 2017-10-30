@@ -18,15 +18,18 @@ export const initialState = {
 
 type SendServerRedirectParams = {|
   ...State,
+  _config: Object,
 |};
 
 type SendServerRedirectAction ={|
   type: typeof SEND_SERVER_REDIRECT,
-  payload: SendServerRedirectParams,
+  payload: {|
+    ...State,
+  |},
 |};
 
 export const sendServerRedirect = (
-  { status, url }: SendServerRedirectParams
+  { status, url, _config = config }: SendServerRedirectParams
 ): SendServerRedirectAction => {
   if (!status) {
     throw new Error('status is required');
@@ -34,7 +37,7 @@ export const sendServerRedirect = (
   if (!url) {
     throw new Error('url is required');
   }
-  if (!config.get('server')) {
+  if (!_config.get('server')) {
     log.warn(`sendServerRedirect() currently does nothing when run from client
       code`);
   }
