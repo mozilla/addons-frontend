@@ -93,6 +93,14 @@ export class HeaderBase extends React.Component {
             >
               <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
               <DropdownMenuItem>
+                <Link
+                  className="Header-user-menu-collections-link"
+                  href={`/collections/${username}/`}
+                >
+                  {i18n.gettext('View My Collections')}
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem>
                 <Link href={`/user/${username}/`}>
                   {i18n.gettext('View Profile')}
                 </Link>

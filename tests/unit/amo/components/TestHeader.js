@@ -81,6 +81,15 @@ describe(__filename, () => {
     expect(wrapper.find(DropdownMenu)).toHaveProp('text', 'babar');
   });
 
+  it("displays user's collection when user is signed in", () => {
+    const { store } = dispatchSignInActions({ username: 'babar' });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-collections-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.prop('children')).toEqual('View My Collections');
+  });
+
   it('allows a signed-in user to log out', () => {
     const { store } = dispatchSignInActions({ username: 'babar' });
     const handleLogOut = sinon.stub();
