@@ -128,14 +128,6 @@ export class HeaderBase extends React.Component {
                   {i18n.gettext('Submit a New Theme')}
                 </Link>
               </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link
-                  href="/developers/addon/api/key/"
-                  prependClientApp={false}
-                >
-                  {i18n.gettext('Manage API Keys')}
-                </Link>
-              </DropdownMenuItem>
 
               <DropdownMenuItem
                 className={'Header-logout-button'}
