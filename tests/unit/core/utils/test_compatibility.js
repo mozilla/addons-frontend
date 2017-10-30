@@ -2,7 +2,9 @@ import { oneLine } from 'common-tags';
 import UAParser from 'ua-parser-js';
 
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
@@ -21,7 +23,7 @@ import {
   getClientCompatibility,
   isCompatibleWithUserAgent,
 } from 'core/utils/compatibility';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import {
   createFakeMozWindow,
   userAgents,
@@ -376,8 +378,8 @@ describe(__filename, () => {
       expect(minVersion).toEqual(null);
     });
 
-    it('should log info when OpenSearch type is found', () => {
-      const fakeLog = { info: sinon.stub() };
+    it('should not log an error when OpenSearch type is found', () => {
+      const fakeLog = { error: sinon.stub() };
       const openSearchAddon = createInternalAddon({
         ...fakeAddon,
         current_version: {
@@ -386,32 +388,42 @@ describe(__filename, () => {
         },
         type: ADDON_TYPE_OPENSEARCH,
       });
-      const { maxVersion, minVersion } = getCompatibleVersions({
+
+      getCompatibleVersions({
         _log: fakeLog,
         addon: openSearchAddon,
         clientApp: CLIENT_APP_FIREFOX,
       });
 
-      expect(maxVersion).toEqual(null);
-      expect(minVersion).toEqual(null);
-      expect(fakeLog.info.firstCall.args[0])
-        .toContain(`addon is type ${ADDON_TYPE_OPENSEARCH}`);
+      sinon.assert.notCalled(fakeLog.error);
     });
 
-    it('marks clientApp as unsupported without compatibility', () => {
+    it('marks clientApp as unsupported without extension compatibility', () => {
       const addon = createInternalAddon({
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
-          compatibility: {
-            // Add Android compatibility but not Firefox compatibility.
-            [CLIENT_APP_ANDROID]: {
-              min: '48.0',
-              max: '*',
-            },
-          },
+          // This add-on is not compatible with any client apps.
+          compatibility: {},
         },
         type: ADDON_TYPE_EXTENSION,
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_FIREFOX,
+      });
+
+      expect(supportsClientApp).toEqual(false);
+    });
+
+    it('marks clientApp as unsupported without lang pack compatibility', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          // This add-on is not compatible with any client apps.
+          compatibility: {},
+        },
+        type: ADDON_TYPE_LANG,
       });
       const { supportsClientApp } = getCompatibleVersions({
         addon, clientApp: CLIENT_APP_FIREFOX,
@@ -447,10 +459,43 @@ describe(__filename, () => {
         ...fakeAddon,
         current_version: {
           ...fakeAddon.current_version,
-          // No clientApp is supported.
+          // Search providers do not declare clientApp compatibility.
           compatibility: {},
         },
         type: ADDON_TYPE_OPENSEARCH,
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_ANDROID,
+      });
+
+      expect(supportsClientApp).toEqual(true);
+    });
+
+    it('always marks clientApp as supported for themes', () => {
+      const addon = createInternalAddon({
+        ...fakeTheme,
+        current_version: {
+          ...fakeTheme.current_version,
+          // Themes do not declare clientApp compatibility.
+          compatibility: {},
+        },
+      });
+      const { supportsClientApp } = getCompatibleVersions({
+        addon, clientApp: CLIENT_APP_ANDROID,
+      });
+
+      expect(supportsClientApp).toEqual(true);
+    });
+
+    it('always marks clientApp as supported for dictionaries', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          // Dictionaries do not declare clientApp compatibility.
+          compatibility: {},
+        },
+        type: ADDON_TYPE_DICT,
       });
       const { supportsClientApp } = getCompatibleVersions({
         addon, clientApp: CLIENT_APP_ANDROID,

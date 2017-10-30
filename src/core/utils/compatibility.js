@@ -3,8 +3,10 @@ import { oneLine } from 'common-tags';
 import mozCompare from 'mozilla-version-comparator';
 
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -19,25 +21,37 @@ import log from 'core/logger';
 export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
-  let supportsClientApp = false;
+  let supportsClientApp;
   if (
-    addon && addon.current_version && addon.current_version.compatibility
+    addon &&
+    [ADDON_TYPE_OPENSEARCH, ADDON_TYPE_DICT, ADDON_TYPE_THEME]
+      .includes(addon.type)
   ) {
-    if (addon.current_version.compatibility[clientApp]) {
-      supportsClientApp = true;
-      maxVersion = addon.current_version.compatibility[clientApp].max;
-      minVersion = addon.current_version.compatibility[clientApp].min;
-    } else if (addon.type === ADDON_TYPE_OPENSEARCH) {
-      _log.info(oneLine`addon is type ${ADDON_TYPE_OPENSEARCH}; no
-        compatibility info found but this is expected.`,
-        { addon, clientApp });
-      supportsClientApp = true;
-    } else {
-      _log.error(
-        'addon found with no compatibility info for valid clientApp',
-        { addon, clientApp }
-      );
-    }
+    // For now we need to assume that the compatibility object for these
+    // add-ons cannot be trusted.
+    // TODO: default this to false when
+    // https://github.com/mozilla/addons-server/issues/6781 is fixed.
+    supportsClientApp = true;
+  } else {
+    // Assume the add-on is incompatible until we see explicit support
+    // in current_version.compatibility
+    supportsClientApp = false;
+  }
+
+  if (
+    addon && addon.current_version && addon.current_version.compatibility &&
+    addon.current_version.compatibility[clientApp]
+  ) {
+    supportsClientApp = true;
+    maxVersion = addon.current_version.compatibility[clientApp].max;
+    minVersion = addon.current_version.compatibility[clientApp].min;
+  }
+
+  if (addon && !supportsClientApp) {
+    _log.error(
+      'addon found with no compatibility info for valid clientApp',
+      { addon, clientApp }
+    );
   }
 
   return { supportsClientApp, maxVersion, minVersion };

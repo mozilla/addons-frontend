@@ -113,6 +113,7 @@ export const fakeTheme = Object.freeze({
   }],
   current_version: {
     ...fakeAddon.current_version,
+    compatibility: {},
     version: '0',
   },
   description: 'This is the add-on description',
