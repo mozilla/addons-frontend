@@ -1,5 +1,6 @@
 /* @flow */
 import {
+  CLEAR_ADDON_REVIEWS,
   FETCH_REVIEWS,
   HIDE_EDIT_REVIEW_FORM,
   HIDE_REPLY_TO_REVIEW_FORM,
@@ -324,5 +325,26 @@ export const setReviewWasFlagged = (
   return {
     type: SET_REVIEW_WAS_FLAGGED,
     payload: { reason, reviewId },
+  };
+};
+
+type ClearAddonReviewsParams = {|
+  addonSlug: string,
+|};
+
+export type ClearAddonReviewsAction = {|
+  type: typeof CLEAR_ADDON_REVIEWS,
+  payload: ClearAddonReviewsParams,
+|};
+
+export const clearAddonReviews = (
+  { addonSlug }: ClearAddonReviewsParams
+): ClearAddonReviewsAction => {
+  if (!addonSlug) {
+    throw new Error('the addonSlug parameter is required');
+  }
+  return {
+    type: CLEAR_ADDON_REVIEWS,
+    payload: { addonSlug },
   };
 };

@@ -1,4 +1,5 @@
 import {
+  clearAddonReviews,
   flagReview,
   sendReplyToReview,
   setReviewWasFlagged,
@@ -283,6 +284,42 @@ describe(__filename, () => {
 
       expect(newState.byAddon.slug1.reviewCount).toEqual(1);
       expect(newState.byAddon.slug2.reviewCount).toEqual(2);
+    });
+  });
+
+  describe('clearAddonReviews', () => {
+    it('clears add-on reviews', () => {
+      const addonSlug = 'some-slug';
+
+      const action = setAddonReviews({
+        addonSlug, reviews: [fakeReview], reviewCount: 1,
+      });
+
+      const state = reviewsReducer(undefined, action);
+      const newState = reviewsReducer(
+        state, clearAddonReviews({ addonSlug })
+      );
+
+      expect(newState.byAddon[addonSlug]).toBeUndefined();
+    });
+
+    it('preserves unrelated add-on reviews', () => {
+      const firstSlug = 'first';
+      const secondSlug = 'second';
+
+      const review = { ...fakeReview, id: 1 };
+      const action = setAddonReviews({
+        addonSlug: firstSlug, reviews: [review], reviewCount: 1,
+      });
+
+      const state = reviewsReducer(undefined, action);
+      const newState = reviewsReducer(
+        state, clearAddonReviews({ addonSlug: secondSlug })
+      );
+
+      const storedReviews = newState.byAddon[firstSlug].reviews;
+      expect(storedReviews[0]).toEqual(review.id);
+      expect(storedReviews.length).toEqual(1);
     });
   });
 
