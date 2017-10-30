@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-28 11:52+0000\n"
+"PO-Revision-Date: 2017-10-30 12:04+0000\n"
 "Last-Translator: Sandro <gialloporpora@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -369,9 +369,8 @@ msgid "See more"
 msgstr "Ulteriori informazioni"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:114
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Estensioni più votate"
+msgstr "Ultime tendenze tra le estensioni"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:142 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -386,9 +385,8 @@ msgid "Featured themes"
 msgstr "Temi consigliati"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:117
-#, fuzzy
 msgid "Trending themes"
-msgstr "Temi più votati"
+msgstr "Ultime tendenze tra i temi"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:168 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -647,9 +645,8 @@ msgid "Film & TV"
 msgstr "Film & TV"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
-msgstr "Paesaggistico"
+msgstr "Paesaggistica"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
@@ -693,7 +690,7 @@ msgstr "Blocco pubblicità"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr ""
+msgstr "Gestione password"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
@@ -769,7 +766,7 @@ msgstr "I language pack cambiano la lingua dell'interfaccia del browser, incluse
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
-msgstr ""
+msgstr "Tutte le lingue"
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
@@ -862,9 +859,8 @@ msgid "Featured add-ons"
 msgstr "Componenti aggiuntivi consigliati"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Caricamento dei componenti aggiuntivi in corso…"
+msgstr "Ultime tendenze tra i componenti aggiuntivi"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
@@ -1090,7 +1086,7 @@ msgstr "Altro…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Se vuoi contribuire ai componenti aggiuntivi, ma non possiedi le competenze tecniche necessarie per svilupparne uno tuo, puoi sempre collaborare in altri modi:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1162,6 +1158,8 @@ msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons suport user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla è un‘organizzazione senza fini di lucro che si impegna per difendere Internet. Firefox è stato appositamente concepito per aiutarci a mantenere Internet sano, aperto e accessibile. I "
+"componenti aggiuntivi rispecchiano il potere di scelta dell‘utente e la personalizzazione offerte da Firefox. Ecco come puoi contribuire anche tu alla nostra missione:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
@@ -1417,9 +1415,8 @@ msgid "Cancel"
 msgstr "Annulla"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
-#, fuzzy
 msgid "Enter text."
-msgstr "Invia"
+msgstr "Inserisci il testo qui."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
