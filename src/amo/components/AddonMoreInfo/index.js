@@ -57,7 +57,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     return this.renderDefinitions({
       homepage,
       supportUrl,
-      statsLink: addon && isAddonAuthor({ addon, userId }) ? (
+      statsLink: addon && (isAddonAuthor({ addon, userId }) || addon.public_stats) ? (
         <Link
           className="AddonMoreInfo-stats-link"
           href={`/addon/${addon.slug}/statistics/`}
