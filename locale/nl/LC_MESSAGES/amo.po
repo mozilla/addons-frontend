@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-24 19:53+0000\n"
-"PO-Revision-Date: 2017-10-25 10:32+0000\n"
+"PO-Revision-Date: 2017-10-30 15:26+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -282,7 +282,7 @@ msgstr "Alle geschreven beoordelingen"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
-msgstr "Antwoord ontwikkelaar"
+msgstr "Antwoord van ontwikkelaar"
 
 #: src/amo/components/AddonReviewListItem/index.js:153
 msgid "Write a reply to this review."
@@ -686,7 +686,7 @@ msgstr "Adblockers"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
-msgstr "Wachtwoordenbeheerders"
+msgstr "Wachtwoorden&shy;beheerders"
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
