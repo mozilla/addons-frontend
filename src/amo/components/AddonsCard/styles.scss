@@ -45,12 +45,6 @@
         width: 100%;
       }
 
-      .SearchResult-link:focus,
-      .SearchResult-link:hover {
-        background-color: $grey-10;
-        border-radius: $border-radius-default;
-      }
-
       .SearchResult-result {
         display: grid;
         grid-column-gap: 8px;
@@ -72,6 +66,7 @@
       }
 
       .SearchResult-metadata,
+      .SearchResult-metadata .SearchResult-author,
       .SearchResult-summary {
         display: none;
       }
@@ -81,6 +76,11 @@
 
         grid-column: 2 / 2;
         grid-row: 2 / 2;
+      }
+
+      .SearchResult-users,
+      .SearchResult-metadata {
+        height: 24px;
       }
 
       .SearchResult--theme {
@@ -93,6 +93,22 @@
           border-radius: $border-radius-default;
           margin: 0 0 5px;
           width: 100%;
+        }
+        // stylelint-enable max-nesting-depth
+      }
+
+      .SearchResult-link:focus,
+      .SearchResult-link:hover {
+        background-color: $grey-10;
+        border-radius: $border-radius-default;
+
+        // stylelint-disable max-nesting-depth
+        .SearchResult-users {
+          display: none;
+        }
+
+        .SearchResult-metadata {
+          display: block;
         }
         // stylelint-enable max-nesting-depth
       }
