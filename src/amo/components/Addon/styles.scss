@@ -193,6 +193,22 @@
     grid-template-columns: repeat(2, 1fr);
     margin: 0;
     padding: 0;
+
+    .SearchResult-metadata {
+      display: none;
+    }
+  }
+}
+
+.AddonDescription-more-addons:not(.AddonDescription-more-addons--theme) {
+  .Card-contents .AddonsCard-list {
+    @include respond-to(large) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include respond-to(extraExtraLarge) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 

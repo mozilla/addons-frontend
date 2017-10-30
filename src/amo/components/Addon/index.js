@@ -392,7 +392,6 @@ export class AddonBase extends React.Component {
         addons={addonsByAuthors}
         className={classnames}
         header={header}
-        showMetadata={false}
         showSummary={false}
         type="horizontal"
       />
