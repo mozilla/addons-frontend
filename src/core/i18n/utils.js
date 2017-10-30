@@ -13,6 +13,8 @@ const langMap = config.get('langMap');
 // will be mapped by sanitizeLanguage.
 const supportedLangs = langs.concat(Object.keys(langMap));
 const rtlLangs = config.get('rtlLangs');
+const rtl = 'rtl';
+const ltr = 'ltr';
 
 
 export function localeToLang(locale?: any, log_?: typeof log = log) {
@@ -102,7 +104,7 @@ export function isRtlLang(lang: string) {
 }
 
 export function getDirection(lang: string) {
-  return isRtlLang(lang) ? 'rtl' : 'ltr';
+  return isRtlLang(lang) ? rtl : ltr;
 }
 
 
