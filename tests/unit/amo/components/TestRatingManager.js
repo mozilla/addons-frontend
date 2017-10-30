@@ -206,6 +206,8 @@ describe('RatingManager', () => {
 
         // Simulate pressing submit in the review UI.
         props.onReviewSubmitted();
+
+        // Make sure the parent's callback was executed.
         sinon.assert.called(parentOnReviewSubmitted);
       });
   });
