@@ -10,6 +10,7 @@ import errorPage from 'core/reducers/errorPage';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import discoResults from 'disco/reducers/discoResults';
+import redirectTo from 'core/reducers/redirectTo';
 
 
 export default function createStore(initialState = {}) {
@@ -23,6 +24,7 @@ export default function createStore(initialState = {}) {
       errorPage,
       installations,
       infoDialog,
+      redirectTo,
       reduxAsyncConnect,
     }),
     initialState,

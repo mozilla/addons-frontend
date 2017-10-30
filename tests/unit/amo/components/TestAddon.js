@@ -39,6 +39,7 @@ import {
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALLED,
@@ -47,6 +48,7 @@ import {
 import InstallButton from 'core/components/InstallButton';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   createFakeAddon,
   dispatchClientMetadata,
@@ -402,6 +404,25 @@ describe(__filename, () => {
     });
     expect(root.find('.Addon-title').html()).toContain('Krupa');
     expect(root.find('.Addon-title').render().find('a')).toHaveLength(0);
+  });
+
+  it('dispatches a server redirect when slug is a numeric ID', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = createInternalAddon(fakeAddon);
+    store.dispatch(_loadAddons({ addon }));
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    renderComponent({
+      // We set the numeric `id` as slug.
+      params: { slug: addon.id }, store,
+    });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 301,
+      url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('sanitizes a title', () => {

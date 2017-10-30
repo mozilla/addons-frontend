@@ -18,6 +18,7 @@ import errorPage from 'core/reducers/errorPage';
 import heroBanners from 'core/reducers/heroBanners';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
+import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
 import user from 'core/reducers/user';
 import { middleware } from 'core/store';
@@ -43,6 +44,7 @@ export default function createStore(initialState = {}) {
       installations,
       landing,
       reduxAsyncConnect,
+      redirectTo,
       reviews,
       search,
       user,

@@ -80,6 +80,10 @@ export function getPageProps({ noScriptStyles = '', store, req, res, config }) {
   };
 }
 
+function renderHTML({ props = {}, pageProps }) {
+  return ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+}
+
 function showErrorPage({ createStore, error = {}, req, res, status, config }) {
   const { store } = createStore();
   const pageProps = getPageProps({ store, req, res, config });
@@ -93,21 +97,24 @@ function showErrorPage({ createStore, error = {}, req, res, status, config }) {
   const apiError = createApiError({ response: { status: adjustedStatus } });
   store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
 
-  const HTML = ReactDOM.renderToString(
-    <ServerHtml {...pageProps} />);
+  const HTML = renderHTML({ pageProps });
   return res.status(adjustedStatus)
     .send(`<!DOCTYPE html>\n${HTML}`)
     .end();
 }
 
-
-function hydrateOnClient({ res, props = {}, pageProps }) {
-  const HTML =
-    ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+function sendHTML({ res, html }) {
   const componentDeclaredStatus = NestedStatus.rewind();
   return res.status(componentDeclaredStatus)
-    .send(`<!DOCTYPE html>\n${HTML}`)
+    .send(`<!DOCTYPE html>\n${html}`)
     .end();
+}
+
+function hydrateOnClient({ res, props = {}, pageProps }) {
+  return sendHTML({
+    html: renderHTML({ props, pageProps }),
+    res,
+  });
 }
 
 function baseServer(routes, createStore, {
@@ -218,13 +225,15 @@ function baseServer(routes, createStore, {
     // Vary the cache on Do Not Track headers.
     res.vary('DNT');
 
-    match({ location: req.url, routes }, (
+
+    match({ location: req.url, routes }, async (
       matchError, redirectLocation, renderProps
     ) => {
       if (matchError) {
         log.info(`match() returned an error for ${req.url}: ${matchError}`);
         return next(matchError);
       }
+
       if (!renderProps) {
         log.info(`match() did not return renderProps for ${req.url}`);
         return showErrorPage({ createStore, status: 404, req, res, config });
@@ -261,69 +270,81 @@ function baseServer(routes, createStore, {
           // This stops all running sagas.
           store.dispatch(END);
 
-          return runningSagas.done.then(() => {
-            log.warn('Server side rendering is disabled.');
-            return hydrateOnClient({ res, pageProps });
-          });
+          await runningSagas.done;
+          log.warn('Server side rendering is disabled.');
+
+          return hydrateOnClient({ res, pageProps });
         }
 
         htmlLang = pageProps.htmlLang;
         locale = langToLocale(htmlLang);
       } catch (preLoadError) {
-        log.info(`Caught an error in match() before loadOnServer(): ${preLoadError}`);
+        log.info(oneLine`Caught an error in match() before loadOnServer():
+          ${preLoadError}`);
         return next(preLoadError);
       }
 
-      return loadOnServer({ ...renderProps, store })
-        .then(() => {
-          // eslint-disable-next-line global-require
-          let i18nData = {};
-          try {
-            if (locale !== langToLocale(config.get('defaultLang'))) {
-              // eslint-disable-next-line global-require, import/no-dynamic-require
-              i18nData = require(`../../locale/${locale}/${appName}.js`);
-            }
-          } catch (e) {
-            log.info(`Locale JSON not found or required for locale: "${locale}"`);
-            log.info(`Falling back to default lang: "${config.get('defaultLang')}".`);
+      try {
+        await loadOnServer({ ...renderProps, store });
+
+        let i18nData = {};
+        try {
+          if (locale !== langToLocale(config.get('defaultLang'))) {
+            // eslint-disable-next-line global-require, import/no-dynamic-require
+            i18nData = require(`../../locale/${locale}/${appName}.js`);
           }
-          const i18n = makeI18n(i18nData, htmlLang);
+        } catch (e) {
+          log.info(`Locale JSON not found or required for locale: "${locale}"`);
+          log.info(oneLine`Falling back to default lang:
+            "${config.get('defaultLang')}".`);
+        }
 
-          const InitialComponent = (
-            <I18nProvider i18n={i18n}>
-              <Provider store={store} key="provider">
-                <ReduxAsyncConnect {...renderProps} />
-              </Provider>
-            </I18nProvider>
-          );
+        const i18n = makeI18n(i18nData, htmlLang);
 
-          const errorPage = store.getState().errorPage;
-          if (errorPage && errorPage.hasError) {
-            log.info(`Error page was dispatched to state: ${errorPage.error}`);
-            throw errorPage.error;
-          }
+        const InitialComponent = (
+          <I18nProvider i18n={i18n}>
+            <Provider store={store} key="provider">
+              <ReduxAsyncConnect {...renderProps} />
+            </Provider>
+          </I18nProvider>
+        );
 
-          const props = { component: InitialComponent };
+        const errorPage = store.getState().errorPage;
+        if (errorPage && errorPage.hasError) {
+          log.info(`Error page was dispatched to state: ${errorPage.error}`);
+          throw errorPage.error;
+        }
 
-          // We need to render once because it will force components to
-          // dispatch data loading actions which get processed by sagas.
-          log.info('First component render to dispatch loading actions');
-          ReactDOM.renderToString(<ServerHtml {...pageProps} {...props} />);
+        const props = { component: InitialComponent };
 
-          // Send the redux-saga END action to stop sagas from running
-          // indefinitely. This is only done for server-side rendering.
-          store.dispatch(END);
+        // We need to render once because it will force components to
+        // dispatch data loading actions which get processed by sagas.
+        log.info('First component render to dispatch loading actions');
+        renderHTML({ props, pageProps });
 
-          // Once all sagas have completed, we load the page.
-          return runningSagas.done.then(() => {
-            log.info('Second component render after sagas have finished');
-            return hydrateOnClient({ props, pageProps, res });
-          });
-        })
-        .catch((loadError) => {
-          log.error(`Caught error from loadOnServer(): ${loadError}`);
-          next(loadError);
-        });
+        // Send the redux-saga END action to stop sagas from running
+        // indefinitely. This is only done for server-side rendering.
+        store.dispatch(END);
+
+        // Once all sagas have completed, we load the page.
+        await runningSagas.done;
+        log.info('Second component render after sagas have finished');
+
+        const finalHTML = renderHTML({ props, pageProps });
+
+        // A redirection has been requested, let's do it.
+        const redirectTo = store.getState().redirectTo;
+        if (redirectTo && redirectTo.url) {
+          log.info(oneLine`Redirection requested:
+            url=${redirectTo.url} status=${redirectTo.status}`);
+          return res.redirect(redirectTo.status, redirectTo.url);
+        }
+
+        return sendHTML({ res, html: finalHTML });
+      } catch (loadError) {
+        log.error(`Caught error from loadOnServer(): ${loadError}`);
+        return next(loadError);
+      }
     });
   });
 

@@ -57,7 +57,9 @@ export type FetchAddonAction = {|
   |},
 |};
 
-export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddonAction {
+export function fetchAddon(
+  { errorHandler, slug }: FetchAddonParams
+): FetchAddonAction {
   if (!errorHandler) {
     throw new Error('errorHandler cannot be empty');
   }
@@ -287,7 +289,15 @@ export default function addonsReducer(
       const { addons } = action.payload;
       const newState = { ...state };
       Object.keys(addons).forEach((key) => {
-        newState[key] = createInternalAddon(addons[key]);
+        const addon = createInternalAddon(addons[key]);
+
+        // We index add-ons by id and slug to be able to retrieve them by any
+        // of these parameters. This is needed to redirect an add-on detail
+        // page loaded by ID.
+        // See: https://github.com/mozilla/addons-frontend/issues/3610
+        // TODO: https://github.com/mozilla/addons-frontend/issues/3421
+        newState[addon.id] = addon;
+        newState[key] = addon;
       });
       return newState;
     }

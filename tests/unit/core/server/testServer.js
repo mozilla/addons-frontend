@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Router, Route } from 'react-router';
@@ -11,6 +12,9 @@ import cheerio from 'cheerio';
 
 import baseServer from 'core/server/base';
 import apiReducer from 'core/reducers/api';
+import redirectToReducer, {
+  sendServerRedirect,
+} from 'core/reducers/redirectTo';
 import userReducer from 'core/reducers/user';
 import userSaga from 'core/sagas/user';
 import * as userApi from 'core/api/user';
@@ -22,7 +26,7 @@ describe(__filename, () => {
   let mockUserApi;
 
   const _helmetCanUseDOM = Helmet.canUseDOM;
-  const defaultStubRoutes = (
+  const stubRoutes = (
     <Router>
       <Route path="*" component={FakeApp} />
     </Router>
@@ -56,7 +60,7 @@ describe(__filename, () => {
   }
 
   function testClient({
-    stubRoutes = defaultStubRoutes,
+    routes = stubRoutes,
     store = null,
     sagaMiddleware = null,
     appSagas = null,
@@ -73,7 +77,7 @@ describe(__filename, () => {
     // eslint-disable-next-line no-empty-function
     function* fakeSaga() {}
 
-    const app = baseServer(stubRoutes, _createStoreAndSagas, {
+    const app = baseServer(routes, _createStoreAndSagas, {
       appSagas: appSagas || fakeSaga,
       appInstanceName: 'testapp',
       config,
@@ -103,13 +107,13 @@ describe(__filename, () => {
         }
       }
 
-      const stubRoutes = (
+      const notFoundStubRoutes = (
         <Router>
           <Route path="*" component={NotFound} />
         </Router>
       );
 
-      const response = await testClient({ stubRoutes })
+      const response = await testClient({ routes: notFoundStubRoutes })
         .get('/en-US/firefox/simulation-of-a-non-existent-page')
         .end();
 
@@ -261,6 +265,46 @@ describe(__filename, () => {
       expect(reduxStoreState.api).toEqual(api);
       expect(reduxStoreState.user).toEqual(user);
       mockUserApi.verify();
+    });
+
+    it('performs a server redirect when requested by the app', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas({
+        reducers: {
+          redirectTo: redirectToReducer,
+          reduxAsyncConnect,
+        },
+      });
+      const newURL = '/redirect/to/this/url';
+
+      class Redirect extends React.Component {
+        componentWillMount() {
+          store.dispatch(sendServerRedirect({
+            status: 301,
+            url: newURL,
+          }));
+        }
+
+        render() {
+          return <p>a component that requests a server redirect</p>;
+        }
+      }
+
+      const redirectRoutes = (
+        <Router>
+          <Route path="*" component={Redirect} />
+        </Router>
+      );
+
+      const client = testClient({
+        routes: redirectRoutes,
+        sagaMiddleware,
+        store,
+      });
+
+      const response = await client.get(`/en-US/firefox/`).end();
+
+      expect(response.status).toEqual(301);
+      expect(response.headers.location).toEqual(newURL);
     });
   });
 });

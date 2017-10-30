@@ -16,6 +16,7 @@ import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { fetchAddon } from 'core/reducers/addons';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
@@ -60,6 +61,7 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     installURLs: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
+    lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
@@ -82,8 +84,10 @@ export class AddonBase extends React.Component {
   componentWillMount() {
     const {
       addon,
+      clientApp,
       dispatch,
       errorHandler,
+      lang,
       params,
     } = this.props;
 
@@ -91,6 +95,16 @@ export class AddonBase extends React.Component {
     // of an error.
     if (!errorHandler.hasError()) {
       if (addon) {
+        if (!isNaN(params.slug)) {
+          // We only load add-ons by slug, but ID must be supported too because
+          // it is a legacy behavior.
+          dispatch(sendServerRedirect({
+            status: 301,
+            url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+          }));
+          return;
+        }
+
         dispatch(setViewContext(addon.type));
         this.dispatchFetchOtherAddonsByAuthors({ addon });
       } else {
@@ -604,6 +618,7 @@ export function mapStateToProps(state, ownProps) {
     ...installedAddon,
     installStatus: installedAddon.status || UNKNOWN,
     clientApp: state.api.clientApp,
+    lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
     addonsByAuthors,
   };
