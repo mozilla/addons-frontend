@@ -54,9 +54,26 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       );
     }
 
+    let supportEmail = addon.support_email;
+    if (supportEmail && /.+@.+/.test(supportEmail)) {
+      supportEmail = (
+        <li>
+          <a
+            className="AddonMoreInfo-support-email"
+            href={`mailto:${supportEmail}`}
+          >
+            {i18n.gettext('Support Email')}
+          </a>
+        </li>
+      );
+    } else {
+      supportEmail = null;
+    }
+
     return this.renderDefinitions({
       homepage,
       supportUrl,
+      supportEmail,
       statsLink: addon && (isAddonAuthor({ addon, userId }) || addon.public_stats) ? (
         <Link
           className="AddonMoreInfo-stats-link"
@@ -125,6 +142,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   renderDefinitions({
     homepage = null,
     supportUrl = null,
+    supportEmail = null,
     statsLink = null,
     privacyPolicyLink = null,
     eulaLink = null,
@@ -137,16 +155,17 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     const { i18n } = this.props;
     return (
       <dl className="AddonMoreInfo-contents">
-        {homepage || supportUrl ? (
+        {homepage || supportUrl || supportEmail ? (
           <dt className="AddonMoreInfo-links-title">
             {i18n.gettext('Add-on Links')}
           </dt>
         ) : null}
-        {homepage || supportUrl ? (
+        {homepage || supportUrl || supportEmail ? (
           <dd className="AddonMoreInfo-links-contents">
             <ul className="AddonMoreInfo-links-contents-list">
               {homepage}
               {supportUrl}
+              {supportEmail}
             </ul>
           </dd>
         ) : null}
