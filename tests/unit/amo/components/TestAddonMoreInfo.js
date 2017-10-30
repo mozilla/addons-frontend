@@ -235,13 +235,14 @@ describe(__filename, () => {
     expect(statsLink).toHaveLength(0);
   });
 
-  it('link to stats if add-on public_stats is true', () => {
+  it('links to stats if add-on public_stats is true', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
-      slug: 'coolio',
+      public_stats: true,
     });
     const root = render({
       addon,
+      // Make sure no user is signed in.
       store: dispatchClientMetadata().store,
     });
 
