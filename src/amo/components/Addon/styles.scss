@@ -114,11 +114,6 @@
 
   @include respond-to(medium) {
     flex-grow: 1;
-
-    .Addon-persona & {
-      flex-basis: 75%;
-      flex-grow: 0;
-    }
   }
 }
 
