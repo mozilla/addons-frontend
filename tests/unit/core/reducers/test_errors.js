@@ -218,4 +218,16 @@ describe('errors reducer', () => {
     const state = errors(undefined, action);
     expect(state[action.payload.id].messages).toEqual([nested]);
   });
+
+  it('ignores unknown error keys', () => {
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      // There is no way to guess what this is so we just ignore it.
+      jsonResponse: { unknown_key: true },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    expect(state[action.payload.id].messages).toEqual([]);
+  });
 });

@@ -41,25 +41,35 @@ function getMessagesFromError(error) {
             // Add a generic error not related to a specific field.
             errorData.messages.push(msg);
           } else {
-            // Add field specific error message.
-            // The field is not localized but we need to show it as a hint.
+            // Add a field specific error message.
+            // TODO: localize field keys.
+            // The field string is not localized but we still show
+            // it as a hint.
             errorData.messages.push(`${key}: ${msg}`);
           }
         });
       } else if (key === 'code') {
         errorData.code = value;
-      } else if (key === 'is_disabled_by_developer' && value === true) {
-        const newCode = ERROR_ADDON_DISABLED_BY_DEV;
-        logCodeChange({ oldCode: errorData.code, newCode });
-        errorData.code = newCode;
-      } else if (key === 'is_disabled_by_mozilla' && value === true) {
-        const newCode = ERROR_ADDON_DISABLED_BY_ADMIN;
-        logCodeChange({ oldCode: errorData.code, newCode });
-        errorData.code = newCode;
+      } else if (key === 'is_disabled_by_developer') {
+        if (value === true) {
+          const newCode = ERROR_ADDON_DISABLED_BY_DEV;
+          logCodeChange({ oldCode: errorData.code, newCode });
+          errorData.code = newCode;
+        }
+      } else if (key === 'is_disabled_by_mozilla') {
+        if (value === true) {
+          const newCode = ERROR_ADDON_DISABLED_BY_ADMIN;
+          logCodeChange({ oldCode: errorData.code, newCode });
+          errorData.code = newCode;
+        }
       } else if (typeof value === 'string' || typeof value === 'object') {
-        // This is most likely not a form field error so just show
-        // the message.
+        // This is a catch-all for errors that are not structured like
+        // Django/DRF form field errors. It won't be perfect but at least
+        // the user will see some kind of error.
         errorData.messages.push(value);
+      } else {
+        log.warn(
+          `Ignoring key "${key}": "${value}" in data of error response`);
       }
     });
   }
