@@ -25,6 +25,10 @@ type Props = {|
   userId: number | null,
 |};
 
+const renderNodesIf = (includeContent: boolean, nodes: Array<any>) => {
+  return includeContent ? nodes : null;
+};
+
 export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
     const { addon, i18n, userId } = this.props;
@@ -54,9 +58,26 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       );
     }
 
+    let supportEmail = addon.support_email;
+    if (supportEmail && /.+@.+/.test(supportEmail)) {
+      supportEmail = (
+        <li>
+          <a
+            className="AddonMoreInfo-support-email"
+            href={`mailto:${supportEmail}`}
+          >
+            {i18n.gettext('Support Email')}
+          </a>
+        </li>
+      );
+    } else {
+      supportEmail = null;
+    }
+
     return this.renderDefinitions({
       homepage,
       supportUrl,
+      supportEmail,
       statsLink: addon && (isAddonAuthor({ addon, userId }) || addon.public_stats) ? (
         <Link
           className="AddonMoreInfo-stats-link"
@@ -125,6 +146,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   renderDefinitions({
     homepage = null,
     supportUrl = null,
+    supportEmail = null,
     statsLink = null,
     privacyPolicyLink = null,
     eulaLink = null,
@@ -137,65 +159,74 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     const { i18n } = this.props;
     return (
       <dl className="AddonMoreInfo-contents">
-        {homepage || supportUrl ? (
-          <dt className="AddonMoreInfo-links-title">
+        {renderNodesIf(homepage || supportUrl || supportEmail, [
+          <dt className="AddonMoreInfo-links-title" key="links-title">
             {i18n.gettext('Add-on Links')}
-          </dt>
-        ) : null}
-        {homepage || supportUrl ? (
-          <dd className="AddonMoreInfo-links-contents">
+          </dt>,
+          <dd className="AddonMoreInfo-links-contents" key="links-contents">
             <ul className="AddonMoreInfo-links-contents-list">
               {homepage}
               {supportUrl}
+              {supportEmail}
             </ul>
-          </dd>
-        ) : null}
-        {version ? (
-          <dt className="AddonMoreInfo-version-title">
+          </dd>,
+        ])}
+
+        {renderNodesIf(version, [
+          <dt className="AddonMoreInfo-version-title" key="version-title">
             {i18n.gettext('Version')}
-          </dt>
-        ) : null}
-        {version ? <dd className="AddonMoreInfo-version">{version}</dd> : null}
+          </dt>,
+          <dd className="AddonMoreInfo-version" key="version-contents">
+            {version}
+          </dd>,
+        ])}
+
         <dt className="AddonMoreInfo-last-updated-title">
           {i18n.gettext('Last updated')}
         </dt>
         <dd>{versionLastUpdated}</dd>
-        {versionLicenseLink ? (
-          <dt className="AddonMoreInfo-license-title">
+
+        {renderNodesIf(versionLicenseLink, [
+          <dt className="AddonMoreInfo-license-title" key="license-title">
             {i18n.gettext('License')}
-          </dt>
-        ) : null}
-        {versionLicenseLink ? <dd>{versionLicenseLink}</dd> : null}
-        {privacyPolicyLink ? (
-          <dt className="AddonMoreInfo-privacy-policy-title">
+          </dt>,
+          <dd key="license-contents">{versionLicenseLink}</dd>,
+        ])}
+
+        {renderNodesIf(privacyPolicyLink, [
+          <dt className="AddonMoreInfo-privacy-policy-title" key="privacy-title">
             {i18n.gettext('Privacy Policy')}
-          </dt>
-        ) : null}
-        {privacyPolicyLink ? <dd>{privacyPolicyLink}</dd> : null}
-        {eulaLink ? (
-          <dt className="AddonMoreInfo-eula-title">
+          </dt>,
+          <dd key="privacy-contents">{privacyPolicyLink}</dd>,
+        ])}
+
+        {renderNodesIf(eulaLink, [
+          <dt className="AddonMoreInfo-eula-title" key="eula-title">
             {i18n.gettext('End-User License Agreement')}
-          </dt>
-        ) : null}
-        {eulaLink ? <dd>{eulaLink}</dd> : null}
-        {versionHistoryLink ? (
-          <dt className="AddonMoreInfo-version-history-title">
+          </dt>,
+          <dd key="eula-contents">{eulaLink}</dd>,
+        ])}
+
+        {renderNodesIf(versionHistoryLink, [
+          <dt className="AddonMoreInfo-version-history-title" key="history-title">
             {i18n.gettext('Version History')}
-          </dt>
-        ) : null}
-        {versionHistoryLink ? <dd>{versionHistoryLink}</dd> : null}
-        {betaVersionsLink ? (
-          <dt className="AddonMoreInfo-beta-versions-title">
+          </dt>,
+          <dd key="history-contents">{versionHistoryLink}</dd>,
+        ])}
+
+        {renderNodesIf(betaVersionsLink, [
+          <dt className="AddonMoreInfo-beta-versions-title" key="beta-title">
             {i18n.gettext('Beta Versions')}
-          </dt>
-        ) : null}
-        {betaVersionsLink ? <dd>{betaVersionsLink}</dd> : null}
-        {statsLink ? (
-          <dt className="AddonMoreInfo-stats-title">
+          </dt>,
+          <dd key="beta-contents">{betaVersionsLink}</dd>,
+        ])}
+
+        {renderNodesIf(statsLink, [
+          <dt className="AddonMoreInfo-stats-title" key="stats-title">
             {i18n.gettext('Usage Statistics')}
-          </dt>
-        ) : null}
-        {statsLink ? <dd>{statsLink}</dd> : null}
+          </dt>,
+          <dd key="stats-contents">{statsLink}</dd>,
+        ])}
       </dl>
     );
   }

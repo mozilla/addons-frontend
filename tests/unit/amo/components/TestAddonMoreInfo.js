@@ -55,7 +55,7 @@ describe(__filename, () => {
     expect(root.find('.AddonMoreInfo-beta-versions-title')).toHaveLength(0);
   });
 
-  it('does renders a link <dt> if links exist', () => {
+  it('renders a link <dt> if links exist', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       homepage: null,
@@ -67,9 +67,23 @@ describe(__filename, () => {
       .toIncludeText('Add-on Links');
   });
 
+  it('renders a link <dt> if support email exists', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      homepage: null,
+      support_url: null,
+      support_email: 'hello@foo.com',
+    });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-links-title'))
+      .toIncludeText('Add-on Links');
+  });
+
   it('does not render a link <dt> if no links exist', () => {
     const partialAddon = createInternalAddon(fakeAddon);
     delete partialAddon.homepage;
+    delete partialAddon.support_email;
     delete partialAddon.support_url;
     const root = render({ addon: createInternalAddon(partialAddon) });
 
@@ -82,6 +96,18 @@ describe(__filename, () => {
     const root = render({ addon: createInternalAddon(partialAddon) });
 
     expect(root.find('.AddonMoreInfo-homepage-link')).toHaveLength(0);
+  });
+
+  it('does not render a link <dt> if support email is not valid', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      homepage: null,
+      support_url: null,
+      support_email: 'invalid-email',
+    });
+    const root = render({ addon });
+
+    expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
   });
 
   it('renders the homepage of an add-on', () => {
@@ -114,6 +140,18 @@ describe(__filename, () => {
 
     expect(link).toIncludeText('Support Site');
     expect(link).toHaveProp('href', 'http://support.hampsterdance.com/');
+  });
+
+  it('renders the email link of an add-on', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      support_email: 'ba@bar.com',
+    });
+    const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-support-email');
+
+    expect(link).toIncludeText('Support Email');
+    expect(link).toHaveProp('href', 'mailto:ba@bar.com');
   });
 
   it('renders the version number of an add-on', () => {
