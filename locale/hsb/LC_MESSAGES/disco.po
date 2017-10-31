@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-24 19:55+0000\n"
+"POT-Creation-Date: 2017-10-31 19:42+0000\n"
 "PO-Revision-Date: 2017-08-23 19:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,24 +28,24 @@ msgstr ""
 "tutón zmylk protokolowali a budźemy jón přeslědźeć."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Zmylkowy kod: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "Strona njeje so namakała"
 
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 
-#: src/core/components/InstallButton/index.js:110
+#: src/core/components/InstallButton/index.js:129
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/InstallButton/index.js:132
-#: src/core/components/InstallButton/index.js:150
+#: src/core/components/InstallButton/index.js:153
+#: src/core/components/InstallButton/index.js:174
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
