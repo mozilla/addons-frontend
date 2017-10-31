@@ -16,20 +16,34 @@
 .SectionLinks-link,
 .SectionLinks-link:link {
   color: $grey-40;
+  display: inline-block;
   font-weight: 400;
   margin: 0 12px;
   padding: 0 0 2px;
   text-decoration: none;
-  transition-duration: $transition-short;
-  transition-property: border color;
+
+  &::after {
+    background: transparent;
+    content: "";
+    display: block;
+    height: 3px;
+    margin: auto;
+    transition: width $transition-short ease, background-color $transition-short ease;
+    width: 0;
+  }
 
   &:focus,
   &:hover {
-    border-bottom: 3px solid $grey-40;
+    &::after {
+      background: $grey-40;
+      width: 100%;
+    }
   }
 
   &:active {
-    border-bottom: 3px solid $white;
+    &::after {
+      background-color: $white;
+    }
   }
 }
 
@@ -41,11 +55,14 @@
   &:active,
   &:focus,
   &:hover {
-    border-bottom: 3px solid $white;
+    &::after {
+      background-color: $white;
+    }
   }
 }
 
-.SectionLinks-explore {
+.SectionLinks-explore,
+.SectionLinks-explore:link {
   display: none;
 
   @include respond-to(large) {
@@ -61,7 +78,9 @@
   &:active,
   &:focus,
   &:hover {
-    border-bottom: 0;
+    &::after {
+      width: 0;
+    }
   }
 
   .DropdownMenu-button {
