@@ -204,4 +204,18 @@ describe('errors reducer', () => {
       responseStatusCode: 401,
     });
   });
+
+  it('adds nested error messages', () => {
+    const nested = { inner: 'This is a nested message.' };
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      // There is not a known API response but we should make sure to
+      // support it just in case.
+      jsonResponse: { nested },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    expect(state[action.payload.id].messages).toEqual([nested]);
+  });
 });

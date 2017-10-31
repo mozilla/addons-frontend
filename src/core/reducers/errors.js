@@ -32,9 +32,10 @@ function getMessagesFromError(error) {
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
       if (Array.isArray(val)) {
-        // Most API reponse errors will consist of a key (which could be a
-        // form field) and an array of localized messages.
-        // More info: http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
+        // Most API reponse errors will consist of a key (which could be
+        // a form field) and an array of localized messages.
+        // More info:
+        // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
         val.forEach((msg) => {
           if (key === 'non_field_errors') {
             // Add a generic error not related to a specific field.
@@ -55,7 +56,7 @@ function getMessagesFromError(error) {
         const newCode = ERROR_ADDON_DISABLED_BY_ADMIN;
         logCodeChange({ oldCode: errorData.code, newCode });
         errorData.code = newCode;
-      } else if (typeof val === 'string') {
+      } else if (typeof val === 'string' || typeof val === 'object') {
         // This is most likely not a form field error so just show
         // the message.
         errorData.messages.push(val);
