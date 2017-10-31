@@ -22,6 +22,7 @@ import {
   getClientCompatibility as _getClientCompatibility,
 } from 'core/utils/compatibility';
 import Button from 'ui/components/Button';
+import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
@@ -124,6 +125,7 @@ export class InstallButtonBase extends React.Component {
           data-browsertheme={JSON.stringify(getThemeData(addon))}
           onClick={this.installTheme}
         >
+          <Icon name="plus" />
           {i18n.gettext('Install Theme')}
         </Button>
       );
@@ -147,6 +149,7 @@ export class InstallButtonBase extends React.Component {
           prependClientApp={false}
           prependLang={false}
         >
+          <Icon name="plus" />
           {i18n.gettext('Add to Firefox')}
         </Button>
       );
@@ -167,6 +170,7 @@ export class InstallButtonBase extends React.Component {
           prependClientApp={false}
           prependLang={false}
         >
+          <Icon name="plus" />
           {i18n.gettext('Add to Firefox')}
         </Button>
       );

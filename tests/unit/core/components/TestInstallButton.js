@@ -115,7 +115,7 @@ describe(__filename, () => {
     const button = root.childAt(1);
 
     expect(button.type()).toEqual(Button);
-    expect(button.children()).toIncludeText('Install Theme');
+    expect(button.children()).toContain('Install Theme');
     expect(button).toHaveProp(
       'data-browsertheme', JSON.stringify(themePreview.getThemeData(addon))
     );
@@ -155,7 +155,7 @@ describe(__filename, () => {
 
     expect(button.type()).toEqual(Button);
 
-    expect(button.children()).toIncludeText('Add to Firefox');
+    expect(button.children()).toContain('Add to Firefox');
     expect(button).toHaveClassName('InstallButton-button');
     expect(button).not.toHaveClassName('Button--small');
     expect(button).toHaveProp('href', installURL);
@@ -257,7 +257,7 @@ describe(__filename, () => {
     expect(button.type()).toEqual(Button);
     expect(button).toHaveClassName('Button--action');
     expect(button).toHaveClassName('InstallButton-button');
-    expect(button.children()).toIncludeText('Add to Firefox');
+    expect(button.children()).toContain('Add to Firefox');
   });
 
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
@@ -276,7 +276,7 @@ describe(__filename, () => {
     expect(button.type()).toEqual(Button);
     expect(button).toHaveClassName('Button--action');
     expect(button).toHaveClassName('InstallButton-button');
-    expect(button.children()).toIncludeText('Add to Firefox');
+    expect(button.children()).toContain('Add to Firefox');
   });
 
   it('disables the OpenSearch button if not compatible', () => {
@@ -293,7 +293,7 @@ describe(__filename, () => {
 
     expect(button.type()).toEqual(Button);
     expect(button).toHaveClassName('InstallButton-button--disabled');
-    expect(button.children()).toIncludeText('Add to Firefox');
+    expect(button.children()).toContain('Add to Firefox');
   });
 
   it('disables install switch and uses button for OpenSearch plugins', () => {
@@ -311,7 +311,7 @@ describe(__filename, () => {
     });
 
     const installButton = rootNode.find('.InstallButton-button');
-    expect(installButton.children().text()).toEqual('Add to Firefox');
+    expect(installButton.children()).toContain('Add to Firefox');
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');

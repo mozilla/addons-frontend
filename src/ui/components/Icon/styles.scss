@@ -151,6 +151,10 @@
   @include icon($name: "experimental-badge");
 }
 
+.Icon-plus {
+  @include icon($name: "plus");
+}
+
 .Icon-reply-arrow {
   @include icon($name: "reply-arrow");
 

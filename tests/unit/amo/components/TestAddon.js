@@ -50,7 +50,6 @@ import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
-  createFakeAddon,
   dispatchClientMetadata,
   dispatchSignInActions,
   fakeAddon,
@@ -66,7 +65,6 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
-import Badge from 'ui/components/Badge';
 
 
 function renderProps({
@@ -1219,85 +1217,6 @@ describe(__filename, () => {
       expect(root).toHaveClassName('.Addon--has-more-than-0-addons');
       expect(root).toHaveClassName('.Addon--has-more-than-3-addons');
     });
-  });
-
-  it('displays a badge when the addon is featured', () => {
-    const addon = createInternalAddon({ ...fakeAddon, is_featured: true });
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Extension');
-  });
-
-  it('adds a different badge label when a "theme" addon is featured', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon, is_featured: true, type: ADDON_TYPE_THEME,
-    });
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Theme');
-  });
-
-  it('adds a different badge label when an addon of a different type is featured', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon, is_featured: true, type: ADDON_TYPE_OPENSEARCH,
-    });
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'featured');
-    expect(root.find(Badge)).toHaveProp('label', 'Featured Add-on');
-  });
-
-  it('does not display the featured badge when addon is not featured', () => {
-    const addon = createInternalAddon({ ...fakeAddon, is_featured: false });
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('displays a badge when the addon needs restart', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      files: [{ is_restart_required: true }],
-    }));
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'restart-required');
-    expect(root.find(Badge)).toHaveProp('label', 'Restart Required');
-  });
-
-  it('does not display the "restart required" badge when addon does not need restart', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      files: [{ is_restart_required: false }],
-    }));
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('does not display the "restart required" badge when isRestartRequired is not true', () => {
-    const root = shallowRender({ addon: createInternalAddon(fakeAddon) });
-
-    expect(root.find(Badge)).toHaveLength(0);
-  });
-
-  it('displays a badge when the addon is experimental', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      is_experimental: true,
-    }));
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveProp('type', 'experimental');
-    expect(root.find(Badge)).toHaveProp('label', 'Experimental');
-  });
-
-  it('does not display a badge when the addon is not experimental', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      is_experimental: false,
-    }));
-    const root = shallowRender({ addon });
-
-    expect(root.find(Badge)).toHaveLength(0);
   });
 
   it('renders the site identifier as a data attribute', () => {

@@ -11,7 +11,7 @@
   justify-content: space-between;
 
   @include respond-to(large) {
-    margin: 10px -10px 0;
+    margin: 0 -12px;
   }
 }
 
@@ -19,7 +19,7 @@
   @include text-align-start();
 
   flex: 1;
-  margin: 10px 15px;
+  margin: 12px;
   max-width: 30%;
 
   dd {
