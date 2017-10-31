@@ -31,11 +31,11 @@ export class NotFoundBase extends React.Component<Props> {
 
     let explanation;
     if (errorCode === ERROR_ADDON_DISABLED_BY_DEV) {
-      explanation =
-        i18n.gettext('This add-on has been removed by its author.');
+      explanation = i18n.gettext(
+        'This add-on has been removed by its author.');
     } else if (errorCode === ERROR_ADDON_DISABLED_BY_ADMIN) {
-      explanation =
-        i18n.gettext('This add-on has been disabled by an administrator.');
+      explanation = i18n.gettext(
+        'This add-on has been disabled by an administrator.');
     } else {
       explanation = i18n.gettext(
         `Sorry, but we can't find anything at the address you entered.`);
