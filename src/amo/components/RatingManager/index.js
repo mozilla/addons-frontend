@@ -56,6 +56,7 @@ type Props = {|
   i18n: I18nType,
   loadSavedReview: LoadSavedReviewFunc,
   location: ReactRouterLocation,
+  onReviewSubmitted?: () => void,
   submitReview: SubmitReviewFunc,
   userId: number,
   userReview: UserReviewType,
@@ -161,6 +162,13 @@ export class RatingManagerBase extends React.Component<Props, State> {
     );
   }
 
+  onReviewSubmitted = () => {
+    this.setState({ showTextEntry: false });
+    if (this.props.onReviewSubmitted) {
+      this.props.onReviewSubmitted();
+    }
+  }
+
   render() {
     const { AddonReview, Rating, i18n, addon, userId, userReview } = this.props;
     const { showTextEntry } = this.state;
@@ -170,15 +178,11 @@ export class RatingManagerBase extends React.Component<Props, State> {
       i18n.gettext('How are you enjoying your experience with %(addonName)s?'),
       { addonName: addon.name });
 
-    const onReviewSubmitted = () => {
-      this.setState({ showTextEntry: false });
-    };
-
     return (
       <div className="RatingManager">
         {showTextEntry && isLoggedIn ?
           <AddonReview
-            onReviewSubmitted={onReviewSubmitted}
+            onReviewSubmitted={this.onReviewSubmitted}
             review={userReview}
           /> : null
         }

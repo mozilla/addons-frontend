@@ -174,16 +174,41 @@ describe('RatingManager', () => {
 
     return root.onSelectRating(5)
       .then(() => {
-        expect(FakeAddonReview.called).toBeTruthy();
+        sinon.assert.called(FakeAddonReview);
 
         const props = FakeAddonReview.firstCall.args[0];
         expect(props.review).toEqual(userReview);
 
         // Now make sure the callback is configured.
         expect(root.state.showTextEntry).toEqual(true);
-        // Trigger the callback just like AddonReview would after completion.
+        // Trigger the callback just like AddonReview would
+        // after completion.
         props.onReviewSubmitted();
         expect(root.state.showTextEntry).toEqual(false);
+      });
+  });
+
+  it('calls back to the parent component after submitting a review', () => {
+    const userReview = setReview(fakeReview).payload;
+    const FakeAddonReview = sinon.spy(() => <div />);
+    const parentOnReviewSubmitted = sinon.stub();
+    const root = render({
+      AddonReview: FakeAddonReview,
+      userReview,
+      onReviewSubmitted: parentOnReviewSubmitted,
+    });
+
+    // Select a rating to open the submit review UI.
+    return root.onSelectRating(5)
+      .then(() => {
+        sinon.assert.called(FakeAddonReview);
+        const props = FakeAddonReview.firstCall.args[0];
+
+        // Simulate pressing submit in the review UI.
+        props.onReviewSubmitted();
+
+        // Make sure the parent's callback was executed.
+        sinon.assert.called(parentOnReviewSubmitted);
       });
   });
 

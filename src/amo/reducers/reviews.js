@@ -2,6 +2,7 @@
 import { oneLine } from 'common-tags';
 
 import {
+  CLEAR_ADDON_REVIEWS,
   SEND_REPLY_TO_REVIEW,
   SEND_REVIEW_FLAG,
   SET_ADDON_REVIEWS,
@@ -15,6 +16,7 @@ import {
 } from 'amo/constants';
 import { denormalizeReview } from 'amo/actions/reviews';
 import type {
+  ClearAddonReviewsAction,
   HideEditReviewFormAction,
   HideReplyToReviewFormAction,
   SendReplyToReviewAction,
@@ -170,6 +172,7 @@ export const changeViewState = (
 };
 
 type ReviewActionType =
+  | ClearAddonReviewsAction
   | HideEditReviewFormAction
   | HideReplyToReviewFormAction
   | SendReplyToReviewAction
@@ -280,6 +283,12 @@ export default function reviewsReducer(
           },
         },
       });
+    }
+    case CLEAR_ADDON_REVIEWS: {
+      const { payload } = action;
+      const newState = { ...state };
+      delete newState.byAddon[payload.addonSlug];
+      return newState;
     }
     case SET_ADDON_REVIEWS: {
       const { payload } = action;

@@ -4,11 +4,12 @@ import { oneLine } from 'common-tags';
 import React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import RatingManager from 'amo/components/RatingManager';
-import { fetchReviews } from 'amo/actions/reviews';
+import { clearAddonReviews, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon } from 'core/reducers/addons';
@@ -26,6 +27,7 @@ import LoadingText from 'ui/components/LoadingText';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
+import type { ApiStateType } from 'core/reducers/api';
 import type { UserStateType } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
@@ -37,12 +39,15 @@ import './styles.scss';
 type Props = {|
   i18n: I18nType,
   addon?: AddonType,
+  clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  lang: string,
   location: ReactRouterLocation,
   params: {| addonSlug: string |},
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
+  router: Object,
 |};
 
 export class AddonReviewListBase extends React.Component<Props> {
@@ -108,6 +113,25 @@ export class AddonReviewListBase extends React.Component<Props> {
 
   url() {
     return `${this.addonURL()}reviews/`;
+  }
+
+  getCurrentPage() {
+    const { location } = this.props;
+    return parsePage(location.query.page);
+  }
+
+  onReviewSubmitted = () => {
+    const { clientApp, dispatch, lang, params, router } = this.props;
+    // Now that a new review has been submitted, reset the list
+    // so that it gets reloaded.
+    dispatch(clearAddonReviews({ addonSlug: params.addonSlug }));
+
+    if (this.getCurrentPage() !== 1) {
+      router.push({
+        pathname: `/${lang}/${clientApp}${this.url()}`,
+        query: { page: 1 },
+      });
+    }
   }
 
   render() {
@@ -227,6 +251,7 @@ export class AddonReviewListBase extends React.Component<Props> {
             <RatingManager
               addon={addon}
               location={location}
+              onReviewSubmitted={this.onReviewSubmitted}
               version={addon.current_version}
             />
           ) : null}
@@ -254,7 +279,7 @@ export class AddonReviewListBase extends React.Component<Props> {
             <Paginate
               LinkComponent={Link}
               count={reviewCount}
-              currentPage={parsePage(location.query.page)}
+              currentPage={this.getCurrentPage()}
               pathname={this.url()}
             />
             : null
@@ -265,10 +290,11 @@ export class AddonReviewListBase extends React.Component<Props> {
   }
 }
 
-export function mapStateToProps(
-  state: {| user: UserStateType, reviews: ReviewState |},
-  ownProps: Props,
-) {
+type AppState = {|
+  api: ApiStateType, user: UserStateType, reviews: ReviewState,
+|};
+
+export function mapStateToProps(state: AppState, ownProps: Props) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
   }
@@ -277,6 +303,8 @@ export function mapStateToProps(
 
   return {
     addon: findAddon(state, addonSlug),
+    clientApp: state.api.clientApp,
+    lang: state.api.lang,
     reviewCount: reviewData && reviewData.reviewCount,
     reviews: reviewData && expandReviewObjects({
       state: state.reviews,
@@ -289,4 +317,5 @@ export default compose(
   connect(mapStateToProps),
   translate({ withRef: true }),
   withErrorHandler({ name: 'AddonReviewList' }),
+  withRouter,
 )(AddonReviewListBase);
