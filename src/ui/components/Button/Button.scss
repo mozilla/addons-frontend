@@ -57,9 +57,10 @@
 
 .Button--report {
   @include button(
-    $background: $report-base-color,
-    $background-active: $report-active-color,
-    $background-hover: $report-hover-color
+    $background: transparentize($grey-90, 0.9),
+    $background-active: transparentize($grey-90, 0.7),
+    $background-hover: transparentize($grey-90, 0.8),
+    $color: $grey-90
   );
 }
 

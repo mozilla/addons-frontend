@@ -146,7 +146,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
       >
         <div className="ReportAbuseButton--preview">
           <Button
-            className="ReportAbuseButton-show-more Button--report Button--small"
+            className="ReportAbuseButton-show-more Button--report Button--wide"
             onClick={this.showReportUI}
           >
             {i18n.gettext('Report this add-on for abuse')}
