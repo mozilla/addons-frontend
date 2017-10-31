@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-24 19:53+0000\n"
+"POT-Creation-Date: 2017-10-31 19:37+0000\n"
 "PO-Revision-Date: 2017-10-08 11:38+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -14,107 +14,107 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:140
-msgid "Featured Extension"
-msgstr "Utvalgt utvidelse"
-
-#: src/amo/components/Addon/index.js:142
-msgid "Featured Theme"
-msgstr "Utvalgt tema"
-
-#: src/amo/components/Addon/index.js:144
-msgid "Featured Add-on"
-msgstr "Utvalgt utvidelse"
-
-#: src/amo/components/Addon/index.js:172
+#: src/amo/components/Addon/index.js:173
 msgid "Cancel preview"
 msgstr "Avslutt forhåndsvisning"
 
-#: src/amo/components/Addon/index.js:172
+#: src/amo/components/Addon/index.js:173
 msgid "Tap to preview"
 msgstr "Trykk for en forhåndsvisning"
 
-#: src/amo/components/Addon/index.js:213
+#: src/amo/components/Addon/index.js:214
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Les %(count)s vurdering"
 msgstr[1] "Les alle %(count)s vurderinger"
 
-#: src/amo/components/Addon/index.js:229
+#: src/amo/components/Addon/index.js:230
 msgid "No reviews yet"
 msgstr "Ingen vurderinger ennå"
 
-#: src/amo/components/Addon/index.js:238
+#: src/amo/components/Addon/index.js:239
 msgid "Rate your experience"
 msgstr "Vurder din opplevelse"
 
-#: src/amo/components/Addon/index.js:271
+#: src/amo/components/Addon/index.js:272
 msgid "About this %(addonType)s"
 msgstr "Om denne %(addonType)s"
 
-#: src/amo/components/Addon/index.js:295
+#: src/amo/components/Addon/index.js:296
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versjonsnotat for %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:325
 msgid "More dictionaries by %(author)s"
 msgstr "Flere ordbøker av %(author)s"
 
-#: src/amo/components/Addon/index.js:327
+#: src/amo/components/Addon/index.js:328
 msgid "More dictionaries by these translators"
 msgstr "Flere ordbøker av disse oversetterne"
 
-#: src/amo/components/Addon/index.js:334
+#: src/amo/components/Addon/index.js:335
 msgid "More extensions by %(author)s"
 msgstr "Flere utvidelser av %(author)s"
 
-#: src/amo/components/Addon/index.js:337
+#: src/amo/components/Addon/index.js:338
 msgid "More extensions by these developers"
 msgstr "Flere utvidelser av disse utviklerne"
 
-#: src/amo/components/Addon/index.js:344
+#: src/amo/components/Addon/index.js:345
 msgid "More language packs by %(author)s"
 msgstr "Flere språkpakker av %(author)s"
 
-#: src/amo/components/Addon/index.js:347
+#: src/amo/components/Addon/index.js:348
 msgid "More language packs by these translators"
 msgstr "Flere språkpakker av disse oversetterne"
 
-#: src/amo/components/Addon/index.js:354
+#: src/amo/components/Addon/index.js:355
 msgid "More themes by %(author)s"
 msgstr "Flere temaer av %(author)s"
 
-#: src/amo/components/Addon/index.js:357
+#: src/amo/components/Addon/index.js:358
 msgid "More themes by these artists"
 msgstr "Flere temaer av disse artistene"
 
-#: src/amo/components/Addon/index.js:364
+#: src/amo/components/Addon/index.js:365
 msgid "More add-ons by %(author)s"
 msgstr "Flere utvidelser %(author)s"
 
-#: src/amo/components/Addon/index.js:367
+#: src/amo/components/Addon/index.js:368
 msgid "More add-ons by these developers"
 msgstr "Flere utvidelser fra disse utviklerne"
 
-#: src/amo/components/Addon/index.js:439
+#: src/amo/components/Addon/index.js:445
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sav %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:501
-msgid "Restart Required"
-msgstr "Omstart kreves"
-
-#: src/amo/components/Addon/index.js:507
-msgid "Experimental"
-msgstr "Eksperimentell"
-
-#: src/amo/components/Addon/index.js:527
+#: src/amo/components/Addon/index.js:511
 msgid "Extension Metadata"
 msgstr "Metadata for utvidelser"
 
-#: src/amo/components/Addon/index.js:550
+#: src/amo/components/Addon/index.js:537
 msgid "Screenshots"
 msgstr "Skjermbilder"
+
+#: src/amo/components/AddonBadges/index.js:25
+msgid "Featured Extension"
+msgstr "Utvalgt utvidelse"
+
+#: src/amo/components/AddonBadges/index.js:27
+msgid "Featured Theme"
+msgstr "Utvalgt tema"
+
+#: src/amo/components/AddonBadges/index.js:29
+msgid "Featured Add-on"
+msgstr "Utvalgt utvidelse"
+
+#: src/amo/components/AddonBadges/index.js:44
+msgid "Restart Required"
+msgstr "Omstart kreves"
+
+#: src/amo/components/AddonBadges/index.js:50
+msgid "Experimental"
+msgstr "Eksperimentell"
 
 #: src/amo/components/AddonCompatibilityError/index.js:57
 msgid ""
@@ -158,147 +158,181 @@ msgstr ""
 "Nettleseren din støtter ikke utvidelser. Du kan <a href=\"%(downloadUrl)s"
 "\">laste ned firefox</a> for å installere denne utvidelsen."
 
-#: src/amo/components/AddonMeta.js:34
-#: src/amo/components/SearchResult/index.js:114
-msgid "%(total)s user"
-msgid_plural "%(total)s users"
-msgstr[0] "%(total)s bruker"
-msgstr[1] "%(total)s brukere"
+#: src/amo/components/AddonMeta/index.js:31
+#, fuzzy
+msgid "Users"
+msgstr "Flest brukere"
 
-#: src/amo/components/AddonMeta.js:46
-msgid "%(total)s review"
-msgid_plural "%(total)s reviews"
-msgstr[0] "%(total)s vurdering"
-msgstr[1] "%(total)s vurderinger"
+#: src/amo/components/AddonMeta/index.js:34
+msgid "User"
+msgid_plural "Users"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/amo/components/AddonMeta.js:51
-msgid "No reviews"
+#: src/amo/components/AddonMeta/index.js:36
+#, fuzzy
+msgid "No Users"
+msgstr "Flest brukere"
+
+#: src/amo/components/AddonMeta/index.js:43
+#, fuzzy
+msgid "Reviews"
 msgstr "Ingen vurderinger"
 
-#: src/amo/components/AddonMeta.js:57
+#: src/amo/components/AddonMeta/index.js:46
+#, fuzzy
+msgid "Review"
+msgid_plural "Reviews"
+msgstr[0] "Vurderingstekst"
+msgstr[1] "Vurderingstekst"
+
+#: src/amo/components/AddonMeta/index.js:48
+#, fuzzy
+msgid "No Reviews"
+msgstr "Ingen vurderinger"
+
+#: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
 msgstr "Brukt av"
 
-#: src/amo/components/AddonMeta.js:62
-msgid "Click to view statistics"
-msgstr "Klikk for å vise statistikk"
+#: src/amo/components/AddonMeta/index.js:73
+msgid "Overall Rating"
+msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:101
-msgid "Read the license agreement for this add-on"
-msgstr "Les lisensavtalen for denne utvidelsen"
-
-#: src/amo/components/AddonMoreInfo/index.js:109
-msgid "See all versions"
-msgstr "Se alle versjoner"
-
-#: src/amo/components/AddonMoreInfo/index.js:119
-msgid "See all beta versions"
-msgstr "Se alle beta-versjoner"
-
-#: src/amo/components/AddonMoreInfo/index.js:142
-msgid "Add-on Links"
-msgstr "Lenker for utvidelser"
-
-#: src/amo/components/AddonMoreInfo/index.js:155
-msgid "Version"
-msgstr "Versjon"
-
-#: src/amo/components/AddonMoreInfo/index.js:160
-#: src/amo/components/Collection/index.js:151
-msgid "Last updated"
-msgstr "Sist oppdatert"
-
-#: src/amo/components/AddonMoreInfo/index.js:165
-msgid "License"
-msgstr "Lisens"
-
-#: src/amo/components/AddonMoreInfo/index.js:171
-msgid "Privacy Policy"
-msgstr "Personvernbestemmelse"
-
-#: src/amo/components/AddonMoreInfo/index.js:177
-msgid "End-User License Agreement"
-msgstr "Lisensavtale for sluttbrukere"
-
-#: src/amo/components/AddonMoreInfo/index.js:183
-msgid "Version History"
-msgstr "Versjonshistorikk"
-
-#: src/amo/components/AddonMoreInfo/index.js:189
-msgid "Beta Versions"
-msgstr "Beta-versjoner"
-
-#: src/amo/components/AddonMoreInfo/index.js:195
-msgid "Usage Statistics"
-msgstr "Brukerstatistikk"
-
-#: src/amo/components/AddonMoreInfo/index.js:209
-msgid "More information"
-msgstr "Mer informasjon"
-
-#: src/amo/components/AddonMoreInfo/index.js:43
-msgid "Homepage"
-msgstr "Hjemmeside"
-
-#: src/amo/components/AddonMoreInfo/index.js:52
-msgid "Support Site"
-msgstr "Brukerstøtteside"
-
-#: src/amo/components/AddonMoreInfo/index.js:65
-msgid "Visit stats dashboard"
-msgstr "Gå til statistikkoversikten"
-
-#: src/amo/components/AddonMoreInfo/index.js:73
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
-
-#: src/amo/components/AddonMoreInfo/index.js:93
+#: src/amo/components/AddonMoreInfo/index.js:114
 msgid "Read the privacy policy for this add-on"
 msgstr "Les personvernbestemmelsen for denne utvidelsen"
 
+#: src/amo/components/AddonMoreInfo/index.js:122
+msgid "Read the license agreement for this add-on"
+msgstr "Les lisensavtalen for denne utvidelsen"
+
+#: src/amo/components/AddonMoreInfo/index.js:130
+msgid "See all versions"
+msgstr "Se alle versjoner"
+
+#: src/amo/components/AddonMoreInfo/index.js:140
+msgid "See all beta versions"
+msgstr "Se alle beta-versjoner"
+
+#: src/amo/components/AddonMoreInfo/index.js:164
+msgid "Add-on Links"
+msgstr "Lenker for utvidelser"
+
+#: src/amo/components/AddonMoreInfo/index.js:177
+msgid "Version"
+msgstr "Versjon"
+
+#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/Collection/index.js:147
+msgid "Last updated"
+msgstr "Sist oppdatert"
+
+#: src/amo/components/AddonMoreInfo/index.js:191
+msgid "License"
+msgstr "Lisens"
+
+#: src/amo/components/AddonMoreInfo/index.js:198
+msgid "Privacy Policy"
+msgstr "Personvernbestemmelse"
+
+#: src/amo/components/AddonMoreInfo/index.js:205
+msgid "End-User License Agreement"
+msgstr "Lisensavtale for sluttbrukere"
+
+#: src/amo/components/AddonMoreInfo/index.js:212
+msgid "Version History"
+msgstr "Versjonshistorikk"
+
+#: src/amo/components/AddonMoreInfo/index.js:219
+msgid "Beta Versions"
+msgstr "Beta-versjoner"
+
+#: src/amo/components/AddonMoreInfo/index.js:226
+msgid "Usage Statistics"
+msgstr "Brukerstatistikk"
+
+#: src/amo/components/AddonMoreInfo/index.js:240
+msgid "More information"
+msgstr "Mer informasjon"
+
+#: src/amo/components/AddonMoreInfo/index.js:47
+msgid "Homepage"
+msgstr "Hjemmeside"
+
+#: src/amo/components/AddonMoreInfo/index.js:56
+msgid "Support Site"
+msgstr "Brukerstøtteside"
+
+#: src/amo/components/AddonMoreInfo/index.js:69
+#, fuzzy
+msgid "Support Email"
+msgstr "Brukerstøtteside"
+
+#: src/amo/components/AddonMoreInfo/index.js:86
+msgid "Visit stats dashboard"
+msgstr "Gå til statistikkoversikten"
+
+#: src/amo/components/AddonMoreInfo/index.js:94
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
 #: src/amo/components/AddonReview/index.js:169
-msgid "Tell the world why you think this extension is fantastic!"
+#, fuzzy
+msgid ""
+"Tell the world why you think this extension is fantastic! Please follow our "
+"%(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "Fortell verden hvorfor du synes denne utvidelsen er fantastisk!"
 
-#: src/amo/components/AddonReview/index.js:172
+#: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 "Fortell oss hva du elsker med denne utvidelsen. Vær spesifikk og kortfattet."
 
-#: src/amo/components/AddonReview/index.js:176
-msgid "Tell the world about this extension."
-msgstr "Fortell verden om denne utvidelsen."
-
 #: src/amo/components/AddonReview/index.js:177
+msgid ""
+"Tell the world about this extension. Please follow our %(linkStart)sreview "
+"guidelines%(linkEnd)s."
+msgstr ""
+
+#: src/amo/components/AddonReview/index.js:181
 msgid ""
 "Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 "Fortell oss om din erfaring med denne utvidelsen. Vær spesifikk og "
 "kortfattet."
 
-#: src/amo/components/AddonReview/index.js:189
+#: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
 msgstr "Skriv en omtale"
 
-#: src/amo/components/AddonReview/index.js:200
+#: src/amo/components/AddonReview/index.js:213
 msgid "Review text"
 msgstr "Vurderingstekst"
 
-#: src/amo/components/AddonReview/index.js:215
+#: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
 msgstr "Send inn vurdering"
 
-#: src/amo/components/AddonReviewList/index.js:142
+#: src/amo/components/AddonReviewList/index.js:165
 msgid "Add-on icon"
 msgstr "Utvidelses-ikon"
 
-#: src/amo/components/AddonReviewList/index.js:148
+#: src/amo/components/AddonReviewList/index.js:171
 msgid "Reviews for %(addonName)s"
 msgstr "Vurderinger for %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:176
-msgid "All written reviews"
-msgstr "Alle skrevne vurderinger"
+#: src/amo/components/AddonReviewList/index.js:183
+#, fuzzy
+msgid "%(total)s review for this add-on"
+msgid_plural "%(total)s reviews for this add-on"
+msgstr[0] "%(total)s vurdering"
+msgstr[1] "%(total)s vurderinger"
+
+#: src/amo/components/AddonReviewList/index.js:211
+#, fuzzy
+msgid "by %(authorList)s"
+msgstr "fra %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 #, fuzzy
@@ -383,14 +417,14 @@ msgid "Loading categories."
 msgstr "Laster kategorier."
 
 #: src/amo/components/Category/index.js:125
-#: src/amo/components/LandingPage/index.js:212
+#: src/amo/components/LandingPage/index.js:194
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Utvidelser"
 
 #: src/amo/components/Category/index.js:126
 #: src/amo/components/HomeHeroBanner/index.js:36
-#: src/amo/components/LandingPage/index.js:127
+#: src/amo/components/LandingPage/index.js:121
 #: src/amo/components/Search/index.js:101
 msgid "Featured extensions"
 msgstr "Utvalgte utvidelser"
@@ -401,52 +435,52 @@ msgstr "Utvalgte utvidelser"
 #: src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178
 #: src/amo/components/Category/index.js:188
-#: src/amo/components/Home/index.js:190 src/amo/components/Home/index.js:205
-#: src/amo/components/Home/index.js:216 src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:194 src/amo/components/Home/index.js:209
+#: src/amo/components/Home/index.js:220 src/amo/components/Home/index.js:248
+#: src/amo/components/LandingPage/index.js:129
 #: src/amo/components/LandingPage/index.js:135
-#: src/amo/components/LandingPage/index.js:141
-#: src/amo/components/LandingPage/index.js:150
+#: src/amo/components/LandingPage/index.js:144
+#: src/amo/components/LandingPage/index.js:155
 #: src/amo/components/LandingPage/index.js:161
 #: src/amo/components/LandingPage/index.js:167
-#: src/amo/components/LandingPage/index.js:173
 msgid "See more"
 msgstr ""
 
 #: src/amo/components/Category/index.js:136
-#: src/amo/components/LandingPage/index.js:136
+#: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:114
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Høyest vurderte utvidelser"
 
 #: src/amo/components/Category/index.js:146
-#: src/amo/components/LandingPage/index.js:142
+#: src/amo/components/LandingPage/index.js:136
 #: src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
 msgstr "Høyest vurderte utvidelser"
 
 #: src/amo/components/Category/index.js:158
-#: src/amo/components/LandingPage/index.js:211
+#: src/amo/components/LandingPage/index.js:193
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Tema"
 
 #: src/amo/components/Category/index.js:159
-#: src/amo/components/Home/index.js:243
-#: src/amo/components/LandingPage/index.js:153
+#: src/amo/components/Home/index.js:247
+#: src/amo/components/LandingPage/index.js:147
 #: src/amo/components/Search/index.js:104
 msgid "Featured themes"
 msgstr "Utvalgte tema"
 
 #: src/amo/components/Category/index.js:169
-#: src/amo/components/LandingPage/index.js:162
+#: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:117
 #, fuzzy
 msgid "Trending themes"
 msgstr "Høyest vurderte tema"
 
 #: src/amo/components/Category/index.js:179
-#: src/amo/components/LandingPage/index.js:168
+#: src/amo/components/LandingPage/index.js:162
 #: src/amo/components/Search/index.js:129
 msgid "Top rated themes"
 msgstr "Høyest vurderte tema"
@@ -464,10 +498,11 @@ msgid "Browse all themes in this category."
 msgstr "Bla gjennom alle tema i denne kategori."
 
 #: src/amo/components/Collection/index.js:137
-msgid "Addons"
+#: src/amo/components/Footer/index.js:43
+msgid "Add-ons"
 msgstr "Utvidelser"
 
-#: src/amo/components/Collection/index.js:143
+#: src/amo/components/Collection/index.js:141
 msgid "Creator"
 msgstr "Laget av"
 
@@ -498,7 +533,7 @@ msgstr ""
 "Beklager, men du har ikke tillatelse til å se denne siden. Hvis du ikke er "
 "innlogget, kan du prøve å logge inn gjennom lenken på toppen av siden."
 
-#: src/amo/components/ErrorPage/NotFound/index.js:22
+#: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid ""
 "If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
 "issue</a>. Tell us where you came from and what you were looking for, and "
@@ -509,19 +544,23 @@ msgstr ""
 "gjøre vårt beste for å rette på feilen."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:25
-msgid "Page not found"
-msgstr "Fant ikke siden"
+msgid "This add-on has been removed by its author."
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-msgid ""
-"Sorry, but we can't find anything at the address you entered. If you "
-"followed a link to an add-on, it's possible that add-on has been removed by "
-"its author."
-msgstr ""
-"Beklager, men vi kan ikke finne noe på adressen du skrev inn. Hvis du fulgte "
-"lenka til en utvidelse, kan det være mulig at denne utvidelsen har blitt "
-"fjernet av utvikleren."
+#, fuzzy
+msgid "This add-on has been disabled by an administrator."
+msgstr "Denne utvidelsen er ikke kompatibel med din versjon av Firefox."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:40
+#, fuzzy
+msgid "Sorry, but we can't find anything at the address you entered."
+msgstr "Beklager, men vi kunne ikke finne noe på adressen du skrev inn."
+
+#: src/amo/components/ErrorPage/NotFound/index.js:49
+#: src/core/components/ErrorPage/NotFound/index.js:27
+msgid "Page not found"
+msgstr "Fant ikke siden"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
@@ -548,59 +587,63 @@ msgstr ""
 "Beklager, men det oppstod en feil med serveren vår og vi kunne ikke fullføre "
 "forespørselen din. Vi har logget denne feilen og kommer til å undersøke den."
 
-#: src/amo/components/FlagReviewMenu/index.js:111
+#: src/amo/components/FlagReviewMenu/index.js:113
 msgid "This is a bug report or support request"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:114
+#: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:128
+#: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:130
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flagged"
+msgstr ""
+
+#: src/amo/components/FlagReviewMenu/index.js:134
 #, fuzzy
 msgid "Flag this developer response"
 msgstr "Utvikler-knutepunkt"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:135
 #, fuzzy
 msgid "Flag this review"
 msgstr "Trykk for en forhåndsvisning"
 
-#: src/amo/components/FlagReviewMenu/index.js:58
+#: src/amo/components/FlagReviewMenu/index.js:60
 #, fuzzy
 msgid "Log in to flag this response"
 msgstr "Logg inn for å vurdere denne utvidelsen"
 
-#: src/amo/components/FlagReviewMenu/index.js:59
+#: src/amo/components/FlagReviewMenu/index.js:61
 #, fuzzy
 msgid "Log in to flag this review"
 msgstr "Logg inn for å vurdere dette temaet"
 
-#: src/amo/components/FlagReviewMenu/index.js:68
+#: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:69
+#: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:82
+#: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:83
+#: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:93
+#: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:96
+#: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
 msgstr ""
 
@@ -655,10 +698,6 @@ msgstr ""
 msgid "Go to Mozilla's homepage"
 msgstr "Gå til Mozillas hjemmeside"
 
-#: src/amo/components/Footer/index.js:43
-msgid "Add-ons"
-msgstr "Utvidelser"
-
 #: src/amo/components/Footer/index.js:50
 msgid "About"
 msgstr "Om"
@@ -692,25 +731,29 @@ msgstr "Status for nettsted"
 msgid "View classic desktop site"
 msgstr "Vis klassisk desktop-side"
 
-#: src/amo/components/Header/index.js:102
+#: src/amo/components/Header/index.js:100
+msgid "View My Collections"
+msgstr ""
+
+#: src/amo/components/Header/index.js:105
+msgid "View Profile"
+msgstr "Vis profil"
+
+#: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
 msgstr "Rediger profil"
 
-#: src/amo/components/Header/index.js:106
+#: src/amo/components/Header/index.js:114
 msgid "Tools"
 msgstr "Verktøy"
 
-#: src/amo/components/Header/index.js:112
+#: src/amo/components/Header/index.js:120
 msgid "Submit a New Add-on"
 msgstr "Send inn en ny utvidelse"
 
-#: src/amo/components/Header/index.js:120
+#: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
 msgstr "Send inn et nytt tema"
-
-#: src/amo/components/Header/index.js:128
-msgid "Manage API Keys"
-msgstr "Håndter API-nøkler"
 
 #: src/amo/components/Header/index.js:137
 #: src/core/components/AuthenticateButton/index.js:63
@@ -724,10 +767,6 @@ msgstr "Firefox-utvidelser"
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
 msgstr "Min konto"
-
-#: src/amo/components/Header/index.js:97
-msgid "View Profile"
-msgstr "Vis profil"
 
 #: src/amo/components/Home/index.js:110
 msgid "Abstract"
@@ -754,37 +793,27 @@ msgstr ""
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/components/Home/index.js:173
-#, fuzzy
-msgid "Extensions change how Firefox works"
-msgstr "Du kan endre hvordan Firefox fungerer …"
-
-#: src/amo/components/Home/index.js:178
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/components/Home/index.js:189
+#: src/amo/components/Home/index.js:168
+msgid "Change the way Firefox looks with themes."
+msgstr ""
+
+#: src/amo/components/Home/index.js:193
 #, fuzzy
 msgid "Most Popular Extensions"
 msgstr "Mest populære utvidelser"
 
-#: src/amo/components/Home/index.js:204
+#: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr ""
 
-#: src/amo/components/Home/index.js:215
+#: src/amo/components/Home/index.js:219
 #, fuzzy
 msgid "Up & Coming Extensions"
 msgstr "Finn utvidelser"
-
-#: src/amo/components/Home/index.js:230
-#, fuzzy
-msgid "Themes change how Firefox looks"
-msgstr "Du kan endre hvordan Firefox fungerer …"
-
-#: src/amo/components/Home/index.js:233
-msgid "Change the way Firefox looks with themes."
-msgstr ""
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -840,7 +869,7 @@ msgstr ""
 msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:215
+#: src/amo/components/LandingPage/index.js:197
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -848,7 +877,7 @@ msgstr ""
 "Endre nettleserens utseende. Velg mellom tusenvis av temaer for å gi Firefox "
 "det utseendet du vil ha."
 
-#: src/amo/components/LandingPage/index.js:217
+#: src/amo/components/LandingPage/index.js:199
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -856,7 +885,7 @@ msgstr ""
 "Utforsk kraftfulle verktøy og funksjoner for å tilpasse Firefox og å gjøre "
 "nettleseren til din egen."
 
-#: src/amo/components/LandingPage/index.js:247
+#: src/amo/components/LandingPage/index.js:226
 msgid "Explore all categories"
 msgstr "Utforsk alle kategorier"
 
@@ -902,31 +931,31 @@ msgstr ""
 msgid "Available for your locale"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:132
+#: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this dictionary"
 msgstr "Logg inn for å vurdere denne ordboken"
 
-#: src/amo/components/RatingManager/index.js:134
+#: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this language pack"
 msgstr "Logg inn for å vurdere denne språkpakken"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this search plugin"
 msgstr "Logg inn for å vurdere dette søke-programtillegget"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this theme"
 msgstr "Logg inn for å vurdere dette temaet"
 
-#: src/amo/components/RatingManager/index.js:140
+#: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this extension"
 msgstr "Logg inn for å vurdere denne utvidelsen"
 
-#: src/amo/components/RatingManager/index.js:146
+#: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this add-on"
 msgstr "Logg inn for å vurdere denne utvidelsen"
 
-#: src/amo/components/RatingManager/index.js:170
+#: src/amo/components/RatingManager/index.js:178
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hva synes du om %(addonName)s?"
 
@@ -1148,38 +1177,44 @@ msgstr "Operativsystem"
 msgid "Featured add-ons only"
 msgstr "Utvalgt utvidelse"
 
-#: src/amo/components/SearchForm/index.js:192
+#: src/amo/components/SearchForm/index.js:200
 msgid "Go to the add-on page"
 msgstr "Gå til utvidelsesnettstedet"
 
-#: src/amo/components/SearchForm/index.js:208
+#: src/amo/components/SearchForm/index.js:216
 msgid "Find extensions"
 msgstr "Finn utvidelser"
 
-#: src/amo/components/SearchForm/index.js:210
+#: src/amo/components/SearchForm/index.js:218
 msgid "Find dictionary"
 msgstr "Finn ordbok"
 
-#: src/amo/components/SearchForm/index.js:212
+#: src/amo/components/SearchForm/index.js:220
 msgid "Find language pack"
 msgstr "Finn språkpakke"
 
-#: src/amo/components/SearchForm/index.js:214
+#: src/amo/components/SearchForm/index.js:222
 msgid "Find themes"
 msgstr "Finn teamer"
 
-#: src/amo/components/SearchForm/index.js:216
+#: src/amo/components/SearchForm/index.js:224
 msgid "Find add-ons"
 msgstr "Finn utvidelser"
 
-#: src/amo/components/SearchForm/index.js:247
-#: src/amo/components/SearchForm/index.js:277
+#: src/amo/components/SearchForm/index.js:256
+#: src/amo/components/SearchForm/index.js:286
 msgid "Search"
 msgstr "Søk"
 
 #: src/amo/components/SearchForm/index.js:84
 msgid "Loading"
 msgstr "Laster"
+
+#: src/amo/components/SearchResult/index.js:114
+msgid "%(total)s user"
+msgid_plural "%(total)s users"
+msgstr[0] "%(total)s bruker"
+msgstr[1] "%(total)s brukere"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
@@ -1317,7 +1352,7 @@ msgstr ""
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons suport user choice and "
+"keep it healthy, open and accessible. Add-ons support user choice and "
 "customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
 
@@ -1521,20 +1556,20 @@ msgstr ""
 "din. Vi har logget denne feilen og kommer til å undersøke den."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Feilkode: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Beklager, men vi kunne ikke finne noe på adressen du skrev inn."
 
-#: src/core/components/InstallButton/index.js:110
+#: src/core/components/InstallButton/index.js:129
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:132
-#: src/core/components/InstallButton/index.js:150
+#: src/core/components/InstallButton/index.js:153
+#: src/core/components/InstallButton/index.js:174
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -1637,6 +1672,38 @@ msgstr "Ingen vurderinger"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese mer"
+
+#~ msgid "Click to view statistics"
+#~ msgstr "Klikk for å vise statistikk"
+
+#~ msgid "Tell the world about this extension."
+#~ msgstr "Fortell verden om denne utvidelsen."
+
+#~ msgid "All written reviews"
+#~ msgstr "Alle skrevne vurderinger"
+
+#~ msgid "Addons"
+#~ msgstr "Utvidelser"
+
+#~ msgid ""
+#~ "Sorry, but we can't find anything at the address you entered. If you "
+#~ "followed a link to an add-on, it's possible that add-on has been removed "
+#~ "by its author."
+#~ msgstr ""
+#~ "Beklager, men vi kan ikke finne noe på adressen du skrev inn. Hvis du "
+#~ "fulgte lenka til en utvidelse, kan det være mulig at denne utvidelsen har "
+#~ "blitt fjernet av utvikleren."
+
+#~ msgid "Manage API Keys"
+#~ msgstr "Håndter API-nøkler"
+
+#, fuzzy
+#~ msgid "Extensions change how Firefox works"
+#~ msgstr "Du kan endre hvordan Firefox fungerer …"
+
+#, fuzzy
+#~ msgid "Themes change how Firefox looks"
+#~ msgstr "Du kan endre hvordan Firefox fungerer …"
 
 #~ msgid ""
 #~ "This ID is useful for debugging and identifying your add-on to site "
