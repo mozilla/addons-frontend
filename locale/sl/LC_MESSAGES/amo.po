@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-10-31 21:11+0000\n"
+"PO-Revision-Date: 2017-10-31 21:20+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -184,7 +184,7 @@ msgstr "Uporablja"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "Splošna ocena"
 
 #: src/amo/components/AddonMoreInfo/index.js:114
 msgid "Read the privacy policy for this add-on"
@@ -251,9 +251,8 @@ msgid "Support Site"
 msgstr "Stran s podporo"
 
 #: src/amo/components/AddonMoreInfo/index.js:69
-#, fuzzy
 msgid "Support Email"
-msgstr "Stran s podporo"
+msgstr "E-naslov za podporo"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
@@ -264,9 +263,8 @@ msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Pojasnite svetu, zakaj se vam ta razširitev zdi odlična!"
+msgstr "Pojasnite svetu, zakaj se vam ta razširitev zdi odlična! Upoštevajte naše %(linkStart)ssmernice za ocene%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -274,7 +272,7 @@ msgstr "Povejte, zakaj vam je ta razširitev všeč. Bodite določni in jedrnati
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Delite svoje izkušnje s tem dodatkom s svetom. Upoštevajte naše %(linkStart)ssmernice za ocene%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -301,18 +299,16 @@ msgid "Reviews for %(addonName)s"
 msgstr "Ocene za %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:183
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s ocena"
-msgstr[1] "%(total)s oceni"
-msgstr[2] "%(total)s ocene"
-msgstr[3] "%(total)s ocen"
+msgstr[0] "%(total)s ocena za ta dodatek"
+msgstr[1] "%(total)s oceni za ta dodatek"
+msgstr[2] "%(total)s ocene za ta dodatek"
+msgstr[3] "%(total)s ocen za ta dodatek"
 
 #: src/amo/components/AddonReviewList/index.js:211
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "— %(authorName)s, %(timestamp)s"
+msgstr "— %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
@@ -469,15 +465,13 @@ msgstr "Če ste sledili povezavi na tem spletnem mestu, <a href=\"%(url)s\">izpo
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Ta dodatek je bil njegov avtor odstranil."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Ta dodatek ni na voljo za vašo platformo."
+msgstr "Ta dodatek je onemogočil skrbnik."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "Žal na spletnem naslovu, ki ste ga vnesli, ne najdemo ničesar."
 
@@ -514,9 +508,8 @@ msgid "Flag"
 msgstr "Prijavi"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flagged"
-msgstr "Prijavi"
+msgstr "Prijavljeno"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -640,7 +633,7 @@ msgstr "Ogled strani za namizja"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Ogled mojih zbirk"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
@@ -1207,13 +1200,12 @@ msgid "Get involved"
 msgstr "Pridružite se"
 
 #: src/amo/components/StaticPages/About.js:69
-#, fuzzy
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
-"Mozilla je neprofitna organizacija, ki ustvarja Firefox, da bi internet ohranila zdrav, odprt in dostopen. Dodatki podpirajo uporabniško izbiro in prilagoditev v Firefoxu ter na naslednje načine nam"
-" lahko pomagate:"
+"Mozilla je neprofitna organizacija, ki ustvarja Firefox, da bi internet ohranila zdrav, odprt in dostopen. Dodatki podpirajo uporabniško izbiro in prilagoditev v Firefoxu, vi pa nam lahko pomagate "
+"na naslednje načine:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
