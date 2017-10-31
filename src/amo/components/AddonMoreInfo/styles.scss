@@ -1,26 +1,24 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
+@import "~photon-colors/colors";
 
 .AddonMoreInfo-contents {
   margin: 0;
   padding: 0;
 
   dt {
-    font-weight: bold;
-    line-height: 1.2;
+    @include font-regular();
+
+    color: $grey-50;
     margin: 0;
     padding: 0;
   }
 
   dd {
-    line-height: 1.2;
-    margin: 0 0 3px;
-    padding: 0;
+    @include font-medium();
 
-    a:link {
-      font-size: $font-size-s;
-      font-weight: bold;
-    }
+    margin: 0 0 12px;
+    padding: 0;
   }
 }
 
