@@ -1,4 +1,10 @@
-import { CLEAR_ERROR, ERROR_UNKNOWN, SET_ERROR } from 'core/constants';
+import {
+  CLEAR_ERROR,
+  ERROR_ADDON_DISABLED_BY_ADMIN,
+  ERROR_ADDON_DISABLED_BY_DEV,
+  ERROR_UNKNOWN,
+  SET_ERROR,
+} from 'core/constants';
 import log from 'core/logger';
 
 /*
@@ -11,36 +17,59 @@ import log from 'core/logger';
  * http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#responses
  */
 function getMessagesFromError(error) {
-  let errorData = {
+  const errorData = {
     code: ERROR_UNKNOWN,
     messages: [],
   };
   log.info('Extracting messages from error object:', error);
 
+  const logCodeChange = ({ oldCode, newCode }) => {
+    log.warn(`Replacing error code ${oldCode} with ${newCode}`);
+  };
+
   if (error && error.response && error.response.data) {
+    // Extract a code and messages from the JSON response.
     Object.keys(error.response.data).forEach((key) => {
-      const val = error.response.data[key];
-      if (key === 'code') {
-        errorData = { ...errorData, code: val };
-        return;
-      }
-      if (Array.isArray(val)) {
-        // Most API reponse errors will consist of a key (which could be a
-        // form field) and an array of localized messages.
-        // More info: http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
-        val.forEach((msg) => {
+      const value = error.response.data[key];
+      if (Array.isArray(value)) {
+        // Most API reponse errors will consist of a key (which could be
+        // a form field) and an array of localized messages.
+        // More info:
+        // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
+        value.forEach((msg) => {
           if (key === 'non_field_errors') {
             // Add a generic error not related to a specific field.
             errorData.messages.push(msg);
           } else {
-            // Add field specific error message.
-            // The field is not localized but we need to show it as a hint.
+            // Add a field specific error message.
+            // TODO: localize field keys.
+            // The field string is not localized but we still show
+            // it as a hint.
             errorData.messages.push(`${key}: ${msg}`);
           }
         });
+      } else if (key === 'code') {
+        errorData.code = value;
+      } else if (key === 'is_disabled_by_developer') {
+        if (value === true) {
+          const newCode = ERROR_ADDON_DISABLED_BY_DEV;
+          logCodeChange({ oldCode: errorData.code, newCode });
+          errorData.code = newCode;
+        }
+      } else if (key === 'is_disabled_by_mozilla') {
+        if (value === true) {
+          const newCode = ERROR_ADDON_DISABLED_BY_ADMIN;
+          logCodeChange({ oldCode: errorData.code, newCode });
+          errorData.code = newCode;
+        }
+      } else if (typeof value === 'string' || typeof value === 'object') {
+        // This is a catch-all for errors that are not structured like
+        // Django/DRF form field errors. It won't be perfect but at least
+        // the user will see some kind of error.
+        errorData.messages.push(value);
       } else {
-        // This is most likely not a form field error so just show the message.
-        errorData.messages.push(val);
+        log.warn(
+          `Ignoring key "${key}": "${value}" in data of error response`);
       }
     });
   }

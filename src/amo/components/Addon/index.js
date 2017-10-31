@@ -420,7 +420,7 @@ export class AddonBase extends React.Component {
           errorHandler.capturedError.responseStatusCode === 403 ||
           errorHandler.capturedError.responseStatusCode === 404
       ) {
-        return <NotFound />;
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
       // Show a list of errors at the top of the add-on section.
       errorBanner = errorHandler.renderError();
