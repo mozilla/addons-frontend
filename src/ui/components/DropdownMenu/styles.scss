@@ -11,22 +11,6 @@
   padding-top: 4px;
   position: relative;
 
-  // This media query is needed because `:hover` on mobile prevents the
-  // main button to close the dropdown menu. On mobile,
-  // `.DropdownMenu--active` controls the visibility of the menu.
-  // On "large" devices (and above), `:hover` also opens the menu.
-  @include respond-to(large) {
-    &:hover {
-      .DropdownMenu-items {
-        display: block;
-      }
-
-      .Icon-inverted-caret {
-        opacity: 1;
-      }
-    }
-  }
-
   @include respond-to(medium) {
     height: auto;
     padding-bottom: 6px;
