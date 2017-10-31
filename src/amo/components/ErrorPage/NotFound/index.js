@@ -37,10 +37,8 @@ export class NotFoundBase extends React.Component<Props> {
       explanation =
         i18n.gettext('This add-on has been disabled by an administrator.');
     } else {
-      explanation = i18n.gettext(`
-        Sorry, but we can't find anything at the address you entered.
-        If you followed a link to an add-on, it's possible that add-on
-        has been removed by its author.`);
+      explanation = i18n.gettext(
+        `Sorry, but we can't find anything at the address you entered.`);
     }
 
     /* eslint-disable react/no-danger */
