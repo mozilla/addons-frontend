@@ -46,4 +46,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'followonsearch@mozilla.com', // Follow-on Search Telemetry
   'clicktoplay-rollout@mozilla.org', // Click to Play Rollout
   'tls13-middlebox@mozilla.org', // TLS 1.3 Compatibility Testing of Middleboxes
+  'tls13-middlebox-serverhello@mozilla.org', // TLS 1.3 Compatibility Testing of Middleboxes
+  'googletestNT@mozillaonline.com', // Google Test Mozilla China
 ];
