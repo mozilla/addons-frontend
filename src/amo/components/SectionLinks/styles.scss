@@ -57,6 +57,7 @@
   &:hover {
     &::after {
       background-color: $white;
+      width: 100%;
     }
   }
 }
