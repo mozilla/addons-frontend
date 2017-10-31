@@ -1,4 +1,10 @@
-import { CLEAR_ERROR, ERROR_UNKNOWN, SET_ERROR } from 'core/constants';
+import {
+  CLEAR_ERROR,
+  ERROR_ADDON_DISABLED_BY_ADMIN,
+  ERROR_ADDON_DISABLED_BY_DEV,
+  ERROR_UNKNOWN,
+  SET_ERROR,
+} from 'core/constants';
 import log from 'core/logger';
 
 /*
@@ -11,19 +17,20 @@ import log from 'core/logger';
  * http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#responses
  */
 function getMessagesFromError(error) {
-  let errorData = {
+  const errorData = {
     code: ERROR_UNKNOWN,
     messages: [],
   };
   log.info('Extracting messages from error object:', error);
 
+  const logCodeChange = ({ oldCode, newCode }) => {
+    log.warn(`Replacing error code ${oldCode} with ${newCode}`);
+  };
+
   if (error && error.response && error.response.data) {
+    // Extract a code and messages from the JSON response.
     Object.keys(error.response.data).forEach((key) => {
       const val = error.response.data[key];
-      if (key === 'code') {
-        errorData = { ...errorData, code: val };
-        return;
-      }
       if (Array.isArray(val)) {
         // Most API reponse errors will consist of a key (which could be a
         // form field) and an array of localized messages.
@@ -38,8 +45,19 @@ function getMessagesFromError(error) {
             errorData.messages.push(`${key}: ${msg}`);
           }
         });
-      } else {
-        // This is most likely not a form field error so just show the message.
+      } else if (key === 'code') {
+        errorData.code = val;
+      } else if (key === 'is_disabled_by_developer' && val === true) {
+        const newCode = ERROR_ADDON_DISABLED_BY_DEV;
+        logCodeChange({ oldCode: errorData.code, newCode });
+        errorData.code = newCode;
+      } else if (key === 'is_disabled_by_mozilla' && val === true) {
+        const newCode = ERROR_ADDON_DISABLED_BY_ADMIN;
+        logCodeChange({ oldCode: errorData.code, newCode });
+        errorData.code = newCode;
+      } else if (typeof val === 'string') {
+        // This is most likely not a form field error so just show
+        // the message.
         errorData.messages.push(val);
       }
     });

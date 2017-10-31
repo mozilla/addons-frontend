@@ -1,6 +1,11 @@
 import { createApiError } from 'core/api/index';
 import { clearError, setError } from 'core/actions/errors';
-import { API_ERROR_SIGNATURE_EXPIRED, ERROR_UNKNOWN } from 'core/constants';
+import {
+  API_ERROR_SIGNATURE_EXPIRED,
+  ERROR_ADDON_DISABLED_BY_ADMIN,
+  ERROR_ADDON_DISABLED_BY_DEV,
+  ERROR_UNKNOWN,
+} from 'core/constants';
 import errors, { initialState } from 'core/reducers/errors';
 
 export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
@@ -158,5 +163,45 @@ describe('errors reducer', () => {
     const action = setError({ id: 'some-id', error });
     const state = errors(undefined, action);
     expect(state[action.payload.id].messages).toEqual(['Some message.']);
+  });
+
+  it('can capture an error about add-ons disabled by the developer', () => {
+    const message = 'Authentication credentials were not provided.';
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: {
+        detail: message,
+        is_disabled_by_developer: true,
+        is_disabled_by_mozilla: false,
+      },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    expect(state[action.payload.id]).toEqual({
+      code: ERROR_ADDON_DISABLED_BY_DEV,
+      messages: [message],
+      responseStatusCode: 401,
+    });
+  });
+
+  it('can capture an error about add-ons disabled by an admin', () => {
+    const message = 'Authentication credentials were not provided.';
+    const error = createApiError({
+      response: { status: 401 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: {
+        detail: message,
+        is_disabled_by_developer: false,
+        is_disabled_by_mozilla: true,
+      },
+    });
+    const action = setError({ id: 'some-id', error });
+    const state = errors(undefined, action);
+    expect(state[action.payload.id]).toEqual({
+      code: ERROR_ADDON_DISABLED_BY_ADMIN,
+      messages: [message],
+      responseStatusCode: 401,
+    });
   });
 });

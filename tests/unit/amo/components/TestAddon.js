@@ -321,7 +321,6 @@ describe(__filename, () => {
   });
 
   it('renders NotFound page for unauthorized add-on - 401 error', () => {
-    const id = 'error-handler-id';
     const { store } = dispatchClientMetadata();
 
     const error = createApiError({
@@ -329,19 +328,16 @@ describe(__filename, () => {
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { message: 'Authentication credentials were not provided.' },
     });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    // This makes sure the error was dispatched to state correctly.
-    expect(capturedError).toBeTruthy();
+    const errorHandler = new ErrorHandler({
+      id: 'some-id', dispatch: store.dispatch,
+    });
+    errorHandler.handle(error);
 
-    const errorHandler = createStubErrorHandler(capturedError);
-
-    const root = shallowRender({ errorHandler });
+    const root = renderComponent({ errorHandler, store });
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
   it('renders NotFound page for forbidden add-on - 403 error', () => {
-    const id = 'error-handler-id';
     const { store } = dispatchClientMetadata();
 
     const error = createApiError({
@@ -349,15 +345,31 @@ describe(__filename, () => {
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { message: 'You do not have permission.' },
     });
-    store.dispatch(setError({ id, error }));
-    const capturedError = store.getState().errors[id];
-    // This makes sure the error was dispatched to state correctly.
-    expect(capturedError).toBeTruthy();
+    const errorHandler = new ErrorHandler({
+      id: 'some-id', dispatch: store.dispatch,
+    });
+    errorHandler.handle(error);
 
-    const errorHandler = createStubErrorHandler(capturedError);
-
-    const root = shallowRender({ errorHandler });
+    const root = renderComponent({ errorHandler, store });
     expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('renders NotFound with a custom error code', () => {
+    const errorCode = 'CUSTOM_ERROR_CODE';
+    const { store } = dispatchClientMetadata();
+
+    const error = createApiError({
+      response: { status: 403 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { code: errorCode, message: 'Some error' },
+    });
+    const errorHandler = new ErrorHandler({
+      id: 'some-id', dispatch: store.dispatch,
+    });
+    errorHandler.handle(error);
+
+    const root = renderComponent({ errorHandler, store });
+    expect(root.find(NotFound)).toHaveProp('errorCode', errorCode);
   });
 
   it('renders a single author', () => {

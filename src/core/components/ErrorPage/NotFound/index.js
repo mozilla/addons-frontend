@@ -5,6 +5,8 @@ import NestedStatus from 'react-nested-status';
 
 import translate from 'core/i18n/translate';
 
+// For the AMO-specific component see
+// src/amo/components/ErrorPage/NotFound
 
 export class NotFoundBase extends React.Component {
   static propTypes = {
