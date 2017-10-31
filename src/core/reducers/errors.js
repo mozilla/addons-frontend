@@ -30,13 +30,13 @@ function getMessagesFromError(error) {
   if (error && error.response && error.response.data) {
     // Extract a code and messages from the JSON response.
     Object.keys(error.response.data).forEach((key) => {
-      const val = error.response.data[key];
-      if (Array.isArray(val)) {
+      const value = error.response.data[key];
+      if (Array.isArray(value)) {
         // Most API reponse errors will consist of a key (which could be
         // a form field) and an array of localized messages.
         // More info:
         // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
-        val.forEach((msg) => {
+        value.forEach((msg) => {
           if (key === 'non_field_errors') {
             // Add a generic error not related to a specific field.
             errorData.messages.push(msg);
@@ -47,19 +47,19 @@ function getMessagesFromError(error) {
           }
         });
       } else if (key === 'code') {
-        errorData.code = val;
-      } else if (key === 'is_disabled_by_developer' && val === true) {
+        errorData.code = value;
+      } else if (key === 'is_disabled_by_developer' && value === true) {
         const newCode = ERROR_ADDON_DISABLED_BY_DEV;
         logCodeChange({ oldCode: errorData.code, newCode });
         errorData.code = newCode;
-      } else if (key === 'is_disabled_by_mozilla' && val === true) {
+      } else if (key === 'is_disabled_by_mozilla' && value === true) {
         const newCode = ERROR_ADDON_DISABLED_BY_ADMIN;
         logCodeChange({ oldCode: errorData.code, newCode });
         errorData.code = newCode;
-      } else if (typeof val === 'string' || typeof val === 'object') {
+      } else if (typeof value === 'string' || typeof value === 'object') {
         // This is most likely not a form field error so just show
         // the message.
-        errorData.messages.push(val);
+        errorData.messages.push(value);
       }
     });
   }
