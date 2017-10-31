@@ -222,6 +222,8 @@ module.exports = {
   validClientApplications: [
     'android',
     'firefox',
+    'seamonkey',
+    'thunderbird',
   ],
 
   validLocaleUrlExceptions: [],
