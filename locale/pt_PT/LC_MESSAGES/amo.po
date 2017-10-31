@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-10-31 23:11+0000\n"
+"PO-Revision-Date: 2017-10-31 23:14+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -169,9 +169,8 @@ msgstr[0] "Análise"
 msgstr[1] "Análises"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Reviews"
-msgstr "Ainda sem análises"
+msgstr "Sem análises"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
@@ -246,9 +245,8 @@ msgid "Support Site"
 msgstr "Site de apoio"
 
 #: src/amo/components/AddonMoreInfo/index.js:69
-#, fuzzy
 msgid "Support Email"
-msgstr "Site de apoio"
+msgstr "Email de apoio"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
@@ -259,9 +257,8 @@ msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica!"
+msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica! Por favor siga as nossas %(linkStart)sdiretrizes de análises%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -296,16 +293,14 @@ msgid "Reviews for %(addonName)s"
 msgstr "Análises para %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:183
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s análise"
-msgstr[1] "%(total)s análises"
+msgstr[0] "%(total)s análise para este extra"
+msgstr[1] "%(total)s análises para este extra"
 
 #: src/amo/components/AddonReviewList/index.js:211
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "por %(authorName)s, %(timestamp)s"
+msgstr "por %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
@@ -463,14 +458,12 @@ msgid "This add-on has been removed by its author."
 msgstr "Este extra foi removido pelo autor."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Este extra não esta disponível na sua plataforma."
+msgstr "Este extra foi desativado por um administrador."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Desculpe, mas não conseguimos encontrar nada no URL que introduziu."
+msgstr "Desculpe, mas não conseguimos encontrar nada no endereço que introduziu."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -505,9 +498,8 @@ msgid "Flag"
 msgstr "Marcar"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flagged"
-msgstr "Marcar"
+msgstr "Marcado"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -1184,13 +1176,12 @@ msgid "Get involved"
 msgstr "Envolver-se"
 
 #: src/amo/components/StaticPages/About.js:69
-#, fuzzy
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
-"A Mozilla é um defensor sem fins lucrativos da Internet e construímos o Firefox para a manter saudável, aberta e acessível. Os extras apoiam a escolha dos utilizadores e a personalização no Firefox,"
-" e você pode contribuir das seguintes formas:"
+"A Mozilla é uma defensora sem fins lucrativos da Internet, nós construímos o Firefox para a manter saudável, aberta e acessível. Os extras apoiam a escolha dos utilizadores e a personalização no "
+"Firefox, e você pode contribuir das seguintes formas:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
