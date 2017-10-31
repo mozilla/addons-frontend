@@ -24,7 +24,16 @@ export function createFakeApiError({ fieldErrors = {}, nonFieldErrors } = {}) {
   });
 }
 
-describe('errors reducer', () => {
+const getReducedError = (error) => {
+  const action = setError({ id: 'some-id', error });
+  const state = errors(undefined, action);
+
+  const reducedError = state[action.payload.id];
+  expect(reducedError).toBeDefined();
+  return reducedError;
+};
+
+describe(__filename, () => {
   it('defaults to an empty object', () => {
     expect(errors(undefined, { type: 'UNRELATED' })).toEqual(initialState);
   });
@@ -36,9 +45,7 @@ describe('errors reducer', () => {
       apiURL: 'https://some/api/endpoint',
       jsonResponse: { detail: message },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id]).toEqual({
+    expect(getReducedError(error)).toEqual({
       code: ERROR_UNKNOWN,
       messages: [message],
       responseStatusCode: 401,
@@ -87,9 +94,7 @@ describe('errors reducer', () => {
   });
 
   it('stores a generic error', () => {
-    const action = setError({ id: 'action1', error: new Error('any message') });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id]).toEqual({
+    expect(getReducedError(new Error('any message'))).toEqual({
       code: ERROR_UNKNOWN,
       messages: [],
       responseStatusCode: null,
@@ -101,12 +106,10 @@ describe('errors reducer', () => {
       'both user_id and password cannot be blank',
       'some other message',
     ];
-    const action = setError({
-      id: 'action1',
-      error: createFakeApiError({ nonFieldErrors }),
-    });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id].messages).toEqual(nonFieldErrors);
+    const reducedError = getReducedError(
+      createFakeApiError({ nonFieldErrors })
+    );
+    expect(reducedError.messages).toEqual(nonFieldErrors);
   });
 
   it('gets field errors from API error response', () => {
@@ -114,13 +117,8 @@ describe('errors reducer', () => {
       username: ['not long enough', 'contains invalid characters'],
       password: ['sorry, it cannot be 1234'],
     };
-    const action = setError({
-      id: 'action1',
-      error: createFakeApiError({ fieldErrors }),
-    });
-
-    const state = errors(undefined, action);
-    const messages = state[action.payload.id].messages;
+    const reducedError = getReducedError(createFakeApiError({ fieldErrors }));
+    const messages = reducedError.messages;
 
     expect(messages).toContain('username: not long enough');
     expect(messages).toContain('username: contains invalid characters');
@@ -129,9 +127,7 @@ describe('errors reducer', () => {
 
   it('stores API responses when they do not have messages', () => {
     // This API error has no messages (hopefully this won't ever happen).
-    const action = setError({ id: 'some-id', error: createFakeApiError() });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id]).toMatchObject({
+    expect(getReducedError(createFakeApiError())).toMatchObject({
       code: ERROR_UNKNOWN,
       messages: [],
     });
@@ -146,9 +142,7 @@ describe('errors reducer', () => {
         detail: 'Any message about an expired signature.',
       },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id].code).toEqual(API_ERROR_SIGNATURE_EXPIRED);
+    expect(getReducedError(error).code).toEqual(API_ERROR_SIGNATURE_EXPIRED);
   });
 
   it('does not turn an error code into a message', () => {
@@ -160,9 +154,7 @@ describe('errors reducer', () => {
         detail: 'Some message.',
       },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id].messages).toEqual(['Some message.']);
+    expect(getReducedError(error).messages).toEqual(['Some message.']);
   });
 
   it('can capture an error about add-ons disabled by the developer', () => {
@@ -176,9 +168,7 @@ describe('errors reducer', () => {
         is_disabled_by_mozilla: false,
       },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id]).toEqual({
+    expect(getReducedError(error)).toEqual({
       code: ERROR_ADDON_DISABLED_BY_DEV,
       messages: [message],
       responseStatusCode: 401,
@@ -196,9 +186,7 @@ describe('errors reducer', () => {
         is_disabled_by_mozilla: true,
       },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id]).toEqual({
+    expect(getReducedError(error)).toEqual({
       code: ERROR_ADDON_DISABLED_BY_ADMIN,
       messages: [message],
       responseStatusCode: 401,
@@ -210,13 +198,11 @@ describe('errors reducer', () => {
     const error = createApiError({
       response: { status: 401 },
       apiURL: 'https://some/api/endpoint',
-      // There is not a known API response but we should make sure to
-      // support it just in case.
+      // Nested responses might happen if we don't map the
+      // real API response correctly. We should at least store them.
       jsonResponse: { nested },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id].messages).toEqual([nested]);
+    expect(getReducedError(error).messages).toEqual([nested]);
   });
 
   it('ignores unknown error keys', () => {
@@ -226,8 +212,6 @@ describe('errors reducer', () => {
       // There is no way to guess what this is so we just ignore it.
       jsonResponse: { unknown_key: true },
     });
-    const action = setError({ id: 'some-id', error });
-    const state = errors(undefined, action);
-    expect(state[action.payload.id].messages).toEqual([]);
+    expect(getReducedError(error).messages).toEqual([]);
   });
 });
