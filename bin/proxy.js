@@ -1,6 +1,8 @@
 require('babel-register');
 
+const fs = require('fs');
 const http = require('http');
+const path = require('path');
 
 const bunyan = require('bunyan');
 const config = require('config');
@@ -65,9 +67,12 @@ proxy.on('proxyRes', (proxyRes, req, res) => {
 });
 
 proxy.on('error', (error, req, res) => {
+  const htmlFile = fs.readFileSync(
+    path.join(__dirname, 'loading-page.html'), 'utf8');
+
   log.error(`ERR ~> ${getHost(req)}${req.url} ${error}`);
-  res.writeHead(500, { 'Content-type': 'text/plain' });
-  res.end('Proxy error');
+  res.writeHead(500, { 'Content-type': 'text/html' });
+  res.end(htmlFile);
 });
 
 const port = parseInt(config.get('proxyPort', '3333'), 10);
