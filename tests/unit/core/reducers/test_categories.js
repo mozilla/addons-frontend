@@ -7,13 +7,15 @@ import {
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  CLIENT_APP_SEAMONKEY,
+  CLIENT_APP_THUNDERBIRD,
 } from 'core/constants';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import categories, { initialState } from 'core/reducers/categories';
 import { fakeCategory } from 'tests/unit/amo/helpers';
 
 
-describe('categories reducer', () => {
+describe(__filename, () => {
   it('defaults to an empty set of categories', () => {
     const state = categories(undefined, { type: 'unrelated' });
     expect(state.categories).toEqual(null);
@@ -173,6 +175,15 @@ describe('categories reducer', () => {
       ];
       state = categories(initialState, categoriesLoad({ result }));
 
+      const emptyCategories = {
+        [ADDON_TYPE_COMPLETE_THEME]: {},
+        [ADDON_TYPE_DICT]: {},
+        [ADDON_TYPE_EXTENSION]: {},
+        [ADDON_TYPE_LANG]: {},
+        [ADDON_TYPE_OPENSEARCH]: {},
+        [ADDON_TYPE_THEME]: {},
+      };
+
       // Notice all Firefox theme categories are also set as Android theme
       // categories and no Android categories are returned. This reflects the
       // current state of AMO.
@@ -181,9 +192,8 @@ describe('categories reducer', () => {
       // This can be changed once
       // https://github.com/mozilla/addons-server/issues/4766 is fixed.
       expect(state.categories).toEqual({
-        firefox: {
-          [ADDON_TYPE_COMPLETE_THEME]: {},
-          [ADDON_TYPE_DICT]: {},
+        [CLIENT_APP_FIREFOX]: {
+          ...emptyCategories,
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
               ...fakeCategory,
@@ -200,8 +210,6 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_LANG]: {},
-          [ADDON_TYPE_OPENSEARCH]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
               ...fakeCategory,
@@ -226,9 +234,8 @@ describe('categories reducer', () => {
             },
           },
         },
-        android: {
-          [ADDON_TYPE_COMPLETE_THEME]: {},
-          [ADDON_TYPE_DICT]: {},
+        [CLIENT_APP_ANDROID]: {
+          ...emptyCategories,
           [ADDON_TYPE_EXTENSION]: {
             'alert-update': {
               ...fakeCategory,
@@ -252,8 +259,6 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_EXTENSION,
             },
           },
-          [ADDON_TYPE_LANG]: {},
-          [ADDON_TYPE_OPENSEARCH]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
               ...fakeCategory,
@@ -277,6 +282,12 @@ describe('categories reducer', () => {
               type: ADDON_TYPE_THEME,
             },
           },
+        },
+        [CLIENT_APP_SEAMONKEY]: {
+          ...emptyCategories,
+        },
+        [CLIENT_APP_THUNDERBIRD]: {
+          ...emptyCategories,
         },
       });
     });
