@@ -9,12 +9,14 @@ export type UserStateType = {
   id: ?number,
   username: ?string,
   displayName: ?string,
+  permissions: ?Array<string>,
 };
 
 export const initialState: UserStateType = {
   id: null,
   username: null,
   displayName: null,
+  permissions: null,
 };
 
 export const loadUserProfile = ({ profile }: Object) => {
@@ -56,6 +58,7 @@ export default function reducer(
         id: payload.profile.id,
         username: payload.profile.username,
         displayName: payload.profile.display_name,
+        permissions: payload.profile.permissions,
       };
     case LOG_OUT_USER:
       return initialState;

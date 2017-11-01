@@ -221,3 +221,13 @@ export const CATEGORY_COLORS = {
   [ADDON_TYPE_OPENSEARCH]: 12,
   [ADDON_TYPE_THEME]: 12,
 };
+
+// Can access the website admin interface index page. Inner pages may require
+// other/additional permissions.
+export const ADMIN_TOOLS_VIEW = 'AdminTools:View';
+// Allows viewing and editing of any add-ons details in developer tools.
+export const ADDONS_EDIT = 'Addons:Edit';
+// Can access the add-on reviewer tools to approve/reject add-on submissions.
+export const ADDONS_REVIEW = 'Addons:Review';
+// Can access the theme reviewer tools to approve/reject theme submissions.
+export const THEMES_REVIEW = 'Personas:Review';
