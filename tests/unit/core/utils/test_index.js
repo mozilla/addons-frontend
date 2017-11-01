@@ -20,6 +20,8 @@ import {
   CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  CLIENT_APP_SEAMONKEY,
+  CLIENT_APP_THUNDERBIRD,
   validAddonTypes,
 } from 'core/constants';
 import {
@@ -245,6 +247,18 @@ describe('getClientApp', () => {
   userAgents.firefoxIOS.forEach((ua) => {
     it(`should return 'firefox' for a Firefox iOS UA string ${ua}`, () => {
       expect(getClientApp(ua)).toEqual(CLIENT_APP_FIREFOX);
+    });
+  });
+
+  userAgents.seamonkey.forEach((ua) => {
+    it(`should return 'seamonkey' for a SeaMonkey UA string ${ua}`, () => {
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_SEAMONKEY);
+    });
+  });
+
+  userAgents.thunderbird.forEach((ua) => {
+    it(`should return 'thunderbird' for a Thunderbird UA string ${ua}`, () => {
+      expect(getClientApp(ua)).toEqual(CLIENT_APP_THUNDERBIRD);
     });
   });
 

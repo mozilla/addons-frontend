@@ -43,6 +43,8 @@ export const FATAL_ERROR = 'FATAL_ERROR';
 // Client App types
 export const CLIENT_APP_ANDROID = 'android';
 export const CLIENT_APP_FIREFOX = 'firefox';
+export const CLIENT_APP_SEAMONKEY = 'seamonkey';
+export const CLIENT_APP_THUNDERBIRD = 'thunderbird';
 
 // Add-on types.
 export const ADDON_TYPE_DICT = 'dictionary';

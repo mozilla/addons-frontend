@@ -224,6 +224,14 @@ export const userAgents = {
     userAgentsByPlatform.ios.firefox1iPhone,
     userAgentsByPlatform.ios.firefox1iPad,
   ],
+  seamonkey: [
+    oneLine`Mozilla/5.0 (X11; FreeBSD amd64; rv:52.0) Gecko/20100101
+      Firefox/52.0 SeaMonkey/2.49.1 Lightning/5.3`,
+  ],
+  thunderbird: [
+    oneLine`Mozilla/5.0 (X11; Linux x86_64; rv:38.0) Gecko/20100101
+      Thunderbird/38.2.0 Lightning/4.0.2`,
+  ],
 };
 
 export function apiResponsePage({

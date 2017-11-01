@@ -16,6 +16,10 @@ import {
   ADDON_TYPE_THEME,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  CLIENT_APP_SEAMONKEY,
+  CLIENT_APP_THUNDERBIRD,
   VISIBLE_ADDON_TYPES_MAPPING,
 } from 'core/constants';
 import { AddonTypeNotFound } from 'core/errors';
@@ -63,14 +67,20 @@ export function convertBoolean(value) {
  *
  */
 export function getClientApp(userAgentString) {
+  if (/seamonkey/i.test(userAgentString)) {
+    return CLIENT_APP_SEAMONKEY;
+  }
+  if (/thunderbird/i.test(userAgentString)) {
+    return CLIENT_APP_THUNDERBIRD;
+  }
   // We are going to return android as the application if it's *any* android browser.
   // whereas the previous behaviour was to only return 'android' for FF Android.
   // This way we are showing more relevant content, and if we prompt for the user to download
   // firefox we can prompt them to download Firefox for Android.
   if (/android/i.test(userAgentString)) {
-    return 'android';
+    return CLIENT_APP_ANDROID;
   }
-  return 'firefox';
+  return CLIENT_APP_FIREFOX;
 }
 
 export function isValidClientApp(value, { _config = config } = {}) {
