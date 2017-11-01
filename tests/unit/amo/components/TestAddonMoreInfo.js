@@ -8,6 +8,8 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADMIN_SUPER_POWERS,
+  STATS_VIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -313,6 +315,34 @@ describe(__filename, () => {
     expect(statsLink).toHaveLength(1);
     expect(statsLink).toHaveProp('children', 'Visit stats dashboard');
     expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
+  });
+
+  it('links to stats if user has STATS_VIEW permission', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      public_stats: false,
+    });
+    const root = render({
+      addon,
+      store: dispatchSignInActions({ permissions: [STATS_VIEW] }).store,
+    });
+
+    const statsLink = root.find('.AddonMoreInfo-stats-link');
+    expect(statsLink).toHaveLength(1);
+  });
+
+  it('links to stats if user is ADMIN', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      public_stats: false,
+    });
+    const root = render({
+      addon,
+      store: dispatchSignInActions({ permissions: [ADMIN_SUPER_POWERS] }).store,
+    });
+
+    const statsLink = root.find('.AddonMoreInfo-stats-link');
+    expect(statsLink).toHaveLength(1);
   });
 
   it('links to version history if add-on is extension', () => {

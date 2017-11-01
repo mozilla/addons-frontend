@@ -1,5 +1,5 @@
 /* @flow */
-import { LOG_OUT_USER } from 'core/constants';
+import { ADMIN_SUPER_POWERS, LOG_OUT_USER } from 'core/constants';
 
 
 const LOAD_USER_PROFILE = 'LOAD_USER_PROFILE';
@@ -43,6 +43,21 @@ export const selectDisplayName = (state: { user: UserStateType }) => {
   // We fallback to the username if no display name has been defined by the
   // user.
   return state.user.username;
+};
+
+export const hasPermission = (
+  state: { user: UserStateType }, permission: string,
+): boolean => {
+  const permissions = state.user.permissions;
+  if (!permissions) {
+    return false;
+  }
+
+  return permissions.includes(permission);
+};
+
+export const isAdmin = (state: { user: UserStateType }): boolean => {
+  return hasPermission(state, ADMIN_SUPER_POWERS);
 };
 
 export default function reducer(

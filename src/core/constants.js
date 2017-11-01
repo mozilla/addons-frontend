@@ -231,3 +231,7 @@ export const ADDONS_EDIT = 'Addons:Edit';
 export const ADDONS_REVIEW = 'Addons:Review';
 // Can access the theme reviewer tools to approve/reject theme submissions.
 export const THEMES_REVIEW = 'Personas:Review';
+// Can view statistics for all addons, regardless of privacy settings.
+export const STATS_VIEW = 'Stats:View';
+// Admin super powers. Very few users will have this permission.
+export const ADMIN_SUPER_POWERS = 'Admin:%';
