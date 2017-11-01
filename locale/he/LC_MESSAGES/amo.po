@@ -455,7 +455,7 @@ msgstr "אם עקבת אחר קישור ממקום אחר, נא <a href=\"%(url)
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr "תוספת זו הוסרה על ידי היוצר שלה."
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
@@ -1304,11 +1304,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr "אני יוצר תוספות, אוכל להגיב לסקירות?"
+msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr "כן, יוצרי תוספות יכולים לספק תגובה אחת לכל סקירה. באפשרותך להקים נושא לדיון ב%(startLink)sפורום%(endLink)s שלנו כדי להמשיך את השיחה או לפתוח בתהליך מתמשך."
+msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
