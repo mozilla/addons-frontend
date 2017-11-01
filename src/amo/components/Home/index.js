@@ -191,7 +191,7 @@ export class HomeBase extends React.Component {
           addons={popularExtensions}
           className="Home-PopularExtensions"
           header={i18n.gettext('Most Popular Extensions')}
-          footerText={i18n.gettext('See more')}
+          footerText={i18n.gettext('See more popular extensions')}
           footerLink={{
             pathname: '/search/',
             query: {
@@ -206,7 +206,7 @@ export class HomeBase extends React.Component {
           addons={featuredCollection}
           className="Home-FeaturedCollection"
           header={i18n.gettext('Change up your tabs')}
-          footerText={i18n.gettext('See more')}
+          footerText={i18n.gettext('See more tab extensions')}
           footerLink={{ pathname:
             `/collections/${FEATURED_COLLECTION_USER}/${FEATURED_COLLECTION_SLUG}/`,
           }}
@@ -217,7 +217,7 @@ export class HomeBase extends React.Component {
           addons={upAndComingExtensions}
           className="Home-UpAndComingExtensions"
           header={i18n.gettext('Up & Coming Extensions')}
-          footerText={i18n.gettext('See more')}
+          footerText={i18n.gettext('See more up & coming extensions')}
           footerLink={{
             pathname: '/search/',
             query: {
@@ -245,7 +245,7 @@ export class HomeBase extends React.Component {
           addons={featuredThemes}
           className="Home-FeaturedThemes"
           header={i18n.gettext('Featured themes')}
-          footerText={i18n.gettext('See more')}
+          footerText={i18n.gettext('See more featured themes')}
           footerLink={{
             pathname: '/search/',
             query: {

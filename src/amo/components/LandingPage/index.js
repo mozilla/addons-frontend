@@ -126,13 +126,13 @@ export class LandingPageBase extends React.Component {
             featured: true,
           },
         },
-        featuredFooterText: i18n.gettext('See more'),
+        featuredFooterText: i18n.gettext('See more featured extensions'),
         trendingHeader: i18n.gettext('Trending extensions'),
         trendingFooterLink: {
           pathname: '/search/',
           query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
         },
-        trendingFooterText: i18n.gettext('See more'),
+        trendingFooterText: i18n.gettext('See more trending extensions'),
         highlyRatedHeader: i18n.gettext('Top rated extensions'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -141,7 +141,7 @@ export class LandingPageBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('See more'),
+        highlyRatedFooterText: i18n.gettext('See more top rated extensions'),
       },
       [ADDON_TYPE_THEME]: {
         featuredHeader: i18n.gettext('Featured themes'),
@@ -152,19 +152,19 @@ export class LandingPageBase extends React.Component {
             featured: true,
           },
         },
-        featuredFooterText: i18n.gettext('See more'),
+        featuredFooterText: i18n.gettext('See more featured themes'),
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
           query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
         },
-        trendingFooterText: i18n.gettext('See more'),
+        trendingFooterText: i18n.gettext('See more trending themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
           query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
         },
-        highlyRatedFooterText: i18n.gettext('See more'),
+        highlyRatedFooterText: i18n.gettext('See more top rated themes'),
       },
     };
 

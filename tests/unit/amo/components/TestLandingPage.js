@@ -214,7 +214,7 @@ describe(__filename, () => {
     });
 
     expect(root).toIncludeText('Featured extensions');
-    expect(root).toIncludeText('See more');
+    expect(root).toIncludeText('See more featured extensions');
   });
 
   it('renders a link to all categories', () => {
@@ -275,7 +275,7 @@ describe(__filename, () => {
     });
 
     expect(root).toIncludeText('Featured themes');
-    expect(root).toIncludeText('See more');
+    expect(root).toIncludeText('See more featured themes');
   });
 
   it('renders each add-on when set', () => {
