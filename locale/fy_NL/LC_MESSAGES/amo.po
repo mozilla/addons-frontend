@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-01 07:28+0000\n"
+"PO-Revision-Date: 2017-11-01 07:39+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -145,9 +145,8 @@ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\
 msgstr "Jo browser stipet gjin add-ons. Jo kinne <a href=\"%(downloadUrl)s\">Firefox downloade</a> om dizze add-on te ynstallearjen."
 
 #: src/amo/components/AddonMeta/index.js:31
-#, fuzzy
 msgid "Users"
-msgstr "Measte brûkers"
+msgstr "Brûkers"
 
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
@@ -156,24 +155,20 @@ msgstr[0] "Brûker"
 msgstr[1] "Brûkers"
 
 #: src/amo/components/AddonMeta/index.js:36
-#, fuzzy
 msgid "No Users"
-msgstr "Measte brûkers"
+msgstr "Gjin brûkers"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Reviews"
-msgstr "Gjin beoardielingen"
+msgstr "Beoardielingen"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Tekst beoardiele"
-msgstr[1] "Tekst beoardiele"
+msgstr[0] "Beoardieling"
+msgstr[1] "Beoardielingen"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Reviews"
 msgstr "Gjin beoardielingen"
 
@@ -250,9 +245,8 @@ msgid "Support Site"
 msgstr "Stipewebsite"
 
 #: src/amo/components/AddonMoreInfo/index.js:69
-#, fuzzy
 msgid "Support Email"
-msgstr "Stipewebsite"
+msgstr "E-mailadres foar stipe"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
@@ -263,9 +257,8 @@ msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Fertel de wrâld wêrom't jo tinke dat dizze útwreiding bjusterbaarlik is!"
+msgstr "Fertel de wrâld werom dizze útwreiding bjusterbaarlik is! Hâld jo oan ús %(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -273,7 +266,7 @@ msgstr "Fertel ús wat jo sa befalt oan dizze útwreiding. Wês konkreet en koar
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Fertel de wrâld oer dizze útwreiding. Hâld jo oan ús %(linkStart)sbeoardielingsrjochtlinen%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -300,16 +293,14 @@ msgid "Reviews for %(addonName)s"
 msgstr "Beoardielingen foar %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:183
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s beoardieling"
-msgstr[1] "%(total)s beoardielingen"
+msgstr[0] "%(total)s beoardieling foar dizze add-on"
+msgstr[1] "%(total)s beoardielingen foar dizze add-on"
 
 #: src/amo/components/AddonReviewList/index.js:211
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "troch %(authorName)s, %(timestamp)s"
+msgstr "troch %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
@@ -464,17 +455,15 @@ msgstr "As jo in keppeling earne wei folge hawwe, <a href=\"%(url)s\">meld dan i
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Dizze add-on is fuortsmiten troch de auteur."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Dizze add-on is net beskikber foar jo platfoarm."
+msgstr "Dizze add-on is útskeakele troch in behearder."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Sorry, mar wy kinne neat op de ynfierde URL fine."
+msgstr "Sorry, mar wy kinne neat op it ynfierde adres fine."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -509,9 +498,8 @@ msgid "Flag"
 msgstr "Markearje"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flagged"
-msgstr "Markearje"
+msgstr "Flagge"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -635,7 +623,7 @@ msgstr "Klassike desktopwebsite werjaan"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Myn kolleksjes besjen"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
