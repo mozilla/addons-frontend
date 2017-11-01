@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-10-31 23:34+0000\n"
+"PO-Revision-Date: 2017-11-01 00:06+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -296,9 +296,8 @@ msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan untuk add-on ini"
 
 #: src/amo/components/AddonReviewList/index.js:211
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "oleh %(authorName)s, %(timestamp)s"
+msgstr "oleh %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
@@ -460,14 +459,12 @@ msgid "This add-on has been removed by its author."
 msgstr "Add-on ini telah dibuang oleh pengarangnya."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Add-on ini tidak tersedia untuk platform anda."
+msgstr "Add-on ini telah dinyahdayakan oleh pentadbir."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Maaf, kami tidak dapat mencari apa-apa pada URL yang anda masukkan."
+msgstr "Maaf, kami tidak dapat mencari apa-apa pada alamat yang anda masukkan."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -502,9 +499,8 @@ msgid "Flag"
 msgstr "Tanda"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flagged"
-msgstr "Tanda"
+msgstr "Ditanda"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -1180,7 +1176,6 @@ msgid "Get involved"
 msgstr "Sertainya"
 
 #: src/amo/components/StaticPages/About.js:69
-#, fuzzy
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
