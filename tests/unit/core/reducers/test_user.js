@@ -1,4 +1,5 @@
 import { logOutUser } from 'core/actions';
+import { ADMIN_TOOLS_VIEW } from 'core/constants';
 import reducer, {
   isAuthenticated,
   loadUserProfile,
@@ -14,10 +15,11 @@ import {
 describe(__filename, () => {
   describe('reducer', () => {
     it('initializes properly', () => {
-      const { displayName, id, username } = reducer(undefined);
+      const { displayName, id, username, permissions } = reducer(undefined);
       expect(id).toEqual(null);
       expect(username).toEqual(null);
       expect(displayName).toEqual(null);
+      expect(permissions).toEqual(null);
     });
 
     it('ignores unrelated actions', () => {
@@ -29,11 +31,16 @@ describe(__filename, () => {
     });
 
     it('handles LOAD_USER_PROFILE', () => {
-      const { id, username } = reducer(undefined, loadUserProfile({
-        profile: createUserProfileResponse({ id: 1234, username: 'user-test' }),
+      const { id, username, permissions } = reducer(undefined, loadUserProfile({
+        profile: createUserProfileResponse({
+          id: 1234,
+          username: 'user-test',
+          permissions: [ADMIN_TOOLS_VIEW],
+        }),
       }));
       expect(id).toEqual(1234);
       expect(username).toEqual('user-test');
+      expect(permissions).toEqual([ADMIN_TOOLS_VIEW]);
     });
 
     it('throws an error when no profile is passed to LOAD_USER_PROFILE', () => {
@@ -46,10 +53,17 @@ describe(__filename, () => {
       const state = reducer(undefined, loadUserProfile({
         profile: createUserProfileResponse({ id: 12345, username: 'john' }),
       }));
-      const { displayName, id, username } = reducer(state, logOutUser());
+      const {
+        displayName,
+        id,
+        username,
+        permissions,
+      } = reducer(state, logOutUser());
+
       expect(id).toEqual(null);
       expect(username).toEqual(null);
       expect(displayName).toEqual(null);
+      expect(permissions).toEqual(null);
     });
   });
 

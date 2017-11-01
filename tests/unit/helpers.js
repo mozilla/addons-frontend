@@ -383,6 +383,7 @@ export function createUserProfileResponse({
   id = 123456,
   username = 'user-1234',
   displayName = null,
+  permissions = [],
 } = {}) {
   return {
     average_addon_rating: null,
@@ -401,6 +402,7 @@ export function createUserProfileResponse({
     picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
     url: null,
     username,
+    permissions,
   };
 }
 
