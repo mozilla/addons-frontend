@@ -78,38 +78,8 @@ header {
 }
 
 .amo-link {
+  margin: 30px 0;
   text-align: center;
-
-  a {
-    background: #2ea3ff;
-    border: 1px solid #0675d3;
-    color: #fff;
-    display: inline-block;
-    font-size: 14px;
-    margin: 30px 0;
-    min-width: 140px;
-    padding: 10px 1em 11px;
-    text-decoration: none;
-    transition: background 200ms;
-
-    &:focus,
-    &:hover {
-      background: #0996f8;
-      border: 1px solid #0461ae;
-    }
-
-    &:focus {
-      @include focus();
-
-      border: 1px solid #fff;
-    }
-
-    &:active {
-      background: #0675d3;
-      border: 1px solid #025295;
-      box-shadow: none;
-    }
-  }
 }
 
 .disco-content {

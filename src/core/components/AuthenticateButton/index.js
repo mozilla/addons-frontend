@@ -25,6 +25,7 @@ type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
 
 type Props = {|
   api: ApiStateType,
+  buttonType?: string,
   className?: string,
   handleLogIn: HandleLogInFunc,
   handleLogOut: HandleLogOutFunction,
@@ -38,6 +39,7 @@ type Props = {|
 
 export class AuthenticateButtonBase extends React.Component<Props> {
   static defaultProps = {
+    buttonType: 'action',
     noIcon: false,
   }
 
@@ -61,6 +63,7 @@ export class AuthenticateButtonBase extends React.Component<Props> {
 
   render() {
     const {
+      buttonType,
       className,
       i18n,
       logInText,
@@ -81,8 +84,10 @@ export class AuthenticateButtonBase extends React.Component<Props> {
     return (
       <Button
         href={`#${siteUser ? 'logout' : 'login'}`}
+        buttonType={buttonType}
         className={className}
         onClick={this.onClick}
+        micro
       >
         {noIcon ? null : <Icon name="user-dark" />}
         {buttonText}

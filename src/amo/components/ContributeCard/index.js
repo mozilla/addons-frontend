@@ -80,10 +80,12 @@ export const ContributeCardBase = ({ addon, i18n }: Props) => {
       <p className="ContributeCard-content">{content}</p>
       <p>
         <Button
-          className="ContributeCard-button Button--action Button--fullwidth"
+          buttonType="action"
+          className="ContributeCard-button"
           href={addon.contributions_url}
-          target="_blank"
           rel="noopener noreferrer"
+          target="_blank"
+          puffy
         >
           <Icon name="heart" />
           {i18n.gettext('Contribute now')}

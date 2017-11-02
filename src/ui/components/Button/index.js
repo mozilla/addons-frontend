@@ -6,30 +6,64 @@ import PropTypes from 'prop-types';
 import Link from 'amo/components/Link';
 import log from 'core/logger';
 
+import './styles.scss';
 
-import './Button.scss';
+
+const BUTTON_TYPES = [
+  'neutral',
+  'light',
+  'action',
+  'cancel',
+  'confirm',
+  'alert',
+  'none',
+];
 
 export default class Button extends React.Component {
   static propTypes = {
+    buttonType: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    disabled: PropTypes.boolean,
+    disabled: PropTypes.bool,
     href: PropTypes.string,
+    micro: PropTypes.bool,
+    puffy: PropTypes.bool,
     to: PropTypes.string,
+  }
+
+  static defaultProps = {
+    buttonType: 'none',
+    disabled: false,
+    micro: false,
+    puffy: false,
   }
 
   render() {
     const {
+      buttonType,
       children,
       className,
       href,
+      micro,
+      puffy,
       to,
       ...rest
     } = this.props;
     const props = { ...rest };
 
+    if (!BUTTON_TYPES.includes(buttonType)) {
+      throw new Error(oneLine`buttonType="${buttonType}" supplied but that is
+        not a valid button type`);
+    }
+
     const setClassName = (...classConfig) => {
-      return makeClassName('Button', className, ...classConfig);
+      return makeClassName(
+        'Button', `Button--${buttonType}`, className, ...classConfig, {
+          'Button--disabled': props.disabled,
+          'Button--micro': micro,
+          'Button--puffy': puffy,
+        },
+      );
     };
 
     if (href || to) {

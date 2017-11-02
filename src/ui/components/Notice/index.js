@@ -36,8 +36,9 @@ const Notice = ({
   if (action && actionText) {
     actionButton = (
       <Button
-        className="Button--small Notice-button"
+        className="Notice-button"
         onClick={action}
+        micro
       >
         {actionText}
       </Button>

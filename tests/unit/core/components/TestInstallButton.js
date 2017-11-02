@@ -161,7 +161,7 @@ describe(__filename, () => {
 
     expect(button.children().at(1)).toHaveText('Add to Firefox');
     expect(button).toHaveClassName('InstallButton-button');
-    expect(button).not.toHaveClassName('Button--small');
+    expect(button).not.toHaveClassName('Button--micro');
     expect(button).toHaveProp('href', installURL);
   });
 

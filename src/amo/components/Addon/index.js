@@ -193,7 +193,8 @@ export class AddonBase extends React.Component {
         >
           {installStatus !== ENABLED ? (
             <Button
-              className="Addon-theme-header-label Button--action"
+              buttonType="action"
+              className="Addon-theme-header-label"
               disabled={!compatible}
               htmlFor="Addon-theme-header"
             >

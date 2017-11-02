@@ -18,30 +18,5 @@
 }
 
 .Paginate .Paginate-item {
-  @include button(
-    $background: $light-base-color,
-    $background-active: $light-active-color,
-    $background-hover: $light-hover-color,
-    $color: $link-color
-  );
-
-  display: inline-block;
-  font-size: $font-size-s;
-  font-weight: normal;
-  line-height: 2;
   min-width: 48%;
-  text-align: center;
-  text-shadow: none;
-}
-
-.Paginate-previous {
-  &::before {
-    @include arrow-previous();
-  }
-}
-
-.Paginate-next {
-  &::after {
-    @include arrow-next();
-  }
 }

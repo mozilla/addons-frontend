@@ -28,6 +28,7 @@ import {
   fakeDiscoAddon,
   loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
+import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
@@ -337,7 +338,8 @@ describe(__filename, () => {
   describe('See more add-ons link', () => {
     it('tracks see more addons link being clicked', () => {
       const root = render();
-      root.find('.amo-link a').simulate('click');
+
+      root.find('.amo-link').find(Button).simulate('click');
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: NAVIGATION_CATEGORY,
         action: 'click',
