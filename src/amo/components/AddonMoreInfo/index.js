@@ -5,7 +5,9 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { hasPermission } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
 import {
   addonHasVersionHistory,
@@ -15,6 +17,7 @@ import {
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { I18nType } from 'core/types/i18n';
+import type { UserStateType } from 'core/reducers/user';
 
 import './styles.scss';
 
@@ -23,6 +26,7 @@ type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
   userId: number | null,
+  hasStatsPermission: boolean,
 |};
 
 const renderNodesIf = (includeContent: boolean, nodes: Array<any>) => {
@@ -31,7 +35,7 @@ const renderNodesIf = (includeContent: boolean, nodes: Array<any>) => {
 
 export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
-    const { addon, i18n, userId } = this.props;
+    const { addon, i18n, userId, hasStatsPermission } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -74,18 +78,23 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       supportEmail = null;
     }
 
-    return this.renderDefinitions({
-      homepage,
-      supportUrl,
-      supportEmail,
-      statsLink: addon && (isAddonAuthor({ addon, userId }) || addon.public_stats) ? (
+    let statsLink = null;
+    if (isAddonAuthor({ addon, userId }) || addon.public_stats || hasStatsPermission) {
+      statsLink = (
         <Link
           className="AddonMoreInfo-stats-link"
           href={`/addon/${addon.slug}/statistics/`}
         >
           {i18n.gettext('Visit stats dashboard')}
         </Link>
-      ) : null,
+      );
+    }
+
+    return this.renderDefinitions({
+      homepage,
+      supportUrl,
+      supportEmail,
+      statsLink,
       version: addonHasVersionHistory(addon) ?
         addon.current_version.version : null,
       versionLastUpdated: i18n.sprintf(
@@ -247,9 +256,10 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: Object) => {
+export const mapStateToProps = (state: {| user: UserStateType |}) => {
   return {
     userId: state.user.id,
+    hasStatsPermission: hasPermission(state, STATS_VIEW),
   };
 };
 

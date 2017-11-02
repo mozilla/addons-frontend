@@ -1,9 +1,15 @@
 import { logOutUser } from 'core/actions';
-import { ADMIN_TOOLS_VIEW } from 'core/constants';
+import {
+  ADMIN_SUPER_POWERS,
+  ADMIN_TOOLS_VIEW,
+  STATS_VIEW,
+  THEMES_REVIEW,
+} from 'core/constants';
 import reducer, {
   isAuthenticated,
   loadUserProfile,
   selectDisplayName,
+  hasPermission,
 } from 'core/reducers/user';
 import { createUserProfileResponse } from 'tests/unit/helpers';
 import {
@@ -118,6 +124,42 @@ describe(__filename, () => {
       const { state } = dispatchSignInActions({ username });
 
       expect(selectDisplayName(state)).toEqual(username);
+    });
+  });
+
+  describe('hasPermission selector', () => {
+    it('returns `true` when user has the given permission', () => {
+      const permissions = [ADMIN_TOOLS_VIEW, STATS_VIEW];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(hasPermission(state, STATS_VIEW)).toEqual(true);
+    });
+
+    it('returns `false` when user does not have the given permission', () => {
+      const permissions = [ADMIN_TOOLS_VIEW, STATS_VIEW];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(hasPermission(state, THEMES_REVIEW)).toEqual(false);
+    });
+
+    it('returns `false` when user state has no permissions', () => {
+      const { state } = dispatchSignInActions({ permissions: null });
+
+      expect(hasPermission(state, THEMES_REVIEW)).toEqual(false);
+    });
+
+    it('returns `false` when user is not logged in', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(hasPermission(state, THEMES_REVIEW)).toEqual(false);
+    });
+
+    it('returns `true` when user is admin', () => {
+      const permissions = [ADMIN_SUPER_POWERS];
+      const { state } = dispatchSignInActions({ permissions });
+
+
+      expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
     });
   });
 });
