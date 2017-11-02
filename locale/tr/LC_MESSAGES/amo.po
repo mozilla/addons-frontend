@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-02 14:31+0000\n"
+"PO-Revision-Date: 2017-11-02 14:34+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -837,7 +837,7 @@ msgstr "Raporunuzu aldık. Bu eklenti ile ilgili endişelerinizi bize bildirdiğ
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Her suistimal raporuna ayrı ayrı yanıt veremiyoruz ama bu konuyu inceleyeceğiz."
 
 #: src/amo/components/ReportAbuseButton/index.js:130
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -892,9 +892,8 @@ msgid "Popular add-ons"
 msgstr "Popüler eklentiler"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "\"%(query)s\" aranıyor"
+msgstr "\"%(query)s\" arama sonuçları"
 
 #: src/amo/components/Search/index.js:96 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -1008,9 +1007,8 @@ msgid "Operating System"
 msgstr "İşletim sistemi"
 
 #: src/amo/components/SearchFilters/index.js:204
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Öne çıkan eklenti"
+msgstr "Yalnızca önce çıkan eklentiler"
 
 #: src/amo/components/SearchForm/index.js:200
 msgid "Go to the add-on page"
@@ -1132,9 +1130,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Firefox Eklentileri"
+msgstr "Firefox Eklentileri Hakkında"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1190,23 +1187,23 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "İyi bir inceleme yazmanızı sağlayacak öneriler"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr "Doğru:"
+msgstr "Şunları yapın:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Eklentiyle ilgili deneyiminizi bir arkadaşınıza anlatıyormuş gibi yazın."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "İncelemeleriniz kısa ve anlaşılması kolay olsun."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Ayrıntılı ve başkalarının işine yarayacak detaylar verin. Örneğin:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
@@ -1225,17 +1222,16 @@ msgid "Was it easy to use?"
 msgstr "Kullanımı kolay mıydı?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
-#, fuzzy
 msgid "Will you continue to use this add-on?"
-msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
+msgstr "Bu eklentiyi kullanmaya devam edecek misiniz?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Yazım hatalarınızı en aza indirmek için incelemenizi göndermeden önce bir kez okuyun."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr "Yanlış:"
+msgstr "Şunları yapmayın:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
