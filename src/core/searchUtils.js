@@ -26,6 +26,7 @@ export const paramsToFilter = {
   platform: 'operatingSystem',
   q: 'query',
   sort: 'sort',
+  tag: 'tag',
   type: 'addonType',
 };
 
