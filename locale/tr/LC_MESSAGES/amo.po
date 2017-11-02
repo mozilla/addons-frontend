@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-02 14:11+0000\n"
+"PO-Revision-Date: 2017-11-02 14:31+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -89,7 +89,7 @@ msgstr "%(addonName)s %(startSpan)sgeliştiren: %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:511
 msgid "Extension Metadata"
-msgstr "Uzantı meta verileri"
+msgstr "Eklenti meta verileri"
 
 #: src/amo/components/Addon/index.js:537
 msgid "Screenshots"
@@ -195,7 +195,7 @@ msgstr "Tüm beta sürümleri göster"
 
 #: src/amo/components/AddonMoreInfo/index.js:164
 msgid "Add-on Links"
-msgstr "Eklenti Bağlantıları"
+msgstr "Eklenti bağlantıları"
 
 #: src/amo/components/AddonMoreInfo/index.js:177
 msgid "Version"
@@ -260,7 +260,7 @@ msgstr "Neden bu uzantının harika olduğunu anlatın!"
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Bize bu uzantının nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
+msgstr "Bize bu eklentinin nesini sevdiğinizi anlatın. Mümkün olduğunca detay verin."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -374,11 +374,11 @@ msgstr "Kategoriler yükleniyor."
 
 #: src/amo/components/Category/index.js:125 src/amo/components/LandingPage/index.js:194 src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
-msgstr "Uzantılar"
+msgstr "Eklentiler"
 
 #: src/amo/components/Category/index.js:126 src/amo/components/HomeHeroBanner/index.js:36 src/amo/components/LandingPage/index.js:121 src/amo/components/Search/index.js:101
 msgid "Featured extensions"
-msgstr "Öne çıkan uzantılar"
+msgstr "Öne çıkan eklentiler"
 
 #: src/amo/components/Category/index.js:135 src/amo/components/Category/index.js:145 src/amo/components/Category/index.js:155 src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188 src/amo/components/Home/index.js:194 src/amo/components/Home/index.js:209 src/amo/components/Home/index.js:220
@@ -393,7 +393,7 @@ msgstr "Gündemdeki eklentiler"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
-msgstr "En yüksek puanlı uzantılar"
+msgstr "En yüksek puanlı eklentiler"
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:193 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -404,9 +404,8 @@ msgid "Featured themes"
 msgstr "Öne çıkan temalar"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:117
-#, fuzzy
 msgid "Trending themes"
-msgstr "En yüksek puanlı temalar"
+msgstr "Gündemdeki temalar"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -454,17 +453,15 @@ msgstr "Başka bir sayfadaki bağlantıya tıklayarak buraya geldiyseniz lütfen
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Bu eklenti geliştiricisi tarafından kaldırılmıştır."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Bu eklenti sizin platformunuzda mevcut değil."
+msgstr "Bu eklenti bir yönetici tarafından devre dışı bırakıldı."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Üzgünüz, yazdığınız adreste bir şey bulamadık."
+msgstr "Maalesef girdiğiniz adreste hiçbir şey bulamıyoruz."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -499,40 +496,36 @@ msgid "Flag"
 msgstr "İşaretle"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-#, fuzzy
 msgid "Flagged"
-msgstr "İşaretle"
+msgstr "İşaretlendi"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Geliştiricinin yanıtı"
+msgstr "Bu geliştirici yanıtını işaretle"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
-#, fuzzy
 msgid "Flag this review"
-msgstr "Ön izleme için dokunun"
+msgstr "Bu incelemeyi işaretle"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
 msgid "Log in to flag this response"
 msgstr "Bu yanıtı işaretlemek için giriş yapın"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Bu temayı derecelendirmek için giriş yapın"
+msgstr "Bu incelemeyi işaretlemek için giriş yapın"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
-msgstr "Kendi yanıtını işaretleyemezsin"
+msgstr "Kendi yanıtınızı işaretleyemezsiniz"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
-msgstr "Kendi incelemeni işaretleyemezsin"
+msgstr "Kendi incelemenizi işaretleyemezsiniz"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr ""
+msgstr "Spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
@@ -564,7 +557,7 @@ msgstr "Masaüstü tarayıcısı"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr "Beta, gecelik, geliştirici sürümü"
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
@@ -579,9 +572,8 @@ msgid "Legal"
 msgstr "Yasal"
 
 #: src/amo/components/Footer/index.js:149
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Hata bildir"
+msgstr "Marka ihlali bildir"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -614,9 +606,8 @@ msgid "Report a bug"
 msgstr "Hata bildir"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "İnceleme metni"
+msgstr "İnceleme Rehberi"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -628,7 +619,7 @@ msgstr "Masaüstü sitesini göster"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Koleksiyonlarımı göster"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
@@ -675,7 +666,6 @@ msgid "Film & TV"
 msgstr "Film ve TV"
 
 #: src/amo/components/Home/index.js:125
-#, fuzzy
 msgid "Scenery"
 msgstr "Manzara"
 
@@ -689,16 +679,15 @@ msgstr "Mevsimsel"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Firefox’un çalışma biçimini eklentilerle özelleştirin. Hangisi ilginizi çeker?"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most Popular Extensions"
-msgstr "En popüler uzantılar"
+msgstr "En Popüler Eklentiler"
 
 #: src/amo/components/Home/index.js:208
 #, fuzzy
@@ -706,9 +695,8 @@ msgid "Change up your tabs"
 msgstr "Sekmelerinizi değiştirin"
 
 #: src/amo/components/Home/index.js:219
-#, fuzzy
 msgid "Up & Coming Extensions"
-msgstr "Eklenti ara"
+msgstr "Yükselişteki eklentiler"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -744,7 +732,7 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Videoları HD olarak oynatın, ek açıklamaları kapatın, oynatıcı boyutunu değiştirin ve daha fazlasını yapın"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -760,7 +748,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Son derece güçlü, kullanımı kolay bir reklam engelleyici"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -768,7 +756,7 @@ msgstr "Tarayıcınızın görünümünü değiştirin. Binlerce temadan istedi�
 
 #: src/amo/components/LandingPage/index.js:199
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Firefox’u özelleştirmek için güçlü araçları ve özellikleri keşfedin, tarayıcınızı baştan yaratın."
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Explore all categories"
@@ -800,9 +788,8 @@ msgid "Locale Name"
 msgstr "Dil adı"
 
 #: src/amo/components/LanguageTools/index.js:162
-#, fuzzy
 msgid "Language Packs"
-msgstr "Dil paketi ara"
+msgstr "Dil paketleri"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
@@ -830,7 +817,7 @@ msgstr "Bu temayı derecelendirmek için giriş yapın"
 
 #: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this extension"
-msgstr "Bu uzantıyı derecelendirmek için giriş yapın"
+msgstr "Bu eklentiye puan vermek için giriş yapın"
 
 #: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this add-on"
@@ -841,13 +828,12 @@ msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s deneyiminizden ne kadar memnunsunuz?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
-#, fuzzy
 msgid "You reported this add-on for abuse"
-msgstr "Bu eklentiyi derecelendirmek için giriş yapın"
+msgstr "Bu eklenti için kötüye kullanım bildirdiniz"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Raporunuzu aldık. Bu eklenti ile ilgili endişelerinizi bize bildirdiğiniz için teşekkürler."
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -858,9 +844,8 @@ msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on polici
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:152 src/amo/components/ReportAbuseButton/index.js:158
-#, fuzzy
 msgid "Report this add-on for abuse"
-msgstr "Eklentinin sayfasına git"
+msgstr "Bu eklenti için kötüye kullanım bildir"
 
 #: src/amo/components/ReportAbuseButton/index.js:166
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
@@ -883,14 +868,12 @@ msgid "Send abuse report"
 msgstr "Suistimal raporu gönder"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Öne çıkan eklenti"
+msgstr "Öne çıkan eklentiler"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Eklentiler yükleniyor"
+msgstr "Gündemdeki eklentiler"
 
 #: src/amo/components/Search/index.js:132
 msgid "Top rated add-ons"
@@ -901,14 +884,12 @@ msgid "Popular extensions"
 msgstr "Popüler eklentiler"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Popular themes"
-msgstr "En popüler temalar"
+msgstr "Popüler temalar"
 
 #: src/amo/components/Search/index.js:144
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Eklentiler yükleniyor"
+msgstr "Popüler eklentiler"
 
 #: src/amo/components/Search/index.js:151
 #, fuzzy
@@ -1008,7 +989,7 @@ msgstr "En yüksek puan"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr "Popüler"
+msgstr "Gündemde"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
@@ -1122,7 +1103,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sForumumuza%(endLink)s katılın."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1138,7 +1119,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr "Destek al"
+msgstr "Destek alın"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1204,6 +1185,8 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Eklenti incelemeleri, yüklediğiniz ve kullandığınız eklentiler hakkındaki düşüncelerinizi paylaşmanızın bir yoludur. İnceleme denetleme ekibimiz, bu yönergelere uygun olmayan herhangi bir incelemeyi"
+" reddetme veya kaldırma hakkını saklı tutar."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
@@ -1296,7 +1279,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "İncelemeler hakkında sıkça sorulan sorular"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
@@ -1332,7 +1315,7 @@ msgstr "Önerilen sayfalar"
 
 #: src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
-msgstr "Tüm uzantılara göz atın"
+msgstr "Tüm eklentilere göz atın"
 
 #: src/amo/components/SuggestedPages/index.js:31
 msgid "Browse all themes"
