@@ -7,7 +7,7 @@ import Link from 'amo/components/Link';
 import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { hasPermission, isAdmin } from 'core/reducers/user';
+import { hasPermission } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
 import {
   addonHasVersionHistory,
@@ -26,7 +26,7 @@ type Props = {|
   addon: AddonType | null,
   i18n: I18nType,
   userId: number | null,
-  canViewStats: boolean,
+  hasStatsPermission: boolean,
 |};
 
 const renderNodesIf = (includeContent: boolean, nodes: Array<any>) => {
@@ -35,7 +35,7 @@ const renderNodesIf = (includeContent: boolean, nodes: Array<any>) => {
 
 export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
-    const { addon, i18n, userId, canViewStats } = this.props;
+    const { addon, i18n, userId, hasStatsPermission } = this.props;
 
     if (!addon) {
       return this.renderDefinitions({
@@ -79,7 +79,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     }
 
     let statsLink = null;
-    if (isAddonAuthor({ addon, userId }) || addon.public_stats || canViewStats) {
+    if (isAddonAuthor({ addon, userId }) || addon.public_stats || hasStatsPermission) {
       statsLink = (
         <Link
           className="AddonMoreInfo-stats-link"
@@ -259,7 +259,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
 export const mapStateToProps = (state: {| user: UserStateType |}) => {
   return {
     userId: state.user.id,
-    canViewStats: isAdmin(state) || hasPermission(state, STATS_VIEW),
+    hasStatsPermission: hasPermission(state, STATS_VIEW),
   };
 };
 

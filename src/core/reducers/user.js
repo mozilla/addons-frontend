@@ -53,11 +53,12 @@ export const hasPermission = (
     return false;
   }
 
-  return permissions.includes(permission);
-};
+  // Admins have absolutely all permissions.
+  if (permissions.includes(ADMIN_SUPER_POWERS)) {
+    return true;
+  }
 
-export const isAdmin = (state: { user: UserStateType }): boolean => {
-  return hasPermission(state, ADMIN_SUPER_POWERS);
+  return permissions.includes(permission);
 };
 
 export default function reducer(
