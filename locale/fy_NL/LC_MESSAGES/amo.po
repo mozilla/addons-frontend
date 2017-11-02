@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-01 07:39+0000\n"
+"PO-Revision-Date: 2017-11-02 12:18+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1176,13 +1176,12 @@ msgid "Get involved"
 msgstr "Meiwurkje"
 
 #: src/amo/components/StaticPages/About.js:69
-#, fuzzy
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
-"Mozilla is in nonprofitfoarfjochter fan it ynternet, wy bouwe Firefox om it sûn, iepen en tagonklik te helpen te wêzen. Add-ons stypje karfrijheid en oanpassing yn Firefox, en jo kinne op de "
-"folgjende manieren bydrage:"
+"Mozilla is in nonprofitfoarfjochter fan it ynternet, wy bouwe Firefox om it sûn, iepen en tagonklik te hâlden. Add-ons stypje karfrijheid en oanpassing yn Firefox, en jo kinne op de folgjende "
+"manieren bydrage:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
