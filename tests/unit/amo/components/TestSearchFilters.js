@@ -244,4 +244,10 @@ describe(__filename, () => {
       }),
     });
   });
+
+  it('does not display the addonType filter when a category is defined', () => {
+    const root = render({ filters: { category: 'abstract' } });
+
+    expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
+  });
 });
