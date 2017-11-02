@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-02 14:34+0000\n"
+"PO-Revision-Date: 2017-11-02 14:52+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -767,9 +767,8 @@ msgid "Change language"
 msgstr "Dil değiştir"
 
 #: src/amo/components/LanguageTools/index.js:128
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Sözlükler ve Dil Paketleri"
+msgstr "Sözlükler ve dil paketleri"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -1069,11 +1068,11 @@ msgstr "Firefox Eklentileri'nde aramak istediğiniz terimi yazın."
 
 #: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
-msgstr "Sözlükler ve Dil Paketleri"
+msgstr "Sözlükler ve dil paketleri"
 
 #: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
-msgstr "Arama Araçları"
+msgstr "Arama araçları"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
