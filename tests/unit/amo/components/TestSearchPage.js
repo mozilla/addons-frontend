@@ -76,6 +76,27 @@ describe(__filename, () => {
     });
   });
 
+  it('preserves location query in paginationQueryParams', () => {
+    // Pretend these are existing values already on the query string.
+    // We need to preserve them in paginator links.
+    const randomQuery = {
+      first: 'one',
+      second: 'two',
+    };
+
+    const root = render({
+      location: {
+        query: {
+          ...randomQuery,
+          q: 'search term',
+        },
+      },
+    });
+
+    const params = root.find(Search).prop('paginationQueryParams');
+    expect(params).toMatchObject(randomQuery);
+  });
+
   describe('mapStateToProps()', () => {
     const { state } = dispatchClientMetadata();
     const location = {
