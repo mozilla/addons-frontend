@@ -25,6 +25,7 @@ export const SearchPageBase = ({ filters, pathname, ...props }: Props) => {
     page: filters.page,
     query: filters.query,
     sort: filters.sort,
+    tag: filters.tag,
   });
 
   return (

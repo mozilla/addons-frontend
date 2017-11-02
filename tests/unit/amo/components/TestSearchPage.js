@@ -63,6 +63,7 @@ describe(__filename, () => {
           featured: true,
           page: 2,
           q: 'burger',
+          tag: 'firefox57',
         },
       },
     });
@@ -71,6 +72,7 @@ describe(__filename, () => {
       featured: true,
       page: 2,
       q: 'burger',
+      tag: 'firefox57',
     });
   });
 

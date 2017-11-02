@@ -106,6 +106,7 @@ describe(__filename, () => {
         page: 4,
         query: 'Cool things',
         author: 'johndoe',
+        tag: 'firefox57',
       });
 
       expect(queryParams).toEqual({
@@ -114,6 +115,7 @@ describe(__filename, () => {
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
         author: 'johndoe',
+        tag: 'firefox57',
       });
     });
   });
@@ -125,6 +127,7 @@ describe(__filename, () => {
         page: 4,
         q: 'Cool things',
         type: ADDON_TYPE_THEME,
+        tag: 'firefox57',
       });
 
       expect(filters).toEqual({
@@ -132,6 +135,7 @@ describe(__filename, () => {
         compatibleWithVersion: '57.0',
         page: 4,
         query: 'Cool things',
+        tag: 'firefox57',
       });
     });
   });
