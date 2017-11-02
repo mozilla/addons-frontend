@@ -8,7 +8,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
-  ADMIN_SUPER_POWERS,
   STATS_VIEW,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -325,20 +324,6 @@ describe(__filename, () => {
     const root = render({
       addon,
       store: dispatchSignInActions({ permissions: [STATS_VIEW] }).store,
-    });
-
-    const statsLink = root.find('.AddonMoreInfo-stats-link');
-    expect(statsLink).toHaveLength(1);
-  });
-
-  it('links to stats if user is ADMIN', () => {
-    const addon = createInternalAddon({
-      ...fakeAddon,
-      public_stats: false,
-    });
-    const root = render({
-      addon,
-      store: dispatchSignInActions({ permissions: [ADMIN_SUPER_POWERS] }).store,
     });
 
     const statsLink = root.find('.AddonMoreInfo-stats-link');
