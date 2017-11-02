@@ -63,6 +63,8 @@ export class HeaderBase extends React.Component {
       }
     );
 
+
+    /* eslint-disable react/no-danger */
     const headerLink = (
       <Link className="Header-title" to="/">
         <Icon className="Header-addons-icon" name="firefox-logo" />
@@ -72,6 +74,7 @@ export class HeaderBase extends React.Component {
         />
       </Link>
     );
+    /* eslint-enable react/no-danger */
 
     return (
       <header className="Header">
