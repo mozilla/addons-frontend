@@ -45,7 +45,7 @@
   .SearchResults {
     @include respond-to(large) {
       grid-column: 2;
-      grid-row: 2 / 4;
+      grid-row: 2 / 5;
       // Allows the grid item to contain the content preventing overflow.
       min-width: 0;
 
@@ -68,5 +68,13 @@
     margin-top: 0;
     padding: 20px;
     word-wrap: break-word;
+  }
+
+  .ErrorList {
+    margin: 10px 10px 0;
+
+    @include respond-to(large) {
+      margin: 0;
+    }
   }
 }
