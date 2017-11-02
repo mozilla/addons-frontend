@@ -63,7 +63,11 @@
   width: 32px;
 
   @include respond-to(medium) {
+    @include margin-end(8px);
+
+    height: 63px;
     vertical-align: middle;
+    width: 62px;
   }
 
   @include respond-to(extraExtraLarge) {
@@ -71,12 +75,29 @@
   }
 }
 
+.Header-branding {
+  @include font-light();
+
+  @include respond-to(medium) {
+    font-size: 34px;
+    line-height: 53px;
+  }
+}
+
+.Header-branding-firefox {
+  @include font-medium();
+}
+
 .Header-title-wrapper {
-  font-size: $font-size-l;
   margin: 0;
 }
 
 .Header-title {
+  @include respond-to(medium) {
+    align-items: center;
+    display: flex;
+  }
+
   &,
   &:link {
     color: $white;

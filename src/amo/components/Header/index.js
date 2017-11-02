@@ -12,6 +12,7 @@ import AuthenticateButton, {
 import { isAuthenticated, selectDisplayName } from 'core/reducers/user';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { sanitizeHTML } from 'core/utils';
 import Icon from 'ui/components/Icon';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
@@ -53,13 +54,22 @@ export class HeaderBase extends React.Component {
       username,
     } = this.props;
 
+    const branding = i18n.sprintf(
+      // translators: "Firefox" should not be translated. :-)
+      i18n.gettext('%(brandingStart)sFirefox%(brandingEnd)s Add-ons'),
+      {
+        brandingStart: '<span class="Header-branding-firefox">',
+        brandingEnd: '</span>',
+      }
+    );
+
     const headerLink = (
       <Link className="Header-title" to="/">
-        <Icon className="Header-addons-icon" name="fox" />
-        {
-          // translators: "Firefox" should not be translated. :-)
-          i18n.gettext('Firefox Add-ons')
-        }
+        <Icon className="Header-addons-icon" name="firefox-logo" />
+        <span
+          className="Header-branding"
+          dangerouslySetInnerHTML={sanitizeHTML(branding, ['span'])}
+        />
       </Link>
     );
 
