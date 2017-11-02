@@ -153,23 +153,29 @@ export class SearchFiltersBase extends React.Component {
             })}
           </select>
 
-          <label
-            className="SearchFilters-AddonType-label SearchFilters-label"
-            htmlFor="SearchFilters-AddonType"
-          >
-            {i18n.gettext('Add-on Type')}
-          </label>
-          <select
-            className="SearchFilters-AddonType SearchFilters-select"
-            id="SearchFilters-AddonType"
-            name="addonType"
-            onChange={this.onSelectElementChange}
-            value={filters.addonType || NO_FILTER}
-          >
-            {this.addonTypeOptions().map((option) => {
-              return <option key={option.value} {...option} />;
-            })}
-          </select>
+          {/* Categories are linked to addonType so we don't allow changing the
+            addonType if a filter is set. */}
+          {!filters.category && (
+            <div>
+              <label
+                className="SearchFilters-AddonType-label SearchFilters-label"
+                htmlFor="SearchFilters-AddonType"
+              >
+                {i18n.gettext('Add-on Type')}
+              </label>
+              <select
+                className="SearchFilters-AddonType SearchFilters-select"
+                id="SearchFilters-AddonType"
+                name="addonType"
+                onChange={this.onSelectElementChange}
+                value={filters.addonType || NO_FILTER}
+              >
+                {this.addonTypeOptions().map((option) => {
+                  return <option key={option.value} {...option} />;
+                })}
+              </select>
+            </div>
+          )}
 
           <label
             className="SearchFilters-OperatingSystem-label SearchFilters-label"

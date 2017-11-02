@@ -244,4 +244,11 @@ describe(__filename, () => {
       }),
     });
   });
+
+  it('does not display the addonType filter when a category is defined', () => {
+    // See: https://github.com/mozilla/addons-frontend/issues/3747
+    const root = render({ filters: { category: 'abstract' } });
+
+    expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
+  });
 });
