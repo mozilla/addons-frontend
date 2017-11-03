@@ -60,6 +60,11 @@
 }
 
 .Header-title {
+  &,
+  &:link {
+    color: $white;
+  }
+
   background-image: url("./styles/firefox-addons-min.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
