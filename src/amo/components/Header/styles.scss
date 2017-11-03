@@ -60,17 +60,13 @@
 }
 
 .Header-title {
-  &,
-  &:link {
-    margin: 0;
-  }
-
   background-image: url("./styles/firefox-addons-min.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 225px 48px;
   display: block;
   height: 48px;
+  margin: 0;
   width: 100%;
 
   @include respond-to(medium) {
