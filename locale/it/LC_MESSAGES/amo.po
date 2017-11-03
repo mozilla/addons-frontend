@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-02 17:03+0000\n"
+"PO-Revision-Date: 2017-11-02 17:00+0000\n"
 "Last-Translator: Elio <elio.gi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -295,16 +295,14 @@ msgid "Reviews for %(addonName)s"
 msgstr "Recensioni per %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:183
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s recensione"
-msgstr[1] "%(total)s recensioni"
+msgstr[0] "%(total)s recensione per questo componente aggiuntivo"
+msgstr[1] ""
 
 #: src/amo/components/AddonReviewList/index.js:211
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "di %(authorName)s, %(timestamp)s"
+msgstr "di %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
@@ -463,7 +461,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Questo componente aggiuntivo è stato rimosso dall’autore."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 #, fuzzy
@@ -471,7 +469,6 @@ msgid "This add-on has been disabled by an administrator."
 msgstr "Questo componente aggiuntivo non è disponibile sulla piattaforma in uso."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr "Impossibile trovare l’URL specificato."
 
@@ -634,7 +631,7 @@ msgstr "Visualizza il sito nella versione per computer"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Visualizza le mie raccolte"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
@@ -1188,7 +1185,6 @@ msgid "Get involved"
 msgstr "Collabora con noi"
 
 #: src/amo/components/StaticPages/About.js:69
-#, fuzzy
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
