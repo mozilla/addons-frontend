@@ -111,7 +111,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  *   withErrorHandler({ name: 'SomeComponent' }),
  * )(SomeComponent);
  */
-export function withErrorHandler({ name, id }) {
+export function withErrorHandler({ name, id, extractId = null }) {
   return (WrappedComponent) => {
     const mapStateToProps = () => {
       // Each component instance gets its own error handler ID.
@@ -124,8 +124,13 @@ export function withErrorHandler({ name, id }) {
       // Now that the component has been instantiated, return its
       // state mapper function.
       return (state, ownProps) => {
-        const instanceId = ownProps.errorHandler ?
+        let instanceId = ownProps.errorHandler ?
           ownProps.errorHandler.id : defaultInstanceId;
+
+        if (extractId) {
+          instanceId = `${instanceId}-${extractId(ownProps)}`;
+        }
+
         return {
           error: state.errors[instanceId],
           instanceId,
@@ -156,8 +161,8 @@ export function withErrorHandler({ name, id }) {
  * decorator, but aims at synchronizing both the server and client sides and
  * should be used for page level components.
  */
-export const withPageErrorHandler = ({ name }) => {
-  return withErrorHandler({ id: `${name}Page` });
+export const withPageErrorHandler = ({ name, extractId = null }) => {
+  return withErrorHandler({ id: `${name}Page`, extractId });
 };
 
 /*

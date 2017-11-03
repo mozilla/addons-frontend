@@ -93,30 +93,25 @@ export class AddonBase extends React.Component {
       params,
     } = this.props;
 
-    if (addon) {
-      if (!isNaN(params.slug)) {
-        // We only load add-ons by slug, but ID must be supported too because
-        // it is a legacy behavior.
-        dispatch(sendServerRedirect({
-          status: 301,
-          url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
-        }));
-        return;
+    // This makes sure we do not try to dispatch any new actions in the case
+    // of an error.
+    if (!errorHandler.hasError()) {
+      if (addon) {
+        if (!isNaN(params.slug)) {
+          // We only load add-ons by slug, but ID must be supported too because
+          // it is a legacy behavior.
+          dispatch(sendServerRedirect({
+            status: 301,
+            url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+          }));
+          return;
+        }
+
+        dispatch(setViewContext(addon.type));
+        this.dispatchFetchOtherAddonsByAuthors({ addon });
+      } else {
+        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
       }
-
-      dispatch(setViewContext(addon.type));
-      this.dispatchFetchOtherAddonsByAuthors({ addon });
-    } else {
-      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
-    }
-  }
-
-  componentDidMount() {
-    const { errorHandler } = this.props;
-
-    if (errorHandler.hasError()) {
-      log.debug('Clearing errors on the client');
-      this.props.dispatch(errorHandler.createClearingAction());
     }
   }
 
@@ -626,5 +621,8 @@ export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withPageErrorHandler({ name: 'Addon' }),
+  withPageErrorHandler({
+    name: 'Addon',
+    extractId: (ownProps) => ownProps.params.slug,
+  }),
 )(AddonBase);

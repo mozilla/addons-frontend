@@ -44,15 +44,6 @@ export class CollectionBase extends React.Component<Props> {
     this.loadDataIfNeeded();
   }
 
-  componentDidMount() {
-    const { errorHandler } = this.props;
-
-    if (errorHandler.hasError()) {
-      log.debug('Clearing errors on the client');
-      this.props.dispatch(errorHandler.createClearingAction());
-    }
-  }
-
   componentWillReceiveProps(nextProps: Props) {
     this.loadDataIfNeeded(nextProps);
   }
@@ -208,6 +199,9 @@ export const mapStateToProps = (state: { collections: CollectionsState }) => {
 
 export default compose(
   translate(),
-  withPageErrorHandler({ name: 'Collection' }),
+  withPageErrorHandler({
+    name: 'Collection',
+    extractId: (ownProps) => `${ownProps.params.user}/${ownProps.params.slug}`,
+  }),
   connect(mapStateToProps),
 )(CollectionBase);
