@@ -404,8 +404,6 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeTheme });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version-history-title'))
-      .toHaveLength(0);
     expect(root.find('.AddonMoreInfo-version-history-link'))
       .toHaveLength(0);
   });
@@ -421,8 +419,6 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-beta-versions-title'))
-      .toHaveLength(1);
     const link = root.find('.AddonMoreInfo-beta-versions-link');
     expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/beta`);
   });
@@ -433,8 +429,6 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-beta-versions-title'))
-      .toHaveLength(0);
     expect(root.find('.AddonMoreInfo-beta-versions-link'))
       .toHaveLength(0);
   });
