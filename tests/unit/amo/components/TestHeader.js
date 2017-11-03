@@ -42,8 +42,8 @@ describe(__filename, () => {
 
     expect(root.find('.Header-title-wrapper')).toHaveTagName('h1');
     expect(root.find('.Header-title').type()).toEqual(Link);
-    expect(root.find('.Header-branding').html()).toContain('Firefox');
-    expect(root.find('.Header-branding').html()).toContain('Add-ons');
+    expect(root.find('.Header-title .visually-hidden').childAt(0))
+      .toContain('Firefox Add-ons');
   });
 
   it('always renders a link in the header when not on homepage', () => {
@@ -53,8 +53,8 @@ describe(__filename, () => {
     // homepage; other routes will render their own, more relevant, H1 tags.
     expect(root.find('h1')).toHaveLength(0);
     expect(root.find('.Header-title').type()).toEqual(Link);
-    expect(root.find('.Header-branding').html()).toContain('Firefox');
-    expect(root.find('.Header-branding').html()).toContain('Add-ons');
+    expect(root.find('.Header-title .visually-hidden').childAt(0))
+      .toContain('Firefox Add-ons');
   });
 
   it('displays `login` text when user is not signed in', () => {

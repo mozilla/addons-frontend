@@ -42,10 +42,6 @@
   }
 }
 
-.Icon-firefox-logo {
-  @include icon($name: "firefox-logo");
-}
-
 .Icon-mozilla {
   @include icon($name: "mozilla");
 

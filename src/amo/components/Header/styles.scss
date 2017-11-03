@@ -55,37 +55,24 @@
   }
 }
 
-.Header-addons-icon {
-  @include margin-end(14px);
-
-  height: 32px;
-  vertical-align: bottom;
-  width: 32px;
+.Header-wordmark {
+  background-image: url("./styles/firefox-addons-min.svg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 225px 48px;
+  height: 48px;
+  width: 100%;
 
   @include respond-to(medium) {
-    @include margin-end(8px);
-
-    height: 63px;
-    vertical-align: middle;
-    width: 62px;
+    background-position: left bottom;
+    width: 225px;
   }
 
   @include respond-to(extraExtraLarge) {
-    vertical-align: bottom;
+    background-size: 300px 64px;
+    height: 64px;
+    width: 300px;
   }
-}
-
-.Header-branding {
-  @include font-light();
-
-  @include respond-to(medium) {
-    font-size: 34px;
-    line-height: 53px;
-  }
-}
-
-.Header-branding-firefox {
-  @include font-medium();
 }
 
 .Header-title-wrapper {
@@ -93,11 +80,6 @@
 }
 
 .Header-title {
-  @include respond-to(medium) {
-    align-items: center;
-    display: flex;
-  }
-
   &,
   &:link {
     color: $white;
