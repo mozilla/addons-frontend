@@ -2,6 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import { clearError, setError } from 'core/actions/errors';
 import log from 'core/logger';
 import ErrorList from 'ui/components/ErrorList';
@@ -48,6 +49,17 @@ export class ErrorHandler {
 
   renderErrorIfPresent() {
     return this.hasError() ? this.renderError() : null;
+  }
+
+  shouldRenderNotFound() {
+    return this.hasError() &&
+      // 401 and 403 are for an add-on lookup is made to look like a 404 on
+      // purpose. See: https://github.com/mozilla/addons-frontend/issues/3061.
+      [401, 403, 404].includes(this.capturedError.responseStatusCode);
+  }
+
+  renderNotFound() {
+    return <NotFound errorCode={this.capturedError.code} />;
   }
 
   setDispatch(dispatch) {
@@ -138,6 +150,15 @@ export function withErrorHandler({ name, id }) {
     )(WrappedComponent);
   };
 }
+
+/*
+ * This is a page level error decorator. It works like the `withErrorHandler()`
+ * decorator, but aims at synchronizing both the server and client sides and
+ * should be used for page level components.
+ */
+export const withPageErrorHandler = ({ name }) => {
+  return withErrorHandler({ id: `${name}Page` });
+};
 
 /*
  * This is a decorator that automatically renders errors.

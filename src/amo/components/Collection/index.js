@@ -6,10 +6,9 @@ import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import { fetchCollection, fetchCollectionPage } from 'amo/reducers/collections';
 import Paginate from 'core/components/Paginate';
-import { withErrorHandler } from 'core/errorHandler';
+import { withPageErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
@@ -43,6 +42,15 @@ type Props = {|
 export class CollectionBase extends React.Component<Props> {
   componentWillMount() {
     this.loadDataIfNeeded();
+  }
+
+  componentDidMount() {
+    const { errorHandler } = this.props;
+
+    if (errorHandler.hasError()) {
+      log.debug('Clearing errors on the client');
+      this.props.dispatch(errorHandler.createClearingAction());
+    }
   }
 
   componentWillReceiveProps(nextProps: Props) {
@@ -170,16 +178,9 @@ export class CollectionBase extends React.Component<Props> {
   render() {
     const { collection, errorHandler } = this.props;
 
-    if (errorHandler.hasError()) {
+    if (errorHandler.shouldRenderNotFound()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // 401 and 403 are for an add-on lookup is made to look like a 404 on
-      // purpose. See: https://github.com/mozilla/addons-frontend/issues/3061.
-      if (errorHandler.capturedError.responseStatusCode === 401 ||
-        errorHandler.capturedError.responseStatusCode === 403 ||
-        errorHandler.capturedError.responseStatusCode === 404
-      ) {
-        return <NotFound />;
-      }
+      return errorHandler.renderNotFound();
     }
 
     return (
@@ -207,12 +208,6 @@ export const mapStateToProps = (state: { collections: CollectionsState }) => {
 
 export default compose(
   translate(),
-  withErrorHandler({
-    // This allows to sync the client and the server error handler ids, thus
-    // allowing the client side to be aware of errors thrown on the server.
-    // See: https://github.com/mozilla/addons-frontend/issues/3313
-    id: 'Collection-001',
-    name: 'Collection',
-  }),
+  withPageErrorHandler({ name: 'Collection' }),
   connect(mapStateToProps),
 )(CollectionBase);

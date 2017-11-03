@@ -13,14 +13,13 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { fetchAddon } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { withErrorHandler } from 'core/errorHandler';
+import { withPageErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_DICT,
@@ -94,25 +93,30 @@ export class AddonBase extends React.Component {
       params,
     } = this.props;
 
-    // This makes sure we do not try to dispatch any new actions in the case
-    // of an error.
-    if (!errorHandler.hasError()) {
-      if (addon) {
-        if (!isNaN(params.slug)) {
-          // We only load add-ons by slug, but ID must be supported too because
-          // it is a legacy behavior.
-          dispatch(sendServerRedirect({
-            status: 301,
-            url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
-          }));
-          return;
-        }
-
-        dispatch(setViewContext(addon.type));
-        this.dispatchFetchOtherAddonsByAuthors({ addon });
-      } else {
-        dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+    if (addon) {
+      if (!isNaN(params.slug)) {
+        // We only load add-ons by slug, but ID must be supported too because
+        // it is a legacy behavior.
+        dispatch(sendServerRedirect({
+          status: 301,
+          url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+        }));
+        return;
       }
+
+      dispatch(setViewContext(addon.type));
+      this.dispatchFetchOtherAddonsByAuthors({ addon });
+    } else {
+      dispatch(fetchAddon({ slug: params.slug, errorHandler }));
+    }
+  }
+
+  componentDidMount() {
+    const { errorHandler } = this.props;
+
+    if (errorHandler.hasError()) {
+      log.debug('Clearing errors on the client');
+      this.props.dispatch(errorHandler.createClearingAction());
     }
   }
 
@@ -425,14 +429,11 @@ export class AddonBase extends React.Component {
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // 401 and 403 are made to look like a 404 on purpose.
-      // See https://github.com/mozilla/addons-frontend/issues/3061
-      if (errorHandler.capturedError.responseStatusCode === 401 ||
-          errorHandler.capturedError.responseStatusCode === 403 ||
-          errorHandler.capturedError.responseStatusCode === 404
-      ) {
-        return <NotFound errorCode={errorHandler.capturedError.code} />;
+
+      if (errorHandler.shouldRenderNotFound()) {
+        return errorHandler.renderNotFound();
       }
+
       // Show a list of errors at the top of the add-on section.
       errorBanner = errorHandler.renderError();
     }
@@ -625,5 +626,5 @@ export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withErrorHandler({ name: 'Addon' }),
+  withPageErrorHandler({ name: 'Addon' }),
 )(AddonBase);

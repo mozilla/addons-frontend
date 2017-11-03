@@ -227,5 +227,5 @@ export default compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Search' }),
+  withErrorHandler({ name: 'SearchFilters' }),
 )(SearchFiltersBase);

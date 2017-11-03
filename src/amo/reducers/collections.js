@@ -8,6 +8,7 @@ export const FETCH_COLLECTION_PAGE: 'FETCH_COLLECTION_PAGE'
   = 'FETCH_COLLECTION_PAGE';
 export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
   = 'LOAD_COLLECTION_PAGE';
+export const ABORT_COLLECTION: 'ABORT_COLLECTION' = 'ABORT_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType>,
@@ -181,6 +182,14 @@ export const loadCollectionPage = ({
   };
 };
 
+type AbortCollectionAction = {|
+  type: typeof ABORT_COLLECTION,
+|};
+
+export const abortCollection = (): AbortCollectionAction => {
+  return { type: ABORT_COLLECTION };
+};
+
 type CreateInternalCollectionParams = {|
   detail: ExternalCollectionDetail,
   items: ExternalCollectionAddons,
@@ -215,6 +224,7 @@ type Action =
   | LoadCollectionAction
   | FetchCollectionPageAction
   | LoadCollectionPageAction
+  | AbortCollectionAction
 ;
 
 const reducer = (
@@ -260,6 +270,9 @@ const reducer = (
         loading: false,
       };
     }
+
+    case ABORT_COLLECTION:
+      return initialState;
 
     default:
       return state;

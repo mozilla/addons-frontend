@@ -20,8 +20,9 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { withPageErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import {
   convertFiltersToQueryParams,
   hasSearchFilters,
@@ -176,6 +177,11 @@ export class SearchBase extends React.Component {
       results,
     } = this.props;
 
+    if (errorHandler.shouldRenderNotFound()) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+      return errorHandler.renderNotFound();
+    }
+
     const page = parsePage(filters.page);
 
     // We allow specific paginationQueryParams instead of always using
@@ -239,5 +245,5 @@ export function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Search' }),
+  withPageErrorHandler({ name: 'Search' }),
 )(SearchBase);
