@@ -141,6 +141,7 @@ module.exports = {
     'bg',
     'bn-BD',
     'ca',
+    'cak',
     'cs',
     'da',
     'de',
