@@ -54,14 +54,12 @@ export class HeaderBase extends React.Component {
 
     const headerLink = (
       <Link className="Header-title" to="/">
-        <div className="Header-wordmark">
-          <span className="visually-hidden">
-            {
-              // translators: "Firefox" should not be translated. :-)
-              i18n.gettext('Firefox Add-ons')
-            }
-          </span>
-        </div>
+        <span className="visually-hidden">
+          {
+            // translators: "Firefox" should not be translated. :-)
+            i18n.gettext('Firefox Add-ons')
+          }
+        </span>
       </Link>
     );
 

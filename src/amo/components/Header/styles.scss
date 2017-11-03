@@ -55,11 +55,21 @@
   }
 }
 
-.Header-wordmark {
+.Header-title-wrapper {
+  margin: 0;
+}
+
+.Header-title {
+  &,
+  &:link {
+    margin: 0;
+  }
+
   background-image: url("./styles/firefox-addons-min.svg");
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 225px 48px;
+  display: block;
   height: 48px;
   width: 100%;
 
@@ -72,25 +82,6 @@
     background-size: 300px 64px;
     height: 64px;
     width: 300px;
-  }
-}
-
-.Header-title-wrapper {
-  margin: 0;
-}
-
-.Header-title {
-  &,
-  &:link {
-    color: $white;
-    font-size: $font-size-l;
-    font-weight: 300;
-    margin: 0;
-    text-decoration: none;
-
-    @include respond-to(extraExtraLarge) {
-      font-size: $font-size-header-title;
-    }
   }
 }
 
