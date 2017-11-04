@@ -189,6 +189,10 @@ export class SearchFormBase extends React.Component {
     this.props.router.push(suggestion.url);
   }
 
+  shouldRenderSuggestions= (value) => {
+    return value.trim().length > 2;
+  }
+
   renderSuggestion = (suggestion) => {
     const { name, iconUrl, loading } = suggestion;
 
@@ -265,6 +269,7 @@ export class SearchFormBase extends React.Component {
           focusInputOnSuggestionClick={false}
           getSuggestionValue={(suggestion) => suggestion.name}
           inputProps={inputProps}
+          shouldRenderSuggestions={this.shouldRenderSuggestions}
           onSuggestionsClearRequested={this.handleSuggestionsClearRequested}
           onSuggestionsFetchRequested={this.handleSuggestionsFetchRequested}
           onSuggestionSelected={this.handleSuggestionSelected}
