@@ -34,6 +34,7 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const SEARCH_TERM_MAX_LENGTH = 100;
+export const AUTO_SUGGEST_MIN_LENGTH = 2;
 export class SearchFormBase extends React.Component {
   static propTypes = {
     addonType: PropTypes.string,
@@ -190,7 +191,7 @@ export class SearchFormBase extends React.Component {
   }
 
   shouldRenderSuggestions= (value) => {
-    return value.trim().length > 2;
+    return value.trim().length > AUTO_SUGGEST_MIN_LENGTH;
   }
 
   renderSuggestion = (suggestion) => {
