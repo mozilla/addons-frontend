@@ -190,7 +190,7 @@ export class SearchFormBase extends React.Component {
     this.props.router.push(suggestion.url);
   }
 
-  shouldRenderSuggestions= (value) => {
+  shouldRenderSuggestions = (value) => {
     return value.trim().length > AUTO_SUGGEST_MIN_LENGTH;
   }
 
