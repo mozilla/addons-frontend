@@ -132,22 +132,26 @@ export class AddonMoreInfoBase extends React.Component<Props> {
         </Link>
       ) : null,
       versionHistoryLink: addonHasVersionHistory(addon) ? (
-        <Link
-          className="AddonMoreInfo-version-history-link"
-          href={`/addon/${addon.slug}/versions/`}
-        >
-          {i18n.gettext('See all versions')}
-        </Link>
+        <li>
+          <Link
+            className="AddonMoreInfo-version-history-link"
+            href={`/addon/${addon.slug}/versions/`}
+          >
+            {i18n.gettext('See all versions')}
+          </Link>
+        </li>
       ) : null,
       // Since current_beta_version is just an alias to the latest beta,
       // we can assume that no betas exist at all if it is null.
       betaVersionsLink: addon.current_beta_version ? (
-        <Link
-          className="AddonMoreInfo-beta-versions-link"
-          href={`/addon/${addon.slug}/versions/beta`}
-        >
-          {i18n.gettext('See all beta versions')}
-        </Link>
+        <li>
+          <Link
+            className="AddonMoreInfo-beta-versions-link"
+            href={`/addon/${addon.slug}/versions/beta`}
+          >
+            {i18n.gettext('See all beta versions')}
+          </Link>
+        </li>
       ) : null,
     });
   }
@@ -216,18 +220,16 @@ export class AddonMoreInfoBase extends React.Component<Props> {
           <dd key="eula-contents">{eulaLink}</dd>,
         ])}
 
-        {renderNodesIf(versionHistoryLink, [
+        {renderNodesIf((versionHistoryLink || betaVersionsLink), [
           <dt className="AddonMoreInfo-version-history-title" key="history-title">
             {i18n.gettext('Version History')}
           </dt>,
-          <dd key="history-contents">{versionHistoryLink}</dd>,
-        ])}
-
-        {renderNodesIf(betaVersionsLink, [
-          <dt className="AddonMoreInfo-beta-versions-title" key="beta-title">
-            {i18n.gettext('Beta Versions')}
-          </dt>,
-          <dd key="beta-contents">{betaVersionsLink}</dd>,
+          <dd key="history-contents">
+            <ul className="AddonMoreInfo-links-contents-list">
+              {versionHistoryLink}
+              {betaVersionsLink}
+            </ul>
+          </dd>,
         ])}
 
         {renderNodesIf(statsLink, [
