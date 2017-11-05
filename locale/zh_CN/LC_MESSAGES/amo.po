@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-03 02:01+0000\n"
-"Last-Translator: xcffl <xcffl@outlook.com>\n"
+"PO-Revision-Date: 2017-11-05 18:27+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -485,11 +485,11 @@ msgstr "这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr "已标记为一份缺陷报告或支持请求"
+msgstr "已报告这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr "标记需处理"
+msgstr "存在问题"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
@@ -497,27 +497,27 @@ msgstr "已标记"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
-msgstr "标记此开发者回应需被处理"
+msgstr "报告此开发者回应需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
 msgid "Flag this review"
-msgstr "标记此评价需被处理"
+msgstr "报告此评价需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
 msgid "Log in to flag this response"
-msgstr "登录以标记此回应需被处理"
+msgstr "登录以报告此回应需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
 msgid "Log in to flag this review"
-msgstr "登录以标记此评价需被处理"
+msgstr "登录以报告此评价需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
-msgstr "您不能标记自己的回应"
+msgstr "您不能报告自己的回应"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
-msgstr "您不能标记自己的评价"
+msgstr "您不能报告自己的评价"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
@@ -533,7 +533,7 @@ msgstr "这包含不当语言"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr "已标记为不当语言"
+msgstr "已标记含不当用语"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
