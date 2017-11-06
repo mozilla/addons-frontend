@@ -166,3 +166,7 @@
 .Icon-heart {
   @include icon($name: "heart");
 }
+
+.Icon-not-compatible {
+  @include icon($name: "not-compatible");
+}

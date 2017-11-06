@@ -78,6 +78,7 @@ describe(__filename, () => {
         [OS_WINDOWS]: undefined,
       },
       isRestartRequired: false,
+      isWebExtension: true,
     });
   });
 
@@ -107,6 +108,7 @@ describe(__filename, () => {
         [OS_WINDOWS]: undefined,
       },
       isRestartRequired: false,
+      isWebExtension: true,
     };
     delete expectedTheme.theme_data;
 
@@ -272,6 +274,51 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].isRestartRequired).toBe(true);
+  });
+
+  it('exposes `isWebExtension` attribute from current version files', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_webextension: true },
+      ],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isWebExtension).toBe(true);
+  });
+
+  it('sets `isWebExtension` to `false` when add-on is not a web extension', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_webextension: false },
+      ],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isWebExtension).toBe(false);
+  });
+
+  it('sets `isWebExtension` to `false` when addon has no files', () => {
+    const addon = createFakeAddon({ files: [] });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isWebExtension).toBe(false);
+  });
+
+  it('sets `isWebExtension` to `true` when any file declares it', () => {
+    const addon = createFakeAddon({
+      files: [
+        { ...fakeAddon.current_version.files[0], is_webextension: false },
+        { ...fakeAddon.current_version.files[0], is_webextension: true },
+      ],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isWebExtension).toBe(true);
   });
 
   describe('fetchAddon', () => {

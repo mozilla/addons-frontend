@@ -231,6 +231,7 @@ export function createInternalAddon(
       windows: undefined,
     },
     isRestartRequired: false,
+    isWebExtension: false,
   };
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
@@ -262,6 +263,9 @@ export function createInternalAddon(
     });
     addon.isRestartRequired = apiAddon.current_version.files.some(
       (file) => !!file.is_restart_required
+    );
+    addon.isWebExtension = apiAddon.current_version.files.some(
+      (file) => !!file.is_webextension
     );
   }
 

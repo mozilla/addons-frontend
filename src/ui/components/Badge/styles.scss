@@ -5,7 +5,7 @@
 .Badge {
   color: $grey-90;
   font-size: $font-size-m-smaller;
-  line-height: 1.4;
+  line-height: 1.2;
   margin: 0 0 6px;
 
   @include respond-to(medium) {

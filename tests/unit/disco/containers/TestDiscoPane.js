@@ -149,6 +149,7 @@ describe(__filename, () => {
           windows: undefined,
         },
         isRestartRequired: false,
+        isWebExtension: true,
       }]);
     });
 
