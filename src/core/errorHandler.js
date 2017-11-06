@@ -112,24 +112,39 @@ export type ErrorHandlerType = typeof ErrorHandler;
  * )(SomeComponent);
  */
 export function withErrorHandler({ name, id, extractId = null }) {
+  if (id && extractId) {
+    throw new Error('`id` and `extractId` parameters are mutually exclusive.');
+  }
+
+  if (extractId && typeof extractId !== 'function') {
+    throw new Error(
+      '`extractId` must be a function taking `ownProps` as unique argument.'
+    );
+  }
+
   return (WrappedComponent) => {
     const mapStateToProps = () => {
-      // Each component instance gets its own error handler ID.
-      let defaultInstanceId = id;
-      if (!defaultInstanceId) {
-        defaultInstanceId = generateHandlerId({ name });
-        log.debug(`Generated error handler ID: ${defaultInstanceId}`);
+      let defaultInstanceId;
+
+      if (!extractId) {
+        // Each component instance gets its own error handler ID.
+        defaultInstanceId = id;
+
+        if (!defaultInstanceId) {
+          defaultInstanceId = generateHandlerId({ name });
+          log.debug(`Generated error handler ID: ${defaultInstanceId}`);
+        }
       }
 
-      // Now that the component has been instantiated, return its
-      // state mapper function.
+      // Now that the component has been instantiated, return its state mapper
+      // function.
       return (state, ownProps) => {
-        let instanceId = ownProps.errorHandler ?
-          ownProps.errorHandler.id : defaultInstanceId;
-
         if (extractId) {
-          instanceId = `${instanceId}-${extractId(ownProps)}`;
+          defaultInstanceId = `${name}-${extractId(ownProps)}`;
         }
+
+        const instanceId = ownProps.errorHandler ?
+          ownProps.errorHandler.id : defaultInstanceId;
 
         return {
           error: state.errors[instanceId],
@@ -160,9 +175,16 @@ export function withErrorHandler({ name, id, extractId = null }) {
  * This is a page level error decorator. It works like the `withErrorHandler()`
  * decorator, but aims at synchronizing both the server and client sides and
  * should be used for page level components.
+ *
+ * Pass the optional `extractId` function to create "per unique page" level
+ * error handlers. This function takes the component's props and must returns a
+ * unique value based on these props (e.g., based on the `slug`, `uniqueId`,
+ * etc.).
  */
 export const withPageErrorHandler = ({ name, extractId = null }) => {
-  return withErrorHandler({ id: `${name}Page`, extractId });
+  // We pass an `id` so that we skip the random ID generation (i.e. we fix the
+  // error handler ID).
+  return withErrorHandler({ name: `${name}Page`, extractId });
 };
 
 /*
