@@ -462,6 +462,18 @@ describe(__filename, () => {
     expect(root.find('.Addon-summary').html()).not.toContain('<script>');
   });
 
+  it('adds <br> tags for newlines in a summary', () => {
+    const summaryWithNewlines = 'Hello\nI am an add-on.';
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        summary: summaryWithNewlines,
+      }),
+    });
+
+    expect(root.find('.Addon-summary').render().find('br')).toHaveLength(1);
+  });
+
   it('sanitizes bad description HTML', () => {
     const scriptHTML = '<script>alert(document.cookie);</script>';
     const root = renderAsDOMNode({

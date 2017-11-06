@@ -31,6 +31,7 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
+  nl2br,
   sanitizeHTML,
   sanitizeUserHTML,
 } from 'core/utils';
@@ -423,7 +424,8 @@ export class AddonBase extends React.Component {
       const summary = addon.summary ? addon.summary : addon.description;
 
       if (summary && summary.length) {
-        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(summary, ['a']);
+        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(
+          nl2br(summary), ['a', 'br']);
         showSummary = true;
       }
     } else {
