@@ -478,7 +478,7 @@ describe(__filename, () => {
 
   it('renders an HTML title for a theme category', () => {
     const wrapper = render();
-    expect(wrapper.find('title')).toHaveText('Testing category - Themes');
+    expect(wrapper.find('title')).toHaveText('Testing category – Themes');
   });
 
   it('renders an HTML title for an extension category', () => {
@@ -495,7 +495,7 @@ describe(__filename, () => {
         visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
       },
     });
-    expect(wrapper.find('title')).toHaveText('Testing category - Extensions');
+    expect(wrapper.find('title')).toHaveText('Testing category – Extensions');
   });
 
   it('does not render an HTML title when there is no category', () => {
