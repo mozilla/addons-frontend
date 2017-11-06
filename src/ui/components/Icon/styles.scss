@@ -162,3 +162,7 @@
     transform: scaleX(-1);
   }
 }
+
+.Icon-heart {
+  @include icon($name: "heart");
+}
