@@ -17,8 +17,10 @@ import {
 import { denormalizeReview } from 'amo/actions/reviews';
 import type {
   ClearAddonReviewsAction,
+  FlagReviewAction,
   HideEditReviewFormAction,
   HideReplyToReviewFormAction,
+  ReviewWasFlaggedAction,
   SendReplyToReviewAction,
   SetAddonReviewsAction,
   SetReviewAction,
@@ -28,6 +30,7 @@ import type {
   UserReviewType,
 } from 'amo/actions/reviews';
 import type { FlagReviewReasonType } from 'amo/constants';
+
 
 type ReviewsById = {
   [id: number]: UserReviewType,
@@ -180,7 +183,9 @@ type ReviewActionType =
   | SetReviewAction
   | SetReviewReplyAction
   | ShowEditReviewFormAction
-  | ShowReplyToReviewFormAction;
+  | ShowReplyToReviewFormAction
+  | FlagReviewAction
+  | ReviewWasFlaggedAction;
 
 export default function reviewsReducer(
   state: ReviewState = initialState,
