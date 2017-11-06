@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { makeQueryStringWithUTM } from 'amo/utils';
 import translate from 'core/i18n/translate';
 import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
 import Button from 'ui/components/Button';
@@ -24,6 +25,10 @@ export const DownloadFirefoxButtonBase = ({
     return null;
   }
 
+  const queryString = makeQueryStringWithUTM({
+    utm_content: 'header-download-button',
+  });
+
   return (
     <Button
       className={classNames(
@@ -33,7 +38,7 @@ export const DownloadFirefoxButtonBase = ({
         'Button--small',
         className,
       )}
-      href="https://mozilla.org/firefox/"
+      href={`https://www.mozilla.org/firefox/new/${queryString}`}
     >
       {i18n.gettext('Download Firefox')}
     </Button>

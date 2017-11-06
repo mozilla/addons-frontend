@@ -1,8 +1,10 @@
+/* eslint camelcase: 0 */
 import base62 from 'base62';
 
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ServerError from 'amo/components/ErrorPage/ServerError';
+import { makeQueryString } from 'core/api';
 
 
 export function getErrorComponent(status) {
@@ -30,3 +32,17 @@ export function getDjangoBase62() {
     '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
   return base62;
 }
+
+export const makeQueryStringWithUTM = ({
+  utm_source = 'addons.mozilla.org',
+  utm_medium = 'referral',
+  utm_campaign = 'non-fx-button',
+  utm_content,
+}) => {
+  return makeQueryString({
+    utm_source,
+    utm_medium,
+    utm_campaign,
+    utm_content,
+  });
+};

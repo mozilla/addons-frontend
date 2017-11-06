@@ -50,13 +50,19 @@ describe(__filename, () => {
 
   it('renders a notice for non-Firefox browsers', () => {
     _dispatchClientMetadata({
-      lang: 'en-GB', userAgent: userAgentsByPlatform.mac.chrome41,
+      userAgent: userAgentsByPlatform.mac.chrome41,
     });
     const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
 
     expect(
       root.find('.AddonCompatibilityError').render().find('a').attr('href')
-    ).toEqual('https://www.mozilla.org/en-GB/firefox/');
+    ).toEqual([
+      'https://www.mozilla.org/firefox/new/',
+      '?utm_source=addons.mozilla.org',
+      '&utm_medium=referral',
+      '&utm_campaign=non-fx-button',
+      '&utm_content=install-addon-button',
+    ].join(''));
     expect(
       root.find('.AddonCompatibilityError').render().text()
     ).toContain('You need to download Firefox to install this add-on.');
@@ -75,7 +81,6 @@ describe(__filename, () => {
 
   it('renders a notice for old versions of Firefox', () => {
     _dispatchClientMetadata({
-      lang: 'en-GB',
       userAgent: userAgentsByPlatform.mac.firefox33,
     });
     const root = render({
@@ -87,7 +92,7 @@ describe(__filename, () => {
 
     expect(
       root.find('.AddonCompatibilityError').render().find('a').attr('href')
-    ).toEqual('https://www.mozilla.org/en-GB/firefox/');
+    ).toMatch(new RegExp('https://www.mozilla.org/firefox/new/'));
     expect(text).toContain(
       'This add-on requires a newer version of Firefox');
     expect(text).toContain('(at least version 34.0)');

@@ -59,5 +59,12 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root).toHaveClassName('DownloadFirefoxButton');
+    expect(root).toHaveProp('href', [
+      'https://www.mozilla.org/firefox/new/',
+      '?utm_source=addons.mozilla.org',
+      '&utm_medium=referral',
+      '&utm_campaign=non-fx-button',
+      '&utm_content=header-download-button',
+    ].join(''));
   });
 });
