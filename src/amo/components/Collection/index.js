@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import { fetchCollection, fetchCollectionPage } from 'amo/reducers/collections';
 import Paginate from 'core/components/Paginate';
@@ -171,7 +172,7 @@ export class CollectionBase extends React.Component<Props> {
 
     if (errorHandler.shouldRenderNotFound()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      return errorHandler.renderNotFound();
+      return <NotFound />;
     }
 
     return (
@@ -201,7 +202,9 @@ export default compose(
   translate(),
   withPageErrorHandler({
     name: 'Collection',
-    extractId: (ownProps) => `${ownProps.params.user}/${ownProps.params.slug}`,
+    extractId: (ownProps: Props) => {
+      return `${ownProps.params.user}/${ownProps.params.slug}`;
+    },
   }),
   connect(mapStateToProps),
 )(CollectionBase);

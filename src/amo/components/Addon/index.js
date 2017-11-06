@@ -13,6 +13,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
@@ -426,7 +427,7 @@ export class AddonBase extends React.Component {
       log.warn('Captured API Error:', errorHandler.capturedError);
 
       if (errorHandler.shouldRenderNotFound()) {
-        return errorHandler.renderNotFound();
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
 
       // Show a list of errors at the top of the add-on section.

@@ -2,7 +2,6 @@ import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import { clearError, setError } from 'core/actions/errors';
 import log from 'core/logger';
 import ErrorList from 'ui/components/ErrorList';
@@ -56,10 +55,6 @@ export class ErrorHandler {
       // 401 and 403 are for an add-on lookup is made to look like a 404 on
       // purpose. See: https://github.com/mozilla/addons-frontend/issues/3061.
       [401, 403, 404].includes(this.capturedError.responseStatusCode);
-  }
-
-  renderNotFound() {
-    return <NotFound errorCode={this.capturedError.code} />;
   }
 
   setDispatch(dispatch) {
@@ -180,11 +175,18 @@ export function withErrorHandler({ name, id, extractId = null }) {
  * error handlers. This function takes the component's props and must returns a
  * unique value based on these props (e.g., based on the `slug`, `uniqueId`,
  * etc.).
+ *
+ * When this optional function is not supplied, we "fix" the error handler `id`
+ * (e.g., `SomeComponentPage`) otherwise we pass the `name` suffixed by `Page`,
+ * and the HOC will create the final error handler ID thanks to `extractId`.
  */
 export const withPageErrorHandler = ({ name, extractId = null }) => {
-  // We pass an `id` so that we skip the random ID generation (i.e. we fix the
-  // error handler ID).
-  return withErrorHandler({ name: `${name}Page`, extractId });
+  const params = {
+    [extractId ? 'name' : 'id']: `${name}Page`,
+    extractId,
+  };
+
+  return withErrorHandler(params);
 };
 
 /*

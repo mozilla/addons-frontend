@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
@@ -179,7 +180,7 @@ export class SearchBase extends React.Component {
 
     if (errorHandler.shouldRenderNotFound()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      return errorHandler.renderNotFound();
+      return <NotFound />;
     }
 
     const page = parsePage(filters.page);

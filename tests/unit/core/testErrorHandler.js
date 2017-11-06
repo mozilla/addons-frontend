@@ -11,8 +11,12 @@ import { createApiError } from 'core/api/index';
 import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
-import { ErrorHandler, withErrorHandler, withRenderedErrorHandler }
-  from 'core/errorHandler';
+import {
+  ErrorHandler,
+  withErrorHandler,
+  withPageErrorHandler,
+  withRenderedErrorHandler,
+} from 'core/errorHandler';
 import errors from 'core/reducers/errors';
 import { fakeI18n } from 'tests/unit/helpers';
 import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
@@ -36,7 +40,7 @@ function createWrappedComponent({
   id, store = createErrorStore(), decorator = withErrorHandler,
   customProps = {}, ...options
 } = {}) {
-  const SomeComponent = translate({ withRef: true })(SomeComponentBase);
+  const SomeComponent = translate()(SomeComponentBase);
   const ComponentWithErrorHandling = decorator({
     id, name: 'SomeComponent', ...options,
   })(SomeComponent);
@@ -51,13 +55,44 @@ function createWrappedComponent({
   return { store, component, dom: findDOMNode(tree), tree };
 }
 
-describe('errorHandler', () => {
+describe(__filename, () => {
   describe('withErrorHandler', () => {
     it('provides a unique errorHandler property', () => {
       const { component } = createWrappedComponent();
       const errorHandler = component.props.errorHandler;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id).toMatch(/^SomeComponent-/);
+    });
+
+    it('throws an error if both `id` and `extractId` parameters are given', () => {
+      expect(() => {
+        createWrappedComponent({
+          id: 'error-handler-id',
+          extractId: () => 'unique-id',
+        });
+      }).toThrow('`id` and `extractId` parameters are mutually exclusive.');
+    });
+
+    it('throws an error if `extractId` is not a function', () => {
+      expect(() => {
+        createWrappedComponent({
+          extractId: 'invalid type',
+        });
+      }).toThrow(
+        '`extractId` must be a function taking `ownProps` as unique argument.'
+      );
+    });
+
+    it('creates an error handler ID with `extractId`', () => {
+      const { component } = createWrappedComponent({
+        // Passed to the wrapped component.
+        customProps: {
+          propWithUniqueValue: '1234',
+        },
+        // Passed to the error handler HOC.
+        extractId: (ownProps) => ownProps.propWithUniqueValue,
+      });
+      expect(component.props.errorHandler.id).toEqual('SomeComponent-1234');
     });
 
     it('creates a unique handler ID per wrapped component', () => {
@@ -67,7 +102,7 @@ describe('errorHandler', () => {
     });
 
     it('creates a unique handler ID per component instance', () => {
-      const SomeComponent = translate({ withRef: true })(SomeComponentBase);
+      const SomeComponent = translate()(SomeComponentBase);
       const ComponentWithErrorHandling =
         withErrorHandler({ name: 'SomeComponent' })(SomeComponent);
 
@@ -355,6 +390,83 @@ describe('errorHandler', () => {
       const wrapper = shallow(<div>{handler.renderErrorIfPresent()}</div>);
       expect(handler.renderErrorIfPresent()).not.toBe(null);
       expect(wrapper.find(ErrorList)).toHaveLength(1);
+    });
+
+    describe('shouldRenderNotFound', () => {
+      const getCapturedErrorForStatusCode = (statusCode) => {
+        const store = createErrorStore();
+        const errorHandlerId = 'some-error-handler-id';
+
+        store.dispatch(setError({
+          id: errorHandlerId,
+          error: createApiError({
+            response: { status: statusCode },
+            jsonResponse: { message: `error with status = ${statusCode}` },
+          }),
+        }));
+
+        return store.getState().errors[errorHandlerId];
+      };
+
+      it('returns `false` when there is no error', () => {
+        const handler = new ErrorHandler();
+        expect(handler.shouldRenderNotFound()).toEqual(false);
+      });
+
+      it('returns `false` when captured error has no status code', () => {
+        const handler = new ErrorHandler({ capturedError: new Error() });
+        expect(handler.shouldRenderNotFound()).toEqual(false);
+      });
+
+      it('returns `true` when a 401 error has been captured', () => {
+        const handler = new ErrorHandler({
+          capturedError: getCapturedErrorForStatusCode(401),
+        });
+        expect(handler.shouldRenderNotFound()).toEqual(true);
+      });
+
+      it('returns `true` when a 403 error has been captured', () => {
+        const handler = new ErrorHandler({
+          capturedError: getCapturedErrorForStatusCode(403),
+        });
+        expect(handler.shouldRenderNotFound()).toEqual(true);
+      });
+
+      it('returns `true` when a 404 error has been captured', () => {
+        const handler = new ErrorHandler({
+          capturedError: getCapturedErrorForStatusCode(404),
+        });
+        expect(handler.shouldRenderNotFound()).toEqual(true);
+      });
+
+      it('returns `false` for errors with status not 401, 403 or 404', () => {
+        const handler = new ErrorHandler({
+          capturedError: getCapturedErrorForStatusCode(400),
+        });
+        expect(handler.shouldRenderNotFound()).toEqual(false);
+      });
+    });
+  });
+
+  describe('withPageErrorHandler', () => {
+    it('creates a page level error handler', () => {
+      const { component } = createWrappedComponent({
+        decorator: withPageErrorHandler,
+      });
+      const errorHandler = component.props.errorHandler;
+      expect(errorHandler).toBeInstanceOf(ErrorHandler);
+      expect(errorHandler.id).toEqual('SomeComponentPage');
+    });
+
+    it('creates a "per unique page" level error handler', () => {
+      const { component } = createWrappedComponent({
+        decorator: withPageErrorHandler,
+        extractId: () => 'unique-id-based-on-props',
+      });
+      const errorHandler = component.props.errorHandler;
+      expect(errorHandler).toBeInstanceOf(ErrorHandler);
+      expect(errorHandler.id)
+        .toEqual('SomeComponentPage-unique-id-based-on-props');
     });
   });
 });

@@ -1,7 +1,8 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { SearchBase, mapStateToProps } from 'amo/components/Search';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import Search, { SearchBase, mapStateToProps } from 'amo/components/Search';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -16,12 +17,18 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
+import { createApiError } from 'core/api/index';
+import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
 } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
+import {
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let props;
@@ -281,6 +288,26 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+  });
+
+  it('returns a Not Found page when error is 404', () => {
+    const store = dispatchClientMetadata().store;
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
+      response: { status: 404 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Nope.' },
+    }));
+
+    const wrapper = shallowUntilTarget(
+      <Search {...{ ...props, errorHandler, store }} />,
+      SearchBase
+    );
+    expect(wrapper.find(NotFound)).toHaveLength(1);
   });
 
   describe('mapStateToProps()', () => {

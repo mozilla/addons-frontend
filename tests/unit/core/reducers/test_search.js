@@ -1,6 +1,9 @@
 import { searchLoad, searchStart } from 'core/actions/search';
 import { createInternalAddon } from 'core/reducers/addons';
-import search, { initialState } from 'core/reducers/search';
+import search, {
+  abortSearch,
+  initialState,
+} from 'core/reducers/search';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
@@ -18,6 +21,23 @@ describe(__filename, () => {
   it('defaults to empty results', () => {
     const { results } = search(undefined, { type: 'unrelated' });
     expect(results).toEqual([]);
+  });
+
+  describe('ABORT_SEARCH', () => {
+    it('resets the results and loading flag', () => {
+      const state = search(initialState, searchStart({
+        errorHandlerId: 'foo',
+        filters: { query: 'foo' },
+      }));
+      expect(state.filters).toEqual({ query: 'foo' });
+      expect(state.loading).toBe(true);
+      expect(state.results).toEqual([]);
+
+      const newState = search(state, abortSearch());
+      expect(newState.filters).toEqual({ query: 'foo' });
+      expect(newState.loading).toBe(false);
+      expect(newState.results).toEqual([]);
+    });
   });
 
   describe('SEARCH_STARTED', () => {
