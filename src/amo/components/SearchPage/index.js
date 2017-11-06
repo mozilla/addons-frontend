@@ -18,22 +18,12 @@ type Props = {|
 |};
 
 export const SearchPageBase = ({ filters, pathname, ...props }: Props) => {
-  const paginationQueryParams = convertFiltersToQueryParams({
-    addonType: filters.addonType,
-    featured: filters.featured,
-    operatingSystem: filters.operatingSystem,
-    page: filters.page,
-    query: filters.query,
-    sort: filters.sort,
-    tag: filters.tag,
-  });
-
   return (
     <Search
       {...props}
       enableSearchFilters
       filters={filters}
-      paginationQueryParams={paginationQueryParams}
+      paginationQueryParams={convertFiltersToQueryParams(filters)}
       pathname={pathname}
     />
   );
