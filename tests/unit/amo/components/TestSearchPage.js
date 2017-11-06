@@ -76,25 +76,20 @@ describe(__filename, () => {
     });
   });
 
-  it('preserves location query in paginationQueryParams', () => {
-    // Pretend these are existing values already on the query string.
-    // We need to preserve them in paginator links.
-    const randomQuery = {
-      first: 'one',
-      second: 'two',
+  it('preserves category in paginationQueryParams', () => {
+    const query = {
+      // The API is responsible for defining category strings.
+      category: 'some-category',
     };
 
     const root = render({
       location: {
-        query: {
-          ...randomQuery,
-          q: 'search term',
-        },
+        query: { ...query, q: 'search term' },
       },
     });
 
     const params = root.find(Search).prop('paginationQueryParams');
-    expect(params).toMatchObject(randomQuery);
+    expect(params).toMatchObject(query);
   });
 
   describe('mapStateToProps()', () => {

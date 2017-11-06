@@ -18,27 +18,12 @@ type Props = {|
 |};
 
 export const SearchPageBase = ({ filters, pathname, ...props }: Props) => {
-  const paginationQueryParams = {
-    // Pass any existing query string key to the paginator links.
-    ...props.location.query,
-    // Explicitly map query string values from filters.
-    ...convertFiltersToQueryParams({
-      addonType: filters.addonType,
-      featured: filters.featured,
-      operatingSystem: filters.operatingSystem,
-      page: filters.page,
-      query: filters.query,
-      sort: filters.sort,
-      tag: filters.tag,
-    }),
-  };
-
   return (
     <Search
       {...props}
       enableSearchFilters
       filters={filters}
-      paginationQueryParams={paginationQueryParams}
+      paginationQueryParams={convertFiltersToQueryParams(filters)}
       pathname={pathname}
     />
   );
