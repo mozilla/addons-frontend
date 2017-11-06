@@ -237,7 +237,7 @@ export class CategoryBase extends React.Component {
       <div className="Category">
         {category && (
           <Helmet>
-            <title>{`${category.name} - ${html.title}`}</title>
+            <title>{`${category.name} – ${html.title}`}</title>
           </Helmet>
         )}
 

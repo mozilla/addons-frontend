@@ -42,10 +42,6 @@
   }
 }
 
-.Icon-fox {
-  @include icon($name: "fox");
-}
-
 .Icon-mozilla {
   @include icon($name: "mozilla");
 

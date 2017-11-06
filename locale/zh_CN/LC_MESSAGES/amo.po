@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-10-31 20:41+0000\n"
+"PO-Revision-Date: 2017-11-05 18:27+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -37,7 +37,7 @@ msgstr "为您的体验打分"
 
 #: src/amo/components/Addon/index.js:272
 msgid "About this %(addonType)s"
-msgstr "关于此 %(addonType)s"
+msgstr "关于此%(addonType)s"
 
 #: src/amo/components/Addon/index.js:296
 msgid "Release notes for %(addonVersion)s"
@@ -255,11 +255,11 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "与世界分享这个附加组件很棒的理由吧！也请遵循我们的%(linkStart)s评价指南%(linkEnd)s。"
+msgstr "告诉大家为什么您觉得这个扩展很棒吧！分享时，请遵循我们的%(linkStart)s评价指南%(linkEnd)s。"
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "告诉我们您怎么看这个扩展。请具体而简明。"
+msgstr "告诉我们您怎么看这个扩展。请保持简单明了。"
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -267,7 +267,7 @@ msgstr "与世界分享这个附加组件很棒的理由吧！也请遵循我们
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "告诉我们您使用这个扩展的体验如何。/请具体而简明。"
+msgstr "告诉我们您使用这个扩展的体验如何。请保持简单明了。"
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
@@ -485,11 +485,11 @@ msgstr "这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr "已标记为一份缺陷报告或支持请求"
+msgstr "已报告这是一份缺陷报告或支持请求"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr "标记需处理"
+msgstr "存在问题"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
@@ -497,27 +497,27 @@ msgstr "已标记"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
-msgstr "标记此开发者回应需被处理"
+msgstr "报告此开发者回应需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
 msgid "Flag this review"
-msgstr "标记此评价需被处理"
+msgstr "报告此评价需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
 msgid "Log in to flag this response"
-msgstr "登录以标记此回应需被处理"
+msgstr "登录以报告此回应需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
 msgid "Log in to flag this review"
-msgstr "登录以标记此评价需被处理"
+msgstr "登录以报告此评价需被处理"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
-msgstr "您不能标记自己的回应"
+msgstr "您不能报告自己的回应"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
-msgstr "您不能标记自己的评价"
+msgstr "您不能报告自己的评价"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
@@ -533,7 +533,7 @@ msgstr "这包含不当语言"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr "已标记为不当语言"
+msgstr "已标记含不当用语"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -675,7 +675,7 @@ msgstr "季节"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr "使用扩展定制使用 Firefox 的工作方式。您的兴趣点是…"
+msgstr "使用扩展个性化 Firefox 的工作方式。似乎您喜欢…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
@@ -687,7 +687,7 @@ msgstr "最流行的扩展"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
-msgstr "助力您的标签页"
+msgstr "改造您的标签页"
 
 #: src/amo/components/Home/index.js:219
 msgid "Up & Coming Extensions"

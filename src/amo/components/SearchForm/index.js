@@ -248,6 +248,7 @@ export class SearchFormBase extends React.Component {
         method="GET"
         onSubmit={this.handleSearch}
         ref={(ref) => { this.form = ref; }}
+        data-no-csrf
       >
         <label
           className="visually-hidden"
