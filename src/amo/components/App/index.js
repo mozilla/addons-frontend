@@ -203,11 +203,11 @@ export class AppBase extends React.Component<Props> {
     const query = location.query ? location.query.q : null;
 
     let defaultTitle = i18n.gettext('Add-ons for Firefox');
-    let titleTemplate = i18n.gettext('%s - Add-ons for Firefox');
+    let titleTemplate = i18n.gettext('%s – Add-ons for Firefox');
 
     if (clientApp === CLIENT_APP_ANDROID) {
       defaultTitle = i18n.gettext('Add-ons for Android');
-      titleTemplate = i18n.gettext('%s - Add-ons for Android');
+      titleTemplate = i18n.gettext('%s – Add-ons for Android');
     }
 
     return (
