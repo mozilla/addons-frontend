@@ -28,7 +28,7 @@ import {
   convertFiltersToQueryParams,
   hasSearchFilters,
 } from 'core/searchUtils';
-import { parsePage } from 'core/utils';
+import { getRelativePath, parsePage } from 'core/utils';
 
 import './styles.scss';
 
@@ -249,5 +249,5 @@ export function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ id: __filename }),
+  withErrorHandler({ id: getRelativePath(__filename) }),
 )(SearchBase);

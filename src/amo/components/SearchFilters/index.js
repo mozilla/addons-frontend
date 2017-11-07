@@ -19,6 +19,7 @@ import { withErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+import { getRelativePath } from 'core/utils';
 import ExpandableCard from 'ui/components/ExpandableCard';
 
 import './styles.scss';
@@ -227,5 +228,5 @@ export default compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: __filename }),
+  withErrorHandler({ name: getRelativePath(__filename) }),
 )(SearchFiltersBase);
