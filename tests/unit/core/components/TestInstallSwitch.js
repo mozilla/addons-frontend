@@ -136,36 +136,7 @@ describe(__filename, () => {
   });
 
   it('should call installTheme function on click when uninstalled theme', () => {
-    const themeData = {
-      accentcolor: '#000',
-      author: 'carmen',
-      category: 'Other',
-      description: 'my theme description',
-      detailURL: 'https://a.m.o/addon/my-theme',
-      footer: 'https://addons.cdn.mozilla.net/footer1.jpg',
-      footerURL: 'https://addons.cdn.mozilla.net/footer2.jpg',
-      header: 'https://addons.cdn.mozilla.net/header1.jpg',
-      headerURL: 'https://addons.cdn.mozilla.net/header2.jpg',
-      iconURL: 'https://addons.cdn.mozilla.net/icon.jpg',
-      id: 50,
-      name: 'my theme',
-      previewURL: 'https://addons.cdn.mozilla.net/preview.jpg',
-      textcolor: '#fff',
-      updateURL: 'https://versioncheck.m.o/themes/update-check/999876',
-      version: '1.0',
-    };
-
-    const addon = createInternalAddon({
-      ...fakeTheme,
-      // Due to a workaround documented in core/reducers/addons.js,
-      // the add-on description takes precedence over
-      // theme_data.description.
-      description: themeData.description,
-      theme_data: {
-        ...fakeTheme.theme_data,
-        ...themeData,
-      },
-    });
+    const addon = createInternalAddon(fakeTheme);
     const installTheme = sinon.spy();
     const props = {
       addon,
@@ -183,7 +154,7 @@ describe(__filename, () => {
     sinon.assert.calledOnce(installTheme);
     const themeDataEl = installTheme.firstCall.args[0];
     expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme')))
-      .toEqual(themeData);
+      .toEqual(addon.themeData);
   });
 
   it('should call install function on click when uninstalled', () => {

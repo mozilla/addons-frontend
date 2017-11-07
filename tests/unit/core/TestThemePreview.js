@@ -52,23 +52,19 @@ describe(__filename, () => {
 
     const addon = createInternalAddon({
       ...fakeTheme,
-      // Due to a workaround documented in core/reducers/addons.js,
-      // the add-on description takes precedence over
-      // theme_data.description.
-      description: themeData.description,
       theme_data: {
         ...fakeTheme.theme_data,
         ...themeData,
       },
     });
 
-    // Beware that getThemeData() is not always called with an addon
-    // in real code.
-    expect(getThemeData(addon)).toEqual(themeData);
+    // Beware that getThemeData() is not always called with an AddonType
+    // object. There are some spreads that combine objects.
+    expect(getThemeData(addon)).toEqual(addon.themeData);
 
     // Make sure an unknown key is not added to the output.
-    expect(themeData)
-      .toEqual(getThemeData({ ...themeData, badKey: true }));
+    expect(getThemeData({ ...themeData, badKey: true }))
+      .toEqual(themeData);
   });
 });
 
