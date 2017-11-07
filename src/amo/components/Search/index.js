@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
@@ -21,7 +21,7 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
-import { withPageErrorHandler } from 'core/errorHandler';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import {
@@ -178,9 +178,12 @@ export class SearchBase extends React.Component {
       results,
     } = this.props;
 
-    if (errorHandler.shouldRenderNotFound()) {
+    if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      return <NotFound />;
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
     }
 
     const page = parsePage(filters.page);
@@ -246,5 +249,5 @@ export function mapStateToProps(state) {
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withPageErrorHandler({ name: 'Search' }),
+  withErrorHandler({ id: __filename }),
 )(SearchBase);

@@ -422,40 +422,6 @@ describe(__filename, () => {
       .toHaveLength(0);
   });
 
-  it('renders NotFound page for unauthorized collection - 401 error', () => {
-    const store = dispatchClientMetadata().store;
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(createApiError({
-      response: { status: 401 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'unauthorized' },
-    }));
-
-    const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(NotFound)).toHaveLength(1);
-  });
-
-  it('renders NotFound page for forbidden collection - 403 error', () => {
-    const store = dispatchClientMetadata().store;
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(createApiError({
-      response: { status: 403 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'forbidden' },
-    }));
-
-    const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(NotFound)).toHaveLength(1);
-  });
-
   it('renders 404 page for missing collection', () => {
     const store = dispatchClientMetadata().store;
 

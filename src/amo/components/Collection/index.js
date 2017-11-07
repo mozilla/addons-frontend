@@ -5,11 +5,14 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
-import { fetchCollection, fetchCollectionPage } from 'amo/reducers/collections';
+import {
+  fetchCollection,
+  fetchCollectionPage,
+} from 'amo/reducers/collections';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import Paginate from 'core/components/Paginate';
-import { withPageErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
@@ -170,9 +173,12 @@ export class CollectionBase extends React.Component<Props> {
   render() {
     const { collection, errorHandler } = this.props;
 
-    if (errorHandler.shouldRenderNotFound()) {
+    if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      return <NotFound />;
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
     }
 
     return (
@@ -200,10 +206,14 @@ export const mapStateToProps = (state: { collections: CollectionsState }) => {
 
 export default compose(
   translate(),
-  withPageErrorHandler({
-    name: 'Collection',
+  withFixedErrorHandler({
+    name: __filename,
     extractId: (ownProps: Props) => {
-      return `${ownProps.params.user}/${ownProps.params.slug}`;
+      return [
+        ownProps.params.user,
+        ownProps.params.slug,
+        parsePage(ownProps.location.query.page),
+      ].join('/');
     },
   }),
   connect(mapStateToProps),

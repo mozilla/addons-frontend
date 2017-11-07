@@ -14,7 +14,7 @@ import { clearError, setError } from 'core/actions/errors';
 import {
   ErrorHandler,
   withErrorHandler,
-  withPageErrorHandler,
+  withFixedErrorHandler,
   withRenderedErrorHandler,
 } from 'core/errorHandler';
 import errors from 'core/reducers/errors';
@@ -70,7 +70,7 @@ describe(__filename, () => {
           id: 'error-handler-id',
           extractId: () => 'unique-id',
         });
-      }).toThrow('`id` and `extractId` parameters are mutually exclusive.');
+      }).toThrow('You can define either `id` or `extractId` but not both.');
     });
 
     it('throws an error if `extractId` is not a function', () => {
@@ -391,82 +391,36 @@ describe(__filename, () => {
       expect(handler.renderErrorIfPresent()).not.toBe(null);
       expect(wrapper.find(ErrorList)).toHaveLength(1);
     });
-
-    describe('shouldRenderNotFound', () => {
-      const getCapturedErrorForStatusCode = (statusCode) => {
-        const store = createErrorStore();
-        const errorHandlerId = 'some-error-handler-id';
-
-        store.dispatch(setError({
-          id: errorHandlerId,
-          error: createApiError({
-            response: { status: statusCode },
-            jsonResponse: { message: `error with status = ${statusCode}` },
-          }),
-        }));
-
-        return store.getState().errors[errorHandlerId];
-      };
-
-      it('returns `false` when there is no error', () => {
-        const handler = new ErrorHandler();
-        expect(handler.shouldRenderNotFound()).toEqual(false);
-      });
-
-      it('returns `false` when captured error has no status code', () => {
-        const handler = new ErrorHandler({ capturedError: new Error() });
-        expect(handler.shouldRenderNotFound()).toEqual(false);
-      });
-
-      it('returns `true` when a 401 error has been captured', () => {
-        const handler = new ErrorHandler({
-          capturedError: getCapturedErrorForStatusCode(401),
-        });
-        expect(handler.shouldRenderNotFound()).toEqual(true);
-      });
-
-      it('returns `true` when a 403 error has been captured', () => {
-        const handler = new ErrorHandler({
-          capturedError: getCapturedErrorForStatusCode(403),
-        });
-        expect(handler.shouldRenderNotFound()).toEqual(true);
-      });
-
-      it('returns `true` when a 404 error has been captured', () => {
-        const handler = new ErrorHandler({
-          capturedError: getCapturedErrorForStatusCode(404),
-        });
-        expect(handler.shouldRenderNotFound()).toEqual(true);
-      });
-
-      it('returns `false` for errors with status not 401, 403 or 404', () => {
-        const handler = new ErrorHandler({
-          capturedError: getCapturedErrorForStatusCode(400),
-        });
-        expect(handler.shouldRenderNotFound()).toEqual(false);
-      });
-    });
   });
 
-  describe('withPageErrorHandler', () => {
-    it('creates a page level error handler', () => {
-      const { component } = createWrappedComponent({
-        decorator: withPageErrorHandler,
-      });
-      const errorHandler = component.props.errorHandler;
-      expect(errorHandler).toBeInstanceOf(ErrorHandler);
-      expect(errorHandler.id).toEqual('SomeComponentPage');
+  describe('withFixedErrorHandler', () => {
+    it('throws an error when `extractId` is missing', () => {
+      expect(() => {
+        createWrappedComponent({
+          decorator: withFixedErrorHandler,
+          extractId: null,
+        });
+      }).toThrow('`extractId` is required and must be a function.');
     });
 
-    it('creates a "per unique page" level error handler', () => {
+    it('throws an error when `extractId` is not a function', () => {
+      expect(() => {
+        createWrappedComponent({
+          decorator: withFixedErrorHandler,
+          extractId: {},
+        });
+      }).toThrow('`extractId` is required and must be a function.');
+    });
+
+    it('creates an error handler with a fixed ID', () => {
       const { component } = createWrappedComponent({
-        decorator: withPageErrorHandler,
+        decorator: withFixedErrorHandler,
         extractId: () => 'unique-id-based-on-props',
       });
       const errorHandler = component.props.errorHandler;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id)
-        .toEqual('SomeComponentPage-unique-id-based-on-props');
+        .toEqual('SomeComponent-unique-id-based-on-props');
     });
   });
 });

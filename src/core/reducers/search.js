@@ -5,7 +5,7 @@ import {
 import { createInternalAddon } from 'core/reducers/addons';
 
 
-const ABORT_SEARCH = 'ABORT_SEARCH';
+const SEARCH_ABORTED = 'SEARCH_ABORTED';
 
 export const initialState = {
   count: 0,
@@ -15,7 +15,7 @@ export const initialState = {
 };
 
 export const abortSearch = () => {
-  return { type: ABORT_SEARCH };
+  return { type: SEARCH_ABORTED };
 };
 
 export default function search(state = initialState, action) {
@@ -24,6 +24,7 @@ export default function search(state = initialState, action) {
     case SEARCH_STARTED:
       return {
         ...state,
+        count: 0,
         filters: payload.filters,
         results: [],
         loading: true,
@@ -37,9 +38,10 @@ export default function search(state = initialState, action) {
           createInternalAddon(payload.entities.addons[slug])
         )),
       };
-    case ABORT_SEARCH:
+    case SEARCH_ABORTED:
       return {
         ...state,
+        count: 0,
         results: [],
         loading: false,
       };

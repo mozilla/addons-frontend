@@ -1,6 +1,7 @@
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { oneLine } from 'common-tags';
 
 import { clearError, setError } from 'core/actions/errors';
 import log from 'core/logger';
@@ -48,13 +49,6 @@ export class ErrorHandler {
 
   renderErrorIfPresent() {
     return this.hasError() ? this.renderError() : null;
-  }
-
-  shouldRenderNotFound() {
-    return this.hasError() &&
-      // 401 and 403 are for an add-on lookup is made to look like a 404 on
-      // purpose. See: https://github.com/mozilla/addons-frontend/issues/3061.
-      [401, 403, 404].includes(this.capturedError.responseStatusCode);
   }
 
   setDispatch(dispatch) {
@@ -108,7 +102,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  */
 export function withErrorHandler({ name, id, extractId = null }) {
   if (id && extractId) {
-    throw new Error('`id` and `extractId` parameters are mutually exclusive.');
+    throw new Error('You can define either `id` or `extractId` but not both.');
   }
 
   if (extractId && typeof extractId !== 'function') {
@@ -119,15 +113,15 @@ export function withErrorHandler({ name, id, extractId = null }) {
 
   return (WrappedComponent) => {
     const mapStateToProps = () => {
-      let defaultInstanceId;
+      let defaultErrorId;
 
       if (!extractId) {
         // Each component instance gets its own error handler ID.
-        defaultInstanceId = id;
+        defaultErrorId = id;
 
-        if (!defaultInstanceId) {
-          defaultInstanceId = generateHandlerId({ name });
-          log.debug(`Generated error handler ID: ${defaultInstanceId}`);
+        if (!defaultErrorId) {
+          defaultErrorId = generateHandlerId({ name });
+          log.debug(`Generated error handler ID: ${defaultErrorId}`);
         }
       }
 
@@ -135,22 +129,24 @@ export function withErrorHandler({ name, id, extractId = null }) {
       // function.
       return (state, ownProps) => {
         if (extractId) {
-          defaultInstanceId = `${name}-${extractId(ownProps)}`;
+          defaultErrorId = `${name}-${extractId(ownProps)}`;
+          log.debug(oneLine`Generated error handler ID with extractId():
+            ${defaultErrorId}`);
         }
 
-        const instanceId = ownProps.errorHandler ?
-          ownProps.errorHandler.id : defaultInstanceId;
+        const errorId = ownProps.errorHandler ?
+          ownProps.errorHandler.id : defaultErrorId;
 
         return {
-          error: state.errors[instanceId],
-          instanceId,
+          error: state.errors[errorId],
+          errorId,
         };
       };
     };
 
     const mergeProps = (stateProps, dispatchProps, ownProps) => {
       const errorHandler = ownProps.errorHandler || new ErrorHandler({
-        id: stateProps.instanceId,
+        id: stateProps.errorId,
       });
       errorHandler.setDispatch(dispatchProps.dispatch);
       if (stateProps.error) {
@@ -167,26 +163,21 @@ export function withErrorHandler({ name, id, extractId = null }) {
 }
 
 /*
- * This is a page level error decorator. It works like the `withErrorHandler()`
- * decorator, but aims at synchronizing both the server and client sides and
- * should be used for page level components.
+ * This decorator works like the `withErrorHandler()` decorator but aims at
+ * synchronizing both the server and client sides by using a fixed error
+ * handler ID.
  *
- * Pass the optional `extractId` function to create "per unique page" level
- * error handlers. This function takes the component's props and must returns a
- * unique value based on these props (e.g., based on the `slug`, `uniqueId`,
- * etc.).
- *
- * When this optional function is not supplied, we "fix" the error handler `id`
- * (e.g., `SomeComponentPage`) otherwise we pass the `name` suffixed by `Page`,
- * and the HOC will create the final error handler ID thanks to `extractId`.
+ * The `extractId` function is used to create a unique error handler per
+ * rendered component. This function takes the component's props and must
+ * return a unique value based on these props (e.g., based on the `slug`,
+ * `uniqueId`, `page`, etc.).
  */
-export const withPageErrorHandler = ({ name, extractId = null }) => {
-  const params = {
-    [extractId ? 'name' : 'id']: `${name}Page`,
-    extractId,
-  };
+export const withFixedErrorHandler = ({ name, extractId }) => {
+  if (typeof extractId !== 'function') {
+    throw new Error('`extractId` is required and must be a function.');
+  }
 
-  return withErrorHandler(params);
+  return withErrorHandler({ name, extractId });
 };
 
 /*

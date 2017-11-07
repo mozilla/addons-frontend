@@ -267,7 +267,8 @@ describe(__filename, () => {
   it('renders an HTML title for search query', () => {
     const filters = { query: 'some terms' };
     const wrapper = render({ filters });
-    expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
+    expect(wrapper.find('title'))
+      .toHaveText('Search results for "some terms"');
   });
 
   it('sets the viewContext to exploring if viewContext has changed', () => {

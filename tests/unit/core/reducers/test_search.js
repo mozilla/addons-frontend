@@ -23,7 +23,7 @@ describe(__filename, () => {
     expect(results).toEqual([]);
   });
 
-  describe('ABORT_SEARCH', () => {
+  describe('SEARCH_ABORTED', () => {
     it('resets the results and loading flag', () => {
       const state = search(initialState, searchStart({
         errorHandlerId: 'foo',

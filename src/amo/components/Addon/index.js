@@ -20,7 +20,7 @@ import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { fetchAddon } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { withPageErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_DICT,
@@ -426,7 +426,12 @@ export class AddonBase extends React.Component {
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
 
-      if (errorHandler.shouldRenderNotFound()) {
+      // 401 and 403 are made to look like a 404 on purpose.
+      // See: https://github.com/mozilla/addons-frontend/issues/3061.
+      if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 403 ||
+          errorHandler.capturedError.responseStatusCode === 404
+      ) {
         return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
 
@@ -622,8 +627,10 @@ export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withPageErrorHandler({
-    name: 'Addon',
-    extractId: (ownProps) => ownProps.params.slug,
+  withFixedErrorHandler({
+    name: __filename,
+    extractId: (ownProps) => {
+      return ownProps.params.slug;
+    },
   }),
 )(AddonBase);
