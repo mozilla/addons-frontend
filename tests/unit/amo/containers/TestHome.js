@@ -66,7 +66,7 @@ describe(__filename, () => {
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-PopularExtensions');
-    expect(shelf).toHaveProp('header', 'Most Popular Extensions');
+    expect(shelf).toHaveProp('header', 'Most popular extensions');
     expect(shelf).toHaveProp('footerText', 'See more popular extensions');
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
@@ -135,8 +135,8 @@ describe(__filename, () => {
 
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-UpAndComingExtensions');
-    expect(shelf).toHaveProp('header', 'Up & Coming Extensions');
-    expect(shelf).toHaveProp('footerText', 'See more up & coming extensions');
+    expect(shelf).toHaveProp('header', 'Trending extensions');
+    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
