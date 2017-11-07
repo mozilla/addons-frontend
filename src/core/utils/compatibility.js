@@ -25,9 +25,7 @@ export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
 
   if (addon) {
     if (
-      addon.current_version &&
-      addon.current_version.compatibility &&
-      addon.current_version.compatibility[clientApp]
+      addon.current_version && addon.current_version.compatibility[clientApp]
     ) {
       supportsClientApp = true;
       maxVersion = addon.current_version.compatibility[clientApp].max;
