@@ -26,6 +26,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
   UNKNOWN,
@@ -255,23 +256,44 @@ export class AddonBase extends React.Component {
 
   renderShowMoreCard() {
     const { addon, i18n } = this.props;
-    const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
+    let title;
     const descriptionProps = {};
+
     if (addon) {
-      const description =
-        addon.description ? addon.description : addon.summary;
+      switch (addon.type) {
+        case ADDON_TYPE_DICT:
+          title = i18n.gettext('About this dictionary');
+          break;
+        case ADDON_TYPE_EXTENSION:
+          title = i18n.gettext('About this extension');
+          break;
+        case ADDON_TYPE_LANG:
+          title = i18n.gettext('About this language pack');
+          break;
+        case ADDON_TYPE_OPENSEARCH:
+          title = i18n.gettext('About this search plugin');
+          break;
+        case ADDON_TYPE_THEME:
+          title = i18n.gettext('About this theme');
+          break;
+        default:
+          title = i18n.gettext('About this add-on');
+      }
+
+      const description = addon.description ? addon.description : addon.summary;
       if (!description || !description.length) {
         return null;
       }
       descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
     } else {
+      title = <LoadingText width={40} />;
       descriptionProps.children = <LoadingText width={100} />;
     }
 
     return (
       <ShowMoreCard
-        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType })}
+        header={title}
         className="AddonDescription"
       >
         <div

@@ -36,6 +36,7 @@ import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
@@ -244,6 +245,8 @@ describe(__filename, () => {
     expect(root.find(RatingManager)).toHaveLength(0);
 
     // These should show LoadingText
+    expect(root.find('.AddonDescription').prop('header'))
+      .toEqual(<LoadingText minWidth={20} range={60} width={40} />);
     expect(root.find('.AddonDescription-contents').find(LoadingText))
       .toHaveLength(1);
     expect(root.find('.Addon-summary').find(LoadingText)).toHaveLength(1);
@@ -517,10 +520,65 @@ describe(__filename, () => {
     expect(root.prop('useButton')).toEqual(true);
   });
 
-  it('sets the type in the header', () => {
+  it('sets a title for the description of an extension', () => {
     const root = shallowRender();
     expect(root.find('.AddonDescription').prop('header'))
       .toContain('About this extension');
+  });
+
+  it('sets a title for the description of a theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this theme');
+  });
+
+  it('sets a title for the description of a dictionary', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_DICT,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this dictionary');
+  });
+
+  it('sets a title for the description of a language pack', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_LANG,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this language pack');
+  });
+
+  it('sets a title for the description of a search plugin', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_OPENSEARCH,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this search plugin');
+  });
+
+  it('sets a title for the description of a generic add-on', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_COMPLETE_THEME,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this add-on');
   });
 
   it('uses the summary as the description if no description exists', () => {
