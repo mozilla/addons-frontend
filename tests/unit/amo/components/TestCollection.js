@@ -2,6 +2,7 @@ import React from 'react';
 
 import Collection, {
   CollectionBase,
+  extractId,
   mapStateToProps,
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
@@ -472,5 +473,31 @@ describe(__filename, () => {
   it('does not render an HTML when there is no collection loaded', () => {
     const wrapper = renderComponent();
     expect(wrapper.find('title')).toHaveLength(0);
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('returns a unique ID based on params', () => {
+      const props = {
+        params: {
+          user: 'foo',
+          slug: 'collection-bar',
+        },
+        location: { query: {} },
+      };
+
+      expect(extractId(props)).toEqual('foo/collection-bar/1');
+    });
+
+    it('adds the page as part of unique ID', () => {
+      const props = {
+        params: {
+          user: 'foo',
+          slug: 'collection-bar',
+        },
+        location: { query: { page: 124 } },
+      };
+
+      expect(extractId(props)).toEqual('foo/collection-bar/124');
+    });
   });
 });

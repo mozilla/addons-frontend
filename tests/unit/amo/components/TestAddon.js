@@ -12,6 +12,7 @@ import { match } from 'react-router';
 import { setViewContext } from 'amo/actions/viewContext';
 import Addon, {
   AddonBase,
+  extractId,
   mapStateToProps,
 } from 'amo/components/Addon';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -1313,6 +1314,13 @@ describe(__filename, () => {
   it('renders a ContributeCard', () => {
     const root = shallowRender();
     expect(root.find(ContributeCard)).toHaveLength(1);
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('generates a unique ID based on the add-on slug', () => {
+      const props = { params: { slug: 'some-slug' } };
+      expect(extractId(props)).toEqual('some-slug');
+    });
   });
 });
 

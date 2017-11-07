@@ -623,14 +623,13 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
+export const extractId = (ownProps) => {
+  return ownProps.params.slug;
+};
+
 export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withFixedErrorHandler({
-    name: __filename,
-    extractId: (ownProps) => {
-      return ownProps.params.slug;
-    },
-  }),
+  withFixedErrorHandler({ name: __filename, extractId }),
 )(AddonBase);

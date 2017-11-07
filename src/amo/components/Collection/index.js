@@ -204,17 +204,16 @@ export const mapStateToProps = (state: { collections: CollectionsState }) => {
   };
 };
 
+export const extractId = (ownProps: Props) => {
+  return [
+    ownProps.params.user,
+    ownProps.params.slug,
+    parsePage(ownProps.location.query.page),
+  ].join('/');
+};
+
 export default compose(
   translate(),
-  withFixedErrorHandler({
-    name: __filename,
-    extractId: (ownProps: Props) => {
-      return [
-        ownProps.params.user,
-        ownProps.params.slug,
-        parsePage(ownProps.location.query.page),
-      ].join('/');
-    },
-  }),
+  withFixedErrorHandler({ name: __filename, extractId }),
   connect(mapStateToProps),
 )(CollectionBase);
