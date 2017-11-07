@@ -319,8 +319,8 @@ describe(__filename, () => {
 
       sinon.assert.notCalled(dispatch);
 
-      // User types 'a' in the search input.
-      wrapper.find('input').simulate('change', createFakeChangeEvent('a'));
+      // User types 'abc' in the search input.
+      wrapper.find('input').simulate('change', createFakeChangeEvent('abc'));
 
       // User clicks somewhere else on the UI, triggering the
       // AUTOCOMPLETE_CANCELLED action.
@@ -337,7 +337,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-        filters: { operatingSystem: OS_WINDOWS, query: 'a' },
+        filters: { operatingSystem: OS_WINDOWS, query: 'abc' },
       }));
     });
 
@@ -356,13 +356,13 @@ describe(__filename, () => {
 
       sinon.assert.notCalled(dispatch);
 
-      // User types 'a' in the search input.
-      wrapper.find('input').simulate('change', createFakeChangeEvent('a'));
+      // User types 'abc' in the search input.
+      wrapper.find('input').simulate('change', createFakeChangeEvent('abc'));
 
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-        filters: { operatingSystem: OS_WINDOWS, query: 'a' },
+        filters: { operatingSystem: OS_WINDOWS, query: 'abc' },
       }));
       dispatch.reset();
 
@@ -385,7 +385,7 @@ describe(__filename, () => {
         filters: {
           addonType: ADDON_TYPE_THEME,
           operatingSystem: OS_WINDOWS,
-          query: 'a',
+          query: 'abc',
         },
       }));
     });
@@ -404,7 +404,7 @@ describe(__filename, () => {
       const dispatch = sinon.spy();
       const wrapper = mountBaseComponent({
         dispatch,
-        query: 'ad',
+        query: 'abc',
         suggestions: autocompleteState.suggestions,
       });
 
@@ -434,7 +434,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-        filters: { operatingSystem: OS_WINDOWS, query: 'ad' },
+        filters: { operatingSystem: OS_WINDOWS, query: 'abc' },
       }));
     });
 
@@ -449,7 +449,7 @@ describe(__filename, () => {
       const dispatch = sinon.spy();
       const wrapper = mountBaseComponent({
         dispatch,
-        query: 'ad',
+        query: 'abc',
         suggestions: autocompleteState.suggestions,
       });
 
@@ -462,7 +462,7 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatch, 1);
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
-        filters: { operatingSystem: OS_WINDOWS, query: 'ad' },
+        filters: { operatingSystem: OS_WINDOWS, query: 'abc' },
       }));
       dispatch.reset();
 
@@ -629,7 +629,7 @@ describe(__filename, () => {
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const wrapper = mountComponent({ query: 'ad', store });
 
-      wrapper.find('input').simulate('change', createFakeChangeEvent('ad'));
+      wrapper.find('input').simulate('change', createFakeChangeEvent('abc'));
 
       sinon.assert.callCount(dispatchSpy, 1);
       sinon.assert.calledWith(dispatchSpy, autocompleteStart({
@@ -637,7 +637,7 @@ describe(__filename, () => {
         filters: {
           addonType: ADDON_TYPE_EXTENSION,
           operatingSystem: OS_WINDOWS,
-          query: 'ad',
+          query: 'abc',
         },
       }));
     });
