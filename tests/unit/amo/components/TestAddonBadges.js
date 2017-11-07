@@ -126,4 +126,14 @@ describe(__filename, () => {
 
     expect(root.find(Badge)).toHaveLength(0);
   });
+
+  it('does not display a badge when the addon is not an extension', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      type: ADDON_TYPE_THEME,
+      files: [{ is_webextension: false }],
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });
