@@ -5,7 +5,11 @@ import SearchPage, {
   SearchPageBase,
   mapStateToProps,
 } from 'amo/components/SearchPage';
-import { CLIENT_APP_ANDROID } from 'core/constants';
+import {
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+} from 'core/constants';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
@@ -92,8 +96,66 @@ describe(__filename, () => {
     expect(params).toMatchObject(query);
   });
 
+  it('dispatches a server redirect when `atype` parameter is "1"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({ location: { query: { atype: 1 } }, store });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 302,
+      url: '/en-US/android/search/?type=extension',
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('dispatches a server redirect when `atype` parameter is "3"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({ location: { query: { atype: 3 } }, store });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 302,
+      url: '/en-US/android/search/?type=dictionary',
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('dispatches a server redirect when `atype` parameter is "4"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({ location: { query: { atype: 4 } }, store });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 302,
+      url: '/en-US/android/search/?type=search',
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('dispatches a server redirect when `atype` parameter is "5"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({ location: { query: { atype: 5 } }, store });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 302,
+      url: '/en-US/android/search/?type=language',
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('does not dispatch a server redirect when `atype` has no mapping', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    // The `atype` value has no corresponding `addonType`.
+    render({ location: { query: { atype: 123 } }, store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   describe('mapStateToProps()', () => {
-    const { state } = dispatchClientMetadata();
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { state } = dispatchClientMetadata({ clientApp });
     const location = {
       query: {
         page: 2,
@@ -103,6 +165,8 @@ describe(__filename, () => {
 
     it('returns filters based on location (URL) data', () => {
       expect(mapStateToProps(state, { location })).toEqual({
+        clientApp: CLIENT_APP_FIREFOX,
+        lang: 'en-US',
         filters: {
           page: 2,
           query: 'burger',
@@ -117,6 +181,8 @@ describe(__filename, () => {
       };
 
       expect(mapStateToProps(state, { location: badLocation })).toEqual({
+        clientApp: CLIENT_APP_FIREFOX,
+        lang: 'en-US',
         filters: {
           page: 2,
           query: 'burger',
@@ -131,6 +197,8 @@ describe(__filename, () => {
       };
 
       expect(mapStateToProps(state, { location: badLocation })).toEqual({
+        clientApp: CLIENT_APP_FIREFOX,
+        lang: 'en-US',
         filters: {
           page: 2,
           query: 'burger',

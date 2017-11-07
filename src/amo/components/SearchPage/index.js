@@ -5,6 +5,14 @@ import { compose } from 'redux';
 
 import Search from 'amo/components/Search';
 import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+} from 'core/constants';
+import { makeQueryString } from 'core/api';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
+import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
@@ -12,22 +20,64 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 
 type Props = {|
+  clientApp: string,
+  dispatch: Function,
   filters: Object,
+  lang: string,
   location: ReactRouterLocation,
   pathname: string,
 |};
 
-export const SearchPageBase = ({ filters, pathname, ...props }: Props) => {
-  return (
-    <Search
-      {...props}
-      enableSearchFilters
-      filters={filters}
-      paginationQueryParams={convertFiltersToQueryParams(filters)}
-      pathname={pathname}
-    />
-  );
-};
+export class SearchPageBase extends React.Component<Props> {
+  componentWillMount() {
+    const { clientApp, filters, lang, location } = this.props;
+
+    // Map the old `atype` parameter to its corresponding `adddonType`.
+    // See: https://github.com/mozilla/addons-frontend/issues/3791.
+    const newFilters = { ...filters };
+    if (location.query.atype) {
+      switch (String(location.query.atype)) {
+        case '1':
+          newFilters.addonType = ADDON_TYPE_EXTENSION;
+          break;
+        case '3':
+          newFilters.addonType = ADDON_TYPE_DICT;
+          break;
+        case '4':
+          newFilters.addonType = ADDON_TYPE_OPENSEARCH;
+          break;
+        case '5':
+          newFilters.addonType = ADDON_TYPE_LANG;
+          break;
+        default:
+          return;
+      }
+
+      const queryString = makeQueryString(
+        convertFiltersToQueryParams(newFilters)
+      );
+
+      this.props.dispatch(sendServerRedirect({
+        status: 302,
+        url: `/${lang}/${clientApp}/search/${queryString}`,
+      }));
+    }
+  }
+
+  render() {
+    const { filters, pathname, ...otherProps } = this.props;
+
+    return (
+      <Search
+        {...otherProps}
+        enableSearchFilters
+        filters={filters}
+        paginationQueryParams={convertFiltersToQueryParams(filters)}
+        pathname={pathname}
+      />
+    );
+  }
+}
 
 export function mapStateToProps(state: any, ownProps: Props) {
   const { location } = ownProps;
@@ -46,7 +96,11 @@ export function mapStateToProps(state: any, ownProps: Props) {
   delete filters.clientApp;
   delete filters.lang;
 
-  return { filters };
+  return {
+    filters,
+    clientApp: state.api.clientApp,
+    lang: state.api.lang,
+  };
 }
 
 export default compose(

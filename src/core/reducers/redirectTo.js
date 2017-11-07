@@ -18,7 +18,7 @@ export const initialState = {
 
 type SendServerRedirectParams = {|
   ...State,
-  _config: Object,
+  _config?: Object,
 |};
 
 type SendServerRedirectAction ={|
