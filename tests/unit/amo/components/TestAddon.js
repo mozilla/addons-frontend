@@ -36,6 +36,7 @@ import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
 import {
+  ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
@@ -558,11 +559,22 @@ describe(__filename, () => {
       .toContain('About this language pack');
   });
 
-  it('sets a title for the description of a generic add-on', () => {
+  it('sets a title for the description of a search plugin', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_OPENSEARCH,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this search plugin');
+  });
+
+  it('sets a title for the description of a generic add-on', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_COMPLETE_THEME,
       }),
     });
     expect(root.find('.AddonDescription').prop('header'))
