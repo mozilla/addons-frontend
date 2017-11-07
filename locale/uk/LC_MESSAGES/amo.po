@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-31 19:37+0000\n"
+"POT-Creation-Date: 2017-11-07 23:14+0000\n"
 "PO-Revision-Date: 2017-10-29 16:49+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
@@ -15,86 +15,112 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:176
 msgid "Cancel preview"
 msgstr "Скасувати перегляд"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:176
 msgid "Tap to preview"
 msgstr "Торкніться для перегляду"
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Читати %(count)s відгук"
 msgstr[1] "Читати всі %(count)s відгуки"
 msgstr[2] "Читати всі %(count)s відгуків"
 
-#: src/amo/components/Addon/index.js:230
+#: src/amo/components/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "Ще немає відгуків"
 
-#: src/amo/components/Addon/index.js:239
+#: src/amo/components/Addon/index.js:242
 msgid "Rate your experience"
 msgstr "Оцініть"
 
+#: src/amo/components/Addon/index.js:266
+#, fuzzy
+msgid "About this dictionary"
+msgstr "Увійдіть, щоб оцінити цей словник"
+
+#: src/amo/components/Addon/index.js:269
+#, fuzzy
+msgid "About this extension"
+msgstr "Увійдіть, щоб оцінити це розширення"
+
 #: src/amo/components/Addon/index.js:272
-msgid "About this %(addonType)s"
+#, fuzzy
+msgid "About this language pack"
+msgstr "Увійдіть, щоб оцінити цей мовний пакет"
+
+#: src/amo/components/Addon/index.js:275
+#, fuzzy
+msgid "About this search plugin"
+msgstr "Увійдіть, щоб оцінити цей пошуковий плагін"
+
+#: src/amo/components/Addon/index.js:278
+#, fuzzy
+msgid "About this theme"
+msgstr "Увійдіть, щоб оцінити цю тему"
+
+#: src/amo/components/Addon/index.js:281
+#, fuzzy
+msgid "About this add-on"
 msgstr "Про цей %(addonType)s"
 
-#: src/amo/components/Addon/index.js:296
+#: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
 msgstr "Примітки до випуску для %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:325
+#: src/amo/components/Addon/index.js:349
 msgid "More dictionaries by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:328
+#: src/amo/components/Addon/index.js:352
 msgid "More dictionaries by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:335
+#: src/amo/components/Addon/index.js:359
 msgid "More extensions by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:338
+#: src/amo/components/Addon/index.js:362
 msgid "More extensions by these developers"
 msgstr "Інші розширення від цих розробників"
 
-#: src/amo/components/Addon/index.js:345
+#: src/amo/components/Addon/index.js:369
 msgid "More language packs by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:348
+#: src/amo/components/Addon/index.js:372
 msgid "More language packs by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:355
+#: src/amo/components/Addon/index.js:379
 msgid "More themes by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:358
+#: src/amo/components/Addon/index.js:382
 msgid "More themes by these artists"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:365
+#: src/amo/components/Addon/index.js:389
 msgid "More add-ons by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:368
+#: src/amo/components/Addon/index.js:392
 msgid "More add-ons by these developers"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:445
+#: src/amo/components/Addon/index.js:470
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s від %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:511
+#: src/amo/components/Addon/index.js:536
 msgid "Extension Metadata"
 msgstr "Метадані розширення"
 
-#: src/amo/components/Addon/index.js:537
+#: src/amo/components/Addon/index.js:562
 msgid "Screenshots"
 msgstr "Знімки екрану"
 
@@ -110,15 +136,19 @@ msgstr "Відібрана тема"
 msgid "Featured Add-on"
 msgstr "Відібраний додаток"
 
-#: src/amo/components/AddonBadges/index.js:44
+#: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
 msgstr "Потрібен перезапуск"
 
-#: src/amo/components/AddonBadges/index.js:50
+#: src/amo/components/AddonBadges/index.js:53
 msgid "Experimental"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonBadges/index.js:59
+msgid "Not compatible with Firefox Quantum"
+msgstr ""
+
+#: src/amo/components/AddonCompatibilityError/index.js:60
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -126,23 +156,23 @@ msgstr ""
 "Ви маєте <a href=\"%(downloadUrl)s\">завантажити Firefox</a>, щоб встановити "
 "цей додаток."
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Цей додаток несумісний з вашою версією Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:68
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Ваша версія Firefox не підтримує пошукові плагіни."
 
-#: src/amo/components/AddonCompatibilityError/index.js:68
+#: src/amo/components/AddonCompatibilityError/index.js:71
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox для iOS поки що не підтримує додатки."
 
-#: src/amo/components/AddonCompatibilityError/index.js:71
+#: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on is not available on your platform."
 msgstr "Цей додаток недоступний на вашій платформі."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:77
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -151,7 +181,7 @@ msgstr ""
 "(щонайменше, версію %(minVersion)s). Ви використовуєте Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:88
+#: src/amo/components/AddonCompatibilityError/index.js:91
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -202,83 +232,79 @@ msgstr "Використовується"
 msgid "Overall Rating"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:114
+#: src/amo/components/AddonMoreInfo/index.js:103
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Ознайомитись з політикою приватності для цього додатку"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Ознайомитись з ліцензійною угодою для цього додатку"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Переглянути всі версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:140
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Переглянути всі бета версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:177
 msgid "Add-on Links"
 msgstr "Посилання додатку"
 
-#: src/amo/components/AddonMoreInfo/index.js:177
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Версія"
 
-#: src/amo/components/AddonMoreInfo/index.js:185
+#: src/amo/components/AddonMoreInfo/index.js:198
 #: src/amo/components/Collection/index.js:147
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
-#: src/amo/components/AddonMoreInfo/index.js:191
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Ліцензія"
 
-#: src/amo/components/AddonMoreInfo/index.js:198
+#: src/amo/components/AddonMoreInfo/index.js:211
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
-#: src/amo/components/AddonMoreInfo/index.js:205
+#: src/amo/components/AddonMoreInfo/index.js:218
 msgid "End-User License Agreement"
 msgstr "Ліцензійна угода з кінцевим користувачем"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:225
 msgid "Version History"
 msgstr "Історія версій"
 
-#: src/amo/components/AddonMoreInfo/index.js:219
-msgid "Beta Versions"
-msgstr "Бета версії"
-
-#: src/amo/components/AddonMoreInfo/index.js:226
+#: src/amo/components/AddonMoreInfo/index.js:237
 msgid "Usage Statistics"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:251
 msgid "More information"
 msgstr "Більше інформації"
 
-#: src/amo/components/AddonMoreInfo/index.js:47
+#: src/amo/components/AddonMoreInfo/index.js:51
 msgid "Homepage"
 msgstr "Домашня сторінка"
 
-#: src/amo/components/AddonMoreInfo/index.js:56
+#: src/amo/components/AddonMoreInfo/index.js:60
 msgid "Support Site"
 msgstr "Сайт підтримки"
 
-#: src/amo/components/AddonMoreInfo/index.js:69
+#: src/amo/components/AddonMoreInfo/index.js:73
 #, fuzzy
 msgid "Support Email"
 msgstr "Сайт підтримки"
 
-#: src/amo/components/AddonMoreInfo/index.js:86
+#: src/amo/components/AddonMoreInfo/index.js:88
 msgid "Visit stats dashboard"
 msgstr ""
-
-#: src/amo/components/AddonMoreInfo/index.js:94
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonReview/index.js:169
 #, fuzzy
@@ -389,7 +415,8 @@ msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
 #: src/amo/components/App/index.js:206
-msgid "%s - Add-ons for Firefox"
+#, fuzzy
+msgid "%s – Add-ons for Firefox"
 msgstr "%s - Додатки для Firefox"
 
 #: src/amo/components/App/index.js:209
@@ -398,7 +425,8 @@ msgid "Add-ons for Android"
 msgstr "Додатки для Android"
 
 #: src/amo/components/App/index.js:210
-msgid "%s - Add-ons for Android"
+#, fuzzy
+msgid "%s – Add-ons for Android"
 msgstr "%s - Додатки для Android"
 
 #: src/amo/components/Categories/index.js:100
@@ -432,18 +460,11 @@ msgstr "Відібрані розширення"
 #: src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178
 #: src/amo/components/Category/index.js:188
-#: src/amo/components/Home/index.js:194 src/amo/components/Home/index.js:209
-#: src/amo/components/Home/index.js:220 src/amo/components/Home/index.js:248
-#: src/amo/components/LandingPage/index.js:129
-#: src/amo/components/LandingPage/index.js:135
-#: src/amo/components/LandingPage/index.js:144
-#: src/amo/components/LandingPage/index.js:155
-#: src/amo/components/LandingPage/index.js:161
-#: src/amo/components/LandingPage/index.js:167
 msgid "See more"
 msgstr ""
 
 #: src/amo/components/Category/index.js:136
+#: src/amo/components/Home/index.js:219
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:114
 msgid "Trending extensions"
@@ -501,7 +522,77 @@ msgstr "Додатки"
 msgid "Creator"
 msgstr ""
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38
+#: src/amo/components/ContributeCard/index.js:36
+#, fuzzy
+msgid "Support this developer"
+msgstr "Позначити цю відповідь розробника"
+
+#: src/amo/components/ContributeCard/index.js:37
+#, fuzzy
+msgid "Support these developers"
+msgstr "Інші розширення від цих розробників"
+
+#: src/amo/components/ContributeCard/index.js:41
+msgid ""
+"The developer of this extension asks that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+
+#: src/amo/components/ContributeCard/index.js:43
+msgid ""
+"The developers of this extension ask that you help support its continued "
+"development by making a small contribution."
+msgstr ""
+
+#: src/amo/components/ContributeCard/index.js:50
+#, fuzzy
+msgid "Support this artist"
+msgstr "Сайт підтримки"
+
+#: src/amo/components/ContributeCard/index.js:51
+#, fuzzy
+msgid "Support these artists"
+msgstr "Сайт підтримки"
+
+#: src/amo/components/ContributeCard/index.js:55
+msgid ""
+"The artist of this theme asks that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+
+#: src/amo/components/ContributeCard/index.js:57
+msgid ""
+"The artists of this theme ask that you help support its continued creation "
+"by making a small contribution."
+msgstr ""
+
+#: src/amo/components/ContributeCard/index.js:64
+#, fuzzy
+msgid "Support this author"
+msgstr "Сайт підтримки"
+
+#: src/amo/components/ContributeCard/index.js:65
+#, fuzzy
+msgid "Support these authors"
+msgstr "Сайт підтримки"
+
+#: src/amo/components/ContributeCard/index.js:69
+msgid ""
+"The author of this add-on asks that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+
+#: src/amo/components/ContributeCard/index.js:71
+msgid ""
+"The authors of this add-on ask that you help support its continued work by "
+"making a small contribution."
+msgstr ""
+
+#: src/amo/components/ContributeCard/index.js:89
+msgid "Contribute now"
+msgstr ""
+
+#: src/amo/components/DownloadFirefoxButton/index.js:43
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Завантажити Firefox"
@@ -747,7 +838,7 @@ msgstr ""
 msgid "Log out"
 msgstr "Вийти"
 
-#: src/amo/components/Header/index.js:61
+#: src/amo/components/Header/index.js:60
 msgid "Firefox Add-ons"
 msgstr "Додатки Firefox"
 
@@ -788,16 +879,35 @@ msgid "Change the way Firefox looks with themes."
 msgstr ""
 
 #: src/amo/components/Home/index.js:193
-msgid "Most Popular Extensions"
-msgstr "Найпопулярніші розширення"
+#, fuzzy
+msgid "Most popular extensions"
+msgstr "Більше популярних розширень"
+
+#: src/amo/components/Home/index.js:194
+#, fuzzy
+msgid "See more popular extensions"
+msgstr "Більше популярних розширень"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr ""
 
-#: src/amo/components/Home/index.js:219
-msgid "Up & Coming Extensions"
-msgstr "Розширення, які набирають популярність"
+#: src/amo/components/Home/index.js:209
+#, fuzzy
+msgid "See more tab extensions"
+msgstr "Пошук розширень"
+
+#: src/amo/components/Home/index.js:220
+#: src/amo/components/LandingPage/index.js:135
+#, fuzzy
+msgid "See more trending extensions"
+msgstr "Більше відібраних розширень"
+
+#: src/amo/components/Home/index.js:248
+#: src/amo/components/LandingPage/index.js:155
+#, fuzzy
+msgid "See more featured themes"
+msgstr "Більше відібраних тем"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -852,6 +962,26 @@ msgstr ""
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr ""
+
+#: src/amo/components/LandingPage/index.js:129
+#, fuzzy
+msgid "See more featured extensions"
+msgstr "Більше відібраних розширень"
+
+#: src/amo/components/LandingPage/index.js:144
+#, fuzzy
+msgid "See more top rated extensions"
+msgstr "Найвище оцінені розширення"
+
+#: src/amo/components/LandingPage/index.js:161
+#, fuzzy
+msgid "See more trending themes"
+msgstr "Більше відібраних тем"
+
+#: src/amo/components/LandingPage/index.js:167
+#, fuzzy
+msgid "See more top rated themes"
+msgstr "Найвище оцінені теми"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid ""
@@ -1133,48 +1263,32 @@ msgstr "Фільтрувати результати"
 msgid "Sort by"
 msgstr "Сортувати за"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Add-on Type"
 msgstr "Тип додатку"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:184
 msgid "Operating System"
 msgstr "Операційна система"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Featured add-ons only"
 msgstr "Лише відібрані додатки"
 
-#: src/amo/components/SearchForm/index.js:200
+#: src/amo/components/SearchForm/index.js:188
 msgid "Go to the add-on page"
 msgstr "Перейти на сторінку додатка"
 
-#: src/amo/components/SearchForm/index.js:216
-msgid "Find extensions"
-msgstr "Знайти розширення"
-
-#: src/amo/components/SearchForm/index.js:218
-msgid "Find dictionary"
-msgstr "Знайти словник"
-
-#: src/amo/components/SearchForm/index.js:220
-msgid "Find language pack"
-msgstr "Знайти мовний пакунок"
-
-#: src/amo/components/SearchForm/index.js:222
-msgid "Find themes"
-msgstr "Знайти теми"
-
-#: src/amo/components/SearchForm/index.js:224
+#: src/amo/components/SearchForm/index.js:206
 msgid "Find add-ons"
 msgstr "Знайти додатки"
 
-#: src/amo/components/SearchForm/index.js:256
-#: src/amo/components/SearchForm/index.js:286
+#: src/amo/components/SearchForm/index.js:231
+#: src/amo/components/SearchForm/index.js:261
 msgid "Search"
 msgstr "Пошук"
 
-#: src/amo/components/SearchForm/index.js:84
+#: src/amo/components/SearchForm/index.js:77
 msgid "Loading"
 msgstr "Завантаження"
 
@@ -1633,6 +1747,27 @@ msgstr "Немає оцінок"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Розгорнути до</span> Читати більше"
 
+#~ msgid "Beta Versions"
+#~ msgstr "Бета версії"
+
+#~ msgid "Most Popular Extensions"
+#~ msgstr "Найпопулярніші розширення"
+
+#~ msgid "Up & Coming Extensions"
+#~ msgstr "Розширення, які набирають популярність"
+
+#~ msgid "Find extensions"
+#~ msgstr "Знайти розширення"
+
+#~ msgid "Find dictionary"
+#~ msgstr "Знайти словник"
+
+#~ msgid "Find language pack"
+#~ msgstr "Знайти мовний пакунок"
+
+#~ msgid "Find themes"
+#~ msgstr "Знайти теми"
+
 #~ msgid "Tell the world about this extension."
 #~ msgstr "Розкажіть світу про це розширення."
 
@@ -1653,26 +1788,11 @@ msgstr "<span class=\"visually-hidden\">Розгорнути до</span> Чит�
 #~ msgid "Themes change how Firefox looks"
 #~ msgstr "Теми, що змінюють зовнішній вигляд Firefox"
 
-#~ msgid "More featured extensions"
-#~ msgstr "Більше відібраних розширень"
-
-#~ msgid "More trending extensions"
-#~ msgstr "Більше відібраних розширень"
-
 #~ msgid "More highly rated extensions"
 #~ msgstr "Більше найвище оцінених розширень"
 
-#~ msgid "More featured themes"
-#~ msgstr "Більше відібраних тем"
-
-#~ msgid "More trending themes"
-#~ msgstr "Більше відібраних тем"
-
 #~ msgid "More highly rated themes"
 #~ msgstr "Більше найвище оцінених тем"
-
-#~ msgid "More popular extensions"
-#~ msgstr "Більше популярних розширень"
 
 #~ msgid "Browse this collection"
 #~ msgstr "Перегляд всіх розширень"
@@ -1731,9 +1851,6 @@ msgstr "<span class=\"visually-hidden\">Розгорнути до</span> Чит�
 
 #~ msgid "Browse in your language"
 #~ msgstr "Перегляд вашою мовою"
-
-#~ msgid "Search extensions"
-#~ msgstr "Пошук розширень"
 
 #~ msgid "Search themes"
 #~ msgstr "Пошук тем"
