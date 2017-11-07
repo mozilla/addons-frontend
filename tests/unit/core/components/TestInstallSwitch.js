@@ -2,6 +2,9 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeTheme } from 'tests/unit/amo/helpers';
+
 import {
   InstallSwitchBase,
 } from 'core/components/InstallSwitch';
@@ -22,7 +25,7 @@ import * as themePreview from 'core/themePreview';
 import { fakeI18n } from 'tests/unit/helpers';
 
 
-describe('<InstallSwitch />', () => {
+describe(__filename, () => {
   function renderButton(props = {}) {
     const renderProps = {
       dispatch: sinon.spy(),
@@ -136,23 +139,56 @@ describe('<InstallSwitch />', () => {
   });
 
   it('should call installTheme function on click when uninstalled theme', () => {
+    const themeData = {
+      accentcolor: '#000',
+      author: 'carmen',
+      category: 'Other',
+      description: 'my theme description',
+      detailURL: 'https://a.m.o/addon/my-theme',
+      footer: 'https://addons.cdn.mozilla.net/footer1.jpg',
+      footerURL: 'https://addons.cdn.mozilla.net/footer2.jpg',
+      header: 'https://addons.cdn.mozilla.net/header1.jpg',
+      headerURL: 'https://addons.cdn.mozilla.net/header2.jpg',
+      iconURL: 'https://addons.cdn.mozilla.net/icon.jpg',
+      id: 50,
+      name: 'my theme',
+      previewURL: 'https://addons.cdn.mozilla.net/preview.jpg',
+      textcolor: '#fff',
+      updateURL: 'https://versioncheck.m.o/themes/update-check/999876',
+      version: '1.0',
+    };
+
+    const addon = createInternalAddon({
+      ...fakeTheme,
+      // Due to a workaround documented in core/reducers/addons.js,
+      // the add-on description takes precedence over
+      // theme_data.description.
+      description: themeData.description,
+      theme_data: {
+        ...fakeTheme.theme_data,
+        ...themeData,
+      },
+    });
     const installTheme = sinon.spy();
-    const browsertheme = { theme: 'data' };
-    sinon.stub(themePreview, 'getThemeData').returns(browsertheme);
     const guid = 'test-guid';
     const name = 'hai';
-    const button = renderButton({
+    const props = {
+      addon,
+      // Simulate the state mapper spreads.
+      ...addon,
       installTheme,
-      type: ADDON_TYPE_THEME,
-      guid,
-      name,
       status: UNINSTALLED,
-    });
+    };
+
+    const button = renderButton(props);
+
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    expect(installTheme.calledOnce).toBeTruthy();
-    const themeDataEl = installTheme.args[0][0];
-    expect(themeDataEl.getAttribute('data-browsertheme')).toEqual(JSON.stringify(browsertheme));
+
+    sinon.assert.calledOnce(installTheme);
+    const themeDataEl = installTheme.firstCall.args[0];
+    expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme')))
+      .toEqual(themeData);
   });
 
   it('should call install function on click when uninstalled', () => {
