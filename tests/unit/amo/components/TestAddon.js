@@ -17,6 +17,7 @@ import Addon, {
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
@@ -1249,6 +1250,11 @@ describe(__filename, () => {
     const root = shallowRender({ addon: null, params: { slug: 'some-slug' } });
 
     expect(root.find('title')).toHaveLength(0);
+  });
+
+  it('renders a ContributeCard', () => {
+    const root = shallowRender();
+    expect(root.find(ContributeCard)).toHaveLength(1);
   });
 });
 

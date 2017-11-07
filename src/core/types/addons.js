@@ -89,6 +89,7 @@ export type ExternalAddonType = {|
   authors?: Array<AddonAuthorType>,
   average_daily_users?: number,
   categories?: Object,
+  contributions_url?: string,
   current_beta_version?: AddonVersionType,
   current_version: AddonVersionType,
   default_locale: string,

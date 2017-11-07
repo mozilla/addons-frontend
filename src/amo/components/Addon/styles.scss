@@ -238,14 +238,6 @@
       overflow-x: hidden;
     }
 
-    .AddonDescription-version-notes {
-      grid-column: 1;
-    }
-
-    .AddonDescription-more-addons {
-      grid-column: 1;
-    }
-
     .AddonDescription-contents {
       max-width: 550px;
     }
@@ -255,14 +247,6 @@
     // overflow required to fix content overlap in Safari.
     // See https://github.com/mozilla/addons-frontend/issues/2847
     overflow-x: hidden;
-  }
-
-  .Addon-overall-rating {
-    grid-column: 1 / 2;
-  }
-
-  .AddonMoreInfo {
-    grid-column: 1 / 2;
   }
 
   // We hide this "Read reviews" link on larger displays as we actually show

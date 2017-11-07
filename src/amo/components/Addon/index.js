@@ -12,6 +12,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
@@ -546,6 +547,8 @@ export class AddonBase extends React.Component {
           </div>
 
           {this.renderRatingsCard()}
+
+          <ContributeCard addon={addon} />
 
           <AddonMoreInfo addon={addon} />
 
