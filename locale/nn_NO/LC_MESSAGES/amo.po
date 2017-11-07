@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-11-06 16:02+0000\n"
+"PO-Revision-Date: 2017-11-07 17:59+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -183,7 +183,7 @@ msgstr "Brukt av"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "Totalvurdering"
 
 #: src/amo/components/AddonMoreInfo/index.js:114
 msgid "Read the privacy policy for this add-on"
@@ -273,7 +273,7 @@ msgstr "Fortel oss kva du likar med denne utvidinga. Ver konkret og kortfatta."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "Fortel verda om denne utvidinga! Gjer vel og følg %(linkStart)sretningslinjene%(linkEnd)s våre."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -397,7 +397,7 @@ msgstr "Utvalde utvidingar"
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:129 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:144
 #: src/amo/components/LandingPage/index.js:155 src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167
 msgid "See more"
-msgstr ""
+msgstr "Sjå fleire"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:114
 #, fuzzy
