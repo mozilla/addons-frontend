@@ -1,7 +1,6 @@
 import { mount } from 'enzyme';
 import React from 'react';
 
-import { setViewContext } from 'amo/actions/viewContext';
 import SearchForm, {
   SearchFormBase,
   mapStateToProps,
@@ -9,15 +8,8 @@ import SearchForm, {
 } from 'amo/components/SearchForm';
 import Suggestion from 'amo/components/SearchSuggestion';
 import {
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
   OS_WINDOWS,
-  VIEW_CONTEXT_EXPLORE,
-  VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import LoadingText from 'ui/components/LoadingText';
 import {
@@ -103,52 +95,10 @@ describe(__filename, () => {
     });
 
     it('renders a search input with Explore placeholder', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
-      const wrapper = mountComponent({ store });
+      const wrapper = mountComponent();
       const input = wrapper.find('input');
 
       expect(input).toHaveProp('placeholder', 'Find add-ons');
-      expect(input).toHaveProp('type', 'search');
-    });
-
-    it('renders Dictionary placeholder', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_DICT));
-      const wrapper = mountComponent({ store });
-      const input = wrapper.find('input');
-
-      expect(input).toHaveProp('placeholder', 'Find dictionary');
-      expect(input).toHaveProp('type', 'search');
-    });
-
-    it('renders Extensions placeholder', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-      const wrapper = mountComponent({ store });
-      const input = wrapper.find('input');
-
-      expect(input).toHaveProp('placeholder', 'Find extensions');
-      expect(input).toHaveProp('type', 'search');
-    });
-
-    it('renders Language Pack placeholder', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_LANG));
-      const wrapper = mountComponent({ store });
-      const input = wrapper.find('input');
-
-      expect(input).toHaveProp('placeholder', 'Find language pack');
-      expect(input).toHaveProp('type', 'search');
-    });
-
-    it('renders Themes placeholder', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_THEME));
-      const wrapper = mountComponent({ store });
-      const input = wrapper.find('input');
-
-      expect(input).toHaveProp('placeholder', 'Find themes');
       expect(input).toHaveProp('type', 'search');
     });
 
@@ -197,33 +147,11 @@ describe(__filename, () => {
       sinon.assert.called(fakeRouter.push);
     });
 
-    it('passes addonType when set', () => {
-      const { store } = dispatchSignInActions({
-        clientApp: CLIENT_APP_FIREFOX,
-        lang: 'de',
-      });
-      store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-      const wrapper = mountComponent({ store });
-
-      sinon.assert.notCalled(fakeRouter.push);
-      wrapper.find('input').simulate('change', createFakeChangeEvent('& 26 %'));
-      wrapper.find('button').simulate('click');
-      sinon.assert.calledWith(fakeRouter.push, {
-        pathname: '/de/firefox/search/',
-        query: {
-          platform: OS_WINDOWS,
-          q: '& 26 %',
-          type: ADDON_TYPE_EXTENSION,
-        },
-      });
-    });
-
     it('does not set type when it is not defined', () => {
       const { store } = dispatchSignInActions({
         clientApp: CLIENT_APP_ANDROID,
         lang: 'fr',
       });
-      store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
       const wrapper = mountComponent({ store });
 
       sinon.assert.notCalled(fakeRouter.push);
@@ -255,7 +183,6 @@ describe(__filename, () => {
         clientApp: CLIENT_APP_ANDROID,
         lang: 'fr',
       });
-      store.dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
       const wrapper = mountBaseComponent({ store });
       expect(wrapper.state('searchValue')).toEqual('foo');
 
@@ -338,55 +265,6 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
         filters: { operatingSystem: OS_WINDOWS, query: 'a' },
-      }));
-    });
-
-    it('fetches suggestions twice on focus when search has not changed but add-on type changed', () => {
-      const { store } = dispatchAutocompleteResults({ results: [
-        createFakeAutocompleteResult(),
-        createFakeAutocompleteResult(),
-      ] });
-      const { autocomplete: autocompleteState } = store.getState();
-
-      const dispatch = sinon.spy();
-      const wrapper = mountBaseComponent({
-        dispatch,
-        suggestions: autocompleteState.suggestions,
-      });
-
-      sinon.assert.notCalled(dispatch);
-
-      // User types 'a' in the search input.
-      wrapper.find('input').simulate('change', createFakeChangeEvent('a'));
-
-      sinon.assert.callCount(dispatch, 1);
-      sinon.assert.calledWith(dispatch, autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: { operatingSystem: OS_WINDOWS, query: 'a' },
-      }));
-      dispatch.reset();
-
-      // User clicks somewhere else on the UI, triggering the
-      // AUTOCOMPLETE_CANCELLED action.
-      store.dispatch(autocompleteCancel());
-      wrapper.setProps(mapStateToProps(store.getState()));
-      wrapper.setProps({ addonType: ADDON_TYPE_THEME });
-
-      // User focuses the search input.
-      wrapper.find('input').simulate('focus');
-
-      expect(wrapper.find(Suggestion)).toHaveLength(
-        autocompleteState.suggestions.length
-      );
-
-      sinon.assert.callCount(dispatch, 1);
-      sinon.assert.calledWith(dispatch, autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: {
-          addonType: ADDON_TYPE_THEME,
-          operatingSystem: OS_WINDOWS,
-          query: 'a',
-        },
       }));
     });
 
@@ -622,25 +500,6 @@ describe(__filename, () => {
       wrapper.instance().handleSuggestionsFetchRequested({});
       sinon.assert.notCalled(dispatch);
     });
-
-    it('adds addonType to the filters used to fetch suggestions', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-      const dispatchSpy = sinon.spy(store, 'dispatch');
-      const wrapper = mountComponent({ query: 'ad', store });
-
-      wrapper.find('input').simulate('change', createFakeChangeEvent('ad'));
-
-      sinon.assert.callCount(dispatchSpy, 1);
-      sinon.assert.calledWith(dispatchSpy, autocompleteStart({
-        errorHandlerId: errorHandler.id,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          operatingSystem: OS_WINDOWS,
-          query: 'ad',
-        },
-      }));
-    });
   });
 
   describe('mapStateToProps', () => {
@@ -650,24 +509,6 @@ describe(__filename, () => {
       const state = store.getState();
 
       expect(mapStateToProps(state).api).toEqual(state.api);
-    });
-
-    it('passes the context through', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(ADDON_TYPE_EXTENSION));
-
-      const state = store.getState();
-
-      expect(mapStateToProps(state).addonType).toEqual(ADDON_TYPE_EXTENSION);
-    });
-
-    it('does not set addonType if context is not a validAddonType', () => {
-      const { store } = dispatchSignInActions();
-      store.dispatch(setViewContext(VIEW_CONTEXT_HOME));
-
-      const state = store.getState();
-
-      expect(mapStateToProps(state).addonType).toEqual(null);
     });
 
     it('passes the suggestions through', () => {

@@ -10,13 +10,6 @@ import defaultDebounce from 'lodash.debounce';
 import deepEqual from 'deep-eql';
 
 import Suggestion from 'amo/components/SearchSuggestion';
-import {
-  ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_DICT,
-  ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
-  validAddonTypes,
-} from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { getAddonIconUrl } from 'core/imageUtils';
@@ -34,9 +27,9 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 export const SEARCH_TERM_MAX_LENGTH = 100;
+
 export class SearchFormBase extends React.Component {
   static propTypes = {
-    addonType: PropTypes.string,
     api: PropTypes.object.isRequired,
     className: PropTypes.string,
     debounce: PropTypes.func.isRequired,
@@ -94,15 +87,10 @@ export class SearchFormBase extends React.Component {
   }
 
   createFiltersFromQuery(newFilters) {
-    const { addonType, userAgentInfo } = this.props;
+    const { userAgentInfo } = this.props;
     const filters = { ...newFilters };
 
-    if (addonType) {
-      filters.addonType = addonType;
-    }
-
-    filters.operatingSystem = convertOSToFilterValue(
-      userAgentInfo.os.name);
+    filters.operatingSystem = convertOSToFilterValue(userAgentInfo.os.name);
 
     return filters;
   }
@@ -204,32 +192,18 @@ export class SearchFormBase extends React.Component {
 
   render() {
     const {
-      addonType,
       api,
       className,
       i18n,
       pathname,
     } = this.props;
 
-    let placeholderText;
-    if (addonType === ADDON_TYPE_EXTENSION) {
-      placeholderText = i18n.gettext('Find extensions');
-    } else if (addonType === ADDON_TYPE_DICT) {
-      placeholderText = i18n.gettext('Find dictionary');
-    } else if (addonType === ADDON_TYPE_LANG) {
-      placeholderText = i18n.gettext('Find language pack');
-    } else if (addonType === ADDON_TYPE_THEME) {
-      placeholderText = i18n.gettext('Find themes');
-    } else {
-      placeholderText = i18n.gettext('Find add-ons');
-    }
-
     const inputProps = {
       className: 'SearchForm-query',
       maxLength: SEARCH_TERM_MAX_LENGTH,
       name: 'q',
       onChange: this.handleSearchChange,
-      placeholder: placeholderText,
+      placeholder: i18n.gettext('Find add-ons'),
       type: 'search',
       value: this.state.searchValue,
     };
@@ -297,8 +271,6 @@ export class SearchFormBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    addonType: validAddonTypes.includes(state.viewContext.context) ?
-      state.viewContext.context : null,
     api: state.api,
     suggestions: state.autocomplete.suggestions,
     loadingSuggestions: state.autocomplete.loading,
