@@ -69,6 +69,11 @@ export default Object.assign({}, webpackConfig, {
   module: {
     rules: getRules({ babelQuery: BABEL_QUERY, bundleStylesWithJs: true }),
   },
+  node: {
+    // This allows us to use `__filename` in our code base, for instance to
+    // have unique names in the error handlers.
+    __filename: true,
+  },
   plugins: [
     ...getPlugins(),
     // Load unminified React and Redux in development to get better
