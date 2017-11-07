@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import https from 'https';
 
 import 'babel-polyfill';
 import 'raf/polyfill';
@@ -379,6 +380,8 @@ export function runServer({
   const host = config.get('serverHost');
   const appName = config.get('appName');
 
+  const useHttps = process.env.USE_HTTPS;
+
   const isoMorphicServer = new WebpackIsomorphicTools(WebpackIsomorphicToolsConfig);
 
   return new Promise((resolve) => {
@@ -397,9 +400,18 @@ export function runServer({
         const routes = require(`${appName}/routes`).default;
         const createStore = require(`${appName}/store`).default;
         /* eslint-enable global-require, import/no-dynamic-require */
-        const server = baseServer(
+        let server = baseServer(
           routes, createStore, { appInstanceName: appName });
         if (listen === true) {
+          if (useHttps) {
+            const options = {
+              key: fs.readFileSync('bin/certs/my-server.key.pem'),
+              cert: fs.readFileSync('bin/certs/my-server.crt.pem'),
+              ca: fs.readFileSync('bin/certs/my-private-root-ca.crt.pem'),
+              passphrase: '',
+            };
+            server = https.createServer(options, server);
+          }
           server.listen(port, host, (err) => {
             if (err) {
               return reject(err);
@@ -421,6 +433,9 @@ export function runServer({
                 `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
               log.info(
                 `👁  Open your browser at http://localhost:${proxyPort} to view it.`);
+            } else if (useHttps) {
+              log.info(
+                `👁  Open your browser at https://${host}:${port} to view it.`);
             } else {
               log.info(
                 `👁  Open your browser at http://${host}:${port} to view it.`);
