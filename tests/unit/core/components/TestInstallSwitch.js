@@ -2,9 +2,6 @@ import React from 'react';
 import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
 import { findDOMNode } from 'react-dom';
 
-import { createInternalAddon } from 'core/reducers/addons';
-import { fakeTheme } from 'tests/unit/amo/helpers';
-
 import {
   InstallSwitchBase,
 } from 'core/components/InstallSwitch';
@@ -16,12 +13,12 @@ import {
   ENABLING,
   INSTALLED,
   INSTALLING,
-  ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import * as themePreview from 'core/themePreview';
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 
 
@@ -170,8 +167,6 @@ describe(__filename, () => {
       },
     });
     const installTheme = sinon.spy();
-    const guid = 'test-guid';
-    const name = 'hai';
     const props = {
       addon,
       // Simulate the state mapper spreads.

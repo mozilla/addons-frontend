@@ -32,29 +32,37 @@ export class InstallButtonBase extends React.Component {
     accentcolor: PropTypes.string,
     addon: PropTypes.object.isRequired,
     author: PropTypes.string,
+    category: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
     description: PropTypes.string,
+    detailURL: PropTypes.string,
     enable: PropTypes.func,
+    footer: PropTypes.string,
     footerURL: PropTypes.string,
     getClientCompatibility: PropTypes.func,
     guid: PropTypes.string.isRequired,
     handleChange: PropTypes.func,
     hasAddonManager: PropTypes.bool,
+    header: PropTypes.string,
     headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    iconURL: PropTypes.string,
     id: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
+    previewURL: PropTypes.string,
     slug: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
     uninstall: PropTypes.func.isRequired,
+    updateURL: PropTypes.string,
     useButton: PropTypes.bool,
     userAgentInfo: PropTypes.string.isRequired,
+    version: PropTypes.string,
     _log: PropTypes.object,
     _tracking: PropTypes.object,
     _window: PropTypes.object,
@@ -196,24 +204,32 @@ export class InstallButtonBase extends React.Component {
           accentcolor={this.props.accentcolor}
           addon={this.props.addon}
           author={this.props.author}
+          category={this.props.category}
           className="InstallButton-switch"
           description={this.props.description}
+          detailURL={this.props.detailURL}
           disabled={buttonIsDisabled}
           enable={this.props.enable}
+          footer={this.props.footer}
           footerURL={this.props.footerURL}
           guid={this.props.guid}
           handleChange={this.props.handleChange}
+          header={this.props.header}
           headerURL={this.props.headerURL}
+          iconURL={this.props.iconURL}
           id={this.props.id}
           install={this.props.install}
-          installURL={installURL}
           installTheme={this.props.installTheme}
+          installURL={installURL}
           name={this.props.name}
+          previewURL={this.props.previewURL}
           slug={this.props.slug}
           status={this.props.status}
           textcolor={this.props.textcolor}
           type={this.props.type}
           uninstall={this.props.uninstall}
+          updateURL={this.props.updateURL}
+          version={this.props.version}
         />
         {button}
       </div>
