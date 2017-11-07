@@ -152,5 +152,6 @@ export type AddonType = {
     windows: ?string,
   },
   isRestartRequired: boolean,
+  isWebExtension: boolean,
   themeData?: ThemeData,
 };

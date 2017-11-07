@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <title>
+    Not-compatible
+  </title>
+  <defs>
+    <path id="a" d="M4 7h8v2H4z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <path d="M8 0C3.59 0 0 3.59 0 8s3.59 8 8 8 8-3.59 8-8-3.59-8-8-8zm0 14c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z" fill="#D70022" fill-rule="nonzero"/>
+    <use fill="#D8D8D8" xlink:href="#a"/>
+    <path stroke="#D70022" d="M4.5 7.5h7v1h-7z"/>
+  </g>
+</svg>

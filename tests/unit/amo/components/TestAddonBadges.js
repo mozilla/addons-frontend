@@ -106,4 +106,34 @@ describe(__filename, () => {
 
     expect(root.find(Badge)).toHaveLength(0);
   });
+
+  it('displays a badge when the addon is not a web extension', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      files: [{ is_webextension: false }],
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'not-compatible');
+    expect(root.find(Badge))
+      .toHaveProp('label', 'Not compatible with Firefox Quantum');
+  });
+
+  it('does not display a badge when the addon is a web extension', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      files: [{ is_webextension: true }],
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
+  it('does not display a badge when the addon is not an extension', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      type: ADDON_TYPE_THEME,
+      files: [{ is_webextension: false }],
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });

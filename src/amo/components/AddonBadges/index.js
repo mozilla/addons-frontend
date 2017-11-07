@@ -30,6 +30,9 @@ export const AddonBadgesBase = (props: Props) => {
     }
   };
 
+  const isIncompatible = addon && addon.type === ADDON_TYPE_EXTENSION &&
+    !addon.isWebExtension;
+
   return (
     <div className="AddonBadges">
       {addon && addon.is_featured ? (
@@ -48,6 +51,12 @@ export const AddonBadgesBase = (props: Props) => {
         <Badge
           type="experimental"
           label={i18n.gettext('Experimental')}
+        />
+      ) : null}
+      {isIncompatible ? (
+        <Badge
+          type="not-compatible"
+          label={i18n.gettext('Not compatible with Firefox Quantum')}
         />
       ) : null}
     </div>
