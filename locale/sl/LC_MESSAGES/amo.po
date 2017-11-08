@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 06:14+0000\n"
+"PO-Revision-Date: 2017-11-08 06:32+0000\n"
 "Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -39,9 +39,8 @@ msgid "Rate your experience"
 msgstr "Ocenite svojo izkušnjo"
 
 #: src/amo/components/Addon/index.js:266
-#, fuzzy
 msgid "About this dictionary"
-msgstr "Prijavite se, da ocenite ta slovar"
+msgstr "O tem slovarju"
 
 #: src/amo/components/Addon/index.js:269
 msgid "About this extension"
