@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 02:31+0000\n"
+"PO-Revision-Date: 2017-11-08 02:36+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -48,19 +48,16 @@ msgid "About this language pack"
 msgstr "關於此語言套件"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "登入後即可為此搜尋引擎評分"
+msgstr "關於此搜尋引擎"
 
 #: src/amo/components/Addon/index.js:278
-#, fuzzy
 msgid "About this theme"
-msgstr "登入後即可為此佈景主題評分"
+msgstr "關於此佈景主題"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "關於此%(addonType)s"
+msgstr "關於此附加元件"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -140,7 +137,7 @@ msgstr "實驗中"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "與 Firefox Quantum 不相容"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -370,7 +367,6 @@ msgid "Add-ons for Firefox"
 msgstr "Firefox 的附加元件"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Firefox 附加元件"
 
@@ -379,9 +375,8 @@ msgid "Add-ons for Android"
 msgstr "Android 版的附加元件"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - Android 版附加元件"
+msgstr "%s - Android 附加元件"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -453,62 +448,56 @@ msgid "Creator"
 msgstr "建立者"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "標示這則開發者回應"
+msgstr "支援這位開發者"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "這些開發者製作的更多附加元件"
+msgstr "支援這些開發者"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "這套擴充套件的開發者希望您透過小小的捐獻協助其後續開發。"
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "這套擴充套件的開發者希望您透過小小的捐獻協助其後續開發。"
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "技術支援網站"
+msgstr "支援這位藝術家"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "這些藝術家製作的更多佈景主題"
+msgstr "支援這些藝術家"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "這套佈景主題的開發者希望您透過小小的捐獻協助其後續開發。"
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "這套佈景主題的開發者希望您透過小小的捐獻協助其後續開發。"
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "技術支援網站"
+msgstr "支援這位作者"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "%(author)s 製作的更多佈景主題"
+msgstr "支援這些作者"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "這套附加元件的開發者希望您透過小小的捐獻協助其後續開發。"
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "這套附加元件的開發者希望您透過小小的捐獻協助其後續開發。"
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "立刻捐款"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -763,33 +752,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "使用佈景主題修改 Firefox 外觀。"
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
 msgstr "更多知名擴充套件"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "更多知名擴充套件"
+msgstr "看看更多知名擴充套件"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr "修改您的分頁"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "搜尋擴充套件"
+msgstr "看看更多分頁擴充套件"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "更多熱門擴充套件"
+msgstr "看看更多熱門擴充套件"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
-msgstr "更多精選佈景主題"
+msgstr "看看更多精選佈景主題"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -844,24 +828,20 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "超強大的廣告封鎖器，使用超簡單"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "更多精選擴充套件"
+msgstr "看看更多精選擴充套件"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "分數最高的擴充套件"
+msgstr "看看更多高分擴充套件"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "更多熱門佈景主題"
+msgstr "看看更多熱門佈景主題"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "分數最高的佈景主題"
+msgstr "看看更多高分的佈景主題"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
