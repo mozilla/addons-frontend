@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 10:10+0000\n"
+"PO-Revision-Date: 2017-11-08 10:12+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -49,19 +49,16 @@ msgid "About this language pack"
 msgstr "À propos de ce paquetage linguistique"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Connectez-vous pour noter ce plugin de recherche"
+msgstr "À propos de ce plugin de recherche"
 
 #: src/amo/components/Addon/index.js:278
-#, fuzzy
 msgid "About this theme"
-msgstr "Connectez-vous pour noter ce thème"
+msgstr "À propos de ce thème"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "À propos de %(addonType)s"
+msgstr "À propos de ce module"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -141,7 +138,7 @@ msgstr "Expérimental"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Incompatible avec Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -374,7 +371,6 @@ msgid "Add-ons for Firefox"
 msgstr "Modules pour Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Modules pour Firefox"
 
@@ -383,7 +379,6 @@ msgid "Add-ons for Android"
 msgstr "Modules pour Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
 msgstr "%s - Modules pour Android"
 
@@ -775,9 +770,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Changez le style de Firefox à l’aide de thèmes."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Plus d’extensions populaires"
+msgstr "Extensions les plus populaires"
 
 #: src/amo/components/Home/index.js:194
 #, fuzzy
