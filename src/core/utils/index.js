@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-import path from 'path';
 import url from 'url';
 
 import { oneLine } from 'common-tags';
@@ -368,10 +367,11 @@ export function addonHasVersionHistory(addon) {
   ].includes(addon.type);
 }
 
-export const getRelativePath = (filename, dirname = __dirname) => {
-  if (dirname) {
-    return path.relative(path.resolve(dirname, '../../../'), filename);
+export const getRelativePath = (filename) => {
+  let fileId = filename;
+  if (!fileId.startsWith('src')) {
+    fileId = fileId.replace(/^.*src/, 'src');
   }
 
-  return filename;
+  return fileId;
 };

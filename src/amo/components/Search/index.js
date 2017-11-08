@@ -21,14 +21,14 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import {
   convertFiltersToQueryParams,
   hasSearchFilters,
 } from 'core/searchUtils';
-import { getRelativePath, parsePage } from 'core/utils';
+import { parsePage } from 'core/utils';
 
 import './styles.scss';
 
@@ -246,8 +246,12 @@ export function mapStateToProps(state) {
   };
 }
 
+export const extractId = (ownProps) => {
+  return parsePage(ownProps.filters.page);
+};
+
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ id: getRelativePath(__filename) }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(SearchBase);

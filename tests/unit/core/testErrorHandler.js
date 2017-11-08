@@ -394,10 +394,14 @@ describe(__filename, () => {
   });
 
   describe('withFixedErrorHandler', () => {
+    const fileName = '/path/to/src/SomeComponent/index.js';
+
     it('throws an error when `extractId` is missing', () => {
       expect(() => {
         createWrappedComponent({
           decorator: withFixedErrorHandler,
+          // Passed to the HOC.
+          fileName,
           extractId: null,
         });
       }).toThrow('`extractId` is required and must be a function.');
@@ -407,6 +411,8 @@ describe(__filename, () => {
       expect(() => {
         createWrappedComponent({
           decorator: withFixedErrorHandler,
+          // Passed to the HOC.
+          fileName,
           extractId: {},
         });
       }).toThrow('`extractId` is required and must be a function.');
@@ -415,12 +421,14 @@ describe(__filename, () => {
     it('creates an error handler with a fixed ID', () => {
       const { component } = createWrappedComponent({
         decorator: withFixedErrorHandler,
+        // Passed to the HOC.
+        fileName,
         extractId: () => 'unique-id-based-on-props',
       });
       const errorHandler = component.props.errorHandler;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id)
-        .toEqual('SomeComponent-unique-id-based-on-props');
+        .toEqual('src/SomeComponent/index.js-unique-id-based-on-props');
     });
   });
 });

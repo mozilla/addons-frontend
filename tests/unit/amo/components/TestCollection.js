@@ -35,7 +35,7 @@ describe(__filename, () => {
   const defaultUser = defaultCollectionDetail.author.username;
   const defaultSlug = defaultCollectionDetail.slug;
 
-  const getProps = () => ({
+  const getProps = ({ ...otherProps } = {}) => ({
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
@@ -45,6 +45,7 @@ describe(__filename, () => {
       slug: defaultSlug,
     },
     store: dispatchClientMetadata().store,
+    ...otherProps,
   });
 
   const renderComponent = ({ ...otherProps } = {}) => {
@@ -477,25 +478,25 @@ describe(__filename, () => {
 
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
-      const props = {
+      const props = getProps({
         params: {
           user: 'foo',
           slug: 'collection-bar',
         },
         location: { query: {} },
-      };
+      });
 
       expect(extractId(props)).toEqual('foo/collection-bar/1');
     });
 
     it('adds the page as part of unique ID', () => {
-      const props = {
+      const props = getProps({
         params: {
           user: 'foo',
           slug: 'collection-bar',
         },
         location: { query: { page: 124 } },
-      };
+      });
 
       expect(extractId(props)).toEqual('foo/collection-bar/124');
     });

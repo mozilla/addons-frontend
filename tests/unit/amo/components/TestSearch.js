@@ -2,7 +2,11 @@ import { shallow } from 'enzyme';
 import React from 'react';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import Search, { SearchBase, mapStateToProps } from 'amo/components/Search';
+import Search, {
+  SearchBase,
+  extractId,
+  mapStateToProps,
+} from 'amo/components/Search';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -322,6 +326,32 @@ describe(__filename, () => {
         loading: state.search.loading,
         results: state.search.results,
       });
+    });
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('generates a unique ID based on the page filter', () => {
+      const ownProps = {
+        ...props,
+        filters: {
+          ...props.filters,
+          page: 123,
+        },
+      };
+
+      expect(extractId(ownProps)).toEqual(123);
+    });
+
+    it('generates a unique ID even when there is no page filter', () => {
+      const ownProps = {
+        ...props,
+        filters: {
+          ...props.filters,
+          page: undefined,
+        },
+      };
+
+      expect(extractId(ownProps)).toEqual(1);
     });
   });
 });

@@ -15,7 +15,7 @@ import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
-import { getRelativePath, parsePage } from 'core/utils';
+import { parsePage } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -214,6 +214,6 @@ export const extractId = (ownProps: Props) => {
 
 export default compose(
   translate(),
-  withFixedErrorHandler({ name: getRelativePath(__filename), extractId }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
 )(CollectionBase);

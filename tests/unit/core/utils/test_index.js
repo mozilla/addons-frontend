@@ -860,18 +860,14 @@ describe(__filename, () => {
 
   describe('getRelativePath', () => {
     it('returns a path relative to the project root directory', () => {
-      expect(getRelativePath(__filename))
-        .toEqual('tests/unit/core/utils/test_index.js');
+      expect(getRelativePath('/path/to/src/foo/index.js'))
+        .toEqual('src/foo/index.js');
     });
 
-    it('returns a path even if __dirname is not defined', () => {
-      // In the browser, we use a webpack polyfill that returns paths relative
-      // to the `context` option (set to the project root directory).
+    it('returns the given filename if `src` is not in it', () => {
       const filename = 'tests/unit/core/utils/test_index.js';
-      const dirname = null;
 
-      expect(getRelativePath(filename, dirname))
-        .toEqual('tests/unit/core/utils/test_index.js');
+      expect(getRelativePath(filename)).toEqual(filename);
     });
   });
 });

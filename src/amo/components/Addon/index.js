@@ -33,7 +33,6 @@ import {
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
-  getRelativePath,
   nl2br,
   sanitizeHTML,
   sanitizeUserHTML,
@@ -632,5 +631,5 @@ export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withFixedErrorHandler({ name: getRelativePath(__filename), extractId }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

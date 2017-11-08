@@ -37,6 +37,7 @@ describe(__filename, () => {
       expect(newState.filters).toEqual({ query: 'foo' });
       expect(newState.loading).toBe(false);
       expect(newState.results).toEqual([]);
+      expect(newState.count).toEqual(0);
     });
   });
 
@@ -49,6 +50,7 @@ describe(__filename, () => {
       expect(state.filters).toEqual({ query: 'foo' });
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
+      expect(state.count).toEqual(0);
     });
   });
 
