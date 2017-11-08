@@ -2486,7 +2486,7 @@ dom-align@1.x:
   version "1.6.5"
   resolved "https://registry.yarnpkg.com/dom-align/-/dom-align-1.6.5.tgz#48890ee37563dd43d3b580b75cfb79a6ac8fa004"
 
-dom-helpers@^3.0.0, dom-helpers@^3.2.0:
+dom-helpers@^3.2.0, dom-helpers@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/dom-helpers/-/dom-helpers-3.2.1.tgz#3203e07fed217bd1f424b019735582fc37b2825a"
 
@@ -4162,7 +4162,7 @@ intl@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
 
-invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1:
+invariant@^2.0.0, invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
   dependencies:
@@ -6925,12 +6925,12 @@ react-redux@5.0.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
-react-router-scroll@0.4.3:
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/react-router-scroll/-/react-router-scroll-0.4.3.tgz#40d8bdac2a7a4fc859e02e3f25fcb7f722a1b728"
+react-router-scroll@0.4.4:
+  version "0.4.4"
+  resolved "https://registry.yarnpkg.com/react-router-scroll/-/react-router-scroll-0.4.4.tgz#4d7b71c75b45ff296e4adca1e029a86e898a155d"
   dependencies:
     prop-types "^15.6.0"
-    scroll-behavior "^0.9.3"
+    scroll-behavior "^0.9.5"
     warning "^3.0.0"
 
 react-router@2.8.1:
@@ -6969,11 +6969,11 @@ react-test-renderer@^15.5.4:
     fbjs "^0.8.9"
     object-assign "^4.1.0"
 
-react-textarea-autosize@5.1.0:
-  version "5.1.0"
-  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.1.0.tgz#ffbf8164fce217c79443c1c17dedf730592df224"
+react-textarea-autosize@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-5.2.0.tgz#a5dba76149b658c2c5dcd3a25e5a0a96b9fe668e"
   dependencies:
-    prop-types "^15.5.10"
+    prop-types "^15.6.0"
 
 react-themeable@^1.1.0:
   version "1.1.0"
@@ -7488,12 +7488,12 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
-scroll-behavior@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/scroll-behavior/-/scroll-behavior-0.9.3.tgz#e48bcc8af364f3f07176e8dbca3968bd5e71557b"
+scroll-behavior@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/scroll-behavior/-/scroll-behavior-0.9.5.tgz#41da30b559da004eb48450f6cff6068c7696ff23"
   dependencies:
-    dom-helpers "^3.0.0"
-    invariant "^2.2.1"
+    dom-helpers "^3.2.1"
+    invariant "^2.2.2"
 
 scss-tokenizer@^0.2.3:
   version "0.2.3"
