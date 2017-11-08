@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 07:50+0000\n"
+"PO-Revision-Date: 2017-11-08 08:09+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -376,7 +376,6 @@ msgid "Add-ons for Android"
 msgstr "Add-ons untuk Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
 msgstr "%s - Add-ons untuk Android"
 
@@ -450,14 +449,12 @@ msgid "Creator"
 msgstr "Pencipta"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Tandakan respons pembangun ini"
+msgstr "Sokong pembangun ini"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Add-ons yang lain oleh para pembangun ini"
+msgstr "Sokong para pembangun ini"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -468,14 +465,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "Pembangun ekstensi ini meminta bantuan anda untuk menyokong pembangunan yang berterusan dengan memberikan sedikit sumbangan."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Laman web Sokongan"
+msgstr "Sokong artis ini"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Tema yang lain oleh para artis ini"
+msgstr "Sokong para artis ini"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -486,14 +481,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "Artis tema ini meminta bantuan anda untuk menyokong pembangunan yang berterusan dengan memberikan sedikit sumbangan."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Laman web Sokongan"
+msgstr "Sokong pengarang ini"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Tema yang lain oleh %(author)s"
+msgstr "Sokong para pengarang ini"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -769,33 +762,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Lanjutan ekstensi popular"
+msgstr "Ekstensi paling popular"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Lanjutan ekstensi popular"
+msgstr "Lihat ekstensi popular selanjutnya"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr "Mengubah tab anda"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Cari ekstensi"
+msgstr "Lihat ekstensi tab selanjutnya"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Lanjutan ekstensi sohor kini"
+msgstr "Lihat ekstensi sohor kini selanjutnya"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Lanjutan tema sorotan"
+msgstr "Lihat tema sorotan selanjutnya"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -850,24 +838,20 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "Penyekat iklan yang sangat cekap dan mudah untuk digunakan"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Lanjutan ekstensi sorotan"
+msgstr "Lihat ekstensi sorotan selanjutnya"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Ekstensi tahap tinggi"
+msgstr "Lihat ekstensi tahap tinggi selanjutnya"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Lanjutan tema sohor kini"
+msgstr "Lihat tema sohor kini selanjutnya"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Tema tahap tinggi"
+msgstr "Lihat tema tahap tinggi selanjutnya"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
