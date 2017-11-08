@@ -398,15 +398,7 @@ describe('i18n utils', () => {
       }
     }
 
-    beforeEach(() => {
-      // FIXME: Our moment is not immutable so we reset it before each test.
-      // This is annoying to work around because of the locale `require()`s
-      // and it only affects tests so it'd be nice to fix but doesn't break
-      // anything.
-      moment.locale('en');
-    });
-
-    it('adds a localised moment to the i18n object', () => {
+    it('adds a localised moment function to the i18n object', () => {
       const i18nData = {};
       const i18n = utils.makeI18n(i18nData, 'en-US', FakeJed);
       expect(i18n.moment).toBeTruthy();
@@ -486,6 +478,13 @@ describe('i18n utils', () => {
       expect(i18n.formatNumber(number)).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
+    });
+
+    it('always returns a scoped moment instance', () => {
+      const i18n = utils.makeI18n({}, 'fr', FakeJed);
+      // We modify the moment locale, globally.
+      moment.locale('de');
+      expect(i18n.moment.locale()).toEqual('fr');
     });
   });
 });
