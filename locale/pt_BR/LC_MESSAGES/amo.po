@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 03:10+0000\n"
+"PO-Revision-Date: 2017-11-08 03:26+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -452,14 +452,12 @@ msgid "Creator"
 msgstr "Criador"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Sinalize essa resposta do desenvolvedor"
+msgstr "Ajudar este desenvolvedor"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Mais extensões por estes desenvolvedores"
+msgstr "Ajudar estes desenvolvedores"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -470,14 +468,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Site de suporte"
+msgstr "Ajudar este artista"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Mais temas por estes artistas"
+msgstr "Ajudar estes artistas"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -488,14 +484,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Site de suporte"
+msgstr "Ajudar este autor"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Mais temas por %(author)s"
+msgstr "Ajudar estes autores"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -764,9 +758,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mude a aparência do Firefox com temas."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Mais extensões populares"
+msgstr "Extensões mais populares"
 
 #: src/amo/components/Home/index.js:194
 msgid "See more popular extensions"
@@ -777,9 +770,8 @@ msgid "Change up your tabs"
 msgstr "Mude suas abas"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Pesquisar extensões"
+msgstr "Veja mais extensões para abas"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
