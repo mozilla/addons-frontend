@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 16:58+0000\n"
+"PO-Revision-Date: 2017-11-08 20:17+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -371,18 +371,16 @@ msgid "Add-ons for Firefox"
 msgstr "תוספות עבור Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - תוספות ל־Firefox"
+msgstr "%s – תוספות עבור Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "תוספות עבור אנדרואיד"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - תוספות עבור Android"
+msgstr "%s – תוספות עבור אנדרואיד"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -765,23 +763,20 @@ msgid "Change the way Firefox looks with themes."
 msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "הרחבות פופולריות נוספות"
+msgstr "ההרחבות הפופולריות ביותר"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "הרחבות פופולריות נוספות"
+msgstr "צפייה בהרחבות פופולריות נוספות"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr "שינוי הלשוניות שלך"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "חיפוש הרחבות"
+msgstr "צפייה בהרחבות לשונית נוספות"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
 #, fuzzy
@@ -789,9 +784,8 @@ msgid "See more trending extensions"
 msgstr "ההרחבות שמובילות לאחרונה"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
-msgstr "ערכות נושא מומלצות נוספות"
+msgstr "צפייה בערכות נושא מומלצות נוספות"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -846,9 +840,8 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "חוסם פרסומות עוצמתי ביותר הקל לשימוש"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "הרחבות מומלצות נוספות"
+msgstr "צפייה בהרחבות מומלצות נוספות"
 
 #: src/amo/components/LandingPage/index.js:144
 #, fuzzy
