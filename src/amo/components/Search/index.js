@@ -34,6 +34,7 @@ import './styles.scss';
 export class SearchBase extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
+    context: PropTypes.string.isRequired,
     count: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
     enableSearchFilters: PropTypes.bool,
@@ -73,7 +74,8 @@ export class SearchBase extends React.Component {
   }
 
   dispatchSearch({ newFilters = {}, oldFilters = {} } = {}) {
-    const { dispatch, errorHandler } = this.props;
+    const { context, dispatch, errorHandler } = this.props;
+    const { addonType } = newFilters;
 
     if (hasSearchFilters(newFilters) && !deepEqual(oldFilters, newFilters)) {
       dispatch(searchStart({
@@ -81,12 +83,13 @@ export class SearchBase extends React.Component {
         filters: newFilters,
       }));
 
-      const { addonType } = newFilters;
       if (addonType) {
         dispatch(setViewContext(addonType));
-      } else {
-        dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
       }
+    }
+
+    if (!addonType && context !== VIEW_CONTEXT_EXPLORE) {
+      dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
     }
   }
 
@@ -225,6 +228,7 @@ export class SearchBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    context: state.viewContext.context,
     count: state.search.count,
     filtersUsedForResults: state.search.filters,
     loading: state.search.loading,

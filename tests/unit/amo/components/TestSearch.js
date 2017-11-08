@@ -32,6 +32,7 @@ describe(__filename, () => {
 
   beforeEach(() => {
     props = {
+      context: VIEW_CONTEXT_EXPLORE,
       count: 80,
       dispatch: sinon.stub(),
       errorHandler: createStubErrorHandler(),
@@ -140,16 +141,6 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
-  });
-
-  it('sets the viewContext to exploring if no addonType found', () => {
-    const fakeDispatch = sinon.stub();
-    const filters = { query: 'test' };
-
-    render({ count: 0, dispatch: fakeDispatch, filters });
-
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
   it('should render an error', () => {
@@ -272,11 +263,32 @@ describe(__filename, () => {
     expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
   });
 
+  it('sets the viewContext to exploring if viewContext has changed', () => {
+    const fakeDispatch = sinon.stub();
+    const filters = {};
+
+    render({ context: ADDON_TYPE_EXTENSION, dispatch: fakeDispatch, filters });
+
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+  });
+
+  it('does not set the viewContext if already set to exploring', () => {
+    const fakeDispatch = sinon.stub();
+    const filters = {};
+
+    render({ context: ADDON_TYPE_EXTENSION, dispatch: fakeDispatch, filters });
+
+    sinon.assert.calledWith(
+      fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
+  });
+
   describe('mapStateToProps()', () => {
     const { state } = dispatchClientMetadata();
 
     it('returns count, loading, and results', () => {
       expect(mapStateToProps(state)).toEqual({
+        context: state.viewContext.context,
         count: state.search.count,
         filtersUsedForResults: state.search.filters,
         loading: state.search.loading,
