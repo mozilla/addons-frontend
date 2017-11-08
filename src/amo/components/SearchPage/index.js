@@ -9,6 +9,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
 } from 'core/constants';
 import { makeQueryString } from 'core/api';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
@@ -48,6 +49,9 @@ export class SearchPageBase extends React.Component<Props> {
           break;
         case '5':
           newFilters.addonType = ADDON_TYPE_LANG;
+          break;
+        case '9':
+          newFilters.addonType = ADDON_TYPE_THEME;
           break;
         default:
           return;
