@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 10:31+0000\n"
+"PO-Revision-Date: 2017-11-08 10:38+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -37,34 +37,28 @@ msgid "Rate your experience"
 msgstr "Wurdearje jo ûnderfining"
 
 #: src/amo/components/Addon/index.js:266
-#, fuzzy
 msgid "About this dictionary"
-msgstr "Meld jo oan om dit wurdboek te wurdearjen"
+msgstr "Oer dit wurdboek"
 
 #: src/amo/components/Addon/index.js:269
-#, fuzzy
 msgid "About this extension"
-msgstr "Meld jo oan om dizze útwreiding te wurdearjen"
+msgstr "Oer dizze útwreiding"
 
 #: src/amo/components/Addon/index.js:272
-#, fuzzy
 msgid "About this language pack"
-msgstr "Meld jo oan om dit taalpakket te wurdearjen"
+msgstr "Oer dit taalpakket"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Meld jo oan om dizze sykynstekker te wurdearjen"
+msgstr "Oer dizze sykynstekker"
 
 #: src/amo/components/Addon/index.js:278
-#, fuzzy
 msgid "About this theme"
-msgstr "Meld jo oan om dit tema te wurdearjen"
+msgstr "Oer dit tema"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "Oer dizze %(addonType)s"
+msgstr "Oer dizze add-on"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -377,7 +371,6 @@ msgid "Add-ons for Firefox"
 msgstr "Add-ons foar Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Add-ons foar Firefox"
 
@@ -386,7 +379,6 @@ msgid "Add-ons for Android"
 msgstr "Add-ons foar Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
 msgstr "%s - Add-ons foar Android"
 
@@ -460,14 +452,12 @@ msgid "Creator"
 msgstr "Auteur"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Dit antwurd fan de ûntwikkeler markearje"
+msgstr "Dizze ûntwikkeler stypje"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Mear add-ons fan dizze ûntwikkelers"
+msgstr "Dizze ûntwikkelers stypje"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -478,14 +468,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "De ûnwikkelers fan dizze útwreiding freegje om stipe foar de trochgeande ûntwikkeling troch it meitsjen fan in lytse bydrage."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Stipewebsite"
+msgstr "Dizze keunstner stypje"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Mear tema’s fan dizze kuenstners"
+msgstr "Dizze keunstners stypje"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -496,26 +484,24 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "De keunstners fan dit tema freegje om stipe foar de trochgeande kreaasje troch it meitsjen fan in lytse bydrage."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Stipewebsite"
+msgstr "Dizze auteur stypje"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Mear tema’s fan %(author)s"
+msgstr "Dizze auteurs stypje"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "De auteur fan dizze add-on freget om stipe foar de trochgeande ûntwikkeling troch it meitsjen fan in lytse bydrage."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "De auteurs fan dizze add-on freegje om stipe foar de trochgeande ûntwikkeling troch it meitsjen fan in lytse bydrage."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "No bydrage"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -774,12 +760,10 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Wizigje it úterlik fan Firefox mei tema’s."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Mear populêre útwreidingen"
+msgstr "Meast populêre útwreidingen"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
 msgstr "Mear populêre útwreidingen"
 
@@ -788,17 +772,14 @@ msgid "Change up your tabs"
 msgstr "Jo ljepblêden wizigje"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Utwreidingen sykje"
+msgstr "Mear ljepblêdútwreidingen"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
 msgstr "Mear oanrekommandearre útwreidingen"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
 msgstr "Mear oanrekommandearre tema’s"
 
@@ -855,24 +836,20 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "In ekstreem krêftige adblocker dy't ienfâldichwei te brûken is"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
 msgstr "Mear oanrekommandearre útwreidingen"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Heechst wurdearre útwreidingen"
+msgstr "Mear heechst wurdearre útwreidingen"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
 msgstr "Mear oanrekommandearre tema’s"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Heechst wurdearre tema's"
+msgstr "Mear heechst wurdearre tema's"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
