@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 03:26+0000\n"
+"PO-Revision-Date: 2017-11-08 03:36+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -763,7 +763,7 @@ msgstr "Extensões mais populares"
 
 #: src/amo/components/Home/index.js:194
 msgid "See more popular extensions"
-msgstr "Veja mais extensões populares"
+msgstr "Mais extensões populares"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
@@ -771,15 +771,15 @@ msgstr "Mude suas abas"
 
 #: src/amo/components/Home/index.js:209
 msgid "See more tab extensions"
-msgstr "Veja mais extensões para abas"
+msgstr "Mais extensões para abas"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
-msgstr "Veja mais extensões em destaque"
+msgstr "Mais extensões em destaque"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
-msgstr "Veja mais temas em destaque"
+msgstr "Mais temas em destaque"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -835,19 +835,19 @@ msgstr "Um bloqueador de anúncios extremamente poderoso que é simples de usar"
 
 #: src/amo/components/LandingPage/index.js:129
 msgid "See more featured extensions"
-msgstr "Veja mais extensões em destaque"
+msgstr "Mais extensões em destaque"
 
 #: src/amo/components/LandingPage/index.js:144
 msgid "See more top rated extensions"
-msgstr "Veja mais extensões melhor avaliadas"
+msgstr "Mais extensões melhor avaliadas"
 
 #: src/amo/components/LandingPage/index.js:161
 msgid "See more trending themes"
-msgstr "Veja mais temas em destaque"
+msgstr "Mais temas em destaque"
 
 #: src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
-msgstr "Veja mais temas melhor avaliados"
+msgstr "Mais temas melhor avaliados"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
