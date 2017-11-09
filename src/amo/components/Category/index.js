@@ -165,7 +165,7 @@ export class CategoryBase extends React.Component {
             featured: true,
           },
         },
-        featuredFooterText: i18n.gettext('See more'),
+        featuredFooterText: i18n.gettext('See more featured themes'),
         trendingHeader: i18n.gettext('Trending themes'),
         trendingFooterLink: {
           pathname: '/search/',
@@ -175,7 +175,7 @@ export class CategoryBase extends React.Component {
             sort: SEARCH_SORT_TRENDING,
           },
         },
-        trendingFooterText: i18n.gettext('See more'),
+        trendingFooterText: i18n.gettext('See more trending themes'),
         highlyRatedHeader: i18n.gettext('Top rated themes'),
         highlyRatedFooterLink: {
           pathname: '/search/',
@@ -185,7 +185,7 @@ export class CategoryBase extends React.Component {
             sort: SEARCH_SORT_TOP_RATED,
           },
         },
-        highlyRatedFooterText: i18n.gettext('See more'),
+        highlyRatedFooterText: i18n.gettext('See more top rated themes'),
       },
     };
 
