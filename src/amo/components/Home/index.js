@@ -170,7 +170,11 @@ export class HomeBase extends React.Component {
 
     return (
       <div className="Home">
-        <span data-comment="For-IT" dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }} />
+        <span
+          data-comment="For-IT"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }}
+        />
 
         {errorHandler.renderErrorIfPresent()}
 
