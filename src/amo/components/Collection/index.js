@@ -11,9 +11,11 @@ import {
   fetchCollectionPage,
 } from 'amo/reducers/collections';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { COLLECTIONS_EDIT } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
+import { hasPermission } from 'core/reducers/user';
 import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -24,6 +26,7 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import type { UserStateType } from 'core/reducers/user';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
@@ -34,6 +37,7 @@ type Props = {|
   collection: CollectionType | null,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
+  hasEditPermission: boolean,
   i18n: I18nType,
   loading: boolean,
   location: ReactRouterLocation,
@@ -120,7 +124,13 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   renderCollection() {
-    const { collection, i18n, loading, location } = this.props;
+    const {
+      collection,
+      hasEditPermission,
+      i18n,
+      loading,
+      location,
+    } = this.props;
 
     const addons = collection ? collection.addons : [];
 
@@ -151,13 +161,20 @@ export class CollectionBase extends React.Component<Props> {
               },
             ]}
           />
+          {hasEditPermission && (
+            <p className="Collection-edit-link">
+              <Link href={`${this.url()}/edit/`}>
+                {i18n.gettext('Edit this collection')}
+              </Link>
+            </p>
+          )}
         </Card>
         <div className="Collection-items">
           <AddonsCard
             addons={addons}
             loading={!collection || loading}
           />
-          {collection && (
+          {collection && collection.numberOfAddons > 0 && (
             <Paginate
               LinkComponent={Link}
               count={collection.numberOfAddons}
@@ -197,10 +214,22 @@ export class CollectionBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: { collections: CollectionsState }) => {
+export const mapStateToProps = (
+  state: {| collections: CollectionsState, user: UserStateType |}
+) => {
+  const { current: collection, loading } = state.collections;
+
+  let hasEditPermission = false;
+
+  if (collection) {
+    hasEditPermission = collection.authorId === state.user.id ||
+      hasPermission(state, COLLECTIONS_EDIT);
+  }
+
   return {
-    collection: state.collections.current,
-    loading: state.collections.loading,
+    collection,
+    loading,
+    hasEditPermission,
   };
 };
 

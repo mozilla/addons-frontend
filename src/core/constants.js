@@ -235,3 +235,5 @@ export const THEMES_REVIEW = 'Personas:Review';
 export const STATS_VIEW = 'Stats:View';
 // Admin super powers. Very few users will have this permission.
 export const ADMIN_SUPER_POWERS = 'Admin:%';
+// Can edit all collections.
+export const COLLECTIONS_EDIT = 'Collections:Edit';

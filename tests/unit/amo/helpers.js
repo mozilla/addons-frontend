@@ -305,11 +305,15 @@ export function dispatchAutocompleteResults({
   return { store };
 }
 
-export const createFakeCollectionDetail = ({ name = 'My Addons' } = {}) => {
+export const createFakeCollectionDetail = ({
+  name = 'My Addons',
+  count = 123,
+  authorId = 99999,
+} = {}) => {
   return {
-    addon_count: 123,
+    addon_count: count,
     author: {
-      id: Date.now(),
+      id: authorId,
       name: 'John Doe',
       url: 'http://olympia.dev/en-US/firefox/user/johndoe/',
       username: 'johndoe',
