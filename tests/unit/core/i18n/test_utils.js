@@ -482,7 +482,8 @@ describe('i18n utils', () => {
 
     it('always returns a scoped moment instance', () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed);
-      // We modify the moment locale, globally.
+      // Modifying the locale globally below does not affect the instance
+      // created previously.
       moment.locale('de');
       expect(i18n.moment().locale()).toEqual('fr');
     });
