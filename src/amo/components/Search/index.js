@@ -246,6 +246,8 @@ export function mapStateToProps(state) {
   };
 }
 
+// This ID does not need to differentiate between component instances because
+// the error handler gets cleared every time the search filters change.
 export const extractId = (ownProps) => {
   return parsePage(ownProps.filters.page);
 };

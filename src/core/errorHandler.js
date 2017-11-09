@@ -11,6 +11,10 @@ function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
 }
 
+// We need this function to retrieve a relative path based on `__filename` on
+// both the server and client sides. The polyfill for `__filename` on the
+// client returns a relative path but `__filename` on the server is an absolute
+// path.
 export const normalizeFileNameId = (filename) => {
   let fileId = filename;
   if (!fileId.startsWith('src')) {

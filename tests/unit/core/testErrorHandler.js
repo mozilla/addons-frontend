@@ -430,6 +430,7 @@ describe(__filename, () => {
 
     it('creates an error handler with a fixed ID', () => {
       const { component } = createFixedErrorComponent({
+        fileName: '/path/to/src/SomeComponent/index.js',
         extractId: () => 'unique-id-based-on-props',
       });
       const errorHandler = component.props.errorHandler;
