@@ -1318,7 +1318,7 @@ describe(__filename, () => {
 
   describe('errorHandler - extractId', () => {
     it('generates a unique ID based on the add-on slug', () => {
-      const props = { params: { slug: 'some-slug' } };
+      const props = renderProps({ params: { slug: 'some-slug' } });
       expect(extractId(props)).toEqual('some-slug');
     });
   });

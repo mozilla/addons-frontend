@@ -13,6 +13,7 @@ import translate from 'core/i18n/translate';
 import { clearError, setError } from 'core/actions/errors';
 import {
   ErrorHandler,
+  normalizeFileNameId,
   withErrorHandler,
   withFixedErrorHandler,
   withRenderedErrorHandler,
@@ -394,41 +395,66 @@ describe(__filename, () => {
   });
 
   describe('withFixedErrorHandler', () => {
-    const fileName = '/path/to/src/SomeComponent/index.js';
+    const createFixedErrorComponent = (params = {}) => {
+      return createWrappedComponent({
+        decorator: withFixedErrorHandler,
+        fileName: '/path/to/src/SomeComponent/index.js',
+        ...params,
+      });
+    };
 
     it('throws an error when `extractId` is missing', () => {
       expect(() => {
-        createWrappedComponent({
-          decorator: withFixedErrorHandler,
-          // Passed to the HOC.
-          fileName,
+        createFixedErrorComponent({
           extractId: null,
         });
       }).toThrow('`extractId` is required and must be a function.');
     });
 
+    it('throws an error when `fileName` is not supplied', () => {
+      expect(() => {
+        createFixedErrorComponent({
+          fileName: undefined,
+          extractId: {},
+        });
+      }).toThrow('`fileName` parameter is required.');
+    });
+
     it('throws an error when `extractId` is not a function', () => {
       expect(() => {
-        createWrappedComponent({
-          decorator: withFixedErrorHandler,
-          // Passed to the HOC.
-          fileName,
+        createFixedErrorComponent({
           extractId: {},
         });
       }).toThrow('`extractId` is required and must be a function.');
     });
 
     it('creates an error handler with a fixed ID', () => {
-      const { component } = createWrappedComponent({
-        decorator: withFixedErrorHandler,
-        // Passed to the HOC.
-        fileName,
+      const { component } = createFixedErrorComponent({
         extractId: () => 'unique-id-based-on-props',
       });
       const errorHandler = component.props.errorHandler;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id)
         .toEqual('src/SomeComponent/index.js-unique-id-based-on-props');
+    });
+  });
+
+  describe('normalizeFileNameId', () => {
+    it('returns a path relative to the project root directory', () => {
+      expect(normalizeFileNameId('/path/to/src/foo/index.js'))
+        .toEqual('src/foo/index.js');
+    });
+
+    it('returns the given filename if `src` is not in it', () => {
+      const filename = 'tests/unit/core/utils/test_index.js';
+
+      expect(normalizeFileNameId(filename)).toEqual(filename);
+    });
+
+    it('does not strip `src` in a given relative filename', () => {
+      const filename = 'src/file.js';
+
+      expect(normalizeFileNameId(filename)).toEqual(filename);
     });
   });
 });

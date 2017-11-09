@@ -32,7 +32,6 @@ import {
   getCategoryColor,
   getClientApp,
   getClientConfig,
-  getRelativePath,
   isAddonAuthor,
   isAllowedOrigin,
   isValidClientApp,
@@ -855,19 +854,6 @@ describe(__filename, () => {
       expect(sanitizeHTML(html, ['a'])).toEqual({
         __html: '<a href="http://example.org">link</a>',
       });
-    });
-  });
-
-  describe('getRelativePath', () => {
-    it('returns a path relative to the project root directory', () => {
-      expect(getRelativePath('/path/to/src/foo/index.js'))
-        .toEqual('src/foo/index.js');
-    });
-
-    it('returns the given filename if `src` is not in it', () => {
-      const filename = 'tests/unit/core/utils/test_index.js';
-
-      expect(getRelativePath(filename)).toEqual(filename);
     });
   });
 });

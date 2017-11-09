@@ -366,12 +366,3 @@ export function addonHasVersionHistory(addon) {
     ADDON_TYPE_THEME,
   ].includes(addon.type);
 }
-
-export const getRelativePath = (filename) => {
-  let fileId = filename;
-  if (!fileId.startsWith('src')) {
-    fileId = fileId.replace(/^.*src/, 'src');
-  }
-
-  return fileId;
-};

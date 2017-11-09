@@ -5,12 +5,20 @@ import { oneLine } from 'common-tags';
 
 import { clearError, setError } from 'core/actions/errors';
 import log from 'core/logger';
-import { getRelativePath } from 'core/utils';
 import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
 }
+
+export const normalizeFileNameId = (filename) => {
+  let fileId = filename;
+  if (!fileId.startsWith('src')) {
+    fileId = fileId.replace(/^.*src/, 'src');
+  }
+
+  return fileId;
+};
 
 /*
  * Error handling utility for components.
@@ -172,15 +180,18 @@ export function withErrorHandler({ name, id, extractId = null }) {
  *
  * The `extractId` function is used to create a unique error handler per
  * rendered component. This function takes the component's props and must
- * return a unique value based on these props (e.g., based on the `slug`,
+ * return a unique string based on these props (e.g., based on the `slug`,
  * `uniqueId`, `page`, etc.).
  */
 export const withFixedErrorHandler = ({ fileName, extractId }) => {
+  if (!fileName) {
+    throw new Error('`fileName` parameter is required.');
+  }
   if (typeof extractId !== 'function') {
     throw new Error('`extractId` is required and must be a function.');
   }
 
-  return withErrorHandler({ name: getRelativePath(fileName), extractId });
+  return withErrorHandler({ name: normalizeFileNameId(fileName), extractId });
 };
 
 /*

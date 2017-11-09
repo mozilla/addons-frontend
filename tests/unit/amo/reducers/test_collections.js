@@ -154,16 +154,13 @@ describe(__filename, () => {
     });
 
     it('resets the state when fetching is aborted', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(fetchCollectionPage({
+      const state = reducer(undefined, fetchCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const state = store.getState().collections;
       expect(state.loading).toEqual(true);
       expect(state.current.addons).toEqual([]);
 
