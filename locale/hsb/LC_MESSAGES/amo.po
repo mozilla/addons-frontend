@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 19:31+0000\n"
+"PO-Revision-Date: 2017-11-09 19:46+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -39,34 +39,28 @@ msgid "Rate your experience"
 msgstr "Pohódnoćće swoje dožiwjenje"
 
 #: src/amo/components/Addon/index.js:266
-#, fuzzy
 msgid "About this dictionary"
-msgstr "Přizjewće so, zo byšće tutón słownik pohódnoćił"
+msgstr "Wo tutym słowniku"
 
 #: src/amo/components/Addon/index.js:269
-#, fuzzy
 msgid "About this extension"
-msgstr "Přizjewće so, zo byšće tute rozšěrjenje pohódnoćił"
+msgstr "Wo tutym rozšěrjenju"
 
 #: src/amo/components/Addon/index.js:272
-#, fuzzy
 msgid "About this language pack"
-msgstr "Přizjewće so, zo byšće tutón rěčny pakćik pohódnoćił"
+msgstr "Wo tutym rěčnym pakćiku"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Přizjewće so, zo byšće tutu pytawu pohódnoćił"
+msgstr "Wo tutym pytanskim tykaču"
 
 #: src/amo/components/Addon/index.js:278
-#, fuzzy
 msgid "About this theme"
-msgstr "Přizjewće so, zo byšće tutu drastu pohódnoćił"
+msgstr "Wo tutej drasće"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "Wo tutym %(addonType)s"
+msgstr "Wo tutym přidatku"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -385,18 +379,16 @@ msgid "Add-ons for Firefox"
 msgstr "Přidatki za Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Přidatki za Firefox"
+msgstr "%s – Přidatki za Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Přidatki za Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - Přidatki za Android"
+msgstr "%s – Přidatki za Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -468,58 +460,52 @@ msgid "Creator"
 msgstr "Wuwiwar"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Tutu wotmołwu wuwiwarja woznamjenić"
+msgstr "Tutoho wuwiwarja podpěrać"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Wjace přidatkow wo tutych wuwiwarjow"
+msgstr "Tutych wuwiwarjow podpěrać"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr "Wuwiwar tutoho rozšěrjenja was prosy, mały přinošk darić, zo byšće jeho wuwiće popděrał."
+msgstr "Wuwiwar tutoho rozšěrjenja was prosy, mały přinošk darić, zo byšće jeho wuwiće podpěrał."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr "Wuwiwarjo tutoho rozšěrjenja was prosy, mały přinošk darić, zo byšće jeho wuwiće popděrał."
+msgstr "Wuwiwarjo tutoho rozšěrjenja was prosy, mały přinošk darić, zo byšće jeho wuwiće podpěrał."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Sydło pomocy"
+msgstr "Tutoho wuměłca podpěrać"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Wjace drastow wot tutych wuměłcow"
+msgstr "Tutych wuměłcow podpěrać"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Wuměłc tuteje draty was prosy, mały přinošk darić, zo byšće jeho wutworjenje podpěrał."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Wuměłcy tuteje draty was prosy, mały přinošk darić, zo byšće jeho wutworjenje podpěrał."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Sydło pomocy"
+msgstr "Tutoho awtora podpěrać"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Wjace drastow wot %(author)s"
+msgstr "Tutych awtorow podpěrać"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Awtor tutoho přidatka was prosy, mały přinošk darić, zo byšće jeho dźěło podpěrał."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Awtorojo tutoho přidatka was prosy, mały přinošk darić, zo byšće jeho dźěło podpěrał."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
@@ -786,33 +772,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Změńće wonkowny napohlad Firefox přez drasty."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Dalše woblubowane rozšěrjenja"
+msgstr "Najbóle woblubowane rozšěrjenja"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Dalše woblubowane rozšěrjenja"
+msgstr "Dalše woblubowane rozšěrjenja sej wobhladać"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr "Změńće swoje rajtarki"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Rozšěrjenja pytać"
+msgstr "Dalše rajtarkowe rozšěrjenja sej wobhladać"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Dalše woblubowane rozšěrjenja"
+msgstr "Dalše tuchwilu woblubowane rozšěrjenja sej wobhladać"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Dalše předstajene drasty"
+msgstr "Dalše předstajene drasty sej wobhladać"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -867,24 +848,20 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "Jara mócny wabjenski blokowak, kotryž da so jednorje wužiwać"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Dalše předstajene rozšěrjenja"
+msgstr "Dalše předstajene rozšěrjenja sej wobhladać"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Najwyše pohódnoćene rozšěrjenja"
+msgstr "Dalše najwyše pohódnoćene rozšěrjenja sej wobhladać"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Dalše woblubowane drasty"
+msgstr "Dalše tuchwilu woblubowane drasty sej wobhladać"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Wysoko pohódnoćene drasty"
+msgstr "Dalše najwyše pohódnoćene drasty sej wobhladać"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
