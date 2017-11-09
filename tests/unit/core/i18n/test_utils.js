@@ -487,5 +487,10 @@ describe('i18n utils', () => {
       moment.locale('de');
       expect(i18n.moment().locale()).toEqual('fr');
     });
+
+    it('formats a date', () => {
+      const i18n = utils.makeI18n({}, 'fr', FakeJed);
+      expect(i18n.moment('1988-09-22').format('ll')).toEqual('22 sept. 1988');
+    });
   });
 });
