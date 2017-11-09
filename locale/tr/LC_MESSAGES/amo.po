@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 11:52+0000\n"
+"PO-Revision-Date: 2017-11-09 22:30+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -259,11 +259,11 @@ msgstr "Daha fazla bilgi"
 
 #: src/amo/components/AddonMoreInfo/index.js:51
 msgid "Homepage"
-msgstr "Ana Sayfa"
+msgstr "Ana sayfa"
 
 #: src/amo/components/AddonMoreInfo/index.js:60
 msgid "Support Site"
-msgstr "Destek Sitesi"
+msgstr "Destek sitesi"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
 msgid "Support Email"
@@ -374,7 +374,7 @@ msgstr "%s – Firefox Eklentileri"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
-msgstr "Android Eklentileri"
+msgstr "Android eklentileri"
 
 #: src/amo/components/App/index.js:210
 msgid "%s – Add-ons for Android"
@@ -439,7 +439,7 @@ msgstr "Bu kategorideki tüm eklentilere bak."
 
 #: src/amo/components/CategoryHeader/index.js:51
 msgid "Browse all themes in this category."
-msgstr "Bu kategorideki tüm temalara bak."
+msgstr "Bu kategorideki tüm temalara bakın."
 
 #: src/amo/components/Collection/index.js:137 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -611,11 +611,11 @@ msgstr "Uygunsuz dil olarak işaretlendi"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr "Android tarayıcı"
+msgstr "Android tarayıcısı"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr "iOS tarayıcı"
+msgstr "iOS tarayıcısı"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
@@ -661,7 +661,7 @@ msgstr "Hakkında"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr "Günlük"
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -677,7 +677,7 @@ msgstr "Hata bildir"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr "İnceleme Rehberi"
+msgstr "İnceleme rehberi"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -1074,7 +1074,7 @@ msgstr "İlgi"
 
 #: src/amo/components/SearchFilters/index.js:122
 msgid "Recently Updated"
-msgstr "Son Güncellenenler"
+msgstr "Son güncellenenler"
 
 #: src/amo/components/SearchFilters/index.js:123
 msgid "Most Users"
@@ -1094,7 +1094,7 @@ msgstr "Sonuçları filtrele"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Sort by"
-msgstr "Sırala"
+msgstr "Sıralama"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Add-on Type"
@@ -1106,7 +1106,7 @@ msgstr "İşletim sistemi"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Featured add-ons only"
-msgstr "Yalnızca önce çıkan eklentiler"
+msgstr "Yalnızca öne çıkan eklentiler"
 
 #: src/amo/components/SearchForm/index.js:188
 msgid "Go to the add-on page"
