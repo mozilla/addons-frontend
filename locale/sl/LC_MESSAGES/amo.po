@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 15:49+0000\n"
+"PO-Revision-Date: 2017-11-09 15:46+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -140,7 +140,7 @@ msgstr "Poskusen"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Ni združljiv s Firefox Quantumom"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
