@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 06:32+0000\n"
-"Last-Translator: Rok Žerdin <rok.zerdin1990@gmail.com>\n"
+"PO-Revision-Date: 2017-11-09 14:24+0000\n"
+"Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
@@ -47,14 +47,12 @@ msgid "About this extension"
 msgstr "O tej razširitvi"
 
 #: src/amo/components/Addon/index.js:272
-#, fuzzy
 msgid "About this language pack"
-msgstr "Prijavite se, da ocenite ta jezikovni paket"
+msgstr "O tem jezikovnem paketu"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Prijavite se, da ocenite ta iskalnik"
+msgstr "O tem iskalniku"
 
 #: src/amo/components/Addon/index.js:278
 msgid "About this theme"
