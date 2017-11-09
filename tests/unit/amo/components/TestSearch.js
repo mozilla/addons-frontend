@@ -1,7 +1,12 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 
-import { SearchBase, mapStateToProps } from 'amo/components/Search';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import Search, {
+  SearchBase,
+  extractId,
+  mapStateToProps,
+} from 'amo/components/Search';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { setViewContext } from 'amo/actions/viewContext';
@@ -16,12 +21,18 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
+import { createApiError } from 'core/api/index';
+import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
   dispatchSearchResults,
 } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, fakeI18n } from 'tests/unit/helpers';
+import {
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 describe(__filename, () => {
   let props;
@@ -260,7 +271,8 @@ describe(__filename, () => {
   it('renders an HTML title for search query', () => {
     const filters = { query: 'some terms' };
     const wrapper = render({ filters });
-    expect(wrapper.find('title')).toHaveText('Search results for "some terms"');
+    expect(wrapper.find('title'))
+      .toHaveText('Search results for "some terms"');
   });
 
   it('sets the viewContext to exploring if viewContext has changed', () => {
@@ -283,6 +295,26 @@ describe(__filename, () => {
       fakeDispatch, setViewContext(VIEW_CONTEXT_EXPLORE));
   });
 
+  it('returns a Not Found page when error is 404', () => {
+    const store = dispatchClientMetadata().store;
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
+      response: { status: 404 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'Nope.' },
+    }));
+
+    const wrapper = shallowUntilTarget(
+      <Search {...{ ...props, errorHandler, store }} />,
+      SearchBase
+    );
+    expect(wrapper.find(NotFound)).toHaveLength(1);
+  });
+
   describe('mapStateToProps()', () => {
     const { state } = dispatchClientMetadata();
 
@@ -294,6 +326,32 @@ describe(__filename, () => {
         loading: state.search.loading,
         results: state.search.results,
       });
+    });
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('generates a unique ID based on the page filter', () => {
+      const ownProps = {
+        ...props,
+        filters: {
+          ...props.filters,
+          page: 123,
+        },
+      };
+
+      expect(extractId(ownProps)).toEqual(123);
+    });
+
+    it('generates a unique ID even when there is no page filter', () => {
+      const ownProps = {
+        ...props,
+        filters: {
+          ...props.filters,
+          page: undefined,
+        },
+      };
+
+      expect(extractId(ownProps)).toEqual(1);
     });
   });
 });

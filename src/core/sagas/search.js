@@ -8,6 +8,7 @@ import { searchLoad } from 'core/actions/search';
 import { search as searchApi } from 'core/api/search';
 import { SEARCH_STARTED } from 'core/constants';
 import log from 'core/logger';
+import { abortSearch } from 'core/reducers/search';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import { parsePage } from 'core/utils';
 
@@ -36,6 +37,7 @@ export function* fetchSearchResults({ payload }) {
   } catch (error) {
     log.warn(`Search results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+    yield put(abortSearch());
   }
 }
 

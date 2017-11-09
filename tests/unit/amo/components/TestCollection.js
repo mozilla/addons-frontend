@@ -2,6 +2,7 @@ import React from 'react';
 
 import Collection, {
   CollectionBase,
+  extractId,
   mapStateToProps,
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
@@ -34,7 +35,7 @@ describe(__filename, () => {
   const defaultUser = defaultCollectionDetail.author.username;
   const defaultSlug = defaultCollectionDetail.slug;
 
-  const getProps = () => ({
+  const getProps = ({ ...otherProps } = {}) => ({
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
@@ -44,6 +45,7 @@ describe(__filename, () => {
       slug: defaultSlug,
     },
     store: dispatchClientMetadata().store,
+    ...otherProps,
   });
 
   const renderComponent = ({ ...otherProps } = {}) => {
@@ -422,40 +424,6 @@ describe(__filename, () => {
       .toHaveLength(0);
   });
 
-  it('renders NotFound page for unauthorized collection - 401 error', () => {
-    const store = dispatchClientMetadata().store;
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(createApiError({
-      response: { status: 401 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'unauthorized' },
-    }));
-
-    const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(NotFound)).toHaveLength(1);
-  });
-
-  it('renders NotFound page for forbidden collection - 403 error', () => {
-    const store = dispatchClientMetadata().store;
-
-    const errorHandler = new ErrorHandler({
-      id: 'some-error-handler-id',
-      dispatch: store.dispatch,
-    });
-    errorHandler.handle(createApiError({
-      response: { status: 403 },
-      apiURL: 'https://some/api/endpoint',
-      jsonResponse: { message: 'forbidden' },
-    }));
-
-    const wrapper = renderComponent({ errorHandler, store });
-    expect(wrapper.find(NotFound)).toHaveLength(1);
-  });
-
   it('renders 404 page for missing collection', () => {
     const store = dispatchClientMetadata().store;
 
@@ -506,5 +474,31 @@ describe(__filename, () => {
   it('does not render an HTML when there is no collection loaded', () => {
     const wrapper = renderComponent();
     expect(wrapper.find('title')).toHaveLength(0);
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('returns a unique ID based on params', () => {
+      const props = getProps({
+        params: {
+          user: 'foo',
+          slug: 'collection-bar',
+        },
+        location: { query: {} },
+      });
+
+      expect(extractId(props)).toEqual('foo/collection-bar/1');
+    });
+
+    it('adds the page as part of unique ID', () => {
+      const props = getProps({
+        params: {
+          user: 'foo',
+          slug: 'collection-bar',
+        },
+        location: { query: { page: 124 } },
+      });
+
+      expect(extractId(props)).toEqual('foo/collection-bar/124');
+    });
   });
 });

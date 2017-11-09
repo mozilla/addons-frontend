@@ -2,6 +2,7 @@ import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   FETCH_COLLECTION,
   FETCH_COLLECTION_PAGE,
+  abortFetchCollection,
   loadCollection,
   loadCollectionPage,
 } from 'amo/reducers/collections';
@@ -42,6 +43,7 @@ export function* fetchCollection({
   } catch (error) {
     log.warn(`Collection failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+    yield put(abortFetchCollection());
   }
 }
 
@@ -71,6 +73,7 @@ export function* fetchCollectionPage({
   } catch (error) {
     log.warn(`Collection page failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+    yield put(abortFetchCollection());
   }
 }
 

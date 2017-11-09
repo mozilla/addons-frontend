@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
@@ -20,8 +21,9 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import {
   convertFiltersToQueryParams,
   hasSearchFilters,
@@ -176,6 +178,14 @@ export class SearchBase extends React.Component {
       results,
     } = this.props;
 
+    if (errorHandler.hasError()) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
+    }
+
     const page = parsePage(filters.page);
 
     // We allow specific paginationQueryParams instead of always using
@@ -236,8 +246,14 @@ export function mapStateToProps(state) {
   };
 }
 
+// This ID does not need to differentiate between component instances because
+// the error handler gets cleared every time the search filters change.
+export const extractId = (ownProps) => {
+  return parsePage(ownProps.filters.page);
+};
+
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Search' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(SearchBase);
