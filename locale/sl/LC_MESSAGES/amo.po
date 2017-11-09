@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 14:55+0000\n"
+"PO-Revision-Date: 2017-11-09 15:49+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -469,29 +469,27 @@ msgstr "Podpri te razvijalce"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Razvijalec te razširitve vas vabi, da podprete nadaljnji razvoj s skromnim prispevkom."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Razvijalci te razširitve vas vabijo, da podprete nadaljnji razvoj s skromnim prispevkom."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Stran s podporo"
+msgstr "Podpri tega ustvarjalca"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Več tem teh ustvarjalcev"
+msgstr "Podpri te ustvarjalce"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Ustvarjalec te teme vas vabi, da podprete nadaljnji razvoj s skromnim prispevkom."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Ustvarjalci te teme vas vabijo, da podprete nadaljnji razvoj s skromnim prispevkom."
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
@@ -503,15 +501,15 @@ msgstr "Podpri te avtorje"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Avtor tega dodatka vas vabi, da podprete nadaljnje delo s skromnim prispevkom."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Avtorji tega dodatka vas vabijo, da podprete nadaljnje delo s skromnim prispevkom."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "Prispevajte"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -784,17 +782,14 @@ msgid "Change up your tabs"
 msgstr "Spremenite svoje zavihke"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Iskanje po razširitvah"
+msgstr "Več razširitev za zavihke"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Več priljubljenih razširitev"
+msgstr "Več trenutno priljubljenih razširitev"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
 msgstr "Več izbranih tem"
 
@@ -851,24 +846,20 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "Izredno zmogljiva razširitev za zavračanje oglasov, preprosta za uporabo"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
 msgstr "Več izbranih razširitev"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Najbolje ocenjene razširitve"
+msgstr "Več najbolje ocenjenih razširitev"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Več priljubljenih tem"
+msgstr "Več trenutno priljubljenih tem"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Najbolje ocenjene teme"
+msgstr "Več najbolje ocenjenih tem"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
