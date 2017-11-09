@@ -855,7 +855,7 @@ describe(__filename, () => {
           ...fakeAddon,
           ratings: {
             ...fakeAddon.ratings,
-            count: ratingsCount,
+            text_count: ratingsCount,
           },
         }),
         ...customProps,
@@ -906,7 +906,7 @@ describe(__filename, () => {
           ...fakeAddon,
           ratings: {
             ...fakeAddon.ratings,
-            count: 2,
+            text_count: 2,
           },
         }),
       });

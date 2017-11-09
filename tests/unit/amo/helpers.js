@@ -88,8 +88,9 @@ export const fakeAddon = Object.freeze({
   }],
   public_stats: true,
   ratings: {
-    count: 10,
     average: 3.5,
+    count: 10,
+    text_count: 5,
   },
   requires_payment: false,
   review_url: 'https://addons.m.o/en-US/editors/review/2377',

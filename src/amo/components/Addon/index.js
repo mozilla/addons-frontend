@@ -211,8 +211,8 @@ export class AddonBase extends React.Component {
     let content;
     let footerPropName = 'footerText';
 
-    if (addon && addon.ratings.count) {
-      const count = addon.ratings.count;
+    if (addon && addon.ratings.text_count) {
+      const count = addon.ratings.text_count;
       const linkText = i18n.sprintf(
         i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
         { count: i18n.formatNumber(count) },

@@ -32,14 +32,18 @@ function* fetchReviews(
   try {
     const state = yield select(getState);
     const response = yield call(getReviews, {
+      addon: addonSlug,
+      api: state.api,
       // Hide star-only ratings (reviews that do not have a body).
-      api: state.api, addon: addonSlug, page, filter: 'without_empty_body',
+      filter: 'without_empty_body',
+      page,
     });
     yield put(setAddonReviews({
       addonSlug, reviews: response.results, reviewCount: response.count,
     }));
   } catch (error) {
-    log.warn(`Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
+    log.warn(
+      `Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }
