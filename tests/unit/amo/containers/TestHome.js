@@ -168,6 +168,11 @@ describe(__filename, () => {
     });
   });
 
+  it('renders a span with comment for IT', () => {
+    const root = render();
+    expect(root.find('[data-comment="For-IT"]')).toHaveLength(1);
+  });
+
   it('dispatches an action to fetch the add-ons to display', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;

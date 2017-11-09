@@ -170,8 +170,7 @@ export class HomeBase extends React.Component {
 
     return (
       <div className="Home">
-        {/* IT looks for this comment with nagios, don't remove it. */}
-        <span dangerouslySetInnerHTML={{ __html: '<!-- aww yeah -->' }} />
+        <span data-comment="For-IT" dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }} />
 
         {errorHandler.renderErrorIfPresent()}
 
