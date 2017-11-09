@@ -300,7 +300,5 @@ export function makeI18n(
     return scopedMoment;
   };
 
-  i18n.moment.locale = () => momentLocale;
-
   return i18n;
 }

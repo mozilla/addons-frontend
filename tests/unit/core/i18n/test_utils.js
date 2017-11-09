@@ -418,7 +418,7 @@ describe('i18n utils', () => {
         },
       };
       const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
-      expect(i18n.moment.locale()).toEqual('fr');
+      expect(i18n.moment().locale()).toEqual('fr');
       sinon.assert.called(i18nData.options._momentDefineLocale);
     });
 
@@ -431,7 +431,7 @@ describe('i18n utils', () => {
       };
 
       const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
-      expect(i18n.moment.locale()).toEqual('en');
+      expect(i18n.moment().locale()).toEqual('en');
     });
 
     it('always passes the locale to moment', () => {
@@ -442,7 +442,7 @@ describe('i18n utils', () => {
         },
       };
       const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
-      expect(i18n.moment.locale()).toEqual('fr');
+      expect(i18n.moment().locale()).toEqual('fr');
     });
 
     it('formats a number', () => {
@@ -484,7 +484,7 @@ describe('i18n utils', () => {
       const i18n = utils.makeI18n({}, 'fr', FakeJed);
       // We modify the moment locale, globally.
       moment.locale('de');
-      expect(i18n.moment.locale()).toEqual('fr');
+      expect(i18n.moment().locale()).toEqual('fr');
     });
   });
 });
