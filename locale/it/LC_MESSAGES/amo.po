@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 14:10+0000\n"
+"PO-Revision-Date: 2017-11-09 14:05+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -37,18 +37,16 @@ msgid "Rate your experience"
 msgstr "Valuta la tua esperienza utente"
 
 #: src/amo/components/Addon/index.js:266
-#, fuzzy
 msgid "About this dictionary"
-msgstr "Effettua l’accesso per dare un voto a questo dizionario"
+msgstr "Informazioni sul dizionario"
 
 #: src/amo/components/Addon/index.js:269
 msgid "About this extension"
 msgstr "Informazioni sull’estensione"
 
 #: src/amo/components/Addon/index.js:272
-#, fuzzy
 msgid "About this language pack"
-msgstr "Effettua l’accesso per dare un voto a questo language pack"
+msgstr "Informazioni sul language pack"
 
 #: src/amo/components/Addon/index.js:275
 msgid "About this search plugin"
@@ -59,9 +57,8 @@ msgid "About this theme"
 msgstr "Informazioni sul tema"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "Informazioni per %(addonType)s"
+msgstr "Informazioni sul componente aggiuntivo"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -456,14 +453,12 @@ msgid "Creator"
 msgstr "Autore"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Segnala questa replica dello sviluppatore"
+msgstr "Sostieni lo sviluppatore"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Altri componenti aggiuntivi degli stessi sviluppatori"
+msgstr "Sostieni gli sviluppatori"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -474,14 +469,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "Sostieni il mantenimento e l’aggiornamento di questa estensione con una piccola donazione agli sviluppatori."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Sito di supporto"
+msgstr "Sostieni l’artista"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Altri temi degli stessi artisti"
+msgstr "Sostieni gli artisti"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -492,14 +485,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "Sostieni la realizzazione di altri temi come questo con una piccola donazione agli artisti."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Sito di supporto"
+msgstr "Sostieni l’autore"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Altri temi di %(author)s"
+msgstr "Sostieni gli autori"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
