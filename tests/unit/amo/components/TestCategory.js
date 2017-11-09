@@ -350,7 +350,7 @@ describe(__filename, () => {
 
     expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
     expect(landingShelves.at(0)).toHaveProp('header', 'Featured extensions');
-    expect(landingShelves.at(0)).toHaveProp('footerText', 'See more');
+    expect(landingShelves.at(0)).toHaveProp('footerText', 'See more featured extensions');
     expect(landingShelves.at(0)).toHaveProp('footerLink', {
       pathname: `/search/`,
       query: {
@@ -362,7 +362,7 @@ describe(__filename, () => {
 
     expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
     expect(landingShelves.at(1)).toHaveProp('header', 'Top rated extensions');
-    expect(landingShelves.at(1)).toHaveProp('footerText', 'See more');
+    expect(landingShelves.at(1)).toHaveProp('footerText', 'See more top rated extensions');
     expect(landingShelves.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
@@ -375,7 +375,7 @@ describe(__filename, () => {
     expect(landingShelves.at(2)).toHaveClassName('TrendingAddons');
     expect(landingShelves.at(2))
       .toHaveProp('header', 'Trending extensions');
-    expect(landingShelves.at(2)).toHaveProp('footerText', 'See more');
+    expect(landingShelves.at(2)).toHaveProp('footerText', 'See more trending extensions');
     expect(landingShelves.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
