@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 15:39+0000\n"
-"Last-Translator: Elio <elio.gi@gmail.com>\n"
+"PO-Revision-Date: 2017-11-09 14:10+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -467,11 +467,11 @@ msgstr "Altri componenti aggiuntivi degli stessi sviluppatori"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Sostieni il mantenimento e l’aggiornamento di questa estensione con una piccola donazione allo sviluppatore."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Sostieni il mantenimento e l’aggiornamento di questa estensione con una piccola donazione agli sviluppatori."
 
 #: src/amo/components/ContributeCard/index.js:50
 #, fuzzy
@@ -485,11 +485,11 @@ msgstr "Altri temi degli stessi artisti"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Sostieni la realizzazione di altri temi come questo con una piccola donazione all’artista."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Sostieni la realizzazione di altri temi come questo con una piccola donazione agli artisti."
 
 #: src/amo/components/ContributeCard/index.js:64
 #, fuzzy
@@ -503,15 +503,15 @@ msgstr "Altri temi di %(author)s"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Sostieni il mantenimento e l’aggiornamento di questo componente aggiuntivo con una piccola donazione allo sviluppatore."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Sostieni il mantenimento e l’aggiornamento di questo componente aggiuntivo con una piccola donazione allo sviluppatore."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "Collabora"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -779,7 +779,7 @@ msgstr "Estensioni più popolari"
 
 #: src/amo/components/Home/index.js:194
 msgid "See more popular extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni popolari"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
@@ -787,15 +787,15 @@ msgstr "Rinnova le schede"
 
 #: src/amo/components/Home/index.js:209
 msgid "See more tab extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni per schede"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni di tendenza"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
-msgstr ""
+msgstr "Visualizza altri temi consigliati"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -851,19 +851,19 @@ msgstr "Un componente per il blocco delle pubblicità estremamente efficace e fa
 
 #: src/amo/components/LandingPage/index.js:129
 msgid "See more featured extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni consigliate"
 
 #: src/amo/components/LandingPage/index.js:144
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "Visualizza altre estensioni più votate"
 
 #: src/amo/components/LandingPage/index.js:161
 msgid "See more trending themes"
-msgstr ""
+msgstr "Visualizza altri temi di tendenza"
 
 #: src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Visualizza altri temi più votati"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
