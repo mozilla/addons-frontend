@@ -7,7 +7,7 @@ import {
   REVIEW_FLAG_REASON_SPAM,
 } from 'amo/constants';
 import {
-  denormalizeReview, setReviewWasFlagged,
+  denormalizeReview, setReviewWasFlagged, showReplyToReviewForm,
 } from 'amo/actions/reviews';
 import FlagReview from 'amo/components/FlagReview';
 import FlagReviewMenu, {
@@ -192,6 +192,16 @@ describe(__filename, () => {
       const root = render({ review });
 
       expect(root.find(TooltipMenu)).toHaveProp('openerText', 'Flagged');
+    });
+
+    it('does not change Flag prompt for other view state changes', () => {
+      const review = denormalizeReview(fakeReview);
+      // This initializes the flag view state which was triggering a bug.
+      store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
+
+      const root = render({ review });
+
+      expect(root.find(TooltipMenu)).toHaveProp('openerText', 'Flag');
     });
   });
 });
