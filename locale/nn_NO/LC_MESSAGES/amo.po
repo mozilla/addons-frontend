@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 12:09+0000\n"
+"PO-Revision-Date: 2017-11-10 08:50+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -47,9 +47,8 @@ msgid "About this extension"
 msgstr "Logg inn for å vurdere denne utvidinga"
 
 #: src/amo/components/Addon/index.js:272
-#, fuzzy
 msgid "About this language pack"
-msgstr "Logg inn for å vurdere denne språkpakken"
+msgstr "Om denne språkpakken"
 
 #: src/amo/components/Addon/index.js:275
 #, fuzzy
@@ -412,7 +411,7 @@ msgstr "Utvidingar"
 
 #: src/amo/components/Category/index.js:126 src/amo/components/HomeHeroBanner/index.js:36 src/amo/components/LandingPage/index.js:121 src/amo/components/Search/index.js:101
 msgid "Featured extensions"
-msgstr "Utvalde utvidingar"
+msgstr "Framheva utvidingar"
 
 #: src/amo/components/Category/index.js:135 src/amo/components/Category/index.js:145 src/amo/components/Category/index.js:155 src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188
@@ -434,7 +433,7 @@ msgstr "Tema"
 
 #: src/amo/components/Category/index.js:159 src/amo/components/Home/index.js:247 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:104
 msgid "Featured themes"
-msgstr "Utvalde tema"
+msgstr "Framheva tema"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:117
 #, fuzzy
@@ -788,14 +787,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr ""
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Fleire populære utvidingar"
+msgstr "Mest populære utvidingar"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Fleire populære utvidingar"
+msgstr "Vis fleire populære utvidingar"
 
 #: src/amo/components/Home/index.js:208
 #, fuzzy
@@ -803,19 +800,16 @@ msgid "Change up your tabs"
 msgstr "Endre fanene dine"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Søk etter utvidingar"
+msgstr "Vis fleire faneutvidingar"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Fleire utvalde utvidingar"
+msgstr "Fleire populære utvidingar"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Fleire utvalde tema"
+msgstr "Fleire framheva tema"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -839,7 +833,7 @@ msgstr "Produktivitet"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr "Ser på videoar"
+msgstr "Sjå på videoar"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -870,9 +864,8 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Fleire utvalde utvidingar"
+msgstr "Fleire framheva utvidingar"
 
 #: src/amo/components/LandingPage/index.js:144
 #, fuzzy
@@ -880,9 +873,8 @@ msgid "See more top rated extensions"
 msgstr "Høgst vurderte utvidingar"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Fleire utvalde tema"
+msgstr "Fleire framheva tema"
 
 #: src/amo/components/LandingPage/index.js:167
 #, fuzzy
@@ -1101,8 +1093,8 @@ msgstr "Fann ingen utvidingar"
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] "%(count)s utviding funne"
-msgstr[1] "%(count)s utvidingar funne"
+msgstr[0] "Fann %(count)s utviding"
+msgstr[1] "Fann %(count)s utvidingar"
 
 #: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
 msgid "All"
