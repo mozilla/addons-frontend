@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 12:17+0000\n"
+"PO-Revision-Date: 2017-11-10 13:28+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -37,33 +37,28 @@ msgid "Rate your experience"
 msgstr "Дайте оценка"
 
 #: src/amo/components/Addon/index.js:266
-#, fuzzy
 msgid "About this dictionary"
-msgstr "За да оцените този речник се впишете"
+msgstr "Относно речника"
 
 #: src/amo/components/Addon/index.js:269
 msgid "About this extension"
 msgstr "Относно разширението"
 
 #: src/amo/components/Addon/index.js:272
-#, fuzzy
 msgid "About this language pack"
-msgstr "За да оцените този езиков пакет се впишете"
+msgstr "Относно езиковия пакет"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "За да оцените тази търсеща машина се впишете"
+msgstr "Относно търсещата машина"
 
 #: src/amo/components/Addon/index.js:278
-#, fuzzy
 msgid "About this theme"
-msgstr "За да оцените тази тема се впишете"
+msgstr "Относно темата"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "Относно тази %(addonType)s"
+msgstr "Относно добавката"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -143,7 +138,7 @@ msgstr "Експериментално"
 
 #: src/amo/components/AddonBadges/index.js:59
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Несъвместимо с Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -376,18 +371,16 @@ msgid "Add-ons for Firefox"
 msgstr "Добавки за Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Добавки за Firefox"
+msgstr "%s – Добавки за Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Добавки за Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - Добавки за Android"
+msgstr "%s – Добавки за Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -770,40 +763,35 @@ msgstr "Сезонни"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Настройте Firefox с разширения. Интересувате ли се от…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Променете облика на Firefox с теми."
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Повече известни разширения"
+msgstr "Най-известните разширения"
 
 #: src/amo/components/Home/index.js:194
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Повече известни разширения"
+msgstr "Повече от известните"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr "Променете разделите"
 
 #: src/amo/components/Home/index.js:209
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Търсене на разширения"
+msgstr "Повече от разширенията за раздели"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Повече препоръчани разширения"
+msgstr "Повече от препоръчаните разширения"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Повече препоръчани теми"
+msgstr "Повече от препоръчаните теми"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -858,24 +846,20 @@ msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "Изключително мощна и лесна за употреба добавка за блокиране на реклами"
 
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Повече препоръчани разширения"
+msgstr "Повече от препоръчаните разширения"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Най-високо оценени разширения"
+msgstr "Повече от високо оценените разширения"
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Повече препоръчани теми"
+msgstr "Повече от препоръчаните теми"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Най-високо оценени теми"
+msgstr "Повече от високо оценените теми"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
