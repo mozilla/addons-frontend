@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 22:30+0000\n"
+"PO-Revision-Date: 2017-03-02 15:33+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -20,7 +20,7 @@ msgstr "Ön izlemeyi iptal et"
 
 #: src/amo/components/Addon/index.js:176
 msgid "Tap to preview"
-msgstr "Ön izleme için dokunun"
+msgstr "Ön izleme için tıklayın"
 
 #: src/amo/components/Addon/index.js:217
 msgid "Read %(count)s review"
