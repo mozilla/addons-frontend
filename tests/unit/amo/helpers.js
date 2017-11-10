@@ -88,8 +88,9 @@ export const fakeAddon = Object.freeze({
   }],
   public_stats: true,
   ratings: {
-    count: 10,
     average: 3.5,
+    count: 10,
+    text_count: 5,
   },
   requires_payment: false,
   review_url: 'https://addons.m.o/en-US/editors/review/2377',
@@ -273,18 +274,24 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
 }
 
 export function createFakeAddon({
-  files = [...fakeAddon.current_version.files], ...overrides
+  files = [...fakeAddon.current_version.files],
+  compatibility = { ...fakeAddon.current_version.compatibility },
+  // eslint-disable-next-line camelcase
+  is_strict_compatibility_enabled = fakeAddon.current_version.is_strict_compatibility_enabled,
+  ...overrides
 } = {}) {
   return {
     ...fakeAddon,
     current_version: {
       ...fakeAddon.current_version,
+      compatibility,
       files: files.map((fileProps) => {
         return {
           ...fakeAddon.current_version.files[0],
           ...fileProps,
         };
       }),
+      is_strict_compatibility_enabled,
     },
     ...overrides,
   };

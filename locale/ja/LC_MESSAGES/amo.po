@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-31 19:37+0000\n"
-"PO-Revision-Date: 2017-10-31 22:29+0000\n"
+"POT-Creation-Date: 2017-11-07 23:14+0000\n"
+"PO-Revision-Date: 2017-11-08 02:25+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -14,84 +14,104 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:176
 msgid "Cancel preview"
 msgstr "プレビューをキャンセル"
 
-#: src/amo/components/Addon/index.js:173
+#: src/amo/components/Addon/index.js:176
 msgid "Tap to preview"
 msgstr "タップしてプレビュー"
 
-#: src/amo/components/Addon/index.js:214
+#: src/amo/components/Addon/index.js:217
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] " すべてのレビュー (%(count)s) を読む"
 
-#: src/amo/components/Addon/index.js:230
+#: src/amo/components/Addon/index.js:233
 msgid "No reviews yet"
 msgstr "まだレビューはありません"
 
-#: src/amo/components/Addon/index.js:239
+#: src/amo/components/Addon/index.js:242
 msgid "Rate your experience"
 msgstr "あなたの体験を評価"
 
-#: src/amo/components/Addon/index.js:272
-msgid "About this %(addonType)s"
-msgstr "この %(addonType)s について"
+#: src/amo/components/Addon/index.js:266
+msgid "About this dictionary"
+msgstr "この辞書について"
 
-#: src/amo/components/Addon/index.js:296
+#: src/amo/components/Addon/index.js:269
+msgid "About this extension"
+msgstr "この拡張機能について"
+
+#: src/amo/components/Addon/index.js:272
+msgid "About this language pack"
+msgstr "この言語パックについて"
+
+#: src/amo/components/Addon/index.js:275
+msgid "About this search plugin"
+msgstr "この検索エンジンについて"
+
+#: src/amo/components/Addon/index.js:278
+msgid "About this theme"
+msgstr "このテーマについて"
+
+#: src/amo/components/Addon/index.js:281
+msgid "About this add-on"
+msgstr "このアドオンについて"
+
+#: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s のリリースノート"
 
-#: src/amo/components/Addon/index.js:325
+#: src/amo/components/Addon/index.js:349
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s が公開している他の辞書"
 
-#: src/amo/components/Addon/index.js:328
+#: src/amo/components/Addon/index.js:352
 msgid "More dictionaries by these translators"
 msgstr "これらの翻訳者が公開している他の辞書"
 
-#: src/amo/components/Addon/index.js:335
+#: src/amo/components/Addon/index.js:359
 msgid "More extensions by %(author)s"
 msgstr "%(author)s が公開している他の拡張機能"
 
-#: src/amo/components/Addon/index.js:338
+#: src/amo/components/Addon/index.js:362
 msgid "More extensions by these developers"
 msgstr "これらの開発者が公開している他の拡張機能"
 
-#: src/amo/components/Addon/index.js:345
+#: src/amo/components/Addon/index.js:369
 msgid "More language packs by %(author)s"
 msgstr "%(author)s が公開している他の言語パック"
 
-#: src/amo/components/Addon/index.js:348
+#: src/amo/components/Addon/index.js:372
 msgid "More language packs by these translators"
 msgstr "これらの翻訳者が公開している他の言語パック"
 
-#: src/amo/components/Addon/index.js:355
+#: src/amo/components/Addon/index.js:379
 msgid "More themes by %(author)s"
 msgstr "%(author)s が公開している他のテーマ"
 
-#: src/amo/components/Addon/index.js:358
+#: src/amo/components/Addon/index.js:382
 msgid "More themes by these artists"
 msgstr "これらのアーティストが公開している他のテーマ"
 
-#: src/amo/components/Addon/index.js:365
+#: src/amo/components/Addon/index.js:389
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s が公開している他のアドオン"
 
-#: src/amo/components/Addon/index.js:368
+#: src/amo/components/Addon/index.js:392
 msgid "More add-ons by these developers"
 msgstr "これらの開発者が公開している他のアドオン"
 
-#: src/amo/components/Addon/index.js:445
+#: src/amo/components/Addon/index.js:470
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s(作者: %(authorList)s)%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:511
+#: src/amo/components/Addon/index.js:536
 msgid "Extension Metadata"
 msgstr "拡張機能メタデータ"
 
-#: src/amo/components/Addon/index.js:537
+#: src/amo/components/Addon/index.js:562
 msgid "Screenshots"
 msgstr "スクリーンショット"
 
@@ -107,39 +127,43 @@ msgstr "おすすめのテーマ"
 msgid "Featured Add-on"
 msgstr "おすすめのアドオン"
 
-#: src/amo/components/AddonBadges/index.js:44
+#: src/amo/components/AddonBadges/index.js:47
 msgid "Restart Required"
 msgstr "要再起動"
 
-#: src/amo/components/AddonBadges/index.js:50
+#: src/amo/components/AddonBadges/index.js:53
 msgid "Experimental"
 msgstr "実験的"
 
-#: src/amo/components/AddonCompatibilityError/index.js:57
+#: src/amo/components/AddonBadges/index.js:59
+msgid "Not compatible with Firefox Quantum"
+msgstr "Firefox Quantum と互換性がありません"
+
+#: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "このアドオンをインストールするには <a href=\"%(downloadUrl)s\">Firefox をダウンロード</a> してください。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:62
+#: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "このアドオンはお使いのバージョンの Firefox と互換性がありません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:68
 msgid "Your version of Firefox does not support search plugins."
 msgstr "お使いのバージョンの Firefox は検索エンジンに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:68
+#: src/amo/components/AddonCompatibilityError/index.js:71
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "iOS 版 Firefox は今のところアドオンに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:71
+#: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on is not available on your platform."
 msgstr "このアドオンはお使いのプラットフォームに対応していません。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:77
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr "このアドオンは <a href=\"%(downloadUrl)s\">より新しいバージョンの Firefox</a> (%(minVersion)s 以上) を必要とします。あなたは Firefox %(yourVersion)s をお使いです。"
 
-#: src/amo/components/AddonCompatibilityError/index.js:88
+#: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr "お使いのブラウザーはアドオンに対応していません。<a href=\"%(downloadUrl)s\">Firefox をダウンロード</a> すればこのアドオンをインストールできます。"
 
@@ -177,81 +201,77 @@ msgstr "使用者:"
 msgid "Overall Rating"
 msgstr "全体評価"
 
-#: src/amo/components/AddonMoreInfo/index.js:114
+#: src/amo/components/AddonMoreInfo/index.js:103
+msgid "%(timeFromNow)s (%(date)s)"
+msgstr "%(timeFromNow)s (%(date)s)"
+
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "このアドオンのプライバシーポリシーを読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "このアドオンの使用許諾契約を読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "すべてのバージョンを見る"
 
-#: src/amo/components/AddonMoreInfo/index.js:140
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "すべてのベータ版を見る"
 
-#: src/amo/components/AddonMoreInfo/index.js:164
+#: src/amo/components/AddonMoreInfo/index.js:177
 msgid "Add-on Links"
 msgstr "アドオンリンク"
 
-#: src/amo/components/AddonMoreInfo/index.js:177
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "バージョン"
 
-#: src/amo/components/AddonMoreInfo/index.js:185 src/amo/components/Collection/index.js:147
+#: src/amo/components/AddonMoreInfo/index.js:198 src/amo/components/Collection/index.js:147
 msgid "Last updated"
 msgstr "最終更新日"
 
-#: src/amo/components/AddonMoreInfo/index.js:191
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "ライセンス"
 
-#: src/amo/components/AddonMoreInfo/index.js:198
+#: src/amo/components/AddonMoreInfo/index.js:211
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: src/amo/components/AddonMoreInfo/index.js:205
+#: src/amo/components/AddonMoreInfo/index.js:218
 msgid "End-User License Agreement"
 msgstr "エンドユーザー使用許諾契約"
 
-#: src/amo/components/AddonMoreInfo/index.js:212
+#: src/amo/components/AddonMoreInfo/index.js:225
 msgid "Version History"
 msgstr "バージョン履歴"
 
-#: src/amo/components/AddonMoreInfo/index.js:219
-msgid "Beta Versions"
-msgstr "ベータ版"
-
-#: src/amo/components/AddonMoreInfo/index.js:226
+#: src/amo/components/AddonMoreInfo/index.js:237
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:240
+#: src/amo/components/AddonMoreInfo/index.js:251
 msgid "More information"
 msgstr "詳しい情報"
 
-#: src/amo/components/AddonMoreInfo/index.js:47
+#: src/amo/components/AddonMoreInfo/index.js:51
 msgid "Homepage"
 msgstr "ホームページ"
 
-#: src/amo/components/AddonMoreInfo/index.js:56
+#: src/amo/components/AddonMoreInfo/index.js:60
 msgid "Support Site"
 msgstr "サポートサイト"
 
-#: src/amo/components/AddonMoreInfo/index.js:69
+#: src/amo/components/AddonMoreInfo/index.js:73
 msgid "Support Email"
 msgstr "サポートメールアドレス"
 
-#: src/amo/components/AddonMoreInfo/index.js:86
+#: src/amo/components/AddonMoreInfo/index.js:88
 msgid "Visit stats dashboard"
 msgstr "統計ダッシュボードへ"
-
-#: src/amo/components/AddonMoreInfo/index.js:94
-msgid "%(timeFromNow)s (%(date)s)"
-msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -347,16 +367,16 @@ msgid "Add-ons for Firefox"
 msgstr "Add-ons for Firefox"
 
 #: src/amo/components/App/index.js:206
-msgid "%s - Add-ons for Firefox"
-msgstr "%s - Firefox 向けアドオン"
+msgid "%s – Add-ons for Firefox"
+msgstr "%s – Firefox 向けアドオン"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Android 向けアドオン"
 
 #: src/amo/components/App/index.js:210
-msgid "%s - Add-ons for Android"
-msgstr "%s - Android 向けアドオン"
+msgid "%s – Add-ons for Android"
+msgstr "%s – Android 向けアドオン"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -379,13 +399,11 @@ msgid "Featured extensions"
 msgstr "おすすめ拡張機能"
 
 #: src/amo/components/Category/index.js:135 src/amo/components/Category/index.js:145 src/amo/components/Category/index.js:155 src/amo/components/Category/index.js:168
-#: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188 src/amo/components/Home/index.js:194 src/amo/components/Home/index.js:209 src/amo/components/Home/index.js:220
-#: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:129 src/amo/components/LandingPage/index.js:135 src/amo/components/LandingPage/index.js:144
-#: src/amo/components/LandingPage/index.js:155 src/amo/components/LandingPage/index.js:161 src/amo/components/LandingPage/index.js:167
+#: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188
 msgid "See more"
 msgstr "もっと見る"
 
-#: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:114
+#: src/amo/components/Category/index.js:136 src/amo/components/Home/index.js:219 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
 msgstr "流行の拡張機能"
 
@@ -429,7 +447,59 @@ msgstr "アドオン"
 msgid "Creator"
 msgstr "作者"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:38 src/amo/components/Footer/index.js:97
+#: src/amo/components/ContributeCard/index.js:36
+msgid "Support this developer"
+msgstr "この開発者を支援する"
+
+#: src/amo/components/ContributeCard/index.js:37
+msgid "Support these developers"
+msgstr "これらの開発者を支援する"
+
+#: src/amo/components/ContributeCard/index.js:41
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
+msgstr "この拡張機能の開発者は、開発を続けていくため、少額の寄付による支援を求めています。"
+
+#: src/amo/components/ContributeCard/index.js:43
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
+msgstr "この拡張機能の開発者は、開発を続けていくため、少額の寄付による支援を求めています。"
+
+#: src/amo/components/ContributeCard/index.js:50
+msgid "Support this artist"
+msgstr "このアーティストを支援する"
+
+#: src/amo/components/ContributeCard/index.js:51
+msgid "Support these artists"
+msgstr "これらのアーティストを支援する"
+
+#: src/amo/components/ContributeCard/index.js:55
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgstr "このテーマのアーティストは、開発を続けていくため、少額の寄付による支援を求めています。"
+
+#: src/amo/components/ContributeCard/index.js:57
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgstr "このテーマのアーティストは、開発を続けていくため、少額の寄付による支援を求めています。"
+
+#: src/amo/components/ContributeCard/index.js:64
+msgid "Support this author"
+msgstr "この作者を支援する"
+
+#: src/amo/components/ContributeCard/index.js:65
+msgid "Support these authors"
+msgstr "これらの作者を支援する"
+
+#: src/amo/components/ContributeCard/index.js:69
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
+msgstr "このアドオンの作者は、開発を続けていくため、少額の寄付による支援を求めています。"
+
+#: src/amo/components/ContributeCard/index.js:71
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgstr "このアドオンの作者は、開発を続けていくため、少額の寄付による支援を求めています。"
+
+#: src/amo/components/ContributeCard/index.js:89
+msgid "Contribute now"
+msgstr "今すぐ寄付"
+
+#: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Firefox をダウンロード"
 
@@ -641,7 +711,7 @@ msgstr "新しいテーマを登録"
 msgid "Log out"
 msgstr "ログアウト"
 
-#: src/amo/components/Header/index.js:61
+#: src/amo/components/Header/index.js:60
 msgid "Firefox Add-ons"
 msgstr "Firefox Add-ons"
 
@@ -682,16 +752,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "テーマで Firefox の見た目を変えてみましょう。"
 
 #: src/amo/components/Home/index.js:193
-msgid "Most Popular Extensions"
+msgid "Most popular extensions"
 msgstr "最も人気の拡張機能"
+
+#: src/amo/components/Home/index.js:194
+msgid "See more popular extensions"
+msgstr "人気の拡張機能をもっと見る"
 
 #: src/amo/components/Home/index.js:208
 msgid "Change up your tabs"
 msgstr "タブをパワフルに"
 
-#: src/amo/components/Home/index.js:219
-msgid "Up & Coming Extensions"
-msgstr "注目の拡張機能"
+#: src/amo/components/Home/index.js:209
+msgid "See more tab extensions"
+msgstr "タブ拡張機能をもっと見る"
+
+#: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
+msgid "See more trending extensions"
+msgstr "流行の拡張機能をもっと見る"
+
+#: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
+msgid "See more featured themes"
+msgstr "おすすめテーマをもっと見る"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
@@ -744,6 +826,22 @@ msgstr "uBlock Origin"
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
 msgstr "使いやすい、非常に強力な広告ブロッカー"
+
+#: src/amo/components/LandingPage/index.js:129
+msgid "See more featured extensions"
+msgstr "おすすめ拡張機能をもっと見る"
+
+#: src/amo/components/LandingPage/index.js:144
+msgid "See more top rated extensions"
+msgstr "評価の高い拡張機能をもっと見る"
+
+#: src/amo/components/LandingPage/index.js:161
+msgid "See more trending themes"
+msgstr "流行のテーマをもっと見る"
+
+#: src/amo/components/LandingPage/index.js:167
+msgid "See more top rated themes"
+msgstr "評価の高いテーマをもっと見る"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -992,47 +1090,31 @@ msgstr "結果を絞り込み"
 msgid "Sort by"
 msgstr "並べ替え"
 
-#: src/amo/components/SearchFilters/index.js:160
+#: src/amo/components/SearchFilters/index.js:164
 msgid "Add-on Type"
 msgstr "アドオンの種類"
 
-#: src/amo/components/SearchFilters/index.js:178
+#: src/amo/components/SearchFilters/index.js:184
 msgid "Operating System"
 msgstr "オペレーティングシステム"
 
-#: src/amo/components/SearchFilters/index.js:204
+#: src/amo/components/SearchFilters/index.js:210
 msgid "Featured add-ons only"
 msgstr "おすすめのアドオンのみ"
 
-#: src/amo/components/SearchForm/index.js:200
+#: src/amo/components/SearchForm/index.js:188
 msgid "Go to the add-on page"
 msgstr "アドオンのページへ"
 
-#: src/amo/components/SearchForm/index.js:216
-msgid "Find extensions"
-msgstr "拡張機能を見つけよう"
-
-#: src/amo/components/SearchForm/index.js:218
-msgid "Find dictionary"
-msgstr "辞書を見つけよう"
-
-#: src/amo/components/SearchForm/index.js:220
-msgid "Find language pack"
-msgstr "言語パックを見つけよう"
-
-#: src/amo/components/SearchForm/index.js:222
-msgid "Find themes"
-msgstr "テーマを見つけよう"
-
-#: src/amo/components/SearchForm/index.js:224
+#: src/amo/components/SearchForm/index.js:206
 msgid "Find add-ons"
 msgstr "アドオンを見つけよう"
 
-#: src/amo/components/SearchForm/index.js:256 src/amo/components/SearchForm/index.js:286
+#: src/amo/components/SearchForm/index.js:231 src/amo/components/SearchForm/index.js:261
 msgid "Search"
 msgstr "検索"
 
-#: src/amo/components/SearchForm/index.js:84
+#: src/amo/components/SearchForm/index.js:77
 msgid "Loading"
 msgstr "読み込み中"
 
@@ -1435,6 +1517,27 @@ msgstr "評価がありません"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
+#~ msgid "Beta Versions"
+#~ msgstr "ベータ版"
+
+#~ msgid "Most Popular Extensions"
+#~ msgstr "最も人気の拡張機能"
+
+#~ msgid "Up & Coming Extensions"
+#~ msgstr "注目の拡張機能"
+
+#~ msgid "Find extensions"
+#~ msgstr "拡張機能を見つけよう"
+
+#~ msgid "Find dictionary"
+#~ msgstr "辞書を見つけよう"
+
+#~ msgid "Find language pack"
+#~ msgstr "言語パックを見つけよう"
+
+#~ msgid "Find themes"
+#~ msgstr "テーマを見つけよう"
+
 #~ msgid "Click to view statistics"
 #~ msgstr "クリックして統計情報を表示"
 
@@ -1465,26 +1568,11 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 #~ msgid "Site Identifier"
 #~ msgstr "サイト識別子"
 
-#~ msgid "More featured extensions"
-#~ msgstr "すべてのおすすめ拡張機能"
-
-#~ msgid "More trending extensions"
-#~ msgstr "すべての流行の拡張機能"
-
 #~ msgid "More highly rated extensions"
 #~ msgstr "すべての高評価拡張機能"
 
-#~ msgid "More featured themes"
-#~ msgstr "すべてのおすすめテーマ"
-
-#~ msgid "More trending themes"
-#~ msgstr "すべての流行のテーマ"
-
 #~ msgid "More highly rated themes"
 #~ msgstr "すべての高評価テーマ"
-
-#~ msgid "More popular extensions"
-#~ msgstr "すべての人気拡張機能"
 
 #~ msgid "Browse this collection"
 #~ msgstr "このコレクションを見る"
@@ -1542,9 +1630,6 @@ msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
 
 #~ msgid "Browse in your language"
 #~ msgstr "あなたの言語で表示"
-
-#~ msgid "Search extensions"
-#~ msgstr "拡張機能を検索"
 
 #~ msgid "Search themes"
 #~ msgstr "テーマを検索"

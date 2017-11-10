@@ -6,10 +6,13 @@ import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
+import {
+  fetchCollection,
+  fetchCollectionPage,
+} from 'amo/reducers/collections';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { fetchCollection, fetchCollectionPage } from 'amo/reducers/collections';
 import Paginate from 'core/components/Paginate';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
@@ -172,13 +175,9 @@ export class CollectionBase extends React.Component<Props> {
 
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // 401 and 403 are for an add-on lookup is made to look like a 404 on
-      // purpose. See: https://github.com/mozilla/addons-frontend/issues/3061.
-      if (errorHandler.capturedError.responseStatusCode === 401 ||
-        errorHandler.capturedError.responseStatusCode === 403 ||
-        errorHandler.capturedError.responseStatusCode === 404
-      ) {
-        return <NotFound />;
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
     }
 
@@ -205,14 +204,16 @@ export const mapStateToProps = (state: { collections: CollectionsState }) => {
   };
 };
 
+export const extractId = (ownProps: Props) => {
+  return [
+    ownProps.params.user,
+    ownProps.params.slug,
+    parsePage(ownProps.location.query.page),
+  ].join('/');
+};
+
 export default compose(
   translate(),
-  withErrorHandler({
-    // This allows to sync the client and the server error handler ids, thus
-    // allowing the client side to be aware of errors thrown on the server.
-    // See: https://github.com/mozilla/addons-frontend/issues/3313
-    id: 'Collection-001',
-    name: 'Collection',
-  }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),
 )(CollectionBase);

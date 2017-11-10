@@ -116,5 +116,13 @@ describe(__filename, () => {
 
       expect(getReviewCount(root).content).toEqual('1.000');
     });
+
+    it('handles zero ratings', () => {
+      const root = render({
+        addon: createInternalAddon({ ...fakeAddon, ratings: null }),
+      });
+
+      expect(getReviewCount(root).title).toEqual('No Reviews');
+    });
   });
 });

@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Link from 'amo/components/Link';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
@@ -20,8 +21,9 @@ import {
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_EXPLORE,
 } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import {
   convertFiltersToQueryParams,
   hasSearchFilters,
@@ -34,6 +36,7 @@ import './styles.scss';
 export class SearchBase extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.node.isRequired,
+    context: PropTypes.string.isRequired,
     count: PropTypes.number,
     dispatch: PropTypes.func.isRequired,
     enableSearchFilters: PropTypes.bool,
@@ -73,7 +76,8 @@ export class SearchBase extends React.Component {
   }
 
   dispatchSearch({ newFilters = {}, oldFilters = {} } = {}) {
-    const { dispatch, errorHandler } = this.props;
+    const { context, dispatch, errorHandler } = this.props;
+    const { addonType } = newFilters;
 
     if (hasSearchFilters(newFilters) && !deepEqual(oldFilters, newFilters)) {
       dispatch(searchStart({
@@ -81,12 +85,13 @@ export class SearchBase extends React.Component {
         filters: newFilters,
       }));
 
-      const { addonType } = newFilters;
       if (addonType) {
         dispatch(setViewContext(addonType));
-      } else {
-        dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
       }
+    }
+
+    if (!addonType && context !== VIEW_CONTEXT_EXPLORE) {
+      dispatch(setViewContext(VIEW_CONTEXT_EXPLORE));
     }
   }
 
@@ -173,6 +178,14 @@ export class SearchBase extends React.Component {
       results,
     } = this.props;
 
+    if (errorHandler.hasError()) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
+    }
+
     const page = parsePage(filters.page);
 
     // We allow specific paginationQueryParams instead of always using
@@ -225,6 +238,7 @@ export class SearchBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
+    context: state.viewContext.context,
     count: state.search.count,
     filtersUsedForResults: state.search.filters,
     loading: state.search.loading,
@@ -232,8 +246,14 @@ export function mapStateToProps(state) {
   };
 }
 
+// This ID does not need to differentiate between component instances because
+// the error handler gets cleared every time the search filters change.
+export const extractId = (ownProps) => {
+  return parsePage(ownProps.filters.page);
+};
+
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Search' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(SearchBase);

@@ -20,7 +20,7 @@ import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { fetchAddon } from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_DICT,
@@ -211,8 +211,8 @@ export class AddonBase extends React.Component {
     let content;
     let footerPropName = 'footerText';
 
-    if (addon && addon.ratings.count) {
-      const count = addon.ratings.count;
+    if (addon && addon.ratings.text_count) {
+      const count = addon.ratings.text_count;
       const linkText = i18n.sprintf(
         i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
         { count: i18n.formatNumber(count) },
@@ -425,14 +425,16 @@ export class AddonBase extends React.Component {
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
+
       // 401 and 403 are made to look like a 404 on purpose.
-      // See https://github.com/mozilla/addons-frontend/issues/3061
+      // See: https://github.com/mozilla/addons-frontend/issues/3061.
       if (errorHandler.capturedError.responseStatusCode === 401 ||
           errorHandler.capturedError.responseStatusCode === 403 ||
           errorHandler.capturedError.responseStatusCode === 404
       ) {
         return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
+
       // Show a list of errors at the top of the add-on section.
       errorBanner = errorHandler.renderError();
     }
@@ -621,9 +623,13 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
+export const extractId = (ownProps) => {
+  return ownProps.params.slug;
+};
+
 export default compose(
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),
-  withErrorHandler({ name: 'Addon' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

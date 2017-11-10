@@ -3,7 +3,9 @@ import React from 'react';
 import { mount } from 'enzyme';
 
 import createStore from 'amo/store';
-import InstallButton, { InstallButtonBase } from 'core/components/InstallButton';
+import InstallButton, {
+  getFileHash, InstallButtonBase,
+} from 'core/components/InstallButton';
 import InstallSwitch from 'core/components/InstallSwitch';
 import I18nProvider from 'core/i18n/Provider';
 import {
@@ -12,11 +14,15 @@ import {
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALL_CATEGORY,
   INSTALL_STARTED_CATEGORY,
   OS_ALL,
+  OS_MAC,
+  OS_WINDOWS,
   TRACKING_TYPE_EXTENSION,
   UNKNOWN,
 } from 'core/constants';
+import { getAddonIconUrl } from 'core/imageUtils';
 import { createInternalAddon } from 'core/reducers/addons';
 import * as themePreview from 'core/themePreview';
 import {
@@ -357,6 +363,162 @@ describe(__filename, () => {
       action: TRACKING_TYPE_EXTENSION,
       category: INSTALL_STARTED_CATEGORY,
       label: addon.name,
+    });
+  });
+
+  it('uses InstallTrigger for extension installs when available', () => {
+    const url = 'https://a.m.o/files/addon.xpi';
+    const hash = 'hash-of-file-contents';
+
+    const _InstallTrigger = { install: sinon.stub() };
+
+    const addon = createInternalAddon(createFakeAddon({
+      name: 'some-extension',
+      files: [{ platform: OS_ALL, url, hash }],
+      type: ADDON_TYPE_EXTENSION,
+    }));
+
+    const rootNode = render({ addon, useButton: true, _InstallTrigger });
+
+    const event = createFakeEvent();
+    const installButton = rootNode.find('.InstallButton-button');
+    installButton.simulate('click', event);
+
+    sinon.assert.called(_InstallTrigger.install);
+    const params = _InstallTrigger.install.firstCall.args[0];
+    expect(params[addon.name]).toBeDefined();
+    expect(params[addon.name].Hash).toEqual(hash);
+    expect(params[addon.name].URL).toEqual(url);
+    expect(params[addon.name].IconURL).toEqual(getAddonIconUrl(addon));
+    expect(params[addon.name].toString()).toEqual(url);
+
+    sinon.assert.called(event.preventDefault);
+    sinon.assert.called(event.stopPropagation);
+  });
+
+  it('tracks install started/completed with InstallTrigger', () => {
+    const url = 'https://a.m.o/addons/file.xpi';
+    const _tracking = { sendEvent: sinon.stub() };
+    const _InstallTrigger = { install: sinon.stub() };
+
+    const addon = createInternalAddon(createFakeAddon({
+      name: 'some-extension',
+      files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
+      type: ADDON_TYPE_EXTENSION,
+    }));
+
+    const rootNode = render({
+      addon, useButton: true, _tracking, _InstallTrigger,
+    });
+
+    const installButton = rootNode.find('.InstallButton-button');
+    installButton.simulate('click', createFakeEvent());
+
+    sinon.assert.called(_InstallTrigger.install);
+    const onInstalled = _InstallTrigger.install.firstCall.args[1];
+
+    sinon.assert.calledOnce(_tracking.sendEvent);
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_STARTED_CATEGORY,
+      label: addon.name,
+    });
+
+    _tracking.sendEvent.reset();
+    // Simulate the InstallTrigger callback.
+    const successStatus = 0;
+    onInstalled(url, successStatus);
+
+    sinon.assert.calledOnce(_tracking.sendEvent);
+    sinon.assert.calledWith(_tracking.sendEvent, {
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_CATEGORY,
+      label: addon.name,
+    });
+  });
+
+  describe('getFileHash', () => {
+    const _getFileHash = ({
+      addon = createInternalAddon(fakeAddon),
+      installURL = 'https://a.m.o/addons/file.xpi',
+    } = {}) => {
+      return getFileHash({ addon, installURL });
+    };
+
+    it('requires an addon parameter', () => {
+      expect(() => _getFileHash({ addon: null }))
+        .toThrow(/addon parameter cannot be empty/);
+    });
+
+    it('requires an installURL parameter', () => {
+      expect(() => _getFileHash({ installURL: null }))
+        .toThrow(/installURL parameter cannot be empty/);
+    });
+
+    it('finds a file hash matching the URL', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        files: [
+          {
+            platform: OS_MAC,
+            url: 'https://first-url',
+            hash: 'hash-of-first-file',
+          },
+          {
+            platform: OS_WINDOWS,
+            url: 'https://second-url',
+            hash: 'hash-of-second-file',
+          },
+        ],
+      }));
+
+      expect(_getFileHash({ addon, installURL: 'https://second-url' }))
+        .toEqual('hash-of-second-file');
+    });
+
+    it('strips query string parameters from the URL', () => {
+      const url = 'https://a.m.o/addons/file.xpi';
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url, hash: 'hash-of-file' }],
+      }));
+
+      expect(_getFileHash({
+        addon, installURL: `${url}?src=dp-btn-primary`,
+      }))
+        .toEqual('hash-of-file');
+    });
+
+    it('handles addon file URLs with unrelated query strings', () => {
+      const url = 'https://a.m.o/addons/file.xpi';
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          platform: OS_ALL, url: `${url}?src=`, hash: 'hash-of-file',
+        }],
+      }));
+
+      expect(_getFileHash({
+        addon, installURL: `${url}?src=dp-btn-primary`,
+      }))
+        .toEqual('hash-of-file');
+    });
+
+    it('does not find a file hash without a current version', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        current_version: undefined,
+      }));
+
+      expect(_getFileHash({ addon })).toBeUndefined();
+    });
+
+    it('does not find a file hash without files', () => {
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        current_version: {
+          ...fakeAddon.current_version,
+          files: [],
+        },
+      });
+
+      expect(_getFileHash({ addon })).toBeUndefined();
     });
   });
 });

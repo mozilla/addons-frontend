@@ -3,14 +3,14 @@ import SagaTester from 'redux-saga-tester';
 import { searchStart } from 'core/actions/search';
 import * as api from 'core/api/search';
 import { CLEAR_ERROR, SEARCH_LOADED } from 'core/constants';
-import searchReducer from 'core/reducers/search';
 import apiReducer from 'core/reducers/api';
+import searchReducer, { abortSearch } from 'core/reducers/search';
 import searchSaga from 'core/sagas/search';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 
 
-describe('Search Saga', () => {
+describe(__filename, () => {
   let errorHandler;
   let mockApi;
   let sagaTester;
@@ -97,5 +97,6 @@ describe('Search Saga', () => {
     const errorAction = errorHandler.createErrorAction(error);
     await sagaTester.waitFor(errorAction.type);
     expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    expect(sagaTester.getCalledActions()[3]).toEqual(abortSearch());
   });
 });

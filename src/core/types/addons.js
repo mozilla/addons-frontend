@@ -115,6 +115,7 @@ export type ExternalAddonType = {|
     average: number,
     bayesian_average: number,
     count: number,
+    text_count: number,
   |},
   requires_payment?: boolean,
   review_url?: string,
