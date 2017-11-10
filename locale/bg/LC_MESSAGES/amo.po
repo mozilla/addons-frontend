@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 13:28+0000\n"
+"PO-Revision-Date: 2017-11-10 13:32+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -1423,7 +1423,7 @@ msgstr "Преглед на всички теми"
 
 #: src/amo/components/SuggestedPages/index.js:36
 msgid "Add-ons Home Page"
-msgstr "Сайт на добавката"
+msgstr "Страница на добавката"
 
 #: src/core/components/AuthenticateButton/index.js:64
 msgid "Register or Log in"
