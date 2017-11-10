@@ -6,6 +6,7 @@ import UAParser from 'ua-parser-js';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
@@ -171,8 +172,18 @@ export const isQuantumCompatible = ({ addon }) => {
   // See: https://github.com/mozilla/addons-frontend/issues/3868.
   const userAgentInfo = UAParser(oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X
     10.12; rv:57.0) Gecko/20100101 Firefox/57.0`);
-  // We set `clientApp` to `firefox` because we do not want to rely on it.
-  const clientApp = CLIENT_APP_FIREFOX;
 
-  return getClientCompatibility({ addon, clientApp, userAgentInfo }).compatible;
+  const supportsDesktop57 = getClientCompatibility({
+    addon,
+    clientApp: CLIENT_APP_FIREFOX,
+    userAgentInfo,
+  }).compatible;
+
+  const supportsAndroid57 = getClientCompatibility({
+    addon,
+    clientApp: CLIENT_APP_ANDROID,
+    userAgentInfo,
+  }).compatible;
+
+  return supportsDesktop57 || supportsAndroid57;
 };

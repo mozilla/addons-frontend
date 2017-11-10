@@ -5,9 +5,9 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CLIENT_APP_FIREFOX,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import * as compatUtils from 'core/utils/compatibility';
 import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import Badge from 'ui/components/Badge';
@@ -119,16 +119,16 @@ describe(__filename, () => {
   });
 
   describe('Quantum compatible badge', () => {
-    let isQuantumCompatible;
-
-    beforeEach(() => {
-      isQuantumCompatible = sinon.stub(compatUtils, 'isQuantumCompatible');
-    });
-
     it('does not display a badge when add-on is compatible with Quantum', () => {
-      const addon = createInternalAddon(createFakeAddon());
-
-      isQuantumCompatible.returns(true);
+      const addon = createInternalAddon(createFakeAddon({
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '*',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: false,
+      }));
 
       const root = shallowRender({ addon });
 
@@ -136,9 +136,15 @@ describe(__filename, () => {
     });
 
     it('displays a badge when the addon is not compatible with Quantum', () => {
-      const addon = createInternalAddon(createFakeAddon());
-
-      isQuantumCompatible.returns(false);
+      const addon = createInternalAddon(createFakeAddon({
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '56.*',
+            min: '30.0a1',
+          },
+        },
+        is_strict_compatibility_enabled: true,
+      }));
 
       const root = shallowRender({ addon });
 
@@ -146,6 +152,23 @@ describe(__filename, () => {
       expect(root.find(Badge)).toHaveProp('type', 'not-compatible');
       expect(root.find(Badge))
         .toHaveProp('label', 'Not compatible with Firefox Quantum');
+    });
+
+    it('does not display a badge for add-ons that are not extensions', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        type: ADDON_TYPE_THEME,
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '56.*',
+            min: '30.0a1',
+          },
+        },
+        is_strict_compatibility_enabled: true,
+      }));
+
+      const root = shallowRender({ addon });
+
+      expect(root.find(Badge)).toHaveLength(0);
     });
   });
 });

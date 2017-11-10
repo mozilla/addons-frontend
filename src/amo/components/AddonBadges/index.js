@@ -35,7 +35,8 @@ export const AddonBadgesBase = (props: Props) => {
     }
   };
 
-  const isIncompatible = isQuantumCompatible({ addon }) === false;
+  const isIncompatible = addon.type === ADDON_TYPE_EXTENSION &&
+    isQuantumCompatible({ addon }) === false;
 
   return (
     <div className="AddonBadges">

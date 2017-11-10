@@ -645,5 +645,25 @@ describe(__filename, () => {
 
       expect(isQuantumCompatible({ addon })).toEqual(false);
     });
+
+    it('returns `true` when add-on is compatible with one of the platforms', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        compatibility: {
+          // This platform is not compatible...
+          [CLIENT_APP_FIREFOX]: {
+            max: '56.*',
+            min: '30.0a1',
+          },
+          // ...but this platform is compatible.
+          [CLIENT_APP_ANDROID]: {
+            max: '57.0',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: true,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(true);
+    });
   });
 });
