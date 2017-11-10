@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 13:53+0000\n"
+"PO-Revision-Date: 2017-11-10 14:13+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -573,19 +573,19 @@ msgstr "Marcado"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
-msgstr "Sinalizar esta resposta do programador"
+msgstr "Marcar esta resposta do programador"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
 msgid "Flag this review"
-msgstr "Sinalizar esta análise"
+msgstr "Marcar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
 msgid "Log in to flag this response"
-msgstr "Iniciar sessão para assinalar esta resposta"
+msgstr "Iniciar sessão para marcar esta resposta"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
 msgid "Log in to flag this review"
-msgstr "Iniciar sessão para assinalar esta análise"
+msgstr "Iniciar sessão para marcar esta análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
