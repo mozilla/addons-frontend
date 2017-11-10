@@ -22,8 +22,13 @@ import {
   getCompatibleVersions,
   getClientCompatibility,
   isCompatibleWithUserAgent,
+  isQuantumCompatible,
 } from 'core/utils/compatibility';
-import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
+import {
+  createFakeAddon,
+  fakeAddon,
+  fakeTheme,
+} from 'tests/unit/amo/helpers';
 import {
   createFakeMozWindow,
   userAgents,
@@ -725,6 +730,58 @@ describe(__filename, () => {
         minVersion: null,
         reason: null,
       });
+    });
+  });
+
+  describe('isQuantumCompatible', () => {
+    it('returns `true` when add-on is compatible', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        name: 'Firefox Multi-Account Containers',
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '*',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: false,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(true);
+    });
+
+    it('returns `false` when add-on is not compatible', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        name: 'Firebug',
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '56.*',
+            min: '30.0a1',
+          },
+        },
+        is_strict_compatibility_enabled: true,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(false);
+    });
+
+    it('returns `true` when add-on is compatible with one of the platforms', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        compatibility: {
+          // This platform is not compatible...
+          [CLIENT_APP_FIREFOX]: {
+            max: '56.*',
+            min: '30.0a1',
+          },
+          // ...but this platform is compatible.
+          [CLIENT_APP_ANDROID]: {
+            max: '57.0',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: true,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(true);
     });
   });
 });

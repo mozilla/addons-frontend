@@ -1,12 +1,15 @@
 /* global window */
 import { oneLine } from 'common-tags';
 import mozCompare from 'mozilla-version-comparator';
+import UAParser from 'ua-parser-js';
 
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -177,3 +180,27 @@ export function getClientCompatibility({
     reason,
   };
 }
+
+export const isQuantumCompatible = ({ addon }) => {
+  // HACK: we use a hardcoded User Agent string corresponding to MacOS/Firefox
+  // 57.0 to determine whether the given `addon` is compatible with Quantum.
+  // The OS is not important as far as it is not `iOS`.
+  //
+  // See: https://github.com/mozilla/addons-frontend/issues/3868.
+  const userAgentInfo = UAParser(oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X
+    10.12; rv:57.0) Gecko/20100101 Firefox/57.0`);
+
+  const supportsDesktop57 = getClientCompatibility({
+    addon,
+    clientApp: CLIENT_APP_FIREFOX,
+    userAgentInfo,
+  }).compatible;
+
+  const supportsAndroid57 = getClientCompatibility({
+    addon,
+    clientApp: CLIENT_APP_ANDROID,
+    userAgentInfo,
+  }).compatible;
+
+  return supportsDesktop57 || supportsAndroid57;
+};
