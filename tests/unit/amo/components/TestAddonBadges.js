@@ -2,11 +2,12 @@ import React from 'react';
 
 import AddonBadges, { AddonBadgesBase } from 'amo/components/AddonBadges';
 import {
+  ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
+import * as compatUtils from 'core/utils/compatibility';
 import { createFakeAddon, fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import Badge from 'ui/components/Badge';
@@ -14,11 +15,21 @@ import Badge from 'ui/components/Badge';
 
 describe(__filename, () => {
   function shallowRender(props) {
+    const allProps = {
+      i18n: fakeI18n(),
+      ...props,
+    };
+
     return shallowUntilTarget(
-      <AddonBadges i18n={fakeI18n()} {...props} />,
+      <AddonBadges {...allProps} />,
       AddonBadgesBase
     );
   }
+
+  it('returns null when there is no add-on', () => {
+    const root = shallowRender({ addon: null });
+    expect(root.html()).toEqual(null);
+  });
 
   it('displays a badge when the addon is featured', () => {
     const addon = createInternalAddon({
@@ -48,7 +59,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({
       ...fakeAddon,
       is_featured: true,
-      type: ADDON_TYPE_OPENSEARCH,
+      type: ADDON_TYPE_DICT,
     });
     const root = shallowRender({ addon });
 
@@ -107,33 +118,34 @@ describe(__filename, () => {
     expect(root.find(Badge)).toHaveLength(0);
   });
 
-  it('displays a badge when the addon is not a web extension', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      files: [{ is_webextension: false }],
-    }));
-    const root = shallowRender({ addon });
+  describe('Quantum compatible badge', () => {
+    let isQuantumCompatible;
 
-    expect(root.find(Badge)).toHaveProp('type', 'not-compatible');
-    expect(root.find(Badge))
-      .toHaveProp('label', 'Not compatible with Firefox Quantum');
-  });
+    beforeEach(() => {
+      isQuantumCompatible = sinon.stub(compatUtils, 'isQuantumCompatible');
+    });
 
-  it('does not display a badge when the addon is a web extension', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      files: [{ is_webextension: true }],
-    }));
-    const root = shallowRender({ addon });
+    it('does not display a badge when add-on is compatible with Quantum', () => {
+      const addon = createInternalAddon(createFakeAddon());
 
-    expect(root.find(Badge)).toHaveLength(0);
-  });
+      isQuantumCompatible.returns(true);
 
-  it('does not display a badge when the addon is not an extension', () => {
-    const addon = createInternalAddon(createFakeAddon({
-      type: ADDON_TYPE_THEME,
-      files: [{ is_webextension: false }],
-    }));
-    const root = shallowRender({ addon });
+      const root = shallowRender({ addon });
 
-    expect(root.find(Badge)).toHaveLength(0);
+      expect(root.find(Badge)).toHaveLength(0);
+    });
+
+    it('displays a badge when the addon is not compatible with Quantum', () => {
+      const addon = createInternalAddon(createFakeAddon());
+
+      isQuantumCompatible.returns(false);
+
+      const root = shallowRender({ addon });
+
+      expect(root.find(Badge)).toHaveLength(1);
+      expect(root.find(Badge)).toHaveProp('type', 'not-compatible');
+      expect(root.find(Badge))
+        .toHaveProp('label', 'Not compatible with Firefox Quantum');
+    });
   });
 });

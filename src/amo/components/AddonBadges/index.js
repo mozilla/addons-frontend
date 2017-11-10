@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
+import { isQuantumCompatible } from 'core/utils/compatibility';
 import Badge from 'ui/components/Badge';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -19,6 +20,10 @@ type Props = {|
 export const AddonBadgesBase = (props: Props) => {
   const { addon, i18n } = props;
 
+  if (!addon) {
+    return null;
+  }
+
   const getFeaturedText = (addonType: string) => {
     switch (addonType) {
       case ADDON_TYPE_EXTENSION:
@@ -30,24 +35,23 @@ export const AddonBadgesBase = (props: Props) => {
     }
   };
 
-  const isIncompatible = addon && addon.type === ADDON_TYPE_EXTENSION &&
-    !addon.isWebExtension;
+  const isIncompatible = isQuantumCompatible({ addon }) === false;
 
   return (
     <div className="AddonBadges">
-      {addon && addon.is_featured ? (
+      {addon.is_featured ? (
         <Badge
           type="featured"
           label={getFeaturedText(addon.type)}
         />
       ) : null}
-      {addon && addon.isRestartRequired ? (
+      {addon.isRestartRequired ? (
         <Badge
           type="restart-required"
           label={i18n.gettext('Restart Required')}
         />
       ) : null}
-      {addon && addon.is_experimental ? (
+      {addon.is_experimental ? (
         <Badge
           type="experimental"
           label={i18n.gettext('Experimental')}
