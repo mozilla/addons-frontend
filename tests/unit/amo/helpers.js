@@ -274,18 +274,24 @@ export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}
 }
 
 export function createFakeAddon({
-  files = [...fakeAddon.current_version.files], ...overrides
+  files = [...fakeAddon.current_version.files],
+  compatibility = { ...fakeAddon.current_version.compatibility },
+  // eslint-disable-next-line camelcase
+  is_strict_compatibility_enabled = fakeAddon.current_version.is_strict_compatibility_enabled,
+  ...overrides
 } = {}) {
   return {
     ...fakeAddon,
     current_version: {
       ...fakeAddon.current_version,
+      compatibility,
       files: files.map((fileProps) => {
         return {
           ...fakeAddon.current_version.files[0],
           ...fileProps,
         };
       }),
+      is_strict_compatibility_enabled,
     },
     ...overrides,
   };
