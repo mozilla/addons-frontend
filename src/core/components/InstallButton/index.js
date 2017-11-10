@@ -1,14 +1,17 @@
-/* global window */
+/* global InstallTrigger, window */
 import classNames from 'classnames';
+import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { getAddonIconUrl } from 'core/imageUtils';
 import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  INSTALL_CATEGORY,
   INSTALL_STARTED_CATEGORY,
   TRACKING_TYPE_EXTENSION,
   validAddonTypes,
@@ -26,6 +29,37 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
+
+export const getFileHash = ({ addon, installURL } = {}) => {
+  if (!addon) {
+    throw new Error('The addon parameter cannot be empty');
+  }
+  if (!installURL) {
+    throw new Error('The installURL parameter cannot be empty');
+  }
+
+  const urlKey = installURL.split('?')[0];
+
+  // TODO: refactor createInternalAddon() to expose file objects
+  // per platform so we don't have to do this.
+  // https://github.com/mozilla/addons-frontend/issues/3871
+
+  if (addon.current_version) {
+    // eslint-disable-next-line no-restricted-syntax
+    for (const file of addon.current_version.files) {
+      // The API sometimes appends ?src= to URLs so we just check the
+      // basename.
+      if (file.url.startsWith(urlKey)) {
+        return file.hash;
+      }
+    }
+  }
+
+  log.warn(oneLine`No file hash found for addon "${addon.slug}",
+    installURL "${installURL}" (as "${urlKey}")`);
+
+  return undefined;
+};
 
 export class InstallButtonBase extends React.Component {
   static propTypes = {
@@ -55,6 +89,7 @@ export class InstallButtonBase extends React.Component {
     uninstall: PropTypes.func.isRequired,
     useButton: PropTypes.bool,
     userAgentInfo: PropTypes.string.isRequired,
+    _InstallTrigger: PropTypes.object,
     _log: PropTypes.object,
     _tracking: PropTypes.object,
     _window: PropTypes.object,
@@ -63,6 +98,8 @@ export class InstallButtonBase extends React.Component {
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
     useButton: false,
+    _InstallTrigger: typeof InstallTrigger !== 'undefined' ?
+      InstallTrigger : null,
     _log: log,
     _tracking: tracking,
     _window: typeof window !== 'undefined' ? window : {},
@@ -74,12 +111,65 @@ export class InstallButtonBase extends React.Component {
     installTheme(event.currentTarget, { ...addon, status });
   }
 
+  installExtension = ({ installURL, event }) => {
+    const { addon, _InstallTrigger } = this.props;
+
+    this.trackInstallStarted({ addonName: addon.name });
+
+    if (!_InstallTrigger) {
+      // Let the button serve the file like a normal link.
+      return true;
+    }
+
+    log.debug(`Installing addon "${addon.slug}" with InstallTrigger`);
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    // This is a Firefox API for installing extensions that
+    // pre-dates mozAddonManager.
+    //
+    // See
+    // https://developer.mozilla.org/en-US/docs/Web/API/InstallTrigger/install
+    // https://github.com/mozilla/addons-server/blob/98c97f3ebce7f82b8c32f271df3034eae3245f1f/static/js/zamboni/buttons.js#L310
+    //
+    _InstallTrigger.install({
+      [addon.name]: {
+        Hash: getFileHash({ addon, installURL }),
+        IconURL: getAddonIconUrl(addon),
+        URL: installURL,
+        // The old AMO did this so, hey, why not?
+        toString: () => installURL,
+      },
+    }, (xpiURL, status) => {
+      log.debug(oneLine`InstallTrigger completed for "${xpiURL}";
+        status=${status}`);
+
+      if (status === 0) {
+        // The extension was installed successfully.
+        this.trackInstallSucceeded({ addonName: addon.name });
+      }
+    });
+
+    return false;
+  }
+
   trackInstallStarted({ addonName }) {
     const { _tracking } = this.props;
 
     _tracking.sendEvent({
       action: TRACKING_TYPE_EXTENSION,
       category: INSTALL_STARTED_CATEGORY,
+      label: addonName,
+    });
+  }
+
+  trackInstallSucceeded({ addonName }) {
+    const { _tracking } = this.props;
+
+    _tracking.sendEvent({
+      action: TRACKING_TYPE_EXTENSION,
+      category: INSTALL_CATEGORY,
       label: addonName,
     });
   }
@@ -158,8 +248,8 @@ export class InstallButtonBase extends React.Component {
         event.preventDefault();
         event.stopPropagation();
         return false;
-      } : () => {
-        this.trackInstallStarted({ addonName: addon.name });
+      } : (event) => {
+        this.installExtension({ event, installURL });
       };
       button = (
         <Button
