@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 08:50+0000\n"
+"PO-Revision-Date: 2017-11-10 09:09+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -37,14 +37,12 @@ msgid "Rate your experience"
 msgstr "Vurder opplevinga di"
 
 #: src/amo/components/Addon/index.js:266
-#, fuzzy
 msgid "About this dictionary"
-msgstr "Logg inn for å vurdere denne ordboka"
+msgstr "Om denne ordboka"
 
 #: src/amo/components/Addon/index.js:269
-#, fuzzy
 msgid "About this extension"
-msgstr "Logg inn for å vurdere denne utvidinga"
+msgstr "Om denne utvidinga"
 
 #: src/amo/components/Addon/index.js:272
 msgid "About this language pack"
@@ -56,9 +54,8 @@ msgid "About this search plugin"
 msgstr "Logg inn for å vurdere dette programtillegget"
 
 #: src/amo/components/Addon/index.js:278
-#, fuzzy
 msgid "About this theme"
-msgstr "Logg inn for å vurdere dette temaet"
+msgstr "Om dette temaet"
 
 #: src/amo/components/Addon/index.js:281
 #, fuzzy
@@ -327,9 +324,8 @@ msgstr[0] "%(total)s vurdering"
 msgstr[1] "%(total)s vurderingar"
 
 #: src/amo/components/AddonReviewList/index.js:211
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "av %(authorName)s, %(timestamp)s"
+msgstr "av %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:145
 msgid "Developer response"
@@ -380,18 +376,16 @@ msgid "Add-ons for Firefox"
 msgstr "Utvidingar for Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Utvidingar for Firefox"
+msgstr "%s – Utvidingar for Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Utvidingar for Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "Utvidingar for Android"
+msgstr "%s – Utvidingar for Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -416,12 +410,11 @@ msgstr "Framheva utvidingar"
 #: src/amo/components/Category/index.js:135 src/amo/components/Category/index.js:145 src/amo/components/Category/index.js:155 src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188
 msgid "See more"
-msgstr "Sjå fleire"
+msgstr "Vis fleire"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/Home/index.js:219 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:114
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Høgst vurderte utvidingar"
+msgstr "Populære utvidingar"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:126
 msgid "Top rated extensions"
@@ -436,9 +429,8 @@ msgid "Featured themes"
 msgstr "Framheva tema"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:117
-#, fuzzy
 msgid "Trending themes"
-msgstr "Høgst vurderte tema"
+msgstr "Populære tema"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:129
 msgid "Top rated themes"
@@ -465,14 +457,12 @@ msgid "Creator"
 msgstr "Laga av"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Svar frå utviklaren"
+msgstr "Støtt denne utviklaren"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Fleire utvidingar av desse utviklarane"
+msgstr "Støtt desse utviklarane"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -483,14 +473,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Brukarstøtteside"
+msgstr "Støtt denne artisten"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Fleire tema av desse artistane"
+msgstr "Støtt desse artistane"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -780,11 +768,11 @@ msgstr "Sesong"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Tilpass korleis Firefox fungerer med utvidingar. Er du intersssert i…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Endre korleis Firefox ser ut med tema."
 
 #: src/amo/components/Home/index.js:193
 msgid "Most popular extensions"
@@ -805,7 +793,7 @@ msgstr "Vis fleire faneutvidingar"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
-msgstr "Fleire populære utvidingar"
+msgstr "Vis fleire populære utvidingar"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
@@ -874,7 +862,7 @@ msgstr "Høgst vurderte utvidingar"
 
 #: src/amo/components/LandingPage/index.js:161
 msgid "See more trending themes"
-msgstr "Fleire framheva tema"
+msgstr "Vis fleire populære tema"
 
 #: src/amo/components/LandingPage/index.js:167
 #, fuzzy
@@ -1005,9 +993,8 @@ msgid "Featured add-ons"
 msgstr "Framheva utviding"
 
 #: src/amo/components/Search/index.js:120
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Laster utvidingar"
+msgstr "Populære utvidingar"
 
 #: src/amo/components/Search/index.js:132
 #, fuzzy
@@ -1138,7 +1125,7 @@ msgstr "Høgast vurderte"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "Populære"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
@@ -1248,7 +1235,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "For å sjå fleire måt du kan bidra til fellesskapet rundt utvidingar, gå til %(startLink)swiki-en%(endLink)s vår"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
