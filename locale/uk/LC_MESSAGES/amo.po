@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 08:43+0000\n"
-"Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
+"PO-Revision-Date: 2017-11-10 15:21+0000\n"
+"Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -177,12 +177,12 @@ msgstr "Користувачі"
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Користувач"
-msgstr[1] "Користувачі"
-msgstr[2] "Користувачі"
+msgstr[1] "Користувача"
+msgstr[2] "Користувачів"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
-msgstr "Без користувачів"
+msgstr "Немає користувачів"
 
 #: src/amo/components/AddonMeta/index.js:43
 #, fuzzy
@@ -459,7 +459,7 @@ msgstr "Додатки"
 
 #: src/amo/components/Collection/index.js:141
 msgid "Creator"
-msgstr "Творець"
+msgstr "Створив"
 
 #: src/amo/components/ContributeCard/index.js:36
 #, fuzzy
@@ -584,7 +584,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr "Галочка"
+msgstr "Позначити"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
