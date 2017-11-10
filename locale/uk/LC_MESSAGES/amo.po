@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 08:39+0000\n"
+"PO-Revision-Date: 2017-11-10 08:43+0000\n"
 "Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -181,9 +181,8 @@ msgstr[1] "Користувачі"
 msgstr[2] "Користувачі"
 
 #: src/amo/components/AddonMeta/index.js:36
-#, fuzzy
 msgid "No Users"
-msgstr "Найбільше користувачів"
+msgstr "Без користувачів"
 
 #: src/amo/components/AddonMeta/index.js:43
 #, fuzzy
@@ -276,9 +275,8 @@ msgid "Support Site"
 msgstr "Сайт підтримки"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
-#, fuzzy
 msgid "Support Email"
-msgstr "Сайт підтримки"
+msgstr "Електронна пошта підтримки"
 
 #: src/amo/components/AddonMoreInfo/index.js:88
 msgid "Visit stats dashboard"
@@ -383,18 +381,16 @@ msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Додатки для Firefox"
+msgstr "%s – Додатки для Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Додатки для Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - Додатки для Android"
+msgstr "%s – Додатки для Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -419,7 +415,7 @@ msgstr "Відібрані розширення"
 #: src/amo/components/Category/index.js:135 src/amo/components/Category/index.js:145 src/amo/components/Category/index.js:155 src/amo/components/Category/index.js:168
 #: src/amo/components/Category/index.js:178 src/amo/components/Category/index.js:188
 msgid "See more"
-msgstr ""
+msgstr "Дивіться більше"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/Home/index.js:219 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:114
 msgid "Trending extensions"
@@ -463,7 +459,7 @@ msgstr "Додатки"
 
 #: src/amo/components/Collection/index.js:141
 msgid "Creator"
-msgstr ""
+msgstr "Творець"
 
 #: src/amo/components/ContributeCard/index.js:36
 #, fuzzy
@@ -555,9 +551,8 @@ msgid "This add-on has been disabled by an administrator."
 msgstr "Цей додаток недоступний на вашій платформі."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Вибачте, але ми не можемо нічого знайти за наданою вами URL."
+msgstr "Вибачте, але ми не можемо нічого знайти за введеною вами адресою."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -589,7 +584,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr ""
+msgstr "Галочка"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
@@ -621,11 +616,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr ""
+msgstr "Це спам"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Позначено як спам"
 
 #: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
@@ -637,7 +632,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr ""
+msgstr "Браузер для Android"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
@@ -782,9 +777,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr ""
 
 #: src/amo/components/Home/index.js:193
-#, fuzzy
 msgid "Most popular extensions"
-msgstr "Більше популярних розширень"
+msgstr "Найпопулярніші розширення"
 
 #: src/amo/components/Home/index.js:194
 #, fuzzy
