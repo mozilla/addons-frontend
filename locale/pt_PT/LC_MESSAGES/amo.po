@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 14:13+0000\n"
+"PO-Revision-Date: 2017-11-10 20:34+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -501,7 +501,7 @@ msgstr "Os autores deste extra pedem que apoie o desenvolvimento do mesmo atrav�
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr "Apoiar agora"
+msgstr "Contribuir agora"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -1207,7 +1207,7 @@ msgstr "Digam aos vossos amigos e familiares que o Firefox é um navegador rápi
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr "Para conhecer mais formas de colaborar com a comunidade de extras, por favor, visite a nossa %(startLink)swiki%(endLink)s"
+msgstr "Para conhecer mais formas de contribuir para a comunidade de extras, por favor visite a nossa %(startLink)swiki%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
