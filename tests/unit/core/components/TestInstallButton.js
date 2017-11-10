@@ -103,11 +103,9 @@ describe(__filename, () => {
     expect(switchComponent).toHaveClassName('InstallButton-switch');
     expect(switchComponent).toHaveProp('addon', addon);
     expect(switchComponent).toHaveProp('installURL', installURL);
-    // Check a few theme properties.
-    expect(switchComponent)
-      .toHaveProp('accentcolor', fakeTheme.theme_data.accentcolor);
-    expect(switchComponent)
-      .toHaveProp('author', fakeTheme.theme_data.author);
+
+    // Make sure it passes all theme properties.
+    expect(switchComponent.props()).toMatchObject(addon.themeData);
   });
 
   it('renders a theme button when mozAddonManager is not available', () => {

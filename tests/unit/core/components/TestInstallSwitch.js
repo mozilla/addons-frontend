@@ -13,16 +13,16 @@ import {
   ENABLING,
   INSTALLED,
   INSTALLING,
-  ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import * as themePreview from 'core/themePreview';
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 
 
-describe('<InstallSwitch />', () => {
+describe(__filename, () => {
   function renderButton(props = {}) {
     const renderProps = {
       dispatch: sinon.spy(),
@@ -136,23 +136,25 @@ describe('<InstallSwitch />', () => {
   });
 
   it('should call installTheme function on click when uninstalled theme', () => {
+    const addon = createInternalAddon(fakeTheme);
     const installTheme = sinon.spy();
-    const browsertheme = { theme: 'data' };
-    sinon.stub(themePreview, 'getThemeData').returns(browsertheme);
-    const guid = 'test-guid';
-    const name = 'hai';
-    const button = renderButton({
+    const props = {
+      addon,
+      // Simulate the state mapper spreads.
+      ...addon,
       installTheme,
-      type: ADDON_TYPE_THEME,
-      guid,
-      name,
       status: UNINSTALLED,
-    });
+    };
+
+    const button = renderButton(props);
+
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    expect(installTheme.calledOnce).toBeTruthy();
-    const themeDataEl = installTheme.args[0][0];
-    expect(themeDataEl.getAttribute('data-browsertheme')).toEqual(JSON.stringify(browsertheme));
+
+    sinon.assert.calledOnce(installTheme);
+    const themeDataEl = installTheme.firstCall.args[0];
+    expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme')))
+      .toEqual(addon.themeData);
   });
 
   it('should call install function on click when uninstalled', () => {
