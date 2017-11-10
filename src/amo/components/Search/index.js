@@ -12,6 +12,7 @@ import SearchContextCard from 'amo/components/SearchContextCard';
 import SearchFilters from 'amo/components/SearchFilters';
 import SearchResults from 'amo/components/SearchResults';
 import { searchStart } from 'core/actions/search';
+import { resetSearch } from 'core/reducers/search';
 import Paginate from 'core/components/Paginate';
 import {
   ADDON_TYPE_EXTENSION,
@@ -79,14 +80,18 @@ export class SearchBase extends React.Component {
     const { context, dispatch, errorHandler } = this.props;
     const { addonType } = newFilters;
 
-    if (hasSearchFilters(newFilters) && !deepEqual(oldFilters, newFilters)) {
-      dispatch(searchStart({
-        errorHandlerId: errorHandler.id,
-        filters: newFilters,
-      }));
+    if (!deepEqual(oldFilters, newFilters)) {
+      if (hasSearchFilters(newFilters)) {
+        dispatch(searchStart({
+          errorHandlerId: errorHandler.id,
+          filters: newFilters,
+        }));
 
-      if (addonType) {
-        dispatch(setViewContext(addonType));
+        if (addonType) {
+          dispatch(setViewContext(addonType));
+        }
+      } else {
+        dispatch(resetSearch());
       }
     }
 

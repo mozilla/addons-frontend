@@ -3,6 +3,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 import search, {
   abortSearch,
   initialState,
+  resetSearch,
 } from 'core/reducers/search';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
@@ -103,6 +104,19 @@ describe(__filename, () => {
         createInternalAddon({ ...fakeAddon, slug: 'food' }),
         createInternalAddon({ ...fakeAddon, slug: 'foo' }),
       ]);
+    });
+  });
+
+  describe('SEARCH_RESET', () => {
+    it('resets the state to its initial state', () => {
+      const state = search(initialState, searchStart({
+        errorHandlerId: 'foo',
+        filters: { query: 'foo' },
+      }));
+      expect(state).not.toEqual(initialState);
+
+      const newState = search(state, resetSearch());
+      expect(newState).toEqual(initialState);
     });
   });
 });
