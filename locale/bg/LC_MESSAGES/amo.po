@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 13:32+0000\n"
+"PO-Revision-Date: 2017-11-10 15:09+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -527,7 +527,7 @@ msgstr "Съжаляваме, но нямате права за достъп д�
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr "Ако сте последвали препратка от някъде, моля, <a href=\"%(url)s\">докладвайте дефект</a>. Опишете ни от къде сте дошли и какво търсите и ние ще направим всичко възможно да отстраним проблема."
+msgstr "Ако сте посетили препратка, моля, <a href=\"%(url)s\">докладвайте дефект</a>. Опишете ни от къде сте дошли и какво търсите, а ние ще направим всичко възможно да отстраним проблема."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
