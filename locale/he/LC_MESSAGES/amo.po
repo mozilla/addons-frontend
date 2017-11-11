@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-08 20:17+0000\n"
+"PO-Revision-Date: 2017-11-11 19:59+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -328,7 +328,7 @@ msgstr "תגובת המפתח"
 
 #: src/amo/components/AddonReviewListItem/index.js:153
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "כתיבת תגובה לסקירה זו."
 
 #: src/amo/components/AddonReviewListItem/index.js:156
 msgid "Update reply"
@@ -778,7 +778,7 @@ msgstr "צפייה בהרחבות לשונית נוספות"
 
 #: src/amo/components/Home/index.js:220 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
-msgstr ""
+msgstr "צפייה בהרחבות נוספות שמובילות לאחרונה"
 
 #: src/amo/components/Home/index.js:248 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
@@ -845,9 +845,8 @@ msgid "See more top rated extensions"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "ערכות הנושא שמובילות לאחרונה"
+msgstr "צפייה בערכות נושא נוספות שמובילות לאחרונה"
 
 #: src/amo/components/LandingPage/index.js:167
 #, fuzzy
