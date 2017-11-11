@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-09 15:46+0000\n"
+"PO-Revision-Date: 2017-11-11 21:20+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -679,7 +679,7 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
-msgstr "Razvojni center"
+msgstr "Razvojno središče"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
@@ -831,7 +831,7 @@ msgstr "Predvajanje videa v visoki ločljivosti, izklop pripisov, spreminjanje v
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
-msgstr ""
+msgstr "Zavračanje oglasov"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
