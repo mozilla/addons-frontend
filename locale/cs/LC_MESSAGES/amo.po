@@ -384,18 +384,16 @@ msgid "Add-ons for Firefox"
 msgstr "Doplňky pro Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Doplňky pro Firefox"
+msgstr ""
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Doplňky pro Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "%s - Doplňky pro Android"
+msgstr ""
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -467,9 +465,8 @@ msgid "Creator"
 msgstr "Autor"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Nahlásit tuto odpověď od vývojáře"
+msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:37
 #, fuzzy
