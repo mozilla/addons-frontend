@@ -278,19 +278,27 @@ export function makeI18n(
     i18n.options._momentDefineLocale();
   }
 
-  // This makes sure moment always uses the current locale.
-  moment.locale(makeMomentLocale(i18n.lang));
-
-  // Wrap the core Jed functionality so that we can always strip leading whitespace
-  // from translation keys to match the same process used in extraction.
+  // Wrap the core Jed functionality so that we can always strip leading
+  // whitespace from translation keys to match the same process used in
+  // extraction.
   i18n._dcnpgettext = i18n.dcnpgettext;
   i18n.dcnpgettext = function dcnpgettext(domain, context, singularKey, pluralKey, val) {
     return i18n._dcnpgettext(domain, context, oneLineTranslationString(singularKey),
       oneLineTranslationString(pluralKey), val);
   };
 
-  // We add a translated "moment" property to our `i18n` object
-  // to make translated date/time/etc. easy.
-  i18n.moment = moment;
+  const momentLocale = makeMomentLocale(i18n.lang);
+
+  // We add a translated "moment" property to our `i18n` object to make
+  // translated date/time/etc. easy.
+  i18n.moment = (...params) => {
+    const scopedMoment = moment(...params);
+
+    // This also makes sure moment always uses the current locale.
+    scopedMoment.locale(momentLocale);
+
+    return scopedMoment;
+  };
+
   return i18n;
 }
