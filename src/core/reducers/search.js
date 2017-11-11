@@ -6,6 +6,7 @@ import { createInternalAddon } from 'core/reducers/addons';
 
 
 const SEARCH_ABORTED = 'SEARCH_ABORTED';
+const SEARCH_RESET = 'SEARCH_RESET';
 
 export const initialState = {
   count: 0,
@@ -16,6 +17,10 @@ export const initialState = {
 
 export const abortSearch = () => {
   return { type: SEARCH_ABORTED };
+};
+
+export const resetSearch = () => {
+  return { type: SEARCH_RESET };
 };
 
 export default function search(state = initialState, action) {
@@ -45,6 +50,8 @@ export default function search(state = initialState, action) {
         results: [],
         loading: false,
       };
+    case SEARCH_RESET:
+      return initialState;
     default:
       return state;
   }

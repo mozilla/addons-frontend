@@ -23,6 +23,7 @@ import {
 } from 'core/constants';
 import { createApiError } from 'core/api/index';
 import { ErrorHandler } from 'core/errorHandler';
+import { resetSearch } from 'core/reducers/search';
 import ErrorList from 'ui/components/ErrorList';
 import {
   dispatchClientMetadata,
@@ -142,6 +143,14 @@ describe(__filename, () => {
       errorHandlerId: props.errorHandler.id,
       filters: newFilters,
     }));
+  });
+
+  it('dispatches a SEARCH_RESET when filters become empty', () => {
+    const root = render({ filters: { query: 'foo' } });
+
+    root.setProps({ filters: {} });
+
+    sinon.assert.calledWith(props.dispatch, resetSearch());
   });
 
   it('sets the viewContext to the addonType if addonType exists', () => {
