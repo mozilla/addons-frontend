@@ -170,7 +170,7 @@ describe(__filename, () => {
 
   it('renders a span with comment for IT', () => {
     const root = render();
-    expect(root.find('[data-comment="For-IT"]')).toHaveLength(1);
+    expect(root.find({ dangerouslySetInnerHTML: { __html: '<!-- Godzilla of browsers -->' } })).toHaveLength(1);
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
