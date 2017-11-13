@@ -68,14 +68,14 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="ublock-origin"
-          linkTo="/addon/ublock-origin/"
-          styleName="Home-ublock-origin"
+          key="lastpass"
+          linkTo="/addon/lastpass-password-manager/"
+          styleName="Home-lastpass"
         >
-          <h3>{i18n.gettext('uBlock Origin')}</h3>
+          <h3>{i18n.gettext('Lastpass Password Manager')}</h3>
           <p>
-            {i18n.gettext(`An extremely powerful ad blocker that’s simple
-              to use`)}
+            {i18n.gettext(`Easily manage all your passwords for all devices
+              from one spot`)}
           </p>
         </HeroSection>
       ),
