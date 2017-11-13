@@ -175,6 +175,12 @@ export class HomeBase extends React.Component {
 
     return (
       <div className="Home">
+        <span
+          className="visually-hidden do-not-remove"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }}
+        />
+
         {errorHandler.renderErrorIfPresent()}
 
         <HomeHeroBanner />

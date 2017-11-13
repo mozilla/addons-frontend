@@ -167,6 +167,12 @@ describe(__filename, () => {
     });
   });
 
+  it('renders a comment for monitoring', () => {
+    const root = render();
+    expect(root.find('.do-not-remove').html())
+      .toContain('<!-- Godzilla of browsers -->');
+  });
+
   it('dispatches an action to fetch the add-ons to display', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;
