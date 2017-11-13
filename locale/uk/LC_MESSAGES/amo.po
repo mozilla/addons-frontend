@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-13 11:02+0000\n"
-"Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
+"PO-Revision-Date: 2017-11-13 12:35+0000\n"
+"Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -346,7 +346,7 @@ msgstr "Оновити відповідь"
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Publish reply"
-msgstr "Надіслати відповідь"
+msgstr "Опублікувати відповідь"
 
 #: src/amo/components/AddonReviewListItem/index.js:161
 msgid "Updating reply"
@@ -354,7 +354,7 @@ msgstr "Оновлення відповіді"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Publishing reply"
-msgstr "Надсилання відповіді"
+msgstr "Публікація відповіді"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
 msgid "posted %(timestamp)s"
@@ -517,7 +517,7 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr "Зробити пожертву"
+msgstr "Зробити внесок"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -588,7 +588,7 @@ msgstr "Позначити"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr "Позначений"
+msgstr "Позначено"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -726,11 +726,11 @@ msgstr "Інструменти"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Add-on"
-msgstr "Відправити новий додаток"
+msgstr "Подати новий додаток"
 
 #: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
-msgstr "Відправити нову тему"
+msgstr "Подати нову тему"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
@@ -754,7 +754,7 @@ msgstr "Природа"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr "Фільм і телевізор"
+msgstr "Фільми і ТБ"
 
 #: src/amo/components/Home/index.js:125
 msgid "Scenery"
