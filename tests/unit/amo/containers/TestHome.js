@@ -168,13 +168,10 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a span with comment for IT', () => {
+  it('renders a comment for monitoring', () => {
     const root = render();
-    expect(root.find({
-      dangerouslySetInnerHTML: {
-        __html: '<!-- Godzilla of browsers -->',
-      },
-    })).toHaveLength(1);
+    expect(root.find('.do-not-remove').html())
+      .toContain('<!-- Godzilla of browsers -->');
   });
 
   it('dispatches an action to fetch the add-ons to display', () => {
