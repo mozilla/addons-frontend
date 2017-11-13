@@ -121,6 +121,9 @@ describe(__filename, () => {
   describe('Quantum compatible badge', () => {
     it('does not display a badge when add-on is compatible with Quantum', () => {
       const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_webextension: true,
+        }],
         compatibility: {
           [CLIENT_APP_FIREFOX]: {
             max: '*',
@@ -137,6 +140,10 @@ describe(__filename, () => {
 
     it('displays a badge when the addon is not compatible with Quantum', () => {
       const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_mozilla_signed_extension: false,
+          is_webextension: false,
+        }],
         compatibility: {
           [CLIENT_APP_FIREFOX]: {
             max: '56.*',
@@ -156,6 +163,9 @@ describe(__filename, () => {
 
     it('does not display a badge for add-ons that are not extensions', () => {
       const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_webextension: false,
+        }],
         type: ADDON_TYPE_THEME,
         compatibility: {
           [CLIENT_APP_FIREFOX]: {
