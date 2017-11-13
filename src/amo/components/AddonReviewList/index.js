@@ -14,7 +14,7 @@ import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
 import { fetchAddon } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { findAddon, parsePage, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
@@ -313,9 +313,15 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   };
 }
 
+export const extractId = (ownProps: Props) => {
+  const { location, params } = ownProps;
+
+  return `${params.addonSlug}-${parsePage(location.query.page)}`;
+};
+
 export default compose(
   connect(mapStateToProps),
   translate({ withRef: true }),
-  withErrorHandler({ name: 'AddonReviewList' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
   withRouter,
 )(AddonReviewListBase);
