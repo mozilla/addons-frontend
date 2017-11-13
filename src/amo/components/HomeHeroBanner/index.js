@@ -54,28 +54,27 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="privacy-matters"
-          linkTo="/collections/mozilla/privacy-matters/"
-          styleName="Home-privacy-matters"
+          key="productivity"
+          linkTo="/collections/mozilla/be-more-productive/"
+          styleName="Home-productivity"
         >
-          <h3>{i18n.gettext('Block ads')}</h3>
+          <h3>{i18n.gettext('Productivity extensions')}</h3>
 
           <p>
-            {i18n.gettext(`From ad blockers to anti-trackers, here
-              are some impressive privacy extensions`)}
+            {i18n.gettext(`Tools for making the Web work harder for you`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="ublock-origin"
-          linkTo="/addon/ublock-origin/"
-          styleName="Home-ublock-origin"
+          key="lastpass"
+          linkTo="/addon/lastpass-password-manager/"
+          styleName="Home-lastpass"
         >
-          <h3>{i18n.gettext('uBlock Origin')}</h3>
+          <h3>{i18n.gettext('Lastpass Password Manager')}</h3>
           <p>
-            {i18n.gettext(`An extremely powerful ad blocker that’s simple
-              to use`)}
+            {i18n.gettext(`Easily manage all your passwords for all devices
+              from one spot`)}
           </p>
         </HeroSection>
       ),

@@ -56,16 +56,16 @@ export class HomeBase extends React.Component {
     const { i18n } = this.props;
     const curatedMozillaCollections = [
       {
-        title: i18n.gettext('Ad blockers'),
-        collectionSlug: 'ad-blockers',
+        title: i18n.gettext('Bookmarks'),
+        collectionSlug: 'bookmark-managers',
       },
       {
         title: i18n.gettext('Password managers'),
         collectionSlug: 'password-managers',
       },
       {
-        title: i18n.gettext('Bookmarks'),
-        collectionSlug: 'bookmark-managers',
+        title: i18n.gettext('Ad blockers'),
+        collectionSlug: 'ad-blockers',
       },
       {
         title: i18n.gettext('Smarter Shopping'),
