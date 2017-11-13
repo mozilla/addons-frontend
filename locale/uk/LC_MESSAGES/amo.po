@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 15:21+0000\n"
-"Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
+"PO-Revision-Date: 2017-11-13 10:25+0000\n"
+"Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -342,19 +342,19 @@ msgstr "Напишіть відповідь на цей відгук."
 
 #: src/amo/components/AddonReviewListItem/index.js:156
 msgid "Update reply"
-msgstr ""
+msgstr "Оновити відповідь"
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Publish reply"
-msgstr ""
+msgstr "Надіслати відповідь"
 
 #: src/amo/components/AddonReviewListItem/index.js:161
 msgid "Updating reply"
-msgstr ""
+msgstr "Оновлення відповіді"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Publishing reply"
-msgstr ""
+msgstr "Надсилання відповіді"
 
 #: src/amo/components/AddonReviewListItem/index.js:201
 msgid "posted %(timestamp)s"
@@ -517,7 +517,7 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "Зробити пожертву"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -588,7 +588,7 @@ msgstr "Позначити"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr ""
+msgstr "Позначений"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -636,7 +636,7 @@ msgstr "Браузер для Android"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr ""
+msgstr "Браузер для iOS"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
