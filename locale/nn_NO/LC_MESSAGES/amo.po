@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-13 08:38+0000\n"
+"PO-Revision-Date: 2017-11-13 11:30+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -527,7 +527,7 @@ msgstr "Om du følgde ei lenke frå nokon stad, ver snill og <a href=\"%(url)s\"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Denne utvidinga er fjerna av utviklaren."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
@@ -559,11 +559,11 @@ msgstr "Beklagar, men det oppstod ein feil med tenaren vår, og vi klarte ikkje 
 
 #: src/amo/components/FlagReviewMenu/index.js:113
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Dette er ein feilrapport eller ein brukarstøtteførespurnad"
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Rapportert som ein feilrapport eller brukarstøtteførespurnad"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
@@ -819,7 +819,7 @@ msgstr "YouTube High Definition"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Spel videoar i HD, skru av kommentarar, endre størrelsen på spelaren, med meir"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Block ads"
@@ -827,7 +827,7 @@ msgstr "Blokker reklame"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "From ad blockers to anti-trackers, here are some impressive privacy extensions"
-msgstr ""
+msgstr "Frå annonsblokkerarar till anti-sporing, her er nokre imponerande personvernutvidingar"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "uBlock Origin"
@@ -835,7 +835,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:77
 msgid "An extremely powerful ad blocker that’s simple to use"
-msgstr ""
+msgstr "Ein svært kraftfull annonsblokkerar som er enkel å bruke"
 
 #: src/amo/components/LandingPage/index.js:129
 msgid "See more featured extensions"
@@ -1275,7 +1275,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Retningslinjer for vurderingar"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1285,11 +1285,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Tips om korleis du skriv ei god vurdering"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Slik gjer du det:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
@@ -1297,7 +1297,7 @@ msgstr "Skriv som om du fortel for ein venn om oplevinga di av utvidinga."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Skriv kortfatta og rett fram."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
