@@ -329,7 +329,7 @@ describe(__filename, () => {
     expect(state[addon.slug].isMozillaSignedExtension).toBe(true);
   });
 
-  it('sets `isMozillaSignedExtension` to `false` when not a web extension', () => {
+  it('sets `isMozillaSignedExtension` to `false` when not declared', () => {
     const addon = createFakeAddon({
       files: [{ is_mozilla_signed_extension: false }],
     });
