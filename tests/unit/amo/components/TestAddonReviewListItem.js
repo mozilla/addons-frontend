@@ -14,6 +14,7 @@ import AddonReviewListItem, {
   AddonReviewListItemBase,
 } from 'amo/components/AddonReviewListItem';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import { ADMIN_SUPER_POWERS } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -268,6 +269,52 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, showReplyToReviewForm({
       reviewId: review.id,
     }));
+  });
+
+  it('lets an admin reply to a review', () => {
+    dispatchSignInActions({ store, permissions: [ADMIN_SUPER_POWERS] });
+
+    const addon = createInternalAddon(fakeAddon);
+    const review = _setReview({
+      ...fakeReview,
+      addon: {
+        id: addon.id,
+        slug: addon.slug,
+      },
+    });
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ addon, review });
+
+    const editButton = root.find('.AddonReviewListItem-begin-reply');
+    expect(editButton).toHaveLength(1);
+
+    const clickEvent = createFakeEvent();
+    editButton.simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.preventDefault);
+    sinon.assert.calledWith(fakeDispatch, showReplyToReviewForm({
+      reviewId: review.id,
+    }));
+  });
+
+  it('does not let a regular user reply to a review', () => {
+    dispatchSignInActions({ store });
+
+    const addon = createInternalAddon(fakeAddon);
+    const review = _setReview({
+      ...fakeReview,
+      addon: {
+        id: addon.id,
+        slug: addon.slug,
+      },
+    });
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ addon, review });
+
+    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('cannot begin a review reply without a review', () => {

@@ -6,6 +6,7 @@ import {
   THEMES_REVIEW,
 } from 'core/constants';
 import reducer, {
+  isAdmin,
   isAuthenticated,
   loadUserProfile,
   selectDisplayName,
@@ -160,6 +161,21 @@ describe(__filename, () => {
 
 
       expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
+    });
+  });
+
+  describe('isAdmin selector', () => {
+    it('returns `true` when user is an admin', () => {
+      const permissions = [ADMIN_SUPER_POWERS];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(isAdmin(state)).toEqual(true);
+    });
+
+    it('returns `false` when user is not an admin', () => {
+      const { state } = dispatchSignInActions({ permissions: [] });
+
+      expect(isAdmin(state)).toEqual(false);
     });
   });
 });

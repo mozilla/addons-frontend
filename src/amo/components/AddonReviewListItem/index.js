@@ -9,7 +9,10 @@ import FlagReviewMenu from 'amo/components/FlagReviewMenu';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { isAuthenticated } from 'core/reducers/user';
+import {
+  isAdmin,
+  isAuthenticated,
+} from 'core/reducers/user';
 import { isAddonAuthor, nl2br, sanitizeHTML } from 'core/utils';
 import {
   hideEditReviewForm,
@@ -39,6 +42,7 @@ type Props = {|
   editingReview: boolean,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  isAdmin: boolean,
   isAuthenticated: boolean,
   isReplyToReviewId?: number,
   i18n: I18nType,
@@ -180,6 +184,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
       editingReview,
       errorHandler,
       i18n,
+      isAdmin: userIsAdmin,
       isAuthenticated: userIsAuthenticated,
       isReplyToReviewId,
       location,
@@ -264,7 +269,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           {
             review && addon && siteUser &&
             !replyingToReview && !review.reply &&
-            isAddonAuthor({ addon, userId: siteUser.id }) &&
+            (isAddonAuthor({ addon, userId: siteUser.id }) || userIsAdmin) &&
             review.userId !== siteUser.id ?
               (
                 <a
@@ -311,6 +316,7 @@ export function mapStateToProps(
   return {
     editingReview,
     isAuthenticated: isAuthenticated(state),
+    isAdmin: isAdmin(state),
     replyingToReview,
     siteUser: state.user,
     submittingReply,

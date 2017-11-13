@@ -61,6 +61,10 @@ export const hasPermission = (
   return permissions.includes(permission);
 };
 
+export const isAdmin = (state: { user: UserStateType }): boolean => {
+  return hasPermission(state, ADMIN_SUPER_POWERS);
+};
+
 export default function reducer(
   state: UserStateType = initialState,
   action: Action = {}
