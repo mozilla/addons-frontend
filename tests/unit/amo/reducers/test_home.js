@@ -30,23 +30,25 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
 
       store.dispatch(loadHomeAddons({
-        featuredCollection: createFakeCollectionAddons({
+        firstCollection: createFakeCollectionAddons({
+          addons: Array(10).fill(fakeAddon),
+        }),
+        secondCollection: createFakeCollectionAddons({
           addons: Array(10).fill(fakeAddon),
         }),
         featuredThemes: createAddonsApiResult([fakeTheme]),
-        popularExtensions: createAddonsApiResult([fakeAddon]),
         upAndComingExtensions: createAddonsApiResult([fakeAddon]),
       }));
 
       const homeState = store.getState().home;
 
       expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.popularExtensions).toEqual([
-        createInternalAddon(fakeAddon),
-      ]);
-      expect(homeState.featuredCollection)
+      expect(homeState.firstCollection)
         .toHaveLength(LANDING_PAGE_ADDON_COUNT);
-      expect(homeState.featuredCollection).toEqual(
+      expect(homeState.firstCollection).toEqual(
+        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
+      );
+      expect(homeState.secondCollection).toEqual(
         Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
       );
       expect(homeState.featuredThemes).toEqual([
@@ -62,8 +64,10 @@ describe(__filename, () => {
 
       const state = homeReducer(loadedState, fetchHomeAddons({
         errorHandlerId: 'some-error-handler-id',
-        featuredCollectionSlug: 'some-collection-slug',
-        featuredCollectionUser: 'mozilla',
+        firstCollectionSlug: 'some-collection-slug',
+        firstCollectionUser: 'mozilla',
+        secondCollectionSlug: 'some-other-slug',
+        secondCollectionUser: 'another-user',
       }));
 
       expect(state.resultsLoaded).toEqual(false);
@@ -73,8 +77,10 @@ describe(__filename, () => {
   describe('fetchHomeAddons()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      featuredCollectionSlug: 'some-collection-slug',
-      featuredCollectionUser: 'mozilla',
+      firstCollectionSlug: 'some-collection-slug',
+      firstCollectionUser: 'mozilla',
+      secondCollectionSlug: 'some-other-slug',
+      secondCollectionUser: 'mozilla',
     };
 
     it('throws an error when errorHandlerId is missing', () => {
@@ -86,49 +92,67 @@ describe(__filename, () => {
       }).toThrow('errorHandlerId is required');
     });
 
-    it('throws an error when featuredCollectionSlug is missing', () => {
+    it('throws an error when firstCollectionSlug is missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.featuredCollectionSlug;
+      delete partialParams.firstCollectionSlug;
 
       expect(() => {
         fetchHomeAddons(partialParams);
-      }).toThrow('featuredCollectionSlug is required');
+      }).toThrow('firstCollectionSlug is required');
     });
 
-    it('throws an error when featuredCollectionUser is missing', () => {
+    it('throws an error when firstCollectionUser is missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.featuredCollectionUser;
+      delete partialParams.firstCollectionUser;
 
       expect(() => {
         fetchHomeAddons(partialParams);
-      }).toThrow('featuredCollectionUser is required');
+      }).toThrow('firstCollectionUser is required');
+    });
+
+    it('throws an error when secondCollectionSlug is missing', () => {
+      const partialParams = { ...defaultParams };
+      delete partialParams.secondCollectionSlug;
+
+      expect(() => {
+        fetchHomeAddons(partialParams);
+      }).toThrow('secondCollectionSlug is required');
+    });
+
+    it('throws an error when secondCollectionUser is missing', () => {
+      const partialParams = { ...defaultParams };
+      delete partialParams.secondCollectionUser;
+
+      expect(() => {
+        fetchHomeAddons(partialParams);
+      }).toThrow('secondCollectionUser is required');
     });
   });
 
   describe('loadHomeAddons()', () => {
     const defaultParams = {
-      popularExtensions: {},
-      featuredCollection: {},
+      firstCollection: {},
+      secondCollection: {},
       featuredThemes: {},
       upAndComingExtensions: {},
     };
 
-    it('throws an error when popular extensions are missing', () => {
+    it('throws an error when the first collection add-ons are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.popularExtensions;
+      delete partialParams.firstCollection;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('popularExtensions is required');
+      }).toThrow('firstCollection is required');
     });
 
-    it('throws an error when featured collection add-ons are missing', () => {
+    it('throws an error when the second collection add-ons are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.featuredCollection;
+      delete partialParams.secondCollection;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('featuredCollection is required');
+      }).toThrow('secondCollection is required');
     });
 
     it('throws an error when featured themes are missing', () => {

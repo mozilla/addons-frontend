@@ -8,7 +8,6 @@ import {
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
@@ -20,8 +19,10 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 export function* fetchHomeAddons({
   payload: {
     errorHandlerId,
-    featuredCollectionSlug,
-    featuredCollectionUser,
+    firstCollectionSlug,
+    firstCollectionUser,
+    secondCollectionSlug,
+    secondCollectionUser,
   },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -32,25 +33,22 @@ export function* fetchHomeAddons({
     const state = yield select(getState);
 
     const {
-      popularExtensions,
-      featuredCollection,
+      firstCollection,
+      secondCollection,
       featuredThemes,
       upAndComingExtensions,
     } = yield all({
-      popularExtensions: call(searchApi, {
+      firstCollection: call(getCollectionAddons, {
         api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_POPULAR,
-        },
         page: 1,
+        slug: firstCollectionSlug,
+        user: firstCollectionUser,
       }),
-      featuredCollection: call(getCollectionAddons, {
+      secondCollection: call(getCollectionAddons, {
         api: state.api,
         page: 1,
-        slug: featuredCollectionSlug,
-        user: featuredCollectionUser,
+        slug: secondCollectionSlug,
+        user: secondCollectionUser,
       }),
       featuredThemes: call(searchApi, {
         api: state.api,
@@ -74,8 +72,8 @@ export function* fetchHomeAddons({
     });
 
     yield put(loadHomeAddons({
-      popularExtensions,
-      featuredCollection,
+      firstCollection,
+      secondCollection,
       featuredThemes,
       upAndComingExtensions,
     }));

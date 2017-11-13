@@ -12,7 +12,6 @@ import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -23,17 +22,21 @@ import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
-export const FEATURED_COLLECTION_SLUG = 'change-up-your-tabs';
-export const FEATURED_COLLECTION_USER = 'mozilla';
+
+export const FIRST_COLLECTION_SLUG = 'privacy-matters';
+export const FIRST_COLLECTION_USER = 'mozilla';
+
+export const SECOND_COLLECTION_SLUG = 'change-up-your-tabs';
+export const SECOND_COLLECTION_USER = 'mozilla';
 
 export class HomeBase extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    featuredCollection: PropTypes.array.isRequired,
+    firstCollection: PropTypes.array.isRequired,
+    secondCollection: PropTypes.array.isRequired,
     featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
-    popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
     upAndComingExtensions: PropTypes.array.isRequired,
   }
@@ -46,8 +49,10 @@ export class HomeBase extends React.Component {
     if (!resultsLoaded) {
       dispatch(fetchHomeAddons({
         errorHandlerId: errorHandler.id,
-        featuredCollectionSlug: FEATURED_COLLECTION_SLUG,
-        featuredCollectionUser: FEATURED_COLLECTION_USER,
+        firstCollectionSlug: FIRST_COLLECTION_SLUG,
+        firstCollectionUser: FIRST_COLLECTION_USER,
+        secondCollectionSlug: SECOND_COLLECTION_SLUG,
+        secondCollectionUser: SECOND_COLLECTION_USER,
       }));
     }
   }
@@ -153,10 +158,10 @@ export class HomeBase extends React.Component {
   render() {
     const {
       errorHandler,
-      featuredCollection,
+      firstCollection,
+      secondCollection,
       featuredThemes,
       i18n,
-      popularExtensions,
       resultsLoaded,
       upAndComingExtensions,
     } = this.props;
@@ -188,27 +193,23 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addons={popularExtensions}
-          className="Home-PopularExtensions"
-          header={i18n.gettext('Most popular extensions')}
-          footerText={i18n.gettext('See more popular extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_POPULAR,
-            },
+          addons={firstCollection}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Top privacy extensions')}
+          footerText={i18n.gettext('See more privacy extensions')}
+          footerLink={{ pathname:
+            `/collections/${FIRST_COLLECTION_USER}/${FIRST_COLLECTION_SLUG}/`,
           }}
           loading={resultsLoaded === false}
         />
 
         <LandingAddonsCard
-          addons={featuredCollection}
+          addons={secondCollection}
           className="Home-FeaturedCollection"
           header={i18n.gettext('Change up your tabs')}
           footerText={i18n.gettext('See more tab extensions')}
           footerLink={{ pathname:
-            `/collections/${FEATURED_COLLECTION_USER}/${FEATURED_COLLECTION_SLUG}/`,
+            `/collections/${SECOND_COLLECTION_USER}/${SECOND_COLLECTION_SLUG}/`,
           }}
           loading={resultsLoaded === false}
         />
@@ -262,9 +263,9 @@ export class HomeBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    featuredCollection: state.home.featuredCollection,
+    firstCollection: state.home.firstCollection,
+    secondCollection: state.home.secondCollection,
     featuredThemes: state.home.featuredThemes,
-    popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
     upAndComingExtensions: state.home.upAndComingExtensions,
   };

@@ -8,25 +8,27 @@ export const FETCH_HOME_ADDONS: 'FETCH_HOME_ADDONS' = 'FETCH_HOME_ADDONS';
 export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 
 export type HomeState = {
-  featuredCollection: Array<AddonType>,
+  firstCollection: Array<AddonType>,
+  secondCollection: Array<AddonType>,
   featuredThemes: Array<AddonType>,
-  popularExtensions: Array<AddonType>,
   resultsLoaded: boolean,
   upAndComingExtensions: Array<AddonType>,
 };
 
 export const initialState: HomeState = {
-  featuredCollection: [],
+  firstCollection: [],
+  secondCollection: [],
   featuredThemes: [],
-  popularExtensions: [],
   resultsLoaded: false,
   upAndComingExtensions: [],
 };
 
 type FetchHomeAddonsParams = {|
   errorHandlerId: string,
-  featuredCollectionSlug: string,
-  featuredCollectionUser: string,
+  firstCollectionSlug: string,
+  firstCollectionUser: string,
+  secondCollectionSlug: string,
+  secondCollectionUser: string,
 |};
 
 type FetchHomeAddonsAction = {|
@@ -36,25 +38,35 @@ type FetchHomeAddonsAction = {|
 
 export const fetchHomeAddons = ({
   errorHandlerId,
-  featuredCollectionSlug,
-  featuredCollectionUser,
+  firstCollectionSlug,
+  firstCollectionUser,
+  secondCollectionSlug,
+  secondCollectionUser,
 }: FetchHomeAddonsParams): FetchHomeAddonsAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
-  if (!featuredCollectionSlug) {
-    throw new Error('featuredCollectionSlug is required');
+  if (!firstCollectionSlug) {
+    throw new Error('firstCollectionSlug is required');
   }
-  if (!featuredCollectionUser) {
-    throw new Error('featuredCollectionUser is required');
+  if (!firstCollectionUser) {
+    throw new Error('firstCollectionUser is required');
+  }
+  if (!secondCollectionSlug) {
+    throw new Error('secondCollectionSlug is required');
+  }
+  if (!secondCollectionUser) {
+    throw new Error('secondCollectionUser is required');
   }
 
   return {
     type: FETCH_HOME_ADDONS,
     payload: {
       errorHandlerId,
-      featuredCollectionSlug,
-      featuredCollectionUser,
+      firstCollectionSlug,
+      firstCollectionUser,
+      secondCollectionSlug,
+      secondCollectionUser,
     },
   };
 };
@@ -74,9 +86,9 @@ type ApiAddonsResponse = {|
 |};
 
 type LoadHomeAddonsParams = {|
-  featuredCollection: CollectionAddonsListResponse,
+  firstCollection: CollectionAddonsListResponse,
+  secondCollection: CollectionAddonsListResponse,
   featuredThemes: ApiAddonsResponse,
-  popularExtensions: ApiAddonsResponse,
   upAndComingExtensions: ApiAddonsResponse,
 |};
 
@@ -86,19 +98,19 @@ type LoadHomeAddonsAction = {|
 |};
 
 export const loadHomeAddons = ({
-  featuredCollection,
+  firstCollection,
+  secondCollection,
   featuredThemes,
-  popularExtensions,
   upAndComingExtensions,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
-  if (!featuredCollection) {
-    throw new Error('featuredCollection is required');
+  if (!firstCollection) {
+    throw new Error('firstCollection is required');
+  }
+  if (!secondCollection) {
+    throw new Error('secondCollection is required');
   }
   if (!featuredThemes) {
     throw new Error('featuredThemes is required');
-  }
-  if (!popularExtensions) {
-    throw new Error('popularExtensions is required');
   }
   if (!upAndComingExtensions) {
     throw new Error('upAndComingExtensions is required');
@@ -107,9 +119,9 @@ export const loadHomeAddons = ({
   return {
     type: LOAD_HOME_ADDONS,
     payload: {
-      featuredCollection,
+      firstCollection,
+      secondCollection,
       featuredThemes,
-      popularExtensions,
       upAndComingExtensions,
     },
   };
@@ -140,21 +152,25 @@ const reducer = (
 
     case LOAD_HOME_ADDONS: {
       const {
-        featuredCollection,
+        firstCollection,
+        secondCollection,
         featuredThemes,
-        popularExtensions,
         upAndComingExtensions,
       } = action.payload;
 
       return {
         ...state,
-        featuredCollection: featuredCollection.results
+        firstCollection: firstCollection.results
+          .slice(0, LANDING_PAGE_ADDON_COUNT)
+          .map((item) => {
+            return createInternalAddon(item.addon);
+          }),
+        secondCollection: secondCollection.results
           .slice(0, LANDING_PAGE_ADDON_COUNT)
           .map((item) => {
             return createInternalAddon(item.addon);
           }),
         featuredThemes: createInternalAddons(featuredThemes),
-        popularExtensions: createInternalAddons(popularExtensions),
         resultsLoaded: true,
         upAndComingExtensions: createInternalAddons(upAndComingExtensions),
       };

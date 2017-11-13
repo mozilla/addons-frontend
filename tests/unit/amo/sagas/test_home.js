@@ -11,7 +11,6 @@ import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_RANDOM,
 } from 'core/constants';
@@ -50,8 +49,10 @@ describe(__filename, () => {
     function _fetchHomeAddons(params) {
       sagaTester.dispatch(fetchHomeAddons({
         errorHandlerId: errorHandler.id,
-        featuredCollectionSlug: 'some-slug',
-        featuredCollectionUser: 'some-user',
+        firstCollectionSlug: 'some-slug',
+        firstCollectionUser: 'some-user',
+        secondCollectionSlug: 'some-other-slug',
+        secondCollectionUser: 'some-other-user',
         ...params,
       }));
     }
@@ -59,40 +60,38 @@ describe(__filename, () => {
     it('calls the API to fetch the add-ons to display on home', async () => {
       const state = sagaTester.getState();
 
-      const slug = 'collection-slug';
-      const user = 'user-id-or-name';
+      const firstCollectionSlug = 'collection-slug';
+      const firstCollectionUser = 'user-id-or-name';
+
+      const secondCollectionSlug = 'another-slug';
+      const secondCollectionUser = 'another-user-id';
 
       const baseArgs = { api: state.api };
       const baseFilters = {
         page_size: LANDING_PAGE_ADDON_COUNT,
       };
 
-      const popularExtensions = createAddonsApiResult([{
-        ...fakeAddon, slug: 'popular-addon',
-      }]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            addonType: ADDON_TYPE_EXTENSION,
-            sort: SEARCH_SORT_POPULAR,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(popularExtensions));
-
-      const featuredCollection = createFakeCollectionAddons();
+      const firstCollection = createFakeCollectionAddons();
       mockCollectionsApi
         .expects('getCollectionAddons')
         .withArgs({
           ...baseArgs,
           page: 1,
-          slug,
-          user,
+          slug: firstCollectionSlug,
+          user: firstCollectionUser,
         })
-        .returns(Promise.resolve(featuredCollection));
+        .returns(Promise.resolve(firstCollection));
+
+      const secondCollection = createFakeCollectionAddons();
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          ...baseArgs,
+          page: 1,
+          slug: secondCollectionSlug,
+          user: secondCollectionUser,
+        })
+        .returns(Promise.resolve(secondCollection));
 
       const featuredThemes = createAddonsApiResult([fakeTheme]);
       mockSearchApi
@@ -126,14 +125,16 @@ describe(__filename, () => {
         .returns(Promise.resolve(upAndComingExtensions));
 
       _fetchHomeAddons({
-        featuredCollectionSlug: slug,
-        featuredCollectionUser: user,
+        firstCollectionSlug,
+        firstCollectionUser,
+        secondCollectionSlug,
+        secondCollectionUser,
       });
 
       const expectedLoadAction = loadHomeAddons({
-        featuredCollection,
+        firstCollection,
+        secondCollection,
         featuredThemes,
-        popularExtensions,
         upAndComingExtensions,
       });
 
@@ -161,6 +162,7 @@ describe(__filename, () => {
 
       mockCollectionsApi
         .expects('getCollectionAddons')
+        .exactly(2)
         .returns(Promise.reject(error));
 
       _fetchHomeAddons();
