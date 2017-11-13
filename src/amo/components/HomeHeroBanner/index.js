@@ -54,15 +54,14 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="privacy-matters"
-          linkTo="/collections/mozilla/privacy-matters/"
-          styleName="Home-privacy-matters"
+          key="productivity"
+          linkTo="/collections/mozilla/be-more-productive/"
+          styleName="Home-productivity"
         >
-          <h3>{i18n.gettext('Block ads')}</h3>
+          <h3>{i18n.gettext('Productivity extensions')}</h3>
 
           <p>
-            {i18n.gettext(`From ad blockers to anti-trackers, here
-              are some impressive privacy extensions`)}
+            {i18n.gettext(`Tools for making the Web work harder for you`)}
           </p>
         </HeroSection>
       ),
