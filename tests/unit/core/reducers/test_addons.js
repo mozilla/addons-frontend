@@ -79,6 +79,7 @@ describe(__filename, () => {
       },
       isRestartRequired: false,
       isWebExtension: true,
+      isMozillaSignedExtension: false,
     });
   });
 
@@ -109,6 +110,7 @@ describe(__filename, () => {
       },
       isRestartRequired: false,
       isWebExtension: true,
+      isMozillaSignedExtension: false,
     };
     delete expectedTheme.theme_data;
 
@@ -278,9 +280,7 @@ describe(__filename, () => {
 
   it('exposes `isWebExtension` attribute from current version files', () => {
     const addon = createFakeAddon({
-      files: [
-        { ...fakeAddon.current_version.files[0], is_webextension: true },
-      ],
+      files: [{ is_webextension: true }],
     });
 
     const state = addons(undefined,
@@ -290,9 +290,7 @@ describe(__filename, () => {
 
   it('sets `isWebExtension` to `false` when add-on is not a web extension', () => {
     const addon = createFakeAddon({
-      files: [
-        { ...fakeAddon.current_version.files[0], is_webextension: false },
-      ],
+      files: [{ is_webextension: false }],
     });
 
     const state = addons(undefined,
@@ -311,14 +309,55 @@ describe(__filename, () => {
   it('sets `isWebExtension` to `true` when any file declares it', () => {
     const addon = createFakeAddon({
       files: [
-        { ...fakeAddon.current_version.files[0], is_webextension: false },
-        { ...fakeAddon.current_version.files[0], is_webextension: true },
+        { is_webextension: false },
+        { is_webextension: true },
       ],
     });
 
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
     expect(state[addon.slug].isWebExtension).toBe(true);
+  });
+
+  it('exposes `isMozillaSignedExtension` from current version files', () => {
+    const addon = createFakeAddon({
+      files: [{ is_mozilla_signed_extension: true }],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isMozillaSignedExtension).toBe(true);
+  });
+
+  it('sets `isMozillaSignedExtension` to `false` when not declared', () => {
+    const addon = createFakeAddon({
+      files: [{ is_mozilla_signed_extension: false }],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isMozillaSignedExtension).toBe(false);
+  });
+
+  it('sets `isMozillaSignedExtension` to `false` without files', () => {
+    const addon = createFakeAddon({ files: [] });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isMozillaSignedExtension).toBe(false);
+  });
+
+  it('sets `isMozillaSignedExtension` to `true` when any file declares it', () => {
+    const addon = createFakeAddon({
+      files: [
+        { is_mozilla_signed_extension: false },
+        { is_mozilla_signed_extension: true },
+      ],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state[addon.slug].isMozillaSignedExtension).toBe(true);
   });
 
   describe('fetchAddon', () => {

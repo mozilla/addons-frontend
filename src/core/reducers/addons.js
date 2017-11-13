@@ -232,6 +232,7 @@ export function createInternalAddon(
     },
     isRestartRequired: false,
     isWebExtension: false,
+    isMozillaSignedExtension: false,
   };
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
@@ -264,8 +265,14 @@ export function createInternalAddon(
     addon.isRestartRequired = apiAddon.current_version.files.some(
       (file) => !!file.is_restart_required
     );
+    // The following checks are a bit fragile since only one file needs
+    // to contain the flag. However, it is highly unlikely to create an
+    // add-on with mismatched file flags in the current DevHub.
     addon.isWebExtension = apiAddon.current_version.files.some(
       (file) => !!file.is_webextension
+    );
+    addon.isMozillaSignedExtension = apiAddon.current_version.files.some(
+      (file) => !!file.is_mozilla_signed_extension
     );
   }
 

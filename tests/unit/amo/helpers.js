@@ -56,6 +56,7 @@ export const fakeAddon = Object.freeze({
       created: '2014-11-22T10:09:01Z',
       hash: 'a1b2c3d4',
       id: 57721,
+      is_mozilla_signed_extension: false,
       is_restart_required: false,
       is_webextension: true,
       permissions: ['activeTab', 'webRequest'],
