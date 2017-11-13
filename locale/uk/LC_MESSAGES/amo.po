@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-13 10:25+0000\n"
+"PO-Revision-Date: 2017-11-13 11:02+0000\n"
 "Last-Translator: Lobodzets <Lobodzets@meta.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -640,15 +640,15 @@ msgstr "Браузер для iOS"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
-msgstr ""
+msgstr "Браузер Focus"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Браузер для комп'ютера"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
@@ -656,11 +656,11 @@ msgstr "Приватність"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "Куки"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
-msgstr ""
+msgstr "Юридична інформація"
 
 #: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
@@ -678,11 +678,11 @@ msgstr "Перейти на домівку Mozilla"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Про"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Блог"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -690,7 +690,7 @@ msgstr "Центр розробника"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Форум"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
@@ -702,7 +702,7 @@ msgstr "Настанови з написання відгуків"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "Статус сайту"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
@@ -710,27 +710,27 @@ msgstr "Переглянути повну версію сайту"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Переглянути мої збірки"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr ""
+msgstr "Переглянути профіль"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr ""
+msgstr "Редагувати профіль"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
-msgstr ""
+msgstr "Інструменти"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Відправити новий додаток"
 
 #: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Відправити нову тему"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
@@ -742,7 +742,7 @@ msgstr "Додатки Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Мій обліковий запис"
 
 #: src/amo/components/Home/index.js:110
 msgid "Abstract"
@@ -750,11 +750,11 @@ msgstr "Абстрактний"
 
 #: src/amo/components/Home/index.js:115
 msgid "Nature"
-msgstr ""
+msgstr "Природа"
 
 #: src/amo/components/Home/index.js:120
 msgid "Film & TV"
-msgstr ""
+msgstr "Фільм і телевізор"
 
 #: src/amo/components/Home/index.js:125
 msgid "Scenery"
@@ -762,11 +762,11 @@ msgstr "Пейзажі"
 
 #: src/amo/components/Home/index.js:130
 msgid "Music"
-msgstr ""
+msgstr "Музика"
 
 #: src/amo/components/Home/index.js:135
 msgid "Seasonal"
-msgstr ""
+msgstr "Пори року"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -806,7 +806,7 @@ msgstr "Більше відібраних тем"
 
 #: src/amo/components/Home/index.js:59
 msgid "Ad blockers"
-msgstr ""
+msgstr "Блокування реклами"
 
 #: src/amo/components/Home/index.js:63
 msgid "Password managers"
@@ -814,7 +814,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:67
 msgid "Bookmarks"
-msgstr ""
+msgstr "Закладки"
 
 #: src/amo/components/Home/index.js:71
 msgid "Smarter Shopping"
@@ -822,11 +822,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:75
 msgid "Productivity"
-msgstr ""
+msgstr "Продуктивність"
 
 #: src/amo/components/Home/index.js:79
 msgid "Watching Videos"
-msgstr ""
+msgstr "Перегляд відео"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -906,11 +906,11 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "All Locales"
-msgstr ""
+msgstr "Всі мови"
 
 #: src/amo/components/LanguageTools/index.js:159
 msgid "Locale Name"
-msgstr ""
+msgstr "Назва мови"
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language Packs"
@@ -918,11 +918,11 @@ msgstr "Мовні пакунки"
 
 #: src/amo/components/LanguageTools/index.js:165
 msgid "Dictionaries"
-msgstr ""
+msgstr "Словники"
 
 #: src/amo/components/LanguageTools/index.js:92
 msgid "Available for your locale"
-msgstr ""
+msgstr "Доступно вашою мовою"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this dictionary"
@@ -982,7 +982,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:192
 msgid "Dismiss"
-msgstr ""
+msgstr "Відхилити"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Sending abuse report"
