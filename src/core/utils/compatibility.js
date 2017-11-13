@@ -166,12 +166,7 @@ export const isQuantumCompatible = ({ addon }) => {
   // object and re-use that logic to accomplish this instead.
   // https://github.com/mozilla/addons-frontend/issues/3814
 
-  if (!addon.current_version) {
-    return false;
-  }
-  return addon.current_version.files.some((file) => {
-    // These checks are fragile because future mozilla-signed extensions
-    // may not be Quantum compatible.
-    return file.is_webextension || file.is_mozilla_signed_extension;
-  });
+  // These checks are fragile because future mozilla-signed extensions
+  // may not be Quantum compatible.
+  return addon.isWebExtension || addon.isMozillaSignedExtension;
 };

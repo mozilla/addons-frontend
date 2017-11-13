@@ -148,6 +148,7 @@ describe(__filename, () => {
           mac: undefined,
           windows: undefined,
         },
+        isMozillaSignedExtension: false,
         isRestartRequired: false,
         isWebExtension: true,
       }]);
