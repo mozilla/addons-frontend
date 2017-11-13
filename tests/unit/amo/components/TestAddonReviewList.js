@@ -472,6 +472,26 @@ describe(__filename, () => {
       expect(h3.render().find('a')).toHaveLength(2);
     });
 
+    it('configures CardList with a count of text reviews', () => {
+      dispatchAddon({
+        ...fakeAddon,
+        ratings: {
+          ...fakeAddon.ratings,
+          // It has 2 star ratings.
+          count: 2,
+          // ...but only 1 text review.
+          text_count: 1,
+        },
+      });
+      dispatchAddonReviews();
+      const root = render();
+
+      const cardList = root.find('.AddonReviewList-reviews');
+      expect(cardList).toHaveProp('header');
+      expect(cardList.prop('header'))
+        .toContain('1 review for this add-on');
+    });
+
     it('configures a paginator with the right URL', () => {
       dispatchAddon();
       dispatchAddonReviews();

@@ -174,7 +174,7 @@ export class AddonReviewListBase extends React.Component<Props> {
     }
 
     const addonRatingCount = addon && addon.ratings ?
-      addon.ratings.count : null;
+      addon.ratings.text_count : null;
     let addonName;
     let reviewCountHTML;
     if (addon) {
