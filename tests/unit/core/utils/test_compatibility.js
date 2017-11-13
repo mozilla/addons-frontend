@@ -13,7 +13,11 @@ import {
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
   OS_MAC,
+  OS_WINDOWS,
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -616,8 +620,33 @@ describe(__filename, () => {
   });
 
   describe('isQuantumCompatible', () => {
-    it('returns `true` when add-on is compatible', () => {
+    it('returns `true` when webextension is compatible', () => {
       const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_mozilla_signed_extension: false,
+          is_webextension: true,
+          platform: OS_ALL,
+        }],
+        name: 'Some Quantum WebExtension',
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '*',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: false,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(true);
+    });
+
+    it('returns `true` when mozilla extension is compatible', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_mozilla_signed_extension: true,
+          is_webextension: false,
+          platform: OS_ALL,
+        }],
         name: 'Firefox Multi-Account Containers',
         compatibility: {
           [CLIENT_APP_FIREFOX]: {
@@ -631,8 +660,53 @@ describe(__filename, () => {
       expect(isQuantumCompatible({ addon })).toEqual(true);
     });
 
-    it('returns `false` when add-on is not compatible', () => {
+    it('returns `true` for windows-only mozilla extensions', () => {
       const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_mozilla_signed_extension: true,
+          is_webextension: false,
+          platform: OS_WINDOWS,
+        }],
+        name: 'Windows only mozilla extension',
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '*',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: false,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(true);
+    });
+
+    it('returns `true` for linux-only mozilla extensions', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_mozilla_signed_extension: true,
+          is_webextension: false,
+          platform: OS_LINUX,
+        }],
+        name: 'Linux only mozilla extension',
+        compatibility: {
+          [CLIENT_APP_FIREFOX]: {
+            max: '*',
+            min: '53.0',
+          },
+        },
+        is_strict_compatibility_enabled: false,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(true);
+    });
+
+    it('returns `false` when non-webextesion is not compatible', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_mozilla_signed_extension: false,
+          is_webextension: false,
+          platform: OS_ALL,
+        }],
         name: 'Firebug',
         compatibility: {
           [CLIENT_APP_FIREFOX]: {
@@ -646,8 +720,20 @@ describe(__filename, () => {
       expect(isQuantumCompatible({ addon })).toEqual(false);
     });
 
-    it('returns `true` when add-on is compatible with one of the platforms', () => {
+    it('returns `false` for add-ons without a current version', () => {
       const addon = createInternalAddon(createFakeAddon({
+        current_version: null,
+      }));
+
+      expect(isQuantumCompatible({ addon })).toEqual(false);
+    });
+
+    it('returns `true` when Android webextension is compatible', () => {
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{
+          is_webextension: true,
+          platform: OS_ANDROID,
+        }],
         compatibility: {
           // This platform is not compatible...
           [CLIENT_APP_FIREFOX]: {
