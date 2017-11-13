@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-10 11:29+0000\n"
+"PO-Revision-Date: 2017-11-13 01:22+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -49,18 +49,16 @@ msgid "About this language pack"
 msgstr "Om denne språkpakken"
 
 #: src/amo/components/Addon/index.js:275
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Logg inn for å vurdere dette programtillegget"
+msgstr "Om dette programtillegget"
 
 #: src/amo/components/Addon/index.js:278
 msgid "About this theme"
 msgstr "Om dette temaet"
 
 #: src/amo/components/Addon/index.js:281
-#, fuzzy
 msgid "About this add-on"
-msgstr "Om denne %(addonType)s"
+msgstr "Om denne utvidinga"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
@@ -271,9 +269,8 @@ msgid "Support Site"
 msgstr "Brukarstøtteside"
 
 #: src/amo/components/AddonMoreInfo/index.js:73
-#, fuzzy
 msgid "Support Email"
-msgstr "Brukarstøtteside"
+msgstr "E-post for brukarstøtte"
 
 #: src/amo/components/AddonMoreInfo/index.js:88
 msgid "Visit stats dashboard"
@@ -317,11 +314,10 @@ msgid "Reviews for %(addonName)s"
 msgstr "Vurdering for %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:183
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s vurdering"
-msgstr[1] "%(total)s vurderingar"
+msgstr[0] "%(total)s vurdering for denne utvidinga"
+msgstr[1] "%(total)s vurderingar for denne utvidinga"
 
 #: src/amo/components/AddonReviewList/index.js:211
 msgid "by %(authorList)s"
@@ -489,14 +485,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Brukarstøtteside"
+msgstr "Støtt denne utviklaren"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Fleire tema av %(author)s"
+msgstr "Støtt desse utviklarane"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -537,14 +531,12 @@ msgid "This add-on has been removed by its author."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Denne utvidinga er ikkje tilgjengeleg på plattforma di."
+msgstr "Denne utvidinga er deaktivert av ein administrator."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
+msgstr "Vi finn diverre ikkje noko på den adressa du tasta inn."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -583,24 +575,20 @@ msgid "Flagged"
 msgstr "Flagga"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Svar frå utviklaren"
+msgstr "Rapporter dette svaret frå utviklaren"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
-#, fuzzy
 msgid "Flag this review"
-msgstr "Svar på denne vurderinga"
+msgstr "Rapporter denne vurderinga"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Logg inn for å vurdere denne utvidinga"
+msgstr "Logg inn for å rapportere dette svaret"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Logg inn for å vurdere dette temaet"
+msgstr "Logg inn for å rapportere denne vurderinga"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
@@ -783,7 +771,6 @@ msgid "See more popular extensions"
 msgstr "Vis fleire populære utvidingar"
 
 #: src/amo/components/Home/index.js:208
-#, fuzzy
 msgid "Change up your tabs"
 msgstr "Endre fanene dine"
 
@@ -856,18 +843,16 @@ msgid "See more featured extensions"
 msgstr "Fleire framheva utvidingar"
 
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Høgst vurderte utvidingar"
+msgstr "Vis fleire høgast vurderte uvidingar"
 
 #: src/amo/components/LandingPage/index.js:161
 msgid "See more trending themes"
 msgstr "Vis fleire populære tema"
 
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Høgst vurderte tema"
+msgstr "Vis fleire høgast vurderte tema"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -988,23 +973,20 @@ msgid "Send abuse report"
 msgstr "Send rapport om misbruk"
 
 #: src/amo/components/Search/index.js:107
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Framheva utviding"
+msgstr "Framheva utvidingar"
 
 #: src/amo/components/Search/index.js:120
 msgid "Trending add-ons"
 msgstr "Populære utvidingar"
 
 #: src/amo/components/Search/index.js:132
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Høgst vurderte utvidingar"
+msgstr "Høgast vurderte utvidingar"
 
 #: src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Mest populære udvidingar"
+msgstr "Populære udvidingar"
 
 #: src/amo/components/Search/index.js:141
 msgid "Popular themes"
