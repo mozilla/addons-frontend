@@ -12,6 +12,7 @@ export const ABORT_FETCH_COLLECTION: 'ABORT_FETCH_COLLECTION' = 'ABORT_FETCH_COL
 
 export type CollectionType = {
   addons: Array<AddonType>,
+  authorId: number,
   authorName: string,
   authorUsername: string,
   description: string | null,
@@ -209,6 +210,7 @@ export const createInternalCollection = ({
   items,
 }: CreateInternalCollectionParams): CollectionType => ({
   addons: createInternalAddons(items),
+  authorId: detail.author.id,
   authorName: detail.author.name,
   authorUsername: detail.author.username,
   description: detail.description,

@@ -25,10 +25,13 @@ const MetadataCard = (props: Props) => {
           throw new Error('title is required');
         }
 
+        // Empty string and zero values are allowed.
+        const hasContent = content || content === '' || content === 0;
+
         return (
           <dl className="MetadataCard-list" key={title}>
             <dd className="MetadataCard-content">
-              {content || content === '' ? content : <LoadingText />}
+              {hasContent ? content : <LoadingText />}
             </dd>
             <dt className="MetadataCard-title">{title}</dt>
           </dl>

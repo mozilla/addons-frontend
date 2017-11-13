@@ -82,6 +82,20 @@ describe(__filename, () => {
     expect(item.find('dt')).toHaveText('I am title');
   });
 
+  it('allows a zero value to render empty content', () => {
+    const item = renderShallow({
+      metadata: [
+        {
+          content: 0,
+          title: 'I am title',
+        },
+      ],
+    });
+
+    expect(item.find('dd')).toHaveText('0');
+    expect(item.find('dt')).toHaveText('I am title');
+  });
+
   it('throws an error if metadata is missing', () => {
     expect(() => {
       renderShallow({ metadata: null });

@@ -17,6 +17,7 @@ import {
   loadCollection,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
+import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
   createStubErrorHandler,
@@ -27,6 +28,7 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
+  dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 
 
@@ -383,6 +385,22 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveLength(1);
     expect(wrapper.find(Paginate)).toHaveLength(1);
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+  });
+
+  it('does not render the pagination when no add-ons in the collection', () => {
+    const store = dispatchClientMetadata().store;
+
+    const collectionAddons = createFakeCollectionAddons({ addons: [] });
+    const collectionDetail = createFakeCollectionDetail({ count: 0 });
+
+    store.dispatch(loadCollection({
+      addons: collectionAddons,
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find(Paginate)).toHaveLength(0);
   });
 
   it('renders loading indicator on add-ons when fetching next page', () => {
@@ -474,6 +492,35 @@ describe(__filename, () => {
   it('does not render an HTML when there is no collection loaded', () => {
     const wrapper = renderComponent();
     expect(wrapper.find('title')).toHaveLength(0);
+  });
+
+  it('renders an edit link when user has `Collections:Edit` permission', () => {
+    const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+  });
+
+  it('renders an edit link when user is the collection owner', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    // We need a collection for this test case.
+    store.dispatch(loadCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
+      }),
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
   });
 
   describe('errorHandler - extractId', () => {
