@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-13 08:19+0000\n"
+"PO-Revision-Date: 2017-11-13 08:38+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -277,9 +277,8 @@ msgid "Visit stats dashboard"
 msgstr "Gå til statistikkoversikta"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Fortel heile verda kvifor du tykkjer at dette tillegget er fantastisk!"
+msgstr "Fortel verda, kvifor du synest denne udvidinga er fantastisk! Følg %(linkStart)svurderingsretningslinjene%(linkEnd)s våre."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -1293,9 +1292,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Vi har fått rapporten din. Takk for at du informerte oss om problema dine med denne utvidinga."
+msgstr "Skriv som om du fortel for ein venn om oplevinga di av utvidinga."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
