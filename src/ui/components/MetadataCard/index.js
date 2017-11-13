@@ -25,8 +25,8 @@ const MetadataCard = (props: Props) => {
           throw new Error('title is required');
         }
 
-        const hasContent = content || content === '' ||
-          parseInt(content, 10) === 0;
+        // Empty string and zero values are allowed.
+        const hasContent = content || content === '' || content === 0;
 
         return (
           <dl className="MetadataCard-list" key={title}>
