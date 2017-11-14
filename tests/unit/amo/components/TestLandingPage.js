@@ -214,7 +214,6 @@ describe(__filename, () => {
     });
 
     expect(root).toIncludeText('Featured extensions');
-    expect(root).toIncludeText('See more featured extensions');
   });
 
   it('renders a link to all categories', () => {
@@ -275,7 +274,6 @@ describe(__filename, () => {
     });
 
     expect(root).toIncludeText('Featured themes');
-    expect(root).toIncludeText('See more featured themes');
   });
 
   it('renders each add-on when set', () => {
@@ -284,6 +282,8 @@ describe(__filename, () => {
       featured: createAddonsApiResult([
         { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
         { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
       ]),
       highlyRated: createAddonsApiResult([
         { ...fakeAddon, name: 'High', slug: 'high' },
@@ -303,8 +303,14 @@ describe(__filename, () => {
       root.find('.SearchResult-name')
         .map((heading) => heading.text()))
       .toEqual([
-        'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
+        // featured
+        'Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2',
+        // highly rated
+        'High', 'High again',
+        // trending
+        'Pop', 'Pop again',
       ]);
+    expect(root).toIncludeText('See more featured themes');
   });
 
   it('renders not found if add-on type is not supported', () => {

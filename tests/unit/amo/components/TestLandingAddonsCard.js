@@ -4,13 +4,17 @@ import { shallow } from 'enzyme';
 import AddonsCard from 'amo/components/AddonsCard';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
   function render(customProps = {}) {
+    const addons = Array(LANDING_PAGE_ADDON_COUNT)
+      .fill(createInternalAddon(fakeAddon));
+
     const props = {
-      addons: [fakeAddon],
+      addons,
       footerLink: {
         pathname: '/some-path/',
         query: { param: 'something' },
@@ -18,20 +22,27 @@ describe(__filename, () => {
       footerText: 'some text',
       header: 'Some Header',
       loading: false,
+      placeholderCount: LANDING_PAGE_ADDON_COUNT,
       ...customProps,
     };
+
     return shallow(<LandingAddonsCard {...props} />);
   }
 
   it('passes loading parameter to AddonsCard', () => {
     const root = render({ loading: true });
     expect(root.find(AddonsCard)).toHaveProp('loading', true);
+
     root.setProps({ loading: false });
     expect(root.find(AddonsCard)).toHaveProp('loading', false);
+    expect(root.find(AddonsCard)).not.toHaveProp('footerLink', null);
   });
 
   it('passes addons to AddonsCard', () => {
-    const addons = [{ ...fakeAddon, slug: 'custom-addon' }];
+    const addons = [createInternalAddon({
+      ...fakeAddon,
+      slug: 'custom-addon',
+    })];
     const root = render({ addons });
     expect(root.find(AddonsCard)).toHaveProp('addons', addons);
   });
@@ -39,5 +50,14 @@ describe(__filename, () => {
   it('sets the number of placeholders to render while loading', () => {
     const root = render({ loading: true });
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);
+  });
+
+  it('hides the footer link when less add-ons than placeholderCount', () => {
+    const addons = [createInternalAddon({
+      ...fakeAddon,
+      slug: 'custom-addon',
+    })];
+    const root = render({ addons, placeholderCount: 2 });
+    expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
   });
 });
