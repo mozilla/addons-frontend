@@ -64,6 +64,11 @@ describe(__filename, () => {
       target_locale: 'zh-TW',
       type: ADDON_TYPE_LANG,
     }),
+    createFakeLanguageAddon({
+      name: 'isiZulu',
+      target_locale: 'zu',
+      type: ADDON_TYPE_LANG,
+    }),
   ];
 
   function renderShallow({
@@ -143,6 +148,11 @@ describe(__filename, () => {
     expect(root.find('.LanguageTools-lang-fr')).toHaveLength(1);
     expect(root.find('.LanguageTools-lang-ur')).toHaveLength(1);
     expect(root.find('.LanguageTools-lang-zh-TW')).toHaveLength(1);
+
+    // Zulu is not a supported locale on the site but since Firefox UI locales
+    // are not necessarily going to match the site locales we should
+    // still render the zulu language pack and dictionary.
+    expect(root.find('.LanguageTools-lang-zu')).toHaveLength(1);
   });
 
   it('renders multiple addons in a list using LanguageToolList', () => {
