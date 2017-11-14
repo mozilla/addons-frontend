@@ -1,5 +1,5 @@
 /* @flow */
-import { ADMIN_SUPER_POWERS, LOG_OUT_USER } from 'core/constants';
+import { ALL_SUPER_POWERS, LOG_OUT_USER } from 'core/constants';
 
 
 const LOAD_USER_PROFILE = 'LOAD_USER_PROFILE';
@@ -54,7 +54,7 @@ export const hasPermission = (
   }
 
   // Admins have absolutely all permissions.
-  if (permissions.includes(ADMIN_SUPER_POWERS)) {
+  if (permissions.includes(ALL_SUPER_POWERS)) {
     return true;
   }
 

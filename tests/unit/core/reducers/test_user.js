@@ -1,6 +1,6 @@
 import { logOutUser } from 'core/actions';
 import {
-  ADMIN_SUPER_POWERS,
+  ALL_SUPER_POWERS,
   ADMIN_TOOLS_VIEW,
   STATS_VIEW,
   THEMES_REVIEW,
@@ -155,7 +155,7 @@ describe(__filename, () => {
     });
 
     it('returns `true` when user is admin', () => {
-      const permissions = [ADMIN_SUPER_POWERS];
+      const permissions = [ALL_SUPER_POWERS];
       const { state } = dispatchSignInActions({ permissions });
 
 

@@ -6,10 +6,14 @@ import { compose } from 'redux';
 
 import AddonReview from 'amo/components/AddonReview';
 import FlagReviewMenu from 'amo/components/FlagReviewMenu';
+import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import { isAuthenticated } from 'core/reducers/user';
+import {
+  hasPermission,
+  isAuthenticated,
+} from 'core/reducers/user';
 import { isAddonAuthor, nl2br, sanitizeHTML } from 'core/utils';
 import {
   hideEditReviewForm,
@@ -39,7 +43,8 @@ type Props = {|
   editingReview: boolean,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  isAuthenticated: boolean,
+  siteUserHasReplyPerm: boolean,
+  siteUserIsAuthenticated: boolean,
   isReplyToReviewId?: number,
   i18n: I18nType,
   location: ReactRouterLocation,
@@ -180,7 +185,8 @@ export class AddonReviewListItemBase extends React.Component<Props> {
       editingReview,
       errorHandler,
       i18n,
-      isAuthenticated: userIsAuthenticated,
+      siteUserHasReplyPerm,
+      siteUserIsAuthenticated,
       isReplyToReviewId,
       location,
       replyingToReview,
@@ -235,7 +241,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           }
           {byline}
           {
-            userIsAuthenticated && review &&
+            siteUserIsAuthenticated && review &&
             review.userId === siteUser.id ?
               (
                 <div>
@@ -264,7 +270,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           {
             review && addon && siteUser &&
             !replyingToReview && !review.reply &&
-            isAddonAuthor({ addon, userId: siteUser.id }) &&
+            (isAddonAuthor({ addon, userId: siteUser.id }) || siteUserHasReplyPerm) &&
             review.userId !== siteUser.id ?
               (
                 <a
@@ -310,7 +316,8 @@ export function mapStateToProps(
   }
   return {
     editingReview,
-    isAuthenticated: isAuthenticated(state),
+    siteUserIsAuthenticated: isAuthenticated(state),
+    siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
     replyingToReview,
     siteUser: state.user,
     submittingReply,
