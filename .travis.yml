@@ -17,20 +17,16 @@ _aliases:
     before_script:
       - yarn install
       - sh -e /etc/init.d/xvfb start
-      - sleep 5
+      - sleep 3
       - jwm &
-      - sleep 5
+      - sleep 3
       - yarn start-func-test-server
     script: tox
   - &node6
-    addons:
-      firefox: latest
     language: node_js
     node_js: '6'
     before_install: npm install -g yarn
   - &node8
-    addons:
-      firefox: latest
     language: node_js
     node_js: '8'
     before_install: npm install -g yarn

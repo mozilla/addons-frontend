@@ -20,7 +20,8 @@ def my_base_url(base_url, firefox):
     """Create custom base url depending on os and firefox version."""
     ff_version = firefox.browser.firefox_version
     os = sys.platform
-    return base_url + '/discovery/pane/{0}.0/{1}/normal'.format(ff_version, os)
+    return '{0}/discovery/pane/{1}.0/{2}/normal'.format(
+        base_url, ff_version, os)
 
 
 @pytest.fixture
@@ -43,7 +44,7 @@ def discovery_pane(selenium, my_base_url):
 @pytest.fixture
 def firefox_options(firefox_options):
     """Configure Firefox preferences and additonal arguments."""
-    firefox_options.set_preference('extensions.webservice.discoverURL', 'https://discovery.addons.mozilla.org/%LOCALE%/firefox/discovery/pane/%VERSION%/%OS%/%COMPATIBILITY_MODE%')  # noqa
+    firefox_options.set_preference('extensions.legacy.enabled', True)
     firefox_options.set_preference('extensions.webapi.testing', True)
     firefox_options.set_preference('xpinstall.signatures.required', False)
     firefox_options.set_preference(

@@ -403,14 +403,17 @@ export function runServer({
         let server = baseServer(
           routes, createStore, { appInstanceName: appName });
         if (listen === true) {
-          if (useHttps) {
+          if (useHttps && host !== 'example.com') {
             const options = {
-              key: fs.readFileSync('bin/certs/my-server.key.pem'),
-              cert: fs.readFileSync('bin/certs/my-server.crt.pem'),
-              ca: fs.readFileSync('bin/certs/my-private-root-ca.crt.pem'),
+              key: fs.readFileSync('bin/local-dev-server-certs/my-server.key.pem'),
+              cert: fs.readFileSync('bin/local-dev-server-certs/my-server.crt.pem'),
+              ca: fs.readFileSync('bin/local-dev-server-certs/my-private-root-ca.crt.pem'),
               passphrase: '',
             };
             server = https.createServer(options, server);
+          } else {
+            throw new Error(
+              `To use the HTTPS server you must serve the site at example.com (host was "${host}")`);
           }
           server.listen(port, host, (err) => {
             if (err) {
@@ -433,12 +436,9 @@ export function runServer({
                 `🚦  Proxy detected, frontend running at http://${host}:${port}.`);
               log.info(
                 `👁  Open your browser at http://localhost:${proxyPort} to view it.`);
-            } else if (useHttps) {
-              log.info(
-                `👁  Open your browser at https://${host}:${port} to view it.`);
             } else {
               log.info(
-                `👁  Open your browser at http://${host}:${port} to view it.`);
+                `👁  Open your browser at http${useHttps ? 's' : ''}://${host}:${port} to view it.`);
             }
             return resolve(server);
           });
