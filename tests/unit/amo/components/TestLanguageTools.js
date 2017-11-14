@@ -64,6 +64,11 @@ describe(__filename, () => {
       target_locale: 'zh-TW',
       type: ADDON_TYPE_LANG,
     }),
+    createFakeLanguageAddon({
+      name: 'isiZulu',
+      target_locale: 'zu',
+      type: ADDON_TYPE_LANG,
+    }),
   ];
 
   function renderShallow({
