@@ -621,3 +621,5 @@ export default config.get('langs').reduce((object, locale) => {
 
   return object;
 }, {});
+
+export const languagesUnfiltered = languages;

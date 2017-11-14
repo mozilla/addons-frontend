@@ -15,7 +15,7 @@ import {
   ADDON_TYPE_LANG,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'core/constants';
-import languages from 'core/languages';
+import { languagesUnfiltered as languages } from 'core/languages';
 import translate from 'core/i18n/translate';
 import { fetchLanguageTools } from 'core/reducers/addons';
 import Card from 'ui/components/Card';
@@ -31,6 +31,19 @@ import './styles.scss';
 type LanguageToolListProps = {|
   addons?: Array<AddonType>,
 |};
+
+
+// Get languages into a list of objects sorted by the english name.
+const languageList = Object.keys(languages).map((langKey) => {
+  return {
+    english: languages[langKey].English,
+    locale: langKey,
+    native: languages[langKey].native,
+  };
+}).sort((a, b) => {
+  return a.english > b.english;
+});
+
 
 export const LanguageToolList = ({ addons }: LanguageToolListProps) => {
   if (!addons) {
@@ -167,10 +180,10 @@ export class LanguageToolsBase extends React.Component<Props> {
             </Tr>
           </Thead>
           <Tbody>
-            {addons && addons.length ? Object.keys(languages).map((langKey) => {
-              const toolsInLocale = addons ? addons
-                .filter((addon) => {
-                  return addon.target_locale === langKey;
+            {addons && addons.length ? languageList.map((lang) => {
+              const toolsInLocale = addons ?
+                addons.filter((addon) => {
+                  return addon.target_locale === lang.locale;
                 }) : null;
 
               // This means there are no language tools available in this
@@ -182,6 +195,7 @@ export class LanguageToolsBase extends React.Component<Props> {
               const dictionaries = toolsInLocale.filter((addon) => {
                 return addon.type === ADDON_TYPE_DICT;
               });
+
               const languagePacks = toolsInLocale.filter((addon) => {
                 return addon.type === ADDON_TYPE_LANG;
               });
@@ -190,18 +204,18 @@ export class LanguageToolsBase extends React.Component<Props> {
                 <Tr
                   className={classNames(
                     'LanguageTools-table-row',
-                    `LanguageTools-lang-${langKey}`,
+                    `LanguageTools-lang-${lang.locale}`,
                   )}
-                  key={langKey}
+                  key={lang.locale}
                 >
-                  <Td lang={langKey}>
-                    {languages[langKey].native}
+                  <Td>
+                    <strong>{lang.english}</strong> <span lang={lang.locale}>{lang.native}</span>
                   </Td>
-                  <Td className={`LanguageTools-lang-${langKey}-languagePacks`}>
+                  <Td className={`LanguageTools-lang-${lang.locale}-languagePacks`}>
                     {languagePacks.length ?
                       <LanguageToolList addons={languagePacks} /> : null}
                   </Td>
-                  <Td className={`LanguageTools-lang-${langKey}-dictionaries`}>
+                  <Td className={`LanguageTools-lang-${lang.locale}-dictionaries`}>
                     {dictionaries.length ?
                       <LanguageToolList addons={dictionaries} /> : null}
                   </Td>
