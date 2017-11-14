@@ -2,6 +2,8 @@ sudo: required
 services:
   - docker
 addons:
+  # This should go back to `firefox: latest` after fixing
+  # https://github.com/mozilla/addons-frontend/issues/3910
   firefox: "56.0"
 language: node_js
 node_js:
