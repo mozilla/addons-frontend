@@ -12,6 +12,7 @@ import {
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import { makeQueryString } from 'core/api';
+import log from 'core/logger';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import {
   convertFiltersToQueryParams,
@@ -33,9 +34,25 @@ export class SearchPageBase extends React.Component<Props> {
   componentWillMount() {
     const { clientApp, filters, lang, location } = this.props;
 
+    let shouldRedirect = false;
+    const newFilters = { ...filters };
+
+    // The legacy frontend uses `all` to express "all platforms" but we now use
+    // no parameter (empty) to target all platforms. In addition, the query
+    // parameter `platform` is mapped to the `operatingSystem` filter.
+    // See: https://github.com/mozilla/addons-frontend/issues/3870.
+    if (
+      newFilters.operatingSystem &&
+      newFilters.operatingSystem.toLowerCase() === 'all'
+    ) {
+      log.info('`operatingSystem` filter is set to "all", omitting it.');
+      delete newFilters.operatingSystem;
+
+      shouldRedirect = true;
+    }
+
     // Map the old `atype` parameter to its corresponding `adddonType`.
     // See: https://github.com/mozilla/addons-frontend/issues/3791.
-    const newFilters = { ...filters };
     if (location.query.atype) {
       switch (String(location.query.atype)) {
         case '1':
@@ -57,6 +74,10 @@ export class SearchPageBase extends React.Component<Props> {
           return;
       }
 
+      shouldRedirect = true;
+    }
+
+    if (shouldRedirect) {
       const queryString = makeQueryString(
         convertFiltersToQueryParams(newFilters)
       );

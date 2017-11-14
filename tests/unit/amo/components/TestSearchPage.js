@@ -8,6 +8,7 @@ import SearchPage, {
 import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  OS_MAC,
 } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
@@ -163,6 +164,39 @@ describe(__filename, () => {
     render({ location: { query: { atype: 123 } }, store });
 
     sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches a server redirect when `platform` parameter is "all"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({ location: { query: { platform: 'all' } }, store });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 302,
+      url: '/en-US/android/search/',
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('does not dispatch a server redirect when `platform` is not "all"', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    render({ location: { query: { platform: OS_MAC } }, store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('redirects without affecting the other parameters', () => {
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const query = { page: 123, platform: 'all' };
+
+    render({ location: { query }, store });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 302,
+      url: '/en-US/android/search/?page=123',
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   describe('mapStateToProps()', () => {
