@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-14 03:02+0000\n"
+"PO-Revision-Date: 2017-11-14 03:18+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -931,7 +931,7 @@ msgstr "Kva synest du om %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"
-msgstr "Du rapporterte denne utvidinga for misbruk"
+msgstr "Du rapporterte misbruk av denne utvidinga"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -949,7 +949,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:152 src/amo/components/ReportAbuseButton/index.js:158
 msgid "Report this add-on for abuse"
-msgstr "Rapporter denne utvidinga for misbruk"
+msgstr "Rapporter misbruk av denne utvidinga"
 
 #: src/amo/components/ReportAbuseButton/index.js:166
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
