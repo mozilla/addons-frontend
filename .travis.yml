@@ -2,7 +2,7 @@ sudo: required
 services:
   - docker
 addons:
-  firefox: latest
+  firefox: "56.0"
 language: node_js
 node_js:
 - '6'
