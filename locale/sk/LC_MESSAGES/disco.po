@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-31 19:42+0000\n"
+"POT-Creation-Date: 2017-11-14 21:53+0000\n"
 "PO-Revision-Date: 2017-08-23 17:44+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -39,41 +39,41 @@ msgstr "Stránka nebola nájdená"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Ospravedlňujeme sa, ale na zadanej adrese nemôžeme nič nájsť."
 
-#: src/core/components/InstallButton/index.js:129
+#: src/core/components/InstallButton/index.js:227
 msgid "Install Theme"
 msgstr "Nainštalovať tému vzhľadu"
 
-#: src/core/components/InstallButton/index.js:153
-#: src/core/components/InstallButton/index.js:174
+#: src/core/components/InstallButton/index.js:251
+#: src/core/components/InstallButton/index.js:272
 msgid "Add to Firefox"
 msgstr "Pridať do Firefoxu"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
 msgstr "Preberanie doplnku %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
 msgstr "Inštalovanie doplnku %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:69
+#: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 "Doplnok %(name)s je nainštalovaný a povolený. Kliknutím ho odinštalujete."
 
-#: src/core/components/InstallSwitch/index.js:72
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "Doplnok %(name)s je zakázaný. Kliknutím ho povolíte."
 
-#: src/core/components/InstallSwitch/index.js:75
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "Odinštalovanie doplnku %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:78
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "Doplnok %(name)s bol odinštalovaný. Kliknutím ho nainštalujete."
 
-#: src/core/components/InstallSwitch/index.js:81
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "Stav inštalácie doplnku %(name)s nie je známy."
 

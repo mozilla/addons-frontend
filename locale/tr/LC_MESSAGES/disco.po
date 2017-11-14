@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-10-31 19:42+0000\n"
+"POT-Creation-Date: 2017-11-14 21:53+0000\n"
 "PO-Revision-Date: 2017-09-23 13:32+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,40 +39,40 @@ msgstr "Sayfa bulunamadı"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Üzgünüz, yazdığınız adreste bir şey bulamadık."
 
-#: src/core/components/InstallButton/index.js:129
+#: src/core/components/InstallButton/index.js:227
 msgid "Install Theme"
 msgstr "Temayı yükle"
 
-#: src/core/components/InstallButton/index.js:153
-#: src/core/components/InstallButton/index.js:174
+#: src/core/components/InstallButton/index.js:251
+#: src/core/components/InstallButton/index.js:272
 msgid "Add to Firefox"
 msgstr "Firefox’a ekle"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
 msgstr "%(name)s indiriliyor."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
 msgstr "%(name)s yükleniyor."
 
-#: src/core/components/InstallSwitch/index.js:69
+#: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s yüklendi ve etkinleştirildi. Kaldırmak için tıklayın."
 
-#: src/core/components/InstallSwitch/index.js:72
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s etkisizleştirildi. Etkinleştirmek için tıklayın."
 
-#: src/core/components/InstallSwitch/index.js:75
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "%(name)s kaldırılıyor."
 
-#: src/core/components/InstallSwitch/index.js:78
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s kaldırıldı. Yüklemek için tıklayın."
 
-#: src/core/components/InstallSwitch/index.js:81
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s yükleme durumu bilinmiyor."
 
