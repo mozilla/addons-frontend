@@ -7,6 +7,8 @@ import translate from 'core/i18n/translate';
 
 import './Paginate.scss';
 
+// This is the maximal number of add-ons the API can return for a query.
+const MAX_ADDONS = 25000;
 
 function makePageNumbers({ start, end }) {
   const pages = [];
@@ -25,7 +27,10 @@ export class PaginateBase extends React.Component {
     pathname: PropTypes.string.isRequired,
     perPage: PropTypes.number,
     queryParams: PropTypes.object,
-    showPages: PropTypes.number,
+    showPages: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.boolean,
+    ]),
   }
 
   static defaultProps = {
@@ -38,7 +43,11 @@ export class PaginateBase extends React.Component {
     if (perPage <= 0) {
       throw new TypeError(`A perPage value of ${perPage} is not allowed`);
     }
-    return Math.ceil(count / perPage);
+
+    const pageCount = Math.ceil(count / perPage);
+    const maxPage = Math.ceil(MAX_ADDONS / perPage);
+
+    return pageCount > maxPage ? maxPage : pageCount;
   }
 
   visiblePages({ pageCount }) {
@@ -128,5 +137,5 @@ export class PaginateBase extends React.Component {
 }
 
 export default compose(
-  translate({ withRef: true }),
+  translate(),
 )(PaginateBase);
