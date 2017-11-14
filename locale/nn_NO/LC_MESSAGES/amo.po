@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -1025,7 +1025,7 @@ msgstr[1] "%(count)s språkpakkar funne for «%(query)s»"
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "%(count)s tema funne for «%(query)s»"
-msgstr[1] "%(count)s tema funne for «%(query)»"
+msgstr[1] "%(count)s tema funne for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
