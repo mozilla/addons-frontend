@@ -21,10 +21,8 @@ _aliases:
       - sleep 3
       - jwm &
       - sleep 3
-      - until $(curl --output /dev/null --silent --head --fail http://myhost:myport); do
-            printf '.'
-            sleep 5
-        done
+      # Wait for server to be available
+      - until $(curl --output /dev/null --silent --head --fail -k https://example.com:4000); do printf '.'; sleep 5; done
     script: tox
   - &node6
     language: node_js
