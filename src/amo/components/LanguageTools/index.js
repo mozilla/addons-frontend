@@ -41,7 +41,12 @@ const languageList = Object.keys(languages).map((langKey) => {
     native: languages[langKey].native,
   };
 }).sort((a, b) => {
-  return a.english > b.english;
+  if (a.english < b.english) {
+    return -1;
+  } else if (a.english === b.english) {
+    return 0;
+  }
+  return 1;
 });
 
 
