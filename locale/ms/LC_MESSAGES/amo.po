@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-14 22:31+0000\n"
+"PO-Revision-Date: 2017-11-14 22:33+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -468,9 +468,8 @@ msgid "Creator"
 msgstr "Pencipta"
 
 #: src/amo/components/Collection/index.js:167
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Lihat koleksi ini"
+msgstr "Edit koleksi ini"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -786,14 +785,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Top privacy extensions"
-msgstr "Ekstensi tahap tinggi"
+msgstr "Ekstensi privasi teratas"
 
 #: src/amo/components/Home/index.js:205
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Lihat ekstensi tab selanjutnya"
+msgstr "Lihat ekstensi privasi selanjutnya"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
@@ -840,18 +837,16 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Memainkan video dalam HD, menyahaktifkan anotasi, mengubah saiz pemain & lain-lain"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Produktiviti"
+msgstr "Ekstensi produktiviti"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
 msgstr "Alatan yang membuatkan Web bekerja lebih keras untuk anda"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "Lastpass Password Manager"
-msgstr "Pengurus kata laluan"
+msgstr "Pengurus Kata laluan Lastpass"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
