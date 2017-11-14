@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-13 11:31+0000\n"
+"PO-Revision-Date: 2017-11-14 02:09+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1010,32 +1010,28 @@ msgstr[0] "%(count)s utviding funne for \"%(query)s\""
 msgstr[1] "%(count)s utvidingar funne for \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s treff for \"%(query)s\""
-msgstr[1] "%(count)s treff for \"%(query)s\""
+msgstr[0] "%(count)s ordbok funne for «%(query)s»"
+msgstr[1] "%(count)s ordbøker funne for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s treff for \"%(query)s\""
-msgstr[1] "%(count)s treff for \"%(query)s\""
+msgstr[0] "%(count)s språkpakke funne for «%(query)s»"
+msgstr[1] "%(count)s språkpakkar funne for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s treff for \"%(query)s\""
-msgstr[1] "%(count)s treff for \"%(query)s\""
+msgstr[0] "%(count)s tema funne for «%(query)s»"
+msgstr[1] "%(count)s tema funne for «%(query)»"
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s treff for \"%(query)s\""
-msgstr[1] "%(count)s treff for \"%(query)s\""
+msgstr[0] "%(count)s resultat funne for «%(query)s»"
+msgstr[1] "%(count)s resultat funne for «%(query)s»"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
