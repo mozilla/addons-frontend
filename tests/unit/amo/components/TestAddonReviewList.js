@@ -7,6 +7,7 @@ import {
 import { setViewContext } from 'amo/actions/viewContext';
 import AddonReviewList, {
   AddonReviewListBase,
+  extractId,
 } from 'amo/components/AddonReviewList';
 import AddonReviewListItem from 'amo/components/AddonReviewListItem';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -45,19 +46,21 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const render = ({
-    params = {
-      addonSlug: fakeAddon.slug,
-    },
-    ...customProps
-  } = {}) => {
-    const props = {
+  const getProps = ({ ...customProps }) => {
+    return {
       i18n: fakeI18n(),
       location: { query: {} },
-      params,
+      params: {
+        addonSlug: fakeAddon.slug,
+      },
       store,
       ...customProps,
     };
+  };
+
+  const render = ({ ...customProps } = {}) => {
+    const props = getProps(customProps);
+
     return shallowUntilTarget(
       <AddonReviewList {...props} />, AddonReviewListBase
     );
@@ -597,6 +600,26 @@ describe(__filename, () => {
         pathname: `/${lang}/${clientApp}${root.instance().url()}`,
         query: { page: 1 },
       });
+    });
+  });
+
+  describe('extractId', () => {
+    it('returns a unique ID based on the addon slug and page', () => {
+      const ownProps = getProps({
+        params: { addonSlug: 'foobar' },
+        location: { query: { page: 22 } },
+      });
+
+      expect(extractId(ownProps)).toEqual(`foobar-22`);
+    });
+
+    it('returns a unique ID even when there is no page', () => {
+      const ownProps = getProps({
+        params: { addonSlug: 'foobar' },
+        location: { query: {} },
+      });
+
+      expect(extractId(ownProps)).toEqual(`foobar-1`);
     });
   });
 });
