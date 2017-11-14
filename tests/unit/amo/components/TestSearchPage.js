@@ -188,13 +188,13 @@ describe(__filename, () => {
 
   it('redirects without affecting the other parameters', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
-    const query = { atype: 1, page: 123, platform: 'all' };
+    const query = { page: 123, platform: 'all' };
 
     render({ location: { query }, store });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
-      url: '/en-US/android/search/?page=123&type=extension',
+      url: '/en-US/android/search/?page=123',
     }));
     sinon.assert.callCount(fakeDispatch, 1);
   });
