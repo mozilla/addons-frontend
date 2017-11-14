@@ -34,7 +34,7 @@ type LanguageToolListProps = {|
 
 
 // Get languages into a list of objects sorted by the english name.
-const languageList = Object.keys(languages).map((langKey) => {
+const sortedLanguages = Object.keys(languages).map((langKey) => {
   return {
     english: languages[langKey].English,
     locale: langKey,
@@ -178,10 +178,10 @@ export class LanguageToolsBase extends React.Component<Props> {
             </Tr>
           </Thead>
           <Tbody>
-            {addons && addons.length ? languageList.map((lang) => {
+            {addons && addons.length ? sortedLanguages.map((language) => {
               const toolsInLocale = addons ?
                 addons.filter((addon) => {
-                  return addon.target_locale === lang.locale;
+                  return addon.target_locale === language.locale;
                 }) : null;
 
               // This means there are no language tools available in this
@@ -202,18 +202,22 @@ export class LanguageToolsBase extends React.Component<Props> {
                 <Tr
                   className={classNames(
                     'LanguageTools-table-row',
-                    `LanguageTools-lang-${lang.locale}`,
+                    `LanguageTools-lang-${language.locale}`,
                   )}
-                  key={lang.locale}
+                  key={language.locale}
                 >
                   <Td>
-                    <strong>{lang.english}</strong> <span lang={lang.locale}>{lang.native}</span>
+                    <strong>
+                      {language.english}
+                    </strong> <span lang={language.locale}>
+                      {language.native}
+                    </span>
                   </Td>
-                  <Td className={`LanguageTools-lang-${lang.locale}-languagePacks`}>
+                  <Td className={`LanguageTools-lang-${language.locale}-languagePacks`}>
                     {languagePacks.length ?
                       <LanguageToolList addons={languagePacks} /> : null}
                   </Td>
-                  <Td className={`LanguageTools-lang-${lang.locale}-dictionaries`}>
+                  <Td className={`LanguageTools-lang-${language.locale}-dictionaries`}>
                     {dictionaries.length ?
                       <LanguageToolList addons={dictionaries} /> : null}
                   </Td>
