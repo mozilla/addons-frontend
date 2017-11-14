@@ -40,14 +40,7 @@ const languageList = Object.keys(languages).map((langKey) => {
     locale: langKey,
     native: languages[langKey].native,
   };
-}).sort((a, b) => {
-  if (a.english < b.english) {
-    return -1;
-  } else if (a.english === b.english) {
-    return 0;
-  }
-  return 1;
-});
+}).sort((a, b) => a.english.localeCompare(b.english));
 
 
 export const LanguageToolList = ({ addons }: LanguageToolListProps) => {
