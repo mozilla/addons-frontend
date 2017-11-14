@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-07 23:14+0000\n"
-"PO-Revision-Date: 2017-11-14 02:09+0000\n"
+"PO-Revision-Date: 2017-11-14 02:25+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -461,11 +461,11 @@ msgstr "Støtt desse utviklarane"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Utviklaren av denne utvidinga spør om du kan hjelpe til med å støtte den vidare utviklinga med eit lite pengebidrag."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Utviklarane av denne utvidinga spør om du kan hjelpe til med å støtte den vidare utviklinga med eit lite pengebidrag."
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "Support this artist"
@@ -1297,15 +1297,15 @@ msgstr "Skriv kortfatta og rett fram."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Gje spesifikke og brukandes detaljar. Til dømes:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Fungerte utvidinga som forventa?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Kva likar du, og kva likar du ikkje med utvidinga?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
@@ -1321,7 +1321,7 @@ msgstr "Vil du fortsetje med å bruke denne utvidinga?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Bruk litt tid på å gå gjennom vurderinga di før du sender henne inn, for å luke ut stavefeil."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1329,7 +1329,7 @@ msgstr "Ikkje gjer dette:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Send ikkje inn vurderingar på eitt ord, som til dømes «Bra», «Fantastisk» eller «Dårleg»."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
