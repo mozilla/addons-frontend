@@ -1,12 +1,11 @@
 import { logOutUser } from 'core/actions';
 import {
-  ADMIN_SUPER_POWERS,
+  ALL_SUPER_POWERS,
   ADMIN_TOOLS_VIEW,
   STATS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
 import reducer, {
-  isAdmin,
   isAuthenticated,
   loadUserProfile,
   selectDisplayName,
@@ -156,26 +155,11 @@ describe(__filename, () => {
     });
 
     it('returns `true` when user is admin', () => {
-      const permissions = [ADMIN_SUPER_POWERS];
+      const permissions = [ALL_SUPER_POWERS];
       const { state } = dispatchSignInActions({ permissions });
 
 
       expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
-    });
-  });
-
-  describe('isAdmin selector', () => {
-    it('returns `true` when user is an admin', () => {
-      const permissions = [ADMIN_SUPER_POWERS];
-      const { state } = dispatchSignInActions({ permissions });
-
-      expect(isAdmin(state)).toEqual(true);
-    });
-
-    it('returns `false` when user is not an admin', () => {
-      const { state } = dispatchSignInActions({ permissions: [] });
-
-      expect(isAdmin(state)).toEqual(false);
     });
   });
 });

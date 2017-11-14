@@ -233,7 +233,7 @@ export const ADDONS_REVIEW = 'Addons:Review';
 export const THEMES_REVIEW = 'Personas:Review';
 // Can view statistics for all addons, regardless of privacy settings.
 export const STATS_VIEW = 'Stats:View';
-// Admin super powers. Very few users will have this permission.
-export const ADMIN_SUPER_POWERS = 'Admin:%';
 // Can edit all collections.
 export const COLLECTIONS_EDIT = 'Collections:Edit';
+// Super powers. It means absolutely all permissions.
+export const ALL_SUPER_POWERS = '*:*';
