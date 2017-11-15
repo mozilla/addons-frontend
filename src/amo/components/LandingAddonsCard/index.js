@@ -33,11 +33,14 @@ export default class LandingAddonsCard extends React.Component {
       placeholderCount,
     } = this.props;
 
-    const linkSearchURL = {
-      ...footerLink,
-      query: convertFiltersToQueryParams(footerLink.query),
-    };
-    const footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
+    let footerLinkHtml = null;
+    if (addons && addons.length >= placeholderCount) {
+      const linkSearchURL = {
+        ...footerLink,
+        query: convertFiltersToQueryParams(footerLink.query),
+      };
+      footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
+    }
 
     return (
       <AddonsCard
