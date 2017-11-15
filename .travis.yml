@@ -4,7 +4,7 @@ _aliases:
     addons:
       firefox: latest-nightly
       hosts: example.com
-    env: TOXENV=discopane-ui-tests DISPLAY=:99.0 GECKODRIVER=0.19.1
+    env: TOXENV=discopane-ui-tests DISPLAY=:99.0 GECKODRIVER=0.19.1 MOZ_HEADLESS=1
     install:
       - yarn install
       - yarn start-func-test-server &
