@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 07:31+0000\n"
+"PO-Revision-Date: 2017-11-15 07:33+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -475,9 +475,8 @@ msgid "Creator"
 msgstr "Создатель"
 
 #: src/amo/components/Collection/index.js:167
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Просмотреть эту подборку"
+msgstr "Изменить эту подборку"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -844,22 +843,20 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Смотрите видео в HD, отключайте аннотации, изменяйте размеры плеера и многое другое"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Продуктивность"
+msgstr "Расширения повышающие продуктивность"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "Lastpass Password Manager"
-msgstr "Менеджеры паролей"
+msgstr "Менеджер паролей Lastpass"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
-msgstr ""
+msgstr "Легко управляйте из одного места всеми паролями для всех ваших устройств"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
