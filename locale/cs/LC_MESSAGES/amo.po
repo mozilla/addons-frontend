@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 10:50+0000\n"
+"PO-Revision-Date: 2017-11-15 10:53+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -841,22 +841,20 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Přehrávejte videa v HD, vypněte poznámky, změňte velikost přehrávače a mnohem více"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Produktivita"
+msgstr "Rozšíření pro produktivitu"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
-msgstr ""
+msgstr "Nástroje, se kterými bude vaše práce na webu snazší a rychlejší"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "Lastpass Password Manager"
-msgstr "Správa hesel"
+msgstr "Správce hesel Lastpass"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
-msgstr ""
+msgstr "Snadno spravujte všechna svá hesla na všech vašich zařízeních z jednoho místa"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
