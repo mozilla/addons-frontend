@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 03:21+0000\n"
+"PO-Revision-Date: 2017-11-15 10:30+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -46,11 +46,11 @@ msgstr "Tietoja tästä laajennuksesta"
 
 #: src/amo/components/Addon/index.js:272
 msgid "About this language pack"
-msgstr ""
+msgstr "Tietoja tästä kielipaketista"
 
 #: src/amo/components/Addon/index.js:275
 msgid "About this search plugin"
-msgstr ""
+msgstr "Tietoja tästä hakuliitännäisestä"
 
 #: src/amo/components/Addon/index.js:278
 msgid "About this theme"
@@ -77,9 +77,8 @@ msgid "More extensions by %(author)s"
 msgstr ""
 
 #: src/amo/components/Addon/index.js:362
-#, fuzzy
 msgid "More extensions by these developers"
-msgstr "Etsi laajennuksista ja teemoista"
+msgstr ""
 
 #: src/amo/components/Addon/index.js:369
 msgid "More language packs by %(author)s"
