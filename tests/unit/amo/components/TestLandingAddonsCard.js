@@ -22,7 +22,6 @@ describe(__filename, () => {
       footerText: 'some text',
       header: 'Some Header',
       loading: false,
-      placeholderCount: LANDING_PAGE_ADDON_COUNT,
       ...customProps,
     };
 
