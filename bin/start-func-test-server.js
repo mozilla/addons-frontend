@@ -116,6 +116,7 @@ new Promise((resolve) => {
     const runArgs = [
       'run',
       '-d',
+      `--add-host=example.com:0.0.0.0`,
       '-p=4000:4000',
       '-e',
       `NODE_APP_INSTANCE=${appInstance}`,
