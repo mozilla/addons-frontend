@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-16 21:30+0000\n"
+"PO-Revision-Date: 2017-11-16 21:36+0000\n"
 "Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -780,7 +780,7 @@ msgstr "Пори року"
 
 #: src/amo/components/Home/index.js:171
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Налаштуйте роботу Firefox з додатками. Ви зацікавлені в…"
 
 #: src/amo/components/Home/index.js:173
 msgid "Change the way Firefox looks with themes."
@@ -884,7 +884,7 @@ msgstr "Встановлення словника додасть нову мов
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Локалізації змінюють мову інтерфейсу вашого браузера, включаючи меню і налаштування."
 
 #: src/amo/components/LanguageTools/index.js:164
 msgid "All Locales"
@@ -936,11 +936,11 @@ msgstr "Ви повідомили про порушення цього дода�
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Ми отримали ваше повідомлення. Дякуємо, що повідомили нам про вашу стурбованість цим додатком."
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Ми не можемо відповісти на кожне повідомлення про порушення правил, але ми розглянемо цю проблему."
 
 #: src/amo/components/ReportAbuseButton/index.js:130
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
@@ -952,11 +952,11 @@ msgstr "Повідомити про порушення цього додатку
 
 #: src/amo/components/ReportAbuseButton/index.js:166
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Не використовуйте цю форму, щоб повідомляти про помилки або запитувати нові функції в додатку; це повідомлення буде надіслано в Mozilla, а не розробникові додатку."
 
 #: src/amo/components/ReportAbuseButton/index.js:179
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Поясніть, як цей додаток порушує наші політики."
 
 #: src/amo/components/ReportAbuseButton/index.js:192
 msgid "Dismiss"
@@ -1200,11 +1200,11 @@ msgstr "Більше…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Якщо ви хочете допомогти, але не зовсім дружите з технологіями, у вас все ж є способи допомогти:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Візьміть участь в роботі нашого %(startLink)sфоруму%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
