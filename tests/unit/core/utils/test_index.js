@@ -28,7 +28,6 @@ import {
   addonHasVersionHistory,
   apiAddonType,
   convertBoolean,
-  findAddon,
   getCategoryColor,
   getClientApp,
   getClientConfig,
@@ -52,6 +51,7 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
 import {
+  dispatchSignInActions,
   fakeAddon,
   signedInApiState,
 } from 'tests/unit/amo/helpers';
@@ -333,23 +333,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('findAddon', () => {
-    const addon = sinon.stub();
-    const state = {
-      addons: {
-        'the-addon': addon,
-      },
-    };
-
-    it('finds the add-on in the state', () => {
-      expect(findAddon(state, 'the-addon')).toBe(addon);
-    });
-
-    it('does not find the add-on in the state', () => {
-      expect(findAddon(state, 'different-addon')).toBe(undefined);
-    });
-  });
-
   describe('refreshAddon', () => {
     const addonSlug = fakeAddon.slug;
     const apiState = signedInApiState;
@@ -393,26 +376,21 @@ describe(__filename, () => {
 
   describe('loadAddonIfNeeded', () => {
     const loadedSlug = 'my-addon';
-    let loadedAddon;
     let dispatch;
 
     beforeEach(() => {
-      loadedAddon = sinon.stub();
       dispatch = sinon.spy();
     });
 
     function makeProps(slug) {
+      const addon = { ...fakeAddon, slug: loadedSlug };
+      const { store } = dispatchSignInActions();
+
+      store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
+
       return {
-        store: {
-          getState: () => ({
-            addons: {
-              [loadedSlug]: loadedAddon,
-            },
-            api: signedInApiState,
-          }),
-          dispatch,
-        },
         params: { slug },
+        store,
       };
     }
 
@@ -423,22 +401,21 @@ describe(__filename, () => {
         });
     });
 
-    it('loads the add-on if it is not loaded', () => {
+    it('loads the add-on if it is not loaded', async () => {
       const slug = 'other-addon';
       const props = makeProps(slug);
+
       const mockAddonRefresher = sinon.mock()
         .once()
         .withArgs({
           addonSlug: slug,
-          apiState: signedInApiState,
-          dispatch,
+          apiState: props.store.getState().api,
+          dispatch: props.store.dispatch,
         })
         .returns(Promise.resolve());
 
-      return loadAddonIfNeeded(props, { _refreshAddon: mockAddonRefresher })
-        .then(() => {
-          mockAddonRefresher.verify();
-        });
+      await loadAddonIfNeeded(props, { _refreshAddon: mockAddonRefresher });
+      mockAddonRefresher.verify();
     });
   });
 

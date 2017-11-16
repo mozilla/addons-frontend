@@ -1,6 +1,7 @@
 import createStore from 'amo/store';
+import { initialState } from 'core/reducers/addons';
 
-describe('amo createStore', () => {
+describe(__filename, () => {
   it('sets the reducers', () => {
     const { store } = createStore();
     expect(Object.keys(store.getState()).sort()).toEqual([
@@ -30,6 +31,6 @@ describe('amo createStore', () => {
 
   it('creates an empty store', () => {
     const { store } = createStore();
-    expect(store.getState().addons).toEqual({});
+    expect(store.getState().addons).toEqual(initialState);
   });
 });

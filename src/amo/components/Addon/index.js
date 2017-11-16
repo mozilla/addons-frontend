@@ -18,7 +18,11 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
-import { fetchAddon } from 'core/reducers/addons';
+import {
+  fetchAddon,
+  getAddonByID,
+  getAddonBySlug,
+} from 'core/reducers/addons';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
@@ -589,7 +593,13 @@ export class AddonBase extends React.Component {
 
 export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
-  const addon = state.addons[slug];
+  let addon = getAddonBySlug(state, slug);
+
+  // It is possible to load an add-on by its ID but in the routing parameters,
+  // the parameter is always named `slug`.
+  if (slug && !isNaN(slug)) {
+    addon = getAddonByID(state, slug);
+  }
 
   let addonsByAuthors;
   let installedAddon = {};

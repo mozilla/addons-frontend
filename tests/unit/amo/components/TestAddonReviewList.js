@@ -107,7 +107,7 @@ describe(__filename, () => {
       expect(root.find(AddonReviewListItem)).toHaveLength(4);
       // Do a sanity check on the first placeholder;
       expect(root.find(AddonReviewListItem).at(0))
-        .toHaveProp('addon', undefined);
+        .toHaveProp('addon', null);
       expect(root.find(AddonReviewListItem).at(0))
         .toHaveProp('location', location);
       expect(root.find(AddonReviewListItem).at(0))
@@ -140,7 +140,7 @@ describe(__filename, () => {
       const root = render({
         params: { addonSlug: 'other-slug' },
       });
-      expect(root.instance().props.addon).toBe(undefined);
+      expect(root.instance().props.addon).toEqual(null);
     });
 
     it('fetches reviews if needed', () => {
