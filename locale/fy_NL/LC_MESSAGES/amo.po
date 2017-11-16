@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-16 14:10+0000\n"
+"PO-Revision-Date: 2017-11-16 14:12+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -471,9 +471,8 @@ msgid "Creator"
 msgstr "Auteur"
 
 #: src/amo/components/Collection/index.js:167
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Troch dizze kolleksje blêdzje"
+msgstr "Dizze kolleksje bewurkje"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -784,14 +783,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Wizigje it úterlik fan Firefox mei tema’s."
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Top privacy extensions"
-msgstr "Heechst wurdearre útwreidingen"
+msgstr "Bêste privacyútwreidingen"
 
 #: src/amo/components/Home/index.js:205
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Mear ljepblêdútwreidingen"
+msgstr "Mear privacyútwreidingen besjen"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
@@ -838,22 +835,20 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Fideo’s yn HD ôfspylje, annotaasjes útskeakelje, spilergrutte wizigje en mear"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Produktiviteit"
+msgstr "Produktiviteitsútwreidingen"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
 msgstr "Helpmiddelen om it ynternet hurder foar jo wurkje te litten"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "Lastpass Password Manager"
-msgstr "Wachtwurdbehearders"
+msgstr "Lastpass-wachtwurdbehearder"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
-msgstr ""
+msgstr "Behear ienfâldich fan ien plak ôf al jo wachtwurden foar al jo apparaten"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
