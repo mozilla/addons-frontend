@@ -403,7 +403,7 @@ export function runServer({
         let server = baseServer(
           routes, createStore, { appInstanceName: appName });
         if (listen === true) {
-          if (useHttps && (host === 'example.com') {
+          if (useHttps && (host === 'example.com')) {
             const options = {
               key: fs.readFileSync('bin/local-dev-server-certs/my-server.key.pem'),
               cert: fs.readFileSync('bin/local-dev-server-certs/my-server.crt.pem'),
