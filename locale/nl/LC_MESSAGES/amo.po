@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 06:50+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2017-11-15 13:39+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -785,11 +785,11 @@ msgstr "Wijzig het uiterlijk van Firefox met thema’s."
 
 #: src/amo/components/Home/index.js:204
 msgid "Top privacy extensions"
-msgstr "Beste privacy-extensies"
+msgstr "Beste privacyextensies"
 
 #: src/amo/components/Home/index.js:205
 msgid "See more privacy extensions"
-msgstr "Meer privacy-extensies bekijken"
+msgstr "Meer privacyextensies bekijken"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
@@ -845,7 +845,7 @@ msgstr "Hulpmiddelen om het internet harder voor u te laten werken"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Lastpass Password Manager"
-msgstr "Lastpass wachtwoordenbeheerder"
+msgstr "Lastpass-wachtwoordenbeheerder"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
