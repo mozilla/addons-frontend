@@ -71,7 +71,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           linkTo="/addon/lastpass-password-manager/"
           styleName="Home-lastpass"
         >
-          <h3>{i18n.gettext('Lastpass Password Manager')}</h3>
+          <h3>{i18n.gettext('LastPass Password Manager')}</h3>
           <p>
             {i18n.gettext(`Easily manage all your passwords for all devices
               from one spot`)}
