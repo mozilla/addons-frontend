@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-16 04:10+0000\n"
+"PO-Revision-Date: 2017-11-16 04:26+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -471,9 +471,8 @@ msgid "Creator"
 msgstr "Criador"
 
 #: src/amo/components/Collection/index.js:167
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Navegue por essa coleção"
+msgstr "Editar esta coleção"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -787,9 +786,8 @@ msgid "Top privacy extensions"
 msgstr "Extensões melhor avaliadas"
 
 #: src/amo/components/Home/index.js:205
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Mais extensões para abas"
+msgstr "Mais extensões para privacidade"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
@@ -836,13 +834,12 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Reproduza vídeos em HD, desligue as anotações, altere o tamanho do reprodutor e mais"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Produtividade"
+msgstr "Extensões para produtividade"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
-msgstr ""
+msgstr "Ferramentas para fazer a Web trabalhar mais para você"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 #, fuzzy
