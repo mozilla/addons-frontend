@@ -123,6 +123,8 @@ new Promise((resolve) => {
       `NODE_ENV=${nodeEnv}`,
       '-e',
       `USE_HTTPS=true`,
+      `-e`,
+      `SERVER_HOST=example.com`,
       `--cidfile=${containerIdFile}`,
       // This will make sure we can read the logs.
       '--log-driver=json-file',
