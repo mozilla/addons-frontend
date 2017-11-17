@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-16 22:13+0000\n"
-"Last-Translator: Tymur Faradzhev <faradzhev.timur@gmail.com>\n"
+"PO-Revision-Date: 2017-11-17 06:50+0000\n"
+"Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -880,7 +880,7 @@ msgstr "Словники та мовні пакунки"
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "Встановлення словника додасть нову мову у засіб перевірки орфографії, який перевіряє ваше правопис, коли ви щось друкуєте в Firefox."
+msgstr "Встановлення словника додасть нову мову у засіб перевірки орфографії, який перевіряє ваш правопис, коли ви щось друкуєте в Firefox."
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -1200,7 +1200,7 @@ msgstr "Більше…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr "Якщо ви хочете допомогти, але не зовсім дружите з технологіями, у вас все ж є способи допомогти:"
+msgstr "Якщо ви хочете допомогти, але не зовсім дружите з технологіями, ви все одно можете це зробити:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1346,7 +1346,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr "Писати відгуки на додатки, які ви особисто не використали."
+msgstr "Писати відгуки на додатки, які ви особисто не використовували."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
