@@ -121,6 +121,7 @@ function baseServer(routes, createStore, {
   appSagas,
   appInstanceName = null,
   config = defaultConfig,
+  _HotShots,
 } = {}) {
   const appName = appInstanceName !== null ? appInstanceName : config.get('appName');
 
@@ -135,6 +136,11 @@ function baseServer(routes, createStore, {
     // The error handler is defined below.
   } else {
     log.warn('Sentry reporting is disabled; Set config.sentryDsn to enable it.');
+  }
+
+  if (config.get('useDatadog') && config.get('datadogHost')) {
+    log.info('Recording DataDog timing stats for all responses');
+    app.use(middleware.datadogTiming({ _HotShots }));
   }
 
   app.use(middleware.logRequests);

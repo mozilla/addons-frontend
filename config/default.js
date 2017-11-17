@@ -50,6 +50,13 @@ module.exports = {
   serverHost: '127.0.0.1',
   serverPort: 4000,
 
+  // By default, sending stats to DataDog is enabled but the host setting
+  // must also be non-empty.
+  useDatadog: true,
+  // These are set with environment variables.
+  datadogHost: null,
+  datadogPort: null,
+
   // The CDN host for AMO.
   amoCDN: amoProdCDN,
   staticHost: amoProdCDN,
