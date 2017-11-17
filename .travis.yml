@@ -4,9 +4,9 @@ _aliases:
     addons:
       firefox: latest-nightly
       hosts: example.com
-    env: TOXENV=discopane-ui-tests DISPLAY=:99.0 GECKODRIVER=0.19.1 MOZ_HEADLESS=1
+    env: TOXENV=discopane-ui-tests DISPLAY=:99.0 GECKODRIVER=0.19.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
     install:
-      - yarn install
+      - yarn
       - yarn start-func-test-server
     before_script:
       - sudo apt-get -qq update
