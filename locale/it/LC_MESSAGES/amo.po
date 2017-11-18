@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-17 20:56+0000\n"
-"Last-Translator: Winfox <openlib@email.it>\n"
+"PO-Revision-Date: 2017-11-18 13:03+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -788,9 +788,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Modifica l’aspetto di Firefox con i temi."
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Top privacy extensions"
-msgstr "Estensioni più votate"
+msgstr "Estensioni per la privacy più votate"
 
 #: src/amo/components/Home/index.js:205
 msgid "See more privacy extensions"
@@ -841,22 +840,20 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Riproduci video in HD, disattiva le annotazioni, cambia la dimensione della finestra di riproduzione e molto altro"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Produttività"
+msgstr "Estensioni per la produttività"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
-msgstr ""
+msgstr "Strumenti per avere il Web al tuo servizio"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "LastPass Password Manager"
-msgstr "Gestione password"
+msgstr "LastPass, strumento per la gestione password"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
-msgstr ""
+msgstr "Gestisci facilmente tutte le password su tutti i dispositivi da un unico punto"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
