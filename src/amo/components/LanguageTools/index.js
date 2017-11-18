@@ -15,7 +15,7 @@ import {
   ADDON_TYPE_LANG,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'core/constants';
-import { languagesUnfiltered as languages } from 'core/languages';
+import { unfilteredLanguages as languages } from 'core/languages';
 import translate from 'core/i18n/translate';
 import { fetchLanguageTools } from 'core/reducers/addons';
 import Card from 'ui/components/Card';
