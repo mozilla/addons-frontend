@@ -246,7 +246,7 @@ export const mapStateToProps = (
     Object.values(addons).filter((addon) => {
       // I don't know why we need to check for type but flow complains if we
       // don't. 🤷🏼‍
-      return addon && addon.type && (
+      return addon && addon.type && addon.target_locale && (
         addon.type === ADDON_TYPE_DICT || addon.type === ADDON_TYPE_LANG
       );
     }) : null;
