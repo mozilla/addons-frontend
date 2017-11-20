@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 04:08+0000\n"
+"PO-Revision-Date: 2017-11-20 18:30+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -500,11 +500,11 @@ msgstr "Støtt desse artistane"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Artisten bak dette temaet spør om du kan hjelpe til med å støtte ei vidareutvikling av temaet ved å gje eit lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Artistane bak dette temaet spør om du kan hjelpe til med å støtte ei vidareutvikling av temaet ved å gje eit lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
@@ -516,11 +516,11 @@ msgstr "Støtt desse utviklarane"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Utviklaren av denne utvidinga spør om du kan hjelpe til med å støtte ei vidareutvikling av temaet ved å gje eit lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Utviklarane av denne utvidinga spør om du kan hjelpe til med å støtte ei vidareutvikling av temaet ved å gje eit lite bidrag."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
@@ -850,7 +850,7 @@ msgstr "LastPass passordhandterar"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
-msgstr ""
+msgstr "Handter enkelt alle passorda for alle einingane dine frå ein plass"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -882,7 +882,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Språkpakkar endrar grensesnittspråket i nettlesaren, inkludert menyar og innstillingar."
 
 #: src/amo/components/LanguageTools/index.js:164
 msgid "All Locales"
@@ -1346,7 +1346,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Inkluder HTML, lenker, kjeldekode eller kodesnuttar. Vurderingar er meint å vere berre tekst."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
