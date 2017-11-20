@@ -4,18 +4,16 @@ import React from 'react';
 import LanguageTools, {
   LanguageToolsBase,
   LanguageToolList,
-  mapStateToProps,
 } from 'amo/components/LanguageTools';
 import Link from 'amo/components/Link';
 import { ADDON_TYPE_DICT, ADDON_TYPE_LANG } from 'core/constants';
-import { loadAddonResults } from 'core/reducers/addons';
 import {
-  createFakeAddon,
-  dispatchClientMetadata,
-  fakeAddon,
-} from 'tests/unit/amo/helpers';
+  getAllLanguageTools,
+  loadLanguageTools,
+} from 'core/reducers/languageTools';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  createFakeLanguageAddon,
+  createFakeLanguageTool,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -23,48 +21,57 @@ import LoadingText from 'ui/components/LoadingText';
 
 
 describe(__filename, () => {
-  const addons = [
-    createFakeLanguageAddon({
+  const languageTools = [
+    createFakeLanguageTool({
+      id: 1,
       name: 'Scottish Language Pack (with Irn-Bru)',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 2,
       name: 'Old stuffy English',
       target_locale: 'en-GB',
       type: ADDON_TYPE_DICT,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 3,
       name: 'English Language Pack with Extra Us',
       target_locale: 'en-GB',
       type: ADDON_TYPE_LANG,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 4,
       name: 'Cool new English',
       target_locale: 'en-US',
       type: ADDON_TYPE_DICT,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 5,
       name: 'le French Dictionary',
       target_locale: 'fr',
       type: ADDON_TYPE_DICT,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 6,
       name: 'French Language Pack',
       target_locale: 'fr',
       type: ADDON_TYPE_LANG,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 7,
       name: 'اُردو',
       target_locale: 'ur',
       type: ADDON_TYPE_DICT,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 8,
       name: '正體中文 (繁體)',
       target_locale: 'zh-TW',
       type: ADDON_TYPE_LANG,
     }),
-    createFakeLanguageAddon({
+    createFakeLanguageTool({
+      id: 9,
       name: 'isiZulu',
       target_locale: 'zu',
       type: ADDON_TYPE_LANG,
@@ -82,27 +89,16 @@ describe(__filename, () => {
     );
   }
 
-  it('renders LoadingText if addons are not set', () => {
+  it('renders LoadingText if language tools are not set', () => {
     const root = renderShallow();
 
     expect(root.find(LoadingText)).not.toHaveLength(0);
   });
 
-  it('renders LoadingText if addons are empty', () => {
+  it('renders LoadingText if language tools are empty', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(loadAddonResults({ addons: {} }));
-    const root = renderShallow({ store });
+    store.dispatch(loadLanguageTools({ languageTools: [] }));
 
-    expect(root.find(LoadingText)).not.toHaveLength(0);
-  });
-
-  it('renders LoadingText if there are addons but no language addons', () => {
-    const { store } = dispatchClientMetadata();
-    store.dispatch(loadAddonResults({
-      addons: {
-        [fakeAddon.slug]: createFakeAddon(fakeAddon),
-      },
-    }));
     const root = renderShallow({ store });
 
     expect(root.find(LoadingText)).not.toHaveLength(0);
@@ -110,7 +106,8 @@ describe(__filename, () => {
 
   it('renders language tools in your locale', () => {
     const { store } = dispatchClientMetadata({ lang: 'fr' });
-    store.dispatch(loadAddonResults({ addons }));
+    store.dispatch(loadLanguageTools({ languageTools }));
+
     const root = renderShallow({ store });
 
     const dictionary = root.find(
@@ -132,7 +129,8 @@ describe(__filename, () => {
 
   it('omits "language tools in your locale" section if none available', () => {
     const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
-    store.dispatch(loadAddonResults({ addons }));
+    store.dispatch(loadLanguageTools({ languageTools }));
+
     const root = renderShallow({ store });
 
     expect(root.find('.LanguageTools-in-your-locale')).toHaveLength(0);
@@ -140,7 +138,8 @@ describe(__filename, () => {
 
   it('renders language packs in the table view for the right language', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(loadAddonResults({ addons }));
+    store.dispatch(loadLanguageTools({ languageTools }));
+
     const root = renderShallow({ store });
 
     expect(root.find('.LanguageTools-lang-en-GB')).toHaveLength(1);
@@ -155,9 +154,10 @@ describe(__filename, () => {
     expect(root.find('.LanguageTools-lang-zu')).toHaveLength(1);
   });
 
-  it('renders multiple addons in a list using LanguageToolList', () => {
+  it('renders multiple language tools in a list using LanguageToolList', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(loadAddonResults({ addons }));
+    store.dispatch(loadLanguageTools({ languageTools }));
+
     const root = renderShallow({ store });
 
     const dictionaryList = root
@@ -170,9 +170,10 @@ describe(__filename, () => {
     expect(languagePackList).toHaveLength(1);
   });
 
-  it('does not render languages we know of but do not have addons for', () => {
+  it('does not render languages we know of but do not have languages for', () => {
     const { store } = dispatchClientMetadata();
-    store.dispatch(loadAddonResults({ addons }));
+    store.dispatch(loadLanguageTools({ languageTools }));
+
     const root = renderShallow({ store });
 
     expect(root.find('.LanguageTools-lang-es')).toHaveLength(0);
@@ -181,24 +182,25 @@ describe(__filename, () => {
   describe('LanguageToolList', () => {
     it('renders a LanguageToolList', () => {
       const { store } = dispatchClientMetadata({ lang: 'en-GB' });
-      store.dispatch(loadAddonResults({ addons }));
-      const languageTools = mapStateToProps(store.getState()).addons;
+      store.dispatch(loadLanguageTools({ languageTools }));
 
-      const languageToolsInYourLocale = languageTools.filter((addon) => {
-        return addon.target_locale === store.getState().api.lang;
+      const allLanguageTools = getAllLanguageTools(store.getState());
+
+      const languageToolsInYourLocale = allLanguageTools.filter((languageTool) => {
+        return languageTool.target_locale === store.getState().api.lang;
       });
-      const dictionaries = languageToolsInYourLocale.filter((addon) => {
-        return addon.type === ADDON_TYPE_DICT;
+      const dictionaries = languageToolsInYourLocale.filter((languageTool) => {
+        return languageTool.type === ADDON_TYPE_DICT;
       });
-      const languagePacks = languageToolsInYourLocale.filter((addon) => {
-        return addon.type === ADDON_TYPE_LANG;
+      const languagePacks = languageToolsInYourLocale.filter((languageTool) => {
+        return languageTool.type === ADDON_TYPE_LANG;
       });
 
       const dictionaryList = shallow(
-        <LanguageToolList addons={dictionaries} />
+        <LanguageToolList languageTools={dictionaries} />
       );
       const languagePackList = shallow(
-        <LanguageToolList addons={languagePacks} />
+        <LanguageToolList languageTools={languagePacks} />
       );
 
       expect(dictionaryList.find('.LanguageTools-addon-list'))
@@ -211,7 +213,7 @@ describe(__filename, () => {
   });
 
   it('renders nothing if addons are null', () => {
-    const root = shallow(<LanguageToolList addons={null} />);
+    const root = shallow(<LanguageToolList languageTools={null} />);
 
     expect(root.find('.LanguageTools-addon-list')).toHaveLength(0);
     expect(root.find('title')).toHaveLength(0);
@@ -219,7 +221,8 @@ describe(__filename, () => {
 
   it('renders an HTML title', () => {
     const { store } = dispatchClientMetadata({ lang: 'pt-BR' });
-    store.dispatch(loadAddonResults({ addons }));
+    store.dispatch(loadLanguageTools({ languageTools }));
+
     const root = renderShallow({ store });
 
     expect(root.find('title')).toHaveText('Dictionaries and Language Packs');

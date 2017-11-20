@@ -6,7 +6,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
-  createFakeLanguageAddon,
+  createFakeLanguageTool,
 } from 'tests/unit/helpers';
 
 
@@ -20,7 +20,7 @@ describe(__filename, () => {
   describe('languageTools API', () => {
     function mockResponse() {
       return createApiResponse({
-        jsonData: { results: [createFakeLanguageAddon()] },
+        jsonData: { results: [createFakeLanguageTool()] },
       });
     }
 
@@ -44,7 +44,7 @@ describe(__filename, () => {
       const languageToolsResponse = await languageTools({ api: apiState });
       const jsonResponse = await languageToolsResponse.json();
 
-      expect(jsonResponse).toEqual({ results: [createFakeLanguageAddon()] });
+      expect(jsonResponse).toEqual({ results: [createFakeLanguageTool()] });
 
       mockApi.verify();
     });

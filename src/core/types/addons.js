@@ -54,9 +54,17 @@ export type AddonAuthorType = {|
   username: string,
 |};
 
-export type LanguageToolData = {|
+export type LanguageToolType = {|
+  current_version: AddonVersionType,
+  default_locale: string,
+  guid: string,
+  id: number,
   locale_disambiguation?: string,
+  name: string,
+  slug: string,
   target_locale?: string,
+  type: string,
+  url: string,
 |};
 
 export type ThemeData = {|
@@ -142,7 +150,6 @@ export type ExternalAddonType = {|
  */
 export type AddonType = {
   ...ExternalAddonType,
-  ...LanguageToolData,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl?: string,

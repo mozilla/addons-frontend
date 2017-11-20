@@ -16,6 +16,7 @@ import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
 import heroBanners from 'core/reducers/heroBanners';
+import languageTools from 'core/reducers/languageTools';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
@@ -43,6 +44,7 @@ export default function createStore(initialState = {}) {
       infoDialog,
       installations,
       landing,
+      languageTools,
       reduxAsyncConnect,
       redirectTo,
       reviews,
