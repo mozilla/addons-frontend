@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 13:55+0000\n"
+"PO-Revision-Date: 2017-11-20 13:56+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -712,11 +712,11 @@ msgstr "自分のコレクションを見る"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr "プロフィールを表示"
+msgstr "プロファイルを表示"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr "プロフィールを編集"
+msgstr "プロファイルを編集"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
