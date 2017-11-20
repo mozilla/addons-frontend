@@ -15,7 +15,7 @@ import {
   ADDON_TYPE_LANG,
   VIEW_CONTEXT_LANGUAGE_TOOLS,
 } from 'core/constants';
-import { languagesUnfiltered as languages } from 'core/languages';
+import { unfilteredLanguages } from 'core/languages';
 import translate from 'core/i18n/translate';
 import { fetchLanguageTools } from 'core/reducers/addons';
 import Card from 'ui/components/Card';
@@ -34,11 +34,11 @@ type LanguageToolListProps = {|
 
 
 // Get languages into a list of objects sorted by the english name.
-const sortedLanguages = Object.keys(languages).map((langKey) => {
+const sortedLanguages = Object.keys(unfilteredLanguages).map((langKey) => {
   return {
-    english: languages[langKey].English,
+    english: unfilteredLanguages[langKey].English,
     locale: langKey,
-    native: languages[langKey].native,
+    native: unfilteredLanguages[langKey].native,
   };
 }).sort((a, b) => a.english.localeCompare(b.english));
 
