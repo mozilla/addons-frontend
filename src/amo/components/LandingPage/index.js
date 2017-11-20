@@ -171,6 +171,14 @@ export class LandingPageBase extends React.Component {
     return { addonType, html: contentForTypes[addonType] };
   }
 
+  renderIfNotEmpty(addons, component) {
+    if (addons.length === 0 && !this.props.loading) {
+      return null;
+    }
+
+    return component;
+  }
+
   render() {
     const {
       errorHandler,
@@ -226,30 +234,39 @@ export class LandingPageBase extends React.Component {
           {i18n.gettext('Explore all categories')}
         </Button>
 
-        <LandingAddonsCard
-          addons={featuredAddons}
-          className="FeaturedAddons"
-          footerText={html.featuredFooterText}
-          footerLink={html.featuredFooterLink}
-          header={html.featuredHeader}
-          loading={loading}
-        />
-        <LandingAddonsCard
-          addons={highlyRatedAddons}
-          className="HighlyRatedAddons"
-          footerLink={html.highlyRatedFooterLink}
-          footerText={html.highlyRatedFooterText}
-          header={html.highlyRatedHeader}
-          loading={loading}
-        />
-        <LandingAddonsCard
-          addons={trendingAddons}
-          className="TrendingAddons"
-          footerLink={html.trendingFooterLink}
-          footerText={html.trendingFooterText}
-          header={html.trendingHeader}
-          loading={loading}
-        />
+        {this.renderIfNotEmpty(
+          featuredAddons,
+          <LandingAddonsCard
+            addons={featuredAddons}
+            className="FeaturedAddons"
+            footerText={html.featuredFooterText}
+            footerLink={html.featuredFooterLink}
+            header={html.featuredHeader}
+            loading={loading}
+          />
+        )}
+        {this.renderIfNotEmpty(
+          highlyRatedAddons,
+          <LandingAddonsCard
+            addons={highlyRatedAddons}
+            className="HighlyRatedAddons"
+            footerLink={html.highlyRatedFooterLink}
+            footerText={html.highlyRatedFooterText}
+            header={html.highlyRatedHeader}
+            loading={loading}
+          />
+        )}
+        {this.renderIfNotEmpty(
+          trendingAddons,
+          <LandingAddonsCard
+            addons={trendingAddons}
+            className="TrendingAddons"
+            footerLink={html.trendingFooterLink}
+            footerText={html.trendingFooterText}
+            header={html.trendingHeader}
+            loading={loading}
+          />
+        )}
       </div>
     );
   }
