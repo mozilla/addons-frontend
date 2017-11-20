@@ -7,7 +7,7 @@ import languageToolsReducer, {
 } from 'core/reducers/languageTools';
 import apiReducer from 'core/reducers/api';
 import languageToolsSaga from 'core/sagas/languageTools';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeLanguageTool,
   createStubErrorHandler,
