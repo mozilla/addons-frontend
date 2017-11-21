@@ -8,8 +8,8 @@ import { languageTools as languageToolsApi } from 'core/api/languageTools';
 import log from 'core/logger';
 import {
   FETCH_LANGUAGE_TOOLS,
-  loadAddonResults,
-} from 'core/reducers/addons';
+  loadLanguageTools,
+} from 'core/reducers/languageTools';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
@@ -25,7 +25,7 @@ export function* fetchLanguageTools({
 
     const response = yield call(languageToolsApi, { api: state.api });
 
-    yield put(loadAddonResults({ addons: response.results }));
+    yield put(loadLanguageTools({ languageTools: response.results }));
   } catch (error) {
     log.warn(`Loading Language tools failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));

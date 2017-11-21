@@ -14,7 +14,6 @@ import type {
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
-export const FETCH_LANGUAGE_TOOLS = 'FETCH_LANGUAGE_TOOLS';
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -69,30 +68,6 @@ export function fetchAddon(
   return {
     type: FETCH_ADDON,
     payload: { errorHandlerId: errorHandler.id, slug },
-  };
-}
-
-type FetchLanguageToolsParams = {|
-  errorHandlerId: string,
-|};
-
-export type FetchLanguageToolsAction = {|
-  type: string,
-  payload: {|
-    errorHandlerId: string,
-  |},
-|};
-
-export function fetchLanguageTools(
-  { errorHandlerId }: FetchLanguageToolsParams = {}
-): FetchLanguageToolsAction {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-
-  return {
-    type: FETCH_LANGUAGE_TOOLS,
-    payload: { errorHandlerId },
   };
 }
 

@@ -17,19 +17,24 @@ import {
 } from 'core/constants';
 import { unfilteredLanguages } from 'core/languages';
 import translate from 'core/i18n/translate';
-import { fetchLanguageTools } from 'core/reducers/addons';
+import {
+  fetchLanguageTools,
+  getAllLanguageTools,
+} from 'core/reducers/languageTools';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { AddonState } from 'core/reducers/addons';
-import type { AddonType } from 'core/types/addons';
+import type { ApiStateType } from 'core/reducers/api';
+import type { LanguageToolsState } from 'core/reducers/languageTools';
+import type { LanguageToolType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
+
 
 import './styles.scss';
 
 
 type LanguageToolListProps = {|
-  addons?: Array<AddonType>,
+  languageTools: Array<LanguageToolType>,
 |};
 
 
@@ -43,14 +48,14 @@ const sortedLanguages = Object.keys(unfilteredLanguages).map((langKey) => {
 }).sort((a, b) => a.english.localeCompare(b.english));
 
 
-export const LanguageToolList = ({ addons }: LanguageToolListProps) => {
-  if (!addons) {
+export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
+  if (!languageTools || !languageTools.length) {
     return null;
   }
 
   return (
     <ul className="LanguageTools-addon-list">
-      {addons.map((addon) => {
+      {languageTools.map((addon: LanguageToolType) => {
         return (
           <li key={addon.slug}>
             <Link to={`/addon/${addon.slug}/`}>
@@ -64,7 +69,7 @@ export const LanguageToolList = ({ addons }: LanguageToolListProps) => {
 };
 
 type Props = {|
-  addons: Array<AddonType>,
+  languageTools: Array<LanguageToolType>,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
@@ -73,27 +78,25 @@ type Props = {|
 
 export class LanguageToolsBase extends React.Component<Props> {
   componentWillMount() {
-    const { addons, dispatch, errorHandler } = this.props;
+    const { dispatch, errorHandler, languageTools } = this.props;
 
     dispatch(setViewContext(VIEW_CONTEXT_LANGUAGE_TOOLS));
-    if (addons === null) {
+
+    if (languageTools.length === 0) {
       dispatch(fetchLanguageTools({ errorHandlerId: errorHandler.id }));
     }
   }
 
   languageToolsInYourLocale() {
-    const { addons, i18n, lang } = this.props;
+    const { i18n, lang, languageTools } = this.props;
 
-    const languageToolsInYourLocale = addons ? addons.filter((addon) => {
-      return addon.target_locale === lang;
-    }) : null;
+    const languageToolsInYourLocale = languageTools.filter((languageTool) => {
+      return languageTool.target_locale === lang;
+    });
 
-    // This means we've loaded add-ons but there aren't any available in this
-    // user's locale.
-    if (
-      addons &&
-      (!languageToolsInYourLocale || !languageToolsInYourLocale.length)
-    ) {
+    // This means we've loaded language tools but there aren't any available in
+    // this user's locale.
+    if (!languageToolsInYourLocale || !languageToolsInYourLocale.length) {
       return null;
     }
 
@@ -103,21 +106,21 @@ export class LanguageToolsBase extends React.Component<Props> {
           {i18n.gettext('Available for your locale')}
         </h2>
 
-        {addons && languageToolsInYourLocale ? (
+        {languageToolsInYourLocale ? (
           <ul className="LanguageTools-in-your-locale-list">
-            {languageToolsInYourLocale.map((addon) => {
+            {languageToolsInYourLocale.map((languageTool) => {
               return (
                 <li
                   className="LanguageTools-in-your-locale-list-item"
-                  key={addon.slug}
+                  key={languageTool.slug}
                 >
                   <Link
                     className={
-                      `LanguageTools-in-your-locale-list-item--${addon.type}`
+                      `LanguageTools-in-your-locale-list-item--${languageTool.type}`
                     }
-                    to={`/addon/${addon.slug}/`}
+                    to={`/addon/${languageTool.slug}/`}
                   >
-                    {addon.name}
+                    {languageTool.name}
                   </Link>
                 </li>
               );
@@ -134,7 +137,7 @@ export class LanguageToolsBase extends React.Component<Props> {
   }
 
   render() {
-    const { addons, errorHandler, i18n } = this.props;
+    const { languageTools, errorHandler, i18n } = this.props;
 
     const header = i18n.gettext('Dictionaries and Language Packs');
 
@@ -178,11 +181,10 @@ export class LanguageToolsBase extends React.Component<Props> {
             </Tr>
           </Thead>
           <Tbody>
-            {addons && addons.length ? sortedLanguages.map((language) => {
-              const toolsInLocale = addons ?
-                addons.filter((addon) => {
-                  return addon.target_locale === language.locale;
-                }) : null;
+            {languageTools.length ? sortedLanguages.map((language) => {
+              const toolsInLocale = languageTools.filter((addon) => {
+                return addon.target_locale === language.locale;
+              });
 
               // This means there are no language tools available in this
               // known locale.
@@ -215,11 +217,11 @@ export class LanguageToolsBase extends React.Component<Props> {
                   </Td>
                   <Td className={`LanguageTools-lang-${language.locale}-languagePacks`}>
                     {languagePacks.length ?
-                      <LanguageToolList addons={languagePacks} /> : null}
+                      <LanguageToolList languageTools={languagePacks} /> : null}
                   </Td>
                   <Td className={`LanguageTools-lang-${language.locale}-dictionaries`}>
                     {dictionaries.length ?
-                      <LanguageToolList addons={dictionaries} /> : null}
+                      <LanguageToolList languageTools={dictionaries} /> : null}
                   </Td>
                 </Tr>
               );
@@ -237,23 +239,12 @@ export class LanguageToolsBase extends React.Component<Props> {
 
 export const mapStateToProps = (
   state: {|
-    addons: AddonState,
-    api: Object,
+    languageTools: LanguageToolsState,
+    api: ApiStateType,
   |}
 ) => {
-  const { addons } = state;
-  const languageToolAddons = addons && Object.values(addons).length ?
-    Object.values(addons).filter((addon) => {
-      // I don't know why we need to check for type but flow complains if we
-      // don't. 🤷🏼‍
-      return addon && addon.type && (
-        addon.type === ADDON_TYPE_DICT || addon.type === ADDON_TYPE_LANG
-      );
-    }) : null;
-
   return {
-    addons: languageToolAddons && languageToolAddons.length ?
-      languageToolAddons : null,
+    languageTools: getAllLanguageTools(state),
     lang: state.api.lang,
   };
 };
