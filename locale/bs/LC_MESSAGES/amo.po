@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-22 21:50+0000\n"
+"PO-Revision-Date: 2017-11-22 22:10+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -527,163 +527,168 @@ msgstr "Autor ovog dodatka vas je zamolio da podržite njegov dalji rad davanjem
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Autori ovog dodatka vas mole da podržite njihov dalji rad davanjem malog doprinosa."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "Doprinesi sada"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
-msgstr ""
+msgstr "Preuzmi Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Ako ste prijavljeni i mislite da je ova poruka greška, molimo vas <a href=\"%(url)s\">prijavite grešku</a>. Recite nam odakle ste došli i čemu ste pokušavali pristupiti i mi ćemo riješiti problem."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
-msgstr ""
+msgstr "Niste ovlašteni"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Žao nam je ali niste ovlašteni da pristupite ovoj stranici. Ako niste prijavljeni, pokušajte se prijaviti koristeći link na vrhu stranice."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "Ako ste slijedili link odnekud, molimo vas da <a href=\"%(url)s\">prijavite problem</a>. Reci nam odakle ste došli i šta ste tražili a mi ćemo učiniti sve da popravimo problem."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Ovaj dodatak je uklonjen od strane njegovog autora."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "Ovaj dodatak je onemogućen od strane administratora."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr ""
+msgstr "Žao nam je ali ne možemo ništa pronaći na adresi koju ste unijeli."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Stranica nije pronađena"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"Ako imate dodatnih informacija koje bi nam pomogle možete <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">prijaviti problem</a>. Recite nam koje ste korake poduzeli koji su "
+"pruzrokovali problem i mi ćemo učiniti sve da ga rješimo."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Server greška"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Žao nam je, desila se greška sa našim serverom i nismo mogli završiti vaš zahtjev. Prijavili smo ovu grešku i istražit ćemo je."
 
 #: src/amo/components/FlagReviewMenu/index.js:113
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Ovo je bug prijava ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Označeno kao bug prijava ili zahtjev za podršku"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr ""
+msgstr "Označeno"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr ""
+msgstr "Oznaka"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Označi ovaj odgovor developera"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
 msgid "Flag this review"
-msgstr ""
+msgstr "Označi ovu recenziju"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Prijavite se da biste označili ovaj odgovor"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Prijavite se da biste označili ovu recenziju"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Ne možete označiti svoj vlastiti odgovor"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Ne možete označiti svoju vlastitu recenziju"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr ""
+msgstr "Ovo je spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Označeno kao spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Ovo sadrži neprikladan jezik"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Označeno kao neprimjeren jezik"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr ""
+msgstr "Android pretraživač"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS pretraživač"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
-msgstr ""
+msgstr "Focus pretraživač"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "Desktop pretraživač"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Noćni, Developer Edition"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
-msgstr ""
+msgstr "Privatnost"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "Kolačići"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
-msgstr ""
+msgstr "Pravno"
 
 #: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "Prijavite zloupotrebu zaštitnog znaka"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Osim ako nije drugačije %(startNotedLink)s primjećeno %(endNotedLink)s, sadržaj na ovoj stranici je licensiran pod %(startLicenseLink)sCreative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s ili svaka novija verzija."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Idite na Mozilla početnu stranicu"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
