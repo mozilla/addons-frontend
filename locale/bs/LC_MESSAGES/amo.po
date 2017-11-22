@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-22 22:10+0000\n"
+"PO-Revision-Date: 2017-11-22 22:26+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -692,173 +692,173 @@ msgstr "Idite na Mozilla početnu stranicu"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "O nama"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
-msgstr ""
+msgstr "Centar za razvoj"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Forum"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
-msgstr ""
+msgstr "Prijavi grešku"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr ""
+msgstr "Pregled vodiča"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "Status stranice"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
-msgstr ""
+msgstr "Prikaži klasičnu desktop stranicu"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Prikaži moje kolekcije"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr ""
+msgstr "Prikaži profil"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr ""
+msgstr "Uredi profil"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
-msgstr ""
+msgstr "Alati"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Pošalji novi dodatak"
 
 #: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Pošalji novu temu"
 
 #: src/amo/components/Header/index.js:137 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
-msgstr ""
+msgstr "Odjavi se"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:60
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Firefox dodaci"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Moj račun"
 
 #: src/amo/components/Home/index.js:115
 msgid "Abstract"
-msgstr ""
+msgstr "Apstraktno"
 
 #: src/amo/components/Home/index.js:120
 msgid "Nature"
-msgstr ""
+msgstr "Priroda"
 
 #: src/amo/components/Home/index.js:125
 msgid "Film & TV"
-msgstr ""
+msgstr "Film i TV"
 
 #: src/amo/components/Home/index.js:130
 msgid "Scenery"
-msgstr ""
+msgstr "Scenografija"
 
 #: src/amo/components/Home/index.js:135
 msgid "Music"
-msgstr ""
+msgstr "Muzika"
 
 #: src/amo/components/Home/index.js:140
 msgid "Seasonal"
-msgstr ""
+msgstr "Sezonski"
 
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:171
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Prilagodite način na koji Firefox radi sa ekstenzijama. Jeste li zainteresovani za…"
 
 #: src/amo/components/Home/index.js:173
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Promijenite izgled Firefoxa sa temama."
 
 #: src/amo/components/Home/index.js:204
 msgid "Top privacy extensions"
-msgstr ""
+msgstr "Najbolje ekstenzije privatnosti"
 
 #: src/amo/components/Home/index.js:205
 msgid "See more privacy extensions"
-msgstr ""
+msgstr "Vidi više ekstenzija privatnosti"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
-msgstr ""
+msgstr "Promijeni svoje tabove"
 
 #: src/amo/components/Home/index.js:216
 msgid "See more tab extensions"
-msgstr ""
+msgstr "Vidi više tab ekstenzija"
 
 #: src/amo/components/Home/index.js:64
 msgid "Bookmarks"
-msgstr ""
+msgstr "Oznake"
 
 #: src/amo/components/Home/index.js:68
 msgid "Password managers"
-msgstr ""
+msgstr "Upravitelj lozinke"
 
 #: src/amo/components/Home/index.js:72
 msgid "Ad blockers"
-msgstr ""
+msgstr "Ad blokeri"
 
 #: src/amo/components/Home/index.js:76
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Pametnija kupovina"
 
 #: src/amo/components/Home/index.js:80
 msgid "Productivity"
-msgstr ""
+msgstr "Produktivnost"
 
 #: src/amo/components/Home/index.js:84
 msgid "Watching Videos"
-msgstr ""
+msgstr "Gledanje videa"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
-msgstr ""
+msgstr "Odlične ekstenzije za sve situacije"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "YouTube High Definition"
-msgstr ""
+msgstr "YouTube visoka definicija"
 
 #: src/amo/components/HomeHeroBanner/index.js:50
 msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr ""
+msgstr "Pokrenite videe u HD, isključite primjedbe, promijenite veličinu plejera i više"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Productivity extensions"
-msgstr ""
+msgstr "Produktivne ekstenzije"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
-msgstr ""
+msgstr "Alati koji omogućuju da web bolje radi za vas"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "LastPass Password Manager"
-msgstr ""
+msgstr "LastPass upravitelj lozinke"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
-msgstr ""
+msgstr "Jednostavno upravljajte sa svim vašim lozinkama na svim uređajima sa jednog mjesta"
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
