@@ -17,11 +17,11 @@ describe(__filename, () => {
 
   describe('getDiscoveryAddons', () => {
     it('calls the API', () => {
-      getDiscoveryAddons({ api: apiState });
+      getDiscoveryAddons({ api: apiState, platform: 'Windows' });
 
       sinon.assert.calledWith(callApiMock, {
         endpoint: 'discovery',
-        params: { 'telemetry-client-id': undefined },
+        params: { platform: 'Windows', 'telemetry-client-id': undefined },
         schema: { results: [discoResult] },
         state: apiState,
       });
@@ -29,11 +29,18 @@ describe(__filename, () => {
 
     it('calls the API with a telemetry client ID', () => {
       const telemetryClientId = 'client-id';
-      getDiscoveryAddons({ api: apiState, telemetryClientId });
+      getDiscoveryAddons({
+        api: apiState,
+        platform: 'Darwin',
+        telemetryClientId,
+      });
 
       sinon.assert.calledWith(callApiMock, {
         endpoint: 'discovery',
-        params: { 'telemetry-client-id': telemetryClientId },
+        params: {
+          platform: 'Darwin',
+          'telemetry-client-id': telemetryClientId,
+        },
         schema: { results: [discoResult] },
         state: apiState,
       });
