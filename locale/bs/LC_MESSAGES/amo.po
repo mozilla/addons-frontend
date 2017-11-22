@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-22 22:26+0000\n"
+"PO-Revision-Date: 2017-11-22 22:37+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -862,27 +862,27 @@ msgstr "Jednostavno upravljajte sa svim vašim lozinkama na svim uređajima sa j
 
 #: src/amo/components/LandingPage/index.js:197
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "Promijenite izgled vašeg pretraživača. Izaberite iz hiljade tema izgled Firefoxa koji želite."
 
 #: src/amo/components/LandingPage/index.js:199
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Istražite moćne alate i funkcije za uređivanje Firefoxa i kreirajte pretraživač po vašoj volji."
 
 #: src/amo/components/LandingPage/index.js:226
 msgid "Explore all categories"
-msgstr ""
+msgstr "Istraži sve kategorije"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
-msgstr ""
+msgstr "Promijeni jezik"
 
 #: src/amo/components/LanguageTools/index.js:103
 msgid "Available for your locale"
-msgstr ""
+msgstr "Dostupno za vaš prostor"
 
 #: src/amo/components/LanguageTools/index.js:139
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "Rječnici i paketi jezika"
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
