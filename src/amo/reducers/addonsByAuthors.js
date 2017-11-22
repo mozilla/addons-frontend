@@ -116,9 +116,6 @@ const reducer = (
         byAddonSlug: {
           ...state.byAddonSlug,
           [action.payload.slug]: action.payload.addons
-            // This ensures we do not display the main add-on in the list of
-            // "add-ons by these authors".
-            .filter((addon) => addon.slug !== action.payload.slug)
             .slice(0, OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE)
             .map((addon) => createInternalAddon(addon)),
         },

@@ -47,16 +47,6 @@ describe(__filename, () => {
       });
     });
 
-    it('excludes the main add-on from the list of add-ons', () => {
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
-        slug: fakeAddon.slug,
-        addons: [fakeAddon],
-      }));
-      expect(state.byAddonSlug).toEqual({
-        [fakeAddon.slug]: [],
-      });
-    });
-
     it('always ensures the page size is consistent', () => {
       const slug = 'addon-slug';
       const state = reducer(undefined, loadOtherAddonsByAuthors({

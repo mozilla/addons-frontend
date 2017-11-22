@@ -59,7 +59,8 @@ describe(__filename, () => {
         filters: {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
-          page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 1,
+          exclude_addons: slug,
+          page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })
@@ -114,7 +115,8 @@ describe(__filename, () => {
         filters: {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
-          page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 1,
+          exclude_addons: slug,
+          page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })

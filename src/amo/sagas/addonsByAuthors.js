@@ -24,9 +24,8 @@ export function* fetchOtherAddonsByAuthors({ payload }) {
       filters: {
         addonType,
         author: authors.join(','),
-        // We need one more add-on than the number to display because the API
-        // may return the main add-on and we cannot tell the API to exclude it.
-        page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 1,
+        exclude_addons: slug,
+        page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
         sort: SEARCH_SORT_TRENDING,
       },
     });

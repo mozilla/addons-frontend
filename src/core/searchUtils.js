@@ -19,6 +19,7 @@ export const paramsToFilter = {
   appversion: 'compatibleWithVersion',
   author: 'author',
   category: 'category',
+  exclude_addons: 'exclude_addons',
   featured: 'featured',
   page: 'page',
   // TODO: Change our filter to `pageSize`, for consistency.
