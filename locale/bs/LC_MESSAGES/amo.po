@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-22 20:48+0000\n"
+"PO-Revision-Date: 2017-11-22 21:09+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -35,124 +35,124 @@ msgstr "Nema recenzija"
 
 #: src/amo/components/Addon/index.js:242
 msgid "Rate your experience"
-msgstr ""
+msgstr "Ocijenite vaše iskustvo"
 
 #: src/amo/components/Addon/index.js:266
 msgid "About this dictionary"
-msgstr ""
+msgstr "O ovom rječniku"
 
 #: src/amo/components/Addon/index.js:269
 msgid "About this extension"
-msgstr ""
+msgstr "O ovoj ekstenziji"
 
 #: src/amo/components/Addon/index.js:272
 msgid "About this language pack"
-msgstr ""
+msgstr "O ovom paketu jezika"
 
 #: src/amo/components/Addon/index.js:275
 msgid "About this search plugin"
-msgstr ""
+msgstr "O ovom pluginu pretraživača"
 
 #: src/amo/components/Addon/index.js:278
 msgid "About this theme"
-msgstr ""
+msgstr "O ovoj temi"
 
 #: src/amo/components/Addon/index.js:281
 msgid "About this add-on"
-msgstr ""
+msgstr "O ovom dodatku"
 
 #: src/amo/components/Addon/index.js:320
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Bilješke o izdanju za %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:349
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Više rječnika od strane %(author)s"
 
 #: src/amo/components/Addon/index.js:352
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Više rječnika od tih prevoditelja"
 
 #: src/amo/components/Addon/index.js:359
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Više ekstenzija od %(author)s"
 
 #: src/amo/components/Addon/index.js:362
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "Više ekstenzija od tih developera"
 
 #: src/amo/components/Addon/index.js:369
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Više paketa jezika od %(author)s"
 
 #: src/amo/components/Addon/index.js:372
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Više paketa jezika od tih prevoditelja"
 
 #: src/amo/components/Addon/index.js:379
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Više tema od %(author)s"
 
 #: src/amo/components/Addon/index.js:382
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Više tema od tih umjetnika"
 
 #: src/amo/components/Addon/index.js:389
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Više dodataka od %(author)s"
 
 #: src/amo/components/Addon/index.js:392
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Više dodataka od tih developera"
 
 # Example: The Add-On <span>by The Author</span>
 #: src/amo/components/Addon/index.js:472
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
-msgstr ""
+msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:538
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Metapodaci za ekstenzije"
 
 #: src/amo/components/Addon/index.js:564
 msgid "Screenshots"
-msgstr ""
+msgstr "Screenshots"
 
 #: src/amo/components/AddonBadges/index.js:30
 msgid "Featured Extension"
-msgstr ""
+msgstr "Istaknute ekstenzije"
 
 #: src/amo/components/AddonBadges/index.js:32
 msgid "Featured Theme"
-msgstr ""
+msgstr "Istaknute teme"
 
 #: src/amo/components/AddonBadges/index.js:34
 msgid "Featured Add-on"
-msgstr ""
+msgstr "Istaknuti dodatci"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Restart Required"
-msgstr ""
+msgstr "Potrebno je ponovno pokretanje"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "Eksperimentalno"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Nije kompatibilno sa Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Morate <a href=\"%(downloadUrl)s\">preuzeti Firefox</a> za instalaciju ovog dodatka."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Ovaj dodatak nije kompatibilan sa vašom Feirefox verzijom."
 
 #: src/amo/components/AddonCompatibilityError/index.js:68
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Vaša Firefox verzija ne podržava pretraživačke plaginove."
 
 #: src/amo/components/AddonCompatibilityError/index.js:71
 msgid "Firefox for iOS does not currently support add-ons."
