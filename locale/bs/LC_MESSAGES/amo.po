@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 08:30+0000\n"
+"PO-Revision-Date: 2017-11-23 08:50+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -942,172 +942,174 @@ msgstr "Prijavili ste ovaj dodatak za slostavljanje"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Primili smo vaš izvještaj. Hvala za dijeljenje vaše zabrinutosti o ovom dodatku."
 
 #: src/amo/components/ReportAbuseButton/index.js:119
 msgid "We can't respond to every abuse report but we'll look into this issue."
-msgstr ""
+msgstr "Ne možemo odgovoriti na svaki izvještaj zlostavljanja ali istražit ćemo ovaj problem."
 
 #: src/amo/components/ReportAbuseButton/index.js:130
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Ako mislite da ovaj dodatak krši %(linkTagStart)s Mozillin pravilnik o dodacima %(linkTagEnd)s ili uključuje sigurnosne ili pravne probleme, molimo vas da prijavite te probleme Mozilli koristeći ovu"
+" formu."
 
 #: src/amo/components/ReportAbuseButton/index.js:152 src/amo/components/ReportAbuseButton/index.js:158
 msgid "Report this add-on for abuse"
-msgstr ""
+msgstr "Prijavite ovaj dodatak za zlostavljanje"
 
 #: src/amo/components/ReportAbuseButton/index.js:166
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Molimo vas ne koristite ovaj obrazac za prijavu bugova ili za zahtjev dodanih funkcija; Ovaj izvještaj će biti poslan Mozilli a ne developeru dodataka."
 
 #: src/amo/components/ReportAbuseButton/index.js:179
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Objasni kako ovaj dodatak krši naša pravila."
 
 #: src/amo/components/ReportAbuseButton/index.js:192
 msgid "Dismiss"
-msgstr ""
+msgstr "Odbaci"
 
 #: src/amo/components/ReportAbuseButton/index.js:200
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Šaljem izvješat o zlostavljanju"
 
 #: src/amo/components/ReportAbuseButton/index.js:201
 msgid "Send abuse report"
-msgstr ""
+msgstr "Šalji izvještaj o zlostavljanju"
 
 #: src/amo/components/Search/index.js:106 src/amo/components/SearchResults.js:60
 msgid "Search results"
-msgstr ""
+msgstr "Pretraži rezultate"
 
 #: src/amo/components/Search/index.js:117
 msgid "Featured add-ons"
-msgstr ""
+msgstr "Istaknuti dodaci"
 
 #: src/amo/components/Search/index.js:130
 msgid "Trending add-ons"
-msgstr ""
+msgstr "Popularni dodaci"
 
 #: src/amo/components/Search/index.js:142
 msgid "Top rated add-ons"
-msgstr ""
+msgstr "Najbolje ocijenjeni dodaci"
 
 #: src/amo/components/Search/index.js:148
 msgid "Popular extensions"
-msgstr ""
+msgstr "Popularne ekstenzije"
 
 #: src/amo/components/Search/index.js:151
 msgid "Popular themes"
-msgstr ""
+msgstr "Popularne teme"
 
 #: src/amo/components/Search/index.js:154
 msgid "Popular add-ons"
-msgstr ""
+msgstr "Popularni dodaci"
 
 #: src/amo/components/Search/index.js:161
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Rezultati pretrage za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s ekstenzija pronađena za \"%(query)s\""
+msgstr[1] "%(count)s ekstenzije pronađene za \"%(query)s\""
+msgstr[2] "%(count)s ekstenzija pronađeno za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s rječnik pronađen za \"%(query)s\""
+msgstr[1] "%(count)s rječnika pronađena za \"%(query)s\""
+msgstr[2] "%(count)s rječnika pronađena za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s jezički paket pronađen za \"%(query)s\""
+msgstr[1] "%(count)s jezička paketa pronađena za \"%(query)s\""
+msgstr[2] "%(count)s jezičkih paketa pronađeno za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s tema pronađena za\"%(query)s\""
+msgstr[1] "%(count)s teme pronađene za\"%(query)s\""
+msgstr[2] "%(count)s tema pronađeno za\"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s rezultat pronađen za \"%(query)s\""
+msgstr[1] "%(count)s rezultata pronađena za \"%(query)s\""
+msgstr[2] "%(count)s rezultata pronađeno za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s rezultat za \"%(query)s\""
+msgstr[1] "%(count)s rezultata za \"%(query)s\""
+msgstr[2] "%(count)s rezultata za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Potraga za \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
-msgstr ""
+msgstr "Učitavanje dodataka"
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
-msgstr ""
+msgstr "Nema pronađenih dodataka"
 
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s dodatak pronađen"
+msgstr[1] "%(count)s dodataka pronađena"
+msgstr[2] "%(count)s dodataka pronađeno"
 
 #: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
 msgid "All"
-msgstr ""
+msgstr "Sve"
 
 #: src/amo/components/SearchFilters/index.js:101
 msgid "Extension"
-msgstr ""
+msgstr "Ekstenzija"
 
 #: src/amo/components/SearchFilters/index.js:102
 msgid "Theme"
-msgstr ""
+msgstr "Tema"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Windows"
-msgstr ""
+msgstr "Prozor"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:113
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:121
 msgid "Relevance"
-msgstr ""
+msgstr "Značaj"
 
 #: src/amo/components/SearchFilters/index.js:122
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nedavno ažurirano"
 
 #: src/amo/components/SearchFilters/index.js:123
 msgid "Most Users"
-msgstr ""
+msgstr "Većina korisnika"
 
 #: src/amo/components/SearchFilters/index.js:124
 msgid "Top Rated"
-msgstr ""
+msgstr "Najbolje ocjenjeno"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
