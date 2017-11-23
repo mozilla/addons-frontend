@@ -13,6 +13,7 @@ import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
+import { getAddonByGUID } from 'core/reducers/addons';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
@@ -172,7 +173,15 @@ export class DiscoPaneBase extends React.Component {
 
 export function loadedAddons(state) {
   return state.discoResults.map(
-    (result) => ({ ...result, ...state.addons[result.addon] })
+    (result) => {
+      return {
+        ...result,
+        // `result` comes from the API call in `src/disco/api.js` and
+        // normalizer makes everything complicated...
+        // `result.addon` is actually the add-on's GUID.
+        ...getAddonByGUID(state, result.addon),
+      };
+    }
   );
 }
 

@@ -1416,6 +1416,6 @@ describe('mapStateToProps', () => {
     signIn();
     const { addon } = _mapStateToProps();
 
-    expect(addon).toEqual(undefined);
+    expect(addon).toEqual(null);
   });
 });

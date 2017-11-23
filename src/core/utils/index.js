@@ -6,7 +6,7 @@ import config from 'config';
 import React from 'react';
 import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
 
-import { loadAddons } from 'core/reducers/addons';
+import { getAddonBySlug, loadAddons } from 'core/reducers/addons';
 import { fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
@@ -118,10 +118,6 @@ export function sanitizeUserHTML(text) {
   ]);
 }
 
-export function findAddon(state, slug) {
-  return state.addons[slug];
-}
-
 export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
   return fetchAddon({ slug: addonSlug, api: apiState })
     .then(({ entities }) => dispatch(loadAddons(entities)));
@@ -139,11 +135,13 @@ export function loadAddonIfNeeded(
   { _refreshAddon = refreshAddon } = {},
 ) {
   const state = getState();
-  const addon = findAddon(state, slug);
+  const addon = getAddonBySlug(state, slug);
+
   if (addon) {
     log.info(`Found add-on ${slug}, ${addon.id} in state`);
     return Promise.resolve();
   }
+
   log.info(`Add-on ${slug} not found in state; fetching from API`);
   // This loads the add-on into state.
   return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
