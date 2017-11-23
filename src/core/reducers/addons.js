@@ -304,10 +304,8 @@ export const getAllAddons = (
 ): Array<AddonType> => {
   const addons = state.addons.byID;
 
-  // TODO: one day, Flow will get `Object.values()` right but for now... we
-  // have to deal with it.
-  // See: https://github.com/facebook/flow/issues/2221.
-  return Object.keys(addons).map((key: string) => addons[key]);
+  // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
+  return Object.values(addons);
 };
 
 export default function addonsReducer(
