@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 09:10+0000\n"
+"PO-Revision-Date: 2017-11-23 09:30+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1256,41 +1256,47 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Možete također koristiti AMO za pronalaženje dodataka za Mozilla %(startTBLink)s Thunderbird %(endTBLink)s i %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Zajednica kreatora"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Dodaci navedeni ovdje su stvoreni od hiljade developera i dizajnera tema iz cijelog svijeta, u rasponu od pojedinačnih osoba do velikih korporacija. Neki navedeni dodaci na AMO su automatski "
+"objavljeni i mogu biti predmet pregleda od strane tima urednika kada se javno objave."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Uključi se"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
 "Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
 "the following ways:"
 msgstr ""
+"Mozilla je neprofitni šampion interneta, gradimo Firefox kako bismo ga održali zdravim, otvorenim i dostupnim. Dodaci podržavaju izbor korisnika i prilagođavanje u Firefoxu i možete da doprinesete "
+"na sljedeće načine:"
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)s Izradi vlastiti dodatak %(endLink)s. Mi dajemo besplatne usluge hostinga i možemo pomoći da dosegnete veliki auditorij korisnika."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Pomozite nam poboljšati ovu web stranicu. To je open source i možete prijaviti bugove i zakrpe. Možete početi sa %(startGoodFirstBugLink)s dobar prvi bug %(endGoodFirstBugLink)s ili pregledati sve "
+"postojeće probleme za AMO’s %(startAddonsServerRepoLink)s server %(endAddonsServerRepoLink)s i %(startAddonsFrontendRepoLink)s frontend %(endAddonsFrontendRepoLink)s na Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Pregled smjernica"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
