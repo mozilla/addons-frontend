@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 09:49+0000\n"
+"PO-Revision-Date: 2017-11-23 09:52+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1411,14 +1411,16 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Molimo vas da prijavite ili označite sumnjive recenzije klikom na \"Prijavi ovu recenziju\" i to će biti prijavljeno na stranicu za moderiranje. Naš tim će koristiti pregled smjernica za procjenu "
+"hoće li ili neće izbrisati recenziju ili je vratiti nazad."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr ""
+msgstr "Ja sam autor dodatka, mogu li odgovarati na recenzije?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Da, autori dodataka mogu dati pojedinačne odgovore na recenzije. Možete postaviti temu rasprave na našem %(startLink)s forumu %(endLink)s kako bi ste se uključili u rasprave ili praćenja."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
