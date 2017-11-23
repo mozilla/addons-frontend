@@ -3,7 +3,7 @@ import { findDOMNode } from 'react-dom';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
 import Helmet from 'react-helmet';

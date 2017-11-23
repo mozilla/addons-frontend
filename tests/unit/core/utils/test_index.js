@@ -6,7 +6,7 @@ import { sprintf } from 'jed';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { compose } from 'redux';
 
 import * as api from 'core/api';

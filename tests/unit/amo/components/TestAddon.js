@@ -5,7 +5,7 @@ import {
   scryRenderedComponentsWithType,
   findRenderedComponentWithType,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 

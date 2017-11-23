@@ -48,10 +48,14 @@ const stubRoutes = (
 export class ServerTestHelper {
   constructor() {
     this.helmetCanUseDOM = Helmet.canUseDOM;
+    this.nestedStatusCanUseDOM = NestedStatus.canUseDOM;
   }
 
   beforeEach() {
     Helmet.canUseDOM = false;
+    // See: https://github.com/gaearon/react-side-effect/releases/tag/v1.0.0
+    // (`react-side-effect` is a dependency of `react-nested-status`).
+    NestedStatus.canUseDOM = false;
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
@@ -59,6 +63,7 @@ export class ServerTestHelper {
 
   afterEach() {
     Helmet.canUseDOM = this.helmetCanUseDOM;
+    NestedStatus.canUseDOM = this.nestedStatusCanUseDOM;
     delete global.webpackIsomorphicTools;
   }
 

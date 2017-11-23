@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import { renderIntoDocument } from 'react-dom/test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, {

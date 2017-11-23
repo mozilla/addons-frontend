@@ -324,8 +324,8 @@ export const extractId = (ownProps: Props) => {
 };
 
 export default compose(
-  connect(mapStateToProps),
-  translate({ withRef: true }),
-  withFixedErrorHandler({ fileName: __filename, extractId }),
   withRouter,
+  connect(mapStateToProps),
+  translate(),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonReviewListBase);

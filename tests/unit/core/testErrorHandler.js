@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
-  from 'react-addons-test-utils';
+  from 'react-dom/test-utils';
 import { createStore, combineReducers } from 'redux';
 import { shallow } from 'enzyme';
 

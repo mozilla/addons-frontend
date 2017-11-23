@@ -6,7 +6,7 @@ import {
   renderIntoDocument,
   findRenderedComponentWithType,
   scryRenderedComponentsWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { Route, Router, createMemoryHistory } from 'react-router';
 
 import Paginate from 'core/components/Paginate';

@@ -1,7 +1,7 @@
 import React from 'react';
 import {
   Simulate, findRenderedComponentWithType, renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 

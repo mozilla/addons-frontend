@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import { fakeI18n } from 'tests/unit/helpers';

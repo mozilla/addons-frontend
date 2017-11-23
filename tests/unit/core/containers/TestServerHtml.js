@@ -4,7 +4,7 @@ import { findDOMNode } from 'react-dom';
 import {
   findRenderedDOMComponentWithTag,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import ServerHtml from 'core/containers/ServerHtml';
 import FakeApp, {

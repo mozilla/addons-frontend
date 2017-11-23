@@ -293,7 +293,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
       return root.shallow(shallowOptions);
     }
     // Unwrap the next component in the hierarchy.
-    root = root.first().shallow(shallowOptions);
+    root = root.dive();
   }
 
   throw new Error(oneLine`Could not find ${TargetComponent} in rendered

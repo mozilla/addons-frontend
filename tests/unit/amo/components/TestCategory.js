@@ -105,7 +105,11 @@ describe(__filename, () => {
   function render(props = {}, options = {}) {
     return shallowUntilTarget(
       <Category {...renderProps(props, options)} />,
-      CategoryBase
+      CategoryBase,
+      // TODO: ideally, we would like to enable the lifecycle methods, but it
+      // produces unexpected errors, related to Enzyme 3.
+      // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+      { shallowOptions: { disableLifecycleMethods: true } }
     );
   }
 

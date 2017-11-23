@@ -585,9 +585,14 @@ describe(__filename, () => {
 
     it('resets the page after submitting a review', () => {
       const router = { push: sinon.stub() };
-      dispatchAddon({ ...fakeAddon });
       const location = { query: { page: 2 } };
-      const root = render({ reviews: null, router, location });
+
+      dispatchAddon({ ...fakeAddon });
+
+      const root = render({ reviews: null, location });
+      // This makes sure the router is passed to the base component in order to
+      // test it because Enzyme v3 does not let us pass it via `render()`.
+      root.setProps({ router });
 
       const manager = root.find(RatingManager);
       expect(manager).toHaveProp('onReviewSubmitted');

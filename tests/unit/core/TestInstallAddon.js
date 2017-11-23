@@ -62,7 +62,13 @@ const {
   mapStateToProps,
   withInstallHelpers,
 } = installAddon;
-const BaseComponent = () => <div />;
+
+// See: https://github.com/airbnb/enzyme/issues/1232.
+class BaseComponent extends React.Component {
+  render() {
+    return <div />;
+  }
+}
 
 function componentWithInstallHelpers({ src = 'some-src' } = {}) {
   // This simulates how a component would typically apply
@@ -90,13 +96,22 @@ const defaultProps = (overrides = {}) => {
   };
 };
 
+function render(Component, props) {
+  return shallowUntilTarget(
+    <Component {...props} />,
+    BaseComponent,
+    // If we do not disable these methods, `componentDidMount()` will be called
+    // but in most cases we do not have a complete fakeAddonManager.
+    // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+    { shallowOptions: { disableLifecycleMethods: true } }
+  );
+}
+
 function renderWithInstallHelpers({ src, ...customProps } = {}) {
   const Component = componentWithInstallHelpers({ src });
 
   const props = defaultProps(customProps);
-  const root = shallowUntilTarget(
-    <Component {...props} />, BaseComponent
-  );
+  const root = render(Component, props);
 
   return { root, dispatch: props.store.dispatch };
 }
@@ -184,7 +199,8 @@ describe(__filename, () => {
       _addonManager,
       store: createStore().store,
     };
-    const root = shallowUntilTarget(<Component {...props} />, BaseComponent);
+
+    const root = render(Component, props);
 
     // Update the component with the same props (i.e. same add-on guid)
     // and make sure the status is not set.
@@ -898,7 +914,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
     it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
       const fakeAddonManager = {
-        enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
+        enable: sinon.stub().returns(Promise.reject(
+          new Error(SET_ENABLE_NOT_AVAILABLE)
+        )),
       };
       const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,

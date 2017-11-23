@@ -3,7 +3,7 @@ import {
   findRenderedComponentWithType,
   renderIntoDocument,
   Simulate,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
 import { fakeI18n } from 'tests/unit/helpers';
