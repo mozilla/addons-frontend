@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 09:30+0000\n"
+"PO-Revision-Date: 2017-11-23 09:49+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1303,102 +1303,108 @@ msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Recenzije dodataka su način za dijeljenje vašeg mišljenja o dodacima koje ste instalirali i koristili. Naš tim za pregled zadržava pravo da odbije ili ukloni bilo koju recenziju koja nije u skladu s"
+" ovim smjernicama."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Savjeti za pisanje dobre recenzije"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Uradi:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Pišite kao da govorite prijatelju o vašem iskustvu sa dodatkom."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Neka recenzije budu sažete i jednostavne za shvatiti."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Dodaj specifične i korisne detalje, na primjer:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Da li je dodatak radio kao što ste očekivali?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Koje opcije su vam se svidjele ili ne?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Šta je korisno?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Šta je jednostavno za korištenje?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "Hoćete li nastaviti koristiti taj dodatak?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Odvojite trenutak za čitanje recenzije prije slanja da biste minimizirali pravopisne greške."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Nemoj:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Pošaljite recenzije jedna riječ kao što su \"Super!\", \"prekrasno\" ili \"loše\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Napišite tehničke probleme, zahtjeve za podršku ili prijedloge. Koristite opcije dostupne podrške za svaki dodatak, ako je dostupna. Možete ih pronaći u sekciji \"Dodatne informacije\" u sidebaru na"
+" stranici za detalje o dodatku."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Napišite recenzije za dodatke koji niste lično koristili."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Koristite psovke, seksualne fraze ili jezik koji se može tumačiti kao pun mržnje."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Ubacite HTML, linkove, izvorni kod ili isječke. Recenzija treba biti samo tekstualna."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Dajte lažne izjave, omaložavajte autore dodatka ili ih vrijeđajte na ličnoj osnovi."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Upišite vašu email adresu, broj telefona ili druge lične podatke."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Objavite recenzije za dodatke koje predstavljate vi ili vaša organizacija."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Kritikujte dodatak za nešto što namjerava učiniti. Na primjer, napišite negativnu recenziju za dodatak koji prikazuje oglase ili zahtjeva prikupljanje podataka, jer mu je to namjera ili to radi kako"
+" bi funkcionisao."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Često postavljena pitanja o recenzijama"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Kako mogu prijaviti problematičnu recenziju?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
