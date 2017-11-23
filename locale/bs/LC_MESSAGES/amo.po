@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 08:50+0000\n"
+"PO-Revision-Date: 2017-11-23 09:10+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1113,142 +1113,146 @@ msgstr "Najbolje ocjenjeno"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "Popularno"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
-msgstr ""
+msgstr "Rezultati filtera"
 
 #: src/amo/components/SearchFilters/index.js:142
 msgid "Sort by"
-msgstr ""
+msgstr "Sortiraj po"
 
 #: src/amo/components/SearchFilters/index.js:164
 msgid "Add-on Type"
-msgstr ""
+msgstr "Vrsta dodatka"
 
 #: src/amo/components/SearchFilters/index.js:184
 msgid "Operating System"
-msgstr ""
+msgstr "Operativni sistem"
 
 #: src/amo/components/SearchFilters/index.js:210
 msgid "Featured add-ons only"
-msgstr ""
+msgstr "Samo istaknuti dodaci"
 
 #: src/amo/components/SearchForm/index.js:188
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Idite na stranicu dodatka"
 
 #: src/amo/components/SearchForm/index.js:206
 msgid "Find add-ons"
-msgstr ""
+msgstr "Pronađi dodatke"
 
 #: src/amo/components/SearchForm/index.js:231 src/amo/components/SearchForm/index.js:261
 msgid "Search"
-msgstr ""
+msgstr "Traži"
 
 #: src/amo/components/SearchForm/index.js:77
 msgid "Loading"
-msgstr ""
+msgstr "Učitavanje"
 
 #: src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(total)s korisnik"
+msgstr[1] "%(total)s korisnika"
+msgstr[2] "%(total)s korisnika"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
-msgstr ""
+msgstr "Nije dostupan pregled teme"
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
-msgstr ""
+msgstr "Traži…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nisu pronađeni rezultati za \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
-msgstr ""
+msgstr "Nisu pronađeni rezultati."
 
 #: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Molimo unesite izraz pretrage za pretragu Firefox dodataka."
 
 #: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Rječnici & paketi jezika"
 
 #: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
-msgstr ""
+msgstr "Pretraživački alati"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Druge stranice pretraživača"
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
-msgstr ""
+msgstr "za Firefox"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
-msgstr ""
+msgstr "za android"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
-msgstr ""
+msgstr "Istraži"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "Više..."
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Ako želite doprinijeti ali niste tehnički najbolje stručni, postoje načini za pomoć:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Sudjelujte na našem %(startLink)s forumu %(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr ""
+msgstr "Ostavi povratne informacije za najdraže dodatke. Autori dodataka će najvjerovatnije poboljšati dodatke i kreirati nove kada znaju da ljudi cijene njihov rad."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Javite svojim prijateljima i porodici da je Firefox brz, siguran pretraživač koji štiti njihovu privatnost, i da mogu koristiti dodatke da ga personaliziraju!"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Da biste vidjeli više načina kako doprinijeti zajednici dodataka, molimo vas posjetite našu %(startLink)s wiki %(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Potražite podršku"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Ako želite saznati više o tome kako upravljati dodacima u Firefoxu, ili trebate pronaći generalnu Firefox poršku, molimo posjetite %(startSUMOLink)s Podrška %(endSUMOLink)s Mozilla. Ako ne pronađete"
+" pomoć, možete %(startForumLink)s postaviti pitanje na forumu zajednice %(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)s Informacije o tome kako kontaktirati Mozilla tim za dodatke mogu se pronaći ovdje %(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
-msgstr ""
+msgstr "O Firefox dodacima"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), je Mozillina oficijelna stranica za otkrivanje i instaliranje dodataka na Firefox pretraživač. Dodaci vam pomažu da modificirate i personalizujete vase pretraživačko "
+"iskustvo dodavajući nove opcije na Firefox, poboljšavajući vašu interakciju sa web sadržajem i mijenjanjem izgleda vašeg pretraživača."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
