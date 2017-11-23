@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 15:37+0000\n"
+"PO-Revision-Date: 2017-11-23 16:24+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1484,7 +1484,7 @@ msgstr "Instaliranje %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s je instalirano i omogućeno. Klikni za instalaciju."
+msgstr "%(name)s je instalirano i omogućeno. Klikni za deinstalaciju."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
@@ -1496,76 +1496,76 @@ msgstr "Deinstaliranje %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s je deinstalirano. Klikni za instalaciju."
 
 #: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Stanje instalacije za %(name)s je nepoznato."
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Stranica %(currentPage)s od %(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
-msgstr ""
+msgstr "Prethodna"
 
 #: src/core/components/Paginate/index.js:122
 msgid "Next"
-msgstr ""
+msgstr "Sljedeća"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Vaš dodatak je spreman"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Sada možete pristupiti %(name)s preko alatne trake."
 
 #: src/core/containers/InfoDialog/index.js:45
 msgid "OK!"
-msgstr ""
+msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:129
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
-msgstr ""
+msgstr "Upiši tekst."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
-msgstr ""
+msgstr "Pošalji"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
-msgstr ""
+msgstr "Slanje u toku..."
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "Vaša sesija je istekla"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Došlo je do neočekivane greške"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Ponovo učitaj za nastavak"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Prebaci sadržaj"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
-msgstr ""
+msgstr "Ocjenjeno %(rating)s od 5"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
-msgstr ""
+msgstr "Nema ocjena"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Proširi na</span> Pročitaj više"
