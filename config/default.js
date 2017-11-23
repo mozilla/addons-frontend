@@ -140,6 +140,7 @@ module.exports = {
     'ast',
     'bg',
     'bn-BD',
+    'bs',
     'ca',
     'cak',
     'cs',
