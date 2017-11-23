@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-22 22:37+0000\n"
+"PO-Revision-Date: 2017-11-23 08:30+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -886,59 +886,59 @@ msgstr "Rječnici i paketi jezika"
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Instalacijom dodatka rječnika će se dodati nove jezičke mogućnosti na provjeru pravopisa, koja provjerava pravopis tokom upisivanja u Firefox."
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Jezički paketi mijenjaju jezik vašeg pretraživačkog interfejsa, uključujući opcije izbornika i postavki."
 
 #: src/amo/components/LanguageTools/index.js:164
 msgid "All Locales"
-msgstr ""
+msgstr "Svi jezici"
 
 #: src/amo/components/LanguageTools/index.js:170
 msgid "Locale Name"
-msgstr ""
+msgstr "Naziv jezika"
 
 #: src/amo/components/LanguageTools/index.js:173
 msgid "Language Packs"
-msgstr ""
+msgstr "Jezički paketi"
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Dictionaries"
-msgstr ""
+msgstr "Rječnici"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Prijavite se na ocijenite ovaj rječnik"
 
 #: src/amo/components/RatingManager/index.js:135
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Prijavite se na ocijenite ovaj jezički paket"
 
 #: src/amo/components/RatingManager/index.js:137
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "Prijavite se na ocijenite ovaj dodatak pretraživanja"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Prijavite se na ocijeni ovu temu"
 
 #: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Prijavite se na ocijeni ovu ekstenziju"
 
 #: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Prijavite se na ocijeni ovaj dodatak"
 
 #: src/amo/components/RatingManager/index.js:178
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Kako uživate u iskustvu sa %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Prijavili ste ovaj dodatak za slostavljanje"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
