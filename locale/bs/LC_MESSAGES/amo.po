@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 09:52+0000\n"
+"PO-Revision-Date: 2017-11-23 15:31+0000\n"
 "Last-Translator: Elvir Cesko <elvircesko@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1424,17 +1424,19 @@ msgstr "Da, autori dodataka mogu dati pojedinačne odgovore na recenzije. Možet
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Ja sam autor dodatka, mogu li brisati nepovoljne recenyije i ocjene?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Generalno ne. Medjutim ako recenzija nije u skladu sa gore navedenim smjernicama, možete kliknuti na \"Prijavi recenziju\" kako bi je prijavili. AKo neka recenzija uključuje žalbu koja nije validna "
+"zbog objave nove verzije, moža razmotrimo brisanje iste."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Preporučene stranice"
 
 #: src/amo/components/SuggestedPages/index.js:26
 msgid "Browse all extensions"
