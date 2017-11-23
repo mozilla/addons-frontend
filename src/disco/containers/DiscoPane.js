@@ -178,7 +178,7 @@ export function loadedAddons(state) {
         ...result,
         // `result` comes from the API call in `src/disco/api.js` and
         // normalizer makes everything complicated...
-        // `addon` is actually the add-on's GUID.
+        // `result.addon` is actually the add-on's GUID.
         ...getAddonByGUID(state, result.addon),
       };
     }
