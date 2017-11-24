@@ -1,6 +1,6 @@
 import { createStore as _createStore, combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
+import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
 
 import { middleware } from 'core/store';
 import addons from 'core/reducers/addons';
@@ -13,7 +13,7 @@ import discoResults from 'disco/reducers/discoResults';
 import redirectTo from 'core/reducers/redirectTo';
 
 
-export default function createStore(initialState = {}) {
+export default function createStore(history, initialState = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
     combineReducers({
@@ -25,10 +25,13 @@ export default function createStore(initialState = {}) {
       installations,
       infoDialog,
       redirectTo,
-      reduxAsyncConnect,
+      routing,
     }),
     initialState,
-    middleware({ sagaMiddleware }),
+    middleware({
+      routerMiddleware: routerMiddleware(history),
+      sagaMiddleware,
+    }),
   );
 
   return { sagaMiddleware, store };

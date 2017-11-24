@@ -12,9 +12,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
-import { match } from 'react-router';
-import { ReduxAsyncConnect, loadOnServer } from 'redux-connect';
-import { loadFail } from 'redux-connect/lib/store';
+import { RouterContext, createMemoryHistory, match } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 import { END } from 'redux-saga';
 import WebpackIsomorphicTools from 'webpack-isomorphic-tools';
 
@@ -22,9 +21,14 @@ import log from 'core/logger';
 import { createApiError } from 'core/api';
 import ServerHtml from 'core/containers/ServerHtml';
 import * as middleware from 'core/middleware';
+import { loadErrorPage } from 'core/reducers/errorPage';
 import { convertBoolean } from 'core/utils';
-import { setAuthToken, setClientApp, setLang, setUserAgent }
-  from 'core/actions';
+import {
+  setAuthToken,
+  setClientApp,
+  setLang,
+  setUserAgent,
+} from 'core/actions';
 import {
   getDirection,
   isValidLang,
@@ -85,7 +89,8 @@ function renderHTML({ props = {}, pageProps }) {
 }
 
 function showErrorPage({ createStore, error = {}, req, res, status, config }) {
-  const { store } = createStore();
+  const memoryHistory = createMemoryHistory(req.url);
+  const { store } = createStore(memoryHistory);
   const pageProps = getPageProps({ store, req, res, config });
 
   const componentDeclaredStatus = NestedStatus.rewind();
@@ -95,7 +100,7 @@ function showErrorPage({ createStore, error = {}, req, res, status, config }) {
   }
 
   const apiError = createApiError({ response: { status: adjustedStatus } });
-  store.dispatch(loadFail('ServerBase', { ...apiError, ...error }));
+  store.dispatch(loadErrorPage({ error: apiError }));
 
   const HTML = renderHTML({ pageProps });
   return res.status(adjustedStatus)
@@ -225,8 +230,11 @@ function baseServer(routes, createStore, {
     // Vary the cache on Do Not Track headers.
     res.vary('DNT');
 
+    const memoryHistory = createMemoryHistory(req.url);
+    const { sagaMiddleware, store } = createStore(memoryHistory);
+    const history = syncHistoryWithStore(memoryHistory, store);
 
-    match({ location: req.url, routes }, async (
+    match({ history, location: req.url, routes }, async (
       matchError, redirectLocation, renderProps
     ) => {
       if (matchError) {
@@ -239,19 +247,11 @@ function baseServer(routes, createStore, {
         return showErrorPage({ createStore, status: 404, req, res, config });
       }
 
-      let htmlLang;
-      let locale;
       let pageProps;
       let runningSagas;
-      let sagaMiddleware;
-      let store;
 
       try {
         cookie.plugToRequest(req, res);
-
-        const storeAndSagas = createStore();
-        sagaMiddleware = storeAndSagas.sagaMiddleware;
-        store = storeAndSagas.store;
 
         let sagas = appSagas;
         if (!sagas) {
@@ -266,6 +266,7 @@ function baseServer(routes, createStore, {
         }
 
         pageProps = getPageProps({ noScriptStyles, store, req, res, config });
+
         if (config.get('disableSSR') === true) {
           // This stops all running sagas.
           store.dispatch(END);
@@ -275,57 +276,48 @@ function baseServer(routes, createStore, {
 
           return hydrateOnClient({ res, pageProps });
         }
-
-        htmlLang = pageProps.htmlLang;
-        locale = langToLocale(htmlLang);
       } catch (preLoadError) {
-        log.info(oneLine`Caught an error in match() before loadOnServer():
+        log.info(oneLine`Caught an error in match() before rendering:
           ${preLoadError}`);
         return next(preLoadError);
       }
 
+      let i18nData = {};
+      const htmlLang = pageProps.htmlLang;
+      const locale = langToLocale(htmlLang);
+
       try {
-        await loadOnServer({ ...renderProps, store });
-
-        let i18nData = {};
-        try {
-          if (locale !== langToLocale(config.get('defaultLang'))) {
-            // eslint-disable-next-line global-require, import/no-dynamic-require
-            i18nData = require(`../../locale/${locale}/${appName}.js`);
-          }
-        } catch (e) {
-          log.info(`Locale JSON not found or required for locale: "${locale}"`);
-          log.info(oneLine`Falling back to default lang:
-            "${config.get('defaultLang')}".`);
+        if (locale !== langToLocale(config.get('defaultLang'))) {
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          i18nData = require(`../../locale/${locale}/${appName}.js`);
         }
+      } catch (e) {
+        log.info(`Locale JSON not found or required for locale: "${locale}"`);
+        log.info(`Falling back to default lang: "${config.get('defaultLang')}"`);
+      }
 
-        const i18n = makeI18n(i18nData, htmlLang);
+      const i18n = makeI18n(i18nData, htmlLang);
 
-        const InitialComponent = (
-          <I18nProvider i18n={i18n}>
-            <Provider store={store} key="provider">
-              <ReduxAsyncConnect {...renderProps} />
-            </Provider>
-          </I18nProvider>
-        );
+      const InitialComponent = (
+        <I18nProvider i18n={i18n}>
+          <Provider store={store} key="provider">
+            <RouterContext {...renderProps} />
+          </Provider>
+        </I18nProvider>
+      );
 
-        const errorPage = store.getState().errorPage;
-        if (errorPage && errorPage.hasError) {
-          log.info(`Error page was dispatched to state: ${errorPage.error}`);
-          throw errorPage.error;
-        }
+      const props = { component: InitialComponent };
 
-        const props = { component: InitialComponent };
+      // We need to render once because it will force components to
+      // dispatch data loading actions which get processed by sagas.
+      log.info('First component render to dispatch loading actions');
+      renderHTML({ props, pageProps });
 
-        // We need to render once because it will force components to
-        // dispatch data loading actions which get processed by sagas.
-        log.info('First component render to dispatch loading actions');
-        renderHTML({ props, pageProps });
+      // Send the redux-saga END action to stop sagas from running
+      // indefinitely. This is only done for server-side rendering.
+      store.dispatch(END);
 
-        // Send the redux-saga END action to stop sagas from running
-        // indefinitely. This is only done for server-side rendering.
-        store.dispatch(END);
-
+      try {
         // Once all sagas have completed, we load the page.
         await runningSagas.done;
         log.info('Second component render after sagas have finished');
@@ -341,9 +333,9 @@ function baseServer(routes, createStore, {
         }
 
         return sendHTML({ res, html: finalHTML });
-      } catch (loadError) {
-        log.error(`Caught error from loadOnServer(): ${loadError}`);
-        return next(loadError);
+      } catch (error) {
+        log.error(`Caught error during rendering: ${error}`);
+        return next(error);
       }
     });
   });

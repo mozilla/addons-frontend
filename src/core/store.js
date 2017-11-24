@@ -14,6 +14,7 @@ export function middleware({
   _config = config, _createLogger = createLogger,
   _window = typeof window !== 'undefined' ? window : null,
   sagaMiddleware = null,
+  routerMiddleware = null,
 } = {}) {
   const isDev = _config.get('isDevelopment');
 
@@ -25,6 +26,9 @@ export function middleware({
   }
   if (sagaMiddleware) {
     callbacks.push(sagaMiddleware);
+  }
+  if (routerMiddleware) {
+    callbacks.push(routerMiddleware);
   }
 
   return compose(

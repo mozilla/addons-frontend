@@ -6,7 +6,6 @@ import {
 } from 'react-addons-test-utils';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
-import { loadFail } from 'redux-connect/lib/store';
 import Helmet from 'react-helmet';
 
 import App, {
@@ -28,6 +27,7 @@ import {
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { loadErrorPage } from 'core/reducers/errorPage';
 import {
   fakeI18n,
   shallowUntilTarget,
@@ -189,7 +189,7 @@ describe(__filename, () => {
       response: { status: 404 },
     });
 
-    store.dispatch(loadFail('App', apiError));
+    store.dispatch(loadErrorPage({ error: apiError }));
 
     const root = render({
       ErrorPage: DefaultErrorPage,
