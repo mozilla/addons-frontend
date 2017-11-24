@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-23 13:30+0000\n"
+"PO-Revision-Date: 2017-11-24 12:19+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -548,7 +548,7 @@ msgstr "Se seguiu um link de algum lado, por favor <a href=\"%(url)s\">submeta u
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Esta extensão foi removida pelo autor."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
@@ -781,9 +781,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mude a aparência do Firefox com temas."
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Top privacy extensions"
-msgstr "Extensões melhor avaliadas"
+msgstr "Melhores extensões de privacidade"
 
 #: src/amo/components/Home/index.js:205
 msgid "See more privacy extensions"
@@ -1167,7 +1166,7 @@ msgstr "Ferramentas de pesquisa"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Outros sites de navegadores"
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
