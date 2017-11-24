@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-20 18:30+0000\n"
+"PO-Revision-Date: 2017-11-24 07:14+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -878,7 +878,7 @@ msgstr "Ordlister og språkpakkar"
 
 #: src/amo/components/LanguageTools/index.js:153
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Installering av ei ordliste legg til eit nytt språkalternativ til stavningskontrollen din, som kontrollerer stavninga når du skriv i Firefox."
 
 #: src/amo/components/LanguageTools/index.js:158
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -1192,7 +1192,7 @@ msgstr "Meir…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Om du vill bidra men ikkje er så teknisk, finst det framleis måtar å hjelpe til på:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
