@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-24 07:14+0000\n"
+"PO-Revision-Date: 2017-11-24 13:09+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -302,7 +302,7 @@ msgstr "Vurderingstekst"
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
-msgstr "Send inn vurdering"
+msgstr "Send inn vurderinga"
 
 #: src/amo/components/AddonReviewList/index.js:165
 msgid "Add-on icon"
@@ -1086,7 +1086,7 @@ msgstr "Relevans"
 
 #: src/amo/components/SearchFilters/index.js:122
 msgid "Recently Updated"
-msgstr "Nyleg oppdatert"
+msgstr "Nyleg oppdaterte"
 
 #: src/amo/components/SearchFilters/index.js:123
 msgid "Most Users"
