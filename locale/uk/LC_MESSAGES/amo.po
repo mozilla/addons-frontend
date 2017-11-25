@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-22 06:13+0000\n"
+"PO-Revision-Date: 2017-11-25 21:47+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -681,6 +681,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"За винятком випадків %(startNotedLink)sзазначених тут%(endNotedLink)s, вміст цього сайту ліцензовано на умовах %(startLicenseLink)sліцензії Creative Commons Attribution Share-Alike License "
+"v3.0%(endLicenseLink)s, або будь-якою новішою версією."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -945,6 +947,8 @@ msgstr "Ми не можемо відповісти на кожне повідо
 #: src/amo/components/ReportAbuseButton/index.js:130
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Якщо ви вважаєте, що цей додаток порушує %(linkTagStart)sполітики Mozilla щодо додатків%(linkTagEnd)s, або має проблеми з безпекою чи приватністю, будь ласка, повідомте про це Mozilla за допомогою "
+"цієї форми."
 
 #: src/amo/components/ReportAbuseButton/index.js:152 src/amo/components/ReportAbuseButton/index.js:158
 msgid "Report this add-on for abuse"
@@ -1212,11 +1216,11 @@ msgstr "Залишайте відгуки додаткам на цьому са�
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Розкажіть своїм друзям і родичам, що Firefox - це швидкий, безпечний браузер, що захищає їхню приватність і дозволяє використовувати додатки для його персоналізації!"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Щоб дізнатися про багато способів, якими ви можете допомогти спільноті додатків, будь ласка, відвідайте нашу %(startLink)sвікі-сторінку%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
