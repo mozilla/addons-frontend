@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-26 15:30+0000\n"
+"PO-Revision-Date: 2017-11-26 15:43+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1360,6 +1360,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Задавати технічні питання, запити про підтримку, або пропонувати нові функції. Використовуйте доступні варіанти для кожного додатку. Ви можете знайти їх в розділі \"Більше інформації\" на бічній "
+"панелі сторінки додатку."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
@@ -1390,6 +1392,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Критикувати додаток за щось, для чого він призначений. Наприклад, залишати негативний відгук про те, що додаток показує рекламу чи вимагає отримання даних, коли це є метою цього додатку, або якщо "
+"додаток вимагає отримання даних для своєї роботи."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
@@ -1404,6 +1408,8 @@ msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Будь ласка, повідомляйте чи позначайте будь-які відгуки під питанням, натискаючи \"Повідомити про цей відгук\" і він буде відправлений на сайт для модерування. Наша команда рецензентів визначить "
+"необхідність видалення чи оприлюднення цього відгуку, керуючись настановами про відгуки."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
@@ -1411,7 +1417,7 @@ msgstr "Я автор додатка, чи можу я відповідати н
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
-msgstr ""
+msgstr "Так, автори додатків можуть залишати одну відповідь на відгук. Ви можете відкрити тему для обговорення на нашому %(startLink)sфорумі%(endLink)s, щоб прийняти участь в додатковій дискусії."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
