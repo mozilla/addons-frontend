@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-25 21:47+0000\n"
+"PO-Revision-Date: 2017-11-26 14:05+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1231,10 +1231,12 @@ msgid ""
 "If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
 "answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
+"Якщо ви бажаєте дізнатися більше про керування додатками в Firefox, або вам потрібна загальна підтримка з питань стосовно Firefox, завітайте в %(startSUMOLink)sПідтримку%(endSUMOLink)s Mozilla. Якщо"
+" ви не знайдете там відповідь, спробуйте %(startForumLink)sзадати питання на форумі нашої спільноти%(endForumLink)s."
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sІнформацію про те, як зв'язатися з командою додатків Mozilla можна знайти тут%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1245,10 +1247,12 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) - це офіційний сайт Mozilla, призначений для пошуку і встановлення додатків для браузера Firefox. Додатки допомагають змінювати і персоналізувати роботу браузера, додаючи "
+"нові можливості в Firefox, вдосконалюючи вашу взаємодію з веб-вмістом та змінюючи вигляд браузера."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Ви також можете використовувати AMO для пошуку додатків до Mozilla %(startTBLink)sThunderbird%(endTBLink)s та %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
