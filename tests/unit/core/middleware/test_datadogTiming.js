@@ -75,7 +75,7 @@ describe(__filename, () => {
       await testClient().get('/').end();
 
       sinon.assert.calledWith(
-        hotShotsClient.timing, 'response.GET', sinon.match.number,
+        hotShotsClient.timing, 'response.GET.time', sinon.match.number,
       );
     });
 
@@ -83,7 +83,7 @@ describe(__filename, () => {
       await testClient().post('/en-US/firefox/something/', {}).end();
 
       sinon.assert.calledWith(
-        hotShotsClient.timing, 'response.POST', sinon.match.number,
+        hotShotsClient.timing, 'response.POST.time', sinon.match.number,
       );
     });
 
@@ -91,7 +91,7 @@ describe(__filename, () => {
       await testClient().get('/').end();
 
       sinon.assert.calledWith(
-        hotShotsClient.increment, 'response.GET',
+        hotShotsClient.increment, 'response.GET.count',
       );
     });
 
@@ -99,7 +99,7 @@ describe(__filename, () => {
       await testClient().post('/en-US/firefox/something/', {}).end();
 
       sinon.assert.calledWith(
-        hotShotsClient.increment, 'response.POST',
+        hotShotsClient.increment, 'response.POST.count',
       );
     });
 
@@ -107,7 +107,7 @@ describe(__filename, () => {
       await testClient().get('/').end();
 
       sinon.assert.calledWith(
-        hotShotsClient.increment, 'response_code.302',
+        hotShotsClient.increment, 'response_code.302.count',
       );
     });
   });

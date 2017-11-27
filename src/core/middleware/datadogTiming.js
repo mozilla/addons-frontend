@@ -27,11 +27,11 @@ export const datadogTiming = ({
     // TODO: generate a key based on the rendered component, which
     // I think is in server/base.js -> match() -> renderProps.components
 
-    client.increment(`response_code.${res.statusCode}`);
+    client.increment(`response_code.${res.statusCode}.count`);
 
     const responseTypeKey = `response.${req.method}`;
-    client.increment(responseTypeKey);
+    client.increment(`${responseTypeKey}.count`);
     // The time variable is response time in milleseconds.
-    client.timing(responseTypeKey, time);
+    client.timing(`${responseTypeKey}.time`, time);
   });
 };
