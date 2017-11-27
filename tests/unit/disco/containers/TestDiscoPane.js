@@ -67,6 +67,7 @@ describe(__filename, () => {
       dispatch: sinon.stub(),
       i18n,
       location: { query: {} },
+      params: { platform: 'Darwin' },
       results,
       _tracking: fakeTracking,
       _video: fakeVideo,
@@ -75,7 +76,9 @@ describe(__filename, () => {
   }
 
   function render(props = {}) {
-    return shallow(<DiscoPaneBase {...renderProps(props)} />);
+    return shallow(<DiscoPaneBase {...renderProps(props)} />, {
+      params: { platform: 'Darwin' },
+    });
   }
 
   function renderAndMount(customProps = {}) {
@@ -208,7 +211,9 @@ describe(__filename, () => {
       render({ errorHandler, dispatch, ...props });
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id, telemetryClientId: undefined,
+        errorHandlerId: errorHandler.id,
+        platform: 'Darwin',
+        telemetryClientId: undefined,
       }));
     });
 
@@ -227,6 +232,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
+        platform: 'Darwin',
         telemetryClientId: location.query.clientId,
       }));
     });
