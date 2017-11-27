@@ -21,54 +21,54 @@ import * as userApi from 'core/api/user';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
 
-
-describe(__filename, () => {
-  let mockUserApi;
-
-  const _helmetCanUseDOM = Helmet.canUseDOM;
-  const stubRoutes = (
-    <Router>
-      <Route path="*" component={FakeApp} />
-    </Router>
+function createStoreAndSagas({
+  reducers = {
+    api: apiReducer,
+    routing: routerReducer,
+    user: userReducer,
+  },
+} = {}) {
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(
+    combineReducers(reducers),
+    // Do not define an initial state.
+    undefined,
+    applyMiddleware(sagaMiddleware),
   );
 
-  beforeEach(() => {
+  return { store, sagaMiddleware };
+}
+
+const stubRoutes = (
+  <Router>
+    <Route path="*" component={FakeApp} />
+  </Router>
+);
+
+export class ServerTestHelper {
+  constructor() {
+    this.helmetCanUseDOM = Helmet.canUseDOM;
+  }
+
+  beforeEach() {
     Helmet.canUseDOM = false;
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
-    mockUserApi = sinon.mock(userApi);
-  });
-
-  afterEach(() => {
-    Helmet.canUseDOM = _helmetCanUseDOM;
-    delete global.webpackIsomorphicTools;
-  });
-
-  function createStoreAndSagas({
-    reducers = {
-      api: apiReducer,
-      routing: routerReducer,
-      user: userReducer,
-    },
-  } = {}) {
-    const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(
-      combineReducers(reducers),
-      // Do not define an initial state.
-      undefined,
-      applyMiddleware(sagaMiddleware),
-    );
-
-    return { store, sagaMiddleware };
   }
 
-  function testClient({
+  afterEach() {
+    Helmet.canUseDOM = this.helmetCanUseDOM;
+    delete global.webpackIsomorphicTools;
+  }
+
+  testClient({
     routes = stubRoutes,
     store = null,
     sagaMiddleware = null,
     appSagas = null,
     config = defaultConfig,
+    baseServerParams = {},
   } = {}) {
     function _createStoreAndSagas() {
       if (store === null) {
@@ -85,9 +85,26 @@ describe(__filename, () => {
       appSagas: appSagas || fakeSaga,
       appInstanceName: 'testapp',
       config,
+      ...baseServerParams,
     });
     return supertest(app);
   }
+}
+
+describe(__filename, () => {
+  let mockUserApi;
+
+  const serverTestHelper = new ServerTestHelper();
+  const testClient = (...args) => serverTestHelper.testClient(...args);
+
+  beforeEach(() => {
+    serverTestHelper.beforeEach();
+    mockUserApi = sinon.mock(userApi);
+  });
+
+  afterEach(() => {
+    serverTestHelper.afterEach();
+  });
 
   describe('app', () => {
     it('varies on DNT', async () => {
