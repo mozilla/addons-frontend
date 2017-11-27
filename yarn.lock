@@ -6988,6 +6988,10 @@ react-redux@5.0.6:
     loose-envify "^1.1.0"
     prop-types "^15.5.10"
 
+react-router-redux@4.0.8:
+  version "4.0.8"
+  resolved "https://registry.yarnpkg.com/react-router-redux/-/react-router-redux-4.0.8.tgz#227403596b5151e182377dab835b5d45f0f8054e"
+
 react-router-scroll@0.4.4:
   version "0.4.4"
   resolved "https://registry.yarnpkg.com/react-router-scroll/-/react-router-scroll-0.4.4.tgz#4d7b71c75b45ff296e4adca1e029a86e898a155d"
@@ -7190,24 +7194,6 @@ reduce-function-call@^1.0.1:
   resolved "https://registry.yarnpkg.com/reduce-function-call/-/reduce-function-call-1.0.2.tgz#5a200bf92e0e37751752fe45b0ab330fd4b6be99"
   dependencies:
     balanced-match "^0.4.2"
-
-reduce-reducers@^0.1.0:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/reduce-reducers/-/reduce-reducers-0.1.2.tgz#fa1b4718bc5292a71ddd1e5d839c9bea9770f14b"
-
-redux-actions@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/redux-actions/-/redux-actions-0.12.0.tgz#8a4f0114f1bde2e6b61d5b7205d4818004c67461"
-  dependencies:
-    lodash "^4.13.1"
-    reduce-reducers "^0.1.0"
-
-redux-connect@4.0.2:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/redux-connect/-/redux-connect-4.0.2.tgz#dc46283ff5a9895dcea84b23c1d101713e14b6bd"
-  dependencies:
-    babel-runtime "^6.18.0"
-    redux-actions "^0.12.0"
 
 redux-devtools-instrument@^1.0.1:
   version "1.8.2"

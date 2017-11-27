@@ -25,11 +25,6 @@ export const validInstallStates = [
   UNKNOWN,
 ];
 
-// redux-connect action types; we watch for these in our `errorPage`
-// reducer to display error pages.
-export const REDUX_CONNECT_END_GLOBAL_LOAD = '@redux-conn/END_GLOBAL_LOAD';
-export const REDUX_CONNECT_LOAD_FAIL = '@redux-conn/LOAD_FAIL';
-
 // Add-on error states.
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
 export const INSTALL_CANCELLED = 'INSTALL_CANCELLED';
