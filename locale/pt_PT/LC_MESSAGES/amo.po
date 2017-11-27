@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-27 12:07+0000\n"
-"Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
+"PO-Revision-Date: 2017-11-27 18:18+0000\n"
+"Last-Translator: Alberto Castro <albertdcastro@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -142,7 +142,7 @@ msgstr "Não compatível com o Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Tem de <a href=\"%(downloadUrl)s\">descarregar o Firefox</a> para instalar este extra."
+msgstr "Tem de <a href=\"%(downloadUrl)s\">transferir o Firefox</a> para instalar este extra."
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on is not compatible with your version of Firefox."
@@ -166,7 +166,7 @@ msgstr "Este extra requer uma <a href=\"%(downloadUrl)s\">versão mais recente d
 
 #: src/amo/components/AddonCompatibilityError/index.js:91
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "O seu navegador não suporta extras. Pode <a href=\"%(downloadUrl)s\">descarregar o Firefox</a> para instalar este extra."
+msgstr "O seu navegador não suporta extras. Pode <a href=\"%(downloadUrl)s\">transferir o Firefox</a> para instalar este extra."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -528,7 +528,7 @@ msgstr "Contribuir agora"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
-msgstr "Descarregar o Firefox"
+msgstr "Transferir o Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -840,7 +840,7 @@ msgstr "Extensões de produtividade"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
-msgstr "Ferramentas para fazer a web trabalhar mais por si"
+msgstr "Ferramentas para fazer a Web trabalhar mais por si"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "LastPass Password Manager"
@@ -1234,7 +1234,7 @@ msgid ""
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
 "addons.mozilla.org (AMO), é o site oficial da Mozilla para descobrir e instalar extras para o navegador Firefox. Os extras ajudam-no a modificar e a personalizar a sua experiência de navegação "
-"adicionando novas funcionalidades ao Firefox, melhorando as suas interações com o conteúdo da web e modificando o aspeto visual do seu navegador."
+"adicionando novas funcionalidades ao Firefox, melhorando as suas interações com o conteúdo Web e modificando o aspeto visual do seu navegador."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
@@ -1460,7 +1460,7 @@ msgstr "Adicionar ao Firefox"
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
-msgstr "A descarregar %(name)s."
+msgstr "A transferir %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
