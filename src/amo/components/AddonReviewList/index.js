@@ -12,11 +12,11 @@ import RatingManager from 'amo/components/RatingManager';
 import { clearAddonReviews, fetchReviews } from 'amo/actions/reviews';
 import { setViewContext } from 'amo/actions/viewContext';
 import { expandReviewObjects } from 'amo/reducers/reviews';
-import { fetchAddon } from 'core/reducers/addons';
+import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { findAddon, parsePage, sanitizeHTML } from 'core/utils';
+import { parsePage, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
@@ -27,6 +27,7 @@ import LoadingText from 'ui/components/LoadingText';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
+import type { AddonState } from 'core/reducers/addons';
 import type { ApiStateType } from 'core/reducers/api';
 import type { UserStateType } from 'core/reducers/user';
 import type { AddonType } from 'core/types/addons';
@@ -38,7 +39,7 @@ import './styles.scss';
 
 type Props = {|
   i18n: I18nType,
-  addon?: AddonType,
+  addon: AddonType | null,
   clientApp: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -291,7 +292,10 @@ export class AddonReviewListBase extends React.Component<Props> {
 }
 
 type AppState = {|
-  api: ApiStateType, user: UserStateType, reviews: ReviewState,
+  addons: AddonState,
+  api: ApiStateType,
+  user: UserStateType,
+  reviews: ReviewState,
 |};
 
 export function mapStateToProps(state: AppState, ownProps: Props) {
@@ -302,7 +306,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   const reviewData = state.reviews.byAddon[addonSlug];
 
   return {
-    addon: findAddon(state, addonSlug),
+    addon: getAddonBySlug(state, addonSlug),
     clientApp: state.api.clientApp,
     lang: state.api.lang,
     reviewCount: reviewData && reviewData.reviewCount,

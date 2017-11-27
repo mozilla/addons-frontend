@@ -27,6 +27,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
+import { getAddonByGUID } from 'core/reducers/addons';
 import themeAction from 'core/themePreview';
 import tracking, { getAction } from 'core/tracking';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
@@ -287,8 +288,11 @@ export class AddonBase extends React.Component {
 }
 
 export function mapStateToProps(state, ownProps) {
+  // `ownProps.guid` is already "normalized" with `getGuid()` in the
+  // `DiscoPane` container component.
   const installation = state.installations[ownProps.guid];
-  const addon = state.addons[ownProps.guid];
+  const addon = getAddonByGUID(state, ownProps.guid);
+
   return {
     addon,
     ...addon,

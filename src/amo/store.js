@@ -1,6 +1,6 @@
 import { createStore as _createStore, combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
+import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
@@ -16,6 +16,7 @@ import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
 import heroBanners from 'core/reducers/heroBanners';
+import languageTools from 'core/reducers/languageTools';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
@@ -24,9 +25,8 @@ import user from 'core/reducers/user';
 import { middleware } from 'core/store';
 
 
-export default function createStore(initialState = {}) {
+export default function createStore(history, initialState = {}) {
   const sagaMiddleware = createSagaMiddleware();
-
   const store = _createStore(
     combineReducers({
       abuse,
@@ -43,15 +43,19 @@ export default function createStore(initialState = {}) {
       infoDialog,
       installations,
       landing,
-      reduxAsyncConnect,
+      languageTools,
       redirectTo,
       reviews,
+      routing,
       search,
       user,
       viewContext,
     }),
     initialState,
-    middleware({ sagaMiddleware }),
+    middleware({
+      routerMiddleware: routerMiddleware(history),
+      sagaMiddleware,
+    }),
   );
 
   return { sagaMiddleware, store };

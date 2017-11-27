@@ -485,10 +485,8 @@ describe(__filename, () => {
         store.getState(), { guid: 'not-loaded-yet@addon' },
       );
 
-      expect(props).toMatchObject({
-        addon: undefined,
-        installURLs: {},
-      });
+      expect(props.addon).toEqual(null);
+      expect(props.installURLs).toEqual({});
     });
   });
 });

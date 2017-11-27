@@ -40,6 +40,7 @@ describe(__filename, () => {
     function _getDiscoResults(overrides = {}) {
       sagaTester.dispatch(getDiscoResults({
         errorHandlerId: errorHandler.id,
+        platform: 'Darwin',
         ...overrides,
       }));
     }
@@ -66,7 +67,11 @@ describe(__filename, () => {
       const addonResponse = createFetchDiscoveryResult([addon1, addon2]);
       mockApi
         .expects('getDiscoveryAddons')
-        .withArgs({ api: apiState, telemetryClientId: undefined })
+        .withArgs({
+          api: apiState,
+          platform: 'Darwin',
+          telemetryClientId: undefined,
+        })
         .returns(Promise.resolve(addonResponse));
 
       const { entities, result } = addonResponse;
@@ -94,7 +99,11 @@ describe(__filename, () => {
 
       mockApi
         .expects('getDiscoveryAddons')
-        .withArgs({ api: apiState, telemetryClientId })
+        .withArgs({
+          api: apiState,
+          platform: 'Darwin',
+          telemetryClientId,
+        })
         .returns(Promise.resolve(addonResponse));
 
       const { entities, result } = addonResponse;

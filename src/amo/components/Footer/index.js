@@ -75,7 +75,7 @@ export class FooterBase extends React.Component {
                   {i18n.gettext('Review Guide')}
                 </Link>
               </li>
-              <li><a href="https://status.mozilla.org/#addons.mozilla.org_service_history">{i18n.gettext('Site Status')}</a></li>
+              <li><a href="https://status.mozilla.org/">{i18n.gettext('Site Status')}</a></li>
               <li>
                 <a
                   href="#desktop"

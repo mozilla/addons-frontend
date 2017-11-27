@@ -2,8 +2,8 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import { Router, Route } from 'react-router';
+import { routerReducer } from 'react-router-redux';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
@@ -22,7 +22,11 @@ import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
 import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
 
 function createStoreAndSagas({
-  reducers = { reduxAsyncConnect, api: apiReducer, user: userReducer },
+  reducers = {
+    api: apiReducer,
+    routing: routerReducer,
+    user: userReducer,
+  },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = createStore(
@@ -288,7 +292,7 @@ describe(__filename, () => {
       const { store, sagaMiddleware } = createStoreAndSagas({
         reducers: {
           redirectTo: redirectToReducer,
-          reduxAsyncConnect,
+          routing: routerReducer,
         },
       });
       const newURL = '/redirect/to/this/url';

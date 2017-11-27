@@ -362,16 +362,14 @@ export function createFakeAddonAbuseReport({
   };
 }
 
-export function createFakeLanguageAddon({
-  addon = fakeAddon,
-  ...otherProps
-} = {}) {
+export function createFakeLanguageTool(otherProps = {}) {
   return {
-    id: addon.id,
-    current_version: addon.current_version,
+    id: fakeAddon.id,
+    current_version: fakeAddon.current_version,
     default_locale: 'en-US',
+    guid: fakeAddon.guid,
     locale_disambiguation: '',
-    name: addon.name,
+    name: fakeAddon.name,
     target_locale: 'ach',
     type: ADDON_TYPE_LANG,
     url: 'https://addons.allizom.org/en-US/firefox/addon/acholi-ug-lp-test',

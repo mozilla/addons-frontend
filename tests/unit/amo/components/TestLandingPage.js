@@ -1,22 +1,16 @@
-import { mount } from 'enzyme';
 import React from 'react';
-import { Provider } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
-import LandingPage, {
-  LandingPageBase,
-  mapStateToProps,
-} from 'amo/components/LandingPage';
+import LandingPage, { LandingPageBase } from 'amo/components/LandingPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
 import {
@@ -52,22 +46,6 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <LandingPage {...renderProps(props)} />,
       LandingPageBase
-    );
-  }
-
-  function renderAndMount(props = {}) {
-    const allProps = {
-      ...renderProps(props),
-      dispatch: store.dispatch,
-      store,
-    };
-
-    return mount(
-      <Provider store={store}>
-        <I18nProvider i18n={fakeI18n()}>
-          <LandingPageBase {...allProps} />
-        </I18nProvider>
-      </Provider>
     );
   }
 
@@ -209,11 +187,11 @@ describe(__filename, () => {
   });
 
   it('renders a LandingPage with no addons set', () => {
-    const root = renderAndMount({
+    const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    expect(root).toIncludeText('Featured extensions');
+    expect(root).toIncludeText('Explore powerful tools and features');
   });
 
   it('renders a link to all categories', () => {
@@ -227,6 +205,19 @@ describe(__filename, () => {
   });
 
   it('sets the links in each footer for extensions', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_EXTENSION,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Featured', slug: 'featured' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Trending', slug: 'trending' },
+      ]),
+    }));
+
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
@@ -248,6 +239,19 @@ describe(__filename, () => {
   });
 
   it('sets the links in each footer for themes', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Featured', slug: 'featured' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Trending', slug: 'trending' },
+      ]),
+    }));
+
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
@@ -269,11 +273,11 @@ describe(__filename, () => {
   });
 
   it('renders a LandingPage with themes HTML', () => {
-    const root = renderAndMount({
+    const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(root).toIncludeText('Featured themes');
+    expect(root).toIncludeText("Change your browser's appearance");
   });
 
   it('renders each add-on when set', () => {
@@ -294,23 +298,25 @@ describe(__filename, () => {
         { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
       ]),
     }));
-    const root = renderAndMount({
-      ...mapStateToProps(store.getState()),
+
+    const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(
-      root.find('.SearchResult-name')
-        .map((heading) => heading.text()))
-      .toEqual([
-        // featured
-        'Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2',
-        // highly rated
-        'High', 'High again',
-        // trending
-        'Pop', 'Pop again',
-      ]);
-    expect(root).toIncludeText('See more featured themes');
+    const landingShelves = root.find(LandingAddonsCard);
+
+    // featured
+    expect(landingShelves.at(0).prop('addons').map((addon) => addon.name))
+      .toEqual(['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2']);
+    // highly rated
+    expect(landingShelves.at(1).prop('addons').map((addon) => addon.name))
+      .toEqual(['High', 'High again']);
+    // trending
+    expect(landingShelves.at(2).prop('addons').map((addon) => addon.name))
+      .toEqual(['Pop', 'Pop again']);
+
+    expect(landingShelves.at(0))
+      .toHaveProp('footerText', 'See more featured themes');
   });
 
   it('renders not found if add-on type is not supported', () => {
@@ -411,5 +417,73 @@ describe(__filename, () => {
     };
     const wrapper = render({ params: fakeParams });
     expect(wrapper.find('title')).toHaveText('Extensions');
+  });
+
+  it('hides the trending shelf when there are no add-ons for it', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      trending: createAddonsApiResult([]),
+    }));
+
+    const root = render();
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
+  });
+
+  it('hides the featured shelf when there are no add-ons for it', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
+    }));
+
+    const root = render();
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('HighlyRatedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
+  });
+
+  it('hides the highly rated shelf when there are no add-ons for it', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+      ]),
+      highlyRated: createAddonsApiResult([]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
+    }));
+
+    const root = render();
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 });

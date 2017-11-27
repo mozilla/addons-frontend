@@ -13,6 +13,7 @@ import tracking from 'core/tracking';
 import { INSTALL_STATE } from 'core/constants';
 import InfoDialog from 'core/containers/InfoDialog';
 import { addChangeListeners } from 'core/addonManager';
+import { getAddonByGUID } from 'core/reducers/addons';
 import {
   NAVIGATION_CATEGORY,
   VIDEO_CATEGORY,
@@ -33,6 +34,9 @@ export class DiscoPaneBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
+    params: {
+      platform: PropTypes.string.isRequired,
+    },
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
@@ -51,7 +55,13 @@ export class DiscoPaneBase extends React.Component {
     super(props);
     this.state = { showVideo: false };
 
-    const { dispatch, errorHandler, location, results } = props;
+    const {
+      dispatch,
+      errorHandler,
+      location,
+      params,
+      results,
+    } = props;
     // TODO: fix this; it's not the right way to detect whether a
     // dispatch is needed. This should look for an undefined value
     // instead of an empty list because an empty list could be a valid
@@ -59,6 +69,7 @@ export class DiscoPaneBase extends React.Component {
     if (!errorHandler.hasError() && !results.length) {
       dispatch(getDiscoResults({
         errorHandlerId: errorHandler.id,
+        platform: params.platform,
         telemetryClientId: location.query.clientId,
       }));
     }
@@ -172,7 +183,15 @@ export class DiscoPaneBase extends React.Component {
 
 export function loadedAddons(state) {
   return state.discoResults.map(
-    (result) => ({ ...result, ...state.addons[result.addon] })
+    (result) => {
+      return {
+        ...result,
+        // `result` comes from the API call in `src/disco/api.js` and
+        // normalizer makes everything complicated...
+        // `result.addon` is actually the add-on's GUID.
+        ...getAddonByGUID(state, result.addon),
+      };
+    }
   );
 }
 

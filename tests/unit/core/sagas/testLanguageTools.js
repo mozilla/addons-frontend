@@ -1,15 +1,15 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api/languageTools';
-import addonsReducer, {
+import languageToolsReducer, {
   fetchLanguageTools,
-  loadAddonResults,
-} from 'core/reducers/addons';
+  loadLanguageTools,
+} from 'core/reducers/languageTools';
 import apiReducer from 'core/reducers/api';
 import languageToolsSaga from 'core/sagas/languageTools';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  createFakeLanguageAddon,
+  createFakeLanguageTool,
   createStubErrorHandler,
 } from 'tests/unit/helpers';
 
@@ -26,15 +26,14 @@ describe(__filename, () => {
       initialState: dispatchClientMetadata().state,
       reducers: {
         api: apiReducer,
-        addons: addonsReducer,
+        languageTools: languageToolsReducer,
       },
     });
     sagaTester.start(languageToolsSaga);
   });
 
   it('calls the API for language tools', async () => {
-    const addon = { ...fakeAddon, slug: 'fancy' };
-    const response = { results: createFakeLanguageAddon({ addon }) };
+    const response = { results: [createFakeLanguageTool()] };
 
     mockApi
       .expects('languageTools')
@@ -46,7 +45,9 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
     }));
 
-    const expectedLoadAction = loadAddonResults({ addons: response.results });
+    const expectedLoadAction = loadLanguageTools({
+      languageTools: response.results,
+    });
 
     await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();

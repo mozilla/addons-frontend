@@ -14,7 +14,6 @@ import type {
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
 export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
-export const FETCH_LANGUAGE_TOOLS = 'FETCH_LANGUAGE_TOOLS';
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -69,30 +68,6 @@ export function fetchAddon(
   return {
     type: FETCH_ADDON,
     payload: { errorHandlerId: errorHandler.id, slug },
-  };
-}
-
-type FetchLanguageToolsParams = {|
-  errorHandlerId: string,
-|};
-
-export type FetchLanguageToolsAction = {|
-  type: string,
-  payload: {|
-    errorHandlerId: string,
-  |},
-|};
-
-export function fetchLanguageTools(
-  { errorHandlerId }: FetchLanguageToolsParams = {}
-): FetchLanguageToolsAction {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-
-  return {
-    type: FETCH_LANGUAGE_TOOLS,
-    payload: { errorHandlerId },
   };
 }
 
@@ -286,10 +261,51 @@ export function createInternalAddon(
   return addon;
 }
 
-const initialState = {};
+type AddonID = number;
 
-export type AddonState = {
-  [addonSlug: string]: AddonType,
+export type AddonState = {|
+  // Flow wants hash maps with string keys.
+  // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+  byID: { [addonId: string]: AddonType },
+  byGUID: { [addonGUID: string]: AddonID },
+  bySlug: { [addonSlug: string]: AddonID },
+|};
+
+export const initialState: AddonState = {
+  byID: {},
+  byGUID: {},
+  bySlug: {},
+};
+
+export const getAddonByID = (
+  state: { addons: AddonState }, id: AddonID
+): AddonType | null => {
+  return state.addons.byID[`${id}`] || null;
+};
+
+export const getAddonBySlug = (
+  state: { addons: AddonState }, slug: string
+): AddonType | null => {
+  const addonId = state.addons.bySlug[slug];
+
+  return getAddonByID(state, addonId);
+};
+
+export const getAddonByGUID = (
+  state: { addons: AddonState }, guid: string
+): AddonType | null => {
+  const addonId = state.addons.byGUID[guid];
+
+  return getAddonByID(state, addonId);
+};
+
+export const getAllAddons = (
+  state: { addons: AddonState }
+): Array<AddonType> => {
+  const addons = state.addons.byID;
+
+  // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
+  return Object.values(addons);
 };
 
 export default function addonsReducer(
@@ -298,20 +314,35 @@ export default function addonsReducer(
 ) {
   switch (action.type) {
     case LOAD_ADDONS: {
-      const { addons } = action.payload;
-      const newState = { ...state };
-      Object.keys(addons).forEach((key) => {
-        const addon = createInternalAddon(addons[key]);
+      const { addons: loadedAddons } = action.payload;
 
-        // We index add-ons by id and slug to be able to retrieve them by any
-        // of these parameters. This is needed to redirect an add-on detail
-        // page loaded by ID.
-        // See: https://github.com/mozilla/addons-frontend/issues/3610
-        // TODO: https://github.com/mozilla/addons-frontend/issues/3421
-        newState[addon.id] = addon;
-        newState[key] = addon;
+      const byID = { ...state.byID };
+      const byGUID = { ...state.byGUID };
+      const bySlug = { ...state.bySlug };
+
+      Object.keys(loadedAddons).forEach((key) => {
+        const addon = createInternalAddon(loadedAddons[key]);
+        // Flow wants hash maps with string keys.
+        // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+        byID[`${addon.id}`] = addon;
+
+        if (addon.slug) {
+          bySlug[addon.slug] = addon.id;
+        }
+
+        if (addon.guid) {
+          // `guid` is already "normalized" with the `getGuid()` function in
+          // `createInternalAddon()`.
+          byGUID[addon.guid] = addon.id;
+        }
       });
-      return newState;
+
+      return {
+        ...state,
+        byID,
+        byGUID,
+        bySlug,
+      };
     }
     default:
       return state;
