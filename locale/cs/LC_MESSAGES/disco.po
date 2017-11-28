@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2017-11-28 19:59+0000\n"
 "PO-Revision-Date: 2017-08-24 09:41+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -88,43 +88,43 @@ msgstr "Nyní můžete přistupovat k %(name)s z panelu nástrojů."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:126
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "Hover over the image to preview"
 msgstr "Pro náhled přejeďte nad obrázkem myší"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:165
 msgid "Installation failed. Please try again."
 msgstr "Instalace selhala. Zkuste to prosím znovu."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:167
 msgid "Download failed. Please check your connection."
 msgstr "Stahování selhalo. Zkontrolujte prosím své připojení."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:169
 msgid "An unexpected error occurred during installation."
 msgstr "Během instalace došlo k neočekávané chybě."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:171
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Během odinstalace došlo k neočekávané chybě."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred."
 msgstr "Došlo k neočekávané chybě."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tento doplněk bude odinstalován jakmile restartujete Firefox."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
 msgstr "Pro použití tohoto doplňku prosím restartujte Firefox."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:87
 msgid "Close"
 msgstr "Zavřít"
 
@@ -148,11 +148,11 @@ msgstr "Zásady ochrany soukromí"
 msgid "Discover Add-ons"
 msgstr "Objevte doplňky"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
 msgstr "Přizpůsobte si svůj Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:133
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,19 +167,19 @@ msgstr ""
 "prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro "
 "jejich výkon a funkce doporučujeme."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
 msgstr "Klepněte a spusťte"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:142
 msgid "to find out more about add-ons"
 msgstr "a zjistěte více o doplňcích"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:156
 msgid "Close video"
 msgstr "Zavřít video"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:175
 msgid "See more add-ons!"
 msgstr "Zobrazte si více doplňků!"
 

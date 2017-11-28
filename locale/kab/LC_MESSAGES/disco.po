@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2017-11-28 19:59+0000\n"
 "PO-Revision-Date: 2017-08-23 07:54+0000\n"
 "Last-Translator: Slimane Amiri <slimane.amiri@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -88,44 +88,44 @@ msgstr "Tura tzemreḍ ad kecmeḍ ɣer %(name)s seg ufeggag n ifecka."
 msgid "OK!"
 msgstr "IH!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:126
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Sers taɣerdayt s ufella akken ad twaliḍ neɣ sit akken ad tesbeddeḍ %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "Hover over the image to preview"
 msgstr "Sers taɣeṛdayt ɣef tugna akken ad twaliḍ"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:165
 msgid "Installation failed. Please try again."
 msgstr "Asebded ur yeddi ara. Ma ulac aqilif, ɛreḍ tikelt nniḍen."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:167
 msgid "Download failed. Please check your connection."
 msgstr "Asider ur yeddi ara. Ma ulac aɣilif senqed tuqqna yinek."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:169
 msgid "An unexpected error occurred during installation."
 msgstr "Teḍra-d tuccḍa tarussint deg usebded."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:171
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Teḍra-d tuccḍa tarussint deg tukksa n usebded."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred."
 msgstr "Teḍra-d tuccḍa tarussint."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Azegrir agi ad yettwakkes ticki yekker Firefox."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ma ulac aɣilif, senker Firefox akken ad tesqedceḍ azegrir agi."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:87
 msgid "Close"
 msgstr "Mdel"
 
@@ -149,11 +149,11 @@ msgstr "Tasertit n tbaḍnit"
 msgid "Discover Add-ons"
 msgstr "Issin izegrar"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
 msgstr "Sagen Firefox inek"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:133
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,19 +167,19 @@ msgstr ""
 "aggan n tunigin inek imeṛṛa. Akken ad tebduḍ, nefren-d kra akken tella "
 "tmellit nsen neɣ timahilin nsen."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
 msgstr "Sit akken ad yurar"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:142
 msgid "to find out more about add-ons"
 msgstr "akken ad tafeḍ ugar ɣef izegrar"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:156
 msgid "Close video"
 msgstr "Mdel tavidyut"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:175
 msgid "See more add-ons!"
 msgstr "Wali ugar n izegrar!"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2017-11-28 19:59+0000\n"
 "PO-Revision-Date: 2017-07-21 18:45+0000\n"
 "Last-Translator: Pierre Neter <pierreneter@gmail.com>\n"
 "Language-Team: none\n"
@@ -87,43 +87,43 @@ msgstr "Bây giờ bạn có thể truy cập %(name)s từ thanh công cụ."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:126
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Rê chuột lên để xem trước hoặc nhấn chuột để cài đặt %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "Hover over the image to preview"
 msgstr "Rê chuột lên hình để xem trước"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:165
 msgid "Installation failed. Please try again."
 msgstr "Thất bại khi cài đặt. Vui lòng thử lại."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:167
 msgid "Download failed. Please check your connection."
 msgstr "Thất bại khi tải về. Vui lòng kiểm tra kết nối của bạn."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:169
 msgid "An unexpected error occurred during installation."
 msgstr "Đã xuất hiện lỗi bất ngờ khi cài đặt."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:171
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Đã xuất hiện lỗi bất ngờ khi gỡ cài đặt."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred."
 msgstr "Đã xuất hiện lỗi bất ngờ."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tiện ích này sẽ được gỡ cài đặt sau khi bạn khởi động lại Firefox."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
 msgstr "Vui lòng khởi động lại Firefox để sử dụng tiện ích này."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:87
 msgid "Close"
 msgstr "Đóng"
 
@@ -147,11 +147,11 @@ msgstr ""
 msgid "Discover Add-ons"
 msgstr "Khám phá Tiện ích"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
 msgstr "Cá nhân hóa Firefox của bạn"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:133
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -160,19 +160,19 @@ msgid ""
 "their stand-out performance and functionality."
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
 msgstr "Nhấn chuột để phát"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:142
 msgid "to find out more about add-ons"
 msgstr "để tìm hiểu thêm về tiện ích"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:156
 msgid "Close video"
 msgstr "Đóng video"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:175
 msgid "See more add-ons!"
 msgstr "Xem thêm tiện ích!"
 

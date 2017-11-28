@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2017-11-28 19:59+0000\n"
 "PO-Revision-Date: 2017-08-23 03:45+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
@@ -88,45 +88,45 @@ msgstr "Nu kan du komma åt %(name)s från verktygsfältet."
 msgid "OK!"
 msgstr "Ok!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:126
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Håll muspekaren över för att förhandsgranska eller klicka för att installera "
 "%(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "Hover over the image to preview"
 msgstr "Håll muspekaren över bilden för att förhandsgranska"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:165
 msgid "Installation failed. Please try again."
 msgstr "Installationen misslyckades. Försök igen."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:167
 msgid "Download failed. Please check your connection."
 msgstr "Hämtningen misslyckades. Kontrollera din anslutning."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:169
 msgid "An unexpected error occurred during installation."
 msgstr "Ett oväntat fel uppstod under installationen."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:171
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Ett oväntat fel uppstod under avinstallationen."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred."
 msgstr "Ett oväntat fel inträffade."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Detta tillägg kommer att avinstalleras efter omstart av Firefox."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
 msgstr "Starta om Firefox för att använda detta tillägg."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:87
 msgid "Close"
 msgstr "Stäng"
 
@@ -150,11 +150,11 @@ msgstr "Sekretesspolicy"
 msgid "Discover Add-ons"
 msgstr "Upptäck tillägg"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
 msgstr "Anpassa Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:133
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -168,19 +168,19 @@ msgstr ""
 "gör din webbläsare till din egen. För att hjälpa dig att komma igång, här är "
 "några vi rekommenderar för deras enastående prestanda och funktionalitet."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
 msgstr "Klicka för att spela"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:142
 msgid "to find out more about add-ons"
 msgstr "för att få reda på mer om tillägg"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:156
 msgid "Close video"
 msgstr "Stäng video"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:175
 msgid "See more add-ons!"
 msgstr "Visa fler tillägg!"
 
