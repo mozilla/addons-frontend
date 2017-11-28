@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2017-11-28 19:59+0000\n"
 "PO-Revision-Date: 2017-09-30 16:05+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,43 +86,43 @@ msgstr "ตอนนี้คุณสามารถเข้าถึง %(nam
 msgid "OK!"
 msgstr "ตกลง!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:126
 msgid "Hover to preview or click to install %(name)s"
 msgstr "วางเมาส์เพื่อแสดงตัวอย่างหรือคลิกเพื่อติดตั้ง %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:141
 msgid "Hover over the image to preview"
 msgstr "วางเมาส์ไว้เหนือภาพเพื่อแสดงตัวอย่าง"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:165
 msgid "Installation failed. Please try again."
 msgstr "การติดตั้งล้มเหลว โปรดลองอีกครั้ง"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:167
 msgid "Download failed. Please check your connection."
 msgstr "การดาวน์โหลดล้มเหลว โปรดตรวจสอบการเชื่อมต่อของคุณ"
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:169
 msgid "An unexpected error occurred during installation."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการติดตั้ง"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:171
 msgid "An unexpected error occurred during uninstallation."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิดระหว่างการถอนการติดตั้ง"
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred."
 msgstr "เกิดข้อผิดพลาดที่ไม่คาดคิด"
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "ส่วนเสริมนี้จะถูกถอนการติดตั้งหลังจากคุณเริ่มการทำงาน Firefox ใหม่"
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
 msgstr "โปรดเริ่มการทำงาน Firefox ใหม่เพื่อใช้ส่วนเสริมนี้"
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:87
 msgid "Close"
 msgstr "ปิด"
 
@@ -147,11 +147,11 @@ msgstr "นโยบายความเป็นส่วนตัว"
 msgid "Discover Add-ons"
 msgstr "ค้นพบส่วนเสริม"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
 msgstr "ปรับแต่ง Firefox ของคุณ"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:133
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -164,19 +164,19 @@ msgstr ""
 "ส่วนเสริมทำให้เบราว์เซอร์ของคุณเป็นของคุณ เพื่อช่วยคุณเริ่มต้น "
 "นี่คือบางส่วนที่เราแนะนำสำหรับประสิทธิภาพและการทำงานที่โดดเด่น"
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
 msgstr "คลิกเพื่อเล่น"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:142
 msgid "to find out more about add-ons"
 msgstr "เพื่อดูข้อมูลเพิ่มเติมเกี่ยวกับส่วนเสริม"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:156
 msgid "Close video"
 msgstr "ปิดวิดีโอ"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:175
 msgid "See more add-ons!"
 msgstr "ดูส่วนเสริมเพิ่มเติม!"
 
