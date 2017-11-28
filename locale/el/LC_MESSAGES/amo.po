@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:50+0000\n"
+"POT-Creation-Date: 2017-11-28 19:56+0000\n"
 "PO-Revision-Date: 2017-10-14 21:49+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -14,111 +14,111 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/Addon/index.js:176
+#: src/amo/components/Addon/index.js:180
 msgid "Cancel preview"
 msgstr "Ακύρωση προεπισκόπησης"
 
-#: src/amo/components/Addon/index.js:176
+#: src/amo/components/Addon/index.js:180
 msgid "Tap to preview"
 msgstr "Πατήστε για προεπισκόπηση"
 
-#: src/amo/components/Addon/index.js:217
+#: src/amo/components/Addon/index.js:221
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ανάγνωση %(count)s κριτικής"
 msgstr[1] "Ανάγνωση και των %(count)s κριτικών"
 
-#: src/amo/components/Addon/index.js:233
+#: src/amo/components/Addon/index.js:237
 msgid "No reviews yet"
 msgstr "Καμία κριτική ακόμα"
 
-#: src/amo/components/Addon/index.js:242
+#: src/amo/components/Addon/index.js:246
 msgid "Rate your experience"
 msgstr "Αξιολογήστε την εμπειρία σας"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:270
 #, fuzzy
 msgid "About this dictionary"
 msgstr "Συνδεθείτε για βαθμολόγηση αυτού του λεξικού"
 
-#: src/amo/components/Addon/index.js:269
+#: src/amo/components/Addon/index.js:273
 #, fuzzy
 msgid "About this extension"
 msgstr "Συνδεθείτε για βαθμολόγηση αυτής της επέκτασης"
 
-#: src/amo/components/Addon/index.js:272
+#: src/amo/components/Addon/index.js:276
 #, fuzzy
 msgid "About this language pack"
 msgstr "Συνδεθείτε για βαθμολόγηση αυτού του πακέτου γλώσσας"
 
-#: src/amo/components/Addon/index.js:275
+#: src/amo/components/Addon/index.js:279
 #, fuzzy
 msgid "About this search plugin"
 msgstr "Συνδεθείτε για βαθμολόγηση αυτού του προσθέτου μηχανής αναζήτησης"
 
-#: src/amo/components/Addon/index.js:278
+#: src/amo/components/Addon/index.js:282
 #, fuzzy
 msgid "About this theme"
 msgstr "Συνδεθείτε για βαθμολόγηση αυτού του θέματος"
 
-#: src/amo/components/Addon/index.js:281
+#: src/amo/components/Addon/index.js:285
 #, fuzzy
 msgid "About this add-on"
 msgstr "Σχετικά με αυτό το %(addonType)s"
 
-#: src/amo/components/Addon/index.js:320
+#: src/amo/components/Addon/index.js:324
 msgid "Release notes for %(addonVersion)s"
 msgstr "Σημειώσεις έκδοσης για το %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:349
+#: src/amo/components/Addon/index.js:353
 msgid "More dictionaries by %(author)s"
 msgstr "Περισσότερα λεξικά από %(author)s"
 
-#: src/amo/components/Addon/index.js:352
+#: src/amo/components/Addon/index.js:356
 msgid "More dictionaries by these translators"
 msgstr "Περισσότερα λεξικά από αυτούς τους μεταφραστές"
 
-#: src/amo/components/Addon/index.js:359
+#: src/amo/components/Addon/index.js:363
 msgid "More extensions by %(author)s"
 msgstr "Περισσότερες επεκτάσεις από %(author)s"
 
-#: src/amo/components/Addon/index.js:362
+#: src/amo/components/Addon/index.js:366
 msgid "More extensions by these developers"
 msgstr "Περισσότερες επεκτάσεις από αυτούς τους προγραμματιστές"
 
-#: src/amo/components/Addon/index.js:369
+#: src/amo/components/Addon/index.js:373
 msgid "More language packs by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:372
+#: src/amo/components/Addon/index.js:376
 msgid "More language packs by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:379
+#: src/amo/components/Addon/index.js:383
 msgid "More themes by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:382
+#: src/amo/components/Addon/index.js:386
 msgid "More themes by these artists"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:389
+#: src/amo/components/Addon/index.js:393
 msgid "More add-ons by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:392
+#: src/amo/components/Addon/index.js:396
 msgid "More add-ons by these developers"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:472
+#: src/amo/components/Addon/index.js:476
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s από %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:538
+#: src/amo/components/Addon/index.js:542
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/components/Addon/index.js:564
+#: src/amo/components/Addon/index.js:568
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 
@@ -343,22 +343,22 @@ msgstr "Κείμενο κριτικής"
 msgid "Submit review"
 msgstr "Υποβολή κριτικής"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:166
 msgid "Add-on icon"
 msgstr "Εικονίδιο προσθέτου"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:172
 msgid "Reviews for %(addonName)s"
 msgstr "Κριτικές για το %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:184
 #, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s κριτική"
 msgstr[1] "%(total)s κριτικές"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:212
 #, fuzzy
 msgid "by %(authorList)s"
 msgstr "από %(authorName)s, %(timestamp)s"
@@ -447,7 +447,7 @@ msgid "Loading categories."
 msgstr "Φόρτωση κατηγοριών."
 
 #: src/amo/components/Category/index.js:125
-#: src/amo/components/LandingPage/index.js:194
+#: src/amo/components/LandingPage/index.js:202
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Επεκτάσεις"
@@ -493,7 +493,7 @@ msgid "See more top rated extensions"
 msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
 
 #: src/amo/components/Category/index.js:158
-#: src/amo/components/LandingPage/index.js:193
+#: src/amo/components/LandingPage/index.js:201
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Θέματα"
@@ -1002,7 +1002,7 @@ msgstr ""
 msgid "Easily manage all your passwords for all devices from one spot"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:197
+#: src/amo/components/LandingPage/index.js:205
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -1010,13 +1010,13 @@ msgstr ""
 "Αλλάξτε την εμφάνιση του περιηγητή σας. Επιλέξτε ανάμεσα σε χιλιάδες θέματα "
 "για να δώσετε στον Firefox το στυλ που προτιμάτε."
 
-#: src/amo/components/LandingPage/index.js:199
+#: src/amo/components/LandingPage/index.js:207
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:226
+#: src/amo/components/LandingPage/index.js:234
 msgid "Explore all categories"
 msgstr "Εξερεύνηση όλων των κατηγοριών"
 
@@ -1024,41 +1024,41 @@ msgstr "Εξερεύνηση όλων των κατηγοριών"
 msgid "Change language"
 msgstr "Αλλαγή γλώσσας"
 
-#: src/amo/components/LanguageTools/index.js:103
+#: src/amo/components/LanguageTools/index.js:106
 msgid "Available for your locale"
 msgstr ""
 
-#: src/amo/components/LanguageTools/index.js:139
+#: src/amo/components/LanguageTools/index.js:142
 #, fuzzy
 msgid "Dictionaries and Language Packs"
 msgstr "Λεξικά & πακέτα γλωσσών"
 
-#: src/amo/components/LanguageTools/index.js:153
+#: src/amo/components/LanguageTools/index.js:156
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
 msgstr ""
 
-#: src/amo/components/LanguageTools/index.js:158
+#: src/amo/components/LanguageTools/index.js:161
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
 msgstr ""
 
-#: src/amo/components/LanguageTools/index.js:164
+#: src/amo/components/LanguageTools/index.js:167
 msgid "All Locales"
 msgstr ""
 
-#: src/amo/components/LanguageTools/index.js:170
+#: src/amo/components/LanguageTools/index.js:173
 msgid "Locale Name"
 msgstr ""
 
-#: src/amo/components/LanguageTools/index.js:173
+#: src/amo/components/LanguageTools/index.js:176
 #, fuzzy
 msgid "Language Packs"
 msgstr "Εύρεση πακέτου γλώσσας"
 
-#: src/amo/components/LanguageTools/index.js:176
+#: src/amo/components/LanguageTools/index.js:179
 msgid "Dictionaries"
 msgstr ""
 
