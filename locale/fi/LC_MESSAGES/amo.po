@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-14 21:50+0000\n"
-"PO-Revision-Date: 2017-11-15 10:38+0000\n"
+"PO-Revision-Date: 2017-11-28 13:05+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -117,30 +117,28 @@ msgid "Screenshots"
 msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:30
-#, fuzzy
 msgid "Featured Extension"
-msgstr "Etsi laajennuksista"
+msgstr "Suositeltu laajennus"
 
 #: src/amo/components/AddonBadges/index.js:32
 msgid "Featured Theme"
-msgstr ""
+msgstr "Suositeltu teema"
 
 #: src/amo/components/AddonBadges/index.js:34
-#, fuzzy
 msgid "Featured Add-on"
-msgstr "Firefoxin lisäosat"
+msgstr "Suositeltu lisäosa"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Restart Required"
-msgstr ""
+msgstr "Uudelleenkäynnistys vaaditaan"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "Kokeellinen"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Ei ole yhteensopiva Firefox Quantumin kanssa"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -171,35 +169,30 @@ msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\
 msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:31
-#, fuzzy
 msgid "Users"
-msgstr "Eniten käyttäjiä"
+msgstr "Käyttäjiä"
 
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "käyttäjä"
+msgstr[1] "käyttäjää"
 
 #: src/amo/components/AddonMeta/index.js:36
-#, fuzzy
 msgid "No Users"
-msgstr "Eniten käyttäjiä"
+msgstr "Ei käyttäjiä"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Reviews"
-msgstr "Ei arvioita"
+msgstr "Arvioita"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Ei arvioita"
-msgstr[1] "Ei arvioita"
+msgstr[0] "arvio"
+msgstr[1] "arviota"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Reviews"
 msgstr "Ei arvioita"
 
@@ -217,11 +210,11 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
-msgstr ""
+msgstr "Lue tämän lisäosan tietosuojakäytäntö"
 
 #: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "Lue tämän lisäosan lisenssisopimus"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
@@ -381,21 +374,19 @@ msgstr "Esikatsele koskettamalla"
 
 #: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Lisäosia Firefoxille"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "Lisää Firefoxiin"
+msgstr "%s – Lisäosia Firefoxille"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Lisäosia Androidille"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "Lisää Firefoxiin"
+msgstr "%s – Lisäosia Androidille"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -447,11 +438,11 @@ msgstr "Teemat"
 
 #: src/amo/components/Category/index.js:159 src/amo/components/Home/index.js:254 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:114
 msgid "Featured themes"
-msgstr ""
+msgstr "Suositellut teemat"
 
 #: src/amo/components/Category/index.js:168 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
-msgstr ""
+msgstr "Katso lisää suositeltuja teemoja"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:127
 msgid "Trending themes"
@@ -683,21 +674,20 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:146
-#, fuzzy
 msgid "Privacy"
-msgstr "Tietosuojakäytäntö"
+msgstr "Tietosuoja"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "Evästeet"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
-msgstr ""
+msgstr "Juridiset asiat"
 
 #: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "Ilmoita tavaramerkin väärinkäytöstä"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -895,7 +885,7 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
-msgstr ""
+msgstr "Vaihda kieltä"
 
 #: src/amo/components/LanguageTools/index.js:103
 msgid "Available for your locale"
@@ -1222,7 +1212,7 @@ msgstr ""
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
-msgstr ""
+msgstr "Selaa"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
@@ -1471,7 +1461,7 @@ msgstr ""
 
 #: src/core/components/InstallButton/index.js:227
 msgid "Install Theme"
-msgstr ""
+msgstr "Asenna teema"
 
 #: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
 msgid "Add to Firefox"
