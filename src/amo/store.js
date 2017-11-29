@@ -1,5 +1,6 @@
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { browserHistory } from 'react-router';
 import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
 
 import addonsByAuthors from 'amo/reducers/addonsByAuthors';
@@ -25,7 +26,9 @@ import user from 'core/reducers/user';
 import { middleware } from 'core/store';
 
 
-export default function createStore(history, initialState = {}) {
+export default function createStore({
+  history = browserHistory, initialState = {},
+} = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
     combineReducers({

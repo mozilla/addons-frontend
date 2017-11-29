@@ -90,7 +90,7 @@ function renderHTML({ props = {}, pageProps }) {
 
 function showErrorPage({ createStore, error = {}, req, res, status, config }) {
   const memoryHistory = createMemoryHistory(req.url);
-  const { store } = createStore(memoryHistory);
+  const { store } = createStore({ history: memoryHistory });
   const pageProps = getPageProps({ store, req, res, config });
 
   const componentDeclaredStatus = NestedStatus.rewind();
@@ -237,7 +237,9 @@ function baseServer(routes, createStore, {
     res.vary('DNT');
 
     const memoryHistory = createMemoryHistory(req.url);
-    const { sagaMiddleware, store } = createStore(memoryHistory);
+    const { sagaMiddleware, store } = createStore({
+      history: memoryHistory,
+    });
     const history = syncHistoryWithStore(memoryHistory, store);
 
     match({ history, location: req.url, routes }, async (

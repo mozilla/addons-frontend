@@ -18,7 +18,7 @@ import { fakeI18n } from 'tests/unit/helpers';
 describe('LanguagePicker', () => {
   function renderLanguagePicker({ ...props }) {
     const initialState = { api: { clientApp: 'android', lang: 'fr' } };
-    const { store } = createStore(initialState);
+    const { store } = createStore({ initialState });
 
     return findRenderedComponentWithType(renderIntoDocument(
       <Provider store={store}>

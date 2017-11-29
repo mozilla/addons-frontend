@@ -51,7 +51,9 @@ export default function makeClient(
       }
     }
 
-    const { sagaMiddleware, store } = createStore(browserHistory, initialState);
+    const { sagaMiddleware, store } = createStore({
+      history: browserHistory, initialState,
+    });
     const history = syncHistoryWithStore(browserHistory, store);
 
     if (sagas && sagaMiddleware) {
