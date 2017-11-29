@@ -42,6 +42,8 @@ export default class Button extends React.Component {
         props.to = to;
       }
 
+      // Only a Link needs a disabled css class. This is because button
+      // is styled based on its disabled property.
       props.className = setClassName({ disabled: props.disabled });
 
       if (props.disabled) {

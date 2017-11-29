@@ -26,9 +26,10 @@ import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   createStubErrorHandler,
   createUserAccountResponse,
-  userAuthToken,
+  randomId,
   sampleUserAgent,
   signedInApiState as coreSignedInApiState,
+  userAuthToken,
 } from 'tests/unit/helpers';
 
 
@@ -274,7 +275,7 @@ export function createAddonsApiResult(results) {
 
 export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
   return {
-    id: Date.now(),
+    id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
@@ -335,7 +336,7 @@ export const createFakeCollectionDetail = ({
     },
     default_locale: 'en-US',
     description: 'some description',
-    id: Date.now(),
+    id: randomId(),
     modified: Date.now(),
     name,
     public: true,

@@ -15,6 +15,7 @@
     // Standard DOM globals:
     "HTMLElement": true,
     "HTMLInputElement": true,
+    "HTMLSelectElement": true,
     "Node": true,
   },
   "parser": "babel-eslint",

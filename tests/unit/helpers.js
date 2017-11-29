@@ -19,6 +19,11 @@ import { fakeAddon } from 'tests/unit/amo/helpers';
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
 
+export const randomId = () => {
+  // Add 1 to make sure it's never zero.
+  return Math.floor(Math.random() * 10000) + 1;
+};
+
 /*
  * Return a fake authentication token that can be
  * at least decoded in a realistic way.
