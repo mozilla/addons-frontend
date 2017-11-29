@@ -318,7 +318,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 }
 
 export const extractId = (ownProps: Props) => {
-  const { location, params } = ownProps;
+  const { location, params } = ownProps.router;
 
   return `${params.addonSlug}-${parsePage(location.query.page)}`;
 };
