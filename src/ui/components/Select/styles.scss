@@ -1,0 +1,23 @@
+@import "~photon-colors/colors";
+
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.Select {
+  @include padding-end(10px);
+  @include padding-start(5px);
+
+  appearance: none;
+  background: $grey-30 url("~ui/components/Icon/triangle-down-black.svg") no-repeat calc(100% - 10px) 50%;
+  background-size: 12px;
+  border: 0;
+  border-radius: $border-radius-s;
+  display: block;
+  line-height: 1.2;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+  [dir=rtl] & {
+    background-position: 10px 50%;
+  }
+}
