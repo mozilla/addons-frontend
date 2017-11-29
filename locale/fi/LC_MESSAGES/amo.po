@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-11-29 20:10+0000\n"
+"PO-Revision-Date: 2017-11-29 20:21+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -38,7 +38,7 @@ msgstr "Arvioi kokemuksesi"
 
 #: src/amo/components/Addon/index.js:270
 msgid "About this dictionary"
-msgstr ""
+msgstr "Tietoja tästä oikolukusanastosta"
 
 #: src/amo/components/Addon/index.js:273
 msgid "About this extension"
@@ -114,7 +114,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:568
 msgid "Screenshots"
-msgstr ""
+msgstr "Kuvakaappaukset"
 
 #: src/amo/components/AddonBadges/index.js:30
 msgid "Featured Extension"
@@ -478,7 +478,7 @@ msgstr "Lisäosat"
 
 #: src/amo/components/Collection/index.js:154
 msgid "Creator"
-msgstr ""
+msgstr "Tekijä"
 
 #: src/amo/components/Collection/index.js:167
 #, fuzzy
@@ -650,15 +650,15 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr ""
+msgstr "Android-selain"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS-selain"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
-msgstr ""
+msgstr "Focus-selain"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
@@ -666,7 +666,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "Beta, Nightly, Developer Edition"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
@@ -700,7 +700,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Blogi"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -732,11 +732,11 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr ""
+msgstr "Näytä profiili"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr ""
+msgstr "Muokkaa profiilia"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
@@ -768,7 +768,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:120
 msgid "Nature"
-msgstr ""
+msgstr "Luonto"
 
 #: src/amo/components/Home/index.js:125
 msgid "Film & TV"
@@ -830,11 +830,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:80
 msgid "Productivity"
-msgstr ""
+msgstr "Tuottavuus"
 
 #: src/amo/components/Home/index.js:84
 msgid "Watching Videos"
-msgstr ""
+msgstr "Videoiden katselu"
 
 #: src/amo/components/HomeHeroBanner/index.js:38
 msgid "Excellent extensions for all situations"
@@ -886,7 +886,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "Oikolukusanastot ja kielipaketit"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -906,11 +906,11 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Language Packs"
-msgstr ""
+msgstr "Kielipaketit"
 
 #: src/amo/components/LanguageTools/index.js:179
 msgid "Dictionaries"
-msgstr ""
+msgstr "Oikolukusanastot"
 
 #: src/amo/components/RatingManager/index.js:133
 msgid "Log in to rate this dictionary"
@@ -1082,15 +1082,15 @@ msgstr "Teema"
 
 #: src/amo/components/SearchFilters/index.js:111
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:113
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:121
 msgid "Relevance"
@@ -1142,11 +1142,11 @@ msgstr "Etsi lisäosia"
 
 #: src/amo/components/SearchForm/index.js:231 src/amo/components/SearchForm/index.js:261
 msgid "Search"
-msgstr ""
+msgstr "Haku"
 
 #: src/amo/components/SearchForm/index.js:77
 msgid "Loading"
-msgstr ""
+msgstr "Ladataan"
 
 #: src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
@@ -1160,7 +1160,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
-msgstr ""
+msgstr "Haetaan…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
@@ -1192,7 +1192,7 @@ msgstr "Firefoxille"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
-msgstr ""
+msgstr "Androidille"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
@@ -1200,7 +1200,7 @@ msgstr "Selaa"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "Lisää…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -1252,7 +1252,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Tekijöiden yhteisö"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
