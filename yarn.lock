@@ -5063,9 +5063,9 @@ loader-utils@1.1.0, loader-utils@^1.0.1, loader-utils@^1.0.2, loader-utils@^1.1.
     emojis-list "^2.0.0"
     json5 "^0.5.0"
 
-localforage@1.5.4:
-  version "1.5.4"
-  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.5.4.tgz#2d5cd0f1e0cf0d344c24324acc5bab6c82cd2f6f"
+localforage@1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/localforage/-/localforage-1.5.5.tgz#55fc1c3a88a47f67f5fac6f1231b25ff13556423"
   dependencies:
     lie "3.0.2"
 
