@@ -3,7 +3,7 @@ import reducer, {
   createInternalAddons,
   createInternalCollection,
   fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollectionPage,
   initialState,
   loadCollection,
   loadCollectionPage,
@@ -41,7 +41,7 @@ describe(__filename, () => {
     });
 
     it('sets a loading flag when fetching a collection page', () => {
-      const state = reducer(undefined, fetchCollectionPage({
+      const state = reducer(undefined, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
@@ -60,7 +60,7 @@ describe(__filename, () => {
         detail: collectionDetail,
       }));
 
-      state = reducer(state, fetchCollectionPage({
+      state = reducer(state, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: collectionDetail.slug,
@@ -122,7 +122,7 @@ describe(__filename, () => {
       }));
 
       // 2. User clicks the "next" pagination link.
-      state = reducer(state, fetchCollectionPage({
+      state = reducer(state, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
@@ -269,7 +269,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchCollectionPage()', () => {
+  describe('fetchCurrentCollectionPage()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
       page: 123,
@@ -282,7 +282,7 @@ describe(__filename, () => {
       delete partialParams.errorHandlerId;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('errorHandlerId is required');
     });
 
@@ -291,7 +291,7 @@ describe(__filename, () => {
       delete partialParams.slug;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('slug is required');
     });
 
@@ -300,7 +300,7 @@ describe(__filename, () => {
       delete partialParams.user;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('user is required');
     });
 
@@ -309,7 +309,7 @@ describe(__filename, () => {
       delete partialParams.page;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('page is required');
     });
   });

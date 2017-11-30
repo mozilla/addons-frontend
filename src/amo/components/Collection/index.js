@@ -8,7 +8,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
   fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollectionPage,
 } from 'amo/reducers/collections';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { COLLECTIONS_EDIT } from 'core/constants';
@@ -108,7 +108,7 @@ export class CollectionBase extends React.Component<Props> {
     }
 
     if (collection && addonsPageChanged) {
-      this.props.dispatch(fetchCollectionPage({
+      this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         page: parsePage(location.query.page),
         slug: params.slug,

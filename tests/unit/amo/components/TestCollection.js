@@ -13,7 +13,7 @@ import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
   fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollectionPage,
   loadCollection,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
@@ -198,7 +198,7 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const user = 'some-user';
 
-    store.dispatch(fetchCollectionPage({
+    store.dispatch(fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 123,
       slug,
@@ -274,7 +274,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches fetchCollectionPage when page has changed', () => {
+  it('dispatches fetchCurrentCollectionPage when page has changed', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -300,7 +300,7 @@ describe(__filename, () => {
     wrapper.setProps({ location: newLocation });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollectionPage({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page,
       user: defaultUser,
@@ -425,7 +425,7 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', false);
 
     // User clicks on 'next' pagination link.
-    store.dispatch(fetchCollectionPage({
+    store.dispatch(fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 2,
       slug,

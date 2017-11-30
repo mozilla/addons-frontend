@@ -1,7 +1,7 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   FETCH_COLLECTION,
-  FETCH_COLLECTION_PAGE,
+  FETCH_CURRENT_COLLECTION_PAGE,
   abortFetchCollection,
   loadCollection,
   loadCollectionPage,
@@ -47,7 +47,7 @@ export function* fetchCollection({
   }
 }
 
-export function* fetchCollectionPage({
+export function* fetchCurrentCollectionPage({
   payload: {
     errorHandlerId,
     page,
@@ -79,5 +79,7 @@ export function* fetchCollectionPage({
 
 export default function* collectionsSaga() {
   yield takeLatest(FETCH_COLLECTION, fetchCollection);
-  yield takeLatest(FETCH_COLLECTION_PAGE, fetchCollectionPage);
+  yield takeLatest(
+    FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
+  );
 }

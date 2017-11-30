@@ -4,7 +4,7 @@ import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   abortFetchCollection,
   fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollectionPage,
   loadCollection,
   loadCollectionPage,
 } from 'amo/reducers/collections';
@@ -117,9 +117,9 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchCollectionPage', () => {
-    function _fetchCollectionPage(params) {
-      sagaTester.dispatch(fetchCollectionPage({
+  describe('fetchCurrentCollectionPage', () => {
+    function _fetchCurrentCollectionPage(params) {
+      sagaTester.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         ...params,
       }));
@@ -140,7 +140,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
 
       const expectedLoadAction = loadCollectionPage({
         addons: collectionAddons,
@@ -155,7 +155,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -172,7 +172,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);

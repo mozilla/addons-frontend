@@ -4,11 +4,12 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const FETCH_COLLECTION: 'FETCH_COLLECTION' = 'FETCH_COLLECTION';
 export const LOAD_COLLECTION: 'LOAD_COLLECTION' = 'LOAD_COLLECTION';
-export const FETCH_COLLECTION_PAGE: 'FETCH_COLLECTION_PAGE'
-  = 'FETCH_COLLECTION_PAGE';
+export const FETCH_CURRENT_COLLECTION_PAGE: 'FETCH_CURRENT_COLLECTION_PAGE'
+  = 'FETCH_CURRENT_COLLECTION_PAGE';
 export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
   = 'LOAD_COLLECTION_PAGE';
-export const ABORT_FETCH_COLLECTION: 'ABORT_FETCH_COLLECTION' = 'ABORT_FETCH_COLLECTION';
+export const ABORT_FETCH_COLLECTION: 'ABORT_FETCH_COLLECTION'
+  = 'ABORT_FETCH_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType>,
@@ -78,22 +79,22 @@ export const fetchCollection = ({
   };
 };
 
-type FetchCollectionPageParams = {|
+type FetchCurrentCollectionPageParams = {|
   ...FetchCollectionParams,
   page: number,
 |};
 
-type FetchCollectionPageAction = {|
-  type: typeof FETCH_COLLECTION_PAGE,
-  payload: FetchCollectionPageParams,
+type FetchCurrentCollectionPageAction = {|
+  type: typeof FETCH_CURRENT_COLLECTION_PAGE,
+  payload: FetchCurrentCollectionPageParams,
 |};
 
-export const fetchCollectionPage = ({
+export const fetchCurrentCollectionPage = ({
   errorHandlerId,
   page,
   slug,
   user,
-}: FetchCollectionPageParams = {}): FetchCollectionPageAction => {
+}: FetchCurrentCollectionPageParams = {}): FetchCurrentCollectionPageAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -108,7 +109,7 @@ export const fetchCollectionPage = ({
   }
 
   return {
-    type: FETCH_COLLECTION_PAGE,
+    type: FETCH_CURRENT_COLLECTION_PAGE,
     payload: { errorHandlerId, page, slug, user },
   };
 };
@@ -235,7 +236,7 @@ export const createInternalCollection = ({
 type Action =
   | FetchCollectionAction
   | LoadCollectionAction
-  | FetchCollectionPageAction
+  | FetchCurrentCollectionPageAction
   | LoadCollectionPageAction
   | AbortFetchCollection
 ;
@@ -254,7 +255,7 @@ const reducer = (
         },
       };
 
-    case FETCH_COLLECTION_PAGE: {
+    case FETCH_CURRENT_COLLECTION_PAGE: {
       const current = {
         id: state.current.id,
         loading: true,
