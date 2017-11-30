@@ -1,5 +1,5 @@
 import reducer, {
-  abortFetchCollection,
+  abortFetchCurrentCollection,
   createInternalAddons,
   createInternalCollection,
   fetchCurrentCollection,
@@ -180,7 +180,7 @@ describe(__filename, () => {
 
       expect(state.current.loading).toEqual(true);
 
-      const newState = reducer(state, abortFetchCollection());
+      const newState = reducer(state, abortFetchCurrentCollection());
       expect(newState.current.loading).toEqual(false);
       expect(newState.current.id).toEqual(null);
     });
@@ -199,7 +199,7 @@ describe(__filename, () => {
         detail: secondCollection,
       }));
 
-      state = reducer(state, abortFetchCollection());
+      state = reducer(state, abortFetchCurrentCollection());
 
       // Make sure collection data still exists.
       expect(state.byId[firstCollection.id]).toBeDefined();

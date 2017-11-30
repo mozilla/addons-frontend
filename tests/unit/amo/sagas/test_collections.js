@@ -2,7 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
-  abortFetchCollection,
+  abortFetchCurrentCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCollection,
@@ -113,7 +113,7 @@ describe(__filename, () => {
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
-      expect(sagaTester.getCalledActions()[3]).toEqual(abortFetchCollection());
+      expect(sagaTester.getCalledActions()[3]).toEqual(abortFetchCurrentCollection());
     });
   });
 
@@ -177,7 +177,7 @@ describe(__filename, () => {
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
-      expect(sagaTester.getCalledActions()[3]).toEqual(abortFetchCollection());
+      expect(sagaTester.getCalledActions()[3]).toEqual(abortFetchCurrentCollection());
     });
   });
 });
