@@ -333,8 +333,13 @@ const reducer = (
     }
 
     case ABORT_FETCH_COLLECTION:
-      // TODO: change this so that only the fetched collection is erased.
-      return initialState;
+      return {
+        ...state,
+        current: {
+          id: null,
+          loading: false,
+        },
+      };
 
     default:
       return state;

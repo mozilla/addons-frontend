@@ -212,6 +212,30 @@ describe(__filename, () => {
       expect(newState.current.loading).toEqual(false);
       expect(newState.current.id).toEqual(null);
     });
+
+    it('preserves collection data when fetching is aborted', () => {
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      let state;
+      state = reducer(undefined, loadCollection({
+        addons: createFakeCollectionAddons(),
+        detail: firstCollection,
+      }));
+
+      state = reducer(state, loadCollection({
+        addons: createFakeCollectionAddons(),
+        detail: secondCollection,
+      }));
+
+      state = reducer(state, abortFetchCollection());
+
+      // Make sure collection data still exists.
+      expect(state.byId[firstCollection.id]).toBeDefined();
+      expect(state.byId[secondCollection.id]).toBeDefined();
+      expect(state.current.loading).toEqual(false);
+      expect(state.current.id).toEqual(null);
+    });
   });
 
   describe('fetchCollection()', () => {
