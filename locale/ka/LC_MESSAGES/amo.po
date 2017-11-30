@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-11-30 00:29+0000\n"
+"PO-Revision-Date: 2017-11-30 00:34+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -280,7 +280,7 @@ msgstr "აცნობეთ მსოფლიოს, რატომ მი�
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "მოგვახსენეთ, ყველაზე მეტად რა მოგწონთ ამ გაფართოებაში. სასურველია კონკრეტულად და ლაკონურად."
+msgstr "მოგვახსენეთ, ყველაზე მეტად რა მოგწონთ ამ გაფართოებაში. სასურველია აზრი იყოს გადმოცემული გარკვევით, მოკლედ და მკაფიოდ."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -288,7 +288,7 @@ msgstr "გააცანით მსოფლიოს, თქვენი �
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "მოგვახსენეთ, თქვენი გამოცდილება ამ გაფართოებასთან დაკავშირებით. სასურველია კონკრეტულად და ლაკონურად."
+msgstr "მოგვახსენეთ, თქვენი გამოცდილება ამ გაფართოებასთან დაკავშირებით. სასურველია აზრი იყოს გადმოცემული გარკვევით, მოკლედ და მკაფიოდ."
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
@@ -1308,7 +1308,7 @@ msgstr "დაწეროთ ისე, თითქოს თქვენს �
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr "თქვენი მიმოხილვები იყოს ლაკონური და მარტივად გასაგები."
+msgstr "თქვენი მიმოხილვები იყოს მოკლე, მკაფიო და მარტივად გასაგები."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
