@@ -407,8 +407,8 @@ describe(__filename, () => {
     const store = dispatchClientMetadata().store;
 
     const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const user = 'user-id-or-name';
+    const slug = defaultCollectionDetail.slug;
+    const user = defaultUser;
 
     // User loads the collection page.
     store.dispatch(loadCollection({

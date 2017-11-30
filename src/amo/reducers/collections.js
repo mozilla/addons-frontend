@@ -23,14 +23,25 @@ export type CollectionType = {
   slug: string,
 };
 
-export type CollectionsState = {|
-  current: CollectionType | null,
-  loading: boolean,
-|};
+type CollectionId = number;
+
+export type CollectionsState = {
+  byId: {
+    [id: CollectionId]: CollectionType,
+  },
+  bySlug: {
+    [slug: string]: CollectionId,
+  },
+  current: {|
+    id: CollectionId | null,
+    loading: boolean,
+  |},
+};
 
 export const initialState: CollectionsState = {
-  current: null,
-  loading: false,
+  byId: {},
+  bySlug: {},
+  current: { id: null, loading: false },
 };
 
 type FetchCollectionParams = {|
@@ -236,44 +247,93 @@ const reducer = (
   switch (action.type) {
     case FETCH_COLLECTION:
       return {
-        current: null,
+        ...state,
+        current: {
+          id: null,
+          loading: true,
+        },
+      };
+
+    case FETCH_COLLECTION_PAGE: {
+      const current = {
+        id: state.current.id,
         loading: true,
       };
 
-    case FETCH_COLLECTION_PAGE:
+      let currentCollection;
+      if (state.current.id) {
+        currentCollection = state.byId[state.current.id];
+      }
+      if (!currentCollection) {
+        return { ...state, current };
+      }
+
       return {
-        current: {
-          ...state.current,
-          addons: [],
+        ...state,
+        byId: {
+          ...state.byId,
+          [currentCollection.id]: {
+            ...currentCollection,
+            addons: [],
+          },
         },
-        loading: true,
+        current,
       };
+    }
 
     case LOAD_COLLECTION: {
       const { addons, detail } = action.payload;
 
       return {
-        current: createInternalCollection({
-          detail,
-          items: addons.results,
-        }),
-        loading: false,
+        ...state,
+        byId: {
+          ...state.byId,
+          [detail.id]: createInternalCollection({
+            detail,
+            items: addons.results,
+          }),
+        },
+        bySlug: {
+          ...state.bySlug,
+          [detail.slug]: detail.id,
+        },
+        current: {
+          id: detail.id,
+          loading: false,
+        },
       };
     }
 
     case LOAD_COLLECTION_PAGE: {
       const { addons } = action.payload;
 
+      let currentCollection;
+      if (state.current.id) {
+        currentCollection = state.byId[state.current.id];
+      }
+      if (!currentCollection) {
+        throw new Error(
+          `${action.type}: a current collection does not exist`);
+      }
+
       return {
-        current: {
-          ...state.current,
-          addons: createInternalAddons(addons.results),
+        ...state,
+        byId: {
+          ...state.byId,
+          [currentCollection.id]: {
+            ...currentCollection,
+            addons: createInternalAddons(addons.results),
+          },
         },
-        loading: false,
+        current: {
+          id: state.current.id,
+          loading: false,
+        },
       };
     }
 
     case ABORT_FETCH_COLLECTION:
+      // TODO: change this so that only the fetched collection is erased.
       return initialState;
 
     default:

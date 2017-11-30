@@ -217,9 +217,13 @@ export class CollectionBase extends React.Component<Props> {
 export const mapStateToProps = (
   state: {| collections: CollectionsState, user: UserStateType |}
 ) => {
-  const { current: collection, loading } = state.collections;
+  const { id: collectionId, loading } = state.collections.current;
 
   let hasEditPermission = false;
+  let collection;
+  if (collectionId) {
+    collection = state.collections.byId[collectionId];
+  }
 
   if (collection) {
     hasEditPermission = collection.authorId === state.user.id ||

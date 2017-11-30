@@ -14,6 +14,7 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 
@@ -39,11 +40,11 @@ describe(__filename, () => {
       }));
 
       const collectionsState = store.getState().collections;
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current).toEqual(null);
+      expect(collectionsState.current.loading).toEqual(true);
+      expect(collectionsState.current.id).toEqual(null);
     });
 
-    it('indicates when fetching a collection page', () => {
+    it('sets a loading flag when fetching a collection page', () => {
       const { store } = dispatchClientMetadata();
 
       store.dispatch(fetchCollectionPage({
@@ -53,9 +54,31 @@ describe(__filename, () => {
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current.addons).toEqual([]);
+      const state = store.getState().collections;
+      expect(state.current.loading).toEqual(true);
+    });
+
+    it('resets add-ons when fetching a collection page', () => {
+      const { store } = dispatchClientMetadata();
+
+      const collectionAddons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail();
+
+      store.dispatch(loadCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }));
+
+      store.dispatch(fetchCollectionPage({
+        errorHandlerId: createStubErrorHandler().id,
+        page: parsePage(2),
+        slug: collectionDetail.slug,
+        user: 'some-user-id-or-name',
+      }));
+
+      const state = store.getState().collections;
+      const collection = state.byId[state.current.id];
+      expect(collection.addons).toEqual([]);
     });
 
     it('loads a collection', () => {
@@ -69,15 +92,15 @@ describe(__filename, () => {
         detail: collectionDetail,
       }));
 
-      const collectionsState = store.getState().collections;
-      const loadedCollection = collectionsState.current;
+      const state = store.getState().collections;
+      const loadedCollection = state.byId[state.current.id];
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection).toEqual(createInternalCollection({
         detail: collectionDetail,
         items: collectionAddons.results,
       }));
-      expect(collectionsState.loading).toEqual(false);
+      expect(state.current.loading).toEqual(false);
     });
 
     it('resets the current collection when fetching a new collection', () => {
@@ -101,8 +124,8 @@ describe(__filename, () => {
 
       const collectionsState = store.getState().collections;
 
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current).toEqual(null);
+      expect(collectionsState.current.loading).toEqual(true);
+      expect(collectionsState.current.id).toEqual(null);
     });
 
     it('resets the add-ons when fetching a new collection page', () => {
@@ -125,10 +148,11 @@ describe(__filename, () => {
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
+      const state = store.getState().collections;
 
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current).toEqual({
+      expect(state.current.loading).toEqual(true);
+      const collection = state.byId[state.current.id];
+      expect(collection).toEqual({
         ...createInternalCollection({
           detail: collectionDetail,
           items: collectionAddons.results,
@@ -137,36 +161,56 @@ describe(__filename, () => {
       });
     });
 
-    it('loads a collection page', () => {
+    it('cannot load collection page without a current collection', () => {
+      // TODO: use the reducer directly instead of the entire store
       const { store } = dispatchClientMetadata();
 
       const collectionAddons = createFakeCollectionAddons();
 
-      store.dispatch(loadCollectionPage({ addons: collectionAddons }));
+      expect(() => {
+        store.dispatch(loadCollectionPage({ addons: collectionAddons }));
+      }).toThrow(/current collection does not exist/);
+    });
 
-      const collectionsState = store.getState().collections;
-      const loadedCollection = collectionsState.current;
+    it('loads a collection page', () => {
+      const { store } = dispatchClientMetadata();
+
+      const collectionAddons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail();
+
+      // Load a current collection.
+      // TODO: rename to loadCurrentCollection()
+      store.dispatch(loadCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }));
+
+      const newAddons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 333 }],
+      });
+      store.dispatch(loadCollectionPage({ addons: newAddons }));
+
+      const state = store.getState().collections;
+      const loadedCollection = state.byId[state.current.id];
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection.addons)
-        .toEqual(createInternalAddons(collectionAddons.results));
-      expect(collectionsState.loading).toEqual(false);
+        .toEqual(createInternalAddons(newAddons.results));
+      expect(state.current.loading).toEqual(false);
     });
 
-    it('resets the state when fetching is aborted', () => {
-      const state = reducer(undefined, fetchCollectionPage({
+    it('resets the current collection when fetching is aborted', () => {
+      const state = reducer(undefined, fetchCollection({
         errorHandlerId: createStubErrorHandler().id,
-        page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      expect(state.loading).toEqual(true);
-      expect(state.current.addons).toEqual([]);
+      expect(state.current.loading).toEqual(true);
 
       const newState = reducer(state, abortFetchCollection());
-      expect(newState.loading).toEqual(false);
-      expect(newState.current).toEqual(null);
+      expect(newState.current.loading).toEqual(false);
+      expect(newState.current.id).toEqual(null);
     });
   });
 
