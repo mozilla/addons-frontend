@@ -13,7 +13,6 @@ import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
-  dispatchClientMetadata,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
 
@@ -31,68 +30,56 @@ describe(__filename, () => {
     });
 
     it('indicates when fetching a collection', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(fetchCollection({
+      const state = reducer(undefined, fetchCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-      expect(collectionsState.current.loading).toEqual(true);
-      expect(collectionsState.current.id).toEqual(null);
+      expect(state.current.loading).toEqual(true);
+      expect(state.current.id).toEqual(null);
     });
 
     it('sets a loading flag when fetching a collection page', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(fetchCollectionPage({
+      const state = reducer(undefined, fetchCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const state = store.getState().collections;
       expect(state.current.loading).toEqual(true);
     });
 
     it('resets add-ons when fetching a collection page', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
-      store.dispatch(fetchCollectionPage({
+      state = reducer(state, fetchCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: collectionDetail.slug,
         user: 'some-user-id-or-name',
       }));
 
-      const state = store.getState().collections;
       const collection = state.byId[state.current.id];
       expect(collection.addons).toEqual([]);
     });
 
     it('loads a collection', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
-      store.dispatch(loadCollection({
+      const state = reducer(undefined, loadCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
-      const state = store.getState().collections;
       const loadedCollection = state.byId[state.current.id];
 
       expect(loadedCollection).not.toEqual(null);
@@ -104,51 +91,43 @@ describe(__filename, () => {
     });
 
     it('resets the current collection when fetching a new collection', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
       // 2. User navigates to another collection.
-      store.dispatch(fetchCollection({
+      state = reducer(state, fetchCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-
-      expect(collectionsState.current.loading).toEqual(true);
-      expect(collectionsState.current.id).toEqual(null);
+      expect(state.current.loading).toEqual(true);
+      expect(state.current.id).toEqual(null);
     });
 
     it('resets the add-ons when fetching a new collection page', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
       // 2. User clicks the "next" pagination link.
-      store.dispatch(fetchCollectionPage({
+      state = reducer(state, fetchCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
-
-      const state = store.getState().collections;
 
       expect(state.current.loading).toEqual(true);
       const collection = state.byId[state.current.id];
@@ -162,25 +141,19 @@ describe(__filename, () => {
     });
 
     it('cannot load collection page without a current collection', () => {
-      // TODO: use the reducer directly instead of the entire store
-      const { store } = dispatchClientMetadata();
+      const addons = createFakeCollectionAddons();
 
-      const collectionAddons = createFakeCollectionAddons();
-
-      expect(() => {
-        store.dispatch(loadCollectionPage({ addons: collectionAddons }));
-      }).toThrow(/current collection does not exist/);
+      expect(() => reducer(undefined, loadCollectionPage({ addons })))
+        .toThrow(/current collection does not exist/);
     });
 
     it('loads a collection page', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       // Load a current collection.
       // TODO: rename to loadCurrentCollection()
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
@@ -188,9 +161,8 @@ describe(__filename, () => {
       const newAddons = createFakeCollectionAddons({
         addons: [{ ...fakeAddon, id: 333 }],
       });
-      store.dispatch(loadCollectionPage({ addons: newAddons }));
+      state = reducer(state, loadCollectionPage({ addons: newAddons }));
 
-      const state = store.getState().collections;
       const loadedCollection = state.byId[state.current.id];
 
       expect(loadedCollection).not.toEqual(null);
@@ -217,8 +189,7 @@ describe(__filename, () => {
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
 
-      let state;
-      state = reducer(undefined, loadCollection({
+      let state = reducer(undefined, loadCollection({
         addons: createFakeCollectionAddons(),
         detail: firstCollection,
       }));
