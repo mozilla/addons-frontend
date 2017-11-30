@@ -16,7 +16,7 @@ import { fakeI18n } from 'tests/unit/helpers';
 describe('<SearchResults />', () => {
   function renderResults(props) {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-    const { store } = createStore(initialState);
+    const { store } = createStore({ initialState });
 
     return findRenderedComponentWithType(render(
       <Provider store={store}>

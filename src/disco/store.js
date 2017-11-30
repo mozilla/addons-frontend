@@ -1,5 +1,6 @@
 import { createStore as _createStore, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { browserHistory } from 'react-router';
 import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
 
 import { middleware } from 'core/store';
@@ -13,7 +14,9 @@ import discoResults from 'disco/reducers/discoResults';
 import redirectTo from 'core/reducers/redirectTo';
 
 
-export default function createStore(history, initialState = {}) {
+export default function createStore({
+  history = browserHistory, initialState = {},
+} = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
     combineReducers({
