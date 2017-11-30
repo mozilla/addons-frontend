@@ -20,8 +20,6 @@ export const LOAD_USER_COLLECTIONS: 'LOAD_USER_COLLECTIONS'
   = 'LOAD_USER_COLLECTIONS';
 
 export type CollectionType = {
-  // TODO: make sure components/Collection will
-  // fetch add-ons if needed
   addons: Array<AddonType> | null,
   authorId: number,
   authorName: string,
