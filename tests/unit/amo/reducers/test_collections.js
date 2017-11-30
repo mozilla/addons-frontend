@@ -2,7 +2,7 @@ import reducer, {
   abortFetchCollection,
   createInternalAddons,
   createInternalCollection,
-  fetchCollection,
+  fetchCurrentCollection,
   fetchCurrentCollectionPage,
   initialState,
   loadCollection,
@@ -30,7 +30,7 @@ describe(__filename, () => {
     });
 
     it('indicates when fetching a collection', () => {
-      const state = reducer(undefined, fetchCollection({
+      const state = reducer(undefined, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
@@ -101,7 +101,7 @@ describe(__filename, () => {
       }));
 
       // 2. User navigates to another collection.
-      state = reducer(state, fetchCollection({
+      state = reducer(state, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
@@ -172,7 +172,7 @@ describe(__filename, () => {
     });
 
     it('resets the current collection when fetching is aborted', () => {
-      const state = reducer(undefined, fetchCollection({
+      const state = reducer(undefined, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
@@ -209,7 +209,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchCollection()', () => {
+  describe('fetchCurrentCollection()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
       slug: 'some-collection-slug',
@@ -221,7 +221,7 @@ describe(__filename, () => {
       delete partialParams.errorHandlerId;
 
       expect(() => {
-        fetchCollection(partialParams);
+        fetchCurrentCollection(partialParams);
       }).toThrow('errorHandlerId is required');
     });
 
@@ -230,7 +230,7 @@ describe(__filename, () => {
       delete partialParams.slug;
 
       expect(() => {
-        fetchCollection(partialParams);
+        fetchCurrentCollection(partialParams);
       }).toThrow('slug is required');
     });
 
@@ -239,7 +239,7 @@ describe(__filename, () => {
       delete partialParams.user;
 
       expect(() => {
-        fetchCollection(partialParams);
+        fetchCurrentCollection(partialParams);
       }).toThrow('user is required');
     });
   });

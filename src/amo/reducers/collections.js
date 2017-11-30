@@ -2,14 +2,15 @@
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
-export const FETCH_COLLECTION: 'FETCH_COLLECTION' = 'FETCH_COLLECTION';
+export const FETCH_CURRENT_COLLECTION: 'FETCH_CURRENT_COLLECTION'
+  = 'FETCH_CURRENT_COLLECTION';
 export const LOAD_COLLECTION: 'LOAD_COLLECTION' = 'LOAD_COLLECTION';
 export const FETCH_CURRENT_COLLECTION_PAGE: 'FETCH_CURRENT_COLLECTION_PAGE'
   = 'FETCH_CURRENT_COLLECTION_PAGE';
 export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
   = 'LOAD_COLLECTION_PAGE';
-export const ABORT_FETCH_COLLECTION: 'ABORT_FETCH_COLLECTION'
-  = 'ABORT_FETCH_COLLECTION';
+export const ABORT_FETCH_CURRENT_COLLECTION: 'ABORT_FETCH_CURRENT_COLLECTION'
+  = 'ABORT_FETCH_CURRENT_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType>,
@@ -45,24 +46,24 @@ export const initialState: CollectionsState = {
   current: { id: null, loading: false },
 };
 
-type FetchCollectionParams = {|
+type FetchCurrentCollectionParams = {|
   errorHandlerId: string,
   page?: number,
   slug: string,
   user: number | string,
 |};
 
-type FetchCollectionAction = {|
-  type: typeof FETCH_COLLECTION,
-  payload: FetchCollectionParams,
+type FetchCurrentCollectionAction = {|
+  type: typeof FETCH_CURRENT_COLLECTION,
+  payload: FetchCurrentCollectionParams,
 |};
 
-export const fetchCollection = ({
+export const fetchCurrentCollection = ({
   errorHandlerId,
   page,
   slug,
   user,
-}: FetchCollectionParams = {}): FetchCollectionAction => {
+}: FetchCurrentCollectionParams = {}): FetchCurrentCollectionAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -74,13 +75,13 @@ export const fetchCollection = ({
   }
 
   return {
-    type: FETCH_COLLECTION,
+    type: FETCH_CURRENT_COLLECTION,
     payload: { errorHandlerId, page, slug, user },
   };
 };
 
 type FetchCurrentCollectionPageParams = {|
-  ...FetchCollectionParams,
+  ...FetchCurrentCollectionParams,
   page: number,
 |};
 
@@ -195,12 +196,12 @@ export const loadCollectionPage = ({
   };
 };
 
-type AbortFetchCollection = {|
-  type: typeof ABORT_FETCH_COLLECTION,
+type AbortFetchCurrentCollection = {|
+  type: typeof ABORT_FETCH_CURRENT_COLLECTION,
 |};
 
-export const abortFetchCollection = (): AbortFetchCollection => {
-  return { type: ABORT_FETCH_COLLECTION };
+export const abortFetchCurrentCollection = (): AbortFetchCurrentCollection => {
+  return { type: ABORT_FETCH_CURRENT_COLLECTION };
 };
 
 type CreateInternalCollectionParams = {|
@@ -234,11 +235,11 @@ export const createInternalCollection = ({
 });
 
 type Action =
-  | FetchCollectionAction
+  | FetchCurrentCollectionAction
   | LoadCollectionAction
   | FetchCurrentCollectionPageAction
   | LoadCollectionPageAction
-  | AbortFetchCollection
+  | AbortFetchCurrentCollection
 ;
 
 const reducer = (
@@ -246,7 +247,7 @@ const reducer = (
   action: Action
 ): CollectionsState => {
   switch (action.type) {
-    case FETCH_COLLECTION:
+    case FETCH_CURRENT_COLLECTION:
       return {
         ...state,
         current: {
@@ -333,7 +334,7 @@ const reducer = (
       };
     }
 
-    case ABORT_FETCH_COLLECTION:
+    case ABORT_FETCH_CURRENT_COLLECTION:
       return {
         ...state,
         current: {

@@ -3,7 +3,7 @@ import SagaTester from 'redux-saga-tester';
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   abortFetchCollection,
-  fetchCollection,
+  fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCollection,
   loadCollectionPage,
@@ -40,9 +40,9 @@ describe(__filename, () => {
     sagaTester.start(collectionsSaga);
   });
 
-  describe('fetchCollection', () => {
-    function _fetchCollection(params) {
-      sagaTester.dispatch(fetchCollection({
+  describe('fetchCurrentCollection', () => {
+    function _fetchCurrentCollection(params) {
+      sagaTester.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         ...params,
       }));
@@ -75,7 +75,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCollection({ page: parsePage(1), slug, user });
+      _fetchCurrentCollection({ page: parsePage(1), slug, user });
 
       const expectedLoadAction = loadCollection({
         addons: collectionAddons,
@@ -91,7 +91,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCollection({ slug, user });
+      _fetchCurrentCollection({ slug, user });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -108,7 +108,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCollection({ slug, user });
+      _fetchCurrentCollection({ slug, user });
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);

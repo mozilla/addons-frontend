@@ -1,6 +1,6 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
-  FETCH_COLLECTION,
+  FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   abortFetchCollection,
   loadCollection,
@@ -10,7 +10,7 @@ import * as api from 'amo/api/collections';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
-export function* fetchCollection({
+export function* fetchCurrentCollection({
   payload: {
     errorHandlerId,
     page,
@@ -78,7 +78,7 @@ export function* fetchCurrentCollectionPage({
 }
 
 export default function* collectionsSaga() {
-  yield takeLatest(FETCH_COLLECTION, fetchCollection);
+  yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
   );

@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
-  fetchCollection,
+  fetchCurrentCollection,
   fetchCurrentCollectionPage,
 } from 'amo/reducers/collections';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -97,7 +97,7 @@ export class CollectionBase extends React.Component<Props> {
     }
 
     if (!collection || collectionChanged) {
-      this.props.dispatch(fetchCollection({
+      this.props.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         page: parsePage(location.query.page),
         slug: params.slug,

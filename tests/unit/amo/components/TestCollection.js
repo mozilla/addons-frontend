@@ -12,7 +12,7 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
-  fetchCollection,
+  fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCollection,
 } from 'amo/reducers/collections';
@@ -86,7 +86,7 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
   });
 
-  it('dispatches fetchCollection on mount', () => {
+  it('dispatches fetchCurrentCollection on mount', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -97,7 +97,7 @@ describe(__filename, () => {
     renderComponent({ errorHandler, params: { slug, user }, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: 1,
       slug,
@@ -105,7 +105,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('passes the page from query string to fetchCollection', () => {
+  it('passes the page from query string to fetchCurrentCollection', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -122,7 +122,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page,
       slug,
@@ -178,7 +178,7 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const user = 'some-user';
 
-    store.dispatch(fetchCollection({
+    store.dispatch(fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       slug,
       user,
@@ -225,7 +225,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('dispatches fetchCollection when location pathname has changed', () => {
+  it('dispatches fetchCurrentCollection when location pathname has changed', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -266,7 +266,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
@@ -308,7 +308,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches fetchCollection when user param has changed', () => {
+  it('dispatches fetchCurrentCollection when user param has changed', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -332,14 +332,14 @@ describe(__filename, () => {
     wrapper.setProps({ params: newParams });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: 1,
       ...newParams,
     }));
   });
 
-  it('dispatches fetchCollection when slug param has changed', () => {
+  it('dispatches fetchCurrentCollection when slug param has changed', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -363,7 +363,7 @@ describe(__filename, () => {
     wrapper.setProps({ params: newParams });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: 1,
       ...newParams,
