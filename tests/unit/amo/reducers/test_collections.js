@@ -1,12 +1,15 @@
 import reducer, {
   abortFetchCurrentCollection,
+  abortFetchUserCollections,
   createInternalAddons,
   createInternalCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
+  fetchUserCollections,
   initialState,
   loadCurrentCollection,
   loadCurrentCollectionPage,
+  loadUserCollections,
 } from 'amo/reducers/collections';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -207,6 +210,54 @@ describe(__filename, () => {
       expect(state.current.loading).toEqual(false);
       expect(state.current.id).toEqual(null);
     });
+
+    it('sets a loading flag when fetching user collections', () => {
+      const userId = 321;
+
+      const state = reducer(undefined, fetchUserCollections({
+        errorHandlerId: 'some-error-id',
+        userId,
+      }));
+
+      const userState = state.userCollections[userId];
+      expect(userState).toBeDefined();
+      expect(userState.loading).toEqual(true);
+      expect(userState.collections).toEqual(null);
+    });
+
+    it('aborts fetching a user collection', () => {
+      const userId = 321;
+
+      let state = reducer(undefined, fetchUserCollections({
+        errorHandlerId: 'some-error-id',
+        userId,
+      }));
+
+      state = reducer(state, abortFetchUserCollections({ userId }));
+
+      const userState = state.userCollections[userId];
+      expect(userState.loading).toEqual(false);
+      expect(userState.collections).toEqual(null);
+    });
+
+    it('loads user collections', () => {
+      const userId = 321;
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      const state = reducer(undefined, loadUserCollections({
+        userId, collections: [firstCollection, secondCollection],
+      }));
+
+      const userState = state.userCollections[userId];
+      expect(userState.loading).toEqual(false);
+      expect(userState.collections).toEqual([1, 2]);
+
+      expect(state.byId[userState.collections[0]])
+        .toEqual(createInternalCollection({ detail: firstCollection }));
+      expect(state.byId[userState.collections[1]])
+        .toEqual(createInternalCollection({ detail: secondCollection }));
+    });
   });
 
   describe('fetchCurrentCollection()', () => {
@@ -241,6 +292,66 @@ describe(__filename, () => {
       expect(() => {
         fetchCurrentCollection(partialParams);
       }).toThrow('user is required');
+    });
+  });
+
+  describe('fetchUserCollections', () => {
+    const defaultParams = {
+      errorHandlerId: 'some-error-handler-id',
+      userId: Date.now(),
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => fetchUserCollections(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when errorHandlerId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.errorHandlerId;
+
+      expect(() => fetchUserCollections(params))
+        .toThrow(/errorHandlerId is required/);
+    });
+  });
+
+  describe('abortFetchUserCollections', () => {
+    const defaultParams = {
+      userId: Date.now(),
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => abortFetchUserCollections(params))
+        .toThrow(/userId is required/);
+    });
+  });
+
+  describe('loadUserCollections', () => {
+    const defaultParams = {
+      userId: 4321,
+      collections: [createFakeCollectionDetail()],
+    };
+
+    it('throws an error when collections is missing', () => {
+      const params = { ...defaultParams };
+      delete params.collections;
+
+      expect(() => loadUserCollections(params))
+        .toThrow(/collections parameter is required/);
+    });
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => loadUserCollections(params))
+        .toThrow(/userId parameter is required/);
     });
   });
 
