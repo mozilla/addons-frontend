@@ -5,8 +5,8 @@ import collectionsReducer, {
   abortFetchCurrentCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
-  loadCollection,
-  loadCollectionPage,
+  loadCurrentCollection,
+  loadCurrentCollectionPage,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -77,7 +77,7 @@ describe(__filename, () => {
 
       _fetchCurrentCollection({ page: parsePage(1), slug, user });
 
-      const expectedLoadAction = loadCollection({
+      const expectedLoadAction = loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       });
@@ -142,7 +142,7 @@ describe(__filename, () => {
 
       _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
 
-      const expectedLoadAction = loadCollectionPage({
+      const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons,
       });
 

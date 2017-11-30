@@ -5,8 +5,8 @@ import reducer, {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   initialState,
-  loadCollection,
-  loadCollectionPage,
+  loadCurrentCollection,
+  loadCurrentCollectionPage,
 } from 'amo/reducers/collections';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -55,7 +55,7 @@ describe(__filename, () => {
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
-      let state = reducer(undefined, loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
@@ -75,7 +75,7 @@ describe(__filename, () => {
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
-      const state = reducer(undefined, loadCollection({
+      const state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
@@ -95,7 +95,7 @@ describe(__filename, () => {
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
-      let state = reducer(undefined, loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
@@ -116,7 +116,7 @@ describe(__filename, () => {
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
-      let state = reducer(undefined, loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
@@ -143,7 +143,7 @@ describe(__filename, () => {
     it('cannot load collection page without a current collection', () => {
       const addons = createFakeCollectionAddons();
 
-      expect(() => reducer(undefined, loadCollectionPage({ addons })))
+      expect(() => reducer(undefined, loadCurrentCollectionPage({ addons })))
         .toThrow(/current collection does not exist/);
     });
 
@@ -153,7 +153,7 @@ describe(__filename, () => {
 
       // Load a current collection.
       // TODO: rename to loadCurrentCollection()
-      let state = reducer(undefined, loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
@@ -161,7 +161,7 @@ describe(__filename, () => {
       const newAddons = createFakeCollectionAddons({
         addons: [{ ...fakeAddon, id: 333 }],
       });
-      state = reducer(state, loadCollectionPage({ addons: newAddons }));
+      state = reducer(state, loadCurrentCollectionPage({ addons: newAddons }));
 
       const loadedCollection = state.byId[state.current.id];
 
@@ -189,12 +189,12 @@ describe(__filename, () => {
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
 
-      let state = reducer(undefined, loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: firstCollection,
       }));
 
-      state = reducer(state, loadCollection({
+      state = reducer(state, loadCurrentCollection({
         addons: createFakeCollectionAddons(),
         detail: secondCollection,
       }));
@@ -244,7 +244,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('loadCollection()', () => {
+  describe('loadCurrentCollection()', () => {
     const defaultParams = {
       addons: createFakeCollectionAddons(),
       detail: createFakeCollectionDetail(),
@@ -255,7 +255,7 @@ describe(__filename, () => {
       delete partialParams.addons;
 
       expect(() => {
-        loadCollection(partialParams);
+        loadCurrentCollection(partialParams);
       }).toThrow('addons are required');
     });
 
@@ -264,7 +264,7 @@ describe(__filename, () => {
       delete partialParams.detail;
 
       expect(() => {
-        loadCollection(partialParams);
+        loadCurrentCollection(partialParams);
       }).toThrow('detail is required');
     });
   });
@@ -314,10 +314,10 @@ describe(__filename, () => {
     });
   });
 
-  describe('loadCollectionPage()', () => {
+  describe('loadCurrentCollectionPage()', () => {
     it('throws an error when addons are missing', () => {
       expect(() => {
-        loadCollectionPage();
+        loadCurrentCollectionPage();
       }).toThrow('addons are required');
     });
   });

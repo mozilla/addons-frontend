@@ -4,11 +4,12 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const FETCH_CURRENT_COLLECTION: 'FETCH_CURRENT_COLLECTION'
   = 'FETCH_CURRENT_COLLECTION';
-export const LOAD_COLLECTION: 'LOAD_COLLECTION' = 'LOAD_COLLECTION';
+export const LOAD_CURRENT_COLLECTION: 'LOAD_CURRENT_COLLECTION'
+  = 'LOAD_CURRENT_COLLECTION';
 export const FETCH_CURRENT_COLLECTION_PAGE: 'FETCH_CURRENT_COLLECTION_PAGE'
   = 'FETCH_CURRENT_COLLECTION_PAGE';
-export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
-  = 'LOAD_COLLECTION_PAGE';
+export const LOAD_CURRENT_COLLECTION_PAGE: 'LOAD_CURRENT_COLLECTION_PAGE'
+  = 'LOAD_CURRENT_COLLECTION_PAGE';
 export const ABORT_FETCH_CURRENT_COLLECTION: 'ABORT_FETCH_CURRENT_COLLECTION'
   = 'ABORT_FETCH_CURRENT_COLLECTION';
 
@@ -147,20 +148,20 @@ export type CollectionAddonsListResponse = {|
   results: ExternalCollectionAddons,
 |};
 
-type LoadCollectionParams = {|
+type LoadCurrentCollectionParams = {|
   addons: CollectionAddonsListResponse,
   detail: ExternalCollectionDetail,
 |};
 
-type LoadCollectionAction = {|
-  type: typeof LOAD_COLLECTION,
-  payload: LoadCollectionParams,
+type LoadCurrentCollectionAction = {|
+  type: typeof LOAD_CURRENT_COLLECTION,
+  payload: LoadCurrentCollectionParams,
 |};
 
-export const loadCollection = ({
+export const loadCurrentCollection = ({
   addons,
   detail,
-}: LoadCollectionParams = {}): LoadCollectionAction => {
+}: LoadCurrentCollectionParams = {}): LoadCurrentCollectionAction => {
   if (!addons) {
     throw new Error('addons are required');
   }
@@ -169,29 +170,29 @@ export const loadCollection = ({
   }
 
   return {
-    type: LOAD_COLLECTION,
+    type: LOAD_CURRENT_COLLECTION,
     payload: { addons, detail },
   };
 };
 
-type LoadCollectionPageParams = {|
+type LoadCurrentCollectionPageParams = {|
   addons: CollectionAddonsListResponse,
 |};
 
-type LoadCollectionPageAction = {|
-  type: typeof LOAD_COLLECTION_PAGE,
-  payload: LoadCollectionPageParams,
+type LoadCurrentCollectionPageAction = {|
+  type: typeof LOAD_CURRENT_COLLECTION_PAGE,
+  payload: LoadCurrentCollectionPageParams,
 |};
 
-export const loadCollectionPage = ({
+export const loadCurrentCollectionPage = ({
   addons,
-}: LoadCollectionPageParams = {}): LoadCollectionPageAction => {
+}: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
   if (!addons) {
     throw new Error('addons are required');
   }
 
   return {
-    type: LOAD_COLLECTION_PAGE,
+    type: LOAD_CURRENT_COLLECTION_PAGE,
     payload: { addons },
   };
 };
@@ -236,9 +237,9 @@ export const createInternalCollection = ({
 
 type Action =
   | FetchCurrentCollectionAction
-  | LoadCollectionAction
+  | LoadCurrentCollectionAction
   | FetchCurrentCollectionPageAction
-  | LoadCollectionPageAction
+  | LoadCurrentCollectionPageAction
   | AbortFetchCurrentCollection
 ;
 
@@ -283,7 +284,7 @@ const reducer = (
       };
     }
 
-    case LOAD_COLLECTION: {
+    case LOAD_CURRENT_COLLECTION: {
       const { addons, detail } = action.payload;
 
       return {
@@ -306,7 +307,7 @@ const reducer = (
       };
     }
 
-    case LOAD_COLLECTION_PAGE: {
+    case LOAD_CURRENT_COLLECTION_PAGE: {
       const { addons } = action.payload;
 
       let currentCollection;

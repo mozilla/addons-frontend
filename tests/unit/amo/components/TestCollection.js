@@ -14,7 +14,7 @@ import MetadataCard from 'ui/components/MetadataCard';
 import {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
-  loadCollection,
+  loadCurrentCollection,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
@@ -135,7 +135,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -154,7 +154,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -230,7 +230,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -279,7 +279,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -314,7 +314,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -345,7 +345,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -376,7 +376,7 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: collectionAddons,
       detail: collectionDetail,
     }));
@@ -394,7 +394,7 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons({ addons: [] });
     const collectionDetail = createFakeCollectionDetail({ count: 0 });
 
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: collectionAddons,
       detail: collectionDetail,
     }));
@@ -411,7 +411,7 @@ describe(__filename, () => {
     const user = defaultUser;
 
     // User loads the collection page.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -480,7 +480,7 @@ describe(__filename, () => {
     const store = dispatchClientMetadata().store;
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -498,7 +498,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -512,7 +512,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: createFakeCollectionDetail({
         authorId: authorUserId,

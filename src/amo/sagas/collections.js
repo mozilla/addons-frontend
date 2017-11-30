@@ -3,8 +3,8 @@ import {
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   abortFetchCurrentCollection,
-  loadCollection,
-  loadCollectionPage,
+  loadCurrentCollection,
+  loadCurrentCollectionPage,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -39,7 +39,7 @@ export function* fetchCurrentCollection({
       }),
     });
 
-    yield put(loadCollection({ addons, detail }));
+    yield put(loadCurrentCollection({ addons, detail }));
   } catch (error) {
     log.warn(`Collection failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -69,7 +69,7 @@ export function* fetchCurrentCollectionPage({
       user,
     });
 
-    yield put(loadCollectionPage({ addons }));
+    yield put(loadCurrentCollectionPage({ addons }));
   } catch (error) {
     log.warn(`Collection page failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
