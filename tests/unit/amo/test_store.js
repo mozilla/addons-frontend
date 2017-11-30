@@ -25,6 +25,7 @@ describe(__filename, () => {
       'routing',
       'search',
       'user',
+      'users',
       'viewContext',
     ]);
   });

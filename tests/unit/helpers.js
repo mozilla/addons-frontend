@@ -404,6 +404,8 @@ export function createUserProfileResponse({
   };
 }
 
+export const createUserAccountResponse = createUserProfileResponse;
+
 // Returns a real-ish config object with custom parameters.
 //
 // Example:

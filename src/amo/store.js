@@ -8,6 +8,7 @@ import collections from 'amo/reducers/collections';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
+import users from 'amo/reducers/users';
 import viewContext from 'amo/reducers/viewContext';
 import abuse from 'core/reducers/abuse';
 import addons from 'core/reducers/addons';
@@ -52,6 +53,7 @@ export default function createStore({
       routing,
       search,
       user,
+      users,
       viewContext,
     }),
     initialState,
