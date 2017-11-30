@@ -1,6 +1,6 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
-import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
+import { renderIntoDocument, Simulate } from 'react-dom/test-utils';
 
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';

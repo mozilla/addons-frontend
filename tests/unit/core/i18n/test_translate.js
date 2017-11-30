@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';

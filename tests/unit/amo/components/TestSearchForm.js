@@ -121,7 +121,7 @@ describe(__filename, () => {
     it('blurs the form on submit', () => {
       const wrapper = mountComponent();
       const blurSpy = sinon.spy(
-        wrapper.find(SearchFormBase).getNode().autosuggest.input, 'blur');
+        wrapper.find(SearchFormBase).instance().autosuggest.input, 'blur');
 
       sinon.assert.notCalled(blurSpy);
       wrapper.find('input').simulate('change', createFakeChangeEvent('something'));

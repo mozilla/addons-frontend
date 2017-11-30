@@ -2,7 +2,7 @@ import React from 'react';
 import {
   renderIntoDocument as render,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';

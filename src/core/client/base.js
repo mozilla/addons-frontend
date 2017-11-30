@@ -1,6 +1,7 @@
 /* global document */
 
 import 'babel-polyfill';
+import 'raf/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
 import FastClick from 'fastclick';

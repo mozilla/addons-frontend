@@ -46,12 +46,21 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const getProps = ({ ...customProps }) => {
+  const getProps = ({ location, params, router, ...customProps } = {}) => {
     return {
       i18n: fakeI18n(),
-      location: { query: {} },
-      params: {
-        addonSlug: fakeAddon.slug,
+      // The `withRouter()` HOC uses the `router` to pass `params` and
+      // `location` to its children.
+      router: {
+        location: {
+          query: {},
+          ...location,
+        },
+        params: {
+          addonSlug: fakeAddon.slug,
+          ...params,
+        },
+        ...router,
       },
       store,
       ...customProps,
@@ -81,17 +90,17 @@ describe(__filename, () => {
 
   describe('<AddonReviewList/>', () => {
     it('requires location params', () => {
-      expect(() => render({ params: null }))
+      expect(() => render({ router: { params: null } }))
         .toThrowError(/component had a falsey params\.addonSlug/);
     });
 
     it('requires an addonSlug param', () => {
-      expect(() => render({ params: {} }))
+      expect(() => render({ router: { params: {} } }))
         .toThrowError(/component had a falsey params\.addonSlug/);
     });
 
     it('requires a non-empty addonSlug param', () => {
-      expect(() => render({ params: { addonSlug: null } }))
+      expect(() => render({ router: { params: { addonSlug: null } } }))
         .toThrowError(/component had a falsey params\.addonSlug/);
     });
 
@@ -584,10 +593,19 @@ describe(__filename, () => {
     });
 
     it('resets the page after submitting a review', () => {
-      const router = { push: sinon.stub() };
+      const router = {
+        location: {
+          query: { page: 2 },
+        },
+        params: {
+          addonSlug: fakeAddon.slug,
+        },
+        push: sinon.stub(),
+      };
+
       dispatchAddon({ ...fakeAddon });
-      const location = { query: { page: 2 } };
-      const root = render({ reviews: null, router, location });
+
+      const root = render({ reviews: null, router });
 
       const manager = root.find(RatingManager);
       expect(manager).toHaveProp('onReviewSubmitted');

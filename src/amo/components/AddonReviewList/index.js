@@ -318,14 +318,14 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 }
 
 export const extractId = (ownProps: Props) => {
-  const { location, params } = ownProps;
+  const { location, params } = ownProps.router;
 
   return `${params.addonSlug}-${parsePage(location.query.page)}`;
 };
 
 export default compose(
-  connect(mapStateToProps),
-  translate({ withRef: true }),
-  withFixedErrorHandler({ fileName: __filename, extractId }),
   withRouter,
+  connect(mapStateToProps),
+  translate(),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonReviewListBase);

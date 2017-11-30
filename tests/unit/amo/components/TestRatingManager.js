@@ -2,7 +2,7 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';

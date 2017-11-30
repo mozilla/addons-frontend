@@ -2,7 +2,7 @@ import React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 import { Link as ReactRouterLink } from 'react-router';
 
