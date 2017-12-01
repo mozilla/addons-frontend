@@ -154,8 +154,6 @@ describe(__filename, () => {
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
-      // Load a current collection.
-      // TODO: rename to loadCurrentCollection()
       let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
