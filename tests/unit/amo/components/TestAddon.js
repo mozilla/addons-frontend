@@ -440,6 +440,25 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  it('dispatches a server redirect when slug is a stringified integer', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = createInternalAddon(fakeAddon);
+    store.dispatch(_loadAddons({ addon }));
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    renderComponent({
+      // We set the numeric `id` as slug, casted as a string.
+      params: { slug: `${addon.id}` }, store,
+    });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 301,
+      url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
   it('sanitizes a title', () => {
     const root = shallowRender({
       addon: createInternalAddon({
