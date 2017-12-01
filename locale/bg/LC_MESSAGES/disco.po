@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:59+0000\n"
-"PO-Revision-Date: 2017-09-13 14:55+0000\n"
+"PO-Revision-Date: 2017-12-01 10:38+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Грешка на сървъра"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Съжаляваме, но възникна грешка и не завършихме вашата заявка. Грешката е "
-"записана при нас и ще я проверим."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Съжаляваме, но възникна грешка и не завършихме вашата заявка. Грешката е записана при нас и ще я проверим."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Код на грешката: %(status)s."
 
@@ -43,8 +38,7 @@ msgstr "Съжаляваме, но на въведения от вас адре�
 msgid "Install Theme"
 msgstr "Инсталиране на темата"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
@@ -134,7 +128,7 @@ msgstr "Firefox за iOS за момента не поддържа добавк�
 
 #: src/disco/components/AddonCompatibilityError/index.js:44
 msgid "This add-on does not support your version of Firefox."
-msgstr "Добавката не поддържа версията на вашия четец."
+msgstr "Добавката не поддържа изданието на вашия четец."
 
 #: src/disco/components/AddonCompatibilityError/index.js:49
 msgid "This add-on does not support your browser."
@@ -150,21 +144,15 @@ msgstr "Още добавки"
 
 #: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
-msgstr "Персонализирайте вашия Firefox"
+msgstr "Настройте вашия Firefox"
 
 #: src/disco/containers/DiscoPane.js:133
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Има хиляди свободни добавки, създадени от разработчици от цял свят, които "
-"можете да инсталирате, за да направите Firefox изцяло ваш: от забавни "
-"визуални теми до мощни инструменти и свойства. За ваше улеснение то някои, "
-"които ви препоръчваме поради техните забележителни свойства и "
-"производителност."
+"Има хиляди свободни добавки, създадени от разработчици от цял свят, които можете да инсталирате, за да направите Firefox изцяло ваш: от забавни визуални теми до мощни инструменти и свойства. За ваше"
+" улеснение то някои, които ви препоръчваме поради техните забележителни свойства и производителност."
 
 #: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
