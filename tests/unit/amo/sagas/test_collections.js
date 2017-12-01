@@ -3,15 +3,20 @@ import SagaTester from 'redux-saga-tester';
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   abortFetchCurrentCollection,
+  abortFetchUserCollections,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
+  fetchUserCollections,
   loadCurrentCollection,
   loadCurrentCollectionPage,
+  loadUserCollections,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
 import { parsePage } from 'core/utils';
-import { createStubErrorHandler } from 'tests/unit/helpers';
+import {
+  apiResponsePage, createStubErrorHandler,
+} from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
@@ -178,6 +183,77 @@ describe(__filename, () => {
       await sagaTester.waitFor(errorAction.type);
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
       expect(sagaTester.getCalledActions()[3]).toEqual(abortFetchCurrentCollection());
+    });
+  });
+
+  describe('fetchUserCollections', () => {
+    const _fetchUserCollections = (params) => {
+      sagaTester.dispatch(fetchUserCollections({
+        errorHandlerId: errorHandler.id,
+        userId: 321,
+        ...params,
+      }));
+    };
+
+    it('calls the API to fetch user collections', async () => {
+      const userId = 43321;
+      const state = sagaTester.getState();
+
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+      const externalCollections = [firstCollection, secondCollection];
+
+      mockApi
+        .expects('listCollections')
+        .withArgs({
+          api: state.api,
+          user: userId,
+        })
+        .once()
+        .returns(Promise.resolve(apiResponsePage({
+          results: externalCollections,
+        })));
+
+      _fetchUserCollections({ userId });
+
+      const expectedLoadAction = loadUserCollections({
+        userId, collections: externalCollections,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('clears the error handler', async () => {
+      _fetchUserCollections();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('dispatches an error', async () => {
+      const userId = 55432;
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('listCollections')
+        .once()
+        .returns(Promise.reject(error));
+
+      _fetchUserCollections({ userId });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[3])
+        .toEqual(abortFetchUserCollections({ userId }));
     });
   });
 });

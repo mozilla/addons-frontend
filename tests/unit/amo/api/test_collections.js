@@ -2,6 +2,7 @@ import * as api from 'core/api';
 import {
   getCollectionAddons,
   getCollectionDetail,
+  listCollections,
 } from 'amo/api/collections';
 import { parsePage } from 'core/utils';
 import { createApiResponse } from 'tests/unit/helpers';
@@ -101,6 +102,42 @@ describe(__filename, () => {
         .returns(createApiResponse());
 
       await getCollectionAddons(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('listCollections', () => {
+    const getListParams = (params = {}) => {
+      return {
+        api: apiState,
+        user: 'user-id-or-string',
+        ...params,
+      };
+    };
+
+    it('throws an error when the user parameter is missing', () => {
+      const params = getListParams();
+      delete params.user;
+
+      expect(() => listCollections(params))
+        .toThrow(/user parameter is required/);
+    });
+
+    it('calls the list collections API', async () => {
+      const user = 'some-user-id';
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `accounts/account/${user}/collections`,
+          state: apiState,
+        })
+        .once()
+        .returns(createApiResponse());
+
+      const params = getListParams({ user });
+      await listCollections(params);
       mockApi.verify();
     });
   });

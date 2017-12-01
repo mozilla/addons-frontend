@@ -2,9 +2,12 @@ import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
+  FETCH_USER_COLLECTIONS,
   abortFetchCurrentCollection,
+  abortFetchUserCollections,
   loadCurrentCollection,
   loadCurrentCollectionPage,
+  loadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -77,9 +80,35 @@ export function* fetchCurrentCollectionPage({
   }
 }
 
+export function* fetchUserCollections({
+  payload: { errorHandlerId, userId },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const collections = yield call(api.listCollections, {
+      api: state.api,
+      user: userId,
+    });
+
+    yield put(loadUserCollections({
+      userId, collections: collections.results,
+    }));
+  } catch (error) {
+    log.warn(`Failed to fetch user collections: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    yield put(abortFetchUserCollections({ userId }));
+  }
+}
+
 export default function* collectionsSaga() {
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
   );
+  yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
 }
