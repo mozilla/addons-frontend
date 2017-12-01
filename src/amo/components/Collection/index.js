@@ -9,6 +9,7 @@ import Link from 'amo/components/Link';
 import {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
+  getCurrentCollection,
 } from 'amo/reducers/collections';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { COLLECTIONS_EDIT } from 'core/constants';
@@ -217,14 +218,11 @@ export class CollectionBase extends React.Component<Props> {
 export const mapStateToProps = (
   state: {| collections: CollectionsState, user: UserStateType |}
 ) => {
-  const { id: collectionId, loading } = state.collections.current;
+  const { loading } = state.collections.current;
 
   let hasEditPermission = false;
-  let collection;
-  if (collectionId) {
-    collection = state.collections.byId[collectionId];
-  }
 
+  const collection = getCurrentCollection(state.collections);
   if (collection) {
     hasEditPermission = collection.authorId === state.user.id ||
       hasPermission(state, COLLECTIONS_EDIT);

@@ -308,6 +308,37 @@ export const createInternalAddons = (
   });
 };
 
+type GetCollectionByIdParams = {|
+  state: CollectionsState,
+  id: CollectionId,
+|};
+
+export const getCollectionById = (
+  { id, state }: GetCollectionByIdParams
+): CollectionType | null => {
+  if (!id) {
+    throw new Error('The id parameter is required');
+  }
+  if (!state) {
+    throw new Error('The state parameter is required');
+  }
+
+  return state.byId[id] || null;
+};
+
+export const getCurrentCollection = (
+  state: CollectionsState
+): CollectionType | null => {
+  if (!state) {
+    throw new Error('The state parameter is required');
+  }
+  if (!state.current.id) {
+    return null;
+  }
+
+  return getCollectionById({ id: state.current.id, state });
+};
+
 export const createInternalCollection = ({
   detail,
   items,
@@ -355,10 +386,7 @@ const reducer = (
         loading: true,
       };
 
-      let currentCollection;
-      if (state.current.id) {
-        currentCollection = state.byId[state.current.id];
-      }
+      const currentCollection = getCurrentCollection(state);
       if (!currentCollection) {
         return { ...state, current };
       }
@@ -402,10 +430,7 @@ const reducer = (
     case LOAD_CURRENT_COLLECTION_PAGE: {
       const { addons } = action.payload;
 
-      let currentCollection;
-      if (state.current.id) {
-        currentCollection = state.byId[state.current.id];
-      }
+      const currentCollection = getCurrentCollection(state);
       if (!currentCollection) {
         throw new Error(
           `${action.type}: a current collection does not exist`);

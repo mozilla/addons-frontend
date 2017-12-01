@@ -6,6 +6,8 @@ import reducer, {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  getCollectionById,
+  getCurrentCollection,
   initialState,
   loadCurrentCollection,
   loadCurrentCollectionPage,
@@ -70,8 +72,7 @@ describe(__filename, () => {
         user: 'some-user-id-or-name',
       }));
 
-      const collection = state.byId[state.current.id];
-      expect(collection.addons).toEqual([]);
+      expect(getCurrentCollection(state).addons).toEqual([]);
     });
 
     it('loads a collection', () => {
@@ -83,7 +84,7 @@ describe(__filename, () => {
         detail: collectionDetail,
       }));
 
-      const loadedCollection = state.byId[state.current.id];
+      const loadedCollection = getCurrentCollection(state);
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection).toEqual(createInternalCollection({
@@ -133,8 +134,7 @@ describe(__filename, () => {
       }));
 
       expect(state.current.loading).toEqual(true);
-      const collection = state.byId[state.current.id];
-      expect(collection).toEqual({
+      expect(getCurrentCollection(state)).toEqual({
         ...createInternalCollection({
           detail: collectionDetail,
           items: collectionAddons.results,
@@ -162,9 +162,11 @@ describe(__filename, () => {
       const newAddons = createFakeCollectionAddons({
         addons: [{ ...fakeAddon, id: 333 }],
       });
-      state = reducer(state, loadCurrentCollectionPage({ addons: newAddons }));
+      state = reducer(state, loadCurrentCollectionPage({
+        addons: newAddons,
+      }));
 
-      const loadedCollection = state.byId[state.current.id];
+      const loadedCollection = getCurrentCollection(state);
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection.addons)
@@ -428,6 +430,75 @@ describe(__filename, () => {
       expect(() => {
         loadCurrentCollectionPage();
       }).toThrow('addons are required');
+    });
+  });
+
+  describe('getCollectionById', () => {
+    const getParams = (params = {}) => {
+      return { state: initialState, id: 4321, ...params };
+    };
+
+    it('requires a state parameter', () => {
+      const params = getParams();
+      delete params.state;
+
+      expect(() => getCollectionById(params))
+        .toThrow(/state parameter is required/);
+    });
+
+    it('requires an id parameter', () => {
+      const params = getParams();
+      delete params.id;
+
+      expect(() => getCollectionById(params))
+        .toThrow(/id parameter is required/);
+    });
+
+    it('returns a collection', () => {
+      const id = 45321;
+      const addons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail({ id });
+      const internalCollection = createInternalCollection({
+        items: addons.results, detail: collectionDetail,
+      });
+
+      const state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      expect(getCollectionById(getParams({ id, state })))
+        .toEqual(internalCollection);
+    });
+
+    it('returns null when the collection does not exist', () => {
+      // No collection has been loaded into state.
+      expect(getCollectionById(getParams({ id: 3333 }))).toEqual(null);
+    });
+  });
+
+  describe('getCurrentCollection', () => {
+    it('requires the state parameter', () => {
+      expect(() => getCurrentCollection())
+        .toThrow(/state parameter is required/);
+    });
+
+    it('returns null if the current collection does not exist', () => {
+      expect(getCurrentCollection(initialState)).toEqual(null);
+    });
+
+    it('returns the current collection', () => {
+      const id = 45321;
+      const addons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail({ id });
+      const internalCollection = createInternalCollection({
+        items: addons.results, detail: collectionDetail,
+      });
+
+      const state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      expect(getCurrentCollection(state)).toEqual(internalCollection);
     });
   });
 });
