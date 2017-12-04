@@ -9,6 +9,8 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_RANDOM,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
@@ -35,7 +37,9 @@ export function* fetchHomeAddons({
     const {
       firstCollection,
       secondCollection,
-      featuredThemes,
+      featuredExtensions,
+      popularExtensions,
+      topRatedThemes,
       upAndComingExtensions,
     } = yield all({
       firstCollection: call(getCollectionAddons, {
@@ -50,13 +54,31 @@ export function* fetchHomeAddons({
         slug: secondCollectionSlug,
         user: secondCollectionUser,
       }),
-      featuredThemes: call(searchApi, {
+      featuredExtensions: call(searchApi, {
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_EXTENSION,
           featured: true,
           page_size: LANDING_PAGE_ADDON_COUNT,
           sort: SEARCH_SORT_RANDOM,
+        },
+        page: 1,
+      }),
+      popularExtensions: call(searchApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_POPULAR,
+        },
+        page: 1,
+      }),
+      topRatedThemes: call(searchApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_TOP_RATED,
         },
         page: 1,
       }),
@@ -74,7 +96,9 @@ export function* fetchHomeAddons({
     yield put(loadHomeAddons({
       firstCollection,
       secondCollection,
-      featuredThemes,
+      featuredExtensions,
+      popularExtensions,
+      topRatedThemes,
       upAndComingExtensions,
     }));
   } catch (error) {

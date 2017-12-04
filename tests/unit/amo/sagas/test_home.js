@@ -11,8 +11,10 @@ import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -93,7 +95,36 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(secondCollection));
 
-      const featuredThemes = createAddonsApiResult([fakeTheme]);
+      const featuredExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_EXTENSION,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(featuredExtensions));
+
+      const popularExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_EXTENSION,
+            sort: SEARCH_SORT_POPULAR,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(popularExtensions));
+
+      const topRatedThemes = createAddonsApiResult([fakeTheme]);
       mockSearchApi
         .expects('search')
         .withArgs({
@@ -101,12 +132,11 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             addonType: ADDON_TYPE_THEME,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
+            sort: SEARCH_SORT_TOP_RATED,
           },
           page: 1,
         })
-        .returns(Promise.resolve(featuredThemes));
+        .returns(Promise.resolve(topRatedThemes));
 
       const upAndComingExtensions = createAddonsApiResult([{
         ...fakeAddon, slug: 'trending-addon',
@@ -134,7 +164,9 @@ describe(__filename, () => {
       const expectedLoadAction = loadHomeAddons({
         firstCollection,
         secondCollection,
-        featuredThemes,
+        featuredExtensions,
+        popularExtensions,
+        topRatedThemes,
         upAndComingExtensions,
       });
 

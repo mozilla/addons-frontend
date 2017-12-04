@@ -36,8 +36,9 @@ describe(__filename, () => {
         secondCollection: createFakeCollectionAddons({
           addons: Array(10).fill(fakeAddon),
         }),
-        featuredThemes: createAddonsApiResult([fakeTheme]),
-        upAndComingExtensions: createAddonsApiResult([fakeAddon]),
+        featuredExtensions: createAddonsApiResult([fakeAddon]),
+        popularExtensions: createAddonsApiResult([fakeAddon]),
+        topRatedThemes: createAddonsApiResult([fakeTheme]),
       }));
 
       const homeState = store.getState().home;
@@ -51,11 +52,14 @@ describe(__filename, () => {
       expect(homeState.secondCollection).toEqual(
         Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
       );
-      expect(homeState.featuredThemes).toEqual([
-        createInternalAddon(fakeTheme),
-      ]);
-      expect(homeState.upAndComingExtensions).toEqual([
+      expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
+      ]);
+      expect(homeState.popularExtensions).toEqual([
+        createInternalAddon(fakeAddon),
+      ]);
+      expect(homeState.topRatedThemes).toEqual([
+        createInternalAddon(fakeTheme),
       ]);
     });
 
@@ -133,7 +137,9 @@ describe(__filename, () => {
     const defaultParams = {
       firstCollection: {},
       secondCollection: {},
-      featuredThemes: {},
+      featuredExtensions: {},
+      popularExtensions: {},
+      topRatedThemes: {},
       upAndComingExtensions: {},
     };
 
@@ -155,22 +161,31 @@ describe(__filename, () => {
       }).toThrow('secondCollection is required');
     });
 
-    it('throws an error when featured themes are missing', () => {
+    it('throws an error when featured extensions are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.featuredThemes;
+      delete partialParams.featuredExtensions;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('featuredThemes is required');
+      }).toThrow('featuredExtensions are required');
     });
 
-    it('throws an error when up and coming extensions are missing', () => {
+    it('throws an error when popular extensions are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.upAndComingExtensions;
+      delete partialParams.popularExtensions;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('upAndComingExtensions is required');
+      }).toThrow('popularExtensions are required');
+    });
+
+    it('throws an error when top-rated themes are missing', () => {
+      const partialParams = { ...defaultParams };
+      delete partialParams.topRatedThemes;
+
+      expect(() => {
+        loadHomeAddons(partialParams);
+      }).toThrow('topRatedThemes are required');
     });
   });
 });
