@@ -316,6 +316,7 @@ export const createFakeCollectionDetail = ({
   name = 'My Addons',
   count = 123,
   authorId = 99999,
+  ...params
 } = {}) => {
   return {
     addon_count: count,
@@ -334,6 +335,7 @@ export const createFakeCollectionDetail = ({
     slug: 'my-addons',
     url: `https://example.org/en-US/firefox/collections/johndoe/my-addons/`,
     uuid: 'ef7e1344-1c3d-4bbb-bbd8-df9d8c9020ec',
+    ...params,
   };
 };
 

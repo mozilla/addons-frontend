@@ -1,19 +1,24 @@
 import reducer, {
-  abortFetchCollection,
+  abortFetchCurrentCollection,
+  abortFetchUserCollections,
   createInternalAddons,
   createInternalCollection,
-  fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollection,
+  fetchCurrentCollectionPage,
+  fetchUserCollections,
+  getCollectionById,
+  getCurrentCollection,
   initialState,
-  loadCollection,
-  loadCollectionPage,
+  loadCurrentCollection,
+  loadCurrentCollectionPage,
+  loadUserCollections,
 } from 'amo/reducers/collections';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
-  dispatchClientMetadata,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 
@@ -30,105 +35,106 @@ describe(__filename, () => {
     });
 
     it('indicates when fetching a collection', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(fetchCollection({
+      const state = reducer(undefined, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current).toEqual(null);
+      expect(state.current.loading).toEqual(true);
+      expect(state.current.id).toEqual(null);
     });
 
-    it('indicates when fetching a collection page', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(fetchCollectionPage({
+    it('sets a loading flag when fetching a collection page', () => {
+      const state = reducer(undefined, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current.addons).toEqual([]);
+      expect(state.current.loading).toEqual(true);
     });
 
-    it('loads a collection', () => {
-      const { store } = dispatchClientMetadata();
-
+    it('resets add-ons when fetching a collection page', () => {
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
-      const collectionsState = store.getState().collections;
-      const loadedCollection = collectionsState.current;
+      state = reducer(state, fetchCurrentCollectionPage({
+        errorHandlerId: createStubErrorHandler().id,
+        page: parsePage(2),
+        slug: collectionDetail.slug,
+        user: 'some-user-id-or-name',
+      }));
+
+      expect(getCurrentCollection(state).addons).toEqual([]);
+    });
+
+    it('loads a collection', () => {
+      const collectionAddons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail();
+
+      const state = reducer(undefined, loadCurrentCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }));
+
+      const loadedCollection = getCurrentCollection(state);
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection).toEqual(createInternalCollection({
         detail: collectionDetail,
         items: collectionAddons.results,
       }));
-      expect(collectionsState.loading).toEqual(false);
+      expect(state.current.loading).toEqual(false);
     });
 
     it('resets the current collection when fetching a new collection', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
       // 2. User navigates to another collection.
-      store.dispatch(fetchCollection({
+      state = reducer(state, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current).toEqual(null);
+      expect(state.current.loading).toEqual(true);
+      expect(state.current.id).toEqual(null);
     });
 
     it('resets the add-ons when fetching a new collection page', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
       // 1. User loads a collection.
-      store.dispatch(loadCollection({
+      let state = reducer(undefined, loadCurrentCollection({
         addons: collectionAddons,
         detail: collectionDetail,
       }));
 
       // 2. User clicks the "next" pagination link.
-      store.dispatch(fetchCollectionPage({
+      state = reducer(state, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
         page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      const collectionsState = store.getState().collections;
-
-      expect(collectionsState.loading).toEqual(true);
-      expect(collectionsState.current).toEqual({
+      expect(state.current.loading).toEqual(true);
+      expect(getCurrentCollection(state)).toEqual({
         ...createInternalCollection({
           detail: collectionDetail,
           items: collectionAddons.results,
@@ -137,40 +143,124 @@ describe(__filename, () => {
       });
     });
 
+    it('cannot load collection page without a current collection', () => {
+      const addons = createFakeCollectionAddons();
+
+      expect(() => reducer(undefined, loadCurrentCollectionPage({ addons })))
+        .toThrow(/current collection does not exist/);
+    });
+
     it('loads a collection page', () => {
-      const { store } = dispatchClientMetadata();
-
       const collectionAddons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail();
 
-      store.dispatch(loadCollectionPage({ addons: collectionAddons }));
+      let state = reducer(undefined, loadCurrentCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }));
 
-      const collectionsState = store.getState().collections;
-      const loadedCollection = collectionsState.current;
+      const newAddons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 333 }],
+      });
+      state = reducer(state, loadCurrentCollectionPage({
+        addons: newAddons,
+      }));
+
+      const loadedCollection = getCurrentCollection(state);
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection.addons)
-        .toEqual(createInternalAddons(collectionAddons.results));
-      expect(collectionsState.loading).toEqual(false);
+        .toEqual(createInternalAddons(newAddons.results));
+      expect(state.current.loading).toEqual(false);
     });
 
-    it('resets the state when fetching is aborted', () => {
-      const state = reducer(undefined, fetchCollectionPage({
+    it('resets the current collection when fetching is aborted', () => {
+      const state = reducer(undefined, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
-        page: parsePage(2),
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
 
-      expect(state.loading).toEqual(true);
-      expect(state.current.addons).toEqual([]);
+      expect(state.current.loading).toEqual(true);
 
-      const newState = reducer(state, abortFetchCollection());
-      expect(newState.loading).toEqual(false);
-      expect(newState.current).toEqual(null);
+      const newState = reducer(state, abortFetchCurrentCollection());
+      expect(newState.current.loading).toEqual(false);
+      expect(newState.current.id).toEqual(null);
+    });
+
+    it('preserves collection data when fetching is aborted', () => {
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      let state = reducer(undefined, loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: firstCollection,
+      }));
+
+      state = reducer(state, loadCurrentCollection({
+        addons: createFakeCollectionAddons(),
+        detail: secondCollection,
+      }));
+
+      state = reducer(state, abortFetchCurrentCollection());
+
+      // Make sure collection data still exists.
+      expect(state.byId[firstCollection.id]).toBeDefined();
+      expect(state.byId[secondCollection.id]).toBeDefined();
+      expect(state.current.loading).toEqual(false);
+      expect(state.current.id).toEqual(null);
+    });
+
+    it('sets a loading flag when fetching user collections', () => {
+      const userId = 321;
+
+      const state = reducer(undefined, fetchUserCollections({
+        errorHandlerId: 'some-error-id',
+        userId,
+      }));
+
+      const userState = state.userCollections[userId];
+      expect(userState).toBeDefined();
+      expect(userState.loading).toEqual(true);
+      expect(userState.collections).toEqual(null);
+    });
+
+    it('aborts fetching a user collection', () => {
+      const userId = 321;
+
+      let state = reducer(undefined, fetchUserCollections({
+        errorHandlerId: 'some-error-id',
+        userId,
+      }));
+
+      state = reducer(state, abortFetchUserCollections({ userId }));
+
+      const userState = state.userCollections[userId];
+      expect(userState.loading).toEqual(false);
+      expect(userState.collections).toEqual(null);
+    });
+
+    it('loads user collections', () => {
+      const userId = 321;
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      const state = reducer(undefined, loadUserCollections({
+        userId, collections: [firstCollection, secondCollection],
+      }));
+
+      const userState = state.userCollections[userId];
+      expect(userState.loading).toEqual(false);
+      expect(userState.collections).toEqual([1, 2]);
+
+      expect(state.byId[userState.collections[0]])
+        .toEqual(createInternalCollection({ detail: firstCollection }));
+      expect(state.byId[userState.collections[1]])
+        .toEqual(createInternalCollection({ detail: secondCollection }));
     });
   });
 
-  describe('fetchCollection()', () => {
+  describe('fetchCurrentCollection()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
       slug: 'some-collection-slug',
@@ -182,7 +272,7 @@ describe(__filename, () => {
       delete partialParams.errorHandlerId;
 
       expect(() => {
-        fetchCollection(partialParams);
+        fetchCurrentCollection(partialParams);
       }).toThrow('errorHandlerId is required');
     });
 
@@ -191,7 +281,7 @@ describe(__filename, () => {
       delete partialParams.slug;
 
       expect(() => {
-        fetchCollection(partialParams);
+        fetchCurrentCollection(partialParams);
       }).toThrow('slug is required');
     });
 
@@ -200,12 +290,72 @@ describe(__filename, () => {
       delete partialParams.user;
 
       expect(() => {
-        fetchCollection(partialParams);
+        fetchCurrentCollection(partialParams);
       }).toThrow('user is required');
     });
   });
 
-  describe('loadCollection()', () => {
+  describe('fetchUserCollections', () => {
+    const defaultParams = {
+      errorHandlerId: 'some-error-handler-id',
+      userId: Date.now(),
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => fetchUserCollections(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when errorHandlerId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.errorHandlerId;
+
+      expect(() => fetchUserCollections(params))
+        .toThrow(/errorHandlerId is required/);
+    });
+  });
+
+  describe('abortFetchUserCollections', () => {
+    const defaultParams = {
+      userId: Date.now(),
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => abortFetchUserCollections(params))
+        .toThrow(/userId is required/);
+    });
+  });
+
+  describe('loadUserCollections', () => {
+    const defaultParams = {
+      userId: 4321,
+      collections: [createFakeCollectionDetail()],
+    };
+
+    it('throws an error when collections is missing', () => {
+      const params = { ...defaultParams };
+      delete params.collections;
+
+      expect(() => loadUserCollections(params))
+        .toThrow(/collections parameter is required/);
+    });
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => loadUserCollections(params))
+        .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('loadCurrentCollection()', () => {
     const defaultParams = {
       addons: createFakeCollectionAddons(),
       detail: createFakeCollectionDetail(),
@@ -216,7 +366,7 @@ describe(__filename, () => {
       delete partialParams.addons;
 
       expect(() => {
-        loadCollection(partialParams);
+        loadCurrentCollection(partialParams);
       }).toThrow('addons are required');
     });
 
@@ -225,12 +375,12 @@ describe(__filename, () => {
       delete partialParams.detail;
 
       expect(() => {
-        loadCollection(partialParams);
+        loadCurrentCollection(partialParams);
       }).toThrow('detail is required');
     });
   });
 
-  describe('fetchCollectionPage()', () => {
+  describe('fetchCurrentCollectionPage()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
       page: 123,
@@ -243,7 +393,7 @@ describe(__filename, () => {
       delete partialParams.errorHandlerId;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('errorHandlerId is required');
     });
 
@@ -252,7 +402,7 @@ describe(__filename, () => {
       delete partialParams.slug;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('slug is required');
     });
 
@@ -261,7 +411,7 @@ describe(__filename, () => {
       delete partialParams.user;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('user is required');
     });
 
@@ -270,16 +420,85 @@ describe(__filename, () => {
       delete partialParams.page;
 
       expect(() => {
-        fetchCollectionPage(partialParams);
+        fetchCurrentCollectionPage(partialParams);
       }).toThrow('page is required');
     });
   });
 
-  describe('loadCollectionPage()', () => {
+  describe('loadCurrentCollectionPage()', () => {
     it('throws an error when addons are missing', () => {
       expect(() => {
-        loadCollectionPage();
+        loadCurrentCollectionPage();
       }).toThrow('addons are required');
+    });
+  });
+
+  describe('getCollectionById', () => {
+    const getParams = (params = {}) => {
+      return { state: initialState, id: 4321, ...params };
+    };
+
+    it('requires a state parameter', () => {
+      const params = getParams();
+      delete params.state;
+
+      expect(() => getCollectionById(params))
+        .toThrow(/state parameter is required/);
+    });
+
+    it('requires an id parameter', () => {
+      const params = getParams();
+      delete params.id;
+
+      expect(() => getCollectionById(params))
+        .toThrow(/id parameter is required/);
+    });
+
+    it('returns a collection', () => {
+      const id = 45321;
+      const addons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail({ id });
+      const internalCollection = createInternalCollection({
+        items: addons.results, detail: collectionDetail,
+      });
+
+      const state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      expect(getCollectionById(getParams({ id, state })))
+        .toEqual(internalCollection);
+    });
+
+    it('returns null when the collection does not exist', () => {
+      // No collection has been loaded into state.
+      expect(getCollectionById(getParams({ id: 3333 }))).toEqual(null);
+    });
+  });
+
+  describe('getCurrentCollection', () => {
+    it('requires the state parameter', () => {
+      expect(() => getCurrentCollection())
+        .toThrow(/state parameter is required/);
+    });
+
+    it('returns null if the current collection does not exist', () => {
+      expect(getCurrentCollection(initialState)).toEqual(null);
+    });
+
+    it('returns the current collection', () => {
+      const id = 45321;
+      const addons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail({ id });
+      const internalCollection = createInternalCollection({
+        items: addons.results, detail: collectionDetail,
+      });
+
+      const state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      expect(getCurrentCollection(state)).toEqual(internalCollection);
     });
   });
 });

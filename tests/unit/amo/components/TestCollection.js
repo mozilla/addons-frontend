@@ -12,9 +12,9 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
-  fetchCollection,
-  fetchCollectionPage,
-  loadCollection,
+  fetchCurrentCollection,
+  fetchCurrentCollectionPage,
+  loadCurrentCollection,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
@@ -86,7 +86,7 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
   });
 
-  it('dispatches fetchCollection on mount', () => {
+  it('dispatches fetchCurrentCollection on mount', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -97,7 +97,7 @@ describe(__filename, () => {
     renderComponent({ errorHandler, params: { slug, user }, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: 1,
       slug,
@@ -105,7 +105,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('passes the page from query string to fetchCollection', () => {
+  it('passes the page from query string to fetchCurrentCollection', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -122,7 +122,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page,
       slug,
@@ -135,7 +135,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -154,7 +154,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -178,7 +178,7 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const user = 'some-user';
 
-    store.dispatch(fetchCollection({
+    store.dispatch(fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       slug,
       user,
@@ -198,7 +198,7 @@ describe(__filename, () => {
     const slug = 'collection-slug';
     const user = 'some-user';
 
-    store.dispatch(fetchCollectionPage({
+    store.dispatch(fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 123,
       slug,
@@ -225,12 +225,12 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('dispatches fetchCollection when location pathname has changed', () => {
+  it('dispatches fetchCurrentCollection when location pathname has changed', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -266,7 +266,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
@@ -274,12 +274,12 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches fetchCollectionPage when page has changed', () => {
+  it('dispatches fetchCurrentCollectionPage when page has changed', () => {
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -300,7 +300,7 @@ describe(__filename, () => {
     wrapper.setProps({ location: newLocation });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollectionPage({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page,
       user: defaultUser,
@@ -308,13 +308,13 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches fetchCollection when user param has changed', () => {
+  it('dispatches fetchCurrentCollection when user param has changed', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -332,20 +332,20 @@ describe(__filename, () => {
     wrapper.setProps({ params: newParams });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: 1,
       ...newParams,
     }));
   });
 
-  it('dispatches fetchCollection when slug param has changed', () => {
+  it('dispatches fetchCurrentCollection when slug param has changed', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -363,7 +363,7 @@ describe(__filename, () => {
     wrapper.setProps({ params: newParams });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCollection({
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: 1,
       ...newParams,
@@ -376,7 +376,7 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
 
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: collectionAddons,
       detail: collectionDetail,
     }));
@@ -394,7 +394,7 @@ describe(__filename, () => {
     const collectionAddons = createFakeCollectionAddons({ addons: [] });
     const collectionDetail = createFakeCollectionDetail({ count: 0 });
 
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: collectionAddons,
       detail: collectionDetail,
     }));
@@ -407,11 +407,11 @@ describe(__filename, () => {
     const store = dispatchClientMetadata().store;
 
     const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const user = 'user-id-or-name';
+    const slug = defaultCollectionDetail.slug;
+    const user = defaultUser;
 
     // User loads the collection page.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -425,7 +425,7 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', false);
 
     // User clicks on 'next' pagination link.
-    store.dispatch(fetchCollectionPage({
+    store.dispatch(fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 2,
       slug,
@@ -480,7 +480,7 @@ describe(__filename, () => {
     const store = dispatchClientMetadata().store;
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -498,7 +498,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
     }));
@@ -512,7 +512,7 @@ describe(__filename, () => {
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
     // We need a collection for this test case.
-    store.dispatch(loadCollection({
+    store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: createFakeCollectionDetail({
         authorId: authorUserId,

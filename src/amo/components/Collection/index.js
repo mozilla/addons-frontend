@@ -7,8 +7,9 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
-  fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollection,
+  fetchCurrentCollectionPage,
+  getCurrentCollection,
 } from 'amo/reducers/collections';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { COLLECTIONS_EDIT } from 'core/constants';
@@ -97,7 +98,7 @@ export class CollectionBase extends React.Component<Props> {
     }
 
     if (!collection || collectionChanged) {
-      this.props.dispatch(fetchCollection({
+      this.props.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         page: parsePage(location.query.page),
         slug: params.slug,
@@ -108,7 +109,7 @@ export class CollectionBase extends React.Component<Props> {
     }
 
     if (collection && addonsPageChanged) {
-      this.props.dispatch(fetchCollectionPage({
+      this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         page: parsePage(location.query.page),
         slug: params.slug,
@@ -217,10 +218,11 @@ export class CollectionBase extends React.Component<Props> {
 export const mapStateToProps = (
   state: {| collections: CollectionsState, user: UserStateType |}
 ) => {
-  const { current: collection, loading } = state.collections;
+  const { loading } = state.collections.current;
 
   let hasEditPermission = false;
 
+  const collection = getCurrentCollection(state.collections);
   if (collection) {
     hasEditPermission = collection.authorId === state.user.id ||
       hasPermission(state, COLLECTIONS_EDIT);

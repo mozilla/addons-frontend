@@ -48,3 +48,22 @@ export const getCollectionAddons = (
     state: api,
   });
 };
+
+type ListCollectionsParams = {|
+  api: ApiStateType,
+  user: string | number,
+|};
+
+export const listCollections = (
+  { api, user }: ListCollectionsParams
+) => {
+  if (!user) {
+    throw new Error('The user parameter is required');
+  }
+
+  return callApi({
+    auth: true,
+    endpoint: `accounts/account/${user}/collections`,
+    state: api,
+  });
+};

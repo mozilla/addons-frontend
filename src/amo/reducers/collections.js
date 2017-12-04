@@ -2,16 +2,25 @@
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
-export const FETCH_COLLECTION: 'FETCH_COLLECTION' = 'FETCH_COLLECTION';
-export const LOAD_COLLECTION: 'LOAD_COLLECTION' = 'LOAD_COLLECTION';
-export const FETCH_COLLECTION_PAGE: 'FETCH_COLLECTION_PAGE'
-  = 'FETCH_COLLECTION_PAGE';
-export const LOAD_COLLECTION_PAGE: 'LOAD_COLLECTION_PAGE'
-  = 'LOAD_COLLECTION_PAGE';
-export const ABORT_FETCH_COLLECTION: 'ABORT_FETCH_COLLECTION' = 'ABORT_FETCH_COLLECTION';
+export const FETCH_CURRENT_COLLECTION: 'FETCH_CURRENT_COLLECTION'
+  = 'FETCH_CURRENT_COLLECTION';
+export const FETCH_USER_COLLECTIONS: 'FETCH_USER_COLLECTIONS'
+  = 'FETCH_USER_COLLECTIONS';
+export const LOAD_CURRENT_COLLECTION: 'LOAD_CURRENT_COLLECTION'
+  = 'LOAD_CURRENT_COLLECTION';
+export const FETCH_CURRENT_COLLECTION_PAGE: 'FETCH_CURRENT_COLLECTION_PAGE'
+  = 'FETCH_CURRENT_COLLECTION_PAGE';
+export const LOAD_CURRENT_COLLECTION_PAGE: 'LOAD_CURRENT_COLLECTION_PAGE'
+  = 'LOAD_CURRENT_COLLECTION_PAGE';
+export const ABORT_FETCH_CURRENT_COLLECTION: 'ABORT_FETCH_CURRENT_COLLECTION'
+  = 'ABORT_FETCH_CURRENT_COLLECTION';
+export const ABORT_FETCH_USER_COLLECTIONS: 'ABORT_FETCH_USER_COLLECTIONS'
+  = 'ABORT_FETCH_USER_COLLECTIONS';
+export const LOAD_USER_COLLECTIONS: 'LOAD_USER_COLLECTIONS'
+  = 'LOAD_USER_COLLECTIONS';
 
 export type CollectionType = {
-  addons: Array<AddonType>,
+  addons: Array<AddonType> | null,
   authorId: number,
   authorName: string,
   authorUsername: string,
@@ -23,34 +32,53 @@ export type CollectionType = {
   slug: string,
 };
 
-export type CollectionsState = {|
-  current: CollectionType | null,
-  loading: boolean,
-|};
+type CollectionId = number;
 
-export const initialState: CollectionsState = {
-  current: null,
-  loading: false,
+export type CollectionsState = {
+  byId: {
+    [id: CollectionId]: CollectionType,
+  },
+  bySlug: {
+    [slug: string]: CollectionId,
+  },
+  // This is the collection currently visible on the detail page.
+  current: {|
+    id: CollectionId | null,
+    loading: boolean,
+  |},
+  userCollections: {
+    [userId: number]: {|
+      collections: Array<CollectionId> | null,
+      loading: boolean,
+    |};
+  },
 };
 
-type FetchCollectionParams = {|
+export const initialState: CollectionsState = {
+  byId: {},
+  bySlug: {},
+  current: { id: null, loading: false },
+  userCollections: {},
+};
+
+type FetchCurrentCollectionParams = {|
   errorHandlerId: string,
   page?: number,
   slug: string,
   user: number | string,
 |};
 
-type FetchCollectionAction = {|
-  type: typeof FETCH_COLLECTION,
-  payload: FetchCollectionParams,
+type FetchCurrentCollectionAction = {|
+  type: typeof FETCH_CURRENT_COLLECTION,
+  payload: FetchCurrentCollectionParams,
 |};
 
-export const fetchCollection = ({
+export const fetchCurrentCollection = ({
   errorHandlerId,
   page,
   slug,
   user,
-}: FetchCollectionParams = {}): FetchCollectionAction => {
+}: FetchCurrentCollectionParams = {}): FetchCurrentCollectionAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -62,27 +90,76 @@ export const fetchCollection = ({
   }
 
   return {
-    type: FETCH_COLLECTION,
+    type: FETCH_CURRENT_COLLECTION,
     payload: { errorHandlerId, page, slug, user },
   };
 };
 
-type FetchCollectionPageParams = {|
-  ...FetchCollectionParams,
+type FetchUserCollectionsParams = {|
+  errorHandlerId: string,
+  userId: number,
+|};
+
+type FetchUserCollectionsAction = {|
+  type: typeof FETCH_USER_COLLECTIONS,
+  payload: FetchUserCollectionsParams,
+|};
+
+export const fetchUserCollections = ({
+  errorHandlerId,
+  userId,
+}: FetchUserCollectionsParams = {}): FetchUserCollectionsAction => {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
+  }
+  if (!userId) {
+    throw new Error('userId is required');
+  }
+
+  return {
+    type: FETCH_USER_COLLECTIONS,
+    payload: { errorHandlerId, userId },
+  };
+};
+
+type AbortFetchUserCollectionsParams = {|
+  userId: number,
+|};
+
+type AbortFetchUserCollectionsAction = {|
+  type: typeof ABORT_FETCH_USER_COLLECTIONS,
+  payload: AbortFetchUserCollectionsParams,
+|};
+
+export const abortFetchUserCollections = (
+  { userId }: AbortFetchUserCollectionsParams = {}
+): AbortFetchUserCollectionsAction => {
+  if (!userId) {
+    throw new Error('userId is required');
+  }
+
+  return {
+    type: ABORT_FETCH_USER_COLLECTIONS,
+    payload: { userId },
+  };
+};
+
+type FetchCurrentCollectionPageParams = {|
+  ...FetchCurrentCollectionParams,
   page: number,
 |};
 
-type FetchCollectionPageAction = {|
-  type: typeof FETCH_COLLECTION_PAGE,
-  payload: FetchCollectionPageParams,
+type FetchCurrentCollectionPageAction = {|
+  type: typeof FETCH_CURRENT_COLLECTION_PAGE,
+  payload: FetchCurrentCollectionPageParams,
 |};
 
-export const fetchCollectionPage = ({
+export const fetchCurrentCollectionPage = ({
   errorHandlerId,
   page,
   slug,
   user,
-}: FetchCollectionPageParams = {}): FetchCollectionPageAction => {
+}: FetchCurrentCollectionPageParams = {}): FetchCurrentCollectionPageAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -97,7 +174,7 @@ export const fetchCollectionPage = ({
   }
 
   return {
-    type: FETCH_COLLECTION_PAGE,
+    type: FETCH_CURRENT_COLLECTION_PAGE,
     payload: { errorHandlerId, page, slug, user },
   };
 };
@@ -134,20 +211,20 @@ export type CollectionAddonsListResponse = {|
   results: ExternalCollectionAddons,
 |};
 
-type LoadCollectionParams = {|
+type LoadCurrentCollectionParams = {|
   addons: CollectionAddonsListResponse,
   detail: ExternalCollectionDetail,
 |};
 
-type LoadCollectionAction = {|
-  type: typeof LOAD_COLLECTION,
-  payload: LoadCollectionParams,
+type LoadCurrentCollectionAction = {|
+  type: typeof LOAD_CURRENT_COLLECTION,
+  payload: LoadCurrentCollectionParams,
 |};
 
-export const loadCollection = ({
+export const loadCurrentCollection = ({
   addons,
   detail,
-}: LoadCollectionParams = {}): LoadCollectionAction => {
+}: LoadCurrentCollectionParams = {}): LoadCurrentCollectionAction => {
   if (!addons) {
     throw new Error('addons are required');
   }
@@ -156,44 +233,70 @@ export const loadCollection = ({
   }
 
   return {
-    type: LOAD_COLLECTION,
+    type: LOAD_CURRENT_COLLECTION,
     payload: { addons, detail },
   };
 };
 
-type LoadCollectionPageParams = {|
+type LoadCurrentCollectionPageParams = {|
   addons: CollectionAddonsListResponse,
 |};
 
-type LoadCollectionPageAction = {|
-  type: typeof LOAD_COLLECTION_PAGE,
-  payload: LoadCollectionPageParams,
+type LoadCurrentCollectionPageAction = {|
+  type: typeof LOAD_CURRENT_COLLECTION_PAGE,
+  payload: LoadCurrentCollectionPageParams,
 |};
 
-export const loadCollectionPage = ({
+export const loadCurrentCollectionPage = ({
   addons,
-}: LoadCollectionPageParams = {}): LoadCollectionPageAction => {
+}: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
   if (!addons) {
     throw new Error('addons are required');
   }
 
   return {
-    type: LOAD_COLLECTION_PAGE,
+    type: LOAD_CURRENT_COLLECTION_PAGE,
     payload: { addons },
   };
 };
 
-type AbortFetchCollection = {|
-  type: typeof ABORT_FETCH_COLLECTION,
+type LoadUserCollectionsParams = {|
+  userId: number,
+  collections: Array<ExternalCollectionDetail>,
 |};
 
-export const abortFetchCollection = (): AbortFetchCollection => {
-  return { type: ABORT_FETCH_COLLECTION };
+type LoadUserCollectionsAction = {|
+  type: typeof LOAD_USER_COLLECTIONS,
+  payload: LoadUserCollectionsParams,
+|};
+
+export const loadUserCollections = (
+  { userId, collections }: LoadUserCollectionsParams = {}
+): LoadUserCollectionsAction => {
+  if (!userId) {
+    throw new Error('The userId parameter is required');
+  }
+  if (!collections) {
+    throw new Error('The collections parameter is required');
+  }
+
+  return {
+    type: LOAD_USER_COLLECTIONS,
+    payload: { userId, collections },
+  };
+};
+
+type AbortFetchCurrentCollection = {|
+  type: typeof ABORT_FETCH_CURRENT_COLLECTION,
+|};
+
+export const abortFetchCurrentCollection = (): AbortFetchCurrentCollection => {
+  return { type: ABORT_FETCH_CURRENT_COLLECTION };
 };
 
 type CreateInternalCollectionParams = {|
   detail: ExternalCollectionDetail,
-  items: ExternalCollectionAddons,
+  items?: ExternalCollectionAddons,
 |};
 
 export const createInternalAddons = (
@@ -205,11 +308,42 @@ export const createInternalAddons = (
   });
 };
 
+type GetCollectionByIdParams = {|
+  state: CollectionsState,
+  id: CollectionId,
+|};
+
+export const getCollectionById = (
+  { id, state }: GetCollectionByIdParams
+): CollectionType | null => {
+  if (!id) {
+    throw new Error('The id parameter is required');
+  }
+  if (!state) {
+    throw new Error('The state parameter is required');
+  }
+
+  return state.byId[id] || null;
+};
+
+export const getCurrentCollection = (
+  state: CollectionsState
+): CollectionType | null => {
+  if (!state) {
+    throw new Error('The state parameter is required');
+  }
+  if (!state.current.id) {
+    return null;
+  }
+
+  return getCollectionById({ id: state.current.id, state });
+};
+
 export const createInternalCollection = ({
   detail,
   items,
 }: CreateInternalCollectionParams): CollectionType => ({
-  addons: createInternalAddons(items),
+  addons: items ? createInternalAddons(items) : null,
   authorId: detail.author.id,
   authorName: detail.author.name,
   authorUsername: detail.author.username,
@@ -222,11 +356,14 @@ export const createInternalCollection = ({
 });
 
 type Action =
-  | FetchCollectionAction
-  | LoadCollectionAction
-  | FetchCollectionPageAction
-  | LoadCollectionPageAction
-  | AbortFetchCollection
+  | FetchCurrentCollectionAction
+  | LoadCurrentCollectionAction
+  | FetchCurrentCollectionPageAction
+  | LoadCurrentCollectionPageAction
+  | AbortFetchCurrentCollection
+  | FetchUserCollectionsAction
+  | LoadUserCollectionsAction
+  | AbortFetchUserCollectionsAction
 ;
 
 const reducer = (
@@ -234,47 +371,148 @@ const reducer = (
   action: Action
 ): CollectionsState => {
   switch (action.type) {
-    case FETCH_COLLECTION:
+    case FETCH_CURRENT_COLLECTION:
       return {
-        current: null,
-        loading: true,
-      };
-
-    case FETCH_COLLECTION_PAGE:
-      return {
+        ...state,
         current: {
-          ...state.current,
-          addons: [],
+          id: null,
+          loading: true,
         },
+      };
+
+    case FETCH_CURRENT_COLLECTION_PAGE: {
+      const current = {
+        id: state.current.id,
         loading: true,
       };
 
-    case LOAD_COLLECTION: {
+      const currentCollection = getCurrentCollection(state);
+      if (!currentCollection) {
+        return { ...state, current };
+      }
+
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [currentCollection.id]: {
+            ...currentCollection,
+            addons: [],
+          },
+        },
+        current,
+      };
+    }
+
+    case LOAD_CURRENT_COLLECTION: {
       const { addons, detail } = action.payload;
 
       return {
-        current: createInternalCollection({
-          detail,
-          items: addons.results,
-        }),
-        loading: false,
+        ...state,
+        byId: {
+          ...state.byId,
+          [detail.id]: createInternalCollection({
+            detail,
+            items: addons.results,
+          }),
+        },
+        bySlug: {
+          ...state.bySlug,
+          [detail.slug]: detail.id,
+        },
+        current: {
+          id: detail.id,
+          loading: false,
+        },
       };
     }
 
-    case LOAD_COLLECTION_PAGE: {
+    case LOAD_CURRENT_COLLECTION_PAGE: {
       const { addons } = action.payload;
 
+      const currentCollection = getCurrentCollection(state);
+      if (!currentCollection) {
+        throw new Error(
+          `${action.type}: a current collection does not exist`);
+      }
+
       return {
-        current: {
-          ...state.current,
-          addons: createInternalAddons(addons.results),
+        ...state,
+        byId: {
+          ...state.byId,
+          [currentCollection.id]: {
+            ...currentCollection,
+            addons: createInternalAddons(addons.results),
+          },
         },
-        loading: false,
+        current: {
+          id: state.current.id,
+          loading: false,
+        },
       };
     }
 
-    case ABORT_FETCH_COLLECTION:
-      return initialState;
+    case ABORT_FETCH_CURRENT_COLLECTION:
+      return {
+        ...state,
+        current: {
+          id: null,
+          loading: false,
+        },
+      };
+
+    case FETCH_USER_COLLECTIONS: {
+      const { userId } = action.payload;
+
+      return {
+        ...state,
+        userCollections: {
+          ...state.userCollections,
+          [userId]: {
+            collections: null,
+            loading: true,
+          },
+        },
+      };
+    }
+
+    case ABORT_FETCH_USER_COLLECTIONS: {
+      const { userId } = action.payload;
+
+      return {
+        ...state,
+        userCollections: {
+          ...state.userCollections,
+          [userId]: {
+            collections: null,
+            loading: false,
+          },
+        },
+      };
+    }
+
+    case LOAD_USER_COLLECTIONS: {
+      const { collections, userId } = action.payload;
+
+      const byId = { ...state.byId };
+      collections.forEach((collection) => {
+        byId[collection.id] = createInternalCollection({
+          detail: collection,
+        });
+      });
+
+      return {
+        ...state,
+        byId,
+        userCollections: {
+          ...state.userCollections,
+          [userId]: {
+            collections: collections.map((collection) => collection.id),
+            loading: false,
+          },
+        },
+      };
+    }
 
     default:
       return state;
