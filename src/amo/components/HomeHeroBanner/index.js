@@ -2,11 +2,9 @@
 import React from 'react';
 import { compose } from 'redux';
 
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
 import translate from 'core/i18n/translate';
 import Hero from 'ui/components/Hero';
 import HeroSection from 'ui/components/HeroSection';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -24,45 +22,80 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="featured-extensions"
-          linkTo={{
-            pathname: '/search/',
-            query: convertFiltersToQueryParams({
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
-            }),
-          }}
-          styleName="Home-featured-extensions"
+          linkTo="/addon/s3google-translator/"
+          styleName="Home-s3-translator"
         >
-          <h3>{i18n.gettext('Featured extensions')}</h3>
+          <h3>
+            {i18n.gettext(
+              // translators: This is the name of an add-on.
+              'S3.Translator'
+            )}
+          </h3>
 
-          <p>{i18n.gettext('Excellent extensions for all situations')}</p>
+          <p>{i18n.gettext(`Translate a word, phrase, even an entire page.
+            Supports 100+ languages.`)}</p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="youtube-high-definition"
-          linkTo="/addon/youtube-high-definition/"
-          styleName="Home-youtube-high-definition"
+          key="featured-extensions"
+          linkTo="/addon/groupspeeddial/"
+          styleName="Home-groupspeeddial"
         >
-          <h3>{i18n.gettext('YouTube High Definition')}</h3>
+          <h3>{i18n.gettext('Group Speed Dial')}</h3>
+
+          <p>{i18n.gettext(`Visual bookmarks for your favorite places on the
+            web.`)}</p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="featured-extensions"
+          linkTo="/addon/search_by_image/"
+          styleName="Home-search_by_image"
+        >
+          <h3>{i18n.gettext('Search by Image')}</h3>
 
           <p>
-            {i18n.gettext(`Play videos in HD, turn off annotations, change
-              player size & more`)}
+            {i18n.gettext('Reverse image search using various search engines.')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="productivity"
-          linkTo="/collections/mozilla/be-more-productive/"
-          styleName="Home-productivity"
+          key="featured-extensions"
+          linkTo="/addon/fireshot/"
+          styleName="Home-fireshot"
         >
-          <h3>{i18n.gettext('Productivity extensions')}</h3>
+          <h3>{i18n.gettext('FireShot')}</h3>
 
           <p>
-            {i18n.gettext(`Tools for making the Web work harder for you`)}
+            {i18n.gettext('Capture full-page screenshots.')}
           </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="featured-extensions"
+          linkTo="/addon/video-downloadhelper/"
+          styleName="Home-video-downloadhelper"
+        >
+          <h3>{i18n.gettext('Video DownloadHelper')}</h3>
+
+          <p>{i18n.gettext(`Easily download video from hundreds of popular
+            websites.`)}</p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="featured-extensions"
+          linkTo="/addon/decentraleyes/"
+          styleName="Home-decentraleyes"
+        >
+          <h3>{i18n.gettext('Decentraleyes')}</h3>
+
+          <p>{i18n.gettext(`Tracking protection against third-party sites
+            aiming to mark your every online move.`)}</p>
         </HeroSection>
       ),
       (

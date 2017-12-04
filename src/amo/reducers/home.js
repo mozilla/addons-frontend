@@ -10,17 +10,19 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 export type HomeState = {
   firstCollection: Array<AddonType>,
   secondCollection: Array<AddonType>,
-  featuredThemes: Array<AddonType>,
+  featuredExtensions: Array<AddonType>,
+  popularExtensions: Array<AddonType>,
   resultsLoaded: boolean,
-  upAndComingExtensions: Array<AddonType>,
+  topRatedThemes: Array<AddonType>,
 };
 
 export const initialState: HomeState = {
   firstCollection: [],
   secondCollection: [],
-  featuredThemes: [],
+  featuredExtensions: [],
+  popularExtensions: [],
   resultsLoaded: false,
-  upAndComingExtensions: [],
+  topRatedThemes: [],
 };
 
 type FetchHomeAddonsParams = {|
@@ -88,8 +90,9 @@ type ApiAddonsResponse = {|
 type LoadHomeAddonsParams = {|
   firstCollection: CollectionAddonsListResponse,
   secondCollection: CollectionAddonsListResponse,
-  featuredThemes: ApiAddonsResponse,
-  upAndComingExtensions: ApiAddonsResponse,
+  featuredExtensions: ApiAddonsResponse,
+  popularExtensions: ApiAddonsResponse,
+  topRatedThemes: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -100,8 +103,9 @@ type LoadHomeAddonsAction = {|
 export const loadHomeAddons = ({
   firstCollection,
   secondCollection,
-  featuredThemes,
-  upAndComingExtensions,
+  featuredExtensions,
+  popularExtensions,
+  topRatedThemes,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   if (!firstCollection) {
     throw new Error('firstCollection is required');
@@ -109,11 +113,14 @@ export const loadHomeAddons = ({
   if (!secondCollection) {
     throw new Error('secondCollection is required');
   }
-  if (!featuredThemes) {
-    throw new Error('featuredThemes is required');
+  if (!featuredExtensions) {
+    throw new Error('featuredExtensions are required');
   }
-  if (!upAndComingExtensions) {
-    throw new Error('upAndComingExtensions is required');
+  if (!popularExtensions) {
+    throw new Error('popularExtensions are required');
+  }
+  if (!topRatedThemes) {
+    throw new Error('topRatedThemes are required');
   }
 
   return {
@@ -121,8 +128,9 @@ export const loadHomeAddons = ({
     payload: {
       firstCollection,
       secondCollection,
-      featuredThemes,
-      upAndComingExtensions,
+      featuredExtensions,
+      popularExtensions,
+      topRatedThemes,
     },
   };
 };
@@ -154,8 +162,9 @@ const reducer = (
       const {
         firstCollection,
         secondCollection,
-        featuredThemes,
-        upAndComingExtensions,
+        featuredExtensions,
+        popularExtensions,
+        topRatedThemes,
       } = action.payload;
 
       return {
@@ -170,9 +179,10 @@ const reducer = (
           .map((item) => {
             return createInternalAddon(item.addon);
           }),
-        featuredThemes: createInternalAddons(featuredThemes),
+        featuredExtensions: createInternalAddons(featuredExtensions),
+        popularExtensions: createInternalAddons(popularExtensions),
         resultsLoaded: true,
-        upAndComingExtensions: createInternalAddons(upAndComingExtensions),
+        topRatedThemes: createInternalAddons(topRatedThemes),
       };
     }
 
