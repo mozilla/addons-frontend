@@ -69,7 +69,7 @@ $colors: ("blue", #228ae6, #1b6ec2)
 
 // Generate CSS classes depending on the order (indexes) of the Hero sections.
 @for $x from 0 through 6 {
-  @for $y from 0 through 7 {
+  @for $y from 0 through 6 {
     @for $z from 0 through 6 {
       // It is not possible to have the same values for two (or more) different
       // indexes.
