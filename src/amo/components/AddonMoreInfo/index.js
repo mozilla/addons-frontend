@@ -242,7 +242,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 
   render() {
-    const { addon, i18n } = this.props;
+    const { i18n } = this.props;
 
     return (
       <Card
