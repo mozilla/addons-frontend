@@ -11,6 +11,7 @@ import { setReview } from 'amo/actions/reviews';
 import { getLatestUserReview, submitReview } from 'amo/api/reviews';
 import DefaultAddonReview from 'amo/components/AddonReview';
 import DefaultAuthenticateButton from 'core/components/AuthenticateButton';
+import DefaultReportAbuseButton from 'amo/components/ReportAbuseButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -50,6 +51,7 @@ type Props = {|
   AddonReview: typeof DefaultAddonReview,
   AuthenticateButton: typeof DefaultAuthenticateButton,
   Rating: typeof DefaultRating,
+  ReportAbuseButton: typeof DefaultReportAbuseButton,
   addon: AddonType,
   apiState: ApiStateType,
   errorHandler: ErrorHandlerType,
@@ -74,6 +76,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
     AddonReview: DefaultAddonReview,
     AuthenticateButton: DefaultAuthenticateButton,
     Rating: DefaultRating,
+    ReportAbuseButton: DefaultReportAbuseButton,
   }
 
   constructor(props: Props) {
@@ -170,7 +173,15 @@ export class RatingManagerBase extends React.Component<Props, State> {
   }
 
   render() {
-    const { AddonReview, Rating, i18n, addon, userId, userReview } = this.props;
+    const {
+      AddonReview,
+      Rating,
+      ReportAbuseButton,
+      i18n,
+      addon,
+      userId,
+      userReview,
+    } = this.props;
     const { showTextEntry } = this.state;
     const isLoggedIn = Boolean(userId);
 
@@ -199,6 +210,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
             />
           </fieldset>
         </form>
+        <ReportAbuseButton addon={addon} />
       </div>
     );
   }
@@ -243,7 +255,6 @@ type DispatchMappedProps = {|
 export const mapDispatchToProps = (
   dispatch: DispatchFunc
 ): DispatchMappedProps => ({
-
   loadSavedReview({ apiState, userId, addonId, versionId }) {
     return getLatestUserReview({
       apiState, user: userId, addon: addonId, version: versionId,
@@ -259,7 +270,8 @@ export const mapDispatchToProps = (
   },
 
   submitReview(params) {
-    return submitReview(params).then((review) => dispatch(setReview(review)));
+    return submitReview(params)
+      .then((review) => dispatch(setReview(review)));
   },
 });
 
