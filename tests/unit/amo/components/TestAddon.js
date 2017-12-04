@@ -87,7 +87,7 @@ function renderProps({
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
-    params: params || { slug: addon.slug },
+    params: params || { slug: addon ? addon.slug : fakeAddon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,

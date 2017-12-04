@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
-import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasPermission } from 'core/reducers/user';
@@ -243,7 +242,7 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 
   render() {
-    const { addon, i18n } = this.props;
+    const { i18n } = this.props;
 
     return (
       <Card
@@ -251,8 +250,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
         header={i18n.gettext('More information')}
       >
         {this.listContent()}
-
-        <ReportAbuseButton addon={addon} />
       </Card>
     );
   }

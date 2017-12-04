@@ -137,6 +137,11 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
       linkTagEnd: '</a>',
     });
 
+    // The button prompt mentions abuse to make it clear that you can't
+    // use it to report general issues (like bugs) about the add-on.
+    // See https://github.com/mozilla/addons-frontend/issues/4025#issuecomment-349103373
+    const prompt = i18n.gettext('Report this add-on for abuse');
+
     /* eslint-disable react/no-danger */
     return (
       <div
@@ -149,14 +154,12 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
             className="ReportAbuseButton-show-more Button--report Button--fullwidth"
             onClick={this.showReportUI}
           >
-            {i18n.gettext('Report this add-on for abuse')}
+            {prompt}
           </Button>
         </div>
 
         <div className="ReportAbuseButton--expanded">
-          <h3 className="ReportAbuseButton-header">
-            {i18n.gettext('Report this add-on for abuse')}
-          </h3>
+          <h3 className="ReportAbuseButton-header">{prompt}</h3>
 
           <p
             className="ReportAbuseButton-first-paragraph"

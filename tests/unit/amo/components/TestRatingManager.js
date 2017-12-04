@@ -6,6 +6,7 @@ import {
 
 import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';
+import { createInternalAddon } from 'core/reducers/addons';
 import { loadUserProfile } from 'core/reducers/user';
 import {
   ADDON_TYPE_DICT,
@@ -36,7 +37,8 @@ function render(customProps = {}) {
   const props = {
     AddonReview: () => <div />,
     AuthenticateButton: () => <div />,
-    addon: fakeAddon,
+    ReportAbuseButton: () => <div />,
+    addon: createInternalAddon(fakeAddon),
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
     location: { pathname: '/some/location/' },
@@ -58,13 +60,15 @@ function render(customProps = {}) {
 
 describe('RatingManager', () => {
   it('prompts you to rate the add-on by name', () => {
-    const root = render({ addon: { ...fakeAddon, name: 'Some Add-on' } });
+    const root = render({
+      addon: createInternalAddon({ ...fakeAddon, name: 'Some Add-on' }),
+    });
     expect(root.ratingLegend.textContent).toContain('Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
     const userId = 12889;
-    const addon = { ...fakeAddon, id: 3344 };
+    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
     const version = {
       ...fakeAddon.current_version,
       id: 9966,
@@ -93,7 +97,9 @@ describe('RatingManager', () => {
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
-      addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
+      addon: createInternalAddon({
+        ...fakeAddon, id: 12345, slug: 'some-slug',
+      }),
     });
     return root.onSelectRating(5)
       .then(() => {
@@ -141,7 +147,9 @@ describe('RatingManager', () => {
         id: 2,
       },
     };
-    const addon = { ...fakeAddon, id: newReview.addon.id };
+    const addon = createInternalAddon({
+      ...fakeAddon, id: newReview.addon.id,
+    });
 
     const root = render({
       apiState: { ...signedInApiState, token: 'new-token' },
@@ -248,6 +256,14 @@ describe('RatingManager', () => {
     expect(props.rating).toBe(undefined);
   });
 
+  it('passes an add-on to the report abuse button', () => {
+    const ReportAbuseButton = sinon.spy(() => <div />);
+    const addon = createInternalAddon({ ...fakeAddon });
+    render({ ReportAbuseButton, addon });
+
+    sinon.assert.calledWithMatch(ReportAbuseButton, { addon });
+  });
+
   describe('when user is signed out', () => {
     function renderWithoutUser(customProps = {}) {
       return render({ userId: null, ...customProps });
@@ -257,7 +273,7 @@ describe('RatingManager', () => {
       const AuthenticateButton = sinon.spy(() => <div />);
       renderWithoutUser({
         AuthenticateButton,
-        addon: { ...fakeAddon, type: addonType },
+        addon: createInternalAddon({ ...fakeAddon, type: addonType }),
       });
       expect(AuthenticateButton.called).toBeTruthy();
       const props = AuthenticateButton.firstCall.args[0];
@@ -407,7 +423,7 @@ describe('RatingManager', () => {
     function getMappedProps({
       state = store.getState(),
       componentProps = {
-        addon: fakeAddon,
+        addon: createInternalAddon(fakeAddon),
         version: fakeAddon.current_version,
       },
     } = {}) {
