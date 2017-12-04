@@ -7,7 +7,6 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
-import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonBadges from 'amo/components/AddonBadges';
 import AddonsCard from 'amo/components/AddonsCard';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -597,8 +596,6 @@ export class AddonBase extends React.Component {
 
           {addonType !== ADDON_TYPE_THEME ?
             this.renderMoreAddonsByAuthors() : null}
-
-          {addon ? <AddAddonToCollection addon={addon} /> : null}
         </div>
       </div>
     );

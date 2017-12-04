@@ -2,6 +2,10 @@
 @import "~amo/css/inc/vars";
 @import "~photon-colors/colors";
 
+.AddonMoreInfo .Card-contents {
+  padding-top: 0;
+}
+
 .AddonMoreInfo-contents {
   margin: 0;
   padding: 0;

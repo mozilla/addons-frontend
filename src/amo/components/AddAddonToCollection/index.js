@@ -5,7 +5,6 @@ import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
-import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import Select from 'ui/components/Select';
 import type { AddonType } from 'core/types/addons';
@@ -24,35 +23,17 @@ type Props = {|
 export class AddAddonToCollectionBase extends React.Component<Props> {
   add(event: SyntheticEvent<any>) {
     event.preventDefault();
-    console.log('clicked add button');
   }
 
   render() {
     const { addon, i18n } = this.props;
 
     return (
-      <Card
-        className="AddAddonToCollection"
-        header={i18n.gettext('Collections')}
-      >
-        <p className="AddAddonToCollection-prompt">
-          {i18n.sprintf(
-            i18n.gettext('Add %(addonName)s to a collection'),
-            { addonName: addon.name }
-          )}
-        </p>
-        <div className="AddAddonToCollection-control">
-          <Select className="AddAddonToCollection-select">
-            <option>{i18n.gettext('Choose a collection')}</option>
-          </Select>
-          <Button
-            className="AddAddonToCollection-add Button--action"
-            onClick={this.add}
-          >
-            {i18n.gettext('Add')}
-          </Button>
-        </div>
-      </Card>
+      <div>
+        <Select className="AddAddonToCollection-select">
+          <option>{i18n.gettext('Add to collection')}</option>
+        </Select>
+      </div>
     );
   }
 }

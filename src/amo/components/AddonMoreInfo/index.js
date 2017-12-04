@@ -3,6 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import Link from 'amo/components/Link';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
@@ -251,6 +252,8 @@ export class AddonMoreInfoBase extends React.Component<Props> {
         className="AddonMoreInfo"
         header={i18n.gettext('More information')}
       >
+        <AddAddonToCollection addon={addon} />
+
         {this.listContent()}
       </Card>
     );
