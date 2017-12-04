@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-12-03 12:51+0000\n"
+"PO-Revision-Date: 2017-12-04 14:22+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -274,9 +274,8 @@ msgid "Visit stats dashboard"
 msgstr "İstatistik panosuna git"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Neden bu uzantının harika olduğunu anlatın!"
+msgstr "Bu eklentiyi neden beğendiğiniz başkalarına da anlatın. Lütfen %(linkStart)sinceleme yönergelerimize%(linkStart)s uyun."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -344,9 +343,8 @@ msgid "Publishing reply"
 msgstr "Yanıt yayımlanıyor"
 
 #: src/amo/components/AddonReviewListItem/index.js:207
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "%(authorName)s, %(timestamp)s"
+msgstr "gönderilme: %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:211
 msgid "by %(authorName)s, %(timestamp)s"
@@ -409,9 +407,8 @@ msgid "Trending extensions"
 msgstr "Gündemdeki eklentiler"
 
 #: src/amo/components/Category/index.js:145 src/amo/components/Home/index.js:227 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Daha fazla öne çıkan uzantı"
+msgstr "Diğer yükselen eklentilere bakın"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
@@ -438,9 +435,8 @@ msgid "Trending themes"
 msgstr "Gündemdeki temalar"
 
 #: src/amo/components/Category/index.js:178 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Daha fazla öne çıkan tema"
+msgstr "Diğer yükselen temalara bakın"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:139
 msgid "Top rated themes"
@@ -471,9 +467,8 @@ msgid "Creator"
 msgstr "Oluşturan"
 
 #: src/amo/components/Collection/index.js:167
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Bu koleksiyona göz at"
+msgstr "Bu koleksiyonu düzenle"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -784,14 +779,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Top privacy extensions"
-msgstr "En yüksek puanlı eklentiler"
+msgstr "En iyi gizlilik eklentileri"
 
 #: src/amo/components/Home/index.js:205
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Diğer sekme eklentilere bakın"
+msgstr "Diğer gizlilik eklentilerine bakın"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
@@ -838,18 +831,16 @@ msgid "Play videos in HD, turn off annotations, change player size & more"
 msgstr "Videoları HD olarak oynatın, ek açıklamaları kapatın, oynatıcı boyutunu değiştirin ve daha fazlasını yapın"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
-#, fuzzy
 msgid "Productivity extensions"
-msgstr "Verimlilik"
+msgstr "Verimlilik eklentileri"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
 msgstr "Web’i daha çok çalıştıracak araçlar"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "LastPass Password Manager"
-msgstr "Parola yöneticileri"
+msgstr "LastPass Parola Yöneticisi"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
@@ -1227,6 +1218,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), Firefox tarayıcısına yönelik eklentileri keşfetmek ve kurmak için Mozilla'nın resmi sitesidir. Eklentiler; Firefox'a yeni özellikler ekleyerek, Web içeriğiyle "
+"etkileşimlerinizi geliştirerek ve tarayıcınızın görünümünü değiştirerek gezinti deneyiminizi değiştirmenizi ve kişiselleştirmenizi sağlar."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
@@ -1241,6 +1234,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Burada listelenen eklentiler, dünyanın her yerinden binlerce geliştirici ve tema tasarımcısı tarafından yaratılmaktadır. Bunl hobi olarak eklenti geliştiren bireyler de olabilir büyük şirketler de. "
+"AMO'da listelenen bazı eklentiler otomatik olarak yayımlanmıştır ve listelendikten sonra da editör ekibimiz tarafından incelenebilirler."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
