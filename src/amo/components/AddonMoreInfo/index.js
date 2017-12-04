@@ -245,14 +245,17 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 
   render() {
-    const { i18n } = this.props;
+    const { addon, i18n } = this.props;
 
     return (
       <Card
         className="AddonMoreInfo"
         header={i18n.gettext('More information')}
       >
-        <AddAddonToCollection addon={addon} />
+        <AddAddonToCollection
+          className="AddonMoreInfo-add-to-collection"
+          addon={addon}
+        />
 
         {this.listContent()}
       </Card>

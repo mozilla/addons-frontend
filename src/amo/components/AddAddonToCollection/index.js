@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -16,6 +17,7 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType | null,
+  className?: string,
   i18n: I18nType,
   siteUserId: number | null,
 |};
@@ -26,10 +28,10 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   render() {
-    const { addon, i18n } = this.props;
+    const { addon, className, i18n } = this.props;
 
     return (
-      <div>
+      <div className={makeClassName('AddAddonToCollection', className)}>
         <Select className="AddAddonToCollection-select">
           <option>{i18n.gettext('Add to collection')}</option>
         </Select>
