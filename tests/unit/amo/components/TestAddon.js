@@ -21,6 +21,7 @@ import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import routes from 'amo/routes';
 import RatingManager, {
   RatingManagerWithI18n,
@@ -87,7 +88,7 @@ function renderProps({
     getBrowserThemeData: () => '{}',
     i18n,
     location: { pathname: '/addon/detail/' },
-    params: params || { slug: addon.slug },
+    params: params || { slug: addon ? addon.slug : fakeAddon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
@@ -1340,6 +1341,19 @@ describe(__filename, () => {
       const props = renderProps({ params: { slug: 'some-slug' } });
       expect(extractId(props)).toEqual('some-slug');
     });
+  });
+
+  it('passes an add-on to the report abuse button', () => {
+    const addon = createInternalAddon({ ...fakeAddon });
+    const root = shallowRender({ addon });
+
+    expect(root.find(ReportAbuseButton)).toHaveProp('addon', addon);
+  });
+
+  it('passes an empty add-on to the report abuse button', () => {
+    const root = shallowRender({ addon: null });
+
+    expect(root.find(ReportAbuseButton)).toHaveProp('addon', null);
   });
 });
 

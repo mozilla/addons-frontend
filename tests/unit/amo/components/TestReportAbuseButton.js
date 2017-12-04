@@ -57,9 +57,9 @@ describe(__filename, () => {
 
     expect(root.find('.ReportAbuseButton')).toHaveLength(1);
     expect(root.find('.ReportAbuseButton-show-more').prop('children'))
-      .toEqual('Report this add-on for abuse');
+      .toEqual('Report an issue with this add-on');
     expect(root.find('.ReportAbuseButton-send-report').prop('children'))
-      .toEqual('Send abuse report');
+      .toEqual('Send report');
   });
 
   it('renders a textarea with placeholder for the add-on message', () => {
@@ -153,7 +153,7 @@ describe(__filename, () => {
     expect(dismissButton)
       .toHaveClassName('ReportAbuseButton-dismiss-report--disabled');
     expect(sendButton.prop('disabled')).toEqual(true);
-    expect(sendButton.prop('children')).toEqual('Sending abuse report');
+    expect(sendButton.prop('children')).toEqual('Sending report');
 
     dismissButton.simulate('click', fakeEvent);
     sinon.assert.called(fakeEvent.preventDefault);

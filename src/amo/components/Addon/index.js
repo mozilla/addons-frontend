@@ -15,6 +15,7 @@ import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import DefaultRatingManager from 'amo/components/RatingManager';
+import ReportAbuseButton from 'amo/components/ReportAbuseButton';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
@@ -254,6 +255,7 @@ export class AddonBase extends React.Component {
             version={addon.current_version}
           /> : null
         }
+        <ReportAbuseButton addon={addon} />
       </Card>
     );
   }

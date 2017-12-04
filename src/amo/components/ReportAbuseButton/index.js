@@ -149,13 +149,13 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
             className="ReportAbuseButton-show-more Button--report Button--fullwidth"
             onClick={this.showReportUI}
           >
-            {i18n.gettext('Report this add-on for abuse')}
+            {i18n.gettext('Report an issue with this add-on')}
           </Button>
         </div>
 
         <div className="ReportAbuseButton--expanded">
           <h3 className="ReportAbuseButton-header">
-            {i18n.gettext('Report this add-on for abuse')}
+            {i18n.gettext('Report an issue with this add-on')}
           </h3>
 
           <p
@@ -197,8 +197,8 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
               onClick={this.sendReport}
             >
               {loading ?
-                i18n.gettext('Sending abuse report') :
-                i18n.gettext('Send abuse report')}
+                i18n.gettext('Sending report') :
+                i18n.gettext('Send report')}
             </Button>
           </div>
         </div>
