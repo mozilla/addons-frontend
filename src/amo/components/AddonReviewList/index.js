@@ -29,7 +29,7 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { AddonState } from 'core/reducers/addons';
 import type { ApiStateType } from 'core/reducers/api';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -294,7 +294,7 @@ export class AddonReviewListBase extends React.Component<Props> {
 type AppState = {|
   addons: AddonState,
   api: ApiStateType,
-  user: UserStateType,
+  users: UsersStateType,
   reviews: ReviewState,
 |};
 

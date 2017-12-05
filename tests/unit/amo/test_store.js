@@ -24,7 +24,6 @@ describe(__filename, () => {
       'reviews',
       'routing',
       'search',
-      'user',
       'users',
       'viewContext',
     ]);

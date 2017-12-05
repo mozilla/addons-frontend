@@ -5,8 +5,8 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Provider } from 'react-redux';
 
-import { logOutUser, setAuthToken } from 'core/actions';
-import { loadUserProfile } from 'core/reducers/user';
+import { setAuthToken } from 'core/actions';
+import { loadCurrentUserAccount, logOutUser } from 'amo/reducers/users';
 import * as api from 'core/api';
 import AuthenticateButton, {
   AuthenticateButtonBase,
@@ -19,7 +19,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  createUserProfileResponse,
+  createUserAccountResponse,
   fakeI18n,
   shallowUntilTarget,
   userAuthToken,
@@ -58,13 +58,14 @@ describe(__filename, () => {
   });
 
   it('lets you customize the log in text', () => {
-    const root = render({ isAuthenticated: false, logInText: 'Maybe log in?' });
+    const root = render({ logInText: 'Maybe log in?', siteUser: null });
     expect(root.textContent).toEqual('Maybe log in?');
     expect(root.href).toContain('#login');
   });
 
   it('lets you customize the log out text', () => {
-    const root = render({ isAuthenticated: true, logOutText: 'Maybe log out?' });
+    const user = createUserAccountResponse();
+    const root = render({ logOutText: 'Maybe log out?', siteUser: user });
     expect(root.textContent).toEqual('Maybe log out?');
     expect(root.href).toContain('#logout');
   });
@@ -72,7 +73,7 @@ describe(__filename, () => {
   it('shows a log in button when unauthenticated', () => {
     const handleLogIn = sinon.spy();
     const location = sinon.stub();
-    const root = render({ isAuthenticated: false, handleLogIn, location });
+    const root = render({ handleLogIn, location, siteUser: null });
 
     expect(root.textContent).toEqual('Register or Log in');
     Simulate.click(root);
@@ -81,7 +82,8 @@ describe(__filename, () => {
 
   it('shows a log out button when authenticated', () => {
     const handleLogOut = sinon.spy();
-    const root = render({ handleLogOut, isAuthenticated: true });
+    const user = createUserAccountResponse();
+    const root = render({ handleLogOut, siteUser: user });
 
     expect(root.textContent).toEqual('Log out');
     Simulate.click(root);
@@ -103,13 +105,14 @@ describe(__filename, () => {
 
   it('retrieves `isAuthenticated` from state', () => {
     const { store } = dispatchClientMetadata();
+    const user = createUserAccountResponse();
 
-    expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(false);
+    expect(mapStateToProps(store.getState()).siteUser).toEqual(null);
+
     store.dispatch(setAuthToken(userAuthToken()));
-    store.dispatch(loadUserProfile({
-      profile: createUserProfileResponse(),
-    }));
-    expect(mapStateToProps(store.getState()).isAuthenticated).toEqual(true);
+    store.dispatch(loadCurrentUserAccount({ user }));
+
+    expect(mapStateToProps(store.getState()).siteUser).toMatchObject(user);
   });
 
   it('allows a signed-in user to log out', () => {

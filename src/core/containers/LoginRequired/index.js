@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import LoginPage from 'core/components/LoginPage';
-import { isAuthenticated } from 'core/reducers/user';
+import { getCurrentUser } from 'amo/reducers/users';
 
 
 // This class is exported for testing outside of redux.
@@ -26,7 +26,7 @@ export class LoginRequiredBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    authenticated: isAuthenticated(state),
+    authenticated: !!getCurrentUser(state.users),
   };
 }
 

@@ -15,17 +15,17 @@ import apiReducer from 'core/reducers/api';
 import redirectToReducer, {
   sendServerRedirect,
 } from 'core/reducers/redirectTo';
-import userReducer from 'core/reducers/user';
-import userSaga from 'core/sagas/user';
-import * as userApi from 'core/api/user';
+import usersReducer, { getCurrentUser } from 'amo/reducers/users';
+import usersSaga from 'amo/sagas/users';
+import * as usersApi from 'amo/api/users';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
-import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
+import { createUserAccountResponse, userAuthToken } from 'tests/unit/helpers';
 
 function createStoreAndSagas({
   reducers = {
     api: apiReducer,
     routing: routerReducer,
-    user: userReducer,
+    users: usersReducer,
   },
 } = {}) {
   const sagaMiddleware = createSagaMiddleware();
@@ -97,14 +97,14 @@ export class ServerTestHelper {
 }
 
 describe(__filename, () => {
-  let mockUserApi;
+  let mockUsersApi;
 
   const serverTestHelper = new ServerTestHelper();
   const testClient = (...args) => serverTestHelper.testClient(...args);
 
   beforeEach(() => {
     serverTestHelper.beforeEach();
-    mockUserApi = sinon.mock(userApi);
+    mockUsersApi = sinon.mock(usersApi);
   });
 
   afterEach(() => {
@@ -173,53 +173,53 @@ describe(__filename, () => {
     });
 
     it('fetches the user profile when given a token', async () => {
-      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+      const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.resolve(profile));
+        .returns(Promise.resolve(user));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+      const response = await testClient({ store, sagaMiddleware, appSagas: usersSaga })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, user } = store.getState();
+      const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
       expect(api.token).toEqual(token);
-      expect(user.id).toEqual(42);
-      expect(user.username).toEqual('babar');
-      mockUserApi.verify();
+      expect(users.currentUserID).toEqual(42);
+      expect(getCurrentUser(users).username).toEqual('babar');
+      mockUsersApi.verify();
     });
 
     it('returns a 500 error page when retrieving the user profile fails', async () => {
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
         .rejects(new Error('example of an API error'));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+      const response = await testClient({ store, sagaMiddleware, appSagas: usersSaga })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
       expect(response.statusCode).toEqual(500);
-      mockUserApi.verify();
+      mockUsersApi.verify();
     });
 
     it('fetches the user profile even when SSR is disabled', async () => {
-      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+      const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.resolve(profile));
+        .returns(Promise.resolve(user));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
@@ -232,7 +232,7 @@ describe(__filename, () => {
       const client = testClient({
         store,
         sagaMiddleware,
-        appSagas: userSaga,
+        appSagas: usersSaga,
         config,
       });
 
@@ -241,13 +241,13 @@ describe(__filename, () => {
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, user } = store.getState();
+      const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
       expect(api.token).toEqual(token);
-      expect(user.id).toEqual(42);
-      expect(user.username).toEqual('babar');
-      mockUserApi.verify();
+      expect(users.currentUserID).toEqual(42);
+      expect(getCurrentUser(users).username).toEqual('babar');
+      mockUsersApi.verify();
 
       // Parse the HTML response to retrieve the serialized redux state.
       // We do this here to make sure the sagas are actually run, because the
@@ -257,16 +257,16 @@ describe(__filename, () => {
       const reduxStoreState = JSON.parse($('#redux-store-state').html());
 
       expect(reduxStoreState.api).toEqual(api);
-      expect(reduxStoreState.user).toEqual(user);
+      expect(getCurrentUser(reduxStoreState.users)).toMatchObject(user);
     });
 
     it('it serializes the redux state in html', async () => {
-      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+      const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.resolve(profile));
+        .returns(Promise.resolve(user));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
@@ -274,7 +274,7 @@ describe(__filename, () => {
       const client = testClient({
         store,
         sagaMiddleware,
-        appSagas: userSaga,
+        appSagas: usersSaga,
       });
 
       const response = await client
@@ -282,15 +282,15 @@ describe(__filename, () => {
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, user } = store.getState();
+      const { api, users } = store.getState();
 
       // Parse the HTML response to retrieve the serialized redux state.
       const $ = cheerio.load(response.res.text);
       const reduxStoreState = JSON.parse($('#redux-store-state').html());
 
       expect(reduxStoreState.api).toEqual(api);
-      expect(reduxStoreState.user).toEqual(user);
-      mockUserApi.verify();
+      expect(reduxStoreState.users).toMatchObject(users);
+      mockUsersApi.verify();
     });
 
     it('performs a server redirect when requested by the app', async () => {

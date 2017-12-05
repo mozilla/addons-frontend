@@ -377,17 +377,19 @@ export function createFakeLanguageTool(otherProps = {}) {
   };
 }
 
-export function createUserProfileResponse({
+export function createUserAccountResponse({
   id = 123456,
   username = 'user-1234',
-  displayName = null,
+  // eslint-disable-next-line camelcase
+  display_name = null,
   permissions = [],
 } = {}) {
   return {
     average_addon_rating: null,
     biography: '',
     created: '2017-08-15T12:01:13Z',
-    display_name: displayName,
+    // eslint-disable-next-line camelcase
+    display_name,
     homepage: '',
     id,
     is_addon_developer: false,
@@ -403,8 +405,6 @@ export function createUserProfileResponse({
     permissions,
   };
 }
-
-export const createUserAccountResponse = createUserProfileResponse;
 
 // Returns a real-ish config object with custom parameters.
 //

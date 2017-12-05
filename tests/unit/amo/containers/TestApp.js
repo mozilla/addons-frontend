@@ -13,11 +13,9 @@ import App, {
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/App';
+import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
-import {
-  logOutUser as logOutUserAction,
-  setUserAgent as setUserAgentAction,
-} from 'core/actions';
+import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import {

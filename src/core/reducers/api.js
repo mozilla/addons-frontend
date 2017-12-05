@@ -1,16 +1,16 @@
 /* @flow */
 import UAParser from 'ua-parser-js';
 
+import { LOG_OUT_USER } from 'amo/reducers/users';
 import {
-  LOG_OUT_USER,
   SET_AUTH_TOKEN,
   SET_LANG,
   SET_CLIENT_APP,
   SET_USER_AGENT,
 } from 'core/constants';
+import type { LogOutUserAction } from 'amo/reducers/users';
 import type {
   SetAuthTokenAction,
-  LogOutUserAction,
   SetClientAppAction,
   SetLangAction,
   SetUserAgentAction,

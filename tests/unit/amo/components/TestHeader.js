@@ -66,7 +66,10 @@ describe(__filename, () => {
 
   it('displays a menu and the display name when user is signed in', () => {
     const displayName = 'King of the Elephants';
-    const { store } = dispatchSignInActions({ username: 'babar', displayName });
+    const { store } = dispatchSignInActions({
+      display_name: displayName,
+      username: 'babar',
+    });
     const wrapper = renderHeader({ store });
 
     expect(wrapper.find(DropdownMenu)).toHaveLength(1);
