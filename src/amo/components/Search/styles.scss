@@ -49,6 +49,7 @@
       // Allows the grid item to contain the content preventing overflow.
       min-width: 0;
       // Hack to force column height calculations in ESR 52.
+      // See: https://github.com/mozilla/addons/issues/566
       width: 100%;
 
       .SearchResult {
