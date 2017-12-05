@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-28 19:59+0000\n"
+"POT-Creation-Date: 2017-12-05 19:53+0000\n"
 "PO-Revision-Date: 2017-04-18 09:26+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -130,16 +130,16 @@ msgstr "Ju lutemi, rinisni Firefox-in që të përdorni këtë shtesë."
 msgid "Close"
 msgstr "Mbylle"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ""
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 #, fuzzy
 msgid "This add-on does not support your version of Firefox."
 msgstr "Kjo shtesë do të çinstalohet pasi të rinisni Firefox-in."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr ""
 

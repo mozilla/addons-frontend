@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-28 19:59+0000\n"
+"POT-Creation-Date: 2017-12-05 19:53+0000\n"
 "PO-Revision-Date: 2017-04-05 05:15+0000\n"
 "Last-Translator: hee <ilmag2@naver.com>\n"
 "Language-Team: none\n"
@@ -128,16 +128,16 @@ msgstr "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시�
 msgid "Close"
 msgstr "닫기"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ""
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 #, fuzzy
 msgid "This add-on does not support your version of Firefox."
 msgstr "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr ""
 
