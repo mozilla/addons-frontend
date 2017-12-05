@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-12-03 16:57+0000\n"
+"PO-Revision-Date: 2017-12-05 16:39+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -137,7 +137,7 @@ msgstr "آزمایشی"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "با Firefox Quantum سازگار نیست"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -174,7 +174,7 @@ msgstr "کاربرها"
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
+msgstr[0] "کاربران"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -199,7 +199,7 @@ msgstr "استفاده شده توسط"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "مجموع امتیازها"
 
 #: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
@@ -588,11 +588,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr ""
+msgstr "گزارش شد"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr ""
+msgstr "گزارش"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -756,11 +756,11 @@ msgstr "انتضاعی"
 
 #: src/amo/components/Home/index.js:120
 msgid "Nature"
-msgstr ""
+msgstr "طبیعت"
 
 #: src/amo/components/Home/index.js:125
 msgid "Film & TV"
-msgstr ""
+msgstr "فیلم و تلویزیون"
 
 #: src/amo/components/Home/index.js:130
 msgid "Scenery"
@@ -768,11 +768,11 @@ msgstr "منظره"
 
 #: src/amo/components/Home/index.js:135
 msgid "Music"
-msgstr ""
+msgstr "موزیک"
 
 #: src/amo/components/Home/index.js:140
 msgid "Seasonal"
-msgstr ""
+msgstr "فصلی"
 
 #: src/amo/components/Home/index.js:171
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -800,11 +800,11 @@ msgstr "دیدن افزونه‌های بیشتر مربوط به زبانه‌�
 
 #: src/amo/components/Home/index.js:64
 msgid "Bookmarks"
-msgstr ""
+msgstr "نشانک‌ها"
 
 #: src/amo/components/Home/index.js:68
 msgid "Password managers"
-msgstr ""
+msgstr "مدیریت گذرواژه‌ها"
 
 #: src/amo/components/Home/index.js:72
 msgid "Ad blockers"
