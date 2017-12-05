@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-12-05 15:04+0000\n"
+"PO-Revision-Date: 2017-12-05 15:31+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -476,11 +476,11 @@ msgstr "Редактиране на колекцията"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
-msgstr "Подкрепете разработчика"
+msgstr "Насърчаване на разработчика"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "Support these developers"
-msgstr "Подкрепете разработчиците"
+msgstr "Насърчаване на разработчиците"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -492,41 +492,39 @@ msgstr "Разработчиците на разширението ви прик
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "Support this artist"
-msgstr "Подкрепете художника"
+msgstr "Насърчаване на художника"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "Support these artists"
-msgstr "Подкрепете художниците"
+msgstr "Насърчаване на художниците"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Художникът на темата ви приканва да допринесете за бъдещото ѝ развитие като направите скромно дарение."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Художниците на темата ви приканват да допринесете за бъдещото ѝ развитие като направите скромно дарение."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Страница за поддръжка"
+msgstr "Насърчаване на автора"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Повече теми от %(author)s"
+msgstr "Насърчаване на авторите"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Авторът на добавката ви приканва да допринесете за бъдещото ѝ развитие, като направите скромно дарение."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Авторите на добавката ви приканват да допринесете за бъдещото ѝ развитие, като направите скромно дарение."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "Даряване"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -586,25 +584,23 @@ msgstr "Доклад за проблем или заявка за поддръж
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Сигнализирана като доклад за дефект или заявка за поддръжка"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr ""
+msgstr "Сигнализирана"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr ""
+msgstr "Сигнализиране"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Отговор от разработчика"
+msgstr "Сигнализирайте за този отговор от разработчика"
 
 #: src/amo/components/FlagReviewMenu/index.js:135
-#, fuzzy
 msgid "Flag this review"
-msgstr "Отговаряне на отзива"
+msgstr "Сигнализирайте за този отзив"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
 #, fuzzy
