@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-28 19:56+0000\n"
+"POT-Creation-Date: 2017-12-05 19:47+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -204,76 +204,76 @@ msgid "Overall Rating"
 msgstr "ƃuıʇɐᴚ ʅʅɐɹǝʌO"
 
 # This will output, in English:
-#: src/amo/components/AddonMoreInfo/index.js:103
+#: src/amo/components/AddonMoreInfo/index.js:102
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "(%(date)s) %(timeFromNow)s"
 
-#: src/amo/components/AddonMoreInfo/index.js:123
+#: src/amo/components/AddonMoreInfo/index.js:122
 msgid "Read the privacy policy for this add-on"
 msgstr "uo-ppɐ sıɥʇ ɹoɟ ʎɔıʅod ʎɔɐʌıɹd ǝɥʇ pɐǝᴚ"
 
-#: src/amo/components/AddonMoreInfo/index.js:131
+#: src/amo/components/AddonMoreInfo/index.js:130
 msgid "Read the license agreement for this add-on"
 msgstr "uo-ppɐ sıɥʇ ɹoɟ ʇuǝɯǝǝɹƃɐ ǝsuǝɔıʅ ǝɥʇ pɐǝᴚ"
 
-#: src/amo/components/AddonMoreInfo/index.js:140
+#: src/amo/components/AddonMoreInfo/index.js:139
 msgid "See all versions"
 msgstr "suoısɹǝʌ ʅʅɐ ǝǝS"
 
-#: src/amo/components/AddonMoreInfo/index.js:152
+#: src/amo/components/AddonMoreInfo/index.js:151
 msgid "See all beta versions"
 msgstr "suoısɹǝʌ ɐʇǝq ʅʅɐ ǝǝS"
 
-#: src/amo/components/AddonMoreInfo/index.js:177
+#: src/amo/components/AddonMoreInfo/index.js:176
 msgid "Add-on Links"
 msgstr "sʞuı⅂ uo-pp∀"
 
-#: src/amo/components/AddonMoreInfo/index.js:190
+#: src/amo/components/AddonMoreInfo/index.js:189
 msgid "Version"
 msgstr "uoısɹǝɅ"
 
-#: src/amo/components/AddonMoreInfo/index.js:198
-#: src/amo/components/Collection/index.js:160
+#: src/amo/components/AddonMoreInfo/index.js:197
+#: src/amo/components/Collection/index.js:161
 msgid "Last updated"
 msgstr "pǝʇɐpdn ʇsɐ⅂"
 
-#: src/amo/components/AddonMoreInfo/index.js:204
+#: src/amo/components/AddonMoreInfo/index.js:203
 msgid "License"
 msgstr "ǝsuǝɔı⅂"
 
-#: src/amo/components/AddonMoreInfo/index.js:211
+#: src/amo/components/AddonMoreInfo/index.js:210
 msgid "Privacy Policy"
 msgstr "ʎɔıʅoԀ ʎɔɐʌıɹԀ"
 
-#: src/amo/components/AddonMoreInfo/index.js:218
+#: src/amo/components/AddonMoreInfo/index.js:217
 msgid "End-User License Agreement"
 msgstr "ʇuǝɯǝǝɹƃ∀ ǝsuǝɔı⅂ ɹǝs∩-puƎ"
 
-#: src/amo/components/AddonMoreInfo/index.js:225
+#: src/amo/components/AddonMoreInfo/index.js:224
 msgid "Version History"
 msgstr "ʎɹoʇsıH uoısɹǝɅ"
 
-#: src/amo/components/AddonMoreInfo/index.js:237
+#: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Usage Statistics"
 msgstr "sɔıʇsıʇɐʇS ǝƃɐs∩"
 
-#: src/amo/components/AddonMoreInfo/index.js:251
+#: src/amo/components/AddonMoreInfo/index.js:250
 msgid "More information"
 msgstr "uoıʇɐɯɹoɟuı ǝɹoW"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:50
 msgid "Homepage"
 msgstr "ǝƃɐdǝɯoH"
 
-#: src/amo/components/AddonMoreInfo/index.js:60
+#: src/amo/components/AddonMoreInfo/index.js:59
 msgid "Support Site"
 msgstr "ǝʇıS ʇɹoddnS"
 
-#: src/amo/components/AddonMoreInfo/index.js:73
+#: src/amo/components/AddonMoreInfo/index.js:72
 msgid "Support Email"
 msgstr "ʅıɐɯƎ ʇɹoddnS"
 
-#: src/amo/components/AddonMoreInfo/index.js:88
+#: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
 msgstr "pɹɐoqɥsɐp sʇɐʇs ʇısıɅ"
 
@@ -405,26 +405,25 @@ msgid "Extensions"
 msgstr "suoısuǝʇxƎ"
 
 #: src/amo/components/Category/index.js:126
-#: src/amo/components/HomeHeroBanner/index.js:36
+#: src/amo/components/Home/index.js:207
 #: src/amo/components/LandingPage/index.js:121
 #: src/amo/components/Search/index.js:111
 msgid "Featured extensions"
 msgstr "suoısuǝʇxǝ pǝɹnʇɐǝℲ"
 
 #: src/amo/components/Category/index.js:135
+#: src/amo/components/Home/index.js:208
 #: src/amo/components/LandingPage/index.js:129
 msgid "See more featured extensions"
 msgstr "suoısuǝʇxǝ pǝɹnʇɐǝɟ ǝɹoɯ ǝǝS"
 
 #: src/amo/components/Category/index.js:136
-#: src/amo/components/Home/index.js:226
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
 msgid "Trending extensions"
 msgstr "suoısuǝʇxǝ ƃuıpuǝɹ⊥"
 
 #: src/amo/components/Category/index.js:145
-#: src/amo/components/Home/index.js:227
 #: src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
 msgstr "suoısuǝʇxǝ ƃuıpuǝɹʇ ǝɹoɯ ǝǝS"
@@ -447,14 +446,12 @@ msgid "Themes"
 msgstr "sǝɯǝɥ⊥"
 
 #: src/amo/components/Category/index.js:159
-#: src/amo/components/Home/index.js:254
 #: src/amo/components/LandingPage/index.js:147
 #: src/amo/components/Search/index.js:114
 msgid "Featured themes"
 msgstr "sǝɯǝɥʇ pǝɹnʇɐǝℲ"
 
 #: src/amo/components/Category/index.js:168
-#: src/amo/components/Home/index.js:255
 #: src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
 msgstr "sǝɯǝɥʇ pǝɹnʇɐǝɟ ǝɹoɯ ǝǝS"
@@ -493,16 +490,16 @@ msgstr ".ʎɹoƃǝʇɐɔ sıɥʇ uı suoısuǝʇxǝ ʅʅɐ ǝsʍoɹԐ"
 msgid "Browse all themes in this category."
 msgstr ".ʎɹoƃǝʇɐɔ sıɥʇ uı sǝɯǝɥʇ ʅʅɐ ǝsʍoɹԐ"
 
-#: src/amo/components/Collection/index.js:150
+#: src/amo/components/Collection/index.js:151
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "suo-pp∀"
 
-#: src/amo/components/Collection/index.js:154
+#: src/amo/components/Collection/index.js:155
 msgid "Creator"
 msgstr "ɹoʇɐǝɹↃ"
 
-#: src/amo/components/Collection/index.js:167
+#: src/amo/components/Collection/index.js:168
 msgid "Edit this collection"
 msgstr "uoıʇɔǝʅʅoɔ sıɥʇ ʇıpƎ"
 
@@ -618,12 +615,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ʇsǝnbǝɹ ʇɹoddns ɹo ʇɹodǝɹ ƃnq ɐ sɐ pǝƃƃɐʅℲ"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
-msgid "Flagged"
-msgstr "pǝƃƃɐʅℲ"
-
-#: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
 msgstr "ƃɐʅℲ"
+
+#: src/amo/components/FlagReviewMenu/index.js:131
+msgid "Flagged"
+msgstr "pǝƃƃɐʅℲ"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -718,7 +715,7 @@ msgid "Blog"
 msgstr "ƃoʅԐ"
 
 #: src/amo/components/Footer/index.js:61
-#: src/amo/components/Header/index.js:83
+#: src/amo/components/Header/index.js:84
 msgid "Developer Hub"
 msgstr "qnH ɹǝdoʅǝʌǝᗡ"
 
@@ -742,144 +739,189 @@ msgstr "snʇɐʇS ǝʇıS"
 msgid "View classic desktop site"
 msgstr "ǝʇıs doʇʞsǝp ɔıssɐʅɔ ʍǝıɅ"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:101
 msgid "View My Collections"
 msgstr "suoıʇɔǝʅʅoↃ ʎW ʍǝıɅ"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:106
 msgid "View Profile"
 msgstr "ǝʅıɟoɹԀ ʍǝıɅ"
 
-#: src/amo/components/Header/index.js:110
+#: src/amo/components/Header/index.js:111
 msgid "Edit Profile"
 msgstr "ǝʅıɟoɹԀ ʇıpƎ"
 
-#: src/amo/components/Header/index.js:114
+#: src/amo/components/Header/index.js:115
 msgid "Tools"
 msgstr "sʅoo⊥"
 
-#: src/amo/components/Header/index.js:120
+#: src/amo/components/Header/index.js:121
 msgid "Submit a New Add-on"
 msgstr "uo-pp∀ ʍǝN ɐ ʇıɯqnS"
 
-#: src/amo/components/Header/index.js:128
+#: src/amo/components/Header/index.js:129
 msgid "Submit a New Theme"
 msgstr "ǝɯǝɥ⊥ ʍǝN ɐ ʇıɯqnS"
 
-#: src/amo/components/Header/index.js:137
+#: src/amo/components/Header/index.js:138
 #: src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
 msgstr "ʇno ƃo⅂"
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/Header/index.js:60
+#: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "suo-pp∀ xoɟǝɹıℲ"
 
-#: src/amo/components/Header/index.js:94
+#: src/amo/components/Header/index.js:95
 msgid "My Account"
 msgstr "ʇunoɔɔ∀ ʎW"
 
-#: src/amo/components/Home/index.js:115
+#: src/amo/components/Home/index.js:117
 msgid "Abstract"
 msgstr "ʇɔɐɹʇsq∀"
 
-#: src/amo/components/Home/index.js:120
+#: src/amo/components/Home/index.js:122
 msgid "Nature"
 msgstr "ǝɹnʇɐN"
 
-#: src/amo/components/Home/index.js:125
+#: src/amo/components/Home/index.js:127
 msgid "Film & TV"
 msgstr "Ʌ⊥ ⅋ ɯʅıℲ"
 
-#: src/amo/components/Home/index.js:130
+#: src/amo/components/Home/index.js:132
 msgid "Scenery"
 msgstr "ʎɹǝuǝɔS"
 
-#: src/amo/components/Home/index.js:135
+#: src/amo/components/Home/index.js:137
 msgid "Music"
 msgstr "ɔısnW"
 
-#: src/amo/components/Home/index.js:140
+#: src/amo/components/Home/index.js:142
 msgid "Seasonal"
 msgstr "ʅɐuosɐǝS"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:174
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "…uı pǝʇsǝɹǝʇuı noʎ ǝɹ∀ .suoısuǝʇxǝ ɥʇıʍ sʞɹoʍ xoɟǝɹıℲ ʎɐʍ ǝɥʇ ǝzıɯoʇsnↃ"
 
-#: src/amo/components/Home/index.js:173
+#: src/amo/components/Home/index.js:176
 msgid "Change the way Firefox looks with themes."
 msgstr ".sǝɯǝɥʇ ɥʇıʍ sʞooʅ xoɟǝɹıℲ ʎɐʍ ǝɥʇ ǝƃuɐɥↃ"
 
-#: src/amo/components/Home/index.js:204
-msgid "Top privacy extensions"
-msgstr "suoısuǝʇxǝ ʎɔɐʌıɹd do⊥"
+#: src/amo/components/Home/index.js:222
+#: src/amo/components/Search/index.js:148
+msgid "Popular extensions"
+msgstr "suoısuǝʇxǝ ɹɐʅndoԀ"
 
-#: src/amo/components/Home/index.js:205
-msgid "See more privacy extensions"
-msgstr "suoısuǝʇxǝ ʎɔɐʌıɹd ǝɹoɯ ǝǝS"
+#: src/amo/components/Home/index.js:223
+msgid "See more popular extensions"
+msgstr "suoısuǝʇxǝ ɹɐʅndod ǝɹoɯ ǝǝS"
 
-#: src/amo/components/Home/index.js:215
-msgid "Change up your tabs"
-msgstr "sqɐʇ ɹnoʎ dn ǝƃuɐɥↃ"
+#: src/amo/components/Home/index.js:237
+msgid "Top-rated Themes"
+msgstr "sǝɯǝɥ⊥ pǝʇɐɹ-do⊥"
 
-#: src/amo/components/Home/index.js:216
-msgid "See more tab extensions"
-msgstr "suoısuǝʇxǝ qɐʇ ǝɹoɯ ǝǝS"
+#: src/amo/components/Home/index.js:238
+msgid "See more highly rated Themes"
+msgstr "sǝɯǝɥ⊥ pǝʇɐɹ ʎʅɥƃıɥ ǝɹoɯ ǝǝS"
 
-#: src/amo/components/Home/index.js:64
+#: src/amo/components/Home/index.js:252
+msgid "Productivity tools"
+msgstr "sʅooʇ ʎʇıʌıʇɔnpoɹԀ"
+
+#: src/amo/components/Home/index.js:253
+msgid "See more productivity tools"
+msgstr "sʅooʇ ʎʇıʌıʇɔnpoɹd ǝɹoɯ ǝǝS"
+
+#: src/amo/components/Home/index.js:263
+msgid "Privacy protection"
+msgstr "uoıʇɔǝʇoɹd ʎɔɐʌıɹԀ"
+
+#: src/amo/components/Home/index.js:264
+msgid "See more add-ons that protect your privacy"
+msgstr "ʎɔɐʌıɹd ɹnoʎ ʇɔǝʇoɹd ʇɐɥʇ suo-ppɐ ǝɹoɯ ǝǝS"
+
+#: src/amo/components/Home/index.js:66
 msgid "Bookmarks"
 msgstr "sʞɹɐɯʞooԐ"
 
-#: src/amo/components/Home/index.js:68
+#: src/amo/components/Home/index.js:70
 msgid "Password managers"
 msgstr "sɹǝƃɐuɐɯ pɹoʍssɐԀ"
 
-#: src/amo/components/Home/index.js:72
+#: src/amo/components/Home/index.js:74
 msgid "Ad blockers"
 msgstr "sɹǝʞɔoʅq p∀"
 
-#: src/amo/components/Home/index.js:76
+#: src/amo/components/Home/index.js:78
 msgid "Smarter Shopping"
 msgstr "ƃuıddoɥS ɹǝʇɹɐɯS"
 
-#: src/amo/components/Home/index.js:80
+#: src/amo/components/Home/index.js:82
 msgid "Productivity"
 msgstr "ʎʇıʌıʇɔnpoɹԀ"
 
-#: src/amo/components/Home/index.js:84
+#: src/amo/components/Home/index.js:86
 msgid "Watching Videos"
 msgstr "soǝpıɅ ƃuıɥɔʇɐＭ"
 
-#: src/amo/components/HomeHeroBanner/index.js:38
-msgid "Excellent extensions for all situations"
-msgstr "suoıʇɐnʇıs ʅʅɐ ɹoɟ suoısuǝʇxǝ ʇuǝʅʅǝɔxƎ"
-
-#: src/amo/components/HomeHeroBanner/index.js:47
-msgid "YouTube High Definition"
-msgstr "uoıʇıuıɟǝᗡ ɥƃıH ǝqn⊥no⅄"
-
-#: src/amo/components/HomeHeroBanner/index.js:50
-msgid "Play videos in HD, turn off annotations, change player size & more"
-msgstr "ǝɹoɯ ⅋ ǝzıs ɹǝʎɐʅd ǝƃuɐɥɔ ´suoıʇɐʇouuɐ ɟɟo uɹnʇ ´ᗡH uı soǝpıʌ ʎɐʅԀ"
-
-#: src/amo/components/HomeHeroBanner/index.js:61
-msgid "Productivity extensions"
-msgstr "suoısuǝʇxǝ ʎʇıʌıʇɔnpoɹԀ"
-
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Tools for making the Web work harder for you"
-msgstr "noʎ ɹoɟ ɹǝpɹɐɥ ʞɹoʍ qǝＭ ǝɥʇ ƃuıʞɐɯ ɹoɟ sʅoo⊥"
-
-#: src/amo/components/HomeHeroBanner/index.js:74
+#: src/amo/components/HomeHeroBanner/index.js:107
 msgid "LastPass Password Manager"
 msgstr "ɹǝƃɐuɐW pɹoʍssɐԀ ssɐԀʇsɐ⅂"
 
-#: src/amo/components/HomeHeroBanner/index.js:76
+#: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Easily manage all your passwords for all devices from one spot"
 msgstr "ʇods ǝuo ɯoɹɟ sǝɔıʌǝp ʅʅɐ ɹoɟ spɹoʍssɐd ɹnoʎ ʅʅɐ ǝƃɐuɐɯ ʎʅısɐƎ"
+
+#: src/amo/components/HomeHeroBanner/index.js:29
+msgid "S3.Translator"
+msgstr "ɹoʇɐʅsuɐɹ⊥.3S"
+
+#: src/amo/components/HomeHeroBanner/index.js:35
+msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
+msgstr ".sǝƃɐnƃuɐʅ +001 sʇɹoddnS .ǝƃɐd ǝɹıʇuǝ uɐ uǝʌǝ ´ǝsɐɹɥd ´pɹoʍ ɐ ǝʇɐʅsuɐɹ⊥"
+
+#: src/amo/components/HomeHeroBanner/index.js:45
+msgid "Group Speed Dial"
+msgstr "ʅɐıᗡ pǝǝdS dnoɹ⅁"
+
+#: src/amo/components/HomeHeroBanner/index.js:47
+msgid "Visual bookmarks for your favorite places on the web."
+msgstr ".qǝʍ ǝɥʇ uo sǝɔɐʅd ǝʇıɹoʌɐɟ ɹnoʎ ɹoɟ sʞɹɐɯʞooq ʅɐnsıɅ"
+
+#: src/amo/components/HomeHeroBanner/index.js:57
+msgid "Search by Image"
+msgstr "ǝƃɐɯI ʎq ɥɔɹɐǝS"
+
+#: src/amo/components/HomeHeroBanner/index.js:60
+msgid "Reverse image search using various search engines."
+msgstr ".sǝuıƃuǝ ɥɔɹɐǝs snoıɹɐʌ ƃuısn ɥɔɹɐǝs ǝƃɐɯı ǝsɹǝʌǝᴚ"
+
+#: src/amo/components/HomeHeroBanner/index.js:70
+msgid "FireShot"
+msgstr "ʇoɥSǝɹıℲ"
+
+#: src/amo/components/HomeHeroBanner/index.js:73
+msgid "Capture full-page screenshots."
+msgstr ".sʇoɥsuǝǝɹɔs ǝƃɐd-ʅʅnɟ ǝɹnʇdɐↃ"
+
+#: src/amo/components/HomeHeroBanner/index.js:83
+msgid "Video DownloadHelper"
+msgstr "ɹǝdʅǝHpɐoʅuʍoᗡ oǝpıɅ"
+
+#: src/amo/components/HomeHeroBanner/index.js:85
+msgid "Easily download video from hundreds of popular websites."
+msgstr ".sǝʇısqǝʍ ɹɐʅndod ɟo spǝɹpunɥ ɯoɹɟ oǝpıʌ pɐoʅuʍop ʎʅısɐƎ"
+
+#: src/amo/components/HomeHeroBanner/index.js:95
+msgid "Decentraleyes"
+msgstr "sǝʎǝʅɐɹʇuǝɔǝᗡ"
+
+#: src/amo/components/HomeHeroBanner/index.js:97
+msgid "Tracking protection against third-party sites aiming to mark your every online move."
+msgstr ".ǝʌoɯ ǝuıʅuo ʎɹǝʌǝ ɹnoʎ ʞɹɐɯ oʇ ƃuıɯıɐ sǝʇıs ʎʇɹɐd-pɹıɥʇ ʇsuıɐƃɐ uoıʇɔǝʇoɹd ƃuıʞɔɐɹ⊥"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -929,31 +971,31 @@ msgstr "sʞɔɐԀ ǝƃɐnƃuɐ⅂"
 msgid "Dictionaries"
 msgstr "sǝıɹɐuoıʇɔıᗡ"
 
-#: src/amo/components/RatingManager/index.js:133
+#: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this dictionary"
 msgstr "ʎɹɐuoıʇɔıp sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
 
-#: src/amo/components/RatingManager/index.js:135
+#: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this language pack"
 msgstr "ʞɔɐd ǝƃɐnƃuɐʅ sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
 
-#: src/amo/components/RatingManager/index.js:137
+#: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this search plugin"
 msgstr "uıƃnʅd ɥɔɹɐǝs sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
 
-#: src/amo/components/RatingManager/index.js:139
+#: src/amo/components/RatingManager/index.js:142
 msgid "Log in to rate this theme"
 msgstr "ǝɯǝɥʇ sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
 
-#: src/amo/components/RatingManager/index.js:141
+#: src/amo/components/RatingManager/index.js:144
 msgid "Log in to rate this extension"
 msgstr "uoısuǝʇxǝ sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
 
-#: src/amo/components/RatingManager/index.js:147
+#: src/amo/components/RatingManager/index.js:150
 msgid "Log in to rate this add-on"
 msgstr "uo-ppɐ sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
 
-#: src/amo/components/RatingManager/index.js:178
+#: src/amo/components/RatingManager/index.js:189
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "¿%(addonName)s ɥʇıʍ ǝɔuǝıɹǝdxǝ ɹnoʎ ƃuıʎoɾuǝ noʎ ǝɹɐ ʍoH"
 
@@ -973,28 +1015,27 @@ msgstr ".ǝnssı sıɥʇ oʇuı ʞooʅ ʅʅ,ǝʍ ʇnq ʇɹodǝɹ ǝsnqɐ ʎɹǝ�
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ".ɯɹoɟ sıɥʇ ƃuısn ɐʅʅızoW oʇ sǝnssı ǝsǝɥʇ ʇɹodǝɹ ǝsɐǝʅd ´sǝnssı ʎɔɐʌıɹd ɹo ʎʇıɹnɔǝs sɐɥ ɹo %(linkTagEnd)ssǝıɔıʅod uo-ppɐ s,ɐʅʅızoW%(linkTagStart)s sǝʇɐʅoıʌ uo-ppɐ sıɥʇ ʞuıɥʇ noʎ ɟI"
 
-#: src/amo/components/ReportAbuseButton/index.js:152
-#: src/amo/components/ReportAbuseButton/index.js:158
+#: src/amo/components/ReportAbuseButton/index.js:143
 msgid "Report this add-on for abuse"
 msgstr "ǝsnqɐ ɹoɟ uo-ppɐ sıɥʇ ʇɹodǝᴚ"
 
-#: src/amo/components/ReportAbuseButton/index.js:166
+#: src/amo/components/ReportAbuseButton/index.js:169
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ".ɹǝdoʅǝʌǝp uo-ppɐ ǝɥʇ oʇ ʇou puɐ ɐʅʅızoW oʇ ʇuǝs ǝq ʅʅıʍ ʇɹodǝɹ sıɥʇ ;sǝɹnʇɐǝɟ uo-ppɐ ʇsǝnbǝɹ ɹo sƃnq ʇɹodǝɹ oʇ ɯɹoɟ sıɥʇ ǝsn ʇ,uop ǝsɐǝʅԀ"
 
-#: src/amo/components/ReportAbuseButton/index.js:179
+#: src/amo/components/ReportAbuseButton/index.js:182
 msgid "Explain how this add-on is violating our policies."
 msgstr ".sǝıɔıʅod ɹno ƃuıʇɐʅoıʌ sı uo-ppɐ sıɥʇ ʍoɥ uıɐʅdxƎ"
 
-#: src/amo/components/ReportAbuseButton/index.js:192
+#: src/amo/components/ReportAbuseButton/index.js:195
 msgid "Dismiss"
 msgstr "ssıɯsıᗡ"
 
-#: src/amo/components/ReportAbuseButton/index.js:200
+#: src/amo/components/ReportAbuseButton/index.js:203
 msgid "Sending abuse report"
 msgstr "ʇɹodǝɹ ǝsnqɐ ƃuıpuǝS"
 
-#: src/amo/components/ReportAbuseButton/index.js:201
+#: src/amo/components/ReportAbuseButton/index.js:204
 msgid "Send abuse report"
 msgstr "ʇɹodǝɹ ǝsnqɐ puǝS"
 
@@ -1014,10 +1055,6 @@ msgstr "suo-ppɐ ƃuıpuǝɹ⊥"
 #: src/amo/components/Search/index.js:142
 msgid "Top rated add-ons"
 msgstr "suo-ppɐ pǝʇɐɹ do⊥"
-
-#: src/amo/components/Search/index.js:148
-msgid "Popular extensions"
-msgstr "suoısuǝʇxǝ ɹɐʅndoԀ"
 
 #: src/amo/components/Search/index.js:151
 msgid "Popular themes"
