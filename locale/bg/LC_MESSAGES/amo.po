@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-12-05 15:31+0000\n"
+"PO-Revision-Date: 2017-12-05 15:47+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -584,11 +584,11 @@ msgstr "Доклад за проблем или заявка за поддръж
 
 #: src/amo/components/FlagReviewMenu/index.js:116
 msgid "Flagged as a bug report or support request"
-msgstr "Сигнализирана като доклад за дефект или заявка за поддръжка"
+msgstr "Сигнализиран като доклад за дефект или заявка за поддръжка"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr "Сигнализирана"
+msgstr "Сигнализиран"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
@@ -603,38 +603,36 @@ msgid "Flag this review"
 msgstr "Сигнализирайте за този отзив"
 
 #: src/amo/components/FlagReviewMenu/index.js:60
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "За да оцените това разширение се впишете"
+msgstr "Впишете се, за да сигнализирате за този отговор"
 
 #: src/amo/components/FlagReviewMenu/index.js:61
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "За да оцените тази тема се впишете"
+msgstr "Впишете се, за да сигнализирате за този отзив"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Не може да сигнализирате за собствените си отговори"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Не може да сигнализирате за собствените си отзиви"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr ""
+msgstr "Това е странично съдържание"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Сигнализиран за странично съдържание"
 
 #: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Съдържа груби изрази"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Сигнализиран за груби изрази"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -785,14 +783,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Променете облика на Firefox с теми."
 
 #: src/amo/components/Home/index.js:204
-#, fuzzy
 msgid "Top privacy extensions"
-msgstr "Най-високо оценени разширения"
+msgstr "Най-поверителни разширения"
 
 #: src/amo/components/Home/index.js:205
-#, fuzzy
 msgid "See more privacy extensions"
-msgstr "Повече от разширенията за раздели"
+msgstr "Повече от разширенията за поверителност"
 
 #: src/amo/components/Home/index.js:215
 msgid "Change up your tabs"
@@ -844,12 +840,11 @@ msgstr "Добавки за производителност"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Tools for making the Web work harder for you"
-msgstr ""
+msgstr "Инструменти, които карат Мрежата да работи за вас"
 
 #: src/amo/components/HomeHeroBanner/index.js:74
-#, fuzzy
 msgid "LastPass Password Manager"
-msgstr "Управление на пароли"
+msgstr "Управление на пароли с LastPass"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Easily manage all your passwords for all devices from one spot"
@@ -1291,9 +1286,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-#, fuzzy
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Получихме вашия доклад. Благодаря, че ни информирате за вашите проблеми с тази добавка."
+msgstr "Пишете така, както бихте разказали на приятел за своя опит с тази добавка."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
