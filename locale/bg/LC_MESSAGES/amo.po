@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-11-28 19:56+0000\n"
-"PO-Revision-Date: 2017-12-01 10:55+0000\n"
+"PO-Revision-Date: 2017-12-05 15:04+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -484,21 +484,19 @@ msgstr "Подкрепете разработчиците"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Разработчикът на разширението ви приканва да допринесете за бъдещото ѝ развитие, като направите скромно дарение."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Разработчиците на разширението ви приканват да допринесете за бъдещото ѝ развитие, като направите скромно дарение."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Страница за поддръжка"
+msgstr "Подкрепете художника"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Повече теми от тези художници"
+msgstr "Подкрепете художниците"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
