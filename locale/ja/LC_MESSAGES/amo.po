@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-05 20:13+0000\n"
+"PO-Revision-Date: 2017-12-06 17:56+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -787,28 +787,24 @@ msgid "Top-rated Themes"
 msgstr "最も評価の高いテーマ"
 
 #: src/amo/components/Home/index.js:238
-#, fuzzy
 msgid "See more highly rated Themes"
-msgstr "すべての高評価テーマ"
+msgstr "評価の高いテーマをもっと見る"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Productivity tools"
-msgstr "仕事効率化"
+msgstr "仕事効率化ツール"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more productivity tools"
-msgstr "プライバシー拡張機能をもっと見る"
+msgstr "仕事効率化ツールをもっと見る"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
-msgstr "プライバシーポリシー"
+msgstr "プライバシー保護"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
-msgstr ""
+msgstr "プライバシーを守るためのアドオンをもっと見る"
 
 #: src/amo/components/Home/index.js:66
 msgid "Bookmarks"
@@ -844,7 +840,7 @@ msgstr "あらゆる端末向けのパスワードをすべて 1 か所でまと
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "S3.Translator"
-msgstr ""
+msgstr "S3.Translator"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
@@ -852,16 +848,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "テーマを検索"
+msgstr "画像で検索"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
@@ -869,7 +864,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
-msgstr ""
+msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
@@ -877,7 +872,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
-msgstr ""
+msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
@@ -885,7 +880,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
-msgstr ""
+msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
