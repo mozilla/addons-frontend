@@ -248,7 +248,7 @@ export class AddonReviewListBase extends React.Component<Props> {
             </div>
           </div>
 
-          {addon ? (
+          {addon && addon.current_version ? (
             <RatingManager
               addon={addon}
               location={location}

@@ -574,6 +574,13 @@ describe(__filename, () => {
       expect(manager).toHaveProp('onReviewSubmitted');
     });
 
+    it('does not render a rating manager without a version', () => {
+      dispatchAddon({ ...fakeAddon, current_version: null });
+      const root = render();
+
+      expect(root.find(RatingManager)).toHaveLength(0);
+    });
+
     it('handles a submitted review', () => {
       const addonSlug = 'some-slug';
       dispatchAddon({ ...fakeAddon, slug: addonSlug });
