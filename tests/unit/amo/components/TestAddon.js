@@ -688,6 +688,7 @@ describe(__filename, () => {
     const root = shallowRender({ addon });
 
     expect(root.find(RatingManagerWithI18n)).toHaveLength(0);
+    expect(root.find('.Addon-no-rating-manager')).toHaveLength(1);
   });
 
   it('renders a summary', () => {
