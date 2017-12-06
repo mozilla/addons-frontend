@@ -247,7 +247,7 @@ export class AddonBase extends React.Component {
         className="Addon-overall-rating"
         {...props}
       >
-        {addon ?
+        {addon && addon.current_version ?
           <RatingManager
             addon={addon}
             location={location}
