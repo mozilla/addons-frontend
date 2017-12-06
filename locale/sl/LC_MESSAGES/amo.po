@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-05 20:14+0000\n"
+"PO-Revision-Date: 2017-12-06 14:45+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -809,23 +809,20 @@ msgid "See more highly rated Themes"
 msgstr "Več visoko ocenjenih tem"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Productivity tools"
-msgstr "Produktivnost"
+msgstr "Orodja za produktivnost"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more productivity tools"
-msgstr "Več razširitev za zasebnost"
+msgstr "Več orodij za produktivnost"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
-msgstr "Pravilnik o zasebnosti"
+msgstr "Zaščita zasebnosti"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
-msgstr ""
+msgstr "Več dodatkov, ki varujejo vašo zasebnost"
 
 #: src/amo/components/Home/index.js:66
 msgid "Bookmarks"
@@ -861,52 +858,51 @@ msgstr "Preprosto upravljajte vsa svoja gesla na vseh napravah z enega mesta"
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "S3.Translator"
-msgstr ""
+msgstr "S3.Translator"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
-msgstr ""
+msgstr "Prevedite besedo, stavek ali celo celotno stran. Podpira preko 100 jezikov."
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "Iskanje po temah"
+msgstr "Search by Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
-msgstr ""
+msgstr "Obrnjeno slikovno iskanje z uporabo različnih iskalnikov."
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
-msgstr ""
+msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
-msgstr ""
+msgstr "Zajemajte posnetke zaslona celotnih strani."
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
-msgstr ""
+msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
-msgstr ""
+msgstr "Preprosto prenašajte videoposnetke s stotin priljubljenih spletnih strani."
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
-msgstr ""
+msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
-msgstr ""
+msgstr "Zaščita pred tretjimi stranmi, ki na spletu poskušajo zabeležiti vsak vaš korak."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
