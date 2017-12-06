@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-06 17:56+0000\n"
+"PO-Revision-Date: 2017-12-06 18:20+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -844,7 +844,7 @@ msgstr "S3.Translator"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
-msgstr ""
+msgstr "単語、表現、あるいはページ全体でも翻訳できます。100 以上の言語に対応。"
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
@@ -852,7 +852,7 @@ msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
-msgstr ""
+msgstr "ウェブ上でお気に入りの場所のための視覚的ブックマーク。"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Search by Image"
@@ -860,7 +860,7 @@ msgstr "画像で検索"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
-msgstr ""
+msgstr "様々な検索エンジンを使った逆画像検索。"
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
@@ -868,7 +868,7 @@ msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
-msgstr ""
+msgstr "ページ全体のスクリーンショットを撮影。"
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
@@ -876,7 +876,7 @@ msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
-msgstr ""
+msgstr "多数の人気サイトから簡単に動画をダウンロード。"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
@@ -884,7 +884,7 @@ msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
-msgstr ""
+msgstr "オンラインでの行動を逐一監視しようとするサードパーティサイトによるトラッキングを防止。"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
