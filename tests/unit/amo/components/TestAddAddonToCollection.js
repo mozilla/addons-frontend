@@ -3,8 +3,15 @@ import React from 'react';
 import AddAddonToCollection, {
   AddAddonToCollectionBase,
 } from 'amo/components/AddAddonToCollection';
+import {
+  fetchUserCollections, loadUserCollections,
+} from 'amo/reducers/collections';
 import { createInternalAddon } from 'core/reducers/addons';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  createFakeCollectionDetail,
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 import {
   fakeI18n,
   shallowUntilTarget,
@@ -14,16 +21,10 @@ import LoadingText from 'ui/components/LoadingText';
 
 
 describe(__filename, () => {
-  let store;
-
-  beforeEach(() => {
-    store = dispatchClientMetadata().store;
-  });
-
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      store,
+      store: dispatchClientMetadata().store,
       ...customProps,
     };
     return shallowUntilTarget(
@@ -36,5 +37,54 @@ describe(__filename, () => {
 
     expect(root).toHaveClassName('MyClass');
     expect(root).toHaveClassName('AddAddonToCollection');
+  });
+
+  it('fetches user collections', () => {
+    const userId = 5543;
+    const { store } = dispatchSignInActions({ userId });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ store });
+
+    sinon.assert.calledWith(dispatchSpy, fetchUserCollections({
+      errorHandlerId: root.instance().props.errorHandler.id, userId,
+    }));
+  });
+
+  it('does not fetch user collections when signed out', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetch user collections when they exist', () => {
+    const userId = 5543;
+    const { store } = dispatchSignInActions({ userId });
+    const collections = [
+      createFakeCollectionDetail({ authorId: userId })
+    ];
+    store.dispatch(loadUserCollections({ userId, collections }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not fetch user collections while loading', () => {
+    const userId = 5543;
+    const { store } = dispatchSignInActions({ userId });
+    const collections = [
+      createFakeCollectionDetail({ authorId: userId })
+    ];
+    store.dispatch(fetchUserCollections({
+      errorHandlerId: 'some-id', userId,
+    }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    render({ store });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 });
