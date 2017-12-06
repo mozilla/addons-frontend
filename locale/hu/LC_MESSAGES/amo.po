@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-06 08:31+0000\n"
+"PO-Revision-Date: 2017-12-06 08:33+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -852,7 +852,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
-msgstr ""
+msgstr "Fordítson le egy szót, egy mondatot vagy akár egy egész oldalt. Több mint 100 nyelvet támogat."
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
@@ -873,11 +873,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
-msgstr ""
+msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
-msgstr ""
+msgstr "Teljes oldalas képernyőképek rögzítése."
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
