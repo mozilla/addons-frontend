@@ -215,6 +215,24 @@ export class AddonBase extends React.Component {
     let content;
     let footerPropName = 'footerText';
 
+    let ratingManager;
+    if (addon && addon.current_version) {
+      ratingManager = (
+        <RatingManager
+          addon={addon}
+          location={location}
+          version={addon.current_version}
+        />
+      );
+    } else {
+      ratingManager = (
+        <p className="Addon-no-rating-manager">
+          {i18n.gettext(`This add-on cannot be rated because no versions
+            have been published.`)}
+        </p>
+      );
+    }
+
     if (addon && addon.ratings.text_count) {
       const count = addon.ratings.text_count;
       const linkText = i18n.sprintf(
@@ -247,13 +265,7 @@ export class AddonBase extends React.Component {
         className="Addon-overall-rating"
         {...props}
       >
-        {addon ?
-          <RatingManager
-            addon={addon}
-            location={location}
-            version={addon.current_version}
-          /> : null
-        }
+        {ratingManager}
       </Card>
     );
   }

@@ -89,13 +89,15 @@ export class AddonMoreInfoBase extends React.Component<Props> {
       );
     }
 
+    const currentVersion = addon.current_version;
+
     return this.renderDefinitions({
       homepage,
       supportUrl,
       supportEmail,
       statsLink,
-      version: addonHasVersionHistory(addon) ?
-        addon.current_version.version : null,
+      version: currentVersion && addonHasVersionHistory(addon) ?
+        currentVersion.version : null,
       versionLastUpdated: i18n.sprintf(
         // translators: This will output, in English:
         // "2 months ago (Dec 12 2016)"
@@ -104,14 +106,14 @@ export class AddonMoreInfoBase extends React.Component<Props> {
           date: i18n.moment(addon.last_updated).format('ll'),
         }
       ),
-      versionLicenseLink: addon.current_version.license ? (
+      versionLicenseLink: currentVersion && currentVersion.license ? (
         <Link
           className="AddonMoreInfo-license-link"
-          href={addon.current_version.license.url}
+          href={currentVersion.license.url}
           prependClientApp={false}
           prependLang={false}
         >
-          {addon.current_version.license.name}
+          {currentVersion.license.name}
         </Link>
       ) : null,
       privacyPolicyLink: addon.has_privacy_policy ? (

@@ -228,8 +228,10 @@ export function createInternalAddon(
     }
   }
 
-  if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {
-    apiAddon.current_version.files.forEach((file) => {
+  const currentVersion = apiAddon.current_version;
+
+  if (currentVersion && currentVersion.files.length > 0) {
+    currentVersion.files.forEach((file) => {
       // eslint-disable-next-line no-prototype-builtins
       if (!addon.installURLs.hasOwnProperty(file.platform)) {
         log.warn(oneLine`Add-on ID ${apiAddon.id}, slug ${apiAddon.slug}
@@ -237,16 +239,16 @@ export function createInternalAddon(
       }
       addon.installURLs[file.platform] = file.url;
     });
-    addon.isRestartRequired = apiAddon.current_version.files.some(
+    addon.isRestartRequired = currentVersion.files.some(
       (file) => !!file.is_restart_required
     );
     // The following checks are a bit fragile since only one file needs
     // to contain the flag. However, it is highly unlikely to create an
     // add-on with mismatched file flags in the current DevHub.
-    addon.isWebExtension = apiAddon.current_version.files.some(
+    addon.isWebExtension = currentVersion.files.some(
       (file) => !!file.is_webextension
     );
-    addon.isMozillaSignedExtension = apiAddon.current_version.files.some(
+    addon.isMozillaSignedExtension = currentVersion.files.some(
       (file) => !!file.is_mozilla_signed_extension
     );
   }

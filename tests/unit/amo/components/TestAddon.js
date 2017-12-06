@@ -680,6 +680,17 @@ describe(__filename, () => {
     expect(root.prop('location')).toEqual(location);
   });
 
+  it('does not show a ratings manager without a version', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      current_version: null,
+    });
+    const root = shallowRender({ addon });
+
+    expect(root.find(RatingManagerWithI18n)).toHaveLength(0);
+    expect(root.find('.Addon-no-rating-manager')).toHaveLength(1);
+  });
+
   it('renders a summary', () => {
     const root = shallowRender();
     expect(root.find('.Addon-summary').html()).toContain(fakeAddon.summary);
