@@ -1,4 +1,5 @@
 /* @flow */
+/* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -93,11 +94,19 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       text: string, key: string, onSelect: OnSelectOptionType,
     }
   ) {
-    // TODO: throw error if you add option with existing key.
+    // TODO: throw error if you add option without existing key.
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
-    return <option key={key} value={key}>{text}</option>;
+    return (
+      <option
+        className="AddAddonToCollection-option"
+        key={key}
+        value={key}
+      >
+        {text}
+      </option>
+    );
   }
 
   render() {
@@ -149,8 +158,8 @@ export const mapStateToProps = (
   return {
     loadingUserCollections:
       userCollections ? userCollections.loading : false,
-    userCollections:
-      userCollections && userCollections.collections ?
+    userCollections: userCollections && userCollections.collections ?
+      // TODO: use select function so it can throw errors for missing.
       userCollections.collections.map((id) => collections.byId[id]) :
       null,
     siteUserId,
@@ -159,6 +168,7 @@ export const mapStateToProps = (
 
 const extractId = (ownProps: Props) => {
   const { addon, siteUserId } = ownProps;
+  // TODO: add tests
   return `${addon ? addon.id : ''}-${siteUserId || ''}`;
 };
 

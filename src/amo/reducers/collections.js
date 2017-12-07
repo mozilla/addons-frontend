@@ -2,6 +2,8 @@
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
+export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION'
+  = 'ADD_ADDON_TO_COLLECTION';
 export const FETCH_CURRENT_COLLECTION: 'FETCH_CURRENT_COLLECTION'
   = 'FETCH_CURRENT_COLLECTION';
 export const FETCH_USER_COLLECTIONS: 'FETCH_USER_COLLECTIONS'
@@ -292,6 +294,33 @@ type AbortFetchCurrentCollection = {|
 
 export const abortFetchCurrentCollection = (): AbortFetchCurrentCollection => {
   return { type: ABORT_FETCH_CURRENT_COLLECTION };
+};
+
+type AddAddonToCollectionParams = {|
+  addonId: number,
+  collectionId: number,
+  errorHandlerId: string,
+  notes?: string,
+  userId: number,
+|};
+
+type AddAddonToCollectionAction = {|
+  type: typeof ADD_ADDON_TO_COLLECTION,
+  payload: AddAddonToCollectionParams,
+|};
+
+export const addAddonToCollection = ({
+  addonId, collectionId, errorHandlerId, notes, userId,
+}: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
+  // TODO: add tests
+  // if (!errorHandlerId) {
+  //   throw new Error('errorHandlerId is required');
+  // }
+
+  return {
+    type: ADD_ADDON_TO_COLLECTION,
+    payload: { addonId, collectionId, errorHandlerId, notes, userId },
+  };
 };
 
 type CreateInternalCollectionParams = {|
