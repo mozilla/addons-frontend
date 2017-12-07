@@ -52,7 +52,6 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   componentWillReceiveProps(nextProps: Props) {
-    // TODO: test updates
     this.loadDataIfNeeded(nextProps);
   }
 
