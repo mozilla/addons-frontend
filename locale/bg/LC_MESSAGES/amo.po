@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-07 09:09+0000\n"
+"PO-Revision-Date: 2017-12-07 09:14+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -1231,11 +1231,11 @@ msgstr "Други…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Ако искате да допринесете, но не сте „на ти“ с техниката има няколко начина да помогнете"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Вземете участие във %(startLink)sфорумите%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1251,7 +1251,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Получете помощ"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1359,7 +1359,7 @@ msgstr "Ще продължите ли да използвате добавка�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Отделете време да прочетете отново отзива преди да го изпратите, за да избегнете правописните грешки."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
