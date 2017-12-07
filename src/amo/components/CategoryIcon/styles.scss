@@ -11,9 +11,9 @@ $default-icon-size: 64px;
   transform: scale(0.8);
   width: $default-icon-size;
 
-  // This prevents Edge from rendering a square block of color because it can't
-  // mask over the SVG.
-  @supports (-ms-ime-align:auto) {
+  // This prevents Edge/ESR 52 from rendering a square block of color because
+  // it can't mask over the SVG.
+  @supports not (mask: url("./#{$name}.svg") no-repeat 50% 50%) {
     background: transparent url("./#{$name}.svg") center no-repeat;
     background-size: contain;
     content: "";
