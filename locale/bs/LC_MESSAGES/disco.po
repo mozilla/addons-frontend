@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:53+0000\n"
-"PO-Revision-Date: 2017-12-07 06:51+0000\n"
+"PO-Revision-Date: 2017-12-07 07:04+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -100,82 +100,84 @@ msgstr "Preuzimanje nije uspjelo. Molimo provjerite vezu."
 
 #: src/disco/components/Addon.js:169
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Dogodila se neočekivana greška pri instalaciji."
 
 #: src/disco/components/Addon.js:171
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Dogodila se neočekivana greška pri deinstalaciji."
 
 #: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Dogodila se neočekivana greška."
 
 #: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Ovaj dodatak će biti deinstaliran nakon što restartujete Firefox."
 
 #: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Molimo restartujte Firefox da bi koristili ovaj dodatak."
 
 #: src/disco/components/Addon.js:87
 msgid "Close"
-msgstr ""
+msgstr "Zatvori"
 
 #: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox za iOS trenutno ne podržava dodatke."
 
 #: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Ovaj dodatak ne podržava verziju vašeg Firefoxa."
 
 #: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Ovaj dodatak ne podržava vaš browser."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Polica privatnosti"
 
 #: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Otkrijte dodatke"
 
 #: src/disco/containers/DiscoPane.js:132
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Prilagodite Firefox sebi"
 
 #: src/disco/containers/DiscoPane.js:133
 msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"Postoje hiljade besplatnih dodataka, napravljenih od programera širom svijeta, koje možete instalirati na vaš prilagođeni Firefox. Od zanimljivih tema do moćnih alata koji čine vaše pretraživanje "
+"bržim i sigurnijim, dodaci čine vaš browser samo vašim. Za početak možete testirati sljedeće, koji se preporučuju za izuzetne performanse i upotrebljivost."
 
 #: src/disco/containers/DiscoPane.js:141
 msgid "Click to play"
-msgstr ""
+msgstr "Kliknite za reprodukciju"
 
 #: src/disco/containers/DiscoPane.js:142
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "i otkrijte više o dodacima"
 
 #: src/disco/containers/DiscoPane.js:156
 msgid "Close video"
-msgstr ""
+msgstr "Zatvori video"
 
 #: src/disco/containers/DiscoPane.js:175
 msgid "See more add-ons!"
-msgstr ""
+msgstr "Vidi više dodataka!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "Vaša sesija je istekla"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Dogodila se neočekivana greška"
 
 #: src/ui/components/ErrorList/index.js:61
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Ponovo učitaj za nastavak"
