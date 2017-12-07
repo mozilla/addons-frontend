@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-07 15:09+0000\n"
+"PO-Revision-Date: 2017-12-07 15:16+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -809,7 +809,6 @@ msgid "See more productivity tools"
 msgstr "Vis fleire produktivitetsverktøy"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
 msgstr "Personvernpraksis"
 
@@ -859,11 +858,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
-msgstr ""
+msgstr "Visuelle bokmerke for favorittplassane dine på nettet."
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Search by Image"
@@ -879,7 +878,7 @@ msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
-msgstr ""
+msgstr "Knips skjermbilde av heile sida."
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
@@ -1431,7 +1430,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Eg lagar utvidingar, kan eg fjerne negative vurderingar eller rangeringar?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
