@@ -53,6 +53,11 @@
   height: 36px;
 }
 
+.AddonReviewList-header-text {
+  // https://stackoverflow.com/questions/36150458
+  min-width: 50%;
+}
+
 .AddonReviewList-header-icon-image {
   display: block;
   height: 36px;
@@ -62,7 +67,7 @@
   font-size: $font-size-m;
   margin: 0;
   padding: 0;
-  word-break: break-all;
+  word-wrap: break-word;
 
   a,
   a:link {
