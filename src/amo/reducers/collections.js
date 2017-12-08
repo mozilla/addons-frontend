@@ -20,6 +20,8 @@ export const ABORT_FETCH_USER_COLLECTIONS: 'ABORT_FETCH_USER_COLLECTIONS'
   = 'ABORT_FETCH_USER_COLLECTIONS';
 export const LOAD_USER_COLLECTIONS: 'LOAD_USER_COLLECTIONS'
   = 'LOAD_USER_COLLECTIONS';
+export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
+  = 'LOAD_COLLECTION_ADDONS';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -262,6 +264,32 @@ export const loadCurrentCollectionPage = ({
   };
 };
 
+type LoadCollectionAddonsParams = {|
+  addons: CollectionAddonsListResponse,
+  collectionId: CollectionId,
+|};
+
+type LoadCollectionAddonsAction = {|
+  type: typeof LOAD_COLLECTION_ADDONS,
+  payload: LoadCollectionAddonsParams,
+|};
+
+export const loadCollectionAddons = ({
+  addons, collectionId
+}: LoadCollectionAddonsParams = {}): LoadCollectionAddonsAction => {
+  if (!addons) {
+    throw new Error('The addons parameter is required');
+  }
+  if (!collectionId) {
+    throw new Error('The collectionId parameter is required');
+  }
+
+  return {
+    type: LOAD_COLLECTION_ADDONS,
+    payload: { addons, collectionId },
+  };
+};
+
 type LoadUserCollectionsParams = {|
   userId: number,
   collections: Array<ExternalCollectionDetail>,
@@ -401,6 +429,7 @@ type Action =
   | FetchUserCollectionsAction
   | LoadUserCollectionsAction
   | AbortFetchUserCollectionsAction
+  | LoadCollectionAddonsAction
 ;
 
 const reducer = (
@@ -485,6 +514,27 @@ const reducer = (
         current: {
           id: state.current.id,
           loading: false,
+        },
+      };
+    }
+
+    case LOAD_COLLECTION_ADDONS: {
+      const { addons, collectionId } = action.payload;
+
+      const collection = state.byId[collectionId];
+      if (!collection) {
+        throw new Error(
+          `Cannot load add-ons for collection ${collectionId}
+          because the collection has not been loaded yet`);
+      }
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [collectionId]: {
+            ...collection,
+            addons: createInternalAddons(addons.results),
+          },
         },
       };
     }

@@ -10,6 +10,7 @@ import reducer, {
   getCollectionById,
   getCurrentCollection,
   initialState,
+  loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -543,6 +544,68 @@ describe(__filename, () => {
 
       expect(() => addAddonToCollection(params))
         .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('loadCollectionAddons', () => {
+    const getParams = (params = {}) => {
+      return {
+        addons: createFakeCollectionAddons(),
+        collectionId: 123,
+        ...params,
+      };
+    };
+
+    it('loads collection add-ons', () => {
+      const addons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const collectionDetail = createFakeCollectionDetail();
+
+      // Load a collection with add-ons.
+      let state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      // Load new add-ons for the collection.
+      const newAddons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 2 }],
+      });
+      state = reducer(state, loadCollectionAddons({
+        addons: newAddons,
+        collectionId: collectionDetail.id,
+      }));
+
+      expect(state.byId[collectionDetail.id].addons)
+        .toEqual(createInternalAddons(newAddons.results));
+    });
+
+    it('requires a loaded collection first', () => {
+      const addons = createFakeCollectionAddons();
+      expect(() => {
+        reducer(undefined, loadCollectionAddons({
+          addons,
+          // This collection has not been loaded into state yet.
+          collectionId: 1234,
+        }));
+      })
+        .toThrow(/Cannot load add-ons for collection 1234/);
+    });
+
+    it('requires an addons parameter', () => {
+      const params = getParams();
+      delete params.addons;
+
+      expect(() => loadCollectionAddons(params))
+        .toThrow(/addons parameter is required/);
+    });
+
+    it('requires a collectionId parameter', () => {
+      const params = getParams();
+      delete params.collectionId;
+
+      expect(() => loadCollectionAddons(params))
+        .toThrow(/collectionId parameter is required/);
     });
   });
 });
