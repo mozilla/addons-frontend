@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-08 17:51+0000\n"
+"PO-Revision-Date: 2017-12-08 17:54+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -852,52 +852,51 @@ msgstr "Hantera enkelt alla lösenord för alla enheter från en plats"
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "S3.Translator"
-msgstr ""
+msgstr "S3.Translator"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
-msgstr ""
+msgstr "Översätt ett ord, fras, till och med en hel sida. Stödjer över 100 språk."
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
-msgstr ""
+msgstr "Visuella bokmärken för dina favoritplatser på webben."
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "Sök efter teman"
+msgstr "Search by Image"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
-msgstr ""
+msgstr "Omvänd bildsökning med olika sökmotorer."
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
-msgstr ""
+msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
-msgstr ""
+msgstr "Fånga helskärmsskärmdumpar."
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
-msgstr ""
+msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
-msgstr ""
+msgstr "Ladda enkelt ner video från hundratals populära webbplatser."
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
-msgstr ""
+msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
-msgstr ""
+msgstr "Spårningsskydd mot tredje parts webbplatser som syftar till att följa dina steg på internet."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
