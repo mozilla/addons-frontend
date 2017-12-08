@@ -312,10 +312,18 @@ type AddAddonToCollectionAction = {|
 export const addAddonToCollection = ({
   addonId, collectionId, errorHandlerId, notes, userId,
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
-  // TODO: add tests
-  // if (!errorHandlerId) {
-  //   throw new Error('errorHandlerId is required');
-  // }
+  if (!addonId) {
+    throw new Error('The addonId parameter is required');
+  }
+  if (!collectionId) {
+    throw new Error('The collectionId parameter is required');
+  }
+  if (!errorHandlerId) {
+    throw new Error('The errorHandlerId parameter is required');
+  }
+  if (!userId) {
+    throw new Error('The userId parameter is required');
+  }
 
   return {
     type: ADD_ADDON_TO_COLLECTION,
