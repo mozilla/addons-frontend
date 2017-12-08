@@ -67,3 +67,33 @@ export const listCollections = (
     state: api,
   });
 };
+
+type AddAddonToCollectionParams = {|
+  addon: string | number,
+  api: ApiStateType,
+  collection: string | number,
+  notes?: string,
+  user: string | number,
+|};
+
+export const addAddonToCollection = (
+  { addon, api, collection, notes, user }: AddAddonToCollectionParams
+) => {
+  if (!addon) {
+    throw new Error('The addon parameter is required');
+  }
+  if (!collection) {
+    throw new Error('The collection parameter is required');
+  }
+  if (!user) {
+    throw new Error('The user parameter is required');
+  }
+
+  return callApi({
+    auth: true,
+    body: { addon, notes },
+    endpoint: `accounts/account/${user}/collections/${collection}/addons`,
+    method: 'POST',
+    state: api,
+  });
+};

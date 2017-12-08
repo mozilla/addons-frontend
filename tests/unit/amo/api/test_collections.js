@@ -1,5 +1,6 @@
 import * as api from 'core/api';
 import {
+  addAddonToCollection,
   getCollectionAddons,
   getCollectionDetail,
   listCollections,
@@ -139,6 +140,87 @@ describe(__filename, () => {
       const params = getListParams({ user });
       await listCollections(params);
       mockApi.verify();
+    });
+  });
+
+  describe('addAddonToCollection', () => {
+    const getAddParams = (params = {}) => {
+      return {
+        addon: 'addon-id-or-slug',
+        api: apiState,
+        collection: 'collection-id-or-slug',
+        user: 'user-id-or-username',
+        ...params,
+      };
+    };
+
+    it('posts an addon to a collection', async () => {
+      const params = getAddParams({
+        addon: 'some-addon',
+        user: 'my-username',
+        collection: 'my-collection',
+      });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: { addon: 'some-addon', notes: undefined },
+          endpoint:
+            'accounts/account/my-username/collections/my-collection/addons',
+          method: 'POST',
+          state: apiState,
+        })
+        .once()
+        .returns(createApiResponse());
+
+      await addAddonToCollection(params);
+      mockApi.verify();
+    });
+
+    it('posts notes about an addon', async () => {
+      const notes = 'some notes about the add-on';
+      const params = getAddParams({ addon: 'some-addon', notes });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: { addon: 'some-addon', notes },
+          endpoint: `accounts/account/${params.user}` +
+            `/collections/${params.collection}/addons`,
+          method: 'POST',
+          state: apiState,
+        })
+        .once()
+        .returns(createApiResponse());
+
+      await addAddonToCollection(params);
+      mockApi.verify();
+    });
+
+    it('requires an addon', () => {
+      const params = getAddParams();
+      delete params.addon;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/addon parameter is required/);
+    });
+
+    it('requires a collection', () => {
+      const params = getAddParams();
+      delete params.collection;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/collection parameter is required/);
+    });
+
+    it('requires a user', () => {
+      const params = getAddParams();
+      delete params.user;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/user parameter is required/);
     });
   });
 });
