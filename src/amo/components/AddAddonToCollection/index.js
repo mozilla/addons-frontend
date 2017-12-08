@@ -1,16 +1,17 @@
 /* @flow */
+/* global window */
 /* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { fetchUserCollections } from 'amo/reducers/collections';
+import {
+  addAddonToCollection, fetchUserCollections,
+} from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import Button from 'ui/components/Button';
-import LoadingText from 'ui/components/LoadingText';
 import Select from 'ui/components/Select';
 import type { AddonType } from 'core/types/addons';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -34,12 +35,17 @@ type Props = {|
   loadingUserCollections: boolean,
   siteUserId: number | null,
   userCollections: Array<CollectionType> | null,
+  _window: typeof window | Object,
 |};
 
 type OnSelectOptionType = () => void;
 
 export class AddAddonToCollectionBase extends React.Component<Props> {
   optionSelectHandlers: { [key: string]: OnSelectOptionType };
+
+  static defaultProps = {
+    _window: typeof window !== 'undefined' ? window : {},
+  };
 
   constructor(props: Props) {
     super(props);
@@ -78,23 +84,37 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     if (handleOption) {
       handleOption();
     } else {
-      // TODO: add test.
       log.warn(`No handler for option: "${key}"`);
     }
   }
 
   addToCollection(collection: CollectionType) {
-    console.log('adding add-on to collection...', collection);
+    const { addon, errorHandler, dispatch, siteUserId } = this.props;
+    if (!addon) {
+      throw new Error(
+        'Cannot add to collection because no add-on has been loaded');
+    }
+    if (!siteUserId) {
+      throw new Error(
+        'Cannot add to collection because you are not signed in');
+    }
+
+    dispatch(addAddonToCollection({
+      addonId: addon.id,
+      collectionId: collection.id,
+      errorHandlerId: errorHandler.id,
+      userId: siteUserId,
+    }));
   }
 
   createOption(
     {
       text, key, onSelect,
     }: {
-      text: string, key: string, onSelect: OnSelectOptionType,
+      // eslint-disable-next-line react/no-unused-prop-types
+      text: string, key: string, onSelect?: OnSelectOptionType,
     }
   ) {
-    // TODO: throw error if you add option without existing key.
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
@@ -110,7 +130,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   render() {
-    const { addon, className, i18n, userCollections } = this.props;
+    const { _window, className, i18n, userCollections } = this.props;
     // TODO: render errors
 
     const options = [
@@ -119,6 +139,18 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
         key: 'default',
       }),
     ];
+
+    options.push(this.createOption({
+      text: i18n.gettext('Create new collection'),
+      key: 'create-new-collection',
+      onSelect: () => {
+        // TODO: show create collection overlay when it's implemented.
+        // See
+        // https://github.com/mozilla/addons-frontend/issues/4003
+        // https://github.com/mozilla/addons-frontend/issues/3993
+        _window.location = '/collections/add';
+      },
+    }));
 
     if (userCollections) {
       userCollections.forEach((collection) => {
@@ -150,6 +182,7 @@ export const mapStateToProps = (
   state: {| collections: CollectionsState, user: UserStateType |}
 ) => {
   const collections = state.collections;
+  // TODO: merge with user patch and do getCurrentUser(state).id
   const siteUserId = state.user.id;
   let userCollections;
   if (siteUserId) {

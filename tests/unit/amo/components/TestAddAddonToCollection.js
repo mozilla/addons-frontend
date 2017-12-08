@@ -4,7 +4,10 @@ import AddAddonToCollection, {
   AddAddonToCollectionBase, mapStateToProps,
 } from 'amo/components/AddAddonToCollection';
 import {
-  addAddonToCollection, fetchUserCollections, loadUserCollections,
+  addAddonToCollection,
+  createInternalCollection,
+  fetchUserCollections,
+  loadUserCollections,
 } from 'amo/reducers/collections';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -19,7 +22,6 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
-import LoadingText from 'ui/components/LoadingText';
 
 
 describe(__filename, () => {
@@ -34,6 +36,7 @@ describe(__filename, () => {
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
       store,
+      _window: {},
       ...customProps,
     };
     return shallowUntilTarget(
@@ -150,22 +153,85 @@ describe(__filename, () => {
         userId: authorId,
         collections: [firstCollection, secondCollection],
       });
+      const dispatchStub = sinon.stub(store, 'dispatch');
       const root = render({ addon });
 
-      const dispatchStub = sinon.stub(store, 'dispatch');
-
       const select = root.find('.AddAddonToCollection-select');
-      const firstOption = findOption({ root, text: 'first' });
+      const secondOption = findOption({ root, text: 'second' });
 
+      // Add the add-on to the second collection.
       select.simulate('change', createFakeEvent({
-        target: { value: firstOption.prop('value') },
+        target: { value: secondOption.prop('value') },
       }));
 
       sinon.assert.calledWith(dispatchStub, addAddonToCollection({
         errorHandlerId: root.instance().props.errorHandler.id,
         addonId: addon.id,
-        collectionId: firstCollection.id,
+        collectionId: secondCollection.id,
+        userId: authorId,
       }));
+    });
+
+    it('does nothing when you select the prompt', () => {
+      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+      signInAndDispatchCollections();
+
+      const dispatchStub = sinon.stub(store, 'dispatch');
+      const root = render({ addon });
+
+      const select = root.find('.AddAddonToCollection-select');
+      const promptOption = findOption({
+        root, text: 'Add to collection',
+      });
+
+      // Select the prompt (first option) which doesn't do anything.
+      select.simulate('change', createFakeEvent({
+        target: { value: promptOption.prop('value') },
+      }));
+
+      sinon.assert.notCalled(dispatchStub);
+    });
+
+    it('lets you create a new collection', () => {
+      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+      signInAndDispatchCollections();
+
+      const _window = { location: null };
+      const root = render({ addon, _window });
+
+      const select = root.find('.AddAddonToCollection-select');
+      const createOption = findOption({
+        root, text: 'Create new collection',
+      });
+
+      select.simulate('change', createFakeEvent({
+        target: { value: createOption.prop('value') },
+      }));
+
+      expect(_window.location).toEqual('/collections/add');
+    });
+
+    it('requires an add-on before you can add to a collection', () => {
+      signInAndDispatchCollections();
+      const root = render({ addon: null });
+
+      const collection = createInternalCollection({
+        detail: createFakeCollectionDetail(),
+      });
+      // This should not be possible through the UI.
+      expect(() => root.instance().addToCollection(collection))
+        .toThrow(/no add-on has been loaded/);
+    });
+
+    it('requires you to sign in before adding to a collection', () => {
+      const root = render();
+
+      const collection = createInternalCollection({
+        detail: createFakeCollectionDetail(),
+      });
+      // This should not be possible through the UI.
+      expect(() => root.instance().addToCollection(collection))
+        .toThrow(/you are not signed in/);
     });
   });
 });
