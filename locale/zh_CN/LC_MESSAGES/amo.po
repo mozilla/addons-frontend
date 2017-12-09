@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-10-25 14:49+0000\n"
+"PO-Revision-Date: 2017-12-09 10:51+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -1000,7 +1000,7 @@ msgstr "报告发送中"
 
 #: src/amo/components/ReportAbuseButton/index.js:204
 msgid "Send abuse report"
-msgstr "报告已发送"
+msgstr "提交滥用报告"
 
 #: src/amo/components/Search/index.js:106 src/amo/components/SearchResults.js:60
 msgid "Search results"
