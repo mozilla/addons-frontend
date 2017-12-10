@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-06 08:33+0000\n"
+"PO-Revision-Date: 2017-12-10 10:55+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -848,7 +848,7 @@ msgstr "Kezelje könnyedén a jelszavait az összes eszközén, egyetlen helyrő
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "S3.Translator"
-msgstr ""
+msgstr "S3.Fordító"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
@@ -856,20 +856,19 @@ msgstr "Fordítson le egy szót, egy mondatot vagy akár egy egész oldalt. Töb
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Csoportosított gyorstárcsázó"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
-msgstr ""
+msgstr "Vizuális könyvjelzők a kedvenc helyeihez a weben."
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "Témák keresése"
+msgstr "Kép szerinti keresés"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
-msgstr ""
+msgstr "Fordított képkeresés különféle keresőszolgáltatásokkal."
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
@@ -881,19 +880,19 @@ msgstr "Teljes oldalas képernyőképek rögzítése."
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
-msgstr ""
+msgstr "Videóletöltés segítő"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
-msgstr ""
+msgstr "Töltsön le videókat egyszerűen, több száz népszerű webhelyről."
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
-msgstr ""
+msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
-msgstr ""
+msgstr "Követésvédelem harmadik féltől származó weboldalak ellen, melyek minden online mozdulatát követnék."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
