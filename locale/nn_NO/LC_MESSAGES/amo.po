@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-10 06:43+0000\n"
+"PO-Revision-Date: 2017-12-10 07:29+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -870,7 +870,7 @@ msgstr "Søk etter bilde"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
-msgstr ""
+msgstr "Omvendt bildesøking med ulike søkjemotorar."
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
@@ -894,7 +894,7 @@ msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
-msgstr ""
+msgstr "Sporingsvern mot tredjepartsnettstadar, som har som mål å følgje kvart eit steg du tek på nettet."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -902,7 +902,7 @@ msgstr "Endre utsjånad på nettlesaren din. Vel frå tusenvis av utvidingar for
 
 #: src/amo/components/LandingPage/index.js:207
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr "Utforsk kraftfulle verktøy og funksjonar for å tilpasse Firefox og gjer nettlesaren til din eigen."
+msgstr "Utforsk kraftfulle verktøy og funksjonar for tilpassing av Firefox slik at han blir din eigen."
 
 #: src/amo/components/LandingPage/index.js:234
 msgid "Explore all categories"
