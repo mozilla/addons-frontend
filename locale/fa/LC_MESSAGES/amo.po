@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-09 08:19+0000\n"
+"PO-Revision-Date: 2017-12-10 13:40+0000\n"
 "Last-Translator: Amin Mahmudian <amin.mahmudian@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fa\n"
@@ -612,7 +612,7 @@ msgstr "برای گزارشِ این بازخورد وارد شوید"
 
 #: src/amo/components/FlagReviewMenu/index.js:70
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "نمی‌توانبد پاسخ خود را علامت‌گذاری کنید"
 
 #: src/amo/components/FlagReviewMenu/index.js:71
 msgid "You cannot flag your own review"
@@ -620,11 +620,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr ""
+msgstr "این هرزنامه است"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
-msgstr ""
+msgstr "علامت‌گذاری شده به عنوان هرزنامه"
 
 #: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
@@ -824,7 +824,7 @@ msgstr "مدیریت گذرواژه‌ها"
 
 #: src/amo/components/Home/index.js:74
 msgid "Ad blockers"
-msgstr ""
+msgstr "مسدود کننده‌های تبلیغ"
 
 #: src/amo/components/Home/index.js:78
 msgid "Smarter Shopping"
@@ -840,7 +840,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "LastPass Password Manager"
-msgstr ""
+msgstr "مدیر گذرواژه LastPass"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Easily manage all your passwords for all devices from one spot"
