@@ -263,7 +263,7 @@ describe(__filename, () => {
     const _addAddonToCollection = (params = {}) => {
       sagaTester.dispatch(addAddonToCollection({
         addonId: 543,
-        collectionId: 123,
+        collectionSlug: 'some-collection',
         errorHandlerId: errorHandler.id,
         userId: 321,
         ...params,
@@ -271,9 +271,10 @@ describe(__filename, () => {
     };
 
     it('posts an add-on to a collection', async () => {
+      const collectionSlug = 'a-collection';
       const params = {
         addonId: 123,
-        collectionId: 321,
+        collectionSlug,
         userId: 543,
       };
       const state = sagaTester.getState();
@@ -282,7 +283,7 @@ describe(__filename, () => {
       sagaTester.dispatch(loadUserCollections({
         userId: params.userId,
         collections: [createFakeCollectionDetail({
-          id: params.collectionId, authorId: params.userId,
+          slug: collectionSlug, authorId: params.userId,
         })],
       }));
 
@@ -291,7 +292,7 @@ describe(__filename, () => {
         .withArgs({
           addon: params.addonId,
           api: state.api,
-          collection: params.collectionId,
+          collection: collectionSlug,
           notes: undefined,
           user: params.userId,
         })
@@ -304,7 +305,7 @@ describe(__filename, () => {
         .withArgs({
           api: state.api,
           page: 1,
-          slug: params.collectionId,
+          slug: collectionSlug,
           user: params.userId,
         })
         .once()
@@ -313,7 +314,7 @@ describe(__filename, () => {
       _addAddonToCollection(params);
 
       const expectedLoadAction = loadCollectionAddons({
-        collectionId: params.collectionId, addons: collectionAddons,
+        collectionSlug, addons: collectionAddons,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);

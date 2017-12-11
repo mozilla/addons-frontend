@@ -167,7 +167,7 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatchStub, addAddonToCollection({
         errorHandlerId: root.instance().props.errorHandler.id,
         addonId: addon.id,
-        collectionId: secondCollection.id,
+        collectionSlug: secondCollection.slug,
         userId: authorId,
       }));
     });

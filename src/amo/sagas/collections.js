@@ -108,7 +108,7 @@ export function* fetchUserCollections({
 }
 
 export function* addAddonToCollection({
-  payload: { addonId, collectionId, errorHandlerId, notes, userId },
+  payload: { addonId, collectionSlug, errorHandlerId, notes, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
 
@@ -117,20 +117,17 @@ export function* addAddonToCollection({
   try {
     const state = yield select(getState);
 
-    console.log(`ADD_ADDON_TO_COLLECTION YEP`);
     yield call(api.addAddonToCollection, {
       addon: addonId,
       api: state.api,
-      // TODO: fix this to use slugs.
-      // collection: collectionId,
-      collection: 'music-tools',
+      collection: collectionSlug,
       notes,
       user: userId,
     });
 
     const collectionAddons = yield call(api.getCollectionAddons, {
       api: state.api,
-      slug: collectionId,
+      slug: collectionSlug,
       // TODO: either fetch all pages or adjust the response
       // of addAddonToCollection to make this call unnecessary.
       page: 1,
@@ -138,7 +135,7 @@ export function* addAddonToCollection({
     });
 
     yield put(loadCollectionAddons({
-      collectionId, addons: collectionAddons,
+      collectionSlug, addons: collectionAddons,
     }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);

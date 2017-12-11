@@ -1,4 +1,6 @@
 /* @flow */
+import { oneLine } from 'common-tags';
+
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
@@ -266,7 +268,7 @@ export const loadCurrentCollectionPage = ({
 
 type LoadCollectionAddonsParams = {|
   addons: CollectionAddonsListResponse,
-  collectionId: CollectionId,
+  collectionSlug: string,
 |};
 
 type LoadCollectionAddonsAction = {|
@@ -275,18 +277,18 @@ type LoadCollectionAddonsAction = {|
 |};
 
 export const loadCollectionAddons = ({
-  addons, collectionId
+  addons, collectionSlug,
 }: LoadCollectionAddonsParams = {}): LoadCollectionAddonsAction => {
   if (!addons) {
     throw new Error('The addons parameter is required');
   }
-  if (!collectionId) {
-    throw new Error('The collectionId parameter is required');
+  if (!collectionSlug) {
+    throw new Error('The collectionSlug parameter is required');
   }
 
   return {
     type: LOAD_COLLECTION_ADDONS,
-    payload: { addons, collectionId },
+    payload: { addons, collectionSlug },
   };
 };
 
@@ -326,7 +328,7 @@ export const abortFetchCurrentCollection = (): AbortFetchCurrentCollection => {
 
 type AddAddonToCollectionParams = {|
   addonId: number,
-  collectionId: number,
+  collectionSlug: string,
   errorHandlerId: string,
   notes?: string,
   userId: number,
@@ -338,13 +340,13 @@ type AddAddonToCollectionAction = {|
 |};
 
 export const addAddonToCollection = ({
-  addonId, collectionId, errorHandlerId, notes, userId,
+  addonId, collectionSlug, errorHandlerId, notes, userId,
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
   if (!addonId) {
     throw new Error('The addonId parameter is required');
   }
-  if (!collectionId) {
-    throw new Error('The collectionId parameter is required');
+  if (!collectionSlug) {
+    throw new Error('The collectionSlug parameter is required');
   }
   if (!errorHandlerId) {
     throw new Error('The errorHandlerId parameter is required');
@@ -355,7 +357,7 @@ export const addAddonToCollection = ({
 
   return {
     type: ADD_ADDON_TO_COLLECTION,
-    payload: { addonId, collectionId, errorHandlerId, notes, userId },
+    payload: { addonId, collectionSlug, errorHandlerId, notes, userId },
   };
 };
 
@@ -519,14 +521,17 @@ const reducer = (
     }
 
     case LOAD_COLLECTION_ADDONS: {
-      const { addons, collectionId } = action.payload;
+      const { addons, collectionSlug } = action.payload;
 
-      const collection = state.byId[collectionId];
-      if (!collection) {
+      // TODO: getCollectionBySlug() selector
+      const collectionId = state.bySlug[collectionSlug];
+      if (!collectionId) {
         throw new Error(
-          `Cannot load add-ons for collection ${collectionId}
-          because the collection has not been loaded yet`);
+          oneLine`Cannot load add-ons for collection
+          "${collectionSlug}" because the collection has not
+          been loaded yet`);
       }
+      const collection = state.byId[collectionId];
       return {
         ...state,
         byId: {
@@ -581,16 +586,20 @@ const reducer = (
     case LOAD_USER_COLLECTIONS: {
       const { collections, userId } = action.payload;
 
+      // TODO: use a shared helper for loading a collection into state
       const byId = { ...state.byId };
+      const bySlug = { ...state.bySlug };
       collections.forEach((collection) => {
         byId[collection.id] = createInternalCollection({
           detail: collection,
         });
+        bySlug[collection.slug] = collection.id;
       });
 
       return {
         ...state,
         byId,
+        bySlug,
         userCollections: {
           ...state.userCollections,
           [userId]: {
