@@ -130,8 +130,9 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   render() {
-    const { _window, className, i18n, userCollections } = this.props;
-    // TODO: render errors
+    const {
+      _window, className, errorHandler, i18n, userCollections,
+    } = this.props;
 
     const options = [
       this.createOption({
@@ -167,6 +168,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     return (
       <div className={makeClassName('AddAddonToCollection', className)}>
+        {errorHandler.renderErrorIfPresent()}
         <Select
           onChange={this.onSelectOption}
           className="AddAddonToCollection-select"

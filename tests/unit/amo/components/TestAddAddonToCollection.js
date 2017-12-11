@@ -9,6 +9,7 @@ import {
   fetchUserCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
+import { ErrorHandler } from 'core/errorHandler';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createFakeCollectionDetail,
@@ -232,6 +233,19 @@ describe(__filename, () => {
       // This should not be possible through the UI.
       expect(() => root.instance().addToCollection(collection))
         .toThrow(/you are not signed in/);
+    });
+  });
+
+  describe('error handling', () => {
+    it('renders an error', () => {
+      const error = new Error('unexpected error');
+      const errorHandler = new ErrorHandler({
+        dispatch: store.dispatch, id: 'some-error-handler',
+      });
+      errorHandler.handle(error);
+      const root = render({ errorHandler });
+
+      expect(root.find(ErrorList)).toHaveLength(1);
     });
   });
 });
