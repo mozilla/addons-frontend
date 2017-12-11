@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-11 14:08+0000\n"
+"PO-Revision-Date: 2017-12-11 14:15+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -312,7 +312,7 @@ msgstr "%(addonName)s 的评价"
 #: src/amo/components/AddonReviewList/index.js:184
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s 则对这个附加组件的评价"
+msgstr[0] "此附加组件有 %(total)s 则评价"
 
 #: src/amo/components/AddonReviewList/index.js:212
 msgid "by %(authorList)s"
