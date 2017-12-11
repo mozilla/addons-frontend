@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-05 20:13+0000\n"
+"PO-Revision-Date: 2017-12-11 14:50+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -348,7 +348,7 @@ msgstr "התגובה מפורסמת"
 
 #: src/amo/components/AddonReviewListItem/index.js:207
 msgid "posted %(timestamp)s"
-msgstr ""
+msgstr "פורסם %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:211
 msgid "by %(authorName)s, %(timestamp)s"
@@ -1232,7 +1232,7 @@ msgstr "אם ברצונך לתרום אך אין לך ידע טכני נרחב, 
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "השתתפו ב%(startLink)sפורום%(endLink)s שלנו."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "גילוי מעורבות"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
