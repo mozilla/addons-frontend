@@ -97,6 +97,10 @@ export function* fetchUserCollections({
       user: userId,
     });
 
+    // TODO: load add-ons for each collection so that the UI can
+    // indicate when an add-on is already in a collection
+    // TODO: ultimately, we should use a separate API endpoint to
+    // fetch the user collections that an add-on belongs to.
     yield put(loadUserCollections({
       userId, collections: collections.results,
     }));

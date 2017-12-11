@@ -361,11 +361,6 @@ export const addAddonToCollection = ({
   };
 };
 
-type CreateInternalCollectionParams = {|
-  detail: ExternalCollectionDetail,
-  items?: ExternalCollectionAddons,
-|};
-
 export const createInternalAddons = (
   items: ExternalCollectionAddons
 ): Array<AddonType> => {
@@ -406,6 +401,11 @@ export const getCurrentCollection = (
   return getCollectionById({ id: state.current.id, state });
 };
 
+type CreateInternalCollectionParams = {|
+  detail: ExternalCollectionDetail,
+  items?: ExternalCollectionAddons,
+|};
+
 export const createInternalCollection = ({
   detail,
   items,
@@ -421,6 +421,33 @@ export const createInternalCollection = ({
   numberOfAddons: detail.addon_count,
   slug: detail.slug,
 });
+
+type LoadCollectionIntoStateParams = {|
+  state: CollectionsState,
+  collection: ExternalCollectionDetail,
+  addons?: ExternalCollectionAddons,
+|};
+
+const loadCollectionIntoState = (
+  { state, collection, addons }: LoadCollectionIntoStateParams
+): CollectionsState => {
+  // TODO: when addons is empty, maybe preserve old collection addons? If they exist.
+  const internalCollection = createInternalCollection({
+    detail: collection, items: addons,
+  });
+
+  return {
+    ...state,
+    byId: {
+      ...state.byId,
+      [internalCollection.id]: internalCollection,
+    },
+    bySlug: {
+      ...state.bySlug,
+      [internalCollection.slug]: internalCollection.id,
+    },
+  };
+};
 
 type Action =
   | FetchCurrentCollectionAction
@@ -475,19 +502,12 @@ const reducer = (
     case LOAD_CURRENT_COLLECTION: {
       const { addons, detail } = action.payload;
 
+      const newState = loadCollectionIntoState({
+        state, collection: detail, addons: addons.results,
+      });
+
       return {
-        ...state,
-        byId: {
-          ...state.byId,
-          [detail.id]: createInternalCollection({
-            detail,
-            items: addons.results,
-          }),
-        },
-        bySlug: {
-          ...state.bySlug,
-          [detail.slug]: detail.id,
-        },
+        ...newState,
         current: {
           id: detail.id,
           loading: false,
@@ -586,20 +606,15 @@ const reducer = (
     case LOAD_USER_COLLECTIONS: {
       const { collections, userId } = action.payload;
 
-      // TODO: use a shared helper for loading a collection into state
-      const byId = { ...state.byId };
-      const bySlug = { ...state.bySlug };
+      let newState = { ...state };
       collections.forEach((collection) => {
-        byId[collection.id] = createInternalCollection({
-          detail: collection,
+        newState = loadCollectionIntoState({
+          state: newState, collection,
         });
-        bySlug[collection.slug] = collection.id;
       });
 
       return {
-        ...state,
-        byId,
-        bySlug,
+        ...newState,
         userCollections: {
           ...state.userCollections,
           [userId]: {
