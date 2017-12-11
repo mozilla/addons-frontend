@@ -1,10 +1,12 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
+  ADD_ADDON_TO_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -105,10 +107,52 @@ export function* fetchUserCollections({
   }
 }
 
+export function* addAddonToCollection({
+  payload: { addonId, collectionId, errorHandlerId, notes, userId },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    console.log(`ADD_ADDON_TO_COLLECTION YEP`);
+    yield call(api.addAddonToCollection, {
+      addon: addonId,
+      api: state.api,
+      // TODO: fix this to use slugs.
+      // collection: collectionId,
+      collection: 'music-tools',
+      notes,
+      user: userId,
+    });
+
+    const collectionAddons = yield call(api.getCollectionAddons, {
+      api: state.api,
+      slug: collectionId,
+      // TODO: either fetch all pages or adjust the response
+      // of addAddonToCollection to make this call unnecessary.
+      page: 1,
+      user: userId,
+    });
+
+    yield put(loadCollectionAddons({
+      collectionId, addons: collectionAddons,
+    }));
+  } catch (error) {
+    log.warn(`Failed to add add-on to collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    // TODO: figure out if we need this
+    // yield put(abortFetchUserCollections({ userId }));
+  }
+}
+
 export default function* collectionsSaga() {
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
+  yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
 }

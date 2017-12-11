@@ -4,9 +4,11 @@ import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  addAddonToCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -254,6 +256,99 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
       expect(sagaTester.getCalledActions()[3])
         .toEqual(abortFetchUserCollections({ userId }));
+    });
+  });
+
+  describe('addAddonToCollection', () => {
+    const _addAddonToCollection = (params = {}) => {
+      sagaTester.dispatch(addAddonToCollection({
+        addonId: 543,
+        collectionId: 123,
+        errorHandlerId: errorHandler.id,
+        userId: 321,
+        ...params,
+      }));
+    };
+
+    it('posts an add-on to a collection', async () => {
+      const params = {
+        addonId: 123,
+        collectionId: 321,
+        userId: 543,
+      };
+      const state = sagaTester.getState();
+
+      // Load a collection for the user.
+      sagaTester.dispatch(loadUserCollections({
+        userId: params.userId,
+        collections: [createFakeCollectionDetail({
+          id: params.collectionId, authorId: params.userId,
+        })],
+      }));
+
+      mockApi
+        .expects('addAddonToCollection')
+        .withArgs({
+          addon: params.addonId,
+          api: state.api,
+          collection: params.collectionId,
+          notes: undefined,
+          user: params.userId,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      const collectionAddons = createFakeCollectionAddons();
+      mockApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          api: state.api,
+          page: 1,
+          slug: params.collectionId,
+          user: params.userId,
+        })
+        .once()
+        .returns(Promise.resolve(collectionAddons));
+
+      _addAddonToCollection(params);
+
+      const expectedLoadAction = loadCollectionAddons({
+        collectionId: params.collectionId, addons: collectionAddons,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[3];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('clears the error handler', async () => {
+      _addAddonToCollection();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('addAddonToCollection')
+        .once()
+        .returns(Promise.reject(error));
+
+      _addAddonToCollection();
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      // expect(sagaTester.getCalledActions()[3])
+      //   .toEqual(abortFetchUserCollections({ userId }));
     });
   });
 });
