@@ -123,7 +123,7 @@ new Promise((resolve) => {
       '-e',
       `NODE_ENV=${nodeEnv}`,
       '-e',
-      `USE_HTTPS=true`,
+      `USE_HTTPS_FOR_DEV=true`,
       `-e`,
       `SERVER_HOST=example.com`,
       `--cidfile=${containerIdFile}`,
