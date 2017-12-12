@@ -3,6 +3,7 @@ _aliases:
   - &tox
     language: python
     python: 3.6
+    before_install: nvm install 6
     install: pip install tox
     script: tox
   - &node-prod
@@ -48,7 +49,6 @@ jobs:
     # Run the functional tests.
     - stage:
       <<: *tox
-      <<: *node-prod
       addons:
         firefox: latest-nightly
         hosts: example.com
