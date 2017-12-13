@@ -341,7 +341,7 @@ export class AddonBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <ShowMoreCard className="AddonDescription-version-notes" header={header}>
-        <span dangerouslySetInnerHTML={releaseNotes} />
+        <div dangerouslySetInnerHTML={releaseNotes} />
       </ShowMoreCard>
     );
     /* eslint-enable react/no-danger */
