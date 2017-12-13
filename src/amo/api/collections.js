@@ -5,7 +5,6 @@ import type { ApiStateType } from 'core/reducers/api';
 
 type GetCollectionParams = {|
   api: ApiStateType,
-  // TODO: rename slug to `collection` so it can be ID or slug.
   slug: string,
   user: string | number,
 |};
