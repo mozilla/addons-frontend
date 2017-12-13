@@ -428,13 +428,18 @@ type LoadCollectionIntoStateParams = {|
   addons?: ExternalCollectionAddons,
 |};
 
-const loadCollectionIntoState = (
+export const loadCollectionIntoState = (
   { state, collection, addons }: LoadCollectionIntoStateParams
 ): CollectionsState => {
-  // TODO: when addons is empty, maybe preserve old collection addons? If they exist.
+  const existingCollection = state.byId[collection.id];
   const internalCollection = createInternalCollection({
     detail: collection, items: addons,
   });
+  // In case the new collection isn't loaded with add-ons,
+  // make sure we don't overwrite any existing addons.
+  if (!internalCollection.addons && existingCollection) {
+    internalCollection.addons = existingCollection.addons;
+  }
 
   return {
     ...state,

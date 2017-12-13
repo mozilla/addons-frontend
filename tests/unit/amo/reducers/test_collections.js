@@ -11,6 +11,7 @@ import reducer, {
   getCurrentCollection,
   initialState,
   loadCollectionAddons,
+  loadCollectionIntoState,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -273,6 +274,28 @@ describe(__filename, () => {
       expect(userState.collections).toEqual([1]);
 
       expect(state.bySlug[collection.slug]).toEqual(collection.id);
+    });
+  });
+
+  describe('loadCollectionIntoState', () => {
+    it('preserves existing collection addons', () => {
+      const addons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const collection = createFakeCollectionDetail({
+        id: 1, addons,
+      });
+
+      let state = loadCollectionIntoState({
+        state: initialState, collection, addons: addons.results,
+      });
+
+      // Simulate loading it a second time but without addons.
+      state = loadCollectionIntoState({ state, collection });
+
+      const collectionInState = state.byId[collection.id];
+      expect(collectionInState.addons)
+        .toEqual(createInternalAddons(addons.results));
     });
   });
 
