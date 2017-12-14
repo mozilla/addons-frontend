@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-14 17:29+0000\n"
+"PO-Revision-Date: 2017-12-14 17:36+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -981,6 +981,8 @@ msgstr "Her suistimal raporuna ayrı ayrı yanıt veremiyoruz ama bu konuyu ince
 #: src/amo/components/ReportAbuseButton/index.js:130
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Bu eklentinin %(linkTagStart)sMozilla'nın eklenti politikalarını%(linkTagEnd)s ihlal ettiğini veya güvenlik/gizlilik sorunları olduğunu düşünüyorsanız lütfen bu formu kullanarak bu sorunları "
+"Mozilla'ya bildirin."
 
 #: src/amo/components/ReportAbuseButton/index.js:143
 msgid "Report this add-on for abuse"
@@ -1368,6 +1370,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Teknik sorunlar, destek istekleri veya özellik önerileri göndermeyin. Her eklenti kendi destek seçeneklerini kullanın (varsa). Bunları, eklentinin ayrıntı sayfasındaki kenar çubuğunda yer alan "
+"\"Daha fazla bilgi\" bölümünde bulabilirsiniz."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
