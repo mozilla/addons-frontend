@@ -16,7 +16,7 @@ import { COLLECTIONS_EDIT } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
-import { hasPermission } from 'core/reducers/user';
+import { hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import { parsePage } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -27,7 +27,7 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
@@ -216,7 +216,7 @@ export class CollectionBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| collections: CollectionsState, user: UserStateType |}
+  state: {| collections: CollectionsState, users: UsersStateType |}
 ) => {
   const { loading } = state.collections.current;
 
@@ -224,7 +224,7 @@ export const mapStateToProps = (
 
   const collection = getCurrentCollection(state.collections);
   if (collection) {
-    hasEditPermission = collection.authorId === state.user.id ||
+    hasEditPermission = collection.authorId === state.users.currentUserID ||
       hasPermission(state, COLLECTIONS_EDIT);
   }
 

@@ -30,7 +30,7 @@ import type {
 } from 'amo/api/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { ApiStateType } from 'core/reducers/api';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType, AddonVersionType } from 'core/types/addons';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -220,10 +220,10 @@ export class RatingManagerBase extends React.Component<Props, State> {
 }
 
 export const mapStateToProps = (
-  state: {| api: ApiStateType, reviews: ReviewState, user: UserStateType |},
+  state: {| api: ApiStateType, reviews: ReviewState, users: UsersStateType |},
   ownProps: Props
 ) => {
-  const userId = state.user.id;
+  const userId = state.users.currentUserID;
   let userReview;
 
   // Look for the latest saved review by this user for this add-on.

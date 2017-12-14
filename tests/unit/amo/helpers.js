@@ -3,7 +3,10 @@ import config from 'config';
 
 import createStore from 'amo/store';
 import {
-  setClientApp, setLang, setAuthToken, setUserAgent,
+  setClientApp,
+  setLang,
+  setAuthToken,
+  setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
 import {
@@ -15,16 +18,18 @@ import {
   OS_ALL,
 } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
-import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
-import { loadUserProfile } from 'core/reducers/user';
-
+import {
+  autocompleteLoad,
+  autocompleteStart,
+} from 'core/reducers/autocomplete';
+import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   createStubErrorHandler,
-  createUserProfileResponse,
+  createUserAccountResponse,
   userAuthToken,
   sampleUserAgent,
   signedInApiState as coreSignedInApiState,
-} from '../helpers';
+} from 'tests/unit/helpers';
 
 
 export const fakeAddon = Object.freeze({
@@ -214,18 +219,20 @@ export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
   username = 'user-1234',
-  displayName = null,
+  // eslint-disable-next-line camelcase
+  display_name = null,
   permissions = [],
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
-  store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({
+  store.dispatch(loadCurrentUserAccount({
+    user: createUserAccountResponse({
       id: userId,
       username,
-      displayName,
+      // eslint-disable-next-line camelcase
+      display_name,
       permissions,
     }),
   }));

@@ -1,6 +1,7 @@
 import UAParser from 'ua-parser-js';
 
 import * as actions from 'core/actions';
+import { logOutUser } from 'amo/reducers/users';
 import api, { initialApiState } from 'core/reducers/api';
 import { signedInApiState, userAgents, userAuthToken }
   from 'tests/unit/helpers';
@@ -24,7 +25,7 @@ describe('api reducer', () => {
     const state = { ...signedInApiState };
     expect(state.token).toBeTruthy();
     const expectedState = { ...state, token: null };
-    expect(api(signedInApiState, actions.logOutUser())).toEqual(expectedState);
+    expect(api(signedInApiState, logOutUser())).toEqual(expectedState);
   });
 
   it('stores the lang', () => {

@@ -13,7 +13,7 @@ import FlagReview from 'amo/components/FlagReview';
 import FlagReviewMenu, {
   FlagReviewMenuBase,
 } from 'amo/components/FlagReviewMenu';
-import { logOutUser } from 'core/actions';
+import { logOutUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   dispatchSignInActions, fakeReview,

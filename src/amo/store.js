@@ -8,6 +8,7 @@ import collections from 'amo/reducers/collections';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
 import reviews from 'amo/reducers/reviews';
+import users from 'amo/reducers/users';
 import viewContext from 'amo/reducers/viewContext';
 import abuse from 'core/reducers/abuse';
 import addons from 'core/reducers/addons';
@@ -22,7 +23,6 @@ import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import redirectTo from 'core/reducers/redirectTo';
 import search from 'core/reducers/search';
-import user from 'core/reducers/user';
 import { middleware } from 'core/store';
 
 
@@ -51,7 +51,7 @@ export default function createStore({
       reviews,
       routing,
       search,
-      user,
+      users,
       viewContext,
     }),
     initialState,

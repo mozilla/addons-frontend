@@ -6,7 +6,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { hasPermission } from 'core/reducers/user';
+import { hasPermission } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import {
   addonHasVersionHistory,
@@ -16,7 +16,7 @@ import {
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import type { I18nType } from 'core/types/i18n';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 
 import './styles.scss';
 
@@ -257,9 +257,9 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }
 }
 
-export const mapStateToProps = (state: {| user: UserStateType |}) => {
+export const mapStateToProps = (state: {| users: UsersStateType |}) => {
   return {
-    userId: state.user.id,
+    userId: state.users.currentUserID,
     hasStatsPermission: hasPermission(state, STATS_VIEW),
   };
 };

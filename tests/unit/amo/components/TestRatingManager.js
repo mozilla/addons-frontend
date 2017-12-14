@@ -7,7 +7,7 @@ import {
 import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';
 import { createInternalAddon } from 'core/reducers/addons';
-import { loadUserProfile } from 'core/reducers/user';
+import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -27,7 +27,7 @@ import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
-  createUserProfileResponse,
+  createUserAccountResponse,
   fakeI18n,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -432,8 +432,8 @@ describe('RatingManager', () => {
 
     function signIn({ userId = 98765 } = {}) {
       store.dispatch(setAuthToken(userAuthToken()));
-      store.dispatch(loadUserProfile({
-        profile: createUserProfileResponse({ id: userId }),
+      store.dispatch(loadCurrentUserAccount({
+        user: createUserAccountResponse({ id: userId }),
       }));
     }
 
