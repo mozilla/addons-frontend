@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-10 14:24+0000\n"
+"PO-Revision-Date: 2017-12-16 16:10+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -454,9 +454,8 @@ msgid "See more featured themes"
 msgstr "Προτεινόμενα θέματα"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:127
-#, fuzzy
 msgid "Trending themes"
-msgstr "Πιο υψηλά βαθμολογημένα θέματα"
+msgstr "Δημοφιλή θέματα"
 
 #: src/amo/components/Category/index.js:178 src/amo/components/LandingPage/index.js:161
 #, fuzzy
@@ -741,9 +740,8 @@ msgid "Report a bug"
 msgstr "Αναφορά σφάλματος"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Κείμενο κριτικής"
+msgstr "Οδηγίες κριτικής"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -802,7 +800,6 @@ msgid "Film & TV"
 msgstr ""
 
 #: src/amo/components/Home/index.js:132
-#, fuzzy
 msgid "Scenery"
 msgstr "Σκηνικό"
 
@@ -843,9 +840,8 @@ msgid "See more highly rated Themes"
 msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Productivity tools"
-msgstr "Δημοφιλέστερες επεκτάσεις"
+msgstr "Εργαλεία παραγωγικότητας"
 
 #: src/amo/components/Home/index.js:253
 #, fuzzy
@@ -853,9 +849,8 @@ msgid "See more productivity tools"
 msgstr "Αναζήτηση επεκτάσεων"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
-msgstr "Πολιτική απορρήτου"
+msgstr "Προστασία απορρήτου"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
@@ -910,9 +905,8 @@ msgid "Visual bookmarks for your favorite places on the web."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "Αναζήτηση θεμάτων"
+msgstr "Αναζήτηση κατά εικόνα"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
@@ -963,9 +957,8 @@ msgid "Available for your locale"
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:142
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "Λεξικά & πακέτα γλωσσών"
+msgstr "Λεξικά και πακέτα γλωσσών"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -984,9 +977,8 @@ msgid "Locale Name"
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:176
-#, fuzzy
 msgid "Language Packs"
-msgstr "Εύρεση πακέτου γλώσσας"
+msgstr "Πακέτα γλώσσας"
 
 #: src/amo/components/LanguageTools/index.js:179
 msgid "Dictionaries"
@@ -1067,29 +1059,24 @@ msgid "Search results"
 msgstr "Αποτελέσματα αναζήτησης"
 
 #: src/amo/components/Search/index.js:117
-#, fuzzy
 msgid "Featured add-ons"
-msgstr "Προτεινόμενο πρόσθετο"
+msgstr "Προτεινόμενα πρόσθετα"
 
 #: src/amo/components/Search/index.js:130
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Φόρτωση προσθέτων"
+msgstr "Δημοφιλή πρόσθετα"
 
 #: src/amo/components/Search/index.js:142
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
+msgstr "Πιο υψηλά βαθμολογημένα πρόσθετα"
 
 #: src/amo/components/Search/index.js:151
-#, fuzzy
 msgid "Popular themes"
-msgstr "Δημοφιλέστερα θέματα"
+msgstr "Δημοφιλή θέματα"
 
 #: src/amo/components/Search/index.js:154
-#, fuzzy
 msgid "Popular add-ons"
-msgstr "Φόρτωση προσθέτων"
+msgstr "Δημοφιλή πρόσθετα"
 
 #: src/amo/components/Search/index.js:161
 #, fuzzy
@@ -1216,9 +1203,8 @@ msgid "Operating System"
 msgstr "Λειτουργικό σύστημα"
 
 #: src/amo/components/SearchFilters/index.js:210
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Προτεινόμενο πρόσθετο"
+msgstr "Μόνο προτεινόμενα πρόσθετα"
 
 #: src/amo/components/SearchForm/index.js:188
 msgid "Go to the add-on page"
