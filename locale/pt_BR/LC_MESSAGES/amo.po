@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-05 21:20+0000\n"
+"PO-Revision-Date: 2017-12-17 02:50+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -500,11 +500,11 @@ msgstr "Ajudar estes artistas"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "O artista deste tema pede que você ajude a continuar sua criação fazendo uma pequena contribuição."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Os artistas deste tema pede que você ajude a continuar sua criação fazendo uma pequena contribuição."
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
@@ -675,6 +675,8 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Exceto onde de outra forma %(startNotedLink)snotado%(endNotedLink)s, o conteúdo deste site está licenciado sob a %(startLicenseLink)s Creative Commons Licença de Atribuição Compartilha-Igual v3.0 "
+"%(endLicenseLink)s ou qualquer versão posterior."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
