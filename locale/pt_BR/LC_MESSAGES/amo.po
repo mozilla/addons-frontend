@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-17 02:50+0000\n"
+"PO-Revision-Date: 2017-12-17 02:56+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -920,11 +920,11 @@ msgstr "Dicionários e Pacotes de Idioma"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "A instalação de uma extensão de dicionário adicionará uma nova opção de idioma ao seu corrector ortográfico, que verifica sua ortografia enquanto você digita no Firefox."
 
 #: src/amo/components/LanguageTools/index.js:161
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Os pacotes de idioma alteram o idioma da interface do seu navegador, incluindo as opções e as configurações do menu."
 
 #: src/amo/components/LanguageTools/index.js:167
 msgid "All Locales"
@@ -985,6 +985,8 @@ msgstr "Não podemos responder a todas denúncias de abuso mas analisaremos esse
 #: src/amo/components/ReportAbuseButton/index.js:130
 msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
+"Se você acha que esta extensão viola as %(linkTagStart)spolíticas de extensão da Mozilla%(linkTagEnd)s ou tem problemas de segurança ou privacidade, informe estes problemas para a Mozilla usando "
+"este formulário."
 
 #: src/amo/components/ReportAbuseButton/index.js:143
 msgid "Report this add-on for abuse"
@@ -1228,7 +1230,7 @@ msgstr "Mais…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
-msgstr ""
+msgstr "Se você quiser contribuir, mas não é tão técnico, existem outras formas de ajudar:"
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
@@ -1240,11 +1242,11 @@ msgstr "Deixe comentários nas suas extensões favoritas. Os autores das extens�
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
-msgstr ""
+msgstr "Diga a seus amigos e familiares que o Firefox é um navegador rápido e seguro, que protege sua privacidade, e que podem usar extensões para o personalizar ao seu gosto!"
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr ""
+msgstr "Para ver mais formas de contribuir com a comunidade de extensão, por favor visite nosso %(startLink)swiki%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1260,7 +1262,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:169
 msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
-msgstr ""
+msgstr "%(startLink)sInformações sobre como entrar em contato com o time de extensões da Mozilla podem ser encontradas aqui%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
@@ -1271,6 +1273,8 @@ msgid ""
 "Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
 "features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO), é o site oficial da Mozilla para descobrir e instalar extensões no navegador Firefox. As extenções ajudam você a modificar e personalizar a sua experiência de navegação, "
+"adicionando novas funcionalidades ao Firefox, aprimorando suas interações com o conteúdo da Web e alterando a aparência do seu navegador."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
