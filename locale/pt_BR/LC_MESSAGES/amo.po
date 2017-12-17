@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-17 02:56+0000\n"
+"PO-Revision-Date: 2017-12-17 21:31+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1278,7 +1278,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Você também pode usar o AMO para encontrar extensões para o Mozilla %(startTBLink)s Thunderbird%(endTBLink)s e %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1289,6 +1289,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"As extensões listadas aqui são criadas por milhares de desenvolvedores e designers de temas de todo o mundo, variando de hobbyistas a grandes corporações. Algumas extesões listadas no AMO foram "
+"publicadas automaticamente e podem estar sujeitas a revisão por uma equipe de editores quando listadas publicamente."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
