@@ -85,6 +85,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
           className="DropdownMenu-button"
           onClick={this.handleOnClick}
           title={text}
+          aria-haspopup="true"
         >
           <span className="DropdownMenu-button-text">
             {text}
@@ -93,7 +94,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
         </button>
 
         {children && (
-          <ul className="DropdownMenu-items">
+          <ul className="DropdownMenu-items" aria-hidden={!this.state.buttonIsActive} aria-label="submenu">
             {children}
           </ul>
         )}
