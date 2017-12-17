@@ -25,7 +25,7 @@ const DropdownMenuItem = (
   }, className);
 
   return (
-    <li className={_classNames}>
+    <li className={_classNames} role="menuitem">
       {onClick ? (
         <button onClick={onClick}>{children}</button>
       ) : (

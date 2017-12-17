@@ -80,12 +80,14 @@ export class DropdownMenuBase extends React.Component<Props, State> {
         onClick={this.handleOnClickForLinks}
         onMouseEnter={this.handleOnMouseEnter}
         onMouseLeave={this.handleOnMouseLeave}
+        role="menubar"
       >
         <button
           className="DropdownMenu-button"
           onClick={this.handleOnClick}
           title={text}
           aria-haspopup="true"
+          role="menuitem"
         >
           <span className="DropdownMenu-button-text">
             {text}
