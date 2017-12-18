@@ -3,12 +3,15 @@ import {
   ADD_ADDON_TO_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
+  FETCH_USER_ADDON_COLLECTIONS,
   FETCH_USER_COLLECTIONS,
   abortFetchCurrentCollection,
+  abortFetchUserAddonCollections,
   abortFetchUserCollections,
   loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
+  loadUserAddonCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
@@ -97,10 +100,8 @@ export function* fetchUserCollections({
       user: userId,
     });
 
-    // TODO: load add-ons for each collection so that the UI can
-    // indicate when an add-on is already in a collection
-    // TODO: ultimately, we should use a separate API endpoint to
-    // fetch the user collections that an add-on belongs to.
+    // TODO: deal with a response that has multiple pages.
+
     yield put(loadUserCollections({
       userId, collections: collections.results,
     }));
@@ -111,11 +112,63 @@ export function* fetchUserCollections({
   }
 }
 
-// TODO: fetchUserAddonCollections
-// Accept a username and addonId.
-// Make API request for all collections belonging to the user.
-// Make API requests for all add-ons in each collection, filter
-// by addonId, and load those into state.
+export function* fetchUserAddonCollections({
+  payload: { addonId, errorHandlerId, userId },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+    // TODO: ultimately, we should use a separate API endpoint to
+    // fetch the user collections that an add-on belongs to.
+
+    // Fetch all collections belonging to the user.
+    const collectionResults = yield call(api.listCollections, {
+      api: state.api,
+      user: userId,
+    });
+
+    // TODO: deal with a response that has multiple pages.
+
+    const collections = {};
+    const addonCalls = {};
+
+    // Fetch all add-ons for each of those collections.
+    collectionResults.results.forEach((collection) => {
+      collections[collection.id] = collection;
+      addonCalls[collection.id] = call(api.getCollectionAddons, {
+        api: state.api,
+        // TODO: when we have a new API endpoint this won't
+        // be a problem.
+        page: 1,
+        slug: collection.slug,
+        user: userId,
+      });
+    });
+
+    const addonResults = yield all(addonCalls);
+
+    // Make a list of collections that the add-on is in.
+    const matchingCollections = [];
+    Object.keys(addonResults).forEach((collectionId) => {
+      addonResults[collectionId].results.forEach((result) => {
+        if (result.addon.id === addonId) {
+          matchingCollections.push(collections[collectionId]);
+        }
+      });
+    });
+
+    yield put(loadUserAddonCollections({
+      addonId, userId, collections: matchingCollections,
+    }));
+  } catch (error) {
+    log.warn(`Failed to fetch user add-on collections: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    yield put(abortFetchUserAddonCollections({ addonId, userId }));
+  }
+}
 
 export function* addAddonToCollection({
   payload: { addonId, collectionSlug, errorHandlerId, notes, userId },
@@ -159,6 +212,9 @@ export default function* collectionsSaga() {
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
+  );
+  yield takeLatest(
+    FETCH_USER_ADDON_COLLECTIONS, fetchUserAddonCollections
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);

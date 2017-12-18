@@ -3,14 +3,17 @@ import SagaTester from 'redux-saga-tester';
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   abortFetchCurrentCollection,
+  abortFetchUserAddonCollections,
   abortFetchUserCollections,
   addAddonToCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
+  fetchUserAddonCollections,
   fetchUserCollections,
   loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
+  loadUserAddonCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
@@ -23,6 +26,7 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 
@@ -256,6 +260,160 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
       expect(sagaTester.getCalledActions()[3])
         .toEqual(abortFetchUserCollections({ userId }));
+    });
+  });
+
+  describe('fetchUserAddonCollections', () => {
+    const _fetchUserAddonCollections = (params) => {
+      sagaTester.dispatch(fetchUserAddonCollections({
+        errorHandlerId: errorHandler.id,
+        addonId: 761,
+        userId: 321,
+        ...params,
+      }));
+    };
+
+    it('fetches user collections by add-on from the API', async () => {
+      const addonId = 9861;
+      const userId = 43321;
+      const state = sagaTester.getState();
+
+      const firstCollection = createFakeCollectionDetail({
+        slug: 'first',
+      });
+      const secondCollection = createFakeCollectionDetail({
+        slug: 'second',
+      });
+      // These are all collections belonging to the user.
+      const externalCollections = [firstCollection, secondCollection];
+      // These are collections that have a matching add-on.
+      const matchingExtCollections = [firstCollection];
+
+      mockApi
+        .expects('listCollections')
+        .withArgs({
+          api: state.api,
+          user: userId,
+        })
+        .once()
+        .returns(Promise.resolve(apiResponsePage({
+          results: externalCollections,
+        })));
+
+      const addonMap = {
+        [firstCollection.slug]: createFakeCollectionAddons({
+          // This collection will have one matching add-on.
+          addons: [{ ...fakeAddon, id: addonId }],
+        }),
+        [secondCollection.slug]: createFakeCollectionAddons({
+          // This collection does not have any matching add-ons.
+          addons: [{ ...fakeAddon, id: 123454 }],
+        }),
+      };
+
+      // This API will be called once per collection.
+      mockApi
+        .expects('getCollectionAddons')
+        .twice()
+        .withArgs({
+          api: state.api,
+          page: parsePage(1),
+          slug: sinon.match((slugParam) => (
+            slugParam === firstCollection.slug ||
+            slugParam === secondCollection.slug
+          )),
+          user: userId,
+        })
+        .callsFake((params) => {
+          const results = addonMap[params.slug];
+          if (!results) {
+            throw new Error(
+              `No results mapped for collection slug ${params.slug}`);
+          }
+          return Promise.resolve(results);
+        });
+
+      _fetchUserAddonCollections({ addonId, userId });
+
+      const expectedLoadAction = loadUserAddonCollections({
+        addonId, userId, collections: matchingExtCollections,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('saves zero collections if none contain the add-on', async () => {
+      const addonId = 9861;
+      const userId = 43321;
+
+      const firstCollection = createFakeCollectionDetail({
+        slug: 'first',
+      });
+      const secondCollection = createFakeCollectionDetail({
+        slug: 'second',
+      });
+      const externalCollections = [firstCollection, secondCollection];
+
+      mockApi
+        .expects('listCollections')
+        .returns(Promise.resolve(apiResponsePage({
+          results: externalCollections,
+        })));
+
+      mockApi
+        .expects('getCollectionAddons')
+        .twice()
+        // Return no matching add-ons for any collection.
+        .returns(Promise.resolve(createFakeCollectionAddons()));
+
+      _fetchUserAddonCollections({ addonId, userId });
+
+      const expectedLoadAction = loadUserAddonCollections({
+        // Since the add-on was not found in any collections, the saga
+        // should load an empty list.
+        addonId, userId, collections: [],
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('clears the error handler', async () => {
+      _fetchUserAddonCollections();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('dispatches an error', async () => {
+      const addonId = 9962;
+      const userId = 55432;
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('listCollections')
+        .once()
+        .returns(Promise.reject(error));
+
+      _fetchUserAddonCollections({ addonId, userId });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[3])
+        .toEqual(abortFetchUserAddonCollections({ addonId, userId }));
     });
   });
 
