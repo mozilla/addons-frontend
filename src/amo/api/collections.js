@@ -54,6 +54,7 @@ type ListCollectionsParams = {|
   user: string | number,
 |};
 
+// TODO: rename to listUserCollections ?
 export const listCollections = (
   { api, user }: ListCollectionsParams
 ) => {

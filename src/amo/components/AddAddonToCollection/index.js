@@ -188,6 +188,12 @@ export const mapStateToProps = (
   let userCollections;
   if (siteUserId) {
     userCollections = collections.userCollections[siteUserId];
+    // TODO:
+    // const { addon } = ownProps;
+    // if (addon) {
+    //   userAddonCollections =
+    //     collections.userAddonCollections[siteUserId][addon.id] || null;
+    // }
   }
   return {
     loadingUserCollections:

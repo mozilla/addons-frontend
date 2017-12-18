@@ -111,6 +111,12 @@ export function* fetchUserCollections({
   }
 }
 
+// TODO: fetchUserAddonCollections
+// Accept a username and addonId.
+// Make API request for all collections belonging to the user.
+// Make API requests for all add-ons in each collection, filter
+// by addonId, and load those into state.
+
 export function* addAddonToCollection({
   payload: { addonId, collectionSlug, errorHandlerId, notes, userId },
 }) {

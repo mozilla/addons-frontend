@@ -1,5 +1,6 @@
 import reducer, {
   abortFetchCurrentCollection,
+  abortFetchUserAddonCollections,
   abortFetchUserCollections,
   addAddonToCollection,
   createInternalAddons,
@@ -7,6 +8,7 @@ import reducer, {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  fetchUserAddonCollections,
   getCollectionById,
   getCurrentCollection,
   initialState,
@@ -15,6 +17,7 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  loadUserAddonCollections,
 } from 'amo/reducers/collections';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -275,6 +278,58 @@ describe(__filename, () => {
 
       expect(state.bySlug[collection.slug]).toEqual(collection.id);
     });
+
+    it('sets a loading flag when fetching user collections by add-on', () => {
+      const addonId = 871;
+      const userId = 321;
+
+      const state = reducer(undefined, fetchUserAddonCollections({
+        addonId, userId, errorHandlerId: 'some-error-id',
+      }));
+
+      const savedState = state.userAddonCollections[userId][addonId];
+      expect(savedState).toBeDefined();
+      expect(savedState.loading).toEqual(true);
+      expect(savedState.collections).toEqual(null);
+    });
+
+    it('aborts fetching user collections by add-on', () => {
+      const addonId = 721;
+      const userId = 321;
+
+      let state = reducer(undefined, fetchUserAddonCollections({
+        addonId, userId, errorHandlerId: 'some-error-id',
+      }));
+
+      state = reducer(state,
+        abortFetchUserAddonCollections({ addonId, userId })
+      );
+
+      const savedState = state.userAddonCollections[userId][addonId];
+      expect(savedState.loading).toEqual(false);
+      expect(savedState.collections).toEqual(null);
+    });
+
+    it('loads user collections by add-on', () => {
+      const addonId = 611;
+      const userId = 321;
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      const state = reducer(undefined, loadUserAddonCollections({
+        userId, addonId, collections: [firstCollection, secondCollection],
+      }));
+
+      const savedState = state.userAddonCollections[userId][addonId];
+      expect(savedState.loading).toEqual(false);
+      expect(savedState.collections).toEqual([1, 2]);
+
+      // Also make sure the collections were loaded into state.
+      expect(state.byId[savedState.collections[0]])
+        .toEqual(createInternalCollection({ detail: firstCollection }));
+      expect(state.byId[savedState.collections[1]])
+        .toEqual(createInternalCollection({ detail: secondCollection }));
+    });
   });
 
   describe('loadCollectionIntoState', () => {
@@ -337,7 +392,7 @@ describe(__filename, () => {
   describe('fetchUserCollections', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      userId: Date.now(),
+      userId: 1,
     };
 
     it('throws an error when userId is missing', () => {
@@ -359,7 +414,7 @@ describe(__filename, () => {
 
   describe('abortFetchUserCollections', () => {
     const defaultParams = {
-      userId: Date.now(),
+      userId: 1,
     };
 
     it('throws an error when userId is missing', () => {
@@ -368,6 +423,61 @@ describe(__filename, () => {
 
       expect(() => abortFetchUserCollections(params))
         .toThrow(/userId is required/);
+    });
+  });
+
+  describe('fetchUserAddonCollections', () => {
+    const defaultParams = {
+      errorHandlerId: 'some-error-handler-id',
+      userId: 1,
+      addonId: 2,
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => fetchUserAddonCollections(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => fetchUserAddonCollections(params))
+        .toThrow(/addonId is required/);
+    });
+
+    it('throws an error when errorHandlerId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.errorHandlerId;
+
+      expect(() => fetchUserAddonCollections(params))
+        .toThrow(/errorHandlerId is required/);
+    });
+  });
+
+  describe('abortFetchUserAddonCollections', () => {
+    const defaultParams = {
+      userId: 1,
+      addonId: 2,
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => abortFetchUserAddonCollections(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => abortFetchUserAddonCollections(params))
+        .toThrow(/addonId is required/);
     });
   });
 
@@ -391,6 +501,38 @@ describe(__filename, () => {
 
       expect(() => loadUserCollections(params))
         .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('loadUserAddonCollections', () => {
+    const defaultParams = {
+      addonId: 2221,
+      userId: 4321,
+      collections: [createFakeCollectionDetail()],
+    };
+
+    it('throws an error when collections is missing', () => {
+      const params = { ...defaultParams };
+      delete params.collections;
+
+      expect(() => loadUserAddonCollections(params))
+        .toThrow(/collections parameter is required/);
+    });
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => loadUserAddonCollections(params))
+        .toThrow(/userId parameter is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => loadUserAddonCollections(params))
+        .toThrow(/addonId parameter is required/);
     });
   });
 
