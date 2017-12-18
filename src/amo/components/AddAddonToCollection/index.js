@@ -20,7 +20,7 @@ import type { DispatchFunc } from 'core/types/redux';
 import type {
   CollectionsState, CollectionType,
 } from 'amo/reducers/collections';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { ElementEvent } from 'core/types/dom';
 
 import './styles.scss';
@@ -181,11 +181,10 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| collections: CollectionsState, user: UserStateType |}
+  state: {| collections: CollectionsState, users: UsersStateType |}
 ) => {
   const collections = state.collections;
-  // TODO: merge with user patch and do getCurrentUser(state).id
-  const siteUserId = state.user.id;
+  const siteUserId = state.users.currentUserID;
   let userCollections;
   if (siteUserId) {
     userCollections = collections.userCollections[siteUserId];
