@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-10 07:35+0000\n"
+"PO-Revision-Date: 2017-12-19 04:20+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -278,7 +278,7 @@ msgstr "Gå til statistikkoversikta"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Fortel verda, kvifor du synest denne udvidinga er fantastisk! Følg %(linkStart)svurderingsretningslinjene%(linkEnd)s våre."
+msgstr "Fortel verda, kvifor du synest at denne udvidinga er bra! Følg %(linkStart)svurderingsretningslinjene%(linkEnd)s våre."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
