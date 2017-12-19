@@ -291,9 +291,8 @@ export const mapStateToProps = (
   };
 };
 
-const extractId = (ownProps: Props) => {
+export const extractId = (ownProps: Props) => {
   const { addon, siteUserId } = ownProps;
-  // TODO: add tests
   return `${addon ? addon.id : ''}-${siteUserId || ''}`;
 };
 

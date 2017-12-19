@@ -1,7 +1,7 @@
 import React from 'react';
 
 import AddAddonToCollection, {
-  AddAddonToCollectionBase, mapStateToProps,
+  extractId, AddAddonToCollectionBase, mapStateToProps,
 } from 'amo/components/AddAddonToCollection';
 import {
   addAddonToCollection,
@@ -34,14 +34,18 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store;
   });
 
-  const render = (customProps = {}) => {
-    const props = {
+  const getProps = (customProps = {}) => {
+    return {
       addon: createInternalAddon(fakeAddon),
       i18n: fakeI18n(),
       store,
       _window: {},
       ...customProps,
     };
+  };
+
+  const render = (customProps = {}) => {
+    const props = getProps(customProps);
     return shallowUntilTarget(
       <AddAddonToCollection {...props} />, AddAddonToCollectionBase
     );
@@ -391,6 +395,27 @@ describe(__filename, () => {
       const root = render({ errorHandler });
 
       expect(root.find(ErrorList)).toHaveLength(1);
+    });
+  });
+
+  describe('extractId', () => {
+    const _props = (customProps = {}) => {
+      return {
+        ...getProps(customProps),
+        ...mapStateToProps(store.getState(), {}),
+      };
+    };
+
+    it('renders an ID without an add-on or user ID', () => {
+      expect(extractId(_props({ addon: null }))).toEqual('-');
+    });
+
+    it('renders an ID with an add-on ID and user ID', () => {
+      const addon = createInternalAddon({ ...fakeAddon, id: 5432 });
+      const userId = 1234;
+      dispatchSignInActions({ store, userId });
+      expect(extractId(_props({ addon })))
+        .toEqual(`${addon.id}-${userId}`);
     });
   });
 });
