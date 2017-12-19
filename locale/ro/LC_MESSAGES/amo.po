@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-19 02:11+0000\n"
+"PO-Revision-Date: 2017-12-19 02:15+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -39,7 +39,7 @@ msgstr "Evaluează experiența"
 
 #: src/amo/components/Addon/index.js:270
 msgid "About this dictionary"
-msgstr ""
+msgstr "Despre acest dicționar"
 
 #: src/amo/components/Addon/index.js:273
 msgid "About this extension"
@@ -51,16 +51,15 @@ msgstr "Despre acest pachet lingvistic"
 
 #: src/amo/components/Addon/index.js:279
 msgid "About this search plugin"
-msgstr ""
+msgstr "Despre acest plugin de căutare"
 
 #: src/amo/components/Addon/index.js:282
 msgid "About this theme"
-msgstr ""
+msgstr "Despre această temă"
 
 #: src/amo/components/Addon/index.js:285
-#, fuzzy
 msgid "About this add-on"
-msgstr "Raportează acest supliment pentru abuz"
+msgstr "Despre acest supliment"
 
 #: src/amo/components/Addon/index.js:324
 msgid "Release notes for %(addonVersion)s"
@@ -725,7 +724,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:101
 msgid "View My Collections"
-msgstr ""
+msgstr "Vezi colecțiile mele"
 
 #: src/amo/components/Header/index.js:106
 msgid "View Profile"
@@ -737,7 +736,7 @@ msgstr "Editează profilul"
 
 #: src/amo/components/Header/index.js:115
 msgid "Tools"
-msgstr ""
+msgstr "Instrumente"
 
 #: src/amo/components/Header/index.js:121
 msgid "Submit a New Add-on"
@@ -749,7 +748,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:138 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
-msgstr ""
+msgstr "Deconectează-te"
 
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
@@ -1242,7 +1241,7 @@ msgstr "Explorează"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "Mai multe…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
