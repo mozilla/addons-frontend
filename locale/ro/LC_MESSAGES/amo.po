@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -360,7 +360,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:211
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "de %(authorList)s, %(timestamp)s"
+msgstr "de %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:263
 msgid "Edit my reply"
