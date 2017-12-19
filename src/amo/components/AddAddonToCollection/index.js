@@ -18,7 +18,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type {
-  CollectionsState, CollectionType,
+  CollectionId, CollectionsState, CollectionType,
 } from 'amo/reducers/collections';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { ElementEvent } from 'core/types/dom';
@@ -228,6 +228,15 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 }
 
+const expandCollections = (
+  collections: CollectionsState,
+  meta?: { collections: Array<CollectionId> | null }
+): Array<CollectionType> | null => {
+  return meta && meta.collections ?
+    meta.collections.map((id) => collections.byId[id]) :
+    null;
+};
+
 export const mapStateToProps = (
   state: {| collections: CollectionsState, users: UsersStateType |},
   ownProps: Props
@@ -248,22 +257,15 @@ export const mapStateToProps = (
     }
   }
   return {
-    loadingUserCollections:
-      userCollections ? userCollections.loading : false,
-    userCollections: userCollections && userCollections.collections ?
-      // TODO: use select function so it can throw errors for missing.
-      userCollections.collections.map((id) => collections.byId[id]) :
-      null,
     loadingUserAddonCollections:
       userAddonCollections ? userAddonCollections.loading : false,
-    userAddonCollections:
-      userAddonCollections && userAddonCollections.collections ?
-        // TODO: use select function so it can throw errors for missing.
-        userAddonCollections.collections.map(
-          (id) => collections.byId[id]
-        ) :
-        null,
+    loadingUserCollections:
+      userCollections ? userCollections.loading : false,
     siteUserId,
+    userAddonCollections:
+      expandCollections(collections, userAddonCollections),
+    userCollections:
+      expandCollections(collections, userCollections),
   };
 };
 

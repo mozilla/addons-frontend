@@ -44,7 +44,7 @@ export type CollectionType = {
   slug: string,
 };
 
-type CollectionId = number;
+export type CollectionId = number;
 
 export type CollectionsState = {
   byId: {
