@@ -403,17 +403,19 @@ export function runServer({
         let server = baseServer(
           routes, createStore, { appInstanceName: appName });
         if (listen === true) {
-          if (useHttpsForDev && (host === 'example.com')) {
-            const options = {
-              key: fs.readFileSync('bin/local-dev-server-certs/my-server.key.pem'),
-              cert: fs.readFileSync('bin/local-dev-server-certs/my-server.crt.pem'),
-              ca: fs.readFileSync('bin/local-dev-server-certs/my-private-root-ca.crt.pem'),
-              passphrase: '',
-            };
-            server = https.createServer(options, server);
-          } else {
-            log.info(
-              `To use the HTTPS server you must serve the site at example.com (host was "${host}")`);
+          if (useHttpsForDev) {
+            if (host === 'example.com') {
+              const options = {
+                key: fs.readFileSync('bin/local-dev-server-certs/my-server.key.pem'),
+                cert: fs.readFileSync('bin/local-dev-server-certs/my-server.crt.pem'),
+                ca: fs.readFileSync('bin/local-dev-server-certs/my-private-root-ca.crt.pem'),
+                passphrase: '',
+              };
+              server = https.createServer(options, server);
+            } else {
+              log.info(
+                `To use the HTTPS server you must serve the site at example.com (host was "${host}")`);
+            }
           }
           server.listen(port, host, (err) => {
             if (err) {
