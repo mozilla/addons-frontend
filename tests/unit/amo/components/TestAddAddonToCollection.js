@@ -199,6 +199,33 @@ describe(__filename, () => {
       return option;
     };
 
+    it('renders a disabled select when loading user collections', () => {
+      const userId = 5543;
+      dispatchSignInActions({ store, userId });
+      store.dispatch(fetchUserCollections({
+        errorHandlerId: 'some-id', userId,
+      }));
+
+      const root = render();
+
+      expect(root.find('.AddAddonToCollection-select').props().disabled)
+        .toEqual(true);
+    });
+
+    it('renders a disabled select when loading add-on collections', () => {
+      const addon = createInternalAddon(fakeAddon);
+      const userId = 5543;
+      dispatchSignInActions({ store, userId });
+      store.dispatch(fetchUserAddonCollections({
+        addonId: addon.id, errorHandlerId: 'some-id', userId,
+      }));
+
+      const root = render({ addon });
+
+      expect(root.find('.AddAddonToCollection-select').props().disabled)
+        .toEqual(true);
+    });
+
     it('lets you select a collection', () => {
       const addon = createInternalAddon({ ...fakeAddon, id: 234 });
       const authorId = 1;

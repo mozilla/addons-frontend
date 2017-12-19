@@ -44,6 +44,10 @@ type Props = {|
 
 type OnSelectOptionType = () => void;
 
+type SelectData = {|
+  value: string | void, options: Array<Object>, disabled: boolean,
+|};
+
 export class AddAddonToCollectionBase extends React.Component<Props> {
   optionSelectHandlers: { [key: string]: OnSelectOptionType };
 
@@ -150,23 +154,33 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     );
   }
 
-  render() {
+  getSelectData(): SelectData {
     const {
       _window,
-      className,
-      errorHandler,
       i18n,
+      loadingUserAddonCollections,
+      loadingUserCollections,
       userAddonCollections,
       userCollections,
     } = this.props;
 
-    // TODO: when loading, make a disabled Select box with a single option
+    const options = [];
 
-    const options = [
+    if (loadingUserAddonCollections || loadingUserCollections) {
+      options.push(
+        this.createOption({
+          text: i18n.gettext('Loading...'), key: 'default',
+        })
+      );
+
+      return { value: undefined, options, disabled: true };
+    }
+
+    options.push(
       this.createOption({
         text: i18n.gettext('Add to collection'), key: 'default',
-      }),
-    ];
+      })
+    );
 
     options.push(this.createOption({
       text: i18n.gettext('Create new collection'),
@@ -213,11 +227,19 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       });
     }
 
+    return { options, value: selectedKey, disabled: false };
+  }
+
+  render() {
+    const { className, errorHandler } = this.props;
+    const { options, disabled, value } = this.getSelectData();
+
     return (
       <div className={makeClassName('AddAddonToCollection', className)}>
         {errorHandler.renderErrorIfPresent()}
         <Select
-          value={selectedKey}
+          disabled={disabled}
+          value={value}
           onChange={this.onSelectOption}
           className="AddAddonToCollection-select"
         >
