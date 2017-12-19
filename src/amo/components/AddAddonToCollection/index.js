@@ -186,7 +186,6 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       // Make an option indicating which collections this add-on is
       // already a part of.
       options.push(this.createOption({
-        // TODO: deal with a long list of collection names.
         text: userAddonCollections.map((c) => c.name).sort().join(', '),
         key: selectedKey,
       }));
