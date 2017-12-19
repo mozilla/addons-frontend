@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-19 01:32+0000\n"
+"PO-Revision-Date: 2017-12-19 01:50+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -47,7 +47,7 @@ msgstr "Despre această extensie"
 
 #: src/amo/components/Addon/index.js:276
 msgid "About this language pack"
-msgstr ""
+msgstr "Despre acest pachet lingvistic"
 
 #: src/amo/components/Addon/index.js:279
 msgid "About this search plugin"
@@ -68,11 +68,11 @@ msgstr "Note privind lansarea pentru %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:353
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Mai multe dicționare create de %(author)s"
 
 #: src/amo/components/Addon/index.js:356
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Mai multe dicționare create de acești traducători"
 
 #: src/amo/components/Addon/index.js:363
 msgid "More extensions by %(author)s"
@@ -84,11 +84,11 @@ msgstr "Mai multe extensii create de acești dezvoltatori"
 
 #: src/amo/components/Addon/index.js:373
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Mai multe pachete lingvistice create de %(author)s"
 
 #: src/amo/components/Addon/index.js:376
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Mai multe pachete lingvistice create de acești traducători"
 
 #: src/amo/components/Addon/index.js:383
 msgid "More themes by %(author)s"
@@ -208,7 +208,7 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "Evaluare generală"
 
 #: src/amo/components/AddonMoreInfo/index.js:102
 msgid "%(timeFromNow)s (%(date)s)"
@@ -601,7 +601,7 @@ msgstr "Semnalează"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr "Semnalat"
+msgstr "Semnalat(ă)"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 msgid "Flag this developer response"
@@ -633,7 +633,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
-msgstr "Semnalat ca spam"
+msgstr "Semnalat(ă) ca spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
@@ -641,7 +641,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr "Semnalat pentru limbaj neadecvat"
+msgstr "Semnalat(ă) pentru limbaj neadecvat"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -677,13 +677,15 @@ msgstr "Mențiuni legale"
 
 #: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "Raportează abuzul mărcilor înregistrate"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"Cu excepția cazurilor când %(startNotedLink)sse specifică altfel%(startNotedLink)s, conținutul de pe acest site este licențiat sub licența %(startLicenseLink)sCreative Commons Attribution Share-"
+"Alike v3.0%(endLicenseLink)s sau orice versiune ulterioară."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
@@ -759,11 +761,11 @@ msgstr "Contul meu"
 
 #: src/amo/components/Home/index.js:117
 msgid "Abstract"
-msgstr ""
+msgstr "Abstract"
 
 #: src/amo/components/Home/index.js:122
 msgid "Nature"
-msgstr ""
+msgstr "Natură"
 
 #: src/amo/components/Home/index.js:127
 msgid "Film & TV"
@@ -771,11 +773,11 @@ msgstr "Film și TV"
 
 #: src/amo/components/Home/index.js:132
 msgid "Scenery"
-msgstr ""
+msgstr "Peisaj"
 
 #: src/amo/components/Home/index.js:137
 msgid "Music"
-msgstr ""
+msgstr "Muzică"
 
 #: src/amo/components/Home/index.js:142
 msgid "Seasonal"
@@ -806,19 +808,16 @@ msgid "See more highly rated Themes"
 msgstr "Vezi mai multe teme în topul evaluărilor"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Productivity tools"
-msgstr "Productivitate"
+msgstr "Instrumente de productivitate"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more productivity tools"
-msgstr "Extensii deosebite"
+msgstr "Vezi mai multe instrumente de productivitate"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
-msgstr "Politica de confidențialitate"
+msgstr "Protecție privind intimitatea"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
@@ -911,7 +910,7 @@ msgstr "Schimbă aspectul browserului. Alege din mii de teme pentru a-i oferi lu
 
 #: src/amo/components/LandingPage/index.js:207
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Explorează instrumente puternice și caracteristici care personalizează Firefox și îți creează propria experiență unică."
 
 #: src/amo/components/LandingPage/index.js:234
 msgid "Explore all categories"
@@ -927,7 +926,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
-msgstr ""
+msgstr "Dicționare și pachete lingvistice"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -935,7 +934,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:161
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Pachetele lingvistice schimbă limba interfeței browserului, inclusiv opțiunile și setările din meniuri."
 
 #: src/amo/components/LanguageTools/index.js:167
 msgid "All Locales"
@@ -947,7 +946,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Language Packs"
-msgstr ""
+msgstr "Pachete lingvistice"
 
 #: src/amo/components/LanguageTools/index.js:179
 msgid "Dictionaries"
@@ -955,19 +954,19 @@ msgstr ""
 
 #: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Autentifică-te pentru a evalua acest dicționar"
 
 #: src/amo/components/RatingManager/index.js:138
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Autentifică-te pentru a evalua acest pachet lingvistic"
 
 #: src/amo/components/RatingManager/index.js:140
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "Autentifică-te pentru a evalua acest plugin de căutare"
 
 #: src/amo/components/RatingManager/index.js:142
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Autentifică-te pentru a evalua această temă"
 
 #: src/amo/components/RatingManager/index.js:144
 msgid "Log in to rate this extension"
@@ -975,7 +974,7 @@ msgstr "Autentifică-te pentru a evalua această extensie"
 
 #: src/amo/components/RatingManager/index.js:150
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Autentifică-te pentru a evalua acest supliment"
 
 #: src/amo/components/RatingManager/index.js:189
 msgid "How are you enjoying your experience with %(addonName)s?"
@@ -1059,16 +1058,16 @@ msgstr[2] "%(count)s de extensii găsite pentru „%(query)s”"
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s dicționar găsit pentru „%(query)s”"
+msgstr[1] "%(count)s dicționare găsite pentru „%(query)s”"
+msgstr[2] "%(count)s de dicționare găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s pachet lingvistic găsit pentru „%(query)s”"
+msgstr[1] "%(count)s pachete lingvistice găsite pentru „%(query)s”"
+msgstr[2] "%(count)s de pachete lingvistice găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
@@ -1080,9 +1079,9 @@ msgstr[2] "%(count)s de teme găsite pentru „%(query)s”"
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s rezultat găsit pentru „%(query)s”"
+msgstr[1] "%(count)s rezultate găsite pentru „%(query)s”"
+msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -1207,7 +1206,7 @@ msgstr ""
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Nu a fost găsit niciun rezultat pentru „%(query)s”."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
@@ -1227,7 +1226,7 @@ msgstr "Instrumente pentru căutare"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Site-uri pentru celelalte browsere"
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
@@ -1445,7 +1444,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Sunt un autor de suplimente, pot să șterg recenziile sau evaluările nefavorabile?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
@@ -1583,7 +1582,7 @@ msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
 
 #: src/ui/components/Rating/index.js:97
 msgid "No ratings"
-msgstr ""
+msgstr "Nicio evaluare"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
