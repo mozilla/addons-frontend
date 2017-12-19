@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import {
-  addAddonToCollection, fetchUserCollections,
+  addAddonToCollection, fetchUserAddonCollections, fetchUserCollections,
 } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -32,8 +32,12 @@ type Props = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  loadingUserAddonCollections: boolean,
   loadingUserCollections: boolean,
   siteUserId: number | null,
+  // These are all user collections that the current add-on is a part of.
+  userAddonCollections: Array<CollectionType> | null,
+  // These are all collections belonging to the user.
   userCollections: Array<CollectionType> | null,
   _window: typeof window | Object,
 |};
@@ -63,17 +67,34 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   loadDataIfNeeded(nextProps?: Props) {
-    const { errorHandler, dispatch } = this.props;
     const allProps = { ...this.props, ...nextProps };
+    const {
+      addon,
+      dispatch,
+      errorHandler,
+      loadingUserAddonCollections,
+      loadingUserCollections,
+      userAddonCollections,
+      userCollections,
+      siteUserId,
+    } = allProps;
 
-    if (
-      allProps.siteUserId &&
-      !allProps.loadingUserCollections &&
-      !allProps.userCollections
-    ) {
-      dispatch(fetchUserCollections({
-        errorHandlerId: errorHandler.id, userId: allProps.siteUserId,
-      }));
+    if (siteUserId) {
+      if (!loadingUserCollections && !userCollections) {
+        dispatch(fetchUserCollections({
+          errorHandlerId: errorHandler.id, userId: siteUserId,
+        }));
+      }
+
+      if (
+        addon && !loadingUserAddonCollections && !userAddonCollections
+      ) {
+        dispatch(fetchUserAddonCollections({
+          addonId: addon.id,
+          errorHandlerId: errorHandler.id,
+          userId: siteUserId,
+        }));
+      }
     }
   }
 
@@ -131,13 +152,19 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
   render() {
     const {
-      _window, className, errorHandler, i18n, userCollections,
+      _window,
+      className,
+      errorHandler,
+      i18n,
+      userAddonCollections,
+      userCollections,
     } = this.props;
+
+    // TODO: when loading, make a disabled Select box with a single option
 
     const options = [
       this.createOption({
-        text: i18n.gettext('Add to collection'),
-        key: 'default',
+        text: i18n.gettext('Add to collection'), key: 'default',
       }),
     ];
 
@@ -153,9 +180,30 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       },
     }));
 
-    if (userCollections) {
+    let selectedKey;
+    if (userAddonCollections && userAddonCollections.length) {
+      selectedKey = userAddonCollections.map((c) => c.id).join(':');
+      // Make an option indicating which collections this add-on is
+      // already a part of.
+      options.push(this.createOption({
+        // TODO: deal with a long list of collection names.
+        text: userAddonCollections.map((c) => c.name).sort().join(', '),
+        key: selectedKey,
+      }));
+    }
+
+    if (userCollections && userCollections.length) {
+      // Make a map of collection IDs that the add-on already belongs to.
+      const alreadyAdded = new Map(
+        (userAddonCollections || []).map(
+          (collection) => [collection.id, true]
+        )
+      );
       userCollections.forEach((collection) => {
-        // TODO: set <Select> value to collection key when added
+        if (alreadyAdded.get(collection.id)) {
+          return;
+        }
+        // Make an option for adding the add-on to this collection.
         options.push(this.createOption({
           text: collection.name,
           key: `collection-${collection.id}`,
@@ -170,6 +218,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       <div className={makeClassName('AddAddonToCollection', className)}>
         {errorHandler.renderErrorIfPresent()}
         <Select
+          value={selectedKey}
           onChange={this.onSelectOption}
           className="AddAddonToCollection-select"
         >
@@ -181,19 +230,23 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| collections: CollectionsState, users: UsersStateType |}
+  state: {| collections: CollectionsState, users: UsersStateType |},
+  ownProps: Props
 ) => {
   const collections = state.collections;
   const siteUserId = state.users.currentUserID;
+
   let userCollections;
+  let userAddonCollections;
+
   if (siteUserId) {
     userCollections = collections.userCollections[siteUserId];
-    // TODO:
-    // const { addon } = ownProps;
-    // if (addon) {
-    //   userAddonCollections =
-    //     collections.userAddonCollections[siteUserId][addon.id] || null;
-    // }
+    const { addon } = ownProps;
+    if (addon) {
+      userAddonCollections =
+        collections.userAddonCollections[siteUserId] &&
+        collections.userAddonCollections[siteUserId][addon.id];
+    }
   }
   return {
     loadingUserCollections:
@@ -202,6 +255,15 @@ export const mapStateToProps = (
       // TODO: use select function so it can throw errors for missing.
       userCollections.collections.map((id) => collections.byId[id]) :
       null,
+    loadingUserAddonCollections:
+      userAddonCollections ? userAddonCollections.loading : false,
+    userAddonCollections:
+      userAddonCollections && userAddonCollections.collections ?
+        // TODO: use select function so it can throw errors for missing.
+        userAddonCollections.collections.map(
+          (id) => collections.byId[id]
+        ) :
+        null,
     siteUserId,
   };
 };
