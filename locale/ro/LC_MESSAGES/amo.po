@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-19 01:50+0000\n"
+"PO-Revision-Date: 2017-12-19 02:11+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -781,7 +781,7 @@ msgstr "Muzică"
 
 #: src/amo/components/Home/index.js:142
 msgid "Seasonal"
-msgstr ""
+msgstr "De sezon"
 
 #: src/amo/components/Home/index.js:174
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -837,7 +837,7 @@ msgstr "Blockere de reclame"
 
 #: src/amo/components/Home/index.js:78
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Cumpărături mai inteligente"
 
 #: src/amo/components/Home/index.js:82
 msgid "Productivity"
@@ -845,7 +845,7 @@ msgstr "Productivitate"
 
 #: src/amo/components/Home/index.js:86
 msgid "Watching Videos"
-msgstr "Vizionarea de videoclipuri"
+msgstr "Vizionare de videoclipuri"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 #, fuzzy
@@ -1586,7 +1586,7 @@ msgstr "Nicio evaluare"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr ""
+msgstr "<span class=\"visually-hidden\">Extinde pentru</span> Mai multe informații"
 
 #~ msgid "Top privacy extensions"
 #~ msgstr "Extensii în topul evaluărilor"
