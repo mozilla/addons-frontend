@@ -1,6 +1,7 @@
 import * as api from 'core/api';
 import {
   addAddonToCollection,
+  getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
   getCollectionDetail,
@@ -9,7 +10,10 @@ import {
 import { parsePage } from 'core/utils';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
-  createFakeCollectionDetail, dispatchClientMetadata,
+  createFakeCollectionAddons,
+  createFakeCollectionDetail,
+  dispatchClientMetadata,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 
@@ -106,6 +110,55 @@ describe(__filename, () => {
         .returns(createApiResponse());
 
       await getCollectionAddons(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('getAllCollectionAddons', () => {
+    it('gets all pages of the collection add-ons list API', async () => {
+      const user = 'example-username';
+      const slug = 'example-collection-slug';
+
+      const firstAddonSet = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const secondAddonSet = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 2 }],
+      });
+
+      let page = 0;
+      const endpoint =
+        `accounts/account/${user}/collections/${slug}/addons`;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: sinon.match(endpoint),
+          params: sinon.match.any,
+          state: apiState,
+        })
+        .twice()
+        .callsFake((request) => {
+          page += 1;
+          let next;
+          let results = [];
+          if (page === 1) {
+            next = `${endpoint}?page=2`;
+            results = firstAddonSet.results;
+          } else {
+            results = secondAddonSet.results;
+            // When we pass a next URL, it will include ?page=... so it
+            // is important that the page parameter is not sent.
+            expect(request.params).toEqual(undefined);
+          }
+          return Promise.resolve(apiResponsePage({ next, results }));
+        });
+
+      const addons = await getAllCollectionAddons({
+        api: apiState, user, slug,
+      });
+      expect(addons)
+        .toEqual(firstAddonSet.results.concat(secondAddonSet.results));
       mockApi.verify();
     });
   });
@@ -242,21 +295,21 @@ describe(__filename, () => {
       const endpoint = `accounts/account/${user}/collections`;
       mockApi
         .expects('callApi')
-        .withArgs({ auth: true, endpoint, state: apiState })
+        .withArgs({
+          auth: true, endpoint: sinon.match(endpoint), state: apiState,
+        })
         .twice()
         .callsFake(() => {
           page += 1;
           let next;
           const results = [];
           if (page === 1) {
-            next = endpoint; // tell it to get another page.
+            next = `${endpoint}?page=2`;
             results.push(firstCollection);
           } else {
             results.push(secondCollection);
           }
-          return Promise.resolve(apiResponsePage({
-            next, results,
-          }));
+          return Promise.resolve(apiResponsePage({ next, results }));
         });
 
       const results = await getAllUserCollections({

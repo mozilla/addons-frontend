@@ -1,4 +1,5 @@
 /* @flow */
+/* eslint-disable no-await-in-loop */
 import { oneLine } from 'common-tags';
 
 import { callApi } from 'core/api';
@@ -35,11 +36,12 @@ export const getCollectionDetail = (
 
 type GetCollectionAddonsParams = {|
   ...GetCollectionParams,
+  nextURL?: string,
   page?: number,
 |};
 
 export const getCollectionAddons = (
-  { api, page, slug, user }: GetCollectionAddonsParams
+  { api, nextURL, page, slug, user }: GetCollectionAddonsParams
 ): Promise<PaginatedApiResponse<ExternalCollectionAddon>> => {
   if (!slug) {
     throw new Error('slug is required');
@@ -48,12 +50,45 @@ export const getCollectionAddons = (
     throw new Error('user is required');
   }
 
-  return callApi({
+  const request = {
     auth: true,
-    endpoint: `accounts/account/${user}/collections/${slug}/addons`,
-    params: { page },
+    endpoint:
+      nextURL || `accounts/account/${user}/collections/${slug}/addons`,
+    params: undefined,
     state: api,
-  });
+  };
+  if (!nextURL || page) {
+    request.params = { page };
+  }
+
+  return callApi(request);
+};
+
+export const getAllCollectionAddons = async (
+  { api, slug, user }: GetCollectionParams
+): Promise<Array<ExternalCollectionAddon>> => {
+  let allResults = [];
+  let done = false;
+  let nextURL;
+
+  while (!done) {
+    // TODO: Add a test to make sure 404s and other failures don't cause a loop in the saga.
+    const response = await getCollectionAddons({
+      api, nextURL, slug, user,
+    });
+    allResults = allResults.concat(response.results);
+
+    if (response.next) {
+      // TODO: remove the host from this URL.
+      nextURL = response.next;
+      log.debug(oneLine`Fetching next page "${nextURL}" of
+        getCollectionAddons for "${user}/${slug}"`);
+    } else {
+      done = true;
+    }
+  }
+
+  return allResults;
 };
 
 type ListCollectionsParams = {|
@@ -81,14 +116,11 @@ export const getAllUserCollections = async (
   let nextPage;
 
   while (!done) {
-    // eslint thinks we can do all requests in parallel; we cannot.
-    // eslint-disable-next-line no-await-in-loop
-    const response = await listCollections({
-      api, user, nextPage,
-    });
+    const response = await listCollections({ api, user, nextPage });
     allResults = allResults.concat(response.results);
 
     if (response.next) {
+      // TODO: remove the host from this URL.
       nextPage = response.next;
       log.debug(oneLine`Fetching next page "${nextPage}" of
         listCollections for user "${user}"`);

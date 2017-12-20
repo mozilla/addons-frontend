@@ -307,11 +307,10 @@ describe(__filename, () => {
 
       // This API will be called once per collection.
       mockApi
-        .expects('getCollectionAddons')
+        .expects('getAllCollectionAddons')
         .twice()
         .withArgs({
           api: state.api,
-          page: parsePage(1),
           slug: sinon.match((slugParam) => (
             slugParam === firstCollection.slug ||
             slugParam === secondCollection.slug
@@ -319,12 +318,12 @@ describe(__filename, () => {
           user: userId,
         })
         .callsFake((params) => {
-          const results = addonMap[params.slug];
-          if (!results) {
+          const response = addonMap[params.slug];
+          if (!response) {
             throw new Error(
-              `No results mapped for collection slug ${params.slug}`);
+              `No response mapped for collection slug ${params.slug}`);
           }
-          return Promise.resolve(results);
+          return Promise.resolve(response.results);
         });
 
       _fetchUserAddonCollections({ addonId, userId });
@@ -358,10 +357,10 @@ describe(__filename, () => {
         .returns(Promise.resolve(externalCollections));
 
       mockApi
-        .expects('getCollectionAddons')
+        .expects('getAllCollectionAddons')
         .twice()
         // Return no matching add-ons for any collection.
-        .returns(Promise.resolve(createFakeCollectionAddons()));
+        .returns(Promise.resolve(createFakeCollectionAddons().results));
 
       _fetchUserAddonCollections({ addonId, userId });
 

@@ -132,11 +132,8 @@ export function* fetchUserAddonCollections({
     // Fetch all add-ons for each of those collections.
     collectionResults.forEach((collection) => {
       collections[collection.id] = collection;
-      addonCalls[collection.id] = call(api.getCollectionAddons, {
+      addonCalls[collection.id] = call(api.getAllCollectionAddons, {
         api: state.api,
-        // TODO: This only fetches the first page. When we have a new
-        // API endpoint, this won't be a problem.
-        page: 1,
         slug: collection.slug,
         user: userId,
       });
@@ -147,7 +144,7 @@ export function* fetchUserAddonCollections({
     // Make a list of collections that the add-on belongs to.
     const matchingCollections = [];
     Object.keys(addonResults).forEach((collectionId) => {
-      addonResults[collectionId].results.forEach((result) => {
+      addonResults[collectionId].forEach((result) => {
         if (result.addon.id === addonId) {
           matchingCollections.push(collections[collectionId]);
         }
@@ -182,6 +179,7 @@ export function* addAddonToCollection({
       user: userId,
     });
 
+    // TODO: getAllCollectionAddons
     const collectionAddons = yield call(api.getCollectionAddons, {
       api: state.api,
       slug: collectionSlug,
@@ -197,7 +195,7 @@ export function* addAddonToCollection({
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    // TODO: figure out if we need this
+    // TODO: figure out if we need this. Yes we do.
     // yield put(abortFetchUserCollections({ userId }));
   }
 }
