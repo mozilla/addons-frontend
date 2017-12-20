@@ -1,13 +1,16 @@
 import * as api from 'core/api';
 import {
   addAddonToCollection,
+  getAllUserCollections,
   getCollectionAddons,
   getCollectionDetail,
   listCollections,
 } from 'amo/api/collections';
 import { parsePage } from 'core/utils';
-import { createApiResponse } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
+import {
+  createFakeCollectionDetail, dispatchClientMetadata,
+} from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
@@ -221,6 +224,46 @@ describe(__filename, () => {
 
       expect(() => addAddonToCollection(params))
         .toThrow(/user parameter is required/);
+    });
+  });
+
+  describe('getAllUserCollections', () => {
+    it('returns collections from multiple pages', async () => {
+      const user = 'some-user-id';
+
+      const firstCollection = createFakeCollectionDetail({
+        slug: 'first',
+      });
+      const secondCollection = createFakeCollectionDetail({
+        slug: 'second',
+      });
+
+      let page = 0;
+      const endpoint = `accounts/account/${user}/collections`;
+      mockApi
+        .expects('callApi')
+        .withArgs({ auth: true, endpoint, state: apiState })
+        .twice()
+        .callsFake(() => {
+          page += 1;
+          let next;
+          const results = [];
+          if (page === 1) {
+            next = endpoint; // tell it to get another page.
+            results.push(firstCollection);
+          } else {
+            results.push(secondCollection);
+          }
+          return Promise.resolve(apiResponsePage({
+            next, results,
+          }));
+        });
+
+      const results = await getAllUserCollections({
+        user, api: apiState,
+      });
+      expect(results).toEqual([firstCollection, secondCollection]);
+      mockApi.verify();
     });
   });
 });

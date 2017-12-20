@@ -95,16 +95,11 @@ export function* fetchUserCollections({
   try {
     const state = yield select(getState);
 
-    const collections = yield call(api.listCollections, {
-      api: state.api,
-      user: userId,
+    const collections = yield call(api.getAllUserCollections, {
+      api: state.api, user: userId,
     });
 
-    // TODO: deal with a response that has multiple pages.
-
-    yield put(loadUserCollections({
-      userId, collections: collections.results,
-    }));
+    yield put(loadUserCollections({ userId, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -126,18 +121,16 @@ export function* fetchUserAddonCollections({
     // https://github.com/mozilla/addons-server/issues/7167
 
     // Fetch all collections belonging to the user.
-    const collectionResults = yield call(api.listCollections, {
+    const collectionResults = yield call(api.getAllUserCollections, {
       api: state.api,
       user: userId,
     });
-
-    // TODO: deal with a response that has multiple pages.
 
     const collections = {};
     const addonCalls = {};
 
     // Fetch all add-ons for each of those collections.
-    collectionResults.results.forEach((collection) => {
+    collectionResults.forEach((collection) => {
       collections[collection.id] = collection;
       addonCalls[collection.id] = call(api.getCollectionAddons, {
         api: state.api,

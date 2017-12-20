@@ -19,9 +19,7 @@ import collectionsReducer, {
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
 import { parsePage } from 'core/utils';
-import {
-  apiResponsePage, createStubErrorHandler,
-} from 'tests/unit/helpers';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
@@ -210,15 +208,13 @@ describe(__filename, () => {
       const externalCollections = [firstCollection, secondCollection];
 
       mockApi
-        .expects('listCollections')
+        .expects('getAllUserCollections')
         .withArgs({
           api: state.api,
           user: userId,
         })
         .once()
-        .returns(Promise.resolve(apiResponsePage({
-          results: externalCollections,
-        })));
+        .returns(Promise.resolve(externalCollections));
 
       _fetchUserCollections({ userId });
 
@@ -249,7 +245,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
 
       mockApi
-        .expects('listCollections')
+        .expects('getAllUserCollections')
         .once()
         .returns(Promise.reject(error));
 
@@ -290,15 +286,13 @@ describe(__filename, () => {
       const matchingExtCollections = [firstCollection];
 
       mockApi
-        .expects('listCollections')
+        .expects('getAllUserCollections')
         .withArgs({
           api: state.api,
           user: userId,
         })
         .once()
-        .returns(Promise.resolve(apiResponsePage({
-          results: externalCollections,
-        })));
+        .returns(Promise.resolve(externalCollections));
 
       const addonMap = {
         [firstCollection.slug]: createFakeCollectionAddons({
@@ -360,10 +354,8 @@ describe(__filename, () => {
       const externalCollections = [firstCollection, secondCollection];
 
       mockApi
-        .expects('listCollections')
-        .returns(Promise.resolve(apiResponsePage({
-          results: externalCollections,
-        })));
+        .expects('getAllUserCollections')
+        .returns(Promise.resolve(externalCollections));
 
       mockApi
         .expects('getCollectionAddons')
@@ -403,7 +395,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
 
       mockApi
-        .expects('listCollections')
+        .expects('getAllUserCollections')
         .once()
         .returns(Promise.reject(error));
 

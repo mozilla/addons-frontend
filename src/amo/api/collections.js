@@ -1,5 +1,8 @@
 /* @flow */
+import { oneLine } from 'common-tags';
+
 import { callApi } from 'core/api';
+import log from 'core/logger';
 import type {
   ExternalCollectionAddon, ExternalCollectionDetail,
 } from 'amo/reducers/collections';
@@ -55,21 +58,46 @@ export const getCollectionAddons = (
 
 type ListCollectionsParams = {|
   api: ApiStateType,
+  nextPage?: string,
   user: string | number,
 |};
 
 export const listCollections = (
-  { api, user }: ListCollectionsParams
+  { api, nextPage, user }: ListCollectionsParams
 ): Promise<PaginatedApiResponse<ExternalCollectionDetail>> => {
   if (!user) {
     throw new Error('The user parameter is required');
   }
+  const endpoint = nextPage || `accounts/account/${user}/collections`;
 
-  return callApi({
-    auth: true,
-    endpoint: `accounts/account/${user}/collections`,
-    state: api,
-  });
+  return callApi({ auth: true, endpoint, state: api });
+};
+
+export const getAllUserCollections = async (
+  { api, user }: ListCollectionsParams
+): Promise<Array<ExternalCollectionDetail>> => {
+  let allResults = [];
+  let done = false;
+  let nextPage;
+
+  while (!done) {
+    // eslint thinks we can do all requests in parallel; we cannot.
+    // eslint-disable-next-line no-await-in-loop
+    const response = await listCollections({
+      api, user, nextPage,
+    });
+    allResults = allResults.concat(response.results);
+
+    if (response.next) {
+      nextPage = response.next;
+      log.debug(oneLine`Fetching next page "${nextPage}" of
+        listCollections for user "${user}"`);
+    } else {
+      done = true;
+    }
+  }
+
+  return allResults;
 };
 
 type AddAddonToCollectionParams = {|

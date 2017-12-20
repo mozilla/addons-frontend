@@ -166,6 +166,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     const options = [];
 
+    // TODO: show loading when adding add-on to a collection.
     if (loadingUserAddonCollections || loadingUserCollections) {
       options.push(
         this.createOption({
