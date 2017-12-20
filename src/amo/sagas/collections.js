@@ -179,18 +179,14 @@ export function* addAddonToCollection({
       user: userId,
     });
 
-    // TODO: getAllCollectionAddons
-    const collectionAddons = yield call(api.getCollectionAddons, {
+    const collectionAddons = yield call(api.getAllCollectionAddons, {
       api: state.api,
       slug: collectionSlug,
-      // TODO: either fetch all pages or adjust the response
-      // of addAddonToCollection to make this call unnecessary.
-      page: 1,
       user: userId,
     });
 
     yield put(loadCollectionAddons({
-      collectionSlug, addons: collectionAddons.results,
+      collectionSlug, addons: collectionAddons,
     }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);

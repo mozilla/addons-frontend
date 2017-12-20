@@ -450,15 +450,14 @@ describe(__filename, () => {
 
       const collectionAddons = createFakeCollectionAddons();
       mockApi
-        .expects('getCollectionAddons')
+        .expects('getAllCollectionAddons')
         .withArgs({
           api: state.api,
-          page: 1,
           slug: collectionSlug,
           user: params.userId,
         })
         .once()
-        .returns(Promise.resolve(collectionAddons));
+        .returns(Promise.resolve(collectionAddons.results));
 
       _addAddonToCollection(params);
 
