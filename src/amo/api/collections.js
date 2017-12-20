@@ -1,6 +1,10 @@
 /* @flow */
 import { callApi } from 'core/api';
+import type {
+  ExternalCollectionAddon, ExternalCollectionDetail,
+} from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
+import type { PaginatedApiResponse } from 'core/types/api';
 
 
 type GetCollectionParams = {|
@@ -11,7 +15,7 @@ type GetCollectionParams = {|
 
 export const getCollectionDetail = (
   { api, slug, user }: GetCollectionParams
-) => {
+): Promise<ExternalCollectionDetail> => {
   if (!slug) {
     throw new Error('slug is required');
   }
@@ -33,7 +37,7 @@ type GetCollectionAddonsParams = {|
 
 export const getCollectionAddons = (
   { api, page, slug, user }: GetCollectionAddonsParams
-) => {
+): Promise<PaginatedApiResponse<ExternalCollectionAddon>> => {
   if (!slug) {
     throw new Error('slug is required');
   }
@@ -56,7 +60,7 @@ type ListCollectionsParams = {|
 
 export const listCollections = (
   { api, user }: ListCollectionsParams
-) => {
+): Promise<PaginatedApiResponse<ExternalCollectionDetail>> => {
   if (!user) {
     throw new Error('The user parameter is required');
   }
@@ -78,7 +82,7 @@ type AddAddonToCollectionParams = {|
 
 export const addAddonToCollection = (
   { addon, api, collection, notes, user }: AddAddonToCollectionParams
-) => {
+): Promise<void> => {
   if (!addon) {
     throw new Error('The addon parameter is required');
   }

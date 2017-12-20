@@ -258,13 +258,15 @@ export const fetchCurrentCollectionPage = ({
   };
 };
 
-type ExternalCollectionAddons = Array<{|
+export type ExternalCollectionAddon = {|
   addon: ExternalAddonType,
   downloads: number,
   notes: string | null,
-|}>;
+|};
 
-type ExternalCollectionDetail = {|
+type ExternalCollectionAddons = Array<ExternalCollectionAddon>;
+
+export type ExternalCollectionDetail = {|
   addon_count: number,
   author: {|
     id: number,
