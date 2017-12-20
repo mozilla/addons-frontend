@@ -121,8 +121,9 @@ export function* fetchUserAddonCollections({
 
   try {
     const state = yield select(getState);
-    // TODO: ultimately, we should use a separate API endpoint to
-    // fetch the user collections that an add-on belongs to.
+    // TODO: ultimately, we should query a single API endpoint to
+    // fetch all user collections that an add-on belongs to.
+    // https://github.com/mozilla/addons-server/issues/7167
 
     // Fetch all collections belonging to the user.
     const collectionResults = yield call(api.listCollections, {
@@ -140,8 +141,8 @@ export function* fetchUserAddonCollections({
       collections[collection.id] = collection;
       addonCalls[collection.id] = call(api.getCollectionAddons, {
         api: state.api,
-        // TODO: when we have a new API endpoint this won't
-        // be a problem.
+        // TODO: This only fetches the first page. When we have a new
+        // API endpoint, this won't be a problem.
         page: 1,
         slug: collection.slug,
         user: userId,
@@ -150,7 +151,7 @@ export function* fetchUserAddonCollections({
 
     const addonResults = yield all(addonCalls);
 
-    // Make a list of collections that the add-on is in.
+    // Make a list of collections that the add-on belongs to.
     const matchingCollections = [];
     Object.keys(addonResults).forEach((collectionId) => {
       addonResults[collectionId].results.forEach((result) => {

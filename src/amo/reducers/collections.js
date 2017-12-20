@@ -654,7 +654,6 @@ const reducer = (
     case LOAD_COLLECTION_ADDONS: {
       const { addons, collectionSlug } = action.payload;
 
-      // TODO: getCollectionBySlug() selector
       const collectionId = state.bySlug[collectionSlug];
       if (!collectionId) {
         throw new Error(
