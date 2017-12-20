@@ -342,7 +342,7 @@ export const loadCurrentCollectionPage = ({
 };
 
 type LoadCollectionAddonsParams = {|
-  addons: CollectionAddonsListResponse,
+  addons: ExternalCollectionAddons,
   collectionSlug: string,
 |};
 
@@ -670,7 +670,7 @@ const reducer = (
           ...state.byId,
           [collectionId]: {
             ...collection,
-            addons: createInternalAddons(addons.results),
+            addons: createInternalAddons(addons),
           },
         },
       };

@@ -729,7 +729,7 @@ describe(__filename, () => {
   describe('loadCollectionAddons', () => {
     const getParams = (params = {}) => {
       return {
-        addons: createFakeCollectionAddons(),
+        addons: createFakeCollectionAddons().results,
         collectionSlug: 'my-collection',
         ...params,
       };
@@ -751,7 +751,7 @@ describe(__filename, () => {
         addons: [{ ...fakeAddon, id: 2 }],
       });
       state = reducer(state, loadCollectionAddons({
-        addons: newAddons,
+        addons: newAddons.results,
         collectionSlug: collectionDetail.slug,
       }));
 
@@ -760,7 +760,7 @@ describe(__filename, () => {
     });
 
     it('requires a loaded collection first', () => {
-      const addons = createFakeCollectionAddons();
+      const addons = createFakeCollectionAddons().results;
       expect(() => {
         reducer(undefined, loadCollectionAddons({
           addons,

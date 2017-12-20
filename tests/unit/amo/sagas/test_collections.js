@@ -463,7 +463,7 @@ describe(__filename, () => {
       _addAddonToCollection(params);
 
       const expectedLoadAction = loadCollectionAddons({
-        collectionSlug, addons: collectionAddons,
+        collectionSlug, addons: collectionAddons.results,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);

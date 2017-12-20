@@ -190,7 +190,7 @@ export function* addAddonToCollection({
     });
 
     yield put(loadCollectionAddons({
-      collectionSlug, addons: collectionAddons,
+      collectionSlug, addons: collectionAddons.results,
     }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
