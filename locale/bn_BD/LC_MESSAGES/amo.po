@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-09 20:00+0000\n"
+"PO-Revision-Date: 2017-12-03 17:18+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -217,14 +217,12 @@ msgid "Read the license agreement for this add-on"
 msgstr "এই অ্যাড-অনের গোপনীয়তার নীতি পড়ুন"
 
 #: src/amo/components/AddonMoreInfo/index.js:139
-#, fuzzy
 msgid "See all versions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "সকল সংস্করণ দেখুন"
 
 #: src/amo/components/AddonMoreInfo/index.js:151
-#, fuzzy
 msgid "See all beta versions"
-msgstr "সব এক্সটেনশন ব্রাউজ করুন"
+msgstr "সকল বেটা সংস্করণ দেখুন"
 
 #: src/amo/components/AddonMoreInfo/index.js:176
 msgid "Add-on Links"
@@ -251,9 +249,8 @@ msgid "End-User License Agreement"
 msgstr "এন্ড ইউজার লাইসেন্স এগ্রিমেন্ট"
 
 #: src/amo/components/AddonMoreInfo/index.js:224
-#, fuzzy
 msgid "Version History"
-msgstr "সংস্করণ"
+msgstr "সংস্করণ ইতিহাস"
 
 #: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Usage Statistics"
@@ -272,9 +269,8 @@ msgid "Support Site"
 msgstr "সহায়তা সাইট"
 
 #: src/amo/components/AddonMoreInfo/index.js:72
-#, fuzzy
 msgid "Support Email"
-msgstr "সহায়তা সাইট"
+msgstr "সহায়তাকারী ইমেইল"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
@@ -325,14 +321,12 @@ msgstr[0] "%(total)s পর্যালোচনা"
 msgstr[1] "%(total)s রিভিউ"
 
 #: src/amo/components/AddonReviewList/index.js:212
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "%(timestamp)s সময় %(authorName)s হইতে"
+msgstr "%(authorList)s দ্বারা"
 
 #: src/amo/components/AddonReviewListItem/index.js:150
-#, fuzzy
 msgid "Developer response"
-msgstr "ডেভেলপার হাব"
+msgstr "ডেভেলপারদের সাড়া"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 #, fuzzy
