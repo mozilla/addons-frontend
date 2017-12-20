@@ -448,7 +448,20 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve());
 
-      const collectionAddons = createFakeCollectionAddons();
+      // TODO: think of a way to stub out the fetchUserAddonCollections
+      // saga here instead of testing its implementation.
+      const collections = [
+        createFakeCollectionDetail({ slug: collectionSlug }),
+      ];
+      mockApi
+        .expects('getAllUserCollections')
+        .withArgs({ api: state.api, user: params.userId })
+        .once()
+        .returns(Promise.resolve(collections));
+
+      const collectionAddons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: params.addonId }],
+      });
       mockApi
         .expects('getAllCollectionAddons')
         .withArgs({
@@ -461,15 +474,18 @@ describe(__filename, () => {
 
       _addAddonToCollection(params);
 
-      const expectedLoadAction = loadCollectionAddons({
-        collectionSlug, addons: collectionAddons.results,
+      const expectedLoadAction = loadUserAddonCollections({
+        addonId: params.addonId,
+        addons: collectionAddons.results,
+        collections,
+        userId: params.userId,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[3];
+      const loadAction = calledActions[5];
       expect(loadAction).toEqual(expectedLoadAction);
     });
 

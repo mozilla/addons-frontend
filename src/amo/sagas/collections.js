@@ -8,6 +8,7 @@ import {
   abortFetchCurrentCollection,
   abortFetchUserAddonCollections,
   abortFetchUserCollections,
+  fetchUserAddonCollections as fetchUserAddonCollectionsAction,
   loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
@@ -179,14 +180,10 @@ export function* addAddonToCollection({
       user: userId,
     });
 
-    const collectionAddons = yield call(api.getAllCollectionAddons, {
-      api: state.api,
-      slug: collectionSlug,
-      user: userId,
-    });
-
-    yield put(loadCollectionAddons({
-      collectionSlug, addons: collectionAddons,
+    // TODO: this request is cached too hard so it doesn't show up
+    // in the UI. see https://github.com/mozilla/addons-server/issues/7173
+    yield put(fetchUserAddonCollectionsAction({
+      addonId, errorHandlerId, userId,
     }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
