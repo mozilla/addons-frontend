@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-17 21:33+0000\n"
+"PO-Revision-Date: 2017-12-21 15:32+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1306,7 +1306,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sFaça o sua própria extensão%(endLink)s. Fornecemos os serviços de hospedagem e atualização gratuitamente e podemos ajudá-lo a atingir uma grande audiência de usuários."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
