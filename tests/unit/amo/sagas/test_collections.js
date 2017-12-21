@@ -3,9 +3,10 @@ import SagaTester from 'redux-saga-tester';
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
   abortFetchCurrentCollection,
-  abortFetchUserAddonCollections,
+  abortUserAddonCollectionsWork,
   abortFetchUserCollections,
   addAddonToCollection,
+  beginUserAddonCollectionsWork,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserAddonCollections,
@@ -267,6 +268,23 @@ describe(__filename, () => {
       }));
     };
 
+    it('begins work', async () => {
+      const addonId = 9962;
+      const userId = 3211;
+      mockApi
+        .expects('getAllUserAddonCollections')
+        .returns(Promise.resolve([createFakeCollectionDetail()]));
+
+      _fetchUserAddonCollections({ addonId, userId });
+
+      const expectedAction = beginUserAddonCollectionsWork({
+        addonId, userId,
+      });
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(expectedAction);
+    });
+
     it('fetches user collections by add-on from the API', async () => {
       const addonId = 9962;
       const userId = 3211;
@@ -291,7 +309,7 @@ describe(__filename, () => {
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
+      const loadAction = calledActions[3];
       expect(loadAction).toEqual(expectedLoadAction);
     });
 
@@ -325,9 +343,9 @@ describe(__filename, () => {
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
-      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
-      expect(sagaTester.getCalledActions()[3])
-        .toEqual(abortFetchUserAddonCollections({ addonId, userId }));
+      expect(sagaTester.getCalledActions()[3]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[4])
+        .toEqual(abortUserAddonCollectionsWork({ addonId, userId }));
     });
   });
 
@@ -341,6 +359,28 @@ describe(__filename, () => {
         ...params,
       }));
     };
+
+    it('begins work', async () => {
+      const addonId = 8876;
+      const userId = 12334;
+
+      mockApi
+        .expects('addAddonToCollection')
+        .returns(Promise.resolve());
+
+      mockApi
+        .expects('getAllUserAddonCollections')
+        .returns(Promise.resolve([createFakeCollectionDetail()]));
+
+      _addAddonToCollection({ addonId, userId });
+
+      const expectedAction = beginUserAddonCollectionsWork({
+        addonId, userId,
+      });
+      await sagaTester.waitFor(expectedAction.type);
+
+      expect(sagaTester.getCalledActions()[2]).toEqual(expectedAction);
+    });
 
     it('posts an add-on to a collection', async () => {
       const collectionSlug = 'a-collection';
@@ -386,7 +426,7 @@ describe(__filename, () => {
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
+      const loadAction = calledActions[3];
       expect(loadAction).toEqual(expectedLoadAction);
     });
 
@@ -401,20 +441,21 @@ describe(__filename, () => {
     });
 
     it('dispatches an error', async () => {
+      const addonId = 8876;
+      const userId = 12334;
       const error = new Error('some API error maybe');
 
       mockApi
         .expects('addAddonToCollection')
-        .once()
         .returns(Promise.reject(error));
 
-      _addAddonToCollection();
+      _addAddonToCollection({ addonId, userId });
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
-      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
-      // expect(sagaTester.getCalledActions()[3])
-      //   .toEqual(abortFetchUserCollections({ userId }));
+      expect(sagaTester.getCalledActions()[3]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[4])
+        .toEqual(abortUserAddonCollectionsWork({ addonId, userId }));
     });
   });
 });

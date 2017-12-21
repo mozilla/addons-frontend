@@ -6,6 +6,8 @@ import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION'
   = 'ADD_ADDON_TO_COLLECTION';
+export const BEGIN_USER_ADDON_COLLECTIONS_WORK: 'BEGIN_USER_ADDON_COLLECTIONS_WORK'
+  = 'BEGIN_USER_ADDON_COLLECTIONS_WORK';
 export const FETCH_CURRENT_COLLECTION: 'FETCH_CURRENT_COLLECTION'
   = 'FETCH_CURRENT_COLLECTION';
 export const FETCH_USER_COLLECTIONS: 'FETCH_USER_COLLECTIONS'
@@ -22,8 +24,8 @@ export const ABORT_FETCH_CURRENT_COLLECTION: 'ABORT_FETCH_CURRENT_COLLECTION'
   = 'ABORT_FETCH_CURRENT_COLLECTION';
 export const ABORT_FETCH_USER_COLLECTIONS: 'ABORT_FETCH_USER_COLLECTIONS'
   = 'ABORT_FETCH_USER_COLLECTIONS';
-export const ABORT_FETCH_USER_ADDON_COLLECTIONS: 'ABORT_FETCH_USER_ADDON_COLLECTIONS'
-  = 'ABORT_FETCH_USER_ADDON_COLLECTIONS';
+export const ABORT_USER_ADDON_COLLECTIONS_WORK: 'ABORT_USER_ADDON_COLLECTIONS_WORK'
+  = 'ABORT_USER_ADDON_COLLECTIONS_WORK';
 export const LOAD_USER_COLLECTIONS: 'LOAD_USER_COLLECTIONS'
   = 'LOAD_USER_COLLECTIONS';
 export const LOAD_USER_ADDON_COLLECTIONS: 'LOAD_USER_ADDON_COLLECTIONS'
@@ -197,19 +199,19 @@ export const fetchUserAddonCollections = ({
   };
 };
 
-type AbortFetchUserAddonCollectionsParams = {|
+type BeginUserAddonCollectionsWorkParams = {|
   userId: number,
   addonId: number,
 |};
 
-type AbortFetchUserAddonCollectionsAction = {|
-  type: typeof ABORT_FETCH_USER_ADDON_COLLECTIONS,
-  payload: AbortFetchUserAddonCollectionsParams,
+type BeginUserAddonCollectionsWorkAction = {|
+  type: typeof BEGIN_USER_ADDON_COLLECTIONS_WORK,
+  payload: BeginUserAddonCollectionsWorkParams,
 |};
 
-export const abortFetchUserAddonCollections = (
-  { userId, addonId }: AbortFetchUserAddonCollectionsParams = {}
-): AbortFetchUserAddonCollectionsAction => {
+export const beginUserAddonCollectionsWork = (
+  { userId, addonId }: BeginUserAddonCollectionsWorkParams = {}
+): BeginUserAddonCollectionsWorkAction => {
   if (!userId) {
     throw new Error('userId is required');
   }
@@ -218,7 +220,33 @@ export const abortFetchUserAddonCollections = (
   }
 
   return {
-    type: ABORT_FETCH_USER_ADDON_COLLECTIONS,
+    type: BEGIN_USER_ADDON_COLLECTIONS_WORK,
+    payload: { userId, addonId },
+  };
+};
+
+type AbortUserAddonCollectionsWorkParams = {|
+  userId: number,
+  addonId: number,
+|};
+
+type AbortUserAddonCollectionsWorkAction = {|
+  type: typeof ABORT_USER_ADDON_COLLECTIONS_WORK,
+  payload: AbortUserAddonCollectionsWorkParams,
+|};
+
+export const abortUserAddonCollectionsWork = (
+  { userId, addonId }: AbortUserAddonCollectionsWorkParams = {}
+): AbortUserAddonCollectionsWorkAction => {
+  if (!userId) {
+    throw new Error('userId is required');
+  }
+  if (!addonId) {
+    throw new Error('addonId is required');
+  }
+
+  return {
+    type: ABORT_USER_ADDON_COLLECTIONS_WORK,
     payload: { userId, addonId },
   };
 };
@@ -561,8 +589,9 @@ export const loadCollectionIntoState = (
 
 type Action =
   | AbortFetchCurrentCollection
-  | AbortFetchUserAddonCollectionsAction
+  | AbortUserAddonCollectionsWorkAction
   | AbortFetchUserCollectionsAction
+  | BeginUserAddonCollectionsWorkAction
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction
   | FetchUserAddonCollectionsAction
@@ -762,7 +791,7 @@ const reducer = (
       };
     }
 
-    case FETCH_USER_ADDON_COLLECTIONS: {
+    case BEGIN_USER_ADDON_COLLECTIONS_WORK: {
       const { addonId, userId } = action.payload;
 
       return {
@@ -780,7 +809,7 @@ const reducer = (
       };
     }
 
-    case ABORT_FETCH_USER_ADDON_COLLECTIONS: {
+    case ABORT_USER_ADDON_COLLECTIONS_WORK: {
       const { addonId, userId } = action.payload;
 
       return {

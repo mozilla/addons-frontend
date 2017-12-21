@@ -1,8 +1,9 @@
 import reducer, {
   abortFetchCurrentCollection,
-  abortFetchUserAddonCollections,
   abortFetchUserCollections,
+  abortUserAddonCollectionsWork,
   addAddonToCollection,
+  beginUserAddonCollectionsWork,
   createInternalAddons,
   createInternalCollection,
   fetchCurrentCollection,
@@ -279,12 +280,12 @@ describe(__filename, () => {
       expect(state.bySlug[collection.slug]).toEqual(collection.id);
     });
 
-    it('sets a loading flag when fetching user collections by add-on', () => {
+    it('sets a loading flag when begining user addon collections work', () => {
       const addonId = 871;
       const userId = 321;
 
-      const state = reducer(undefined, fetchUserAddonCollections({
-        addonId, userId, errorHandlerId: 'some-error-id',
+      const state = reducer(undefined, beginUserAddonCollectionsWork({
+        addonId, userId,
       }));
 
       const savedState = state.userAddonCollections[userId][addonId];
@@ -293,7 +294,7 @@ describe(__filename, () => {
       expect(savedState.collections).toEqual(null);
     });
 
-    it('aborts fetching user collections by add-on', () => {
+    it('aborts user addon collections work', () => {
       const addonId = 721;
       const userId = 321;
 
@@ -302,7 +303,7 @@ describe(__filename, () => {
       }));
 
       state = reducer(state,
-        abortFetchUserAddonCollections({ addonId, userId })
+        abortUserAddonCollectionsWork({ addonId, userId })
       );
 
       const savedState = state.userAddonCollections[userId][addonId];
@@ -458,7 +459,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('abortFetchUserAddonCollections', () => {
+  describe('beginUserAddonCollectionsWork', () => {
     const defaultParams = {
       userId: 1,
       addonId: 2,
@@ -468,7 +469,7 @@ describe(__filename, () => {
       const params = { ...defaultParams };
       delete params.userId;
 
-      expect(() => abortFetchUserAddonCollections(params))
+      expect(() => beginUserAddonCollectionsWork(params))
         .toThrow(/userId is required/);
     });
 
@@ -476,7 +477,30 @@ describe(__filename, () => {
       const params = { ...defaultParams };
       delete params.addonId;
 
-      expect(() => abortFetchUserAddonCollections(params))
+      expect(() => beginUserAddonCollectionsWork(params))
+        .toThrow(/addonId is required/);
+    });
+  });
+
+  describe('abortUserAddonCollectionsWork', () => {
+    const defaultParams = {
+      userId: 1,
+      addonId: 2,
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => abortUserAddonCollectionsWork(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => abortUserAddonCollectionsWork(params))
         .toThrow(/addonId is required/);
     });
   });

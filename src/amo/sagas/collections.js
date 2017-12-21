@@ -6,8 +6,9 @@ import {
   FETCH_USER_ADDON_COLLECTIONS,
   FETCH_USER_COLLECTIONS,
   abortFetchCurrentCollection,
-  abortFetchUserAddonCollections,
   abortFetchUserCollections,
+  abortUserAddonCollectionsWork,
+  beginUserAddonCollectionsWork,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserAddonCollections,
@@ -110,6 +111,7 @@ export function* fetchUserAddonCollections({
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
+  yield put(beginUserAddonCollectionsWork({ addonId, userId }));
 
   try {
     const state = yield select(getState);
@@ -123,7 +125,7 @@ export function* fetchUserAddonCollections({
   } catch (error) {
     log.warn(`Failed to fetch user add-on collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortFetchUserAddonCollections({ addonId, userId }));
+    yield put(abortUserAddonCollectionsWork({ addonId, userId }));
   }
 }
 
@@ -132,12 +134,10 @@ export function* addAddonToCollection({
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
+  yield put(beginUserAddonCollectionsWork({ addonId, userId }));
 
   try {
     const state = yield select(getState);
-    // TODO: dispatch a begin-fetch-user-addon-collections action so
-    // it can be shared by both sagas.
-
     yield call(api.addAddonToCollection, {
       addon: addonId,
       api: state.api,
@@ -158,9 +158,7 @@ export function* addAddonToCollection({
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    // TODO: figure out if we need this. Yes we do.
-    // yield put(abortFetchUserCollections({ userId }));
-    // Hmm. It will already get aborted though.
+    yield put(abortUserAddonCollectionsWork({ addonId, userId }));
   }
 }
 
