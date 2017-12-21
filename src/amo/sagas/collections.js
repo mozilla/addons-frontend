@@ -116,6 +116,9 @@ export function* fetchUserAddonCollections({
 
   try {
     const state = yield select(getState);
+    // TODO: move this to a separate API method so it can be shared
+    // by addAddonToCollection
+
     // TODO: ultimately, we should query a single API endpoint to
     // fetch all user collections that an add-on belongs to.
     // https://github.com/mozilla/addons-server/issues/7167
@@ -170,6 +173,8 @@ export function* addAddonToCollection({
 
   try {
     const state = yield select(getState);
+    // TODO: dispatch a begin-fetch-user-addon-collections action so
+    // it can be shared by both sagas.
 
     yield call(api.addAddonToCollection, {
       addon: addonId,
@@ -189,6 +194,7 @@ export function* addAddonToCollection({
     yield put(errorHandler.createErrorAction(error));
     // TODO: figure out if we need this. Yes we do.
     // yield put(abortFetchUserCollections({ userId }));
+    // Hmm. It will already get aborted though.
   }
 }
 
