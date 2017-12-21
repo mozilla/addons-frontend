@@ -71,6 +71,7 @@ export const getAllCollectionAddons = async (
   let done = false;
   let nextURL;
 
+  // TODO: make a helper function for this pattern.
   while (!done) {
     const response = await getCollectionAddons({
       api, nextURL, slug, user,
