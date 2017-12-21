@@ -91,18 +91,17 @@ export const getAllCollectionAddons = async (
 
 type ListCollectionsParams = {|
   api: ApiStateType,
-  // TODO: rename to nextURL
-  nextPage?: string,
+  nextURL?: string,
   user: string | number,
 |};
 
 export const listCollections = (
-  { api, nextPage, user }: ListCollectionsParams
+  { api, nextURL, user }: ListCollectionsParams
 ): Promise<PaginatedApiResponse<ExternalCollectionDetail>> => {
   if (!user) {
     throw new Error('The user parameter is required');
   }
-  const endpoint = nextPage || `accounts/account/${user}/collections`;
+  const endpoint = nextURL || `accounts/account/${user}/collections`;
 
   return callApi({ auth: true, endpoint, state: api });
 };
@@ -112,15 +111,15 @@ export const getAllUserCollections = async (
 ): Promise<Array<ExternalCollectionDetail>> => {
   let allResults = [];
   let done = false;
-  let nextPage;
+  let nextURL;
 
   while (!done) {
-    const response = await listCollections({ api, user, nextPage });
+    const response = await listCollections({ api, user, nextURL });
     allResults = allResults.concat(response.results);
 
     if (response.next) {
-      nextPage = response.next;
-      log.debug(oneLine`Fetching next page "${nextPage}" of
+      nextURL = response.next;
+      log.debug(oneLine`Fetching next page "${nextURL}" of
         listCollections for user "${user}"`);
     } else {
       done = true;
