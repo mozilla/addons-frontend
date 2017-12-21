@@ -129,6 +129,45 @@ export const getAllUserCollections = async (
   return allResults;
 };
 
+type GetAllUserAddonCollections = {|
+  addonId: number,
+  api: ApiStateType,
+  user: string | number,
+  _getAllCollectionAddons?: typeof getAllCollectionAddons,
+  _getAllUserCollections?: typeof getAllUserCollections,
+|};
+
+export const getAllUserAddonCollections = async (
+  {
+    addonId,
+    api,
+    user,
+    _getAllCollectionAddons = getAllCollectionAddons,
+    _getAllUserCollections = getAllUserCollections,
+  }: GetAllUserAddonCollections
+): Promise<Array<ExternalCollectionDetail>> => {
+  // TODO: ultimately, we should query a single API endpoint to
+  // fetch all user collections that an add-on belongs to.
+  // https://github.com/mozilla/addons-server/issues/7167
+
+  // Fetch all collections belonging to the user.
+  const collectionResults = await _getAllUserCollections({ api, user });
+
+  // Accumulate a list of collections that the add-on belongs to.
+  const matches = [];
+  const requests = collectionResults.map((collection) => {
+    return _getAllCollectionAddons({ api, slug: collection.slug, user })
+      .then((results) => {
+        if (results.some((result) => result.addon.id === addonId)) {
+          matches.push(collection);
+        }
+      });
+  });
+
+  await Promise.all(requests);
+  return matches;
+};
+
 type AddAddonToCollectionParams = {|
   addon: string | number,
   api: ApiStateType,

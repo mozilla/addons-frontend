@@ -23,7 +23,6 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
-  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 
@@ -269,104 +268,23 @@ describe(__filename, () => {
     };
 
     it('fetches user collections by add-on from the API', async () => {
-      const addonId = 9861;
-      const userId = 43321;
+      const addonId = 9962;
+      const userId = 3211;
       const state = sagaTester.getState();
 
-      const firstCollection = createFakeCollectionDetail({
-        slug: 'first',
-      });
-      const secondCollection = createFakeCollectionDetail({
-        slug: 'second',
-      });
-      // These are all collections belonging to the user.
-      const externalCollections = [firstCollection, secondCollection];
-      // These are collections that have a matching add-on.
-      const matchingExtCollections = [firstCollection];
+      // Pretend this is a collection that the add-on belongs to.
+      const collections = [createFakeCollectionDetail()];
 
       mockApi
-        .expects('getAllUserCollections')
-        .withArgs({
-          api: state.api,
-          user: userId,
-        })
+        .expects('getAllUserAddonCollections')
+        .withArgs({ addonId, api: state.api, user: userId })
         .once()
-        .returns(Promise.resolve(externalCollections));
-
-      const addonMap = {
-        [firstCollection.slug]: createFakeCollectionAddons({
-          // This collection will have one matching add-on.
-          addons: [{ ...fakeAddon, id: addonId }],
-        }),
-        [secondCollection.slug]: createFakeCollectionAddons({
-          // This collection does not have any matching add-ons.
-          addons: [{ ...fakeAddon, id: 123454 }],
-        }),
-      };
-
-      // This API will be called once per collection.
-      mockApi
-        .expects('getAllCollectionAddons')
-        .twice()
-        .withArgs({
-          api: state.api,
-          slug: sinon.match((slugParam) => (
-            slugParam === firstCollection.slug ||
-            slugParam === secondCollection.slug
-          )),
-          user: userId,
-        })
-        .callsFake((params) => {
-          const response = addonMap[params.slug];
-          if (!response) {
-            throw new Error(
-              `No response mapped for collection slug ${params.slug}`);
-          }
-          return Promise.resolve(response.results);
-        });
+        .returns(Promise.resolve(collections));
 
       _fetchUserAddonCollections({ addonId, userId });
 
       const expectedLoadAction = loadUserAddonCollections({
-        addonId, userId, collections: matchingExtCollections,
-      });
-
-      await sagaTester.waitFor(expectedLoadAction.type);
-      mockApi.verify();
-
-      const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
-      expect(loadAction).toEqual(expectedLoadAction);
-    });
-
-    it('saves zero collections if none contain the add-on', async () => {
-      const addonId = 9861;
-      const userId = 43321;
-
-      const firstCollection = createFakeCollectionDetail({
-        slug: 'first',
-      });
-      const secondCollection = createFakeCollectionDetail({
-        slug: 'second',
-      });
-      const externalCollections = [firstCollection, secondCollection];
-
-      mockApi
-        .expects('getAllUserCollections')
-        .returns(Promise.resolve(externalCollections));
-
-      mockApi
-        .expects('getAllCollectionAddons')
-        .twice()
-        // Return no matching add-ons for any collection.
-        .returns(Promise.resolve(createFakeCollectionAddons().results));
-
-      _fetchUserAddonCollections({ addonId, userId });
-
-      const expectedLoadAction = loadUserAddonCollections({
-        // Since the add-on was not found in any collections, the saga
-        // should load an empty list.
-        addonId, userId, collections: [],
+        addonId, userId, collections,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
@@ -378,6 +296,10 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
+      mockApi
+        .expects('getAllUserAddonCollections')
+        .returns(Promise.resolve([createFakeCollectionDetail()]));
+
       _fetchUserAddonCollections();
 
       const expectedAction = errorHandler.createClearingAction();
@@ -388,12 +310,14 @@ describe(__filename, () => {
     });
 
     it('dispatches an error', async () => {
+      const state = sagaTester.getState();
       const addonId = 9962;
       const userId = 55432;
       const error = new Error('some API error maybe');
 
       mockApi
-        .expects('getAllUserCollections')
+        .expects('getAllUserAddonCollections')
+        .withArgs({ addonId, api: state.api, user: userId })
         .once()
         .returns(Promise.reject(error));
 
@@ -427,14 +351,6 @@ describe(__filename, () => {
       };
       const state = sagaTester.getState();
 
-      // Load a collection for the user.
-      sagaTester.dispatch(loadUserCollections({
-        userId: params.userId,
-        collections: [createFakeCollectionDetail({
-          slug: collectionSlug, authorId: params.userId,
-        })],
-      }));
-
       mockApi
         .expects('addAddonToCollection')
         .withArgs({
@@ -447,35 +363,21 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve());
 
-      // TODO: think of a way to stub out the fetchUserAddonCollections
-      // saga here instead of testing its implementation.
       const collections = [
         createFakeCollectionDetail({ slug: collectionSlug }),
       ];
       mockApi
-        .expects('getAllUserCollections')
-        .withArgs({ api: state.api, user: params.userId })
-        .once()
-        .returns(Promise.resolve(collections));
-
-      const collectionAddons = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: params.addonId }],
-      });
-      mockApi
-        .expects('getAllCollectionAddons')
+        .expects('getAllUserAddonCollections')
         .withArgs({
-          api: state.api,
-          slug: collectionSlug,
-          user: params.userId,
+          addonId: params.addonId, api: state.api, user: params.userId,
         })
         .once()
-        .returns(Promise.resolve(collectionAddons.results));
+        .returns(Promise.resolve(collections));
 
       _addAddonToCollection(params);
 
       const expectedLoadAction = loadUserAddonCollections({
         addonId: params.addonId,
-        addons: collectionAddons.results,
         collections,
         userId: params.userId,
       });
@@ -484,7 +386,7 @@ describe(__filename, () => {
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[5];
+      const loadAction = calledActions[2];
       expect(loadAction).toEqual(expectedLoadAction);
     });
 

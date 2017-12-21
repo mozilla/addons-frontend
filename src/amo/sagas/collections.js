@@ -8,7 +8,6 @@ import {
   abortFetchCurrentCollection,
   abortFetchUserAddonCollections,
   abortFetchUserCollections,
-  fetchUserAddonCollections as fetchUserAddonCollectionsAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserAddonCollections,
@@ -89,7 +88,6 @@ export function* fetchUserCollections({
   payload: { errorHandlerId, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
-
   yield put(errorHandler.createClearingAction());
 
   try {
@@ -111,52 +109,17 @@ export function* fetchUserAddonCollections({
   payload: { addonId, errorHandlerId, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
-
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
-    // TODO: move this to a separate API method so it can be shared
-    // by addAddonToCollection
-
-    // TODO: ultimately, we should query a single API endpoint to
-    // fetch all user collections that an add-on belongs to.
-    // https://github.com/mozilla/addons-server/issues/7167
-
-    // Fetch all collections belonging to the user.
-    const collectionResults = yield call(api.getAllUserCollections, {
+    const collections = yield call(api.getAllUserAddonCollections, {
       api: state.api,
       user: userId,
+      addonId,
     });
 
-    const collections = {};
-    const addonCalls = {};
-
-    // Fetch all add-ons for each of those collections.
-    collectionResults.forEach((collection) => {
-      collections[collection.id] = collection;
-      addonCalls[collection.id] = call(api.getAllCollectionAddons, {
-        api: state.api,
-        slug: collection.slug,
-        user: userId,
-      });
-    });
-
-    const addonResults = yield all(addonCalls);
-
-    // Make a list of collections that the add-on belongs to.
-    const matchingCollections = [];
-    Object.keys(addonResults).forEach((collectionId) => {
-      addonResults[collectionId].forEach((result) => {
-        if (result.addon.id === addonId) {
-          matchingCollections.push(collections[collectionId]);
-        }
-      });
-    });
-
-    yield put(loadUserAddonCollections({
-      addonId, userId, collections: matchingCollections,
-    }));
+    yield put(loadUserAddonCollections({ addonId, userId, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user add-on collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -168,7 +131,6 @@ export function* addAddonToCollection({
   payload: { addonId, collectionSlug, errorHandlerId, notes, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
-
   yield put(errorHandler.createClearingAction());
 
   try {
@@ -186,9 +148,13 @@ export function* addAddonToCollection({
 
     // TODO: this request is cached too hard so it doesn't show up
     // in the UI. see https://github.com/mozilla/addons-server/issues/7173
-    yield put(fetchUserAddonCollectionsAction({
-      addonId, errorHandlerId, userId,
-    }));
+    const collections = yield call(api.getAllUserAddonCollections, {
+      api: state.api,
+      user: userId,
+      addonId,
+    });
+
+    yield put(loadUserAddonCollections({ addonId, userId, collections }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
