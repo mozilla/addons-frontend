@@ -386,15 +386,28 @@ describe(__filename, () => {
   });
 
   describe('error handling', () => {
-    it('renders an error', () => {
+    const createFailedErrorHandler = () => {
       const error = new Error('unexpected error');
       const errorHandler = new ErrorHandler({
         dispatch: store.dispatch, id: 'some-error-handler',
       });
       errorHandler.handle(error);
-      const root = render({ errorHandler });
+      return errorHandler;
+    };
+
+    it('renders an error', () => {
+      const root = render({ errorHandler: createFailedErrorHandler() });
 
       expect(root.find(ErrorList)).toHaveLength(1);
+    });
+
+    it('does not load data when there is an error', () => {
+      dispatchSignInActions({ store });
+      const errorHandler = createFailedErrorHandler();
+      const dispatchSpy = sinon.spy(store, 'dispatch');
+      render({ errorHandler });
+
+      sinon.assert.notCalled(dispatchSpy);
     });
   });
 

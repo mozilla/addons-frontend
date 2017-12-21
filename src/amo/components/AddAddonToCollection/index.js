@@ -83,6 +83,11 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       siteUserId,
     } = allProps;
 
+    if (errorHandler.hasError()) {
+      // Abort loadng data so that the error can be rendered.
+      return;
+    }
+
     if (siteUserId) {
       if (!loadingUserCollections && !userCollections) {
         dispatch(fetchUserCollections({

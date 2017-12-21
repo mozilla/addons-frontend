@@ -72,14 +72,12 @@ export const getAllCollectionAddons = async (
   let nextURL;
 
   while (!done) {
-    // TODO: Add a test to make sure 404s and other failures don't cause a loop in the saga.
     const response = await getCollectionAddons({
       api, nextURL, slug, user,
     });
     allResults = allResults.concat(response.results);
 
     if (response.next) {
-      // TODO: remove the host from this URL.
       nextURL = response.next;
       log.debug(oneLine`Fetching next page "${nextURL}" of
         getCollectionAddons for "${user}/${slug}"`);
@@ -93,6 +91,7 @@ export const getAllCollectionAddons = async (
 
 type ListCollectionsParams = {|
   api: ApiStateType,
+  // TODO: rename to nextURL
   nextPage?: string,
   user: string | number,
 |};
@@ -120,7 +119,6 @@ export const getAllUserCollections = async (
     allResults = allResults.concat(response.results);
 
     if (response.next) {
-      // TODO: remove the host from this URL.
       nextPage = response.next;
       log.debug(oneLine`Fetching next page "${nextPage}" of
         listCollections for user "${user}"`);
