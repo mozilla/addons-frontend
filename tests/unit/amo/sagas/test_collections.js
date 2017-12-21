@@ -10,7 +10,6 @@ import collectionsReducer, {
   fetchCurrentCollectionPage,
   fetchUserAddonCollections,
   fetchUserCollections,
-  loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserAddonCollections,

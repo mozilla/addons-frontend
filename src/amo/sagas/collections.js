@@ -9,7 +9,6 @@ import {
   abortFetchUserAddonCollections,
   abortFetchUserCollections,
   fetchUserAddonCollections as fetchUserAddonCollectionsAction,
-  loadCollectionAddons,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserAddonCollections,
