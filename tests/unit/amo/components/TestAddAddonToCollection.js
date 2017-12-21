@@ -5,6 +5,7 @@ import AddAddonToCollection, {
 } from 'amo/components/AddAddonToCollection';
 import {
   addAddonToCollection,
+  beginUserAddonCollectionsWork,
   createInternalCollection,
   fetchUserAddonCollections,
   fetchUserCollections,
@@ -185,8 +186,8 @@ describe(__filename, () => {
       const userId = 5543;
       const addon = createInternalAddon({ ...fakeAddon, id: 321 });
       signInAndDispatchCollections({ userId });
-      store.dispatch(fetchUserAddonCollections({
-        addonId: addon.id, errorHandlerId: 'some-id', userId,
+      store.dispatch(beginUserAddonCollectionsWork({
+        addonId: addon.id, userId,
       }));
       const dispatchSpy = sinon.spy(store, 'dispatch');
       render({ addon });
@@ -220,8 +221,8 @@ describe(__filename, () => {
       const addon = createInternalAddon(fakeAddon);
       const userId = 5543;
       dispatchSignInActions({ store, userId });
-      store.dispatch(fetchUserAddonCollections({
-        addonId: addon.id, errorHandlerId: 'some-id', userId,
+      store.dispatch(beginUserAddonCollectionsWork({
+        addonId: addon.id, userId,
       }));
 
       const root = render({ addon });
