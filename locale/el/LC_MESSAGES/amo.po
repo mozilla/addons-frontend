@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-16 16:10+0000\n"
+"PO-Revision-Date: 2017-12-22 14:48+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -82,27 +82,27 @@ msgstr "Περισσότερες επεκτάσεις από αυτούς του
 
 #: src/amo/components/Addon/index.js:373
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Περισσότερα πακέτα γλωσσών από %(author)s"
 
 #: src/amo/components/Addon/index.js:376
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Περισσότερα πακέτα γλωσσών από αυτούς τους μεταφραστές"
 
 #: src/amo/components/Addon/index.js:383
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Περισσότερα θέματα από %(author)s"
 
 #: src/amo/components/Addon/index.js:386
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Περισσότερα θέματα από αυτούς τους καλλιτέχνες"
 
 #: src/amo/components/Addon/index.js:393
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Περισσότερα πρόσθετα από %(author)s"
 
 #: src/amo/components/Addon/index.js:396
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Περισσότερα πρόσθετα από αυτούς τους προγραμματιστές"
 
 #: src/amo/components/Addon/index.js:476
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -138,7 +138,7 @@ msgstr "Πειραματικό"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Μη συμβατό με το Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -157,9 +157,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ο Firefox για iOS προς το παρόν δεν υποστηρίζει πρόσθετα."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Αυτό το πρόσθετο δεν είναι συμβατό με την έκδοση του Firefox σας."
+msgstr "Αυτό το πρόσθετο δεν είναι διαθέσιμο στην πλατφόρμα σας."
 
 #: src/amo/components/AddonCompatibilityError/index.js:77
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -255,7 +254,7 @@ msgstr "Ιστορικό εκδόσεων"
 
 #: src/amo/components/AddonMoreInfo/index.js:236
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Στατιστικά χρήσης"
 
 #: src/amo/components/AddonMoreInfo/index.js:250
 msgid "More information"
@@ -270,9 +269,8 @@ msgid "Support Site"
 msgstr "Ιστοσελίδα υποστήριξης"
 
 #: src/amo/components/AddonMoreInfo/index.js:72
-#, fuzzy
 msgid "Support Email"
-msgstr "Ιστοσελίδα υποστήριξης"
+msgstr "E-mail υποστήριξης"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
@@ -316,21 +314,18 @@ msgid "Reviews for %(addonName)s"
 msgstr "Κριτικές για το %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:184
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s κριτική"
-msgstr[1] "%(total)s κριτικές"
+msgstr[0] "%(total)s κριτική για το πρόσθετο"
+msgstr[1] "%(total)s κριτικές για το πρόσθετο"
 
 #: src/amo/components/AddonReviewList/index.js:212
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "από %(authorName)s, %(timestamp)s"
+msgstr "από %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:150
-#, fuzzy
 msgid "Developer response"
-msgstr "Κέντρο προγραμματιστών"
+msgstr "Απάντηση προγραμματιστή"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 #, fuzzy
@@ -339,19 +334,19 @@ msgstr "Γράψτε μια κριτική"
 
 #: src/amo/components/AddonReviewListItem/index.js:161
 msgid "Update reply"
-msgstr ""
+msgstr "Ενημέρωση απάντησης"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Publish reply"
-msgstr ""
+msgstr "Δημοσίευση απάντησης"
 
 #: src/amo/components/AddonReviewListItem/index.js:166
 msgid "Updating reply"
-msgstr ""
+msgstr "Γίνεται ενημέρωση της απάντησης"
 
 #: src/amo/components/AddonReviewListItem/index.js:167
 msgid "Publishing reply"
-msgstr ""
+msgstr "Γίνεται δημοσίευση της απάντησης"
 
 #: src/amo/components/AddonReviewListItem/index.js:207
 #, fuzzy
@@ -552,7 +547,7 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "Συνεισφορά τώρα"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -580,7 +575,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Αυτό το πρόσθετο έχει αφαιρεθεί από το δημιουργό του."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 #, fuzzy
@@ -622,11 +617,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flag"
-msgstr ""
+msgstr "Επισήμανση"
 
 #: src/amo/components/FlagReviewMenu/index.js:131
 msgid "Flagged"
-msgstr ""
+msgstr "Επισημάνθηκε"
 
 #: src/amo/components/FlagReviewMenu/index.js:134
 #, fuzzy
@@ -658,7 +653,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr ""
+msgstr "Αυτό είναι ανεπιθύμητο"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
@@ -666,11 +661,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:95
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Αυτό περιλαμβάνει ακατάλληλη γλώσσα"
 
 #: src/amo/components/FlagReviewMenu/index.js:98
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Επισημάνθηκε για ακατάλληλη γλώσσα"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -753,7 +748,7 @@ msgstr "Προβολή κλασικής ιστοσελίδας για υπολο
 
 #: src/amo/components/Header/index.js:101
 msgid "View My Collections"
-msgstr ""
+msgstr "Προβολή των συλλογών μου"
 
 #: src/amo/components/Header/index.js:106
 msgid "View Profile"
@@ -773,7 +768,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:129
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Υποβολή νέου θέματος"
 
 #: src/amo/components/Header/index.js:138 src/core/components/AuthenticateButton/index.js:63
 msgid "Log out"
@@ -793,11 +788,11 @@ msgstr "Αφηρημένo"
 
 #: src/amo/components/Home/index.js:122
 msgid "Nature"
-msgstr ""
+msgstr "Φύση"
 
 #: src/amo/components/Home/index.js:127
 msgid "Film & TV"
-msgstr ""
+msgstr "Κινηματογράφος & Τηλεόραση"
 
 #: src/amo/components/Home/index.js:132
 msgid "Scenery"
@@ -805,11 +800,11 @@ msgstr "Σκηνικό"
 
 #: src/amo/components/Home/index.js:137
 msgid "Music"
-msgstr ""
+msgstr "Μουσική"
 
 #: src/amo/components/Home/index.js:142
 msgid "Seasonal"
-msgstr ""
+msgstr "Εποχιακά"
 
 #: src/amo/components/Home/index.js:174
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -858,31 +853,31 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:66
 msgid "Bookmarks"
-msgstr ""
+msgstr "Σελιδοδείκτες"
 
 #: src/amo/components/Home/index.js:70
 msgid "Password managers"
-msgstr ""
+msgstr "Διαχείριση κωδικών πρόσβασης"
 
 #: src/amo/components/Home/index.js:74
 msgid "Ad blockers"
-msgstr ""
+msgstr "Αποκλεισμός διαφημίσεων"
 
 #: src/amo/components/Home/index.js:78
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Εξυπνότερες αγορές"
 
 #: src/amo/components/Home/index.js:82
 msgid "Productivity"
-msgstr ""
+msgstr "Παραγωγικότητα"
 
 #: src/amo/components/Home/index.js:86
 msgid "Watching Videos"
-msgstr ""
+msgstr "Παρακολούθηση βίντεο"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "LastPass Password Manager"
-msgstr ""
+msgstr "Διαχείριση κωδικών πρόσβασης LastPass"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Easily manage all your passwords for all devices from one spot"
@@ -890,7 +885,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:29
 msgid "S3.Translator"
-msgstr ""
+msgstr "S3.Translator"
 
 #: src/amo/components/HomeHeroBanner/index.js:35
 msgid "Translate a word, phrase, even an entire page. Supports 100+ languages."
@@ -898,7 +893,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:45
 msgid "Group Speed Dial"
-msgstr ""
+msgstr "Group Speed Dial"
 
 #: src/amo/components/HomeHeroBanner/index.js:47
 msgid "Visual bookmarks for your favorite places on the web."
@@ -914,23 +909,23 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
-msgstr ""
+msgstr "FireShot"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Capture full-page screenshots."
-msgstr ""
+msgstr "Λήψη στιγμιοτύπων για ολόκληρη τη σελίδα."
 
 #: src/amo/components/HomeHeroBanner/index.js:83
 msgid "Video DownloadHelper"
-msgstr ""
+msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
-msgstr ""
+msgstr "Εύκολη λήψη βίντεο από εκατοντάδες δημοφιλείς ιστοσελίδες."
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
-msgstr ""
+msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
@@ -954,7 +949,7 @@ msgstr "Αλλαγή γλώσσας"
 
 #: src/amo/components/LanguageTools/index.js:106
 msgid "Available for your locale"
-msgstr ""
+msgstr "Διαθέσιμο για τη γλώσσα σας"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
@@ -970,11 +965,11 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:167
 msgid "All Locales"
-msgstr ""
+msgstr "Όλες οι γλώσσες"
 
 #: src/amo/components/LanguageTools/index.js:173
 msgid "Locale Name"
-msgstr ""
+msgstr "Όνομα γλώσσας"
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Language Packs"
@@ -982,7 +977,7 @@ msgstr "Πακέτα γλώσσας"
 
 #: src/amo/components/LanguageTools/index.js:179
 msgid "Dictionaries"
-msgstr ""
+msgstr "Λεξικά"
 
 #: src/amo/components/RatingManager/index.js:136
 msgid "Log in to rate this dictionary"
@@ -1052,7 +1047,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:204
 msgid "Send abuse report"
-msgstr ""
+msgstr "Αποστολή αναφοράς κατάχρησης"
 
 #: src/amo/components/Search/index.js:106 src/amo/components/SearchResults.js:60
 msgid "Search results"
@@ -1184,7 +1179,7 @@ msgstr "Κορυφαίες βαθμολογίες"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Trending"
-msgstr ""
+msgstr "Τάσεις"
 
 #: src/amo/components/SearchFilters/index.js:135
 msgid "Filter results"
@@ -1299,7 +1294,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Λήψη υποστήριξης"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1328,7 +1323,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Μια κοινότητα δημιουργών"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1396,11 +1391,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Ήταν χρήσιμο;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Ήταν εύκολο στη χρήση;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 #, fuzzy
@@ -1457,7 +1452,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Συχνές ερωτήσεις σχετικά με τις κριτικές"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
