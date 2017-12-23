@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-22 14:48+0000\n"
+"PO-Revision-Date: 2017-12-23 15:18+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -274,7 +274,7 @@ msgstr "E-mail υποστήριξης"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Επίσκεψη στον πίνακα στατιστικών"
 
 #: src/amo/components/AddonReview/index.js:169
 #, fuzzy
@@ -417,14 +417,12 @@ msgid "See more featured extensions"
 msgstr "Προτεινόμενες επεκτάσεις"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:124
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Πιο υψηλά βαθμολογημένες επεκτάσεις"
+msgstr "Δημοφιλείς επεκτάσεις"
 
 #: src/amo/components/Category/index.js:145 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Προτεινόμενες επεκτάσεις"
+msgstr "Δείτε περισσότερες δημοφιλείς επεκτάσεις"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
@@ -764,7 +762,7 @@ msgstr "Εργαλεία"
 
 #: src/amo/components/Header/index.js:121
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Υποβολή νέου πρόσθετου"
 
 #: src/amo/components/Header/index.js:129
 msgid "Submit a New Theme"
@@ -815,9 +813,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr ""
 
 #: src/amo/components/Home/index.js:222 src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Δημοφιλέστερες επεκτάσεις"
+msgstr "Δημοφιλείς επεκτάσεις"
 
 #: src/amo/components/Home/index.js:223
 #, fuzzy
@@ -825,7 +822,6 @@ msgid "See more popular extensions"
 msgstr "Δημοφιλέστερες επεκτάσεις"
 
 #: src/amo/components/Home/index.js:237
-#, fuzzy
 msgid "Top-rated Themes"
 msgstr "Πιο υψηλά βαθμολογημένα θέματα"
 
@@ -1043,7 +1039,7 @@ msgstr "Απόρριψη"
 
 #: src/amo/components/ReportAbuseButton/index.js:203
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Αποστολή αναφοράς κακής συμπεριφοράς"
 
 #: src/amo/components/ReportAbuseButton/index.js:204
 msgid "Send abuse report"
@@ -1074,44 +1070,38 @@ msgid "Popular add-ons"
 msgstr "Δημοφιλή πρόσθετα"
 
 #: src/amo/components/Search/index.js:161
-#, fuzzy
 msgid "Search results for \"%(query)s\""
-msgstr "Αναζήτηση για \"%(query)s\""
+msgstr "Αποτελέσματα αναζήτησης για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "%(count)s αποτέλεσμα για \"%(query)s\""
-msgstr[1] "%(count)s αποτελέσματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s επέκταση για \"%(query)s\""
+msgstr[1] "Βρέθηκαν %(count)s επεκτάσεις για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "%(count)s αποτέλεσμα για \"%(query)s\""
-msgstr[1] "%(count)s αποτελέσματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s λεξικό για \"%(query)s\""
+msgstr[1] "Βρέθηκαν %(count)s λεξικά για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "%(count)s αποτέλεσμα για \"%(query)s\""
-msgstr[1] "%(count)s αποτελέσματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s πακέτο γλώσσας για \"%(query)s\""
+msgstr[1] "Βρέθηκαν %(count)s πακέτα γλώσσας για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "%(count)s αποτέλεσμα για \"%(query)s\""
-msgstr[1] "%(count)s αποτελέσματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s θέμα για \"%(query)s\""
+msgstr[1] "Βρέθηκαν %(count)s θέματα για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "%(count)s αποτέλεσμα για \"%(query)s\""
-msgstr[1] "%(count)s αποτελέσματα για \"%(query)s\""
+msgstr[0] "Βρέθηκε %(count)s αποτέλεσμα για \"%(query)s\""
+msgstr[1] "Βρέθηκαν %(count)s αποτελέσματα για \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -1307,9 +1297,8 @@ msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can 
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
-#, fuzzy
 msgid "About Firefox Add-ons"
-msgstr "Πρόσθετα Firefox"
+msgstr "Σχετικά με τα Πρόσθετα Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
@@ -1383,11 +1372,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Λειτούργησε το πρόσθετο όπως αναμένατε;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Ποια χαρακτηριστικά (δεν) σάς άρεσαν;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
@@ -1456,7 +1445,7 @@ msgstr "Συχνές ερωτήσεις σχετικά με τις κριτικ�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Πώς μπορώ να αναφέρω μια προβληματική κριτική;"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
