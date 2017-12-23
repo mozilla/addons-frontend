@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-22 20:49+0000\n"
+"PO-Revision-Date: 2017-12-23 02:07+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1385,6 +1385,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Publique problemas técnicos, solicitações de suporte ou sugestões de funcionalidades. Use as opções de suporte disponíveis para cada extensão, se disponível. Você pode encontrá-las na seção \"Mais "
+"informações\" na barra lateral na página de detalhes de extensão."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:60
 msgid "Write reviews for add-ons which you have not personally used."
@@ -1392,7 +1394,7 @@ msgstr "Escrever análises para extensões que você nunca chegou a usar."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Usar palavrões, linguagem sexual ou linguagem que possa ser interpretada como odiosa."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
@@ -1415,6 +1417,8 @@ msgid ""
 "Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
 "add-on, or the add-on requires gathering data to function."
 msgstr ""
+"Criticar uma extensão por algo que é suposto fazer. Por exemplo, deixar uma análise negativa para uma extensão por mostrar anúncios ou exigindo a coleta de dados, quando esta é a finalidade da "
+"extensão ou a extensão requer a coleta de dados para funcionar."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
