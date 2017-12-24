@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-03 17:18+0000\n"
+"PO-Revision-Date: 2017-12-03 17:38+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -277,9 +277,8 @@ msgid "Visit stats dashboard"
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "পৃথিবীকে বলুন কেন আপনি এক্সটেনশনটিকে অসাধারণ মনে করেন!"
+msgstr ""
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -419,23 +418,20 @@ msgid "See more featured extensions"
 msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন সমূহ"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:124
-#, fuzzy
 msgid "Trending extensions"
-msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
+msgstr "প্রচলিত এক্সটেনশন"
 
 #: src/amo/components/Category/index.js:145 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "আরও বৈশিষ্ট্যপূর্ণ এক্সটেনশন সমূহ"
+msgstr "আরও প্রচলিত এক্সটেনশন দেখুন"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
 msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
 
 #: src/amo/components/Category/index.js:155 src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন"
+msgstr "সর্বোচ্চ রেট পাওয়া এক্সটেনশন দেখুন"
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:201 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -482,9 +478,8 @@ msgid "Browse all themes in this category."
 msgstr "এই বিষয়শ্রেণীর সব থিম ব্রাউজ করুন।"
 
 #: src/amo/components/Collection/index.js:151 src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "অ্যাড-অন লিংক"
+msgstr "অ্যাড-অন"
 
 #: src/amo/components/Collection/index.js:155
 msgid "Creator"
@@ -690,9 +685,8 @@ msgid "Beta, Nightly, Developer Edition"
 msgstr ""
 
 #: src/amo/components/Footer/index.js:146
-#, fuzzy
 msgid "Privacy"
-msgstr "গোপনীয়তা নীতি"
+msgstr "গোপনীয়তা"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
@@ -738,9 +732,8 @@ msgid "Report a bug"
 msgstr "একটি বাগ রিপোর্ট করুন"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "টেক্সট পর্যালোচনা করুন"
+msgstr "রিভিউ গাইড"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -799,9 +792,8 @@ msgid "Film & TV"
 msgstr ""
 
 #: src/amo/components/Home/index.js:132
-#, fuzzy
 msgid "Scenery"
-msgstr "দৃশ্য সম্বন্ধীয়"
+msgstr "দৃশ্য"
 
 #: src/amo/components/Home/index.js:137
 msgid "Music"
