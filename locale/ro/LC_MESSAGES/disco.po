@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:53+0000\n"
-"PO-Revision-Date: 2017-12-19 02:03+0000\n"
+"PO-Revision-Date: 2017-12-25 01:46+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -112,7 +112,7 @@ msgstr "S-a produs o eroare neașteptată."
 
 #: src/disco/components/Addon.js:182
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Acest supliment va fi dezinstalat după ce repornești Firefox."
 
 #: src/disco/components/Addon.js:184
 msgid "Please restart Firefox to use this add-on."
