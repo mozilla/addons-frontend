@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-23 15:18+0000\n"
+"PO-Revision-Date: 2017-12-26 23:48+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: el\n"
@@ -359,37 +359,32 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr "από %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:263
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Γράψτε μια κριτική"
+msgstr "Επεξεργασία απάντησης"
 
 #: src/amo/components/AddonReviewListItem/index.js:264
-#, fuzzy
 msgid "Edit my review"
-msgstr "Γράψτε μια κριτική"
+msgstr "Επεξεργασία κριτικής"
 
 #: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Πατήστε για προεπισκόπηση"
+msgstr "Απάντηση στην κριτική"
 
 #: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Πρόσθετα για το Firefox"
 
 #: src/amo/components/App/index.js:206
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "%s - Πρόσθετα για το Firefox"
+msgstr "%s – Πρόσθετα για το Firefox"
 
 #: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Πρόσθετα για Android"
 
 #: src/amo/components/App/index.js:210
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "Πρόσθετα για Android"
+msgstr "%s – Πρόσθετα για Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -1356,11 +1351,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Να:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr ""
+msgstr "Γράφετε σαν να μιλάτε σε κάποιο φίλο σχετικά με την εμπειρία σας με το πρόσθετο."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
