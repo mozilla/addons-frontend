@@ -406,9 +406,9 @@ export function runServer({
           if (useHttpsForDev) {
             if (host === 'example.com') {
               const options = {
-                key: fs.readFileSync('bin/local-dev-server-certs/my-server.key.pem'),
-                cert: fs.readFileSync('bin/local-dev-server-certs/my-server.crt.pem'),
-                ca: fs.readFileSync('bin/local-dev-server-certs/my-private-root-ca.crt.pem'),
+                key: fs.readFileSync('bin/local-dev-server-certs/example.com.key.pem'),
+                cert: fs.readFileSync('bin/local-dev-server-certs/example.com.crt.pem'),
+                ca: fs.readFileSync('bin/local-dev-server-certs/example.com.ca.crt.pem'),
                 passphrase: '',
               };
               server = https.createServer(options, server);
