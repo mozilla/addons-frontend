@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-28 08:32+0000\n"
+"PO-Revision-Date: 2017-12-28 08:47+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -428,28 +428,24 @@ msgid "Featured themes"
 msgstr "추천 테마"
 
 #: src/amo/components/Category/index.js:168 src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
 msgstr "추천 테마 더보기"
 
 #: src/amo/components/Category/index.js:169 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:127
-#, fuzzy
 msgid "Trending themes"
-msgstr "가장 평점이 높은 테마"
+msgstr "유행하는 테마"
 
 #: src/amo/components/Category/index.js:178 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "추천 테마 더보기"
+msgstr "유행하는 테마 더보기"
 
 #: src/amo/components/Category/index.js:179 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:139
 msgid "Top rated themes"
 msgstr "가장 평점이 높은 테마"
 
 #: src/amo/components/Category/index.js:188 src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "가장 평점이 높은 테마"
+msgstr "가장 평점이 높은 테마 더보기"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -464,85 +460,76 @@ msgid "Browse all themes in this category."
 msgstr "이 카테고리의 모든 테마 탐색하기."
 
 #: src/amo/components/Collection/index.js:151 src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "부가 기능 링크"
+msgstr "부가 기능"
 
 #: src/amo/components/Collection/index.js:155
 msgid "Creator"
-msgstr ""
+msgstr "제작자"
 
 #: src/amo/components/Collection/index.js:168
-#, fuzzy
 msgid "Edit this collection"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "이 콜렉션 수정"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "개발자 허브"
+msgstr "이 개발자 지원"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "확장 기능과 테마 검색"
+msgstr "이 개발자 지원"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "이 확장 기능의 개발자가 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "이 확장 기능의 개발자가 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "도움말 사이트"
+msgstr "이 아티스트 지원"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "도움말 사이트"
+msgstr "이 아티스트 지원"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "이 테마의 아티스트가 소액 기부로 지속적인 창작을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "이 테마의 아티스트가 소액 기부로 지속적인 창작을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "도움말 사이트"
+msgstr "이 작가 지원"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "도움말 사이트"
+msgstr "이 작가 지원"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "이 부가 기능의 작성자가 소규모 기부로 지속적인 작업을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "이 부가 기능의 작성자가 소규모 기부로 지속적인 작업을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "기부하기"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox 다운로드"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
-msgstr ""
+msgstr "로그인 한 상태이고 이 메시지가 오류라고 생각되면 <a href=\"%(url)s\">이슈를 올려</a>주세요. 어디에서 접근했으며 어디에 접근하려 했는지 알려주시면 이슈를 고치도록 하겠습니다."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
@@ -554,20 +541,19 @@ msgstr "죄송하지만, 이 페이지에 접근할 권한이 없습니다. 로�
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "어딘가에 있는 링크에서 접근했다면 <a href=\"%(url)s\">이슈를 올려</a>주세요. 어디에서 왔으며 어떤 것을 찾으려 했는지 알려주시면 최선을 다해 고치도록 하겠습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "이 부가 기능은 제작자에 의해 삭제되었습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "이 부가 기능은 관리자에 의해 사용 정지 되었습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "죄송합니다. 입력하신 URL을 찾을 수 없습니다."
+msgstr "죄송합니다. 입력하신 URL에서 찾을 수가 없습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
