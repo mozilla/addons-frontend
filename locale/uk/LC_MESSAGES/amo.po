@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-07 08:07+0000\n"
+"PO-Revision-Date: 2017-12-31 11:40+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -797,29 +797,24 @@ msgid "See more popular extensions"
 msgstr "Більше популярних розширень"
 
 #: src/amo/components/Home/index.js:237
-#, fuzzy
 msgid "Top-rated Themes"
 msgstr "Найвище оцінені теми"
 
 #: src/amo/components/Home/index.js:238
-#, fuzzy
 msgid "See more highly rated Themes"
 msgstr "Більше найвище оцінених тем"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Productivity tools"
-msgstr "Продуктивність"
+msgstr "Інструменти продуктивності"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more productivity tools"
-msgstr "Більше розширень для приватності"
+msgstr "Більше інструментів продуктивності"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
-msgstr "Політика приватності"
+msgstr "Захист приватності"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
@@ -874,9 +869,8 @@ msgid "Visual bookmarks for your favorite places on the web."
 msgstr "Візуальні закладки ваших улюблених місць в інтернеті."
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "Пошук тем"
+msgstr "Пошук за зображенням"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
