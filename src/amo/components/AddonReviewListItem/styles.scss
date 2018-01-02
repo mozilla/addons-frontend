@@ -24,6 +24,7 @@
 .AddonReviewListItem-body {
   font-size: $font-size-default;
   margin: 0 0 6px;
+  word-wrap: break-word;
 }
 
 .AddonReviewListItem-byline {
