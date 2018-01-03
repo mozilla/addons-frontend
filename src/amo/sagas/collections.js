@@ -1,12 +1,17 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
+  ADD_ADDON_TO_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
+  FETCH_USER_ADDON_COLLECTIONS,
   FETCH_USER_COLLECTIONS,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  abortUserAddonCollectionsWork,
+  beginUserAddonCollectionsWork,
   loadCurrentCollection,
   loadCurrentCollectionPage,
+  loadUserAddonCollections,
   loadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
@@ -84,24 +89,76 @@ export function* fetchUserCollections({
   payload: { errorHandlerId, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
-
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
 
-    const collections = yield call(api.listCollections, {
-      api: state.api,
-      user: userId,
+    const collections = yield call(api.getAllUserCollections, {
+      api: state.api, user: userId,
     });
 
-    yield put(loadUserCollections({
-      userId, collections: collections.results,
-    }));
+    yield put(loadUserCollections({ userId, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
     yield put(abortFetchUserCollections({ userId }));
+  }
+}
+
+export function* fetchUserAddonCollections({
+  payload: { addonId, errorHandlerId, userId },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+  yield put(beginUserAddonCollectionsWork({ addonId, userId }));
+
+  try {
+    const state = yield select(getState);
+    const collections = yield call(api.getAllUserAddonCollections, {
+      api: state.api,
+      user: userId,
+      addonId,
+    });
+
+    yield put(loadUserAddonCollections({ addonId, userId, collections }));
+  } catch (error) {
+    log.warn(`Failed to fetch user add-on collections: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    yield put(abortUserAddonCollectionsWork({ addonId, userId }));
+  }
+}
+
+export function* addAddonToCollection({
+  payload: { addonId, collectionSlug, errorHandlerId, notes, userId },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+  yield put(beginUserAddonCollectionsWork({ addonId, userId }));
+
+  try {
+    const state = yield select(getState);
+    yield call(api.addAddonToCollection, {
+      addon: addonId,
+      api: state.api,
+      collection: collectionSlug,
+      notes,
+      user: userId,
+    });
+
+    // TODO: this request is cached too hard so it doesn't show up
+    // in the UI. see https://github.com/mozilla/addons-server/issues/7173
+    const collections = yield call(api.getAllUserAddonCollections, {
+      api: state.api,
+      user: userId,
+      addonId,
+    });
+
+    yield put(loadUserAddonCollections({ addonId, userId, collections }));
+  } catch (error) {
+    log.warn(`Failed to add add-on to collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    yield put(abortUserAddonCollectionsWork({ addonId, userId }));
   }
 }
 
@@ -110,5 +167,9 @@ export default function* collectionsSaga() {
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
   );
+  yield takeLatest(
+    FETCH_USER_ADDON_COLLECTIONS, fetchUserAddonCollections
+  );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
+  yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
 }

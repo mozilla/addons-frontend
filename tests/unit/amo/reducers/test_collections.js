@@ -1,17 +1,24 @@
 import reducer, {
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  abortUserAddonCollectionsWork,
+  addAddonToCollection,
+  beginUserAddonCollectionsWork,
   createInternalAddons,
   createInternalCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  fetchUserAddonCollections,
   getCollectionById,
   getCurrentCollection,
   initialState,
+  loadCollectionAddons,
+  loadCollectionIntoState,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  loadUserAddonCollections,
 } from 'amo/reducers/collections';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -240,7 +247,7 @@ describe(__filename, () => {
       expect(userState.collections).toEqual(null);
     });
 
-    it('loads user collections', () => {
+    it('loads user collections by ID', () => {
       const userId = 321;
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
@@ -257,6 +264,94 @@ describe(__filename, () => {
         .toEqual(createInternalCollection({ detail: firstCollection }));
       expect(state.byId[userState.collections[1]])
         .toEqual(createInternalCollection({ detail: secondCollection }));
+    });
+
+    it('loads user collections by slug', () => {
+      const userId = 321;
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      const state = reducer(undefined, loadUserCollections({
+        userId, collections: [collection],
+      }));
+
+      const userState = state.userCollections[userId];
+      expect(userState.collections).toEqual([1]);
+
+      expect(state.bySlug[collection.slug]).toEqual(collection.id);
+    });
+
+    it('sets a loading flag when begining user addon collections work', () => {
+      const addonId = 871;
+      const userId = 321;
+
+      const state = reducer(undefined, beginUserAddonCollectionsWork({
+        addonId, userId,
+      }));
+
+      const savedState = state.userAddonCollections[userId][addonId];
+      expect(savedState).toBeDefined();
+      expect(savedState.loading).toEqual(true);
+      expect(savedState.collections).toEqual(null);
+    });
+
+    it('aborts user addon collections work', () => {
+      const addonId = 721;
+      const userId = 321;
+
+      let state = reducer(undefined, fetchUserAddonCollections({
+        addonId, userId, errorHandlerId: 'some-error-id',
+      }));
+
+      state = reducer(state,
+        abortUserAddonCollectionsWork({ addonId, userId })
+      );
+
+      const savedState = state.userAddonCollections[userId][addonId];
+      expect(savedState.loading).toEqual(false);
+      expect(savedState.collections).toEqual(null);
+    });
+
+    it('loads user collections by add-on', () => {
+      const addonId = 611;
+      const userId = 321;
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      const state = reducer(undefined, loadUserAddonCollections({
+        userId, addonId, collections: [firstCollection, secondCollection],
+      }));
+
+      const savedState = state.userAddonCollections[userId][addonId];
+      expect(savedState.loading).toEqual(false);
+      expect(savedState.collections).toEqual([1, 2]);
+
+      // Also make sure the collections were loaded into state.
+      expect(state.byId[savedState.collections[0]])
+        .toEqual(createInternalCollection({ detail: firstCollection }));
+      expect(state.byId[savedState.collections[1]])
+        .toEqual(createInternalCollection({ detail: secondCollection }));
+    });
+  });
+
+  describe('loadCollectionIntoState', () => {
+    it('preserves existing collection addons', () => {
+      const addons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const collection = createFakeCollectionDetail({
+        id: 1, addons,
+      });
+
+      let state = loadCollectionIntoState({
+        state: initialState, collection, addons: addons.results,
+      });
+
+      // Simulate loading it a second time but without addons.
+      state = loadCollectionIntoState({ state, collection });
+
+      const collectionInState = state.byId[collection.id];
+      expect(collectionInState.addons)
+        .toEqual(createInternalAddons(addons.results));
     });
   });
 
@@ -298,7 +393,7 @@ describe(__filename, () => {
   describe('fetchUserCollections', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      userId: Date.now(),
+      userId: 1,
     };
 
     it('throws an error when userId is missing', () => {
@@ -320,7 +415,7 @@ describe(__filename, () => {
 
   describe('abortFetchUserCollections', () => {
     const defaultParams = {
-      userId: Date.now(),
+      userId: 1,
     };
 
     it('throws an error when userId is missing', () => {
@@ -329,6 +424,84 @@ describe(__filename, () => {
 
       expect(() => abortFetchUserCollections(params))
         .toThrow(/userId is required/);
+    });
+  });
+
+  describe('fetchUserAddonCollections', () => {
+    const defaultParams = {
+      errorHandlerId: 'some-error-handler-id',
+      userId: 1,
+      addonId: 2,
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => fetchUserAddonCollections(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => fetchUserAddonCollections(params))
+        .toThrow(/addonId is required/);
+    });
+
+    it('throws an error when errorHandlerId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.errorHandlerId;
+
+      expect(() => fetchUserAddonCollections(params))
+        .toThrow(/errorHandlerId is required/);
+    });
+  });
+
+  describe('beginUserAddonCollectionsWork', () => {
+    const defaultParams = {
+      userId: 1,
+      addonId: 2,
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => beginUserAddonCollectionsWork(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => beginUserAddonCollectionsWork(params))
+        .toThrow(/addonId is required/);
+    });
+  });
+
+  describe('abortUserAddonCollectionsWork', () => {
+    const defaultParams = {
+      userId: 1,
+      addonId: 2,
+    };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => abortUserAddonCollectionsWork(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => abortUserAddonCollectionsWork(params))
+        .toThrow(/addonId is required/);
     });
   });
 
@@ -352,6 +525,38 @@ describe(__filename, () => {
 
       expect(() => loadUserCollections(params))
         .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('loadUserAddonCollections', () => {
+    const defaultParams = {
+      addonId: 2221,
+      userId: 4321,
+      collections: [createFakeCollectionDetail()],
+    };
+
+    it('throws an error when collections is missing', () => {
+      const params = { ...defaultParams };
+      delete params.collections;
+
+      expect(() => loadUserAddonCollections(params))
+        .toThrow(/collections parameter is required/);
+    });
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => loadUserAddonCollections(params))
+        .toThrow(/userId parameter is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => loadUserAddonCollections(params))
+        .toThrow(/addonId parameter is required/);
     });
   });
 
@@ -499,6 +704,111 @@ describe(__filename, () => {
       }));
 
       expect(getCurrentCollection(state)).toEqual(internalCollection);
+    });
+  });
+
+  describe('addAddonToCollection', () => {
+    const getParams = () => {
+      return {
+        addonId: 123,
+        collectionSlug: 'my-collection',
+        errorHandlerId: 'some-error-handler',
+        userId: 654,
+      };
+    };
+
+    it('requires an addonId', () => {
+      const params = getParams();
+      delete params.addonId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/addonId parameter is required/);
+    });
+
+    it('requires a collectionSlug', () => {
+      const params = getParams();
+      delete params.collectionSlug;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/collectionSlug parameter is required/);
+    });
+
+    it('requires an errorHandlerId', () => {
+      const params = getParams();
+      delete params.errorHandlerId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/errorHandlerId parameter is required/);
+    });
+
+    it('requires a userId', () => {
+      const params = getParams();
+      delete params.userId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('loadCollectionAddons', () => {
+    const getParams = (params = {}) => {
+      return {
+        addons: createFakeCollectionAddons().results,
+        collectionSlug: 'my-collection',
+        ...params,
+      };
+    };
+
+    it('loads collection add-ons', () => {
+      const addons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const collectionDetail = createFakeCollectionDetail();
+
+      // Load a collection with add-ons.
+      let state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      // Load new add-ons for the collection.
+      const newAddons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 2 }],
+      });
+      state = reducer(state, loadCollectionAddons({
+        addons: newAddons.results,
+        collectionSlug: collectionDetail.slug,
+      }));
+
+      expect(state.byId[collectionDetail.id].addons)
+        .toEqual(createInternalAddons(newAddons.results));
+    });
+
+    it('requires a loaded collection first', () => {
+      const addons = createFakeCollectionAddons().results;
+      expect(() => {
+        reducer(undefined, loadCollectionAddons({
+          addons,
+          // This collection has not been loaded into state yet.
+          collectionSlug: 'a-collection',
+        }));
+      })
+        .toThrow(/Cannot load add-ons for collection/);
+    });
+
+    it('requires an addons parameter', () => {
+      const params = getParams();
+      delete params.addons;
+
+      expect(() => loadCollectionAddons(params))
+        .toThrow(/addons parameter is required/);
+    });
+
+    it('requires a collectionId parameter', () => {
+      const params = getParams();
+      delete params.collectionSlug;
+
+      expect(() => loadCollectionAddons(params))
+        .toThrow(/collectionSlug parameter is required/);
     });
   });
 });

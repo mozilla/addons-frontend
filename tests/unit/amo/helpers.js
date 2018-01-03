@@ -26,9 +26,10 @@ import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   createStubErrorHandler,
   createUserAccountResponse,
-  userAuthToken,
+  randomId,
   sampleUserAgent,
   signedInApiState as coreSignedInApiState,
+  userAuthToken,
 } from 'tests/unit/helpers';
 
 
@@ -335,7 +336,8 @@ export const createFakeCollectionDetail = ({
     },
     default_locale: 'en-US',
     description: 'some description',
-    id: Date.now(),
+    // TODO: update all other id: Date.now() to use this.
+    id: randomId(),
     modified: Date.now(),
     name,
     public: true,
