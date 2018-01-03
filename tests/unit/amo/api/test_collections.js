@@ -119,48 +119,28 @@ describe(__filename, () => {
     it('gets all pages of the collection add-ons list API', async () => {
       const user = 'example-username';
       const slug = 'example-collection-slug';
+      const addonResults = createFakeCollectionAddons().results;
 
-      const firstAddonSet = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: 1 }],
-      });
-      const secondAddonSet = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: 2 }],
-      });
+      const _getCollectionAddons = sinon.spy(
+        () => Promise.resolve(apiResponsePage({ results: addonResults }))
+      );
 
-      let page = 0;
-      const endpoint =
-        `accounts/account/${user}/collections/${slug}/addons`;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          endpoint: sinon.match(endpoint),
-          params: sinon.match.any,
-          state: apiState,
-        })
-        .twice()
-        .callsFake((request) => {
-          page += 1;
-          let next;
-          let results = [];
-          if (page === 1) {
-            next = `${endpoint}?page=2`;
-            results = firstAddonSet.results;
-          } else {
-            results = secondAddonSet.results;
-            // When we pass a next URL, it will include ?page=... so it
-            // is important that the page parameter is not sent.
-            expect(request.params).toEqual(undefined);
-          }
-          return Promise.resolve(apiResponsePage({ next, results }));
-        });
+      const nextURL = 'the-endpoint?page=2';
+      const _allPages = sinon.spy((nextPage) => nextPage(nextURL));
 
       const addons = await getAllCollectionAddons({
-        api: apiState, user, slug,
+        api: apiState,
+        user,
+        slug,
+        _allPages,
+        _getCollectionAddons,
       });
-      expect(addons)
-        .toEqual(firstAddonSet.results.concat(secondAddonSet.results));
-      mockApi.verify();
+
+      expect(addons).toEqual(addonResults);
+      sinon.assert.called(_getCollectionAddons);
+      expect(_getCollectionAddons.firstCall.args[0]).toEqual({
+        api: apiState, user, slug, nextURL,
+      });
     });
   });
 
@@ -285,39 +265,28 @@ describe(__filename, () => {
     it('returns collections from multiple pages', async () => {
       const user = 'some-user-id';
 
-      const firstCollection = createFakeCollectionDetail({
-        slug: 'first',
-      });
-      const secondCollection = createFakeCollectionDetail({
-        slug: 'second',
+      const collectionResults = [
+        createFakeCollectionDetail({ slug: 'first' }),
+      ];
+
+      const _listCollections = sinon.spy(
+        () => Promise.resolve(
+          apiResponsePage({ results: collectionResults })
+        )
+      );
+
+      const nextURL = 'the-endpoint?page=2';
+      const _allPages = sinon.spy((nextPage) => nextPage(nextURL));
+
+      const collections = await getAllUserCollections({
+        api: apiState, user, _allPages, _listCollections,
       });
 
-      let page = 0;
-      const endpoint = `accounts/account/${user}/collections`;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true, endpoint: sinon.match(endpoint), state: apiState,
-        })
-        .twice()
-        .callsFake(() => {
-          page += 1;
-          let next;
-          const results = [];
-          if (page === 1) {
-            next = `${endpoint}?page=2`;
-            results.push(firstCollection);
-          } else {
-            results.push(secondCollection);
-          }
-          return Promise.resolve(apiResponsePage({ next, results }));
-        });
-
-      const results = await getAllUserCollections({
-        user, api: apiState,
+      expect(collections).toEqual(collectionResults);
+      sinon.assert.called(_listCollections);
+      expect(_listCollections.firstCall.args[0]).toEqual({
+        api: apiState, user, nextURL,
       });
-      expect(results).toEqual([firstCollection, secondCollection]);
-      mockApi.verify();
     });
   });
 

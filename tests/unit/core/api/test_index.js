@@ -15,6 +15,7 @@ import {
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
 import {
+  apiResponsePage,
   createApiResponse,
   createStubErrorHandler,
   generateHeaders,
@@ -536,6 +537,74 @@ describe(__filename, () => {
         },
       })
         .then(() => mockWindow.verify());
+    });
+  });
+
+  describe('allPages', () => {
+    it('gets results for all pages', async () => {
+      let page = 0;
+      const nextURL = 'some/endpoint?page=2';
+      const page1results = ['one'];
+      const page2results = ['two', 'three'];
+
+      const getNextResponse = sinon.mock()
+        .twice()
+        .callsFake(() => {
+          page += 1;
+          let next;
+          let results = [];
+          if (page === 1) {
+            next = nextURL;
+            results = page1results;
+          } else {
+            results = page2results;
+          }
+          return Promise.resolve(apiResponsePage({ next, results }));
+        });
+
+      const { results } = await api.allPages(getNextResponse);
+
+      expect(results).toEqual(page1results.concat(page2results));
+      getNextResponse.verify();
+
+      // Make sure nextURL is only passed on the second call.
+      expect(getNextResponse.firstCall.args[0]).toEqual(undefined);
+      expect(getNextResponse.secondCall.args[0]).toEqual(nextURL);
+    });
+
+    it('passes through response data', async () => {
+      const proxiedResponse = apiResponsePage({
+        count: 120,
+        page_size: 25,
+      });
+      const response = await api.allPages(
+        () => Promise.resolve(proxiedResponse)
+      );
+
+      expect(response).toEqual({
+        count: proxiedResponse.count,
+        page_size: proxiedResponse.page_size,
+        results: [],
+      });
+    });
+
+    it('passes through errors', () => {
+      const error = new Error('some API error');
+      return api.allPages(() => Promise.reject(error))
+        .then(unexpectedSuccess, (errorResult) => {
+          expect(errorResult).toEqual(error);
+        });
+    });
+
+    it('gives up after too many pages', () => {
+      const getNextResponse = () => Promise.resolve(apiResponsePage({
+        // Return a next URL forever.
+        next: 'some/endpoint?page=2',
+      }));
+      return api.allPages(getNextResponse, { pageLimit: 2 })
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/too many pages/);
+        });
     });
   });
 });

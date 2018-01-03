@@ -2,8 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import https from 'https';
 
-import 'babel-polyfill';
-import 'raf/polyfill';
+import 'core/polyfill';
 import { oneLine } from 'common-tags';
 import defaultConfig from 'config';
 import Express from 'express';

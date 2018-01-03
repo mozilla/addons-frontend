@@ -1,9 +1,5 @@
 /* @flow */
-/* eslint-disable no-await-in-loop */
-import { oneLine } from 'common-tags';
-
-import { callApi } from 'core/api';
-import log from 'core/logger';
+import { callApi, allPages } from 'core/api';
 import type {
   ExternalCollectionAddon, ExternalCollectionDetail,
 } from 'amo/reducers/collections';
@@ -64,30 +60,25 @@ export const getCollectionAddons = (
   return callApi(request);
 };
 
+type GetAllCollectionAddonsParams = {|
+  ...GetCollectionParams,
+  _allPages?: typeof allPages,
+  _getCollectionAddons?: typeof getCollectionAddons,
+|};
+
 export const getAllCollectionAddons = async (
-  { api, slug, user }: GetCollectionParams
+  {
+    api,
+    slug,
+    user,
+    _allPages = allPages,
+    _getCollectionAddons = getCollectionAddons,
+  }: GetAllCollectionAddonsParams
 ): Promise<Array<ExternalCollectionAddon>> => {
-  let allResults = [];
-  let done = false;
-  let nextURL;
-
-  // TODO: make a helper function for this pattern.
-  while (!done) {
-    const response = await getCollectionAddons({
-      api, nextURL, slug, user,
-    });
-    allResults = allResults.concat(response.results);
-
-    if (response.next) {
-      nextURL = response.next;
-      log.debug(oneLine`Fetching next page "${nextURL}" of
-        getCollectionAddons for "${user}/${slug}"`);
-    } else {
-      done = true;
-    }
-  }
-
-  return allResults;
+  const { results } = await _allPages(
+    (nextURL) => _getCollectionAddons({ api, nextURL, slug, user })
+  );
+  return results;
 };
 
 type ListCollectionsParams = {|
@@ -107,27 +98,24 @@ export const listCollections = (
   return callApi({ auth: true, endpoint, state: api });
 };
 
+type GetAllUserCollectionsParams = {|
+  ...ListCollectionsParams,
+  _allPages?: typeof allPages,
+  _listCollections?: typeof listCollections,
+|};
+
 export const getAllUserCollections = async (
-  { api, user }: ListCollectionsParams
+  {
+    api,
+    user,
+    _allPages = allPages,
+    _listCollections = listCollections,
+  }: GetAllUserCollectionsParams
 ): Promise<Array<ExternalCollectionDetail>> => {
-  let allResults = [];
-  let done = false;
-  let nextURL;
-
-  while (!done) {
-    const response = await listCollections({ api, user, nextURL });
-    allResults = allResults.concat(response.results);
-
-    if (response.next) {
-      nextURL = response.next;
-      log.debug(oneLine`Fetching next page "${nextURL}" of
-        listCollections for user "${user}"`);
-    } else {
-      done = true;
-    }
-  }
-
-  return allResults;
+  const { results } = await _allPages(
+    (nextURL) => _listCollections({ api, nextURL, user })
+  );
+  return results;
 };
 
 type GetAllUserAddonCollections = {|
@@ -147,10 +135,6 @@ export const getAllUserAddonCollections = async (
     _getAllUserCollections = getAllUserCollections,
   }: GetAllUserAddonCollections
 ): Promise<Array<ExternalCollectionDetail>> => {
-  // TODO: ultimately, we should query a single API endpoint to
-  // fetch all user collections that an add-on belongs to.
-  // https://github.com/mozilla/addons-server/issues/7167
-
   // Fetch all collections belonging to the user.
   const collectionResults = await _getAllUserCollections({ api, user });
 
