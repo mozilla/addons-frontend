@@ -52,7 +52,7 @@ type Props = {|
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
-  children: any,
+  children?: React.Node,
   clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,
