@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-23 22:42+0000\n"
+"PO-Revision-Date: 2018-01-03 22:58+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1480,7 +1480,7 @@ msgstr "Crie uma conta ou Identifique-se"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Desculpe, mas ocorreu um erro e não conseguimos completar o seu pedido. Registrámos este erro e vamos investigá-lo."
+msgstr "Desculpe, mas houve um erro e não conseguimos completar sua solicitação. Registrámos este erro e vamos investigá-lo."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
