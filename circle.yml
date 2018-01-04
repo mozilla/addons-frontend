@@ -43,6 +43,10 @@ dependencies:
     # Clean up any old images; save the new one.
     - I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*; docker save addons-frontend | pigz --fast -c > ~/docker/$I; ls -l ~/docker
 
+test:
+  override:
+    - 'true'
+
 # appropriately tag and push the container to dockerhub
 deployment:
   hub_latest:
