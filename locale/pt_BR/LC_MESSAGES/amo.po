@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2018-01-03 22:58+0000\n"
+"PO-Revision-Date: 2018-01-04 02:10+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -70,7 +70,7 @@ msgstr "Mais dicionários por %(author)s"
 
 #: src/amo/components/Addon/index.js:356
 msgid "More dictionaries by these translators"
-msgstr "Mais dicionários por esses tradutores"
+msgstr "Mais dicionários destes tradutores"
 
 #: src/amo/components/Addon/index.js:363
 msgid "More extensions by %(author)s"
@@ -78,7 +78,7 @@ msgstr "Mais extensões por %(author)s"
 
 #: src/amo/components/Addon/index.js:366
 msgid "More extensions by these developers"
-msgstr "Mais extensões por estes desenvolvedores"
+msgstr "Mais extensões destes desenvolvedores"
 
 #: src/amo/components/Addon/index.js:373
 msgid "More language packs by %(author)s"
@@ -86,7 +86,7 @@ msgstr "Mais pacotes de idioma por %(author)s"
 
 #: src/amo/components/Addon/index.js:376
 msgid "More language packs by these translators"
-msgstr "Mais pacotes de idioma por esses tradutores"
+msgstr "Mais pacotes de idioma destes tradutores"
 
 #: src/amo/components/Addon/index.js:383
 msgid "More themes by %(author)s"
@@ -94,7 +94,7 @@ msgstr "Mais temas por %(author)s"
 
 #: src/amo/components/Addon/index.js:386
 msgid "More themes by these artists"
-msgstr "Mais temas por estes artistas"
+msgstr "Mais temas destes artistas"
 
 #: src/amo/components/Addon/index.js:393
 msgid "More add-ons by %(author)s"
@@ -102,7 +102,7 @@ msgstr "Mais extensões por %(author)s"
 
 #: src/amo/components/Addon/index.js:396
 msgid "More add-ons by these developers"
-msgstr "Mais extensões por estes desenvolvedores"
+msgstr "Mais extensões destes desenvolvedores"
 
 #: src/amo/components/Addon/index.js:476
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -130,7 +130,7 @@ msgstr "Extensão em destaque"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Restart Required"
-msgstr "Reinicialização necessária"
+msgstr "É necessário reiniciar"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
@@ -270,7 +270,7 @@ msgstr "Site de suporte"
 
 #: src/amo/components/AddonMoreInfo/index.js:72
 msgid "Support Email"
-msgstr "E-mail de ajuda"
+msgstr "E-mail de suporte"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
@@ -286,7 +286,7 @@ msgstr "Diga-nos o que você ama sobre esta extensão. Seja específico e concis
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Conte para todo mundo sobre essa extensão. Siga nossas %(linkStart)sregras gerais para análises%(linkEnd)s."
+msgstr "Diga ao todo mundo sobre esta extensão. Siga nossas %(linkStart)sregras gerais para análises%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -328,7 +328,7 @@ msgstr "Resposta do desenvolvedor"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Write a reply to this review."
-msgstr "Escreva uma resposta para essa análise."
+msgstr "Escreva uma resposta para esta análise."
 
 #: src/amo/components/AddonReviewListItem/index.js:161
 msgid "Update reply"
@@ -404,7 +404,7 @@ msgstr "Extensões em destaque"
 
 #: src/amo/components/Category/index.js:135 src/amo/components/Home/index.js:208 src/amo/components/LandingPage/index.js:129
 msgid "See more featured extensions"
-msgstr "Mais extensões em destaque"
+msgstr "Ver mais extensões em destaque"
 
 #: src/amo/components/Category/index.js:136 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:124
 msgid "Trending extensions"
@@ -412,7 +412,7 @@ msgstr "Extensões em tendência"
 
 #: src/amo/components/Category/index.js:145 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
-msgstr "Mais extensões em destaque"
+msgstr "Ver mais extensões em destaque"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
@@ -420,7 +420,7 @@ msgstr "Extensões melhor avaliadas"
 
 #: src/amo/components/Category/index.js:155 src/amo/components/LandingPage/index.js:144
 msgid "See more top rated extensions"
-msgstr "Mais extensões melhor avaliadas"
+msgstr "Ver mais extensões melhor avaliadas"
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:201 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -620,7 +620,7 @@ msgstr "Você não pode sinalizar sua própria análise"
 
 #: src/amo/components/FlagReviewMenu/index.js:84
 msgid "This is spam"
-msgstr "Isso é um spam"
+msgstr "Isto é spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:85
 msgid "Flagged as spam"
@@ -692,7 +692,7 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:84
 msgid "Developer Hub"
-msgstr "Central do Desenvolvedor"
+msgstr "Central do desenvolvedor"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
@@ -720,11 +720,11 @@ msgstr "Ver as minhas coleções"
 
 #: src/amo/components/Header/index.js:106
 msgid "View Profile"
-msgstr "Ver Perfil"
+msgstr "Ver perfil"
 
 #: src/amo/components/Header/index.js:111
 msgid "Edit Profile"
-msgstr "Editar Perfil"
+msgstr "Editar perfil"
 
 #: src/amo/components/Header/index.js:115
 msgid "Tools"
@@ -748,7 +748,7 @@ msgstr "Extensões do Firefox"
 
 #: src/amo/components/Header/index.js:95
 msgid "My Account"
-msgstr "Minha Conta"
+msgstr "Minha conta"
 
 #: src/amo/components/Home/index.js:117
 msgid "Abstract"
@@ -796,7 +796,7 @@ msgstr "Temas melhor avaliados"
 
 #: src/amo/components/Home/index.js:238
 msgid "See more highly rated Themes"
-msgstr "Veja mais temas bem avaliados"
+msgstr "Ver mais temas bem avaliados"
 
 #: src/amo/components/Home/index.js:252
 msgid "Productivity tools"
@@ -804,7 +804,7 @@ msgstr "Ferramentas de produtividade"
 
 #: src/amo/components/Home/index.js:253
 msgid "See more productivity tools"
-msgstr "Veja mais ferramentas de produtividade"
+msgstr "Ver mais ferramentas de produtividade"
 
 #: src/amo/components/Home/index.js:263
 msgid "Privacy protection"
@@ -812,7 +812,7 @@ msgstr "Proteção de privacidade"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
-msgstr "Veja mais extensões que protegem a sua privacidade"
+msgstr "Ver mais extensões que protegem a sua privacidade"
 
 #: src/amo/components/Home/index.js:66
 msgid "Bookmarks"
@@ -836,11 +836,11 @@ msgstr "Produtividade"
 
 #: src/amo/components/Home/index.js:86
 msgid "Watching Videos"
-msgstr "Assistindo Videos"
+msgstr "Vendo videos"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "LastPass Password Manager"
-msgstr "Gerenciadores de senhas, LastPass"
+msgstr "Gerenciador de senhas, LastPass"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Easily manage all your passwords for all devices from one spot"
@@ -868,7 +868,7 @@ msgstr "Pesquisar por imagem"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
-msgstr "Pesquisa inversa de imagens utilizado vários mecanismos de pesquisa."
+msgstr "Pesquisa inversa de imagens usado vários mecanismos de pesquisa."
 
 #: src/amo/components/HomeHeroBanner/index.js:70
 msgid "FireShot"
@@ -884,7 +884,7 @@ msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "Easily download video from hundreds of popular websites."
-msgstr "Baixe vídeos facilmente a partir de centenas de websites populares."
+msgstr "Baixe vídeos facilmente de centenas de websites populares."
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Decentraleyes"
@@ -916,7 +916,7 @@ msgstr "Disponíveis para o seu idioma"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
-msgstr "Dicionários e Pacotes de Idioma"
+msgstr "Dicionários e Pacotes de idiomas"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
