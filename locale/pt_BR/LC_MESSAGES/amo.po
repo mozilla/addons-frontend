@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2018-01-04 02:10+0000\n"
+"PO-Revision-Date: 2018-01-04 02:13+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -920,7 +920,7 @@ msgstr "Dicionários e Pacotes de idiomas"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr "A instalação de uma extensão de dicionário adicionará uma nova opção de idioma ao seu corrector ortográfico, que verifica sua ortografia enquanto você digita no Firefox."
+msgstr "A instalação de um dicionário irá adicionar uma nova opção de idioma ao seu corrector ortográfico, que verifica sua ortografia enquanto você digita no Firefox."
 
 #: src/amo/components/LanguageTools/index.js:161
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -994,7 +994,7 @@ msgstr "Denunciar esta extensão por abuso"
 
 #: src/amo/components/ReportAbuseButton/index.js:169
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Por favor, não utilize este formulário para denunciar erros ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
+msgstr "Por favor, não use este formulário para denunciar erros ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
 
 #: src/amo/components/ReportAbuseButton/index.js:182
 msgid "Explain how this add-on is violating our policies."
@@ -1580,7 +1580,7 @@ msgstr "Recarregue para continuar"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr "Exibir/ocultar conteúdos"
+msgstr "Alternar conteúdos"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
