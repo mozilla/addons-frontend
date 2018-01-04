@@ -8,6 +8,8 @@
 Front-end infrastructure and code to complement
 [mozilla/addons-server](https://github.com/mozilla/addons-server).
 
+---
+
 ## Security Bug Reports
 
 This code and its associated production website are included in Mozilla’s web and services [bug bounty program]. If you find a security vulnerability, please submit it via the process outlined in the program and [FAQ pages]. Further technical details about this application are available from the [Bug Bounty Onramp page].
@@ -21,6 +23,8 @@ Never submit security-related bugs through a Github Issue or by email.
   [Bug Bounty Onramp page]: https://wiki.mozilla.org/Security/BugBountyOnramp/
   [web security bug form]: https://bugzilla.mozilla.org/form.web.bounty
 
+---
+
 ## Requirements
 
 * You need [Node](https://nodejs.org/) 6.x which is the current
@@ -31,11 +35,15 @@ Never submit security-related bugs through a Github Issue or by email.
 The easiest way to manage multiple node versions in development is to use
 [nvm](https://github.com/creationix/nvm).
 
+---
+
 ## Get started
 
 * type `yarn` to install all dependencies
 * type `yarn amo:stage` to start a local server that connects to a
   hosted staging server
+
+---
 
 ## Development commands
 
@@ -364,6 +372,8 @@ be sure to clear your cookies.
 
 When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans), [Open Sans](https://www.fontsquirrel.com/fonts/open-sans) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
 
+---
+
 ## What version is deployed?
 
 You can check to see what commit of `addons-frontend` is deployed by
@@ -389,6 +399,8 @@ at this URL:
 curl https://addons-dev.allizom.org/__version__
 ```
 
+---
+
 ## Overview and rationale
 
 This project will hold distinct front-ends e.g:
@@ -403,6 +415,8 @@ worry about cutting packages and bumping versions the entire time.
 
 At a later date if we need to move things out into their own project we
 still can.
+
+---
 
 ## Core technologies
 
