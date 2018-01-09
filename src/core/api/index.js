@@ -100,9 +100,9 @@ export function callApi({
     errorHandler.clear();
   }
 
-  const urlObj = url.parse(endpoint, true);
-  let adjustedEndpoint = urlObj.pathname || '';
-  if (!urlObj.host) {
+  const parsedUrl = url.parse(endpoint, true);
+  let adjustedEndpoint = parsedUrl.pathname || '';
+  if (!parsedUrl.host) {
     // If it's a relative URL, add the API prefix.
     const slash = !adjustedEndpoint.startsWith('/') ? '/' : '';
     adjustedEndpoint =
@@ -117,7 +117,7 @@ export function callApi({
   // Preserve the original query string if there is one.
   // This might happen when we parse `next` URLs returned by the API.
   const queryString = makeQueryString({
-    ...urlObj.query, ...params, lang: state.lang,
+    ...parsedUrl.query, ...params, lang: state.lang,
   });
 
   const options = {
