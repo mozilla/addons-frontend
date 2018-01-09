@@ -4,8 +4,8 @@
 @import "~ui/css/vars";
 
 .Select {
-  @include padding-end(22px);
-  @include padding-start(5px);
+  @include padding-end(24px);
+  @include padding-start(6px);
 
   appearance: none;
   background: $grey-30 url("~ui/components/Icon/triangle-down-black.svg") no-repeat calc(100% - 10px) 50%;
