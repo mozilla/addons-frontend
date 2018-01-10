@@ -2,7 +2,6 @@ import * as api from 'core/api';
 import {
   addAddonToCollection,
   getAllCollectionAddons,
-  getAllUserAddonCollections,
   getAllUserCollections,
   getCollectionAddons,
   getCollectionDetail,
@@ -215,7 +214,7 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it('posts notes about an addon', async () => {
+    it('posts an addon with notes', async () => {
       const notes = 'some notes about the add-on';
       const params = getAddParams({ addon: 'some-addon', notes });
 
@@ -287,92 +286,6 @@ describe(__filename, () => {
       expect(_listCollections.firstCall.args[0]).toEqual({
         api: apiState, user, nextURL,
       });
-    });
-  });
-
-  describe('getAllUserAddonCollections', () => {
-    it('gets user add-on collections from the API', async () => {
-      const addonId = 9861;
-      const userId = 43321;
-
-      const collectionOne = createFakeCollectionDetail({ slug: 'one' });
-      const collectionTwo = createFakeCollectionDetail({ slug: 'two' });
-
-      // These are all collections belonging to the user.
-      const externalCollections = [collectionOne, collectionTwo];
-      // These are collections that have a matching add-on.
-      const matchingExtCollections = [collectionOne];
-
-      const _getAllUserCollections = sinon.mock('getAllUserCollections')
-        .withArgs({ api: apiState, user: userId })
-        .once()
-        .returns(Promise.resolve(externalCollections));
-
-      const addonMap = {
-        [collectionOne.slug]: createFakeCollectionAddons({
-          // This collection will have one matching add-on.
-          addons: [{ ...fakeAddon, id: addonId }],
-        }),
-        [collectionTwo.slug]: createFakeCollectionAddons({
-          // This collection does not have any matching add-ons.
-          addons: [{ ...fakeAddon, id: 123454 }],
-        }),
-      };
-
-      // This API will be called once per collection.
-      const _getAllCollectionAddons = sinon.mock('getAllCollectionAddons')
-        .twice()
-        .withArgs({
-          api: apiState,
-          slug: sinon.match((slugParam) => (
-            slugParam === collectionOne.slug ||
-            slugParam === collectionTwo.slug
-          )),
-          user: userId,
-        })
-        .callsFake((params) => {
-          const response = addonMap[params.slug];
-          if (!response) {
-            throw new Error(
-              `No response mapped for collection slug ${params.slug}`);
-          }
-          return Promise.resolve(response.results);
-        });
-
-      const results = await getAllUserAddonCollections({
-        addonId,
-        api: apiState,
-        user: userId,
-        _getAllUserCollections,
-        _getAllCollectionAddons,
-      });
-
-      expect(results).toEqual(matchingExtCollections);
-
-      _getAllUserCollections.verify();
-      _getAllCollectionAddons.verify();
-    });
-
-    it('returns zero collections if none contain the add-on', async () => {
-      const addonId = 9861;
-      const userId = 43321;
-
-      const collectionOne = createFakeCollectionDetail({ slug: 'one' });
-      const collectionTwo = createFakeCollectionDetail({ slug: 'two' });
-      const externalCollections = [collectionOne, collectionTwo];
-
-      const results = await getAllUserAddonCollections({
-        addonId,
-        api: apiState,
-        user: userId,
-        _getAllUserCollections: sinon.stub()
-          .returns(Promise.resolve(externalCollections)),
-        _getAllCollectionAddons: sinon.stub()
-          // Return no matching add-ons for any collection.
-          .returns(Promise.resolve(createFakeCollectionAddons().results)),
-      });
-
-      expect(results).toEqual([]);
     });
   });
 });
