@@ -13,7 +13,6 @@ import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
-  fakeAddon,
 } from 'tests/unit/amo/helpers';
 
 
