@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-08 17:54+0000\n"
+"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"PO-Revision-Date: 2018-01-10 00:08+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -22,97 +22,101 @@ msgstr "Avbryt förhandsgranskning"
 msgid "Tap to preview"
 msgstr "Tryck för att förhandsgranska"
 
-#: src/amo/components/Addon/index.js:221
+#: src/amo/components/Addon/index.js:230
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "Detta tillägg kan inte klassificeras eftersom inga versioner har publicerats."
+
+#: src/amo/components/Addon/index.js:239
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Läst %(count)s recension"
 msgstr[1] "Läst alla %(count)s recensioner"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:255
 msgid "No reviews yet"
 msgstr "Inga recensioner ännu"
 
-#: src/amo/components/Addon/index.js:246
+#: src/amo/components/Addon/index.js:264
 msgid "Rate your experience"
 msgstr "Betygsätt din upplevelse"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:282
 msgid "About this dictionary"
 msgstr "Om denna ordbok"
 
-#: src/amo/components/Addon/index.js:273
+#: src/amo/components/Addon/index.js:285
 msgid "About this extension"
 msgstr "Om denna utökning"
 
-#: src/amo/components/Addon/index.js:276
+#: src/amo/components/Addon/index.js:288
 msgid "About this language pack"
 msgstr "Om detta språkpaket"
 
-#: src/amo/components/Addon/index.js:279
+#: src/amo/components/Addon/index.js:291
 msgid "About this search plugin"
 msgstr "Om denna sök-insticksmodul"
 
-#: src/amo/components/Addon/index.js:282
+#: src/amo/components/Addon/index.js:294
 msgid "About this theme"
 msgstr "Om detta tema"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:297
 msgid "About this add-on"
 msgstr "Om detta tillägg"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
 msgstr "Versionsfakta för %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:365
 msgid "More dictionaries by %(author)s"
 msgstr "Fler ordböcker av %(author)s"
 
-#: src/amo/components/Addon/index.js:356
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by these translators"
 msgstr "Fler ordböcker av dessa översättare"
 
-#: src/amo/components/Addon/index.js:363
+#: src/amo/components/Addon/index.js:375
 msgid "More extensions by %(author)s"
 msgstr "Fler utökningar av %(author)s"
 
-#: src/amo/components/Addon/index.js:366
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by these developers"
 msgstr "Fler utökningar av dessa utvecklare"
 
-#: src/amo/components/Addon/index.js:373
+#: src/amo/components/Addon/index.js:385
 msgid "More language packs by %(author)s"
 msgstr "Fler språkpaket av %(author)s"
 
-#: src/amo/components/Addon/index.js:376
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by these translators"
 msgstr "Fler språkpaket av dessa översättare"
 
-#: src/amo/components/Addon/index.js:383
+#: src/amo/components/Addon/index.js:395
 msgid "More themes by %(author)s"
 msgstr "Fler teman av %(author)s"
 
-#: src/amo/components/Addon/index.js:386
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by these artists"
 msgstr "Fler teman av dessa artister"
 
-#: src/amo/components/Addon/index.js:393
+#: src/amo/components/Addon/index.js:405
 msgid "More add-ons by %(author)s"
 msgstr "Fler tillägg av %(author)s"
 
-#: src/amo/components/Addon/index.js:396
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by these developers"
 msgstr "Fler tillägg av dessa utvecklare"
 
-#: src/amo/components/Addon/index.js:476
+#: src/amo/components/Addon/index.js:488
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sav %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:542
+#: src/amo/components/Addon/index.js:554
 msgid "Extension Metadata"
 msgstr "Metadata för tillägg"
 
-#: src/amo/components/Addon/index.js:568
+#: src/amo/components/Addon/index.js:580
 msgid "Screenshots"
 msgstr "Skärmbilder"
 
@@ -204,59 +208,59 @@ msgstr "Används av"
 msgid "Overall Rating"
 msgstr "Totalbetyg"
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:104
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:124
 msgid "Read the privacy policy for this add-on"
 msgstr "Läs sekretesspolicyn för detta tillägg"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Read the license agreement for this add-on"
 msgstr "Läs licensavtalet för detta tillägg"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:141
 msgid "See all versions"
 msgstr "Se alla versioner"
 
-#: src/amo/components/AddonMoreInfo/index.js:151
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "See all beta versions"
 msgstr "Se alla betaversioner"
 
-#: src/amo/components/AddonMoreInfo/index.js:176
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Länkar för tillägg"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:191
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:161
+#: src/amo/components/AddonMoreInfo/index.js:199 src/amo/components/Collection/index.js:161
 msgid "Last updated"
 msgstr "Senast uppdaterad"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:205
 msgid "License"
 msgstr "Licens"
 
-#: src/amo/components/AddonMoreInfo/index.js:210
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Sekretesspolicy"
 
-#: src/amo/components/AddonMoreInfo/index.js:217
+#: src/amo/components/AddonMoreInfo/index.js:219
 msgid "End-User License Agreement"
 msgstr "Licensavtal för slutanvändare"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:226
 msgid "Version History"
 msgstr "Versionshistorik"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:238
 msgid "Usage Statistics"
 msgstr "Användningsstatistik"
 
-#: src/amo/components/AddonMoreInfo/index.js:250
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "More information"
 msgstr "Mer information"
 
@@ -322,63 +326,63 @@ msgstr[1] "%(total)s recensioner för detta tillägg"
 msgid "by %(authorList)s"
 msgstr "av %(authorList)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:150
+#: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
 msgstr "Utvecklarens svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:158
+#: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Write a reply to this review."
 msgstr "Skriv ett svar på den här recensionen."
 
-#: src/amo/components/AddonReviewListItem/index.js:161
+#: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
 msgstr "Uppdatera svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:162
+#: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
 msgstr "Publicera svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:166
+#: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
 msgstr "Uppdaterar svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:167
+#: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
 msgstr "Publicerar svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:207
+#: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
 msgstr "postad %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:211
+#: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "av %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:263
+#: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my reply"
 msgstr "Redigera mitt svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:264
+#: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my review"
 msgstr "Redigera min recension"
 
-#: src/amo/components/AddonReviewListItem/index.js:282
+#: src/amo/components/AddonReviewListItem/index.js:277
 msgid "Reply to this review"
 msgstr "Svara på den här recensionen"
 
-#: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Tillägg för Firefox"
 
-#: src/amo/components/App/index.js:206
+#: src/amo/components/App/index.js:204
 msgid "%s – Add-ons for Firefox"
 msgstr "%s – Tillägg för Firefox"
 
-#: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Tillägg för Android"
 
-#: src/amo/components/App/index.js:210
+#: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Android"
 msgstr "%s – Tillägg för Android"
 
@@ -582,59 +586,59 @@ msgstr "Serverfel"
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr "Tyvärr, men ett fel uppstod och vi kunde inte slutföra din begäran. Vi har loggat detta fel och kommer att undersöka det."
 
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "Det här är en felrapport eller supportförfrågan"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "Flaggad som en felrapport eller supportförfrågan"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Flagga"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "Flaggad"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "Flagga det här utvecklarsvaret"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "Flagga den här recensionen"
 
-#: src/amo/components/FlagReviewMenu/index.js:60
+#: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
 msgstr "Logga in för att flagga detta svar"
 
-#: src/amo/components/FlagReviewMenu/index.js:61
+#: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
 msgstr "Logga in för att flagga denna recension"
 
-#: src/amo/components/FlagReviewMenu/index.js:70
+#: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
 msgstr "Du kan inte flagga ditt egna svar"
 
-#: src/amo/components/FlagReviewMenu/index.js:71
+#: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
 msgstr "Du kan inte flagga din egna recension"
 
-#: src/amo/components/FlagReviewMenu/index.js:84
+#: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
 msgstr "Detta är skräppost"
 
-#: src/amo/components/FlagReviewMenu/index.js:85
+#: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
 msgstr "Flagga som skräppost"
 
-#: src/amo/components/FlagReviewMenu/index.js:95
+#: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
 msgstr "Detta innehåller olämpligt språk"
 
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
 msgstr "Flaggad för olämpligt språk"
 
@@ -694,7 +698,7 @@ msgstr "Om"
 msgid "Blog"
 msgstr "Blogg"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:84
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "Utvecklarcenter"
 
@@ -718,41 +722,41 @@ msgstr "Webbplatsstatus"
 msgid "View classic desktop site"
 msgstr "Visa datoranpassad sida"
 
-#: src/amo/components/Header/index.js:101
-msgid "View My Collections"
-msgstr "Visa mina samlingar"
-
-#: src/amo/components/Header/index.js:106
+#: src/amo/components/Header/index.js:103
 msgid "View Profile"
 msgstr "Visa profil"
 
-#: src/amo/components/Header/index.js:111
+#: src/amo/components/Header/index.js:108
 msgid "Edit Profile"
 msgstr "Redigera profil"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:112
 msgid "Tools"
 msgstr "Verktyg"
 
-#: src/amo/components/Header/index.js:121
+#: src/amo/components/Header/index.js:118
 msgid "Submit a New Add-on"
 msgstr "Skicka in ett nytt tillägg"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:126
 msgid "Submit a New Theme"
 msgstr "Skicka in ett nytt tema"
 
-#: src/amo/components/Header/index.js:138 src/core/components/AuthenticateButton/index.js:63
+#: src/amo/components/Header/index.js:135 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
 msgstr "Logga ut"
 
-#: src/amo/components/Header/index.js:61
+#: src/amo/components/Header/index.js:58
 msgid "Firefox Add-ons"
 msgstr "Firefox tillägg"
 
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:92
 msgid "My Account"
 msgstr "Mitt konto"
+
+#: src/amo/components/Header/index.js:98
+msgid "View My Collections"
+msgstr "Visa mina samlingar"
 
 #: src/amo/components/Home/index.js:117
 msgid "Abstract"
@@ -946,31 +950,31 @@ msgstr "Språkpaket"
 msgid "Dictionaries"
 msgstr "Ordlistor"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
 msgstr "Logga in för att betygsätta denna ordbok"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this language pack"
 msgstr "Logga in för att betygsätta detta språkpaket"
 
-#: src/amo/components/RatingManager/index.js:140
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this search plugin"
 msgstr "Logga in för att betygsätta denna sök-insticksmodul"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"
 msgstr "Logga in för att betygsätta detta tema"
 
-#: src/amo/components/RatingManager/index.js:144
+#: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this extension"
 msgstr "Logga in för att betygsätta detta tillägg"
 
-#: src/amo/components/RatingManager/index.js:150
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this add-on"
 msgstr "Logga in för att betygsätta detta tillägg"
 
-#: src/amo/components/RatingManager/index.js:189
+#: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Vad tycker du om %(addonName)s?"
 
@@ -1098,67 +1102,67 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s tillägg hittades"
 msgstr[1] "%(count)s tillägg hittades"
 
-#: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:101 src/amo/components/SearchFilters/index.js:111
 msgid "All"
 msgstr "Alla"
 
-#: src/amo/components/SearchFilters/index.js:101
+#: src/amo/components/SearchFilters/index.js:102
 msgid "Extension"
 msgstr "Utökning"
 
-#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:103
 msgid "Theme"
 msgstr "Tema"
 
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:113
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:121
+#: src/amo/components/SearchFilters/index.js:122
 msgid "Relevance"
 msgstr "Relevans"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:123
 msgid "Recently Updated"
 msgstr "Nyligen uppdaterad"
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:124
 msgid "Most Users"
 msgstr "Flest användare"
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
 msgstr "Högst rankade"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
 msgstr "Trend"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Filter results"
 msgstr "Filtrera resultat"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Sort by"
 msgstr "Sortera efter"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
 msgstr "Tilläggstyp"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
 msgstr "Operativsystem"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:211
 msgid "Featured add-ons only"
 msgstr "Endast utvalda tillägg"
 
@@ -1475,7 +1479,7 @@ msgstr "Bläddra bland alla teman"
 msgid "Add-ons Home Page"
 msgstr "Hemsida för tillägg"
 
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/core/components/AuthenticateButton/index.js:74
 msgid "Register or Log in"
 msgstr "Registrera eller logga in"
 

@@ -1,5 +1,6 @@
 /* global window */
 import querystring from 'querystring';
+import url from 'url';
 
 import config from 'config';
 import utf8 from 'utf8';
@@ -173,6 +174,97 @@ describe(__filename, () => {
         .returns(response);
       return api.callApi({ endpoint: 'resource', method: 'GET' })
         .then(() => mockWindow.verify());
+    });
+
+    it('only adds a trailing slash when necessary', async () => {
+      const endpoint = 'some-endpoint/';
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/${endpoint}`, sinon.match.any)
+        .once()
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('only adds a preceding slash when necessary', async () => {
+      const endpoint = '/some-endpoint/';
+      mockWindow.expects('fetch')
+        .withArgs(`${apiHost}/api/v3/some-endpoint/`, sinon.match.any)
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('preserves endpoint query string parameters', async () => {
+      const endpoint = 'some-endpoint/?page=2';
+      mockWindow.expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/some-endpoint/?page=2`, sinon.match.any
+        )
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('will override endpoint query string parameters', async () => {
+      const endpoint = 'some-endpoint/?page=2';
+      mockWindow.expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/some-endpoint/?page=3`, sinon.match.any
+        )
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, params: { page: 3 } });
+      mockWindow.verify();
+    });
+
+    it('will merge endpoint params with custom params', async () => {
+      const endpoint = 'some-endpoint/?page=1';
+      mockWindow.expects('fetch')
+        .callsFake((fetchURL) => {
+          const urlObj = url.parse(fetchURL, true);
+          expect(urlObj.query).toEqual({ page: '1', color: 'blue' });
+          return createApiResponse();
+        });
+
+      await api.callApi({ endpoint, params: { color: 'blue' } });
+      mockWindow.verify();
+    });
+
+    it('converts absolute URLs to relative', async () => {
+      const endpoint =
+        'https://elsewhere.org/api/v3/some-endpoint/?page=2';
+      mockWindow.expects('fetch')
+        .withArgs(
+          `${apiHost}/api/v3/some-endpoint/?page=2`, sinon.match.any
+        )
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('throws an error for absolute URL with a bad prefix', async () => {
+      const endpoint = 'https://elsewhere.org/nope/some-endpoint/';
+      mockWindow.expects('fetch').returns(createApiResponse());
+
+      await api.callApi({ endpoint })
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toContain(endpoint);
+          expect(error.message).toMatch(/unexpected prefix/);
+        });
+    });
+
+    it('throws an error for undefined URLs', async () => {
+      mockWindow.expects('fetch').returns(createApiResponse());
+
+      await api.callApi({ endpoint: undefined })
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/endpoint URL cannot be falsy/);
+        });
     });
   });
 
