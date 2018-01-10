@@ -25,7 +25,7 @@ const Entity = normalizrSchema.Entity;
 export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 
-export function makeQueryString(query: { [key: string]: * }) {
+export function makeQueryString(query: { [key: string]: any }) {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
     const value = resolvedQuery[key];
@@ -91,10 +91,35 @@ export function callApi({
   errorHandler,
   _config = config,
 }: CallApiParams): Promise<any> {
+  if (!endpoint) {
+    return Promise.reject(
+      new Error(`endpoint URL cannot be falsy: "${endpoint}"`)
+    );
+  }
   if (errorHandler) {
     errorHandler.clear();
   }
-  const queryString = makeQueryString({ ...params, lang: state.lang });
+
+  const parsedUrl = url.parse(endpoint, true);
+  let adjustedEndpoint = parsedUrl.pathname || '';
+  if (!parsedUrl.host) {
+    // If it's a relative URL, add the API prefix.
+    const slash = !adjustedEndpoint.startsWith('/') ? '/' : '';
+    adjustedEndpoint =
+      `${config.get('apiPath')}${slash}${adjustedEndpoint}`;
+  } else if (!adjustedEndpoint.startsWith(config.get('apiPath'))) {
+    // If it's an absolute URL, it must have the correct prefix.
+    return Promise.reject(
+      new Error(`Absolute URL "${endpoint}" has an unexpected prefix.`)
+    );
+  }
+
+  // Preserve the original query string if there is one.
+  // This might happen when we parse `next` URLs returned by the API.
+  const queryString = makeQueryString({
+    ...parsedUrl.query, ...params, lang: state.lang,
+  });
+
   const options = {
     headers: {},
     // Always make sure the method is upper case so that the browser won't
@@ -116,7 +141,10 @@ export function callApi({
     }
   }
 
-  let apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  adjustedEndpoint = adjustedEndpoint.endsWith('/') ?
+    adjustedEndpoint : `${adjustedEndpoint}/`;
+  let apiURL =
+    `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
   if (_config.get('server')) {
     log.debug('Encoding `apiURL` in UTF8 before fetch().');
     // Workaround for https://github.com/bitinn/node-fetch/issues/245

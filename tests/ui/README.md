@@ -14,22 +14,22 @@ If you think you would like to contribute to the tests by writing or maintaining
 it would be a good idea to create a fork of this repository first, and then clone that.
 GitHub also has great instructions for [forking a repository][git-fork].
 
+### Edit your hosts file
+These tests rely on the url `https://example.com`. You must add a hostname alias to your /etc/hosts
+
+```bash
+echo '127.0.0.1 example.com' | sudo tee -a /etc/hosts
+```
+
 ### Run the tests
-The tests must be run in Firefox 48 or later.
+The tests must be run in Firefox 57 or later.
 
 1. Install [Tox]
-1. Download geckodriver [v0.14.0][geckodriver] and ensure it's executable and
+1. Download geckodriver [v0.19.1][geckodriver] and ensure it's executable and
    in your path
 1. Make sure you have [docker][] installed and start the server with
    `yarn start-func-test-server`
-1. Run `PYTEST_BASE_URL=http://localhost:4000 tox`
-
-To run against a different environment, change the `PYTEST_BASE_URL` environment
-variable, like so:
-
-```bash
-PYTEST_BASE_URL=https://discovery.addons.allizom.org tox
-```
+1. Run `tox`
 
 The pytest plugin that we use for running tests has a number of advanced
 command line options available. To see the options available, run

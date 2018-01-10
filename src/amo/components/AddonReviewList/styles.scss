@@ -20,6 +20,8 @@
 
   .CardList {
     margin: 0 0 $vertical-space-xs;
+    // https://stackoverflow.com/questions/36150458
+    min-width: 50%;
   }
 }
 
