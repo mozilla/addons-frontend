@@ -1031,6 +1031,15 @@ describe(__filename, () => {
         new RegExp('<b>lots</b> <i>of</i> bug fixes')
       );
     });
+
+    it('allows some ul-li tags', () => {
+      const root = getReleaseNotes({
+        release_notes: '<b>The List</b><ul><li>one</li><li>two</li></ul>',
+      });
+      expect(root.html()).toMatch(
+        new RegExp('<b>The List</b><ul><li>one</li><li>two</li></ul>')
+      );
+    });
   });
 
   describe('more add-ons by authors', () => {
