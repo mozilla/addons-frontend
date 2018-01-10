@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-11-27 01:46+0000\n"
+"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"PO-Revision-Date: 2017-12-29 02:50+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ko\n"
@@ -22,96 +22,100 @@ msgstr "미리보기 취소"
 msgid "Tap to preview"
 msgstr "탭하여 미리보기"
 
-#: src/amo/components/Addon/index.js:221
+#: src/amo/components/Addon/index.js:230
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr ""
+
+#: src/amo/components/Addon/index.js:239
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s개의 리뷰 보기"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:255
 msgid "No reviews yet"
 msgstr "작성된 리뷰 없음"
 
-#: src/amo/components/Addon/index.js:246
+#: src/amo/components/Addon/index.js:264
 msgid "Rate your experience"
 msgstr "경험 평가하기"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:282
 msgid "About this dictionary"
 msgstr "이 사전 정보"
 
-#: src/amo/components/Addon/index.js:273
+#: src/amo/components/Addon/index.js:285
 msgid "About this extension"
 msgstr "이 확장 기능 정보"
 
-#: src/amo/components/Addon/index.js:276
+#: src/amo/components/Addon/index.js:288
 msgid "About this language pack"
 msgstr "이 언어 팩 정보"
 
-#: src/amo/components/Addon/index.js:279
+#: src/amo/components/Addon/index.js:291
 msgid "About this search plugin"
 msgstr "이 검색 플러그인 정보"
 
-#: src/amo/components/Addon/index.js:282
+#: src/amo/components/Addon/index.js:294
 msgid "About this theme"
 msgstr "이 테마 정보"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:297
 msgid "About this add-on"
 msgstr "이 부가 기능 정보"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s에 대한 출시 정보"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:365
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s의 사전 더보기"
 
-#: src/amo/components/Addon/index.js:356
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "이 번역자들의 사전 더보기"
 
-#: src/amo/components/Addon/index.js:363
+#: src/amo/components/Addon/index.js:375
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s의 확장 기능 더보기"
 
-#: src/amo/components/Addon/index.js:366
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by these developers"
 msgstr "이 개발자의 확장 기능 더보기"
 
-#: src/amo/components/Addon/index.js:373
+#: src/amo/components/Addon/index.js:385
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "%(author)s의 언어 팩 더보기"
 
-#: src/amo/components/Addon/index.js:376
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "이 번역자들의 언어 팩 더보기"
 
-#: src/amo/components/Addon/index.js:383
+#: src/amo/components/Addon/index.js:395
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "%(author)s의 테마 더보기"
 
-#: src/amo/components/Addon/index.js:386
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by these artists"
-msgstr ""
+msgstr "이 아티스트들의 테마 더보기"
 
-#: src/amo/components/Addon/index.js:393
+#: src/amo/components/Addon/index.js:405
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "%(author)s의 부가 기능 더보기"
 
-#: src/amo/components/Addon/index.js:396
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "이 개발자의 부가 기능 더보기"
 
-#: src/amo/components/Addon/index.js:476
+#: src/amo/components/Addon/index.js:488
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(startSpan)s%(authorList)s에 의해 제작된%(endSpan)s %(addonName)s"
 
-#: src/amo/components/Addon/index.js:542
+#: src/amo/components/Addon/index.js:554
 msgid "Extension Metadata"
 msgstr "확장 메타 데이터"
 
-#: src/amo/components/Addon/index.js:568
+#: src/amo/components/Addon/index.js:580
 msgid "Screenshots"
 msgstr "스크린샷"
 
@@ -129,15 +133,15 @@ msgstr "추천 부가 기능"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Restart Required"
-msgstr ""
+msgstr "재시작 필요"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "실험적"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Firefox 퀀텀과 호환되지 않음"
 
 #: src/amo/components/AddonCompatibilityError/index.js:60
 msgid ""
@@ -149,7 +153,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:65
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "이 부가 기능은 현재 사용중인 Firefox 버전과 호환되지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:68
 msgid "Your version of Firefox does not support search plugins."
@@ -161,7 +165,7 @@ msgstr "iOS 용 Firefox는 현재 부가 기능을 지원하지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:74
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "이 부가 기능은 현재 플랫폼에서 제공되지 않습니다."
 
 #: src/amo/components/AddonCompatibilityError/index.js:77
 msgid ""
@@ -187,7 +191,7 @@ msgstr "사용자"
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
+msgstr[0] "사용자"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -212,62 +216,62 @@ msgstr "사용됨"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "전반적인 점수"
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:104
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:124
 msgid "Read the privacy policy for this add-on"
 msgstr "이 부가 기능에 대한 개인 정보 보호 정책 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Read the license agreement for this add-on"
 msgstr "이 부가 기능에 대한 사용권 계약 읽기"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:141
 msgid "See all versions"
 msgstr "모든 버전 보기"
 
-#: src/amo/components/AddonMoreInfo/index.js:151
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "See all beta versions"
 msgstr "모든 베타 버전 보기"
 
-#: src/amo/components/AddonMoreInfo/index.js:176
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "부가 기능 링크"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:191
 msgid "Version"
 msgstr "버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:197
+#: src/amo/components/AddonMoreInfo/index.js:199
 #: src/amo/components/Collection/index.js:161
 msgid "Last updated"
 msgstr "최신 버전"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:205
 msgid "License"
 msgstr "라이센스"
 
-#: src/amo/components/AddonMoreInfo/index.js:210
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "개인 정보 보호 정책"
 
-#: src/amo/components/AddonMoreInfo/index.js:217
+#: src/amo/components/AddonMoreInfo/index.js:219
 msgid "End-User License Agreement"
 msgstr "사용자 라이선스 동의서"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:226
 msgid "Version History"
 msgstr "버전 목록"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:238
 msgid "Usage Statistics"
-msgstr ""
+msgstr "사용 통계"
 
-#: src/amo/components/AddonMoreInfo/index.js:250
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "More information"
 msgstr "추가 정보"
 
@@ -285,14 +289,15 @@ msgstr "지원 이메일"
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "통계 대시보드 방문"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid ""
 "Tell the world why you think this extension is fantastic! Please follow our "
 "%(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "이 확장 기능이 왜 환상적이라 생각하는지 세상에 알려주세요!"
+msgstr ""
+"이 확장 기능이 왜 환상적인지 공유해 주세요! %(linkStart)s리뷰 가이드라"
+"인%(linkEnd)s을 참고해 주세요."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -304,6 +309,8 @@ msgid ""
 "Tell the world about this extension. Please follow our %(linkStart)sreview "
 "guidelines%(linkEnd)s."
 msgstr ""
+"이 확장 기능에 대해서 공유해 주세요. %(linkStart)s리뷰 가이드라인%(linkEnd)s"
+"을 참고해 주세요."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid ""
@@ -332,87 +339,75 @@ msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s에 대한 리뷰"
 
 #: src/amo/components/AddonReviewList/index.js:184
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s개의 리뷰"
+msgstr[0] "이 부가기능에 대한 %(total)s개의 리뷰"
 
 #: src/amo/components/AddonReviewList/index.js:212
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "%(authorName)s로 부터, %(timestamp)s"
+msgstr "%(authorList)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:150
-#, fuzzy
+#: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr "개발자 허브"
+msgstr "개발자 응답"
+
+#: src/amo/components/AddonReviewListItem/index.js:154
+msgid "Write a reply to this review."
+msgstr "이 리뷰에 답변을 작성해 주세요."
+
+#: src/amo/components/AddonReviewListItem/index.js:157
+msgid "Update reply"
+msgstr "댓글 수정"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
-#, fuzzy
-msgid "Write a reply to this review."
-msgstr "리뷰 작성"
-
-#: src/amo/components/AddonReviewListItem/index.js:161
-msgid "Update reply"
-msgstr ""
+msgid "Publish reply"
+msgstr "댓글 배포"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
-msgid "Publish reply"
-msgstr ""
-
-#: src/amo/components/AddonReviewListItem/index.js:166
 msgid "Updating reply"
-msgstr ""
+msgstr "댓글 수정 중"
 
-#: src/amo/components/AddonReviewListItem/index.js:167
+#: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
-msgstr ""
+msgstr "댓글 배포중"
 
-#: src/amo/components/AddonReviewListItem/index.js:207
-#, fuzzy
+#: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
-msgstr "%(authorName)s로 부터, %(timestamp)s"
+msgstr "%(timestamp)s에 작성됨"
 
-#: src/amo/components/AddonReviewListItem/index.js:211
-#, fuzzy
+#: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "%(authorName)s로 부터, %(timestamp)s"
+msgstr "%(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:263
-#, fuzzy
+#: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my reply"
-msgstr "리뷰 작성"
+msgstr "내 댓글 수정"
 
-#: src/amo/components/AddonReviewListItem/index.js:264
-#, fuzzy
+#: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my review"
-msgstr "리뷰 작성"
+msgstr "내 리뷰 수정"
 
-#: src/amo/components/AddonReviewListItem/index.js:282
-#, fuzzy
+#: src/amo/components/AddonReviewListItem/index.js:277
 msgid "Reply to this review"
-msgstr "탭하여 미리보기"
+msgstr "이 리뷰에 답변"
 
-#: src/amo/components/App/index.js:205
+#: src/amo/components/App/index.js:203
 #: src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/App/index.js:206
-#, fuzzy
+#: src/amo/components/App/index.js:204
 msgid "%s – Add-ons for Firefox"
-msgstr "Firefox 부가 기능"
+msgstr "%s – Firefox 부가 기능"
 
-#: src/amo/components/App/index.js:209
+#: src/amo/components/App/index.js:207
 #: src/amo/components/SectionLinks/index.js:136
-#, fuzzy
 msgid "Add-ons for Android"
-msgstr "Firefox 부가 기능"
+msgstr "Android 부가 기능"
 
-#: src/amo/components/App/index.js:210
-#, fuzzy
+#: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Android"
-msgstr "Firefox 부가 기능"
+msgstr "%s – Android 부가 기능"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -442,22 +437,19 @@ msgstr "추천 확장 기능"
 #: src/amo/components/Category/index.js:135
 #: src/amo/components/Home/index.js:208
 #: src/amo/components/LandingPage/index.js:129
-#, fuzzy
 msgid "See more featured extensions"
 msgstr "추천 확장 기능 더보기"
 
 #: src/amo/components/Category/index.js:136
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
-#, fuzzy
 msgid "Trending extensions"
-msgstr "가장 평점이 높은 확장 기능"
+msgstr "유행하는 확장 기능"
 
 #: src/amo/components/Category/index.js:145
 #: src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "추천 확장 기능 더보기"
+msgstr "우행하는 확장 기능 더보기"
 
 #: src/amo/components/Category/index.js:146
 #: src/amo/components/LandingPage/index.js:136
@@ -467,9 +459,8 @@ msgstr "가장 평점이 높은 확장 기능"
 
 #: src/amo/components/Category/index.js:155
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "가장 평점이 높은 확장 기능"
+msgstr "가장 평점이 높은 확장 기능 더보기"
 
 #: src/amo/components/Category/index.js:158
 #: src/amo/components/LandingPage/index.js:201
@@ -485,22 +476,19 @@ msgstr "추천 테마"
 
 #: src/amo/components/Category/index.js:168
 #: src/amo/components/LandingPage/index.js:155
-#, fuzzy
 msgid "See more featured themes"
 msgstr "추천 테마 더보기"
 
 #: src/amo/components/Category/index.js:169
 #: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:127
-#, fuzzy
 msgid "Trending themes"
-msgstr "가장 평점이 높은 테마"
+msgstr "유행하는 테마"
 
 #: src/amo/components/Category/index.js:178
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "추천 테마 더보기"
+msgstr "유행하는 테마 더보기"
 
 #: src/amo/components/Category/index.js:179
 #: src/amo/components/LandingPage/index.js:162
@@ -510,9 +498,8 @@ msgstr "가장 평점이 높은 테마"
 
 #: src/amo/components/Category/index.js:188
 #: src/amo/components/LandingPage/index.js:167
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "가장 평점이 높은 테마"
+msgstr "가장 평점이 높은 테마 더보기"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -528,94 +515,95 @@ msgstr "이 카테고리의 모든 테마 탐색하기."
 
 #: src/amo/components/Collection/index.js:151
 #: src/amo/components/Footer/index.js:43
-#, fuzzy
 msgid "Add-ons"
-msgstr "부가 기능 링크"
+msgstr "부가 기능"
 
 #: src/amo/components/Collection/index.js:155
 msgid "Creator"
-msgstr ""
+msgstr "제작자"
 
 #: src/amo/components/Collection/index.js:168
-#, fuzzy
 msgid "Edit this collection"
-msgstr "모든 확장 기능 탐색하기"
+msgstr "이 콜렉션 수정"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "개발자 허브"
+msgstr "이 개발자 지원"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "확장 기능과 테마 검색"
+msgstr "이 개발자 지원"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid ""
 "The developer of this extension asks that you help support its continued "
 "development by making a small contribution."
 msgstr ""
+"이 확장 기능의 개발자가 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니"
+"다."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid ""
 "The developers of this extension ask that you help support its continued "
 "development by making a small contribution."
 msgstr ""
+"이 확장 기능의 개발자가 작은 기여로 지속적인 개발을 지원해 줄 것을 요청합니"
+"다."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "도움말 사이트"
+msgstr "이 아티스트 지원"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "도움말 사이트"
+msgstr "이 아티스트 지원"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid ""
 "The artist of this theme asks that you help support its continued creation "
 "by making a small contribution."
 msgstr ""
+"이 테마의 아티스트가 소액 기부로 지속적인 창작을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid ""
 "The artists of this theme ask that you help support its continued creation "
 "by making a small contribution."
 msgstr ""
+"이 테마의 아티스트가 소액 기부로 지속적인 창작을 지원해 줄 것을 요청합니다."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "도움말 사이트"
+msgstr "이 작가 지원"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "도움말 사이트"
+msgstr "이 작가 지원"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid ""
 "The author of this add-on asks that you help support its continued work by "
 "making a small contribution."
 msgstr ""
+"이 부가 기능의 작성자가 소규모 기부로 지속적인 작업을 지원해 줄 것을 요청합니"
+"다."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
 msgstr ""
+"이 부가 기능의 작성자가 소규모 기부로 지속적인 작업을 지원해 줄 것을 요청합니"
+"다."
 
 #: src/amo/components/ContributeCard/index.js:89
 msgid "Contribute now"
-msgstr ""
+msgstr "기부하기"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:43
 #: src/amo/components/Footer/index.js:97
-#, fuzzy
 msgid "Download Firefox"
-msgstr "Firefox 부가 기능"
+msgstr "Firefox 다운로드"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
@@ -623,6 +611,9 @@ msgid ""
 "\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
 "trying to access, and we'll fix the issue."
 msgstr ""
+"로그인 한 상태이고 이 메시지가 오류라고 생각되면 <a href=\"%(url)s\">이슈를 "
+"올려</a>주세요. 어디에서 접근했으며 어디에 접근하려 했는지 알려주시면 이슈를 "
+"고치도록 하겠습니다."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
@@ -642,19 +633,21 @@ msgid ""
 "issue</a>. Tell us where you came from and what you were looking for, and "
 "we'll do our best to fix it."
 msgstr ""
+"어딘가에 있는 링크에서 접근했다면 <a href=\"%(url)s\">이슈를 올려</a>주세요. "
+"어디에서 왔으며 어떤 것을 찾으려 했는지 알려주시면 최선을 다해 고치도록 하겠"
+"습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "이 부가 기능은 제작자에 의해 삭제되었습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "이 부가 기능은 관리자에 의해 사용 정지 되었습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "죄송합니다. 입력하신 URL을 찾을 수 없습니다."
+msgstr "죄송합니다. 입력하신 URL에서 찾을 수가 없습니다."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49
 #: src/core/components/ErrorPage/NotFound/index.js:27
@@ -682,103 +675,101 @@ msgstr ""
 "죄송합니다. 서버에 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 "
 "오류는 빠르게 처리하겠습니다."
 
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "버그 신고나 지원 요청입니다"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "버그 신고 또는 지원 요청으로 표시됨"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "표시하기"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "표시됨"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 #, fuzzy
 msgid "Flag this developer response"
 msgstr "개발자 허브"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 #, fuzzy
 msgid "Flag this review"
 msgstr "탭하여 미리보기"
 
-#: src/amo/components/FlagReviewMenu/index.js:60
+#: src/amo/components/FlagReviewMenu/index.js:58
 #, fuzzy
 msgid "Log in to flag this response"
 msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
 
-#: src/amo/components/FlagReviewMenu/index.js:61
+#: src/amo/components/FlagReviewMenu/index.js:59
 #, fuzzy
 msgid "Log in to flag this review"
 msgstr "로그인하여 이 테마의 평점을 남겨주세요"
 
-#: src/amo/components/FlagReviewMenu/index.js:70
+#: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:71
+#: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
 msgstr ""
 
-#: src/amo/components/FlagReviewMenu/index.js:84
+#: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "스팸입니다"
 
-#: src/amo/components/FlagReviewMenu/index.js:85
+#: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "스팸으로 표시됨"
 
-#: src/amo/components/FlagReviewMenu/index.js:95
+#: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "부적절한 언어가 포함되어 있습니다"
 
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "부적절한 언어로 표시"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr ""
+msgstr "Android 브라우저"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS 브라우저"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
-msgstr ""
+msgstr "Focus 브라우저"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "데스크톱 브라우저"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "베타, 나이틀리, 개발자 버전"
 
 #: src/amo/components/Footer/index.js:146
-#, fuzzy
 msgid "Privacy"
-msgstr "개인정보 보호정책"
+msgstr "개인 정보"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "쿠키"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
-msgstr ""
+msgstr "법률"
 
 #: src/amo/components/Footer/index.js:149
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "오류 보고"
+msgstr "상표권 남용 신고"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -799,13 +790,13 @@ msgstr "소개"
 msgid "Blog"
 msgstr "블로그"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:84
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "개발자 허브"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "포럼"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
@@ -818,48 +809,48 @@ msgstr "리뷰 내용"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "사이트 상태"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
 msgstr "기존 데스크톱 사이트 보기"
 
-#: src/amo/components/Header/index.js:101
-msgid "View My Collections"
-msgstr ""
-
-#: src/amo/components/Header/index.js:106
+#: src/amo/components/Header/index.js:103
 msgid "View Profile"
-msgstr ""
+msgstr "프로필 보기"
 
-#: src/amo/components/Header/index.js:111
+#: src/amo/components/Header/index.js:108
 msgid "Edit Profile"
-msgstr ""
+msgstr "프로필 수정"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:112
 msgid "Tools"
-msgstr ""
+msgstr "도구"
 
-#: src/amo/components/Header/index.js:121
+#: src/amo/components/Header/index.js:118
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "새 부가 기능 등록"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:126
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "새 테마 등록"
 
-#: src/amo/components/Header/index.js:138
-#: src/core/components/AuthenticateButton/index.js:63
+#: src/amo/components/Header/index.js:135
+#: src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
 msgstr "로그아웃"
 
-#: src/amo/components/Header/index.js:61
+#: src/amo/components/Header/index.js:58
 msgid "Firefox Add-ons"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:92
 msgid "My Account"
-msgstr ""
+msgstr "내 계정"
+
+#: src/amo/components/Header/index.js:98
+msgid "View My Collections"
+msgstr "내 콜렉션 보기"
 
 #: src/amo/components/Home/index.js:117
 msgid "Abstract"
@@ -871,7 +862,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:127
 msgid "Film & TV"
-msgstr ""
+msgstr "영화와 TV"
 
 #: src/amo/components/Home/index.js:132
 #, fuzzy
@@ -880,7 +871,7 @@ msgstr "경치가 좋은"
 
 #: src/amo/components/Home/index.js:137
 msgid "Music"
-msgstr ""
+msgstr "음악"
 
 #: src/amo/components/Home/index.js:142
 msgid "Seasonal"
@@ -895,13 +886,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr ""
 
 #: src/amo/components/Home/index.js:222 src/amo/components/Search/index.js:148
-#, fuzzy
 msgid "Popular extensions"
-msgstr "가장 인기있는 확장 기능"
+msgstr "인기 확장 기능"
 
 #: src/amo/components/Home/index.js:223
 msgid "See more popular extensions"
-msgstr "인기있는 확장 기능 더보기"
+msgstr "인기 확장 기능 더보기"
 
 #: src/amo/components/Home/index.js:237
 #, fuzzy
@@ -934,11 +924,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:66
 msgid "Bookmarks"
-msgstr ""
+msgstr "북마크"
 
 #: src/amo/components/Home/index.js:70
 msgid "Password managers"
-msgstr ""
+msgstr "암호 관리자"
 
 #: src/amo/components/Home/index.js:74
 msgid "Ad blockers"
@@ -954,7 +944,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:86
 msgid "Watching Videos"
-msgstr ""
+msgstr "동영상 보기"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "LastPass Password Manager"
@@ -1075,31 +1065,31 @@ msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 msgid "Dictionaries"
 msgstr ""
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
 msgstr "로그인하여 이 사전의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this language pack"
 msgstr "로그인하여 이 언어 팩의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:140
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this search plugin"
 msgstr "로그인하여 이 검색 플러그인 평가하기"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"
 msgstr "로그인하여 이 테마의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:144
+#: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this extension"
 msgstr "로그인하여 이 확장 기능의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:150
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this add-on"
 msgstr "로그인하여 이 부가 기능의 평점을 남겨주세요"
 
-#: src/amo/components/RatingManager/index.js:189
+#: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "%(addonName)s 부가 기능을 어떻게 사용하셨나요?"
 
@@ -1244,80 +1234,78 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "카테고리가 없습니다."
 
-#: src/amo/components/SearchFilters/index.js:100
-#: src/amo/components/SearchFilters/index.js:110
-msgid "All"
-msgstr ""
-
 #: src/amo/components/SearchFilters/index.js:101
-#, fuzzy
+#: src/amo/components/SearchFilters/index.js:111
+msgid "All"
+msgstr "모두"
+
+#: src/amo/components/SearchFilters/index.js:102
 msgid "Extension"
 msgstr "확장 기능"
 
-#: src/amo/components/SearchFilters/index.js:102
-#, fuzzy
+#: src/amo/components/SearchFilters/index.js:103
 msgid "Theme"
 msgstr "테마"
 
-#: src/amo/components/SearchFilters/index.js:111
-msgid "Windows"
-msgstr ""
-
 #: src/amo/components/SearchFilters/index.js:112
-msgid "macOS"
-msgstr ""
+msgid "Windows"
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:113
-msgid "Linux"
-msgstr ""
+msgid "macOS"
+msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:121
+#: src/amo/components/SearchFilters/index.js:114
+msgid "Linux"
+msgstr "Linux"
+
+#: src/amo/components/SearchFilters/index.js:122
 msgid "Relevance"
 msgstr "관련성 높음"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:123
 msgid "Recently Updated"
 msgstr "최근 업데이트됨"
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:124
 msgid "Most Users"
 msgstr "많이 씀"
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
 msgstr "평점 높음"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
-msgstr ""
+msgstr "인기"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:136
 #, fuzzy
 msgid "Filter results"
 msgstr "테마 검색"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:143
 #, fuzzy
 msgid "Sort by"
 msgstr "정렬"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:165
 #, fuzzy
 msgid "Add-on Type"
 msgstr "Firefox 부가 기능"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
-msgstr ""
+msgstr "운영체제"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:211
 #, fuzzy
 msgid "Featured add-ons only"
 msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SearchForm/index.js:188
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "부가 기능 페이지로 가기"
 
 #: src/amo/components/SearchForm/index.js:206
 #, fuzzy
@@ -1361,7 +1349,7 @@ msgstr "Firefox 부가 기능을 검색하려면 검색어를 입력해주세요
 
 #: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "사전과 언어 팩"
 
 #: src/amo/components/SectionLinks/index.js:120
 #, fuzzy
@@ -1370,7 +1358,7 @@ msgstr "테마 검색"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "다른 브라우저 사이트"
 
 #: src/amo/components/SectionLinks/index.js:58
 #, fuzzy
@@ -1379,15 +1367,15 @@ msgstr "Firefox 부가 기능"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
-msgstr ""
+msgstr "Android 용"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
-msgstr ""
+msgstr "탐색"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "더보기…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid ""
@@ -1472,7 +1460,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "참여하기"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1500,7 +1488,7 @@ msgstr ""
 #: src/amo/components/StaticPages/ReviewGuide.js:24
 #: src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "가이드라인 검토"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
@@ -1665,7 +1653,7 @@ msgstr "모든 테마 탐색하기"
 msgid "Add-ons Home Page"
 msgstr "부가 기능 홈 페이지"
 
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/core/components/AuthenticateButton/index.js:74
 msgid "Register or Log in"
 msgstr ""
 
@@ -1754,7 +1742,7 @@ msgstr "미리보기 취소"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
-msgstr ""
+msgstr "텍스트를 입력하세요."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
@@ -1793,11 +1781,9 @@ msgstr "평가 없음"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">눌러서</span> 더보기"
 
-#, fuzzy
 #~ msgid "Top privacy extensions"
 #~ msgstr "가장 평점이 높은 확장 기능"
 
-#, fuzzy
 #~ msgid "See more tab extensions"
 #~ msgstr "확장 기능 검색"
 

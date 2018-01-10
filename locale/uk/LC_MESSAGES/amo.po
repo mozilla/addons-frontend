@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-07 08:07+0000\n"
+"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"PO-Revision-Date: 2018-01-10 07:24+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -22,98 +22,102 @@ msgstr "Скасувати перегляд"
 msgid "Tap to preview"
 msgstr "Торкніться для перегляду"
 
-#: src/amo/components/Addon/index.js:221
+#: src/amo/components/Addon/index.js:230
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "Цей додаток не можна оцінити, тому що він не має опублікованих версій."
+
+#: src/amo/components/Addon/index.js:239
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Читати %(count)s відгук"
 msgstr[1] "Читати всі %(count)s відгуки"
 msgstr[2] "Читати всі %(count)s відгуків"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:255
 msgid "No reviews yet"
 msgstr "Ще немає відгуків"
 
-#: src/amo/components/Addon/index.js:246
+#: src/amo/components/Addon/index.js:264
 msgid "Rate your experience"
 msgstr "Оцініть"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:282
 msgid "About this dictionary"
 msgstr "Про цей словник"
 
-#: src/amo/components/Addon/index.js:273
+#: src/amo/components/Addon/index.js:285
 msgid "About this extension"
 msgstr "Про це розширення"
 
-#: src/amo/components/Addon/index.js:276
+#: src/amo/components/Addon/index.js:288
 msgid "About this language pack"
 msgstr "Про цей мовний пакет"
 
-#: src/amo/components/Addon/index.js:279
+#: src/amo/components/Addon/index.js:291
 msgid "About this search plugin"
 msgstr "Про цей пошуковий плагін"
 
-#: src/amo/components/Addon/index.js:282
+#: src/amo/components/Addon/index.js:294
 msgid "About this theme"
 msgstr "Про цю тему"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:297
 msgid "About this add-on"
 msgstr "Про цей додаток"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
 msgstr "Примітки до випуску для %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:365
 msgid "More dictionaries by %(author)s"
 msgstr "Інші словники від %(author)s"
 
-#: src/amo/components/Addon/index.js:356
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by these translators"
 msgstr "Інші словники від цих перекладачів"
 
-#: src/amo/components/Addon/index.js:363
+#: src/amo/components/Addon/index.js:375
 msgid "More extensions by %(author)s"
 msgstr "Інші розширення від %(author)s"
 
-#: src/amo/components/Addon/index.js:366
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by these developers"
 msgstr "Інші розширення від цих розробників"
 
-#: src/amo/components/Addon/index.js:373
+#: src/amo/components/Addon/index.js:385
 msgid "More language packs by %(author)s"
 msgstr "Інші локалізації від %(author)s"
 
-#: src/amo/components/Addon/index.js:376
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by these translators"
 msgstr "Інші локалізації від цих перекладачів"
 
-#: src/amo/components/Addon/index.js:383
+#: src/amo/components/Addon/index.js:395
 msgid "More themes by %(author)s"
 msgstr "Інші теми від %(author)s"
 
-#: src/amo/components/Addon/index.js:386
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by these artists"
 msgstr "Інші теми від цих художників"
 
-#: src/amo/components/Addon/index.js:393
+#: src/amo/components/Addon/index.js:405
 msgid "More add-ons by %(author)s"
 msgstr "Інші додатки від %(author)s"
 
-#: src/amo/components/Addon/index.js:396
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by these developers"
 msgstr "Інші додатки від цих розробників"
 
-#: src/amo/components/Addon/index.js:476
+#: src/amo/components/Addon/index.js:488
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s від %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:542
+#: src/amo/components/Addon/index.js:554
 msgid "Extension Metadata"
 msgstr "Метадані розширення"
 
-#: src/amo/components/Addon/index.js:568
+#: src/amo/components/Addon/index.js:580
 msgid "Screenshots"
 msgstr "Знімки екрану"
 
@@ -207,59 +211,59 @@ msgstr "Використовується"
 msgid "Overall Rating"
 msgstr "Загальний рейтинг"
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:104
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:124
 msgid "Read the privacy policy for this add-on"
 msgstr "Ознайомитись з політикою приватності для цього додатку"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Read the license agreement for this add-on"
 msgstr "Ознайомитись з ліцензійною угодою для цього додатку"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:141
 msgid "See all versions"
 msgstr "Переглянути всі версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:151
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "See all beta versions"
 msgstr "Переглянути всі бета версії"
 
-#: src/amo/components/AddonMoreInfo/index.js:176
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Посилання додатку"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:191
 msgid "Version"
 msgstr "Версія"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:161
+#: src/amo/components/AddonMoreInfo/index.js:199 src/amo/components/Collection/index.js:161
 msgid "Last updated"
 msgstr "Востаннє оновлено"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:205
 msgid "License"
 msgstr "Ліцензія"
 
-#: src/amo/components/AddonMoreInfo/index.js:210
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Політика приватності"
 
-#: src/amo/components/AddonMoreInfo/index.js:217
+#: src/amo/components/AddonMoreInfo/index.js:219
 msgid "End-User License Agreement"
 msgstr "Ліцензійна угода з кінцевим користувачем"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:226
 msgid "Version History"
 msgstr "Історія версій"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:238
 msgid "Usage Statistics"
 msgstr "Статистика використання"
 
-#: src/amo/components/AddonMoreInfo/index.js:250
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "More information"
 msgstr "Більше інформації"
 
@@ -326,63 +330,63 @@ msgstr[2] "%(total)s відгуків на цей додаток"
 msgid "by %(authorList)s"
 msgstr "від %(authorList)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:150
+#: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
 msgstr "Відповідь розробника"
 
-#: src/amo/components/AddonReviewListItem/index.js:158
+#: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Write a reply to this review."
 msgstr "Напишіть відповідь на цей відгук."
 
-#: src/amo/components/AddonReviewListItem/index.js:161
+#: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
 msgstr "Оновити відповідь"
 
-#: src/amo/components/AddonReviewListItem/index.js:162
+#: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
 msgstr "Опублікувати відповідь"
 
-#: src/amo/components/AddonReviewListItem/index.js:166
+#: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
 msgstr "Оновлення відповіді"
 
-#: src/amo/components/AddonReviewListItem/index.js:167
+#: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
 msgstr "Публікація відповіді"
 
-#: src/amo/components/AddonReviewListItem/index.js:207
+#: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
 msgstr "опубліковано %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:211
+#: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "від %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:263
+#: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my reply"
 msgstr "Змінити відповідь"
 
-#: src/amo/components/AddonReviewListItem/index.js:264
+#: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my review"
 msgstr "Змінити відгук"
 
-#: src/amo/components/AddonReviewListItem/index.js:282
+#: src/amo/components/AddonReviewListItem/index.js:277
 msgid "Reply to this review"
 msgstr "Відповісти на цей відгук"
 
-#: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Додатки для Firefox"
 
-#: src/amo/components/App/index.js:206
+#: src/amo/components/App/index.js:204
 msgid "%s – Add-ons for Firefox"
 msgstr "%s – Додатки для Firefox"
 
-#: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Додатки для Android"
 
-#: src/amo/components/App/index.js:210
+#: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Android"
 msgstr "%s – Додатки для Android"
 
@@ -584,59 +588,59 @@ msgstr "Помилка сервера"
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr "Вибачте, але сталася помилка з нашим сервером, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "Це повідомлення про помилку або запит підтримки"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "Позначено як повідомлення про помилку або запит підтримки"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Позначити"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "Позначено"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "Позначити цю відповідь розробника"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "Позначити цей відгук"
 
-#: src/amo/components/FlagReviewMenu/index.js:60
+#: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
 msgstr "Увійдіть, щоб позначити цю відповідь"
 
-#: src/amo/components/FlagReviewMenu/index.js:61
+#: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
 msgstr "Увійдіть, щоб позначити цей відгук"
 
-#: src/amo/components/FlagReviewMenu/index.js:70
+#: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
 msgstr "Ви не можете позначити свою відповідь"
 
-#: src/amo/components/FlagReviewMenu/index.js:71
+#: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
 msgstr "Ви не можете позначити свій відгук"
 
-#: src/amo/components/FlagReviewMenu/index.js:84
+#: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
 msgstr "Це спам"
 
-#: src/amo/components/FlagReviewMenu/index.js:85
+#: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
 msgstr "Позначено як спам"
 
-#: src/amo/components/FlagReviewMenu/index.js:95
+#: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
 msgstr "Містить ненормативну лексику"
 
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
 msgstr "Позначено таким, що містить ненормативну лексику"
 
@@ -696,7 +700,7 @@ msgstr "Про"
 msgid "Blog"
 msgstr "Блог"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:84
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "Центр розробника"
 
@@ -720,41 +724,41 @@ msgstr "Статус сайту"
 msgid "View classic desktop site"
 msgstr "Переглянути повну версію сайту"
 
-#: src/amo/components/Header/index.js:101
-msgid "View My Collections"
-msgstr "Переглянути мої збірки"
-
-#: src/amo/components/Header/index.js:106
+#: src/amo/components/Header/index.js:103
 msgid "View Profile"
 msgstr "Переглянути профіль"
 
-#: src/amo/components/Header/index.js:111
+#: src/amo/components/Header/index.js:108
 msgid "Edit Profile"
 msgstr "Редагувати профіль"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:112
 msgid "Tools"
 msgstr "Інструменти"
 
-#: src/amo/components/Header/index.js:121
+#: src/amo/components/Header/index.js:118
 msgid "Submit a New Add-on"
 msgstr "Подати новий додаток"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:126
 msgid "Submit a New Theme"
 msgstr "Подати нову тему"
 
-#: src/amo/components/Header/index.js:138 src/core/components/AuthenticateButton/index.js:63
+#: src/amo/components/Header/index.js:135 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
 msgstr "Вийти"
 
-#: src/amo/components/Header/index.js:61
+#: src/amo/components/Header/index.js:58
 msgid "Firefox Add-ons"
 msgstr "Додатки Firefox"
 
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:92
 msgid "My Account"
 msgstr "Мій обліковий запис"
+
+#: src/amo/components/Header/index.js:98
+msgid "View My Collections"
+msgstr "Переглянути мої збірки"
 
 #: src/amo/components/Home/index.js:117
 msgid "Abstract"
@@ -797,29 +801,24 @@ msgid "See more popular extensions"
 msgstr "Більше популярних розширень"
 
 #: src/amo/components/Home/index.js:237
-#, fuzzy
 msgid "Top-rated Themes"
 msgstr "Найвище оцінені теми"
 
 #: src/amo/components/Home/index.js:238
-#, fuzzy
 msgid "See more highly rated Themes"
 msgstr "Більше найвище оцінених тем"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "Productivity tools"
-msgstr "Продуктивність"
+msgstr "Інструменти продуктивності"
 
 #: src/amo/components/Home/index.js:253
-#, fuzzy
 msgid "See more productivity tools"
-msgstr "Більше розширень для приватності"
+msgstr "Більше інструментів продуктивності"
 
 #: src/amo/components/Home/index.js:263
-#, fuzzy
 msgid "Privacy protection"
-msgstr "Політика приватності"
+msgstr "Захист приватності"
 
 #: src/amo/components/Home/index.js:264
 msgid "See more add-ons that protect your privacy"
@@ -874,9 +873,8 @@ msgid "Visual bookmarks for your favorite places on the web."
 msgstr "Візуальні закладки ваших улюблених місць в інтернеті."
 
 #: src/amo/components/HomeHeroBanner/index.js:57
-#, fuzzy
 msgid "Search by Image"
-msgstr "Пошук тем"
+msgstr "Пошук за зображенням"
 
 #: src/amo/components/HomeHeroBanner/index.js:60
 msgid "Reverse image search using various search engines."
@@ -954,31 +952,31 @@ msgstr "Мовні пакунки"
 msgid "Dictionaries"
 msgstr "Словники"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
 msgstr "Увійдіть, щоб оцінити цей словник"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this language pack"
 msgstr "Увійдіть, щоб оцінити цей мовний пакет"
 
-#: src/amo/components/RatingManager/index.js:140
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this search plugin"
 msgstr "Увійдіть, щоб оцінити цей пошуковий плагін"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"
 msgstr "Увійдіть, щоб оцінити цю тему"
 
-#: src/amo/components/RatingManager/index.js:144
+#: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this extension"
 msgstr "Увійдіть, щоб оцінити це розширення"
 
-#: src/amo/components/RatingManager/index.js:150
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this add-on"
 msgstr "Увійдіть, щоб оцінити цей додаток"
 
-#: src/amo/components/RatingManager/index.js:189
+#: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Які ваші враження від роботи з %(addonName)s?"
 
@@ -1113,67 +1111,67 @@ msgstr[0] "Знайдено %(count)s додаток"
 msgstr[1] "Знайдено %(count)s додатка"
 msgstr[2] "Знайдено %(count)s додатків"
 
-#: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:101 src/amo/components/SearchFilters/index.js:111
 msgid "All"
 msgstr "Всі"
 
-#: src/amo/components/SearchFilters/index.js:101
+#: src/amo/components/SearchFilters/index.js:102
 msgid "Extension"
 msgstr "Розширення"
 
-#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:103
 msgid "Theme"
 msgstr "Тема"
 
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:113
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:121
+#: src/amo/components/SearchFilters/index.js:122
 msgid "Relevance"
 msgstr "Відповідність"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:123
 msgid "Recently Updated"
 msgstr "Нещодавно оновлені"
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:124
 msgid "Most Users"
 msgstr "Найбільше користувачів"
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
 msgstr "Найвище оцінені"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
 msgstr "Популярні"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Filter results"
 msgstr "Фільтрувати результати"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Sort by"
 msgstr "Сортувати за"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
 msgstr "Тип додатку"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
 msgstr "Операційна система"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:211
 msgid "Featured add-ons only"
 msgstr "Лише відібрані додатки"
 
@@ -1493,7 +1491,7 @@ msgstr "Перегляд всіх тем"
 msgid "Add-ons Home Page"
 msgstr "Початкова сторінка додатків"
 
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/core/components/AuthenticateButton/index.js:74
 msgid "Register or Log in"
 msgstr "Реєстрація чи вхід"
 

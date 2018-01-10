@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:47+0000\n"
-"PO-Revision-Date: 2017-12-12 12:23+0000\n"
+"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"PO-Revision-Date: 2018-01-10 03:25+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -22,96 +22,100 @@ msgstr "取消預覽"
 msgid "Tap to preview"
 msgstr "點擊預覽"
 
-#: src/amo/components/Addon/index.js:221
+#: src/amo/components/Addon/index.js:230
+msgid "This add-on cannot be rated because no versions have been published."
+msgstr "因為還沒有公開發布任何版本，無法對此附加元件評分。"
+
+#: src/amo/components/Addon/index.js:239
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "閱讀全部 %(count)s 條評論"
 
-#: src/amo/components/Addon/index.js:237
+#: src/amo/components/Addon/index.js:255
 msgid "No reviews yet"
 msgstr "還沒有評論"
 
-#: src/amo/components/Addon/index.js:246
+#: src/amo/components/Addon/index.js:264
 msgid "Rate your experience"
 msgstr "為您的體驗打分數"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:282
 msgid "About this dictionary"
 msgstr "關於此字典"
 
-#: src/amo/components/Addon/index.js:273
+#: src/amo/components/Addon/index.js:285
 msgid "About this extension"
 msgstr "關於此擴充套件"
 
-#: src/amo/components/Addon/index.js:276
+#: src/amo/components/Addon/index.js:288
 msgid "About this language pack"
 msgstr "關於此語言套件"
 
-#: src/amo/components/Addon/index.js:279
+#: src/amo/components/Addon/index.js:291
 msgid "About this search plugin"
 msgstr "關於此搜尋引擎"
 
-#: src/amo/components/Addon/index.js:282
+#: src/amo/components/Addon/index.js:294
 msgid "About this theme"
 msgstr "關於此佈景主題"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:297
 msgid "About this add-on"
 msgstr "關於此附加元件"
 
-#: src/amo/components/Addon/index.js:324
+#: src/amo/components/Addon/index.js:336
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s 的新鮮事"
 
-#: src/amo/components/Addon/index.js:353
+#: src/amo/components/Addon/index.js:365
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s 製作的更多字典"
 
-#: src/amo/components/Addon/index.js:356
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by these translators"
 msgstr "這些翻譯者製作的更多字典"
 
-#: src/amo/components/Addon/index.js:363
+#: src/amo/components/Addon/index.js:375
 msgid "More extensions by %(author)s"
 msgstr "%(author)s 製作的更多擴充套件"
 
-#: src/amo/components/Addon/index.js:366
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by these developers"
 msgstr "這些開發者製作的更多擴充套件"
 
-#: src/amo/components/Addon/index.js:373
+#: src/amo/components/Addon/index.js:385
 msgid "More language packs by %(author)s"
 msgstr "%(author)s 製作的更多語言套件"
 
-#: src/amo/components/Addon/index.js:376
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by these translators"
 msgstr "這些翻譯者製作的更多語言套件"
 
-#: src/amo/components/Addon/index.js:383
+#: src/amo/components/Addon/index.js:395
 msgid "More themes by %(author)s"
 msgstr "%(author)s 製作的更多佈景主題"
 
-#: src/amo/components/Addon/index.js:386
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by these artists"
 msgstr "這些藝術家製作的更多佈景主題"
 
-#: src/amo/components/Addon/index.js:393
+#: src/amo/components/Addon/index.js:405
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s 製作的更多附加元件"
 
-#: src/amo/components/Addon/index.js:396
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by these developers"
 msgstr "這些開發者製作的更多附加元件"
 
-#: src/amo/components/Addon/index.js:476
+#: src/amo/components/Addon/index.js:488
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s<br>%(startSpan)s由 %(authorList)s 開發%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:542
+#: src/amo/components/Addon/index.js:554
 msgid "Extension Metadata"
 msgstr "擴充套件後設資料"
 
-#: src/amo/components/Addon/index.js:568
+#: src/amo/components/Addon/index.js:580
 msgid "Screenshots"
 msgstr "畫面擷圖"
 
@@ -201,59 +205,59 @@ msgstr "可用於"
 msgid "Overall Rating"
 msgstr "綜合評分"
 
-#: src/amo/components/AddonMoreInfo/index.js:102
+#: src/amo/components/AddonMoreInfo/index.js:104
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:122
+#: src/amo/components/AddonMoreInfo/index.js:124
 msgid "Read the privacy policy for this add-on"
 msgstr "閱讀此附加元件的隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:130
+#: src/amo/components/AddonMoreInfo/index.js:132
 msgid "Read the license agreement for this add-on"
 msgstr "閱讀此附加元件的授權協議"
 
-#: src/amo/components/AddonMoreInfo/index.js:139
+#: src/amo/components/AddonMoreInfo/index.js:141
 msgid "See all versions"
 msgstr "瀏覽所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:151
+#: src/amo/components/AddonMoreInfo/index.js:153
 msgid "See all beta versions"
 msgstr "瀏覽所有 Beta 測試版"
 
-#: src/amo/components/AddonMoreInfo/index.js:176
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "附加元件網址"
 
-#: src/amo/components/AddonMoreInfo/index.js:189
+#: src/amo/components/AddonMoreInfo/index.js:191
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:161
+#: src/amo/components/AddonMoreInfo/index.js:199 src/amo/components/Collection/index.js:161
 msgid "Last updated"
 msgstr "最近更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:205
 msgid "License"
 msgstr "授權條款"
 
-#: src/amo/components/AddonMoreInfo/index.js:210
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "隱私權保護政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:217
+#: src/amo/components/AddonMoreInfo/index.js:219
 msgid "End-User License Agreement"
 msgstr "終端使用者授權協議"
 
-#: src/amo/components/AddonMoreInfo/index.js:224
+#: src/amo/components/AddonMoreInfo/index.js:226
 msgid "Version History"
 msgstr "版本紀錄"
 
-#: src/amo/components/AddonMoreInfo/index.js:236
+#: src/amo/components/AddonMoreInfo/index.js:238
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:250
+#: src/amo/components/AddonMoreInfo/index.js:252
 msgid "More information"
 msgstr "更多資訊"
 
@@ -318,63 +322,63 @@ msgstr[0] "此附加元件有 %(total)s 筆評論"
 msgid "by %(authorList)s"
 msgstr "來自 %(authorList)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:150
+#: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
 msgstr "開發者回應"
 
-#: src/amo/components/AddonReviewListItem/index.js:158
+#: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Write a reply to this review."
 msgstr "對此評論撰寫回覆。"
 
-#: src/amo/components/AddonReviewListItem/index.js:161
+#: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
 msgstr "更新回覆"
 
-#: src/amo/components/AddonReviewListItem/index.js:162
+#: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
 msgstr "發布回覆"
 
-#: src/amo/components/AddonReviewListItem/index.js:166
+#: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
 msgstr "正在更新回覆"
 
-#: src/amo/components/AddonReviewListItem/index.js:167
+#: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
 msgstr "正在發布回覆"
 
-#: src/amo/components/AddonReviewListItem/index.js:207
+#: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
 msgstr "張貼於 %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:211
+#: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "來自 %(authorName)s，%(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:263
+#: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my reply"
 msgstr "編輯我的回覆"
 
-#: src/amo/components/AddonReviewListItem/index.js:264
+#: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my review"
 msgstr "編輯我的評論"
 
-#: src/amo/components/AddonReviewListItem/index.js:282
+#: src/amo/components/AddonReviewListItem/index.js:277
 msgid "Reply to this review"
 msgstr "回覆此評論"
 
-#: src/amo/components/App/index.js:205 src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
 msgstr "Firefox 的附加元件"
 
-#: src/amo/components/App/index.js:206
+#: src/amo/components/App/index.js:204
 msgid "%s – Add-ons for Firefox"
 msgstr "%s - Firefox 附加元件"
 
-#: src/amo/components/App/index.js:209 src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "Android 版的附加元件"
 
-#: src/amo/components/App/index.js:210
+#: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Android"
 msgstr "%s - Android 附加元件"
 
@@ -572,59 +576,59 @@ msgstr "伺服器錯誤"
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr "抱歉，我們的伺服器上有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
-#: src/amo/components/FlagReviewMenu/index.js:113
+#: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
 msgstr "這是臭蟲回報或技術支援請求"
 
-#: src/amo/components/FlagReviewMenu/index.js:116
+#: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
 msgstr "已標示為臭蟲回報或技術支援請求"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "標示"
 
-#: src/amo/components/FlagReviewMenu/index.js:131
+#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "已標示"
 
-#: src/amo/components/FlagReviewMenu/index.js:134
+#: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
 msgstr "標示這則開發者回應"
 
-#: src/amo/components/FlagReviewMenu/index.js:135
+#: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
 msgstr "標示此評論"
 
-#: src/amo/components/FlagReviewMenu/index.js:60
+#: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
 msgstr "登入後即可標示此回應"
 
-#: src/amo/components/FlagReviewMenu/index.js:61
+#: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
 msgstr "登入後即可標示此評論"
 
-#: src/amo/components/FlagReviewMenu/index.js:70
+#: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
 msgstr "您無法標示您自己的回應"
 
-#: src/amo/components/FlagReviewMenu/index.js:71
+#: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
 msgstr "您無法標示您自己的評論"
 
-#: src/amo/components/FlagReviewMenu/index.js:84
+#: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
 msgstr "這是垃圾留言"
 
-#: src/amo/components/FlagReviewMenu/index.js:85
+#: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
 msgstr "已標示為垃圾留言"
 
-#: src/amo/components/FlagReviewMenu/index.js:95
+#: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
 msgstr "包含不適當的言論"
 
-#: src/amo/components/FlagReviewMenu/index.js:98
+#: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
 msgstr "已標示包含不適當的言論"
 
@@ -682,7 +686,7 @@ msgstr "關於"
 msgid "Blog"
 msgstr "部落格"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:84
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:81
 msgid "Developer Hub"
 msgstr "開發者交流中心"
 
@@ -706,41 +710,41 @@ msgstr "網站狀態"
 msgid "View classic desktop site"
 msgstr "檢視傳統桌面版網站"
 
-#: src/amo/components/Header/index.js:101
-msgid "View My Collections"
-msgstr "檢視我的收藏集"
-
-#: src/amo/components/Header/index.js:106
+#: src/amo/components/Header/index.js:103
 msgid "View Profile"
 msgstr "檢視個人資料"
 
-#: src/amo/components/Header/index.js:111
+#: src/amo/components/Header/index.js:108
 msgid "Edit Profile"
 msgstr "編輯個人資料"
 
-#: src/amo/components/Header/index.js:115
+#: src/amo/components/Header/index.js:112
 msgid "Tools"
 msgstr "工具"
 
-#: src/amo/components/Header/index.js:121
+#: src/amo/components/Header/index.js:118
 msgid "Submit a New Add-on"
 msgstr "上架新附加元件"
 
-#: src/amo/components/Header/index.js:129
+#: src/amo/components/Header/index.js:126
 msgid "Submit a New Theme"
 msgstr "上架新佈景主題"
 
-#: src/amo/components/Header/index.js:138 src/core/components/AuthenticateButton/index.js:63
+#: src/amo/components/Header/index.js:135 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
 msgstr "登出"
 
-#: src/amo/components/Header/index.js:61
+#: src/amo/components/Header/index.js:58
 msgid "Firefox Add-ons"
 msgstr "Firefox 附加元件"
 
-#: src/amo/components/Header/index.js:95
+#: src/amo/components/Header/index.js:92
 msgid "My Account"
 msgstr "我的帳號"
+
+#: src/amo/components/Header/index.js:98
+msgid "View My Collections"
+msgstr "檢視我的收藏集"
 
 #: src/amo/components/Home/index.js:117
 msgid "Abstract"
@@ -934,31 +938,31 @@ msgstr "語言套件"
 msgid "Dictionaries"
 msgstr "字典"
 
-#: src/amo/components/RatingManager/index.js:136
+#: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
 msgstr "登入後即可為此字典評分"
 
-#: src/amo/components/RatingManager/index.js:138
+#: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this language pack"
 msgstr "登入後即可為此語言套件評分"
 
-#: src/amo/components/RatingManager/index.js:140
+#: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this search plugin"
 msgstr "登入後即可為此搜尋引擎評分"
 
-#: src/amo/components/RatingManager/index.js:142
+#: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"
 msgstr "登入後即可為此佈景主題評分"
 
-#: src/amo/components/RatingManager/index.js:144
+#: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this extension"
 msgstr "登入後即可幫此擴充套件評分"
 
-#: src/amo/components/RatingManager/index.js:150
+#: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this add-on"
 msgstr "登入後即可為此附加元件評分"
 
-#: src/amo/components/RatingManager/index.js:189
+#: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "您有多喜歡 %(addonName)s 的使用體驗？"
 
@@ -1077,67 +1081,67 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "找到 %(count)s 套附加元件"
 
-#: src/amo/components/SearchFilters/index.js:100 src/amo/components/SearchFilters/index.js:110
+#: src/amo/components/SearchFilters/index.js:101 src/amo/components/SearchFilters/index.js:111
 msgid "All"
 msgstr "所有"
 
-#: src/amo/components/SearchFilters/index.js:101
+#: src/amo/components/SearchFilters/index.js:102
 msgid "Extension"
 msgstr "擴充套件"
 
-#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:103
 msgid "Theme"
 msgstr "佈景主題"
 
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:112
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:113
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:114
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:121
+#: src/amo/components/SearchFilters/index.js:122
 msgid "Relevance"
 msgstr "相關性"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:123
 msgid "Recently Updated"
 msgstr "最近更新"
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:124
 msgid "Most Users"
 msgstr "最多使用者"
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
 msgstr "評分最高"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
 msgstr "熱門趨勢"
 
-#: src/amo/components/SearchFilters/index.js:135
+#: src/amo/components/SearchFilters/index.js:136
 msgid "Filter results"
 msgstr "過濾結果"
 
-#: src/amo/components/SearchFilters/index.js:142
+#: src/amo/components/SearchFilters/index.js:143
 msgid "Sort by"
 msgstr "排序依照"
 
-#: src/amo/components/SearchFilters/index.js:164
+#: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
 msgstr "附加元件類型"
 
-#: src/amo/components/SearchFilters/index.js:184
+#: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
 msgstr "作業系統"
 
-#: src/amo/components/SearchFilters/index.js:210
+#: src/amo/components/SearchFilters/index.js:211
 msgid "Featured add-ons only"
 msgstr "僅精選附加元件"
 
@@ -1436,7 +1440,7 @@ msgstr "瀏覽所有佈景主題"
 msgid "Add-ons Home Page"
 msgstr "附加元件站首頁"
 
-#: src/core/components/AuthenticateButton/index.js:64
+#: src/core/components/AuthenticateButton/index.js:74
 msgid "Register or Log in"
 msgstr "註冊或登入"
 
