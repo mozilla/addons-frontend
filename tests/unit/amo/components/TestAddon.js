@@ -980,18 +980,18 @@ describe(__filename, () => {
       const root = shallowRender({
         addon: addonWithVersion(...args),
       });
-      return root.find('.AddonDescription-version-notes p').render();
+      return root.find('.AddonDescription-version-notes div').render();
     }
 
     it('is hidden when an add-on has not loaded yet', () => {
       const root = shallowRender({ addon: undefined });
-      expect(root.find('.AddonDescription-version-notes p'))
+      expect(root.find('.AddonDescription-version-notes div'))
         .toHaveLength(0);
     });
 
     it('is hidden when the add-on does not have a current version', () => {
       const root = shallowRender({ addon: addonWithVersion(null) });
-      expect(root.find('.AddonDescription-version-notes p'))
+      expect(root.find('.AddonDescription-version-notes div'))
         .toHaveLength(0);
     });
 
@@ -999,7 +999,7 @@ describe(__filename, () => {
       const root = shallowRender({
         addon: addonWithVersion({ release_notes: null }),
       });
-      expect(root.find('.AddonDescription-version-notes p'))
+      expect(root.find('.AddonDescription-version-notes div'))
         .toHaveLength(0);
     });
 
@@ -1019,7 +1019,7 @@ describe(__filename, () => {
           release_notes: 'Fixed some stuff',
         }),
       });
-      const notes = root.find('.AddonDescription-version-notes p');
+      const notes = root.find('.AddonDescription-version-notes div');
       expect(notes.html()).toContain('Fixed some stuff');
     });
 
@@ -1029,6 +1029,15 @@ describe(__filename, () => {
       });
       expect(root.html()).toMatch(
         new RegExp('<b>lots</b> <i>of</i> bug fixes')
+      );
+    });
+
+    it('allows some ul-li tags', () => {
+      const root = getReleaseNotes({
+        release_notes: '<b>The List</b><ul><li>one</li><li>two</li></ul>',
+      });
+      expect(root.html()).toMatch(
+        new RegExp('<b>The List</b><ul><li>one</li><li>two</li></ul>')
       );
     });
   });
