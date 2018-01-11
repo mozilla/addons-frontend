@@ -1,7 +1,8 @@
 /* @flow */
 import { callApi, allPages } from 'core/api';
 import type {
-  ExternalCollectionAddon, ExternalCollectionDetail,
+  ExternalCollectionAddon,
+  ExternalCollectionDetail,
 } from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
 import type { PaginatedApiResponse } from 'core/types/api';
@@ -53,6 +54,9 @@ export const getCollectionAddons = (
     params: undefined,
     state: api,
   };
+  // If a page is requested explicitly, pass it to callApi().
+  // By default, this code does not define request.params because doing so
+  // would overwrite any query string params in nextURL.
   if (page) {
     request.params = { page };
   }
