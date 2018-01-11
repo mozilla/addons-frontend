@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-11 11:30+0000\n"
+"PO-Revision-Date: 2018-01-11 11:51+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -29,12 +29,12 @@ msgstr "Добавката не може да бъде оценявана, за�
 #: src/amo/components/Addon/index.js:239
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "Прочетете %(count)s рецензия"
-msgstr[1] "Прочетете всички %(count)s рецензии"
+msgstr[0] "Прочетете %(count)s отзив"
+msgstr[1] "Прочетете всички %(count)s отзива"
 
 #: src/amo/components/Addon/index.js:255
 msgid "No reviews yet"
-msgstr "Няма рецензии"
+msgstr "Няма отзиви"
 
 #: src/amo/components/Addon/index.js:264
 msgid "Rate your experience"
@@ -188,17 +188,17 @@ msgstr "Няма потребители"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Reviews"
-msgstr "Рецензии"
+msgstr "Отзиви"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Рецензия"
-msgstr[1] "Рецензии"
+msgstr[0] "Отзив"
+msgstr[1] "Отзиви"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Reviews"
-msgstr "Няма рецензии"
+msgstr "Няма отзиви"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
@@ -282,7 +282,7 @@ msgstr "Табло със статистика"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Разкажете на света защо смятате, че това разширение е чудесно! Моля, следвайте %(linkStart)sнапътствията за писане на рецензии%(linkEnd)s."
+msgstr "Разкажете на света защо смятате, че това разширение е чудесно! Моля, следвайте %(linkStart)sнасоки за писане на отзиви%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -290,7 +290,7 @@ msgstr "Разкажете ни защо харесвате това разши�
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Разкажете на света за това разширение! Моля, следвайте %(linkStart)sнапътствията за писане на рецензии%(linkEnd)s."
+msgstr "Разкажете на света за това разширение! Моля, следвайте %(linkStart)sнасоките за писане на отзиви%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
@@ -298,15 +298,15 @@ msgstr "Разкажете ни за своя опит с това разшир�
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
-msgstr "Писане на рецензия"
+msgstr "Писане на отзив"
 
 #: src/amo/components/AddonReview/index.js:213
 msgid "Review text"
-msgstr "Текст на рецензията"
+msgstr "Текст на отзива"
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
-msgstr "Писане на рецензия"
+msgstr "Писане на отзив"
 
 #: src/amo/components/AddonReviewList/index.js:166
 msgid "Add-on icon"
@@ -314,13 +314,13 @@ msgstr "Пиктограма на добавката"
 
 #: src/amo/components/AddonReviewList/index.js:172
 msgid "Reviews for %(addonName)s"
-msgstr "Рецензии за %(addonName)s"
+msgstr "Отзиви за %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:184
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s рецензия към добавката"
-msgstr[1] "%(total)s рецензии към добавката"
+msgstr[0] "%(total)s отзив към добавката"
+msgstr[1] "%(total)s отзива към добавката"
 
 #: src/amo/components/AddonReviewList/index.js:212
 msgid "by %(authorList)s"
@@ -708,7 +708,7 @@ msgstr "Докладване на дефект"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr "Насоки за писане на рецензии"
+msgstr "Насоки за писане на отзиви"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -1323,7 +1323,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Съвети за писане на добри отзиви"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1347,15 +1347,15 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Кои възможности харесвате или не харесвате?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Полезна ли е?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Лесно ли се използва?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
@@ -1411,37 +1411,41 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:74
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Често задавани въпроси за отзивите"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr "Как да съобщя за некоректна рецензия?"
+msgstr "Как да съобщя за некоректен отзив?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
 "Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
 "evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
+"Моля, докладвайте или сигнализирайте всеки съмнителен отзив с избиране на „Докладване на отзива“ и ще бъде изпратен към модератор. Нашият редакторски екип ще използва напътствията за писане на "
+"отзиви, за да прецени дали да изтрие отзива или да го върне."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:82
 msgid "I'm an add-on author, can I respond to reviews?"
-msgstr "Аз съм автор на добавки, мога ли да отговарям на рецензиите?"
+msgstr "Аз съм автор на добавки, мога ли да отговарям на отзивите?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:88
 msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
+"Да, авторите на добавки може да дадат един отговор на отзив. Можете да направите тема на обсъждане в нашия %(startLink)sфорум%(endLink)s, за да привлечете участници в допълнителни обсъждания и "
+"дискусии."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:96
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr "Аз съм автор на добавки, мога ли да изтривам неблагоприятните рецензии и оценки?"
+msgstr "Аз съм автор на добавки, мога ли да изтривам неблагоприятните отзиви и оценки?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:97
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"В общия случай, не. Но ако рецензията не отговаря на критериите по-горе може да изберете „Докладване на рецензията“ и ще бъде редактирана. В случай, че рецензията съдържа оплакване, причината за "
-"което е отстранена в ново издание на добавката, ще бъде разгледана и възможността за изтриването на рецензията."
+"В общия случай, не. Но ако отзива не отговаря на критериите по-горе може да изберете „Докладване на отзива“ и ще бъде редактиран. В случай, че той съдържа оплакване, причината за което е отстранена "
+"в ново издание на добавката, ще бъде разгледана и възможността за изтриването му."
 
 #: src/amo/components/SuggestedPages/index.js:21
 msgid "Suggested Pages"
