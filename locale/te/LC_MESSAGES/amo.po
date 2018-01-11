@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-10 09:11+0000\n"
+"PO-Revision-Date: 2018-01-11 10:25+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -127,7 +127,7 @@ msgstr "పొడిగింతలను శోధించు"
 
 #: src/amo/components/AddonBadges/index.js:32
 msgid "Featured Theme"
-msgstr ""
+msgstr "విశేష అలంకారం"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/AddonBadges/index.js:34
@@ -141,7 +141,7 @@ msgstr "పునఃప్రారంభం అవసరం"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "ప్రయోగాత్మకం"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
@@ -182,8 +182,8 @@ msgstr "వాడురులు"
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "వాడుకరి"
+msgstr[1] "వాడుకరులు"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -261,7 +261,7 @@ msgstr "వెర్షన్ చరిత్ర"
 
 #: src/amo/components/AddonMoreInfo/index.js:238
 msgid "Usage Statistics"
-msgstr ""
+msgstr "వాడుక గణాంకాలు"
 
 #: src/amo/components/AddonMoreInfo/index.js:252
 msgid "More information"
@@ -486,7 +486,7 @@ msgstr "పొడిగింతలు"
 
 #: src/amo/components/Collection/index.js:155
 msgid "Creator"
-msgstr ""
+msgstr "సృష్టికర్త"
 
 #: src/amo/components/Collection/index.js:168
 #, fuzzy
@@ -656,19 +656,19 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
-msgstr ""
+msgstr "ఆండ్రాయిడ్ విహారిణి"
 
 #: src/amo/components/Footer/index.js:107
 msgid "iOS Browser"
-msgstr ""
+msgstr "iOS విహారిణి"
 
 #: src/amo/components/Footer/index.js:112
 msgid "Focus Browser"
-msgstr ""
+msgstr "ఫోకస్ విహారిణి"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "డెస్క్‌టాప్ విహారిణి"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
@@ -680,7 +680,7 @@ msgstr "గోప్యత"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "కుకీలు"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
@@ -702,11 +702,11 @@ msgstr "Mozilla యొక్క నివాసపేజీకి వెళ్�
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "గురించి"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "బ్లాగు"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:81
 msgid "Developer Hub"
@@ -714,7 +714,7 @@ msgstr "డెవలపర్ కేంద్రం"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "ఫోరం"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
@@ -726,7 +726,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "సైటు స్థితి"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
@@ -742,7 +742,7 @@ msgstr "ప్రొఫైల్‌ను సవరించు"
 
 #: src/amo/components/Header/index.js:112
 msgid "Tools"
-msgstr ""
+msgstr "పనిముట్లు"
 
 #: src/amo/components/Header/index.js:118
 msgid "Submit a New Add-on"
@@ -1061,7 +1061,7 @@ msgstr "ప్రాచుర్య అలంకారాలు"
 
 #: src/amo/components/Search/index.js:154
 msgid "Popular add-ons"
-msgstr ""
+msgstr "ప్రాచుర్య పొడగింతలు"
 
 #: src/amo/components/Search/index.js:161
 msgid "Search results for \"%(query)s\""
@@ -1101,8 +1101,8 @@ msgstr[1] ""
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "\"%(query)s\"కి %(count)s ఫలితం"
+msgstr[1] "\"%(query)s\"కి %(count)s ఫలితాలు"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
@@ -1537,7 +1537,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "%(totalPages)sలో %(currentPage)sవ పేజీ"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
