@@ -16,6 +16,7 @@ import {
 } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
+import type { PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
 
@@ -265,3 +266,42 @@ export function autocomplete({ api, filters }: AutocompleteParams) {
     state: api,
   });
 }
+
+type GetNextResponseType =
+  (nextURL?: string) => Promise<PaginatedApiResponse<any>>;
+
+type AllPagesOptions = {| pageLimit: number |};
+
+export const allPages = async (
+  getNextResponse: GetNextResponseType,
+  { pageLimit = 100 }: AllPagesOptions = {},
+): Promise<PaginatedApiResponse<any>> => {
+  let results = [];
+  let nextURL;
+  let count = 0;
+  let pageSize = 0;
+
+  for (let page = 1; page <= pageLimit; page++) {
+    // eslint-disable-next-line no-await-in-loop
+    const response = await getNextResponse(nextURL);
+    if (!count) {
+      // Every response page returns a count for all results.
+      count = response.count;
+    }
+    if (!pageSize) {
+      pageSize = response.page_size;
+    }
+    results = results.concat(response.results);
+
+    if (response.next) {
+      nextURL = response.next;
+      log.debug(oneLine`Fetching next page "${nextURL}" of
+        ${getNextResponse}`);
+    } else {
+      return { count, page_size: pageSize, results };
+    }
+  }
+
+  // If we get this far the callback may not be advancing pages correctly.
+  throw new Error(`Fetched too many pages (the limit is ${pageLimit})`);
+};
