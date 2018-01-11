@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-11 11:51+0000\n"
+"PO-Revision-Date: 2018-01-11 12:10+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -1327,23 +1327,23 @@ msgstr "Съвети за писане на добри отзиви"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "Трябва да"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Пишете така, както бихте разказали на приятел за своя опит с тази добавка."
+msgstr "Пишете така, както бихте разказали на приятел за опита си с добавката."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr ""
+msgstr "Пишете кратки и лесни за разбиране отзиви."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "Дайте конкретни и полезни детайли. Например"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Добавката работи ли по очаквания от вас начин?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
@@ -1355,11 +1355,11 @@ msgstr "Полезна ли е?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr "Лесно ли се използва?"
+msgstr "Лесна ли е за ползване?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
-msgstr "Ще продължите ли да използвате добавката?"
+msgstr "Ще продължите ли да я използвате?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1367,11 +1367,11 @@ msgstr "Отделете време да прочетете отново отз�
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
-msgstr ""
+msgstr "Не трябва да"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Отправяте отзиви, съдържащи само една дума като „Отлично!“, „чудесно“ или „лошо“."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
@@ -1415,7 +1415,7 @@ msgstr "Често задавани въпроси за отзивите"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "How can I report a problematic review?"
-msgstr "Как да съобщя за некоректен отзив?"
+msgstr "Как да съобщя за спорен отзив?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:77
 msgid ""
