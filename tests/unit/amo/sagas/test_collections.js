@@ -2,8 +2,11 @@ import SagaTester from 'redux-saga-tester';
 
 import * as collectionsApi from 'amo/api/collections';
 import collectionsReducer, {
+  abortAddAddonToCollection,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  addAddonToCollection,
+  addonAddedToCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
@@ -14,9 +17,7 @@ import collectionsReducer, {
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
 import { parsePage } from 'core/utils';
-import {
-  apiResponsePage, createStubErrorHandler,
-} from 'tests/unit/helpers';
+import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
   createFakeCollectionDetail,
@@ -204,15 +205,13 @@ describe(__filename, () => {
       const externalCollections = [firstCollection, secondCollection];
 
       mockApi
-        .expects('listCollections')
+        .expects('getAllUserCollections')
         .withArgs({
           api: state.api,
           user: userId,
         })
         .once()
-        .returns(Promise.resolve(apiResponsePage({
-          results: externalCollections,
-        })));
+        .returns(Promise.resolve(externalCollections));
 
       _fetchUserCollections({ userId });
 
@@ -243,7 +242,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
 
       mockApi
-        .expects('listCollections')
+        .expects('getAllUserCollections')
         .once()
         .returns(Promise.reject(error));
 
@@ -254,6 +253,85 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
       expect(sagaTester.getCalledActions()[3])
         .toEqual(abortFetchUserCollections({ userId }));
+    });
+  });
+
+  describe('addAddonToCollection', () => {
+    const _addAddonToCollection = (params = {}) => {
+      sagaTester.dispatch(addAddonToCollection({
+        addonId: 543,
+        collectionId: 321,
+        collectionSlug: 'some-collection',
+        errorHandlerId: errorHandler.id,
+        userId: 321,
+        ...params,
+      }));
+    };
+
+    it('posts an add-on to a collection', async () => {
+      const collectionSlug = 'a-collection';
+      const params = {
+        addonId: 123,
+        collectionId: 5432,
+        collectionSlug,
+        userId: 543,
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('addAddonToCollection')
+        .withArgs({
+          addon: params.addonId,
+          api: state.api,
+          collection: collectionSlug,
+          notes: undefined,
+          user: params.userId,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _addAddonToCollection(params);
+
+      const expectedLoadAction = addonAddedToCollection({
+        addonId: params.addonId,
+        collectionId: params.collectionId,
+        userId: params.userId,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('clears the error handler', async () => {
+      _addAddonToCollection();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('dispatches an error', async () => {
+      const addonId = 8876;
+      const userId = 12334;
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('addAddonToCollection')
+        .returns(Promise.reject(error));
+
+      _addAddonToCollection({ addonId, userId });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[3])
+        .toEqual(abortAddAddonToCollection({ addonId, userId }));
     });
   });
 });

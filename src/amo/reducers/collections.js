@@ -1,7 +1,11 @@
 /* @flow */
+import { oneLine } from 'common-tags';
+
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
+export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION'
+  = 'ADD_ADDON_TO_COLLECTION';
 export const FETCH_CURRENT_COLLECTION: 'FETCH_CURRENT_COLLECTION'
   = 'FETCH_CURRENT_COLLECTION';
 export const FETCH_USER_COLLECTIONS: 'FETCH_USER_COLLECTIONS'
@@ -16,8 +20,14 @@ export const ABORT_FETCH_CURRENT_COLLECTION: 'ABORT_FETCH_CURRENT_COLLECTION'
   = 'ABORT_FETCH_CURRENT_COLLECTION';
 export const ABORT_FETCH_USER_COLLECTIONS: 'ABORT_FETCH_USER_COLLECTIONS'
   = 'ABORT_FETCH_USER_COLLECTIONS';
+export const ABORT_ADD_ADDON_TO_COLLECTION: 'ABORT_ADD_ADDON_TO_COLLECTION'
+  = 'ABORT_ADD_ADDON_TO_COLLECTION';
 export const LOAD_USER_COLLECTIONS: 'LOAD_USER_COLLECTIONS'
   = 'LOAD_USER_COLLECTIONS';
+export const ADDON_ADDED_TO_COLLECTION: 'ADDON_ADDED_TO_COLLECTION'
+  = 'ADDON_ADDED_TO_COLLECTION';
+export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
+  = 'LOAD_COLLECTION_ADDONS';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -32,7 +42,7 @@ export type CollectionType = {
   slug: string,
 };
 
-type CollectionId = number;
+export type CollectionId = number;
 
 export type CollectionsState = {
   byId: {
@@ -48,9 +58,20 @@ export type CollectionsState = {
   |},
   userCollections: {
     [userId: number]: {|
+      // This is a list of all collections belonging to the user.
       collections: Array<CollectionId> | null,
       loading: boolean,
     |};
+  },
+  addonInCollections: {
+    [userId: number]: {
+      [addonId: number]: {|
+        // This is a list of all user collections that the add-on
+        // is a part of.
+        collections: Array<CollectionId> | null,
+        loading: boolean,
+      |};
+    },
   },
 };
 
@@ -59,6 +80,7 @@ export const initialState: CollectionsState = {
   bySlug: {},
   current: { id: null, loading: false },
   userCollections: {},
+  addonInCollections: {},
 };
 
 type FetchCurrentCollectionParams = {|
@@ -106,8 +128,7 @@ type FetchUserCollectionsAction = {|
 |};
 
 export const fetchUserCollections = ({
-  errorHandlerId,
-  userId,
+  errorHandlerId, userId,
 }: FetchUserCollectionsParams = {}): FetchUserCollectionsAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
@@ -141,6 +162,32 @@ export const abortFetchUserCollections = (
   return {
     type: ABORT_FETCH_USER_COLLECTIONS,
     payload: { userId },
+  };
+};
+
+type AbortAddAddonToCollectionParams = {|
+  userId: number,
+  addonId: number,
+|};
+
+type AbortAddAddonToCollectionAction = {|
+  type: typeof ABORT_ADD_ADDON_TO_COLLECTION,
+  payload: AbortAddAddonToCollectionParams,
+|};
+
+export const abortAddAddonToCollection = (
+  { userId, addonId }: AbortAddAddonToCollectionParams = {}
+): AbortAddAddonToCollectionAction => {
+  if (!userId) {
+    throw new Error('userId is required');
+  }
+  if (!addonId) {
+    throw new Error('addonId is required');
+  }
+
+  return {
+    type: ABORT_ADD_ADDON_TO_COLLECTION,
+    payload: { userId, addonId },
   };
 };
 
@@ -262,6 +309,32 @@ export const loadCurrentCollectionPage = ({
   };
 };
 
+type LoadCollectionAddonsParams = {|
+  addons: ExternalCollectionAddons,
+  collectionSlug: string,
+|};
+
+type LoadCollectionAddonsAction = {|
+  type: typeof LOAD_COLLECTION_ADDONS,
+  payload: LoadCollectionAddonsParams,
+|};
+
+export const loadCollectionAddons = ({
+  addons, collectionSlug,
+}: LoadCollectionAddonsParams = {}): LoadCollectionAddonsAction => {
+  if (!addons) {
+    throw new Error('The addons parameter is required');
+  }
+  if (!collectionSlug) {
+    throw new Error('The collectionSlug parameter is required');
+  }
+
+  return {
+    type: LOAD_COLLECTION_ADDONS,
+    payload: { addons, collectionSlug },
+  };
+};
+
 type LoadUserCollectionsParams = {|
   userId: number,
   collections: Array<ExternalCollectionDetail>,
@@ -288,6 +361,36 @@ export const loadUserCollections = (
   };
 };
 
+type AddonAddedToCollectionParams = {|
+  addonId: number,
+  userId: number,
+  collectionId: CollectionId,
+|};
+
+type AddonAddedToCollectionAction = {|
+  type: typeof ADDON_ADDED_TO_COLLECTION,
+  payload: AddonAddedToCollectionParams,
+|};
+
+export const addonAddedToCollection = (
+  { addonId, userId, collectionId }: AddonAddedToCollectionParams = {}
+): AddonAddedToCollectionAction => {
+  if (!addonId) {
+    throw new Error('The addonId parameter is required');
+  }
+  if (!userId) {
+    throw new Error('The userId parameter is required');
+  }
+  if (!collectionId) {
+    throw new Error('The collectionId parameter is required');
+  }
+
+  return {
+    type: ADDON_ADDED_TO_COLLECTION,
+    payload: { addonId, userId, collectionId },
+  };
+};
+
 type AbortFetchCurrentCollection = {|
   type: typeof ABORT_FETCH_CURRENT_COLLECTION,
 |};
@@ -296,10 +399,46 @@ export const abortFetchCurrentCollection = (): AbortFetchCurrentCollection => {
   return { type: ABORT_FETCH_CURRENT_COLLECTION };
 };
 
-type CreateInternalCollectionParams = {|
-  detail: ExternalCollectionDetail,
-  items?: ExternalCollectionAddons,
+type AddAddonToCollectionParams = {|
+  addonId: number,
+  collectionId: CollectionId,
+  collectionSlug: string,
+  errorHandlerId: string,
+  notes?: string,
+  userId: number,
 |};
+
+type AddAddonToCollectionAction = {|
+  type: typeof ADD_ADDON_TO_COLLECTION,
+  payload: AddAddonToCollectionParams,
+|};
+
+export const addAddonToCollection = ({
+  addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
+}: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
+  if (!addonId) {
+    throw new Error('The addonId parameter is required');
+  }
+  if (!collectionId) {
+    throw new Error('The collectionId parameter is required');
+  }
+  if (!collectionSlug) {
+    throw new Error('The collectionSlug parameter is required');
+  }
+  if (!errorHandlerId) {
+    throw new Error('The errorHandlerId parameter is required');
+  }
+  if (!userId) {
+    throw new Error('The userId parameter is required');
+  }
+
+  return {
+    type: ADD_ADDON_TO_COLLECTION,
+    payload: {
+      addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
+    },
+  };
+};
 
 export const createInternalAddons = (
   items: ExternalCollectionAddons
@@ -341,6 +480,11 @@ export const getCurrentCollection = (
   return getCollectionById({ id: state.current.id, state });
 };
 
+type CreateInternalCollectionParams = {|
+  detail: ExternalCollectionDetail,
+  items?: ExternalCollectionAddons,
+|};
+
 export const createInternalCollection = ({
   detail,
   items,
@@ -357,15 +501,81 @@ export const createInternalCollection = ({
   slug: detail.slug,
 });
 
+type LoadCollectionIntoStateParams = {|
+  state: CollectionsState,
+  collection: ExternalCollectionDetail,
+  addons?: ExternalCollectionAddons,
+|};
+
+export const loadCollectionIntoState = (
+  { state, collection, addons }: LoadCollectionIntoStateParams
+): CollectionsState => {
+  const existingCollection = state.byId[collection.id];
+  const internalCollection = createInternalCollection({
+    detail: collection, items: addons,
+  });
+  // In case the new collection isn't loaded with add-ons,
+  // make sure we don't overwrite any existing addons.
+  if (!internalCollection.addons && existingCollection) {
+    internalCollection.addons = existingCollection.addons;
+  }
+
+  return {
+    ...state,
+    byId: {
+      ...state.byId,
+      [internalCollection.id]: internalCollection,
+    },
+    bySlug: {
+      ...state.bySlug,
+      [internalCollection.slug]: internalCollection.id,
+    },
+  };
+};
+
+type ChangeAddonCollectionsLoadingFlagParams = {|
+  addonId: number,
+  userId: number,
+  state: CollectionsState,
+  loading: boolean,
+|};
+
+export const changeAddonCollectionsLoadingFlag = (
+  {
+    addonId, userId, state, loading,
+  }: ChangeAddonCollectionsLoadingFlagParams = {}
+): CollectionsState => {
+  const userState = state.addonInCollections[userId];
+  const addonState = userState && userState[addonId];
+
+  return {
+    ...state,
+    addonInCollections: {
+      ...state.addonInCollections,
+      [userId]: {
+        ...userState,
+        [addonId]: {
+          collections: addonState ? addonState.collections : null,
+          loading,
+        },
+      },
+    },
+  };
+};
+
 type Action =
-  | FetchCurrentCollectionAction
-  | LoadCurrentCollectionAction
-  | FetchCurrentCollectionPageAction
-  | LoadCurrentCollectionPageAction
   | AbortFetchCurrentCollection
-  | FetchUserCollectionsAction
-  | LoadUserCollectionsAction
+  | AbortAddAddonToCollectionAction
   | AbortFetchUserCollectionsAction
+  | AddAddonToCollectionAction
+  | AddonAddedToCollectionAction
+  | FetchCurrentCollectionAction
+  | FetchCurrentCollectionPageAction
+  | FetchUserCollectionsAction
+  | LoadCollectionAddonsAction
+  | LoadCurrentCollectionAction
+  | LoadCurrentCollectionPageAction
+  | LoadUserCollectionsAction
 ;
 
 const reducer = (
@@ -409,19 +619,12 @@ const reducer = (
     case LOAD_CURRENT_COLLECTION: {
       const { addons, detail } = action.payload;
 
+      const newState = loadCollectionIntoState({
+        state, collection: detail, addons: addons.results,
+      });
+
       return {
-        ...state,
-        byId: {
-          ...state.byId,
-          [detail.id]: createInternalCollection({
-            detail,
-            items: addons.results,
-          }),
-        },
-        bySlug: {
-          ...state.bySlug,
-          [detail.slug]: detail.id,
-        },
+        ...newState,
         current: {
           id: detail.id,
           loading: false,
@@ -450,6 +653,29 @@ const reducer = (
         current: {
           id: state.current.id,
           loading: false,
+        },
+      };
+    }
+
+    case LOAD_COLLECTION_ADDONS: {
+      const { addons, collectionSlug } = action.payload;
+
+      const collectionId = state.bySlug[collectionSlug];
+      if (!collectionId) {
+        throw new Error(
+          oneLine`Cannot load add-ons for collection
+          "${collectionSlug}" because the collection has not
+          been loaded yet`);
+      }
+      const collection = state.byId[collectionId];
+      return {
+        ...state,
+        byId: {
+          ...state.byId,
+          [collectionId]: {
+            ...collection,
+            addons: createInternalAddons(addons),
+          },
         },
       };
     }
@@ -496,16 +722,15 @@ const reducer = (
     case LOAD_USER_COLLECTIONS: {
       const { collections, userId } = action.payload;
 
-      const byId = { ...state.byId };
+      let newState = { ...state };
       collections.forEach((collection) => {
-        byId[collection.id] = createInternalCollection({
-          detail: collection,
+        newState = loadCollectionIntoState({
+          state: newState, collection,
         });
       });
 
       return {
-        ...state,
-        byId,
+        ...newState,
         userCollections: {
           ...state.userCollections,
           [userId]: {
@@ -514,6 +739,58 @@ const reducer = (
           },
         },
       };
+    }
+
+    case ADDON_ADDED_TO_COLLECTION: {
+      const { addonId, collectionId, userId } = action.payload;
+
+      const addonInCollections = state.addonInCollections;
+      let collections = [];
+      if (
+        addonInCollections[userId] &&
+        addonInCollections[userId][addonId]
+      ) {
+        const existingCollections =
+          addonInCollections[userId][addonId].collections;
+        if (existingCollections) {
+          collections = existingCollections;
+        }
+      }
+      return {
+        ...state,
+        addonInCollections: {
+          ...state.addonInCollections,
+          [userId]: {
+            ...state.addonInCollections[userId],
+            [addonId]: {
+              collections: collections.concat([collectionId]),
+              loading: false,
+            },
+          },
+        },
+      };
+    }
+
+    case ADD_ADDON_TO_COLLECTION: {
+      const { addonId, userId } = action.payload;
+
+      return changeAddonCollectionsLoadingFlag({
+        addonId,
+        userId,
+        state,
+        loading: true,
+      });
+    }
+
+    case ABORT_ADD_ADDON_TO_COLLECTION: {
+      const { addonId, userId } = action.payload;
+
+      return changeAddonCollectionsLoadingFlag({
+        addonId,
+        userId,
+        state,
+        loading: false,
+      });
     }
 
     default:
