@@ -1,0 +1,97 @@
+@import "~core/css/inc/mixins";
+@import "~core/css/inc/vars";
+@import "~ui/css/vars";
+@import "~photon-colors/colors";
+
+.Notice {
+  border-radius: $border-radius-s;
+  display: grid;
+  font-size: $font-size-s;
+  grid-gap: 4px;
+  grid-template-columns: 20px auto;
+  line-height: 15px;
+  min-height: 20px;
+  padding: 4px;
+
+  &.Notice-with-action {
+    grid-template-columns: 20px fit-content(50%) auto;
+  }
+}
+
+.Notice-icon {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.Notice-column {
+  align-items: center;
+  display: flex;
+}
+
+.Notice-text {
+  margin: 0;
+  padding: 4px 0;
+
+  // Even though the grid has a 4px spacing,
+  // the spec calls for additional spacing
+  // in front of the action button *or* the
+  // end of the text block when there's no button.
+  @include padding-end(4px);
+}
+
+@mixin notice_button() {
+  &,
+  &.Button--small {
+    border: none;
+    font-size: $font-size-s;
+    line-height: 15px;
+    padding: 6px;
+    text-shadow: none;
+    width: max-content;
+  }
+}
+
+.Notice-error {
+  .Notice-button {
+    @include button(
+      $background: $red-60,
+      $background-active: $red-80,
+      $background-hover: $red-70,
+      $color: $white
+    );
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url("./media/exclamation.svg");
+  }
+
+  background-color: $red-50;
+  color: $white;
+}
+
+.Notice-success {
+  .Notice-button {
+    @include button(
+      $background: $green-60,
+      $background-active: $green-80,
+      $background-hover: $green-70,
+      $color: $green-90
+    );
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url("./media/check-mark.svg");
+  }
+
+  background-color: $green-50;
+  color: $green-90;
+}
