@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-14 08:14+0000\n"
+"PO-Revision-Date: 2018-01-14 19:04+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -612,7 +612,7 @@ msgstr "შედით ანგარიშზე პასუხის გა
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr "შედით ანგარიშზე მიმოხილვის გასაჩივრებისთვის"
+msgstr "შედით ანგარიშზე გასაჩივრებისთვის"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
