@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-14 08:07+0000\n"
+"PO-Revision-Date: 2018-01-14 08:14+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -716,7 +716,7 @@ msgstr "საიტის მდგომარეობა"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
-msgstr "საიტის ვერსია კომპიუტერისთვის"
+msgstr "საიტის ძველი ვერსია"
 
 #: src/amo/components/Header/index.js:103
 msgid "View Profile"
