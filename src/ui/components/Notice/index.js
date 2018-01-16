@@ -44,11 +44,7 @@ const Notice = ({
     );
   }
 
-  const finalClass = makeClassName(
-    'Notice', `Notice-${type}`, className, {
-      'Notice-with-action': !!actionButton,
-    },
-  );
+  const finalClass = makeClassName('Notice', `Notice-${type}`, className);
   return (
     <div className={finalClass}>
       <div className="Notice-icon" />

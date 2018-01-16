@@ -38,16 +38,13 @@ describe(__filename, () => {
   it('hides action buttons by default', () => {
     const root = render();
 
-    expect(root).not.toHaveClassName('.Notice-with-action');
-    // There should only be an icon + one column.
-    expect(root.find('.Notice-column')).toHaveLength(1);
+    expect(root.find('.Notice-button')).toHaveLength(0);
   });
 
   it('renders an action button', () => {
     const action = sinon.stub();
     const root = render({ action, actionText: 'some text' });
 
-    expect(root).toHaveClassName('.Notice-with-action');
     const button = root.find('.Notice-button');
     expect(button).toHaveLength(1);
     expect(button.html()).toContain('some text');
