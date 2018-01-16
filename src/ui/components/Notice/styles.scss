@@ -8,19 +8,21 @@
   display: grid;
   font-size: $font-size-s;
   grid-gap: 4px;
-  grid-template-columns: 20px auto;
+  grid-template-columns: min-content auto;
   line-height: 15px;
-  min-height: 20px;
   padding: 4px;
 
   &.Notice-with-action {
-    grid-template-columns: 20px fit-content(50%) auto;
+    grid-template-columns: min-content fit-content(50%) auto;
   }
 }
 
 .Notice-icon {
   background-position: center;
   background-repeat: no-repeat;
+  margin: 4px;
+  min-height: 16px;
+  width: 16px;
 }
 
 .Notice-column {
@@ -30,7 +32,7 @@
 
 .Notice-text {
   margin: 0;
-  padding: 4px 0;
+  padding: 0;
 
   // Even though the grid has a 4px spacing,
   // the spec calls for additional spacing
