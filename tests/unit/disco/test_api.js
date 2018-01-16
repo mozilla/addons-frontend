@@ -15,7 +15,7 @@ describe(__filename, () => {
   beforeEach(() => {
     callApiMock = sinon.stub(coreApi, 'callApi');
     fakeConfig = getFakeConfig({
-      taarParamsToUse: ['fakeTestParam', 'platform', 'telemetry-client-id'],
+      taarParamsToUse: ['clientId', 'platform'],
     });
     const store = createStore().store;
     apiState = dispatchClientMetadata({ store }).state.api;
@@ -42,8 +42,8 @@ describe(__filename, () => {
       getDiscoveryAddons({
         api: apiState,
         taarParams: {
+          clientId: telemetryClientId,
           platform: 'Darwin',
-          'telemetry-client-id': telemetryClientId,
         },
         _config: fakeConfig,
       });
@@ -54,6 +54,44 @@ describe(__filename, () => {
           platform: 'Darwin',
           'telemetry-client-id': telemetryClientId,
         },
+        schema: { results: [discoResult] },
+        state: apiState,
+      });
+    });
+
+    it('allows new TAAR params from config', () => {
+      getDiscoveryAddons({
+        api: apiState,
+        taarParams: {
+          fakeTestParam: 'foo',
+          platform: 'Darwin',
+        },
+        _config: getFakeConfig({
+          taarParamsToUse: ['fakeTestParam', 'platform'],
+        }),
+      });
+
+      sinon.assert.calledWith(callApiMock, {
+        endpoint: 'discovery',
+        params: { fakeTestParam: 'foo', platform: 'Darwin' },
+        schema: { results: [discoResult] },
+        state: apiState,
+      });
+    });
+
+    it('ignores unknown TAAR params', () => {
+      getDiscoveryAddons({
+        api: apiState,
+        taarParams: {
+          badParam: 'foo',
+          platform: 'Darwin',
+        },
+        _config: fakeConfig,
+      });
+
+      sinon.assert.calledWith(callApiMock, {
+        endpoint: 'discovery',
+        params: { platform: 'Darwin' },
         schema: { results: [discoResult] },
         state: apiState,
       });

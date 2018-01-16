@@ -53,8 +53,10 @@ module.exports = {
     },
   },
   taarParamsToUse: [
+    'branch',
+    'clientId',
     'platform',
-    'telemetry-client-id',
+    'study',
   ],
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',

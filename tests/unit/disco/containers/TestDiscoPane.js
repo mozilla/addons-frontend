@@ -212,10 +212,7 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
-        taarParams: {
-          platform: 'Darwin',
-          'telemetry-client-id': undefined,
-        },
+        taarParams: { platform: 'Darwin' },
       }));
     });
 
@@ -235,9 +232,54 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
         taarParams: {
+          clientId: location.query.clientId,
           platform: 'Darwin',
-          'telemetry-client-id': location.query.clientId,
         },
+      }));
+    });
+
+    it('dispatches all query params', () => {
+      const location = {
+        query: {
+          branch: 'foo',
+          clientId: 'telemetry-client-id',
+          study: 'bar',
+        },
+      };
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      // Set up some empty results so that the component fetches new ones.
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, location, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id,
+        taarParams: {
+          branch: 'foo',
+          clientId: location.query.clientId,
+          platform: 'Darwin',
+          study: 'bar',
+        },
+      }));
+    });
+
+    it('does not allow platform to be overriden', () => {
+      const location = {
+        query: {
+          platform: 'bar',
+        },
+      };
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      // Set up some empty results so that the component fetches new ones.
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, location, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id,
+        taarParams: { platform: 'Darwin' },
       }));
     });
 

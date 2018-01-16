@@ -22,6 +22,12 @@ export function getDiscoveryAddons({ api, taarParams = {}, _config = config }) {
     return object;
   }, {});
 
+  // We translate `clientId` to `'telemetry-client-id'`.
+  if (allowedTaarParams.clientId) {
+    allowedTaarParams['telemetry-client-id'] = allowedTaarParams.clientId;
+    delete allowedTaarParams.clientId;
+  }
+
   return callApi({
     endpoint: 'discovery',
     params: allowedTaarParams,
