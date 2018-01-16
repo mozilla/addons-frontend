@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"POT-Creation-Date: 2018-01-16 22:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -143,31 +143,31 @@ msgstr "ʅɐʇuǝɯıɹǝdxƎ"
 msgid "Not compatible with Firefox Quantum"
 msgstr "ɯnʇuɐnÒ xoɟǝɹıℲ ɥʇıʍ ǝʅqıʇɐdɯoɔ ʇoN"
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr ".uo-ppɐ sıɥʇ ʅʅɐʇsuı oʇ <a href=\"%(downloadUrl)s\">xoɟǝɹıℲ pɐoʅuʍop</a> oʇ pǝǝu no⅄"
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr ".xoɟǝɹıℲ ɟo uoısɹǝʌ ɹnoʎ ɥʇıʍ ǝʅqıʇɐdɯoɔ ʇou sı uo-ppɐ sıɥ⊥"
 
-#: src/amo/components/AddonCompatibilityError/index.js:68
+#: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
 msgstr ".suıƃnʅd ɥɔɹɐǝs ʇɹoddns ʇou sǝop xoɟǝɹıℲ ɟo uoısɹǝʌ ɹno⅄"
 
-#: src/amo/components/AddonCompatibilityError/index.js:71
+#: src/amo/components/AddonCompatibilityError/index.js:72
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ".suo-ppɐ ʇɹoddns ʎʅʇuǝɹɹnɔ ʇou sǝop SOı ɹoɟ xoɟǝɹıℲ"
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
 msgstr ".ɯɹoɟʇɐʅd ɹnoʎ uo ǝʅqɐʅıɐʌɐ ʇou sı uo-ppɐ sıɥ⊥"
 
-#: src/amo/components/AddonCompatibilityError/index.js:77
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ".%(yourVersion)s xoɟǝɹıℲ ƃuısn ǝɹɐ no⅄ .(%(minVersion)s uoısɹǝʌ ʇsɐǝʅ ʇɐ) <a href=\"%(downloadUrl)s\">xoɟǝɹıℲ ɟo uoısɹǝʌ ɹǝʍǝu</a> ɐ sǝɹınbǝɹ uo-ppɐ sıɥ⊥"
 
-#: src/amo/components/AddonCompatibilityError/index.js:91
+#: src/amo/components/AddonCompatibilityError/index.js:92
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr ".uo-ppɐ sıɥʇ ʅʅɐʇsuı oʇ <a href=\"%(downloadUrl)s\">xoɟǝɹıℲ pɐoʅuʍop</a> uɐɔ no⅄ .suo-ppɐ ʇɹoddns ʇou sǝop ɹǝsʍoɹq ɹno⅄"
 
@@ -619,12 +619,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "ʇsǝnbǝɹ ʇɹoddns ɹo ʇɹodǝɹ ƃnq ɐ sɐ pǝƃƃɐʅℲ"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "ƃɐʅℲ"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "pǝƃƃɐʅℲ"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flag"
+msgstr "ƃɐʅℲ"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -1570,7 +1570,7 @@ msgstr "pǝɹıdxǝ sɐɥ uoıssǝs ɹno⅄"
 msgid "An unexpected error occurred"
 msgstr "pǝɹɹnɔɔo ɹoɹɹǝ pǝʇɔǝdxǝun u∀"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "ǝnuıʇuoↃ o⊥ pɐoʅǝᴚ"
 

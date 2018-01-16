@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"POT-Creation-Date: 2018-01-16 22:05+0000\n"
 "PO-Revision-Date: 2018-01-08 07:06+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
@@ -144,7 +144,7 @@ msgstr "Armitan"
 msgid "Not compatible with Firefox Quantum"
 msgstr "Ur imṣada ara d Firefox Quantum"
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -152,23 +152,23 @@ msgstr ""
 "Tesrid <a href=\"%(downloadUrl)s\">asider n Firefox</a> akken ad tesbeddeḍ "
 "azegrir-ik."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Asentel agi ur imṣada ara kked lqem inek n Firefox"
 
-#: src/amo/components/AddonCompatibilityError/index.js:68
+#: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Lqem-ik n Freifox ur isefrak ara izegrar n unadi."
 
-#: src/amo/components/AddonCompatibilityError/index.js:71
+#: src/amo/components/AddonCompatibilityError/index.js:72
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox i iOS ur isefrak-ara yakan azegrir-agi."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
 msgstr "Azegrir-agi ur yelli ara i telɣubliṭ inek."
 
-#: src/amo/components/AddonCompatibilityError/index.js:77
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -176,7 +176,7 @@ msgstr ""
 "Azegrir-agi yesra <a href=\"%(downloadUrl)s\">lqem amaynut n Firefox</a> "
 "(xaṛsum lqem %(minVersion)s). Aql-ak tseqdaceḍ Firefox %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:91
+#: src/amo/components/AddonCompatibilityError/index.js:92
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -706,12 +706,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Yettwacreḍ d tuzna n ubug neɣ asuter n tallelt"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+#, fuzzy
+msgid "Flagged"
 msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-#, fuzzy
-msgid "Flagged"
+msgid "Flag"
 msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -1772,7 +1772,7 @@ msgstr "Tiɣimit-ik tfuk"
 msgid "An unexpected error occurred"
 msgstr "Teḍra-d tuccḍa tarussint"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Smiren akken ad tkemmleḍ"
 
