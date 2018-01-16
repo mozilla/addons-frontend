@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"POT-Creation-Date: 2018-01-16 22:05+0000\n"
 "PO-Revision-Date: 2017-12-26 23:58+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -144,7 +144,7 @@ msgstr "Πειραματικό"
 msgid "Not compatible with Firefox Quantum"
 msgstr "Μη συμβατό με το Firefox Quantum"
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -152,24 +152,24 @@ msgstr ""
 "Πρέπει να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να "
 "εγκαταστήσετε αυτό το πρόσθετο."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Αυτό το πρόσθετο δεν είναι συμβατό με την έκδοση του Firefox σας."
 
-#: src/amo/components/AddonCompatibilityError/index.js:68
+#: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
 msgstr ""
 "Η έκδοση του Firefox σας δεν υποστηρίζει πρόσθετες λειτουργίες αναζήτησης."
 
-#: src/amo/components/AddonCompatibilityError/index.js:71
+#: src/amo/components/AddonCompatibilityError/index.js:72
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ο Firefox για iOS προς το παρόν δεν υποστηρίζει πρόσθετα."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
 msgstr "Αυτό το πρόσθετο δεν είναι διαθέσιμο στην πλατφόρμα σας."
 
-#: src/amo/components/AddonCompatibilityError/index.js:77
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -178,7 +178,7 @@ msgstr ""
 "έκδοση του Firefox</a> (τουλάχιστον %(minVersion)s). Η έκδοση του Firefox "
 "σας είναι η %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:91
+#: src/amo/components/AddonCompatibilityError/index.js:92
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -705,12 +705,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "Επισήμανση"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "Επισημάνθηκε"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flag"
+msgstr "Επισήμανση"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 #, fuzzy
@@ -1766,7 +1766,7 @@ msgstr "Η συνεδρία σας έχει λήξει"
 msgid "An unexpected error occurred"
 msgstr "Προέκυψε απροσδόκητο σφάλμα"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Επαναφορτώστε τη σελίδα για να συνεχίσετε"
 
