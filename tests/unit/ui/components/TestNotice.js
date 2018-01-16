@@ -39,7 +39,7 @@ describe(__filename, () => {
     const root = render();
 
     expect(root).not.toHaveClassName('.Notice-with-action');
-    // There should only be one column besides the icon.
+    // There should only be an icon + one column.
     expect(root.find('.Notice-column')).toHaveLength(1);
   });
 
