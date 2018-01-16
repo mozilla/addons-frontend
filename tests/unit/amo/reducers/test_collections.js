@@ -1,6 +1,9 @@
 import reducer, {
+  abortAddAddonToCollection,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  addAddonToCollection,
+  addonAddedToCollection,
   createInternalAddons,
   createInternalCollection,
   fetchCurrentCollection,
@@ -9,6 +12,8 @@ import reducer, {
   getCollectionById,
   getCurrentCollection,
   initialState,
+  loadCollectionAddons,
+  loadCollectionIntoState,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -240,7 +245,7 @@ describe(__filename, () => {
       expect(userState.collections).toEqual(null);
     });
 
-    it('loads user collections', () => {
+    it('loads user collections by ID', () => {
       const userId = 321;
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
@@ -257,6 +262,161 @@ describe(__filename, () => {
         .toEqual(createInternalCollection({ detail: firstCollection }));
       expect(state.byId[userState.collections[1]])
         .toEqual(createInternalCollection({ detail: secondCollection }));
+    });
+
+    it('loads user collections by slug', () => {
+      const userId = 321;
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      const state = reducer(undefined, loadUserCollections({
+        userId, collections: [collection],
+      }));
+
+      const userState = state.userCollections[userId];
+      expect(userState.collections).toEqual([1]);
+
+      expect(state.bySlug[collection.slug]).toEqual(collection.id);
+    });
+
+    it('sets a loading flag when begining to add add-on to collection', () => {
+      const addonId = 871;
+      const userId = 321;
+
+      const state = reducer(undefined, addAddonToCollection({
+        addonId,
+        userId,
+        collectionId: 321,
+        collectionSlug: 'some-collection',
+        errorHandlerId: 'error-handler',
+      }));
+
+      const savedState = state.addonInCollections[userId][addonId];
+      expect(savedState).toBeDefined();
+      expect(savedState.loading).toEqual(true);
+      expect(savedState.collections).toEqual(null);
+    });
+
+    it('preserves existing collections when adding new ones', () => {
+      const addonId = 871;
+      const userId = 321;
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      // Add an add-on to a collection
+      let state = reducer(undefined, addonAddedToCollection({
+        userId, addonId, collectionId: collection.id,
+      }));
+
+      state = reducer(state, addAddonToCollection({
+        addonId,
+        userId,
+        collectionId: 321,
+        collectionSlug: 'some-collection',
+        errorHandlerId: 'error-handler',
+      }));
+
+      const savedState = state.addonInCollections[userId][addonId];
+      // The old collections should be preserved.
+      expect(savedState.collections).toEqual([collection.id]);
+    });
+
+    it('aborts adding an add-on to a collection', () => {
+      const addonId = 721;
+      const userId = 321;
+
+      // Begin adding the add-on to a new collection.
+      let state = reducer(undefined, addAddonToCollection({
+        addonId,
+        userId,
+        collectionId: 321,
+        collectionSlug: 'some-collection',
+        errorHandlerId: 'error-handler',
+      }));
+
+      state = reducer(state, abortAddAddonToCollection({ addonId, userId }));
+
+      const savedState = state.addonInCollections[userId][addonId];
+      expect(savedState.collections).toEqual(null);
+      expect(savedState.loading).toEqual(false);
+    });
+
+    it('preserves collection data when aborting new additions', () => {
+      const addonId = 721;
+      const userId = 321;
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      // Add an add-on to a collection
+      let state = reducer(undefined, addonAddedToCollection({
+        userId, addonId, collectionId: collection.id,
+      }));
+
+      // Begin adding the add-on to a new collection.
+      state = reducer(state, addAddonToCollection({
+        addonId,
+        userId,
+        collectionId: 321,
+        collectionSlug: 'some-collection',
+        errorHandlerId: 'error-handler',
+      }));
+
+      state = reducer(state, abortAddAddonToCollection({ addonId, userId }));
+
+      const savedState = state.addonInCollections[userId][addonId];
+      // The old collections should be preserved.
+      expect(savedState.collections).toEqual([collection.id]);
+    });
+
+    it('adds an add-on to a collection', () => {
+      const addonId = 611;
+      const userId = 321;
+      const collection = createFakeCollectionDetail({ id: 1 });
+
+      const state = reducer(undefined, addonAddedToCollection({
+        userId, addonId, collectionId: collection.id,
+      }));
+
+      const savedState = state.addonInCollections[userId][addonId];
+      expect(savedState.loading).toEqual(false);
+      expect(savedState.collections).toEqual([collection.id]);
+    });
+
+    it('appends a new add-on to the list of its collections', () => {
+      const addonId = 611;
+      const userId = 321;
+      const firstCollection = createFakeCollectionDetail({ id: 1 });
+      const secondCollection = createFakeCollectionDetail({ id: 2 });
+
+      let state = reducer(undefined, addonAddedToCollection({
+        userId, addonId, collectionId: firstCollection.id,
+      }));
+      state = reducer(state, addonAddedToCollection({
+        userId, addonId, collectionId: secondCollection.id,
+      }));
+
+      const savedState = state.addonInCollections[userId][addonId];
+      expect(savedState.collections)
+        .toEqual([firstCollection.id, secondCollection.id]);
+    });
+  });
+
+  describe('loadCollectionIntoState', () => {
+    it('preserves existing collection addons', () => {
+      const addons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const collection = createFakeCollectionDetail({
+        id: 1, addons,
+      });
+
+      let state = loadCollectionIntoState({
+        state: initialState, collection, addons: addons.results,
+      });
+
+      // Simulate loading it a second time but without addons.
+      state = loadCollectionIntoState({ state, collection });
+
+      const collectionInState = state.byId[collection.id];
+      expect(collectionInState.addons)
+        .toEqual(createInternalAddons(addons.results));
     });
   });
 
@@ -298,7 +458,7 @@ describe(__filename, () => {
   describe('fetchUserCollections', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      userId: Date.now(),
+      userId: 1,
     };
 
     it('throws an error when userId is missing', () => {
@@ -319,9 +479,7 @@ describe(__filename, () => {
   });
 
   describe('abortFetchUserCollections', () => {
-    const defaultParams = {
-      userId: Date.now(),
-    };
+    const defaultParams = { userId: 1 };
 
     it('throws an error when userId is missing', () => {
       const params = { ...defaultParams };
@@ -329,6 +487,26 @@ describe(__filename, () => {
 
       expect(() => abortFetchUserCollections(params))
         .toThrow(/userId is required/);
+    });
+  });
+
+  describe('abortAddAddonToCollection', () => {
+    const defaultParams = { userId: 1, addonId: 2 };
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => abortAddAddonToCollection(params))
+        .toThrow(/userId is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => abortAddAddonToCollection(params))
+        .toThrow(/addonId is required/);
     });
   });
 
@@ -352,6 +530,38 @@ describe(__filename, () => {
 
       expect(() => loadUserCollections(params))
         .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('addonAddedToCollection', () => {
+    const defaultParams = {
+      addonId: 2221,
+      userId: 4321,
+      collectionId: 2345,
+    };
+
+    it('throws an error when collectionId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.collectionId;
+
+      expect(() => addonAddedToCollection(params))
+        .toThrow(/collectionId parameter is required/);
+    });
+
+    it('throws an error when userId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.userId;
+
+      expect(() => addonAddedToCollection(params))
+        .toThrow(/userId parameter is required/);
+    });
+
+    it('throws an error when addonId is missing', () => {
+      const params = { ...defaultParams };
+      delete params.addonId;
+
+      expect(() => addonAddedToCollection(params))
+        .toThrow(/addonId parameter is required/);
     });
   });
 
@@ -499,6 +709,120 @@ describe(__filename, () => {
       }));
 
       expect(getCurrentCollection(state)).toEqual(internalCollection);
+    });
+  });
+
+  describe('addAddonToCollection', () => {
+    const getParams = () => {
+      return {
+        addonId: 123,
+        collectionId: 5432,
+        collectionSlug: 'my-collection',
+        errorHandlerId: 'some-error-handler',
+        userId: 654,
+      };
+    };
+
+    it('requires an addonId', () => {
+      const params = getParams();
+      delete params.addonId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/addonId parameter is required/);
+    });
+
+    it('requires a collectionId', () => {
+      const params = getParams();
+      delete params.collectionId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/collectionId parameter is required/);
+    });
+
+    it('requires a collectionSlug', () => {
+      const params = getParams();
+      delete params.collectionSlug;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/collectionSlug parameter is required/);
+    });
+
+    it('requires an errorHandlerId', () => {
+      const params = getParams();
+      delete params.errorHandlerId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/errorHandlerId parameter is required/);
+    });
+
+    it('requires a userId', () => {
+      const params = getParams();
+      delete params.userId;
+
+      expect(() => addAddonToCollection(params))
+        .toThrow(/userId parameter is required/);
+    });
+  });
+
+  describe('loadCollectionAddons', () => {
+    const getParams = (params = {}) => {
+      return {
+        addons: createFakeCollectionAddons().results,
+        collectionSlug: 'my-collection',
+        ...params,
+      };
+    };
+
+    it('loads collection add-ons', () => {
+      const addons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 1 }],
+      });
+      const collectionDetail = createFakeCollectionDetail();
+
+      // Load a collection with add-ons.
+      let state = reducer(undefined, loadCurrentCollection({
+        addons, detail: collectionDetail,
+      }));
+
+      // Load new add-ons for the collection.
+      const newAddons = createFakeCollectionAddons({
+        addons: [{ ...fakeAddon, id: 2 }],
+      });
+      state = reducer(state, loadCollectionAddons({
+        addons: newAddons.results,
+        collectionSlug: collectionDetail.slug,
+      }));
+
+      expect(state.byId[collectionDetail.id].addons)
+        .toEqual(createInternalAddons(newAddons.results));
+    });
+
+    it('requires a loaded collection first', () => {
+      const addons = createFakeCollectionAddons().results;
+      expect(() => {
+        reducer(undefined, loadCollectionAddons({
+          addons,
+          // This collection has not been loaded into state yet.
+          collectionSlug: 'a-collection',
+        }));
+      })
+        .toThrow(/Cannot load add-ons for collection/);
+    });
+
+    it('requires an addons parameter', () => {
+      const params = getParams();
+      delete params.addons;
+
+      expect(() => loadCollectionAddons(params))
+        .toThrow(/addons parameter is required/);
+    });
+
+    it('requires a collectionId parameter', () => {
+      const params = getParams();
+      delete params.collectionSlug;
+
+      expect(() => loadCollectionAddons(params))
+        .toThrow(/collectionSlug parameter is required/);
     });
   });
 });

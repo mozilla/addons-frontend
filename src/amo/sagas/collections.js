@@ -1,10 +1,13 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
+  ADD_ADDON_TO_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
+  abortAddAddonToCollection,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
+  addonAddedToCollection,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -84,24 +87,48 @@ export function* fetchUserCollections({
   payload: { errorHandlerId, userId },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
-
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
 
-    const collections = yield call(api.listCollections, {
-      api: state.api,
-      user: userId,
+    const collections = yield call(api.getAllUserCollections, {
+      api: state.api, user: userId,
     });
 
-    yield put(loadUserCollections({
-      userId, collections: collections.results,
-    }));
+    yield put(loadUserCollections({ userId, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
     yield put(abortFetchUserCollections({ userId }));
+  }
+}
+
+export function* addAddonToCollection({
+  payload: {
+    addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
+  },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+    yield call(api.addAddonToCollection, {
+      addon: addonId,
+      api: state.api,
+      collection: collectionSlug,
+      notes,
+      user: userId,
+    });
+
+    yield put(addonAddedToCollection({
+      addonId, userId, collectionId,
+    }));
+  } catch (error) {
+    log.warn(`Failed to add add-on to collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    yield put(abortAddAddonToCollection({ addonId, userId }));
   }
 }
 
@@ -111,4 +138,5 @@ export default function* collectionsSaga() {
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
+  yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
 }
