@@ -110,7 +110,7 @@ describe(__filename, () => {
   it('displays the reviewer tools link when user has a reviewer permission', () => {
     const { store } = dispatchSignInActions({
       username: 'babar',
-      'permissions': ['Addons:PostReview'],
+      permissions: ['Addons:PostReview'],
     });
     const wrapper = renderHeader({ store });
     const link = wrapper.find('.Header-user-menu-reviewer-tools-link');

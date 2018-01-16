@@ -19,7 +19,7 @@ import {
   ADDONS_REVIEWUNLISTED,
   RATINGS_MODERATE,
   THEMES_REVIEW,
-  VIEW_CONTEXT_HOME
+  VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -189,7 +189,7 @@ export const mapStateToProps = (state) => {
       hasPermission(state, RATINGS_MODERATE) ||
       hasPermission(state, THEMES_REVIEW) ||
       hasPermission(state, ADDONS_REVIEWUNLISTED) ||
-      hasPermission(state, ADDONS_EDIT)
+      hasPermission(state, ADDONS_EDIT),
   };
 };
 
