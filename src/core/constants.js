@@ -229,5 +229,13 @@ export const THEMES_REVIEW = 'Personas:Review';
 export const STATS_VIEW = 'Stats:View';
 // Can edit all collections.
 export const COLLECTIONS_EDIT = 'Collections:Edit';
+// Can confirm approval of automatically approved add-ons.
+export const ADDONS_POSTREVIEW = 'Addons:PostReview';
+// Can approve add-ons content.
+export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
+// Can review unlisted add-ons.
+export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
+// Can moderate user ratings on add-ons.
+export const RATINGS_MODERATE = 'Ratings:Moderate';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
