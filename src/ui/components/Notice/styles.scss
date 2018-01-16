@@ -11,10 +11,6 @@
   grid-template-columns: min-content auto;
   line-height: 1.1;
   padding: 4px;
-
-  &.Notice-with-action {
-    grid-template-columns: min-content fit-content(50%) auto;
-  }
 }
 
 .Notice-icon {
@@ -25,21 +21,16 @@
   width: 16px;
 }
 
-.Notice-column {
-  align-items: center;
-  display: flex;
-}
-
 .Notice-text {
+  display: inline-block;
   margin: 0;
-  padding: 0;
+  padding: 4px 0;
 
-  // Even though the grid has a 4px spacing,
-  // the spec calls for additional spacing
+  // The spec calls for additional spacing
   // in front of the action button. This is
   // applied even without a button to strike
   // a balance with the icon spacing.
-  @include padding-end(4px);
+  @include padding-end(8px);
 }
 
 @mixin notice_button() {

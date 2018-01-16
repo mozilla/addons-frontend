@@ -52,14 +52,12 @@ const Notice = ({
   return (
     <div className={finalClass}>
       <div className="Notice-icon" />
-      <p className="Notice-column Notice-text">
-        {children}
-      </p>
-      {actionButton ? (
-        <div className="Notice-column">
-          {actionButton}
-        </div>
-      ) : null}
+      <div className="Notice-column">
+        <p className="Notice-text">
+          {children}
+        </p>
+        {actionButton}
+      </div>
     </div>
   );
 };
