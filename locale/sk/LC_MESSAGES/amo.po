@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-16 20:29+0000\n"
+"PO-Revision-Date: 2018-01-16 20:38+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -488,7 +488,7 @@ msgstr "Doplnky"
 
 #: src/amo/components/Collection/index.js:155
 msgid "Creator"
-msgstr "Vytvoril:"
+msgstr "Autor:"
 
 #: src/amo/components/Collection/index.js:168
 msgid "Edit this collection"
@@ -605,7 +605,7 @@ msgstr "Toto je správa o chybe alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Nahlásené ako správa o chybe, alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
@@ -649,11 +649,11 @@ msgstr "Recenzia bola nahlásená ako spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Obsahuje nevhodný jazyk"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Nahlásené kvôli nevhodnému jazyku"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -778,11 +778,11 @@ msgstr "Abstraktne"
 
 #: src/amo/components/Home/index.js:122
 msgid "Nature"
-msgstr ""
+msgstr "Príroda"
 
 #: src/amo/components/Home/index.js:127
 msgid "Film & TV"
-msgstr ""
+msgstr "Filmy a TV"
 
 #: src/amo/components/Home/index.js:132
 #, fuzzy
@@ -791,7 +791,7 @@ msgstr "Malebne"
 
 #: src/amo/components/Home/index.js:137
 msgid "Music"
-msgstr ""
+msgstr "Hudba"
 
 #: src/amo/components/Home/index.js:142
 msgid "Seasonal"
@@ -947,7 +947,7 @@ msgstr "Slovníky a jazykové balíky"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Inštaláciou slovníku pridáte do svojho nástroja na kontrolu pravopisu nový jazyk."
 
 #: src/amo/components/LanguageTools/index.js:161
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -1021,11 +1021,11 @@ msgstr "Prejsť na stránku doplnku"
 
 #: src/amo/components/ReportAbuseButton/index.js:169
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Prosím, nepoužívajte tento formulár za účelom nahlásenia chyby alebo ako žiadosť o nové funkcie; toto hlásenie je odosielané Mozille a nie vývojárovi."
 
 #: src/amo/components/ReportAbuseButton/index.js:182
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Popíšte, ako doplnok porušuje naše pravidlá."
 
 #: src/amo/components/ReportAbuseButton/index.js:195
 msgid "Dismiss"
@@ -1278,7 +1278,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Zapojte sa na našom %(startLink)sfóre%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
