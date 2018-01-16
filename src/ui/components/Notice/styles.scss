@@ -9,7 +9,7 @@
   font-size: $font-size-s;
   grid-gap: 4px;
   grid-template-columns: min-content auto;
-  line-height: 15px;
+  line-height: 1.1;
   padding: 4px;
 
   &.Notice-with-action {
@@ -33,11 +33,12 @@
 .Notice-text {
   margin: 0;
   padding: 0;
+}
 
+.Notice-with-action .Notice-text {
   // Even though the grid has a 4px spacing,
   // the spec calls for additional spacing
-  // in front of the action button *or* the
-  // end of the text block when there's no button.
+  // in front of the action button.
   @include padding-end(4px);
 }
 
