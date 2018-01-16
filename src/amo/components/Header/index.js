@@ -11,7 +11,16 @@ import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import { ADDONS_CONTENTREVIEW, ADDONS_EDIT, ADDONS_POSTREVIEW, ADDONS_REVIEW, ADDONS_REVIEWUNLISTED, RATINGS_MODERATE, THEMES_REVIEW, VIEW_CONTEXT_HOME } from 'core/constants';
+import {
+  ADDONS_CONTENTREVIEW,
+  ADDONS_EDIT,
+  ADDONS_POSTREVIEW,
+  ADDONS_REVIEW,
+  ADDONS_REVIEWUNLISTED,
+  RATINGS_MODERATE,
+  THEMES_REVIEW,
+  VIEW_CONTEXT_HOME
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
