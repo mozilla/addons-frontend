@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-16 22:09+0000\n"
 "PO-Revision-Date: 2017-08-25 14:52+0000\n"
 "Last-Translator: Francesco Lodolo <francesco.lodolo@mozillaitalia.org>\n"
 "Language-Team: none\n"
@@ -157,11 +157,11 @@ msgstr "Informativa sulla privacy"
 msgid "Discover Add-ons"
 msgstr "Alla scoperta dei componenti aggiuntivi"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Personalizza Firefox"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -178,19 +178,19 @@ msgstr ""
 "iniziare, ecco una lista di componenti aggiuntivi che ci sentiamo di "
 "consigliarti, distintisi per gli alti standard di prestazioni e funzionalità."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Fai clic per riprodurre"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "Per conoscere ancora meglio i componenti aggiuntivi"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Chiudi il video"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Scopri altri componenti aggiuntivi."
 
@@ -202,7 +202,7 @@ msgstr "Sessione scaduta"
 msgid "An unexpected error occurred"
 msgstr "Si è verificato un errore inatteso"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Ricarica per continuare"
 

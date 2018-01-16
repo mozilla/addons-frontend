@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-16 22:09+0000\n"
 "PO-Revision-Date: 2017-11-15 03:16+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
@@ -146,11 +146,11 @@ msgstr "Tietosuojakäytäntö"
 msgid "Discover Add-ons"
 msgstr "Löydä lisäosia"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Mukauta Firefoxiasi"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 #, fuzzy
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
@@ -163,19 +163,19 @@ msgstr ""
 "hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on "
 "muutamia hyviä lisäosia katsottavaksi."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Toista painamalla"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "saadaksesi lisätietoja lisäosista"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Sulje video"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Katso lisää lisäosia!"
 
@@ -187,7 +187,7 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr "Tapahtui odottamaton virhe"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr ""
 
