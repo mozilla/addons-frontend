@@ -212,8 +212,10 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
-        platform: 'Darwin',
-        telemetryClientId: undefined,
+        taarParams: {
+          platform: 'Darwin',
+          'telemetry-client-id': undefined,
+        },
       }));
     });
 
@@ -232,8 +234,10 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
-        platform: 'Darwin',
-        telemetryClientId: location.query.clientId,
+        taarParams: {
+          platform: 'Darwin',
+          'telemetry-client-id': location.query.clientId,
+        },
       }));
     });
 

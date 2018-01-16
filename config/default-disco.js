@@ -26,6 +26,7 @@ module.exports = {
     'langMap',
     'publicSentryDsn',
     'rtlLangs',
+    'taarParamsToUse',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
@@ -51,6 +52,10 @@ module.exports = {
       mediaSrc: [staticHost],
     },
   },
+  taarParamsToUse: [
+    'platform',
+    'telemetry-client-id',
+  ],
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
   // We override the initial page view call in order to

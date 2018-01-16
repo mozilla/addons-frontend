@@ -69,8 +69,10 @@ export class DiscoPaneBase extends React.Component {
     if (!errorHandler.hasError() && !results.length) {
       dispatch(getDiscoResults({
         errorHandlerId: errorHandler.id,
-        platform: params.platform,
-        telemetryClientId: location.query.clientId,
+        taarParams: {
+          platform: params.platform,
+          'telemetry-client-id': location.query.clientId,
+        },
       }));
     }
   }
