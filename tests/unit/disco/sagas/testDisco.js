@@ -40,7 +40,7 @@ describe(__filename, () => {
     function _getDiscoResults(overrides = {}) {
       sagaTester.dispatch(getDiscoResults({
         errorHandlerId: errorHandler.id,
-        platform: 'Darwin',
+        taarParams: { platform: 'Darwin' },
         ...overrides,
       }));
     }
@@ -69,8 +69,7 @@ describe(__filename, () => {
         .expects('getDiscoveryAddons')
         .withArgs({
           api: apiState,
-          platform: 'Darwin',
-          telemetryClientId: undefined,
+          taarParams: { platform: 'Darwin' },
         })
         .returns(Promise.resolve(addonResponse));
 
@@ -101,15 +100,22 @@ describe(__filename, () => {
         .expects('getDiscoveryAddons')
         .withArgs({
           api: apiState,
-          platform: 'Darwin',
-          telemetryClientId,
+          taarParams: {
+            platform: 'Darwin',
+            'telemetry-client-id': telemetryClientId,
+          },
         })
         .returns(Promise.resolve(addonResponse));
 
       const { entities, result } = addonResponse;
       const expectedLoadAction = loadDiscoResults({ entities, result });
 
-      _getDiscoResults({ telemetryClientId });
+      _getDiscoResults({
+        taarParams: {
+          platform: 'Darwin',
+          'telemetry-client-id': telemetryClientId,
+        },
+      });
 
       await sagaTester.waitFor(expectedLoadAction.type);
       mockApi.verify();
