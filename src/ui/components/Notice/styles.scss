@@ -33,12 +33,12 @@
 .Notice-text {
   margin: 0;
   padding: 0;
-}
 
-.Notice-with-action .Notice-text {
   // Even though the grid has a 4px spacing,
   // the spec calls for additional spacing
-  // in front of the action button.
+  // in front of the action button. This is
+  // applied even without a button to strike
+  // a balance with the icon spacing.
   @include padding-end(4px);
 }
 
