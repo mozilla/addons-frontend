@@ -540,11 +540,9 @@ type ChangeAddonCollectionsLoadingFlagParams = {|
   loading: boolean,
 |};
 
-export const changeAddonCollectionsLoadingFlag = (
-  {
-    addonId, userId, state, loading,
-  }: ChangeAddonCollectionsLoadingFlagParams = {}
-): CollectionsState => {
+export const changeAddonCollectionsLoadingFlag = ({
+  addonId, userId, state, loading,
+}: ChangeAddonCollectionsLoadingFlagParams = {}): CollectionsState => {
   const userState = state.addonInCollections[userId];
   const addonState = userState && userState[addonId];
 
