@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-16 22:09+0000\n"
 "PO-Revision-Date: 2017-08-23 19:27+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -152,11 +152,11 @@ msgstr "Pšawidła priwatnosći"
 msgid "Discover Add-ons"
 msgstr "Dodanki namakaś"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Pśiměrśo swój Firefox"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -170,19 +170,19 @@ msgstr ""
 "cynje jo wěsćejše. Dodanki cynje waš wobglědowak k wašomu. Za zachopjeńk "
 "dopórucujomy wam někotare wugbałe dodanki z wjele funkcijami."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Klikniśo, aby wótgrał"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "aby wěcej wó dodankach zgónił"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Wideo zacyniś"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Woglědajśo se dalšne dodanki!"
 
@@ -194,7 +194,7 @@ msgstr "Wašo pósejźenje jo pśepadnuło"
 msgid "An unexpected error occurred"
 msgstr "Njewótcakana zmólka jo nastała"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Zacytajśo znowego, aby pókšacował"
 

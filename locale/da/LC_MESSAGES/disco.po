@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-16 22:09+0000\n"
 "PO-Revision-Date: 2017-08-25 15:57+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
@@ -150,11 +150,11 @@ msgstr "Privatlivspolitik"
 msgid "Discover Add-ons"
 msgstr "Find tilføjelser"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Tilpas Firefox"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,19 +167,19 @@ msgstr ""
 "temaer til kraftfulde værktøjer og funktioner. Her er nogle, som du kan "
 "prøve."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Klik for at afspille"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "for at finde ud af mere om tilføjelser"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Luk video"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Se flere tilføjelser!"
 
@@ -191,6 +191,6 @@ msgstr "Din session er udløbet"
 msgid "An unexpected error occurred"
 msgstr "Der opstod en uventet fejl"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Genindlæs for at fortsætte"
