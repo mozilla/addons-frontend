@@ -61,7 +61,8 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
   componentDidMount() {
     // This runs as componentDidMount() to only load data client side,
-    // not server side.
+    // not server side. By skipping server side rendering, no extra API
+    // requests will be made on the server.
     this.loadDataIfNeeded();
   }
 
@@ -70,17 +71,17 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   loadDataIfNeeded(nextProps?: Props) {
-    const allProps = { ...this.props, ...nextProps };
+    const combinedProps = { ...this.props, ...nextProps };
     const {
       dispatch,
       errorHandler,
       loadingUserCollections,
       userCollections,
       siteUserId,
-    } = allProps;
+    } = combinedProps;
 
     if (errorHandler.hasError()) {
-      // Abort loadng data so that the error can be rendered.
+      // Abort loading data so that the error can be rendered.
       return;
     }
 
@@ -155,9 +156,9 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     let progressMessage;
     if (loadingUserCollections) {
-      progressMessage = i18n.gettext('Loading...');
+      progressMessage = i18n.gettext('Loading…');
     } else if (loadingAddonsInCollections) {
-      progressMessage = i18n.gettext('Adding...');
+      progressMessage = i18n.gettext('Adding…');
     }
     if (progressMessage) {
       // Create a disabled select box with a single option.

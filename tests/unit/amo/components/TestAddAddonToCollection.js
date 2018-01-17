@@ -167,8 +167,8 @@ describe(__filename, () => {
       const root = render();
 
       const select = root.find('.AddAddonToCollection-select');
-      expect(select.props().disabled).toEqual(true);
-      expect(select.html()).toContain('Loading...');
+      expect(select).toHaveProp('disabled', true);
+      expect(select.html()).toContain('Loading…');
     });
 
     it('renders a disabled select when adding add-on to collection', () => {
@@ -186,8 +186,8 @@ describe(__filename, () => {
       const root = render({ addon });
 
       const select = root.find('.AddAddonToCollection-select');
-      expect(select.props().disabled).toEqual(true);
-      expect(select.html()).toContain('Adding...');
+      expect(select).toHaveProp('disabled', true);
+      expect(select.html()).toContain('Adding…');
     });
 
     it('lets you select a collection', () => {
