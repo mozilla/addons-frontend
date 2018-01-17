@@ -527,6 +527,14 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
+            {compatibility && !isCompatible ? (
+              <AddonCompatibilityError
+                className="Addon-header-compatibility-error"
+                maxVersion={compatibility.maxVersion}
+                minVersion={compatibility.minVersion}
+                reason={compatibility.reason}
+              />
+            ) : null}
             <header className="Addon-header">
               {this.headerImage({ compatible: isCompatible })}
 
@@ -554,14 +562,6 @@ export class AddonBase extends React.Component {
                 {i18n.gettext('Extension Metadata')}
               </h2>
             </header>
-
-            {compatibility && !isCompatible ? (
-              <AddonCompatibilityError
-                maxVersion={compatibility.maxVersion}
-                minVersion={compatibility.minVersion}
-                reason={compatibility.reason}
-              />
-            ) : null}
           </Card>
 
           <Card className="Addon-header-meta-and-ratings" photonStyle>
