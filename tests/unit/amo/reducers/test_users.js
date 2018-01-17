@@ -3,6 +3,7 @@ import reducer, {
   getCurrentUser,
   getDisplayName,
   fetchUserAccount,
+  hasAnyReviewerRelatedPermission,
   hasPermission,
   initialState,
   loadCurrentUserAccount,
@@ -10,8 +11,12 @@ import reducer, {
   logOutUser,
 } from 'amo/reducers/users';
 import {
+  ADDONS_POSTREVIEW,
+  ADDONS_CONTENTREVIEW,
+  ADDONS_REVIEW,
   ALL_SUPER_POWERS,
   ADMIN_TOOLS_VIEW,
+  COLLECTIONS_EDIT,
   STATS_VIEW,
   THEMES_REVIEW,
 } from 'core/constants';
@@ -146,6 +151,56 @@ describe(__filename, () => {
 
 
       expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
+    });
+  });
+
+  describe('hasAnyReviewerRelatedPermission selector', () => {
+    it('returns `true` when user has ADDONS_POSTREVIEW', () => {
+      const permissions = [ADDONS_POSTREVIEW, STATS_VIEW];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has ADDONS_CONTENTREVIEW', () => {
+      const permissions = [STATS_VIEW, ADDONS_CONTENTREVIEW];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `true` when user has ADDONS_REVIEW', () => {
+      const permissions = [ADDONS_REVIEW];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
+    });
+
+    it('returns `false` when user does not have any reviewer permissions', () => {
+      const permissions = [COLLECTIONS_EDIT, STATS_VIEW];
+      const { state } = dispatchSignInActions({ permissions });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(false);
+    });
+
+    it('returns `false` when user state has no permissions', () => {
+      const { state } = dispatchSignInActions({ permissions: null });
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(false);
+    });
+
+    it('returns `false` when user is not logged in', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(false);
+    });
+
+    it('returns `true` when user is admin', () => {
+      const permissions = [ALL_SUPER_POWERS];
+      const { state } = dispatchSignInActions({ permissions });
+
+
+      expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
     });
   });
 

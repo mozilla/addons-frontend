@@ -10,7 +10,7 @@ import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
-import { getCurrentUser } from 'amo/reducers/users';
+import { getCurrentUser, hasAnyReviewerRelatedPermission } from 'amo/reducers/users';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -28,6 +28,7 @@ export class HeaderBase extends React.Component {
     location: PropTypes.object.isRequired,
     query: PropTypes.string.isRequired,
     siteUser: PropTypes.object.isRequired,
+    isReviewer: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -48,6 +49,7 @@ export class HeaderBase extends React.Component {
       location,
       query,
       siteUser,
+      isReviewer,
     } = this.props;
 
     const headerLink = (
@@ -126,6 +128,17 @@ export class HeaderBase extends React.Component {
                   {i18n.gettext('Submit a New Theme')}
                 </Link>
               </DropdownMenuItem>
+              {isReviewer &&
+                <DropdownMenuItem>
+                  <Link
+                    className="Header-user-menu-reviewer-tools-link"
+                    href="/reviewers/"
+                    prependClientApp={false}
+                  >
+                    {i18n.gettext('Reviewer Tools')}
+                  </Link>
+                </DropdownMenuItem>
+              }
 
               <DropdownMenuItem
                 className={'Header-logout-button'}
@@ -160,8 +173,10 @@ export const mapStateToProps = (state) => {
     api: state.api,
     isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
     siteUser: getCurrentUser(state.users),
+    isReviewer: hasAnyReviewerRelatedPermission(state),
   };
 };
+
 
 export const mapDispatchToProps = (dispatch, ownProps) => ({
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),

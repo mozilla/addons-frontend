@@ -106,4 +106,25 @@ describe(__filename, () => {
       api: store.getState().api,
     });
   });
+
+  it('displays the reviewer tools link when user has a reviewer permission', () => {
+    const { store } = dispatchSignInActions({
+      username: 'babar',
+      permissions: ['Addons:PostReview'],
+    });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-reviewer-tools-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.prop('children')).toEqual('Reviewer Tools');
+    expect(link).toHaveProp('href', '/reviewers/');
+  });
+
+  it('does not display the reviewer tools link when user does not have permission', () => {
+    const { store } = dispatchSignInActions({ username: 'babar' });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-reviewer-tools-link');
+
+    expect(link).toHaveLength(0);
+  });
 });
