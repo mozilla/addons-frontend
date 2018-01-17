@@ -242,6 +242,9 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       });
     }
 
+    // translators: This is a header for a list meaning Add to [some collection name]
+    const collectionOptLabel = i18n.gettext('Add to…');
+
     return (
       <div className={makeClassName('AddAddonToCollection', className)}>
         {errorHandler.renderErrorIfPresent()}
@@ -253,7 +256,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
         >
           {actionOptions}
           {collectionOptions.length ? (
-            <optgroup label={i18n.gettext('Add to…')}>
+            <optgroup label={collectionOptLabel}>
               {collectionOptions}
             </optgroup>
           ) : null}
