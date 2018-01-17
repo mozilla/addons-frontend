@@ -1,5 +1,14 @@
 /* @flow */
-import { ALL_SUPER_POWERS } from 'core/constants';
+import {
+  ADDONS_CONTENTREVIEW,
+  ADDONS_EDIT,
+  ADDONS_POSTREVIEW,
+  ADDONS_REVIEW,
+  ADDONS_REVIEWUNLISTED,
+  ALL_SUPER_POWERS,
+  RATINGS_MODERATE,
+  THEMES_REVIEW,
+} from 'core/constants';
 
 
 export const LOG_OUT_USER: 'LOG_OUT_USER' = 'LOG_OUT_USER';
@@ -192,6 +201,35 @@ export const hasPermission = (
   }
 
   return permissions.includes(permission);
+};
+
+export const hasAnyReviewerRelatedPermission = (
+  state: { users: UsersStateType }): boolean => {
+  const currentUser = getCurrentUser(state.users);
+
+  // If the user isn't authenticated, they have no permissions.
+  if (!currentUser) {
+    return false;
+  }
+
+  const permissions = currentUser.permissions;
+  if (!permissions) {
+    return false;
+  }
+
+  // Admins have absolutely all permissions.
+  if (permissions.includes(ALL_SUPER_POWERS)) {
+    return true;
+  }
+
+  return (
+    permissions.includes(ADDONS_POSTREVIEW) ||
+    permissions.includes(ADDONS_CONTENTREVIEW) ||
+    permissions.includes(ADDONS_REVIEW) ||
+    permissions.includes(RATINGS_MODERATE) ||
+    permissions.includes(THEMES_REVIEW) ||
+    permissions.includes(ADDONS_REVIEWUNLISTED) ||
+    permissions.includes(ADDONS_EDIT));
 };
 
 export const addUserToState = ({ user, state } : {

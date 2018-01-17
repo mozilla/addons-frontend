@@ -10,17 +10,8 @@ import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
-import { getCurrentUser, hasPermission } from 'amo/reducers/users';
-import {
-  ADDONS_CONTENTREVIEW,
-  ADDONS_EDIT,
-  ADDONS_POSTREVIEW,
-  ADDONS_REVIEW,
-  ADDONS_REVIEWUNLISTED,
-  RATINGS_MODERATE,
-  THEMES_REVIEW,
-  VIEW_CONTEXT_HOME,
-} from 'core/constants';
+import { getCurrentUser, hasAnyReviewerRelatedPermission } from 'amo/reducers/users';
+import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
@@ -37,7 +28,7 @@ export class HeaderBase extends React.Component {
     location: PropTypes.object.isRequired,
     query: PropTypes.string.isRequired,
     siteUser: PropTypes.object.isRequired,
-    hasAnyReviewerRelatedPermission: PropTypes.bool.isRequired,
+    isReviewer: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -58,7 +49,7 @@ export class HeaderBase extends React.Component {
       location,
       query,
       siteUser,
-      hasAnyReviewerRelatedPermission,
+      isReviewer,
     } = this.props;
 
     const headerLink = (
@@ -137,7 +128,7 @@ export class HeaderBase extends React.Component {
                   {i18n.gettext('Submit a New Theme')}
                 </Link>
               </DropdownMenuItem>
-              {hasAnyReviewerRelatedPermission &&
+              {isReviewer &&
                 <DropdownMenuItem>
                   <Link
                     className="Header-user-menu-reviewer-tools-link"
@@ -182,14 +173,7 @@ export const mapStateToProps = (state) => {
     api: state.api,
     isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
     siteUser: getCurrentUser(state.users),
-    hasAnyReviewerRelatedPermission:
-      hasPermission(state, ADDONS_POSTREVIEW) ||
-      hasPermission(state, ADDONS_CONTENTREVIEW) ||
-      hasPermission(state, ADDONS_REVIEW) ||
-      hasPermission(state, RATINGS_MODERATE) ||
-      hasPermission(state, THEMES_REVIEW) ||
-      hasPermission(state, ADDONS_REVIEWUNLISTED) ||
-      hasPermission(state, ADDONS_EDIT),
+    isReviewer: hasAnyReviewerRelatedPermission(state),
   };
 };
 
