@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-09 22:15+0000\n"
+"POT-Creation-Date: 2018-01-17 16:41+0000\n"
 "PO-Revision-Date: 2017-03-18 02:37+0000\n"
 "Last-Translator: Firman <firmanwyd2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -151,7 +151,7 @@ msgstr ""
 msgid "Not compatible with Firefox Quantum"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:60
+#: src/amo/components/AddonCompatibilityError/index.js:61
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -159,24 +159,24 @@ msgstr ""
 "Anda perlu <a href=\"%(downloadUrl)s\">mengunduh Firefox</a> untuk memasang "
 "pengaya ini."
 
-#: src/amo/components/AddonCompatibilityError/index.js:65
+#: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Pengaya ini tidak kompatibel dengan versi {0} Anda."
 
-#: src/amo/components/AddonCompatibilityError/index.js:68
+#: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Versi Firefox Anda tidak mendukung plugin pencarian."
 
-#: src/amo/components/AddonCompatibilityError/index.js:71
+#: src/amo/components/AddonCompatibilityError/index.js:72
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Saat ini, Firefox untuk iOS belum mendukung pengaya."
 
-#: src/amo/components/AddonCompatibilityError/index.js:74
+#: src/amo/components/AddonCompatibilityError/index.js:75
 #, fuzzy
 msgid "This add-on is not available on your platform."
 msgstr "Pengaya ini tidak kompatibel dengan versi {0} Anda."
 
-#: src/amo/components/AddonCompatibilityError/index.js:77
+#: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -185,7 +185,7 @@ msgstr ""
 "a> (setidaknya versi %(minVersion)s). Saat ini, Anda menggunakan Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:91
+#: src/amo/components/AddonCompatibilityError/index.js:92
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -1778,7 +1778,7 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr ""
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr ""
 
