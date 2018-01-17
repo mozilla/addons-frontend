@@ -45,7 +45,11 @@ type Props = {|
 
 type OnSelectOptionType = () => void;
 
-type SelectData = {| options: Array<Object>, disabled: boolean |};
+type SelectData = {|
+  actionOptions: Array<Object>,
+  collectionOptions: Array<Object>,
+  disabled: boolean,
+|};
 
 export class AddAddonToCollectionBase extends React.Component<Props> {
   optionSelectHandlers: { [key: string]: OnSelectOptionType };
@@ -154,7 +158,10 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       userCollections,
     } = this.props;
 
+    const actionOptions = [];
+    const collectionOptions = [];
     let progressMessage;
+
     if (loadingUserCollections) {
       progressMessage = i18n.gettext('Loading…');
     } else if (loadingAddonsInCollections) {
@@ -162,23 +169,23 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     }
     if (progressMessage) {
       // Create a disabled select box with a single option.
+      actionOptions.push(
+        this.createOption({ text: progressMessage, key: 'default' })
+      );
       return {
         disabled: true,
-        options: [
-          this.createOption({
-            text: progressMessage, key: 'default',
-          }),
-        ],
+        actionOptions,
+        collectionOptions,
       };
     }
 
-    const options = [
+    actionOptions.push(
       this.createOption({
         text: i18n.gettext('Add to collection'), key: 'default',
-      }),
-    ];
+      })
+    );
 
-    options.push(this.createOption({
+    actionOptions.push(this.createOption({
       text: i18n.gettext('Create new collection'),
       key: 'create-new-collection',
       onSelect: () => {
@@ -195,7 +202,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
         // Make an option for adding the add-on to this collection.
         // If the user selects a collection that the add-on already
         // belongs to, they will see an error.
-        options.push(this.createOption({
+        collectionOptions.push(this.createOption({
           text: collection.name,
           key: `collection-${collection.id}`,
           onSelect: () => {
@@ -205,14 +212,16 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       });
     }
 
-    return { options, disabled: false };
+    return { actionOptions, collectionOptions, disabled: false };
   }
 
   render() {
     const {
       className, errorHandler, i18n, addonInCollections,
     } = this.props;
-    const { options, disabled } = this.getSelectData();
+    const {
+      actionOptions, collectionOptions, disabled,
+    } = this.getSelectData();
 
     let addedNotices = [];
     if (addonInCollections) {
@@ -242,7 +251,12 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
           onChange={this.onSelectOption}
           className="AddAddonToCollection-select"
         >
-          {options}
+          {actionOptions}
+          {collectionOptions.length ? (
+            <optgroup label={i18n.gettext('Add to…')}>
+              {collectionOptions}
+            </optgroup>
+          ) : null}
         </Select>
       </div>
     );

@@ -190,6 +190,13 @@ describe(__filename, () => {
       expect(select.html()).toContain('Adding…');
     });
 
+    it('does not render collection optgroup without collections', () => {
+      dispatchSignInActions({ store });
+      const root = render();
+
+      expect(root.find('optgroup')).toHaveLength(0);
+    });
+
     it('lets you select a collection', () => {
       const addon = createInternalAddon({ ...fakeAddon, id: 234 });
       const authorId = 1;
