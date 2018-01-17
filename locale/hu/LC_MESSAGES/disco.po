@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-17 16:45+0000\n"
 "PO-Revision-Date: 2017-08-23 18:45+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
@@ -151,11 +151,11 @@ msgstr "Adatvédelmi irányelvek"
 msgid "Discover Add-ons"
 msgstr "Kiegészítők felfedezése"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "A Firefox testreszabása"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -173,19 +173,19 @@ msgstr ""
 "itt van néhány,\n"
 "amelyeket ajánlunk a kiemelkedő teljesítményük és funkcionalitásuk miatt."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Kattintson a lejátszáshoz"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "hogy többet tudjon meg a kiegészítőkről"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Videó bezárása"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Több kiegészítő megtekintése!"
 
@@ -197,7 +197,7 @@ msgstr "A munkamenet lejárt"
 msgid "An unexpected error occurred"
 msgstr "Váratlan hiba történt"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Töltse újra a folytatáshoz"
 
