@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-17 16:45+0000\n"
 "PO-Revision-Date: 2017-12-28 02:51+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "서버 오류"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 빠르게 처리하겠습니다."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"죄송합니다. 오류가 발생해 요청하신 작업을 수행하지 못했습니다. 발생한 오류는 "
+"빠르게 처리하겠습니다."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "오류 코드 : %(status)s."
 
@@ -38,7 +43,8 @@ msgstr "죄송합니다. 입력하신 URL을 찾을 수 없습니다."
 msgid "Install Theme"
 msgstr "테마 설치"
 
-#: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:251
+#: src/core/components/InstallButton/index.js:272
 msgid "Add to Firefox"
 msgstr "Firefox에 추가"
 
@@ -142,29 +148,36 @@ msgstr "개인 정보 보호 정책"
 msgid "Discover Add-ons"
 msgstr "부가기능 찾기"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Firefox 개인화하기"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
-msgstr "전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"전세계의 개발자들이 만든 Firefox를 나만의 것으로 만들 수 있는 수천개의 부가기"
+"능이 있습니다. 재미있고 멋진 테마부터 강력한 도구와 기능에 이르기까지 브라우"
+"징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지"
+"고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "클릭해서 재생"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "부가기능 더 알아보기"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "동영상 닫기"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "다른 부가기능 보기!"
 
@@ -176,7 +189,7 @@ msgstr "세션이 만료됨"
 msgid "An unexpected error occurred"
 msgstr "할 수 없는 오류 발생"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "새로 고침해서 계속하기"
 

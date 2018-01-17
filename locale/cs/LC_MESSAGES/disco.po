@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-17 16:45+0000\n"
 "PO-Revision-Date: 2017-08-24 09:41+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -148,11 +148,11 @@ msgstr "Zásady ochrany soukromí"
 msgid "Discover Add-ons"
 msgstr "Objevte doplňky"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Přizpůsobte si svůj Firefox"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,19 +167,19 @@ msgstr ""
 "prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro "
 "jejich výkon a funkce doporučujeme."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Klepněte a spusťte"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "a zjistěte více o doplňcích"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Zavřít video"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Zobrazte si více doplňků!"
 
@@ -191,7 +191,7 @@ msgstr "Platnost vaší relace vypršela"
 msgid "An unexpected error occurred"
 msgstr "Došlo k neočekávané chybě"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Pro pokračování obnovte stránku"
 

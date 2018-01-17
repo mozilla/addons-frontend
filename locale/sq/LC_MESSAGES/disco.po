@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-17 16:45+0000\n"
 "PO-Revision-Date: 2017-12-07 16:12+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Gabim Shërbyesi"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E kemi regjistruar këtë gabim dhe do ta hetojmë."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Na ndjeni, por pati një gabim dhe s’mundëm të plotësonim kërkesën tuaj. E "
+"kemi regjistruar këtë gabim dhe do ta hetojmë."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Kod gabimi: %(status)s."
 
@@ -38,7 +43,8 @@ msgstr "Na ndjeni, por s’gjejmë dot ndonjë gjë te URL-ja që dhatë."
 msgid "Install Theme"
 msgstr "Instaloje Temën"
 
-#: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:251
+#: src/core/components/InstallButton/index.js:272
 msgid "Add to Firefox"
 msgstr "Shtoje te Firefox-i"
 
@@ -84,7 +90,9 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:126
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet %(name)s"
+msgstr ""
+"Kalojini kursorin përsipër që ta parashihni ose klikoni që të instalohet "
+"%(name)s"
 
 #: src/disco/components/Addon.js:141
 msgid "Hover over the image to preview"
@@ -142,31 +150,38 @@ msgstr "Rregulla Privatësie"
 msgid "Discover Add-ons"
 msgstr "Zbuloni Shtesa"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Personalizoni Firefox-in Tuaj"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Ka me mijëra shtesa, të krijuara nga programues anembanë botës, që mund t’i instaloni për të personalizuar Firefox-in tuaj. Nga temat pamore zbavitëse e deri te mjete të fuqishme që e bëjnë shfletimin tuaj më të shpejtë dhe më të sigurt, shtesat jua bëjnë shfletuesin tuajin.\n"
-"Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës së shkëlqyer që bëjnë dhe funksionimit të tyre."
+"Ka me mijëra shtesa, të krijuara nga programues anembanë botës, që mund t’i "
+"instaloni për të personalizuar Firefox-in tuaj. Nga temat pamore zbavitëse e "
+"deri te mjete të fuqishme që e bëjnë shfletimin tuaj më të shpejtë dhe më të "
+"sigurt, shtesat jua bëjnë shfletuesin tuajin.\n"
+"Për t’ju ndihmuar t’ia filloni, ja disa që i këshillojmë për shkak të punës "
+"së shkëlqyer që bëjnë dhe funksionimit të tyre."
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Klikojeni që të luhet"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "që të mësoni më tepër rreth shtesash"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Mbylle videon"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Shihni më tepër shtesa!"
 
@@ -178,7 +193,7 @@ msgstr "Sesioni juaj ka skaduar"
 msgid "An unexpected error occurred"
 msgstr "Ndodhi një gabim i papritur."
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Që të Vazhdohet Ringarkojeni"
 

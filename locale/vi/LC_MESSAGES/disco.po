@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-05 19:53+0000\n"
+"POT-Creation-Date: 2018-01-17 16:45+0000\n"
 "PO-Revision-Date: 2017-07-21 18:45+0000\n"
 "Last-Translator: Pierre Neter <pierreneter@gmail.com>\n"
 "Language-Team: none\n"
@@ -147,11 +147,11 @@ msgstr ""
 msgid "Discover Add-ons"
 msgstr "Khám phá Tiện ích"
 
-#: src/disco/containers/DiscoPane.js:132
+#: src/disco/containers/DiscoPane.js:136
 msgid "Personalize Your Firefox"
 msgstr "Cá nhân hóa Firefox của bạn"
 
-#: src/disco/containers/DiscoPane.js:133
+#: src/disco/containers/DiscoPane.js:137
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -160,19 +160,19 @@ msgid ""
 "their stand-out performance and functionality."
 msgstr ""
 
-#: src/disco/containers/DiscoPane.js:141
+#: src/disco/containers/DiscoPane.js:145
 msgid "Click to play"
 msgstr "Nhấn chuột để phát"
 
-#: src/disco/containers/DiscoPane.js:142
+#: src/disco/containers/DiscoPane.js:146
 msgid "to find out more about add-ons"
 msgstr "để tìm hiểu thêm về tiện ích"
 
-#: src/disco/containers/DiscoPane.js:156
+#: src/disco/containers/DiscoPane.js:160
 msgid "Close video"
 msgstr "Đóng video"
 
-#: src/disco/containers/DiscoPane.js:175
+#: src/disco/containers/DiscoPane.js:179
 msgid "See more add-ons!"
 msgstr "Xem thêm tiện ích!"
 
@@ -185,6 +185,6 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr "Đã xuất hiện lỗi bất ngờ."
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr ""
