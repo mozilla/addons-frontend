@@ -323,15 +323,17 @@ export const createFakeCollectionDetail = ({
   name = 'My Addons',
   count = 123,
   authorId = 99999,
+  authorName = 'John Doe',
+  authorUsername = 'johndoe',
   ...params
 } = {}) => {
   return {
     addon_count: count,
     author: {
       id: authorId,
-      name: 'John Doe',
+      name: authorName,
       url: 'http://olympia.dev/en-US/firefox/user/johndoe/',
-      username: 'johndoe',
+      username: authorUsername,
     },
     default_locale: 'en-US',
     description: 'some description',

@@ -92,7 +92,7 @@ export class CollectionBase extends React.Component<Props> {
 
     if (collection && (
       collection.slug !== params.slug ||
-      collection.authorUsername !== params.user
+      collection.authorUsername.toLowerCase() !== params.user.toLowerCase()
     )) {
       collectionChanged = true;
     }
