@@ -1,16 +1,9 @@
-@import "~amo/css/inc/vars";
-@import "~ui/css/vars";
+@import "~core/css/inc/mixins";
 
 .AddonCompatibilityError {
-  background: $report-base-color;
-  border-radius: $border-radius-default;
-  margin-top: 10px;
-  padding: 10px;
-  text-align: center;
+  margin-top: 12px;
 
-  &,
-  a,
-  a:link {
-    color: $white;
+  @include respond-to(medium) {
+    margin-top: 0;
   }
 }

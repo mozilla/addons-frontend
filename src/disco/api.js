@@ -1,3 +1,4 @@
+import config from 'config';
 import { schema } from 'normalizr';
 
 import { callApi } from 'core/api';
@@ -11,13 +12,25 @@ export const discoResult = new schema.Entity(
   { idAttribute: (result) => getGuid(result.addon) }
 );
 
-export function getDiscoveryAddons({ api, platform, telemetryClientId }) {
+export function getDiscoveryAddons({ api, taarParams = {}, _config = config }) {
+  const taarParamsToUse = _config.get('taarParamsToUse');
+  const allowedTaarParams = Object.keys(taarParams).reduce((object, key) => {
+    if (taarParamsToUse.includes(key)) {
+      return { ...object, [key]: taarParams[key] };
+    }
+
+    return object;
+  }, {});
+
+  // We translate `clientId` to `'telemetry-client-id'`.
+  if (allowedTaarParams.clientId) {
+    allowedTaarParams['telemetry-client-id'] = allowedTaarParams.clientId;
+    delete allowedTaarParams.clientId;
+  }
+
   return callApi({
     endpoint: 'discovery',
-    params: {
-      platform,
-      'telemetry-client-id': telemetryClientId,
-    },
+    params: allowedTaarParams,
     schema: { results: [discoResult] },
     state: api,
   });

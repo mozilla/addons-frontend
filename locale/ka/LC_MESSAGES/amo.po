@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-09 22:15+0000\n"
-"PO-Revision-Date: 2018-01-10 15:37+0000\n"
+"PO-Revision-Date: 2018-01-17 08:44+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -612,7 +612,7 @@ msgstr "შედით ანგარიშზე პასუხის გა
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr "შედით ანგარიშზე მიმოხილვის გასაჩივრებისთვის"
+msgstr "შედით ანგარიშზე გასაჩივრებისთვის"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -716,7 +716,7 @@ msgstr "საიტის მდგომარეობა"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
-msgstr "საიტის ვერსია კომპიუტერისთვის"
+msgstr "საიტის ძველი ვერსია"
 
 #: src/amo/components/Header/index.js:103
 msgid "View Profile"
@@ -897,7 +897,7 @@ msgstr "Decentraleyes"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Tracking protection against third-party sites aiming to mark your every online move."
-msgstr "საიტებზე, მესამე მხარის თვალყურისმდევნელი ნაწილების შეზღუდვა, რომელიც ყველა თქვენს მოქმედებას აღრიცხავს."
+msgstr "საიტებზე, ცალკეული თვალყურისმდევნელი ნაწილების შეზღუდვა, რომელიც ყველა თქვენს მოქმედებას აღრიცხავს."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1149,7 +1149,7 @@ msgstr "დალაგება"
 
 #: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
-msgstr "დამატების ტიპი"
+msgstr "დამატების სახეობა"
 
 #: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
@@ -1296,7 +1296,7 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
-"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებიდან, დამთავრებული დიდი ორგანიზაციებით. ზოგიერთი დამატება AMO "
+"აქ გამოქვეყნებული დამატებები შექმნილია ათასობით შემმუშავებლისა და თემის მხატვრების მიერ, მთელი მსოფლიოდან, დაწყებული ცალკეული მოხალისეებით, დამთავრებული დიდი ორგანიზაციებით. ზოგიერთი დამატება AMO "
 "საიტზე ავტომატურად ქვეყნდება და შეიძლება ექვემდებარებოდეს მიმომხილველთა გუნდის მიერ შემოწმებას."
 
 #: src/amo/components/StaticPages/About.js:67
