@@ -169,7 +169,7 @@ describe(__filename, () => {
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
     });
 
-    it('returns `true` when user has ADDONS_POSTREVIEW', () => {
+    it('returns `true` when user has ADDONS_REVIEW', () => {
       const permissions = [ADDONS_REVIEW];
       const { state } = dispatchSignInActions({ permissions });
 
