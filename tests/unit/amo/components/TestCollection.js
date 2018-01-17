@@ -339,6 +339,27 @@ describe(__filename, () => {
     }));
   });
 
+  it('compares user values in lower case', () => {
+    const user = 'Mozilla';
+    const errorHandler = createStubErrorHandler();
+    const store = dispatchClientMetadata().store;
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({ authorUsername: user }),
+    }));
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const wrapper = renderComponent({ errorHandler, store });
+    fakeDispatch.reset();
+
+    wrapper.setProps({
+      params: { slug: defaultSlug, user: user.toLowerCase() },
+    });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
   it('dispatches fetchCurrentCollection when slug param has changed', () => {
     const errorHandler = createStubErrorHandler();
     const store = dispatchClientMetadata().store;
