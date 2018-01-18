@@ -49,10 +49,12 @@ const Notice = ({
     <div className={finalClass}>
       <div className="Notice-icon" />
       <div className="Notice-column">
-        <p className="Notice-text">
-          {children}
-        </p>
-        {actionButton}
+        <div>
+          <p className="Notice-text">
+            {children}
+          </p>
+          {actionButton}
+        </div>
       </div>
     </div>
   );
