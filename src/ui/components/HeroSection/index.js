@@ -27,7 +27,7 @@ export default class HeroSection extends React.Component<Props> {
       <div
         className={classNames(
           'HeroSection',
-          `HeroSection-styleName--${styleName}`,
+          `HeroSection-styleName--${String(styleName)}`,
         )}
       >
         {linkTo ? (
