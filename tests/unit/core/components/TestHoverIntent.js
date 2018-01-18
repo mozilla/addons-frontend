@@ -8,6 +8,8 @@ import {
   findDOMNode,
 } from 'react-dom';
 
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+
 import HoverIntent from 'core/components/HoverIntent';
 
 function renderHoverIntent({ ...props }) {
@@ -36,7 +38,9 @@ describe('<HoverIntent />', () => {
       onHoverIntentEnd: sinon.spy(),
     };
     const rendered = renderHoverIntent(props);
+    // eslint-disable-next-line prefer-destructuring
     hoverIntent = rendered.hoverIntent;
+    // eslint-disable-next-line prefer-destructuring
     innerElement = rendered.innerElement;
   });
 

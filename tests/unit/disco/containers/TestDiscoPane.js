@@ -58,6 +58,7 @@ describe(__filename, () => {
           guid: 'foo',
         },
       }]));
+      // eslint-disable-next-line prefer-destructuring
       results = mappedProps.results;
     }
 

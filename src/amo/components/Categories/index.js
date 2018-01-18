@@ -128,9 +128,7 @@ export class CategoriesBase extends React.Component<Props> {
               // See https://github.com/facebook/flow/issues/2174
               // and https://github.com/facebook/flow/issues/2221
               // $FLOW_IGNORE
-              const name = category.name;
-              // $FLOW_IGNORE
-              const slug = category.slug;
+              const { name, slug } = category;
 
               return (
                 <li className="Categories-item" key={name}>

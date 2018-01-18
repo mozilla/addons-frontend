@@ -4,7 +4,6 @@ import React from 'react';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import Link from 'amo/components/Link';
 
-
 describe(__filename, () => {
   it('renders a section when only `children` prop is supplied', () => {
     const item = shallow(

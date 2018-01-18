@@ -35,6 +35,7 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
+    // eslint-disable-next-line prefer-destructuring
     store = dispatchClientMetadata().store;
   });
 
@@ -413,7 +414,7 @@ describe(__filename, () => {
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review });
-    const errorHandler = root.instance().props.errorHandler;
+    const { errorHandler } = root.instance().props;
 
     const textForm = root.find('.AddonReviewListItem-reply-form');
     expect(textForm).toHaveProp('onSubmit');

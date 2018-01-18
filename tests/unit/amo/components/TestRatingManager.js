@@ -417,6 +417,7 @@ describe('RatingManager', () => {
     let store;
 
     beforeEach(() => {
+      // eslint-disable-next-line prefer-destructuring
       store = createStore().store;
     });
 
@@ -473,7 +474,7 @@ describe('RatingManager', () => {
       store.dispatch(action);
       const dispatchedReview = action.payload;
 
-      const userReview = getMappedProps().userReview;
+      const { userReview } = getMappedProps();
       expect(userReview).toEqual(dispatchedReview);
     });
 

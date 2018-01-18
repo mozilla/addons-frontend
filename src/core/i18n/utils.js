@@ -131,6 +131,7 @@ export function parseAcceptLanguage(header: string) {
     let q = 1;
     if (parts.length > 1 && parts[1].trim().indexOf('q=') === 0) {
       const qVal = parseFloat(parts[1].split('=')[1]);
+      // eslint-disable-next-line no-restricted-globals
       if (isNaN(qVal) === false) {
         q = qVal;
       }
@@ -169,6 +170,7 @@ export function getLangFromHeader(
         break;
       // Match locale, even if region isn't supported
       } else if (isSupportedLang(normalizeLang(langPref.lang.split('-')[0]), { _supportedLangs })) {
+        // eslint-disable-next-line prefer-destructuring
         userLang = langPref.lang.split('-')[0];
         break;
       }

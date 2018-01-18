@@ -51,14 +51,15 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    installURLs: PropTypes.func.isRequired,
-    needsRestart: PropTypes.bool.isRequired,
+    installURLs: PropTypes.func,
+    needsRestart: PropTypes.bool,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
+    themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     _tracking: PropTypes.object,
@@ -75,25 +76,29 @@ export class AddonBase extends React.Component {
 
   getError() {
     const { error, i18n, status } = this.props;
-    return status === ERROR ? (<div className="notification error" key="error-overlay">
-      <p className="message">{this.errorMessage()}</p>
-      {error && !error.startsWith('FATAL') ? (
-        // eslint-disable-next-line jsx-a11y/href-no-hash
-        <a
-          className="close"
-          href="#"
-          onClick={this.closeError}
-        >
-          {i18n.gettext('Close')}
-        </a>
-      ) : null}
-    </div>) : null;
+    return status === ERROR ? (
+      <div className="notification error" key="error-overlay">
+        <p className="message">{this.errorMessage()}</p>
+        {error && !error.startsWith('FATAL') ? (
+          // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
+          <a
+            className="close"
+            href="#"
+            onClick={this.closeError}
+          >
+            {i18n.gettext('Close')}
+          </a>
+        ) : null}
+      </div>
+    ) : null;
   }
 
   getRestart() {
-    return this.props.needsRestart ? (<div className="notification restart" key="restart-overlay">
-      <p className="message">{this.restartMessage()}</p>
-    </div>) : null;
+    return this.props.needsRestart ? (
+      <div className="notification restart" key="restart-overlay">
+        <p className="message">{this.restartMessage()}</p>
+      </div>
+    ) : null;
   }
 
   getLogo() {
@@ -107,7 +112,7 @@ export class AddonBase extends React.Component {
   getThemeImage() {
     const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === ADDON_TYPE_THEME) {
-      /* eslint-disable jsx-a11y/href-no-hash */
+      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
       return (
         <HoverIntent
           onHoverIntent={this.previewTheme}
@@ -128,7 +133,7 @@ export class AddonBase extends React.Component {
           </a>
         </HoverIntent>
       );
-      /* eslint-enable jsx-a11y/href-no-hash */
+      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
     return null;
   }
@@ -247,7 +252,8 @@ export class AddonBase extends React.Component {
     return (
       // Disabling this is fine since the onClick is just being used to delegate
       // click events bubbling from the link within the header.
-      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+      // eslint-disable-next-line max-len
+      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
       <div className={addonClasses}>
         {this.getThemeImage()}
         {this.getLogo()}
@@ -283,6 +289,8 @@ export class AddonBase extends React.Component {
           />
         ) : null}
       </div>
+      // eslint-disable-next-line max-len
+      /* eslint-enable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
     );
   }
 }

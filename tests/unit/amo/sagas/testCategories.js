@@ -19,6 +19,7 @@ describe('categoriesSaga', () => {
 
   beforeEach(() => {
     errorHandler = createStubErrorHandler();
+    // eslint-disable-next-line prefer-destructuring
     store = createStore().store;
     store.dispatch(setClientApp('firefox'));
     store.dispatch(setLang('en-US'));

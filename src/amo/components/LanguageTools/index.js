@@ -201,6 +201,8 @@ export class LanguageToolsBase extends React.Component<Props> {
               });
 
               return (
+                // Required to preserve space between strong and span.
+                /* eslint-disable react/jsx-closing-tag-location */
                 <Tr
                   className={classNames(
                     'LanguageTools-table-row',
@@ -225,11 +227,12 @@ export class LanguageToolsBase extends React.Component<Props> {
                   </Td>
                 </Tr>
               );
-            }) : Array(50).fill(<Tr>
-              <Td><LoadingText /></Td>
-              <Td><LoadingText /></Td>
-              <Td><LoadingText /></Td>
-            </Tr>)}
+            }) : Array(50).fill(
+              <Tr>
+                <Td><LoadingText /></Td>
+                <Td><LoadingText /></Td>
+                <Td><LoadingText /></Td>
+              </Tr>)}
           </Tbody>
         </Table>
       </Card>

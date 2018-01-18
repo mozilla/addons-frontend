@@ -27,7 +27,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     log: PropTypes.object,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
-    userAgentInfo: PropTypes.object.isRequired,
+    userAgentInfo: PropTypes.object,
   }
 
   static defaultProps = {

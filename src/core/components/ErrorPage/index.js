@@ -12,8 +12,8 @@ export class ErrorPageBase extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
     dispatch: PropTypes.func.isRequired,
-    errorPage: PropTypes.object.isRequired,
-    getErrorComponent: PropTypes.func.isRequired,
+    errorPage: PropTypes.object,
+    getErrorComponent: PropTypes.func,
   }
 
   static defaultProps = {

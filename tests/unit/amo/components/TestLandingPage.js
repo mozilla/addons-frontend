@@ -68,6 +68,7 @@ describe(__filename, () => {
   };
 
   beforeEach(() => {
+    // eslint-disable-next-line prefer-destructuring
     store = dispatchClientMetadata().store;
   });
 

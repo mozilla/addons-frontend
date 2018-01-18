@@ -25,6 +25,7 @@ describe(__filename, () => {
   const firefoxESR52 = userAgents.firefox[4];
 
   beforeEach(() => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
     }).store.getState().api;
@@ -63,6 +64,7 @@ describe(__filename, () => {
   });
 
   it('sets appversion if Firefox version is 57 or above', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: firefox57,
@@ -78,6 +80,7 @@ describe(__filename, () => {
 
   // See: https://github.com/mozilla/addons-frontend/pull/2969#issuecomment-323551742
   it('does not set appversion if version is below 57', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: firefoxESR52,
@@ -92,6 +95,7 @@ describe(__filename, () => {
   });
 
   it('sets appversion if Firefox for Android', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_ANDROID,
       userAgent: userAgents.firefoxAndroid[4],
@@ -106,6 +110,7 @@ describe(__filename, () => {
   });
 
   it('does not set appversion if Firefox for iOS', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: userAgents.firefoxIOS[3],
@@ -120,6 +125,7 @@ describe(__filename, () => {
   });
 
   it('does not set appversion if browser is not Firefox', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: 'Lynx Beta',
@@ -134,6 +140,7 @@ describe(__filename, () => {
   });
 
   it('sets appversion if browser is Firefox 57+', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: firefox57,
@@ -155,6 +162,7 @@ describe(__filename, () => {
   });
 
   it('sets appversion if addonType is not set', () => {
+    // eslint-disable-next-line prefer-destructuring
     api = dispatchSignInActions({
       clientApp: CLIENT_APP_FIREFOX,
       userAgent: firefox57,

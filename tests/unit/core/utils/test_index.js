@@ -342,7 +342,7 @@ describe(__filename, () => {
     });
 
     it('fetches and dispatches an add-on', () => {
-      const entities = createFetchAddonResult(fakeAddon).entities;
+      const { entities } = createFetchAddonResult(fakeAddon);
       mockApi
         .expects('fetchAddon')
         .once()

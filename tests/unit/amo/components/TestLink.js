@@ -20,6 +20,7 @@ describe('<Link />', () => {
   }
 
   beforeEach(() => {
+    // eslint-disable-next-line prefer-destructuring
     store = createStore().store;
     store.dispatch(setClientApp('android'));
     store.dispatch(setLang('fr'));

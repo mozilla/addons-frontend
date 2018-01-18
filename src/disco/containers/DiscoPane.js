@@ -138,7 +138,8 @@ export class DiscoPaneBase extends React.Component {
                     the world, that you can install to personalize your Firefox. From fun visual themes
                     to powerful tools that make browsing faster and safer, add-ons make your browser yours.
                     To help you get started, here are some we recommend for their stand-out performance
-                    and functionality.`)}</p>
+                    and functionality.`)}
+              </p>
             </div>
             <div className="video-wrapper">
               <a className="play-video" href="#play" onClick={this.showVideo}>

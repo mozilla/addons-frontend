@@ -24,6 +24,7 @@ describe(__filename, () => {
   beforeEach(() => {
     // Set up an empty store and let each test call
     // dispatchClientMetadata().
+    // eslint-disable-next-line prefer-destructuring
     store = createStore().store;
   });
 

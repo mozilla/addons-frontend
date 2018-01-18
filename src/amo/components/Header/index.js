@@ -24,9 +24,9 @@ export class HeaderBase extends React.Component {
     api: PropTypes.object.isRequired,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isHomePage: PropTypes.bool.isRequired,
+    isHomePage: PropTypes.bool,
     location: PropTypes.object.isRequired,
-    query: PropTypes.string.isRequired,
+    query: PropTypes.string,
     siteUser: PropTypes.object.isRequired,
     isReviewer: PropTypes.bool.isRequired,
   }
@@ -141,7 +141,7 @@ export class HeaderBase extends React.Component {
               }
 
               <DropdownMenuItem
-                className={'Header-logout-button'}
+                className="Header-logout-button"
                 detached
                 onClick={this.handleLogOut}
               >

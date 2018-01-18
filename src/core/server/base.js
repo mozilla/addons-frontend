@@ -292,7 +292,7 @@ function baseServer(routes, createStore, {
       }
 
       let i18nData = {};
-      const htmlLang = pageProps.htmlLang;
+      const { htmlLang } = pageProps;
       const locale = langToLocale(htmlLang);
 
       try {
@@ -334,7 +334,7 @@ function baseServer(routes, createStore, {
         const finalHTML = renderHTML({ props, pageProps });
 
         // A redirection has been requested, let's do it.
-        const redirectTo = store.getState().redirectTo;
+        const { redirectTo } = store.getState();
         if (redirectTo && redirectTo.url) {
           log.info(oneLine`Redirection requested:
             url=${redirectTo.url} status=${redirectTo.status}`);

@@ -7,7 +7,6 @@ import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
 
-
 export class SuggestedPagesBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,

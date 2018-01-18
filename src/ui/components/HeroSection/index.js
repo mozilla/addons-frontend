@@ -10,7 +10,7 @@ import './styles.scss';
 type Props = {|
   children?: any,
   linkTo?: Object | string,
-  styleName: string,
+  styleName?: string,
 |};
 
 export default class HeroSection extends React.Component<Props> {

@@ -21,7 +21,7 @@ import type { ReactRouterLocation } from 'core/types/router';
 
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
-const Entity = normalizrSchema.Entity;
+const { Entity } = normalizrSchema;
 
 export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
@@ -53,6 +53,7 @@ export function createApiError(
     // Strip the host since we already know that.
     urlId = apiURL.replace(config.get('apiHost'), '');
     // Strip query string params since lang will vary quite a lot.
+    // eslint-disable-next-line prefer-destructuring
     urlId = urlId.split('?')[0];
   }
   const apiError = new Error(
@@ -286,6 +287,7 @@ export const allPages = async (
     const response = await getNextResponse(nextURL);
     if (!count) {
       // Every response page returns a count for all results.
+      // eslint-disable-next-line prefer-destructuring
       count = response.count;
     }
     if (!pageSize) {

@@ -10,7 +10,7 @@ export default class Overlay extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     onEscapeOverlay: PropTypes.func,
-    visibleOnLoad: PropTypes.bool.isRequired,
+    visibleOnLoad: PropTypes.bool,
   }
 
   static defaultProps = {

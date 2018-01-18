@@ -32,7 +32,7 @@ export class SearchFormBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
     className: PropTypes.string,
-    debounce: PropTypes.func.isRequired,
+    debounce: PropTypes.func,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,

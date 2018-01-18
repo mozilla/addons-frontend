@@ -86,12 +86,13 @@ export class AddonReviewListBase extends React.Component<Props> {
       dispatch(setViewContext(addon.type));
     }
 
-    let location = this.props.location;
+    let { location } = this.props;
     let locationChanged = false;
     if (nextProps && nextProps.location) {
       if (nextProps.location !== location) {
         locationChanged = true;
       }
+      // eslint-disable-next-line prefer-destructuring
       location = nextProps.location;
     }
 
@@ -302,7 +303,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
   }
-  const addonSlug = ownProps.params.addonSlug;
+  const { addonSlug } = ownProps.params;
   const reviewData = state.reviews.byAddon[addonSlug];
 
   return {

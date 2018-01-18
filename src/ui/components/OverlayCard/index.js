@@ -16,7 +16,7 @@ export default class OverlayCard extends React.Component {
     footerLink: PropTypes.node,
     footerText: PropTypes.node,
     onEscapeOverlay: PropTypes.func,
-    visibleOnLoad: PropTypes.bool.isRequired,
+    visibleOnLoad: PropTypes.bool,
   }
 
   static defaultProps = {
