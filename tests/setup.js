@@ -1,3 +1,6 @@
+// This adds the same polyfills that the production application relies on.
+import 'core/polyfill';
+
 import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
