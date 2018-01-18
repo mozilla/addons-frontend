@@ -21,6 +21,11 @@
   width: 16px;
 }
 
+.Notice-column {
+  align-items: center;
+  display: flex;
+}
+
 .Notice-text {
   display: inline-block;
   margin: 0;
@@ -61,7 +66,13 @@
   }
 
   background-color: $red-50;
-  color: $white;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $white;
+  }
 }
 
 .Notice-success {
@@ -87,5 +98,11 @@
   }
 
   background-color: $green-50;
-  color: $green-90;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $green-90;
+  }
 }

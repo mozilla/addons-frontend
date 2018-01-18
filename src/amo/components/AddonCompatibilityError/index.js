@@ -97,7 +97,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
 
     return (
       <Notice type="error" className="AddonCompatibilityError">
-        <div dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
+        <span dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
       </Notice>
     );
   }
