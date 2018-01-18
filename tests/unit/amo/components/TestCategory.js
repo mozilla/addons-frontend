@@ -39,7 +39,6 @@ describe(__filename, () => {
       clientApp: CLIENT_APP_FIREFOX,
     });
     errorHandler = createStubErrorHandler();
-    // eslint-disable-next-line prefer-destructuring
     store = clientData.store;
   });
 

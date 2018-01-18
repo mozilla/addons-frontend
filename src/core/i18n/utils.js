@@ -170,7 +170,6 @@ export function getLangFromHeader(
         break;
       // Match locale, even if region isn't supported
       } else if (isSupportedLang(normalizeLang(langPref.lang.split('-')[0]), { _supportedLangs })) {
-        // eslint-disable-next-line prefer-destructuring
         userLang = langPref.lang.split('-')[0];
         break;
       }

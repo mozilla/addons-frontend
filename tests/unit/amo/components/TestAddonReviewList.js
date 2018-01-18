@@ -43,7 +43,6 @@ describe(__filename, () => {
   let store;
 
   beforeEach(() => {
-    // eslint-disable-next-line prefer-destructuring
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 

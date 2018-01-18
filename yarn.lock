@@ -2914,6 +2914,16 @@ eslint-config-airbnb@16.1.0:
   dependencies:
     eslint-config-airbnb-base "^12.1.0"
 
+eslint-config-amo@1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.5.0.tgz#c93d4915cd19d8d9e813a30025e103fd1c82cd8a"
+  dependencies:
+    eslint-config-airbnb "16.1.0"
+    eslint-plugin-import "2.8.0"
+    eslint-plugin-jest "21.7.0"
+    eslint-plugin-jsx-a11y "^6.0.2"
+    eslint-plugin-react "7.5.1"
+
 eslint-config-amo@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.1.0.tgz#e77a3ccff34167674f33ee2e79c75ce156d5601d"
@@ -2921,16 +2931,6 @@ eslint-config-amo@^1.1.0:
     eslint-config-airbnb "16.1.0"
     eslint-plugin-import "2.8.0"
     eslint-plugin-jest "21.6.2"
-    eslint-plugin-jsx-a11y "^6.0.2"
-    eslint-plugin-react "7.5.1"
-
-eslint-config-amo@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.4.0.tgz#612a413690bdb727d553d61fd564a08aa6a0f966"
-  dependencies:
-    eslint-config-airbnb "16.1.0"
-    eslint-plugin-import "2.8.0"
-    eslint-plugin-jest "21.7.0"
     eslint-plugin-jsx-a11y "^6.0.2"
     eslint-plugin-react "7.5.1"
 

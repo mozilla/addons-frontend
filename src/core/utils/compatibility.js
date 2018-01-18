@@ -150,7 +150,6 @@ export function getClientCompatibility({
   if (!supportsClientApp) {
     reason = INCOMPATIBLE_UNSUPPORTED_PLATFORM;
   } else {
-    // eslint-disable-next-line prefer-destructuring
     reason = agent.reason;
   }
 

@@ -304,11 +304,9 @@ export function mapStateToProps(
   if (ownProps.review) {
     const view = state.reviews.view[ownProps.review.id];
     if (view) {
-      /* eslint-disable prefer-destructuring */
       editingReview = view.editingReview;
       replyingToReview = view.replyingToReview;
       submittingReply = view.submittingReply;
-      /* eslint-enable prefer-destructuring */
     }
   }
   return {

@@ -417,7 +417,6 @@ describe('RatingManager', () => {
     let store;
 
     beforeEach(() => {
-      // eslint-disable-next-line prefer-destructuring
       store = createStore().store;
     });
 

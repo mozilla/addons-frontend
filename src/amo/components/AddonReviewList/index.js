@@ -92,7 +92,6 @@ export class AddonReviewListBase extends React.Component<Props> {
       if (nextProps.location !== location) {
         locationChanged = true;
       }
-      // eslint-disable-next-line prefer-destructuring
       location = nextProps.location;
     }
 

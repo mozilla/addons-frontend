@@ -38,9 +38,7 @@ describe('<HoverIntent />', () => {
       onHoverIntentEnd: sinon.spy(),
     };
     const rendered = renderHoverIntent(props);
-    // eslint-disable-next-line prefer-destructuring
     hoverIntent = rendered.hoverIntent;
-    // eslint-disable-next-line prefer-destructuring
     innerElement = rendered.innerElement;
   });
 
