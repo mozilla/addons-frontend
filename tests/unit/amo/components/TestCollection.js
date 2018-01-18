@@ -342,7 +342,7 @@ describe(__filename, () => {
   it('compares user values in lower case', () => {
     const user = 'Mozilla';
     const errorHandler = createStubErrorHandler();
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),

@@ -279,7 +279,7 @@ export const mapStateToProps = (
   state: {| collections: CollectionsState, users: UsersStateType |},
   ownProps: Props
 ) => {
-  const collections = state.collections;
+  const { collections } = state;
   const siteUserId = state.users.currentUserID;
 
   let userCollections;
