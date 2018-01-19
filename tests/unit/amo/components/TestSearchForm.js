@@ -8,7 +8,9 @@ import SearchForm, {
 } from 'amo/components/SearchForm';
 import Suggestion from 'amo/components/SearchSuggestion';
 import {
+  ADDON_TYPE_EXTENSION,
   CLIENT_APP_ANDROID,
+  OS_LINUX,
   OS_WINDOWS,
 } from 'core/constants';
 import LoadingText from 'ui/components/LoadingText';
@@ -32,45 +34,39 @@ describe(__filename, () => {
   let errorHandler;
   let fakeRouter;
 
-  function mountComponent({
-    pathname = '/search/',
-    query = 'foo',
-    store = dispatchSignInActions().store,
-    ...props
-  } = {}) {
-    return mount(
-      <SearchForm
-        debounce={(callback) => (...args) => callback(...args)}
-        errorHandler={errorHandler}
-        i18n={fakeI18n()}
-        pathname={pathname}
-        query={query}
-        router={fakeRouter}
-        store={store}
-        {...props}
-      />
-    );
+  const getProps = (customProps = {}) => {
+    return {
+      debounce: (callback) => (...args) => callback(...args),
+      errorHandler,
+      i18n: fakeI18n(),
+      pathname: '/search/',
+      query: 'foo',
+      router: fakeRouter,
+      store: dispatchSignInActions().store,
+      ...customProps,
+    };
+  };
+
+  function mountComponent(customProps = {}) {
+    const props = getProps(customProps);
+    return mount(<SearchForm {...props} />);
   }
 
   // We use `mount` and the base version of this component for these tests
   // because we need to check the state of the component and the only way
   // to do that is to mount it directly without HOC.
-  function mountBaseComponent({
-    pathname = '/search/',
-    query = 'foo',
-    store = dispatchSignInActions().store,
-    ...props
-  } = {}) {
+  function mountBaseComponent({ locationQuery, ...customProps } = {}) {
+    const props = getProps({
+      // When mounting the base component, we have to define `location`
+      // directly. When mounting the actual component, withRouter() will
+      // pass `location` from `router.location`.
+      location: { query: { ...locationQuery } },
+      ...customProps,
+    });
     return mount(
       <SearchFormBase
-        debounce={(callback) => (...args) => callback(...args)}
         dispatch={sinon.stub()}
-        errorHandler={errorHandler}
-        i18n={fakeI18n()}
-        pathname={pathname}
-        query={query}
-        router={fakeRouter}
-        {...mapStateToProps(store.getState())}
+        {...mapStateToProps(props.store.getState())}
         {...props}
       />
     );
@@ -85,7 +81,12 @@ describe(__filename, () => {
   describe('render/UI', () => {
     beforeEach(() => {
       errorHandler = createStubErrorHandler();
-      fakeRouter = { push: sinon.spy() };
+      // The `withRouter()` HOC passes `location` from `router.location`
+      // to the component. In other words, `location` cannot be set directly.
+      fakeRouter = {
+        location: { query: {} },
+        push: sinon.spy(),
+      };
     });
 
     it('renders a form', () => {
@@ -356,6 +357,62 @@ describe(__filename, () => {
       sinon.assert.calledWith(dispatch, autocompleteStart({
         errorHandlerId: errorHandler.id,
         filters: { operatingSystem: OS_WINDOWS, query: 'adb' },
+      }));
+    });
+
+    it('preserves existing search filters on the query string', () => {
+      const dispatch = sinon.spy();
+      const locationQuery = { type: ADDON_TYPE_EXTENSION };
+      const wrapper = mountBaseComponent({ dispatch, locationQuery });
+
+      const query = 'ad blocker';
+      wrapper.find('input')
+        .simulate('change', createFakeChangeEvent(query));
+
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          operatingSystem: OS_WINDOWS,
+          query,
+        },
+      }));
+    });
+
+    it('lets you override the default operating system', () => {
+      const dispatch = sinon.spy();
+      const locationQuery = { platform: OS_LINUX };
+      const wrapper = mountBaseComponent({ dispatch, locationQuery });
+
+      const query = 'ad blocker';
+      wrapper.find('input')
+        .simulate('change', createFakeChangeEvent(query));
+
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: {
+          operatingSystem: OS_LINUX,
+          query,
+        },
+      }));
+    });
+
+    it('does not preserve the existing search page', () => {
+      const dispatch = sinon.spy();
+      const locationQuery = { page: 2 };
+      const wrapper = mountBaseComponent({ dispatch, locationQuery });
+
+      const query = 'ad blocker';
+      wrapper.find('input')
+        .simulate('change', createFakeChangeEvent(query));
+
+      sinon.assert.calledWith(dispatch, autocompleteStart({
+        errorHandlerId: errorHandler.id,
+        filters: {
+          // The page parameter should not be included.
+          operatingSystem: OS_WINDOWS,
+          query,
+        },
       }));
     });
 

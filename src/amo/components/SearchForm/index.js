@@ -21,6 +21,7 @@ import {
 import {
   convertOSToFilterValue,
   convertFiltersToQueryParams,
+  convertQueryParamsToFilters,
 } from 'core/searchUtils';
 import Icon from 'ui/components/Icon';
 
@@ -37,6 +38,8 @@ export class SearchFormBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     loadingSuggestions: PropTypes.bool.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
     query: PropTypes.string.isRequired,
     router: PropTypes.object.isRequired,
@@ -87,12 +90,17 @@ export class SearchFormBase extends React.Component {
   }
 
   createFiltersFromQuery(newFilters) {
-    const { userAgentInfo } = this.props;
-    const filters = { ...newFilters };
+    const { location, userAgentInfo } = this.props;
+    // Preserve any existing search filters.
+    const filtersFromLocation = convertQueryParamsToFilters(location.query);
+    // Do not preserve page. New searches should always start on page 1.
+    delete filtersFromLocation.page;
 
-    filters.operatingSystem = convertOSToFilterValue(userAgentInfo.os.name);
-
-    return filters;
+    return {
+      operatingSystem: convertOSToFilterValue(userAgentInfo.os.name),
+      ...filtersFromLocation,
+      ...newFilters,
+    };
   }
 
   goToSearch(query) {

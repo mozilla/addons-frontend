@@ -155,7 +155,7 @@ export class SearchFiltersBase extends React.Component {
           </Select>
 
           {/* Categories are linked to addonType so we don't allow changing the
-            addonType if a filter is set. */}
+            addonType if a category is set. */}
           {!filters.category && (
             <div>
               <label
