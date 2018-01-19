@@ -1,5 +1,5 @@
 /* @flow */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -31,7 +31,7 @@ export const DownloadFirefoxButtonBase = ({
 
   return (
     <Button
-      className={classNames(
+      className={makeClassName(
         'DownloadFirefoxButton',
         'Button',
         'Button--confirm',

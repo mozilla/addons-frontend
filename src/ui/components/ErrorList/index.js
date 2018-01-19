@@ -1,5 +1,5 @@
 /* global window */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -68,7 +68,7 @@ export class ErrorListBase extends React.Component {
     }
 
     return (
-      <ul className={classNames('ErrorList', className)}>
+      <ul className={makeClassName('ErrorList', className)}>
         {
           items.map((item, index) => {
             return (

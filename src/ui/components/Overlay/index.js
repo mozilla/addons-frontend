@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -52,7 +52,7 @@ export default class Overlay extends React.Component {
 
     return (
       <div
-        className={classNames('Overlay', className, { 'Overlay--visible': this.state.visible })}
+        className={makeClassName('Overlay', className, { 'Overlay--visible': this.state.visible })}
         ref={(ref) => { this.overlayContainer = ref; }}
       >
         <div

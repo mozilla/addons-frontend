@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -45,7 +45,7 @@ export default class LandingAddonsCard extends React.Component {
     return (
       <AddonsCard
         addons={addons}
-        className={classNames('LandingAddonsCard', className)}
+        className={makeClassName('LandingAddonsCard', className)}
         footerLink={footerLinkHtml}
         header={header}
         type="horizontal"

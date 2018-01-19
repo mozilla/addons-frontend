@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -53,7 +53,7 @@ export class RatingBase extends React.Component {
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
-        className: classNames('Rating-choice', {
+        className: makeClassName('Rating-choice', {
           'Rating-selected-star': rating && thisRating <= rating,
           // Half stars are the result of averages rounded to the nearest
           // 0.5 place. The API should not return floats for your own review
@@ -97,7 +97,7 @@ export class RatingBase extends React.Component {
       description = i18n.gettext('No ratings');
     }
 
-    const allClassNames = classNames('Rating', `Rating--${styleName}`,
+    const allClassNames = makeClassName('Rating', `Rating--${styleName}`,
       className, { 'Rating--editable': !readOnly });
 
     return (

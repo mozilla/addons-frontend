@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -19,7 +19,7 @@ export default class CardList extends React.Component {
     return (
       <Card
         {...cardProps}
-        className={classNames('CardList', className)}
+        className={makeClassName('CardList', className)}
         photonStyle
       >
         {/* Children in this case is expected to be an unordered list, */}

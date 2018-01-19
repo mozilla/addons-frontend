@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 
@@ -66,7 +66,7 @@ export default class AddonsCard extends React.Component {
     return (
       <CardList
         {...otherProps}
-        className={classNames('AddonsCard', `AddonsCard--${type}`, className)}
+        className={makeClassName('AddonsCard', `AddonsCard--${type}`, className)}
         ref={(ref) => { this.cardContainer = ref; }}
       >
         {children}

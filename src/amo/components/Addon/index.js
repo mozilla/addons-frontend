@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -410,7 +410,7 @@ export class AddonBase extends React.Component {
         );
     }
 
-    const classnames = classNames('AddonDescription-more-addons', {
+    const classnames = makeClassName('AddonDescription-more-addons', {
       'AddonDescription-more-addons--theme': addonType === ADDON_TYPE_THEME,
     });
 
@@ -512,7 +512,7 @@ export class AddonBase extends React.Component {
 
     return (
       <div
-        className={classNames('Addon', `Addon-${addonType}`, {
+        className={makeClassName('Addon', `Addon-${addonType}`, {
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}

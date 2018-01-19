@@ -1,5 +1,5 @@
 /* @flow */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -61,10 +61,10 @@ export class SectionLinksBase extends React.Component<Props> {
     }
 
     return (
-      <ul className={classNames('SectionLinks', className)}>
+      <ul className={makeClassName('SectionLinks', className)}>
         <li>
           <Link
-            className={classNames('SectionLinks-link', 'SectionLinks-explore', {
+            className={makeClassName('SectionLinks-link', 'SectionLinks-explore', {
               'SectionLinks-link--active': isExploring,
             })}
             to="/"
@@ -74,7 +74,7 @@ export class SectionLinksBase extends React.Component<Props> {
         </li>
         <li>
           <Link
-            className={classNames('SectionLinks-link', {
+            className={makeClassName('SectionLinks-link', {
               'SectionLinks-link--active': viewContext ===
                 ADDON_TYPE_EXTENSION,
             })}
@@ -85,7 +85,7 @@ export class SectionLinksBase extends React.Component<Props> {
         </li>
         <li>
           <Link
-            className={classNames('SectionLinks-link', {
+            className={makeClassName('SectionLinks-link', {
               'SectionLinks-link--active': viewContext === ADDON_TYPE_THEME,
             })}
             to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}
@@ -103,7 +103,7 @@ export class SectionLinksBase extends React.Component<Props> {
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                className={classNames('SectionLinks-dropdownlink', {
+                className={makeClassName('SectionLinks-dropdownlink', {
                   'SectionLinks-dropdownlink--active': viewContext ===
                     VIEW_CONTEXT_LANGUAGE_TOOLS,
                 })}

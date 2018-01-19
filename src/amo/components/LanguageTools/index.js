@@ -1,5 +1,5 @@
 /* @flow */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
@@ -202,7 +202,7 @@ export class LanguageToolsBase extends React.Component<Props> {
 
               return (
                 <Tr
-                  className={classNames(
+                  className={makeClassName(
                     'LanguageTools-table-row',
                     `LanguageTools-lang-${language.locale}`,
                   )}

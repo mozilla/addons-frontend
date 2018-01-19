@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router';
@@ -49,7 +49,7 @@ export default class PaginatorLink extends React.Component {
       return (
         <span
           key={page}
-          className={classNames('Paginate-item', 'disabled', className)}
+          className={makeClassName('Paginate-item', 'disabled', className)}
         >
           {text || page}
         </span>
@@ -59,7 +59,7 @@ export default class PaginatorLink extends React.Component {
     return (
       <LinkComponent
         to={{ pathname, query: { ...queryParams, page } }}
-        className={classNames('Paginate-item', className)}
+        className={makeClassName('Paginate-item', className)}
       >
         {text || page}
       </LinkComponent>
