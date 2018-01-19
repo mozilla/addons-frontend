@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -47,7 +47,7 @@ export default class OverlayCard extends React.Component {
         ref={(ref) => { this.overlay = ref; }}
       >
         <Card
-          className={classNames('OverlayCard', className)}
+          className={makeClassName('OverlayCard', className)}
           header={header}
           footerLink={footerLink}
           footerText={footerText}

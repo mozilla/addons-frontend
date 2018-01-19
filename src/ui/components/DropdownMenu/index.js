@@ -1,7 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 
 import log from 'core/logger';
@@ -75,7 +75,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
     return (
       <div
-        className={classNames('DropdownMenu', className, {
+        className={makeClassName('DropdownMenu', className, {
           'DropdownMenu--active': this.state.buttonIsActive,
         })}
         onClick={this.handleOnClickForLinks}

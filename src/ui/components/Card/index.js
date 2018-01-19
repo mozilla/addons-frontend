@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -48,7 +48,7 @@ export default class Card extends React.Component {
 
     return (
       <section
-        className={classNames('Card', className, {
+        className={makeClassName('Card', className, {
           'Card--photon': photonStyle,
           'Card--no-header': !header,
           'Card--no-footer': !footer,

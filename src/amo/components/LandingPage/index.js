@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -209,7 +209,7 @@ export class LandingPageBase extends React.Component {
     };
 
     return (
-      <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
+      <div className={makeClassName('LandingPage', `LandingPage--${addonType}`)}>
         <Helmet>
           <title>{headingText[addonType]}</title>
         </Helmet>

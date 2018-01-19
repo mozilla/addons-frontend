@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -216,7 +216,7 @@ export class SearchFormBase extends React.Component {
     return (
       <form
         action={`/${api.lang}/${api.clientApp}${pathname}`}
-        className={classNames('SearchForm', className, {
+        className={makeClassName('SearchForm', className, {
           'SearchForm--autocompleteIsOpen': autocompleteIsOpen,
         })}
         method="GET"

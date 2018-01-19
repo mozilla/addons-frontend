@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
 
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { sprintf } from 'jed';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -229,7 +229,7 @@ export class AddonBase extends React.Component {
       throw new Error(`Invalid addon type "${type}"`);
     }
 
-    const addonClasses = classNames('addon', {
+    const addonClasses = makeClassName('addon', {
       theme: type === ADDON_TYPE_THEME,
       extension: type === ADDON_TYPE_EXTENSION,
     });

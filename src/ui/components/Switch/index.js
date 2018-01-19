@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 
 import './Switch.scss';
 
@@ -39,7 +39,7 @@ export default class Switch extends React.Component {
     } = this.props;
     const identifier = `install-button-${name}`;
     const hasProgress = progress !== undefined;
-    const classes = classNames('Switch', className, {
+    const classes = makeClassName('Switch', className, {
       'Switch--indefinite': progress === Infinity,
       'Switch--indefinite-reverse': progress === -Infinity,
       'Switch--progress': hasProgress && progress !== Infinity && progress !== -Infinity,

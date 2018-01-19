@@ -1,5 +1,5 @@
 /* global InstallTrigger, window */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -206,7 +206,7 @@ export class InstallButtonBase extends React.Component {
       addon, clientApp, userAgentInfo });
 
     const buttonIsDisabled = !compatible;
-    const buttonClass = classNames(
+    const buttonClass = makeClassName(
       'InstallButton-button', 'Button--action', className, {
         'InstallButton-button--disabled': buttonIsDisabled,
       }
@@ -275,7 +275,7 @@ export class InstallButtonBase extends React.Component {
     }
     return (
       <div
-        className={classNames('InstallButton', {
+        className={makeClassName('InstallButton', {
           'InstallButton--use-button': useButton,
           'InstallButton--use-switch': !useButton,
         })}

@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { compose } from 'redux';
@@ -47,7 +47,7 @@ export class SearchResultBase extends React.Component {
     const imageURL = isTheme ? themeURL : iconURL;
 
     // Sets classes to handle fallback if theme preview is not available.
-    const iconWrapperClassnames = classNames('SearchResult-icon-wrapper', {
+    const iconWrapperClassnames = makeClassName('SearchResult-icon-wrapper', {
       'SearchResult-icon-wrapper--no-theme-image': (
         isTheme && imageURL === null
       ),
@@ -126,7 +126,7 @@ export class SearchResultBase extends React.Component {
 
     const result = this.renderResult();
     const isTheme = this.addonIsTheme();
-    const resultClassnames = classNames('SearchResult', {
+    const resultClassnames = makeClassName('SearchResult', {
       'SearchResult--theme': isTheme,
     });
 

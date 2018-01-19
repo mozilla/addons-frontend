@@ -1,5 +1,5 @@
 /* @flow */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -145,7 +145,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
     /* eslint-disable react/no-danger */
     return (
       <div
-        className={classNames('ReportAbuseButton', {
+        className={makeClassName('ReportAbuseButton', {
           'ReportAbuseButton--is-expanded': abuseReport.uiVisible,
         })}
       >
@@ -187,7 +187,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
 
           <div className="ReportAbuseButton-buttons">
             <a
-              className={classNames('ReportAbuseButton-dismiss-report', {
+              className={makeClassName('ReportAbuseButton-dismiss-report', {
                 'ReportAbuseButton-dismiss-report--disabled': loading,
               })}
               href="#cancel"

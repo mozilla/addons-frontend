@@ -1,4 +1,4 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -29,7 +29,7 @@ export default class Button extends React.Component {
     const props = { ...rest };
 
     const setClassName = (...classConfig) => {
-      return classNames('Button', className, ...classConfig);
+      return makeClassName('Button', className, ...classConfig);
     };
 
     if (href || to) {
