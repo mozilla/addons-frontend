@@ -472,7 +472,7 @@ describe(__filename, () => {
         clientApp,
       });
 
-      const userAgentInfo = store.getState().api.userAgentInfo;
+      const { userAgentInfo } = store.getState().api;
       // Do a quick check to make sure we grabbed a real object.
       expect(userAgentInfo).toBeTruthy();
       // Use equality to check this prop since toMatchObject will get

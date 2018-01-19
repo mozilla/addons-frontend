@@ -71,7 +71,8 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     // div below, but they're just re-creating hover in JS and dismissing
     // the menu when links inside it are clicked, so it's not really
     // an interactive element.
-    /* eslint-disable jsx-a11y/no-static-element-interactions */
+    // eslint-disable-next-line max-len
+    /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
     return (
       <div
         className={classNames('DropdownMenu', className, {
@@ -99,7 +100,8 @@ export class DropdownMenuBase extends React.Component<Props, State> {
         )}
       </div>
     );
-    /* eslint-enable jsx-a11y/no-static-element-interactions */
+    // eslint-disable-next-line max-len
+    /* eslint-enable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
   }
 }
 

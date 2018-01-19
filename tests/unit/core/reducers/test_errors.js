@@ -118,7 +118,7 @@ describe(__filename, () => {
       password: ['sorry, it cannot be 1234'],
     };
     const reducedError = getReducedError(createFakeApiError({ fieldErrors }));
-    const messages = reducedError.messages;
+    const { messages } = reducedError;
 
     expect(messages).toContain('username: not long enough');
     expect(messages).toContain('username: contains invalid characters');

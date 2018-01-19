@@ -32,8 +32,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
             )}
           </h3>
 
-          <p>{i18n.gettext(`Translate a word, phrase, even an entire page.
-            Supports 100+ languages.`)}</p>
+          <p>
+            {i18n.gettext(`Translate a word, phrase, even an entire page.
+              Supports 100+ languages.`)}
+          </p>
         </HeroSection>
       ),
       (
@@ -44,8 +46,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         >
           <h3>{i18n.gettext('Group Speed Dial')}</h3>
 
-          <p>{i18n.gettext(`Visual bookmarks for your favorite places on the
-            web.`)}</p>
+          <p>
+            {i18n.gettext(`Visual bookmarks for your favorite places on the
+              web.`)}
+          </p>
         </HeroSection>
       ),
       (
@@ -68,7 +72,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           styleName="Home-fireshot"
         >
           <h3>{i18n.gettext('FireShot')}</h3>
-
           <p>
             {i18n.gettext('Capture full-page screenshots.')}
           </p>
@@ -81,9 +84,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           styleName="Home-video-downloadhelper"
         >
           <h3>{i18n.gettext('Video DownloadHelper')}</h3>
-
-          <p>{i18n.gettext(`Easily download video from hundreds of popular
-            websites.`)}</p>
+          <p>
+            {i18n.gettext(`Easily download video from hundreds of popular
+              websites.`)}
+          </p>
         </HeroSection>
       ),
       (
@@ -93,9 +97,10 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           styleName="Home-decentraleyes"
         >
           <h3>{i18n.gettext('Decentraleyes')}</h3>
-
-          <p>{i18n.gettext(`Tracking protection against third-party sites
-            aiming to mark your every online move.`)}</p>
+          <p>
+            {i18n.gettext(`Tracking protection against third-party sites
+              aiming to mark your every online move.`)}
+          </p>
         </HeroSection>
       ),
       (

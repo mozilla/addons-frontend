@@ -56,7 +56,8 @@ export class ReviewGuideBase extends React.Component {
               <li>{i18n.gettext('Submit one-word reviews such as "Great!", "wonderful," or "bad".')}</li>
               <li>{i18n.gettext(`Post technical issues, support requests, or feature suggestions. Use
                 the available support options for each add-on, if available. You can find them in
-                the "More information" section in the sidebar on the add-on's detail page.`)}</li>
+                the "More information" section in the sidebar on the add-on's detail page.`)}
+              </li>
               <li>{i18n.gettext('Write reviews for add-ons which you have not personally used.')}</li>
               <li>{i18n.gettext('Use profanity, sexual language or language that can be construed as hateful.')}</li>
               <li>{i18n.gettext('Include HTML, links, source code or code snippets. Reviews are meant to be text only.')}</li>
@@ -66,7 +67,8 @@ export class ReviewGuideBase extends React.Component {
               <li>{i18n.gettext(`Criticize an add-on for something it’s intended to do. For example,
                 leaving a negative review of an add-on for displaying ads or requiring data
                 gathering, when that is the intended purpose of the add-on, or the add-on
-                requires gathering data to function.`)}</li>
+                requires gathering data to function.`)}
+              </li>
             </ul>
           </section>
 
@@ -77,7 +79,8 @@ export class ReviewGuideBase extends React.Component {
             <p>{i18n.gettext(`Please report or flag any questionable reviews by clicking the
               "Report this review" and it will be submitted to the site for moderation. Our
               moderation team will use the Review Guidelines to evaluate whether or not to
-              delete the review or restore it back to the site.`)}</p>
+              delete the review or restore it back to the site.`)}
+            </p>
 
             <h3>{i18n.gettext(`I'm an add-on author, can I respond to reviews?`)}</h3>
             <p
@@ -97,7 +100,8 @@ export class ReviewGuideBase extends React.Component {
             <p>{i18n.gettext(`In general, no. But if the review did not meet the review guidelines
               outlined above, you can click "Report this review" and have it moderated. If a review
               included a complaint that is no longer valid due to a new release of your add-on, we
-              may consider deleting the review.`)}</p>
+              may consider deleting the review.`)}
+            </p>
           </section>
         </div>
       </Card>

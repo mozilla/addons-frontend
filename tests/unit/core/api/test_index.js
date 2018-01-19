@@ -109,7 +109,7 @@ describe(__filename, () => {
       return api.callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
           expect(errorHandler.handle.called).toBeTruthy();
-          const args = errorHandler.handle.firstCall.args;
+          const { args } = errorHandler.handle.firstCall;
           expect(args[0].response.data.non_field_errors).toEqual(nonFieldErrors);
         });
     });
@@ -157,7 +157,7 @@ describe(__filename, () => {
       return api.callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
           expect(errorHandler.handle.called).toBeTruthy();
-          const args = errorHandler.handle.firstCall.args;
+          const { args } = errorHandler.handle.firstCall;
           expect(args[0].message).toEqual('this could be any error');
         });
     });

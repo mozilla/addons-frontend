@@ -36,7 +36,7 @@ import './styles.scss';
 
 export class SearchBase extends React.Component {
   static propTypes = {
-    LinkComponent: PropTypes.node.isRequired,
+    LinkComponent: PropTypes.node,
     context: PropTypes.string.isRequired,
     count: PropTypes.number,
     dispatch: PropTypes.func.isRequired,

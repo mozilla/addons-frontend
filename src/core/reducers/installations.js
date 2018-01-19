@@ -55,7 +55,7 @@ export default function installations(
   state: InstallationState = {}, { type, payload }: InstallationAction,
 ) {
   function updateAddon(newProps: Object): InstalledAddon {
-    const guid = payload.guid;
+    const { guid } = payload;
     const addon = state[guid];
     if (!addon) {
       throw new Error(

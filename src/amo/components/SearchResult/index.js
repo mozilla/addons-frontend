@@ -137,7 +137,9 @@ export class SearchResultBase extends React.Component {
             to={`/addon/${addon.slug}/`}
             className="SearchResult-link"
             ref={(el) => { this.name = el; }}
-          >{result}</Link>
+          >
+            {result}
+          </Link>
           : result
         }
       </li>

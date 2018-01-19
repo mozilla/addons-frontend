@@ -60,7 +60,9 @@ export class LanguagePickerBase extends React.Component {
             <option
               key={locale}
               value={locale}
-            >{languages[locale].native}</option>
+            >
+              {languages[locale].native}
+            </option>
           ))}
         </select>
       </div>

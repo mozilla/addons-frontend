@@ -14,9 +14,6 @@ export default function translate(options = {}) {
       constructor(props, context) {
         super(props, context);
         this.i18n = context.i18n;
-        this.state = {
-          i18nLoadedAt: null,
-        };
       }
 
       getWrappedInstance() {

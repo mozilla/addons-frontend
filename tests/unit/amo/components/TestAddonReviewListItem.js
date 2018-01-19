@@ -413,7 +413,7 @@ describe(__filename, () => {
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ review });
-    const errorHandler = root.instance().props.errorHandler;
+    const { errorHandler } = root.instance().props;
 
     const textForm = root.find('.AddonReviewListItem-reply-form');
     expect(textForm).toHaveProp('onSubmit');

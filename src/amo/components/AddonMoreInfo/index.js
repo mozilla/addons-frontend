@@ -47,18 +47,22 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     let homepage = trimAndAddProtocolToUrl(addon.homepage);
     if (homepage) {
       homepage = (
-        <li><a className="AddonMoreInfo-homepage-link" href={homepage}>
-          {i18n.gettext('Homepage')}
-        </a></li>
+        <li>
+          <a className="AddonMoreInfo-homepage-link" href={homepage}>
+            {i18n.gettext('Homepage')}
+          </a>
+        </li>
       );
     }
 
     let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
     if (supportUrl) {
       supportUrl = (
-        <li><a className="AddonMoreInfo-support-link" href={supportUrl}>
-          {i18n.gettext('Support Site')}
-        </a></li>
+        <li>
+          <a className="AddonMoreInfo-support-link" href={supportUrl}>
+            {i18n.gettext('Support Site')}
+          </a>
+        </li>
       );
     }
 

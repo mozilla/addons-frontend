@@ -60,7 +60,7 @@ describe(__filename, () => {
   describe('withErrorHandler', () => {
     it('provides a unique errorHandler property', () => {
       const { component } = createWrappedComponent();
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id).toMatch(/^SomeComponent-/);
     });
@@ -157,7 +157,7 @@ describe(__filename, () => {
       sinon.spy(store, 'dispatch');
       const { component } = createWrappedComponent({ store });
 
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       const error = new Error();
       errorHandler.handle(error);
 
@@ -433,7 +433,7 @@ describe(__filename, () => {
         fileName: '/path/to/src/SomeComponent/index.js',
         extractId: () => 'unique-id-based-on-props',
       });
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id)
         .toEqual('src/SomeComponent/index.js-unique-id-based-on-props');

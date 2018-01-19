@@ -74,7 +74,7 @@ export class CollectionBase extends React.Component<Props> {
 
     let collectionChanged = false;
     let addonsPageChanged = false;
-    let location = this.props.location;
+    let { location } = this.props;
 
     if (nextProps && nextProps.location) {
       const nextLocation = nextProps.location;

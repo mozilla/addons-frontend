@@ -166,11 +166,12 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
             dangerouslySetInnerHTML={sanitizeHTML(prefaceText, ['a'])}
           />
 
-          <p>{i18n.gettext(
-            `Please don't use this form to report bugs or request add-on
-            features; this report will be sent to Mozilla and not to the
-            add-on developer.`
-          )}</p>
+          <p>
+            {i18n.gettext(
+              `Please don't use this form to report bugs or request add-on
+              features; this report will be sent to Mozilla and not to the
+              add-on developer.`)}
+          </p>
 
           {errorHandler.renderErrorIfPresent()}
 
@@ -214,7 +215,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
 export const mapStateToProps = (
   state: {| abuse: AbuseState |}, ownProps: Props
 ) => {
-  const addon = ownProps.addon;
+  const { addon } = ownProps;
 
   return {
     abuseReport: addon && state.abuse.bySlug[addon.slug] ?

@@ -13,7 +13,7 @@
 // A simple check that node + npm versions
 // meet the expected minimums.
 
-var exec = require('shelljs').exec;
+var { exec } = require('shelljs');
 var chalk = require('chalk');
 var semver = require('semver');
 

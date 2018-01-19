@@ -190,7 +190,7 @@ export const hasPermission = (
     return false;
   }
 
-  const permissions = currentUser.permissions;
+  const { permissions } = currentUser;
   if (!permissions) {
     return false;
   }
@@ -212,7 +212,7 @@ export const hasAnyReviewerRelatedPermission = (
     return false;
   }
 
-  const permissions = currentUser.permissions;
+  const { permissions } = currentUser;
   if (!permissions) {
     return false;
   }

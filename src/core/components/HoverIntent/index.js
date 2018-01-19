@@ -49,7 +49,7 @@ export default class HoverIntent extends React.Component {
     // persist the event so that when we call our callback below, React hasn't
     // reused it and turned it into something else.
     e.persist();
-    const currentTarget = e.currentTarget;
+    const { currentTarget } = e;
 
     const sensitivitySq = square(this.props.sensitivity);
 

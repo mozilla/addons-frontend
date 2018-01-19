@@ -15,7 +15,7 @@ import 'disco/css/App.scss';
 
 export class AppBase extends React.Component {
   static propTypes = {
-    ErrorPage: PropTypes.node.isRequired,
+    ErrorPage: PropTypes.node,
     browserVersion: PropTypes.string.isRequired,
     children: PropTypes.node,
     i18n: PropTypes.object.isRequired,

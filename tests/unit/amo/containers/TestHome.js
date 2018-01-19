@@ -36,7 +36,7 @@ import {
 
 describe(__filename, () => {
   const getProps = () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     return {
       dispatch: store.dispatch,
@@ -174,7 +174,7 @@ describe(__filename, () => {
 
   it('dispatches an action to fetch the add-ons to display', () => {
     const errorHandler = createStubErrorHandler();
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({ errorHandler, store });
@@ -191,7 +191,7 @@ describe(__filename, () => {
   });
 
   it('does not fetch the add-ons when results are already loaded', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const addons = [{ ...fakeAddon, slug: 'addon' }];
     const otherAddons = [{ ...fakeAddon, slug: 'other-addon' }];
@@ -250,7 +250,7 @@ describe(__filename, () => {
   });
 
   it('displays an error if present', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const errorHandler = new ErrorHandler({
       id: 'some-error-handler-id',

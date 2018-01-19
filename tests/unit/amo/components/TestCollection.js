@@ -87,7 +87,7 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchCurrentCollection on mount', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const errorHandler = createStubErrorHandler();
@@ -106,7 +106,7 @@ describe(__filename, () => {
   });
 
   it('passes the page from query string to fetchCurrentCollection', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const errorHandler = createStubErrorHandler();
@@ -131,7 +131,7 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when nothing has changed', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
@@ -150,7 +150,7 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when location has not changed', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
@@ -171,7 +171,7 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when loading collection', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const errorHandler = createStubErrorHandler();
@@ -191,7 +191,7 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when loading collection page', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const errorHandler = createStubErrorHandler();
@@ -212,11 +212,11 @@ describe(__filename, () => {
   });
 
   it('does not dispatch any action when there is an error', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const wrapper = renderComponent({ dispatch: store.dispatch, store });
 
-    const errorHandler = wrapper.instance().props.errorHandler;
+    const { errorHandler } = wrapper.instance().props;
     errorHandler.captureError(new Error('an unexpected error'));
 
     fakeDispatch.reset();
@@ -226,7 +226,7 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchCurrentCollection when location pathname has changed', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
@@ -275,7 +275,7 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchCurrentCollectionPage when page has changed', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
@@ -310,7 +310,7 @@ describe(__filename, () => {
 
   it('dispatches fetchCurrentCollection when user param has changed', () => {
     const errorHandler = createStubErrorHandler();
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
@@ -342,7 +342,7 @@ describe(__filename, () => {
   it('compares user values in lower case', () => {
     const user = 'Mozilla';
     const errorHandler = createStubErrorHandler();
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
@@ -362,7 +362,7 @@ describe(__filename, () => {
 
   it('dispatches fetchCurrentCollection when slug param has changed', () => {
     const errorHandler = createStubErrorHandler();
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // We need a collection for this test case.
@@ -392,7 +392,7 @@ describe(__filename, () => {
   });
 
   it('renders a collection', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
@@ -410,7 +410,7 @@ describe(__filename, () => {
   });
 
   it('does not render the pagination when no add-ons in the collection', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const collectionAddons = createFakeCollectionAddons({ addons: [] });
     const collectionDetail = createFakeCollectionDetail({ count: 0 });
@@ -425,10 +425,10 @@ describe(__filename, () => {
   });
 
   it('renders loading indicator on add-ons when fetching next page', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const errorHandler = createStubErrorHandler();
-    const slug = defaultCollectionDetail.slug;
+    const { slug } = defaultCollectionDetail;
     const user = defaultUser;
 
     // User loads the collection page.
@@ -464,7 +464,7 @@ describe(__filename, () => {
   });
 
   it('renders 404 page for missing collection', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const errorHandler = new ErrorHandler({
       id: 'some-error-handler-id',
@@ -481,7 +481,7 @@ describe(__filename, () => {
   });
 
   it('renders an error if one exists', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const errorHandler = new ErrorHandler({
       id: 'some-error-handler-id',
@@ -498,7 +498,7 @@ describe(__filename, () => {
   });
 
   it('renders an HTML title', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({

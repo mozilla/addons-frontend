@@ -473,7 +473,7 @@ describe('RatingManager', () => {
       store.dispatch(action);
       const dispatchedReview = action.payload;
 
-      const userReview = getMappedProps().userReview;
+      const { userReview } = getMappedProps();
       expect(userReview).toEqual(dispatchedReview);
     });
 

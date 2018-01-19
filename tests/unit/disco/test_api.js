@@ -17,7 +17,7 @@ describe(__filename, () => {
     fakeConfig = getFakeConfig({
       taarParamsToUse: ['clientId', 'platform'],
     });
-    const store = createStore().store;
+    const { store } = createStore();
     apiState = dispatchClientMetadata({ store }).state.api;
   });
 

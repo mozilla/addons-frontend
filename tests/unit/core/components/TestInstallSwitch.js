@@ -42,13 +42,13 @@ describe(__filename, () => {
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {
     const button = renderButton({ status: UNKNOWN });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.disabled).toEqual(true);
   });
 
   it('should reflect DISABLED status', () => {
     const button = renderButton({ status: DISABLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.disabled).toEqual(false);
     expect(switchEl.props.label).toContain('test-addon is disabled');
     expect(switchEl.props.label).toContain('Click to enable');
@@ -56,7 +56,7 @@ describe(__filename, () => {
 
   it('should reflect UNINSTALLED status', () => {
     const button = renderButton({ status: UNINSTALLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.disabled).toEqual(false);
     expect(switchEl.props.label).toContain('test-addon is uninstalled');
     expect(switchEl.props.label).toContain('Click to install');
@@ -64,14 +64,14 @@ describe(__filename, () => {
 
   it('should reflect INSTALLED status', () => {
     const button = renderButton({ status: INSTALLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
     expect(switchEl.props.success).toEqual(true);
   });
 
   it('should reflect ENABLED status', () => {
     const button = renderButton({ status: ENABLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
     expect(switchEl.props.label).toContain('test-addon is installed and enabled');
     expect(switchEl.props.label).toContain('Click to uninstall');
@@ -80,27 +80,27 @@ describe(__filename, () => {
 
   it('should reflect download downloadProgress', () => {
     const button = renderButton({ status: DOWNLOADING, downloadProgress: 50 });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.progress).toEqual(50);
     expect(switchEl.props.label).toContain('Downloading test-addon');
   });
 
   it('should reflect installation', () => {
     const button = renderButton({ status: INSTALLING });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
     expect(switchEl.props.label).toContain('Installing test-addon');
   });
 
   it('should reflect ENABLING status', () => {
     const button = renderButton({ status: ENABLING });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
   });
 
   it('should reflect uninstallation', () => {
     const button = renderButton({ status: UNINSTALLING });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.label).toContain('Uninstalling test-addon');
   });
 

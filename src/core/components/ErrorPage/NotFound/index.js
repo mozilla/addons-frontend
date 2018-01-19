@@ -11,7 +11,7 @@ import translate from 'core/i18n/translate';
 export class NotFoundBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    status: PropTypes.number.isRequired,
+    status: PropTypes.number,
   }
 
   static defaultProps = {

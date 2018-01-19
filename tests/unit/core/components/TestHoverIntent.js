@@ -8,6 +8,8 @@ import {
   findDOMNode,
 } from 'react-dom';
 
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+
 import HoverIntent from 'core/components/HoverIntent';
 
 function renderHoverIntent({ ...props }) {
