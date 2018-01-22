@@ -6,6 +6,7 @@ import {
   getCollectionAddons,
   getCollectionDetail,
   listCollections,
+  updateCollection,
 } from 'amo/api/collections';
 import { parsePage } from 'core/utils';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
@@ -285,6 +286,97 @@ describe(__filename, () => {
       expect(_listCollections.firstCall.args[0]).toEqual({
         api: apiState, user, nextURL,
       });
+    });
+  });
+
+  describe('updateCollection', () => {
+    const _params = (params = {}) => {
+      return {
+        api: apiState,
+        collectionSlug: 'collection-slug',
+        user: 'user-id-or-username',
+        ...params,
+      };
+    };
+
+    it('requires an api parameter', () => {
+      const params = _params();
+      delete params.api;
+
+      expect(() => updateCollection(params))
+        .toThrow(/api parameter cannot be empty/);
+    });
+
+    it('requires a collectionSlug parameter', () => {
+      const params = _params();
+      delete params.collectionSlug;
+
+      expect(() => updateCollection(params))
+        .toThrow(/collectionSlug parameter cannot be empty/);
+    });
+
+    it('requires a user parameter', () => {
+      const params = _params();
+      delete params.user;
+
+      expect(() => updateCollection(params))
+        .toThrow(/user parameter cannot be empty/);
+    });
+
+    it('validates description value', async () => {
+      const validator = sinon.stub();
+      const description = { fr: 'la description' };
+      const params = _params({
+        description, _validateLocalizedString: validator,
+      });
+
+      mockApi.expects('callApi');
+      await updateCollection(params);
+
+      sinon.assert.calledWith(validator, description);
+      mockApi.verify();
+    });
+
+    it('validates name value', async () => {
+      const validator = sinon.stub();
+      const name = { fr: 'nomme' };
+      const params = _params({
+        name, _validateLocalizedString: validator,
+      });
+
+      mockApi.expects('callApi');
+      await updateCollection(params);
+
+      sinon.assert.calledWith(validator, name);
+      mockApi.verify();
+    });
+
+    it('makes a patch request to the API', async () => {
+      const params = _params({ name: { fr: 'nomme' } });
+
+      const endpoint =
+        `accounts/account/${params.user}/collections/${params.collectionSlug}`;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: {
+            default_locale: undefined,
+            description: undefined,
+            name: params.name,
+            public: undefined,
+            slug: undefined,
+          },
+          endpoint,
+          method: 'PATCH',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await updateCollection(params);
+
+      mockApi.verify();
     });
   });
 });

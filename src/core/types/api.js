@@ -12,3 +12,12 @@ export type PaginatedApiResponse<ResultType> = {|
   previous?: string, // URL of the previous page
   results: Array<ResultType>,
 |};
+
+/*
+ * A localized string object, as accepted by API endpoints.
+ *
+ * Examples: https://addons-server.readthedocs.io/en/latest/topics/api/overview.html#api-overview-translations
+ */
+export type LocalizedString = {
+  [locale: string]: string,
+};

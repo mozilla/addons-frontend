@@ -1,11 +1,13 @@
 /* @flow */
-import { callApi, allPages } from 'core/api';
+import { callApi, allPages, validateLocalizedString } from 'core/api';
 import type {
   ExternalCollectionAddon,
   ExternalCollectionDetail,
 } from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
-import type { PaginatedApiResponse } from 'core/types/api';
+import type {
+  LocalizedString, PaginatedApiResponse,
+} from 'core/types/api';
 
 
 type GetCollectionParams = {|
@@ -148,6 +150,60 @@ export const addAddonToCollection = (
     body: { addon, notes },
     endpoint: `accounts/account/${user}/collections/${collection}/addons`,
     method: 'POST',
+    state: api,
+  });
+};
+
+type UpdateCollectionParams = {|
+  api: ApiStateType,
+  collectionSlug: string,
+  defaultLocale?: string,
+  description?: LocalizedString,
+  isPublic?: boolean,
+  name?: LocalizedString,
+  slug?: string,
+  user: string | number,
+  _validateLocalizedString?: typeof validateLocalizedString,
+|};
+
+export const updateCollection = ({
+  api,
+  collectionSlug,
+  defaultLocale,
+  description,
+  isPublic,
+  name,
+  slug,
+  user,
+  _validateLocalizedString = validateLocalizedString,
+}: UpdateCollectionParams): Promise<void> => {
+  if (!api) {
+    throw new Error('The api parameter cannot be empty');
+  }
+  if (!collectionSlug) {
+    throw new Error('The collectionSlug parameter cannot be empty');
+  }
+  if (!user) {
+    throw new Error('The user parameter cannot be empty');
+  }
+  if (description) {
+    _validateLocalizedString(description);
+  }
+  if (name) {
+    _validateLocalizedString(name);
+  }
+
+  return callApi({
+    auth: true,
+    body: {
+      default_locale: defaultLocale,
+      description,
+      name,
+      public: isPublic,
+      slug,
+    },
+    endpoint: `accounts/account/${user}/collections/${collectionSlug}`,
+    method: 'PATCH',
     state: api,
   });
 };
