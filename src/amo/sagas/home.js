@@ -23,8 +23,6 @@ export function* fetchHomeAddons({
     errorHandlerId,
     firstCollectionSlug,
     firstCollectionUser,
-    secondCollectionSlug,
-    secondCollectionUser,
   },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -36,10 +34,10 @@ export function* fetchHomeAddons({
 
     const {
       firstCollection,
-      secondCollection,
       featuredExtensions,
+      featuredThemes,
       popularExtensions,
-      topRatedThemes,
+      topRatedExtensions,
       upAndComingExtensions,
     } = yield all({
       firstCollection: call(getCollectionAddons, {
@@ -48,16 +46,20 @@ export function* fetchHomeAddons({
         slug: firstCollectionSlug,
         user: firstCollectionUser,
       }),
-      secondCollection: call(getCollectionAddons, {
-        api: state.api,
-        page: 1,
-        slug: secondCollectionSlug,
-        user: secondCollectionUser,
-      }),
       featuredExtensions: call(searchApi, {
         api: state.api,
         filters: {
           addonType: ADDON_TYPE_EXTENSION,
+          featured: true,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_RANDOM,
+        },
+        page: 1,
+      }),
+      featuredThemes: call(searchApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
           featured: true,
           page_size: LANDING_PAGE_ADDON_COUNT,
           sort: SEARCH_SORT_RANDOM,
@@ -73,10 +75,10 @@ export function* fetchHomeAddons({
         },
         page: 1,
       }),
-      topRatedThemes: call(searchApi, {
+      topRatedExtensions: call(searchApi, {
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_EXTENSION,
           page_size: LANDING_PAGE_ADDON_COUNT,
           sort: SEARCH_SORT_TOP_RATED,
         },
@@ -95,10 +97,10 @@ export function* fetchHomeAddons({
 
     yield put(loadHomeAddons({
       firstCollection,
-      secondCollection,
       featuredExtensions,
+      featuredThemes,
       popularExtensions,
-      topRatedThemes,
+      topRatedExtensions,
       upAndComingExtensions,
     }));
   } catch (error) {

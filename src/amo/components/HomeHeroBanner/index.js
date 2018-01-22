@@ -21,86 +21,77 @@ export class HomeHeroBannerBase extends React.Component<Props> {
     return [
       (
         <HeroSection
-          key="featured-extensions"
-          linkTo="/addon/s3google-translator/"
-          styleName="Home-s3-translator"
+          key="wikipedia-context-menu-search"
+          linkTo="/addon/wikipedia-context-menu-search/"
+          styleName="Home-wikipedia-context-menu-search"
         >
-          <h3>
-            {i18n.gettext(
-              // translators: This is the name of an add-on.
-              'S3.Translator'
-            )}
-          </h3>
+          <h3>{i18n.gettext('Wikipedia Context Menu Search')}</h3>
 
           <p>
-            {i18n.gettext(`Translate a word, phrase, even an entire page.
-              Supports 100+ languages.`)}
+            {i18n.gettext('Highlight any text and search Wikipedia.')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="featured-extensions"
-          linkTo="/addon/groupspeeddial/"
-          styleName="Home-groupspeeddial"
+          key="momentumdash"
+          linkTo="/addon/momentumdash/"
+          styleName="Home-momentumdash"
         >
-          <h3>{i18n.gettext('Group Speed Dial')}</h3>
+          <h3>{i18n.gettext('Momentum')}</h3>
 
           <p>
-            {i18n.gettext(`Visual bookmarks for your favorite places on the
-              web.`)}
+            {i18n.gettext(`Replace your new tab with a personal
+              dashboard—to-do lists, weather forecasts and more.`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="featured-extensions"
-          linkTo="/addon/search_by_image/"
-          styleName="Home-search_by_image"
+          key="undo-close-tab-button"
+          linkTo="/addon/undo-close-tab-button/"
+          styleName="Home-undo-close-tab-button"
         >
-          <h3>{i18n.gettext('Search by Image')}</h3>
+          <h3>{i18n.gettext('Undo Close Tab Button')}</h3>
 
+          <p>{i18n.gettext('Never lose a page again.')}</p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="grammarly"
+          linkTo="/addon/grammarly-1/"
+          styleName="Home-grammarly"
+        >
+          <h3>{i18n.gettext('Grammarly')}</h3>
           <p>
-            {i18n.gettext('Reverse image search using various search engines.')}
+            {i18n.gettext(`Get grammar help anywhere you write on the
+              web—social media, email, docs and more.`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="featured-extensions"
-          linkTo="/addon/fireshot/"
-          styleName="Home-fireshot"
+          key="facebook-filter"
+          linkTo="/addon/facebook-filter/"
+          styleName="Home-facebook-filter"
         >
-          <h3>{i18n.gettext('FireShot')}</h3>
+          <h3>{i18n.gettext('Facebook Filter')}</h3>
           <p>
-            {i18n.gettext('Capture full-page screenshots.')}
+            {i18n.gettext(`Remove ads, promoted content, and other clutter
+              from your feed.`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="featured-extensions"
-          linkTo="/addon/video-downloadhelper/"
-          styleName="Home-video-downloadhelper"
+          key="gesturefy"
+          linkTo="/addon/gesturefy/"
+          styleName="Home-gesturefy"
         >
-          <h3>{i18n.gettext('Video DownloadHelper')}</h3>
-          <p>
-            {i18n.gettext(`Easily download video from hundreds of popular
-              websites.`)}
-          </p>
-        </HeroSection>
-      ),
-      (
-        <HeroSection
-          key="featured-extensions"
-          linkTo="/addon/decentraleyes/"
-          styleName="Home-decentraleyes"
-        >
-          <h3>{i18n.gettext('Decentraleyes')}</h3>
-          <p>
-            {i18n.gettext(`Tracking protection against third-party sites
-              aiming to mark your every online move.`)}
-          </p>
+          <h3>{i18n.gettext('Gesturefy')}</h3>
+
+          <p>{i18n.gettext('40+ customizable mouse gestures.')}</p>
         </HeroSection>
       ),
       (
@@ -110,10 +101,36 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           styleName="Home-lastpass"
         >
           <h3>{i18n.gettext('LastPass Password Manager')}</h3>
+
           <p>
             {i18n.gettext(`Easily manage all your passwords for all devices
               from one spot`)}
           </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="multi-account-containers"
+          linkTo="/addon/multi-account-containers/"
+          styleName="Home-multi-account-containers"
+        >
+          <h3>{i18n.gettext('Multi-Account Containers')}</h3>
+
+          <p>
+            {i18n.gettext(`Keep different parts of your online
+              life—work, personal, etc.—separated by color-coded tabs`)}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="tree-style-tab"
+          linkTo="/addon/tree-style-tab/"
+          styleName="Home-tree-style-tab"
+        >
+          <h3>{i18n.gettext('Tree Style Tab')}</h3>
+
+          <p>{i18n.gettext('Display tabs in a space-saving “tree” layout.')}</p>
         </HeroSection>
       ),
     ];

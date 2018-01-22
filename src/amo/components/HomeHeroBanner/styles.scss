@@ -8,13 +8,18 @@ $colors: ("blue", #228ae6, #1b6ec2)
          ("pink", #e64980, #d6336c)
          ("violet", #7950f2, #6741d9)
          ("teal", #12b886, #0ca678)
-         ("blue", #228ae6, #1b6ec2)
-         ("cyan", #15aabf, #1098ad)
          ("grape", #be4bdb, #ae3ec9)
+         ("cyan", #15aabf, #1098ad)
+         ("blue", #228ae6, #1b6ec2)
          ("indigo", #4c6ef5, #3b5bdb)
          ("pink", #e64980, #d6336c)
          ("violet", #7950f2, #6741d9)
-         ("teal", #12b886, #0ca678);
+         ("cyan", #15aabf, #1098ad)
+         ("blue", #228ae6, #1b6ec2)
+         ("teal", #12b886, #0ca678)
+         ("indigo", #4c6ef5, #3b5bdb)
+         ("pink", #e64980, #d6336c)
+         ("violet", #7950f2, #6741d9);
 
 /* stylelint-enable indentation */
 
@@ -68,14 +73,14 @@ $colors: ("blue", #228ae6, #1b6ec2)
 }
 
 // Generate CSS classes depending on the order (indexes) of the Hero sections.
-@for $x from 0 through 6 {
-  @for $y from 0 through 6 {
-    @for $z from 0 through 6 {
+@for $x from 0 through 9 {
+  @for $y from 0 through 9 {
+    @for $z from 0 through 9 {
       // It is not possible to have the same values for two (or more) different
       // indexes.
       @if ($x != $y and $y != $z and $z != $x) {
         .Hero-order-#{$x}-#{$y}-#{$z} {
-          .HeroSection-styleName--Home-s3-translator {
+          .HeroSection-styleName--Home-wikipedia-context-menu-search {
             $color: nth($colors, $y + 1);
             $bg-color: nth($color, 2);
             $fg-color: nth($color, 3);
@@ -96,10 +101,16 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include four-point-stars($fg-color, $bg-color);
             } @else if $x == 6 {
               @include wiggle($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include floor-tile($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include four-point-stars($fg-color, $bg-color);
             }
           }
 
-          .HeroSection-styleName--Home-groupspeeddial {
+          .HeroSection-styleName--Home-momentumdash {
             $color: nth($colors, $y + 2);
             $bg-color: nth($color, 2);
             $fg-color: nth($color, 3);
@@ -120,10 +131,16 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include four-point-stars($fg-color, $bg-color);
             } @else if $x == 6 {
               @include bubbles($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include floor-tile($fg-color, $bg-color);
             }
           }
 
-          .HeroSection-styleName--Home-search_by_image {
+          .HeroSection-styleName--Home-undo-close-tab-button {
             $color: nth($colors, $y + 3);
             $bg-color: nth($color, 2);
             $fg-color: nth($color, 3);
@@ -144,10 +161,16 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include polka-dots($fg-color, $bg-color);
             } @else if $x == 6 {
               @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include floor-tile($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include floor-tile($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include wiggle($fg-color, $bg-color);
             }
           }
 
-          .HeroSection-styleName--Home-fireshot {
+          .HeroSection-styleName--Home-grammarly {
             $color: nth($colors, $y + 4);
             $bg-color: nth($color, 2);
             $fg-color: nth($color, 3);
@@ -168,10 +191,16 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include bubbles($fg-color, $bg-color);
             } @else if $x == 6 {
               @include floor-tile($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include bubbles($fg-color, $bg-color);
             }
           }
 
-          .HeroSection-styleName--Home-video-downloadhelper {
+          .HeroSection-styleName--Home-facebook-filter {
             $color: nth($colors, $y + 5);
             $bg-color: nth($color, 2);
             $fg-color: nth($color, 3);
@@ -192,10 +221,16 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include wiggle($fg-color, $bg-color);
             } @else if $x == 6 {
               @include bubbles($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include bubbles($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include polka-dots($fg-color, $bg-color);
             }
           }
 
-          .HeroSection-styleName--Home-decentraleyes {
+          .HeroSection-styleName--Home-gesturefy {
             $color: nth($colors, $y + 6);
             $bg-color: nth($color, 2);
             $fg-color: nth($color, 3);
@@ -216,6 +251,12 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include bubbles($fg-color, $bg-color);
             } @else if $x == 6 {
               @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include bubbles($fg-color, $bg-color);
             }
           }
 
@@ -240,6 +281,72 @@ $colors: ("blue", #228ae6, #1b6ec2)
               @include bubbles($fg-color, $bg-color);
             } @else if $x == 6 {
               @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include bubbles($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include wiggle($fg-color, $bg-color);
+            }
+          }
+
+          .HeroSection-styleName--Home-multi-account-containers {
+            $color: nth($colors, $y + 8);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
+            @if $x == 0 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 1 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 2 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 3 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 4 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 5 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 6 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            }
+          }
+
+          .HeroSection-styleName--Home-tree-style-tab {
+            $color: nth($colors, $y + 9);
+            $bg-color: nth($color, 2);
+            $fg-color: nth($color, 3);
+
+            @include hover($bg-color);
+
+            @if $x == 0 {
+              @include tic-tac-toe($fg-color, $bg-color);
+            } @else if $x == 1 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 2 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 3 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 4 {
+              @include four-point-stars($fg-color, $bg-color);
+            } @else if $x == 5 {
+              @include bubbles($fg-color, $bg-color);
+            } @else if $x == 6 {
+              @include polka-dots($fg-color, $bg-color);
+            } @else if $x == 7 {
+              @include wiggle($fg-color, $bg-color);
+            } @else if $x == 8 {
+              @include bubbles($fg-color, $bg-color);
+            } @else if $x == 9 {
+              @include tic-tac-toe($fg-color, $bg-color);
             }
           }
         }
