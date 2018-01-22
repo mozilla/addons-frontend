@@ -53,8 +53,6 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         firstCollectionSlug: 'some-slug',
         firstCollectionUser: 'some-user',
-        secondCollectionSlug: 'some-other-slug',
-        secondCollectionUser: 'some-other-user',
         ...params,
       }));
     }
@@ -64,9 +62,6 @@ describe(__filename, () => {
 
       const firstCollectionSlug = 'collection-slug';
       const firstCollectionUser = 'user-id-or-name';
-
-      const secondCollectionSlug = 'another-slug';
-      const secondCollectionUser = 'another-user-id';
 
       const baseArgs = { api: state.api };
       const baseFilters = {
@@ -84,17 +79,6 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(firstCollection));
 
-      const secondCollection = createFakeCollectionAddons();
-      mockCollectionsApi
-        .expects('getCollectionAddons')
-        .withArgs({
-          ...baseArgs,
-          page: 1,
-          slug: secondCollectionSlug,
-          user: secondCollectionUser,
-        })
-        .returns(Promise.resolve(secondCollection));
-
       const featuredExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
@@ -110,6 +94,21 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(featuredExtensions));
 
+      const featuredThemes = createAddonsApiResult([fakeTheme]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_THEME,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(featuredThemes));
+
       const popularExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
@@ -124,19 +123,19 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(popularExtensions));
 
-      const topRatedThemes = createAddonsApiResult([fakeTheme]);
+      const topRatedExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
         .withArgs({
           ...baseArgs,
           filters: {
             ...baseFilters,
-            addonType: ADDON_TYPE_THEME,
+            addonType: ADDON_TYPE_EXTENSION,
             sort: SEARCH_SORT_TOP_RATED,
           },
           page: 1,
         })
-        .returns(Promise.resolve(topRatedThemes));
+        .returns(Promise.resolve(topRatedExtensions));
 
       const upAndComingExtensions = createAddonsApiResult([{
         ...fakeAddon, slug: 'trending-addon',
@@ -157,16 +156,14 @@ describe(__filename, () => {
       _fetchHomeAddons({
         firstCollectionSlug,
         firstCollectionUser,
-        secondCollectionSlug,
-        secondCollectionUser,
       });
 
       const expectedLoadAction = loadHomeAddons({
         firstCollection,
-        secondCollection,
         featuredExtensions,
+        featuredThemes,
         popularExtensions,
-        topRatedThemes,
+        topRatedExtensions,
         upAndComingExtensions,
       });
 

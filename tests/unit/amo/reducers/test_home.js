@@ -33,12 +33,10 @@ describe(__filename, () => {
         firstCollection: createFakeCollectionAddons({
           addons: Array(10).fill(fakeAddon),
         }),
-        secondCollection: createFakeCollectionAddons({
-          addons: Array(10).fill(fakeAddon),
-        }),
         featuredExtensions: createAddonsApiResult([fakeAddon]),
+        featuredThemes: createAddonsApiResult([fakeTheme]),
         popularExtensions: createAddonsApiResult([fakeAddon]),
-        topRatedThemes: createAddonsApiResult([fakeTheme]),
+        topRatedExtensions: createAddonsApiResult([fakeTheme]),
       }));
 
       const homeState = store.getState().home;
@@ -49,16 +47,16 @@ describe(__filename, () => {
       expect(homeState.firstCollection).toEqual(
         Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
       );
-      expect(homeState.secondCollection).toEqual(
-        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
-      );
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
+      ]);
+      expect(homeState.featuredThemes).toEqual([
+        createInternalAddon(fakeTheme),
       ]);
       expect(homeState.popularExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);
-      expect(homeState.topRatedThemes).toEqual([
+      expect(homeState.topRatedExtensions).toEqual([
         createInternalAddon(fakeTheme),
       ]);
     });
@@ -70,8 +68,6 @@ describe(__filename, () => {
         errorHandlerId: 'some-error-handler-id',
         firstCollectionSlug: 'some-collection-slug',
         firstCollectionUser: 'mozilla',
-        secondCollectionSlug: 'some-other-slug',
-        secondCollectionUser: 'another-user',
       }));
 
       expect(state.resultsLoaded).toEqual(false);
@@ -83,8 +79,6 @@ describe(__filename, () => {
       errorHandlerId: 'some-error-handler-id',
       firstCollectionSlug: 'some-collection-slug',
       firstCollectionUser: 'mozilla',
-      secondCollectionSlug: 'some-other-slug',
-      secondCollectionUser: 'mozilla',
     };
 
     it('throws an error when errorHandlerId is missing', () => {
@@ -113,33 +107,15 @@ describe(__filename, () => {
         fetchHomeAddons(partialParams);
       }).toThrow('firstCollectionUser is required');
     });
-
-    it('throws an error when secondCollectionSlug is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.secondCollectionSlug;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('secondCollectionSlug is required');
-    });
-
-    it('throws an error when secondCollectionUser is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.secondCollectionUser;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('secondCollectionUser is required');
-    });
   });
 
   describe('loadHomeAddons()', () => {
     const defaultParams = {
       firstCollection: {},
-      secondCollection: {},
       featuredExtensions: {},
+      featuredThemes: {},
       popularExtensions: {},
-      topRatedThemes: {},
+      topRatedExtensions: {},
       upAndComingExtensions: {},
     };
 
@@ -152,15 +128,6 @@ describe(__filename, () => {
       }).toThrow('firstCollection is required');
     });
 
-    it('throws an error when the second collection add-ons are missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.secondCollection;
-
-      expect(() => {
-        loadHomeAddons(partialParams);
-      }).toThrow('secondCollection is required');
-    });
-
     it('throws an error when featured extensions are missing', () => {
       const partialParams = { ...defaultParams };
       delete partialParams.featuredExtensions;
@@ -168,6 +135,15 @@ describe(__filename, () => {
       expect(() => {
         loadHomeAddons(partialParams);
       }).toThrow('featuredExtensions are required');
+    });
+
+    it('throws an error when featured themes are missing', () => {
+      const partialParams = { ...defaultParams };
+      delete partialParams.featuredThemes;
+
+      expect(() => {
+        loadHomeAddons(partialParams);
+      }).toThrow('featuredThemes are required');
     });
 
     it('throws an error when popular extensions are missing', () => {
@@ -181,11 +157,11 @@ describe(__filename, () => {
 
     it('throws an error when top-rated themes are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.topRatedThemes;
+      delete partialParams.topRatedExtensions;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('topRatedThemes are required');
+      }).toThrow('topRatedExtensions are required');
     });
   });
 });
