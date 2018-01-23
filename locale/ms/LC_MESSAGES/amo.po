@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-23 22:50+0000\n"
+"PO-Revision-Date: 2018-01-23 23:01+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -15,23 +15,20 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:166
-#, fuzzy
 msgid "Loading…"
-msgstr "Memuatkan"
+msgstr "Memuatkan…"
 
 #: src/amo/components/AddAddonToCollection/index.js:168
 msgid "Adding…"
 msgstr "Menambah…"
 
 #: src/amo/components/AddAddonToCollection/index.js:184
-#, fuzzy
 msgid "Add to collection"
-msgstr "Edit koleksi ini"
+msgstr "Tambah ke koleksi"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
-#, fuzzy
 msgid "Create new collection"
-msgstr "Edit koleksi ini"
+msgstr "Cipta koleksi baru"
 
 #: src/amo/components/AddAddonToCollection/index.js:230
 msgid "Added to %(collectionName)s"
@@ -772,9 +769,8 @@ msgid "Submit a New Theme"
 msgstr "Hantar Tema Baru"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Ulasan"
+msgstr "Alatan Penyemak"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
@@ -834,19 +830,16 @@ msgid "Media downloaders"
 msgstr "Pemuat turun media"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Lihat tema sohor kini selanjutnya"
+msgstr "Lihat pemuat turun media selanjutnya"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
-msgstr "Ekstensi tahap tinggi"
+msgstr "Ekstensi tahap-tinggi"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "Lanjutan ekstensi tahap tinggi"
+msgstr "Lihay Ekstensi tahap-tinggi selanjutnya"
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
@@ -914,35 +907,35 @@ msgstr "Ganti tab baru dengan papan pemuka peribadi— senarai tugasan, ramalan 
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Butang Batal Tutup Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Jangan sampai hilang halaman lagi."
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
-msgstr ""
+msgstr "Tatabahasa"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr ""
+msgstr "Dapatkan bantuan tatabahasa apabila menulis dalam web—media sosial, e-mel, dokumen dan selainnya."
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "Buang iklan, kandungan promosi dan gangguan lain dalam suapan anda."
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
-msgstr ""
+msgstr "Isyarat"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "40+penyesuaian isyarat tetikus."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
