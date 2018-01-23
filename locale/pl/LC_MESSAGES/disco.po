@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-17 16:45+0000\n"
+"POT-Creation-Date: 2018-01-23 21:15+0000\n"
 "PO-Revision-Date: 2017-09-14 19:19+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
@@ -86,49 +86,49 @@ msgstr "Dodatek jest gotowy"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Można używać dodatku „%(name)s” z ikony na pasku narzędzi."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "OK"
 
-#: src/disco/components/Addon.js:126
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Najedź, aby wyświetlić podgląd lub kliknij, aby zainstalować dodatek "
 "„%(name)s”"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Najedź na obraz, aby wyświetlić podgląd"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Instalacja się nie powiodła. Proszę spróbować ponownie."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "Pobranie się nie powiodło. Proszę sprawdzić połączenie z Internetem."
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "Wystąpił nieoczekiwany błąd podczas instalacji."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Wystąpił nieoczekiwany błąd podczas dezinstalacji."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "Wystąpił nieoczekiwany błąd."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ten dodatek zostanie odinstalowany po ponownym uruchomieniu Firefoksa."
 
-#: src/disco/components/Addon.js:184
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Proszę ponownie uruchomić Firefoksa, aby użyć tego dodatku."
 
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Zamknij"
 
@@ -170,19 +170,19 @@ msgstr ""
 "szybsze i bezpieczniejsze. Na początek polecamy poniższe dodatki z uwagi na "
 "ich wyróżniającą się wydajność i funkcjonalność."
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:146
 msgid "Click to play"
 msgstr "Odtwórz"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "to find out more about add-ons"
 msgstr "i dowiedz się więcej o dodatkach"
 
-#: src/disco/containers/DiscoPane.js:160
+#: src/disco/containers/DiscoPane.js:161
 msgid "Close video"
 msgstr "Zamknij"
 
-#: src/disco/containers/DiscoPane.js:179
+#: src/disco/containers/DiscoPane.js:180
 msgid "See more add-ons!"
 msgstr "Więcej dodatków"
 

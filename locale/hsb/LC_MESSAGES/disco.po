@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-17 16:45+0000\n"
+"POT-Creation-Date: 2018-01-23 21:15+0000\n"
 "PO-Revision-Date: 2017-08-23 19:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,49 +86,49 @@ msgstr "Waš přidatk je hotowy"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Nětko maće přistup na %(name)s ze symboloweje lajsty."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "W porjadku!"
 
-#: src/disco/components/Addon.js:126
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
 "kliknyć"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Pohíbujće myšku nad wobraz za přehlad"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Instalacija je so nimokuliła. Prošu spytajće hišće raz."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "Njewočakowany zmylk je wustupił."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
 
-#: src/disco/components/Addon.js:184
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
 
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Začinić"
 
@@ -170,19 +170,19 @@ msgstr ""
 "wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za spočatk "
 "doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:146
 msgid "Click to play"
 msgstr "Klikńće, zo byšće wothrał"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "to find out more about add-ons"
 msgstr "zo byšće wjace wo přidatkach zhonił"
 
-#: src/disco/containers/DiscoPane.js:160
+#: src/disco/containers/DiscoPane.js:161
 msgid "Close video"
 msgstr "Widejo začinić"
 
-#: src/disco/containers/DiscoPane.js:179
+#: src/disco/containers/DiscoPane.js:180
 msgid "See more add-ons!"
 msgstr "Wobhladajće sej dalše přidatki!"
 

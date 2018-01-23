@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-17 16:45+0000\n"
+"POT-Creation-Date: 2018-01-23 21:15+0000\n"
 "PO-Revision-Date: 2017-12-28 02:51+0000\n"
 "Last-Translator: Hyeonseok Shin <hyeonseok@gmail.com>\n"
 "Language-Team: none\n"
@@ -84,47 +84,47 @@ msgstr "부가 기능 준비됨"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "이제 도구 모음에서 %(name)s를 접근할 수 있습니다."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "좋습니다!"
 
-#: src/disco/components/Addon.js:126
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr "마우스를 올려서 %(name)s를 미리보거나 클릭해서 설치"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "마우스 올려서 미리보기"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "설치하지 못했습니다. 다시 시도해 주세요."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "다운로드에 실패했습니다. 접속 상태를 확인 해 주세요."
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "설치 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "설치 제거 중에 예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "예상치 못 한 오류가 발생하였습니다."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "이 부가 기능은 Firefox를 재시작한 후에 제거될 것입니다."
 
-#: src/disco/components/Addon.js:184
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "이 부가 기능을 사용하려면 Firefox를 재시작 해주십시오."
 
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "닫기"
 
@@ -165,19 +165,19 @@ msgstr ""
 "징을 빠로그 안전하게 만들어 줍니다. 시작 하기 전에 훌륭한 성능과 기능을 가지"
 "고 있는 저희가 추천드리는 몇가지 부가기능이 있습니다."
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:146
 msgid "Click to play"
 msgstr "클릭해서 재생"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "to find out more about add-ons"
 msgstr "부가기능 더 알아보기"
 
-#: src/disco/containers/DiscoPane.js:160
+#: src/disco/containers/DiscoPane.js:161
 msgid "Close video"
 msgstr "동영상 닫기"
 
-#: src/disco/containers/DiscoPane.js:179
+#: src/disco/containers/DiscoPane.js:180
 msgid "See more add-ons!"
 msgstr "다른 부가기능 보기!"
 

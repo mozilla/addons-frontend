@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-17 16:45+0000\n"
+"POT-Creation-Date: 2018-01-23 21:15+0000\n"
 "PO-Revision-Date: 2017-12-09 19:58+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -84,47 +84,47 @@ msgstr "আপনার এড-অন এখন প্রস্তুত"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "আপনি এখন টুলবার থেকে %(name)s এ প্রবেশ করতে পারেন।"
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "ওকে!"
 
-#: src/disco/components/Addon.js:126
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Hover করুন প্রিভিউ দেখতে অথবা ক্লিক করুন %(name)s ইন্সটল করতে"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "ছবির উপর মাউস ঘুরান প্রিভিউ দেখতে"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "ইন্সটল করা সম্ভব হয়নি। দয়া করে আবার চেস্টা করুন।"
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "ডাউনলোড সম্ভব হয়নি। দয়া করে আপনার সংযোগটি পরীক্ষা করুন।"
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে ইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে আনইন্সটল করার সময়।"
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "অপ্রত্যাশিত ভূল হয়েছে।"
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "আপনার ফায়ারফক্সটি রিস্টার্ট এর পর এড-অনটি আনইন্সটল হবে।"
 
-#: src/disco/components/Addon.js:184
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "এড-অন টি ব্যবহার করতে আপনা ফায়ারফক্সকে রি-স্টার্ট করুন।"
 
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "বন্ধ"
 
@@ -166,19 +166,19 @@ msgstr ""
 "একান্তই আপনার। সহজে আরম্ভ করতে, আমরা কিছু অ্যাড-অন কার্যক্ষমতা ও ফাংশনালিটির উপর "
 "ভিত্তি করে এখানে সুপারিশ করছি।"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:146
 msgid "Click to play"
 msgstr "চালু করতে ক্লিক করুন"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "to find out more about add-ons"
 msgstr "এড-অন সম্বন্ধে আরো খুঁজুন"
 
-#: src/disco/containers/DiscoPane.js:160
+#: src/disco/containers/DiscoPane.js:161
 msgid "Close video"
 msgstr "ভিডিওটি বন্ধ করুন"
 
-#: src/disco/containers/DiscoPane.js:179
+#: src/disco/containers/DiscoPane.js:180
 msgid "See more add-ons!"
 msgstr "আরো এড-ওন দেখুন!"
 

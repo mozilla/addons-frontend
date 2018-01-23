@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-17 16:45+0000\n"
+"POT-Creation-Date: 2018-01-23 21:15+0000\n"
 "PO-Revision-Date: 2017-07-03 20:00+0000\n"
 "Last-Translator: kscanne <kscanne@gmail.com>\n"
 "Language-Team: none\n"
@@ -87,50 +87,50 @@ msgstr "Tá do bhreiseán réidh"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Anois is féidir leat teacht ar %(name)s ón bharra uirlisí."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:126
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Cuir do luch os a chionn chun réamhamharc a fháil, nó cliceáil chun %(name)s "
 "a shuiteáil"
 
-#: src/disco/components/Addon.js:141
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Cuir do luch os cionn an phictiúir le réamhamharc a fháil"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Theip ar an tsuiteáil. Bain triail eile as."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr ""
 "Theip ar an íoslódáil. Déan cinnte go bhfuil tú ceangailte leis an líonra."
 
-#: src/disco/components/Addon.js:169
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "Tharla earráid gan súil leis le linn suiteála."
 
-#: src/disco/components/Addon.js:171
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Tharla earráid gan súil leis le linn díshuiteála."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "Tharla earráid gan súil leis."
 
-#: src/disco/components/Addon.js:182
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Díshuiteálfar an breiseán seo tar éis duit Firefox a atosú."
 
-#: src/disco/components/Addon.js:184
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ní mór duit Firefox a atosú chun an breiseán seo a úsáid."
 
-#: src/disco/components/Addon.js:87
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Dún"
 
@@ -174,19 +174,19 @@ msgstr ""
 "I dtús báire, seo duit roinnt breiseán a mholaimid mar gheall ar "
 "fheidhmíocht agus gníomhaíocht thar barr."
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:146
 msgid "Click to play"
 msgstr "Cliceáil le seinm"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "to find out more about add-ons"
 msgstr "chun tuilleadh eolais faoi bhreiseáin a fháil"
 
-#: src/disco/containers/DiscoPane.js:160
+#: src/disco/containers/DiscoPane.js:161
 msgid "Close video"
 msgstr "Dún an físeán"
 
-#: src/disco/containers/DiscoPane.js:179
+#: src/disco/containers/DiscoPane.js:180
 msgid "See more add-ons!"
 msgstr "Tuilleadh breiseán!"
 
