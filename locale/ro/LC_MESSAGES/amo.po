@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-17 16:41+0000\n"
-"PO-Revision-Date: 2018-01-23 00:11+0000\n"
+"PO-Revision-Date: 2018-01-23 00:24+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -182,7 +182,7 @@ msgid "User"
 msgid_plural "Users"
 msgstr[0] "Utilizator"
 msgstr[1] "Utilizatori"
-msgstr[2] "Utilizatori"
+msgstr[2] "De utilizatori"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -261,7 +261,7 @@ msgstr "Istoricul versiunilor"
 
 #: src/amo/components/AddonMoreInfo/index.js:238
 msgid "Usage Statistics"
-msgstr ""
+msgstr "Statistici privind utilizarea"
 
 #: src/amo/components/AddonMoreInfo/index.js:252
 msgid "More information"
@@ -281,7 +281,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:87
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Vizitează tabloul de bord al statisticilor"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -588,7 +588,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Aceasta este un raport al unei probleme sau o cerere de asistență"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
@@ -636,7 +636,7 @@ msgstr "Semnalat(ă) ca spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Aceasta conține un limbaj neadecvat"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
