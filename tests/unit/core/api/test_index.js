@@ -607,4 +607,23 @@ describe(__filename, () => {
         });
     });
   });
+
+  describe('validateLocalizedString', () => {
+    it('throws an error for invalid locale keys', () => {
+      const description = { notAValidKey: 'some description' };
+
+      expect(() => api.validateLocalizedString(description))
+        .toThrow(/Unknown locale: "notAValidKey"/);
+    });
+
+    it('allows valid locale keys', () => {
+      const description = { fr: 'la description' };
+      api.validateLocalizedString(description);
+    });
+
+    it('throws an error for non-object values', () => {
+      expect(() => api.validateLocalizedString(9))
+        .toThrow('Expected an object type, got "number"');
+    });
+  });
 });

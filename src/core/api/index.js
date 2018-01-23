@@ -8,6 +8,7 @@ import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
+import languages from 'core/languages';
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
 import {
@@ -16,7 +17,7 @@ import {
 } from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
-import type { PaginatedApiResponse } from 'core/types/api';
+import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
 
@@ -304,4 +305,16 @@ export const allPages = async (
 
   // If we get this far the callback may not be advancing pages correctly.
   throw new Error(`Fetched too many pages (the limit is ${pageLimit})`);
+};
+
+export const validateLocalizedString = (localizedString: LocalizedString) => {
+  if (typeof localizedString !== 'object') {
+    throw new Error(
+      `Expected an object type, got "${typeof localizedString}"`);
+  }
+  Object.keys(localizedString).forEach((localeKey) => {
+    if (typeof languages[localeKey] === 'undefined') {
+      throw new Error(`Unknown locale: "${localeKey}"`);
+    }
+  });
 };
