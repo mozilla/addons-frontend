@@ -290,7 +290,7 @@ describe(__filename, () => {
   });
 
   describe('updateCollection', () => {
-    const _params = (params = {}) => {
+    const defaultParams = (params = {}) => {
       return {
         api: apiState,
         collectionSlug: 'collection-slug',
@@ -300,7 +300,7 @@ describe(__filename, () => {
     };
 
     it('requires an api parameter', () => {
-      const params = _params();
+      const params = defaultParams();
       delete params.api;
 
       expect(() => updateCollection(params))
@@ -308,7 +308,7 @@ describe(__filename, () => {
     });
 
     it('requires a collectionSlug parameter', () => {
-      const params = _params();
+      const params = defaultParams();
       delete params.collectionSlug;
 
       expect(() => updateCollection(params))
@@ -316,7 +316,7 @@ describe(__filename, () => {
     });
 
     it('requires a user parameter', () => {
-      const params = _params();
+      const params = defaultParams();
       delete params.user;
 
       expect(() => updateCollection(params))
@@ -326,7 +326,7 @@ describe(__filename, () => {
     it('validates description value', async () => {
       const validator = sinon.stub();
       const description = { fr: 'la description' };
-      const params = _params({
+      const params = defaultParams({
         description, _validateLocalizedString: validator,
       });
 
@@ -340,7 +340,7 @@ describe(__filename, () => {
     it('validates name value', async () => {
       const validator = sinon.stub();
       const name = { fr: 'nomme' };
-      const params = _params({
+      const params = defaultParams({
         name, _validateLocalizedString: validator,
       });
 
@@ -352,7 +352,7 @@ describe(__filename, () => {
     });
 
     it('makes a patch request to the API', async () => {
-      const params = _params({ name: { fr: 'nomme' } });
+      const params = defaultParams({ name: { fr: 'nomme' } });
 
       const endpoint =
         `accounts/account/${params.user}/collections/${params.collectionSlug}`;
