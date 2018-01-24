@@ -28,6 +28,9 @@ export const ADDON_ADDED_TO_COLLECTION: 'ADDON_ADDED_TO_COLLECTION'
   = 'ADDON_ADDED_TO_COLLECTION';
 export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
   = 'LOAD_COLLECTION_ADDONS';
+export const FINISH_UPDATE_COLLECTION: 'FINISH_UPDATE_COLLECTION'
+  = 'FINISH_UPDATE_COLLECTION';
+export const UPDATE_COLLECTION: 'UPDATE_COLLECTION' = 'UPDATE_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -73,6 +76,9 @@ export type CollectionsState = {
       |};
     },
   },
+  collectionUpdates: {
+    [collectionSlug: string]: {| updating: boolean, successful?: boolean |},
+  },
 };
 
 export const initialState: CollectionsState = {
@@ -81,6 +87,7 @@ export const initialState: CollectionsState = {
   current: { id: null, loading: false },
   userCollections: {},
   addonInCollections: {},
+  collectionUpdates: {},
 };
 
 type FetchCurrentCollectionParams = {|
@@ -440,6 +447,80 @@ export const addAddonToCollection = ({
   };
 };
 
+type UpdateCollectionParams = {|
+  errorHandlerId: string,
+  collectionSlug: string,
+  defaultLocale?: string,
+  description?: string,
+  isPublic?: boolean,
+  name?: string,
+  user: number | string,
+|};
+
+type UpdateCollectionAction = {|
+  type: typeof UPDATE_COLLECTION,
+  payload: UpdateCollectionParams,
+|};
+
+export const updateCollection = ({
+  errorHandlerId,
+  collectionSlug,
+  defaultLocale,
+  description,
+  isPublic,
+  name,
+  user,
+}: UpdateCollectionParams = {}): UpdateCollectionAction => {
+  if (!errorHandlerId) {
+    throw new Error('errorHandlerId is required');
+  }
+  if (!collectionSlug) {
+    throw new Error('collectionSlug is required');
+  }
+  if (!user) {
+    throw new Error('user is required');
+  }
+
+  return {
+    type: UPDATE_COLLECTION,
+    payload: {
+      errorHandlerId,
+      collectionSlug,
+      defaultLocale,
+      description,
+      isPublic,
+      name,
+      user,
+    },
+  };
+};
+
+type FinishUpdateCollectionParams = {|
+  collectionSlug: string,
+  successful: boolean,
+|};
+
+type FinishUpdateCollectionAction = {|
+  type: typeof FINISH_UPDATE_COLLECTION,
+  payload: FinishUpdateCollectionParams,
+|};
+
+export const finishUpdateCollection = (
+  { collectionSlug, successful }: FinishUpdateCollectionParams = {}
+): FinishUpdateCollectionAction => {
+  if (!collectionSlug) {
+    throw new Error('The collectionSlug parameter is required');
+  }
+  if (typeof successful === 'undefined') {
+    throw new Error('The successful parameter is required');
+  }
+
+  return {
+    type: FINISH_UPDATE_COLLECTION,
+    payload: { collectionSlug, successful },
+  };
+};
+
 export const createInternalAddons = (
   items: ExternalCollectionAddons
 ): Array<AddonType> => {
@@ -570,10 +651,12 @@ type Action =
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction
   | FetchUserCollectionsAction
+  | FinishUpdateCollectionAction
   | LoadCollectionAddonsAction
   | LoadCurrentCollectionAction
   | LoadCurrentCollectionPageAction
   | LoadUserCollectionsAction
+  | UpdateCollectionAction
 ;
 
 const reducer = (
@@ -788,6 +871,35 @@ const reducer = (
         state,
         loading: false,
       });
+    }
+
+    case UPDATE_COLLECTION: {
+      const { collectionSlug } = action.payload;
+
+      return {
+        ...state,
+        collectionUpdates: {
+          [collectionSlug]: {
+            ...state.collectionUpdates[collectionSlug],
+            updating: true,
+          },
+        },
+      };
+    }
+
+    case FINISH_UPDATE_COLLECTION: {
+      const { collectionSlug, successful } = action.payload;
+
+      return {
+        ...state,
+        collectionUpdates: {
+          [collectionSlug]: {
+            ...state.collectionUpdates[collectionSlug],
+            updating: false,
+            successful,
+          },
+        },
+      };
     }
 
     default:

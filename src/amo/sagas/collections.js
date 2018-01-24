@@ -4,10 +4,12 @@ import {
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
+  UPDATE_COLLECTION,
   abortAddAddonToCollection,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
   addonAddedToCollection,
+  finishUpdateCollection,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -132,6 +134,42 @@ export function* addAddonToCollection({
   }
 }
 
+export function* updateCollection({
+  payload: {
+    errorHandlerId,
+    collectionSlug,
+    defaultLocale,
+    description,
+    isPublic,
+    name,
+    slug,
+    user,
+  },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+    yield call(api.updateCollection, {
+      api: state.api,
+      collectionSlug,
+      defaultLocale,
+      description,
+      isPublic,
+      name,
+      slug,
+      user,
+    });
+
+    yield put(finishUpdateCollection({ collectionSlug, successful: true }));
+  } catch (error) {
+    log.warn(`Failed to update collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+    yield put(finishUpdateCollection({ collectionSlug, successful: false }));
+  }
+}
+
 export default function* collectionsSaga() {
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
@@ -139,4 +177,5 @@ export default function* collectionsSaga() {
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
+  yield takeLatest(UPDATE_COLLECTION, updateCollection);
 }

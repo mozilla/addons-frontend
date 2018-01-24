@@ -9,6 +9,7 @@ import reducer, {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  finishUpdateCollection,
   getCollectionById,
   getCurrentCollection,
   initialState,
@@ -17,6 +18,7 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  updateCollection,
 } from 'amo/reducers/collections';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -823,6 +825,107 @@ describe(__filename, () => {
 
       expect(() => loadCollectionAddons(params))
         .toThrow(/collectionSlug parameter is required/);
+    });
+  });
+
+  describe('updateCollection', () => {
+    const getParams = (params = {}) => {
+      return {
+        errorHandlerId: 'error-handler-id',
+        collectionSlug: 'some-collection',
+        user: 'some-user-name',
+        ...params,
+      };
+    };
+
+    it('requires errorHandlerId parameter', () => {
+      const params = getParams();
+      delete params.errorHandlerId;
+
+      expect(() => updateCollection(params))
+        .toThrow(/errorHandlerId is required/);
+    });
+
+    it('requires collectionSlug parameter', () => {
+      const params = getParams();
+      delete params.collectionSlug;
+
+      expect(() => updateCollection(params))
+        .toThrow(/collectionSlug is required/);
+    });
+
+    it('requires user parameter', () => {
+      const params = getParams();
+      delete params.user;
+
+      expect(() => updateCollection(params))
+        .toThrow(/user is required/);
+    });
+
+    it('changes update state', () => {
+      const collectionSlug = 'some-collection';
+
+      const state = reducer(initialState, updateCollection(getParams({
+        collectionSlug,
+      })));
+
+      expect(state.collectionUpdates[collectionSlug].updating)
+        .toEqual(true);
+    });
+  });
+
+  describe('finishUpdateCollection', () => {
+    const getParams = (params = {}) => {
+      return {
+        collectionSlug: 'some-collection', successful: true, ...params,
+      };
+    };
+
+    it('requires collectionSlug parameter', () => {
+      const params = getParams();
+      delete params.collectionSlug;
+
+      expect(() => finishUpdateCollection(params))
+        .toThrow(/collectionSlug parameter is required/);
+    });
+
+    it('requires successful parameter', () => {
+      const params = getParams();
+      delete params.successful;
+
+      expect(() => finishUpdateCollection(params))
+        .toThrow(/successful parameter is required/);
+    });
+
+    it('handles a falsy successful parameter', () => {
+      const params = getParams({ successful: false });
+
+      // Make sure this doesn't throw.
+      finishUpdateCollection(params);
+    });
+
+    it('finishes a successful update', () => {
+      const collectionSlug = 'some-collection';
+
+      const params = getParams({ collectionSlug, successful: true });
+      const state = reducer(initialState, finishUpdateCollection(params));
+
+      expect(state.collectionUpdates[collectionSlug].updating)
+        .toEqual(false);
+      expect(state.collectionUpdates[collectionSlug].successful)
+        .toEqual(true);
+    });
+
+    it('finishes an unsuccessful update', () => {
+      const collectionSlug = 'some-collection';
+
+      const params = getParams({ collectionSlug, successful: false });
+      const state = reducer(initialState, finishUpdateCollection(params));
+
+      expect(state.collectionUpdates[collectionSlug].updating)
+        .toEqual(false);
+      expect(state.collectionUpdates[collectionSlug].successful)
+        .toEqual(false);
     });
   });
 });

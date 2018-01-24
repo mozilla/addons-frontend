@@ -10,9 +10,11 @@ import collectionsReducer, {
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  finishUpdateCollection,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  updateCollection,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -332,6 +334,86 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
       expect(sagaTester.getCalledActions()[3])
         .toEqual(abortAddAddonToCollection({ addonId, userId }));
+    });
+  });
+
+  describe('updateCollection', () => {
+    const _updateCollection = (params = {}) => {
+      sagaTester.dispatch(updateCollection({
+        errorHandlerId: errorHandler.id,
+        collectionSlug: 'some-collection',
+        user: 321,
+        ...params,
+      }));
+    };
+
+    it('sends a patch to the collection API', async () => {
+      const collectionSlug = 'a-collection';
+      const params = {
+        collectionSlug,
+        name: 'New collection name',
+        user: 543,
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('updateCollection')
+        .withArgs({
+          api: state.api,
+          collectionSlug,
+          defaultLocale: undefined,
+          description: undefined,
+          isPublic: undefined,
+          name: params.name,
+          slug: undefined,
+          user: params.user,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _updateCollection(params);
+
+      const expectedLoadAction = finishUpdateCollection({
+        collectionSlug: params.collectionSlug,
+        successful: true,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
+    it('clears the error handler', async () => {
+      _updateCollection();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[1])
+        .toEqual(errorHandler.createClearingAction());
+    });
+
+    it('handles errors', async () => {
+      const collectionSlug = 'a-collection';
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('updateCollection')
+        .returns(Promise.reject(error));
+
+      _updateCollection({ collectionSlug });
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[3])
+        .toEqual(finishUpdateCollection({
+          collectionSlug, successful: false,
+        }));
     });
   });
 });
