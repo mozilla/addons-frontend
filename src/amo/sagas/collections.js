@@ -162,11 +162,11 @@ export function* updateCollection({
       user,
     });
 
-    yield put(finishUpdateCollection({ collectionSlug, success: true }));
+    yield put(finishUpdateCollection({ collectionSlug, successful: true }));
   } catch (error) {
     log.warn(`Failed to update collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(finishUpdateCollection({ collectionSlug, success: false }));
+    yield put(finishUpdateCollection({ collectionSlug, successful: false }));
   }
 }
 

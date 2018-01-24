@@ -77,7 +77,7 @@ export type CollectionsState = {
     },
   },
   collectionUpdates: {
-    [collectionSlug: string]: {| updating: boolean, success?: boolean |},
+    [collectionSlug: string]: {| updating: boolean, successful?: boolean |},
   },
 };
 
@@ -497,7 +497,7 @@ export const updateCollection = ({
 
 type FinishUpdateCollectionParams = {|
   collectionSlug: string,
-  success: boolean,
+  successful: boolean,
 |};
 
 type FinishUpdateCollectionAction = {|
@@ -506,18 +506,18 @@ type FinishUpdateCollectionAction = {|
 |};
 
 export const finishUpdateCollection = (
-  { collectionSlug, success }: FinishUpdateCollectionParams = {}
+  { collectionSlug, successful }: FinishUpdateCollectionParams = {}
 ): FinishUpdateCollectionAction => {
   if (!collectionSlug) {
     throw new Error('The collectionSlug parameter is required');
   }
-  if (typeof success === 'undefined') {
-    throw new Error('The success parameter is required');
+  if (typeof successful === 'undefined') {
+    throw new Error('The successful parameter is required');
   }
 
   return {
     type: FINISH_UPDATE_COLLECTION,
-    payload: { collectionSlug, success },
+    payload: { collectionSlug, successful },
   };
 };
 
@@ -888,7 +888,7 @@ const reducer = (
     }
 
     case FINISH_UPDATE_COLLECTION: {
-      const { collectionSlug, success } = action.payload;
+      const { collectionSlug, successful } = action.payload;
 
       return {
         ...state,
@@ -896,7 +896,7 @@ const reducer = (
           [collectionSlug]: {
             ...state.collectionUpdates[collectionSlug],
             updating: false,
-            success,
+            successful,
           },
         },
       };

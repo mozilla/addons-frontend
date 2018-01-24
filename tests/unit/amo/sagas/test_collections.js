@@ -375,7 +375,7 @@ describe(__filename, () => {
 
       const expectedLoadAction = finishUpdateCollection({
         collectionSlug: params.collectionSlug,
-        success: true,
+        successful: true,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
@@ -412,7 +412,7 @@ describe(__filename, () => {
       expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
       expect(sagaTester.getCalledActions()[3])
         .toEqual(finishUpdateCollection({
-          collectionSlug, success: false,
+          collectionSlug, successful: false,
         }));
     });
   });

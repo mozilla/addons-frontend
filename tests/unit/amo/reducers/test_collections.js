@@ -877,7 +877,7 @@ describe(__filename, () => {
   describe('finishUpdateCollection', () => {
     const getParams = (params = {}) => {
       return {
-        collectionSlug: 'some-collection', success: true, ...params,
+        collectionSlug: 'some-collection', successful: true, ...params,
       };
     };
 
@@ -889,16 +889,16 @@ describe(__filename, () => {
         .toThrow(/collectionSlug parameter is required/);
     });
 
-    it('requires success parameter', () => {
+    it('requires successful parameter', () => {
       const params = getParams();
-      delete params.success;
+      delete params.successful;
 
       expect(() => finishUpdateCollection(params))
-        .toThrow(/success parameter is required/);
+        .toThrow(/successful parameter is required/);
     });
 
-    it('handles a falsy success parameter', () => {
-      const params = getParams({ success: false });
+    it('handles a falsy successful parameter', () => {
+      const params = getParams({ successful: false });
 
       // Make sure this doesn't throw.
       finishUpdateCollection(params);
@@ -907,24 +907,24 @@ describe(__filename, () => {
     it('finishes a successful update', () => {
       const collectionSlug = 'some-collection';
 
-      const params = getParams({ collectionSlug, success: true });
+      const params = getParams({ collectionSlug, successful: true });
       const state = reducer(initialState, finishUpdateCollection(params));
 
       expect(state.collectionUpdates[collectionSlug].updating)
         .toEqual(false);
-      expect(state.collectionUpdates[collectionSlug].success)
+      expect(state.collectionUpdates[collectionSlug].successful)
         .toEqual(true);
     });
 
     it('finishes an unsuccessful update', () => {
       const collectionSlug = 'some-collection';
 
-      const params = getParams({ collectionSlug, success: false });
+      const params = getParams({ collectionSlug, successful: false });
       const state = reducer(initialState, finishUpdateCollection(params));
 
       expect(state.collectionUpdates[collectionSlug].updating)
         .toEqual(false);
-      expect(state.collectionUpdates[collectionSlug].success)
+      expect(state.collectionUpdates[collectionSlug].successful)
         .toEqual(false);
     });
   });
