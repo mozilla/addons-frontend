@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 10:10+0000\n"
+"PO-Revision-Date: 2018-01-24 10:28+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -37,7 +37,7 @@ msgstr "Dodano v %(collectionName)s"
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:246
 msgid "Add to…"
-msgstr ""
+msgstr "Dodaj v …"
 
 #: src/amo/components/Addon/index.js:181
 msgid "Tap to preview"
@@ -778,9 +778,8 @@ msgid "Submit a New Theme"
 msgstr "Pošlji novo temo"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Ocene"
+msgstr "Orodja za pregledovalce"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
@@ -836,20 +835,17 @@ msgstr "Več priljubljenih razširitev"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Prenašanje predstavnosti"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Več trenutno priljubljenih tem"
+msgstr "Več razširitev za prenašanje predstavnosti"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
 msgstr "Najbolje ocenjene razširitve"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
 msgstr "Več visoko ocenjenih razširitev"
 
@@ -887,7 +883,7 @@ msgstr "Preprosto upravljajte vsa svoja gesla na vseh napravah z enega mesta"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
@@ -895,7 +891,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Display tabs in a space-saving “tree” layout."
