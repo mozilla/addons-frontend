@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 00:51+0000\n"
+"PO-Revision-Date: 2018-01-24 01:07+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -179,7 +179,7 @@ msgstr "Trebuie să <a href=\"%(downloadUrl)s\">descarci Firefox</a> pentru a in
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Acest supliment nu este compatibil cu versiunea ta de Firefox."
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
@@ -305,7 +305,7 @@ msgstr "Site pentru suport"
 
 #: src/amo/components/AddonMoreInfo/index.js:77
 msgid "Support Email"
-msgstr ""
+msgstr "E-mail pentru suport"
 
 #: src/amo/components/AddonMoreInfo/index.js:92
 msgid "Visit stats dashboard"
@@ -586,7 +586,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Acest supliment a fost eliminat de autorul său."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
@@ -965,7 +965,7 @@ msgstr "Schimbă limba"
 
 #: src/amo/components/LanguageTools/index.js:106
 msgid "Available for your locale"
-msgstr ""
+msgstr "Disponibile pentru limba ta"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
@@ -985,7 +985,7 @@ msgstr "Toate limbile"
 
 #: src/amo/components/LanguageTools/index.js:173
 msgid "Locale Name"
-msgstr ""
+msgstr "Numele limbii"
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Language Packs"
@@ -1206,7 +1206,7 @@ msgstr "Sortează după"
 
 #: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
-msgstr "Tipul suplimentului"
+msgstr "Tipul suplimentelor"
 
 #: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
@@ -1565,7 +1565,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Pagina %(currentPage)s din %(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
