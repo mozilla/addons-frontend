@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 19:07+0000\n"
+"PO-Revision-Date: 2018-01-24 19:12+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -835,14 +835,12 @@ msgid "See more media downloaders"
 msgstr "Vis fleire populære tema"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
-msgstr "Høgst vurderte utvidingar"
+msgstr "Topprangerte utvidingar"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "Fleire høgt vurderte utvidingar"
+msgstr "Vis fleire høgt vurderte utvidingar"
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
