@@ -292,7 +292,7 @@ describe(__filename, () => {
 
       const select = root.find('.AddAddonToCollection-select');
       const promptOption = findOption({
-        root, text: 'Add to collection',
+        root, text: 'Select a collection…',
       });
 
       // Select the prompt (first option) which doesn't do anything.
