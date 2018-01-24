@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 06:30+0000\n"
+"PO-Revision-Date: 2018-01-24 06:37+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -829,22 +829,19 @@ msgstr "Mehr beliebte Erweiterungen ansehen"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Downloadwerkzeuge für Medien"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Mehr aktuell beliebte Themes ansehen"
+msgstr "Mehr Downloadwerkzeuge für Medien ansehen"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
 msgstr "Höchstbewertete Erweiterungen"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "Mehr hochbewertete Erweiterungen"
+msgstr "Mehr hochbewertete Erweiterungen ansehen"
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
@@ -880,67 +877,67 @@ msgstr "Verwalten Sie einfach alle Ihre Passwörter für alle Ihre Geräte an ei
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Trennen Sie verschiedene Bereiche Ihres Online-Lebens – Arbeit, Privates, usw. – durch farbkodierte Tabs"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Display tabs in a space-saving “tree” layout."
-msgstr ""
+msgstr "Tabs in einer platzsparenden „Baum“-Ansicht darstellen."
 
 #: src/amo/components/HomeHeroBanner/index.js:28
 msgid "Wikipedia Context Menu Search"
-msgstr ""
+msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "Text auswählen und auf Wikipedia danach suchen."
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr ""
+msgstr "Ersetzt Ihren neuen Tab durch eine persönliche Übersicht – Aufgabenlisten, Wettervorhersagen und mehr."
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Verlieren Sie nie wieder eine Seite."
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
-msgstr ""
+msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr ""
+msgstr "Holen Sie sich beim Schreiben im Internet Hilfe zur Grammatik – in sozialen Medien, E-Mails, Dokumenten und mehr."
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "Entfernt Werbung, gesponserte Inhalte und andere störende Elemente aus Ihrem Feed."
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
-msgstr ""
+msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "Über 40 anpassbare Mausgesten."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
