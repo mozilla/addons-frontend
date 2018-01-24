@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 04:51+0000\n"
+"PO-Revision-Date: 2018-01-24 04:52+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -19,19 +19,16 @@ msgid "Loading…"
 msgstr "載入中…"
 
 #: src/amo/components/AddAddonToCollection/index.js:168
-#, fuzzy
 msgid "Adding…"
-msgstr "載入中…"
+msgstr "加入中…"
 
 #: src/amo/components/AddAddonToCollection/index.js:184
-#, fuzzy
 msgid "Add to collection"
-msgstr "編輯這個收藏集"
+msgstr "新增至收藏集"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
-#, fuzzy
 msgid "Create new collection"
-msgstr "編輯這個收藏集"
+msgstr "建立新收藏集"
 
 #: src/amo/components/AddAddonToCollection/index.js:230
 msgid "Added to %(collectionName)s"
@@ -763,9 +760,8 @@ msgid "Submit a New Theme"
 msgstr "上架新佈景主題"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "評論"
+msgstr "審核者工具"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
@@ -824,19 +820,16 @@ msgid "Media downloaders"
 msgstr "影音媒體下載器"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "看看更多熱門佈景主題"
+msgstr "看看更多影音媒體下載器"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
-msgstr "分數最高的擴充套件"
+msgstr "評分最高的擴充套件"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "更多高分的擴充套件"
+msgstr "看看更多高分的擴充套件"
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
@@ -932,7 +925,7 @@ msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "超過 40 種可自訂的滑鼠手勢。"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
