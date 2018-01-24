@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 11:33+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2018-01-24 10:50+0000\n"
+"Last-Translator: Elio <elio.gi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -831,12 +831,11 @@ msgstr "Visualizza altre estensioni popolari"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Downloader di file multimediali"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Visualizza altri temi di tendenza"
+msgstr "Visualizza più downloader di file multimediali"
 
 #: src/amo/components/Home/index.js:243
 msgid "Top-rated Extensions"
