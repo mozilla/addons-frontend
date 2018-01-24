@@ -23,7 +23,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="wikipedia-context-menu-search"
           linkTo="/addon/wikipedia-context-menu-search/"
-          styleName="Home-wikipedia-context-menu-search"
         >
           <h3>{i18n.gettext('Wikipedia Context Menu Search')}</h3>
 
@@ -36,7 +35,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="momentumdash"
           linkTo="/addon/momentumdash/"
-          styleName="Home-momentumdash"
         >
           <h3>{i18n.gettext('Momentum')}</h3>
 
@@ -50,7 +48,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="undo-close-tab-button"
           linkTo="/addon/undo-close-tab-button/"
-          styleName="Home-undo-close-tab-button"
         >
           <h3>{i18n.gettext('Undo Close Tab Button')}</h3>
 
@@ -61,7 +58,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="grammarly"
           linkTo="/addon/grammarly-1/"
-          styleName="Home-grammarly"
         >
           <h3>{i18n.gettext('Grammarly')}</h3>
           <p>
@@ -74,7 +70,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="facebook-filter"
           linkTo="/addon/facebook-filter/"
-          styleName="Home-facebook-filter"
         >
           <h3>{i18n.gettext('Facebook Filter')}</h3>
           <p>
@@ -87,7 +82,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="gesturefy"
           linkTo="/addon/gesturefy/"
-          styleName="Home-gesturefy"
         >
           <h3>{i18n.gettext('Gesturefy')}</h3>
 
@@ -98,7 +92,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="lastpass"
           linkTo="/addon/lastpass-password-manager/"
-          styleName="Home-lastpass"
         >
           <h3>{i18n.gettext('LastPass Password Manager')}</h3>
 
@@ -112,7 +105,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="multi-account-containers"
           linkTo="/addon/multi-account-containers/"
-          styleName="Home-multi-account-containers"
         >
           <h3>{i18n.gettext('Multi-Account Containers')}</h3>
 
@@ -126,7 +118,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         <HeroSection
           key="tree-style-tab"
           linkTo="/addon/tree-style-tab/"
-          styleName="Home-tree-style-tab"
         >
           <h3>{i18n.gettext('Tree Style Tab')}</h3>
 
