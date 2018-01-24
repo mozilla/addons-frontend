@@ -33,7 +33,9 @@
     "test-coverage-once": "bin/config-check.js && better-npm-run jest --coverage",
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
-    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server"
+    "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "betterScripts": {
     "build": {
@@ -209,7 +211,8 @@
     "url": "0.11.0",
     "url-loader": "0.6.2",
     "utf8": "3.0.0",
-    "webpack-isomorphic-tools": "3.0.3"
+    "webpack-isomorphic-tools": "3.0.3",
+    "snyk": "^1.69.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -294,5 +297,6 @@
       "path": "./dist/*.js",
       "threshold": "300 Kb"
     }
-  ]
+  ],
+  "snyk": true
 }
