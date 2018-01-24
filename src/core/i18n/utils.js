@@ -132,7 +132,7 @@ export function parseAcceptLanguage(header: string) {
     if (parts.length > 1 && parts[1].trim().indexOf('q=') === 0) {
       const qVal = parseFloat(parts[1].split('=')[1]);
       // eslint-disable-next-line no-restricted-globals
-      if (isNaN(qVal) === false) {
+      if (Number.isNaN(qVal) === false) {
         q = qVal;
       }
     }

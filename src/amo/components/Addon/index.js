@@ -104,7 +104,7 @@ export class AddonBase extends React.Component {
     if (!errorHandler.hasError()) {
       if (addon) {
         // eslint-disable-next-line no-restricted-globals
-        if (!isNaN(params.slug)) {
+        if (!Number.isNaN(params.slug)) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(sendServerRedirect({
@@ -614,7 +614,7 @@ export function mapStateToProps(state, ownProps) {
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.
   // eslint-disable-next-line no-restricted-globals
-  if (slug && !isNaN(slug)) {
+  if (slug && !Number.isNaN(slug)) {
     addon = getAddonByID(state, slug);
   }
 
