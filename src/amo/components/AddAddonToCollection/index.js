@@ -12,6 +12,7 @@ import {
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import Card from 'ui/components/Card';
 import Select from 'ui/components/Select';
 import Notice from 'ui/components/Notice';
 import type { AddonType } from 'core/types/addons';
@@ -181,7 +182,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Add to collection'), key: 'default',
+        text: i18n.gettext('Select a collection…'), key: 'default',
       })
     );
 
@@ -246,7 +247,10 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     const collectionOptLabel = i18n.gettext('Add to…');
 
     return (
-      <div className={makeClassName('AddAddonToCollection', className)}>
+      <Card
+        className={makeClassName('AddAddonToCollection', className)}
+        header={i18n.gettext('Add to collection')}
+      >
         {errorHandler.renderErrorIfPresent()}
         {addedNotices}
         <Select
@@ -261,7 +265,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
             </optgroup>
           ) : null}
         </Select>
-      </div>
+      </Card>
     );
   }
 }
