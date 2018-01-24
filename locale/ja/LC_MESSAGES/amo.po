@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 00:51+0000\n"
+"PO-Revision-Date: 2018-01-24 00:57+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -885,7 +885,7 @@ msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "任意のテキストを選択してウィキペディアで検索。"
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Momentum"
@@ -893,7 +893,7 @@ msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr ""
+msgstr "新しいタブを、やることリストや天気予報などが載ったパーソナルダッシュボードに置き換え。"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
@@ -901,7 +901,7 @@ msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "もう二度とページを見失わないように。"
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
@@ -909,7 +909,7 @@ msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr ""
+msgstr "ソーシャルメディア、メール、ドキュメントなど、ウェブ上で何か書くところでどこでも文法チェック。"
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
@@ -917,7 +917,7 @@ msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "広告、プロモーションコンテンツなど余計なものをフィードから取り除きます。"
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
@@ -925,7 +925,7 @@ msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "40 以上のカスタマイズ可能なマウスジェスチャー。"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
