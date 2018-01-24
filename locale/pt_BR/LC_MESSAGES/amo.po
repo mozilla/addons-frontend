@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 01:50+0000\n"
+"PO-Revision-Date: 2018-01-24 01:58+0000\n"
 "Last-Translator: Marco Aurélio <fxhelp@yahoo.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -19,19 +19,16 @@ msgid "Loading…"
 msgstr "Carregando…"
 
 #: src/amo/components/AddAddonToCollection/index.js:168
-#, fuzzy
 msgid "Adding…"
-msgstr "Carregando…"
+msgstr "Adicionando…"
 
 #: src/amo/components/AddAddonToCollection/index.js:184
-#, fuzzy
 msgid "Add to collection"
-msgstr "Editar esta coleção"
+msgstr "Adicionar a coleção"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
-#, fuzzy
 msgid "Create new collection"
-msgstr "Editar esta coleção"
+msgstr "Criar nova coleção"
 
 #: src/amo/components/AddAddonToCollection/index.js:230
 msgid "Added to %(collectionName)s"
@@ -771,9 +768,8 @@ msgid "Submit a New Theme"
 msgstr "Enviar um novo tema"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Análises"
+msgstr "Ferramentas de revisão"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
@@ -832,19 +828,16 @@ msgid "Media downloaders"
 msgstr ""
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Mais temas em destaque"
+msgstr ""
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
-msgstr "Extensões melhor avaliadas"
+msgstr ""
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "Mais extensões melhor avaliadas"
+msgstr ""
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
@@ -888,7 +881,7 @@ msgstr "Mantenha diferentes partes da sua vida on-line, como trabalho, pessoal, 
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Display tabs in a space-saving “tree” layout."
@@ -896,15 +889,15 @@ msgstr "Mostra as abas em um layout de “árvore” que economiza espaço."
 
 #: src/amo/components/HomeHeroBanner/index.js:28
 msgid "Wikipedia Context Menu Search"
-msgstr ""
+msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "Destaque qualquer texto e pesquise na Wikipédia."
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
@@ -912,15 +905,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Nunca perca uma página novamente."
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
-msgstr ""
+msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
@@ -928,19 +921,19 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "Remova anúncios, conteúdo promovido e outras distrações do seu feed."
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
-msgstr ""
+msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "Mais de 40 gestos de mouse personalizáveis."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
