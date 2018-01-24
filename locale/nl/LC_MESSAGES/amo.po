@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 10:46+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2018-01-24 11:33+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -24,7 +24,7 @@ msgstr "Toevoegen…"
 
 #: src/amo/components/AddAddonToCollection/index.js:184
 msgid "Add to collection"
-msgstr "Aan collectie toevoegen"
+msgstr "Toevoegen aan collectie"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 msgid "Create new collection"
@@ -878,7 +878,7 @@ msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Houd verschillende delen van uw onlineleven — werk, privé, enz. — gescheiden door kleurgecodeerde tabbladen"
+msgstr "Houd verschillende delen van uw onlineleven – werk, privé, etc. – gescheiden door kleurgecodeerde tabbladen"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
@@ -886,7 +886,7 @@ msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Display tabs in a space-saving “tree” layout."
-msgstr "Geef tabbladen weer in een ruimtebesparende “boom”-opmaak."
+msgstr "Geef tabbladen weer in een ruimtebesparende ‘structuur’-indeling."
 
 #: src/amo/components/HomeHeroBanner/index.js:28
 msgid "Wikipedia Context Menu Search"
@@ -902,7 +902,7 @@ msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr "Vervang uw nieuwe tabblad door een persoonlijk dashboard — ToDo-lijsten, weersvoorspellingen en meer."
+msgstr "Vervang uw nieuwe tabblad door een persoonlijk dashboard – todolijsten, weersvoorspellingen en meer."
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
@@ -918,7 +918,7 @@ msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr "Verkrijg overal waar u op het web schrijft — sociale media, e-mail, documenten en meer — hulp met grammatica."
+msgstr "Verkrijg hulp met grammatica, overal waar u op het web schrijft – sociale media, e-mail, documenten en meer."
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
