@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-23 22:15+0000\n"
+"PO-Revision-Date: 2018-01-25 21:50+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -19,19 +19,16 @@ msgid "Loading…"
 msgstr "Začituje so…"
 
 #: src/amo/components/AddAddonToCollection/index.js:168
-#, fuzzy
 msgid "Adding…"
-msgstr "Začituje so…"
+msgstr "Přidawa so…"
 
 #: src/amo/components/AddAddonToCollection/index.js:184
-#, fuzzy
 msgid "Add to collection"
-msgstr "Tutu zběrku wobdźěłać"
+msgstr "Zběrce přidać"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
-#, fuzzy
 msgid "Create new collection"
-msgstr "Tutu zběrku wobdźěłać"
+msgstr "Nowu zběrku wutworić"
 
 #: src/amo/components/AddAddonToCollection/index.js:230
 msgid "Added to %(collectionName)s"
@@ -783,9 +780,8 @@ msgid "Submit a New Theme"
 msgstr "Nowu drastu zapodać"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Pohódnoćenja"
+msgstr "Nastroje za přepruwowarjow"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
@@ -844,17 +840,14 @@ msgid "Media downloaders"
 msgstr "Medijowe sćahowaki"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Dalše tuchwilu woblubowane drasty sej wobhladać"
+msgstr "Dalše nastroje za sćahowanje medijow"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
 msgstr "Najwyše pohódnoćene rozšěrjenja"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
 msgstr "Dalše wysoko pohódnoćene rozšěrjenja"
 
@@ -916,7 +909,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
@@ -924,15 +917,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Njezhubjejće ženje wjace stronu."
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
-msgstr ""
+msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
@@ -940,7 +933,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
@@ -948,11 +941,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
-msgstr ""
+msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "Přez 40 přiměrjomnych gestow myški."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
