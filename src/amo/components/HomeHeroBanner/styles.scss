@@ -46,7 +46,7 @@ $colors-third-item:  ("cyan", #15aabf, #1098ad)
 
 .HeroSection {
   &:nth-child(1) {
-    $color: nth($colors-first-item, random(length($colors-first-item)));
+    $color: nth($colors-first-item, 1);
     $bg-color: nth($color, 2);
     $fg-color: nth($color, 3);
 
@@ -56,7 +56,7 @@ $colors-third-item:  ("cyan", #15aabf, #1098ad)
   }
 
   &:nth-child(2) {
-    $color: nth($colors-second-item, random(length($colors-second-item)));
+    $color: nth($colors-second-item, 1);
     $bg-color: nth($color, 2);
     $fg-color: nth($color, 3);
 
@@ -66,7 +66,7 @@ $colors-third-item:  ("cyan", #15aabf, #1098ad)
   }
 
   &:nth-child(3) {
-    $color: nth($colors-third-item, random(length($colors-third-item)));
+    $color: nth($colors-third-item, 1);
     $bg-color: nth($color, 2);
     $fg-color: nth($color, 3);
 
