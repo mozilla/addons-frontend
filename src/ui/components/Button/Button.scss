@@ -31,6 +31,15 @@
   );
 }
 
+.Button--login {
+  @include button(
+    $background: $login-base-color,
+    $background-active: $login-active-color,
+    $background-hover: $login-hover-color
+  );
+}
+
+
 .Button--cancel {
   @include button(
     $background: $cancel-base-color,
