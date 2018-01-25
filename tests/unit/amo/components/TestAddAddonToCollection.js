@@ -296,8 +296,9 @@ describe(__filename, () => {
       });
       expect(promptOption).toHaveProp('disabled', true);
 
-      // Just to cover the error handling code, try selecting the prompt
-      // (first option) which shouldn't do anything.
+      // Try selecting the prompt (the first option) which shouldn't
+      // do anything. This is to make sure the event handler correctly
+      // ignores the event.
       select.simulate('change', createFakeEvent({
         target: { value: promptOption.prop('value') },
       }));
