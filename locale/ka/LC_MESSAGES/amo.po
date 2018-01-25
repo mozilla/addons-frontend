@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-25 08:11+0000\n"
+"PO-Revision-Date: 2018-01-25 08:31+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -32,12 +32,12 @@ msgstr "ახალი კრებულის შექმნა"
 
 #: src/amo/components/AddAddonToCollection/index.js:230
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "დაემატა %(collectionName)s კრებულში"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:246
 msgid "Add to…"
-msgstr ""
+msgstr "დამატება…"
 
 #: src/amo/components/Addon/index.js:181
 msgid "Tap to preview"
@@ -768,9 +768,8 @@ msgid "Submit a New Theme"
 msgstr "ახალი თემის წარდგენა"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "მიმოხილვა"
+msgstr "მიმოხილვის ხელსაწყოები"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
 msgid "Log out"
@@ -827,22 +826,19 @@ msgstr "სხვა სასურველი გაფართოებე�
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "მედიაფაილების ჩამომტვირთველი"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "სხვა ფართოდ გავრცელებული თემები"
+msgstr "მედიაფაილების სხვა ჩამომტვირთველები"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
 msgstr "საუკეთესოდ შეფასებული გაფართოებები"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "მაღალი შეფასების მქონე გაფართოებები"
+msgstr "მაღალი შეფასების მქონე სხვა გაფართოებები"
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
@@ -878,11 +874,11 @@ msgstr "მარტივად მართეთ თქვენი ყვე
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "მრავალანგარიშიანი სათავსები"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "განაცალკევეთ თქვენი სხვადასხვა საქმიანობა ინტერნეტში—სამუშაო, პირადი და ა.შ.—გამოყავით, ფერადი ჩანართების საშუალებით"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
