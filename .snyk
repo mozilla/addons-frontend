@@ -1,9 +1,11 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-# version: v1.10.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:content-type-parser:20170905':
     - jsdom > content-type-parser:
-        reason: 'We only use this for DOMPurify (no external fetching) so we are probably not vulnerable'
-        expires: '2018-01-12T17:51:49.204Z'
+        reason: >-
+          We only use this for DOMPurify (no external fetching) so we are
+          probably not vulnerable
+        expires: '2018-02-23T22:52:31.923Z'
 patch: {}
+version: v1.10.1
