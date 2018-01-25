@@ -284,7 +284,7 @@ describe(__filename, () => {
         .toContain(`Added to ${secondCollection.name}`);
     });
 
-    it('does nothing when you select the prompt', () => {
+    it('disables the select the prompt', () => {
       signInAndDispatchCollections();
 
       const dispatchStub = sinon.stub(store, 'dispatch');
@@ -294,8 +294,11 @@ describe(__filename, () => {
       const promptOption = findOption({
         root, text: 'Select a collection…',
       });
+      expect(promptOption).toHaveProp('disabled', true);
 
-      // Select the prompt (first option) which doesn't do anything.
+      // Try selecting the prompt (the first option) which shouldn't
+      // do anything. This is to make sure the event handler correctly
+      // ignores the event.
       select.simulate('change', createFakeEvent({
         target: { value: promptOption.prop('value') },
       }));
