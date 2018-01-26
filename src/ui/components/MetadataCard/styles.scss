@@ -20,7 +20,7 @@
 
   flex: 1;
   margin: 12px;
-  max-width: 30%;
+  max-width: 25%;
 
   dd {
     line-height: 1.4;
@@ -31,5 +31,6 @@
   dt {
     color: $grey-50;
     line-height: 1.4;
+    word-wrap: break-word;
   }
 }
