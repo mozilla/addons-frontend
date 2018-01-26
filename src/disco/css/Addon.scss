@@ -171,16 +171,9 @@ $addon-padding: 20px;
   }
 
   &:not(.theme) .content {
-    align-items: left;
-    flex-direction: column;
+    align-items: center;
+    flex-direction: row;
     width: calc(100% - 94px);
-  }
-
-  @include respond-to(large) {
-    &:not(.theme) .content {
-      align-items: center;
-      flex-direction: row;
-    }
   }
 
   .notification {
