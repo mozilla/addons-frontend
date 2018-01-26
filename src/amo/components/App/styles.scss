@@ -18,6 +18,8 @@ html {
 // to fix #3640
 input,
 textarea {
+  @include font-regular();
+
   background: $white;
 }
 
