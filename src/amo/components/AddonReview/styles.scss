@@ -35,8 +35,6 @@
 
 .AddonReview-textarea,
 .AddonReview-submit {
-  @include font-regular();
-
   border: 2px solid $form-border-color;
   border-radius: 8px;
   box-shadow: none;
