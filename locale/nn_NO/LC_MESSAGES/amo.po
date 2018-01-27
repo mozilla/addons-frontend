@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 19:12+0000\n"
+"PO-Revision-Date: 2018-01-27 19:25+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -830,9 +830,8 @@ msgid "Media downloaders"
 msgstr ""
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Vis fleire populære tema"
+msgstr "Vis fleire media-nedlastarar"
 
 #: src/amo/components/Home/index.js:243
 msgid "Top-rated Extensions"
