@@ -18,7 +18,7 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import { hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
-import { parsePage } from 'core/utils';
+import { parsePage, sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -142,7 +142,11 @@ export class CollectionBase extends React.Component<Props> {
             {collection ? collection.name : <LoadingText />}
           </h1>
           <p className="Collection-description">
-            {collection ? collection.description : <LoadingText />}
+            {collection ? (
+              <span
+                dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
+              />
+            ) : <LoadingText />}
           </p>
           <MetadataCard
             metadata={[

@@ -66,6 +66,22 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
   });
 
+  it('allows HTML entities in the Collection description', () => {
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: {
+        ...defaultCollectionDetail,
+        description: 'Apples &amp; carrots',
+      },
+    }));
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-description').html())
+      .toContain('Apples &amp; carrots');
+  });
+
   it('renders loading indicators when there is no collection', () => {
     const wrapper = renderComponent({ collection: null });
 
@@ -134,7 +150,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -153,7 +168,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -229,7 +243,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -278,7 +291,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -313,7 +325,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -365,7 +376,6 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -500,7 +510,6 @@ describe(__filename, () => {
   it('renders an HTML title', () => {
     const { store } = dispatchClientMetadata();
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -518,7 +527,6 @@ describe(__filename, () => {
   it('renders an edit link when user has `Collections:Edit` permission', () => {
     const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: defaultCollectionDetail,
@@ -532,7 +540,6 @@ describe(__filename, () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
-    // We need a collection for this test case.
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
       detail: createFakeCollectionDetail({
