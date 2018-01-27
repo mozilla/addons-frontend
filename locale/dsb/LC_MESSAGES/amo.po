@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-27 20:11+0000\n"
+"PO-Revision-Date: 2018-01-27 20:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -37,7 +37,7 @@ msgstr "%(collectionName)s pśidany"
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:246
 msgid "Add to…"
-msgstr ""
+msgstr "Pśidaś…"
 
 #: src/amo/components/Addon/index.js:181
 msgid "Tap to preview"
@@ -837,7 +837,7 @@ msgstr "Dalšne woblubowane rozšyrjenja se woglědaś"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Ześěgnjeńske rědy za medije"
 
 #: src/amo/components/Home/index.js:218
 msgid "See more media downloaders"
@@ -885,67 +885,67 @@ msgstr "Zastojśo wše swóje gronidła za wše rědy na jadnom městnje"
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Wěcejkontowe kontejnery"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - pśez rejtarki koděrowane z barwami"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Rejtark w bomowem stilu"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Display tabs in a space-saving “tree” layout."
-msgstr ""
+msgstr "Rejtarki w mało městna pominajucem “bomowem” wugótowanju zwobrazniś."
 
 #: src/amo/components/HomeHeroBanner/index.js:28
 msgid "Wikipedia Context Menu Search"
-msgstr ""
+msgstr "Pytanje kontekstowego menija Wikipedije"
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "Tekst markěrowaś a we Wikipediji za nim pytaś."
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr ""
+msgstr "Wuměńśo swój nowy rejtark z wósobinskim pśeglědom - lisćinami nadawkow, pśedpowěźenjami wjedra a wěcej."
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Njezgubujśo žednje zas bok."
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
-msgstr ""
+msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr ""
+msgstr "Wobstarajśo se w interneśe pomoc wó gramatice . w socialnych medijach, mejlkach, dokumentach a wěcej."
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "Wótwónoźćo wabjenje, sponsorowane wopśimjeśe a druge mólece elementy ze swójogo kanala."
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
-msgstr ""
+msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "Wušej 40 pśiměrjujobnych gestow myški."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
