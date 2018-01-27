@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-24 01:07+0000\n"
+"PO-Revision-Date: 2018-01-27 20:00+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -24,9 +24,8 @@ msgid "Adding…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:184
-#, fuzzy
 msgid "Add to collection"
-msgstr "Editează această colecție"
+msgstr "Adaugă în colecție"
 
 #: src/amo/components/AddAddonToCollection/index.js:189
 #, fuzzy
@@ -171,7 +170,7 @@ msgstr "Experimental"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Nu este compatibil cu Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -449,7 +448,7 @@ msgstr "Extensii în tendințe"
 
 #: src/amo/components/Category/index.js:145 src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
-msgstr "Vezi mai multe extensii în tedințe"
+msgstr "Vezi mai multe extensii în tendințe"
 
 #: src/amo/components/Category/index.js:146 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
@@ -833,20 +832,17 @@ msgstr "Vezi mai multe extensii populare"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Descărcătoare media"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Vezi mai multe teme în tendințe"
+msgstr "Vezi mai multe descărcătoare media"
 
 #: src/amo/components/Home/index.js:243
-#, fuzzy
 msgid "Top-rated Extensions"
 msgstr "Extensii în topul evaluărilor"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
 msgstr "Vezi mai multe extensii în topul evaluărilor"
 
@@ -973,7 +969,7 @@ msgstr "Dicționare și pachete lingvistice"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Instalarea unui supliment pentru dicționar va adăuga o opțiune de limbă nouă la verificatorul ortografic, care îți verifică ortografia pe măsură ce tastezi în Firefox."
 
 #: src/amo/components/LanguageTools/index.js:161
 msgid "Language packs change your browser's interface language, including menu options and settings."
@@ -1129,9 +1125,9 @@ msgstr[2] "%(count)s de rezultate găsite pentru „%(query)s”"
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%(count)s rezultat pentru „%(query)s”"
+msgstr[1] "%(count)s rezultate pentru „%(query)s”"
+msgstr[2] "%(count)s de rezultate pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
