@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-28 15:52+0000\n"
+"PO-Revision-Date: 2018-01-28 16:30+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -32,12 +32,12 @@ msgstr "Crear nueva colección"
 
 #: src/amo/components/AddAddonToCollection/index.js:230
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "Se añadió a %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:246
 msgid "Add to…"
-msgstr ""
+msgstr "Añadir a…"
 
 #: src/amo/components/Addon/index.js:181
 msgid "Tap to preview"
@@ -826,12 +826,11 @@ msgstr "Ver más extensiones populares"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Gestores de descarga multimedia"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more media downloaders"
-msgstr "Ver más temas de moda"
+msgstr "Ver más gestores de descarga multimedia"
 
 #: src/amo/components/Home/index.js:243
 msgid "Top-rated Extensions"
@@ -875,19 +874,19 @@ msgstr "Gestiona todas tus contraseñas de todos tus dispositivos en un mismo si
 
 #: src/amo/components/HomeHeroBanner/index.js:117
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Contenedores de múltiples cuentas"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Mantén distintas partes de tu vida en línea (trabajo, personal, etc.) separadas por etiquetas de colores"
 
 #: src/amo/components/HomeHeroBanner/index.js:131
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Estilo árbol para pestañas"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Display tabs in a space-saving “tree” layout."
-msgstr ""
+msgstr "Mostrar pestañas en forma de “árbol” para ahorrar espacio."
 
 #: src/amo/components/HomeHeroBanner/index.js:28
 msgid "Wikipedia Context Menu Search"
@@ -895,7 +894,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:31
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "Resalta texto y búscalo en la Wikipedia."
 
 #: src/amo/components/HomeHeroBanner/index.js:41
 msgid "Momentum"
@@ -903,7 +902,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:44
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr ""
+msgstr "Cambia tu nueva pestaña por un tablero personal: cosas que hacer, previsión del tiempo y mucho más."
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
@@ -911,7 +910,7 @@ msgstr "Botón deshacer cerrar pestaña"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
-msgstr ""
+msgstr "No vuelvas a perder nunca una página."
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
@@ -919,7 +918,7 @@ msgstr "Gramáticamente"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr ""
+msgstr "Obtén ayuda de ortografía cuando escribas en la Web: redes sociales, correo, documentos y mucho más."
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
@@ -927,7 +926,7 @@ msgstr "Filtro de Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "Elimina publicidad, contenido patrocinado y mucho más de tus canales."
 
 #: src/amo/components/HomeHeroBanner/index.js:92
 msgid "Gesturefy"
@@ -935,7 +934,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "Más de 40 desplazamientos personalizados de ratón."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
