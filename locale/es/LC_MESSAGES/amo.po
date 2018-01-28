@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-23 21:12+0000\n"
-"PO-Revision-Date: 2018-01-25 19:11+0000\n"
-"Last-Translator: Jordi Cuevas <jordicuevas@gmail.com>\n"
+"PO-Revision-Date: 2018-01-28 15:52+0000\n"
+"Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
@@ -838,9 +838,8 @@ msgid "Top-rated Extensions"
 msgstr "Extensiones mejor puntuadas"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "See more highly rated Extensions"
-msgstr "Extensiones mejor valoradas"
+msgstr "Ver más de las extensiones mejor valoradas"
 
 #: src/amo/components/Home/index.js:61
 msgid "Bookmarks"
@@ -908,7 +907,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Botón deshacer cerrar pestaña"
 
 #: src/amo/components/HomeHeroBanner/index.js:57
 msgid "Never lose a page again."
@@ -916,7 +915,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:66
 msgid "Grammarly"
-msgstr ""
+msgstr "Gramáticamente"
 
 #: src/amo/components/HomeHeroBanner/index.js:68
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
@@ -924,7 +923,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:79
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Filtro de Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:81
 msgid "Remove ads, promoted content, and other clutter from your feed."
