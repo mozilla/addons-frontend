@@ -111,10 +111,10 @@ export class FormOverlayBase extends React.Component<Props> {
         >
           <div className="FormOverlay-closer">
             <Button
-              className="FormOverlay-x-closer"
+              className="FormOverlay-close-overlay"
               onClick={this.onClickExIcon}
             >
-              <Icon name="x-closer" alt={i18n.gettext('Click to close')} />
+              <Icon name="x-mark" alt={i18n.gettext('Click to close')} />
             </Button>
           </div>
           <h3 className="FormOverlay-h3">{title}</h3>

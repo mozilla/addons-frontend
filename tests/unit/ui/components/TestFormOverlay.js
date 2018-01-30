@@ -74,7 +74,7 @@ describe(__filename, () => {
     const id = 'some-id';
     sinon.spy(store, 'dispatch');
     const root = render({ id });
-    root.find('.FormOverlay-x-closer')
+    root.find('.FormOverlay-close-overlay')
       .simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(store.dispatch, closeFormOverlay(id));
