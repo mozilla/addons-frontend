@@ -14,6 +14,7 @@ describe(__filename, () => {
       'collections',
       'errorPage',
       'errors',
+      'formOverlay',
       'heroBanners',
       'home',
       'infoDialog',

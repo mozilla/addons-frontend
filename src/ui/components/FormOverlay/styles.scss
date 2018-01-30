@@ -1,0 +1,62 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+@import "~photon-colors/colors";
+
+.FormOverlay {
+  align-items: center;
+  background: transparentize($grey-90, 0.5);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.FormOverlay-overlay {
+  background-color: $white;
+  border-radius: $border-radius-s;
+  display: block;
+  margin: 12px;
+  min-width: 55%;
+  padding: 24px;
+}
+
+.FormOverlay-closer {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.FormOverlay-form-buttons {
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: min-content min-content;
+  justify-content: end;
+  margin: 36px 0 0;
+}
+
+.FormOverlay-x-closer {
+  cursor: pointer;
+}
+
+.FormOverlay-h3 {
+  margin: 0 0 24px;
+}
+
+.FormOverlay-form {
+  margin: 0 48px;
+
+  label {
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  input {
+    width: 100%;
+  }
+}
