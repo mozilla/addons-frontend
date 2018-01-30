@@ -170,3 +170,7 @@
 .Icon-not-compatible {
   @include icon($name: "not-compatible");
 }
+
+.Icon-x-mark {
+  @include icon($name: "x-mark");
+}

@@ -17,6 +17,7 @@ import autocomplete from 'core/reducers/autocomplete';
 import categories from 'core/reducers/categories';
 import errors from 'core/reducers/errors';
 import errorPage from 'core/reducers/errorPage';
+import formOverlay from 'core/reducers/formOverlay';
 import heroBanners from 'core/reducers/heroBanners';
 import languageTools from 'core/reducers/languageTools';
 import infoDialog from 'core/reducers/infoDialog';
@@ -41,6 +42,7 @@ export default function createStore({
       collections,
       errors,
       errorPage,
+      formOverlay,
       heroBanners,
       home,
       infoDialog,
