@@ -106,7 +106,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(store.dispatch, closeFormOverlay(id));
   });
 
-  it('calls back on cancel', () => {
+  it('invokes cancel callback', () => {
     const onCancel = sinon.stub();
     const root = render({ onCancel });
     root.find('.FormOverlay-cancel').simulate('click', createFakeEvent());
@@ -120,7 +120,7 @@ describe(__filename, () => {
     root.find('.FormOverlay-cancel').simulate('click', createFakeEvent());
   });
 
-  it('calls back on submit', () => {
+  it('invokes submit callback', () => {
     const onSubmit = sinon.stub();
     const root = render({ onSubmit });
     root.find('.FormOverlay-submit').simulate('click', createFakeEvent());
