@@ -1,6 +1,6 @@
 /* @flow */
 /* global window */
-/* eslint-disable react/sort-comp, react/no-unused-prop-types */
+/* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
 import React from 'react';
 import { connect } from 'react-redux';
@@ -50,13 +50,6 @@ type SelectData = {|
   actionOptions: Array<Object>,
   collectionOptions: Array<Object>,
   disabled: boolean,
-|};
-
-type CreateOptionParams = {|
-  disabled?: boolean,
-  key: string,
-  onSelect?: OnSelectOptionType,
-  text: string,
 |};
 
 export class AddAddonToCollectionBase extends React.Component<Props> {
@@ -135,15 +128,19 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     }));
   }
 
-  createOption({
-    text, key, onSelect, disabled = false,
-  }: CreateOptionParams) {
+  createOption(
+    {
+      text, key, onSelect,
+    }: {
+      // eslint-disable-next-line react/no-unused-prop-types
+      text: string, key: string, onSelect?: OnSelectOptionType,
+    }
+  ) {
     if (onSelect) {
       this.optionSelectHandlers[key] = onSelect;
     }
     return (
       <option
-        disabled={disabled}
         className="AddAddonToCollection-option"
         key={key}
         value={key}
@@ -185,9 +182,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     actionOptions.push(
       this.createOption({
-        text: i18n.gettext('Select a collection…'),
-        key: 'default',
-        disabled: true,
+        text: i18n.gettext('Select a collection…'), key: 'default',
       })
     );
 
