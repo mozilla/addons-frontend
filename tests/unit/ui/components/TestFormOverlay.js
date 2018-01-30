@@ -89,6 +89,14 @@ describe(__filename, () => {
     sinon.assert.calledWith(store.dispatch, closeFormOverlay(id));
   });
 
+  it('stops click events from propagating past the overlay', () => {
+    const root = render();
+    const event = createFakeEvent();
+    root.find('.FormOverlay-overlay').simulate('click', event);
+
+    sinon.assert.called(event.stopPropagation);
+  });
+
   it('closes on cancel', () => {
     const id = 'some-id';
     sinon.spy(store, 'dispatch');

@@ -50,6 +50,12 @@ export class FormOverlayBase extends React.Component<Props> {
     this.closeOverlay(event);
   }
 
+  onClickOverlay = (event: SyntheticEvent<any>) => {
+    // Prevent the click event from propagating to parent elements.
+    // This stops the overlay from closing when clicking inside it.
+    event.stopPropagation();
+  }
+
   onCancel = (event: SyntheticEvent<any>) => {
     const { onCancel } = this.props;
     if (onCancel) {
@@ -98,7 +104,11 @@ export class FormOverlayBase extends React.Component<Props> {
         className={makeClassName('FormOverlay', className)}
         role="presentation"
       >
-        <div className="FormOverlay-overlay">
+        <div
+          onClick={this.onClickOverlay}
+          className="FormOverlay-overlay"
+          role="presentation"
+        >
           <div className="FormOverlay-closer">
             <Button
               className="FormOverlay-x-closer"
