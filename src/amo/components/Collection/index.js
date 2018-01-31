@@ -5,7 +5,6 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
-import FormOverlay from 'ui/components/FormOverlay';
 import Link from 'amo/components/Link';
 import {
   fetchCurrentCollection,
@@ -174,19 +173,6 @@ export class CollectionBase extends React.Component<Props> {
               </Link>
             </p>
           )}
-          <FormOverlay
-            title={i18n.gettext('Edit collection')}
-            id={`collection-${collection ? collection.slug : ''}`}
-          >
-            <label htmlFor="collection_description">
-              {i18n.gettext('Collection name')}
-            </label>
-            <input
-              id="collection_description"
-              type="text"
-              placeholder={i18n.gettext('Description text?')}
-            />
-          </FormOverlay>
         </Card>
         <div className="Collection-items">
           <AddonsCard
