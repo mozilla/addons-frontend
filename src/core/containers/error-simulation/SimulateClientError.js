@@ -23,7 +23,7 @@ export class SimulateClientErrorBase extends React.Component {
       'Nice! Check Sentry' : '💣 Go ahead, trigger an error';
     return (
       <div className="SimulateClientError">
-        <Button onClick={this.onClick}>{prompt}</Button>
+        <Button buttonType="neutral" onClick={this.onClick}>{prompt}</Button>
       </div>
     );
   }

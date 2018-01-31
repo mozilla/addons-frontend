@@ -1,6 +1,7 @@
 @import "~core/css/inc/mixins";
 @import "~core/css/inc/vars";
 @import "~ui/css/vars";
+@import "~ui/components/Button/styles";
 @import "~photon-colors/colors";
 
 .Notice {
@@ -40,7 +41,7 @@
 
 @mixin notice_button() {
   &,
-  &.Button--small {
+  &.Button--micro {
     border: none;
     font-size: $font-size-s;
     line-height: 1.1;

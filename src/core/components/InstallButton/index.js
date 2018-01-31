@@ -218,10 +218,12 @@ export class InstallButtonBase extends React.Component {
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
         <Button
+          buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
           data-browsertheme={JSON.stringify(getThemeData(addon))}
           onClick={this.installTheme}
+          puffy
         >
           <Icon name="plus" />
           {i18n.gettext('Install Theme')}
@@ -240,12 +242,14 @@ export class InstallButtonBase extends React.Component {
       };
       button = (
         <Button
+          buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
           href={installURL}
           prependClientApp={false}
           prependLang={false}
+          puffy
         >
           <Icon name="plus" />
           {i18n.gettext('Add to Firefox')}
@@ -261,12 +265,14 @@ export class InstallButtonBase extends React.Component {
       };
       button = (
         <Button
+          buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
           href={installURL}
           prependClientApp={false}
           prependLang={false}
+          puffy
         >
           <Icon name="plus" />
           {i18n.gettext('Add to Firefox')}

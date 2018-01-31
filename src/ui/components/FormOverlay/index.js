@@ -123,17 +123,21 @@ export class FormOverlayBase extends React.Component<Props> {
               {children}
               <div className="FormOverlay-form-buttons">
                 <Button
+                  buttonType="neutral"
                   disabled={formIsDisabled}
                   onClick={this.onCancel}
-                  className="FormOverlay-cancel Button--cancel"
+                  className="FormOverlay-cancel"
+                  puffy
                 >
                   {i18n.gettext('Cancel')}
                 </Button>
                 <Button
+                  buttonType="action"
                   disabled={formIsDisabled}
-                  className="FormOverlay-submit Button--action"
+                  className="FormOverlay-submit"
                   onClick={this.onSubmit}
                   type="submit"
+                  puffy
                 >
                   {submitPrompt}
                 </Button>
