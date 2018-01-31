@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-01-31 06:52+0000\n"
+"PO-Revision-Date: 2018-01-31 08:31+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -839,7 +839,7 @@ msgstr "Vidi više popularnih proširenja"
 
 #: src/amo/components/Home/index.js:217
 msgid "Media downloaders"
-msgstr ""
+msgstr "Media preuzimači"
 
 #: src/amo/components/Home/index.js:218
 msgid "See more media downloaders"
@@ -879,47 +879,47 @@ msgstr "Gledanje videa"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:112
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Zadržite različite dijelove vašeg života na mreži—službeno, privatno, itd.—odvojenim od šarenih tabova"
 
 #: src/amo/components/HomeHeroBanner/index.js:122
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Display tabs in a space-saving “tree” layout."
-msgstr ""
+msgstr "Prikaži tabove u obliku “stabla” koji štedi prostor."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Wikipedia Context Menu Search"
-msgstr ""
+msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "Označite bilo koji tekst i pretražite ga u Wikipediji."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr ""
+msgstr "Zamijenite vaš novi tab pomoću personalizovanog panela—s listom ispravki, vremenskim prognozama i slično."
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Nikad više ne gubite stranicu."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Grammarly"
-msgstr ""
+msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
