@@ -41,6 +41,7 @@
   min-height: 51px;
   padding: 6px;
   resize: none;
+  width: 100%;
 
   @include respond-to(medium) {
     padding: 12px;
