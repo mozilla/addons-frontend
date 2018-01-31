@@ -4,7 +4,7 @@ import config, { util as configUtil } from 'config';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
-import React from 'react';
+import * as React from 'react';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 

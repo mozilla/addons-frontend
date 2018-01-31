@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { setHeroBannerOrder } from 'core/reducers/heroBanners';
 import Hero from 'ui/components/Hero';

@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import makeClassName from 'classnames';
 
 import Link from 'amo/components/Link';

@@ -1,6 +1,6 @@
 import url from 'url';
 
-import React from 'react';
+import * as React from 'react';
 import config from 'config';
 import { sprintf } from 'jed';
 import {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { mount } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';

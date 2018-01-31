@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
 import {

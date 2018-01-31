@@ -1,6 +1,6 @@
 import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 
 import SearchResult from 'amo/components/SearchResult';
 import CardList from 'ui/components/CardList';

@@ -1,6 +1,6 @@
 /* eslint-disable react/require-render-return */
 import { compose } from 'redux';
-import React from 'react';
+import * as React from 'react';
 
 import log from 'core/logger';
 import { render404IfConfigKeyIsFalse } from 'core/utils';

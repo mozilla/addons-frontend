@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { CategoryHeaderBase } from 'amo/components/CategoryHeader';
 import CategoryIcon from 'amo/components/CategoryIcon';

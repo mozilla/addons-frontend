@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { createInternalAddon } from 'core/reducers/addons';

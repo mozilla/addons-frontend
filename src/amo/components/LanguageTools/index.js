@@ -1,6 +1,6 @@
 /* @flow */
 import makeClassName from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { compose } from 'redux';

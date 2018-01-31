@@ -1,6 +1,6 @@
 /* global document */
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 

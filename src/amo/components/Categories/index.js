@@ -1,7 +1,7 @@
 /* @flow */
 /* global $PropertyType */
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 

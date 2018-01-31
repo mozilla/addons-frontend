@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';

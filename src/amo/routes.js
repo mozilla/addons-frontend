@@ -1,5 +1,5 @@
 import config from 'config';
-import React from 'react';
+import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
 import SimulateAsyncError from

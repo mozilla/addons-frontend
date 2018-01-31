@@ -9,7 +9,7 @@ import Express from 'express';
 import helmet from 'helmet';
 import Raven from 'raven';
 import cookie from 'react-cookie';
-import React from 'react';
+import * as React from 'react';
 import ReactDOM from 'react-dom/server';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';

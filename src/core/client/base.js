@@ -5,7 +5,7 @@ import { oneLine } from 'common-tags';
 import config from 'config';
 import FastClick from 'fastclick';
 import RavenJs from 'raven-js';
-import React from 'react';
+import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import ReviewGuide, { ReviewGuideBase } from 'amo/components/StaticPages/ReviewGuide';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';

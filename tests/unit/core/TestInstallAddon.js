@@ -1,6 +1,6 @@
 import config from 'config';
 import { mount, shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { renderIntoDocument, Simulate } from 'react-dom/test-utils';
 
 import Overlay from 'ui/components/Overlay';

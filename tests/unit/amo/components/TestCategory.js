@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { getLanding, loadLanding } from 'amo/actions/landing';
 import Category, { CategoryBase } from 'amo/components/Category';
