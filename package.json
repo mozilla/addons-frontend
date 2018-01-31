@@ -16,7 +16,6 @@
     "amo:dev": "better-npm-run amo:dev",
     "amo:no-proxy": "better-npm-run amo:no-proxy",
     "amo:stage": "better-npm-run amo:stage",
-    "bundlesize": "bundlesize",
     "nsp-check": "nsp check",
     "disco": "better-npm-run disco",
     "eslint": "eslint .",
@@ -229,7 +228,6 @@
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
     "bundle-loader": "^0.5.5",
-    "bundlesize": "^0.15.1",
     "chalk": "^2.0.1",
     "cheerio": "^1.0.0-rc.2",
     "chokidar-cli": "^1.2.0",
@@ -290,11 +288,5 @@
     "webpack-hot-middleware": "^2.18.0",
     "webpack-subresource-integrity": "^1.0.0-rc.1"
   },
-  "bundlesize": [
-    {
-      "path": "./dist/*.js",
-      "threshold": "300 Kb"
-    }
-  ],
   "snyk": true
 }
