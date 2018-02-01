@@ -1,5 +1,5 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { Router, Route } from 'react-router';
 import { routerReducer } from 'react-router-redux';

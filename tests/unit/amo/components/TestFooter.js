@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import Footer, { FooterBase } from 'amo/components/Footer';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';

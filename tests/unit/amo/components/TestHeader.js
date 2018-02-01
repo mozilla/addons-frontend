@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Header, { HeaderBase } from 'amo/components/Header';

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { oneLine } from 'common-tags';
 
 import ContributeCard, {

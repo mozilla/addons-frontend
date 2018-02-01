@@ -2,7 +2,7 @@
 import url from 'url';
 
 import config from 'config';
-import React from 'react';
+import * as React from 'react';
 
 import { loadAddons } from 'core/reducers/addons';
 import { fetchAddon } from 'core/api';

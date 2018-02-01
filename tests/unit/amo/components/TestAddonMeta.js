@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import AddonMeta, { AddonMetaBase } from 'amo/components/AddonMeta';
 import { createInternalAddon } from 'core/reducers/addons';

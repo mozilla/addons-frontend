@@ -1,5 +1,5 @@
 import { compose } from 'redux';
-import React from 'react';
+import * as React from 'react';
 
 import { render404IfConfigKeyIsFalse } from 'core/utils';
 import Button from 'ui/components/Button';

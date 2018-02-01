@@ -1,6 +1,6 @@
 import { mount, shallow } from 'enzyme';
 import config from 'config';
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 
 import {

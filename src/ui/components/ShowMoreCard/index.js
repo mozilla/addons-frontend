@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 
 import makeClassName from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 

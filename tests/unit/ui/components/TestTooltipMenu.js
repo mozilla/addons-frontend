@@ -1,5 +1,5 @@
 import { mount, shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 import RCTooltip from 'rc-tooltip';
 
 import ListItem from 'ui/components/ListItem';

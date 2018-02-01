@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { mount } from 'enzyme';
 
 import DropdownMenu, { DropdownMenuBase } from 'ui/components/DropdownMenu';

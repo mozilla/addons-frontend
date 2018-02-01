@@ -1,7 +1,7 @@
 /* @flow */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';

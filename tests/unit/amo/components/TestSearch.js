@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Search, {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import HomeHeroBanner, { HomeHeroBannerBase } from 'amo/components/HomeHeroBanner';

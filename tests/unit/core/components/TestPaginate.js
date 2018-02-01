@@ -1,5 +1,5 @@
 /* global document */
-import React from 'react';
+import * as React from 'react';
 
 import Paginate, { PaginateBase } from 'core/components/Paginate';
 import PaginatorLink from 'core/components/PaginatorLink';

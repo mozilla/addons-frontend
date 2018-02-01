@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
