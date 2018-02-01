@@ -5,7 +5,7 @@ module.exports = {
   // fxaConfig: 'local',
 
   enableClientConsole: true,
-  apiStageHost: "http://olympia.test",
+  apiStageHost: 'http://olympia.test',
 
   CSP: false,
 
