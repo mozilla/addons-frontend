@@ -46,6 +46,7 @@ export function isCompatibleWithUserAgent({
   minVersion,
   userAgentInfo,
   _log = log,
+  _hasWindow = typeof window !== 'undefined',
   _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
   // If the userAgent is false there was likely a programming error.
@@ -101,6 +102,11 @@ export function isCompatibleWithUserAgent({
 
     if (
       addon.type === ADDON_TYPE_OPENSEARCH &&
+      // If window isn't defined but the browser is Firefox, this is likely a
+      // server-side render, so we shouldn't condemn this search plugin to
+      // incompatibility yet, or it will stay disabled.
+      // See: https://github.com/mozilla/addons-frontend/issues/4047
+      _hasWindow &&
       !(_window.external && 'AddSearchProvider' in _window.external)
     ) {
       return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
