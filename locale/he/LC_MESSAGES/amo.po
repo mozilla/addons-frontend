@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2017-12-11 14:52+0000\n"
+"PO-Revision-Date: 2018-02-01 14:45+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -175,7 +175,7 @@ msgstr "אין תאימות ל־Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "עליך <a href=\"%(downloadUrl)s\">להוריד את Firefox</a> כדי להתקין תוספת זו."
+msgstr "יש <a href=\"%(downloadUrl)s\">להוריד את Firefox</a> כדי להתקין תוספת זו."
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
