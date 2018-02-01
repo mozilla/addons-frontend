@@ -4,14 +4,14 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-01-31 14:41+0000\n"
+"PO-Revision-Date: 2018-02-01 18:45+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:167
@@ -32,12 +32,12 @@ msgstr "নতুন সংগ্রহ তৈরি করুন"
 
 #: src/amo/components/AddAddonToCollection/index.js:231
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "%(collectionName)s তে যোগ করুন"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:247
 msgid "Add to…"
-msgstr ""
+msgstr "যোগ করতে…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
 msgid "Add to collection"
@@ -99,7 +99,7 @@ msgstr "%(addonVersion)s এর জন্য রিলিজ নোট"
 
 #: src/amo/components/Addon/index.js:367
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "%(author)s দ্বারা আরও অভিধান"
 
 #: src/amo/components/Addon/index.js:370
 msgid "More dictionaries by these translators"
@@ -163,15 +163,15 @@ msgstr "নির্বাচিত অ্যাড-অন"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Restart Required"
-msgstr ""
+msgstr "পুনরায় শুরু করা প্রয়োজন"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "পরীক্ষামূলক"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Firefox Quantum এর সাথে সামঞ্জস্যপূর্ণ নয়"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -179,7 +179,7 @@ msgstr "অ্যাড-অনটি ইন্সটল করতে হলে �
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "এই অ্যাড-অন আপনার Firefox সংস্করণের সাথে সামঞ্জস্যপূর্ণ নয়।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
@@ -191,7 +191,7 @@ msgstr "iOS এর জন্যৈ Firefox বর্তমানে অ্যা
 
 #: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "এই অ্যাড-অনটি আপনার প্ল্যাটফর্মে উপলব্ধ নয়।"
 
 #: src/amo/components/AddonCompatibilityError/index.js:78
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -235,7 +235,7 @@ msgstr "এর দ্বারা ব্যবহৃত"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "সামগ্রিক রেটিং"
 
 #: src/amo/components/AddonMoreInfo/index.js:108
 msgid "%(timeFromNow)s (%(date)s)"
@@ -287,7 +287,7 @@ msgstr "সংস্করণ ইতিহাস"
 
 #: src/amo/components/AddonMoreInfo/index.js:242
 msgid "Usage Statistics"
-msgstr ""
+msgstr "ব্যবহারকারীর পরিসংখ্যান"
 
 #: src/amo/components/AddonMoreInfo/index.js:256
 msgid "More information"
