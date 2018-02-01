@@ -1,3 +1,4 @@
+// HOSTNAME=functional.test must be set to use this config.
 module.exports = {
   // Statics will be served by node.
   staticHost: '',
