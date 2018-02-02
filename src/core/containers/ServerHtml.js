@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import ReactDOM from 'react-dom/server';
 import serialize from 'serialize-javascript';
 import Helmet from 'react-helmet';
+import config from 'config';
 
 
 export default class ServerHtml extends Component {
@@ -79,6 +80,10 @@ export default class ServerHtml extends Component {
       this.getStatic({ filePath: assets.javascript[js], type: 'js', index }));
   }
 
+  getFaviconLink() {
+    return `${config.get('amoCDN')}/favicon.ico`;
+  }
+
   render() {
     const { component, htmlLang, htmlDir, noScriptStyles, store } = this.props;
     // This must happen before Helmet.rewind() see
@@ -91,7 +96,7 @@ export default class ServerHtml extends Component {
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="shortcut icon" href="/favicon.ico?v=1" />
+          <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.title.toComponent()}
           {head.meta.toComponent()}
           {this.getStyle()}

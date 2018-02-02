@@ -5,6 +5,7 @@ import {
   findRenderedDOMComponentWithTag,
   renderIntoDocument,
 } from 'react-dom/test-utils';
+import config from 'config';
 
 import ServerHtml from 'core/containers/ServerHtml';
 import FakeApp, {
@@ -113,7 +114,7 @@ describe('<ServerHtml />', () => {
   it('renders favicon', () => {
     const html = findRenderedDOMComponentWithTag(render(), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
-    expect(favicon.getAttribute('href')).toEqual('/favicon.ico?v=1');
+    expect(favicon.getAttribute('href')).toEqual(`${config.get('amoCDN')}/favicon.ico`);
   });
 
   it('renders title', () => {
