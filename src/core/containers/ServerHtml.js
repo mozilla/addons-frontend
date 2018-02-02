@@ -19,13 +19,15 @@ export default class ServerHtml extends Component {
     sriData: PropTypes.object.isRequired,
     store: PropTypes.object.isRequired,
     trackingEnabled: PropTypes.bool,
+    _config: PropTypes.object,
   };
 
   static defaultProps = {
     htmlDir: 'ltr',
     htmlLang: 'en-US',
     trackingEnabled: false,
-  }
+    _config: config,
+  };
 
   getStatic({ filePath, type, index }) {
     const { includeSri, sriData, appName } = this.props;
@@ -81,7 +83,8 @@ export default class ServerHtml extends Component {
   }
 
   getFaviconLink() {
-    return `${config.get('amoCDN')}/favicon.ico`;
+    const { _config } = this.props;
+    return `${_config.get('amoCDN')}/favicon.ico`;
   }
 
   render() {

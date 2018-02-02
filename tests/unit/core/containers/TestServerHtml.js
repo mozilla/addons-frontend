@@ -5,12 +5,12 @@ import {
   findRenderedDOMComponentWithTag,
   renderIntoDocument,
 } from 'react-dom/test-utils';
-import config from 'config';
 
 import ServerHtml from 'core/containers/ServerHtml';
 import FakeApp, {
   fakeAssets, fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe('<ServerHtml />', () => {
   const _helmetCanUseDOM = Helmet.canUseDOM;
@@ -26,6 +26,9 @@ describe('<ServerHtml />', () => {
   const fakeStore = {
     getState: () => ({ foo: 'bar' }),
   };
+
+  const amoCDN = 'https://test.cdn.net';
+  const _config = getFakeConfig({ amoCDN });
 
   function render(opts = {}) {
     const pageProps = {
@@ -112,9 +115,9 @@ describe('<ServerHtml />', () => {
   });
 
   it('renders favicon', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
+    const html = findRenderedDOMComponentWithTag(render({ _config }), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
-    expect(favicon.getAttribute('href')).toEqual(`${config.get('amoCDN')}/favicon.ico`);
+    expect(favicon.getAttribute('href')).toEqual(`${amoCDN}/favicon.ico`);
   });
 
   it('renders title', () => {
