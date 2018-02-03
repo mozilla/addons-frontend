@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-01-30 21:37+0000\n"
+"PO-Revision-Date: 2018-02-03 21:40+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -210,10 +210,10 @@ msgstr "Wužiwarjo"
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] "Wužiwar"
-msgstr[1] "Wužiwarjej"
-msgstr[2] "Wužiwarjo"
-msgstr[3] "Wužiwarjow"
+msgstr[0] "wužiwar"
+msgstr[1] "wužiwarjej"
+msgstr[2] "wužiwarjo"
+msgstr[3] "wužiwarjow"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -226,10 +226,10 @@ msgstr "Pohódnoćenja"
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Pohódnoćenje"
-msgstr[1] "Pohódnoćeni"
-msgstr[2] "Pohódnoćenja"
-msgstr[3] "Pohódnoćenjow"
+msgstr[0] "pohódnoćenje"
+msgstr[1] "pohódnoćeni"
+msgstr[2] "pohódnoćenja"
+msgstr[3] "pohódnoćenjow"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Reviews"
@@ -241,7 +241,7 @@ msgstr "Wužity wot"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr "Cyłkowne pohódnoćenje"
+msgstr "Cyłkowne hódnoćenje"
 
 #: src/amo/components/AddonMoreInfo/index.js:108
 msgid "%(timeFromNow)s (%(date)s)"
