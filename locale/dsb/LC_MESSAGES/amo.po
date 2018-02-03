@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-01-30 21:37+0000\n"
+"PO-Revision-Date: 2018-02-03 21:45+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -210,10 +210,10 @@ msgstr "Wužywarje"
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] "Wužywaŕ"
-msgstr[1] "Wužywarja"
-msgstr[2] "Wužywarje"
-msgstr[3] "Wužywarje"
+msgstr[0] "wužywaŕ"
+msgstr[1] "wužywarja"
+msgstr[2] "wužywarje"
+msgstr[3] "wužywarjow"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -226,10 +226,10 @@ msgstr "Pógódnosénja"
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] "Pógódnośenje"
-msgstr[1] "Pógódnośeni"
-msgstr[2] "Pógódnośenja"
-msgstr[3] "Pógódnośenja"
+msgstr[0] "pógódnośenje"
+msgstr[1] "pógódnośeni"
+msgstr[2] "pógódnośenja"
+msgstr[3] "pógódnośenjow"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Reviews"
@@ -241,7 +241,7 @@ msgstr "Wužyty wót"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr "Cełkowne pógódnośenje"
+msgstr "Cełkowne gódnośenje"
 
 #: src/amo/components/AddonMoreInfo/index.js:108
 msgid "%(timeFromNow)s (%(date)s)"
