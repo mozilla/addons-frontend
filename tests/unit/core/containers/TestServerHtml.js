@@ -27,9 +27,6 @@ describe('<ServerHtml />', () => {
     getState: () => ({ foo: 'bar' }),
   };
 
-  const amoCDN = 'https://test.cdn.net';
-  const _config = getFakeConfig({ amoCDN });
-
   function render(opts = {}) {
     const pageProps = {
       appName: 'disco',
@@ -115,6 +112,8 @@ describe('<ServerHtml />', () => {
   });
 
   it('renders favicon', () => {
+    const amoCDN = 'https://test.cdn.net';
+    const _config = getFakeConfig({ amoCDN });
     const html = findRenderedDOMComponentWithTag(render({ _config }), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
     expect(favicon.getAttribute('href')).toEqual(`${amoCDN}/favicon.ico`);
