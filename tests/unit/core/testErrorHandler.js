@@ -10,7 +10,9 @@ import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
 import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { clearError, setError } from 'core/actions/errors';
+import {
+  clearError, setError, setErrorMessage,
+} from 'core/actions/errors';
 import {
   ErrorHandler,
   normalizeFileNameId,
@@ -333,6 +335,20 @@ describe(__filename, () => {
       const error = new Error();
       expect(() => handler.handle(error))
         .toThrow(/dispatch function has not been configured/);
+    });
+
+    it('requires a dispatch function to add a message', () => {
+      const handler = new ErrorHandler({ id: 'some-id' });
+      expect(() => handler.addMessage('some message'))
+        .toThrow(/dispatch function has not been configured/);
+    });
+
+    it('dispatches a message', () => {
+      const message = 'Name field cannot be blank';
+      errorHandler.addMessage(message);
+      sinon.assert.calledWith(errorHandler.dispatch,
+        setErrorMessage({ id: errorHandler.id, message })
+      );
     });
 
     it('lets you create an error action', () => {
