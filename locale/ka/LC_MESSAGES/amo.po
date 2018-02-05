@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-02-04 09:25+0000\n"
+"PO-Revision-Date: 2018-02-05 02:47+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -171,7 +171,7 @@ msgstr "საცდელი"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr "არაა თავსებადი Firefox Quantum-თან"
+msgstr "არათავსებადია Firefox Quantum-თან"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -199,7 +199,7 @@ msgstr "დამატება საჭიროებს <a href=\"%(downloa
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "თქვენი ბრაუზერი არაა თავსებადი ამ დამატებასთან. შეგიძლიათ <a href=\"%(downloadUrl)s\">ჩამოტვირთოთ Firefox</a>, ამ დამატების გამოსაყენებლად."
+msgstr "თქვენს ბრაუზერზე არაა მხარდაჭერილი დამატებები. შეგიძლიათ <a href=\"%(downloadUrl)s\">ჩამოტვირთოთ Firefox</a>, ამ დამატების გამოსაყენებლად."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -216,7 +216,7 @@ msgstr "არცერთი მომხმარებელი"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Reviews"
-msgstr "მიმოხილვა"
+msgstr "მიმოხილვები"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Review"
