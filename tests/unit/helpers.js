@@ -420,5 +420,13 @@ export function createUserAccountResponse({
 //   ...
 // }
 export const getFakeConfig = (params = {}) => {
+  Object.keys(params).forEach((key) => {
+    if (!config.has(key)) {
+      // This will help alert us when a test accidentally relies
+      // on an invalid config key.
+      throw new Error(
+        `Cannot set a fake value for "${key}"; this key is invalid`);
+    }
+  });
   return Object.assign(configUtil.cloneDeep(config), params);
 };
