@@ -70,32 +70,39 @@
     a,
     a:link,
     button {
-      @include text-align-start();
-
-      color: $grey-90;
-      font-size: $font-size-m-smaller;
-      line-height: 1.6;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       width: 100%;
+
+      &:not(.Button) {
+        @include text-align-start();
+
+        color: $grey-90;
+        font-size: $font-size-m-smaller;
+        line-height: 1.6;
+      }
     }
 
     a,
     a:link,
     button {
-      @include font-medium();
+      &:not(.Button) {
+        @include font-medium();
 
-      cursor: pointer;
-      margin: 0;
-      padding: 0;
-      text-decoration: none;
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        text-decoration: none;
+      }
     }
 
     a:hover,
     a:focus,
     a:active {
-      color: $blue-50;
+      &:not(.Button) {
+        color: $blue-50;
+      }
     }
 
     @include respond-to(medium) {

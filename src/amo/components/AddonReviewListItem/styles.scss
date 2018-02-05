@@ -36,9 +36,11 @@
   a:visited,
   a:hover,
   a:active {
-    color: $blue-50;
-    font-weight: normal;
-    text-decoration: none;
+    &:not(.Button) {
+      color: $blue-50;
+      font-weight: normal;
+      text-decoration: none;
+    }
   }
 }
 
