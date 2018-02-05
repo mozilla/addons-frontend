@@ -4,6 +4,7 @@ import {
   ERROR_ADDON_DISABLED_BY_DEV,
   ERROR_UNKNOWN,
   SET_ERROR,
+  SET_ERROR_MESSAGE,
 } from 'core/constants';
 import log from 'core/logger';
 
@@ -81,6 +82,16 @@ function getMessagesFromError(error) {
   return errorData;
 }
 
+// The state looks like:
+//
+// type ErrorState = {
+//   [id: string]: {|
+//     code?: string,
+//     messages: Array<string>,
+//     responseStatusCode?: string,
+//   |},
+// };
+//
 export const initialState = {};
 
 export default function errors(state = initialState, action) {
@@ -101,6 +112,17 @@ export default function errors(state = initialState, action) {
           responseStatusCode: action.payload.error.response ?
             action.payload.error.response.status : null,
         },
+      };
+    }
+    case SET_ERROR_MESSAGE: {
+      const errorData = state[action.payload.id] || {
+        messages: [],
+      };
+      errorData.messages.push(action.payload.message);
+
+      return {
+        ...state,
+        [action.payload.id]: errorData,
       };
     }
     default:

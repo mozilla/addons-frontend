@@ -1,4 +1,6 @@
-import { clearError, setError } from 'core/actions/errors';
+import {
+  clearError, setError, setErrorMessage,
+} from 'core/actions/errors';
 import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 
 describe('core/actions/errors', () => {
@@ -22,6 +24,31 @@ describe('core/actions/errors', () => {
       expect(() => {
         setError({ id: 'some-id' });
       }).toThrowError(/error cannot be empty/);
+    });
+  });
+
+  describe('setErrorMessage', () => {
+    const defaultParams = () => {
+      return {
+        id: 'some-error-id',
+        message: 'Some message',
+      };
+    };
+
+    it('requires an ID', () => {
+      const params = defaultParams();
+      delete params.id;
+
+      expect(() => setErrorMessage(params))
+        .toThrow(/id cannot be empty/);
+    });
+
+    it('requires a message', () => {
+      const params = defaultParams();
+      delete params.message;
+
+      expect(() => setErrorMessage(params))
+        .toThrow(/message cannot be empty/);
     });
   });
 
