@@ -139,7 +139,8 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('fetches categories and landing data and sets a viewContext when not yet loaded', () => {
+  it('fetches categories and landing data ' +
+     'and sets a viewContext when not yet loaded', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
@@ -164,7 +165,6 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.neverCalledWith(fakeDispatch, sinon.match({ type: CATEGORIES_FETCH }));
   });
 
