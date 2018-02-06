@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-23 21:15+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2017-12-07 07:04+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,12 +40,12 @@ msgstr "Stranica nije pronađena"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Žao nam je ali ne možemo ništa pronaći na URL koji ste unijeli."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Instaliraj temu"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Dodaj na Firefox"
 
@@ -149,11 +149,11 @@ msgstr "Polica privatnosti"
 msgid "Discover Add-ons"
 msgstr "Otkrijte dodatke"
 
-#: src/disco/containers/DiscoPane.js:136
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Prilagodite Firefox sebi"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,19 +167,19 @@ msgstr ""
 "čine vaš browser samo vašim. Za početak možete testirati sljedeće, koji se "
 "preporučuju za izuzetne performanse i upotrebljivost."
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Kliknite za reprodukciju"
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "i otkrijte više o dodacima"
 
-#: src/disco/containers/DiscoPane.js:161
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Zatvori video"
 
-#: src/disco/containers/DiscoPane.js:180
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Vidi više dodataka!"
 

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-23 21:15+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2017-08-24 09:41+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
@@ -39,12 +39,12 @@ msgstr "Stránka nenalezena"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Omlouváme se, ale na zadané adrese nemůžeme nic najít."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Nainstalovat motiv"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Přidat do Firefoxu"
 
@@ -148,11 +148,11 @@ msgstr "Zásady ochrany soukromí"
 msgid "Discover Add-ons"
 msgstr "Objevte doplňky"
 
-#: src/disco/containers/DiscoPane.js:136
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Přizpůsobte si svůj Firefox"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -167,19 +167,19 @@ msgstr ""
 "prohlížečem. Abychom vám do začátku pomohli, vybrali jsme některé, které pro "
 "jejich výkon a funkce doporučujeme."
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Klepněte a spusťte"
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "a zjistěte více o doplňcích"
 
-#: src/disco/containers/DiscoPane.js:161
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Zavřít video"
 
-#: src/disco/containers/DiscoPane.js:180
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Zobrazte si více doplňků!"
 

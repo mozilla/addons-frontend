@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-23 21:15+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2017-08-23 05:51+0000\n"
 "Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
@@ -39,12 +39,12 @@ msgstr "Pagina niet gevonden"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, maar we kunnen niets op de ingevoerde URL vinden."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Thema installeren"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Toevoegen aan Firefox"
 
@@ -151,11 +151,11 @@ msgstr "Privacybeleid"
 msgid "Discover Add-ons"
 msgstr "Add-ons ontdekken"
 
-#: src/disco/containers/DiscoPane.js:136
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Personaliseer uw Firefox"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -170,19 +170,19 @@ msgstr ""
 "u op gang te helpen, zijn hier een paar add-ons die we aanbevelen vanwege "
 "hun uitstekende prestaties en functionaliteit."
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Klik om de video af te spelen"
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "en meer over add-ons te ontdekken"
 
-#: src/disco/containers/DiscoPane.js:161
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Video sluiten"
 
-#: src/disco/containers/DiscoPane.js:180
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Bekijk meer add-ons!"
 

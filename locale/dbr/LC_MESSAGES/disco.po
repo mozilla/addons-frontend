@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-23 21:15+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -33,12 +33,12 @@ msgstr "punoɟ ʇou ǝƃɐԀ"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ".pǝɹǝʇuǝ noʎ ⅂ᴚ∩ ǝɥʇ ʇɐ ƃuıɥʇʎuɐ puıɟ ʇ,uɐɔ ǝʍ ʇnq ´ʎɹɹoS"
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "ǝɯǝɥ⊥ ʅʅɐʇsuI"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "xoɟǝɹıℲ oʇ pp∀"
 
@@ -142,27 +142,27 @@ msgstr "ʎɔıʅoԀ ʎɔɐʌıɹԀ"
 msgid "Discover Add-ons"
 msgstr "suo-pp∀ ɹǝʌoɔsıᗡ"
 
-#: src/disco/containers/DiscoPane.js:136
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "xoɟǝɹıℲ ɹno⅄ ǝzıʅɐuosɹǝԀ"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ".ʎʇıʅɐuoıʇɔunɟ puɐ ǝɔuɐɯɹoɟɹǝd ʇno-puɐʇs ɹıǝɥʇ ɹoɟ puǝɯɯoɔǝɹ ǝʍ ǝɯos ǝɹɐ ǝɹǝɥ ´pǝʇɹɐʇs ʇǝƃ noʎ dʅǝɥ o⊥ .sɹnoʎ ɹǝsʍoɹq ɹnoʎ ǝʞɐɯ suo-ppɐ ´ɹǝɟɐs puɐ ɹǝʇsɐɟ ƃuısʍoɹq ǝʞɐɯ ʇɐɥʇ sʅooʇ ʅnɟɹǝʍod oʇ sǝɯǝɥʇ ʅɐnsıʌ unɟ ɯoɹℲ .xoɟǝɹıℲ ɹnoʎ ǝzıʅɐuosɹǝd oʇ ʅʅɐʇsuı uɐɔ noʎ ʇɐɥʇ ´pʅɹoʍ ǝɥʇ ɹǝʌo ʅʅɐ sɹǝdoʅǝʌǝp ʎq pǝʇɐǝɹɔ ´suo-ppɐ ǝǝɹɟ ɟo spuɐsnoɥʇ ǝɹɐ ǝɹǝɥ⊥"
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "ʎɐʅd oʇ ʞɔıʅↃ"
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "suo-ppɐ ʇnoqɐ ǝɹoɯ ʇno puıɟ oʇ"
 
-#: src/disco/containers/DiscoPane.js:161
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "oǝpıʌ ǝsoʅↃ"
 
-#: src/disco/containers/DiscoPane.js:180
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "¡suo-ppɐ ǝɹoɯ ǝǝS"
 

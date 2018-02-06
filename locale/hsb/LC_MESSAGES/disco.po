@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-23 21:15+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2017-08-23 19:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,12 +40,12 @@ msgstr "Strona njeje so namakała"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
@@ -152,11 +152,11 @@ msgstr "Prawidła priwatnosće"
 msgid "Discover Add-ons"
 msgstr "Přidatki wotkryć"
 
-#: src/disco/containers/DiscoPane.js:136
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Přiměrće swój Firefox"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -170,19 +170,19 @@ msgstr ""
 "wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za spočatk "
 "doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Klikńće, zo byšće wothrał"
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "zo byšće wjace wo přidatkach zhonił"
 
-#: src/disco/containers/DiscoPane.js:161
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Widejo začinić"
 
-#: src/disco/containers/DiscoPane.js:180
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Wobhladajće sej dalše přidatki!"
 
