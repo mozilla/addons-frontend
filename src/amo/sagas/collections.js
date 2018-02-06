@@ -15,6 +15,7 @@ import {
   loadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
+import { closeFormOverlay } from 'core/reducers/formOverlay';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 
@@ -140,6 +141,7 @@ export function* updateCollection({
     collectionSlug,
     defaultLocale,
     description,
+    formOverlayId,
     isPublic,
     name,
     slug,
@@ -162,6 +164,7 @@ export function* updateCollection({
       user,
     });
 
+    yield put(closeFormOverlay(formOverlayId));
     yield put(finishUpdateCollection({ collectionSlug, successful: true }));
   } catch (error) {
     log.warn(`Failed to update collection: ${error}`);

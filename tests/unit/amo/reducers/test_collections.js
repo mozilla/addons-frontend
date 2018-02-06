@@ -833,6 +833,7 @@ describe(__filename, () => {
       return {
         errorHandlerId: 'error-handler-id',
         collectionSlug: 'some-collection',
+        formOverlayId: 'some-form-overlay',
         user: 'some-user-name',
         ...params,
       };
@@ -860,6 +861,14 @@ describe(__filename, () => {
 
       expect(() => updateCollection(params))
         .toThrow(/user is required/);
+    });
+
+    it('requires formOverlayId parameter', () => {
+      const params = getParams();
+      delete params.formOverlayId;
+
+      expect(() => updateCollection(params))
+        .toThrow(/formOverlayId is required/);
     });
 
     it('changes update state', () => {

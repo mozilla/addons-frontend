@@ -3,6 +3,7 @@ import { oneLine } from 'common-tags';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type { LocalizedString } from 'core/types/api';
 
 export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION'
   = 'ADD_ADDON_TO_COLLECTION';
@@ -451,9 +452,10 @@ type UpdateCollectionParams = {|
   errorHandlerId: string,
   collectionSlug: string,
   defaultLocale?: string,
-  description?: string,
+  description?: LocalizedString,
+  formOverlayId: string,
   isPublic?: boolean,
-  name?: string,
+  name?: LocalizedString,
   user: number | string,
 |};
 
@@ -467,6 +469,7 @@ export const updateCollection = ({
   collectionSlug,
   defaultLocale,
   description,
+  formOverlayId,
   isPublic,
   name,
   user,
@@ -480,6 +483,9 @@ export const updateCollection = ({
   if (!user) {
     throw new Error('user is required');
   }
+  if (!formOverlayId) {
+    throw new Error('formOverlayId is required');
+  }
 
   return {
     type: UPDATE_COLLECTION,
@@ -488,6 +494,7 @@ export const updateCollection = ({
       collectionSlug,
       defaultLocale,
       description,
+      formOverlayId,
       isPublic,
       name,
       user,
