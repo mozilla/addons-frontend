@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-30 20:42+0000\n"
+"POT-Creation-Date: 2018-02-06 19:28+0000\n"
 "PO-Revision-Date: 2018-01-01 17:17+0000\n"
 "Last-Translator: Ian Neal <iann_bugzilla@blueyonder.co.uk>\n"
 "Language-Team: none\n"
@@ -48,108 +48,108 @@ msgid "Add to collection"
 msgstr "Edit this collection"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Cancel preview"
-msgstr "Cancel preview"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Tap to preview"
 msgstr "Tap to preview"
 
-#: src/amo/components/Addon/index.js:232
+#: src/amo/components/Addon/index.js:182
+msgid "Cancel preview"
+msgstr "Cancel preview"
+
+#: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Read %(count)s review"
 msgstr[1] "Read all %(count)s reviews"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:258
 msgid "No reviews yet"
 msgstr "No reviews yet"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:267
 msgid "Rate your experience"
 msgstr "Rate your experience"
 
-#: src/amo/components/Addon/index.js:284
+#: src/amo/components/Addon/index.js:285
 msgid "About this dictionary"
 msgstr "About this dictionary"
 
-#: src/amo/components/Addon/index.js:287
+#: src/amo/components/Addon/index.js:288
 msgid "About this extension"
 msgstr "About this extension"
 
-#: src/amo/components/Addon/index.js:290
+#: src/amo/components/Addon/index.js:291
 msgid "About this language pack"
 msgstr "About this language pack"
 
-#: src/amo/components/Addon/index.js:293
+#: src/amo/components/Addon/index.js:294
 msgid "About this search plugin"
 msgstr "About this search plugin"
 
-#: src/amo/components/Addon/index.js:296
+#: src/amo/components/Addon/index.js:297
 msgid "About this theme"
 msgstr "About this theme"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:300
 msgid "About this add-on"
 msgstr "About this add-on"
 
-#: src/amo/components/Addon/index.js:338
+#: src/amo/components/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
 msgstr "Release notes for %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:367
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by %(author)s"
 msgstr "More dictionaries by %(author)s"
 
-#: src/amo/components/Addon/index.js:370
+#: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by these translators"
 msgstr "More dictionaries by these translators"
 
-#: src/amo/components/Addon/index.js:377
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by %(author)s"
 msgstr "More extensions by %(author)s"
 
-#: src/amo/components/Addon/index.js:380
+#: src/amo/components/Addon/index.js:381
 msgid "More extensions by these developers"
 msgstr "More extensions by these developers"
 
-#: src/amo/components/Addon/index.js:387
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by %(author)s"
 msgstr "More language packs by %(author)s"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:391
 msgid "More language packs by these translators"
 msgstr "More language packs by these translators"
 
-#: src/amo/components/Addon/index.js:397
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by %(author)s"
 msgstr "More themes by %(author)s"
 
-#: src/amo/components/Addon/index.js:400
+#: src/amo/components/Addon/index.js:401
 msgid "More themes by these artists"
 msgstr "More themes by these artists"
 
-#: src/amo/components/Addon/index.js:407
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by %(author)s"
 msgstr "More add-ons by %(author)s"
 
-#: src/amo/components/Addon/index.js:410
+#: src/amo/components/Addon/index.js:411
 msgid "More add-ons by these developers"
 msgstr "More add-ons by these developers"
 
-#: src/amo/components/Addon/index.js:490
+#: src/amo/components/Addon/index.js:491
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:564
+#: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
 msgstr "Extension Metadata"
 
-#: src/amo/components/Addon/index.js:582
+#: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
 msgstr "Screenshots"
 
@@ -635,11 +635,11 @@ msgstr ""
 "The authors of this add-on ask that you help support its continued work by "
 "making a small contribution."
 
-#: src/amo/components/ContributeCard/index.js:89
+#: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr "Contribute now"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:43
+#: src/amo/components/DownloadFirefoxButton/index.js:39
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Download Firefox"
@@ -727,12 +727,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Flagged as a bug report or support request"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Flagged"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Flag"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Flagged"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -886,7 +886,7 @@ msgid "Reviewer Tools"
 msgstr "Reviews"
 
 #: src/amo/components/Header/index.js:148
-#: src/core/components/AuthenticateButton/index.js:73
+#: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "Log out"
 
@@ -1076,7 +1076,7 @@ msgstr ""
 "Explore powerful tools and features to customise Firefox and make the "
 "browser all your own."
 
-#: src/amo/components/LandingPage/index.js:234
+#: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
 msgstr "Explore all categories"
 
@@ -1182,7 +1182,7 @@ msgstr ""
 msgid "Report this add-on for abuse"
 msgstr "Report this add-on for abuse"
 
-#: src/amo/components/ReportAbuseButton/index.js:170
+#: src/amo/components/ReportAbuseButton/index.js:172
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1190,19 +1190,19 @@ msgstr ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
 
-#: src/amo/components/ReportAbuseButton/index.js:183
+#: src/amo/components/ReportAbuseButton/index.js:185
 msgid "Explain how this add-on is violating our policies."
 msgstr "Explain how this add-on is violating our policies."
 
-#: src/amo/components/ReportAbuseButton/index.js:196
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Dismiss"
 msgstr "Dismiss"
 
-#: src/amo/components/ReportAbuseButton/index.js:204
+#: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
 msgstr "Sending abuse report"
 
-#: src/amo/components/ReportAbuseButton/index.js:205
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Send abuse report"
 msgstr "Send abuse report"
 
@@ -1768,7 +1768,7 @@ msgstr "Browse all themes"
 msgid "Add-ons Home Page"
 msgstr "Add-ons Home Page"
 
-#: src/core/components/AuthenticateButton/index.js:74
+#: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
 msgstr "Register or Log in"
 
@@ -1789,12 +1789,12 @@ msgstr "Error code: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, but we can't find anything at the URL you entered."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Install Theme"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Add to Firefox"
 
@@ -1850,7 +1850,7 @@ msgstr "Now you can access %(name)s from the toolbar."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/ui/components/DismissibleTextForm/index.js:129
+#: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Cancel"
 
