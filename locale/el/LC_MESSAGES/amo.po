@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-30 20:42+0000\n"
+"POT-Creation-Date: 2018-02-06 19:28+0000\n"
 "PO-Revision-Date: 2017-12-26 23:58+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -48,108 +48,108 @@ msgid "Add to collection"
 msgstr "Περιήγηση σε όλες τις επεκτάσεις"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Cancel preview"
-msgstr "Ακύρωση προεπισκόπησης"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Tap to preview"
 msgstr "Πατήστε για προεπισκόπηση"
 
-#: src/amo/components/Addon/index.js:232
+#: src/amo/components/Addon/index.js:182
+msgid "Cancel preview"
+msgstr "Ακύρωση προεπισκόπησης"
+
+#: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Ανάγνωση %(count)s κριτικής"
 msgstr[1] "Ανάγνωση και των %(count)s κριτικών"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:258
 msgid "No reviews yet"
 msgstr "Καμία κριτική ακόμα"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:267
 msgid "Rate your experience"
 msgstr "Αξιολογήστε την εμπειρία σας"
 
-#: src/amo/components/Addon/index.js:284
+#: src/amo/components/Addon/index.js:285
 msgid "About this dictionary"
 msgstr "Σχετικά με το λεξικό"
 
-#: src/amo/components/Addon/index.js:287
+#: src/amo/components/Addon/index.js:288
 msgid "About this extension"
 msgstr "Σχετικά με την επέκταση"
 
-#: src/amo/components/Addon/index.js:290
+#: src/amo/components/Addon/index.js:291
 msgid "About this language pack"
 msgstr "Σχετικά με το πακέτο γλώσσας"
 
-#: src/amo/components/Addon/index.js:293
+#: src/amo/components/Addon/index.js:294
 msgid "About this search plugin"
 msgstr "Σχετικά με το πρόσθετο αναζήτησης"
 
-#: src/amo/components/Addon/index.js:296
+#: src/amo/components/Addon/index.js:297
 msgid "About this theme"
 msgstr "Σχετικά με το θέμα"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:300
 msgid "About this add-on"
 msgstr "Σχετικά με το πρόσθετο"
 
-#: src/amo/components/Addon/index.js:338
+#: src/amo/components/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
 msgstr "Σημειώσεις έκδοσης για το %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:367
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by %(author)s"
 msgstr "Περισσότερα λεξικά από %(author)s"
 
-#: src/amo/components/Addon/index.js:370
+#: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by these translators"
 msgstr "Περισσότερα λεξικά από αυτούς τους μεταφραστές"
 
-#: src/amo/components/Addon/index.js:377
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by %(author)s"
 msgstr "Περισσότερες επεκτάσεις από %(author)s"
 
-#: src/amo/components/Addon/index.js:380
+#: src/amo/components/Addon/index.js:381
 msgid "More extensions by these developers"
 msgstr "Περισσότερες επεκτάσεις από αυτούς τους προγραμματιστές"
 
-#: src/amo/components/Addon/index.js:387
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by %(author)s"
 msgstr "Περισσότερα πακέτα γλωσσών από %(author)s"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:391
 msgid "More language packs by these translators"
 msgstr "Περισσότερα πακέτα γλωσσών από αυτούς τους μεταφραστές"
 
-#: src/amo/components/Addon/index.js:397
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by %(author)s"
 msgstr "Περισσότερα θέματα από %(author)s"
 
-#: src/amo/components/Addon/index.js:400
+#: src/amo/components/Addon/index.js:401
 msgid "More themes by these artists"
 msgstr "Περισσότερα θέματα από αυτούς τους καλλιτέχνες"
 
-#: src/amo/components/Addon/index.js:407
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by %(author)s"
 msgstr "Περισσότερα πρόσθετα από %(author)s"
 
-#: src/amo/components/Addon/index.js:410
+#: src/amo/components/Addon/index.js:411
 msgid "More add-ons by these developers"
 msgstr "Περισσότερα πρόσθετα από αυτούς τους προγραμματιστές"
 
-#: src/amo/components/Addon/index.js:490
+#: src/amo/components/Addon/index.js:491
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s από %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:564
+#: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/components/Addon/index.js:582
+#: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 
@@ -641,11 +641,11 @@ msgid ""
 "making a small contribution."
 msgstr ""
 
-#: src/amo/components/ContributeCard/index.js:89
+#: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr "Συνεισφορά τώρα"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:43
+#: src/amo/components/DownloadFirefoxButton/index.js:39
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Λήψη του Firefox"
@@ -740,12 +740,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Επισημάνθηκε"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Επισήμανση"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Επισημάνθηκε"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 #, fuzzy
@@ -898,7 +898,7 @@ msgid "Reviewer Tools"
 msgstr "Κριτικές"
 
 #: src/amo/components/Header/index.js:148
-#: src/core/components/AuthenticateButton/index.js:73
+#: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "Αποσύνδεση"
 
@@ -1088,7 +1088,7 @@ msgid ""
 "browser all your own."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:234
+#: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
 msgstr "Εξερεύνηση όλων των κατηγοριών"
 
@@ -1186,25 +1186,25 @@ msgstr ""
 msgid "Report this add-on for abuse"
 msgstr "Αναφορά προσθέτου για κατάχρηση"
 
-#: src/amo/components/ReportAbuseButton/index.js:170
+#: src/amo/components/ReportAbuseButton/index.js:172
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:183
+#: src/amo/components/ReportAbuseButton/index.js:185
 msgid "Explain how this add-on is violating our policies."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:196
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Dismiss"
 msgstr "Απόρριψη"
 
-#: src/amo/components/ReportAbuseButton/index.js:204
+#: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
 msgstr "Αποστολή αναφοράς κακής συμπεριφοράς"
 
-#: src/amo/components/ReportAbuseButton/index.js:205
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Send abuse report"
 msgstr "Αποστολή αναφοράς κατάχρησης"
 
@@ -1709,7 +1709,7 @@ msgstr "Περιήγηση σε όλα τα θέματα"
 msgid "Add-ons Home Page"
 msgstr "Αρχική σελίδα προσθέτων"
 
-#: src/core/components/AuthenticateButton/index.js:74
+#: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
 msgstr "Εγγραφή ή σύνδεση"
 
@@ -1730,12 +1730,12 @@ msgstr "Κωδικός σφάλματος: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Συγγνώμη, αλλά δεν μπορούμε να βρούμε τίποτα στο URL που εισήγατε."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Εγκατάσταση θέματος"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Προσθήκη στο Firefox"
 
@@ -1793,7 +1793,7 @@ msgstr "Μπορείτε πλέον να έχετε πρόσβαση στο %(na
 msgid "OK!"
 msgstr "Εντάξει!"
 
-#: src/ui/components/DismissibleTextForm/index.js:129
+#: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Ακύρωση"
 
