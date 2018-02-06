@@ -7,6 +7,7 @@ import Helmet from 'react-helmet';
 import { oneLine } from 'common-tags';
 
 import { getLanding } from 'amo/actions/landing';
+import { setViewContext } from 'amo/actions/viewContext';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -103,6 +104,8 @@ export class CategoryBase extends React.Component {
         return;
       }
     }
+
+    dispatch(setViewContext(addonType));
 
     if (
       !resultsLoaded ||
