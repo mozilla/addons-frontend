@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-23 21:15+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2018-02-05 02:48+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "შეცდომა სერვერზე"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"ვწუხვართ, მაგრამ მოხდა გაურკვეველი შეცდომა და თქვენი მოთხოვნის შესრულება ვერ "
+"მოხერხდა. ჩვენ აღვრიცხავთ ამ შეცდომას და აუცილებლად გამოვიკვლევთ."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "შეცდომის კოდი: %(status)s."
 
@@ -34,11 +39,12 @@ msgstr "გვერდი ვერ მოიძებნა"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "ვწუხვართ, მაგრამ თქვენ მიერ შეყვანილ URL მისამართზე, არაფერია."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
-#: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 
@@ -84,7 +90,8 @@ msgstr "კარგი!"
 
 #: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
-msgstr "შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
+msgstr ""
+"შესათვალიერებლად გადაატარეთ მაჩვენებელი, ან დააწკაპეთ დაყენებას %(name)s"
 
 #: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
@@ -142,32 +149,38 @@ msgstr "პირადულობის დაცვა"
 msgid "Discover Add-ons"
 msgstr "აღმოაჩინეთ ახალი დამატებები"
 
-#: src/disco/containers/DiscoPane.js:136
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "მოირგეთ თქვენი Firefox"
 
-#: src/disco/containers/DiscoPane.js:137
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. მხიარული თემებით დაწყებული, მძლავრი ხელსაწყოების "
-"ჩათვლით, დაგეხმარებათ გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, ბრაუზერის წარმადობისა და "
-"შესაძლებლობების გასაუმჯობესებლად."
+"აქ შეგიძლიათ მოიძიოთ ათასობით უფასო დამატება, შექმნილი შემმუშავებლების მიერ "
+"მთელი მსოფლიოდან, რომელთა საშუალებითაც შეძლებთ უკეთ მოირგოთ Firefox. "
+"მხიარული თემებით დაწყებული, მძლავრი ხელსაწყოების ჩათვლით, დაგეხმარებათ "
+"გვერდების მოხერხებულად და უსაფრთხოდ მონახულებაში და ბრაუზერს გახდის უფრო "
+"მეტად თქვენებურს. დასაწყისისთვის, აქვე გთავაზობთ რამდენიმე რჩეულ დამატებას, "
+"ბრაუზერის წარმადობისა და შესაძლებლობების გასაუმჯობესებლად."
 
-#: src/disco/containers/DiscoPane.js:146
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "დააწკაპეთ გასაშვებად"
 
-#: src/disco/containers/DiscoPane.js:147
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "დამატების შესახებ, მეტი ინფორმაციის მისაღებად"
 
-#: src/disco/containers/DiscoPane.js:161
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "ვიდეოს დახურვა"
 
-#: src/disco/containers/DiscoPane.js:180
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "სხვა დამატებების მოძიება!"
 
