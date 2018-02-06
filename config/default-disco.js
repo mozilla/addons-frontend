@@ -55,6 +55,7 @@ module.exports = {
   taarParamsToUse: [
     'branch',
     'clientId',
+    'edition',
     'platform',
     'study',
   ],
