@@ -10,6 +10,7 @@ import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_TRENDING,
@@ -154,7 +155,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('does not fetch anything, but sets a viewContext when already loaded', () => {
+  it('does not fetch categories when already loaded', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
@@ -164,7 +165,7 @@ describe(__filename, () => {
     render({}, { autoDispatchCategories: false });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeCategory.type));
+    sinon.assert.neverCalledWith(fakeDispatch, sinon.match({ type: CATEGORIES_FETCH }));
   });
 
   it('does not fetch categories when an empty set was loaded', () => {
@@ -238,15 +239,13 @@ describe(__filename, () => {
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('dispatches getLanding and sets a viewContext when results are not loaded', () => {
+  it('dispatches getLanding when results are not loaded', () => {
     _categoriesFetch();
     _categoriesLoad();
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.callCount(fakeDispatch, 2);
-    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeCategory.type));
     sinon.assert.calledWith(fakeDispatch, getLanding({
       addonType: fakeCategory.type,
       category: fakeCategory.slug,
@@ -254,7 +253,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches getLanding and sets a viewContext when category changes', () => {
+  it('dispatches getLanding when category changes', () => {
     const category = 'some-category-slug';
 
     _categoriesFetch();
@@ -276,7 +275,6 @@ describe(__filename, () => {
       },
     });
 
-    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeCategory.type));
     sinon.assert.calledWith(fakeDispatch, getLanding({
       addonType: fakeCategory.type,
       category,
@@ -284,7 +282,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches getLanding and sets a viewContext when addonType changes', () => {
+  it('dispatches getLanding when addonType changes', () => {
     const addonType = ADDON_TYPE_EXTENSION;
     const category = fakeCategory.slug;
 
@@ -312,7 +310,6 @@ describe(__filename, () => {
       category,
       errorHandlerId: errorHandler.id,
     }));
-    sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
   });
 
   it('passes a category to the header', () => {
