@@ -44,7 +44,7 @@ const formatPreviews = (previews) => (
 );
 
 export const thumbnailContent = (item) => (
-  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
+  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" title={item.title} />
 );
 
 export default class ScreenShots extends React.Component {
