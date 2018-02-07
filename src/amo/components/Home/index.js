@@ -13,7 +13,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
-  SEARCH_SORT_TOP_RATED,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -24,20 +23,21 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 
-export const FIRST_COLLECTION_SLUG = 'dynamic-media-downloaders';
-export const FIRST_COLLECTION_USER = 'mozilla';
+export const COLLECTIONS_TO_FETCH = [
+  { slug: 'privacy-matters', user: 'mozilla' },
+  { slug: 're-imagine-search', user: 'mozilla' },
+  { slug: 'addonsofthemonth', user: 'mozilla' },
+];
 
 export class HomeBase extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    firstCollection: PropTypes.array.isRequired,
+    collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
-    featuredThemes: PropTypes.array.isRequired,
+    popularThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
-    popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-    topRatedExtensions: PropTypes.array.isRequired,
   }
 
   componentWillMount() {
@@ -48,8 +48,7 @@ export class HomeBase extends React.Component {
     if (!resultsLoaded) {
       dispatch(fetchHomeAddons({
         errorHandlerId: errorHandler.id,
-        firstCollectionSlug: FIRST_COLLECTION_SLUG,
-        firstCollectionUser: FIRST_COLLECTION_USER,
+        collectionsToFetch: COLLECTIONS_TO_FETCH,
       }));
     }
   }
@@ -155,13 +154,11 @@ export class HomeBase extends React.Component {
   render() {
     const {
       errorHandler,
-      firstCollection,
+      collections,
       featuredExtensions,
-      featuredThemes,
+      popularThemes,
       i18n,
-      popularExtensions,
       resultsLoaded,
-      topRatedExtensions,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -197,62 +194,6 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addons={popularExtensions}
-          className="Home-PopularExtensions"
-          header={i18n.gettext('Popular extensions')}
-          footerText={i18n.gettext('See more popular extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={firstCollection}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Media downloaders')}
-          footerText={i18n.gettext('See more media downloaders')}
-          footerLink={{ pathname:
-            `/collections/${FIRST_COLLECTION_USER}/${FIRST_COLLECTION_SLUG}/`,
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={featuredThemes}
-          className="Home-FeaturedThemes"
-          header={i18n.gettext('Featured themes')}
-          footerText={i18n.gettext('See more featured themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_THEME,
-              featured: true,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={topRatedExtensions}
-          className="Home-TopRatedExtensions"
-          header={i18n.gettext('Top-rated Extensions')}
-          footerText={i18n.gettext('See more highly rated Extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_TOP_RATED,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
           addons={featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
@@ -263,6 +204,54 @@ export class HomeBase extends React.Component {
               addonType: ADDON_TYPE_EXTENSION,
               featured: true,
             },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[0]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Privacy tools')}
+          footerText={i18n.gettext('See more privacy tools')}
+          footerLink={{ pathname:
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`,
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={popularThemes}
+          className="Home-PopularThemes"
+          header={i18n.gettext('Popular themes')}
+          footerText={i18n.gettext('See more popular themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              sort: SEARCH_SORT_POPULAR,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[1]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Re-imagine search')}
+          footerText={i18n.gettext('See more search extensions')}
+          footerLink={{ pathname:
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`,
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[2]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext(`February's new featured extensions`)}
+          footerText={i18n.gettext('See all the new featured extensions')}
+          footerLink={{ pathname:
+            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`,
           }}
           loading={resultsLoaded === false}
         />
@@ -286,12 +275,10 @@ export class HomeBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    firstCollection: state.home.firstCollection,
+    collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
-    featuredThemes: state.home.featuredThemes,
-    popularExtensions: state.home.popularExtensions,
+    popularThemes: state.home.popularThemes,
     resultsLoaded: state.home.resultsLoaded,
-    topRatedExtensions: state.home.topRatedExtensions,
   };
 }
 

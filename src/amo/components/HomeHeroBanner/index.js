@@ -21,19 +21,19 @@ export class HomeHeroBannerBase extends React.Component<Props> {
     return [
       (
         <HeroSection
-          key="wikipedia-context-menu-search"
-          linkTo="/addon/wikipedia-context-menu-search/"
+          key="hero-1"
+          linkTo="/addon/temporary-containers/"
         >
-          <h3>{i18n.gettext('Wikipedia Context Menu Search')}</h3>
+          <h3>{i18n.gettext('Temporary Containers')}</h3>
 
           <p>
-            {i18n.gettext('Highlight any text and search Wikipedia.')}
+            {i18n.gettext('Open pages with disposable data containers.')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="momentumdash"
+          key="hero-2"
           linkTo="/addon/momentumdash/"
         >
           <h3>{i18n.gettext('Momentum')}</h3>
@@ -46,64 +46,62 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="undo-close-tab-button"
-          linkTo="/addon/undo-close-tab-button/"
+          key="hero-3"
+          linkTo="/addon/kimetrak/"
         >
-          <h3>{i18n.gettext('Undo Close Tab Button')}</h3>
+          <h3>{i18n.gettext('Kimetrak')}</h3>
 
-          <p>{i18n.gettext('Never lose a page again.')}</p>
+          <p>{i18n.gettext('Track who’s tracking you.')}</p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="grammarly"
-          linkTo="/addon/grammarly-1/"
+          key="hero-4"
+          linkTo="/addon/mailvelope/"
         >
-          <h3>{i18n.gettext('Grammarly')}</h3>
+          <h3>{i18n.gettext('Mailvelope')}</h3>
           <p>
-            {i18n.gettext(`Get grammar help anywhere you write on the
-              web—social media, email, docs and more.`)}
+            {i18n.gettext('Secure encryption for webmail.')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="facebook-filter"
-          linkTo="/addon/facebook-filter/"
+          key="hero-5"
+          linkTo="/addon/%E7%BF%BB%E8%AF%91%E4%BE%A0-translate-man/"
         >
-          <h3>{i18n.gettext('Facebook Filter')}</h3>
+          <h3>{i18n.gettext('Translate Man')}</h3>
           <p>
-            {i18n.gettext(`Remove ads, promoted content, and other clutter
-              from your feed.`)}
+            {i18n.gettext('Point-and-click instant translations.')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="gesturefy"
-          linkTo="/addon/gesturefy/"
+          key="hero-6"
+          linkTo="/addon/ublock-origin/"
         >
-          <h3>{i18n.gettext('Gesturefy')}</h3>
+          <h3>{i18n.gettext('uBlock Origin')}</h3>
 
-          <p>{i18n.gettext('40+ customizable mouse gestures.')}</p>
+          <p>{i18n.gettext('Efficient, powerful ad blocker.')}</p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="lastpass"
-          linkTo="/addon/lastpass-password-manager/"
+          key="hero-7"
+          linkTo="/addon/ghostery/"
         >
-          <h3>{i18n.gettext('LastPass Password Manager')}</h3>
+          <h3>{i18n.gettext('Ghostery')}</h3>
 
           <p>
-            {i18n.gettext(`Easily manage all your passwords for all devices
-              from one spot`)}
+            {i18n.gettext(`Popular anti-tracking extension now has
+              ad blocking ability.`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
-          key="multi-account-containers"
+          key="hero-8"
           linkTo="/addon/multi-account-containers/"
         >
           <h3>{i18n.gettext('Multi-Account Containers')}</h3>
@@ -116,12 +114,41 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="tree-style-tab"
-          linkTo="/addon/tree-style-tab/"
+          key="hero-9"
+          linkTo="/addon/searchpreview/"
         >
-          <h3>{i18n.gettext('Tree Style Tab')}</h3>
+          <h3>{i18n.gettext('SearchPreview')}</h3>
 
-          <p>{i18n.gettext('Display tabs in a space-saving “tree” layout.')}</p>
+          <p>
+            {i18n.gettext(`Enhance search results with thumbnail previews,
+              popularity ranks & more.`)}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-10"
+          linkTo="/addon/forget_me_not/"
+        >
+          <h3>{i18n.gettext('Forget Me Not')}</h3>
+
+          <p>
+            {i18n.gettext(`Automatically delete data (cookies, local storage,
+              etc.) on all sites you visit except those on your whitelist.`)}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-11"
+          linkTo="/addon/zoom/"
+        >
+          <h3>{i18n.gettext('Zoom for Firefox')}</h3>
+
+          <p>
+            {i18n.gettext(`Simple zoom in/out tool for a close-up view of any
+              web content.`)}
+          </p>
         </HeroSection>
       ),
     ];
