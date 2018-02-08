@@ -1,6 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
+import config from 'config';
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
