@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -11,10 +12,14 @@ import {
   fetchCurrentCollectionPage,
   getCurrentCollection,
 } from 'amo/reducers/collections';
+import CollectionManager, {
+  COLLECTION_OVERLAY,
+} from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
+import { openFormOverlay } from 'core/reducers/formOverlay';
 import log from 'core/logger';
 import { hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
@@ -35,6 +40,7 @@ import './styles.scss';
 
 
 type Props = {|
+  _config: typeof config,
   collection: CollectionType | null,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
@@ -49,6 +55,10 @@ type Props = {|
 |};
 
 export class CollectionBase extends React.Component<Props> {
+  static defaultProps = {
+    _config: config,
+  };
+
   componentWillMount() {
     this.loadDataIfNeeded();
   }
@@ -124,10 +134,41 @@ export class CollectionBase extends React.Component<Props> {
     return `/collections/${params.user}/${params.slug}/`;
   }
 
+  editCollection = (event: SyntheticEvent<any>) => {
+    const { dispatch } = this.props;
+    event.preventDefault();
+    event.stopPropagation();
+    dispatch(openFormOverlay(COLLECTION_OVERLAY));
+  }
+
+  editCollectionLink() {
+    const { _config, hasEditPermission, i18n } = this.props;
+
+    if (!hasEditPermission) {
+      return null;
+    }
+
+    const props = {};
+
+    if (_config.get('enableCollectionEdit')) {
+      // TODO: make this a real link when the form is ready for release.
+      // https://github.com/mozilla/addons-frontend/issues/4293
+      props.href = '#';
+      props.onClick = this.editCollection;
+    } else {
+      props.href = `${this.url()}edit/`;
+    }
+
+    return (
+      <p className="Collection-edit-link">
+        <Link {...props}>{i18n.gettext('Edit this collection')}</Link>
+      </p>
+    );
+  }
+
   renderCollection() {
     const {
       collection,
-      hasEditPermission,
       i18n,
       loading,
       location,
@@ -135,6 +176,7 @@ export class CollectionBase extends React.Component<Props> {
 
     const addons = collection ? collection.addons : [];
 
+    /* eslint-disable react/no-danger */
     return (
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
@@ -166,13 +208,7 @@ export class CollectionBase extends React.Component<Props> {
               },
             ]}
           />
-          {hasEditPermission && (
-            <p className="Collection-edit-link">
-              <Link href={`${this.url()}/edit/`}>
-                {i18n.gettext('Edit this collection')}
-              </Link>
-            </p>
-          )}
+          {this.editCollectionLink()}
         </Card>
         <div className="Collection-items">
           <AddonsCard
@@ -188,8 +224,14 @@ export class CollectionBase extends React.Component<Props> {
             />
           )}
         </div>
+        {/*
+          The manager overlay will render full-screen.
+          It will be opened/closed based on Redux state.
+        */}
+        <CollectionManager collection={collection} />
       </div>
     );
+    /* eslint-enable react/no-danger */
   }
 
   render() {
