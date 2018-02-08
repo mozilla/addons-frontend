@@ -436,7 +436,7 @@ describe(__filename, () => {
       },
     },
     { _config: fakeConfig });
-    expect(addon.current_beta_version).toBeUndefined()
+    expect(addon.current_beta_version).toBeUndefined();
   });
 
   it('does not link to beta versions without a current beta', () => {
