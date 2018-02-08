@@ -28,7 +28,6 @@ import Collection from './components/Collection';
 // If you add a new route here, check that the nginx rules maintained by ops
 // are in sync. See:
 // https://github.com/mozilla-services/puppet-config/tree/master/amo
-
 export default (
   <div>
     <Route path="/:lang" component={App}>

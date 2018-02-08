@@ -14,11 +14,10 @@ import {
   trimAndAddProtocolToUrl,
 } from 'core/utils';
 import Card from 'ui/components/Card';
+import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
 import type { I18nType } from 'core/types/i18n';
 import type { UsersStateType } from 'amo/reducers/users';
-
-import './styles.scss';
 
 
 type Props = {|
@@ -27,10 +26,6 @@ type Props = {|
   userId: number | null,
   hasStatsPermission: boolean,
 |};
-
-const renderNodesIf = (includeContent: boolean, nodes: Array<any>) => {
-  return includeContent ? nodes : null;
-};
 
 export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
@@ -176,74 +171,77 @@ export class AddonMoreInfoBase extends React.Component<Props> {
   }: Object) {
     const { i18n } = this.props;
     return (
-      <dl className="AddonMoreInfo-contents">
-        {renderNodesIf(homepage || supportUrl || supportEmail, [
-          <dt className="AddonMoreInfo-links-title" key="links-title">
-            {i18n.gettext('Add-on Links')}
-          </dt>,
-          <dd className="AddonMoreInfo-links-contents" key="links-contents">
+      <DefinitionList className="AddonMoreInfo-dl">
+        {(homepage || supportUrl || supportEmail) && (
+          <Definition
+            className="AddonMoreInfo-links"
+            term={i18n.gettext('Add-on Links')}
+          >
             <ul className="AddonMoreInfo-links-contents-list">
               {homepage}
               {supportUrl}
               {supportEmail}
             </ul>
-          </dd>,
-        ])}
-
-        {renderNodesIf(version, [
-          <dt className="AddonMoreInfo-version-title" key="version-title">
-            {i18n.gettext('Version')}
-          </dt>,
-          <dd className="AddonMoreInfo-version" key="version-contents">
+          </Definition>
+        )}
+        {(version) && (
+          <Definition
+            className="AddonMoreInfo-version"
+            term={i18n.gettext('Version')}
+          >
             {version}
-          </dd>,
-        ])}
-
-        <dt className="AddonMoreInfo-last-updated-title">
-          {i18n.gettext('Last updated')}
-        </dt>
-        <dd>{versionLastUpdated}</dd>
-
-        {renderNodesIf(versionLicenseLink, [
-          <dt className="AddonMoreInfo-license-title" key="license-title">
-            {i18n.gettext('License')}
-          </dt>,
-          <dd key="license-contents">{versionLicenseLink}</dd>,
-        ])}
-
-        {renderNodesIf(privacyPolicyLink, [
-          <dt className="AddonMoreInfo-privacy-policy-title" key="privacy-title">
-            {i18n.gettext('Privacy Policy')}
-          </dt>,
-          <dd key="privacy-contents">{privacyPolicyLink}</dd>,
-        ])}
-
-        {renderNodesIf(eulaLink, [
-          <dt className="AddonMoreInfo-eula-title" key="eula-title">
-            {i18n.gettext('End-User License Agreement')}
-          </dt>,
-          <dd key="eula-contents">{eulaLink}</dd>,
-        ])}
-
-        {renderNodesIf((versionHistoryLink || betaVersionsLink), [
-          <dt className="AddonMoreInfo-version-history-title" key="history-title">
-            {i18n.gettext('Version History')}
-          </dt>,
-          <dd key="history-contents">
+          </Definition>
+        )}
+        <Definition
+          className="AddonMoreInfo-last-updated"
+          term={i18n.gettext('Last updated')}
+        >
+          {versionLastUpdated}
+        </Definition>
+        {(versionLicenseLink) && (
+          <Definition
+            className="AddonMoreInfo-license"
+            term={i18n.gettext('License')}
+          >
+            {versionLicenseLink}
+          </Definition>
+        )}
+        {(privacyPolicyLink) && (
+          <Definition
+            className="AddonMoreInfo-privacy-policy"
+            term={i18n.gettext('Privacy Policy')}
+          >
+            {privacyPolicyLink}
+          </Definition>
+        )}
+        {(eulaLink) && (
+          <Definition
+            className="AddonMoreInfo-eula"
+            term={i18n.gettext('End-User License Agreement')}
+          >
+            {eulaLink}
+          </Definition>
+        )}
+        {(versionHistoryLink || betaVersionsLink) && (
+          <Definition
+            className="AddonMoreInfo-version-history"
+            term={i18n.gettext('Version History')}
+          >
             <ul className="AddonMoreInfo-links-contents-list">
               {versionHistoryLink}
               {betaVersionsLink}
             </ul>
-          </dd>,
-        ])}
-
-        {renderNodesIf(statsLink, [
-          <dt className="AddonMoreInfo-stats-title" key="stats-title">
-            {i18n.gettext('Usage Statistics')}
-          </dt>,
-          <dd key="stats-contents">{statsLink}</dd>,
-        ])}
-      </dl>
+          </Definition>
+        )}
+        {(statsLink) && (
+          <Definition
+            className="AddonMoreInfo-stats"
+            term={i18n.gettext('Usage Statistics')}
+          >
+            {statsLink}
+          </Definition>
+        )}
+      </DefinitionList>
     );
   }
 
