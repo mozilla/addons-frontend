@@ -84,6 +84,7 @@ module.exports = {
     'apiHost',
     'apiPath',
     'appName',
+    'betaVersions',
     'restrictSearchResultsToAppVersion',
     'cookieMaxAge',
     'cookieName',

@@ -156,7 +156,6 @@ export function createInternalAddon(
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
     contributions_url: apiAddon.contributions_url,
-    current_beta_version: apiAddon.current_beta_version,
     current_version: apiAddon.current_version,
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,
@@ -209,6 +208,10 @@ export function createInternalAddon(
     isWebExtension: false,
     isMozillaSignedExtension: false,
   };
+
+  if (config.get('betaVersions')) {
+    addon.current_beta_version = apiAddon.current_beta_version;
+  }
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
     const themeData = createInternalThemeData(apiAddon);
