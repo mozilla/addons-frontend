@@ -1,6 +1,7 @@
 /* global InstallTrigger, window */
 import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
+import config from 'config';
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
@@ -113,6 +114,13 @@ export class InstallButtonBase extends React.Component {
     _window: typeof window !== 'undefined' ? window : {},
   }
 
+  componentDidMount() {
+    if (this.props.addon && this.props.addon.type === ADDON_TYPE_OPENSEARCH) {
+      console.log('I AM FORCE RELOADING');
+      this.forceUpdate();
+    }
+  }
+
   installTheme = (event) => {
     event.preventDefault();
     const { addon, status, installTheme } = this.props;
@@ -207,7 +215,7 @@ export class InstallButtonBase extends React.Component {
 
     const buttonIsDisabled = !compatible;
     const buttonClass = makeClassName(
-      'InstallButton-button', 'Button--action', className, {
+      'InstallButton-button', className, {
         'InstallButton-button--disabled': buttonIsDisabled,
       }
     );
@@ -336,6 +344,7 @@ export class InstallButtonBase extends React.Component {
 export function mapStateToProps(state) {
   return {
     clientApp: state.api.clientApp,
+    isOnServer: config.get('server'),
     userAgentInfo: state.api.userAgentInfo,
   };
 }

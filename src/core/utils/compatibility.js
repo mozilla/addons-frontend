@@ -1,5 +1,6 @@
 /* global window */
 import { oneLine } from 'common-tags';
+import config from 'config';
 import mozCompare from 'mozilla-version-comparator';
 
 import {
@@ -45,8 +46,8 @@ export function isCompatibleWithUserAgent({
   maxVersion,
   minVersion,
   userAgentInfo,
+  _config = config,
   _log = log,
-  _hasWindow = typeof window !== 'undefined',
   _window = typeof window !== 'undefined' ? window : {},
 } = {}) {
   // If the userAgent is false there was likely a programming error.
@@ -102,11 +103,10 @@ export function isCompatibleWithUserAgent({
 
     if (
       addon.type === ADDON_TYPE_OPENSEARCH &&
-      // If window isn't defined but the browser is Firefox, this is likely a
-      // server-side render, so we shouldn't condemn this search plugin to
-      // incompatibility yet, or it will stay disabled.
+      // If this is a server-side render, we shouldn't mark incompatibility
+      // yet, because we can't check for support on the server.
       // See: https://github.com/mozilla/addons-frontend/issues/4047
-      _hasWindow &&
+      // !config.get('server') &&
       !(_window.external && 'AddSearchProvider' in _window.external)
     ) {
       return { compatible: false, reason: INCOMPATIBLE_NO_OPENSEARCH };
