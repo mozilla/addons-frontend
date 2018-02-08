@@ -164,7 +164,6 @@ export class CollectionBase extends React.Component<Props> {
   renderCollection() {
     const {
       collection,
-      hasEditPermission,
       i18n,
       loading,
       location,
