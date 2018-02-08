@@ -38,7 +38,7 @@ export const fakeAddon = Object.freeze({
     id: 98811255,
     name: 'Krupa',
     picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
-    url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+    url: 'http://olympia.test/en-US/firefox/user/krupa/',
     username: 'krupa',
   }],
   average_daily_users: 100,
@@ -116,7 +116,7 @@ export const fakeTheme = Object.freeze({
   ...fakeAddon,
   authors: [{
     name: 'MaDonna',
-    url: 'http://olympia.dev/en-US/firefox/user/madonna/',
+    url: 'http://olympia.test/en-US/firefox/user/madonna/',
     username: 'MaDonna',
   }],
   current_version: {
@@ -333,7 +333,7 @@ export const createFakeCollectionDetail = ({
     author: {
       id: authorId,
       name: authorName,
-      url: 'http://olympia.dev/en-US/firefox/user/johndoe/',
+      url: 'http://olympia.test/en-US/firefox/user/johndoe/',
       username: authorUsername,
     },
     default_locale: 'en-US',
