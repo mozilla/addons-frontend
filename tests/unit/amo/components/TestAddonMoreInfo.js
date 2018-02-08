@@ -423,6 +423,22 @@ describe(__filename, () => {
     expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/beta`);
   });
 
+  it('does not link to beta versions if they are disabled', () => {
+    const fakeConfig = new Map();
+    fakeConfig.set('betaVersions', false);
+
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: 'some-slug',
+      current_beta_version: {
+        ...fakeAddon.current_version,
+        version: '3.0.0-beta',
+      },
+    },
+    { _config: fakeConfig });
+    expect(addon.current_beta_version).toBeUndefined()
+  });
+
   it('does not link to beta versions without a current beta', () => {
     const addon = createInternalAddon({
       ...fakeAddon, current_beta_version: null,

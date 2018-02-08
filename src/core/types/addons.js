@@ -167,3 +167,7 @@ export type AddonType = {
   isWebExtension: boolean,
   themeData?: ThemeData,
 };
+
+export type CreateInternalAddonOptions = {|
+  _config?: Object,
+|};

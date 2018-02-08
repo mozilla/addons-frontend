@@ -273,4 +273,6 @@ module.exports = {
 
   // See the Discopane config for how this is currently used.
   taarParamsToUse: [],
+
+  betaVersions: true,
 };

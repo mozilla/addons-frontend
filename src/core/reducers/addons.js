@@ -7,6 +7,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 import type {
   AddonType,
+  CreateInternalAddonOptions,
   ExternalAddonType,
   ThemeData,
 } from 'core/types/addons';
@@ -150,7 +151,8 @@ export function createInternalThemeData(
 }
 
 export function createInternalAddon(
-  apiAddon: ExternalAddonType
+  apiAddon: ExternalAddonType,
+  { _config = config }: CreateInternalAddonOptions = {}
 ): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
@@ -210,7 +212,7 @@ export function createInternalAddon(
     isMozillaSignedExtension: false,
   };
 
-  if (config.get('betaVersions')) {
+  if (_config.get('betaVersions')) {
     addon.current_beta_version = apiAddon.current_beta_version;
   }
 
