@@ -376,7 +376,7 @@ describe(__filename, () => {
   });
 
   it('renders a single author', () => {
-    const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
+    const authorUrl = 'http://olympia.test/en-US/firefox/user/krupa/';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -396,10 +396,10 @@ describe(__filename, () => {
         ...fakeAddon,
         authors: [{
           name: 'Krupa',
-          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+          url: 'http://olympia.test/en-US/firefox/user/krupa/',
         }, {
           name: 'Fligtar',
-          url: 'http://olympia.dev/en-US/firefox/user/fligtar/',
+          url: 'http://olympia.test/en-US/firefox/user/fligtar/',
         }],
       }),
     });
@@ -519,7 +519,7 @@ describe(__filename, () => {
         ...fakeAddon,
         authors: [{
           name: 'Krupa',
-          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+          url: 'http://olympia.test/en-US/firefox/user/krupa/',
         }],
       }),
     });
