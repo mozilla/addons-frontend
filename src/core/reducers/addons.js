@@ -7,7 +7,6 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 import type {
   AddonType,
-  CreateInternalAddonOptions,
   ExternalAddonType,
   ThemeData,
 } from 'core/types/addons';
@@ -149,6 +148,10 @@ export function createInternalThemeData(
     version: apiAddon.theme_data.version,
   };
 }
+
+type CreateInternalAddonOptions = {|
+  _config: typeof config,
+|};
 
 export function createInternalAddon(
   apiAddon: ExternalAddonType,

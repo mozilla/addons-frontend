@@ -274,5 +274,6 @@ module.exports = {
   // See the Discopane config for how this is currently used.
   taarParamsToUse: [],
 
+  // If true, show a link to the beta versions page on the listing page
   betaVersions: true,
 };
