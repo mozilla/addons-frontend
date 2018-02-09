@@ -10,7 +10,7 @@ import type {
 } from 'core/types/api';
 
 
-type GetCollectionParams = {|
+export type GetCollectionParams = {|
   api: ApiStateType,
   slug: string,
   user: string | number,
@@ -33,7 +33,7 @@ export const getCollectionDetail = (
   });
 };
 
-type GetCollectionAddonsParams = {|
+export type GetCollectionAddonsParams = {|
   ...GetCollectionParams,
   nextURL?: string,
   page?: number,
@@ -104,7 +104,7 @@ export const listCollections = (
   return callApi({ auth: true, endpoint, state: api });
 };
 
-type GetAllUserCollectionsParams = {|
+export type GetAllUserCollectionsParams = {|
   ...ListCollectionsParams,
   _allPages?: typeof allPages,
   _listCollections?: typeof listCollections,
@@ -124,7 +124,7 @@ export const getAllUserCollections = async (
   return results;
 };
 
-type AddAddonToCollectionParams = {|
+export type AddAddonToCollectionParams = {|
   addon: string | number,
   api: ApiStateType,
   collection: string | number,
@@ -154,7 +154,7 @@ export const addAddonToCollection = (
   });
 };
 
-type UpdateCollectionParams = {|
+export type UpdateCollectionParams = {|
   api: ApiStateType,
   collectionSlug: string,
   defaultLocale?: string,

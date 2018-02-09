@@ -29,9 +29,9 @@ export const ADDON_ADDED_TO_COLLECTION: 'ADDON_ADDED_TO_COLLECTION'
   = 'ADDON_ADDED_TO_COLLECTION';
 export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
   = 'LOAD_COLLECTION_ADDONS';
-export const FINISH_UPDATE_COLLECTION: 'FINISH_UPDATE_COLLECTION'
-  = 'FINISH_UPDATE_COLLECTION';
 export const UPDATE_COLLECTION: 'UPDATE_COLLECTION' = 'UPDATE_COLLECTION';
+export const DELETE_COLLECTION_BY_SLUG: 'DELETE_COLLECTION_BY_SLUG'
+  = 'DELETE_COLLECTION_BY_SLUG';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -98,7 +98,7 @@ type FetchCurrentCollectionParams = {|
   user: number | string,
 |};
 
-type FetchCurrentCollectionAction = {|
+export type FetchCurrentCollectionAction = {|
   type: typeof FETCH_CURRENT_COLLECTION,
   payload: FetchCurrentCollectionParams,
 |};
@@ -130,7 +130,7 @@ type FetchUserCollectionsParams = {|
   userId: number,
 |};
 
-type FetchUserCollectionsAction = {|
+export type FetchUserCollectionsAction = {|
   type: typeof FETCH_USER_COLLECTIONS,
   payload: FetchUserCollectionsParams,
 |};
@@ -204,7 +204,7 @@ type FetchCurrentCollectionPageParams = {|
   page: number,
 |};
 
-type FetchCurrentCollectionPageAction = {|
+export type FetchCurrentCollectionPageAction = {|
   type: typeof FETCH_CURRENT_COLLECTION_PAGE,
   payload: FetchCurrentCollectionPageParams,
 |};
@@ -416,7 +416,7 @@ type AddAddonToCollectionParams = {|
   userId: number,
 |};
 
-type AddAddonToCollectionAction = {|
+export type AddAddonToCollectionAction = {|
   type: typeof ADD_ADDON_TO_COLLECTION,
   payload: AddAddonToCollectionParams,
 |};
@@ -459,7 +459,7 @@ type UpdateCollectionParams = {|
   user: number | string,
 |};
 
-type UpdateCollectionAction = {|
+export type UpdateCollectionAction = {|
   type: typeof UPDATE_COLLECTION,
   payload: UpdateCollectionParams,
 |};
@@ -502,29 +502,21 @@ export const updateCollection = ({
   };
 };
 
-type FinishUpdateCollectionParams = {|
-  collectionSlug: string,
-  successful: boolean,
+type DeleteCollectionBySlugAction = {|
+  type: typeof DELETE_COLLECTION_BY_SLUG,
+  payload: {| slug: string |},
 |};
 
-type FinishUpdateCollectionAction = {|
-  type: typeof FINISH_UPDATE_COLLECTION,
-  payload: FinishUpdateCollectionParams,
-|};
-
-export const finishUpdateCollection = (
-  { collectionSlug, successful }: FinishUpdateCollectionParams = {}
-): FinishUpdateCollectionAction => {
-  if (!collectionSlug) {
-    throw new Error('The collectionSlug parameter is required');
-  }
-  if (typeof successful === 'undefined') {
-    throw new Error('The successful parameter is required');
+export const deleteCollectionBySlug = (
+  slug: string
+): DeleteCollectionBySlugAction => {
+  if (!slug) {
+    throw new Error('A slug is required');
   }
 
   return {
-    type: FINISH_UPDATE_COLLECTION,
-    payload: { collectionSlug, successful },
+    type: DELETE_COLLECTION_BY_SLUG,
+    payload: { slug },
   };
 };
 
@@ -655,10 +647,10 @@ type Action =
   | AbortFetchUserCollectionsAction
   | AddAddonToCollectionAction
   | AddonAddedToCollectionAction
+  | DeleteCollectionBySlugAction
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction
   | FetchUserCollectionsAction
-  | FinishUpdateCollectionAction
   | LoadCollectionAddonsAction
   | LoadCurrentCollectionAction
   | LoadCurrentCollectionPageAction
@@ -894,19 +886,16 @@ const reducer = (
       };
     }
 
-    case FINISH_UPDATE_COLLECTION: {
-      const { collectionSlug, successful } = action.payload;
+    case DELETE_COLLECTION_BY_SLUG: {
+      const { slug } = action.payload;
+      const collectionId = state.bySlug[slug];
 
-      return {
-        ...state,
-        collectionUpdates: {
-          [collectionSlug]: {
-            ...state.collectionUpdates[collectionSlug],
-            updating: false,
-            successful,
-          },
-        },
-      };
+      if (collectionId) {
+        const newIdMap = { ...state.byId };
+        delete newIdMap[collectionId];
+        return { ...state, byId: newIdMap };
+      }
+      return state;
     }
 
     default:
