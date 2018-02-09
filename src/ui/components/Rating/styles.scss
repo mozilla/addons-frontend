@@ -18,7 +18,7 @@
 
 .Rating--editable {
   .Rating-choice {
-    background-image: url("./img/dim-star.svg");
+    background-image: url("./img/dim-star-gold.svg");
     cursor: pointer;
   }
 
@@ -29,12 +29,12 @@
   // First, make all stars appear selected when you hover over the group.
   .Rating-star-group:hover .Rating-choice,
   .Rating-choice:focus {
-    background-image: url("./img/full-star.svg");
+    background-image: url("./img/full-star-gold.svg");
   }
 
   // Second, de-select all stars to the right of the cursor.
   .Rating-choice:hover ~ .Rating-choice {
-    background-image: url("./img/dim-star.svg");
+    background-image: url("./img/dim-star-gold.svg");
   }
 }
 
@@ -43,7 +43,7 @@
 }
 
 .Rating--editable .Rating-selected-star {
-  background-image: url("./img/full-star.svg");
+  background-image: url("./img/full-star-gold.svg");
 }
 
 .Rating-half-star {
