@@ -2,6 +2,7 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
+import config from 'config';
 
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -14,6 +15,8 @@ import type { ElementEvent } from 'core/types/dom';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
 
+import './styles.scss';
+
 type Props = {|
   collection: CollectionType | null,
   dispatch: DispatchFunc,
@@ -25,6 +28,7 @@ type Props = {|
 type State = {|
   description?: string | null,
   name?: string | null,
+  slug?: string | null,
 |};
 
 export const COLLECTION_OVERLAY = 'COLLECTION_OVERLAY';
@@ -85,11 +89,13 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
     dispatch(updateCollection({
       collectionSlug: collection.slug,
+      defaultLocale: collection.defaultLocale,
       description: { [siteLang]: this.state.description },
       errorHandlerId: errorHandler.id,
       formOverlayId: COLLECTION_OVERLAY,
       name: { [siteLang]: this.state.name },
-      user: collection.authorId,
+      user: collection.authorUsername,
+      slug: this.state.slug,
     }));
   }
 
@@ -104,11 +110,20 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     return {
       description: props.collection && props.collection.description,
       name: props.collection && props.collection.name,
+      slug: props.collection && props.collection.slug,
     };
   }
 
   render() {
-    const { errorHandler, i18n } = this.props;
+    const { collection, errorHandler, i18n, siteLang } = this.props;
+
+    let collectionUrlPrefix = '';
+    if (collection && siteLang) {
+      const apiHost = config.get('apiHost');
+      const { authorUsername } = collection;
+      collectionUrlPrefix =
+        `${apiHost}/${siteLang}/firefox/collections/${authorUsername}/`;
+    }
 
     return (
       <FormOverlay
@@ -140,6 +155,27 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           name="description"
           onChange={this.onTextInput}
         />
+        <label htmlFor="collectionSlug">
+          {i18n.gettext('Custom URL')}
+        </label>
+        <div className="CollectionManager-slug">
+          <div className="CollectionManager-slug-url-hint">
+            {/*
+              &lrm; (left-to-right mark) is an invisible control
+              character. It's added to prevent the bi-directional
+              trailing slash character (in the URL) from getting
+              reversed when using direction: rtl.
+            */}
+            {collectionUrlPrefix}&lrm;
+          </div>
+          <input
+            onChange={this.onTextInput}
+            id="collectionSlug"
+            name="slug"
+            type="text"
+            value={this.state.slug}
+          />
+        </div>
       </FormOverlay>
     );
   }

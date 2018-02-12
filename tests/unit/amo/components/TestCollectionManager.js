@@ -82,6 +82,7 @@ describe(__filename, () => {
       detail: createFakeCollectionDetail({
         name: 'OG name',
         description: 'OG description',
+        slug: 'the-slug',
       }),
     });
     const root = render({ collection });
@@ -90,6 +91,8 @@ describe(__filename, () => {
       .toHaveProp('value', collection.name);
     expect(root.find('#collectionDescription'))
       .toHaveProp('defaultValue', collection.description);
+    expect(root.find('#collectionSlug'))
+      .toHaveProp('value', collection.slug);
   });
 
   it('does not populate form when updating to the same collection', () => {
@@ -98,15 +101,18 @@ describe(__filename, () => {
         id: 1,
         name: 'First name',
         description: 'First description',
+        slug: 'first-slug',
       }),
     });
     const root = render({ collection: firstCollection });
 
     const name = 'User typed name';
     const description = 'User typed description';
+    const slug = 'user-typed-slug';
 
     typeInput({ root, name: 'name', text: name });
     typeInput({ root, name: 'description', text: description });
+    typeInput({ root, name: 'slug', text: slug });
 
     // Simulate how a mounted component will get updated with the same
     // collection. E.G. This happens when pressing the submit button.
@@ -116,6 +122,7 @@ describe(__filename, () => {
     expect(root.find('#collectionName')).toHaveProp('value', name);
     expect(root.find('#collectionDescription'))
       .toHaveProp('defaultValue', description);
+    expect(root.find('#collectionSlug')).toHaveProp('value', slug);
   });
 
   it('captures inputted text', () => {
@@ -123,12 +130,14 @@ describe(__filename, () => {
       detail: createFakeCollectionDetail({
         name: 'OG name',
         description: 'OG description',
+        slug: 'og-slug',
       }),
     });
     const root = render({ collection });
 
     const nameInput = root.find('#collectionName');
     const descriptionInput = root.find('#collectionDescription');
+    const slugInput = root.find('#collectionSlug');
 
     nameInput.simulate('change', createFakeEvent({
       target: { name: 'name', value: 'New name' },
@@ -136,40 +145,48 @@ describe(__filename, () => {
     descriptionInput.simulate('change', createFakeEvent({
       target: { name: 'description', value: 'New description' },
     }));
+    slugInput.simulate('change', createFakeEvent({
+      target: { name: 'slug', value: 'new-slug' },
+    }));
 
     expect(root.find('#collectionName')).toHaveProp('value', 'New name');
     expect(root.find('#collectionDescription'))
       .toHaveProp('defaultValue', 'New description');
+    expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
   });
 
   it('updates the collection on submit', () => {
-    const authorId = 2221;
+    const authorUsername = 'some-user';
     const errorHandler = createStubErrorHandler();
     const lang = 'en-US';
     dispatchSignInActions({ lang, store });
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorId }),
+      detail: createFakeCollectionDetail({ authorUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, errorHandler });
 
-    // Enter a new name and description.
+    // Fill in the form with new values.
     const name = 'A new name';
     const description = 'A new description';
+    const slug = 'new-slug';
 
     typeInput({ root, name: 'name', text: name });
     typeInput({ root, name: 'description', text: description });
+    typeInput({ root, name: 'slug', text: slug });
 
     simulateSubmit(root);
 
     sinon.assert.calledWith(dispatchSpy, updateCollection({
       collectionSlug: collection.slug,
+      defaultLocale: collection.defaultLocale,
       description: { [lang]: description },
       errorHandlerId: errorHandler.id,
       formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: name },
-      user: authorId,
+      slug,
+      user: authorUsername,
     }));
   });
 
@@ -200,12 +217,12 @@ describe(__filename, () => {
   });
 
   it('allows a blank description', () => {
-    const authorId = 99981;
+    const authorUsername = 'collection-owner';
     const lang = 'en-US';
     dispatchSignInActions({ lang, store });
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorId }),
+      detail: createFakeCollectionDetail({ authorUsername }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -219,11 +236,13 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, updateCollection({
       collectionSlug: collection.slug,
+      defaultLocale: collection.defaultLocale,
       description: { [lang]: '' },
       errorHandlerId: root.instance().props.errorHandler.id,
       formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: collection.name },
-      user: authorId,
+      slug: collection.slug,
+      user: authorUsername,
     }));
   });
 

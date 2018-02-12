@@ -38,6 +38,7 @@ export type CollectionType = {
   authorId: number,
   authorName: string,
   authorUsername: string,
+  defaultLocale: string,
   description: string | null,
   id: number,
   lastUpdatedDate: string,
@@ -451,12 +452,12 @@ export const addAddonToCollection = ({
 type UpdateCollectionParams = {|
   errorHandlerId: string,
   collectionSlug: string,
-  defaultLocale?: string,
-  description?: LocalizedString,
+  defaultLocale: ?string,
+  description: ?LocalizedString,
   formOverlayId: string,
-  isPublic?: boolean,
-  name?: LocalizedString,
-  user: number | string,
+  name: ?LocalizedString,
+  slug: ?string,
+  user: string,
 |};
 
 export type UpdateCollectionAction = {|
@@ -470,8 +471,8 @@ export const updateCollection = ({
   defaultLocale,
   description,
   formOverlayId,
-  isPublic,
   name,
+  slug,
   user,
 }: UpdateCollectionParams = {}): UpdateCollectionAction => {
   if (!errorHandlerId) {
@@ -495,8 +496,8 @@ export const updateCollection = ({
       defaultLocale,
       description,
       formOverlayId,
-      isPublic,
       name,
+      slug,
       user,
     },
   };
@@ -573,6 +574,7 @@ export const createInternalCollection = ({
   authorId: detail.author.id,
   authorName: detail.author.name,
   authorUsername: detail.author.username,
+  defaultLocale: detail.default_locale,
   description: detail.description,
   id: detail.id,
   lastUpdatedDate: detail.modified,

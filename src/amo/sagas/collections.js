@@ -1,5 +1,11 @@
 /* @flow */
+// Disabled because of
+// https://github.com/benmosher/eslint-plugin-import/issues/793
+/* eslint-disable import/order */
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import { push as pushLocation } from 'react-router-redux';
+/* eslint-enable import/order */
+
 import {
   ADD_ADDON_TO_COLLECTION,
   FETCH_CURRENT_COLLECTION,
@@ -167,8 +173,8 @@ export function* updateCollection({
     defaultLocale,
     description,
     formOverlayId,
-    isPublic,
     name,
+    slug,
     user,
   },
 }: UpdateCollectionAction): Generator<any, any, any> {
@@ -184,17 +190,35 @@ export function* updateCollection({
       collectionSlug,
       defaultLocale,
       description,
-      isPublic,
       name,
+      slug,
       user,
     };
     yield call(api.updateCollection, params);
 
-    // Invalidate the stored collection object. This will force each
-    // component to re-fetch the collection.
-    yield put(deleteCollectionBySlug(collectionSlug));
+    const slugWasEdited = slug && slug !== collectionSlug;
+    const effectiveSlug = slug || collectionSlug;
+
     yield put(closeFormOverlay(formOverlayId));
     yield put(finishFormOverlaySubmit(formOverlayId));
+
+    const { lang, clientApp } = state.api;
+    // TODO: invalidate the stored collection instead of redirecting.
+    // Ultimately, we just want to invalidate the old collection data.
+    // This redirect is in place to handle slug changes but it causes
+    // a race condition if we mix it with deleting old collection data.
+    // If we could move to an ID based URL then we won't have to redirect.
+    // See https://github.com/mozilla/addons-server/issues/7529
+    yield put(pushLocation(
+      `/${lang}/${clientApp}/collections/${user}/${effectiveSlug}/`
+    ));
+
+    if (!slugWasEdited) {
+      // Invalidate the stored collection object. This will force each
+      // component to re-fetch the collection. This is only necessary
+      // when the slug hasn't changed.
+      yield put(deleteCollectionBySlug(effectiveSlug));
+    }
   } catch (error) {
     log.warn(`Failed to update collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
