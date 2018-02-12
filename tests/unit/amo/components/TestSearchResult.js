@@ -11,6 +11,8 @@ import Rating from 'ui/components/Rating';
 
 
 describe(__filename, () => {
+  const lastUpdated = Date.now();
+
   const baseAddon = createInternalAddon({
     ...fakeAddon,
     authors: [
@@ -20,6 +22,7 @@ describe(__filename, () => {
     average_daily_users: 5253,
     name: 'A search result',
     slug: 'a-search-result',
+    last_updated: lastUpdated,
   });
 
   function render({ addon = baseAddon, lang = 'en-GB', ...props } = {}) {
@@ -175,5 +178,18 @@ describe(__filename, () => {
     const root = render({ showMetadata: false });
 
     expect(root.find('.SearchResult-metadata')).toHaveLength(0);
+  });
+
+  it('renders the lastUpdate date when requested', () => {
+    const root = render({ sortedByDate: true });
+
+    expect(root.find('.SearchResult-lastUpdated'))
+      .toIncludeText('Last updated: a few seconds ago');
+  });
+
+  it('excludes the lastUpdate date when not requested', () => {
+    const root = render();
+
+    expect(root).not.toHaveClassName('SearchResult-lastUpdated');
   });
 });

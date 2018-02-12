@@ -21,6 +21,7 @@ export class SearchResultBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     showMetadata: PropTypes.bool,
     showSummary: PropTypes.bool,
+    sortedByDate: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -33,8 +34,21 @@ export class SearchResultBase extends React.Component {
     return addon && addon.type === ADDON_TYPE_THEME;
   }
 
+  lastUpdatedText() {
+    const { addon, i18n, sortedByDate } = this.props;
+    const lastUpdated = addon && sortedByDate && i18n.sprintf(
+      // translators: This will output, in English:
+      // "2 months ago (Dec 12 2016)"
+      i18n.gettext('%(timeFromNow)s (%(date)s)'), {
+        timeFromNow: i18n.moment(addon.last_updated).fromNow(),
+        date: i18n.moment(addon.last_updated).format('ll'),
+      }
+    );
+    return lastUpdated && `${i18n.gettext('Last updated')}: ${lastUpdated}`;
+  }
+
   renderResult() {
-    const { addon, i18n, showMetadata, showSummary } = this.props;
+    const { addon, i18n, showMetadata, showSummary, sortedByDate } = this.props;
 
     const isTheme = this.addonIsTheme();
     const averageDailyUsers = addon && addon.average_daily_users;
@@ -63,6 +77,14 @@ export class SearchResultBase extends React.Component {
         </h3>
       );
     }
+
+    const lastUpdated = sortedByDate ?
+      (
+        <h3 className="SearchResult-lastUpdated SearchResult--meta-section">
+          {this.lastUpdatedText() || <LoadingText />}
+        </h3>
+      ) :
+      null;
 
     let summary = null;
     if (showSummary) {
@@ -104,6 +126,7 @@ export class SearchResultBase extends React.Component {
                 />
               </div>
               {addonAuthors}
+              {lastUpdated}
             </div>
           ) : null}
         </div>

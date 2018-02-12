@@ -11,6 +11,7 @@ import SearchResults from 'amo/components/SearchResults';
 import I18nProvider from 'core/i18n/Provider';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
+import { SEARCH_SORT_UPDATED } from 'core/constants';
 
 
 describe('<SearchResults />', () => {
@@ -98,5 +99,14 @@ describe('<SearchResults />', () => {
 
     expect(addonsCard.props.addons).toEqual(results);
     expect(addonsCard.props.loading).toEqual(false);
+  });
+
+  it('passes the correct value for sortedByDate to AddonsCard', () => {
+    const root = renderResults({
+      filters: { query: 'test', sort: SEARCH_SORT_UPDATED },
+    });
+    const addonsCard = findRenderedComponentWithType(root, AddonsCard);
+
+    expect(addonsCard.props.sortedByDate).toEqual(true);
   });
 });
