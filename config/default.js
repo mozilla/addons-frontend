@@ -90,6 +90,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableClientConsole',
+    'enableCollectionEdit',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -272,4 +273,9 @@ module.exports = {
 
   // See the Discopane config for how this is currently used.
   taarParamsToUse: [],
+
+  // Feature flags.
+
+  // Expose the new screen for editing a collection.
+  enableCollectionEdit: false,
 };
