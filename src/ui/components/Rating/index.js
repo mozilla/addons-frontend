@@ -9,7 +9,7 @@ import translate from 'core/i18n/translate';
 import './styles.scss';
 
 
-const RATING_STYLES = ['small', 'large', 'small-monochrome'];
+const RATING_STYLES = ['small', 'large', 'small-monochrome', 'small-by-user'];
 
 export class RatingBase extends React.Component {
   static propTypes = {

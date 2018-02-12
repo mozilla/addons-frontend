@@ -44,6 +44,11 @@ describe('ui/components/Rating', () => {
     expect(root.element.className).toContain('Rating--small');
   });
 
+  it('can be classified as small-by-user', () => {
+    const root = render({ styleName: 'small-by-user' });
+    expect(root.element.className).toContain('Rating--small-by-user');
+  });
+
   it('throws an error for invalid styleNames', () => {
     expect(() => render({ styleName: 'x-large' }))
       .toThrowError(/styleName=x-large is not a valid value; possible values: small,/);

@@ -55,7 +55,8 @@
 }
 
 .Rating--small .Rating-choice,
-.Rating--small-monochrome .Rating-choice {
+.Rating--small-monochrome .Rating-choice,
+.Rating--small-by-user .Rating-choice {
   background-size: $rating-s-star-size;
   height: $rating-s-star-size + $rating-s-star-gutter;
   margin: 0;
@@ -73,5 +74,15 @@
 
   .Rating-half-star {
     background-image: url("~ui/components/Icon/img/star-half.svg");
+  }
+}
+
+.Rating--small-by-user {
+  .Rating-choice {
+    background-image: url("./img/dim-star-gold.svg");
+  }
+
+  .Rating-selected-star {
+    background-image: url("./img/full-star-gold.svg");
   }
 }
