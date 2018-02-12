@@ -6,7 +6,6 @@ import CollectionManager, {
 import {
   createInternalCollection, updateCollection,
 } from 'amo/reducers/collections';
-import { logOutUser } from 'amo/reducers/users';
 import { setLang } from 'core/actions';
 import { setErrorMessage } from 'core/actions/errors';
 import {
@@ -144,13 +143,13 @@ describe(__filename, () => {
   });
 
   it('updates the collection on submit', () => {
+    const authorId = 2221;
     const errorHandler = createStubErrorHandler();
     const lang = 'en-US';
-    const userId = 54321;
-    dispatchSignInActions({ lang, store, userId });
+    dispatchSignInActions({ lang, store });
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail(),
+      detail: createFakeCollectionDetail({ authorId }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, errorHandler });
@@ -170,7 +169,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: name },
-      user: userId,
+      user: authorId,
     }));
   });
 
@@ -201,12 +200,12 @@ describe(__filename, () => {
   });
 
   it('allows a blank description', () => {
+    const authorId = 99981;
     const lang = 'en-US';
-    const userId = 54321;
-    dispatchSignInActions({ lang, store, userId });
+    dispatchSignInActions({ lang, store });
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail(),
+      detail: createFakeCollectionDetail({ authorId }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -224,7 +223,7 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: collection.name },
-      user: userId,
+      user: authorId,
     }));
   });
 
@@ -233,14 +232,6 @@ describe(__filename, () => {
 
     expect(() => simulateSubmit(root))
       .toThrow(/cannot be submitted without a collection/);
-  });
-
-  it('requires a user before submitting a form', () => {
-    store.dispatch(logOutUser());
-    const root = render();
-
-    expect(() => simulateSubmit(root))
-      .toThrow(/cannot be submitted without a user/);
   });
 
   it('requires a language before submitting a form', () => {

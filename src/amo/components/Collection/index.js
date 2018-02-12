@@ -142,12 +142,7 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   editCollectionLink() {
-    const { _config, hasEditPermission, i18n } = this.props;
-
-    if (!hasEditPermission) {
-      return null;
-    }
-
+    const { _config, i18n } = this.props;
     const props = {};
 
     if (_config.get('enableCollectionEdit')) {
@@ -169,6 +164,7 @@ export class CollectionBase extends React.Component<Props> {
   renderCollection() {
     const {
       collection,
+      hasEditPermission,
       i18n,
       loading,
       location,
@@ -208,7 +204,7 @@ export class CollectionBase extends React.Component<Props> {
               },
             ]}
           />
-          {this.editCollectionLink()}
+          {hasEditPermission ? this.editCollectionLink() : null}
         </Card>
         <div className="Collection-items">
           <AddonsCard

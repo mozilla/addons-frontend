@@ -8,7 +8,6 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import FormOverlay from 'ui/components/FormOverlay';
 import type { CollectionType } from 'amo/reducers/collections';
-import type { UsersStateType } from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
@@ -21,7 +20,6 @@ type Props = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   siteLang: ?string,
-  siteUserId: number | null,
 |};
 
 type State = {|
@@ -42,7 +40,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     if (props.collection && props.collection.id !== existingId) {
       // Only reset the form when receiving a collection that the
       // user is not already editing. This prevents clearing the form
-      // when pressing the submit button.
+      // in a few scenarios such as pressing the submit button.
       this.setState(this.propsToState(props));
     }
   }
@@ -62,7 +60,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       dispatch,
       i18n,
       siteLang,
-      siteUserId,
     } = this.props;
 
     if (!collection) {
@@ -70,12 +67,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       // collection so a user will not likely see this.
       throw new Error(
         'The form cannot be submitted without a collection');
-    }
-    if (!siteUserId) {
-      // The component won't be visible without a signed in user so a
-      // user will not likely see this.
-      throw new Error(
-        'The form cannot be submitted without a user');
     }
     if (!siteLang) {
       // It is not possible to browse the site without a language so
@@ -98,7 +89,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       errorHandlerId: errorHandler.id,
       formOverlayId: COLLECTION_OVERLAY,
       name: { [siteLang]: this.state.name },
-      user: siteUserId,
+      user: collection.authorId,
     }));
   }
 
@@ -156,16 +147,12 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
 export const extractId = (ownProps: Props) => {
   const { collection } = ownProps;
-
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (
-  state: {| api: ApiStateType, users: UsersStateType |}
-) => {
+export const mapStateToProps = (state: {| api: ApiStateType |}) => {
   return {
     siteLang: state.api.lang,
-    siteUserId: state.users.currentUserID,
   };
 };
 
