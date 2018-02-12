@@ -213,9 +213,9 @@ export class HomeBase extends React.Component {
           className="Home-FeaturedCollection"
           header={i18n.gettext('Privacy tools')}
           footerText={i18n.gettext('See more privacy tools')}
-          footerLink={{ pathname:
-            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`,
-          }}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 
@@ -239,20 +239,20 @@ export class HomeBase extends React.Component {
           className="Home-FeaturedCollection"
           header={i18n.gettext('Re-imagine search')}
           footerText={i18n.gettext('See more search extensions')}
-          footerLink={{ pathname:
-            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`,
-          }}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 
         <LandingAddonsCard
           addons={collections[2]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext(`February's new featured extensions`)}
+          header={i18n.gettext(`February’s new featured extensions`)}
           footerText={i18n.gettext('See all the new featured extensions')}
-          footerLink={{ pathname:
-            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`,
-          }}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 

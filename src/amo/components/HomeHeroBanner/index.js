@@ -68,7 +68,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-5"
-          linkTo="/addon/%E7%BF%BB%E8%AF%91%E4%BE%A0-translate-man/"
+          linkTo="/addon/翻译侠-translate-man/"
         >
           <h3>{i18n.gettext('Translate Man')}</h3>
           <p>
@@ -108,7 +108,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Keep different parts of your online
-              life—work, personal, etc.—separated by color-coded tabs`)}
+              life—work, personal, etc.—separated by color-coded tabs.`)}
           </p>
         </HeroSection>
       ),

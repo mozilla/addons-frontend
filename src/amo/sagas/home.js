@@ -31,12 +31,12 @@ export function* fetchHomeAddons({
 
     const collections = [];
     // eslint-disable-next-line no-restricted-syntax
-    for (const coll of collectionsToFetch) {
+    for (const collection of collectionsToFetch) {
       const result = yield call(getCollectionAddons, {
         api: state.api,
         page: 1,
-        slug: coll.slug,
-        user: coll.user,
+        slug: collection.slug,
+        user: collection.user,
       });
       collections.push(result);
     }
