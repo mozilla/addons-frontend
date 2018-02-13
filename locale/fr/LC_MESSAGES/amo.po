@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 22:09+0000\n"
+"PO-Revision-Date: 2018-02-13 23:09+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -862,9 +862,8 @@ msgid "Popular themes"
 msgstr "Thèmes populaires"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Plus de thèmes populaires"
+msgstr "Voir plus de thèmes populaires"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
@@ -919,9 +918,8 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr "Séparez vos identités sur le Web (travail, personnel, etc.) à l’aide d’onglets contextuels colorés"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Rechercher"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
@@ -936,9 +934,8 @@ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you
 msgstr "Effacez automatiquement certaines données (cookies, stockage local, etc.) de l’ensemble des sites visités, sauf ceux sur votre liste blanche."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "pour Firefox"
+msgstr "Zoom pour Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
@@ -977,9 +974,8 @@ msgid "Secure encryption for webmail."
 msgstr "Chiffrement sécurisé pour les messageries en ligne."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
