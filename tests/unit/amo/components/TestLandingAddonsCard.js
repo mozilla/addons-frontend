@@ -59,4 +59,10 @@ describe(__filename, () => {
     const root = render({ addons, placeholderCount: 2 });
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
   });
+
+  it('accepts a string for the footer link', () => {
+    const linkString = '/some/link/';
+    const root = render({ footerLink: linkString });
+    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(linkString);
+  });
 });

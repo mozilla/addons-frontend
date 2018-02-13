@@ -11,7 +11,7 @@ export default class LandingAddonsCard extends React.Component {
   static propTypes = {
     addons: PropTypes.array.isRequired,
     className: PropTypes.string,
-    footerLink: PropTypes.object.isRequired,
+    footerLink: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
     footerText: PropTypes.string.isRequired,
     header: PropTypes.node.isRequired,
     loading: PropTypes.bool.isRequired,
@@ -35,10 +35,12 @@ export default class LandingAddonsCard extends React.Component {
 
     let footerLinkHtml = null;
     if (addons && addons.length >= placeholderCount) {
-      const linkSearchURL = {
-        ...footerLink,
-        query: convertFiltersToQueryParams(footerLink.query),
-      };
+      const linkSearchURL = typeof footerLink === 'string' ?
+        footerLink :
+        {
+          ...footerLink,
+          query: convertFiltersToQueryParams(footerLink.query),
+        };
       footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
     }
 
