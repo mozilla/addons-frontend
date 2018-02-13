@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 21:31+0000\n"
+"PO-Revision-Date: 2018-02-13 21:38+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -912,7 +912,7 @@ msgstr "Mbajini anët e ndryshme të jetës tuaj internetore - punë, personale,
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "SearchPreview"
-msgstr ""
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
@@ -932,15 +932,15 @@ msgstr "Zoom për Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Mjet i thjeshtë zmadhim/zvogëlimesh për pamje nga afër të çfarëdo lënde në web."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Përmbajtës të Përkohshëm"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Hapni faqe brenda përmbajtësish njëpërdorimësh të dhënash."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -952,43 +952,43 @@ msgstr "Zëvendësoni skedën tuaj të re me një pult personal - listë punësh
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Gjurmoni cilët ju gjurmojnë."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "Fshehtëzim i sigurt për webmail."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Translate Man"
-msgstr ""
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Përkthime të atypëratyshme point-and-click."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Bllokues i fuqishëm, i efektshëm, reklamash."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "Zgjerim popullor kundër gjurmimeve, që tani ka aftësi bllokimi reklamash."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1679,7 +1679,7 @@ msgstr "Shfaq/Fshih lëndë"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Klikoni për ta mbyllur"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
