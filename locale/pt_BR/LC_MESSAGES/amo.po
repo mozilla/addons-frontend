@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 22:29+0000\n"
+"PO-Revision-Date: 2018-02-13 22:50+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -908,13 +908,12 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr "Mantenha diferentes partes da sua vida on-line — como trabalho, pessoal, etc. — separadas por abas coloridas."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Pesquisar"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Melhore os resultados de pesquisa com visualizações em miniatura, classificações de popularidade e muito mais."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
@@ -930,15 +929,15 @@ msgstr "Zoom para o Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Simples ferramenta de zoom para ver de perto qualquer conteúdo da web."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Abra páginas com contêineres de dados descartáveis."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -950,19 +949,19 @@ msgstr "Substitua sua nova aba por um painel de controle pessoal, com lista de t
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Rastreie quem está rastreando você."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "Criptografia segura para webmail."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Translate Man"
@@ -970,7 +969,7 @@ msgstr "Tradução humana"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Traduções instantâneas ao clicar e selecionar."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
