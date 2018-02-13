@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:28+0000\n"
+"POT-Creation-Date: 2018-02-13 19:14+0000\n"
 "PO-Revision-Date: 2018-01-30 21:15+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -44,12 +44,12 @@ msgid "Add to collection"
 msgstr "Pridať do kolekcie"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Tap to preview"
-msgstr "Ťuknutím zobrazíte ukážku"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Cancel preview"
 msgstr "Zrušiť ukážku"
+
+#: src/amo/components/Addon/index.js:182
+msgid "Tap to preview"
+msgstr "Ťuknutím zobrazíte ukážku"
 
 #: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
@@ -286,7 +286,7 @@ msgid "Version"
 msgstr "Verzia"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
-#: src/amo/components/Collection/index.js:165
+#: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Posledná aktualizácia"
 
@@ -459,91 +459,89 @@ msgstr "Kategórie"
 msgid "Loading categories."
 msgstr "Načítavanie kategórií."
 
-#: src/amo/components/Category/index.js:125
+#: src/amo/components/Category/index.js:128
 #: src/amo/components/LandingPage/index.js:202
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Rozšírenia"
 
-#: src/amo/components/Category/index.js:126
-#: src/amo/components/Home/index.js:258
+#: src/amo/components/Category/index.js:129
+#: src/amo/components/Home/index.js:199
 #: src/amo/components/LandingPage/index.js:121
 #: src/amo/components/Search/index.js:111
 msgid "Featured extensions"
 msgstr "Odporúčané rozšírenia"
 
-#: src/amo/components/Category/index.js:135
-#: src/amo/components/Home/index.js:259
+#: src/amo/components/Category/index.js:138
+#: src/amo/components/Home/index.js:200
 #: src/amo/components/LandingPage/index.js:129
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Ďalšie odporúčané rozšírenia"
 
-#: src/amo/components/Category/index.js:136
+#: src/amo/components/Category/index.js:139
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Najlepšie hodnotené rozšírenia"
 
-#: src/amo/components/Category/index.js:145
+#: src/amo/components/Category/index.js:148
 #: src/amo/components/LandingPage/index.js:135
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "Ďalšie odporúčané rozšírenia"
 
-#: src/amo/components/Category/index.js:146
+#: src/amo/components/Category/index.js:149
 #: src/amo/components/LandingPage/index.js:136
 #: src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
 msgstr "Najlepšie hodnotené rozšírenia"
 
-#: src/amo/components/Category/index.js:155
+#: src/amo/components/Category/index.js:158
 #: src/amo/components/LandingPage/index.js:144
 #, fuzzy
 msgid "See more top rated extensions"
 msgstr "Najlepšie hodnotené rozšírenia"
 
-#: src/amo/components/Category/index.js:158
+#: src/amo/components/Category/index.js:161
 #: src/amo/components/LandingPage/index.js:201
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Témy vzhľadu"
 
-#: src/amo/components/Category/index.js:159
-#: src/amo/components/Home/index.js:228
+#: src/amo/components/Category/index.js:162
 #: src/amo/components/LandingPage/index.js:147
 #: src/amo/components/Search/index.js:114
 msgid "Featured themes"
 msgstr "Odporúčané témy vzhľadu"
 
-#: src/amo/components/Category/index.js:168
-#: src/amo/components/Home/index.js:229
+#: src/amo/components/Category/index.js:171
 #: src/amo/components/LandingPage/index.js:155
 #, fuzzy
 msgid "See more featured themes"
 msgstr "Ďalšie odporúčané témy vzhľadu"
 
-#: src/amo/components/Category/index.js:169
+#: src/amo/components/Category/index.js:172
 #: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:127
 #, fuzzy
 msgid "Trending themes"
 msgstr "Najlepšie hodnotené témy vzhľadu"
 
-#: src/amo/components/Category/index.js:178
+#: src/amo/components/Category/index.js:181
 #: src/amo/components/LandingPage/index.js:161
 #, fuzzy
 msgid "See more trending themes"
 msgstr "Ďalšie odporúčané témy vzhľadu"
 
-#: src/amo/components/Category/index.js:179
+#: src/amo/components/Category/index.js:182
 #: src/amo/components/LandingPage/index.js:162
 #: src/amo/components/Search/index.js:139
 msgid "Top rated themes"
 msgstr "Najlepšie hodnotené témy vzhľadu"
 
-#: src/amo/components/Category/index.js:188
+#: src/amo/components/Category/index.js:191
 #: src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
 msgstr "Ďalšie dobre hodnotené témy vzhľadu"
@@ -560,18 +558,45 @@ msgstr "Prehliadať všetky rozšírenia v tejto kategórii."
 msgid "Browse all themes in this category."
 msgstr "Prehliadať všetky témy vzhľadu v tejto kategórii."
 
-#: src/amo/components/Collection/index.js:155
+#: src/amo/components/Collection/index.js:159
+msgid "Edit this collection"
+msgstr "Upraviť túto kolekciu"
+
+#: src/amo/components/Collection/index.js:193
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Doplnky"
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:197
 msgid "Creator"
 msgstr "Autor:"
 
-#: src/amo/components/Collection/index.js:172
-msgid "Edit this collection"
+#: src/amo/components/CollectionManager/index.js:119
+#, fuzzy
+msgid "Save collection"
+msgstr "Vytvoriť novú kolekciu"
+
+#: src/amo/components/CollectionManager/index.js:120
+#, fuzzy
+msgid "Saving collection"
+msgstr "Vytvoriť novú kolekciu"
+
+#: src/amo/components/CollectionManager/index.js:121
+#, fuzzy
+msgid "Edit collection"
 msgstr "Upraviť túto kolekciu"
+
+#: src/amo/components/CollectionManager/index.js:125
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:135
+msgid "Description"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:81
+msgid "Collection name cannot be blank"
+msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -910,113 +935,145 @@ msgstr "Doplnky pre Firefox"
 msgid "My Account"
 msgstr "Môj účet"
 
-#: src/amo/components/Home/index.js:112
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Abstraktné"
 
-#: src/amo/components/Home/index.js:117
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Príroda"
 
-#: src/amo/components/Home/index.js:122
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Filmy a TV"
 
-#: src/amo/components/Home/index.js:127
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Scenérie"
 
-#: src/amo/components/Home/index.js:132
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Hudba"
 
-#: src/amo/components/Home/index.js:137
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Sezónne"
 
-#: src/amo/components/Home/index.js:169
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Zmeňte vzhľad Firefoxu prostredníctvom tém."
 
-#: src/amo/components/Home/index.js:202 src/amo/components/Search/index.js:148
-msgid "Popular extensions"
-msgstr "Populárne rozšírenia"
+#: src/amo/components/Home/index.js:214
+#, fuzzy
+msgid "Privacy tools"
+msgstr "Zásady ochrany súkromia"
 
-#: src/amo/components/Home/index.js:203
-msgid "See more popular extensions"
-msgstr "Ďalšie populárne rozšírenia"
+#: src/amo/components/Home/index.js:215
+#, fuzzy
+msgid "See more privacy tools"
+msgstr "Hľadať v rozšíreniach"
 
-#: src/amo/components/Home/index.js:217
-msgid "Media downloaders"
+#: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
+msgid "Popular themes"
+msgstr "Populárne témy vzhľadu"
+
+#: src/amo/components/Home/index.js:226
+#, fuzzy
+msgid "See more popular themes"
+msgstr "Ďalšie populárne témy vzhľadu"
+
+#: src/amo/components/Home/index.js:240
+msgid "Re-imagine search"
 msgstr ""
 
-#: src/amo/components/Home/index.js:218
+#: src/amo/components/Home/index.js:241
 #, fuzzy
-msgid "See more media downloaders"
-msgstr "Ďalšie odporúčané témy vzhľadu"
+msgid "See more search extensions"
+msgstr "Hľadať v rozšíreniach"
 
-#: src/amo/components/Home/index.js:243
+#: src/amo/components/Home/index.js:251
 #, fuzzy
-msgid "Top-rated Extensions"
-msgstr "Najlepšie hodnotené rozšírenia"
+msgid "February’s new featured extensions"
+msgstr "Ďalšie odporúčané rozšírenia"
 
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:252
 #, fuzzy
-msgid "See more highly rated Extensions"
-msgstr "Ďalšie rozšírenia s vysokým hodnotením"
+msgid "See all the new featured extensions"
+msgstr "Ďalšie odporúčané rozšírenia"
 
-#: src/amo/components/Home/index.js:61
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr ""
 
-#: src/amo/components/Home/index.js:65
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr ""
 
-#: src/amo/components/Home/index.js:69
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr ""
 
-#: src/amo/components/Home/index.js:73
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/components/Home/index.js:77
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr ""
 
-#: src/amo/components/Home/index.js:81
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:109
+#: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:112
+#: src/amo/components/HomeHeroBanner/index.js:110
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
+"color-coded tabs."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:122
-msgid "Tree Style Tab"
+#: src/amo/components/HomeHeroBanner/index.js:120
+#, fuzzy
+msgid "SearchPreview"
+msgstr "Hľadať"
+
+#: src/amo/components/HomeHeroBanner/index.js:123
+msgid ""
+"Enhance search results with thumbnail previews, popularity ranks & more."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:124
-msgid "Display tabs in a space-saving “tree” layout."
+#: src/amo/components/HomeHeroBanner/index.js:133
+msgid "Forget Me Not"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:136
+msgid ""
+"Automatically delete data (cookies, local storage, etc.) on all sites you "
+"visit except those on your whitelist."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:146
+#, fuzzy
+msgid "Zoom for Firefox"
+msgstr "pre Firefox"
+
+#: src/amo/components/HomeHeroBanner/index.js:149
+msgid "Simple zoom in/out tool for a close-up view of any web content."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-msgid "Wikipedia Context Menu Search"
+msgid "Temporary Containers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
-msgid "Highlight any text and search Wikipedia."
+msgid "Open pages with disposable data containers."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
@@ -1030,48 +1087,45 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Undo Close Tab Button"
+msgid "Kimetrak"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:54
-msgid "Never lose a page again."
+msgid "Track who’s tracking you."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:62
-msgid "Grammarly"
+msgid "Mailvelope"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:64
-msgid ""
-"Get grammar help anywhere you write on the web—social media, email, docs and "
-"more."
+msgid "Secure encryption for webmail."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:74
-msgid "Facebook Filter"
+#: src/amo/components/HomeHeroBanner/index.js:73
+#, fuzzy
+msgid "Translate Man"
+msgstr "S3.Translator"
+
+#: src/amo/components/HomeHeroBanner/index.js:75
+msgid "Point-and-click instant translations."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:76
-msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+#: src/amo/components/HomeHeroBanner/index.js:84
+msgid "uBlock Origin"
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Gesturefy"
+msgid "Efficient, powerful ad blocker."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:88
-msgid "40+ customizable mouse gestures."
+#: src/amo/components/HomeHeroBanner/index.js:94
+msgid "Ghostery"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:96
-msgid "LastPass Password Manager"
-msgstr "Správca hesiel LastPass"
-
-#: src/amo/components/HomeHeroBanner/index.js:99
-msgid "Easily manage all your passwords for all devices from one spot"
+#: src/amo/components/HomeHeroBanner/index.js:97
+msgid "Popular anti-tracking extension now has ad blocking ability."
 msgstr ""
-"Spravujte všetky svoje heslá na všetkých svojich zariadeniach z jedného "
-"miesta"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid ""
@@ -1230,9 +1284,9 @@ msgstr "Načítavanie doplnkov"
 msgid "Top rated add-ons"
 msgstr "Najlepšie hodnotené doplnky"
 
-#: src/amo/components/Search/index.js:151
-msgid "Popular themes"
-msgstr "Populárne témy vzhľadu"
+#: src/amo/components/Search/index.js:148
+msgid "Popular extensions"
+msgstr "Populárne rozšírenia"
 
 #: src/amo/components/Search/index.js:154
 msgid "Popular add-ons"
@@ -1812,6 +1866,7 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:126
+#: src/ui/components/FormOverlay/index.js:132
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -1820,10 +1875,12 @@ msgid "Enter text."
 msgstr "Zadajte text."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
+#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Odoslať"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
+#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "Odosiela sa"
 
@@ -1843,6 +1900,10 @@ msgstr "Ak chcete pokračovať, obnovte kartu"
 msgid "Toggle contents"
 msgstr "Prepnúť obsah"
 
+#: src/ui/components/FormOverlay/index.js:117
+msgid "Click to close"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Hodnotenie: %(rating)s z 5"
@@ -1856,6 +1917,29 @@ msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
 
+#~ msgid "See more popular extensions"
+#~ msgstr "Ďalšie populárne rozšírenia"
+
+#, fuzzy
+#~ msgid "See more media downloaders"
+#~ msgstr "Ďalšie odporúčané témy vzhľadu"
+
+#, fuzzy
+#~ msgid "Top-rated Extensions"
+#~ msgstr "Najlepšie hodnotené rozšírenia"
+
+#, fuzzy
+#~ msgid "See more highly rated Extensions"
+#~ msgstr "Ďalšie rozšírenia s vysokým hodnotením"
+
+#~ msgid "LastPass Password Manager"
+#~ msgstr "Správca hesiel LastPass"
+
+#~ msgid "Easily manage all your passwords for all devices from one spot"
+#~ msgstr ""
+#~ "Spravujte všetky svoje heslá na všetkých svojich zariadeniach z jedného "
+#~ "miesta"
+
 #~ msgid "Top-rated Themes"
 #~ msgstr "Najlepšie hodnotené témy vzhľadu"
 
@@ -1865,17 +1949,11 @@ msgstr ""
 #~ msgid "Productivity tools"
 #~ msgstr "Populárne rozšírenia"
 
-#~ msgid "See more productivity tools"
-#~ msgstr "Hľadať v rozšíreniach"
-
 #~ msgid "Privacy protection"
 #~ msgstr "Ochrana súkromia"
 
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Ďalšie doplnky, ktoré chránia vaše súkromie"
-
-#~ msgid "S3.Translator"
-#~ msgstr "S3.Translator"
 
 #~ msgid ""
 #~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
@@ -1918,9 +1996,6 @@ msgstr ""
 #~ msgid "Top privacy extensions"
 #~ msgstr "Najlepšie hodnotené rozšírenia"
 
-#~ msgid "See more tab extensions"
-#~ msgstr "Hľadať v rozšíreniach"
-
 #~ msgid "Excellent extensions for all situations"
 #~ msgstr "Excelentné rozšírenia pre každý prípad"
 
@@ -1940,9 +2015,6 @@ msgstr ""
 
 #~ msgid "Block ads"
 #~ msgstr "Blokovanie reklám"
-
-#~ msgid "uBlock Origin"
-#~ msgstr "uBlock Origin"
 
 #~ msgid "An extremely powerful ad blocker that’s simple to use"
 #~ msgstr "Extrémne výkonný blokovač reklám, ktorý sa jednoducho používa"
@@ -2007,9 +2079,6 @@ msgstr ""
 
 #~ msgid "Site Identifier"
 #~ msgstr "Identifikátor stránky"
-
-#~ msgid "More popular themes"
-#~ msgstr "Ďalšie populárne témy vzhľadu"
 
 #~ msgid "More Featured Extensions"
 #~ msgstr "Ďalšie odporúčané rozšírenia"

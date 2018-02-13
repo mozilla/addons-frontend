@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:28+0000\n"
+"POT-Creation-Date: 2018-02-13 19:14+0000\n"
 "PO-Revision-Date: 2018-01-25 18:55+0000\n"
 "Last-Translator: Linda DIB <lynda.dib@gmail.com>\n"
 "Language-Team: none\n"
@@ -48,12 +48,12 @@ msgid "Add to collection"
 msgstr "Inig akk taggayt"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Tap to preview"
-msgstr "Senned akken ad tsekned"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Cancel preview"
 msgstr "Sefsex taskant"
+
+#: src/amo/components/Addon/index.js:182
+msgid "Tap to preview"
+msgstr "Senned akken ad tsekned"
 
 #: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
@@ -282,7 +282,7 @@ msgid "Version"
 msgstr "Lqem"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
-#: src/amo/components/Collection/index.js:165
+#: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Aleqqem aneggaru"
 
@@ -454,91 +454,89 @@ msgstr "Taggayin"
 msgid "Loading categories."
 msgstr "Asali n taggayin."
 
-#: src/amo/components/Category/index.js:125
+#: src/amo/components/Category/index.js:128
 #: src/amo/components/LandingPage/index.js:202
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Isiɣzaf"
 
-#: src/amo/components/Category/index.js:126
-#: src/amo/components/Home/index.js:258
+#: src/amo/components/Category/index.js:129
+#: src/amo/components/Home/index.js:199
 #: src/amo/components/LandingPage/index.js:121
 #: src/amo/components/Search/index.js:111
 msgid "Featured extensions"
 msgstr "Isiɣzaf yettwaszemlen"
 
-#: src/amo/components/Category/index.js:135
-#: src/amo/components/Home/index.js:259
+#: src/amo/components/Category/index.js:138
+#: src/amo/components/Home/index.js:200
 #: src/amo/components/LandingPage/index.js:129
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:136
+#: src/amo/components/Category/index.js:139
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:145
+#: src/amo/components/Category/index.js:148
 #: src/amo/components/LandingPage/index.js:135
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:146
+#: src/amo/components/Category/index.js:149
 #: src/amo/components/LandingPage/index.js:136
 #: src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:155
+#: src/amo/components/Category/index.js:158
 #: src/amo/components/LandingPage/index.js:144
 #, fuzzy
 msgid "See more top rated extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:158
+#: src/amo/components/Category/index.js:161
 #: src/amo/components/LandingPage/index.js:201
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Isental"
 
-#: src/amo/components/Category/index.js:159
-#: src/amo/components/Home/index.js:228
+#: src/amo/components/Category/index.js:162
 #: src/amo/components/LandingPage/index.js:147
 #: src/amo/components/Search/index.js:114
 msgid "Featured themes"
 msgstr "Isental itran"
 
-#: src/amo/components/Category/index.js:168
-#: src/amo/components/Home/index.js:229
+#: src/amo/components/Category/index.js:171
 #: src/amo/components/LandingPage/index.js:155
 #, fuzzy
 msgid "See more featured themes"
 msgstr "Isental yettwasnen aṭas"
 
-#: src/amo/components/Category/index.js:169
+#: src/amo/components/Category/index.js:172
 #: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:127
 #, fuzzy
 msgid "Trending themes"
 msgstr "Isental yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:178
+#: src/amo/components/Category/index.js:181
 #: src/amo/components/LandingPage/index.js:161
 #, fuzzy
 msgid "See more trending themes"
 msgstr "Isental yettwasnen aṭas"
 
-#: src/amo/components/Category/index.js:179
+#: src/amo/components/Category/index.js:182
 #: src/amo/components/LandingPage/index.js:162
 #: src/amo/components/Search/index.js:139
 msgid "Top rated themes"
 msgstr "Isental yettwaszemlen aṭas"
 
-#: src/amo/components/Category/index.js:188
+#: src/amo/components/Category/index.js:191
 #: src/amo/components/LandingPage/index.js:167
 #, fuzzy
 msgid "See more top rated themes"
@@ -556,19 +554,46 @@ msgstr "Inig γer akk isiɣzaf di taggayt-ag."
 msgid "Browse all themes in this category."
 msgstr "Inig ɣer akk isental di teggayt-a."
 
-#: src/amo/components/Collection/index.js:155
+#: src/amo/components/Collection/index.js:159
+#, fuzzy
+msgid "Edit this collection"
+msgstr "Inig akk taggayt"
+
+#: src/amo/components/Collection/index.js:193
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Izegrar"
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:197
 msgid "Creator"
 msgstr "Yerna-t"
 
-#: src/amo/components/Collection/index.js:172
+#: src/amo/components/CollectionManager/index.js:119
 #, fuzzy
-msgid "Edit this collection"
+msgid "Save collection"
 msgstr "Inig akk taggayt"
+
+#: src/amo/components/CollectionManager/index.js:120
+#, fuzzy
+msgid "Saving collection"
+msgstr "Inig akk taggayt"
+
+#: src/amo/components/CollectionManager/index.js:121
+#, fuzzy
+msgid "Edit collection"
+msgstr "Inig akk taggayt"
+
+#: src/amo/components/CollectionManager/index.js:125
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:135
+msgid "Description"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:81
+msgid "Collection name cannot be blank"
+msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:36
 #, fuzzy
@@ -914,115 +939,147 @@ msgstr "Izegrar Firefox"
 msgid "My Account"
 msgstr "Amiḍan-iw"
 
-#: src/amo/components/Home/index.js:112
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Amadwan"
 
-#: src/amo/components/Home/index.js:117
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Agama"
 
-#: src/amo/components/Home/index.js:122
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Asaru d TV"
 
-#: src/amo/components/Home/index.js:127
+#: src/amo/components/Home/index.js:126
 #, fuzzy
 msgid "Scenery"
 msgstr "Scenic"
 
-#: src/amo/components/Home/index.js:132
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Aẓawan"
 
-#: src/amo/components/Home/index.js:137
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Asemhuyan"
 
-#: src/amo/components/Home/index.js:169
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Snifel amek id-ittban Firefox s isental."
 
-#: src/amo/components/Home/index.js:202 src/amo/components/Search/index.js:148
+#: src/amo/components/Home/index.js:214
 #, fuzzy
-msgid "Popular extensions"
-msgstr "Isiɣzaf yettwasnen aṭas"
+msgid "Privacy tools"
+msgstr "Tasertit n tbaḍnit"
 
-#: src/amo/components/Home/index.js:203
-msgid "See more popular extensions"
-msgstr "Isiɣzaf yettwasnen aṭas"
-
-#: src/amo/components/Home/index.js:217
-msgid "Media downloaders"
-msgstr ""
-
-#: src/amo/components/Home/index.js:218
+#: src/amo/components/Home/index.js:215
 #, fuzzy
-msgid "See more media downloaders"
+msgid "See more privacy tools"
+msgstr "Isiγzaf yettwaszemlen"
+
+#: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
+#, fuzzy
+msgid "Popular themes"
 msgstr "Isental yettwasnen aṭas"
 
-#: src/amo/components/Home/index.js:243
+#: src/amo/components/Home/index.js:226
 #, fuzzy
-msgid "Top-rated Extensions"
+msgid "See more popular themes"
+msgstr "Isental yettwasnen aṭas"
+
+#: src/amo/components/Home/index.js:240
+msgid "Re-imagine search"
+msgstr ""
+
+#: src/amo/components/Home/index.js:241
+#, fuzzy
+msgid "See more search extensions"
+msgstr "Isiγzaf yettwaszemlen"
+
+#: src/amo/components/Home/index.js:251
+#, fuzzy
+msgid "February’s new featured extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:252
 #, fuzzy
-msgid "See more highly rated Extensions"
-msgstr "Isiɣzaf yettwaszemlen ugar"
+msgid "See all the new featured extensions"
+msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Home/index.js:61
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Ticraḍ n isebtar"
 
-#: src/amo/components/Home/index.js:65
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Imsefrak n wawal uffir"
 
-#: src/amo/components/Home/index.js:69
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Imsewḥal n udellel"
 
-#: src/amo/components/Home/index.js:73
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/components/Home/index.js:77
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Tiffurest"
 
-#: src/amo/components/Home/index.js:81
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Wali tividyutin"
 
-#: src/amo/components/HomeHeroBanner/index.js:109
+#: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:112
+#: src/amo/components/HomeHeroBanner/index.js:110
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
+"color-coded tabs."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:122
-msgid "Tree Style Tab"
+#: src/amo/components/HomeHeroBanner/index.js:120
+#, fuzzy
+msgid "SearchPreview"
+msgstr "Nadi"
+
+#: src/amo/components/HomeHeroBanner/index.js:123
+msgid ""
+"Enhance search results with thumbnail previews, popularity ranks & more."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:124
-msgid "Display tabs in a space-saving “tree” layout."
+#: src/amo/components/HomeHeroBanner/index.js:133
+msgid "Forget Me Not"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:136
+msgid ""
+"Automatically delete data (cookies, local storage, etc.) on all sites you "
+"visit except those on your whitelist."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:146
+#, fuzzy
+msgid "Zoom for Firefox"
+msgstr "I Firefox"
+
+#: src/amo/components/HomeHeroBanner/index.js:149
+msgid "Simple zoom in/out tool for a close-up view of any web content."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-msgid "Wikipedia Context Menu Search"
+msgid "Temporary Containers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
-msgid "Highlight any text and search Wikipedia."
+msgid "Open pages with disposable data containers."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
@@ -1036,46 +1093,43 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Undo Close Tab Button"
+msgid "Kimetrak"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:54
-msgid "Never lose a page again."
-msgstr "Ur sṛuḥuy ara asebter tikelt nniḍen."
+msgid "Track who’s tracking you."
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:62
-msgid "Grammarly"
+msgid "Mailvelope"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:64
-msgid ""
-"Get grammar help anywhere you write on the web—social media, email, docs and "
-"more."
+msgid "Secure encryption for webmail."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:74
-msgid "Facebook Filter"
+#: src/amo/components/HomeHeroBanner/index.js:73
+msgid "Translate Man"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:76
-msgid "Remove ads, promoted content, and other clutter from your feed."
+#: src/amo/components/HomeHeroBanner/index.js:75
+msgid "Point-and-click instant translations."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:84
+msgid "uBlock Origin"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Gesturefy"
+msgid "Efficient, powerful ad blocker."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:88
-msgid "40+ customizable mouse gestures."
+#: src/amo/components/HomeHeroBanner/index.js:94
+msgid "Ghostery"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:96
-#, fuzzy
-msgid "LastPass Password Manager"
-msgstr "Imsefrak n wawal uffir"
-
-#: src/amo/components/HomeHeroBanner/index.js:99
-msgid "Easily manage all your passwords for all devices from one spot"
+#: src/amo/components/HomeHeroBanner/index.js:97
+msgid "Popular anti-tracking extension now has ad blocking ability."
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:205
@@ -1233,10 +1287,10 @@ msgstr "Asali n iseγzaf"
 msgid "Top rated add-ons"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
-#: src/amo/components/Search/index.js:151
+#: src/amo/components/Search/index.js:148
 #, fuzzy
-msgid "Popular themes"
-msgstr "Isental yettwasnen aṭas"
+msgid "Popular extensions"
+msgstr "Isiɣzaf yettwasnen aṭas"
 
 #: src/amo/components/Search/index.js:154
 #, fuzzy
@@ -1802,6 +1856,7 @@ msgid "OK!"
 msgstr "IH!"
 
 #: src/ui/components/DismissibleTextForm/index.js:126
+#: src/ui/components/FormOverlay/index.js:132
 msgid "Cancel"
 msgstr "Sefsex"
 
@@ -1810,10 +1865,12 @@ msgid "Enter text."
 msgstr "Sekcem aḍris."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
+#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Azen"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
+#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "Tuzna"
 
@@ -1833,6 +1890,10 @@ msgstr "Smiren akken ad tkemmleḍ"
 msgid "Toggle contents"
 msgstr "Ldi/Mdel igburen"
 
+#: src/ui/components/FormOverlay/index.js:117
+msgid "Click to close"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Yettwasezmel %(rating)s ugar n 5"
@@ -1845,6 +1906,28 @@ msgstr "Ulac tazmilt"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 
+#~ msgid "See more popular extensions"
+#~ msgstr "Isiɣzaf yettwasnen aṭas"
+
+#, fuzzy
+#~ msgid "See more media downloaders"
+#~ msgstr "Isental yettwasnen aṭas"
+
+#, fuzzy
+#~ msgid "Top-rated Extensions"
+#~ msgstr "Isiɣzaf yettwaszemlen aṭas"
+
+#, fuzzy
+#~ msgid "See more highly rated Extensions"
+#~ msgstr "Isiɣzaf yettwaszemlen ugar"
+
+#~ msgid "Never lose a page again."
+#~ msgstr "Ur sṛuḥuy ara asebter tikelt nniḍen."
+
+#, fuzzy
+#~ msgid "LastPass Password Manager"
+#~ msgstr "Imsefrak n wawal uffir"
+
 #~ msgid "Top-rated Themes"
 #~ msgstr "Isental yettwaszemlen aṭas"
 
@@ -1853,9 +1936,6 @@ msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 
 #~ msgid "Productivity tools"
 #~ msgstr "Tiffurest"
-
-#~ msgid "See more productivity tools"
-#~ msgstr "Isiγzaf yettwaszemlen"
 
 #~ msgid "Privacy protection"
 #~ msgstr "Tasertit n tbaḍnit"
@@ -1874,9 +1954,6 @@ msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 
 #~ msgid "Change up your tabs"
 #~ msgstr "Snifel iccaren-ik"
-
-#~ msgid "See more tab extensions"
-#~ msgstr "Isiγzaf yettwaszemlen"
 
 #~ msgid "Excellent extensions for all situations"
 #~ msgstr "Isiɣzaf yufraren i yal tagnit"
@@ -1952,9 +2029,6 @@ msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
 
 #~ msgid "Site Identifier"
 #~ msgstr "Asulay n usmel"
-
-#~ msgid "More popular themes"
-#~ msgstr "Isental yettwasnen aṭas"
 
 #~ msgid "More Featured Extensions"
 #~ msgstr "Isiɣzaf yettwaszemlen aṭas"

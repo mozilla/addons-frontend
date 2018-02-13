@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:28+0000\n"
+"POT-Creation-Date: 2018-02-13 19:14+0000\n"
 "PO-Revision-Date: 2017-11-15 19:37+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
@@ -49,12 +49,12 @@ msgid "Add to collection"
 msgstr "لِج لتقييم الامتداد هذا"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Tap to preview"
-msgstr "انقر للمعاينة"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Cancel preview"
 msgstr "ألغِ المعاينة"
+
+#: src/amo/components/Addon/index.js:182
+msgid "Tap to preview"
+msgstr "انقر للمعاينة"
 
 #: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
@@ -304,7 +304,7 @@ msgid "Version"
 msgstr "الإصدارة"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
-#: src/amo/components/Collection/index.js:165
+#: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "آخر تحديث"
 
@@ -483,89 +483,87 @@ msgstr "الفئات"
 msgid "Loading categories."
 msgstr "يُحمّل الفئات."
 
-#: src/amo/components/Category/index.js:125
+#: src/amo/components/Category/index.js:128
 #: src/amo/components/LandingPage/index.js:202
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "الامتدادات"
 
-#: src/amo/components/Category/index.js:126
-#: src/amo/components/Home/index.js:258
+#: src/amo/components/Category/index.js:129
+#: src/amo/components/Home/index.js:199
 #: src/amo/components/LandingPage/index.js:121
 #: src/amo/components/Search/index.js:111
 msgid "Featured extensions"
 msgstr "الامتدادات المُختارة"
 
-#: src/amo/components/Category/index.js:135
-#: src/amo/components/Home/index.js:259
+#: src/amo/components/Category/index.js:138
+#: src/amo/components/Home/index.js:200
 #: src/amo/components/LandingPage/index.js:129
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "الامتدادات المُختارة"
 
-#: src/amo/components/Category/index.js:136
+#: src/amo/components/Category/index.js:139
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
 msgid "Trending extensions"
 msgstr "الامتدادات المُتداولة"
 
-#: src/amo/components/Category/index.js:145
+#: src/amo/components/Category/index.js:148
 #: src/amo/components/LandingPage/index.js:135
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "الامتدادات المُتداولة"
 
-#: src/amo/components/Category/index.js:146
+#: src/amo/components/Category/index.js:149
 #: src/amo/components/LandingPage/index.js:136
 #: src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
 msgstr "الامتدادات الأعلى تقييما"
 
-#: src/amo/components/Category/index.js:155
+#: src/amo/components/Category/index.js:158
 #: src/amo/components/LandingPage/index.js:144
 #, fuzzy
 msgid "See more top rated extensions"
 msgstr "الامتدادات الأعلى تقييما"
 
-#: src/amo/components/Category/index.js:158
+#: src/amo/components/Category/index.js:161
 #: src/amo/components/LandingPage/index.js:201
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "السمات"
 
-#: src/amo/components/Category/index.js:159
-#: src/amo/components/Home/index.js:228
+#: src/amo/components/Category/index.js:162
 #: src/amo/components/LandingPage/index.js:147
 #: src/amo/components/Search/index.js:114
 msgid "Featured themes"
 msgstr "السمات المُختارة"
 
-#: src/amo/components/Category/index.js:168
-#: src/amo/components/Home/index.js:229
+#: src/amo/components/Category/index.js:171
 #: src/amo/components/LandingPage/index.js:155
 #, fuzzy
 msgid "See more featured themes"
 msgstr "السمات المُختارة"
 
-#: src/amo/components/Category/index.js:169
+#: src/amo/components/Category/index.js:172
 #: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:127
 msgid "Trending themes"
 msgstr "السمات المُتداولة"
 
-#: src/amo/components/Category/index.js:178
+#: src/amo/components/Category/index.js:181
 #: src/amo/components/LandingPage/index.js:161
 #, fuzzy
 msgid "See more trending themes"
 msgstr "السمات المُتداولة"
 
-#: src/amo/components/Category/index.js:179
+#: src/amo/components/Category/index.js:182
 #: src/amo/components/LandingPage/index.js:162
 #: src/amo/components/Search/index.js:139
 msgid "Top rated themes"
 msgstr "السمات الأعلى تقييما"
 
-#: src/amo/components/Category/index.js:188
+#: src/amo/components/Category/index.js:191
 #: src/amo/components/LandingPage/index.js:167
 #, fuzzy
 msgid "See more top rated themes"
@@ -583,19 +581,46 @@ msgstr "تصفح كل الامتدادات في هذه الفئة."
 msgid "Browse all themes in this category."
 msgstr "تصفح كل السمات في هذه الفئة."
 
-#: src/amo/components/Collection/index.js:155
+#: src/amo/components/Collection/index.js:159
+#, fuzzy
+msgid "Edit this collection"
+msgstr "لِج لتقييم الامتداد هذا"
+
+#: src/amo/components/Collection/index.js:193
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "الإضافات"
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:197
 msgid "Creator"
 msgstr "الصانع"
 
-#: src/amo/components/Collection/index.js:172
+#: src/amo/components/CollectionManager/index.js:119
 #, fuzzy
-msgid "Edit this collection"
+msgid "Save collection"
 msgstr "لِج لتقييم الامتداد هذا"
+
+#: src/amo/components/CollectionManager/index.js:120
+#, fuzzy
+msgid "Saving collection"
+msgstr "لِج لتقييم الامتداد هذا"
+
+#: src/amo/components/CollectionManager/index.js:121
+#, fuzzy
+msgid "Edit collection"
+msgstr "لِج لتقييم الامتداد هذا"
+
+#: src/amo/components/CollectionManager/index.js:125
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:135
+msgid "Description"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:81
+msgid "Collection name cannot be blank"
+msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -918,113 +943,144 @@ msgstr "إضافات فَيَرفُكس"
 msgid "My Account"
 msgstr "حسابي"
 
-#: src/amo/components/Home/index.js:112
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr ""
 
-#: src/amo/components/Home/index.js:117
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr ""
 
-#: src/amo/components/Home/index.js:122
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr ""
 
-#: src/amo/components/Home/index.js:127
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr ""
 
-#: src/amo/components/Home/index.js:132
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr ""
 
-#: src/amo/components/Home/index.js:137
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/components/Home/index.js:169
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "خصّص طريقة عمل فَيَرفُكس باستخدامك الامتدادات. أأنت مهتم بِ‍…"
 
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "غيّر شكل فَيَرفُكس باستخدامك السمات."
 
-#: src/amo/components/Home/index.js:202 src/amo/components/Search/index.js:148
-msgid "Popular extensions"
+#: src/amo/components/Home/index.js:214
+#, fuzzy
+msgid "Privacy tools"
+msgstr "سياسة الخصوصية"
+
+#: src/amo/components/Home/index.js:215
+#, fuzzy
+msgid "See more privacy tools"
+msgstr "تصفّح كل الامتدادات"
+
+#: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
+msgid "Popular themes"
+msgstr "سمات شعبية"
+
+#: src/amo/components/Home/index.js:226
+#, fuzzy
+msgid "See more popular themes"
 msgstr "امتدادات شعبية"
 
-#: src/amo/components/Home/index.js:203
-msgid "See more popular extensions"
-msgstr "امتدادات شعبية"
-
-#: src/amo/components/Home/index.js:217
-msgid "Media downloaders"
+#: src/amo/components/Home/index.js:240
+msgid "Re-imagine search"
 msgstr ""
 
-#: src/amo/components/Home/index.js:218
+#: src/amo/components/Home/index.js:241
 #, fuzzy
-msgid "See more media downloaders"
-msgstr "السمات المُتداولة"
+msgid "See more search extensions"
+msgstr "تصفّح كل الامتدادات"
 
-#: src/amo/components/Home/index.js:243
+#: src/amo/components/Home/index.js:251
 #, fuzzy
-msgid "Top-rated Extensions"
-msgstr "الامتدادات الأعلى تقييما"
+msgid "February’s new featured extensions"
+msgstr "الامتدادات المُختارة"
 
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:252
 #, fuzzy
-msgid "See more highly rated Extensions"
-msgstr "الامتدادات الأعلى تقييما"
+msgid "See all the new featured extensions"
+msgstr "الامتدادات المُختارة"
 
-#: src/amo/components/Home/index.js:61
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "العلامات"
 
-#: src/amo/components/Home/index.js:65
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "مدراء كلمات السر"
 
-#: src/amo/components/Home/index.js:69
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "حاجبات الإعلانات"
 
-#: src/amo/components/Home/index.js:73
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "التسوق الذكي"
 
-#: src/amo/components/Home/index.js:77
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "الإنتاجية"
 
-#: src/amo/components/Home/index.js:81
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "مشاهدة الڤديو"
 
-#: src/amo/components/HomeHeroBanner/index.js:109
+#: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:112
+#: src/amo/components/HomeHeroBanner/index.js:110
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
+"color-coded tabs."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:122
-msgid "Tree Style Tab"
+#: src/amo/components/HomeHeroBanner/index.js:120
+msgid "SearchPreview"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:124
-msgid "Display tabs in a space-saving “tree” layout."
+#: src/amo/components/HomeHeroBanner/index.js:123
+msgid ""
+"Enhance search results with thumbnail previews, popularity ranks & more."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:133
+msgid "Forget Me Not"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:136
+msgid ""
+"Automatically delete data (cookies, local storage, etc.) on all sites you "
+"visit except those on your whitelist."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:146
+#, fuzzy
+msgid "Zoom for Firefox"
+msgstr "إضافات فَيَرفُكس"
+
+#: src/amo/components/HomeHeroBanner/index.js:149
+msgid "Simple zoom in/out tool for a close-up view of any web content."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-msgid "Wikipedia Context Menu Search"
+msgid "Temporary Containers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
-msgid "Highlight any text and search Wikipedia."
+msgid "Open pages with disposable data containers."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
@@ -1038,46 +1094,43 @@ msgid ""
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Undo Close Tab Button"
+msgid "Kimetrak"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:54
-msgid "Never lose a page again."
+msgid "Track who’s tracking you."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:62
-msgid "Grammarly"
+msgid "Mailvelope"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:64
-msgid ""
-"Get grammar help anywhere you write on the web—social media, email, docs and "
-"more."
+msgid "Secure encryption for webmail."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:74
-msgid "Facebook Filter"
+#: src/amo/components/HomeHeroBanner/index.js:73
+msgid "Translate Man"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:76
-msgid "Remove ads, promoted content, and other clutter from your feed."
+#: src/amo/components/HomeHeroBanner/index.js:75
+msgid "Point-and-click instant translations."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:84
+msgid "uBlock Origin"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Gesturefy"
+msgid "Efficient, powerful ad blocker."
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:88
-msgid "40+ customizable mouse gestures."
+#: src/amo/components/HomeHeroBanner/index.js:94
+msgid "Ghostery"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:96
-#, fuzzy
-msgid "LastPass Password Manager"
-msgstr "مدراء كلمات السر"
-
-#: src/amo/components/HomeHeroBanner/index.js:99
-msgid "Easily manage all your passwords for all devices from one spot"
+#: src/amo/components/HomeHeroBanner/index.js:97
+msgid "Popular anti-tracking extension now has ad blocking ability."
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:205
@@ -1232,9 +1285,9 @@ msgstr "إضافات مُتداولة"
 msgid "Top rated add-ons"
 msgstr ""
 
-#: src/amo/components/Search/index.js:151
-msgid "Popular themes"
-msgstr "سمات شعبية"
+#: src/amo/components/Search/index.js:148
+msgid "Popular extensions"
+msgstr "امتدادات شعبية"
 
 #: src/amo/components/Search/index.js:154
 msgid "Popular add-ons"
@@ -1830,6 +1883,7 @@ msgid "OK!"
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:126
+#: src/ui/components/FormOverlay/index.js:132
 msgid "Cancel"
 msgstr "ألغِ"
 
@@ -1838,10 +1892,12 @@ msgid "Enter text."
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:97
+#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:99
+#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr ""
 
@@ -1861,6 +1917,10 @@ msgstr "أعِد التحميل للمتابعة"
 msgid "Toggle contents"
 msgstr ""
 
+#: src/ui/components/FormOverlay/index.js:117
+msgid "Click to close"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "مقيّمة بِ‍ %(rating)s من ٥"
@@ -1872,6 +1932,22 @@ msgstr "لا تقييمات"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#, fuzzy
+#~ msgid "See more media downloaders"
+#~ msgstr "السمات المُتداولة"
+
+#, fuzzy
+#~ msgid "Top-rated Extensions"
+#~ msgstr "الامتدادات الأعلى تقييما"
+
+#, fuzzy
+#~ msgid "See more highly rated Extensions"
+#~ msgstr "الامتدادات الأعلى تقييما"
+
+#, fuzzy
+#~ msgid "LastPass Password Manager"
+#~ msgstr "مدراء كلمات السر"
 
 #, fuzzy
 #~ msgid "Top-rated Themes"
@@ -1886,10 +1962,6 @@ msgstr ""
 #~ msgstr "الإنتاجية"
 
 #, fuzzy
-#~ msgid "See more productivity tools"
-#~ msgstr "تصفّح كل الامتدادات"
-
-#, fuzzy
 #~ msgid "Privacy protection"
 #~ msgstr "سياسة الخصوصية"
 
@@ -1899,10 +1971,6 @@ msgstr ""
 
 #~ msgid "Change up your tabs"
 #~ msgstr "غيّر طابع ألسنتك"
-
-#, fuzzy
-#~ msgid "See more tab extensions"
-#~ msgstr "تصفّح كل الامتدادات"
 
 #~ msgid "YouTube High Definition"
 #~ msgstr "يوتيوب بالجودة العالية"
