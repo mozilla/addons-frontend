@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 23:09+0000\n"
+"PO-Revision-Date: 2018-02-13 23:45+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -870,9 +870,8 @@ msgid "Re-imagine search"
 msgstr ""
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Voir plus d’extensions à propos des onglets"
+msgstr "Voir plus d’extensions de recherche"
 
 #: src/amo/components/Home/index.js:251
 #, fuzzy
@@ -923,7 +922,7 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Ajoutez aux résultats de recherche des prévisualisations, des classements par popularité et bien plus."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
