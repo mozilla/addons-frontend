@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 21:26+0000\n"
+"PO-Revision-Date: 2018-02-13 21:35+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -878,9 +878,8 @@ msgid "See more search extensions"
 msgstr "Več razširitev za iskanje"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Več izbranih razširitev"
+msgstr "Februarske izbrane razširitve"
 
 #: src/amo/components/Home/index.js:252
 msgid "See all the new featured extensions"
@@ -932,7 +931,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Samodejno izbriše podatke (piškotke, krajevno shrambo itd.) vseh spletnih mest, ki jih obiščete, razen tistih, ki jih izberete."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Zoom for Firefox"
@@ -944,7 +943,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
