@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 21:48+0000\n"
+"PO-Revision-Date: 2018-02-13 22:09+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -508,19 +508,16 @@ msgid "Creator"
 msgstr "Créateur"
 
 #: src/amo/components/CollectionManager/index.js:119
-#, fuzzy
 msgid "Save collection"
-msgstr "Créer une nouvelle collection"
+msgstr "Enregistrer la collection"
 
 #: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
 msgid "Saving collection"
-msgstr "Créer une nouvelle collection"
+msgstr "Enregistrement de la collection"
 
 #: src/amo/components/CollectionManager/index.js:121
-#, fuzzy
 msgid "Edit collection"
-msgstr "Modifier cette collection"
+msgstr "Modifier la collection"
 
 #: src/amo/components/CollectionManager/index.js:125
 msgid "Collection name"
