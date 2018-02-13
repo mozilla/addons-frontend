@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:28+0000\n"
+"POT-Creation-Date: 2018-02-13 19:14+0000\n"
 "PO-Revision-Date: 2018-01-31 18:54+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
@@ -44,12 +44,12 @@ msgid "Add to collection"
 msgstr "Zur Sammlung hinzufügen"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Tap to preview"
-msgstr "Tippen, um Vorschau anzuzeigen"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Cancel preview"
 msgstr "Vorschau abbrechen"
+
+#: src/amo/components/Addon/index.js:182
+msgid "Tap to preview"
+msgstr "Tippen, um Vorschau anzuzeigen"
 
 #: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
@@ -280,7 +280,7 @@ msgid "Version"
 msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:203
-#: src/amo/components/Collection/index.js:165
+#: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Zuletzt aktualisiert"
 
@@ -457,84 +457,82 @@ msgstr "Kategorien"
 msgid "Loading categories."
 msgstr "Kategorien werden geladen."
 
-#: src/amo/components/Category/index.js:125
+#: src/amo/components/Category/index.js:128
 #: src/amo/components/LandingPage/index.js:202
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Erweiterungen"
 
-#: src/amo/components/Category/index.js:126
-#: src/amo/components/Home/index.js:258
+#: src/amo/components/Category/index.js:129
+#: src/amo/components/Home/index.js:199
 #: src/amo/components/LandingPage/index.js:121
 #: src/amo/components/Search/index.js:111
 msgid "Featured extensions"
 msgstr "Vorgestellte Erweiterungen"
 
-#: src/amo/components/Category/index.js:135
-#: src/amo/components/Home/index.js:259
+#: src/amo/components/Category/index.js:138
+#: src/amo/components/Home/index.js:200
 #: src/amo/components/LandingPage/index.js:129
 msgid "See more featured extensions"
 msgstr "Mehr vorgestellte Erweiterungen ansehen"
 
-#: src/amo/components/Category/index.js:136
+#: src/amo/components/Category/index.js:139
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
 msgid "Trending extensions"
 msgstr "Aktuell beliebte Erweiterungen"
 
-#: src/amo/components/Category/index.js:145
+#: src/amo/components/Category/index.js:148
 #: src/amo/components/LandingPage/index.js:135
 msgid "See more trending extensions"
 msgstr "Mehr aktuell beliebte Erweiterungen ansehen"
 
-#: src/amo/components/Category/index.js:146
+#: src/amo/components/Category/index.js:149
 #: src/amo/components/LandingPage/index.js:136
 #: src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
 msgstr "Höchstbewertete Erweiterungen"
 
-#: src/amo/components/Category/index.js:155
+#: src/amo/components/Category/index.js:158
 #: src/amo/components/LandingPage/index.js:144
 msgid "See more top rated extensions"
 msgstr "Mehr höchstbewertete Erweiterungen ansehen"
 
-#: src/amo/components/Category/index.js:158
+#: src/amo/components/Category/index.js:161
 #: src/amo/components/LandingPage/index.js:201
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Themes"
 
-#: src/amo/components/Category/index.js:159
-#: src/amo/components/Home/index.js:228
+#: src/amo/components/Category/index.js:162
 #: src/amo/components/LandingPage/index.js:147
 #: src/amo/components/Search/index.js:114
 msgid "Featured themes"
 msgstr "Vorgestellte Themes"
 
-#: src/amo/components/Category/index.js:168
-#: src/amo/components/Home/index.js:229
+#: src/amo/components/Category/index.js:171
 #: src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
 msgstr "Mehr vorgestellte Themes ansehen"
 
-#: src/amo/components/Category/index.js:169
+#: src/amo/components/Category/index.js:172
 #: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:127
 msgid "Trending themes"
 msgstr "Aktuell beliebte Themes"
 
-#: src/amo/components/Category/index.js:178
+#: src/amo/components/Category/index.js:181
 #: src/amo/components/LandingPage/index.js:161
 msgid "See more trending themes"
 msgstr "Mehr aktuell beliebte Themes ansehen"
 
-#: src/amo/components/Category/index.js:179
+#: src/amo/components/Category/index.js:182
 #: src/amo/components/LandingPage/index.js:162
 #: src/amo/components/Search/index.js:139
 msgid "Top rated themes"
 msgstr "Höchstbewertete Themes"
 
-#: src/amo/components/Category/index.js:188
+#: src/amo/components/Category/index.js:191
 #: src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
 msgstr "Mehr höchstbewertete Themes ansehen"
@@ -551,18 +549,45 @@ msgstr "Alle Erweiterungen in dieser Kategorie anzeigen."
 msgid "Browse all themes in this category."
 msgstr "Alle Themes in dieser Kategorie anzeigen."
 
-#: src/amo/components/Collection/index.js:155
+#: src/amo/components/Collection/index.js:159
+msgid "Edit this collection"
+msgstr "Diese Sammlung bearbeiten"
+
+#: src/amo/components/Collection/index.js:193
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Add-ons"
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:197
 msgid "Creator"
 msgstr "Entwickler"
 
-#: src/amo/components/Collection/index.js:172
-msgid "Edit this collection"
+#: src/amo/components/CollectionManager/index.js:119
+#, fuzzy
+msgid "Save collection"
+msgstr "Neue Sammlung anlegen"
+
+#: src/amo/components/CollectionManager/index.js:120
+#, fuzzy
+msgid "Saving collection"
+msgstr "Neue Sammlung anlegen"
+
+#: src/amo/components/CollectionManager/index.js:121
+#, fuzzy
+msgid "Edit collection"
 msgstr "Diese Sammlung bearbeiten"
+
+#: src/amo/components/CollectionManager/index.js:125
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:135
+msgid "Description"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:81
+msgid "Collection name cannot be blank"
+msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -903,115 +928,151 @@ msgstr "Add-ons für Firefox"
 msgid "My Account"
 msgstr "Mein Konto"
 
-#: src/amo/components/Home/index.js:112
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/components/Home/index.js:117
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/components/Home/index.js:122
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Film & Fernsehen"
 
-#: src/amo/components/Home/index.js:127
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Landschaft"
 
-#: src/amo/components/Home/index.js:132
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/components/Home/index.js:137
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Jahreszeiten"
 
-#: src/amo/components/Home/index.js:169
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Passen Sie die Funktionsweise von Firefox mit Erweiterungen an. "
 "Interessieren Sie sich für…"
 
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Ändern Sie das Erscheinungsbild von Firefox mit Themes."
 
-#: src/amo/components/Home/index.js:202 src/amo/components/Search/index.js:148
-msgid "Popular extensions"
-msgstr "Beliebte Erweiterungen"
+#: src/amo/components/Home/index.js:214
+#, fuzzy
+msgid "Privacy tools"
+msgstr "Datenschutzrichtlinie"
 
-#: src/amo/components/Home/index.js:203
-msgid "See more popular extensions"
-msgstr "Mehr beliebte Erweiterungen ansehen"
+#: src/amo/components/Home/index.js:215
+#, fuzzy
+msgid "See more privacy tools"
+msgstr "Weitere Werkzeuge für Produktivität ansehen"
 
-#: src/amo/components/Home/index.js:217
-msgid "Media downloaders"
-msgstr "Downloadwerkzeuge für Medien"
+#: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
+msgid "Popular themes"
+msgstr "Beliebte Themes"
 
-#: src/amo/components/Home/index.js:218
-msgid "See more media downloaders"
-msgstr "Mehr Downloadwerkzeuge für Medien ansehen"
+#: src/amo/components/Home/index.js:226
+#, fuzzy
+msgid "See more popular themes"
+msgstr "Mehr beliebte Themes"
 
-#: src/amo/components/Home/index.js:243
-msgid "Top-rated Extensions"
-msgstr "Höchstbewertete Erweiterungen"
+#: src/amo/components/Home/index.js:240
+msgid "Re-imagine search"
+msgstr ""
 
-#: src/amo/components/Home/index.js:244
-msgid "See more highly rated Extensions"
-msgstr "Mehr hochbewertete Erweiterungen ansehen"
+#: src/amo/components/Home/index.js:241
+#, fuzzy
+msgid "See more search extensions"
+msgstr "Mehr Tab-Erweiterungen ansehen"
 
-#: src/amo/components/Home/index.js:61
+#: src/amo/components/Home/index.js:251
+#, fuzzy
+msgid "February’s new featured extensions"
+msgstr "Mehr vorgestellte Erweiterungen ansehen"
+
+#: src/amo/components/Home/index.js:252
+#, fuzzy
+msgid "See all the new featured extensions"
+msgstr "Mehr vorgestellte Erweiterungen ansehen"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Lesezeichen"
 
-#: src/amo/components/Home/index.js:65
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Passwort-Manager"
 
-#: src/amo/components/Home/index.js:69
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Werbeblocker"
 
-#: src/amo/components/Home/index.js:73
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "Intelligenter Einkaufen"
 
-#: src/amo/components/Home/index.js:77
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Produktivität"
 
-#: src/amo/components/Home/index.js:81
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Videos ansehen"
 
-#: src/amo/components/HomeHeroBanner/index.js:109
+#: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
-#: src/amo/components/HomeHeroBanner/index.js:112
+#: src/amo/components/HomeHeroBanner/index.js:110
+#, fuzzy
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
+"color-coded tabs."
 msgstr ""
 "Trennen Sie verschiedene Bereiche Ihres Online-Lebens – Arbeit, Privates, "
 "usw. – durch farbkodierte Tabs"
 
-#: src/amo/components/HomeHeroBanner/index.js:122
-msgid "Tree Style Tab"
-msgstr "Tree Style Tab."
+#: src/amo/components/HomeHeroBanner/index.js:120
+#, fuzzy
+msgid "SearchPreview"
+msgstr "Suchen"
 
-#: src/amo/components/HomeHeroBanner/index.js:124
-msgid "Display tabs in a space-saving “tree” layout."
-msgstr "Tabs in einer platzsparenden „Baum“-Ansicht darstellen."
+#: src/amo/components/HomeHeroBanner/index.js:123
+msgid ""
+"Enhance search results with thumbnail previews, popularity ranks & more."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:133
+msgid "Forget Me Not"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:136
+msgid ""
+"Automatically delete data (cookies, local storage, etc.) on all sites you "
+"visit except those on your whitelist."
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:146
+#, fuzzy
+msgid "Zoom for Firefox"
+msgstr "für Firefox"
+
+#: src/amo/components/HomeHeroBanner/index.js:149
+msgid "Simple zoom in/out tool for a close-up view of any web content."
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-msgid "Wikipedia Context Menu Search"
-msgstr "Wikipedia Context Menu Search"
+msgid "Temporary Containers"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
-msgid "Highlight any text and search Wikipedia."
-msgstr "Text auswählen und auf Wikipedia danach suchen."
+msgid "Open pages with disposable data containers."
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -1026,51 +1087,45 @@ msgstr ""
 "Wettervorhersagen und mehr."
 
 #: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Undo Close Tab Button"
-msgstr "Undo Close Tab Button"
+msgid "Kimetrak"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:54
-msgid "Never lose a page again."
-msgstr "Verlieren Sie nie wieder eine Seite."
+msgid "Track who’s tracking you."
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:62
-msgid "Grammarly"
-msgstr "Grammarly"
+msgid "Mailvelope"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:64
-msgid ""
-"Get grammar help anywhere you write on the web—social media, email, docs and "
-"more."
+msgid "Secure encryption for webmail."
 msgstr ""
-"Holen Sie sich beim Schreiben im Internet Hilfe zur Grammatik – in sozialen "
-"Medien, E-Mails, Dokumenten und mehr."
 
-#: src/amo/components/HomeHeroBanner/index.js:74
-msgid "Facebook Filter"
-msgstr "Facebook Filter"
+#: src/amo/components/HomeHeroBanner/index.js:73
+#, fuzzy
+msgid "Translate Man"
+msgstr "S3.Translator"
 
-#: src/amo/components/HomeHeroBanner/index.js:76
-msgid "Remove ads, promoted content, and other clutter from your feed."
+#: src/amo/components/HomeHeroBanner/index.js:75
+msgid "Point-and-click instant translations."
 msgstr ""
-"Entfernt Werbung, gesponserte Inhalte und andere störende Elemente aus Ihrem "
-"Feed."
+
+#: src/amo/components/HomeHeroBanner/index.js:84
+msgid "uBlock Origin"
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Gesturefy"
-msgstr "Gesturefy"
-
-#: src/amo/components/HomeHeroBanner/index.js:88
-msgid "40+ customizable mouse gestures."
-msgstr "Über 40 anpassbare Mausgesten."
-
-#: src/amo/components/HomeHeroBanner/index.js:96
-msgid "LastPass Password Manager"
-msgstr "LastPass-Passwort-Manager"
-
-#: src/amo/components/HomeHeroBanner/index.js:99
-msgid "Easily manage all your passwords for all devices from one spot"
+msgid "Efficient, powerful ad blocker."
 msgstr ""
-"Verwalten Sie einfach alle Ihre Passwörter für alle Ihre Geräte an einem Ort"
+
+#: src/amo/components/HomeHeroBanner/index.js:94
+msgid "Ghostery"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:97
+msgid "Popular anti-tracking extension now has ad blocking ability."
+msgstr ""
 
 #: src/amo/components/LandingPage/index.js:205
 msgid ""
@@ -1239,9 +1294,9 @@ msgstr "Aktuell beliebte Add-ons"
 msgid "Top rated add-ons"
 msgstr "Höchstbewertete Add-ons"
 
-#: src/amo/components/Search/index.js:151
-msgid "Popular themes"
-msgstr "Beliebte Themes"
+#: src/amo/components/Search/index.js:148
+msgid "Popular extensions"
+msgstr "Beliebte Erweiterungen"
 
 #: src/amo/components/Search/index.js:154
 msgid "Popular add-ons"
@@ -1889,6 +1944,7 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:126
+#: src/ui/components/FormOverlay/index.js:132
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -1897,10 +1953,12 @@ msgid "Enter text."
 msgstr "Text eingeben."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
+#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Absenden"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
+#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "Wird übermittelt..."
 
@@ -1920,6 +1978,10 @@ msgstr "Zum Fortfahren neu laden"
 msgid "Toggle contents"
 msgstr "Inhalte umschalten"
 
+#: src/ui/components/FormOverlay/index.js:117
+msgid "Click to close"
+msgstr ""
+
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
 msgstr "Bewertet mit %(rating)s von 5 Sternen"
@@ -1932,6 +1994,71 @@ msgstr "Keine Bewertungen"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Ausklappen</span> Mehr anzeigen"
 
+#~ msgid "See more popular extensions"
+#~ msgstr "Mehr beliebte Erweiterungen ansehen"
+
+#~ msgid "Media downloaders"
+#~ msgstr "Downloadwerkzeuge für Medien"
+
+#~ msgid "See more media downloaders"
+#~ msgstr "Mehr Downloadwerkzeuge für Medien ansehen"
+
+#~ msgid "Top-rated Extensions"
+#~ msgstr "Höchstbewertete Erweiterungen"
+
+#~ msgid "See more highly rated Extensions"
+#~ msgstr "Mehr hochbewertete Erweiterungen ansehen"
+
+#~ msgid "Tree Style Tab"
+#~ msgstr "Tree Style Tab."
+
+#~ msgid "Display tabs in a space-saving “tree” layout."
+#~ msgstr "Tabs in einer platzsparenden „Baum“-Ansicht darstellen."
+
+#~ msgid "Wikipedia Context Menu Search"
+#~ msgstr "Wikipedia Context Menu Search"
+
+#~ msgid "Highlight any text and search Wikipedia."
+#~ msgstr "Text auswählen und auf Wikipedia danach suchen."
+
+#~ msgid "Undo Close Tab Button"
+#~ msgstr "Undo Close Tab Button"
+
+#~ msgid "Never lose a page again."
+#~ msgstr "Verlieren Sie nie wieder eine Seite."
+
+#~ msgid "Grammarly"
+#~ msgstr "Grammarly"
+
+#~ msgid ""
+#~ "Get grammar help anywhere you write on the web—social media, email, docs "
+#~ "and more."
+#~ msgstr ""
+#~ "Holen Sie sich beim Schreiben im Internet Hilfe zur Grammatik – in "
+#~ "sozialen Medien, E-Mails, Dokumenten und mehr."
+
+#~ msgid "Facebook Filter"
+#~ msgstr "Facebook Filter"
+
+#~ msgid "Remove ads, promoted content, and other clutter from your feed."
+#~ msgstr ""
+#~ "Entfernt Werbung, gesponserte Inhalte und andere störende Elemente aus "
+#~ "Ihrem Feed."
+
+#~ msgid "Gesturefy"
+#~ msgstr "Gesturefy"
+
+#~ msgid "40+ customizable mouse gestures."
+#~ msgstr "Über 40 anpassbare Mausgesten."
+
+#~ msgid "LastPass Password Manager"
+#~ msgstr "LastPass-Passwort-Manager"
+
+#~ msgid "Easily manage all your passwords for all devices from one spot"
+#~ msgstr ""
+#~ "Verwalten Sie einfach alle Ihre Passwörter für alle Ihre Geräte an einem "
+#~ "Ort"
+
 #~ msgid "Top-rated Themes"
 #~ msgstr "Höchstbewertete Themes"
 
@@ -1941,17 +2068,11 @@ msgstr "<span class=\"visually-hidden\">Ausklappen</span> Mehr anzeigen"
 #~ msgid "Productivity tools"
 #~ msgstr "Werkzeuge für Produktivität"
 
-#~ msgid "See more productivity tools"
-#~ msgstr "Weitere Werkzeuge für Produktivität ansehen"
-
 #~ msgid "Privacy protection"
 #~ msgstr "Datenschutz"
 
 #~ msgid "See more add-ons that protect your privacy"
 #~ msgstr "Weitere Add-ons zum Schutz Ihrer Privatsphäre ansehen"
-
-#~ msgid "S3.Translator"
-#~ msgstr "S3.Translator"
 
 #~ msgid ""
 #~ "Translate a word, phrase, even an entire page. Supports 100+ languages."
@@ -2000,9 +2121,6 @@ msgstr "<span class=\"visually-hidden\">Ausklappen</span> Mehr anzeigen"
 #~ msgid "Change up your tabs"
 #~ msgstr "Ändern Sie Ihre Tabs"
 
-#~ msgid "See more tab extensions"
-#~ msgstr "Mehr Tab-Erweiterungen ansehen"
-
 #~ msgid "Excellent extensions for all situations"
 #~ msgstr "Ausgezeichnete Erweiterungen für alle Lagen"
 
@@ -2035,9 +2153,6 @@ msgstr "<span class=\"visually-hidden\">Ausklappen</span> Mehr anzeigen"
 #~ msgstr ""
 #~ "Hier finden Sie eindrucksvolle Datenschutz-Erweiterungen, von "
 #~ "Werbeblockern bis zum Schutz vor Verfolgung"
-
-#~ msgid "uBlock Origin"
-#~ msgstr "uBlock Origin"
 
 #~ msgid "An extremely powerful ad blocker that’s simple to use"
 #~ msgstr "Ein sehr mächtiger Werbeblocker, der einfach zu bedienen ist"
@@ -2105,9 +2220,6 @@ msgstr "<span class=\"visually-hidden\">Ausklappen</span> Mehr anzeigen"
 
 #~ msgid "I'm interested in…"
 #~ msgstr "Ich interessiere mich für…"
-
-#~ msgid "More popular themes"
-#~ msgstr "Mehr beliebte Themes"
 
 #~ msgid "More Featured Extensions"
 #~ msgstr "Mehr vorgestellte Erweiterungen"
