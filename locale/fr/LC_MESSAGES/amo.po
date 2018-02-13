@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 20:49+0000\n"
+"PO-Revision-Date: 2018-02-13 21:48+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -932,11 +932,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Effacez automatiquement certaines données (cookies, stockage local, etc.) de l’ensemble des sites visités, sauf ceux sur votre liste blanche."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 #, fuzzy
