@@ -35,13 +35,15 @@ export default class LandingAddonsCard extends React.Component {
 
     let footerLinkHtml = null;
     if (addons && addons.length >= placeholderCount) {
-      const linkSearchURL = typeof footerLink === 'string' ?
-        footerLink :
-        {
-          ...footerLink,
-          query: convertFiltersToQueryParams(footerLink.query),
+      let linkTo = footerLink;
+      if (typeof linkTo === 'object') {
+        // As a convenience, fix the query parameter.
+        linkTo = {
+          ...linkTo,
+          query: convertFiltersToQueryParams(linkTo.query),
         };
-      footerLinkHtml = <Link to={linkSearchURL}>{footerText}</Link>;
+      }
+      footerLinkHtml = <Link to={linkTo}>{footerText}</Link>;
     }
 
     return (
