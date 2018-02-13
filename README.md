@@ -202,36 +202,41 @@ If you would like to use `https://addons-dev.allizom.org` for data you should us
 `yarn amo:dev` command. See the table of commands up above for similar
 hosted options.
 
-### Configuring for local development
+### Local configuration
 
-The `dev` scripts above will connect to a hosted development API by default.
-If you want to run your own
-[addons-server](https://github.com/mozilla/addons-server)
-API or make any other local changes, just add a local configuration
-file for each app. For example, to run your own discovery pane API, first create
-a local config file:
+If you need to override any settings while running `yarn amo`, `yarn amo:dev`, or `yarn amo:stage`, first create a local config file named exactly like this:
 
-    touch config/local-development-disco.js
+    touch config/local-development-amo.js
 
-Be sure to prefix the file with **local-development-** so that it doesn't pollute the
-test suite.
-Here's what `local-development-disco.js` would look like when
-overriding the `apiHost` parameter so that it points to your docker container:
+Make any config changes. For example:
 
 ```javascript
 module.exports = {
-  apiHost: 'http://olympia.dev',
+  trackingEnabled: true,
 };
 ```
 
-When you start up your front-end Discovery Pane server, it will now apply
-overrides from your local configuration file:
-
-    yarn disco
+Restart the server to see it take affect.
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
 to learn more about how configuration is applied.
+
+### Running the Discopane for local development
+
+When running `yarn disco`, your local server will be configured for a hosted development API. If you want to run your own [addons-server](https://github.com/mozilla/addons-server) API or make any other local changes, you'll need to create a custom config file named exactly like this:
+
+    touch config/local-development-disco.js
+
+Here's what `local-development-disco.js` would look like when overriding the `apiHost` parameter so that it points to your docker container:
+
+```javascript
+module.exports = {
+  apiHost: 'http://olympia.test',
+};
+```
+
+Restart the server to see it take affect.
 
 ### Configuring an Android device for local development
 

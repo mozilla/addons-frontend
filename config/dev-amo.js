@@ -24,5 +24,8 @@ module.exports = {
       ],
     },
   },
+
   betaVersions: false,
+
+  enableCollectionEdit: true,
 };

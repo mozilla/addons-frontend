@@ -91,6 +91,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableClientConsole',
+    'enableCollectionEdit',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -276,4 +277,10 @@ module.exports = {
 
   // If true, show a link to the beta versions page on the listing page
   betaVersions: true,
+
+
+  // Feature flags.
+
+  // Expose the new screen for editing a collection.
+  enableCollectionEdit: false,
 };
