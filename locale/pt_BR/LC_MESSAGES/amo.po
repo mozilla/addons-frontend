@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 22:09+0000\n"
+"PO-Revision-Date: 2018-02-13 22:29+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -918,11 +918,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Exclua automaticamente os dados (cookies, armazenamento local, etc.) de todos os sites que você visita, exceto aqueles na sua lista branca."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Zoom for Firefox"
@@ -978,15 +978,15 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Bloqueador de anúncios eficiente e poderoso."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "A popular extensão contra o rastreamento agora possui a capacidade de bloquear de anúncios."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1678,7 +1678,7 @@ msgstr "Alternar conteúdos"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Clique para fechar"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
