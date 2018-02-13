@@ -43,3 +43,7 @@ $screenshot-width: 320px;
 .pswp__img {
   object-fit: contain;
 }
+
+.ScreenShots-list .pswp__caption {
+  overflow-wrap: break-word;
+}
