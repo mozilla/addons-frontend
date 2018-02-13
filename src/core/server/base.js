@@ -198,8 +198,22 @@ function baseServer(routes, createStore, {
 
   const isDevelopment = config.get('isDevelopment');
   if (appName === 'disco' && isDevelopment) {
-    app.get('/', (req, res) =>
-      res.redirect(302, '/en-US/firefox/discovery/pane/48.0/Darwin/normal'));
+    // We use 57 (the first version of Firefox Quantum) here so that any
+    // version-dependent styles (eg.
+    // https://github.com/mozilla/addons-frontend/blob/master/src/disco/css/App.scss)
+    // are not loaded.
+    const defaultVersion = '57.0';
+
+    app.get('/', (req, res) => {
+      res.redirect(302,
+        `/en-US/firefox/discovery/pane/${defaultVersion}/Darwin/normal`);
+    });
+
+    app.get('/:version/', (req, res) => {
+      const version = req.params.version || defaultVersion;
+      res.redirect(302,
+        `/en-US/firefox/discovery/pane/${version}/Darwin/normal`);
+    });
   }
 
   // Handle application and lang redirections.
