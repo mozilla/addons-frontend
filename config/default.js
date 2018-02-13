@@ -84,6 +84,7 @@ module.exports = {
     'apiHost',
     'apiPath',
     'appName',
+    'betaVersions',
     'restrictSearchResultsToAppVersion',
     'cookieMaxAge',
     'cookieName',
@@ -274,8 +275,12 @@ module.exports = {
   // See the Discopane config for how this is currently used.
   taarParamsToUse: [],
 
+
   // Feature flags.
 
   // Expose the new screen for editing a collection.
   enableCollectionEdit: false,
+
+  // If true, show a link to the beta versions page on the listing page.
+  betaVersions: true,
 };
