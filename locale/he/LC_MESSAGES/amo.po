@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-02-01 14:45+0000\n"
+"POT-Creation-Date: 2018-02-06 19:28+0000\n"
+"PO-Revision-Date: 2018-02-10 18:57+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -44,108 +44,108 @@ msgid "Add to collection"
 msgstr "הוספה לאוסף"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Cancel preview"
-msgstr "ביטול תצוגה מקדימה"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Tap to preview"
 msgstr "הקישו לתצוגה מקדימה"
 
-#: src/amo/components/Addon/index.js:232
+#: src/amo/components/Addon/index.js:182
+msgid "Cancel preview"
+msgstr "ביטול תצוגה מקדימה"
+
+#: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "לא ניתן לדרג את תוספת זו כיוון שלא פורסמה אף גרסה."
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
-msgstr[0] "קריאת סקירה %(count)s"
+msgstr[0] "קריאת סקירה אחת"
 msgstr[1] "קריאת כל %(count)s הסקירות"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:258
 msgid "No reviews yet"
 msgstr "אין עדיין סקירות"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:267
 msgid "Rate your experience"
 msgstr "דירוג החוויה שלך"
 
-#: src/amo/components/Addon/index.js:284
+#: src/amo/components/Addon/index.js:285
 msgid "About this dictionary"
 msgstr "על אודות מילון זה"
 
-#: src/amo/components/Addon/index.js:287
+#: src/amo/components/Addon/index.js:288
 msgid "About this extension"
 msgstr "על אודות הרחבה זו"
 
-#: src/amo/components/Addon/index.js:290
+#: src/amo/components/Addon/index.js:291
 msgid "About this language pack"
 msgstr "על אודות ערכת שפה זו"
 
-#: src/amo/components/Addon/index.js:293
+#: src/amo/components/Addon/index.js:294
 msgid "About this search plugin"
 msgstr "על אודות מנוע חיפוש זה"
 
-#: src/amo/components/Addon/index.js:296
+#: src/amo/components/Addon/index.js:297
 msgid "About this theme"
 msgstr "על אודות ערכת נושא זו"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:300
 msgid "About this add-on"
 msgstr "על אודות תוספת זו"
 
-#: src/amo/components/Addon/index.js:338
+#: src/amo/components/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
 msgstr "הערות שחרור עבור %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:367
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by %(author)s"
 msgstr "עוד מילונים מאת %(author)s"
 
-#: src/amo/components/Addon/index.js:370
+#: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by these translators"
 msgstr "עוד מילונים מאת המתרגמים האלה"
 
-#: src/amo/components/Addon/index.js:377
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by %(author)s"
 msgstr "עוד הרחבות מאת %(author)s"
 
-#: src/amo/components/Addon/index.js:380
+#: src/amo/components/Addon/index.js:381
 msgid "More extensions by these developers"
 msgstr "הרחבות נוספות מאת המפתחים האלה"
 
-#: src/amo/components/Addon/index.js:387
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by %(author)s"
 msgstr "עוד חבילות שפה מאת %(author)s"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:391
 msgid "More language packs by these translators"
 msgstr "עוד חבילות שפה מאת המתרגמים האלה"
 
-#: src/amo/components/Addon/index.js:397
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by %(author)s"
 msgstr "עוד ערכות נושא מאת %(author)s"
 
-#: src/amo/components/Addon/index.js:400
+#: src/amo/components/Addon/index.js:401
 msgid "More themes by these artists"
 msgstr "עוד ערכות נושא מאת האמנים האלה"
 
-#: src/amo/components/Addon/index.js:407
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by %(author)s"
 msgstr "עוד תוספות מאת %(author)s"
 
-#: src/amo/components/Addon/index.js:410
+#: src/amo/components/Addon/index.js:411
 msgid "More add-ons by these developers"
 msgstr "עוד תוספות מאת המפתחים האלה"
 
-#: src/amo/components/Addon/index.js:490
+#: src/amo/components/Addon/index.js:491
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sמאת %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:564
+#: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
 msgstr "נתוני העל של ההרחבה"
 
-#: src/amo/components/Addon/index.js:582
+#: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
 msgstr "צילומי מסך"
 
@@ -555,11 +555,11 @@ msgstr "יוצר התוספת הזו מבקש ממך לסייע בהמשך הע�
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
 msgstr "יוצרי התוספת הזו מבקשים ממך לסייע בהמשך העבודה על ידי מתן תרומה צנועה."
 
-#: src/amo/components/ContributeCard/index.js:89
+#: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr "לתרום כעת"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
+#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "הורדת Firefox"
 
@@ -620,11 +620,11 @@ msgid "Flagged as a bug report or support request"
 msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -775,7 +775,7 @@ msgstr "שליחת ערכת נושא חדשה"
 msgid "Reviewer Tools"
 msgstr "כלי סוקרים"
 
-#: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
+#: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "התנתקות"
 
@@ -947,7 +947,7 @@ msgstr "שנו את תצוגת הדפדפן שלכם. בחרו מתוך אלפי
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:234
+#: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
 msgstr "חקירת כל הקטגוריות"
 
@@ -1035,23 +1035,23 @@ msgstr "אם לדעתך תוספת זו מפרה את %(linkTagStart)sמדיני
 msgid "Report this add-on for abuse"
 msgstr "דיווח תוספת זו על שימוש לרעה"
 
-#: src/amo/components/ReportAbuseButton/index.js:170
+#: src/amo/components/ReportAbuseButton/index.js:172
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr "נא לא להשתמש בטופס זה כדי לדווח על תקלות או לבקש להוסיף תכונות לתוספת; דיווח זה יישלח ל־Mozilla ולא למפתח התוספת."
 
-#: src/amo/components/ReportAbuseButton/index.js:183
+#: src/amo/components/ReportAbuseButton/index.js:185
 msgid "Explain how this add-on is violating our policies."
 msgstr "נא לפרט כיצד תוספת זו מפרה את המדיניות שלנו."
 
-#: src/amo/components/ReportAbuseButton/index.js:196
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Dismiss"
 msgstr "סגירה"
 
-#: src/amo/components/ReportAbuseButton/index.js:204
+#: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
 msgstr "דיווח על שימוש לרעה נשלח כעת"
 
-#: src/amo/components/ReportAbuseButton/index.js:205
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Send abuse report"
 msgstr "שליחת דיווח על שימוש לרעה"
 
@@ -1501,7 +1501,7 @@ msgstr "עיון בכל ערכות הנושא"
 msgid "Add-ons Home Page"
 msgstr "דף הבית של התוספות"
 
-#: src/core/components/AuthenticateButton/index.js:74
+#: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
 msgstr "הרשמה או התחברות"
 
@@ -1517,11 +1517,11 @@ msgstr "קוד שגיאה: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "מצטערים, אבל לא הצלחנו למצוא כלום בכתובת שהזנת."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -1577,7 +1577,7 @@ msgstr "כעת ניתן לגשת אל %(name)s מסרגל הכלים."
 msgid "OK!"
 msgstr "קיבלתי!"
 
-#: src/ui/components/DismissibleTextForm/index.js:129
+#: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "ביטול"
 

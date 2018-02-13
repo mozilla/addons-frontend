@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-30 20:42+0000\n"
-"PO-Revision-Date: 2018-01-31 09:00+0000\n"
+"POT-Creation-Date: 2018-02-06 19:28+0000\n"
+"PO-Revision-Date: 2018-02-07 09:00+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -44,108 +44,108 @@ msgid "Add to collection"
 msgstr "Добавяне към списък"
 
 #: src/amo/components/Addon/index.js:182
-msgid "Cancel preview"
-msgstr "Отказ"
-
-#: src/amo/components/Addon/index.js:182
 msgid "Tap to preview"
 msgstr "Докоснете за преглед"
 
-#: src/amo/components/Addon/index.js:232
+#: src/amo/components/Addon/index.js:182
+msgid "Cancel preview"
+msgstr "Отказ"
+
+#: src/amo/components/Addon/index.js:233
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Добавката не може да бъде оценявана, защото няма публикувани издания."
 
-#: src/amo/components/Addon/index.js:241
+#: src/amo/components/Addon/index.js:242
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочетете %(count)s отзив"
 msgstr[1] "Прочетете всички %(count)s отзива"
 
-#: src/amo/components/Addon/index.js:257
+#: src/amo/components/Addon/index.js:258
 msgid "No reviews yet"
 msgstr "Няма отзиви"
 
-#: src/amo/components/Addon/index.js:266
+#: src/amo/components/Addon/index.js:267
 msgid "Rate your experience"
 msgstr "Дайте оценка"
 
-#: src/amo/components/Addon/index.js:284
+#: src/amo/components/Addon/index.js:285
 msgid "About this dictionary"
 msgstr "Относно речника"
 
-#: src/amo/components/Addon/index.js:287
+#: src/amo/components/Addon/index.js:288
 msgid "About this extension"
 msgstr "Относно разширението"
 
-#: src/amo/components/Addon/index.js:290
+#: src/amo/components/Addon/index.js:291
 msgid "About this language pack"
 msgstr "Относно езиковия пакет"
 
-#: src/amo/components/Addon/index.js:293
+#: src/amo/components/Addon/index.js:294
 msgid "About this search plugin"
 msgstr "Относно търсещата машина"
 
-#: src/amo/components/Addon/index.js:296
+#: src/amo/components/Addon/index.js:297
 msgid "About this theme"
 msgstr "Относно темата"
 
-#: src/amo/components/Addon/index.js:299
+#: src/amo/components/Addon/index.js:300
 msgid "About this add-on"
 msgstr "Относно добавката"
 
-#: src/amo/components/Addon/index.js:338
+#: src/amo/components/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
 msgstr "Бележки по изданието за %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:367
+#: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by %(author)s"
 msgstr "Повече речници от %(author)s"
 
-#: src/amo/components/Addon/index.js:370
+#: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by these translators"
 msgstr "Повече речници от тези преводачи"
 
-#: src/amo/components/Addon/index.js:377
+#: src/amo/components/Addon/index.js:378
 msgid "More extensions by %(author)s"
 msgstr "Повече разширения от %(author)s"
 
-#: src/amo/components/Addon/index.js:380
+#: src/amo/components/Addon/index.js:381
 msgid "More extensions by these developers"
 msgstr "Повече разширения от тези разработчици"
 
-#: src/amo/components/Addon/index.js:387
+#: src/amo/components/Addon/index.js:388
 msgid "More language packs by %(author)s"
 msgstr "Повече езикови пакети от %(author)s"
 
-#: src/amo/components/Addon/index.js:390
+#: src/amo/components/Addon/index.js:391
 msgid "More language packs by these translators"
 msgstr "Повече езикови пакети от тези преводачи"
 
-#: src/amo/components/Addon/index.js:397
+#: src/amo/components/Addon/index.js:398
 msgid "More themes by %(author)s"
 msgstr "Повече теми от %(author)s"
 
-#: src/amo/components/Addon/index.js:400
+#: src/amo/components/Addon/index.js:401
 msgid "More themes by these artists"
 msgstr "Повече теми от тези художници"
 
-#: src/amo/components/Addon/index.js:407
+#: src/amo/components/Addon/index.js:408
 msgid "More add-ons by %(author)s"
 msgstr "Повече добавки от %(author)s"
 
-#: src/amo/components/Addon/index.js:410
+#: src/amo/components/Addon/index.js:411
 msgid "More add-ons by these developers"
 msgstr "Повече добавки от тези разработчици"
 
-#: src/amo/components/Addon/index.js:490
+#: src/amo/components/Addon/index.js:491
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sот %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:564
+#: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
 msgstr "Метаданни за разширението"
 
-#: src/amo/components/Addon/index.js:582
+#: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
 msgstr "Снимки на екрана"
 
@@ -555,11 +555,11 @@ msgstr "Авторът на добавката ви приканва да доп
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
 msgstr "Авторите на добавката ви приканват да допринесете за бъдещото ѝ развитие, като направите скромно дарение."
 
-#: src/amo/components/ContributeCard/index.js:89
+#: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr "Даряване"
 
-#: src/amo/components/DownloadFirefoxButton/index.js:43 src/amo/components/Footer/index.js:97
+#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Изтегляне на Firefox"
 
@@ -620,12 +620,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Сигнализиран като доклад за дефект или заявка за поддръжка"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Сигнализиран"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Сигнализиране"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Сигнализиран"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -775,7 +775,7 @@ msgstr "Изпращане на тема"
 msgid "Reviewer Tools"
 msgstr "Инструменти за рецензенти"
 
-#: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:73
+#: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "Изход"
 
@@ -869,67 +869,67 @@ msgstr "Гледане на видео"
 
 #: src/amo/components/HomeHeroBanner/index.js:109
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:112
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Разделете отделните части на живота си в Мрежата: работа, лични дела и т.н, разделени от цветово обозначени раздели"
 
 #: src/amo/components/HomeHeroBanner/index.js:122
 msgid "Tree Style Tab"
-msgstr ""
+msgstr "Tree Style Tab"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Display tabs in a space-saving “tree” layout."
-msgstr ""
+msgstr "Подреждане на разделите в стегната дървовидна структура."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Wikipedia Context Menu Search"
-msgstr ""
+msgstr "Wikipedia Context Menu Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Highlight any text and search Wikipedia."
-msgstr ""
+msgstr "Изберете текст и го потърсете в Wikipedia."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
-msgstr ""
+msgstr "Заменете страницата за нов раздел с лично табло – списък на задачи, прогноза за времето и други."
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Undo Close Tab Button"
-msgstr ""
+msgstr "Undo Close Tab Button"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Never lose a page again."
-msgstr ""
+msgstr "Никога повече не губете страница."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Grammarly"
-msgstr ""
+msgstr "Grammarly"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Get grammar help anywhere you write on the web—social media, email, docs and more."
-msgstr ""
+msgstr "Помощ за граматиката навсякъде, където пишете в Мрежата – социални медии, електронна поща, документи и други."
 
 #: src/amo/components/HomeHeroBanner/index.js:74
 msgid "Facebook Filter"
-msgstr ""
+msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Remove ads, promoted content, and other clutter from your feed."
-msgstr ""
+msgstr "Премахване на реклами, подпомогнато съдържание и други пречещи неща от емисията."
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Gesturefy"
-msgstr ""
+msgstr "Gesturefy"
 
 #: src/amo/components/HomeHeroBanner/index.js:88
 msgid "40+ customizable mouse gestures."
-msgstr ""
+msgstr "Повече от 40 адаптивни жеста с мишката."
 
 #: src/amo/components/HomeHeroBanner/index.js:96
 msgid "LastPass Password Manager"
@@ -947,7 +947,7 @@ msgstr "Променете облика на своя четец. Изберет
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
 msgstr "Разгледайте мощни инструменти и възможности за настройване на Firefox и го направете изцяло ваш."
 
-#: src/amo/components/LandingPage/index.js:234
+#: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
 msgstr "Всички категории"
 
@@ -1037,24 +1037,24 @@ msgstr ""
 msgid "Report this add-on for abuse"
 msgstr "Докладване на добавката за нарушение"
 
-#: src/amo/components/ReportAbuseButton/index.js:170
+#: src/amo/components/ReportAbuseButton/index.js:172
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 "Моля не използвайте формуляра да докладвате за дефекти или да изпращате желания за нови възможности на добавката, защото този доклад ще бъде изпратен към Mozilla, а не към разработчика на добавката."
 
-#: src/amo/components/ReportAbuseButton/index.js:183
+#: src/amo/components/ReportAbuseButton/index.js:185
 msgid "Explain how this add-on is violating our policies."
 msgstr "Обяснете как добавката нарушава нашите правила."
 
-#: src/amo/components/ReportAbuseButton/index.js:196
+#: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Dismiss"
 msgstr "Прекратяване"
 
-#: src/amo/components/ReportAbuseButton/index.js:204
+#: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
 msgstr "Изпращане на доклад за нарушение"
 
-#: src/amo/components/ReportAbuseButton/index.js:205
+#: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Send abuse report"
 msgstr "Изпращане"
 
@@ -1504,7 +1504,7 @@ msgstr "Преглед на всички теми"
 msgid "Add-ons Home Page"
 msgstr "Страница на добавката"
 
-#: src/core/components/AuthenticateButton/index.js:74
+#: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
 msgstr "Регистриране или вписване"
 
@@ -1520,11 +1520,11 @@ msgstr "Код на грешката: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Съжаляваме, но на въведения от вас адрес не намираме нищо."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Инсталиране на темата"
 
-#: src/core/components/InstallButton/index.js:251 src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Добавяне към Firefox"
 
@@ -1580,7 +1580,7 @@ msgstr "Може да отворите %(name)s от лентата с инст�
 msgid "OK!"
 msgstr "Добре!"
 
-#: src/ui/components/DismissibleTextForm/index.js:129
+#: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Отказ"
 

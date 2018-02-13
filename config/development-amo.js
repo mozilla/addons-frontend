@@ -1,6 +1,6 @@
 module.exports = {
   apiHost: 'http://localhost:3000',
-  proxyApiHost: 'http://olympia.dev',
+  proxyApiHost: 'http://olympia.test',
   proxyPort: 3000,
   proxyEnabled: true,
   // Setting this to false returns add-ons that are not compatible but means
@@ -10,4 +10,5 @@ module.exports = {
   restrictSearchResultsToAppVersion: false,
   fxaConfig: 'local',
   trackingEnabled: false,
+  enableCollectionEdit: true,
 };

@@ -32,7 +32,7 @@ type Props = {|
 
 export class FormOverlayBase extends React.Component<Props> {
   static defaultProps = {
-    isOpen: true,
+    isOpen: false,
   };
 
   closeOverlay(event: SyntheticEvent<any>) {

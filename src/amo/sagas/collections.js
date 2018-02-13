@@ -1,3 +1,4 @@
+/* @flow */
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import {
   ADD_ADDON_TO_COLLECTION,
@@ -9,14 +10,31 @@ import {
   abortFetchCurrentCollection,
   abortFetchUserCollections,
   addonAddedToCollection,
-  finishUpdateCollection,
+  deleteCollectionBySlug,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
+import {
+  beginFormOverlaySubmit, closeFormOverlay, finishFormOverlaySubmit,
+} from 'core/reducers/formOverlay';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type {
+  AddAddonToCollectionParams,
+  GetAllUserCollectionsParams,
+  GetCollectionAddonsParams,
+  GetCollectionParams,
+  UpdateCollectionParams,
+} from 'amo/api/collections';
+import type {
+  AddAddonToCollectionAction,
+  FetchCurrentCollectionAction,
+  FetchCurrentCollectionPageAction,
+  FetchUserCollectionsAction,
+  UpdateCollectionAction,
+} from 'amo/reducers/collections';
 
 export function* fetchCurrentCollection({
   payload: {
@@ -25,7 +43,7 @@ export function* fetchCurrentCollection({
     slug,
     user,
   },
-}) {
+}: FetchCurrentCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -33,18 +51,22 @@ export function* fetchCurrentCollection({
   try {
     const state = yield select(getState);
 
+    const baseParams = {
+      api: state.api,
+      slug,
+      user,
+    };
+
+    const detailParams: $Shape<GetCollectionParams> = {
+      ...baseParams,
+    };
+    const addonsParams: $Shape<GetCollectionAddonsParams> = {
+      ...baseParams,
+      page,
+    };
     const { detail, addons } = yield all({
-      detail: call(api.getCollectionDetail, {
-        api: state.api,
-        slug,
-        user,
-      }),
-      addons: call(api.getCollectionAddons, {
-        api: state.api,
-        page,
-        slug,
-        user,
-      }),
+      detail: call(api.getCollectionDetail, detailParams),
+      addons: call(api.getCollectionAddons, addonsParams),
     });
 
     yield put(loadCurrentCollection({ addons, detail }));
@@ -62,7 +84,7 @@ export function* fetchCurrentCollectionPage({
     slug,
     user,
   },
-}) {
+}: FetchCurrentCollectionPageAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -70,12 +92,13 @@ export function* fetchCurrentCollectionPage({
   try {
     const state = yield select(getState);
 
-    const addons = yield call(api.getCollectionAddons, {
+    const params: GetCollectionAddonsParams = {
       api: state.api,
       page,
       slug,
       user,
-    });
+    };
+    const addons = yield call(api.getCollectionAddons, params);
 
     yield put(loadCurrentCollectionPage({ addons }));
   } catch (error) {
@@ -87,16 +110,17 @@ export function* fetchCurrentCollectionPage({
 
 export function* fetchUserCollections({
   payload: { errorHandlerId, userId },
-}) {
+}: FetchUserCollectionsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
 
-    const collections = yield call(api.getAllUserCollections, {
+    const params: GetAllUserCollectionsParams = {
       api: state.api, user: userId,
-    });
+    };
+    const collections = yield call(api.getAllUserCollections, params);
 
     yield put(loadUserCollections({ userId, collections }));
   } catch (error) {
@@ -110,19 +134,21 @@ export function* addAddonToCollection({
   payload: {
     addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
   },
-}) {
+}: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
-    yield call(api.addAddonToCollection, {
+
+    const params: AddAddonToCollectionParams = {
       addon: addonId,
       api: state.api,
       collection: collectionSlug,
       notes,
       user: userId,
-    });
+    };
+    yield call(api.addAddonToCollection, params);
 
     yield put(addonAddedToCollection({
       addonId, userId, collectionId,
@@ -140,37 +166,43 @@ export function* updateCollection({
     collectionSlug,
     defaultLocale,
     description,
+    formOverlayId,
     isPublic,
     name,
-    slug,
     user,
   },
-}) {
+}: UpdateCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
   try {
+    yield put(beginFormOverlaySubmit(formOverlayId));
+
     const state = yield select(getState);
-    yield call(api.updateCollection, {
+    const params: UpdateCollectionParams = {
       api: state.api,
       collectionSlug,
       defaultLocale,
       description,
       isPublic,
       name,
-      slug,
       user,
-    });
+    };
+    yield call(api.updateCollection, params);
 
-    yield put(finishUpdateCollection({ collectionSlug, successful: true }));
+    // Invalidate the stored collection object. This will force each
+    // component to re-fetch the collection.
+    yield put(deleteCollectionBySlug(collectionSlug));
+    yield put(closeFormOverlay(formOverlayId));
+    yield put(finishFormOverlaySubmit(formOverlayId));
   } catch (error) {
     log.warn(`Failed to update collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(finishUpdateCollection({ collectionSlug, successful: false }));
+    yield put(finishFormOverlaySubmit(formOverlayId));
   }
 }
 
-export default function* collectionsSaga() {
+export default function* collectionsSaga(): Generator<any, any, any> {
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage

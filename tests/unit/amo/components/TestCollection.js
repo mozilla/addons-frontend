@@ -6,8 +6,11 @@ import Collection, {
   mapStateToProps,
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
+import { COLLECTION_OVERLAY } from 'amo/components/CollectionManager';
+import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Paginate from 'core/components/Paginate';
+import { openFormOverlay } from 'core/reducers/formOverlay';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -20,8 +23,10 @@ import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
+  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -533,7 +538,53 @@ describe(__filename, () => {
     }));
 
     const wrapper = renderComponent({ store });
+
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+  });
+
+  it('links to a Collection edit page', () => {
+    // Turn off edit-overlay feature so that the component renders a link.
+    const fakeConfig = getFakeConfig({ enableCollectionEdit: false });
+    const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store, _config: fakeConfig });
+
+    const editLink = wrapper.find('.Collection-edit-link').find(Link);
+    expect(editLink).toHaveLength(1);
+    expect(editLink).toHaveProp('href',
+      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
+  });
+
+  it('opens the Collection manager for editing on click', () => {
+    // Turn on the edit-overlay feature.
+    const fakeConfig = getFakeConfig({ enableCollectionEdit: true });
+    const { store } = dispatchSignInActions({
+      permissions: [COLLECTIONS_EDIT],
+    });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const wrapper = renderComponent({ store, _config: fakeConfig });
+
+    const editLinkWrapper = wrapper.find('.Collection-edit-link');
+    expect(editLinkWrapper).toHaveLength(1);
+
+    const editLink = editLinkWrapper.find(Link);
+    expect(editLink).toHaveLength(1);
+    editLink.simulate('click', createFakeEvent());
+
+    sinon.assert.calledWith(
+      dispatchSpy, openFormOverlay(COLLECTION_OVERLAY)
+    );
   });
 
   it('renders an edit link when user is the collection owner', () => {

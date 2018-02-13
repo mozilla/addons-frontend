@@ -6,10 +6,10 @@ import reducer, {
   addonAddedToCollection,
   createInternalAddons,
   createInternalCollection,
+  deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
-  finishUpdateCollection,
   getCollectionById,
   getCurrentCollection,
   initialState,
@@ -833,6 +833,7 @@ describe(__filename, () => {
       return {
         errorHandlerId: 'error-handler-id',
         collectionSlug: 'some-collection',
+        formOverlayId: 'some-form-overlay',
         user: 'some-user-name',
         ...params,
       };
@@ -862,6 +863,14 @@ describe(__filename, () => {
         .toThrow(/user is required/);
     });
 
+    it('requires formOverlayId parameter', () => {
+      const params = getParams();
+      delete params.formOverlayId;
+
+      expect(() => updateCollection(params))
+        .toThrow(/formOverlayId is required/);
+    });
+
     it('changes update state', () => {
       const collectionSlug = 'some-collection';
 
@@ -874,58 +883,56 @@ describe(__filename, () => {
     });
   });
 
-  describe('finishUpdateCollection', () => {
-    const getParams = (params = {}) => {
-      return {
-        collectionSlug: 'some-collection', successful: true, ...params,
-      };
-    };
-
-    it('requires collectionSlug parameter', () => {
-      const params = getParams();
-      delete params.collectionSlug;
-
-      expect(() => finishUpdateCollection(params))
-        .toThrow(/collectionSlug parameter is required/);
+  describe('deleteCollectionBySlug', () => {
+    it('requires a slug', () => {
+      expect(() => deleteCollectionBySlug()).toThrow(/slug is required/);
     });
 
-    it('requires successful parameter', () => {
-      const params = getParams();
-      delete params.successful;
+    it('does nothing when no collection exists', () => {
+      const state = reducer(undefined, deleteCollectionBySlug('a-slug'));
 
-      expect(() => finishUpdateCollection(params))
-        .toThrow(/successful parameter is required/);
+      expect(state.byId).toEqual(initialState.byId);
     });
 
-    it('handles a falsy successful parameter', () => {
-      const params = getParams({ successful: false });
+    it('deletes a collection', () => {
+      const collectionAddons = createFakeCollectionAddons();
+      const collectionDetail = createFakeCollectionDetail();
 
-      // Make sure this doesn't throw.
-      finishUpdateCollection(params);
+      let state = reducer(undefined, loadCurrentCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      }));
+
+      state = reducer(state, deleteCollectionBySlug(collectionDetail.slug));
+
+      expect(state.byId[collectionDetail.id]).toBeUndefined();
     });
 
-    it('finishes a successful update', () => {
-      const collectionSlug = 'some-collection';
+    it('preserves other collections', () => {
+      let state;
 
-      const params = getParams({ collectionSlug, successful: true });
-      const state = reducer(initialState, finishUpdateCollection(params));
+      const collection1Addons = createFakeCollectionAddons();
+      const collection1Detail = createFakeCollectionDetail();
+      state = reducer(state, loadCurrentCollection({
+        addons: collection1Addons,
+        detail: collection1Detail,
+      }));
 
-      expect(state.collectionUpdates[collectionSlug].updating)
-        .toEqual(false);
-      expect(state.collectionUpdates[collectionSlug].successful)
-        .toEqual(true);
-    });
+      const collection2Addons = createFakeCollectionAddons();
+      const collection2Detail = createFakeCollectionDetail();
+      state = reducer(state, loadCurrentCollection({
+        addons: collection2Addons,
+        detail: collection2Detail,
+      }));
 
-    it('finishes an unsuccessful update', () => {
-      const collectionSlug = 'some-collection';
+      const action = deleteCollectionBySlug(collection2Detail.slug);
+      state = reducer(state, action);
 
-      const params = getParams({ collectionSlug, successful: false });
-      const state = reducer(initialState, finishUpdateCollection(params));
-
-      expect(state.collectionUpdates[collectionSlug].updating)
-        .toEqual(false);
-      expect(state.collectionUpdates[collectionSlug].successful)
-        .toEqual(false);
+      expect(state.byId[collection1Detail.id])
+        .toEqual(createInternalCollection({
+          detail: collection1Detail,
+          items: collection1Addons.results,
+        }));
     });
   });
 });

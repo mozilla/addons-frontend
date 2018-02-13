@@ -10,8 +10,6 @@ import {
   ADDON_TYPE_THEME,
   SEARCH_SORT_RANDOM,
   SEARCH_SORT_POPULAR,
-  SEARCH_SORT_TOP_RATED,
-  SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
@@ -21,8 +19,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 export function* fetchHomeAddons({
   payload: {
     errorHandlerId,
-    firstCollectionSlug,
-    firstCollectionUser,
+    collectionsToFetch,
   },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -32,20 +29,22 @@ export function* fetchHomeAddons({
   try {
     const state = yield select(getState);
 
-    const {
-      firstCollection,
-      featuredExtensions,
-      featuredThemes,
-      popularExtensions,
-      topRatedExtensions,
-      upAndComingExtensions,
-    } = yield all({
-      firstCollection: call(getCollectionAddons, {
+    const collections = [];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const collection of collectionsToFetch) {
+      const result = yield call(getCollectionAddons, {
         api: state.api,
         page: 1,
-        slug: firstCollectionSlug,
-        user: firstCollectionUser,
-      }),
+        slug: collection.slug,
+        user: collection.user,
+      });
+      collections.push(result);
+    }
+
+    const {
+      featuredExtensions,
+      popularThemes,
+    } = yield all({
       featuredExtensions: call(searchApi, {
         api: state.api,
         filters: {
@@ -56,52 +55,21 @@ export function* fetchHomeAddons({
         },
         page: 1,
       }),
-      featuredThemes: call(searchApi, {
+      popularThemes: call(searchApi, {
         api: state.api,
         filters: {
           addonType: ADDON_TYPE_THEME,
-          featured: true,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: 1,
-      }),
-      popularExtensions: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
           page_size: LANDING_PAGE_ADDON_COUNT,
           sort: SEARCH_SORT_POPULAR,
-        },
-        page: 1,
-      }),
-      topRatedExtensions: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_TOP_RATED,
-        },
-        page: 1,
-      }),
-      upAndComingExtensions: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_TRENDING,
         },
         page: 1,
       }),
     });
 
     yield put(loadHomeAddons({
-      firstCollection,
+      collections,
       featuredExtensions,
-      featuredThemes,
-      popularExtensions,
-      topRatedExtensions,
-      upAndComingExtensions,
+      popularThemes,
     }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);

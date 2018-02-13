@@ -7,10 +7,10 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
-  finishUpdateCollection,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -18,6 +18,9 @@ import collectionsReducer, {
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
+import {
+  beginFormOverlaySubmit, closeFormOverlay, finishFormOverlaySubmit,
+} from 'core/reducers/formOverlay';
 import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
@@ -341,6 +344,7 @@ describe(__filename, () => {
     const _updateCollection = (params = {}) => {
       sagaTester.dispatch(updateCollection({
         errorHandlerId: errorHandler.id,
+        formOverlayId: 'some-form-overlay',
         collectionSlug: 'some-collection',
         user: 321,
         ...params,
@@ -348,10 +352,11 @@ describe(__filename, () => {
     };
 
     it('sends a patch to the collection API', async () => {
-      const collectionSlug = 'a-collection';
       const params = {
-        collectionSlug,
-        name: 'New collection name',
+        collectionSlug: 'a-collection',
+        description: { 'en-US': 'New collection description' },
+        formOverlayId: 'some-form-overlay',
+        name: { 'en-US': 'New collection name' },
         user: 543,
       };
       const state = sagaTester.getState();
@@ -360,12 +365,11 @@ describe(__filename, () => {
         .expects('updateCollection')
         .withArgs({
           api: state.api,
-          collectionSlug,
+          collectionSlug: params.collectionSlug,
           defaultLocale: undefined,
-          description: undefined,
+          description: params.description,
           isPublic: undefined,
           name: params.name,
-          slug: undefined,
           user: params.user,
         })
         .once()
@@ -373,17 +377,30 @@ describe(__filename, () => {
 
       _updateCollection(params);
 
-      const expectedLoadAction = finishUpdateCollection({
-        collectionSlug: params.collectionSlug,
-        successful: true,
-      });
+      const expectedAction = finishFormOverlaySubmit(params.formOverlayId);
 
-      await sagaTester.waitFor(expectedLoadAction.type);
+      await sagaTester.waitFor(expectedAction.type);
       mockApi.verify();
 
       const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
-      expect(loadAction).toEqual(expectedLoadAction);
+      const action = calledActions[5];
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('deletes collection object after successful update', async () => {
+      mockApi.expects('updateCollection').returns(Promise.resolve());
+
+      const collectionSlug = 'some-collection';
+      _updateCollection({ collectionSlug });
+
+      const expectedAction = deleteCollectionBySlug(collectionSlug);
+
+      await sagaTester.waitFor(expectedAction.type);
+      mockApi.verify();
+
+      const calledActions = sagaTester.getCalledActions();
+      const action = calledActions[3];
+      expect(action).toEqual(expectedAction);
     });
 
     it('clears the error handler', async () => {
@@ -392,28 +409,41 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createClearingAction();
 
       await sagaTester.waitFor(expectedAction.type);
-      expect(sagaTester.getCalledActions()[1])
-        .toEqual(errorHandler.createClearingAction());
+      expect(sagaTester.getCalledActions()[1]).toEqual(expectedAction);
+    });
+
+    it('begins a form submit', async () => {
+      const formOverlayId = 'my-form-overlay';
+      _updateCollection({ formOverlayId });
+
+      const expectedAction = beginFormOverlaySubmit(formOverlayId);
+
+      await sagaTester.waitFor(expectedAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(expectedAction);
     });
 
     it('handles errors', async () => {
       const collectionSlug = 'a-collection';
+      const formOverlayId = 'my-form-overlay';
       const error = new Error('some API error maybe');
 
       mockApi
         .expects('updateCollection')
         .returns(Promise.reject(error));
 
-      _updateCollection({ collectionSlug });
+      _updateCollection({ collectionSlug, formOverlayId });
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);
 
-      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
-      expect(sagaTester.getCalledActions()[3])
-        .toEqual(finishUpdateCollection({
-          collectionSlug, successful: false,
-        }));
+      expect(sagaTester.getCalledActions()[3]).toEqual(errorAction);
+      expect(sagaTester.getCalledActions()[4])
+        .toEqual(finishFormOverlaySubmit(formOverlayId));
+
+      // Make sure the form overlay is not closed on error.
+      expect(
+        sagaTester.getCalledActions().map((action) => action.type)
+      ).not.toContain(closeFormOverlay(formOverlayId).type);
     });
   });
 });

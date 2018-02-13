@@ -90,6 +90,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableClientConsole',
+    'enableCollectionEdit',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -269,4 +270,12 @@ module.exports = {
   // This setting is intended to simulate the Discopane's nginx cache
   // header for development purposes.
   cacheAllResponsesFor: null,
+
+  // See the Discopane config for how this is currently used.
+  taarParamsToUse: [],
+
+  // Feature flags.
+
+  // Expose the new screen for editing a collection.
+  enableCollectionEdit: false,
 };
