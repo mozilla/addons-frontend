@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 13:47+0000\n"
+"PO-Revision-Date: 2018-02-14 14:05+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -528,7 +528,7 @@ msgstr "描述"
 
 #: src/amo/components/CollectionManager/index.js:81
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "收藏集名称不得空白"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
