@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 00:07+0000\n"
+"PO-Revision-Date: 2018-02-14 01:05+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -910,9 +910,8 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Séparez vos identités sur le Web (travail, personnel, etc.) à l’aide d’onglets contextuels colorés"
+msgstr "Séparez vos identités sur le Web (travail, personnel, etc.) à l’aide d’onglets contextuels colorés."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "SearchPreview"
