@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-06 19:31+0000\n"
-"PO-Revision-Date: 2017-08-23 13:53+0000\n"
+"PO-Revision-Date: 2018-02-14 02:48+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -19,13 +19,10 @@ msgid "Server Error"
 msgstr "伺服器發生錯誤"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr "抱歉，有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -41,8 +38,7 @@ msgstr "很抱歉，我們找不到您輸入的網址的資料內容。"
 msgid "Install Theme"
 msgstr "安裝佈景主題"
 
-#: src/core/components/InstallButton/index.js:255
-#: src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
@@ -152,15 +148,9 @@ msgstr "個人化您的 Firefox"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
-"您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
-"為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
@@ -176,7 +166,7 @@ msgstr "關閉影片"
 
 #: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
-msgstr "看看更多附加元件！"
+msgstr "看更多附加元件！"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
