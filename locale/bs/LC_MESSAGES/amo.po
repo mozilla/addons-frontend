@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 10:30+0000\n"
+"PO-Revision-Date: 2018-02-14 10:38+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -923,15 +923,15 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Poboljšajte rezultate pretrage sa umanjenim sličicama za preglede, nivoe popularnosti i više."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Ne zaboravi me"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Automatski briše podatke (kolačiće, lokalnu pohranu, itd.) na svim stranicama koje posjetite osim onih na vašoj pouzdanoj listi."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Zoom for Firefox"
@@ -939,15 +939,15 @@ msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Jednostavan alat za uvećanje/smanjene prikaza izbliza na bilo kojem web sadržaju."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Privremeni kontejneri"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Otvorite stranice s raspoloživim podacima kontejnera."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -959,19 +959,19 @@ msgstr "Zamijenite vaš novi tab pomoću personalizovanog panela—s listom ispr
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Pratite onoga ko prati vas."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "Sigurno šifriranje za webmail."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Translate Man"
@@ -979,23 +979,23 @@ msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Postavi-i-klikni za trenutne prijevode."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Učinkovit, snažan bloker reklama."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "Popularno proširenje proziv praćenja sada ima sposobnost blokiranja reklama."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1693,7 +1693,7 @@ msgstr "Prebaci sadržaj"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Kliknite da zatvorite"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
