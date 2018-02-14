@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 04:29+0000\n"
+"PO-Revision-Date: 2018-02-14 04:50+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -529,7 +529,7 @@ msgstr "Keterangan"
 
 #: src/amo/components/CollectionManager/index.js:81
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "Nama koleksi tidak boleh kosong"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -869,7 +869,7 @@ msgstr "Lanjutan tema popular"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "Carian ditambahbaik"
 
 #: src/amo/components/Home/index.js:241
 #, fuzzy
@@ -926,15 +926,15 @@ msgstr "Carian"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Tambah hasil carian dengan previu imej kecil, tahap populariti & selainnya."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Jangan Lupakan Saya"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Buang data secara automatik (kuki, storan lokal, dsb.) dalam semua laman yang anda layari kecuali yang disenarai putih."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 #, fuzzy
