@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 13:40+0000\n"
+"PO-Revision-Date: 2018-02-14 14:22+0000\n"
 "Last-Translator: Elio <elio.gi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -527,7 +527,7 @@ msgstr "Nome della raccolta"
 
 #: src/amo/components/CollectionManager/index.js:135
 msgid "Description"
-msgstr ""
+msgstr "Descrizione"
 
 #: src/amo/components/CollectionManager/index.js:81
 msgid "Collection name cannot be blank"
@@ -850,42 +850,36 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Modifica l’aspetto di Firefox con i temi."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Informativa sulla privacy"
+msgstr "Strumenti per la privacy"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Visualizza altri strumenti di produttività"
+msgstr "Visualizza altri strumenti per la privacy"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "Temi più popolari"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Altri temi popolari"
+msgstr "Visualizza altri temi popolari"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
 msgstr ""
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Visualizza altre estensioni per schede"
+msgstr "Visualizza altre estensioni di ricerca"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Visualizza altre estensioni consigliate"
+msgstr "Nuove estensioni consigliate di febbraio"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Visualizza altre estensioni consigliate"
+msgstr "Visualizza tutte le nuove estensioni consigliate"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -916,9 +910,8 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Mantieni i diversi aspetti della tua vita online, come lavoro, personale ecc., ben separati e organizzati con schede colorate"
+msgstr "Mantieni i diversi aspetti della tua vita online, come lavoro, personale ecc., ben separati e organizzati con schede colorate."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 #, fuzzy
@@ -938,9 +931,8 @@ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "per Firefox"
+msgstr "Zoom per Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
@@ -952,7 +944,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Apri le pagine con contenitori dati usa e getta."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -964,24 +956,23 @@ msgstr "Trasforma ogni nuova scheda nel tuo pannello personale, con liste di cos
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Traccia chi ti sta tracciando."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "Crittografia sicura per la webmail."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3. Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
@@ -997,7 +988,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
@@ -1697,7 +1688,7 @@ msgstr "Attiva o disattiva i contenuti"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Fai clic per chiudere"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
