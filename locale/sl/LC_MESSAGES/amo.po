@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 21:35+0000\n"
+"PO-Revision-Date: 2018-02-14 12:23+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -923,7 +923,7 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Obogatite zadetke iskanja s ploščicami predogleda, ocenami priljubljenosti in drugimi uporabnimi možnostmi."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
@@ -987,7 +987,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Učinkovito in zmogljivo orodje za zavračanje oglasov."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
@@ -1699,7 +1699,7 @@ msgstr "Preklopi vsebine"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Kliknite za zaprtje"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
