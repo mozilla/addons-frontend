@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 11:50+0000\n"
+"PO-Revision-Date: 2018-02-14 11:59+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -521,15 +521,15 @@ msgstr "Kolleksje bewurkje"
 
 #: src/amo/components/CollectionManager/index.js:125
 msgid "Collection name"
-msgstr ""
+msgstr "Namme kolleksje"
 
 #: src/amo/components/CollectionManager/index.js:135
 msgid "Description"
-msgstr ""
+msgstr "Beskriuwing"
 
 #: src/amo/components/CollectionManager/index.js:81
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "Namme kolleksje mei net leech wêze"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -861,7 +861,7 @@ msgstr "Mear populêre tema's besjen"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "Sykje opnij betocht"
 
 #: src/amo/components/Home/index.js:241
 msgid "See more search extensions"
@@ -872,9 +872,8 @@ msgid "February’s new featured extensions"
 msgstr "Nije oanrekommandearre útwreidingen yn febrewaris"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Mear oanrekommandearre útwreidingen"
+msgstr "Alle oanrekommandearre útwreidingen besjen"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -905,43 +904,40 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Hâld ferskate dielen fan jo onlinelibben – wurk, privee, ensfh. – skieden troch mei kleur kodearre ljepblêden"
+msgstr "Hâld ferskate dielen fan jo onlinelibben – wurk, privee, ensfh. – skieden troch mei kleur kodearre ljepblêden."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Sykje"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Ferbetterje sykresultaten mei miniatueren, populariteitslisten en mear."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Smyt automatysk gegevens (cookies, lokaal ûnthâld ensfh.) fuort op alle troch jo besochte websites, mei útsûndering fan websites op jo wite list."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "foar Firefox"
+msgstr "Zoom foar Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Ienfâldich helpmiddel foar yn-/útzoome om webynhâld fan tichteby besjen te kinnen."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Tydlike konteners"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Iepenje siden mei tydlike datakonteners."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -953,28 +949,27 @@ msgstr "Ferfang jo nije ljepblêd troch in persoanlik dashboerd – tedwaanliste
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Folgje wa't jo folget."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "Feilige fersifering foar webmail."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Direkte oersetting by oanwizen en klikken."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
@@ -982,15 +977,15 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Effisjinte, krêftige adblocker."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "Populêre útwreiding tsjin folgjen dy't no ek advertinsjes blokkearje kin."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1680,7 +1675,7 @@ msgstr "Ynhâld wikselje"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Klik om te sluten"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
