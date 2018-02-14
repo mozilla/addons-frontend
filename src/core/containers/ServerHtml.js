@@ -84,7 +84,7 @@ export default class ServerHtml extends Component {
 
   getFaviconLink() {
     const { _config } = this.props;
-    return `${_config.get('amoCDN')}/favicon.ico`;
+    return `${_config.get('amoCDN')}/favicon.ico?v=2`;
   }
 
   render() {
