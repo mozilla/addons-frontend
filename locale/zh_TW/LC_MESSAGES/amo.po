@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 02:49+0000\n"
+"PO-Revision-Date: 2018-02-14 02:55+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -905,7 +905,7 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "顯示預覽縮圖、知名度排名等功能，來加強搜尋結果。"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
@@ -913,7 +913,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "除了您的白名單當中的網站以外，自動清除您造訪過的網站所儲存的資料（Cookie、本機儲存空間等等）。"
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Zoom for Firefox"
@@ -921,7 +921,7 @@ msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "簡單的畫面縮放工具，讓您可看清任何網頁內容。"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
@@ -929,7 +929,7 @@ msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "使用可割可棄的資料容器。"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
