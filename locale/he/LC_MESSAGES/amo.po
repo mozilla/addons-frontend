@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 14:06+0000\n"
+"PO-Revision-Date: 2018-02-14 14:13+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -985,7 +985,7 @@ msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "להרחבת הגנת המעקב הפופולרית מעתה יש גם יכולות חסימת פרסומות."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -993,7 +993,7 @@ msgstr "שנו את תצוגת הדפדפן שלכם. בחרו מתוך אלפי
 
 #: src/amo/components/LandingPage/index.js:207
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "חקירת כלים ותכונות רבי עצמה לטובת התאמה אישית של Firefox ולהפיכת הדפדפן לשלך."
 
 #: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
@@ -1659,7 +1659,7 @@ msgstr "החלפת מצב תוכן"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "יש ללחוץ כדי לסגור"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
