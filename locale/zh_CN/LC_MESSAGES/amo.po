@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 14:05+0000\n"
+"PO-Revision-Date: 2018-02-14 14:31+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -916,7 +916,7 @@ msgstr "搜索"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "提供显示预览缩略图、知名度排名等功能，带来更好搜索体验。"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
@@ -924,7 +924,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "自动清除你的隐私数据（Cookie、本地存储等），不多不少，按你所需。"
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 #, fuzzy
@@ -961,11 +961,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "网页邮件的安全加密工具。"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 #, fuzzy
@@ -974,7 +974,7 @@ msgstr "S3.Translator"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "随点即译。"
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
@@ -982,15 +982,15 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "高效而强大的广告过滤器。"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "知名的反跟踪扩展，现在也有广告过滤功能了。"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1652,7 +1652,7 @@ msgstr "切换内容"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "点此关闭"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
