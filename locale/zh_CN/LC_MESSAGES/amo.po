@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 14:31+0000\n"
+"PO-Revision-Date: 2018-02-14 14:45+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -504,19 +504,16 @@ msgid "Creator"
 msgstr "作者"
 
 #: src/amo/components/CollectionManager/index.js:119
-#, fuzzy
 msgid "Save collection"
-msgstr "创建新收藏集"
+msgstr "保存收藏集"
 
 #: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
 msgid "Saving collection"
-msgstr "创建新收藏集"
+msgstr "正在保存收藏集"
 
 #: src/amo/components/CollectionManager/index.js:121
-#, fuzzy
 msgid "Edit collection"
-msgstr "编辑此收藏集"
+msgstr "编辑收藏集"
 
 #: src/amo/components/CollectionManager/index.js:125
 msgid "Collection name"
@@ -839,42 +836,36 @@ msgid "Change the way Firefox looks with themes."
 msgstr "使用主题改变 Firefox 的外观。"
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "隐私政策"
+msgstr "隐私保护工具"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "查看更多生产力工具"
+msgstr "看看更多隐私保护工具"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "最流行的主题"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "更多流行主题"
+msgstr "看看更多流行主题"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "再造搜索"
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "查看更多标签页扩展"
+msgstr "看看更多搜索扩展"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "查看更多精选扩展"
+msgstr "二月崭露头角的扩展"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "查看更多精选扩展"
+msgstr "查看所有崭露头角的扩展"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -905,14 +896,12 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "用彩色的标签页隔开不同的网络生活"
+msgstr "用多彩的标签页将工作、私人等您的不同网上身份分隔开。"
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "搜索"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
@@ -920,28 +909,27 @@ msgstr "提供显示预览缩略图、知名度排名等功能，带来更好搜
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
 msgstr "自动清除你的隐私数据（Cookie、本地存储等），不多不少，按你所需。"
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "适用于 Firefox"
+msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "易用的缩放工具，帮您放大任何看不清的网页内容。"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "以随用随弃的身份打开网页。"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -953,11 +941,11 @@ msgstr "将新标签页替换为个性化的面板——待办事项、天气预
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "看看谁在跟踪您。"
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
@@ -968,9 +956,8 @@ msgid "Secure encryption for webmail."
 msgstr "网页邮件的安全加密工具。"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
