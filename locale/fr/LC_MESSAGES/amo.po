@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 23:45+0000\n"
+"PO-Revision-Date: 2018-02-14 00:07+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -874,14 +874,12 @@ msgid "See more search extensions"
 msgstr "Voir plus d’extensions de recherche"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Voir plus d’extensions mises en avant"
+msgstr "Nouvelles extensions mises en avant de février"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Voir plus d’extensions mises en avant"
+msgstr "Voir toutes les nouvelles extensions mises en avant"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
