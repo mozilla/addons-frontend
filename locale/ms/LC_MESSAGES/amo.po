@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 04:50+0000\n"
+"PO-Revision-Date: 2018-02-14 05:04+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -505,19 +505,16 @@ msgid "Creator"
 msgstr "Pencipta"
 
 #: src/amo/components/CollectionManager/index.js:119
-#, fuzzy
 msgid "Save collection"
-msgstr "Cipta koleksi baru"
+msgstr "Simpan koleksi"
 
 #: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
 msgid "Saving collection"
-msgstr "Cipta koleksi baru"
+msgstr "Menyimpan koleksi"
 
 #: src/amo/components/CollectionManager/index.js:121
-#, fuzzy
 msgid "Edit collection"
-msgstr "Edit koleksi ini"
+msgstr "Edit koleksi"
 
 #: src/amo/components/CollectionManager/index.js:125
 msgid "Collection name"
@@ -849,42 +846,36 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Dasar Privasi"
+msgstr "Alatan privasi"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Lihat lagi alatan produktiviti"
+msgstr "Lihat ekstensi privasi selanjutnya"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "Tema popular"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Lanjutan tema popular"
+msgstr "Lihat tema popular selanjutnya"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
 msgstr "Carian ditambahbaik"
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Lihat ekstensi tab selanjutnya"
+msgstr "Lihat ekstensi carian selanjutnya"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Lihat ekstensi sorotan selanjutnya"
+msgstr "Ekstensi sorotan baru Februari ini"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Lihat ekstensi sorotan selanjutnya"
+msgstr "Lihat semua ekstensi sorotan baru"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -915,14 +906,12 @@ msgid "Multi-Account Containers"
 msgstr "Penyimpan Multi-Akaun"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Letakkan bahagian lain kehidupan atas talian anda—kerja, peribadi, dsb.—diasingkan oleh tab berkod-warna"
+msgstr "Letakkan bahagian lain kehidupan atas talian anda—kerja, peribadi, dsb.—diasingkan oleh tab berkod-warna."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Carian"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
@@ -937,21 +926,20 @@ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you
 msgstr "Buang data secara automatik (kuki, storan lokal, dsb.) dalam semua laman yang anda layari kecuali yang disenarai putih."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "untuk Firefox"
+msgstr "Zum untuk Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Alatan zum masuk/keluar yang mudah untuk paparan teliti kandungan web."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Penyimpan Sementara"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Buka halaman dengan penyimpan data boleh buang."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -963,28 +951,27 @@ msgstr "Ganti tab baru dengan papan pemuka peribadi— senarai tugasan, ramalan 
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Jejaki pihak yang menjejaki anda."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "Enkripsi selamat untuk mel web."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Terjemahan segera tunjuk-dan-klik."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
@@ -992,15 +979,15 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Penyekat iklan yang efisien dan berkuasa."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "Ekstensi anti-penjejakan yang popular kini sudah ada kebolehan menyekat iklan."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1690,7 +1677,7 @@ msgstr "Togol kandungan"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Klik untuk tutup"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
