@@ -3,6 +3,7 @@ import * as React from 'react';
 import AddonMoreInfo, {
   AddonMoreInfoBase,
 } from 'amo/components/AddonMoreInfo';
+import Link from 'amo/components/Link';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -41,19 +42,23 @@ describe(__filename, () => {
 
     // These fields will be visible during loading since
     // they will always exist for the loaded add-on.
-    expect(root.find('.AddonMoreInfo-last-updated-title')).toHaveLength(1);
+    expect(root.find('.AddonMoreInfo-last-updated'))
+      .toHaveLength(1);
 
     expect(root.find(LoadingText)).toHaveLength(1);
 
     // These fields will not be visible during loading
     // since they may not exist.
-    expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-license-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-privacy-policy-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-version-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-version-history-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-beta-versions-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-license')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-privacy-policy'))
+      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-version-history'))
+      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-eula')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-beta-versions'))
+      .toHaveLength(0);
   });
 
   it('renders a link <dt> if links exist', () => {
@@ -64,8 +69,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-links-title'))
-      .toIncludeText('Add-on Links');
+    expect(root.find('.AddonMoreInfo-links')).toHaveProp('term', 'Add-on Links');
   });
 
   it('renders a link <dt> if support email exists', () => {
@@ -77,8 +81,8 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-links-title'))
-      .toIncludeText('Add-on Links');
+    expect(root.find('.AddonMoreInfo-links'))
+      .toHaveProp('term', 'Add-on Links');
   });
 
   it('does not render a link <dt> if no links exist', () => {
@@ -88,7 +92,7 @@ describe(__filename, () => {
     delete partialAddon.support_url;
     const root = render({ addon: createInternalAddon(partialAddon) });
 
-    expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
   });
 
   it('does not render a homepage if none exists', () => {
@@ -96,7 +100,7 @@ describe(__filename, () => {
     delete partialAddon.homepage;
     const root = render({ addon: createInternalAddon(partialAddon) });
 
-    expect(root.find('.AddonMoreInfo-homepage-link')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-homepage')).toHaveLength(0);
   });
 
   it('does not render a link <dt> if support email is not valid', () => {
@@ -108,7 +112,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-links-title')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-links')).toHaveLength(0);
   });
 
   it('renders the homepage of an add-on', () => {
@@ -165,7 +169,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version')).toHaveText('2.0.1');
+    expect(root.find('.AddonMoreInfo-version').children()).toHaveText('2.0.1');
   });
 
   it('renders the license and link', () => {
@@ -179,8 +183,8 @@ describe(__filename, () => {
     const root = render({ addon });
     const link = root.find('.AddonMoreInfo-license-link');
 
-    expect(root.find('.AddonMoreInfo-license-title')).toHaveText('License');
-    expect(link).toHaveProp('children', 'tofulicense');
+    expect(root.find('.AddonMoreInfo-license')).toHaveProp('term', 'License');
+    expect(link.children()).toIncludeText('tofulicense');
     expect(link).toHaveProp('href', 'http://license.com/');
   });
 
@@ -207,10 +211,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-privacy-policy-title'))
-      .toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-privacy-policy-link'))
-      .toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-privacy-policy')).toHaveLength(0);
   });
 
   it('renders the privacy policy and link', () => {
@@ -219,32 +220,31 @@ describe(__filename, () => {
       has_privacy_policy: true,
     });
     const root = render({ addon });
+    const link = root.find('.AddonMoreInfo-privacy-policy').find(Link);
 
-    expect(root.find('.AddonMoreInfo-privacy-policy-title'))
-      .toHaveText('Privacy Policy');
-    expect(root.find('.AddonMoreInfo-privacy-policy-link').children())
+    expect(root.find('.AddonMoreInfo-privacy-policy'))
+      .toHaveProp('term', 'Privacy Policy');
+    expect(link.children())
       .toHaveText('Read the privacy policy for this add-on');
-    expect(root.find('.AddonMoreInfo-privacy-policy-link'))
-      .toHaveProp('href', '/addon/chill-out/privacy/');
+    expect(link).toHaveProp('href', '/addon/chill-out/privacy/');
   });
 
   it('does not render a EULA if none exists', () => {
     const addon = createInternalAddon({ ...fakeAddon, has_eula: false });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-eula-title')).toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-eula-link')).toHaveLength(0);
+    expect(root.find('.AddonMoreInfo-eula')).toHaveLength(0);
   });
 
   it('renders the EULA and link', () => {
     const addon = createInternalAddon({ ...fakeAddon, has_eula: true });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-eula-title'))
-      .toHaveText('End-User License Agreement');
-    expect(root.find('.AddonMoreInfo-eula-link').children())
+    expect(root.find('.AddonMoreInfo-eula'))
+      .toHaveProp('term', 'End-User License Agreement');
+    expect(root.find('.AddonMoreInfo-eula').find(Link).children())
       .toHaveText('Read the license agreement for this add-on');
-    expect(root.find('.AddonMoreInfo-eula-link'))
+    expect(root.find('.AddonMoreInfo-eula').find(Link))
       .toHaveProp('href', '/addon/chill-out/eula/');
   });
 
@@ -312,7 +312,7 @@ describe(__filename, () => {
 
     const statsLink = root.find('.AddonMoreInfo-stats-link');
     expect(statsLink).toHaveLength(1);
-    expect(statsLink).toHaveProp('children', 'Visit stats dashboard');
+    expect(statsLink.children()).toHaveText('Visit stats dashboard');
     expect(statsLink).toHaveProp('href', '/addon/coolio/statistics/');
   });
 
@@ -337,11 +337,11 @@ describe(__filename, () => {
     });
 
     const root = render({ addon });
+    const history = root.find('.AddonMoreInfo-version-history');
 
-    expect(root.find('.AddonMoreInfo-version-history-title'))
-      .toHaveLength(1);
-    const link = root.find('.AddonMoreInfo-version-history-link');
-    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+    expect(history).toHaveProp('term', 'Version History');
+    expect(history.find(Link))
+      .toHaveProp('href', `/addon/${addon.slug}/versions/`);
   });
 
   it('links to version history if add-on is a dictionary', () => {
@@ -351,11 +351,11 @@ describe(__filename, () => {
     });
 
     const root = render({ addon });
+    const history = root.find('.AddonMoreInfo-version-history');
 
-    expect(root.find('.AddonMoreInfo-version-history-title'))
-      .toHaveLength(1);
-    const link = root.find('.AddonMoreInfo-version-history-link');
-    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+    expect(history).toHaveProp('term', 'Version History');
+    expect(history.find(Link))
+      .toHaveProp('href', `/addon/${addon.slug}/versions/`);
   });
 
   it('links to version history if add-on is a language pack', () => {
@@ -365,11 +365,11 @@ describe(__filename, () => {
     });
 
     const root = render({ addon });
+    const history = root.find('.AddonMoreInfo-version-history');
 
-    expect(root.find('.AddonMoreInfo-version-history-title'))
-      .toHaveLength(1);
-    const link = root.find('.AddonMoreInfo-version-history-link');
-    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/`);
+    expect(history).toHaveProp('term', 'Version History');
+    expect(history.find(Link))
+      .toHaveProp('href', `/addon/${addon.slug}/versions/`);
   });
 
   it('omits version history for search plugins', () => {
@@ -381,9 +381,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version-history-title'))
-      .toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-version-history-link'))
+    expect(root.find('.AddonMoreInfo-version-history'))
       .toHaveLength(0);
   });
 
@@ -394,9 +392,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version-history-title'))
-      .toHaveLength(0);
-    expect(root.find('.AddonMoreInfo-version-history-link'))
+    expect(root.find('.AddonMoreInfo-version-history'))
       .toHaveLength(0);
   });
 
@@ -404,7 +400,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeTheme });
     const root = render({ addon });
 
-    expect(root.find('.AddonMoreInfo-version-history-link'))
+    expect(root.find('.AddonMoreInfo-version-history'))
       .toHaveLength(0);
   });
 
@@ -419,8 +415,9 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    const link = root.find('.AddonMoreInfo-beta-versions-link');
-    expect(link).toHaveProp('href', `/addon/${addon.slug}/versions/beta`);
+    expect(root
+      .find('.AddonMoreInfo-beta-versions-link'))
+      .toHaveProp('href', `/addon/${addon.slug}/versions/beta`);
   });
 
   it('does not link to beta versions without a current beta', () => {

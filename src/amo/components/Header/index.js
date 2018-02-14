@@ -101,12 +101,12 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href={`/user/${siteUser.username}/`}>
+                <Link to={`/user/${siteUser.username}/`}>
                   {i18n.gettext('View Profile')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/users/edit">
+                <Link to="/users/edit">
                   {i18n.gettext('Edit Profile')}
                 </Link>
               </DropdownMenuItem>
