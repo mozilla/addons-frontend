@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-15 16:31+0000\n"
+"PO-Revision-Date: 2018-02-15 16:45+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -146,7 +146,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Laajennuksen metatiedot"
 
 #: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
@@ -194,15 +194,15 @@ msgstr "Firefox iOS:lle ei tällä hetkellä tue lisäosia."
 
 #: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Tämä lisäosa ei ole käytettävissä käyttämässäsi ympäristössä."
 
 #: src/amo/components/AddonCompatibilityError/index.js:78
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr ""
+msgstr "Tämä lisäosa vaatii <a href=\"%(downloadUrl)s\">uudemman Firefox-version</a> (vähintään version %(minVersion)s). Käytössäsi on Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Käyttämäsi selain ei tue lisäosia. Voit asentaa tämän lisäosan <a href=\"%(downloadUrl)s\">lataamalla Firefoxin</a>."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -362,7 +362,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr ""
+msgstr "Kehittäjän vastaus"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
 #, fuzzy
@@ -394,9 +394,8 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:258
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Kirjoita arvio"
+msgstr "Muokkaa vastaustani"
 
 #: src/amo/components/AddonReviewListItem/index.js:259
 #, fuzzy
@@ -426,15 +425,15 @@ msgstr "%s – Lisäosia Androidille"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
-msgstr ""
+msgstr "Luokkia ei löytynyt."
 
 #: src/amo/components/Categories/index.js:107
 msgid "Categories"
-msgstr ""
+msgstr "Luokat"
 
 #: src/amo/components/Categories/index.js:112
 msgid "Loading categories."
-msgstr ""
+msgstr "Ladataan luokkia."
 
 #: src/amo/components/Category/index.js:128 src/amo/components/LandingPage/index.js:202 src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
@@ -449,23 +448,20 @@ msgid "See more featured extensions"
 msgstr "Katso lisää suositeltuja lisäosia"
 
 #: src/amo/components/Category/index.js:139 src/amo/components/LandingPage/index.js:130 src/amo/components/Search/index.js:124
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Laajennukset"
+msgstr "Nousussa olevat laajennukset"
 
 #: src/amo/components/Category/index.js:148 src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Laajennukset"
+msgstr "Katso lisää nousussa olevia laajennuksia"
 
 #: src/amo/components/Category/index.js:149 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Parhaiten arvioidut laajennukset"
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Laajennukset"
+msgstr "Katso lisää parhaiten arvioituja laajennuksia"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:201 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -481,32 +477,31 @@ msgstr "Katso lisää suositeltuja teemoja"
 
 #: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:127
 msgid "Trending themes"
-msgstr ""
+msgstr "Nousussa olevat teemat"
 
 #: src/amo/components/Category/index.js:181 src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Laajennukset"
+msgstr "Katso lisää nousussa olevia teemoja"
 
 #: src/amo/components/Category/index.js:182 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:139
 msgid "Top rated themes"
-msgstr ""
+msgstr "Parhaiten arvioidut teemat"
 
 #: src/amo/components/Category/index.js:191 src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Katso lisää parhaiten arvioituja teemoja"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Selaa kaikkia tämän luokan lisäosia."
 
 #: src/amo/components/CategoryHeader/index.js:46
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "Selaa kaikkia tämän luokan laajennuksia."
 
 #: src/amo/components/CategoryHeader/index.js:51
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "Selaa kaikkia tämän luokan teemoja."
 
 #: src/amo/components/Collection/index.js:159
 #, fuzzy
@@ -856,11 +851,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Muokkaa Firefoxin toimintaa laajennuksilla. Oletko kiinnostunut näistä?"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Muuta Firefoxin ulkoasua teemoilla."
 
 #: src/amo/components/Home/index.js:214
 #, fuzzy
@@ -902,7 +897,7 @@ msgstr "Katso lisää suositeltuja lisäosia"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
-msgstr ""
+msgstr "Kirjanmerkit"
 
 #: src/amo/components/Home/index.js:64
 msgid "Password managers"
@@ -910,11 +905,11 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
-msgstr ""
+msgstr "Mainosestot"
 
 #: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Fiksummat kaupat"
 
 #: src/amo/components/Home/index.js:76
 msgid "Productivity"
@@ -1024,7 +1019,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
-msgstr ""
+msgstr "Selaa kaikkia luokkia"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
@@ -1139,14 +1134,12 @@ msgid "Featured add-ons"
 msgstr "Suositellut lisäosat"
 
 #: src/amo/components/Search/index.js:130
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Firefoxin lisäosat"
+msgstr "Nousussa olevat lisäosat"
 
 #: src/amo/components/Search/index.js:142
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Firefoxin lisäosat"
+msgstr "Parhaiten arvioidut lisäosat"
 
 #: src/amo/components/Search/index.js:148
 msgid "Popular extensions"
@@ -1252,11 +1245,11 @@ msgstr "Eniten käyttäjiä"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
-msgstr ""
+msgstr "Parhaiten arvioidut"
 
 #: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
-msgstr ""
+msgstr "Nousussa olevat"
 
 #: src/amo/components/SearchFilters/index.js:136
 msgid "Filter results"
