@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-15 20:11+0000\n"
+"PO-Revision-Date: 2018-02-15 20:14+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -856,42 +856,36 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Změńśo wenkowny naglěd Firefox pśez drastwy."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Pšawidła priwatnosći"
+msgstr "Rědy priwatnosći"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Dalšne rědy produktiwity pokazaś"
+msgstr "Dalšne rědy priwatnosći pokazaś"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "Woblubowane drastwy"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Dalšne woblubowane drastwy"
+msgstr "Dalšne woblubowane drastwy pokazaś"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
 msgstr "Pśemyslone pytanje"
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Dalšne rejtarkowe rozšyrjenja se woglědaś"
+msgstr "Dalšne pytańske rozšyrjenja se woglědaś"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Dalšne pśedstajone rozšyrjenja se woglědaś"
+msgstr "Nowe pśedstajone rozšyrjenja we februarje"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Dalšne pśedstajone rozšyrjenja se woglědaś"
+msgstr "Wšykne nowe pśedstajone rozšyrjenja se woglědaś"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -922,14 +916,12 @@ msgid "Multi-Account Containers"
 msgstr "Wěcejkontowe kontejnery"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - pśez rejtarki koděrowane z barwami"
+msgstr "Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - pśez rejtarki koděrowane z barwami."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Pytaś"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
@@ -944,9 +936,8 @@ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you
 msgstr "Wulašujśo daty awtomatiski (cookieje, lokalny składowak atd.) na wšych sedłach, kótarež se woglědujośo, mimo tych na běłęj lisćinje."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "za Firefox"
+msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
@@ -985,9 +976,8 @@ msgid "Secure encryption for webmail."
 msgstr "Wěste koděrowanje za webmejl."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
