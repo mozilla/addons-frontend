@@ -214,6 +214,26 @@ describe(__filename, () => {
       }));
     });
 
+    it('dispatches fetchReviews with an invalid page variable', () => {
+      // We intentionally pass invalid pages to the API to get a 404 response.
+      const dispatch = sinon.stub(store, 'dispatch');
+      const errorHandler = createStubErrorHandler();
+      const addonSlug = fakeAddon.slug;
+      const page = 'x';
+
+      render({
+        errorHandler,
+        location: { query: { page } },
+        params: { addonSlug },
+      });
+
+      sinon.assert.calledWith(dispatch, fetchReviews({
+        addonSlug,
+        errorHandlerId: errorHandler.id,
+        page,
+      }));
+    });
+
     it('fetches reviews when the page changes', () => {
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();

@@ -10,7 +10,6 @@ import { SEARCH_STARTED } from 'core/constants';
 import log from 'core/logger';
 import { abortSearch } from 'core/reducers/search';
 import { createErrorHandler, getState } from 'core/sagas/utils';
-import { parsePage } from 'core/utils';
 
 
 export function* fetchSearchResults({ payload }) {
@@ -21,7 +20,6 @@ export function* fetchSearchResults({ payload }) {
 
   try {
     const { filters } = payload;
-    const page = parsePage(filters.page);
 
     const state = yield select(getState);
 
@@ -29,7 +27,6 @@ export function* fetchSearchResults({ payload }) {
       api: state.api,
       auth: true,
       filters,
-      page,
     });
     const { entities, result } = response;
 
