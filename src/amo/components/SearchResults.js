@@ -5,6 +5,7 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
+import { SEARCH_SORT_UPDATED } from 'core/constants';
 
 
 class SearchResults extends React.Component {
@@ -59,6 +60,7 @@ class SearchResults extends React.Component {
           addons={hasSearchFilters(filters) ? results : null}
           header={i18n.gettext('Search results')}
           loading={loading}
+          sortedByDate={filters.sort && filters.sort === SEARCH_SORT_UPDATED}
         >
           {messageText ? (
             <p

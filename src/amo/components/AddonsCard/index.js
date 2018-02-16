@@ -20,6 +20,7 @@ export default class AddonsCard extends React.Component {
     type: PropTypes.string,
     showMetadata: PropTypes.bool,
     showSummary: PropTypes.bool,
+    sortedByDate: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -39,6 +40,7 @@ export default class AddonsCard extends React.Component {
       showMetadata,
       showSummary,
       type,
+      sortedByDate,
       ...otherProps
     } = this.props;
 
@@ -52,6 +54,7 @@ export default class AddonsCard extends React.Component {
             key={addon.slug}
             showMetadata={showMetadata}
             showSummary={showSummary}
+            sortedByDate={sortedByDate}
           />
         );
       });
