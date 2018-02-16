@@ -215,6 +215,7 @@ describe(__filename, () => {
     });
 
     it('dispatches fetchReviews with an invalid page variable', () => {
+      // We intentionally pass invalid pages to the API to get a 404 response.
       const dispatch = sinon.stub(store, 'dispatch');
       const errorHandler = createStubErrorHandler();
       const addonSlug = fakeAddon.slug;
