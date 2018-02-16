@@ -1,6 +1,4 @@
 /* global window */
-import config from 'config';
-
 import { search } from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
@@ -13,6 +11,7 @@ import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
   unexpectedSuccess,
+  urlWithTheseParams,
   userAgents,
 } from 'tests/unit/helpers';
 
@@ -20,7 +19,6 @@ import {
 describe(__filename, () => {
   let api;
   let mockWindow;
-  const apiHost = config.get('apiHost');
   const firefox57 = userAgents.firefox[5];
   const firefoxESR52 = userAgents.firefox[4];
 
@@ -53,13 +51,16 @@ describe(__filename, () => {
     });
   }
 
-  it('sets the lang, limit, page and query', () => {
-    // FIXME: This shouldn't fail if the args are in a different order.
+  it('sets the page and query', () => {
+    const page = 4;
+    const query = 'youtube';
+
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
-      .once()
+      .withArgs(urlWithTheseParams({ page, q: query }))
       .returns(mockResponse());
-    return _search().then(() => mockWindow.verify());
+
+    return _search({ filters: { page, query } })
+      .then(() => mockWindow.verify());
   });
 
   it('sets appversion if Firefox version is 57 or above', () => {
@@ -69,8 +70,7 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&appversion=57.1&page=3&q=foo&lang=en-US`)
-      .once()
+      .withArgs(urlWithTheseParams({ appversion: '57.1' }))
       .returns(mockResponse());
 
     return _search().then(() => mockWindow.verify());
@@ -84,9 +84,10 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
-      .once()
-      .returns(mockResponse());
+      .callsFake((urlString) => {
+        expect(urlString).not.toContain('appversion');
+        return mockResponse();
+      });
 
     return _search().then(() => mockWindow.verify());
   });
@@ -98,8 +99,7 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=android&appversion=57.0&page=3&q=foo&lang=en-US`)
-      .once()
+      .withArgs(urlWithTheseParams({ appversion: '57.0' }))
       .returns(mockResponse());
 
     return _search().then(() => mockWindow.verify());
@@ -112,9 +112,10 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
-      .once()
-      .returns(mockResponse());
+      .callsFake((urlString) => {
+        expect(urlString).not.toContain('appversion');
+        return mockResponse();
+      });
 
     return _search().then(() => mockWindow.verify());
   });
@@ -126,9 +127,10 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`)
-      .once()
-      .returns(mockResponse());
+      .callsFake((urlString) => {
+        expect(urlString).not.toContain('appversion');
+        return mockResponse();
+      });
 
     return _search().then(() => mockWindow.verify());
   });
@@ -140,14 +142,12 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&appversion=57.1&page=3&q=foo&type=extension&lang=en-US`)
-      .once()
+      .withArgs(urlWithTheseParams({ appversion: '57.1' }))
       .returns(mockResponse());
 
     return _search({
       filters: {
         addonType: ADDON_TYPE_EXTENSION,
-        page: parsePage(3),
         query: 'foo',
       },
     })
@@ -161,11 +161,11 @@ describe(__filename, () => {
     }).store.getState().api;
 
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&appversion=57.1&page=3&q=foo&lang=en-US`)
+      .withArgs(urlWithTheseParams({ appversion: '57.1' }))
       .once()
       .returns(mockResponse());
 
-    return _search().then(() => mockWindow.verify());
+    return _search({ addonType: undefined }).then(() => mockWindow.verify());
   });
 
   it('normalizes the response', () => {
@@ -185,31 +185,27 @@ describe(__filename, () => {
   });
 
   it('surfaces status and apiURL on Error instance', () => {
-    const url = `${apiHost}/api/v3/addons/search/?app=firefox&page=3&q=foo&lang=en-US`;
     mockWindow.expects('fetch')
-      .withArgs(url)
-      .once()
       .returns(mockResponse({ ok: false, status: 401 }));
 
     return _search()
       .then(unexpectedSuccess, (err) => {
         expect(err.response.status).toEqual(401);
-        expect(err.response.apiURL).toEqual(url);
+        expect(err.response.apiURL).toMatch('/api/v3/addons/search/');
       });
   });
 
   it('changes theme requests for android to firefox results', async () => {
-    // FIXME: This shouldn't fail if the args are in a different order.
     mockWindow.expects('fetch')
-      .withArgs(`${apiHost}/api/v3/addons/search/?app=firefox&page=3&type=persona&lang=en-US`)
-      .once()
+      .withArgs(urlWithTheseParams({
+        app: CLIENT_APP_FIREFOX, type: ADDON_TYPE_THEME,
+      }))
       .returns(mockResponse());
 
     await _search({
       filters: {
         addonType: ADDON_TYPE_THEME,
         clientApp: CLIENT_APP_ANDROID,
-        page: parsePage(3),
       },
     });
     mockWindow.verify();
