@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-16 16:08+0000\n"
+"PO-Revision-Date: 2018-02-16 16:12+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -850,35 +850,31 @@ msgstr "პირადი მონაცემების დაცვის 
 
 #: src/amo/components/Home/index.js:215
 msgid "See more privacy tools"
-msgstr "იხილეთ სხვა ხელსაწყოები"
+msgstr "სხვა ხელსაწყოები"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "ყველაზე მეტად სასურველი თემები"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "მეტად სასურველი თემები"
+msgstr "სხვა მეტად სასურველი თემები"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "კიდევ მეტის მოძიება"
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "სხვა გაფართოებები ჩანართებისთვის"
+msgstr "სხვა საძიებო გაფართოებები"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "სხვა რჩეული გაფართოებები"
+msgstr "თებერვლის ახალი რჩეული გაფართოებები"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "სხვა რჩეული გაფართოებები"
+msgstr "სხვა ახალი რჩეული გაფართოებები"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -909,14 +905,12 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "განაცალკევეთ თქვენი სხვადასხვა საქმიანობა ინტერნეტში—სამუშაო, პირადი და ა.შ.—გამოყავით, ფერადი ჩანართების საშუალებით"
+msgstr "განაცალკევეთ თქვენი სხვადასხვა საქმიანობა ინტერნეტში—სამუშაო, პირადი და ა.შ.—გამოყავით, ფერადი ჩანართების საშუალებით."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "ძიება"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
