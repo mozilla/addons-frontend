@@ -33,8 +33,7 @@
     "test-once": "bin/config-check.js && better-npm-run jest && npm run lint",
     "version-check": "bin/version-check.js",
     "webpack-dev-server": "npm run build-locales && better-npm-run webpack-dev-server",
-    "snyk-protect": "snyk protect",
-    "prepublish": "npm run snyk-protect"
+    "snyk-protect": "snyk protect"
   },
   "betterScripts": {
     "build": {
