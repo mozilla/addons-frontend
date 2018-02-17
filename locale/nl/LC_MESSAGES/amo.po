@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 13:31+0000\n"
+"PO-Revision-Date: 2018-02-14 13:40+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -862,7 +862,7 @@ msgstr "Meer populaire thema’s bekijken"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr "Re-imagine search"
+msgstr "Zoeken opnieuw bedacht"
 
 #: src/amo/components/Home/index.js:241
 msgid "See more search extensions"
@@ -1415,8 +1415,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
-"In het algemeen niet. Maar als de beoordeling niet voldoet aan de bovenstaande richtlijnen kunt u op ‘Deze beoordeling melden’ klikken om moderatie te starten. Als de beoordeling een klacht "
-"beschrijft die niet meer geldt vanwege een nieuwe uitgave van uw add-on, dan kunnen we overwegen de beoordeling te verwijderen."
+"In het algemeen niet. Maar als de beoordeling niet aan de bovenstaande richtlijnen voldoet, kunt u op ‘Deze beoordeling rapporteren’ klikken om moderatie te starten. Als de beoordeling een klacht "
+"beschrijft die niet meer geldt vanwege een nieuwe uitgave van uw add-on, kunnen we overwegen de beoordeling te verwijderen."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
