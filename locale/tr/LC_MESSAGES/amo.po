@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-15 17:40+0000\n"
+"PO-Revision-Date: 2018-02-17 11:35+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -504,19 +504,16 @@ msgid "Creator"
 msgstr "Oluşturan"
 
 #: src/amo/components/CollectionManager/index.js:119
-#, fuzzy
 msgid "Save collection"
-msgstr "Yeni koleksiyon oluştur"
+msgstr "Koleksiyonu kaydet"
 
 #: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
 msgid "Saving collection"
-msgstr "Yeni koleksiyon oluştur"
+msgstr "Koleksiyon kaydediliyor"
 
 #: src/amo/components/CollectionManager/index.js:121
-#, fuzzy
 msgid "Edit collection"
-msgstr "Bu koleksiyonu düzenle"
+msgstr "Koleksiyonu düzenle"
 
 #: src/amo/components/CollectionManager/index.js:125
 msgid "Collection name"
@@ -843,42 +840,36 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Temalarla Firefox'un görünüşünü değiştirin."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Gizlilik ilkeleri"
+msgstr "Gizlilik araçları"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Diğer verimlilik araçlarına bakın"
+msgstr "Diğer gizlilik araçlarına bakın"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "Popüler temalar"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Daha fazla popüler tema"
+msgstr "Diğer popüler temalara bakın"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
 msgstr "Farklı şeyler arayın"
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Diğer sekme eklentilere bakın"
+msgstr "Diğer arama eklentilerine bakın"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Öne çıkan diğer eklentilere bakın"
+msgstr "Şubat ayında öne çıkan eklentiler"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Öne çıkan diğer eklentilere bakın"
+msgstr "Öne çıkan tüm yeni eklentilere bakın"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -909,14 +900,12 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) renkli sekmelerle ayırın"
+msgstr "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) renkli sekmelerle ayırın."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Ara"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
@@ -931,9 +920,8 @@ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you
 msgstr "İzin listenize almadığınız tüm sitelerin oluşturduğu veriler (çerezler, yerel depolama vb.) kendiliğinden silinsin."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "Firefox için"
+msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
@@ -972,9 +960,8 @@ msgid "Secure encryption for webmail."
 msgstr "Web tabanlı e-postalar için güvenli şifreleme."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
