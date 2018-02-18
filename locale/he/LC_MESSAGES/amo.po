@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 14:13+0000\n"
+"PO-Revision-Date: 2018-02-18 21:43+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -645,11 +645,11 @@ msgstr "סומן כדיווח על תקלה או בקשת תמיכה"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "סימון בדגל"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "מסומן בדגל"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -1061,7 +1061,7 @@ msgstr "יש להתחבר כדי לדרג תוספת זו"
 
 #: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "מהי רמת שביעות רצונך מהשימוש ב־%(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"
