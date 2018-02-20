@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-20 22:50+0000\n"
+"PO-Revision-Date: 2018-02-20 23:07+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -95,47 +95,47 @@ msgstr "Chi rij re tz'aqat re'"
 
 #: src/amo/components/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Kich'utitzijol elesanem richin %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Ch'aqa' chik taq soltzij richin %(author)s"
 
 #: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Ch'aqa' chik taq soltzij kuma re taq tzalq'omanela' re'"
 
 #: src/amo/components/Addon/index.js:378
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Ch'aqa' chik taq k'amal richin %(author)s"
 
 #: src/amo/components/Addon/index.js:381
 msgid "More extensions by these developers"
-msgstr ""
+msgstr "Ch'aqa' chik taq k'amal kichin re b'anonela' re'"
 
 #: src/amo/components/Addon/index.js:388
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Ch'aqa' chik pison ch'ab'äl kuma %(author)s"
 
 #: src/amo/components/Addon/index.js:391
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Ch'aqa' chik pison ch'ab'äl kuma re tzalq'omanela' re'"
 
 #: src/amo/components/Addon/index.js:398
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Ch'aqa' chik taq na'oj richin %(author)s"
 
 #: src/amo/components/Addon/index.js:401
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Ch'aqa' chik taq na'oj kuma re b'anöl re'"
 
 #: src/amo/components/Addon/index.js:408
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Ch'aqa' chik taq tz'aqat richin %(author)s"
 
 #: src/amo/components/Addon/index.js:411
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Ch'aqa' chik taq tz'aqat kichin re b'anonela' re'"
 
 # Example: The Add-On <span>by The Author</span>
 #: src/amo/components/Addon/index.js:491
@@ -144,7 +144,7 @@ msgstr "%(addonName)s %(startSpan)sruma %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Richintzij K'amal"
 
 #: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
@@ -152,23 +152,23 @@ msgstr "Chapoj taq ruwäch"
 
 #: src/amo/components/AddonBadges/index.js:30
 msgid "Featured Extension"
-msgstr ""
+msgstr "Talun K'amal"
 
 #: src/amo/components/AddonBadges/index.js:32
 msgid "Featured Theme"
-msgstr ""
+msgstr "Talun Wachinel"
 
 #: src/amo/components/AddonBadges/index.js:34
 msgid "Featured Add-on"
-msgstr ""
+msgstr "Talun Tz'aqat"
 
 #: src/amo/components/AddonBadges/index.js:52
 msgid "Restart Required"
-msgstr ""
+msgstr "Nrajo' chi Nitikirisäx chik"
 
 #: src/amo/components/AddonBadges/index.js:58
 msgid "Experimental"
-msgstr ""
+msgstr "Soltojtob'enel"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
