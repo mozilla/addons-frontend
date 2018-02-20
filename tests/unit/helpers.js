@@ -1,4 +1,6 @@
 /* global Response */
+import url from 'url';
+
 import base64url from 'base64url';
 import config, { util as configUtil } from 'config';
 import { shallow } from 'enzyme';
@@ -430,4 +432,26 @@ export const getFakeConfig = (params = {}) => {
     }
   }
   return Object.assign(configUtil.cloneDeep(config), params);
+};
+
+/*
+ * A sinon matcher to check if the URL contains the declared params.
+ *
+ * Example:
+ *
+ * mockWindow.expects('fetch').withArgs(urlWithTheseParams({ page: 1 }))
+ */
+export const urlWithTheseParams = (params) => {
+  return sinon.match((urlString) => {
+    const { query } = url.parse(urlString, true);
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const param in params) {
+      if (!query[param] || query[param] !== params[param].toString()) {
+        return false;
+      }
+    }
+
+    return true;
+  }, `urlWithTheseParams(${JSON.stringify(params)})`);
 };

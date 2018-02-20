@@ -119,7 +119,12 @@ export function callApi({
   // Preserve the original query string if there is one.
   // This might happen when we parse `next` URLs returned by the API.
   const queryString = makeQueryString({
-    ...parsedUrl.query, ...params, lang: state.lang,
+    ...parsedUrl.query,
+    ...params,
+    lang: state.lang,
+    // Always return URLs wrapped by the outgoing proxy.
+    // Example: http://outgoing.prod.mozaws.net/
+    wrap_outgoing_links: true,
   });
 
   const options = {
