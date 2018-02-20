@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-20 05:23+0000\n"
+"PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
 "Language: bn_BD\n"
@@ -103,11 +103,11 @@ msgstr "%(author)s দ্বারা আরও অভিধান"
 
 #: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "এই অনুবাদকদের দ্বারা আরও অভিধান"
 
 #: src/amo/components/Addon/index.js:378
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "%(author)s দ্বারা আরও এক্সটেনশানগুলি"
 
 #: src/amo/components/Addon/index.js:381
 msgid "More extensions by these developers"
