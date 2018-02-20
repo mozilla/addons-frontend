@@ -1,8 +1,8 @@
 // Put any test configuration overrides here.
 module.exports = {
   appName: 'test-app-set-from-config',
-  // If you see a test make a request to this, it's probably a bug.
-  apiHost: 'http://your-test-is-touching-the-api-pls-stop',
+  // No test should touch the API so seeing this would indicate a bug.
+  apiHost: 'http://if-you-see-this-host-file-a-bug',
   allowErrorSimulation: true,
   enableClientConsole: true,
   isDeployed: false,
