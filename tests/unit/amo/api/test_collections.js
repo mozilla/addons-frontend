@@ -364,7 +364,6 @@ describe(__filename, () => {
             default_locale: undefined,
             description: undefined,
             name: params.name,
-            public: undefined,
             slug: undefined,
           },
           endpoint,

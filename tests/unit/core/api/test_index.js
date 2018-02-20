@@ -35,7 +35,8 @@ describe(__filename, () => {
 
   describe('core.callApi', () => {
     it('does not use remote host for api calls', () => {
-      expect(apiHost).toEqual('https://localhost');
+      expect(apiHost)
+        .toEqual('http://if-you-see-this-host-file-a-bug');
     });
 
     it('transforms method to upper case', async () => {
