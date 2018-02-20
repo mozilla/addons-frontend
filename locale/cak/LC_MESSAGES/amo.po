@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-20 23:07+0000\n"
+"PO-Revision-Date: 2018-02-20 23:17+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -172,15 +172,15 @@ msgstr "Soltojtob'enel"
 
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
-msgstr ""
+msgstr "Man nuk'äm ta ri' rik'in ri Firefox Quantum"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Nawajo' ri <a href=\"%(downloadUrl)s\">tiqasäx Firefox</a> richin nayäk re tz'aqat re'."
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Man nuk'äm ta ri' rik'in ruwäch Firefox re tz'aqat re'."
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
@@ -277,11 +277,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Ichinanem Na'oj"
 
 #: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
-msgstr ""
+msgstr "Taq rutzij ya'öl q'ij kichin ri ruk'isib'äl winäq okisanel"
 
 #: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
@@ -293,11 +293,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
-msgstr ""
+msgstr "Ch'aqa' chik etamab'äl"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
-msgstr ""
+msgstr "Tikirib'äl ruxaq"
 
 #: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
