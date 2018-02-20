@@ -446,7 +446,7 @@ export const urlWithTheseParams = (params) => {
     const { query } = url.parse(urlString, true);
 
     // eslint-disable-next-line no-restricted-syntax
-    for (const param of Object.keys(params)) {
+    for (const param in params) {
       if (!query[param] || query[param] !== params[param].toString()) {
         return false;
       }
