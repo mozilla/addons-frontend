@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 18:36+0000\n"
+"PO-Revision-Date: 2018-02-21 20:51+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -452,55 +452,55 @@ msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
 
 #: src/amo/components/Category/index.js:149 src/amo/components/LandingPage/index.js:136 src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Taq k'amal k'ïy kejqalem"
 
 #: src/amo/components/Category/index.js:158 src/amo/components/LandingPage/index.js:144
 msgid "See more top rated extensions"
-msgstr ""
+msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:201 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
-msgstr ""
+msgstr "Taq wachinel"
 
 #: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:114
 msgid "Featured themes"
-msgstr ""
+msgstr "Talun wachinel"
 
 #: src/amo/components/Category/index.js:171 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
-msgstr ""
+msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
 #: src/amo/components/Category/index.js:172 src/amo/components/LandingPage/index.js:156 src/amo/components/Search/index.js:127
 msgid "Trending themes"
-msgstr ""
+msgstr "K'ïy kiwinaq taq wachinel"
 
 #: src/amo/components/Category/index.js:181 src/amo/components/LandingPage/index.js:161
 msgid "See more trending themes"
-msgstr ""
+msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kiwinaq"
 
 #: src/amo/components/Category/index.js:182 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:139
 msgid "Top rated themes"
-msgstr ""
+msgstr "Taq wachinel k'ïy kejqalem"
 
 #: src/amo/components/Category/index.js:191 src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kejqalem"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Ketz'et ronojel ri taq tz'aqat pa re ruwäch re'."
 
 #: src/amo/components/CategoryHeader/index.js:46
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "Ketz'et ronojel ri taq k'amal pa re ruwäch re'."
 
 #: src/amo/components/CategoryHeader/index.js:51
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "Ketz'et ronojel ri taq wachinel pa re ruwäch re'."
 
 #: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
-msgstr ""
+msgstr "Tinuk' re mol re'"
 
 #: src/amo/components/Collection/index.js:193 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
