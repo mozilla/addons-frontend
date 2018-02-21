@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 20:51+0000\n"
+"PO-Revision-Date: 2018-02-21 21:04+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -504,71 +504,71 @@ msgstr "Tinuk' re mol re'"
 
 #: src/amo/components/Collection/index.js:193 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
-msgstr ""
+msgstr "Taq tz'aqat"
 
 #: src/amo/components/Collection/index.js:197
 msgid "Creator"
-msgstr ""
+msgstr "Q'inonel"
 
 #: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
-msgstr ""
+msgstr "Tiyak ri mol"
 
 #: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
-msgstr ""
+msgstr "Niyak ri mol"
 
 #: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
-msgstr ""
+msgstr "Tinuk' ri mol"
 
 #: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
-msgstr ""
+msgstr "Rub'i' mol"
 
 #: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
-msgstr ""
+msgstr "Tzijoxkil"
 
 #: src/amo/components/CollectionManager/index.js:159
 msgid "Custom URL"
-msgstr ""
+msgstr "Ichinan URL"
 
 #: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "Man tikirel ta nikowe' kan rub'i' mol"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
-msgstr ""
+msgstr "Tito' re b'anonel re'"
 
 #: src/amo/components/ContributeCard/index.js:37
 msgid "Support these developers"
-msgstr ""
+msgstr "Keto' re b'anonela' re'"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Ri rub'anonel re k'amal re', nuk'utüj chawe chi tato' rik'in rub'anik, rik'in naya' jun ko'öl ato'ik."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Ri e rub'anonela' re k'amal re', nuk'utüj chawe chi tato' rik'in rub'anik, rik'in naya' jun ko'öl ato'ik."
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "Support this artist"
-msgstr ""
+msgstr "Tito' re b'anöl re'"
 
 #: src/amo/components/ContributeCard/index.js:51
 msgid "Support these artists"
-msgstr ""
+msgstr "Keto' re b'anöl re'"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Ri rub'anöl re wachinel re', nuk'utüj chawe chi tato' richin chi nitz'ukun, rik'in naya' jun ko'öl ato'ik."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Ri kib'anöl re wachinel re', nikik'utüj chawe chi ke'ato' richin chi yeitz'ukun, rik'in naya' jun ko'öl ato'ik."
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
@@ -588,11 +588,11 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
-msgstr ""
+msgstr "Kato'on wakami"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
-msgstr ""
+msgstr "Taqasaj Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -624,7 +624,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Man xilitäj ta ruxaq"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
