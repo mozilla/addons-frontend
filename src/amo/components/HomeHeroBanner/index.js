@@ -170,7 +170,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Convert your open tabs into a list and save
-              precious memory space`)}
+              precious memory`)}
           </p>
         </HeroSection>
       ),
