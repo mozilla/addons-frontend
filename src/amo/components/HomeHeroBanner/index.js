@@ -27,7 +27,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           <h3>{i18n.gettext('Temporary Containers')}</h3>
 
           <p>
-            {i18n.gettext('Open pages with disposable data containers.')}
+            {i18n.gettext('Open pages with disposable data containers')}
           </p>
         </HeroSection>
       ),
@@ -40,7 +40,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Replace your new tab with a personal
-              dashboard—to-do lists, weather forecasts and more.`)}
+              dashboard—to-do lists, weather forecasts and more`)}
           </p>
         </HeroSection>
       ),
@@ -51,7 +51,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         >
           <h3>{i18n.gettext('Kimetrak')}</h3>
 
-          <p>{i18n.gettext('Track who’s tracking you.')}</p>
+          <p>{i18n.gettext('Track who’s tracking you')}</p>
         </HeroSection>
       ),
       (
@@ -61,7 +61,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         >
           <h3>{i18n.gettext('Mailvelope')}</h3>
           <p>
-            {i18n.gettext('Secure encryption for webmail.')}
+            {i18n.gettext('Secure encryption for webmail')}
           </p>
         </HeroSection>
       ),
@@ -72,7 +72,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         >
           <h3>{i18n.gettext('Translate Man')}</h3>
           <p>
-            {i18n.gettext('Point-and-click instant translations.')}
+            {i18n.gettext('Point-and-click instant translations')}
           </p>
         </HeroSection>
       ),
@@ -83,7 +83,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
         >
           <h3>{i18n.gettext('uBlock Origin')}</h3>
 
-          <p>{i18n.gettext('Efficient, powerful ad blocker.')}</p>
+          <p>{i18n.gettext('Efficient, powerful ad blocker')}</p>
         </HeroSection>
       ),
       (
@@ -95,7 +95,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Popular anti-tracking extension now has
-              ad blocking ability.`)}
+              ad blocking ability`)}
           </p>
         </HeroSection>
       ),
@@ -108,7 +108,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Keep different parts of your online
-              life—work, personal, etc.—separated by color-coded tabs.`)}
+              life—work, personal, etc.—separated by color-coded tabs`)}
           </p>
         </HeroSection>
       ),
@@ -121,7 +121,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Enhance search results with thumbnail previews,
-              popularity ranks & more.`)}
+              popularity ranks & more`)}
           </p>
         </HeroSection>
       ),
@@ -134,7 +134,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Automatically delete data (cookies, local storage,
-              etc.) on all sites you visit except those on your whitelist.`)}
+              etc.) on all sites you visit except those on your whitelist`)}
           </p>
         </HeroSection>
       ),
@@ -147,7 +147,64 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Simple zoom in/out tool for a close-up view of any
-              web content.`)}
+              web content`)}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-12"
+          linkTo="/addon/wikiwand-wikipedia-modernized/"
+        >
+          <h3>{i18n.gettext('Wikiwand')}</h3>
+
+          <p>{i18n.gettext('Give Wikipedia a gorgeous makeover')}</p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-13"
+          linkTo="/addon/onetab/"
+        >
+          <h3>{i18n.gettext('OneTab')}</h3>
+
+          <p>
+            {i18n.gettext(`Convert your open tabs into a list and save
+              precious memory space`)}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-14"
+          linkTo="/addon/kindle-it/"
+        >
+          <h3>{i18n.gettext('Push to Kindle')}</h3>
+
+          <p>{i18n.gettext('Send any Web page to your Kindle device')}</p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-15"
+          linkTo="/addon/search-site-we/"
+        >
+          <h3>{i18n.gettext('Search Site')}</h3>
+
+          <p>
+            {i18n.gettext('Search within just the domain you’re visiting')}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-16"
+          linkTo="/addon/youtube-dark-purple/"
+        >
+          <h3>{i18n.gettext('Dark Purple YouTube Theme')}</h3>
+
+          <p>
+            {i18n.gettext('Enjoy YouTube with a different look')}
           </p>
         </HeroSection>
       ),
