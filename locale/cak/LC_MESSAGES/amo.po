@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 16:49+0000\n"
+"PO-Revision-Date: 2018-02-21 17:04+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -200,7 +200,7 @@ msgstr "Re tz'aqat re' nrajo' jun <a href=\"%(downloadUrl)s\">k'ak'a' ruwäch Fi
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Man yeruköch' ta taq tz'aqat ri awokik'amaya'l. Ütz <a href=\"%(downloadUrl)s\">naqasäx Firefox</a> richin nayäk re tz'aqat re'."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -209,39 +209,39 @@ msgstr "Winäq"
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] "Winäq"
-msgstr[1] ""
+msgstr[0] "Winaqil"
+msgstr[1] "Taq winaqil"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
-msgstr ""
+msgstr "Majun taq winaqil"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Reviews"
-msgstr ""
+msgstr "Taq tzijoxïk"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Review"
 msgid_plural "Reviews"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tzijoxïk"
+msgstr[1] "Taq tzijoxïk"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Reviews"
-msgstr ""
+msgstr "Majun taq Tzijoxïk"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
-msgstr ""
+msgstr "Okisan ruma"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "Chijun Cha'onem"
 
 # This will output, in English:
 #: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
-msgstr ""
+msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
