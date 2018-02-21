@@ -46,6 +46,15 @@ export class RatingBase extends React.Component {
     this.props.onSelectRating(rating);
   }
 
+  checkStarRating = (rating, compareRating) => {
+    const roundRating = parseFloat(rating.toFixed(1));
+    if (roundRating - compareRating >= 0) {
+      return 1;
+    } else if (((roundRating + 0.5) - compareRating) >= 0) {
+      return 0;
+    }
+  }
+
   renderRatings() {
     const { readOnly } = this.props;
     // Accept falsey values as if they are zeroes.
@@ -54,13 +63,12 @@ export class RatingBase extends React.Component {
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
         className: makeClassName('Rating-choice', {
-          'Rating-selected-star': rating && thisRating <= rating,
+          'Rating-selected-star': this.checkStarRating(rating, thisRating),
           // Half stars are the result of averages rounded to the nearest
           // 0.5 place. The API should not return floats for your own review
           // so effectively this only appears in readOnly for now, but there's
           // nothing stopping the API from supporting half-stars later.
-          'Rating-half-star': (rating && thisRating > rating &&
-            thisRating - 0.5 <= rating),
+          'Rating-half-star': this.checkStarRating(rating, thisRating) === 0,
         }),
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,

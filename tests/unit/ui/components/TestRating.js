@@ -101,6 +101,18 @@ describe('ui/components/Rating', () => {
     });
   });
 
+  it('renders selected stars corresponding to rounds ratings to nearest 0.5 multiple', () => {
+    const root = render({ rating: 3.30 });
+
+    // Make sure only the first 3 stars are selected.
+    [1, 2, 3].forEach((rating) => {
+      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+    });
+    [4, 5].forEach((rating) => {
+      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
+    });
+  });
+
   it('renders half stars in ratings', () => {
     // This should be treated like a rating of 3.5 (three and a half stars).
     const root = render({ rating: 3.60001 });
