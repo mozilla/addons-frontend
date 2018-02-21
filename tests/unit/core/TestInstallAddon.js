@@ -86,7 +86,7 @@ const defaultProps = (overrides = {}) => {
     // TODO: remove this spread. This simulates how both
     // amo/Addon and disco/Addon spread `addon` after wrapping
     // themselves in the withInstallHelpers() HOC to get
-    // installURLs and iconUrl, etc.
+    // platformFiles and iconUrl, etc.
     ...addon,
     hasAddonManager: true,
     _addonManager: getFakeAddonManagerWrapper(),
@@ -260,7 +260,7 @@ describe(__filename, () => {
       const userAgentInfo = userAgent && UAParser(userAgent);
 
       return installAddon.findInstallURL({
-        installURLs: addon && addon.installURLs,
+        platformFiles: addon && addon.platformFiles,
         userAgentInfo,
         ...params,
       });
@@ -465,9 +465,9 @@ describe(__filename, () => {
         .toEqual(undefined);
     });
 
-    it('requires installURLs', () => {
+    it('requires platformFiles', () => {
       expect(() => _findInstallURL({ addonFiles: null }))
-        .toThrow(/installURLs parameter is required/);
+        .toThrow(/platformFiles parameter is required/);
     });
 
     it('requires userAgentInfo', () => {
@@ -1244,12 +1244,12 @@ describe(`${__filename}: withInstallHelpers`, () => {
       sinon.assert.calledWith(configStub, 'server');
     });
 
-    it('requires installURLs', () => {
+    it('requires platformFiles', () => {
       const props = defaultProps();
-      delete props.installURLs;
+      delete props.platformFiles;
       expect(() => {
         makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/installURLs is required/);
+      }).toThrowError(/platformFiles is required/);
     });
 
     it('requires userAgentInfo', () => {

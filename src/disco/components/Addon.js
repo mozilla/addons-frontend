@@ -51,7 +51,7 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    installURLs: PropTypes.func,
+    platformFiles: PropTypes.object,
     needsRestart: PropTypes.bool,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
@@ -67,7 +67,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
-    installURLs: {},
+    platformFiles: {},
     needsRestart: false,
     // Defaults themeAction to the imported func.
     themeAction,
@@ -306,7 +306,7 @@ export function mapStateToProps(state, ownProps) {
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
-    installURLs: addon ? addon.installURLs : {},
+    platformFiles: addon ? addon.platformFiles : {},
     userAgentInfo: state.api.userAgentInfo,
   };
 }

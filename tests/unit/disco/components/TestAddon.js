@@ -76,7 +76,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(LoadingText)).toHaveLength(1);
-    expect(root.instance().props.installURLs).toEqual({});
+    expect(root.instance().props.platformFiles).toEqual({});
   });
 
   describe('<Addon type="extension"/>', () => {
@@ -486,7 +486,7 @@ describe(__filename, () => {
       );
 
       expect(props.addon).toEqual(null);
-      expect(props.installURLs).toEqual({});
+      expect(props.platformFiles).toEqual({});
     });
   });
 });

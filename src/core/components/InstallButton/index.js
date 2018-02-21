@@ -212,7 +212,7 @@ export class InstallButtonBase extends React.Component {
       }
     );
     const installURL = findInstallURL({
-      installURLs: addon.installURLs, userAgentInfo, src,
+      platformFiles: addon.platformFiles, userAgentInfo, src,
     });
 
     if (addon.type === ADDON_TYPE_THEME) {

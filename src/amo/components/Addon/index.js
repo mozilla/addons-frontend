@@ -67,7 +67,7 @@ export class AddonBase extends React.Component {
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    installURLs: PropTypes.object,
+    platformFiles: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
     location: PropTypes.object.isRequired,
@@ -85,7 +85,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
-    installURLs: {},
+    platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
   }
 
@@ -639,7 +639,7 @@ export function mapStateToProps(state, ownProps) {
     // properties from addon.theme_data (which are spread onto addon) and
     // maybe others.
     ...addon,
-    installURLs: addon ? addon.installURLs : {},
+    platformFiles: addon ? addon.platformFiles : {},
     // The withInstallHelpers HOC also needs to access some properties in
     // here like guid and probably others.
     ...installedAddon,

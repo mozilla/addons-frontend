@@ -100,8 +100,22 @@ describe(__filename, () => {
     expect(state.byID[extension.id]).toEqual({
       ...extension,
       iconUrl: extension.icon_url,
-      installURLs: {
-        [OS_ALL]: 'https://a.m.o/files/321/addon.xpi',
+      platformFiles: {
+        [OS_ALL]: {
+          created: '2014-11-22T10:09:01Z',
+          hash: 'a1b2c3d4',
+          id: 57721,
+          is_mozilla_signed_extension: false,
+          is_restart_required: false,
+          is_webextension: true,
+          permissions: [
+            'activeTab',
+            'webRequest',
+          ],
+          platform: 'all',
+          status: 'public',
+          url: 'https://a.m.o/files/321/addon.xpi',
+        },
         [OS_ANDROID]: undefined,
         [OS_LINUX]: undefined,
         [OS_MAC]: undefined,
@@ -131,8 +145,22 @@ describe(__filename, () => {
       description: theme.description,
       guid: getGuid(theme),
       iconUrl: theme.icon_url,
-      installURLs: {
-        [OS_ALL]: 'https://a.m.o/files/321/addon.xpi',
+      platformFiles: {
+        [OS_ALL]: {
+          created: '2014-11-22T10:09:01Z',
+          hash: 'a1b2c3d4',
+          id: 57721,
+          is_mozilla_signed_extension: false,
+          is_restart_required: false,
+          is_webextension: true,
+          permissions: [
+            'activeTab',
+            'webRequest',
+          ],
+          platform: 'all',
+          status: 'public',
+          url: 'https://a.m.o/files/321/addon.xpi',
+        },
         [OS_ANDROID]: undefined,
         [OS_LINUX]: undefined,
         [OS_MAC]: undefined,
@@ -179,7 +207,7 @@ describe(__filename, () => {
       .toEqual('54321@personas.mozilla.org');
   });
 
-  it('reads install URLs from the file', () => {
+  it('reads platform files from the file', () => {
     const addon = createFakeAddon({
       files: [
         {
@@ -201,10 +229,54 @@ describe(__filename, () => {
     });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state.byID[addon.id].installURLs).toMatchObject({
-      [OS_MAC]: 'https://a.m.o/mac.xpi',
-      [OS_WINDOWS]: 'https://a.m.o/windows.xpi',
-      [OS_ALL]: 'https://a.m.o/all.xpi',
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      [OS_ALL]: {
+        created: '2014-11-22T10:09:01Z',
+        hash: 'a1b2c3d4',
+        id: 57721,
+        is_mozilla_signed_extension: false,
+        is_restart_required: false,
+        is_webextension: true,
+        permissions: [
+          'activeTab',
+          'webRequest',
+        ],
+        platform: 'all',
+        status: 'public',
+        url: 'https://a.m.o/all.xpi',
+      },
+      [OS_ANDROID]: undefined,
+      [OS_LINUX]: undefined,
+      [OS_MAC]: {
+        created: '2014-11-22T10:09:01Z',
+        hash: 'a1b2c3d4',
+        id: 57721,
+        is_mozilla_signed_extension: false,
+        is_restart_required: false,
+        is_webextension: true,
+        permissions: [
+          'activeTab',
+          'webRequest',
+        ],
+        platform: 'mac',
+        status: 'public',
+        url: 'https://a.m.o/mac.xpi',
+      },
+      [OS_WINDOWS]: {
+        created: '2014-11-22T10:09:01Z',
+        hash: 'a1b2c3d4',
+        id: 57721,
+        is_mozilla_signed_extension: false,
+        is_restart_required: false,
+        is_webextension: true,
+        permissions: [
+          'activeTab',
+          'webRequest',
+        ],
+        platform: 'windows',
+        status: 'public',
+        url: 'https://a.m.o/windows.xpi',
+      },
     });
   });
 
@@ -212,10 +284,12 @@ describe(__filename, () => {
     const addon = createFakeAddon({ files: [] });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state.byID[addon.id].installURLs).toMatchObject({
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      [OS_ALL]: undefined,
+      [OS_ANDROID]: undefined,
+      [OS_LINUX]: undefined,
       [OS_MAC]: undefined,
       [OS_WINDOWS]: undefined,
-      [OS_ALL]: undefined,
     });
   });
 
@@ -228,8 +302,22 @@ describe(__filename, () => {
     });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state.byID[addon.id].installURLs).toMatchObject({
-      unexpectedPlatform: 'https://a.m.o/files/somewhere.xpi',
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      unexpectedPlatform: {
+        created: '2014-11-22T10:09:01Z',
+        hash: 'a1b2c3d4',
+        id: 57721,
+        is_mozilla_signed_extension: false,
+        is_restart_required: false,
+        is_webextension: true,
+        permissions: [
+          'activeTab',
+          'webRequest',
+        ],
+        platform: 'unexpectedPlatform',
+        status: 'public',
+        url: 'https://a.m.o/files/somewhere.xpi',
+      },
     });
   });
 

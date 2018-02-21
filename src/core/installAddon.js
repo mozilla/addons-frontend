@@ -179,8 +179,8 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       return mappedProps;
     }
 
-    if (ownProps.installURLs === undefined) {
-      throw new Error(oneLine`installURLs is required, ensure component
+    if (ownProps.platformFiles === undefined) {
+      throw new Error(oneLine`platformFiles is required, ensure component
         props are set before withInstallHelpers is called`);
     }
 
@@ -232,15 +232,15 @@ const userAgentOSToPlatform = {
  * import type { UserAgentInfoType } from 'src/core/reducers/api';
  *
  * type FindInstallUrlParams = {|
- *   installURLs: $PropertyType<AddonType, 'installURLs'>,
+ *   platformFiles: $PropertyType<AddonType, 'platformFiles'>,
  *   src?: string,
  *   userAgentInfo: UserAgentInfoType,
  * |};
  *
  */
-export const findInstallURL = ({ installURLs, userAgentInfo, src }) => {
-  if (!installURLs) {
-    throw new Error('The installURLs parameter is required');
+export const findInstallURL = ({ platformFiles, userAgentInfo, src }) => {
+  if (!platformFiles) {
+    throw new Error('The platformFiles parameter is required');
   }
   if (!userAgentInfo) {
     throw new Error('The userAgentInfo parameter is required');
@@ -249,21 +249,21 @@ export const findInstallURL = ({ installURLs, userAgentInfo, src }) => {
   const agentOsName =
     userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
   const platform = userAgentOSToPlatform[agentOsName];
-  const platformURL = installURLs[platform];
+  const platformFile = platformFiles[platform];
 
   let installURL;
-  if (platformURL) {
-    installURL = platformURL;
+  if (platformFile) {
+    installURL = platformFile.url;
   }
 
-  if (!installURL) {
-    installURL = installURLs[OS_ALL];
+  if (!installURL && platformFiles[OS_ALL]) {
+    installURL = platformFiles[OS_ALL].url;
   }
 
   if (!installURL) {
     // This could happen for themes which do not have version files.
     log.debug(oneLine`No install URL exists for platform "${agentOsName}"
-      (mapped to "${platform}"); install URLs:`, installURLs);
+      (mapped to "${platform}"); platform files:`, platformFiles);
     return undefined;
   }
 
@@ -292,7 +292,7 @@ export class WithInstallHelpers extends React.Component {
     iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool,
     installTheme: PropTypes.func,
-    installURLs: PropTypes.string,
+    platformFiles: PropTypes.object,
     name: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
@@ -325,10 +325,10 @@ export class WithInstallHelpers extends React.Component {
       _addonManager,
       dispatch,
       hasAddonManager,
-      installURLs,
+      platformFiles,
       userAgentInfo,
     } = this.props;
-    const installURL = findInstallURL({ installURLs, userAgentInfo });
+    const installURL = findInstallURL({ platformFiles, userAgentInfo });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -388,7 +388,7 @@ export class WithInstallHelpers extends React.Component {
       dispatch,
       guid,
       iconUrl,
-      installURLs,
+      platformFiles,
       name,
       src,
       userAgentInfo,
@@ -401,7 +401,7 @@ export class WithInstallHelpers extends React.Component {
       label: name,
     });
 
-    const installURL = findInstallURL({ installURLs, userAgentInfo });
+    const installURL = findInstallURL({ platformFiles, userAgentInfo });
     return _addonManager.install(
       installURL, makeProgressHandler(dispatch, guid), { src }
     )

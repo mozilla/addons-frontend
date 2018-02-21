@@ -203,7 +203,7 @@ export function createInternalAddon(
     // some historic reason.
     iconUrl: apiAddon.icon_url,
 
-    installURLs: {
+    platformFiles: {
       all: undefined,
       android: undefined,
       linux: undefined,
@@ -242,11 +242,12 @@ export function createInternalAddon(
   if (currentVersion && currentVersion.files.length > 0) {
     currentVersion.files.forEach((file) => {
       // eslint-disable-next-line no-prototype-builtins
-      if (!addon.installURLs.hasOwnProperty(file.platform)) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (!addon.platformFiles.hasOwnProperty(file.platform)) {
         log.warn(oneLine`Add-on ID ${apiAddon.id}, slug ${apiAddon.slug}
           has a file with an unknown platform: ${file.platform}`);
       }
-      addon.installURLs[file.platform] = file.url;
+      addon.platformFiles[file.platform] = file;
     });
     addon.isRestartRequired = currentVersion.files.some(
       (file) => !!file.is_restart_required
