@@ -33,6 +33,19 @@ import {
 } from 'tests/unit/helpers';
 
 
+export const fakePlatformFile = Object.freeze({
+  created: '2014-11-22T10:09:01Z',
+  hash: 'a1b2c3d4',
+  id: 57721,
+  is_mozilla_signed_extension: false,
+  is_restart_required: false,
+  is_webextension: true,
+  permissions: ['activeTab', 'webRequest'],
+  platform: OS_ALL,
+  status: 'public',
+  url: 'https://a.m.o/files/321/addon.xpi',
+});
+
 export const fakeAddon = Object.freeze({
   authors: [{
     id: 98811255,
@@ -58,18 +71,7 @@ export const fakeAddon = Object.freeze({
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
-    files: [{
-      created: '2014-11-22T10:09:01Z',
-      hash: 'a1b2c3d4',
-      id: 57721,
-      is_mozilla_signed_extension: false,
-      is_restart_required: false,
-      is_webextension: true,
-      permissions: ['activeTab', 'webRequest'],
-      platform: OS_ALL,
-      status: 'public',
-      url: 'https://a.m.o/files/321/addon.xpi',
-    }],
+    files: [fakePlatformFile],
     is_strict_compatibility_enabled: false,
   },
   description: 'This is a longer description of the chill out add-on',

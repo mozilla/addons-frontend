@@ -16,6 +16,7 @@ import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
@@ -599,6 +600,8 @@ export class AddonBase extends React.Component {
           <AddAddonToCollection addon={addon} />
 
           <AddonMoreInfo addon={addon} />
+
+          <PermissionsCard addon={addon} />
 
           {this.renderVersionReleaseNotes()}
 

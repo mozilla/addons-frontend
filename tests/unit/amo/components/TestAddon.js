@@ -19,6 +19,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
+import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
@@ -880,6 +881,17 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon });
     expect(root.find(AddonMeta).prop('addon')).toEqual(addon);
+  });
+
+  it('renders permissions for the add-on', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+    expect(root.find(PermissionsCard)).toHaveProp('addon', addon);
+  });
+
+  it('renders permissions with no add-on', () => {
+    const root = shallowRender({ addon: null });
+    expect(root.find(PermissionsCard)).toHaveProp('addon', null);
   });
 
   describe('read reviews footer', () => {

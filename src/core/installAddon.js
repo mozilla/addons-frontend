@@ -202,7 +202,7 @@ export function makeMapDispatchToProps({
   };
 }
 
-const userAgentOSToPlatform = {
+export const userAgentOSToPlatform = {
   [USER_AGENT_OS_ANDROID.toLowerCase()]: OS_ANDROID,
   [USER_AGENT_OS_MAC.toLowerCase()]: OS_MAC,
   [USER_AGENT_OS_WINDOWS.toLowerCase()]: OS_WINDOWS,
