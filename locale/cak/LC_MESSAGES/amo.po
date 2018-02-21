@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 17:33+0000\n"
+"PO-Revision-Date: 2018-02-21 18:11+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -309,43 +309,43 @@ msgstr "Rutaqoya'l To'ïk"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Titz'et ri kipas molob'a'"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "¡Tatzijoj chi ke konojel achike ruma toq nana'ojij chi yalan ütz re k'amal re'! Tawoqaj ri %(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Tatzijoj chi qe achike ütz natz'ët chi re ri k'amal. Taya' retal chuqa' tajikib'a'."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr ""
+msgstr "¡Tatzijoj chi ke konojel chi rij re k'amal re'! Tawoqaj ri %(linkStart)sk'amonel qanik'oxik%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "Tatzijoj chi qe ri awetamab'al rik'in re k'amal re'. Taya' retal chuqa' tajikib'a'."
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
-msgstr ""
+msgstr "Tatz'ib'aj jun tzijoxïk"
 
 #: src/amo/components/AddonReview/index.js:213
 msgid "Review text"
-msgstr ""
+msgstr "Cholan rutzij tzijoxïk"
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
-msgstr ""
+msgstr "Titaq tzijoxïk"
 
 #: src/amo/components/AddonReviewList/index.js:166
 msgid "Add-on icon"
-msgstr ""
+msgstr "Ruwachib'al tz'aqat"
 
 #: src/amo/components/AddonReviewList/index.js:172
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Kitzijoxikil %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:184
 msgid "%(total)s review for this add-on"
