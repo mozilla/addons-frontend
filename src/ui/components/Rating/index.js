@@ -53,6 +53,7 @@ export class RatingBase extends React.Component {
     } else if (((roundRating + 0.5) - compareRating) >= 0) {
       return 0;
     }
+    return null;
   }
 
   renderRatings() {
