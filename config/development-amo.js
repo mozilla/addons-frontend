@@ -11,5 +11,5 @@ module.exports = {
   fxaConfig: 'local',
   trackingEnabled: false,
   enableCollectionEdit: true,
-  betaVersions: false,
+  betaVersions: true,
 };
