@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 18:11+0000\n"
+"PO-Revision-Date: 2018-02-21 18:31+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -350,73 +350,73 @@ msgstr "Kitzijoxikil %(addonName)s"
 #: src/amo/components/AddonReviewList/index.js:184
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s rutzijoxik re tz'aqat re'"
+msgstr[1] "%(total)s kitzijoxik re tz'aqat re'"
 
 # Example: by The Author, The Next Author
 #: src/amo/components/AddonReviewList/index.js:212
 msgid "by %(authorList)s"
-msgstr ""
+msgstr "ruma %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr ""
+msgstr "Tzolin rutzij b'anonel"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Write a reply to this review."
-msgstr ""
+msgstr "Titz'ib'äx jun tzolin tzij chi re ri tzijoxïk."
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
-msgstr ""
+msgstr "Tik'ex ri tzolin tzij"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
-msgstr ""
+msgstr "Titalüx rutzijol tzolin tzij"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
-msgstr ""
+msgstr "Nik'ex ri tzolin tzij"
 
 #: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
-msgstr ""
+msgstr "Nitalüx rutzijol tzolin tzij"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
-msgstr ""
+msgstr "talun rutzijol %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr ""
+msgstr "ruma %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:258
 msgid "Edit my reply"
-msgstr ""
+msgstr "Tinuk' tzolin nutzij"
 
 #: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my review"
-msgstr ""
+msgstr "Tinuk' nutzijoxik"
 
 #: src/amo/components/AddonReviewListItem/index.js:277
 msgid "Reply to this review"
-msgstr ""
+msgstr "Titzolïx tzij chi re ri tzijoxïk"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Kitz'aqat Firefox"
 
 #: src/amo/components/App/index.js:204
 msgid "%s – Add-ons for Firefox"
-msgstr ""
+msgstr "%s – Kitz'aqat Firefox"
 
 #: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
-msgstr ""
+msgstr "Kitz'aqat Android"
 
 #: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Android"
-msgstr ""
+msgstr "%s – Kitz'aqat Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
