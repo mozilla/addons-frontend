@@ -5,6 +5,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { getAddonIconUrl } from 'core/imageUtils';
 import InstallSwitch from 'core/components/InstallSwitch';
@@ -85,6 +86,8 @@ export class InstallButtonBase extends React.Component {
     id: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     previewURL: PropTypes.string,
     slug: PropTypes.string.isRequired,
@@ -190,6 +193,7 @@ export class InstallButtonBase extends React.Component {
       getClientCompatibility,
       hasAddonManager,
       i18n,
+      location,
       src,
       userAgentInfo,
       _log,
@@ -212,7 +216,10 @@ export class InstallButtonBase extends React.Component {
       }
     );
     const installURL = findInstallURL({
-      platformFiles: addon.platformFiles, userAgentInfo, src,
+      location,
+      platformFiles: addon.platformFiles,
+      userAgentInfo,
+      src,
     });
 
     if (addon.type === ADDON_TYPE_THEME) {
@@ -341,6 +348,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(InstallButtonBase);

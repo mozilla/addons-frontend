@@ -6,6 +6,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
@@ -52,6 +53,8 @@ export class AddonBase extends React.Component {
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     platformFiles: PropTypes.object,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
@@ -312,6 +315,7 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
   withInstallHelpers({ src: 'discovery-promo' }),

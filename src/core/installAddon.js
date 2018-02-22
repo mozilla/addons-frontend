@@ -4,7 +4,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { oneLine } from 'common-tags';
+import { oneLine, oneLineTrim } from 'common-tags';
 import config from 'config';
 
 import { setInstallState } from 'core/actions/installations';
@@ -180,13 +180,18 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
     }
 
     if (ownProps.platformFiles === undefined) {
-      throw new Error(oneLine`platformFiles is required, ensure component
-        props are set before withInstallHelpers is called`);
+      throw new Error(oneLineTrim`The platformFiles prop is required;
+        ensure the wrapped component defines this property`);
     }
 
     if (ownProps.userAgentInfo === undefined) {
-      throw new Error(oneLine`userAgentInfo is required, ensure component
-        props are set before withInstallHelpers is called`);
+      throw new Error(oneLineTrim`The userAgentInfo prop is required;
+        ensure the wrapped component defines this property`);
+    }
+
+    if (ownProps.location === undefined) {
+      throw new Error(oneLineTrim`The location prop is required;
+        ensure the wrapped component defines this property`);
     }
 
     return mappedProps;
@@ -228,22 +233,41 @@ const userAgentOSToPlatform = {
  *
  * Parameter types:
  *
- * import type { AddonType } from 'src/core/types/addons';
- * import type { UserAgentInfoType } from 'src/core/reducers/api';
+ * import type { AddonType } from 'core/types/addons';
+ * import type { ReactRouterLocation } from 'core/types/router';
+ * import type { UserAgentInfoType } from 'core/reducers/api';
  *
  * type FindInstallUrlParams = {|
+ *   appendSource?: boolean,
+ *   location?: ReactRouterLocation,
  *   platformFiles: $PropertyType<AddonType, 'platformFiles'>,
  *   src?: string,
  *   userAgentInfo: UserAgentInfoType,
  * |};
  *
  */
-export const findInstallURL = ({ platformFiles, userAgentInfo, src }) => {
+export const findInstallURL = ({
+  appendSource = true,
+  platformFiles,
+  userAgentInfo,
+  // TODO: maybe rename this
+  src: defaultSource,
+  location,
+}) => {
   if (!platformFiles) {
     throw new Error('The platformFiles parameter is required');
   }
   if (!userAgentInfo) {
     throw new Error('The userAgentInfo parameter is required');
+  }
+
+  let source;
+  if (appendSource) {
+    if (!location) {
+      throw new Error(
+        'The location parameter is required when appendSource is true');
+    }
+    source = location.query.src || defaultSource;
   }
 
   const agentOsName =
@@ -267,7 +291,7 @@ export const findInstallURL = ({ platformFiles, userAgentInfo, src }) => {
     return undefined;
   }
 
-  if (!src) {
+  if (!source) {
     return installURL;
   }
 
@@ -278,7 +302,7 @@ export const findInstallURL = ({ platformFiles, userAgentInfo, src }) => {
     ...urlParts,
     // Reset the search string so we can define a new one.
     search: undefined,
-    query: { ...urlParts.query, src },
+    query: { ...urlParts.query, src: source },
   });
 };
 
@@ -292,6 +316,8 @@ export class WithInstallHelpers extends React.Component {
     iconUrl: PropTypes.string,
     hasAddonManager: PropTypes.bool,
     installTheme: PropTypes.func,
+    // See ReactRouterLocation from 'core/types/router'
+    location: PropTypes.object,
     platformFiles: PropTypes.object,
     name: PropTypes.string.isRequired,
     src: PropTypes.string.isRequired,
@@ -325,10 +351,13 @@ export class WithInstallHelpers extends React.Component {
       _addonManager,
       dispatch,
       hasAddonManager,
+      location,
       platformFiles,
       userAgentInfo,
     } = this.props;
-    const installURL = findInstallURL({ platformFiles, userAgentInfo });
+    const installURL = findInstallURL({
+      location, platformFiles, userAgentInfo,
+    });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -388,6 +417,7 @@ export class WithInstallHelpers extends React.Component {
       dispatch,
       guid,
       iconUrl,
+      location,
       platformFiles,
       name,
       src,
@@ -401,7 +431,9 @@ export class WithInstallHelpers extends React.Component {
       label: name,
     });
 
-    const installURL = findInstallURL({ platformFiles, userAgentInfo });
+    const installURL = findInstallURL({
+      location, platformFiles, userAgentInfo,
+    });
     return _addonManager.install(
       installURL, makeProgressHandler(dispatch, guid), { src }
     )

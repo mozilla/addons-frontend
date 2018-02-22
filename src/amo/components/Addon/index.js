@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import AddAddonToCollection from 'amo/components/AddAddonToCollection';
@@ -70,6 +71,7 @@ export class AddonBase extends React.Component {
     platformFiles: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
@@ -656,6 +658,7 @@ export const extractId = (ownProps) => {
 };
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
   withInstallHelpers({ src: 'dp-btn-primary' }),

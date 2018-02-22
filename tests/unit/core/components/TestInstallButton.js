@@ -29,6 +29,7 @@ import {
   createFakeEvent,
   createFakeMozWindow,
   fakeI18n,
+  fakeRouterLocation,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -54,6 +55,7 @@ describe(__filename, () => {
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: fakeI18n(),
+    location: fakeRouterLocation(),
     store: createStore().store,
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,
@@ -163,6 +165,21 @@ describe(__filename, () => {
     expect(button).toHaveClassName('InstallButton-button');
     expect(button).not.toHaveClassName('Button--micro');
     expect(button).toHaveProp('href', installURL);
+  });
+
+  it('uses router location to create install URLs', () => {
+    const externalSource = 'my-blog';
+    const installURL = 'https://addons.mozilla.org/download';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      location: fakeRouterLocation({ query: { src: externalSource } }),
+    });
+
+    const button = root.childAt(1);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${externalSource}`);
   });
 
   it('disables add-on install when client does not support addons', () => {

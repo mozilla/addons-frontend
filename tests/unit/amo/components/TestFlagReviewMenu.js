@@ -20,6 +20,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
@@ -36,7 +37,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      location: { path: '/review-list', query: {} },
+      location: fakeRouterLocation({ path: '/review-list' }),
       review: denormalizeReview(fakeReview),
       store,
       ...customProps,
@@ -68,7 +69,7 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const location = { path: '/somewhere', query: {} };
+      const location = fakeRouterLocation();
       const { menu } = renderMenu({ location });
 
       // Only the button item should be rendered.

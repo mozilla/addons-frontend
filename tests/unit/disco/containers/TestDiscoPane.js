@@ -27,6 +27,7 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   MockedSubComponent,
 } from 'tests/unit/helpers';
 import {
@@ -72,7 +73,7 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,
-      location: { query: {} },
+      location: fakeRouterLocation(),
       params: { platform: 'Darwin' },
       results,
       _tracking: fakeTracking,
@@ -223,11 +224,11 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           clientId: 'telemetry-client-id',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.
@@ -245,13 +246,13 @@ describe(__filename, () => {
     });
 
     it('dispatches all query params', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           branch: 'foo',
           clientId: 'telemetry-client-id',
           study: 'bar',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.
@@ -271,11 +272,11 @@ describe(__filename, () => {
     });
 
     it('does not allow platform to be overriden', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           platform: 'bar',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.

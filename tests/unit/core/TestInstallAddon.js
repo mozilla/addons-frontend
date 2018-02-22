@@ -46,6 +46,7 @@ import {
   createFakeAddon, fakeAddon, fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
+  fakeRouterLocation,
   getFakeAddonManagerWrapper,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -91,6 +92,7 @@ const defaultProps = (overrides = {}) => {
     hasAddonManager: true,
     _addonManager: getFakeAddonManagerWrapper(),
     store,
+    location: fakeRouterLocation(),
     userAgentInfo: sampleUserAgentParsed,
     ...overrides,
   };
@@ -251,6 +253,7 @@ describe(__filename, () => {
   describe('findInstallURL', () => {
     const _findInstallURL = ({
       addonFiles = [],
+      location = fakeRouterLocation(),
       userAgent = userAgentsByPlatform.windows.firefox40,
       ...params
     } = {}) => {
@@ -260,6 +263,7 @@ describe(__filename, () => {
       const userAgentInfo = userAgent && UAParser(userAgent);
 
       return installAddon.findInstallURL({
+        location,
         platformFiles: addon && addon.platformFiles,
         userAgentInfo,
         ...params,
@@ -475,43 +479,58 @@ describe(__filename, () => {
         .toThrow(/userAgentInfo parameter is required/);
     });
 
-    it('adds a src to the install URL', () => {
+    it('adds a default source to the install URL', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
       expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
         src: 'homepage',
       }))
-        .toEqual('https://a.m.o/files/mac.xpi?src=homepage');
+        .toEqual(`${baseURL}?src=homepage`);
     });
 
-    it('only adds src to the URL when necessary', () => {
+    it('only adds a source to the URL when defined', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
       expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
         src: null,
       }))
-        .toEqual('https://a.m.o/files/mac.xpi');
+        .toEqual(baseURL);
+    });
+
+    it('prefers an external source over the default', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
+      const externalSource = 'my-reddit-post';
+      expect(_findInstallURL({
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
+        location: fakeRouterLocation({ query: { src: externalSource } }),
+        src: 'default-source',
+      }))
+        .toEqual(`${baseURL}?src=${externalSource}`);
+    });
+
+    it('requires a location when appending a source', () => {
+      expect(() => _findInstallURL({ location: null }))
+        .toThrow(/location parameter is required/);
+    });
+
+    it('allows undefined locations when not appending a source', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
+      expect(_findInstallURL({
+        appendSource: false,
+        location: null,
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
+      }))
+        .toEqual(baseURL);
     });
 
     it('preserves the install URL query string', () => {
       const url = _findInstallURL({
         addonFiles: [
           {
-            platform: OS_MAC,
+            platform: OS_ALL,
             url: 'https://a.m.o/files/mac.xpi?lang=he',
           },
         ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
         src: 'homepage',
       });
 
@@ -1249,7 +1268,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       delete props.platformFiles;
       expect(() => {
         makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/platformFiles is required/);
+      }).toThrowError(/platformFiles prop is required/);
     });
 
     it('requires userAgentInfo', () => {
@@ -1257,7 +1276,15 @@ describe(`${__filename}: withInstallHelpers`, () => {
       delete props.userAgentInfo;
       expect(() => {
         makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/userAgentInfo is required/);
+      }).toThrowError(/userAgentInfo prop is required/);
+    });
+
+    it('requires location', () => {
+      const props = defaultProps();
+      delete props.location;
+      expect(() => {
+        makeMapDispatchToProps({})(fakeDispatch, props);
+      }).toThrowError(/location prop is required/);
     });
 
     it('can wrap an extension with the right props', () => {
