@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-22 21:06+0000\n"
+"PO-Revision-Date: 2018-02-22 21:28+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -741,46 +741,48 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"We xa ta niya' %(startNotedLink)srutzijol chi man ke ta ri' %(endNotedLink)s, ri rupam re ruxaq k'amaya'l re' ya'on q'ij rik'in ri ya'oj q'ij%(startLicenseLink)sCreative Commons Richinilem "
+"Tikomonïx-Junam v3.0%(endLicenseLink)s o jun chik ruwäch."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Tib'an b'enam pa Mozilla tikirib'äl ruxaq"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Tawetamaj qawäch"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Ichinya'l"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
-msgstr ""
+msgstr "B'anonela' Jay"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Molna'oj"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
-msgstr ""
+msgstr "Tiya' rutzijol jun sachoj"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr ""
+msgstr "Ruk'amöl Nik'oxïk"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "Rub'anikil Ruxaq K'amaya'l"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
-msgstr ""
+msgstr "Titz'et ruxaq pa classic ajch'atal"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Ketz'et taq Numol"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
