@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-22 20:44+0000\n"
+"PO-Revision-Date: 2018-02-22 21:06+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -654,51 +654,51 @@ msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "Tiya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "Xya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Tiya' retal re tzolin rutzij b'anonel"
 
 #: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
-msgstr ""
+msgstr "Tiya' retal re tzijoxïk re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin niya' retal re tzolin tzij re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin niya' retal re tzijoxïk re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Man yatikïr naya' retal ri tzolin atzij"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Man yatikïr naya' retal ri atzijoxik"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Seq'tzijol re re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Xya' retal achi'el seq'tzijol"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Ruk'wan man ruk'amon ta ch'ab'äl"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Xya' retal achi'el man ruk'amon ta ch'ab'äl"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
