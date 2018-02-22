@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-22 21:28+0000\n"
+"PO-Revision-Date: 2018-02-22 21:50+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -786,69 +786,69 @@ msgstr "Ketz'et taq Numol"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr ""
+msgstr "Titz'et Ruwäch B'i'aj"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr ""
+msgstr "Tinuk' Ruwäch B'i'aj"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
-msgstr ""
+msgstr "Taq samajib'äl"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Titaq jun K'ak'a' Tz'aqat"
 
 #: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Titaq jun K'ak'a' Wachinïk"
 
 #: src/amo/components/Header/index.js:138
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "Taq Rusamajib'al Nik'onel"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
-msgstr ""
+msgstr "Titz'apïx molojri'ïl"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:60
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Taq Rutz'aqat Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Rub'i' Nutaqoya'l"
 
 #: src/amo/components/Home/index.js:111
 msgid "Abstract"
-msgstr ""
+msgstr "Ch'utinisan Na'oj"
 
 #: src/amo/components/Home/index.js:116
 msgid "Nature"
-msgstr ""
+msgstr "Ruwach'ulew"
 
 #: src/amo/components/Home/index.js:121
 msgid "Film & TV"
-msgstr ""
+msgstr "Silowachil & TV"
 
 #: src/amo/components/Home/index.js:126
 msgid "Scenery"
-msgstr ""
+msgstr "Wachaj"
 
 #: src/amo/components/Home/index.js:131
 msgid "Music"
-msgstr ""
+msgstr "Q'ojom"
 
 #: src/amo/components/Home/index.js:136
 msgid "Seasonal"
-msgstr ""
+msgstr "Kajtz'ukalil"
 
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Tawichinaj ri rusamamaj Firefox rik'in taq k'amal. ¿La ütz natz'ët pa…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
