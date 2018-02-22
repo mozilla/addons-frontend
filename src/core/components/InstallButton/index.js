@@ -70,6 +70,7 @@ export class InstallButtonBase extends React.Component {
     category: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
+    defaultSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     detailURL: PropTypes.string,
     enable: PropTypes.func,
@@ -91,7 +92,6 @@ export class InstallButtonBase extends React.Component {
     name: PropTypes.string.isRequired,
     previewURL: PropTypes.string,
     slug: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
@@ -190,11 +190,11 @@ export class InstallButtonBase extends React.Component {
       addon,
       clientApp,
       className,
+      defaultSource,
       getClientCompatibility,
       hasAddonManager,
       i18n,
       location,
-      src,
       userAgentInfo,
       _log,
       _window,
@@ -216,10 +216,10 @@ export class InstallButtonBase extends React.Component {
       }
     );
     const installURL = findInstallURL({
+      defaultSource,
       location,
       platformFiles: addon.platformFiles,
       userAgentInfo,
-      src,
     });
 
     if (addon.type === ADDON_TYPE_THEME) {

@@ -44,6 +44,8 @@ export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This is added by withInstallHelpers()
+    defaultSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
@@ -222,6 +224,7 @@ export class AddonBase extends React.Component {
     const {
       addon,
       clientApp,
+      defaultSource,
       getClientCompatibility,
       heading,
       type,
@@ -279,10 +282,12 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
+          {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton
-            className="Addon-install-button"
-            size="small"
             {...this.props}
+            className="Addon-install-button"
+            defaultSource={defaultSource}
+            size="small"
           />
         </div>
         {!compatible ? (
@@ -318,5 +323,5 @@ export default compose(
   withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
-  withInstallHelpers({ src: 'discovery-promo' }),
+  withInstallHelpers({ defaultSource: 'discovery-promo' }),
 )(AddonBase);

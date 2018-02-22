@@ -168,9 +168,9 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export function makeMapDispatchToProps({ WrappedComponent, src }) {
+export function makeMapDispatchToProps({ WrappedComponent, defaultSource }) {
   return function mapDispatchToProps(dispatch, ownProps) {
-    const mappedProps = { dispatch, src, WrappedComponent };
+    const mappedProps = { dispatch, defaultSource, WrappedComponent };
 
     if (config.get('server')) {
       // Return early without validating properties.
@@ -239,20 +239,19 @@ const userAgentOSToPlatform = {
  *
  * type FindInstallUrlParams = {|
  *   appendSource?: boolean,
+ *   defaultSource?: string,
  *   location?: ReactRouterLocation,
  *   platformFiles: $PropertyType<AddonType, 'platformFiles'>,
- *   src?: string,
  *   userAgentInfo: UserAgentInfoType,
  * |};
  *
  */
 export const findInstallURL = ({
   appendSource = true,
+  defaultSource,
+  location,
   platformFiles,
   userAgentInfo,
-  // TODO: maybe rename this
-  src: defaultSource,
-  location,
 }) => {
   if (!platformFiles) {
     throw new Error('The platformFiles parameter is required');
@@ -311,6 +310,7 @@ export class WithInstallHelpers extends React.Component {
     WrappedComponent: PropTypes.func.isRequired,
     _addonManager: PropTypes.object,
     _tracking: PropTypes.object,
+    defaultSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
     iconUrl: PropTypes.string,
@@ -320,7 +320,6 @@ export class WithInstallHelpers extends React.Component {
     location: PropTypes.object,
     platformFiles: PropTypes.object,
     name: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
@@ -414,13 +413,13 @@ export class WithInstallHelpers extends React.Component {
     const {
       _addonManager,
       _tracking,
+      defaultSource,
       dispatch,
       guid,
       iconUrl,
       location,
       platformFiles,
       name,
-      src,
       userAgentInfo,
     } = this.props;
 
@@ -435,7 +434,9 @@ export class WithInstallHelpers extends React.Component {
       location, platformFiles, userAgentInfo,
     });
     return _addonManager.install(
-      installURL, makeProgressHandler(dispatch, guid), { src }
+      installURL,
+      makeProgressHandler(dispatch, guid),
+      { src: defaultSource },
     )
       .then(() => {
         _tracking.sendEvent({
@@ -531,14 +532,15 @@ export class WithInstallHelpers extends React.Component {
 }
 
 export function withInstallHelpers({
-  _makeMapDispatchToProps = makeMapDispatchToProps, src,
+  _makeMapDispatchToProps = makeMapDispatchToProps, defaultSource,
 }) {
-  if (!src) {
-    throw new Error('src is required for withInstallHelpers');
+  if (!defaultSource) {
+    throw new Error('defaultSource is required for withInstallHelpers');
   }
   return (WrappedComponent) => compose(
     connect(
-      mapStateToProps, _makeMapDispatchToProps({ WrappedComponent, src })
+      mapStateToProps,
+      _makeMapDispatchToProps({ WrappedComponent, defaultSource }),
     ),
   )(WithInstallHelpers);
 }

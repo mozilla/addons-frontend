@@ -174,6 +174,7 @@ describe(__filename, () => {
       addon: createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultSource: 'this-should-be-overidden',
       location: fakeRouterLocation({ query: { src: externalSource } }),
     });
 
@@ -230,36 +231,36 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', true);
   });
 
-  it('adds a src to extension buttons', () => {
+  it('adds defaultSource to extension buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const src = 'homepage';
+    const defaultSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultSource,
       hasAddonManager: false,
-      src,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+    expect(button).toHaveProp('href', `${installURL}?src=${defaultSource}`);
   });
 
-  it('adds a src to search provider buttons', () => {
+  it('adds defaultSource to search provider buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const src = 'homepage';
+    const defaultSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_OPENSEARCH,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultSource,
       hasAddonManager: false,
-      src,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+    expect(button).toHaveProp('href', `${installURL}?src=${defaultSource}`);
   });
 
   it('renders a switch button if useButton is false', () => {

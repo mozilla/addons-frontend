@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import { setInstallState } from 'core/actions/installations';
 import HoverIntent from 'core/components/HoverIntent';
+import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -317,6 +318,18 @@ describe(__filename, () => {
         category: CLICK_CATEGORY,
         label: 'foo',
       });
+    });
+
+    it('passes a defaultSource to the install button', () => {
+      const defaultSource = 'fake-discopane-source';
+      const data = {
+        ...result,
+        type: ADDON_TYPE_EXTENSION,
+      };
+      const root = renderAddon({ addon: data, ...data, defaultSource });
+
+      const button = root.find(InstallButton);
+      expect(button).toHaveProp('defaultSource', defaultSource);
     });
 
     it('disables incompatible add-ons', () => {

@@ -63,6 +63,8 @@ export class AddonBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This prop is passed in by withInstallHelpers()
+    defaultSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
@@ -75,8 +77,6 @@ export class AddonBase extends React.Component {
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
-    // This prop is passed in by withInstallHelpers({ src: '...' })
-    src: PropTypes.string.isRequired,
     // eslint-disable-next-line react/require-default-props
     themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
@@ -435,11 +435,11 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      defaultSource,
       errorHandler,
       getClientCompatibility,
       i18n,
       installStatus,
-      src,
       userAgentInfo,
     } = this.props;
 
@@ -556,7 +556,7 @@ export class AddonBase extends React.Component {
                     {...this.props}
                     disabled={!isCompatible}
                     ref={(ref) => { this.installButton = ref; }}
-                    src={src}
+                    defaultSource={defaultSource}
                     status={installStatus}
                     useButton
                   /> : null
@@ -661,6 +661,6 @@ export default compose(
   withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ src: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultSource: 'dp-btn-primary' }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);
