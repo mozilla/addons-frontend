@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-22 06:44+0000\n"
+"PO-Revision-Date: 2018-02-22 08:20+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -540,7 +540,7 @@ msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
-msgstr ""
+msgstr "వివరణ"
 
 #: src/amo/components/CollectionManager/index.js:159
 msgid "Custom URL"
