@@ -179,7 +179,7 @@ describe(__filename, () => {
       .toEqual('54321@personas.mozilla.org');
   });
 
-  it('reads platform files from the file', () => {
+  it('maps platforms to file objects', () => {
     const addon = createFakeAddon({
       files: [
         {
@@ -233,18 +233,8 @@ describe(__filename, () => {
       loadAddons(createFetchAddonResult(addon).entities));
     expect(state.byID[addon.id].platformFiles).toMatchObject({
       unexpectedPlatform: {
-        created: '2014-11-22T10:09:01Z',
-        hash: 'a1b2c3d4',
-        id: 57721,
-        is_mozilla_signed_extension: false,
-        is_restart_required: false,
-        is_webextension: true,
-        permissions: [
-          'activeTab',
-          'webRequest',
-        ],
+        ...fakeAddon.current_version.files[0],
         platform: 'unexpectedPlatform',
-        status: 'public',
         url: 'https://a.m.o/files/somewhere.xpi',
       },
     });
