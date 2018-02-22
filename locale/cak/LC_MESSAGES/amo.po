@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 22:15+0000\n"
+"PO-Revision-Date: 2018-02-22 20:19+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -597,18 +597,20 @@ msgstr "Taqasaj Firefox"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"We xatikirisaj molojri'ïl chuqa' nana'ojij chi re rutzijol re' jun sachoj, <a href=\"%(url)s\">taya' rutzijol ri k'ayewal</a>. Tab'ij chi qe akuchi' atpetenäq chuqa' achoq chupam natojtob'ej yatok, "
+"richin niqachojmirisaj ri k'ayewal."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
-msgstr ""
+msgstr "Man ya'on ta q'ij"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Niqamäy, xa xe chi man ya'on ta q'ij chawe richin yatok pa re ruxaq re'. We man atikirisan ta molojri'ïl, yatikïr yatok rik'in nawokisaj ri ximonel k'o pa jotöl chi re ri ruxaq."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "We awojqan pe jun ximonel pa jun chik ruxaq k'amaya'l, <a href=\"%(url)s\">taya' rutzijol ri k'ayewal</a>. Tab'ij chi qe akuchi' atpetenäq chuqa' ri nab'än, richin niqab'än rutzil."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
