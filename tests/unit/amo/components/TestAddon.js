@@ -262,7 +262,7 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
-    expect(root.instance().props.installURLs).toEqual({});
+    expect(root.instance().props.platformFiles).toEqual({});
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {
@@ -1387,10 +1387,10 @@ describe('mapStateToProps', () => {
 
   it('can handle a missing addon', () => {
     signIn();
-    const { addon, installURLs } = _mapStateToProps();
+    const { addon, platformFiles } = _mapStateToProps();
     expect(addon).toBeFalsy();
     // Make sure this isn't undefined since it gets read from `addon`.
-    expect(installURLs).toEqual({});
+    expect(platformFiles).toEqual({});
   });
 
   it('sets the clientApp and userAgent', () => {

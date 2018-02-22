@@ -7,6 +7,11 @@ import {
   ADDON_TYPE_THEME,
   GLOBAL_EVENTS,
   INSTALL_STATE,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
@@ -145,12 +150,12 @@ describe(__filename, () => {
         description: 'editorial text',
         heading: 'The Add-on',
         iconUrl: addon.icon_url,
-        installURLs: {
-          all: 'https://a.m.o/files/321/addon.xpi',
-          android: undefined,
-          linux: undefined,
-          mac: undefined,
-          windows: undefined,
+        platformFiles: {
+          [OS_ALL]: fakeDiscoAddon.current_version.files[0],
+          [OS_ANDROID]: undefined,
+          [OS_LINUX]: undefined,
+          [OS_MAC]: undefined,
+          [OS_WINDOWS]: undefined,
         },
         isMozillaSignedExtension: false,
         isRestartRequired: false,
