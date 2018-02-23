@@ -100,14 +100,14 @@ describe(__filename, () => {
       const root = renderRatings({ count: 5 });
 
       expect(getReviewCount(root).content).toEqual('5');
-      expect(getReviewCount(root).title).toEqual('Reviews');
+      expect(getReviewCount(root).title).toEqual('Ratings');
     });
 
     it('renders a count of one rating', () => {
       const root = renderRatings({ count: 1 });
 
       expect(getReviewCount(root).content).toEqual('1');
-      expect(getReviewCount(root).title).toEqual('Review');
+      expect(getReviewCount(root).title).toEqual('Rating');
     });
 
     it('localizes review count', () => {
@@ -122,7 +122,7 @@ describe(__filename, () => {
         addon: createInternalAddon({ ...fakeAddon, ratings: null }),
       });
 
-      expect(getReviewCount(root).title).toEqual('No Reviews');
+      expect(getReviewCount(root).title).toEqual('No Ratings');
     });
   });
 });

@@ -40,12 +40,12 @@ export class AddonMetaBase extends React.Component<Props> {
     let reviewTitle;
     if (!addon) {
       reviewCount = null;
-      reviewTitle = i18n.gettext('Reviews');
+      reviewTitle = i18n.gettext('Ratings');
     } else if (addonRatingCount) {
       reviewCount = i18n.formatNumber(addonRatingCount);
-      reviewTitle = i18n.ngettext('Review', 'Reviews', addonRatingCount);
+      reviewTitle = i18n.ngettext('Rating', 'Ratings', addonRatingCount);
     } else {
-      reviewTitle = i18n.gettext('No Reviews');
+      reviewTitle = i18n.gettext('No Ratings');
     }
 
     return (
