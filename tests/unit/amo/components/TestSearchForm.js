@@ -85,7 +85,7 @@ describe(__filename, () => {
       // The `withRouter()` HOC passes `location` from `router.location`
       // to the component. In other words, `location` cannot be set directly.
       fakeRouter = {
-        location: fakeRouterLocation({ query: {} }),
+        location: fakeRouterLocation(),
         push: sinon.spy(),
       };
     });

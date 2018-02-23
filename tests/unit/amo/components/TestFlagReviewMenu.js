@@ -37,7 +37,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      location: fakeRouterLocation({ path: '/review-list' }),
+      location: fakeRouterLocation(),
       review: denormalizeReview(fakeReview),
       store,
       ...customProps,

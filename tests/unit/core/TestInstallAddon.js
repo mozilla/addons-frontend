@@ -127,9 +127,9 @@ describe(__filename, () => {
       defaultSource: 'Howdy', _makeMapDispatchToProps,
     })(WrappedComponent);
 
-    expect(_makeMapDispatchToProps.calledWith({
+    sinon.assert.calledWith(_makeMapDispatchToProps, {
       WrappedComponent, defaultSource: 'Howdy',
-    })).toBeTruthy();
+    });
   });
 
   it('wraps the component in WithInstallHelpers', () => {
