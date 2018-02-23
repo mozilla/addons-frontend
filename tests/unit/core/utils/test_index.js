@@ -42,6 +42,7 @@ import {
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
+  stripHtmlEntities,
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
@@ -698,6 +699,17 @@ describe(__filename, () => {
       expect(sanitizeHTML(html, ['a'])).toEqual({
         __html: '<a href="http://example.org">link</a>',
       });
+    });
+  });
+
+  describe('stripHtmlEntities', () => {
+    it('strips entities', () => {
+      expect(stripHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;'))
+        .toEqual('<>"&©®');
+    });
+
+    it('passes through anything else', () => {
+      expect(stripHtmlEntities('just whatever')).toEqual('just whatever');
     });
   });
 });

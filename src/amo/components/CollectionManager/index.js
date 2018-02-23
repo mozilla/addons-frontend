@@ -7,6 +7,7 @@ import config from 'config';
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import { stripHtmlEntities } from 'core/utils';
 import FormOverlay from 'ui/components/FormOverlay';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
@@ -108,8 +109,9 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   propsToState(props: Props) {
     return {
-      description: props.collection && props.collection.description,
-      name: props.collection && props.collection.name,
+      description: props.collection &&
+        stripHtmlEntities(props.collection.description),
+      name: props.collection && stripHtmlEntities(props.collection.name),
       slug: props.collection && props.collection.slug,
     };
   }
