@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 22:15+0000\n"
+"PO-Revision-Date: 2018-02-22 22:32+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -597,30 +597,32 @@ msgstr "Taqasaj Firefox"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"We xatikirisaj molojri'ïl chuqa' nana'ojij chi re rutzijol re' jun sachoj, <a href=\"%(url)s\">taya' rutzijol ri k'ayewal</a>. Tab'ij chi qe akuchi' atpetenäq chuqa' achoq chupam natojtob'ej yatok, "
+"richin niqachojmirisaj ri k'ayewal."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
-msgstr ""
+msgstr "Man ya'on ta q'ij"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
-msgstr ""
+msgstr "Niqamäy, xa xe chi man ya'on ta q'ij chawe richin yatok pa re ruxaq re'. We man atikirisan ta molojri'ïl, yatikïr yatok rik'in nawokisaj ri ximonel k'o pa jotöl chi re ri ruxaq."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
 msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
-msgstr ""
+msgstr "We awojqan pe jun ximonel pa jun chik ruxaq k'amaya'l, <a href=\"%(url)s\">taya' rutzijol ri k'ayewal</a>. Tab'ij chi qe akuchi' atpetenäq chuqa' ri nab'än, richin niqab'än rutzil."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "Xusiloj el re tz'aqat re' ri b'anel."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "Xchup re tz'aqat re' ruma jun nuk'samajel."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr ""
+msgstr "Kojakuyu', xa xe chi majun xqïl chupam ri ochochib'äl xatz'ib'aj."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -631,70 +633,72 @@ msgid ""
 "If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
 " and we'll do our best to fix it."
 msgstr ""
+"We k'o rutz'aqat awetamab'al ri tikirel yojruto', yatikïr <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">naya' rutzijol ri k'ayewal</a>. Tab'ij chi qe achike rub'eyal awojqan "
+"richin xatapon pa ri k'ayewal chuqa' richin yojtikïr niqab'än rutzil."
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Rusachoj K'uxasamaj"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Kojakuyu', xa xk'ulwachitäj jun sachoj pa ri qak'uxasamaj ruma ri' toq man xojtikïr ta xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' xtiqatikib'a'."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Re re' achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Ya'on retal achi'el jun rutzijol sachoj o ruk'utuxik to'ïk"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "Tiya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "Xya' retal"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Tiya' retal re tzolin rutzij b'anonel"
 
 #: src/amo/components/FlagReviewMenu/index.js:133
 msgid "Flag this review"
-msgstr ""
+msgstr "Tiya' retal re tzijoxïk re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
 msgid "Log in to flag this response"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin niya' retal re tzolin tzij re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
 msgid "Log in to flag this review"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin niya' retal re tzijoxïk re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Man yatikïr naya' retal ri tzolin atzij"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Man yatikïr naya' retal ri atzijoxik"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Seq'tzijol re re'"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Xya' retal achi'el seq'tzijol"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Ruk'wan man ruk'amon ta ch'ab'äl"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Xya' retal achi'el man ruk'amon ta ch'ab'äl"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -737,112 +741,114 @@ msgid ""
 "Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
 " or any later version."
 msgstr ""
+"We xa ta niya' %(startNotedLink)srutzijol chi man ke ta ri' %(endNotedLink)s, ri rupam re ruxaq k'amaya'l re' ya'on q'ij rik'in ri ya'oj q'ij%(startLicenseLink)sCreative Commons Richinilem "
+"Tikomonïx-Junam v3.0%(endLicenseLink)s o jun chik ruwäch."
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Tib'an b'enam pa Mozilla tikirib'äl ruxaq"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Tawetamaj qawäch"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Ichinya'l"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
-msgstr ""
+msgstr "B'anonela' Jay"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Molna'oj"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
-msgstr ""
+msgstr "Tiya' rutzijol jun sachoj"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr ""
+msgstr "Ruk'amöl Nik'oxïk"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "Rub'anikil Ruxaq K'amaya'l"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
-msgstr ""
+msgstr "Titz'et ruxaq pa classic ajch'atal"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Ketz'et taq Numol"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr ""
+msgstr "Titz'et Ruwäch B'i'aj"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr ""
+msgstr "Tinuk' Ruwäch B'i'aj"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
-msgstr ""
+msgstr "Taq samajib'äl"
 
 #: src/amo/components/Header/index.js:120
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Titaq jun K'ak'a' Tz'aqat"
 
 #: src/amo/components/Header/index.js:128
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Titaq jun K'ak'a' Wachinïk"
 
 #: src/amo/components/Header/index.js:138
 msgid "Reviewer Tools"
-msgstr ""
+msgstr "Taq Rusamajib'al Nik'onel"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
-msgstr ""
+msgstr "Titz'apïx molojri'ïl"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Header/index.js:60
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Taq Rutz'aqat Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Rub'i' Nutaqoya'l"
 
 #: src/amo/components/Home/index.js:111
 msgid "Abstract"
-msgstr ""
+msgstr "Ch'utinisan Na'oj"
 
 #: src/amo/components/Home/index.js:116
 msgid "Nature"
-msgstr ""
+msgstr "Ruwach'ulew"
 
 #: src/amo/components/Home/index.js:121
 msgid "Film & TV"
-msgstr ""
+msgstr "Silowachil & TV"
 
 #: src/amo/components/Home/index.js:126
 msgid "Scenery"
-msgstr ""
+msgstr "Wachaj"
 
 #: src/amo/components/Home/index.js:131
 msgid "Music"
-msgstr ""
+msgstr "Q'ojom"
 
 #: src/amo/components/Home/index.js:136
 msgid "Seasonal"
-msgstr ""
+msgstr "Kajtz'ukalil"
 
 # The ending ellipsis alludes to a row of icons for each type
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Tawichinaj ri rusamamaj Firefox rik'in taq k'amal. ¿La ütz natz'ët pa…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
@@ -882,7 +888,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
-msgstr ""
+msgstr "Taq yaketal"
 
 #: src/amo/components/Home/index.js:64
 msgid "Password managers"
@@ -914,7 +920,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:120
 msgid "SearchPreview"
-msgstr ""
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
