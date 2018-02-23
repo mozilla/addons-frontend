@@ -30,6 +30,7 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import { setError } from 'core/actions/errors';
@@ -46,16 +47,15 @@ describe(__filename, () => {
     store = dispatchClientMetadata({ clientApp, lang }).store;
   });
 
-  const getProps = ({ location, params, router, ...customProps } = {}) => {
+  const getProps = ({
+    location = fakeRouterLocation(), params, router, ...customProps
+  } = {}) => {
     return {
       i18n: fakeI18n(),
       // The `withRouter()` HOC uses the `router` to pass `params` and
       // `location` to its children.
       router: {
-        location: {
-          query: {},
-          ...location,
-        },
+        location,
         params: {
           addonSlug: fakeAddon.slug,
           ...params,
@@ -105,7 +105,7 @@ describe(__filename, () => {
     });
 
     it('waits for an addon and reviews to load', () => {
-      const location = { path: '/review-list', query: {} };
+      const location = fakeRouterLocation();
       const root = render({ addon: null, location });
       expect(root.find('.AddonReviewList-header-icon img').prop('src'))
         .toEqual(fallbackIcon);
@@ -203,7 +203,7 @@ describe(__filename, () => {
       render({
         reviews: null,
         errorHandler,
-        location: { query: { page } },
+        location: fakeRouterLocation({ query: { page } }),
         params: { addonSlug },
       });
 
@@ -223,7 +223,7 @@ describe(__filename, () => {
 
       render({
         errorHandler,
-        location: { query: { page } },
+        location: fakeRouterLocation({ query: { page } }),
         params: { addonSlug },
       });
 
@@ -241,11 +241,13 @@ describe(__filename, () => {
 
       const root = render({
         errorHandler,
-        location: { query: { page: 2 } },
+        location: fakeRouterLocation({ query: { page: 2 } }),
         params: { addonSlug },
       });
       dispatch.reset();
-      root.setProps({ location: { query: { page: 3 } } });
+      root.setProps({
+        location: fakeRouterLocation({ query: { page: 3 } }),
+      });
 
       sinon.assert.calledWith(dispatch, fetchReviews({
         addonSlug,
@@ -555,14 +557,16 @@ describe(__filename, () => {
       dispatchAddon();
       dispatchAddonReviews();
       // Render with an empty query string.
-      const root = render({ location: { query: {} } });
+      const root = render({ location: fakeRouterLocation() });
       expect(root.find(Paginate)).toHaveProp('currentPage', 1);
     });
 
     it('sets the paginator to the query string page', () => {
       dispatchAddon();
       dispatchAddonReviews();
-      const root = render({ location: { query: { page: 3 } } });
+      const root = render({
+        location: fakeRouterLocation({ query: { page: 3 } }),
+      });
       expect(root.find(Paginate)).toHaveProp('currentPage', 3);
     });
 
@@ -580,7 +584,7 @@ describe(__filename, () => {
 
     it('configures a rating manager', () => {
       dispatchAddon(fakeAddon);
-      const location = { query: {} };
+      const location = fakeRouterLocation();
       const root = render({ reviews: null, location });
 
       const manager = root.find(RatingManager);
@@ -621,9 +625,9 @@ describe(__filename, () => {
 
     it('resets the page after submitting a review', () => {
       const router = {
-        location: {
+        location: fakeRouterLocation({
           query: { page: 2 },
-        },
+        }),
         params: {
           addonSlug: fakeAddon.slug,
         },
@@ -652,7 +656,7 @@ describe(__filename, () => {
     it('returns a unique ID based on the addon slug and page', () => {
       const ownProps = getProps({
         params: { addonSlug: 'foobar' },
-        location: { query: { page: 22 } },
+        location: fakeRouterLocation({ query: { page: 22 } }),
       });
 
       expect(extractId(ownProps)).toEqual(`foobar-22`);
@@ -661,7 +665,7 @@ describe(__filename, () => {
     it('returns a unique ID even when there is no page', () => {
       const ownProps = getProps({
         params: { addonSlug: 'foobar' },
-        location: { query: {} },
+        location: fakeRouterLocation(),
       });
 
       expect(extractId(ownProps)).toEqual(`foobar-1`);

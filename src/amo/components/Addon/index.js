@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import AddAddonToCollection from 'amo/components/AddAddonToCollection';
@@ -62,6 +63,8 @@ export class AddonBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This prop is passed in by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
@@ -70,11 +73,10 @@ export class AddonBase extends React.Component {
     platformFiles: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
-    // This prop is passed in by withInstallHelpers({ src: '...' })
-    src: PropTypes.string.isRequired,
     // eslint-disable-next-line react/require-default-props
     themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
@@ -433,11 +435,11 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      defaultInstallSource,
       errorHandler,
       getClientCompatibility,
       i18n,
       installStatus,
-      src,
       userAgentInfo,
     } = this.props;
 
@@ -554,7 +556,7 @@ export class AddonBase extends React.Component {
                     {...this.props}
                     disabled={!isCompatible}
                     ref={(ref) => { this.installButton = ref; }}
-                    src={src}
+                    defaultInstallSource={defaultInstallSource}
                     status={installStatus}
                     useButton
                   /> : null
@@ -656,8 +658,9 @@ export const extractId = (ownProps) => {
 };
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ src: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultInstallSource: 'dp-btn-primary' }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

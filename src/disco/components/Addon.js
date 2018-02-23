@@ -6,6 +6,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
@@ -43,6 +44,8 @@ export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This is added by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
@@ -52,6 +55,8 @@ export class AddonBase extends React.Component {
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
     platformFiles: PropTypes.object,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
@@ -219,6 +224,7 @@ export class AddonBase extends React.Component {
     const {
       addon,
       clientApp,
+      defaultInstallSource,
       getClientCompatibility,
       heading,
       type,
@@ -276,10 +282,12 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
+          {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton
-            className="Addon-install-button"
-            size="small"
             {...this.props}
+            className="Addon-install-button"
+            defaultInstallSource={defaultInstallSource}
+            size="small"
           />
         </div>
         {!compatible ? (
@@ -312,7 +320,8 @@ export function mapStateToProps(state, ownProps) {
 }
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
-  withInstallHelpers({ src: 'discovery-promo' }),
+  withInstallHelpers({ defaultInstallSource: 'discovery-promo' }),
 )(AddonBase);

@@ -455,3 +455,20 @@ export const urlWithTheseParams = (params) => {
     return true;
   }, `urlWithTheseParams(${JSON.stringify(params)})`);
 };
+
+/*
+ * Returns a fake ReactRouter location object.
+ *
+ * See ReactRouterLocation in 'core/types/router';
+ */
+export const fakeRouterLocation = (props = {}) => {
+  return {
+    action: 'PUSH',
+    hash: '',
+    key: 'some-key',
+    pathname: '/some/url',
+    query: {},
+    search: '',
+    ...props,
+  };
+};

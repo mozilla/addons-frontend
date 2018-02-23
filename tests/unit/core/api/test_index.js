@@ -18,6 +18,7 @@ import {
   apiResponsePage,
   createApiResponse,
   createStubErrorHandler,
+  fakeRouterLocation,
   generateHeaders,
   getFakeConfig,
   signedInApiState,
@@ -431,13 +432,15 @@ describe(__filename, () => {
       querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
 
     it('includes the next path', () => {
-      const location = { pathname: '/foo', query: { bar: 'BAR' } };
+      const location = fakeRouterLocation({
+        pathname: '/foo', query: { bar: 'BAR' },
+      });
       expect(getStartLoginQs(location)).toEqual({ to: '/foo?bar=BAR' });
     });
 
     it('includes the next path the config if set', () => {
       sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
-      const location = { pathname: '/foo' };
+      const location = fakeRouterLocation({ pathname: '/foo' });
       expect(getStartLoginQs(location)).toEqual({ to: '/foo', config: 'my-config' });
     });
   });

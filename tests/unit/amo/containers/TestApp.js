@@ -28,6 +28,7 @@ import I18nProvider from 'core/i18n/Provider';
 import { loadErrorPage } from 'core/reducers/errorPage';
 import {
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -69,7 +70,7 @@ describe(__filename, () => {
     return {
       i18n: fakeI18n(),
       logOutUser: sinon.stub(),
-      location: sinon.stub(),
+      location: fakeRouterLocation(),
       isAuthenticated: true,
       store: createStore().store,
       ...customProps,
@@ -193,7 +194,7 @@ describe(__filename, () => {
       ErrorPage: DefaultErrorPage,
       clientApp: 'android',
       lang: 'en-GB',
-      location: { pathname: '/en-GB/android/' },
+      location: fakeRouterLocation({ pathname: '/en-GB/android/' }),
       store,
     });
     const rootNode = findDOMNode(root);

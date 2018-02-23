@@ -29,6 +29,7 @@ import {
 import {
   createUserAccountResponse,
   fakeI18n,
+  fakeRouterLocation,
   userAuthToken,
 } from 'tests/unit/helpers';
 
@@ -41,7 +42,7 @@ function render(customProps = {}) {
     addon: createInternalAddon(fakeAddon),
     apiState: signedInApiState,
     errorHandler: sinon.stub(),
-    location: { pathname: '/some/location/' },
+    location: fakeRouterLocation({ pathname: '/some/location/' }),
     version: fakeAddon.current_version,
     userId: 91234,
     submitReview: () => Promise.resolve(),
@@ -288,7 +289,7 @@ describe('RatingManager', () => {
 
     it('renders an AuthenticateButton', () => {
       const AuthenticateButton = sinon.spy(() => <div />);
-      const location = { pathname: '/some/path/' };
+      const location = fakeRouterLocation();
       renderWithoutUser({ AuthenticateButton, location });
 
       expect(AuthenticateButton.called).toBeTruthy();

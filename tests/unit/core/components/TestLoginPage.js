@@ -4,9 +4,10 @@ import { findDOMNode } from 'react-dom';
 
 import LoginPage from 'core/components/LoginPage';
 import * as api from 'core/api';
+import { fakeRouterLocation } from 'tests/unit/helpers';
 
 describe('<LoginPage />', () => {
-  const location = { pathname: '/foo' };
+  const location = fakeRouterLocation();
 
   function render(props) {
     return findDOMNode(renderIntoDocument(<LoginPage {...props} />));
