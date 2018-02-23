@@ -91,6 +91,7 @@ const defaultProps = (overrides = {}) => {
     ...addon,
     hasAddonManager: true,
     _addonManager: getFakeAddonManagerWrapper(),
+    dispatch: store.dispatch,
     store,
     location: fakeRouterLocation(),
     userAgentInfo: sampleUserAgentParsed,
@@ -584,7 +585,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
         files: [{ platform: OS_ALL, url: installURL }],
       }));
 
-      const { root, dispatch } = renderWithInstallHelpers(addon);
+      const { root, dispatch } = renderWithInstallHelpers({
+        ...addon, defaultInstallSource: null,
+      });
       const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
@@ -604,7 +607,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
         files: [{ platform: OS_ALL, url: installURL }],
       }));
 
-      const { root, dispatch } = renderWithInstallHelpers(addon);
+      const { root, dispatch } = renderWithInstallHelpers({
+        ...addon, defaultInstallSource: null,
+      });
       const { setCurrentStatus } = root.instance().props;
 
       dispatch.reset();
@@ -627,6 +632,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
+        defaultInstallSource: null,
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -656,6 +662,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
+        defaultInstallSource: null,
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -687,7 +694,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -716,7 +725,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -745,7 +756,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -770,7 +783,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -803,6 +818,31 @@ describe(`${__filename}: withInstallHelpers`, () => {
             dispatch,
             setInstallState({
               guid: addon.guid, status: ERROR, error: FATAL_ERROR,
+            }),
+          );
+        });
+    });
+
+    it('adds defaultInstallSource to the URL', () => {
+      const installURL = 'http://the.url/';
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url: installURL }],
+      }));
+
+      const { root, dispatch } = renderWithInstallHelpers({
+        ...addon,
+        defaultInstallSource,
+      });
+      const { setCurrentStatus } = root.instance().props;
+
+      return setCurrentStatus()
+        .then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ENABLED,
+              url: `${installURL}?src=${defaultInstallSource}`,
             }),
           );
         });
@@ -978,7 +1018,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
         .then(() => {
           sinon.assert.calledWith(
             fakeAddonManager.install,
-            installURL,
+            `${installURL}?src=${defaultInstallSource}`,
             sinon.match.func,
             { src: defaultInstallSource }
           );

@@ -352,6 +352,7 @@ export class WithInstallHelpers extends React.Component {
   setCurrentStatus(newProps = this.props) {
     const {
       _addonManager,
+      defaultInstallSource,
       dispatch,
       hasAddonManager,
       location,
@@ -359,7 +360,7 @@ export class WithInstallHelpers extends React.Component {
       userAgentInfo,
     } = this.props;
     const installURL = findInstallURL({
-      location, platformFiles, userAgentInfo,
+      defaultInstallSource, location, platformFiles, userAgentInfo,
     });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
@@ -427,21 +428,27 @@ export class WithInstallHelpers extends React.Component {
       userAgentInfo,
     } = this.props;
 
-    dispatch({ type: START_DOWNLOAD, payload: { guid } });
-    _tracking.sendEvent({
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
-      label: name,
-    });
+    return new Promise((resolve) => {
+      dispatch({ type: START_DOWNLOAD, payload: { guid } });
+      _tracking.sendEvent({
+        action: TRACKING_TYPE_EXTENSION,
+        category: INSTALL_STARTED_CATEGORY,
+        label: name,
+      });
 
-    const installURL = findInstallURL({
-      location, platformFiles, userAgentInfo,
-    });
-    return _addonManager.install(
-      installURL,
-      makeProgressHandler(dispatch, guid),
-      { src: defaultInstallSource },
-    )
+      const installURL = findInstallURL({
+        defaultInstallSource, location, platformFiles, userAgentInfo,
+      });
+
+      resolve(installURL);
+    })
+      .then((installURL) => {
+        return _addonManager.install(
+          installURL,
+          makeProgressHandler(dispatch, guid),
+          { src: defaultInstallSource },
+        );
+      })
       .then(() => {
         _tracking.sendEvent({
           action: TRACKING_TYPE_EXTENSION,
@@ -538,8 +545,9 @@ export class WithInstallHelpers extends React.Component {
 export function withInstallHelpers({
   _makeMapDispatchToProps = makeMapDispatchToProps, defaultInstallSource,
 }) {
-  if (!defaultInstallSource) {
-    throw new Error('defaultInstallSource is required for withInstallHelpers');
+  if (typeof defaultInstallSource === 'undefined') {
+    throw new Error(
+      'defaultInstallSource is required for withInstallHelpers');
   }
   return (WrappedComponent) => compose(
     connect(
