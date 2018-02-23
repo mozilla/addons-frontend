@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-23 23:32+0000\n"
+"PO-Revision-Date: 2018-02-23 23:41+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1028,47 +1028,47 @@ msgstr "We nayäk jun soltzij xtitz'aqatisäx jun k'ak'a' cha'oj pan ruchojmiris
 
 #: src/amo/components/LanguageTools/index.js:161
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Ri tanaj taq ch'ab'äl nikijäl ri ruch'ab'äl ruk'amal okik'amaya'l, chuqa' ri taq rucha'oj k'utsamaj chuqa' taq nuk'ulem."
 
 #: src/amo/components/LanguageTools/index.js:167
 msgid "All Locales"
-msgstr ""
+msgstr "Ronojel taq Ch'ab'äl"
 
 #: src/amo/components/LanguageTools/index.js:173
 msgid "Locale Name"
-msgstr ""
+msgstr "Rub'i' Ch'ab'äl"
 
 #: src/amo/components/LanguageTools/index.js:176
 msgid "Language Packs"
-msgstr ""
+msgstr "Tanaj Ch'ab'äl"
 
 #: src/amo/components/LanguageTools/index.js:179
 msgid "Dictionaries"
-msgstr ""
+msgstr "Taq soltzij"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re soltzij re'"
 
 #: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this language pack"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re tanaj ch'ab'äl re'"
 
 #: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this search plugin"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re runak'ab'al kanob'äl re'"
 
 #: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re wachinïk re'"
 
 #: src/amo/components/RatingManager/index.js:147
 msgid "Log in to rate this extension"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re k'amal re'"
 
 #: src/amo/components/RatingManager/index.js:153
 msgid "Log in to rate this add-on"
-msgstr ""
+msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re tz'aqat re'"
 
 #: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
