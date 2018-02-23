@@ -68,6 +68,7 @@ export class RatingBase extends React.Component {
       };
 
       if (readOnly) {
+        delete props.id;
         return <div {...props} />;
       }
 
