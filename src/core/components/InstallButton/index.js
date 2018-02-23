@@ -70,7 +70,7 @@ export class InstallButtonBase extends React.Component {
     category: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
-    defaultSource: PropTypes.string.isRequired,
+    defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     detailURL: PropTypes.string,
     enable: PropTypes.func,
@@ -190,7 +190,7 @@ export class InstallButtonBase extends React.Component {
       addon,
       clientApp,
       className,
-      defaultSource,
+      defaultInstallSource,
       getClientCompatibility,
       hasAddonManager,
       i18n,
@@ -216,7 +216,7 @@ export class InstallButtonBase extends React.Component {
       }
     );
     const installURL = findInstallURL({
-      defaultSource,
+      defaultInstallSource,
       location,
       platformFiles: addon.platformFiles,
       userAgentInfo,

@@ -64,7 +64,7 @@ export class AddonBase extends React.Component {
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
     // This prop is passed in by withInstallHelpers()
-    defaultSource: PropTypes.string.isRequired,
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
@@ -435,7 +435,7 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
-      defaultSource,
+      defaultInstallSource,
       errorHandler,
       getClientCompatibility,
       i18n,
@@ -556,7 +556,7 @@ export class AddonBase extends React.Component {
                     {...this.props}
                     disabled={!isCompatible}
                     ref={(ref) => { this.installButton = ref; }}
-                    defaultSource={defaultSource}
+                    defaultInstallSource={defaultInstallSource}
                     status={installStatus}
                     useButton
                   /> : null
@@ -661,6 +661,6 @@ export default compose(
   withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ defaultSource: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultInstallSource: 'dp-btn-primary' }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

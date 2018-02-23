@@ -787,7 +787,7 @@ describe(__filename, () => {
 
     const button = root.find(InstallButton);
     // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button).toHaveProp('defaultSource', 'dp-btn-primary');
+    expect(button).toHaveProp('defaultInstallSource', 'dp-btn-primary');
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {

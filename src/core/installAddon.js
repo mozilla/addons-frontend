@@ -168,9 +168,13 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export function makeMapDispatchToProps({ WrappedComponent, defaultSource }) {
+export function makeMapDispatchToProps({
+  WrappedComponent, defaultInstallSource,
+}) {
   return function mapDispatchToProps(dispatch, ownProps) {
-    const mappedProps = { dispatch, defaultSource, WrappedComponent };
+    const mappedProps = {
+      dispatch, defaultInstallSource, WrappedComponent,
+    };
 
     if (config.get('server')) {
       // Return early without validating properties.
@@ -239,7 +243,7 @@ const userAgentOSToPlatform = {
  *
  * type FindInstallUrlParams = {|
  *   appendSource?: boolean,
- *   defaultSource?: string,
+ *   defaultInstallSource?: string,
  *   location?: ReactRouterLocation,
  *   platformFiles: $PropertyType<AddonType, 'platformFiles'>,
  *   userAgentInfo: UserAgentInfoType,
@@ -248,7 +252,7 @@ const userAgentOSToPlatform = {
  */
 export const findInstallURL = ({
   appendSource = true,
-  defaultSource,
+  defaultInstallSource,
   location,
   platformFiles,
   userAgentInfo,
@@ -266,7 +270,7 @@ export const findInstallURL = ({
       throw new Error(
         'The location parameter is required when appendSource is true');
     }
-    source = location.query.src || defaultSource;
+    source = location.query.src || defaultInstallSource;
   }
 
   const agentOsName =
@@ -310,7 +314,7 @@ export class WithInstallHelpers extends React.Component {
     WrappedComponent: PropTypes.func.isRequired,
     _addonManager: PropTypes.object,
     _tracking: PropTypes.object,
-    defaultSource: PropTypes.string.isRequired,
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
     iconUrl: PropTypes.string,
@@ -413,7 +417,7 @@ export class WithInstallHelpers extends React.Component {
     const {
       _addonManager,
       _tracking,
-      defaultSource,
+      defaultInstallSource,
       dispatch,
       guid,
       iconUrl,
@@ -436,7 +440,7 @@ export class WithInstallHelpers extends React.Component {
     return _addonManager.install(
       installURL,
       makeProgressHandler(dispatch, guid),
-      { src: defaultSource },
+      { src: defaultInstallSource },
     )
       .then(() => {
         _tracking.sendEvent({
@@ -532,15 +536,15 @@ export class WithInstallHelpers extends React.Component {
 }
 
 export function withInstallHelpers({
-  _makeMapDispatchToProps = makeMapDispatchToProps, defaultSource,
+  _makeMapDispatchToProps = makeMapDispatchToProps, defaultInstallSource,
 }) {
-  if (!defaultSource) {
-    throw new Error('defaultSource is required for withInstallHelpers');
+  if (!defaultInstallSource) {
+    throw new Error('defaultInstallSource is required for withInstallHelpers');
   }
   return (WrappedComponent) => compose(
     connect(
       mapStateToProps,
-      _makeMapDispatchToProps({ WrappedComponent, defaultSource }),
+      _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
     ),
   )(WithInstallHelpers);
 }

@@ -174,7 +174,7 @@ describe(__filename, () => {
       addon: createInternalAddon(createFakeAddon({
         files: [{ platform: OS_ALL, url: installURL }],
       })),
-      defaultSource: 'this-should-be-overidden',
+      defaultInstallSource: 'this-should-be-overidden',
       location: fakeRouterLocation({ query: { src: externalSource } }),
     });
 
@@ -231,36 +231,38 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', true);
   });
 
-  it('adds defaultSource to extension buttons', () => {
+  it('adds defaultInstallSource to extension buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const defaultSource = 'homepage';
+    const defaultInstallSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
-      defaultSource,
+      defaultInstallSource,
       hasAddonManager: false,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${defaultSource}`);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${defaultInstallSource}`);
   });
 
-  it('adds defaultSource to search provider buttons', () => {
+  it('adds defaultInstallSource to search provider buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const defaultSource = 'homepage';
+    const defaultInstallSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_OPENSEARCH,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
-      defaultSource,
+      defaultInstallSource,
       hasAddonManager: false,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${defaultSource}`);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${defaultInstallSource}`);
   });
 
   it('renders a switch button if useButton is false', () => {

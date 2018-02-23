@@ -71,11 +71,11 @@ class BaseComponent extends React.Component {
   }
 }
 
-function componentWithInstallHelpers({ defaultSource = 'some-src' } = {}) {
+function componentWithInstallHelpers({ defaultInstallSource = 'some-src' } = {}) {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
   return compose(
-    withInstallHelpers({ defaultSource })
+    withInstallHelpers({ defaultInstallSource })
   )(BaseComponent);
 }
 
@@ -109,8 +109,10 @@ function render(Component, props) {
   );
 }
 
-function renderWithInstallHelpers({ defaultSource, ...customProps } = {}) {
-  const Component = componentWithInstallHelpers({ defaultSource });
+function renderWithInstallHelpers({
+  defaultInstallSource, ...customProps
+} = {}) {
+  const Component = componentWithInstallHelpers({ defaultInstallSource });
 
   const props = defaultProps(customProps);
   const root = render(Component, props);
@@ -124,11 +126,11 @@ describe(__filename, () => {
     const WrappedComponent = sinon.stub();
 
     withInstallHelpers({
-      defaultSource: 'Howdy', _makeMapDispatchToProps,
+      defaultInstallSource: 'Howdy', _makeMapDispatchToProps,
     })(WrappedComponent);
 
     sinon.assert.calledWith(_makeMapDispatchToProps, {
-      WrappedComponent, defaultSource: 'Howdy',
+      WrappedComponent, defaultInstallSource: 'Howdy',
     });
   });
 
@@ -136,7 +138,7 @@ describe(__filename, () => {
     const _makeMapDispatchToProps = sinon.spy();
 
     const Component = withInstallHelpers({
-      defaultSource: 'Howdy', _makeMapDispatchToProps,
+      defaultInstallSource: 'Howdy', _makeMapDispatchToProps,
     })(() => {});
 
     const { store } = createStore();
@@ -220,10 +222,10 @@ describe(__filename, () => {
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
-  it('throws without a defaultSource', () => {
+  it('throws without a defaultInstallSource', () => {
     expect(() => {
       withInstallHelpers({})(() => {});
-    }).toThrowError(/defaultSource is required/);
+    }).toThrowError(/defaultInstallSource is required/);
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
@@ -493,7 +495,7 @@ describe(__filename, () => {
       const baseURL = 'https://a.m.o/files/addon.xpi';
       expect(_findInstallURL({
         addonFiles: [{ platform: OS_ALL, url: baseURL }],
-        defaultSource: 'homepage',
+        defaultInstallSource: 'homepage',
       }))
         .toEqual(`${baseURL}?src=homepage`);
     });
@@ -502,7 +504,7 @@ describe(__filename, () => {
       const baseURL = 'https://a.m.o/files/addon.xpi';
       expect(_findInstallURL({
         addonFiles: [{ platform: OS_ALL, url: baseURL }],
-        defaultSource: null,
+        defaultInstallSource: null,
       }))
         .toEqual(baseURL);
     });
@@ -513,7 +515,7 @@ describe(__filename, () => {
       expect(_findInstallURL({
         addonFiles: [{ platform: OS_ALL, url: baseURL }],
         location: fakeRouterLocation({ query: { src: externalSource } }),
-        defaultSource: 'default-source',
+        defaultInstallSource: 'default-source',
       }))
         .toEqual(`${baseURL}?src=${externalSource}`);
     });
@@ -541,7 +543,7 @@ describe(__filename, () => {
             url: 'https://a.m.o/files/mac.xpi?lang=he',
           },
         ],
-        defaultSource: 'homepage',
+        defaultInstallSource: 'homepage',
       });
 
       expect(url).toMatch(/src=homepage/);
@@ -551,7 +553,7 @@ describe(__filename, () => {
 });
 
 describe(`${__filename}: withInstallHelpers`, () => {
-  const defaultSource = 'some-install-source';
+  const defaultInstallSource = 'some-install-source';
   const WrappedComponent = sinon.stub();
   let configStub;
   let mapDispatchToProps;
@@ -566,7 +568,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
   beforeAll(() => {
     mapDispatchToProps = makeMapDispatchToProps({
-      WrappedComponent, defaultSource,
+      WrappedComponent, defaultInstallSource,
     });
   });
 
@@ -968,7 +970,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const { root } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager, defaultSource,
+        ...addon, _addonManager: fakeAddonManager, defaultInstallSource,
       });
       const { install } = root.instance().props;
 
@@ -978,7 +980,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
             fakeAddonManager.install,
             installURL,
             sinon.match.func,
-            { src: defaultSource }
+            { src: defaultInstallSource }
           );
         });
     });
@@ -1269,7 +1271,11 @@ describe(`${__filename}: withInstallHelpers`, () => {
       sinon.restore();
       configStub = sinon.stub(config, 'get').withArgs('server').returns(true);
       expect(mapDispatchToProps(fakeDispatch))
-        .toEqual({ dispatch: fakeDispatch, defaultSource, WrappedComponent });
+        .toEqual({
+          dispatch: fakeDispatch,
+          defaultInstallSource,
+          WrappedComponent,
+        });
       sinon.assert.calledWith(configStub, 'server');
     });
 

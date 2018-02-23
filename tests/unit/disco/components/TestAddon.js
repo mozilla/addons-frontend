@@ -320,16 +320,19 @@ describe(__filename, () => {
       });
     });
 
-    it('passes a defaultSource to the install button', () => {
-      const defaultSource = 'fake-discopane-source';
+    it('passes a defaultInstallSource to the install button', () => {
+      const defaultInstallSource = 'fake-discopane-source';
       const data = {
         ...result,
         type: ADDON_TYPE_EXTENSION,
       };
-      const root = renderAddon({ addon: data, ...data, defaultSource });
+      const root = renderAddon({
+        addon: data, ...data, defaultInstallSource,
+      });
 
       const button = root.find(InstallButton);
-      expect(button).toHaveProp('defaultSource', defaultSource);
+      expect(button)
+        .toHaveProp('defaultInstallSource', defaultInstallSource);
     });
 
     it('disables incompatible add-ons', () => {
