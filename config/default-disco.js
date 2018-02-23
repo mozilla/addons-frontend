@@ -26,7 +26,7 @@ module.exports = {
     'langMap',
     'publicSentryDsn',
     'rtlLangs',
-    'taarParamsToUse',
+    'discoParamsToUse',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
@@ -52,7 +52,7 @@ module.exports = {
       mediaSrc: [staticHost],
     },
   },
-  taarParamsToUse: [
+  discoParamsToUse: [
     'branch',
     'clientId',
     'edition',

@@ -273,7 +273,7 @@ module.exports = {
   cacheAllResponsesFor: null,
 
   // See the Discopane config for how this is currently used.
-  taarParamsToUse: [],
+  discoParamsToUse: [],
 
 
   // Feature flags.
