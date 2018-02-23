@@ -50,4 +50,5 @@ def firefox_options(firefox_options):
     firefox_options.set_preference(
         'extensions.install.requireBuiltInCerts', False)
     firefox_options.add_argument('-foreground')
+    firefox_options.set_preference('ui.popup.disable_autohide', True)
     return firefox_options
