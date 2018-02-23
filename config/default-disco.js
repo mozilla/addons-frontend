@@ -52,6 +52,8 @@ module.exports = {
       mediaSrc: [staticHost],
     },
   },
+  // Firefox sets these query params when loading the Discovery Pane.
+  // These are the allowed list of query params we will forward to AMO for statistics.
   discoParamsToUse: [
     'branch',
     'clientId',
