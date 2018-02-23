@@ -26,7 +26,7 @@ module.exports = {
     'langMap',
     'publicSentryDsn',
     'rtlLangs',
-    'taarParamsToUse',
+    'discoParamsToUse',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
@@ -52,7 +52,9 @@ module.exports = {
       mediaSrc: [staticHost],
     },
   },
-  taarParamsToUse: [
+  // Firefox sets these query params when loading the Discovery Pane.
+  // These are the allowed list of query params we will forward to AMO for statistics.
+  discoParamsToUse: [
     'branch',
     'clientId',
     'edition',
