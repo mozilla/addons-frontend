@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-24 21:07+0000\n"
+"PO-Revision-Date: 2018-02-24 21:25+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1134,105 +1134,105 @@ msgstr "Taq tz'aqat ya'on kiq'ij"
 
 #: src/amo/components/Search/index.js:148
 msgid "Popular extensions"
-msgstr ""
+msgstr "K'ïy kiwinaq taq k'amal"
 
 #: src/amo/components/Search/index.js:154
 msgid "Popular add-ons"
-msgstr ""
+msgstr "K'ïy kiwinaq taq tz'aqat"
 
 #: src/amo/components/Search/index.js:161
 msgid "Search results for \"%(query)s\""
-msgstr ""
+msgstr "Kekanöx taq ruq'i'oj \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:40
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s k'amal xilitäj richin \"%(query)s\""
+msgstr[1] "%(count)s taq k'amal xe'ilitäj richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s soltzij xilitäj richin \"%(query)s\""
+msgstr[1] "%(count)s taq soltzij xe'ilitäj richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s tanaj ch'ab'äl xilitäj richin \"%(query)s\""
+msgstr[1] "%(count)s tanaj taq ch'ab'äl xe'ilitäj richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s wachinïk xilitäj richin \"%(query)s\""
+msgstr[1] "%(count)s taq wachinïk xe'ilitäj richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s q'i'oj xilitäj richin \"%(query)s\""
+msgstr[1] "%(count)s taq q'i'oj xe'ilitäj richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s q'i'oj richin \"%(query)s\""
+msgstr[1] "%(count)s taq q'i'oj richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Nikanöx richin \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
-msgstr ""
+msgstr "Yesamajib'ëx ri taq tz'aqat"
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
-msgstr ""
+msgstr "Majun tz'aqat xilitäj"
 
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s tz'aqat xilitäj"
+msgstr[1] "%(count)s taq tz'aqat xe'ilitäj"
 
 #: src/amo/components/SearchFilters/index.js:101 src/amo/components/SearchFilters/index.js:111
 msgid "All"
-msgstr ""
+msgstr "Ronojel"
 
 #: src/amo/components/SearchFilters/index.js:102
 msgid "Extension"
-msgstr ""
+msgstr "K'amal"
 
 #: src/amo/components/SearchFilters/index.js:103
 msgid "Theme"
-msgstr ""
+msgstr "Wachinïk"
 
 #: src/amo/components/SearchFilters/index.js:112
 msgid "Windows"
-msgstr ""
+msgstr "Windows"
 
 #: src/amo/components/SearchFilters/index.js:113
 msgid "macOS"
-msgstr ""
+msgstr "macOS"
 
 #: src/amo/components/SearchFilters/index.js:114
 msgid "Linux"
-msgstr ""
+msgstr "Linux"
 
 #: src/amo/components/SearchFilters/index.js:122
 msgid "Relevance"
-msgstr ""
+msgstr "Rejqalem"
 
 #: src/amo/components/SearchFilters/index.js:123
 msgid "Recently Updated"
-msgstr ""
+msgstr "Nimakol k'exoj"
 
 #: src/amo/components/SearchFilters/index.js:124
 msgid "Most Users"
-msgstr ""
+msgstr "Ch'aqa' chik winaqil"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
