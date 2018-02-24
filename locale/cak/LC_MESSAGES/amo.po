@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-24 21:25+0000\n"
+"PO-Revision-Date: 2018-02-24 21:49+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1236,101 +1236,101 @@ msgstr "Ch'aqa' chik winaqil"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
-msgstr ""
+msgstr "Ütz Kejqalem Ya'on"
 
 #: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
-msgstr ""
+msgstr "K'ïy ruwinaq"
 
 #: src/amo/components/SearchFilters/index.js:136
 msgid "Filter results"
-msgstr ""
+msgstr "Kichayub'al q'i'oj"
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Sort by"
-msgstr ""
+msgstr "Tichol chi"
 
 #: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
-msgstr ""
+msgstr "Ruwäch Tz'aqat"
 
 #: src/amo/components/SearchFilters/index.js:185
 msgid "Operating System"
-msgstr ""
+msgstr "Samajel Q'inoj"
 
 #: src/amo/components/SearchFilters/index.js:211
 msgid "Featured add-ons only"
-msgstr ""
+msgstr "Xa xe talun taq tz'aqat"
 
 #: src/amo/components/SearchForm/index.js:196
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Tib'e pa ruxaq tz'aqat"
 
 #: src/amo/components/SearchForm/index.js:214
 msgid "Find add-ons"
-msgstr ""
+msgstr "Ke'ilitäj taq tz'aqat"
 
 #: src/amo/components/SearchForm/index.js:239 src/amo/components/SearchForm/index.js:269
 msgid "Search"
-msgstr ""
+msgstr "Tikanöx"
 
 #: src/amo/components/SearchForm/index.js:80
 msgid "Loading"
-msgstr ""
+msgstr "Nisamajib'ëx"
 
 #: src/amo/components/SearchResult/index.js:114
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(total)s winaqil"
+msgstr[1] "%(total)s taq winaqil"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
-msgstr ""
+msgstr "Majun nab'ey rutzub'al wachinïk okel"
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
-msgstr ""
+msgstr "Nikanöx…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Majun taq q'i'oj xe'ilitäj richin \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
-msgstr ""
+msgstr "Majun taq q'i'oj xe'ilitäj."
 
 #: src/amo/components/SearchResults.js:51
 msgid "Please enter a search term to search Firefox Add-ons."
-msgstr ""
+msgstr "Tatz'ib'aj jun tzij nikanöx richin yekanöx taq Kitz'aqat Firefox."
 
 #: src/amo/components/SectionLinks/index.js:112
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Taq Soltzij & Tanaj taq Ch'ab'äl"
 
 #: src/amo/components/SectionLinks/index.js:120
 msgid "Search Tools"
-msgstr ""
+msgstr "Kekanöx Samajib'äl"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Ch'aqa' chik Ruxaq Okik'amaya'l"
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
-msgstr ""
+msgstr "richin Firefox"
 
 #: src/amo/components/SectionLinks/index.js:60
 msgid "for Android"
-msgstr ""
+msgstr "richin Android"
 
 #: src/amo/components/SectionLinks/index.js:72
 msgid "Explore"
-msgstr ""
+msgstr "Tikanöx"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "Ch'aqa' chik…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
