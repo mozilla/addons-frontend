@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-23 23:41+0000\n"
+"PO-Revision-Date: 2018-02-24 20:25+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1072,11 +1072,11 @@ msgstr "Titikirisäx molojri'ïl richin nitojtob'ëx re tz'aqat re'"
 
 #: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "¿Achike awetamab'al rik'in ri %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Xaya' rutzijol itzel rokisaxik re tz'aqat re'"
 
 #: src/amo/components/ReportAbuseButton/index.js:112
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
