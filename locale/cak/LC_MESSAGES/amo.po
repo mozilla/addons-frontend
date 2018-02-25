@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-25 15:32+0000\n"
+"PO-Revision-Date: 2018-02-25 15:48+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1501,7 +1501,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Natz'ib'aj taq tzijoxïk chik ri taq tz'aqat man e'awokisan ta."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Use profanity, sexual language or language that can be construed as hateful."
@@ -1597,11 +1597,11 @@ msgstr "Taya' chupam Firefox"
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Niqasäx %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Niyak %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
@@ -1613,7 +1613,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Man niyak ta %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
@@ -1625,7 +1625,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr ""
+msgstr "Ruxaq %(currentPage)s richin %(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
@@ -1637,7 +1637,7 @@ msgstr "Jun chik"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "¡Ütz chik ri tz'aqat!"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
@@ -1653,7 +1653,7 @@ msgstr "Tiq'at"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
-msgstr ""
+msgstr "Titz'ib'äx cholan tzij."
 
 #: src/ui/components/DismissibleTextForm/index.js:97 src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
@@ -1661,27 +1661,27 @@ msgstr "Titaq"
 
 #: src/ui/components/DismissibleTextForm/index.js:99 src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
-msgstr ""
+msgstr "Nitaq"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "Xk'is ri amolojri'ïl"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Man oyob'en ta re sachoj xk'ulwachitäj"
 
 #: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Tisamajib'ëx chik Richin Nisamäj chik"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
-msgstr ""
+msgstr "Kejal rupam"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Tipitz' richin nitz'apïx"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
