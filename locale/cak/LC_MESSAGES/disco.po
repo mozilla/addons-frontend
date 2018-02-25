@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-06 19:31+0000\n"
-"PO-Revision-Date: 2018-02-25 16:31+0000\n"
+"PO-Revision-Date: 2018-02-25 16:50+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -88,7 +88,7 @@ msgstr "Tiq'asäx pa ruwi' richin nitz'et o tipitz' richin niyak %(name)s"
 
 #: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Tiq'asäx pa ruwi' ri wachib'äl richin nitzu'"
 
 #: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
@@ -96,15 +96,15 @@ msgstr "Xsach ri yakoj. Titojtob'ëx chik."
 
 #: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
-msgstr ""
+msgstr "Xsach ri qasanïk. Tanik'oj ri awokem."
 
 #: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq niyak."
 
 #: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq nelesäx."
 
 #: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
@@ -140,33 +140,36 @@ msgstr "Runa'ojil Ichinanem"
 
 #: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Ke'ilitäj taq Tz'aqat"
 
 #: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Tawichinaj ri Firefox"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
 "and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"E k'o k'ïy sipan taq tz'aqat, enuk'un kuma ajb'anonela' chijun ri ruwach'ulew chuqa' yatkito' richin nawichinaj ri Firefox. Achi'el tik'asäs wachel taq wachinïk kik'in samajib'äl chuqa' achik'anel "
+"taq samaj richin anin chuqa' jikïl yatok pa k'amaya'l. Ri taq tz'aqat yatkito' richin nawichinaj ri awokik'amaya'l, richin natikirisaj yeqachilab'ej jujun chawe ruma ri rub'eyal yesamäj chuqa' ri "
+"kisamaj."
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
-msgstr ""
+msgstr "Tipitz' richin nitzij"
 
 #: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "richin netamäx ch'aqa' chik chi kij ri taq tz'aqat"
 
 #: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
-msgstr ""
+msgstr "Titz'apïx silowäch"
 
 #: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
-msgstr ""
+msgstr "¡Ketz'et ch'aqa' chik taq tz'aqat!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
