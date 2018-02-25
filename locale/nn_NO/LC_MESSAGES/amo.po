@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-21 11:44+0000\n"
+"PO-Revision-Date: 2018-02-25 10:31+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -529,7 +529,7 @@ msgstr "Skildring"
 
 #: src/amo/components/CollectionManager/index.js:159
 msgid "Custom URL"
-msgstr ""
+msgstr "Tilpassa URL"
 
 #: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
@@ -907,7 +907,7 @@ msgstr "Sjå på videoar"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
@@ -923,7 +923,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
@@ -1675,7 +1675,7 @@ msgstr "Ingen vurderingar"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese meir"
+msgstr "<span class=\"visually-hidden\">Utvid og</span> les meir"
 
 #~ msgid "See more popular extensions"
 #~ msgstr "Vis fleire populære utvidingar"
