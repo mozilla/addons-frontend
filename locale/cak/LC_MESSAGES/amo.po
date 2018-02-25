@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-24 23:41+0000\n"
+"PO-Revision-Date: 2018-02-25 15:10+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1417,22 +1417,29 @@ msgid ""
 "Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
 "issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
+"Kato'on richin nutziläx re ajk'amaya'l ruxaq re'. Jaqäl b'itz'ib' rupam chuqa' yatikïr natäq kitzijol sachoj chuqa' k'ojonïk. Yatikïr yato'on rik'in jun %(startGoodFirstBugLink)sutziläj nab'ey "
+"sachoj%(endGoodFirstBugLink)s o ye'atz'ët konojel ri ejaqon chi rij ri AMO’s %(startAddonsServerRepoLink)sk'uxasamaj%(endAddonsServerRepoLink)s chuqa' "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s pa Github."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Chijun mani. We xa ta man nrojqaj ta ri taq rub'eyal yechol ajsik, yatikïr napïtz pa ri \"Tiya' rutzijol re tzijoxïk re'\" richin nipaj rij. We jun rutzijoxik sujunïk man okel ta chik toq nelesäx "
+"jun k'ak'a' ruwäch tz'aqat, rik'in jub'a' niqayüj el ri tzijoxïk ri'."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
-msgstr ""
+msgstr "Kib'eyal Yesamajïx taq Nik'oxïk"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
 "Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
 " with these guidelines."
 msgstr ""
+"Ri taq atzijoxik chi kij ri taq tz'aqat jun rub'anikil richin nakomonij ri ana'oj chi kij ri taq tz'aqat e'ayakon chuqa' e'awokisan. Ri loman qamolaj k'o pa kich'ojib'al yekixutuj chuqa' yekiyüj "
+"ronojel ri man kojqan ta ri taq b'eyal."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
