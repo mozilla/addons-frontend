@@ -116,7 +116,8 @@ describe('<ServerHtml />', () => {
     const _config = getFakeConfig({ amoCDN });
     const html = findRenderedDOMComponentWithTag(render({ _config }), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
-    expect(favicon.getAttribute('href')).toEqual(`${amoCDN}/favicon.ico?v=2`);
+    expect(favicon.getAttribute('href')).toEqual(
+      `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`);
   });
 
   it('renders title', () => {
