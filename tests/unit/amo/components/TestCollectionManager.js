@@ -8,6 +8,7 @@ import {
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
 import { setErrorMessage } from 'core/actions/errors';
+import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -93,6 +94,24 @@ describe(__filename, () => {
       .toHaveProp('defaultValue', collection.description);
     expect(root.find('#collectionSlug'))
       .toHaveProp('value', collection.slug);
+  });
+
+  it('strips HTML entities from name and description', () => {
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({
+        // This is how the API returns data.
+        name: 'Things &amp; Stuff',
+        description: 'Extensions about things &amp; stuff',
+      }),
+    });
+    const root = render({ collection });
+
+    const { description, name } = collection;
+
+    expect(root.find('#collectionName'))
+      .toHaveProp('value', decodeHtmlEntities(name));
+    expect(root.find('#collectionDescription'))
+      .toHaveProp('defaultValue', decodeHtmlEntities(description));
   });
 
   it('does not populate form when updating to the same collection', () => {

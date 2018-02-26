@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import url from 'url';
 
+import { AllHtmlEntities } from 'html-entities';
 import config from 'config';
 import * as React from 'react';
 
@@ -299,3 +300,11 @@ export function addonHasVersionHistory(addon) {
     ADDON_TYPE_THEME,
   ].includes(addon.type);
 }
+
+/*
+ * Decodes HTML entities into their respective symbols.
+ */
+export const decodeHtmlEntities = (string) => {
+  const entities = new AllHtmlEntities();
+  return entities.decode(string);
+};

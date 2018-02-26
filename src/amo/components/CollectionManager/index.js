@@ -7,6 +7,7 @@ import config from 'config';
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import { decodeHtmlEntities } from 'core/utils';
 import FormOverlay from 'ui/components/FormOverlay';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
@@ -107,9 +108,11 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   }
 
   propsToState(props: Props) {
+    // Decode HTML entities so the user sees real symbols in the form.
     return {
-      description: props.collection && props.collection.description,
-      name: props.collection && props.collection.name,
+      description: props.collection &&
+        decodeHtmlEntities(props.collection.description),
+      name: props.collection && decodeHtmlEntities(props.collection.name),
       slug: props.collection && props.collection.slug,
     };
   }
