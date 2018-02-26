@@ -8,7 +8,7 @@ import {
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
 import { setErrorMessage } from 'core/actions/errors';
-import { stripHtmlEntities } from 'core/utils';
+import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -109,9 +109,9 @@ describe(__filename, () => {
     const { description, name } = collection;
 
     expect(root.find('#collectionName'))
-      .toHaveProp('value', stripHtmlEntities(name));
+      .toHaveProp('value', decodeHtmlEntities(name));
     expect(root.find('#collectionDescription'))
-      .toHaveProp('defaultValue', stripHtmlEntities(description));
+      .toHaveProp('defaultValue', decodeHtmlEntities(description));
   });
 
   it('does not populate form when updating to the same collection', () => {

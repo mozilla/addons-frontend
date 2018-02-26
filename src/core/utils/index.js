@@ -301,7 +301,10 @@ export function addonHasVersionHistory(addon) {
   ].includes(addon.type);
 }
 
-export const stripHtmlEntities = (string) => {
+/*
+ * Decodes HTML entities into their respective symbols.
+ */
+export const decodeHtmlEntities = (string) => {
   const entities = new AllHtmlEntities();
   return entities.decode(string);
 };

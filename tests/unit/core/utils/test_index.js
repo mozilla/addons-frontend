@@ -42,7 +42,7 @@ import {
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
-  stripHtmlEntities,
+  decodeHtmlEntities,
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
@@ -702,14 +702,14 @@ describe(__filename, () => {
     });
   });
 
-  describe('stripHtmlEntities', () => {
-    it('strips entities', () => {
-      expect(stripHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;'))
+  describe('decodeHtmlEntities', () => {
+    it('decodes entities', () => {
+      expect(decodeHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;'))
         .toEqual('<>"&©®');
     });
 
     it('passes through anything else', () => {
-      expect(stripHtmlEntities('just whatever')).toEqual('just whatever');
+      expect(decodeHtmlEntities('just whatever')).toEqual('just whatever');
     });
   });
 });
