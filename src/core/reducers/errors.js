@@ -37,11 +37,11 @@ function getMessagesFromError(error) {
         // a form field) and an array of localized messages.
         // More info:
         // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
-        value.forEach((msg) => {
+        value.forEach((message) => {
           // Add a field specific error message. We do not prefix the message with
           // `key`, which is the field name (or `non_field_errors`), since it is not
           // localized.
-          errorData.messages.push(msg);
+          errorData.messages.push(message);
         });
       } else if (key === 'code') {
         errorData.code = value;
