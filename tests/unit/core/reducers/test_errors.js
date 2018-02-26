@@ -120,9 +120,9 @@ describe(__filename, () => {
     const reducedError = getReducedError(createFakeApiError({ fieldErrors }));
     const { messages } = reducedError;
 
-    expect(messages).toContain('username: not long enough');
-    expect(messages).toContain('username: contains invalid characters');
-    expect(messages).toContain('password: sorry, it cannot be 1234');
+    expect(messages).toContain('not long enough');
+    expect(messages).toContain('contains invalid characters');
+    expect(messages).toContain('sorry, it cannot be 1234');
   });
 
   it('stores API responses when they do not have messages', () => {
