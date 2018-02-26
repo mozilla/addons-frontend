@@ -38,16 +38,10 @@ function getMessagesFromError(error) {
         // More info:
         // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
         value.forEach((msg) => {
-          if (key === 'non_field_errors') {
-            // Add a generic error not related to a specific field.
-            errorData.messages.push(msg);
-          } else {
-            // Add a field specific error message.
-            // TODO: localize field keys.
-            // The field string is not localized but we still show
-            // it as a hint.
-            errorData.messages.push(`${key}: ${msg}`);
-          }
+          // Add a field specific error message. We do not prefix the message with
+          // `key`, which is the field name (or `non_field_errors`), since it is not
+          // localized.
+          errorData.messages.push(msg);
         });
       } else if (key === 'code') {
         errorData.code = value;
