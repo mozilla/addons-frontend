@@ -232,10 +232,8 @@ export class AddonReviewListItemBase extends React.Component<Props> {
         <div className="AddonReviewListItem-byline">
           {review && !isReply ?
             <Rating
-              styleName={
-                siteUser && review && review.userId === siteUser.id ?
-                  'small-by-user' : 'small'
-              }
+              styleSize="small"
+              isOwner={siteUser && review && review.userId === siteUser.id}
               rating={review.rating}
               readOnly
             />

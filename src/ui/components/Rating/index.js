@@ -9,7 +9,7 @@ import translate from 'core/i18n/translate';
 import './styles.scss';
 
 
-const RATING_STYLES = ['small', 'large', 'small-monochrome', 'small-by-user'];
+const RATING_STYLE_SIZES = ['small', 'large'];
 
 export class RatingBase extends React.Component {
   static propTypes = {
@@ -18,13 +18,15 @@ export class RatingBase extends React.Component {
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
-    styleName: PropTypes.oneOf(RATING_STYLES),
+    styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
+    isOwner: PropTypes.bool,
   }
 
   static defaultProps = {
     className: '',
     readOnly: false,
-    styleName: 'large',
+    styleSize: 'large',
+    isOwner: false,
   }
 
   constructor(props) {
@@ -83,11 +85,11 @@ export class RatingBase extends React.Component {
   }
 
   render() {
-    const { className, i18n, rating, readOnly, styleName } = this.props;
-    if (!RATING_STYLES.includes(styleName)) {
+    const { className, i18n, rating, readOnly, styleSize, isOwner } = this.props;
+    if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
-        `styleName=${styleName} is not a valid value; ` +
-        `possible values: ${RATING_STYLES.join(', ')}`);
+        `styleSize=${styleSize} is not a valid value; ` +
+        `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
     }
     let description;
     if (rating) {
@@ -97,8 +99,10 @@ export class RatingBase extends React.Component {
       description = i18n.gettext('No ratings');
     }
 
-    const allClassNames = makeClassName('Rating', `Rating--${styleName}`,
-      className, { 'Rating--editable': !readOnly });
+    const allClassNames = makeClassName(
+      'Rating', `Rating--${styleSize}`, className,
+      { 'Rating--editable': !readOnly }, { 'Rating--by-owner': isOwner }
+    );
 
     return (
       <div

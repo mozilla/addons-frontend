@@ -146,7 +146,7 @@ describe(__filename, () => {
     const rating = root.find(Rating);
     expect(rating).toHaveProp('rating', 2);
     expect(rating).toHaveProp('readOnly', true);
-    expect(rating).toHaveProp('styleName', 'small');
+    expect(rating).toHaveProp('styleSize', 'small');
   });
 
   it('renders newlines in review bodies', () => {
@@ -198,12 +198,12 @@ describe(__filename, () => {
     expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
   });
 
-  it('uses proper rating class if you wrote the review', () => {
+  it('assigns isOwner property if you wrote the review', () => {
     const review = signInAndDispatchSavedReview();
     const root = render({ review });
     const rating = root.find(Rating);
 
-    expect(rating).toHaveProp('styleName', 'small-by-user');
+    expect(rating).toHaveProp('isOwner', true);
   });
 
   it('lets you begin editing your review', () => {

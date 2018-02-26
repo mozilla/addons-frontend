@@ -202,7 +202,7 @@ export class AddonReviewBase extends React.Component<Props, State> {
         />
         {/* eslint-enable react/no-danger */}
         <Rating
-          styleName="large"
+          styleSize="large"
           rating={review.rating}
           onSelectRating={this.onSelectRating}
         />

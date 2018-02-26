@@ -100,7 +100,7 @@ export class SearchResultBase extends React.Component {
                 <Rating
                   rating={addon ? addon.ratings.average : 0}
                   readOnly
-                  styleName="small"
+                  styleSize="small"
                 />
               </div>
               {addonAuthors}
