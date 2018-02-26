@@ -208,6 +208,7 @@ export class CollectionBase extends React.Component<Props> {
         </Card>
         <div className="Collection-items">
           <AddonsCard
+            addonInstallSource="collection"
             addons={addons}
             loading={!collection || loading}
           />

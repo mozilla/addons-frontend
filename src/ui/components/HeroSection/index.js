@@ -3,6 +3,7 @@ import makeClassName from 'classnames';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
+import { addQueryParams } from 'core/utils';
 
 import './styles.scss';
 
@@ -33,7 +34,7 @@ export default class HeroSection extends React.Component<Props> {
         {linkTo ? (
           <Link
             className="HeroSection-link-wrapper"
-            to={linkTo}
+            to={addQueryParams(linkTo, { src: 'hp-dl-promo' })}
           >
             <div className="HeroSection-content">
               {children}

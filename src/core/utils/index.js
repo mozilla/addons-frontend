@@ -146,6 +146,11 @@ export function isAllowedOrigin(urlString, {
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 
+/*
+ * Returns a new URL with query params appended to `urlString`.
+ *
+ * `urlString` can be a relative or absolute URL.
+ */
 export function addQueryParams(urlString, queryParams = {}) {
   const urlObj = url.parse(urlString, true);
   // Clear search, since query object will only be used if search

@@ -447,6 +447,13 @@ describe(__filename, () => {
       const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
       expect(url.parse(output, true).query).toEqual({ foo: '1', bar: 'updated' });
     });
+
+    it('handles relative URLs', () => {
+      const output = addQueryParams('/relative/path/?one=1', { two: '2' });
+      expect(output).toMatch(/^\/relative\/path\//);
+      expect(url.parse(output, true).query)
+        .toEqual({ one: '1', two: '2' });
+    });
   });
 
   describe('ngettext', () => {

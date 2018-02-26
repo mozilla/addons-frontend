@@ -56,6 +56,7 @@ class SearchResults extends React.Component {
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
         {loadingMessage}
         <AddonsCard
+          addonInstallSource="search"
           addons={hasSearchFilters(filters) ? results : null}
           header={i18n.gettext('Search results')}
           loading={loading}

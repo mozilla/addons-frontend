@@ -194,6 +194,7 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
+          addonInstallSource="featured"
           addons={featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
@@ -220,6 +221,7 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
+          addonInstallSource="mostpopular"
           addons={popularThemes}
           className="Home-PopularThemes"
           header={i18n.gettext('Popular themes')}

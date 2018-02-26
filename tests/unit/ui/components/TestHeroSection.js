@@ -36,7 +36,7 @@ describe(__filename, () => {
     const link = root.find(Link);
 
     expect(link).toHaveProp('className', 'HeroSection-link-wrapper');
-    expect(link).toHaveProp('to', '/whatever/');
+    expect(link).toHaveProp('to', '/whatever/?src=hp-dl-promo');
     expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
   });
 
