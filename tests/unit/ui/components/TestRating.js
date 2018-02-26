@@ -175,6 +175,19 @@ describe('ui/components/Rating', () => {
     expect(findDOMNode(root).textContent).toEqual('Rated 2 out of 5');
   });
 
+  it('renders star button with id in ratings', () => {
+    const root = render();
+    const elementKeys = Object.keys(root.ratingElements);
+
+    let allDivs = true;
+    elementKeys.forEach((key) => {
+      if (!root.ratingElements[key].id) {
+        allDivs = false;
+      }
+    });
+    expect(allDivs).toBeTruthy();
+  });
+
   it('renders read-only selected stars', () => {
     const root = render({ rating: 3, readOnly: true });
 
@@ -233,6 +246,19 @@ describe('ui/components/Rating', () => {
       let allDivs = true;
       elementKeys.forEach((key) => {
         if (root.ratingElements[key].tagName !== 'DIV') {
+          allDivs = false;
+        }
+      });
+      expect(allDivs).toBeTruthy();
+    });
+
+    it('does not define id to star divison when read-only', () => {
+      const root = render({ readOnly: true });
+      const elementKeys = Object.keys(root.ratingElements);
+
+      let allDivs = true;
+      elementKeys.forEach((key) => {
+        if (root.ratingElements[key].id) {
           allDivs = false;
         }
       });
