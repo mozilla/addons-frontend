@@ -1,8 +1,10 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import { getCurrentUser } from 'amo/reducers/users';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 
@@ -19,6 +21,7 @@ export class RatingBase extends React.Component {
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
     styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
+    review: PropTypes.object,
     isOwner: PropTypes.bool,
   }
 
@@ -26,7 +29,6 @@ export class RatingBase extends React.Component {
     className: '',
     readOnly: false,
     styleSize: 'large',
-    isOwner: false,
   }
 
   constructor(props) {
@@ -100,8 +102,9 @@ export class RatingBase extends React.Component {
     }
 
     const allClassNames = makeClassName(
-      'Rating', `Rating--${styleSize}`, className,
-      { 'Rating--editable': !readOnly }, { 'Rating--by-owner': isOwner }
+      'Rating', `Rating--${styleSize}`, className, {
+        'Rating--editable': !readOnly, 'Rating--by-owner': isOwner,
+      }
     );
 
     return (
@@ -119,6 +122,16 @@ export class RatingBase extends React.Component {
   }
 }
 
-export default compose(
+export function mapStateToProps(state, ownProps) {
+  const { review } = ownProps;
+  const siteUser = getCurrentUser(state.users);
+  const isOwner = siteUser && review && review.userId === siteUser.id;
+  return { isOwner };
+}
+
+const Rating = compose(
+  connect(mapStateToProps),
   translate({ withRef: true }),
 )(RatingBase);
+
+export default Rating;

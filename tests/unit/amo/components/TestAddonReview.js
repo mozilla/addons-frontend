@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
@@ -67,8 +68,11 @@ describe(__filename, () => {
     const props = renderProps(customProps);
     return mount(
       <I18nProvider i18n={props.i18n}>
-        <AddonReview {...props} />
-      </I18nProvider>
+        <Provider store={props.store}>
+          <AddonReview {...props} />
+        </Provider>
+      </I18nProvider>,
+      { context: props }
     );
   };
 

@@ -233,7 +233,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           {review && !isReply ?
             <Rating
               styleSize="small"
-              isOwner={siteUser && review && review.userId === siteUser.id}
+              review={review}
               rating={review.rating}
               readOnly
             />

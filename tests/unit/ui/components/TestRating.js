@@ -6,12 +6,25 @@ import {
 } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
+import { setReview } from 'amo/actions/reviews';
 import { fakeI18n } from 'tests/unit/helpers';
 import Rating, { RatingBase } from 'ui/components/Rating';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+  fakeReview,
+} from 'tests/unit/amo/helpers';
+
+let store;
+
+beforeEach(() => {
+  store = dispatchClientMetadata().store;
+});
 
 function render(customProps = {}) {
   const props = {
     i18n: fakeI18n(),
+    store,
     ...customProps,
   };
   return findRenderedComponentWithType(renderIntoDocument(
@@ -25,6 +38,19 @@ function makeFakeEvent() {
     stopPropagation: sinon.stub(),
     currentTarget: {},
   };
+}
+
+function signInAndDispatchSavedReview({ siteUserId, reviewUserId }) {
+  dispatchSignInActions({ store, userId: siteUserId });
+  const review = {
+    ...fakeReview,
+    user: {
+      ...fakeReview.user,
+      id: reviewUserId,
+    },
+  };
+  store.dispatch(setReview(review));
+  return store.getState().reviews.byId[review.id];
 }
 
 describe('ui/components/Rating', () => {
@@ -44,9 +70,20 @@ describe('ui/components/Rating', () => {
     expect(root.element.className).toContain('Rating--small');
   });
 
-  it('can be classified as owned', () => {
-    const root = render({ isOwner: true });
+  it('is classified as owned if you wrote the review', () => {
+    const review = signInAndDispatchSavedReview({
+      siteUserId: 123, reviewUserId: 123,
+    });
+    const root = render({ review });
     expect(root.element.className).toContain('Rating--by-owner');
+  });
+
+  it('is not classified as owned if you did not write the review', () => {
+    const review = signInAndDispatchSavedReview({
+      siteUserId: 123, reviewUserId: 456,
+    });
+    const root = render({ review });
+    expect(root.element.className).not.toContain('Rating--by-owner');
   });
 
   it('throws an error for invalid styleSize', () => {

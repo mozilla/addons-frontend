@@ -128,11 +128,10 @@ describe(__filename, () => {
   };
 
   it('renders a review', () => {
-    const root = render({
-      review: _setReview({
-        ...fakeReview, id: 1, rating: 2,
-      }),
+    const review = _setReview({
+      ...fakeReview, id: 1, rating: 2,
     });
+    const root = render({ review });
 
     expect(root.find('h3'))
       .toHaveText(fakeReview.title);
@@ -147,6 +146,7 @@ describe(__filename, () => {
     expect(rating).toHaveProp('rating', 2);
     expect(rating).toHaveProp('readOnly', true);
     expect(rating).toHaveProp('styleSize', 'small');
+    expect(rating).toHaveProp('review', review);
   });
 
   it('renders newlines in review bodies', () => {
@@ -196,14 +196,6 @@ describe(__filename, () => {
     const root = render({ review });
 
     expect(root.find('.AddonReviewListItem-edit')).toHaveLength(0);
-  });
-
-  it('assigns isOwner property if you wrote the review', () => {
-    const review = signInAndDispatchSavedReview();
-    const root = render({ review });
-    const rating = root.find(Rating);
-
-    expect(rating).toHaveProp('isOwner', true);
   });
 
   it('lets you begin editing your review', () => {
