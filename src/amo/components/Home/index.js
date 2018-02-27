@@ -12,6 +12,8 @@ import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_MOST_POPULAR,
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -194,7 +196,7 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addonInstallSource="featured"
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
@@ -221,7 +223,7 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
-          addonInstallSource="mostpopular"
+          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
           addons={popularThemes}
           className="Home-PopularThemes"
           header={i18n.gettext('Popular themes')}

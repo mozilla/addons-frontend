@@ -35,6 +35,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
@@ -661,6 +662,6 @@ export default compose(
   withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

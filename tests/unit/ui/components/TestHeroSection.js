@@ -2,6 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import Link from 'amo/components/Link';
+import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
 import HeroSection from 'ui/components/HeroSection';
 
 
@@ -36,7 +37,8 @@ describe(__filename, () => {
     const link = root.find(Link);
 
     expect(link).toHaveProp('className', 'HeroSection-link-wrapper');
-    expect(link).toHaveProp('to', '/whatever/?src=hp-dl-promo');
+    expect(link)
+      .toHaveProp('to', `/whatever/?src=${INSTALL_SOURCE_HERO_PROMO}`);
     expect(root.find('.HeroSection-wrapper')).toHaveLength(0);
   });
 

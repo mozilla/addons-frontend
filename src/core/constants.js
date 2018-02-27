@@ -86,6 +86,16 @@ export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
+// Add-on install tracking sources.
+// These key values may be linked to historic analytic data.
+export const INSTALL_SOURCE_COLLECTION = 'collection';
+export const INSTALL_SOURCE_DETAIL_PAGE = 'dp-btn-primary';
+export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
+export const INSTALL_SOURCE_FEATURED = 'featured';
+export const INSTALL_SOURCE_HERO_PROMO = 'hp-dl-promo';
+export const INSTALL_SOURCE_MOST_POPULAR = 'mostpopular';
+export const INSTALL_SOURCE_SEARCH = 'search';
+
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';

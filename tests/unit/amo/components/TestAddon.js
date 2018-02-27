@@ -45,6 +45,7 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
   UNKNOWN,
 } from 'core/constants';
@@ -787,7 +788,8 @@ describe(__filename, () => {
 
     const button = root.find(InstallButton);
     // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button).toHaveProp('defaultInstallSource', 'dp-btn-primary');
+    expect(button)
+      .toHaveProp('defaultInstallSource', INSTALL_SOURCE_DETAIL_PAGE);
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {

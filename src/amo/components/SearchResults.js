@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import { INSTALL_SOURCE_SEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
 
@@ -56,7 +57,7 @@ class SearchResults extends React.Component {
       <div ref={(ref) => { this.container = ref; }} className="SearchResults">
         {loadingMessage}
         <AddonsCard
-          addonInstallSource="search"
+          addonInstallSource={INSTALL_SOURCE_SEARCH}
           addons={hasSearchFilters(filters) ? results : null}
           header={i18n.gettext('Search results')}
           loading={loading}

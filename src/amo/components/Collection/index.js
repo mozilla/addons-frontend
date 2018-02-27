@@ -16,7 +16,9 @@ import CollectionManager, {
   COLLECTION_OVERLAY,
 } from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { COLLECTIONS_EDIT } from 'core/constants';
+import {
+  COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION,
+} from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import { openFormOverlay } from 'core/reducers/formOverlay';
@@ -208,7 +210,7 @@ export class CollectionBase extends React.Component<Props> {
         </Card>
         <div className="Collection-items">
           <AddonsCard
-            addonInstallSource="collection"
+            addonInstallSource={INSTALL_SOURCE_COLLECTION}
             addons={addons}
             loading={!collection || loading}
           />

@@ -503,7 +503,7 @@ describe(__filename, () => {
       }));
 
       expect(_getFileHash({
-        addon, installURL: `${url}?src=dp-btn-primary`,
+        addon, installURL: `${url}?src=some-install-source`,
       }))
         .toEqual('hash-of-file');
     });
@@ -512,12 +512,14 @@ describe(__filename, () => {
       const url = 'https://a.m.o/addons/file.xpi';
       const addon = createInternalAddon(createFakeAddon({
         files: [{
-          platform: OS_ALL, url: `${url}?src=`, hash: 'hash-of-file',
+          platform: OS_ALL,
+          url: `${url}?src=some-install-source`,
+          hash: 'hash-of-file',
         }],
       }));
 
       expect(_getFileHash({
-        addon, installURL: `${url}?src=dp-btn-primary`,
+        addon, installURL: `${url}?src=some-install-source`,
       }))
         .toEqual('hash-of-file');
     });
