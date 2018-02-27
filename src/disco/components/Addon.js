@@ -13,15 +13,16 @@ import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import HoverIntent from 'core/components/HoverIntent';
 import InstallButton from 'core/components/InstallButton';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
-  ADDON_TYPE_EXTENSION,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  ADDON_TYPE_THEME,
+  INSTALL_SOURCE_DISCOVERY,
   UNINSTALLING,
   validAddonTypes,
   validInstallStates,
@@ -323,5 +324,5 @@ export default compose(
   withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
-  withInstallHelpers({ defaultInstallSource: 'discovery-promo' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);
