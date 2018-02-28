@@ -1,0 +1,15 @@
+.ReportUserAbuse-header {
+  margin-bottom: 0;
+}
+
+.ReportUserAbuse-first-paragraph {
+  margin-top: 6px;
+}
+
+.ReportUserAbuse-form {
+  display: none;
+
+  .ReportUserAbuse--is-expanded & {
+    display: block;
+  }
+}

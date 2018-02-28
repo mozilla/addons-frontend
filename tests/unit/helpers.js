@@ -353,21 +353,6 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createFakeAddonAbuseReport({
-  addon = fakeAddon,
-  message,
-  reporter = null,
-} = {}) {
-  return {
-    addon: {
-      guid: addon.guid,
-      id: addon.id,
-      slug: addon.slug,
-    },
-    message,
-    reporter,
-  };
-}
 
 export function createFakeLanguageTool(otherProps = {}) {
   return {
@@ -417,6 +402,39 @@ export function createUserAccountResponse({
     url: null,
     username,
     permissions,
+  };
+}
+
+export function createFakeAddonAbuseReport({
+  addon = fakeAddon,
+  message,
+  reporter = null,
+} = {}) {
+  return {
+    addon: {
+      guid: addon.guid,
+      id: addon.id,
+      slug: addon.slug,
+    },
+    message,
+    reporter,
+  };
+}
+
+export function createFakeUserAbuseReport({
+  message,
+  reporter = null,
+  user = createUserAccountResponse(),
+} = {}) {
+  return {
+    message,
+    reporter,
+    user: {
+      id: user.id,
+      name: user.name,
+      url: user.url,
+      username: user.username,
+    },
   };
 }
 

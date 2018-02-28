@@ -1,5 +1,5 @@
 import * as api from 'core/api';
-import { reportAddon } from 'core/api/abuse';
+import { reportAddon, reportUser } from 'core/api/abuse';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -7,6 +7,8 @@ import {
 import {
   createApiResponse,
   createFakeAddonAbuseReport,
+  createFakeUserAbuseReport,
+  createUserAccountResponse,
 } from 'tests/unit/helpers';
 
 
@@ -46,6 +48,40 @@ describe(__filename, () => {
         addonSlug: 'cool-addon',
         api: apiState,
         message,
+      })
+        .then(() => {
+          mockApi.verify();
+        });
+    });
+  });
+
+  describe('reportUser', () => {
+    function mockResponse({ message, user }) {
+      return createApiResponse({
+        jsonData: createFakeUserAbuseReport({ message, user }),
+      });
+    }
+
+    it('calls the report add-on abuse API', () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const message = 'I do not like this!';
+      const user = createUserAccountResponse({ id: 5001 });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'abuse/report/user',
+          method: 'POST',
+          body: { message, user: '5001' },
+          state: apiState,
+        })
+        .once()
+        .returns(mockResponse({ message, user }));
+      return reportUser({
+        api: apiState,
+        message,
+        user,
       })
         .then(() => {
           mockApi.verify();
