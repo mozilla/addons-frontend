@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import url from 'url';
 
-import { AllHtmlEntities } from 'html-entities';
 import config from 'config';
+import { AllHtmlEntities } from 'html-entities';
+import invariant from 'invariant';
 import * as React from 'react';
 
 import { loadAddons } from 'core/reducers/addons';
@@ -190,6 +191,13 @@ export function getErrorComponent(status) {
     default:
       return GenericError;
   }
+}
+
+export function removeProtocolFromURL(urlWithProtocol) {
+  invariant(urlWithProtocol, 'urlWithProtocol is required');
+
+  // `//test.com` is a valid, protocol-relative URL which we'll allow.
+  return urlWithProtocol.replace(/^(https?:|)\/\//, '');
 }
 
 export function isValidLocaleUrlException(value, { _config = config } = {}) {

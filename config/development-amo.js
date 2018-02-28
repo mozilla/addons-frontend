@@ -12,4 +12,5 @@ module.exports = {
   trackingEnabled: false,
   enableCollectionEdit: true,
   betaVersions: true,
+  enableUserProfile: true,
 };

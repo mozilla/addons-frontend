@@ -2,6 +2,7 @@ import reducer, {
   LOAD_USER_ACCOUNT,
   getCurrentUser,
   getDisplayName,
+  getUserByUsername,
   fetchUserAccount,
   hasAnyReviewerRelatedPermission,
   hasPermission,
@@ -254,6 +255,25 @@ describe(__filename, () => {
       });
 
       expect(getDisplayName(getCurrentUser(state.users))).toEqual(username);
+    });
+  });
+
+  describe('getUserByUsername selector', () => {
+    it('returns a user from state', () => {
+      const { state } = dispatchSignInActions({
+        userProps: { id: 500, username: 'Tupac' },
+      });
+
+      expect(getUserByUsername(state.users, 'Tupac'))
+        .toEqual(state.users.byID[500]);
+    });
+
+    it('returns null if no user is found', () => {
+      const { state } = dispatchSignInActions({
+        userProps: { id: 500, username: 'Tupac' },
+      });
+
+      expect(getUserByUsername(state.users, 'Biggie')).toBeUndefined();
     });
   });
 });

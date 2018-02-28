@@ -134,6 +134,14 @@ describe(__filename, () => {
     expect(findDOMNode(root).title).toContain('3.6 out of 5');
   });
 
+  it('converts rating numbers to a float', () => {
+    const rootWithInteger = render({ rating: 3 });
+    const rootWithString = render({ rating: '3.60001' });
+
+    expect(findDOMNode(rootWithInteger).title).toContain('3 out of 5');
+    expect(findDOMNode(rootWithString).title).toContain('3.6 out of 5');
+  });
+
   it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
     // This should be treated like a rating of 3.5.
     const root = render({ rating: 3.6, readOnly: true });

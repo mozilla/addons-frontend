@@ -41,7 +41,7 @@ describe(__filename, () => {
   });
 
   it('renders extra classNames when rendering an Icon component', () => {
-    const root = renderUserAvatar({ className: 'test', user: null });
+    const root = renderUserAvatar({ className: 'test', user: undefined });
 
     expect(root.find(Icon).find('.test')).toHaveLength(1);
   });
@@ -63,7 +63,7 @@ describe(__filename, () => {
   });
 
   it('renders an anonymous icon if there is no user', () => {
-    const root = renderUserAvatar({ user: null });
+    const root = renderUserAvatar({ user: undefined });
 
     expect(root.find(Icon).find('.UserAvatar'))
       .toHaveProp('name', 'anonymous-user');
