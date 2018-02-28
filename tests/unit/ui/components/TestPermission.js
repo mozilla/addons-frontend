@@ -9,7 +9,6 @@ describe('Permission component', () => {
   const defaultProps = {
     className: 'my-class',
     description: 'A decription',
-    key: 'someKey',
   };
 
   function render(props = defaultProps) {

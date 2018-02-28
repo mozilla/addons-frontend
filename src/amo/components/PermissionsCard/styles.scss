@@ -1,29 +1,33 @@
+@import "~core/css/inc/mixins";
+@import "~photon-colors/colors";
+
 .PermissionCard-learn-more {
-  margin: 12px auto 0;
+  margin: 16px auto 0;
   width: 100%;
 
   .Icon {
-    margin-left: 10px;
+    @include margin-start(12px);
   }
 }
 
 .PermissionsCard-subhead {
-  color: #737373;
+  color: $grey-50;
 }
 
 .PermissionsCard-list {
   list-style: none;
-  margin: 10px 0 0;
   padding: 0;
 
   li {
-    display: block;
-    margin-left: 10px;
-    margin-top: 10px;
+    align-items: center;
+    display: flex;
+    margin-top: 16px;
     vertical-align: middle;
 
     .Icon {
-      margin-right: 10px;
+      height: 24px;
+      margin-right: 12px;
+      width: 24px;
     }
   }
 }
