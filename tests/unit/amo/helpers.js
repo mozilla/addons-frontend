@@ -218,11 +218,19 @@ export function dispatchClientMetadata({
 
 export function dispatchSignInActions({
   authToken = userAuthToken(),
+  biography = 'I love making add-ons!',
+  created = '2017-08-15T12:01:13Z',
   userId = 12345,
   username = 'user-1234',
-  // eslint-disable-next-line camelcase
+  /* eslint-disable camelcase */
+  average_addon_rating = 4.3,
   display_name = null,
+  num_addons_listed = 1,
+  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  picture_type = '',
+  /* eslint-enable camelcase */
   permissions = [],
+  homepage = null,
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
@@ -231,10 +239,16 @@ export function dispatchSignInActions({
   store.dispatch(loadCurrentUserAccount({
     user: createUserAccountResponse({
       id: userId,
+      biography,
+      created,
+      homepage,
       username,
-      // eslint-disable-next-line camelcase
+      average_addon_rating,
       display_name,
+      num_addons_listed,
       permissions,
+      picture_url,
+      picture_type,
     }),
   }));
 
