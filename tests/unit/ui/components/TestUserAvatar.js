@@ -14,9 +14,10 @@ describe(__filename, () => {
 
   it('renders user avatar', () => {
     const { state } = dispatchSignInActions({
-      id: 599,
-      picture_url: 'http://tofumatt.com/photo.jpg',
-      picture_type: 'jpg',
+      userProps: {
+        picture_url: 'http://tofumatt.com/photo.jpg',
+        picture_type: 'jpg',
+      },
     });
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ user });
@@ -28,9 +29,10 @@ describe(__filename, () => {
 
   it('renders extra classNames when rendering an <img> tag', () => {
     const { state } = dispatchSignInActions({
-      id: 599,
-      picture_url: 'http://tofumatt.com/photo.jpg',
-      picture_type: 'jpg',
+      userProps: {
+        picture_url: 'http://tofumatt.com/photo.jpg',
+        picture_type: 'jpg',
+      },
     });
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ className: 'test', user });
@@ -46,10 +48,12 @@ describe(__filename, () => {
 
   it('renders an anonymous icon if the user has no photo', () => {
     const { state } = dispatchSignInActions({
-      id: 599,
-      picture_url: 'anonymous.jpg',
-      // An empty picture type means no avatar.
-      picture_type: '',
+      userProps: {
+        picture_url: 'anonymous.jpg',
+        // An empty picture type means no avatar.
+        // See: https://github.com/mozilla/addons-server/issues/7679
+        picture_type: '',
+      },
     });
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ user });

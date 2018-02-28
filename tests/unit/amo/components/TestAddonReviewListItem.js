@@ -273,7 +273,10 @@ describe(__filename, () => {
   });
 
   it('lets an admin reply to a review', () => {
-    dispatchSignInActions({ store, permissions: [ALL_SUPER_POWERS] });
+    dispatchSignInActions({
+      store,
+      userProps: { permissions: [ALL_SUPER_POWERS] },
+    });
 
     const addon = createInternalAddon(fakeAddon);
     const review = _setReview({
