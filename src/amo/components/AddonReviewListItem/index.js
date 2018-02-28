@@ -21,7 +21,7 @@ import {
 } from 'amo/actions/reviews';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
+import UserRating from 'ui/components/UserRating';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
@@ -231,10 +231,9 @@ export class AddonReviewListItemBase extends React.Component<Props> {
         {reviewBody}
         <div className="AddonReviewListItem-byline">
           {review && !isReply ?
-            <Rating
+            <UserRating
               styleSize="small"
               review={review}
-              rating={review.rating}
               readOnly
             />
             : null

@@ -247,23 +247,23 @@ describe('RatingManager', () => {
 
   it('configures a rating component', () => {
     const userReview = setReview(fakeReview).payload;
-    const RatingStub = sinon.spy(() => (<div />));
+    const UserRatingStub = sinon.spy(() => (<div />));
 
-    const root = render({ Rating: RatingStub, userReview });
+    const root = render({ UserRating: UserRatingStub, userReview });
 
-    expect(RatingStub.called).toEqual(true);
-    const props = RatingStub.firstCall.args[0];
+    expect(UserRatingStub.called).toEqual(true);
+    const props = UserRatingStub.firstCall.args[0];
     expect(props.onSelectRating).toEqual(root.onSelectRating);
-    expect(props.rating).toEqual(userReview.rating);
+    expect(props.review).toEqual(userReview);
   });
 
   it('sets a blank rating when there is no saved review', () => {
-    const RatingStub = sinon.spy(() => (<div />));
+    const UserRatingStub = sinon.spy(() => (<div />));
 
-    render({ Rating: RatingStub, userReview: null });
+    render({ UserRating: UserRatingStub, userReview: null });
 
-    expect(RatingStub.called).toEqual(true);
-    const props = RatingStub.firstCall.args[0];
+    expect(UserRatingStub.called).toEqual(true);
+    const props = UserRatingStub.firstCall.args[0];
     expect(props.rating).toBe(undefined);
   });
 

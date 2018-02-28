@@ -17,7 +17,7 @@ import {
   createFakeEvent, createStubErrorHandler, fakeI18n, shallowUntilTarget,
 } from 'tests/unit/helpers';
 import OverlayCard from 'ui/components/OverlayCard';
-import Rating from 'ui/components/Rating';
+import UserRating from 'ui/components/UserRating';
 
 const defaultReview = {
   addonId: fakeAddon.id,
@@ -305,7 +305,7 @@ describe(__filename, () => {
     const review = { ...defaultReview };
     const root = render({ review });
 
-    const rating = root.find(Rating);
+    const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
     const newRating = 1;
     onSelectRating(newRating);
@@ -326,7 +326,7 @@ describe(__filename, () => {
       target: { value: enteredReviewText },
     }));
 
-    const rating = root.find(Rating);
+    const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
     const newRating = 1;
     onSelectRating(newRating);

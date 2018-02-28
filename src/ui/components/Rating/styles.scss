@@ -54,8 +54,7 @@
   }
 }
 
-.Rating--small .Rating-choice,
-.Rating--small-by-user .Rating-choice {
+.Rating--small .Rating-choice {
   background-size: $rating-s-star-size;
   height: $rating-s-star-size + $rating-s-star-gutter;
   margin: 0;

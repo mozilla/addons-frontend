@@ -22,7 +22,7 @@ import {
 } from 'core/constants';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import DefaultRating from 'ui/components/Rating';
+import DefaultUserRating from 'ui/components/UserRating';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type {
@@ -50,7 +50,7 @@ type SubmitReviewFunc = (SubmitReviewParams) => Promise<void>;
 type Props = {|
   AddonReview: typeof DefaultAddonReview,
   AuthenticateButton: typeof DefaultAuthenticateButton,
-  Rating: typeof DefaultRating,
+  UserRating: typeof DefaultUserRating,
   ReportAbuseButton: typeof DefaultReportAbuseButton,
   addon: AddonType,
   apiState: ApiStateType,
@@ -75,7 +75,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
   static defaultProps = {
     AddonReview: DefaultAddonReview,
     AuthenticateButton: DefaultAuthenticateButton,
-    Rating: DefaultRating,
+    UserRating: DefaultUserRating,
     ReportAbuseButton: DefaultReportAbuseButton,
   }
 
@@ -178,7 +178,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
   render() {
     const {
       AddonReview,
-      Rating,
+      UserRating,
       ReportAbuseButton,
       i18n,
       addon,
@@ -206,10 +206,10 @@ export class RatingManagerBase extends React.Component<Props, State> {
               {prompt}
             </legend>
             {!isLoggedIn ? this.renderLogInToRate() : null}
-            <Rating
+            <UserRating
               readOnly={!isLoggedIn}
               onSelectRating={this.onSelectRating}
-              rating={userReview ? userReview.rating : undefined}
+              review={userReview}
             />
           </fieldset>
         </form>

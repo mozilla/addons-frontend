@@ -1,34 +1,33 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { getCurrentUser } from 'amo/reducers/users';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
 
-const RATING_STYLE_SIZES = ['small', 'large'];
+export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
+const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
 export class RatingBase extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    isOwner: PropTypes.bool,
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
     styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
-    review: PropTypes.object,
-    isOwner: PropTypes.bool,
   }
 
   static defaultProps = {
     className: '',
     readOnly: false,
     styleSize: 'large',
+    isOwner: false,
   }
 
   constructor(props) {
@@ -122,16 +121,6 @@ export class RatingBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
-  const { review } = ownProps;
-  const siteUser = getCurrentUser(state.users);
-  const isOwner = siteUser && review && review.userId === siteUser.id;
-  return { isOwner };
-}
-
-const Rating = compose(
-  connect(mapStateToProps),
+export default compose(
   translate({ withRef: true }),
 )(RatingBase);
-
-export default Rating;
