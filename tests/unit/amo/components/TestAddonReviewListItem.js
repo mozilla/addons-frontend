@@ -29,7 +29,7 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
+import UserRating from 'ui/components/UserRating';
 
 
 describe(__filename, () => {
@@ -128,11 +128,10 @@ describe(__filename, () => {
   };
 
   it('renders a review', () => {
-    const root = render({
-      review: _setReview({
-        ...fakeReview, id: 1, rating: 2,
-      }),
+    const review = _setReview({
+      ...fakeReview, id: 1, rating: 2,
     });
+    const root = render({ review });
 
     expect(root.find('h3'))
       .toHaveText(fakeReview.title);
@@ -143,9 +142,10 @@ describe(__filename, () => {
     expect(root.find('.AddonReviewListItem-byline'))
       .toIncludeText(fakeReview.user.name);
 
-    const rating = root.find(Rating);
-    expect(rating).toHaveProp('rating', 2);
+    const rating = root.find(UserRating);
     expect(rating).toHaveProp('readOnly', true);
+    expect(rating).toHaveProp('styleSize', 'small');
+    expect(rating).toHaveProp('review', review);
   });
 
   it('renders newlines in review bodies', () => {
@@ -634,7 +634,7 @@ describe(__filename, () => {
     it('hides ratings for replies', () => {
       const root = renderReply();
 
-      expect(root.find(Rating)).toHaveLength(0);
+      expect(root.find(UserRating)).toHaveLength(0);
     });
 
     it('does not include a user name in the byline', () => {
