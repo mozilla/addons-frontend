@@ -15,6 +15,9 @@ import { categoriesFetch } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_TOP_RATED,
+  INSTALL_SOURCE_TRENDING,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -251,6 +254,7 @@ export class CategoryBase extends React.Component {
         {this.renderIfNotEmpty(
           featuredAddons,
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={featuredAddons}
             className="FeaturedAddons"
             footerText={html.featuredFooterText}
@@ -262,6 +266,7 @@ export class CategoryBase extends React.Component {
         {this.renderIfNotEmpty(
           highlyRatedAddons,
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_TOP_RATED}
             addons={highlyRatedAddons}
             className="HighlyRatedAddons"
             footerLink={html.highlyRatedFooterLink}
@@ -273,6 +278,7 @@ export class CategoryBase extends React.Component {
         {this.renderIfNotEmpty(
           trendingAddons,
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_TRENDING}
             addons={trendingAddons}
             className="TrendingAddons"
             footerLink={html.trendingFooterLink}
