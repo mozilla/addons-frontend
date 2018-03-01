@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-02-22 08:20+0000\n"
-"Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
+"PO-Revision-Date: 2018-03-01 15:42+0000\n"
+"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -465,11 +465,11 @@ msgstr "అత్యధికంగా జనాదరణ పొందిన ప
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:201 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
-msgstr "థీములు"
+msgstr "అలంకారాలు"
 
 #: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:114
 msgid "Featured themes"
-msgstr ""
+msgstr "విశేష అలంకారాలు"
 
 #: src/amo/components/Category/index.js:171 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
@@ -729,7 +729,7 @@ msgstr "డెస్క్‌టాప్ విహారిణి"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
-msgstr ""
+msgstr "బీటా, నైట్లీ, డెవలపర్ ఎడిషన్"
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
@@ -745,7 +745,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:149
 msgid "Report Trademark Abuse"
-msgstr ""
+msgstr "ట్రేడుమార్కు దుర్వినియోగాన్ని నివేదించండి"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -853,7 +853,7 @@ msgstr "సంగీతం"
 
 #: src/amo/components/Home/index.js:136
 msgid "Seasonal"
-msgstr ""
+msgstr "కాలానుగుణం"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
@@ -923,7 +923,7 @@ msgstr ""
 
 #: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
-msgstr ""
+msgstr "వీడియోలు చూడటం"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
@@ -1121,7 +1121,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Dismiss"
-msgstr ""
+msgstr "రద్దుచేయి"
 
 #: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
@@ -1133,7 +1133,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:106 src/amo/components/SearchResults.js:60
 msgid "Search results"
-msgstr "ఫలితాల శోధన"
+msgstr "వెతుకుడు ఫలితాలు"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:117
@@ -1148,9 +1148,8 @@ msgstr "పొడిగింతలను కనుగొనండి"
 
 # "Firefox" should not be translated. :-)
 #: src/amo/components/Search/index.js:142
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Firefox పొడిగింతలు"
+msgstr "మేటి పొడిగింతలు"
 
 #: src/amo/components/Search/index.js:148
 msgid "Popular extensions"
