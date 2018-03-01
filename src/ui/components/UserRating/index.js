@@ -7,49 +7,44 @@ import { getCurrentUser } from 'amo/reducers/users';
 import Rating, { RATING_STYLE_SIZE_TYPES } from 'ui/components/Rating';
 import translate from 'core/i18n/translate';
 import type { UserReviewType } from 'amo/actions/reviews';
-
+import type { UsersStateType } from 'amo/reducers/users';
 
 type Props = {|
   className?: string,
-  isOwner: boolean,
-  onSelectRating?: Function,
-  readOnly: boolean,
-  review: UserReviewType,
+  isOwner?: boolean,
+  onSelectRating?: (SyntheticEvent<any>) => void,
+  readOnly?: boolean,
+  review?: UserReviewType,
   // eslint-disable-next-line no-undef
-  styleSize: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
+  styleSize?: $Keys<typeof RATING_STYLE_SIZE_TYPES>,
 |};
 
 
-export class UserRatingBase extends React.Component<Props> {
-  static defaultProps = {
-    styleSize: 'large',
-  };
+export const UserRatingBase = (props: Props) => {
+  const { className, isOwner, readOnly, onSelectRating, review, styleSize } = props;
 
-  render() {
-    const { className, isOwner, readOnly, onSelectRating, review, styleSize } = this.props;
-
-    return (
-      <Rating
-        className={className}
-        isOwner={isOwner}
-        onSelectRating={onSelectRating}
-        rating={(review && review.rating) || 0}
-        readOnly={readOnly}
-        styleSize={styleSize}
-      />
-    );
-  }
-}
+  return (
+    <Rating
+      className={className}
+      isOwner={isOwner}
+      onSelectRating={onSelectRating}
+      rating={(review && review.rating) || 0}
+      readOnly={readOnly}
+      styleSize={styleSize}
+    />
+  );
+};
 
 const mapStateToProps = (
-  state: Object, ownProps: Props
-): $Shape<Props> => {
+  state: {| users: UsersStateType |},
+  ownProps: Props
+) => {
   const { review } = ownProps;
   const siteUser = getCurrentUser(state.users);
   return { isOwner: !!(siteUser && review && review.userId === siteUser.id) };
 };
 
 export default compose(
-  translate({ withRef: true }),
+  translate(),
   connect(mapStateToProps)
 )(UserRatingBase);

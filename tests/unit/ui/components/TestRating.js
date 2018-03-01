@@ -27,7 +27,7 @@ function makeFakeEvent() {
   };
 }
 
-describe('ui/components/Rating', () => {
+describe(__filename, () => {
   function selectRating(root, ratingNumber) {
     const button = root.ratingElements[ratingNumber];
     expect(button).toBeTruthy();
@@ -42,6 +42,11 @@ describe('ui/components/Rating', () => {
   it('can be classified as small', () => {
     const root = render({ styleSize: 'small' });
     expect(root.element.className).toContain('Rating--small');
+  });
+
+  it('can be classified as owned', () => {
+    const root = render({ isOwner: true });
+    expect(root.element.className).toContain('Rating--by-owner');
   });
 
   it('classifies as unowned by default', () => {

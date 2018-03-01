@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 import { denormalizeReview } from 'amo/actions/reviews';
-import UserRating, { UserRatingBase } from 'ui/components/UserRating';
 import { logOutUser } from 'amo/reducers/users';
+import Rating from 'ui/components/Rating';
+import UserRating, { UserRatingBase } from 'ui/components/UserRating';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -39,7 +40,7 @@ function signInAndReturnReview({ siteUserId, reviewUserId }) {
   });
 }
 
-describe('ui/components/UserRating', () => {
+describe(__filename, () => {
   it('renders a Rating', () => {
     const props = {
       review: fakeReview,
@@ -47,14 +48,14 @@ describe('ui/components/UserRating', () => {
       readOnly: true,
       styleSize: 'small',
     };
-    const root = render(props);
+    const root = render(props).find(Rating);
     expect(root).toHaveProp('className', props.className);
     expect(root).toHaveProp('readOnly', props.readOnly);
     expect(root).toHaveProp('styleSize', props.styleSize);
   });
 
   it('passes the rating from the review to Rating', () => {
-    const root = render({ review: fakeReview });
+    const root = render({ review: denormalizeReview(fakeReview) });
     expect(root).toHaveProp('rating', fakeReview.rating);
   });
 
@@ -75,8 +76,11 @@ describe('ui/components/UserRating', () => {
   });
 
   it('passes isOwned: false to Rating if no user is logged in', () => {
+    const review = signInAndReturnReview({
+      siteUserId: 123, reviewUserId: 123,
+    });
     store.dispatch(logOutUser());
-    const root = render({ review: fakeReview });
+    const root = render({ review });
     expect(root).toHaveProp('isOwner', false);
   });
 });
