@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-03-01 10:10+0000\n"
+"PO-Revision-Date: 2018-03-01 10:22+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -944,27 +944,27 @@ msgstr "เรียกดูส่วนขยายทั้งหมด"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
-msgstr ""
+msgstr "ที่คั่นหน้า"
 
 #: src/amo/components/Home/index.js:64
 msgid "Password managers"
-msgstr ""
+msgstr "ตัวจัดการรหัสผ่าน"
 
 #: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
-msgstr ""
+msgstr "ตัวปิดกั้นโฆษณา"
 
 #: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "การซื้อของที่ชาญฉลาดกว่า"
 
 #: src/amo/components/Home/index.js:76
 msgid "Productivity"
-msgstr ""
+msgstr "ผลผลิต"
 
 #: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
-msgstr ""
+msgstr "การดูวิดีโอ"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
@@ -1070,9 +1070,8 @@ msgid "Explore all categories"
 msgstr "ไม่สามารถโหลดหมวดหมู่"
 
 #: src/amo/components/LanguagePicker.js:50
-#, fuzzy
 msgid "Change language"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
+msgstr "เปลี่ยนภาษา"
 
 #: src/amo/components/LanguageTools/index.js:106
 msgid "Available for your locale"
@@ -1409,7 +1408,7 @@ msgstr "สำรวจ"
 
 #: src/amo/components/SectionLinks/index.js:99
 msgid "More…"
-msgstr ""
+msgstr "เพิ่มเติม…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
