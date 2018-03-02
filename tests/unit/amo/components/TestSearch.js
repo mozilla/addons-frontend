@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Search, {
@@ -305,7 +305,7 @@ describe(__filename, () => {
   });
 
   it('returns a Not Found page when error is 404', () => {
-    const store = dispatchClientMetadata().store;
+    const { store } = dispatchClientMetadata();
 
     const errorHandler = new ErrorHandler({
       id: 'some-error-handler-id',

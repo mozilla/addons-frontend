@@ -56,7 +56,7 @@ type Action = SendServerRedirectAction;
 const reducer = (state: State = initialState, action: Action) => {
   switch (action.type) {
     case SEND_SERVER_REDIRECT: {
-      const payload = action.payload;
+      const { payload } = action;
 
       return {
         status: payload.status,

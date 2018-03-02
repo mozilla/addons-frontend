@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import ReportAbuseButton, {
   ReportAbuseButtonBase,
@@ -82,7 +82,8 @@ describe(__filename, () => {
     // this case, the textarea.)
     const root = renderMount();
 
-    root.find('.ReportAbuseButton-show-more').simulate('click', fakeEvent);
+    root.find('button.ReportAbuseButton-show-more')
+      .simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
@@ -94,7 +95,8 @@ describe(__filename, () => {
     // this case, the textarea.)
     const root = renderMount();
 
-    root.find('.ReportAbuseButton-show-more').simulate('click', fakeEvent);
+    root.find('button.ReportAbuseButton-show-more')
+      .simulate('click', fakeEvent);
 
     root.find('.ReportAbuseButton-dismiss-report')
       .simulate('click', fakeEvent);
@@ -106,24 +108,25 @@ describe(__filename, () => {
   it('disables the submit button if there is no abuse report', () => {
     const root = renderShallow();
 
-    expect(root.find('.ReportAbuseButton-send-report')).toHaveProp('disabled');
+    expect(root.find('.ReportAbuseButton-send-report').first())
+      .toHaveProp('disabled');
   });
 
   it('disables the submit button if text in the textarea is removed', () => {
     const root = renderMount();
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = 'add-on ate my homework!';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = 'add-on ate my homework!';
     textarea.simulate('change');
 
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('.ReportAbuseButton-send-report').first().prop('disabled'))
       .toEqual(false);
 
-    textarea.node.value = '';
+    textarea.instance().value = '';
     textarea.simulate('change');
 
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('.ReportAbuseButton-send-report').first().prop('disabled'))
       .toEqual(true);
   });
 
@@ -140,11 +143,12 @@ describe(__filename, () => {
 
     // Expand the view so we can test that it wasn't contracted when
     // clicking on the disabled "dismiss" link.
-    root.find('.ReportAbuseButton-show-more').simulate('click', fakeEvent);
+    root.find('button.ReportAbuseButton-show-more')
+      .simulate('click', fakeEvent);
     expect(root.find('.ReportAbuseButton--is-expanded')).toHaveLength(1);
 
     const dismissButton = root.find('.ReportAbuseButton-dismiss-report');
-    const sendButton = root.find('.ReportAbuseButton-send-report');
+    const sendButton = root.find('button.ReportAbuseButton-send-report');
 
     expect(dismissButton)
       .toHaveClassName('ReportAbuseButton-dismiss-report--disabled');
@@ -168,7 +172,7 @@ describe(__filename, () => {
 
     expect(root.find('.ReportAbuseButton--report-sent')).toHaveLength(1);
     expect(root.find('.ReportAbuseButton-show-more')).toHaveLength(0);
-    expect(root.find('.ReportAbuseButton-send-report')).toHaveLength(0);
+    expect(root.find('button.ReportAbuseButton-send-report')).toHaveLength(0);
   });
 
   it('dispatches when the send button is clicked if textarea has text', () => {
@@ -179,11 +183,11 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = 'Opera did it first!';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = 'Opera did it first!';
     textarea.simulate('change');
 
-    root.find('.ReportAbuseButton-send-report').simulate('click', fakeEvent);
+    root.find('button.ReportAbuseButton-send-report').simulate('click', fakeEvent);
     sinon.assert.calledWith(dispatchSpy, sendAddonAbuseReport({
       addonSlug: addon.slug,
       errorHandlerId: 'create-stub-error-handler-id',
@@ -199,16 +203,16 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // Make sure it's disabled by default.
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
       .toEqual(true);
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = 'Opera did it first!';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = 'Opera did it first!';
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
       .toEqual(false);
   });
 
@@ -219,8 +223,8 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = 'Opera did it first!';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = 'Opera did it first!';
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
@@ -229,7 +233,7 @@ describe(__filename, () => {
     dispatchSpy.reset();
 
     // This simulates entering text into the textarea.
-    textarea.node.value = 'Opera did it first! Adding some text!';
+    textarea.instance().value = 'Opera did it first! Adding some text!';
     textarea.simulate('change');
 
     sinon.assert.neverCalledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
@@ -242,12 +246,12 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = '      ';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = '      ';
     textarea.simulate('change');
 
     sinon.assert.neverCalledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
       .toEqual(true);
   });
 
@@ -258,15 +262,15 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = 'Opera did it first!';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = 'Opera did it first!';
     textarea.simulate('change');
 
-    textarea.node.value = '';
+    textarea.instance().value = '';
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, disableAbuseButtonUI({ addon }));
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
       .toEqual(true);
   });
 
@@ -277,15 +281,15 @@ describe(__filename, () => {
     const root = renderMount({ addon, store });
 
     // This simulates entering text into the textarea.
-    const textarea = root.find('.ReportAbuseButton-textarea textarea');
-    textarea.node.value = 'Opera did it first!';
+    const textarea = root.find('.ReportAbuseButton-textarea > textarea');
+    textarea.instance().value = 'Opera did it first!';
     textarea.simulate('change');
 
-    textarea.node.value = '        ';
+    textarea.instance().value = '        ';
     textarea.simulate('change');
 
     sinon.assert.calledWith(dispatchSpy, disableAbuseButtonUI({ addon }));
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('button.ReportAbuseButton-send-report').prop('disabled'))
       .toEqual(true);
   });
 
@@ -296,7 +300,6 @@ describe(__filename, () => {
     const fakeEvent = createFakeEvent();
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = renderMount({ addon, store });
 
     // We enable the button with an empty textarea; this never happens
     // normally but we can force it here for testing.
@@ -304,10 +307,13 @@ describe(__filename, () => {
     dispatchSpy.reset();
     fakeEvent.preventDefault.reset();
 
+    const root = renderMount({ addon, store });
+
     // Make sure the button isn't disabled.
-    expect(root.find('.ReportAbuseButton-send-report').prop('disabled'))
+    expect(root.find('.ReportAbuseButton-send-report').first().prop('disabled'))
       .toEqual(false);
-    root.find('.ReportAbuseButton-send-report').simulate('click', fakeEvent);
+    root.find('button.ReportAbuseButton-send-report')
+      .simulate('click', fakeEvent);
 
     sinon.assert.notCalled(dispatchSpy);
     // Make sure preventDefault was called; we then know the sendReport()

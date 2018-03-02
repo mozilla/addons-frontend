@@ -1,12 +1,12 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
+import { logOutUser } from 'amo/reducers/users';
 import {
   LoginRequiredBase,
   mapStateToProps,
 } from 'core/containers/LoginRequired';
 import LoginPage from 'core/components/LoginPage';
-import { logOutUser } from 'core/actions';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 
 

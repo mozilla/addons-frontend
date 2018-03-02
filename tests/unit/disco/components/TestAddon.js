@@ -1,10 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { oneLine } from 'common-tags';
 import { shallow } from 'enzyme';
 
 import { AddonBase, mapStateToProps } from 'disco/components/Addon';
 import { setInstallState } from 'core/actions/installations';
 import HoverIntent from 'core/components/HoverIntent';
+import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
@@ -76,7 +77,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(LoadingText)).toHaveLength(1);
-    expect(root.instance().props.installURLs).toEqual({});
+    expect(root.instance().props.platformFiles).toEqual({});
   });
 
   describe('<Addon type="extension"/>', () => {
@@ -319,6 +320,21 @@ describe(__filename, () => {
       });
     });
 
+    it('passes a defaultInstallSource to the install button', () => {
+      const defaultInstallSource = 'fake-discopane-source';
+      const data = {
+        ...result,
+        type: ADDON_TYPE_EXTENSION,
+      };
+      const root = renderAddon({
+        addon: data, ...data, defaultInstallSource,
+      });
+
+      const button = root.find(InstallButton);
+      expect(button)
+        .toHaveProp('defaultInstallSource', defaultInstallSource);
+    });
+
     it('disables incompatible add-ons', () => {
       const { store } = createStore();
       const minVersion = '400000.0';
@@ -472,7 +488,7 @@ describe(__filename, () => {
         clientApp,
       });
 
-      const userAgentInfo = store.getState().api.userAgentInfo;
+      const { userAgentInfo } = store.getState().api;
       // Do a quick check to make sure we grabbed a real object.
       expect(userAgentInfo).toBeTruthy();
       // Use equality to check this prop since toMatchObject will get
@@ -486,7 +502,7 @@ describe(__filename, () => {
       );
 
       expect(props.addon).toEqual(null);
-      expect(props.installURLs).toEqual({});
+      expect(props.platformFiles).toEqual({});
     });
   });
 });

@@ -1,12 +1,11 @@
 /* eslint-disable react/prop-types */
 import url from 'url';
 
-import { oneLine } from 'common-tags';
+import { AllHtmlEntities } from 'html-entities';
 import config from 'config';
-import React from 'react';
-import { asyncConnect as defaultAsyncConnect } from 'redux-connect';
+import * as React from 'react';
 
-import { getAddonBySlug, loadAddons } from 'core/reducers/addons';
+import { loadAddons } from 'core/reducers/addons';
 import { fetchAddon } from 'core/api';
 import GenericError from 'core/components/ErrorPage/GenericError';
 import NotFound from 'core/components/ErrorPage/NotFound';
@@ -123,30 +122,6 @@ export function refreshAddon({ addonSlug, apiState, dispatch } = {}) {
     .then(({ entities }) => dispatch(loadAddons(entities)));
 }
 
-// asyncConnect() helper for loading an add-on by slug.
-//
-// This accepts component properties and returns a promise
-// that resolves when the requested add-on exists in state.
-//
-// If the add-on does not exist in state, it is fetched first.
-//
-export function loadAddonIfNeeded(
-  { store: { dispatch, getState }, params: { slug } },
-  { _refreshAddon = refreshAddon } = {},
-) {
-  const state = getState();
-  const addon = getAddonBySlug(state, slug);
-
-  if (addon) {
-    log.info(`Found add-on ${slug}, ${addon.id} in state`);
-    return Promise.resolve();
-  }
-
-  log.info(`Add-on ${slug} not found in state; fetching from API`);
-  // This loads the add-on into state.
-  return _refreshAddon({ addonSlug: slug, apiState: state.api, dispatch });
-}
-
 export function isAddonAuthor({ addon, userId }) {
   if (!addon || !addon.authors || !addon.authors.length || !userId) {
     return false;
@@ -171,6 +146,11 @@ export function isAllowedOrigin(urlString, {
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 
+/*
+ * Returns a new URL with query params appended to `urlString`.
+ *
+ * `urlString` can be a relative or absolute URL.
+ */
 export function addQueryParams(urlString, queryParams = {}) {
   const urlObj = url.parse(urlString, true);
   // Clear search, since query object will only be used if search
@@ -241,45 +221,6 @@ export const safePromise = (callback) => (...args) => {
     return Promise.reject(error);
   }
 };
-
-/*
- * A wrapper around asyncConnect to make it safer to use.
- *
- * You don't need to specify deferred: true because it will be set
- * automatically. Example of usage:
- *
- * export default compose(
- *   safeAsyncConnect([{ promise: loadInitialData }]),
- * )(SomeComponent);
- */
-export function safeAsyncConnect(
-  configs, { asyncConnect = defaultAsyncConnect } = {}
-) {
-  const safeConfigs = configs.map((conf) => {
-    let key = conf.key;
-    if (!key) {
-      // If asyncConnect does not get a key in its config, it
-      // will not dispatch LOAD_FAIL for thrown errors!
-      // Other than that, the key is used to set a magic component
-      // property (which we never rely on) so it's really not so
-      // important.
-      key = '__safeAsyncConnect_key__';
-    }
-    if (!conf.promise) {
-      // This is the only way we use asyncConnect() for now.
-      throw new Error(
-        oneLine`Expected safeAsyncConnect() config to define a promise:
-        ${JSON.stringify(conf)}`);
-    }
-    return {
-      ...conf,
-      key,
-      deferred: true,
-      promise: safePromise(conf.promise),
-    };
-  });
-  return asyncConnect(safeConfigs);
-}
 
 export function trimAndAddProtocolToUrl(urlToCheck) {
   let urlToReturn = urlToCheck ? urlToCheck.trim() : null;
@@ -364,3 +305,11 @@ export function addonHasVersionHistory(addon) {
     ADDON_TYPE_THEME,
   ].includes(addon.type);
 }
+
+/*
+ * Decodes HTML entities into their respective symbols.
+ */
+export const decodeHtmlEntities = (string) => {
+  const entities = new AllHtmlEntities();
+  return entities.decode(string);
+};

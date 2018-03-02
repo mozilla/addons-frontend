@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import { mount } from 'enzyme';
 import { findDOMNode } from 'react-dom';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
+import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 
 import { ShowMoreCardBase, MAX_HEIGHT } from 'ui/components/ShowMoreCard';
 import { fakeI18n } from 'tests/unit/helpers';

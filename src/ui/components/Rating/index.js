@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -9,22 +9,25 @@ import translate from 'core/i18n/translate';
 import './styles.scss';
 
 
-const RATING_STYLES = ['small', 'large', 'small-monochrome'];
+export const RATING_STYLE_SIZE_TYPES = { small: '', large: '' };
+const RATING_STYLE_SIZES = Object.keys(RATING_STYLE_SIZE_TYPES);
 
 export class RatingBase extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    isOwner: PropTypes.bool,
     onSelectRating: PropTypes.func,
     rating: PropTypes.number,
     readOnly: PropTypes.bool,
-    styleName: PropTypes.oneOf(RATING_STYLES),
+    styleSize: PropTypes.oneOf(RATING_STYLE_SIZES),
   }
 
   static defaultProps = {
     className: '',
     readOnly: false,
-    styleName: 'large',
+    styleSize: 'large',
+    isOwner: false,
   }
 
   constructor(props) {
@@ -53,7 +56,7 @@ export class RatingBase extends React.Component {
 
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
-        className: classNames('Rating-choice', {
+        className: makeClassName('Rating-choice', {
           'Rating-selected-star': rating && thisRating <= rating,
           // Half stars are the result of averages rounded to the nearest
           // 0.5 place. The API should not return floats for your own review
@@ -83,11 +86,11 @@ export class RatingBase extends React.Component {
   }
 
   render() {
-    const { className, i18n, rating, readOnly, styleName } = this.props;
-    if (!RATING_STYLES.includes(styleName)) {
+    const { className, i18n, rating, readOnly, styleSize, isOwner } = this.props;
+    if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
-        `styleName=${styleName} is not a valid value; ` +
-        `possible values: ${RATING_STYLES.join(', ')}`);
+        `styleSize=${styleSize} is not a valid value; ` +
+        `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
     }
     let description;
     if (rating) {
@@ -97,8 +100,11 @@ export class RatingBase extends React.Component {
       description = i18n.gettext('No ratings');
     }
 
-    const allClassNames = classNames('Rating', `Rating--${styleName}`,
-      className, { 'Rating--editable': !readOnly });
+    const allClassNames = makeClassName(
+      'Rating', `Rating--${styleSize}`, className, {
+        'Rating--editable': !readOnly, 'Rating--by-owner': isOwner,
+      }
+    );
 
     return (
       <div

@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
 import Card from 'ui/components/Card';
@@ -16,7 +16,7 @@ export default class OverlayCard extends React.Component {
     footerLink: PropTypes.node,
     footerText: PropTypes.node,
     onEscapeOverlay: PropTypes.func,
-    visibleOnLoad: PropTypes.bool.isRequired,
+    visibleOnLoad: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -47,7 +47,7 @@ export default class OverlayCard extends React.Component {
         ref={(ref) => { this.overlay = ref; }}
       >
         <Card
-          className={classNames('OverlayCard', className)}
+          className={makeClassName('OverlayCard', className)}
           header={header}
           footerLink={footerLink}
           footerText={footerText}

@@ -17,6 +17,7 @@ import {
   createFetchAddonResult,
   createFetchAllAddonsResult,
   createStubErrorHandler,
+  getFakeConfig,
 } from 'tests/unit/helpers';
 import {
   createFakeAddon,
@@ -99,8 +100,8 @@ describe(__filename, () => {
     expect(state.byID[extension.id]).toEqual({
       ...extension,
       iconUrl: extension.icon_url,
-      installURLs: {
-        [OS_ALL]: 'https://a.m.o/files/321/addon.xpi',
+      platformFiles: {
+        [OS_ALL]: fakeAddon.current_version.files[0],
         [OS_ANDROID]: undefined,
         [OS_LINUX]: undefined,
         [OS_MAC]: undefined,
@@ -130,8 +131,8 @@ describe(__filename, () => {
       description: theme.description,
       guid: getGuid(theme),
       iconUrl: theme.icon_url,
-      installURLs: {
-        [OS_ALL]: 'https://a.m.o/files/321/addon.xpi',
+      platformFiles: {
+        [OS_ALL]: fakeTheme.current_version.files[0],
         [OS_ANDROID]: undefined,
         [OS_LINUX]: undefined,
         [OS_MAC]: undefined,
@@ -178,7 +179,7 @@ describe(__filename, () => {
       .toEqual('54321@personas.mozilla.org');
   });
 
-  it('reads install URLs from the file', () => {
+  it('maps platforms to file objects', () => {
     const addon = createFakeAddon({
       files: [
         {
@@ -200,21 +201,24 @@ describe(__filename, () => {
     });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state.byID[addon.id].installURLs).toMatchObject({
-      [OS_MAC]: 'https://a.m.o/mac.xpi',
-      [OS_WINDOWS]: 'https://a.m.o/windows.xpi',
-      [OS_ALL]: 'https://a.m.o/all.xpi',
-    });
+    expect(state.byID[addon.id].platformFiles[OS_ALL].url)
+      .toEqual('https://a.m.o/all.xpi');
+    expect(state.byID[addon.id].platformFiles[OS_MAC].url)
+      .toEqual('https://a.m.o/mac.xpi');
+    expect(state.byID[addon.id].platformFiles[OS_WINDOWS].url)
+      .toEqual('https://a.m.o/windows.xpi');
   });
 
   it('handles an empty array of files', () => {
     const addon = createFakeAddon({ files: [] });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state.byID[addon.id].installURLs).toMatchObject({
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      [OS_ALL]: undefined,
+      [OS_ANDROID]: undefined,
+      [OS_LINUX]: undefined,
       [OS_MAC]: undefined,
       [OS_WINDOWS]: undefined,
-      [OS_ALL]: undefined,
     });
   });
 
@@ -227,8 +231,12 @@ describe(__filename, () => {
     });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state.byID[addon.id].installURLs).toMatchObject({
-      unexpectedPlatform: 'https://a.m.o/files/somewhere.xpi',
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      unexpectedPlatform: {
+        ...fakeAddon.current_version.files[0],
+        platform: 'unexpectedPlatform',
+        url: 'https://a.m.o/files/somewhere.xpi',
+      },
     });
   });
 
@@ -388,6 +396,20 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
     expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
+  });
+
+  it('does not expose beta version properties if disabled', () => {
+    const addon = createInternalAddon(
+      {
+        ...fakeAddon,
+        slug: 'some-slug',
+        current_beta_version: {
+          ...fakeAddon.current_version,
+          version: '3.0.0-beta',
+        },
+      },
+      { _config: getFakeConfig({ betaVersions: false }) });
+    expect(addon.current_beta_version).toBeUndefined();
   });
 
   describe('fetchAddon', () => {

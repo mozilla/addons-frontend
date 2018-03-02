@@ -1,12 +1,14 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonBadges from 'amo/components/AddonBadges';
 import AddonsCard from 'amo/components/AddonsCard';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
@@ -33,6 +35,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
@@ -61,19 +64,20 @@ export class AddonBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This prop is passed in by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    installURLs: PropTypes.object,
+    platformFiles: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
-    // This prop is passed in by withInstallHelpers({ src: '...' })
-    src: PropTypes.string.isRequired,
     // eslint-disable-next-line react/require-default-props
     themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
@@ -84,7 +88,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
-    installURLs: {},
+    platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
   }
 
@@ -102,7 +106,8 @@ export class AddonBase extends React.Component {
     // of an error.
     if (!errorHandler.hasError()) {
       if (addon) {
-        if (Number.isInteger(params.slug)) {
+        // eslint-disable-next-line no-restricted-globals
+        if (!isNaN(params.slug)) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(sendServerRedirect({
@@ -191,7 +196,8 @@ export class AddonBase extends React.Component {
         >
           {installStatus !== ENABLED ? (
             <Button
-              className="Addon-theme-header-label Button--action"
+              buttonType="action"
+              className="Addon-theme-header-label"
               disabled={!compatible}
               htmlFor="Addon-theme-header"
             >
@@ -214,6 +220,24 @@ export class AddonBase extends React.Component {
     const { RatingManager, addon, i18n, location } = this.props;
     let content;
     let footerPropName = 'footerText';
+
+    let ratingManager;
+    if (addon && addon.current_version) {
+      ratingManager = (
+        <RatingManager
+          addon={addon}
+          location={location}
+          version={addon.current_version}
+        />
+      );
+    } else {
+      ratingManager = (
+        <p className="Addon-no-rating-manager">
+          {i18n.gettext(`This add-on cannot be rated because no versions
+            have been published.`)}
+        </p>
+      );
+    }
 
     if (addon && addon.ratings.text_count) {
       const count = addon.ratings.text_count;
@@ -247,13 +271,7 @@ export class AddonBase extends React.Component {
         className="Addon-overall-rating"
         {...props}
       >
-        {addon ?
-          <RatingManager
-            addon={addon}
-            location={location}
-            version={addon.current_version}
-          /> : null
-        }
+        {ratingManager}
       </Card>
     );
   }
@@ -329,7 +347,7 @@ export class AddonBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <ShowMoreCard className="AddonDescription-version-notes" header={header}>
-        <p dangerouslySetInnerHTML={releaseNotes} />
+        <div dangerouslySetInnerHTML={releaseNotes} />
       </ShowMoreCard>
     );
     /* eslint-enable react/no-danger */
@@ -398,7 +416,7 @@ export class AddonBase extends React.Component {
         );
     }
 
-    const classnames = classNames('AddonDescription-more-addons', {
+    const classnames = makeClassName('AddonDescription-more-addons', {
       'AddonDescription-more-addons--theme': addonType === ADDON_TYPE_THEME,
     });
 
@@ -418,11 +436,11 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      defaultInstallSource,
       errorHandler,
       getClientCompatibility,
       i18n,
       installStatus,
-      src,
       userAgentInfo,
     } = this.props;
 
@@ -500,7 +518,7 @@ export class AddonBase extends React.Component {
 
     return (
       <div
-        className={classNames('Addon', `Addon-${addonType}`, {
+        className={makeClassName('Addon', `Addon-${addonType}`, {
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
@@ -515,6 +533,14 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
+            {compatibility && !isCompatible ? (
+              <AddonCompatibilityError
+                className="Addon-header-compatibility-error"
+                maxVersion={compatibility.maxVersion}
+                minVersion={compatibility.minVersion}
+                reason={compatibility.reason}
+              />
+            ) : null}
             <header className="Addon-header">
               {this.headerImage({ compatible: isCompatible })}
 
@@ -531,7 +557,7 @@ export class AddonBase extends React.Component {
                     {...this.props}
                     disabled={!isCompatible}
                     ref={(ref) => { this.installButton = ref; }}
-                    src={src}
+                    defaultInstallSource={defaultInstallSource}
                     status={installStatus}
                     useButton
                   /> : null
@@ -542,14 +568,6 @@ export class AddonBase extends React.Component {
                 {i18n.gettext('Extension Metadata')}
               </h2>
             </header>
-
-            {compatibility && !isCompatible ? (
-              <AddonCompatibilityError
-                maxVersion={compatibility.maxVersion}
-                minVersion={compatibility.minVersion}
-                reason={compatibility.reason}
-              />
-            ) : null}
           </Card>
 
           <Card className="Addon-header-meta-and-ratings" photonStyle>
@@ -578,6 +596,8 @@ export class AddonBase extends React.Component {
 
           <ContributeCard addon={addon} />
 
+          <AddAddonToCollection addon={addon} />
+
           <AddonMoreInfo addon={addon} />
 
           {this.renderVersionReleaseNotes()}
@@ -597,7 +617,8 @@ export function mapStateToProps(state, ownProps) {
 
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.
-  if (slug && Number.isInteger(slug)) {
+  // eslint-disable-next-line no-restricted-globals
+  if (slug && !isNaN(slug)) {
     addon = getAddonByID(state, slug);
   }
 
@@ -621,7 +642,7 @@ export function mapStateToProps(state, ownProps) {
     // properties from addon.theme_data (which are spread onto addon) and
     // maybe others.
     ...addon,
-    installURLs: addon ? addon.installURLs : {},
+    platformFiles: addon ? addon.platformFiles : {},
     // The withInstallHelpers HOC also needs to access some properties in
     // here like guid and probably others.
     ...installedAddon,
@@ -638,8 +659,9 @@ export const extractId = (ownProps) => {
 };
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ src: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

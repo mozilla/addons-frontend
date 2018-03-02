@@ -1,5 +1,4 @@
-import React from 'react';
-import { loadFail } from 'redux-connect/lib/store';
+import * as React from 'react';
 
 import NotFound, {
   NotFoundBase,
@@ -9,6 +8,7 @@ import { createApiError } from 'core/api';
 import {
   ERROR_ADDON_DISABLED_BY_ADMIN, ERROR_ADDON_DISABLED_BY_DEV,
 } from 'core/constants';
+import { loadErrorPage } from 'core/reducers/errorPage';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
@@ -20,7 +20,7 @@ describe(__filename, () => {
       apiURL: 'http://test.com',
       response: { status: 404 },
     });
-    store.dispatch(loadFail('ReduxKey', error));
+    store.dispatch(loadErrorPage({ error }));
 
     const props = {
       i18n: fakeI18n(),

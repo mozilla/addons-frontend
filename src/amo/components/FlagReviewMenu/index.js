@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -10,13 +10,13 @@ import {
 } from 'amo/constants';
 import FlagReview from 'amo/components/FlagReview';
 import AuthenticateButton from 'core/components/AuthenticateButton';
-import { isAuthenticated } from 'core/reducers/user';
+import { getCurrentUser } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import ListItem from 'ui/components/ListItem';
 import TooltipMenu from 'ui/components/TooltipMenu';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { I18nType } from 'core/types/i18n';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReactRouterLocation } from 'core/types/router';
 
@@ -27,8 +27,7 @@ type Props = {|
   location: ReactRouterLocation,
   openerClass?: string,
   review: UserReviewType,
-  siteUser: UserStateType,
-  userIsAuthenticated: boolean,
+  siteUser: UserType | null,
   wasFlagged: boolean,
 |};
 
@@ -45,12 +44,11 @@ export class FlagReviewMenuBase extends React.Component<Props> {
       openerClass,
       review,
       siteUser,
-      userIsAuthenticated,
       wasFlagged,
     } = this.props;
 
     let items;
-    if (!userIsAuthenticated) {
+    if (!siteUser) {
       items = [
         <ListItem key="login-required">
           <AuthenticateButton
@@ -140,7 +138,7 @@ export class FlagReviewMenuBase extends React.Component<Props> {
 }
 
 const mapStateToProps = (
-  state: {| user: UserStateType, reviews: ReviewState |},
+  state: {| users: UsersStateType, reviews: ReviewState |},
   ownProps: Props,
 ) => {
   let wasFlagged = false;
@@ -152,8 +150,7 @@ const mapStateToProps = (
   }
   return {
     wasFlagged,
-    siteUser: state.user,
-    userIsAuthenticated: isAuthenticated(state),
+    siteUser: getCurrentUser(state.users),
   };
 };
 

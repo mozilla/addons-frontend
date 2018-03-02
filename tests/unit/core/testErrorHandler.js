@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
-  from 'react-addons-test-utils';
+  from 'react-dom/test-utils';
 import { createStore, combineReducers } from 'redux';
 import { shallow } from 'enzyme';
 
@@ -10,7 +10,9 @@ import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
 import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { clearError, setError } from 'core/actions/errors';
+import {
+  clearError, setError, setErrorMessage,
+} from 'core/actions/errors';
 import {
   ErrorHandler,
   normalizeFileNameId,
@@ -60,7 +62,7 @@ describe(__filename, () => {
   describe('withErrorHandler', () => {
     it('provides a unique errorHandler property', () => {
       const { component } = createWrappedComponent();
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id).toMatch(/^SomeComponent-/);
     });
@@ -157,7 +159,7 @@ describe(__filename, () => {
       sinon.spy(store, 'dispatch');
       const { component } = createWrappedComponent({ store });
 
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       const error = new Error();
       errorHandler.handle(error);
 
@@ -335,6 +337,20 @@ describe(__filename, () => {
         .toThrow(/dispatch function has not been configured/);
     });
 
+    it('requires a dispatch function to add a message', () => {
+      const handler = new ErrorHandler({ id: 'some-id' });
+      expect(() => handler.addMessage('some message'))
+        .toThrow(/dispatch function has not been configured/);
+    });
+
+    it('dispatches a message', () => {
+      const message = 'Name field cannot be blank';
+      errorHandler.addMessage(message);
+      sinon.assert.calledWith(errorHandler.dispatch,
+        setErrorMessage({ id: errorHandler.id, message })
+      );
+    });
+
     it('lets you create an error action', () => {
       const error = new Error();
       expect(errorHandler.createErrorAction(error))
@@ -433,7 +449,7 @@ describe(__filename, () => {
         fileName: '/path/to/src/SomeComponent/index.js',
         extractId: () => 'unique-id-based-on-props',
       });
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id)
         .toEqual('src/SomeComponent/index.js-unique-id-based-on-props');

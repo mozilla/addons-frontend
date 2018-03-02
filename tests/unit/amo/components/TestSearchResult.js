@@ -1,5 +1,7 @@
+import url from 'url';
+
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { createInternalAddon } from 'core/reducers/addons';
@@ -72,7 +74,9 @@ describe(__filename, () => {
   it('localises the user count', () => {
     const root = render({ lang: 'fr' });
 
-    expect(root.find('.SearchResult-users-text')).toIncludeText('5 253');
+    // `\xa0` is a non-breaking space.
+    // See: https://github.com/airbnb/enzyme/issues/1349
+    expect(root.find('.SearchResult-users-text')).toIncludeText('5\xa0253');
   });
 
   it('renders the user count as singular', () => {
@@ -91,6 +95,15 @@ describe(__filename, () => {
 
     expect(root.find('.SearchResult-link'))
       .toHaveProp('to', '/addon/a-search-result/');
+  });
+
+  it('links to the detail page with a source', () => {
+    const addonInstallSource = 'home-page-featured';
+    const root = render({ addonInstallSource });
+
+    const link = root.find('.SearchResult-link');
+    expect(url.parse(link.prop('to'), true).query)
+      .toMatchObject({ src: addonInstallSource });
   });
 
   it('renders the star ratings', () => {

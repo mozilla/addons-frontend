@@ -1,5 +1,5 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -16,6 +16,7 @@ import {
 import _log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
+import Notice from 'ui/components/Notice';
 
 import './style.scss';
 
@@ -26,7 +27,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     log: PropTypes.object,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
-    userAgentInfo: PropTypes.object.isRequired,
+    userAgentInfo: PropTypes.object,
   }
 
   static defaultProps = {
@@ -95,10 +96,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
     }
 
     return (
-      <div
-        className="AddonCompatibilityError"
-        dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
-      />
+      <Notice type="error" className="AddonCompatibilityError">
+        <span dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
+      </Notice>
     );
   }
 }

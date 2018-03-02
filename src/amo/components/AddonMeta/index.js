@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
@@ -40,12 +40,12 @@ export class AddonMetaBase extends React.Component<Props> {
     let reviewTitle;
     if (!addon) {
       reviewCount = null;
-      reviewTitle = i18n.gettext('Reviews');
+      reviewTitle = i18n.gettext('Ratings');
     } else if (addonRatingCount) {
       reviewCount = i18n.formatNumber(addonRatingCount);
-      reviewTitle = i18n.ngettext('Review', 'Reviews', addonRatingCount);
+      reviewTitle = i18n.ngettext('Rating', 'Ratings', addonRatingCount);
     } else {
-      reviewTitle = i18n.gettext('No Reviews');
+      reviewTitle = i18n.gettext('No Ratings');
     }
 
     return (
@@ -67,7 +67,7 @@ export class AddonMetaBase extends React.Component<Props> {
                   className="AddonMeta-item-header"
                   rating={averageRating}
                   readOnly
-                  styleName="small"
+                  styleSize="small"
                 />
               ),
               title: i18n.gettext('Overall Rating'),

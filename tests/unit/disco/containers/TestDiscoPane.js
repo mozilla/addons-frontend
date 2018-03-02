@@ -1,12 +1,17 @@
 import { mount, shallow } from 'enzyme';
 import config from 'config';
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 
 import {
   ADDON_TYPE_THEME,
   GLOBAL_EVENTS,
   INSTALL_STATE,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
@@ -22,12 +27,14 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   MockedSubComponent,
 } from 'tests/unit/helpers';
 import {
   fakeDiscoAddon,
   loadDiscoResultsIntoState,
 } from 'tests/unit/disco/helpers';
+import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 
 // Use DiscoPane that isn't wrapped in asyncConnect.
@@ -66,7 +73,8 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,
-      location: { query: {} },
+      location: fakeRouterLocation(),
+      params: { platform: 'Darwin' },
       results,
       _tracking: fakeTracking,
       _video: fakeVideo,
@@ -75,7 +83,9 @@ describe(__filename, () => {
   }
 
   function render(props = {}) {
-    return shallow(<DiscoPaneBase {...renderProps(props)} />);
+    return shallow(<DiscoPaneBase {...renderProps(props)} />, {
+      params: { platform: 'Darwin' },
+    });
   }
 
   function renderAndMount(customProps = {}) {
@@ -141,12 +151,12 @@ describe(__filename, () => {
         description: 'editorial text',
         heading: 'The Add-on',
         iconUrl: addon.icon_url,
-        installURLs: {
-          all: 'https://a.m.o/files/321/addon.xpi',
-          android: undefined,
-          linux: undefined,
-          mac: undefined,
-          windows: undefined,
+        platformFiles: {
+          [OS_ALL]: fakeDiscoAddon.current_version.files[0],
+          [OS_ANDROID]: undefined,
+          [OS_LINUX]: undefined,
+          [OS_MAC]: undefined,
+          [OS_WINDOWS]: undefined,
         },
         isMozillaSignedExtension: false,
         isRestartRequired: false,
@@ -208,16 +218,17 @@ describe(__filename, () => {
       render({ errorHandler, dispatch, ...props });
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
-        errorHandlerId: errorHandler.id, telemetryClientId: undefined,
+        errorHandlerId: errorHandler.id,
+        taarParams: { platform: 'Darwin' },
       }));
     });
 
     it('sends a telemetry client ID if there is one', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           clientId: 'telemetry-client-id',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.
@@ -227,7 +238,55 @@ describe(__filename, () => {
 
       sinon.assert.calledWith(dispatch, getDiscoResults({
         errorHandlerId: errorHandler.id,
-        telemetryClientId: location.query.clientId,
+        taarParams: {
+          clientId: location.query.clientId,
+          platform: 'Darwin',
+        },
+      }));
+    });
+
+    it('dispatches all query params', () => {
+      const location = fakeRouterLocation({
+        query: {
+          branch: 'foo',
+          clientId: 'telemetry-client-id',
+          study: 'bar',
+        },
+      });
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      // Set up some empty results so that the component fetches new ones.
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, location, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id,
+        taarParams: {
+          branch: 'foo',
+          clientId: location.query.clientId,
+          platform: 'Darwin',
+          study: 'bar',
+        },
+      }));
+    });
+
+    it('does not allow platform to be overriden', () => {
+      const location = fakeRouterLocation({
+        query: {
+          platform: 'bar',
+        },
+      });
+      const dispatch = sinon.stub();
+      const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+      // Set up some empty results so that the component fetches new ones.
+      const props = helpers.mapStateToProps(loadDiscoResultsIntoState([]));
+
+      render({ errorHandler, dispatch, location, ...props });
+
+      sinon.assert.calledWith(dispatch, getDiscoResults({
+        errorHandlerId: errorHandler.id,
+        taarParams: { platform: 'Darwin' },
       }));
     });
 
@@ -285,7 +344,8 @@ describe(__filename, () => {
   describe('See more add-ons link', () => {
     it('tracks see more addons link being clicked', () => {
       const root = render();
-      root.find('.amo-link a').simulate('click');
+
+      root.find('.amo-link').find(Button).simulate('click');
       sinon.assert.calledWith(fakeTracking.sendEvent, {
         category: NAVIGATION_CATEGORY,
         action: 'click',

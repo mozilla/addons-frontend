@@ -1,9 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { oneLine } from 'common-tags';
 
-import { clearError, setError } from 'core/actions/errors';
+import {
+  clearError, setError, setErrorMessage,
+} from 'core/actions/errors';
 import log from 'core/logger';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -72,11 +74,20 @@ export class ErrorHandler {
     return setError({ error, id: this.id });
   }
 
+  addMessage(message) {
+    this.dispatchAction(setErrorMessage({ id: this.id, message }));
+  }
+
   handle(error) {
-    if (!this.dispatch) {
-      throw new Error('A dispatch function has not been configured');
-    }
     const action = this.createErrorAction(error);
+    this.dispatchAction(action);
+  }
+
+  dispatchAction(action) {
+    if (!this.dispatch) {
+      throw new Error(
+        'A dispatch function has not been configured');
+    }
     this.dispatch(action);
   }
 }

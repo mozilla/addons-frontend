@@ -14,6 +14,7 @@ describe(__filename, () => {
       'collections',
       'errorPage',
       'errors',
+      'formOverlay',
       'heroBanners',
       'home',
       'infoDialog',
@@ -21,10 +22,10 @@ describe(__filename, () => {
       'landing',
       'languageTools',
       'redirectTo',
-      'reduxAsyncConnect',
       'reviews',
+      'routing',
       'search',
-      'user',
+      'users',
       'viewContext',
     ]);
   });

@@ -3,7 +3,10 @@ import config from 'config';
 
 import createStore from 'amo/store';
 import {
-  setClientApp, setLang, setAuthToken, setUserAgent,
+  setClientApp,
+  setLang,
+  setAuthToken,
+  setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
 import {
@@ -15,16 +18,19 @@ import {
   OS_ALL,
 } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
-import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
-import { loadUserProfile } from 'core/reducers/user';
-
+import {
+  autocompleteLoad,
+  autocompleteStart,
+} from 'core/reducers/autocomplete';
+import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   createStubErrorHandler,
-  createUserProfileResponse,
-  userAuthToken,
+  createUserAccountResponse,
+  randomId,
   sampleUserAgent,
   signedInApiState as coreSignedInApiState,
-} from '../helpers';
+  userAuthToken,
+} from 'tests/unit/helpers';
 
 
 export const fakeAddon = Object.freeze({
@@ -32,7 +38,7 @@ export const fakeAddon = Object.freeze({
     id: 98811255,
     name: 'Krupa',
     picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
-    url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+    url: 'http://olympia.test/en-US/firefox/user/krupa/',
     username: 'krupa',
   }],
   average_daily_users: 100,
@@ -110,7 +116,7 @@ export const fakeTheme = Object.freeze({
   ...fakeAddon,
   authors: [{
     name: 'MaDonna',
-    url: 'http://olympia.dev/en-US/firefox/user/madonna/',
+    url: 'http://olympia.test/en-US/firefox/user/madonna/',
     username: 'MaDonna',
   }],
   current_version: {
@@ -213,21 +219,14 @@ export function dispatchClientMetadata({
 export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
-  username = 'user-1234',
-  displayName = null,
-  permissions = [],
+  userProps = {},
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
-  store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({
-      id: userId,
-      username,
-      displayName,
-      permissions,
-    }),
+  store.dispatch(loadCurrentUserAccount({
+    user: createUserAccountResponse({ id: userId, ...userProps }),
   }));
 
   return {
@@ -267,7 +266,7 @@ export function createAddonsApiResult(results) {
 
 export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
   return {
-    id: Date.now(),
+    id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
@@ -316,24 +315,28 @@ export const createFakeCollectionDetail = ({
   name = 'My Addons',
   count = 123,
   authorId = 99999,
+  authorName = 'John Doe',
+  authorUsername = 'johndoe',
+  ...params
 } = {}) => {
   return {
     addon_count: count,
     author: {
       id: authorId,
-      name: 'John Doe',
-      url: 'http://olympia.dev/en-US/firefox/user/johndoe/',
-      username: 'johndoe',
+      name: authorName,
+      url: 'http://olympia.test/en-US/firefox/user/johndoe/',
+      username: authorUsername,
     },
     default_locale: 'en-US',
     description: 'some description',
-    id: Date.now(),
+    id: randomId(),
     modified: Date.now(),
     name,
     public: true,
     slug: 'my-addons',
     url: `https://example.org/en-US/firefox/collections/johndoe/my-addons/`,
     uuid: 'ef7e1344-1c3d-4bbb-bbd8-df9d8c9020ec',
+    ...params,
   };
 };
 

@@ -2,7 +2,7 @@
 @import "~core/css/inc/mixins";
 
 @mixin icon($name) {
-  background: url("./#{$name}.svg") center no-repeat;
+  background: url("./img/#{$name}.svg") center no-repeat;
   background-size: contain;
   content: "";
   display: inline-block;
@@ -169,4 +169,8 @@
 
 .Icon-not-compatible {
   @include icon($name: "not-compatible");
+}
+
+.Icon-x-mark {
+  @include icon($name: "x-mark");
 }

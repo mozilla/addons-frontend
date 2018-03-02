@@ -1,6 +1,6 @@
 /* @flow */
 import * as React from 'react';
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 
 import './styles.scss';
 
@@ -22,7 +22,7 @@ export default class Icon extends React.Component<Props> {
     }
 
     return (
-      <span className={classNames('Icon', `Icon-${name}`, className)} {...props}>
+      <span className={makeClassName('Icon', `Icon-${name}`, className)} {...props}>
         {children}
       </span>
     );

@@ -26,6 +26,7 @@ module.exports = {
     'langMap',
     'publicSentryDsn',
     'rtlLangs',
+    'discoParamsToUse',
     'trackingEnabled',
     'trackingId',
     'trackingSendInitPageView',
@@ -51,6 +52,15 @@ module.exports = {
       mediaSrc: [staticHost],
     },
   },
+  // Firefox sets these query params when loading the Discovery Pane.
+  // These are the allowed list of query params we will forward to AMO for statistics.
+  discoParamsToUse: [
+    'branch',
+    'clientId',
+    'edition',
+    'platform',
+    'study',
+  ],
   trackingEnabled: true,
   trackingId: 'UA-36116321-7',
   // We override the initial page view call in order to

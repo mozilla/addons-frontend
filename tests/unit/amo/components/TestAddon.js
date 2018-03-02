@@ -1,11 +1,11 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
   scryRenderedComponentsWithType,
   findRenderedComponentWithType,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
 
@@ -45,6 +45,7 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
   UNKNOWN,
 } from 'core/constants';
@@ -63,6 +64,7 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -86,8 +88,8 @@ function renderProps({
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
-    location: { pathname: '/addon/detail/' },
-    params: params || { slug: addon.slug },
+    location: fakeRouterLocation(),
+    params: params || { slug: addon ? addon.slug : fakeAddon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
     setCurrentStatus,
@@ -262,7 +264,7 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
-    expect(root.instance().props.installURLs).toEqual({});
+    expect(root.instance().props.platformFiles).toEqual({});
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {
@@ -376,7 +378,7 @@ describe(__filename, () => {
   });
 
   it('renders a single author', () => {
-    const authorUrl = 'http://olympia.dev/en-US/firefox/user/krupa/';
+    const authorUrl = 'http://olympia.test/en-US/firefox/user/krupa/';
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -396,10 +398,10 @@ describe(__filename, () => {
         ...fakeAddon,
         authors: [{
           name: 'Krupa',
-          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+          url: 'http://olympia.test/en-US/firefox/user/krupa/',
         }, {
           name: 'Fligtar',
-          url: 'http://olympia.dev/en-US/firefox/user/fligtar/',
+          url: 'http://olympia.test/en-US/firefox/user/fligtar/',
         }],
       }),
     });
@@ -431,6 +433,25 @@ describe(__filename, () => {
     renderComponent({
       // We set the numeric `id` as slug.
       params: { slug: addon.id }, store,
+    });
+
+    sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
+      status: 301,
+      url: `/en-US/${clientApp}/addon/${addon.slug}/`,
+    }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  it('dispatches a server redirect when slug is a stringified integer', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = createInternalAddon(fakeAddon);
+    store.dispatch(_loadAddons({ addon }));
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    renderComponent({
+      // We set the numeric `id` as slug, casted as a string.
+      params: { slug: `${addon.id}` }, store,
     });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
@@ -500,7 +521,7 @@ describe(__filename, () => {
         ...fakeAddon,
         authors: [{
           name: 'Krupa',
-          url: 'http://olympia.dev/en-US/firefox/user/krupa/',
+          url: 'http://olympia.test/en-US/firefox/user/krupa/',
         }],
       }),
     });
@@ -653,12 +674,23 @@ describe(__filename, () => {
   });
 
   it('configures the overall ratings section', () => {
-    const location = { pathname: '/en-US/firefox/addon/some-slug/' };
+    const location = fakeRouterLocation();
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon, location })
       .find(RatingManagerWithI18n);
     expect(root.prop('addon')).toEqual(addon);
     expect(root.prop('location')).toEqual(location);
+  });
+
+  it('does not show a ratings manager without a version', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      current_version: null,
+    });
+    const root = shallowRender({ addon });
+
+    expect(root.find(RatingManagerWithI18n)).toHaveLength(0);
+    expect(root.find('.Addon-no-rating-manager')).toHaveLength(1);
   });
 
   it('renders a summary', () => {
@@ -756,7 +788,8 @@ describe(__filename, () => {
 
     const button = root.find(InstallButton);
     // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button).toHaveProp('src', 'dp-btn-primary');
+    expect(button)
+      .toHaveProp('defaultInstallSource', INSTALL_SOURCE_DETAIL_PAGE);
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {
@@ -950,18 +983,18 @@ describe(__filename, () => {
       const root = shallowRender({
         addon: addonWithVersion(...args),
       });
-      return root.find('.AddonDescription-version-notes p').render();
+      return root.find('.AddonDescription-version-notes div').render();
     }
 
     it('is hidden when an add-on has not loaded yet', () => {
       const root = shallowRender({ addon: undefined });
-      expect(root.find('.AddonDescription-version-notes p'))
+      expect(root.find('.AddonDescription-version-notes div'))
         .toHaveLength(0);
     });
 
     it('is hidden when the add-on does not have a current version', () => {
       const root = shallowRender({ addon: addonWithVersion(null) });
-      expect(root.find('.AddonDescription-version-notes p'))
+      expect(root.find('.AddonDescription-version-notes div'))
         .toHaveLength(0);
     });
 
@@ -969,7 +1002,7 @@ describe(__filename, () => {
       const root = shallowRender({
         addon: addonWithVersion({ release_notes: null }),
       });
-      expect(root.find('.AddonDescription-version-notes p'))
+      expect(root.find('.AddonDescription-version-notes div'))
         .toHaveLength(0);
     });
 
@@ -989,7 +1022,7 @@ describe(__filename, () => {
           release_notes: 'Fixed some stuff',
         }),
       });
-      const notes = root.find('.AddonDescription-version-notes p');
+      const notes = root.find('.AddonDescription-version-notes div');
       expect(notes.html()).toContain('Fixed some stuff');
     });
 
@@ -999,6 +1032,15 @@ describe(__filename, () => {
       });
       expect(root.html()).toMatch(
         new RegExp('<b>lots</b> <i>of</i> bug fixes')
+      );
+    });
+
+    it('allows some ul-li tags', () => {
+      const root = getReleaseNotes({
+        release_notes: '<b>The List</b><ul><li>one</li><li>two</li></ul>',
+      });
+      expect(root.html()).toMatch(
+        new RegExp('<b>The List</b><ul><li>one</li><li>two</li></ul>')
       );
     });
   });
@@ -1348,10 +1390,10 @@ describe('mapStateToProps', () => {
 
   it('can handle a missing addon', () => {
     signIn();
-    const { addon, installURLs } = _mapStateToProps();
+    const { addon, platformFiles } = _mapStateToProps();
     expect(addon).toBeFalsy();
     // Make sure this isn't undefined since it gets read from `addon`.
-    expect(installURLs).toEqual({});
+    expect(platformFiles).toEqual({});
   });
 
   it('sets the clientApp and userAgent', () => {

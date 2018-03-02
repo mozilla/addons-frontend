@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 /* global navigator */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { camelizeKeys as camelCaseKeys } from 'humps';
 import { connect } from 'react-redux';
@@ -23,6 +23,7 @@ import Addon from 'disco/components/Addon';
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
+import Button from 'ui/components/Button';
 
 
 export class DiscoPaneBase extends React.Component {
@@ -34,6 +35,9 @@ export class DiscoPaneBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     location: PropTypes.object.isRequired,
     mozAddonManager: PropTypes.object,
+    params: {
+      platform: PropTypes.string.isRequired,
+    },
     results: PropTypes.arrayOf(PropTypes.object).isRequired,
     _addChangeListeners: PropTypes.func,
     _tracking: PropTypes.object,
@@ -52,15 +56,26 @@ export class DiscoPaneBase extends React.Component {
     super(props);
     this.state = { showVideo: false };
 
-    const { dispatch, errorHandler, location, results } = props;
+    const {
+      dispatch,
+      errorHandler,
+      location,
+      params,
+      results,
+    } = props;
     // TODO: fix this; it's not the right way to detect whether a
     // dispatch is needed. This should look for an undefined value
     // instead of an empty list because an empty list could be a valid
     // (yet unlikley) API response.
     if (!errorHandler.hasError() && !results.length) {
+      // We accept all query params here and filter them out based on the
+      // `discoParamsToUse` config value. See:
+      // https://github.com/mozilla/addons-frontend/issues/4155
+      const taarParams = { ...location.query, platform: params.platform };
+
       dispatch(getDiscoResults({
         errorHandlerId: errorHandler.id,
-        telemetryClientId: location.query.clientId,
+        taarParams,
       }));
     }
   }
@@ -124,7 +139,8 @@ export class DiscoPaneBase extends React.Component {
                     the world, that you can install to personalize your Firefox. From fun visual themes
                     to powerful tools that make browsing faster and safer, add-ons make your browser yours.
                     To help you get started, here are some we recommend for their stand-out performance
-                    and functionality.`)}</p>
+                    and functionality.`)}
+              </p>
             </div>
             <div className="video-wrapper">
               <a className="play-video" href="#play" onClick={this.showVideo}>
@@ -156,14 +172,15 @@ export class DiscoPaneBase extends React.Component {
           />
         ))}
         <div className="amo-link">
-          <a
+          <Button
+            buttonType="action"
             href="https://addons.mozilla.org/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={this.showMoreAddons}
           >
             {i18n.gettext('See more add-ons!')}
-          </a>
+          </Button>
         </div>
         <InfoDialog />
       </div>

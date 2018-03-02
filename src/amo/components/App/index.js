@@ -14,12 +14,10 @@ import SearchForm from 'amo/components/SearchForm';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
+import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import type { ViewContextType } from 'amo/reducers/viewContext';
 import { addChangeListeners } from 'core/addonManager';
-import {
-  logOutUser as logOutUserAction,
-  setUserAgent as setUserAgentAction,
-} from 'core/actions';
+import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
 import {
   CLIENT_APP_ANDROID,
@@ -54,7 +52,7 @@ type Props = {|
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
-  children: any,
+  children?: React.Node,
   clientApp: string,
   handleGlobalEvent: () => void,
   i18n: I18nType,

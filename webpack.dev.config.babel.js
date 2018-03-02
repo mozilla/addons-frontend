@@ -76,9 +76,9 @@ export default Object.assign({}, webpackConfig, {
     // [Invariant](https://github.com/zertosh/invariant) which
     // hides error messages in the production build.
     new webpack.NormalModuleReplacementPlugin(
-      /^react$/, 'react/dist/react.js'),
+      /^react$/, 'react/umd/react.development.js'),
     new webpack.NormalModuleReplacementPlugin(
-      /^react-dom$/, 'react-dom/dist/react-dom.js'),
+      /^react-dom$/, 'react-dom/umd/react-dom.development.js'),
     new webpack.NormalModuleReplacementPlugin(
       /^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),

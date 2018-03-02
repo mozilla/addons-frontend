@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import MetadataCard from 'ui/components/MetadataCard';
 import LoadingText from 'ui/components/LoadingText';

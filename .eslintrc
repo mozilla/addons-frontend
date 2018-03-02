@@ -13,8 +13,11 @@
     // See: https://github.com/facebook/flow/issues/1609
     "SyntheticEvent": true,
     // Standard DOM globals:
+    "Generator": true,
     "HTMLElement": true,
     "HTMLInputElement": true,
+    "HTMLSelectElement": true,
+    "HTMLTextAreaElement": true,
     "Node": true,
   },
   "parser": "babel-eslint",

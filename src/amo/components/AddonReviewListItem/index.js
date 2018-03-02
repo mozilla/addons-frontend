@@ -1,6 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -10,10 +10,7 @@ import { ADDONS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import {
-  hasPermission,
-  isAuthenticated,
-} from 'core/reducers/user';
+import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import { isAddonAuthor, nl2br, sanitizeHTML } from 'core/utils';
 import {
   hideEditReviewForm,
@@ -24,12 +21,12 @@ import {
 } from 'amo/actions/reviews';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
-import Rating from 'ui/components/Rating';
+import UserRating from 'ui/components/UserRating';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
@@ -44,13 +41,12 @@ type Props = {|
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   siteUserHasReplyPerm: boolean,
-  siteUserIsAuthenticated: boolean,
   isReplyToReviewId?: number,
   i18n: I18nType,
   location: ReactRouterLocation,
   review?: UserReviewType,
   replyingToReview: boolean,
-  siteUser: UserStateType,
+  siteUser: UserType | null,
   submittingReply: boolean,
 |};
 
@@ -186,7 +182,6 @@ export class AddonReviewListItemBase extends React.Component<Props> {
       errorHandler,
       i18n,
       siteUserHasReplyPerm,
-      siteUserIsAuthenticated,
       isReplyToReviewId,
       location,
       replyingToReview,
@@ -236,12 +231,16 @@ export class AddonReviewListItemBase extends React.Component<Props> {
         {reviewBody}
         <div className="AddonReviewListItem-byline">
           {review && !isReply ?
-            <Rating styleName="small" rating={review.rating} readOnly />
+            <UserRating
+              styleSize="small"
+              review={review}
+              readOnly
+            />
             : null
           }
           {byline}
           {
-            siteUserIsAuthenticated && review &&
+            siteUser && review &&
             review.userId === siteUser.id ?
               (
                 <div>
@@ -300,7 +299,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
 }
 
 export function mapStateToProps(
-  state: {| user: UserStateType, reviews: ReviewState |},
+  state: {| users: UsersStateType, reviews: ReviewState |},
   ownProps: Props,
 ) {
   let editingReview = false;
@@ -316,10 +315,9 @@ export function mapStateToProps(
   }
   return {
     editingReview,
-    siteUserIsAuthenticated: isAuthenticated(state),
     siteUserHasReplyPerm: hasPermission(state, ADDONS_EDIT),
     replyingToReview,
-    siteUser: state.user,
+    siteUser: getCurrentUser(state.users),
     submittingReply,
   };
 }

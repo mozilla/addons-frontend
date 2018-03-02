@@ -4,6 +4,7 @@ import {
   ERROR_ADDON_DISABLED_BY_DEV,
   ERROR_UNKNOWN,
   SET_ERROR,
+  SET_ERROR_MESSAGE,
 } from 'core/constants';
 import log from 'core/logger';
 
@@ -36,17 +37,11 @@ function getMessagesFromError(error) {
         // a form field) and an array of localized messages.
         // More info:
         // http://addons-server.readthedocs.io/en/latest/topics/api/overview.html#bad-requests
-        value.forEach((msg) => {
-          if (key === 'non_field_errors') {
-            // Add a generic error not related to a specific field.
-            errorData.messages.push(msg);
-          } else {
-            // Add a field specific error message.
-            // TODO: localize field keys.
-            // The field string is not localized but we still show
-            // it as a hint.
-            errorData.messages.push(`${key}: ${msg}`);
-          }
+        value.forEach((message) => {
+          // Add a field specific error message. We do not prefix the message with
+          // `key`, which is the field name (or `non_field_errors`), since it is not
+          // localized.
+          errorData.messages.push(message);
         });
       } else if (key === 'code') {
         errorData.code = value;
@@ -81,6 +76,16 @@ function getMessagesFromError(error) {
   return errorData;
 }
 
+// The state looks like:
+//
+// type ErrorState = {
+//   [id: string]: {|
+//     code?: string,
+//     messages: Array<string>,
+//     responseStatusCode?: string,
+//   |},
+// };
+//
 export const initialState = {};
 
 export default function errors(state = initialState, action) {
@@ -101,6 +106,17 @@ export default function errors(state = initialState, action) {
           responseStatusCode: action.payload.error.response ?
             action.payload.error.response.status : null,
         },
+      };
+    }
+    case SET_ERROR_MESSAGE: {
+      const errorData = state[action.payload.id] || {
+        messages: [],
+      };
+      errorData.messages.push(action.payload.message);
+
+      return {
+        ...state,
+        [action.payload.id]: errorData,
       };
     }
     default:

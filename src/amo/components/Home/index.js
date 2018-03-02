@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -12,7 +12,9 @@ import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_TRENDING,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_MOST_POPULAR,
+  SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -23,22 +25,21 @@ import Icon from 'ui/components/Icon';
 import './styles.scss';
 
 
-export const FIRST_COLLECTION_SLUG = 'privacy-matters';
-export const FIRST_COLLECTION_USER = 'mozilla';
-
-export const SECOND_COLLECTION_SLUG = 'change-up-your-tabs';
-export const SECOND_COLLECTION_USER = 'mozilla';
+export const COLLECTIONS_TO_FETCH = [
+  { slug: 're-imagine-search', user: 'mozilla' },
+  { slug: 'privacy-matters', user: 'mozilla' },
+  { slug: 'dynamic-media-downloaders', user: 'mozilla' },
+];
 
 export class HomeBase extends React.Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
-    firstCollection: PropTypes.array.isRequired,
-    secondCollection: PropTypes.array.isRequired,
-    featuredThemes: PropTypes.array.isRequired,
+    collections: PropTypes.array.isRequired,
+    featuredExtensions: PropTypes.array.isRequired,
+    popularThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-    upAndComingExtensions: PropTypes.array.isRequired,
   }
 
   componentWillMount() {
@@ -49,10 +50,7 @@ export class HomeBase extends React.Component {
     if (!resultsLoaded) {
       dispatch(fetchHomeAddons({
         errorHandlerId: errorHandler.id,
-        firstCollectionSlug: FIRST_COLLECTION_SLUG,
-        firstCollectionUser: FIRST_COLLECTION_USER,
-        secondCollectionSlug: SECOND_COLLECTION_SLUG,
-        secondCollectionUser: SECOND_COLLECTION_USER,
+        collectionsToFetch: COLLECTIONS_TO_FETCH,
       }));
     }
   }
@@ -158,12 +156,11 @@ export class HomeBase extends React.Component {
   render() {
     const {
       errorHandler,
-      firstCollection,
-      secondCollection,
-      featuredThemes,
+      collections,
+      featuredExtensions,
+      popularThemes,
       i18n,
       resultsLoaded,
-      upAndComingExtensions,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -199,39 +196,67 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addons={firstCollection}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Top privacy extensions')}
-          footerText={i18n.gettext('See more privacy extensions')}
-          footerLink={{ pathname:
-            `/collections/${FIRST_COLLECTION_USER}/${FIRST_COLLECTION_SLUG}/`,
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={secondCollection}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Change up your tabs')}
-          footerText={i18n.gettext('See more tab extensions')}
-          footerLink={{ pathname:
-            `/collections/${SECOND_COLLECTION_USER}/${SECOND_COLLECTION_SLUG}/`,
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={upAndComingExtensions}
-          className="Home-UpAndComingExtensions"
-          header={i18n.gettext('Trending extensions')}
-          footerText={i18n.gettext('See more trending extensions')}
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
           footerLink={{
             pathname: '/search/',
             query: {
               addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_TRENDING,
+              featured: true,
             },
           }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[0]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Re-imagine search')}
+          footerText={i18n.gettext('See more search extensions')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
+          addons={popularThemes}
+          className="Home-PopularThemes"
+          header={i18n.gettext('Popular themes')}
+          footerText={i18n.gettext('See more popular themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              sort: SEARCH_SORT_POPULAR,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[1]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Privacy tools')}
+          footerText={i18n.gettext('See more privacy tools')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[2]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Dynamic media downloaders')}
+          footerText={i18n.gettext('See more dynamic media downloaders')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 
@@ -247,21 +272,6 @@ export class HomeBase extends React.Component {
 
           {this.renderCuratedThemes()}
         </Card>
-
-        <LandingAddonsCard
-          addons={featuredThemes}
-          className="Home-FeaturedThemes"
-          header={i18n.gettext('Featured themes')}
-          footerText={i18n.gettext('See more featured themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_THEME,
-              featured: true,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
       </div>
     );
   }
@@ -269,11 +279,10 @@ export class HomeBase extends React.Component {
 
 export function mapStateToProps(state) {
   return {
-    firstCollection: state.home.firstCollection,
-    secondCollection: state.home.secondCollection,
-    featuredThemes: state.home.featuredThemes,
+    collections: state.home.collections,
+    featuredExtensions: state.home.featuredExtensions,
+    popularThemes: state.home.popularThemes,
     resultsLoaded: state.home.resultsLoaded,
-    upAndComingExtensions: state.home.upAndComingExtensions,
   };
 }
 

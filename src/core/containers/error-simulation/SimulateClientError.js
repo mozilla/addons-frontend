@@ -1,5 +1,5 @@
 import { compose } from 'redux';
-import React from 'react';
+import * as React from 'react';
 
 import { render404IfConfigKeyIsFalse } from 'core/utils';
 import Button from 'ui/components/Button';
@@ -23,7 +23,7 @@ export class SimulateClientErrorBase extends React.Component {
       'Nice! Check Sentry' : '💣 Go ahead, trigger an error';
     return (
       <div className="SimulateClientError">
-        <Button onClick={this.onClick}>{prompt}</Button>
+        <Button buttonType="neutral" onClick={this.onClick}>{prompt}</Button>
       </div>
     );
   }

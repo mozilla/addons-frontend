@@ -30,32 +30,28 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
 
       store.dispatch(loadHomeAddons({
-        firstCollection: createFakeCollectionAddons({
+        collections: [createFakeCollectionAddons({
           addons: Array(10).fill(fakeAddon),
-        }),
-        secondCollection: createFakeCollectionAddons({
-          addons: Array(10).fill(fakeAddon),
-        }),
-        featuredThemes: createAddonsApiResult([fakeTheme]),
-        upAndComingExtensions: createAddonsApiResult([fakeAddon]),
+        })],
+        featuredExtensions: createAddonsApiResult([fakeAddon]),
+        popularThemes: createAddonsApiResult([fakeTheme]),
       }));
 
       const homeState = store.getState().home;
 
       expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.firstCollection)
+      expect(homeState.collections)
+        .toHaveLength(1);
+      expect(homeState.collections[0])
         .toHaveLength(LANDING_PAGE_ADDON_COUNT);
-      expect(homeState.firstCollection).toEqual(
+      expect(homeState.collections[0]).toEqual(
         Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
       );
-      expect(homeState.secondCollection).toEqual(
-        Array(LANDING_PAGE_ADDON_COUNT).fill(createInternalAddon(fakeAddon))
-      );
-      expect(homeState.featuredThemes).toEqual([
-        createInternalAddon(fakeTheme),
-      ]);
-      expect(homeState.upAndComingExtensions).toEqual([
+      expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
+      ]);
+      expect(homeState.popularThemes).toEqual([
+        createInternalAddon(fakeTheme),
       ]);
     });
 
@@ -64,10 +60,7 @@ describe(__filename, () => {
 
       const state = homeReducer(loadedState, fetchHomeAddons({
         errorHandlerId: 'some-error-handler-id',
-        firstCollectionSlug: 'some-collection-slug',
-        firstCollectionUser: 'mozilla',
-        secondCollectionSlug: 'some-other-slug',
-        secondCollectionUser: 'another-user',
+        collectionsToFetch: [],
       }));
 
       expect(state.resultsLoaded).toEqual(false);
@@ -77,10 +70,7 @@ describe(__filename, () => {
   describe('fetchHomeAddons()', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      firstCollectionSlug: 'some-collection-slug',
-      firstCollectionUser: 'mozilla',
-      secondCollectionSlug: 'some-other-slug',
-      secondCollectionUser: 'mozilla',
+      collectionsToFetch: [],
     };
 
     it('throws an error when errorHandlerId is missing', () => {
@@ -92,85 +82,48 @@ describe(__filename, () => {
       }).toThrow('errorHandlerId is required');
     });
 
-    it('throws an error when firstCollectionSlug is missing', () => {
+    it('throws an error when collectionsToFetch is missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.firstCollectionSlug;
+      delete partialParams.collectionsToFetch;
 
       expect(() => {
         fetchHomeAddons(partialParams);
-      }).toThrow('firstCollectionSlug is required');
-    });
-
-    it('throws an error when firstCollectionUser is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.firstCollectionUser;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('firstCollectionUser is required');
-    });
-
-    it('throws an error when secondCollectionSlug is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.secondCollectionSlug;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('secondCollectionSlug is required');
-    });
-
-    it('throws an error when secondCollectionUser is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.secondCollectionUser;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('secondCollectionUser is required');
+      }).toThrow('collectionsToFetch is required');
     });
   });
 
   describe('loadHomeAddons()', () => {
     const defaultParams = {
-      firstCollection: {},
-      secondCollection: {},
-      featuredThemes: {},
-      upAndComingExtensions: {},
+      collections: [],
+      featuredExtensions: {},
+      popularThemes: {},
     };
 
-    it('throws an error when the first collection add-ons are missing', () => {
+    it('throws an error when the collections array is missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.firstCollection;
+      delete partialParams.collections;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('firstCollection is required');
+      }).toThrow('collections is required');
     });
 
-    it('throws an error when the second collection add-ons are missing', () => {
+    it('throws an error when featured extensions are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.secondCollection;
+      delete partialParams.featuredExtensions;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('secondCollection is required');
+      }).toThrow('featuredExtensions are required');
     });
 
-    it('throws an error when featured themes are missing', () => {
+    it('throws an error when popular themes are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.featuredThemes;
+      delete partialParams.popularThemes;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('featuredThemes is required');
-    });
-
-    it('throws an error when up and coming extensions are missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.upAndComingExtensions;
-
-      expect(() => {
-        loadHomeAddons(partialParams);
-      }).toThrow('upAndComingExtensions is required');
+      }).toThrow('popularThemes are required');
     });
   });
 });

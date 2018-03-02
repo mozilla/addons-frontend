@@ -1,0 +1,109 @@
+@import "~core/css/inc/mixins";
+@import "~core/css/inc/vars";
+@import "~ui/css/vars";
+@import "~ui/components/Button/styles";
+@import "~photon-colors/colors";
+
+.Notice {
+  border-radius: $border-radius-s;
+  display: grid;
+  font-size: $font-size-s;
+  grid-gap: 4px;
+  grid-template-columns: min-content auto;
+  line-height: 1.1;
+  padding: 4px;
+}
+
+.Notice-icon {
+  background-position: center top;
+  background-repeat: no-repeat;
+  margin: 4px;
+  min-height: 16px;
+  width: 16px;
+}
+
+.Notice-column {
+  align-items: center;
+  display: flex;
+}
+
+.Notice-text {
+  display: inline-block;
+  margin: 0;
+  padding: 4px 0;
+
+  // The spec calls for additional spacing
+  // in front of the action button. This is
+  // applied even without a button to strike
+  // a balance with the icon spacing.
+  @include padding-end(8px);
+}
+
+@mixin notice_button() {
+  &,
+  &.Button--micro {
+    border: none;
+    font-size: $font-size-s;
+    line-height: 1.1;
+    padding: 6px;
+    text-shadow: none;
+    width: max-content;
+  }
+}
+
+.Notice-error {
+  .Notice-button {
+    @include button(
+      $background: $red-60,
+      $background-active: $red-80,
+      $background-hover: $red-70,
+      $color: $white
+    );
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url("./media/exclamation.svg");
+  }
+
+  background-color: $red-50;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $white;
+  }
+}
+
+.Notice-success {
+  .Notice-button {
+    @include button(
+      $background: $green-60,
+      $background-active: $green-80,
+      $background-hover: $green-70,
+      $color: $green-90
+    );
+
+    &:active,
+    &:hover,
+    &:focus {
+      color: $white;
+    }
+
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url("./media/check-mark.svg");
+  }
+
+  background-color: $green-50;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $green-90;
+  }
+}

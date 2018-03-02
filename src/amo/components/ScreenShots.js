@@ -1,7 +1,7 @@
 /* global document, window */
 /* eslint-disable jsx-a11y/href-no-hash */
 
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import 'react-photoswipe/lib/photoswipe.css';
@@ -44,7 +44,7 @@ const formatPreviews = (previews) => (
 );
 
 export const thumbnailContent = (item) => (
-  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
+  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" title={item.title} />
 );
 
 export default class ScreenShots extends React.Component {

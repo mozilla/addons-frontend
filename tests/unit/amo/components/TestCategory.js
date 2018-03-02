@@ -1,6 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 
 import { getLanding, loadLanding } from 'amo/actions/landing';
+import { setViewContext } from 'amo/actions/viewContext';
 import Category, { CategoryBase } from 'amo/components/Category';
 import CategoryHeader from 'amo/components/CategoryHeader';
 import LandingAddonsCard from 'amo/components/LandingAddonsCard';
@@ -9,6 +10,7 @@ import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   SEARCH_SORT_TRENDING,
@@ -20,6 +22,7 @@ import ErrorList from 'ui/components/ErrorList';
 import {
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
@@ -91,7 +94,7 @@ describe(__filename, () => {
     return {
       errorHandler,
       i18n: fakeI18n(),
-      location: { query: {} },
+      location: fakeRouterLocation(),
       params: {
         slug: fakeCategory.slug,
         visibleAddonType: visibleAddonType(fakeCategory.type),
@@ -105,7 +108,11 @@ describe(__filename, () => {
   function render(props = {}, options = {}) {
     return shallowUntilTarget(
       <Category {...renderProps(props, options)} />,
-      CategoryBase
+      CategoryBase,
+      // TODO: ideally, we would like to enable the lifecycle methods, but it
+      // produces unexpected errors, related to Enzyme 3.
+      // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+      { shallowOptions: { disableLifecycleMethods: true } }
     );
   }
 
@@ -133,14 +140,16 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('fetches categories and landing data when not yet loaded', () => {
+  it('fetches categories and landing data ' +
+     'and sets a viewContext when not yet loaded', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.callCount(fakeDispatch, 2);
+    sinon.assert.callCount(fakeDispatch, 3);
     sinon.assert.calledWithMatch(fakeDispatch, categoriesFetch({
       errorHandlerId: errorHandler.id,
     }));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeCategory.type));
     sinon.assert.calledWith(fakeDispatch, getLanding({
       addonType: fakeCategory.type,
       category: fakeCategory.slug,
@@ -148,7 +157,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('does not fetch anything when already loaded', () => {
+  it('does not fetch categories when already loaded', () => {
     _categoriesFetch();
     _categoriesLoad();
     _getLanding();
@@ -157,7 +166,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWith(fakeDispatch, sinon.match({ type: CATEGORIES_FETCH }));
   });
 
   it('does not fetch categories when an empty set was loaded', () => {
@@ -238,7 +247,6 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, getLanding({
       addonType: fakeCategory.type,
       category: fakeCategory.slug,

@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 

@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import {
   REVIEW_FLAG_REASON_BUG_SUPPORT,
@@ -13,13 +13,14 @@ import FlagReview from 'amo/components/FlagReview';
 import FlagReviewMenu, {
   FlagReviewMenuBase,
 } from 'amo/components/FlagReviewMenu';
-import { logOutUser } from 'core/actions';
+import { logOutUser } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   dispatchSignInActions, fakeReview,
 } from 'tests/unit/amo/helpers';
 import {
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ListItem from 'ui/components/ListItem';
@@ -36,7 +37,7 @@ describe(__filename, () => {
   const render = (customProps = {}) => {
     const props = {
       i18n: fakeI18n(),
-      location: { path: '/review-list', query: {} },
+      location: fakeRouterLocation(),
       review: denormalizeReview(fakeReview),
       store,
       ...customProps,
@@ -68,7 +69,7 @@ describe(__filename, () => {
   describe('interacting with different users', () => {
     it('requires you to be signed in', () => {
       store.dispatch(logOutUser());
-      const location = { path: '/somewhere', query: {} };
+      const location = fakeRouterLocation();
       const { menu } = renderMenu({ location });
 
       // Only the button item should be rendered.

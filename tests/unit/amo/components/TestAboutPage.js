@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import About, { AboutBase } from 'amo/components/StaticPages/About';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';

@@ -26,7 +26,7 @@
 }
 
 .LandingPage-button {
-  display: block;
+  width: 100%;
 
   @include respond-to(medium) {
     display: none;

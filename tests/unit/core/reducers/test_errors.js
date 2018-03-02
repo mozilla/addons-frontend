@@ -1,5 +1,5 @@
 import { createApiError } from 'core/api/index';
-import { clearError, setError } from 'core/actions/errors';
+import { clearError, setError, setErrorMessage } from 'core/actions/errors';
 import {
   API_ERROR_SIGNATURE_EXPIRED,
   ERROR_ADDON_DISABLED_BY_ADMIN,
@@ -118,11 +118,11 @@ describe(__filename, () => {
       password: ['sorry, it cannot be 1234'],
     };
     const reducedError = getReducedError(createFakeApiError({ fieldErrors }));
-    const messages = reducedError.messages;
+    const { messages } = reducedError;
 
-    expect(messages).toContain('username: not long enough');
-    expect(messages).toContain('username: contains invalid characters');
-    expect(messages).toContain('password: sorry, it cannot be 1234');
+    expect(messages).toContain('not long enough');
+    expect(messages).toContain('contains invalid characters');
+    expect(messages).toContain('sorry, it cannot be 1234');
   });
 
   it('stores API responses when they do not have messages', () => {
@@ -213,5 +213,27 @@ describe(__filename, () => {
       jsonResponse: { unknown_key: true },
     });
     expect(getReducedError(error).messages).toEqual([]);
+  });
+
+  it('stores a message in state', () => {
+    const id = 'some-id';
+    const message = 'Form field cannot be blank';
+    const action = setErrorMessage({ id, message });
+    const state = errors(undefined, action);
+
+    expect(state[id].messages).toEqual([message]);
+  });
+
+  it('handles setting multiple messages', () => {
+    const id = 'some-id';
+
+    let state = errors(undefined, setErrorMessage({
+      id, message: 'first',
+    }));
+    state = errors(state, setErrorMessage({
+      id, message: 'second',
+    }));
+
+    expect(state[id].messages).toEqual(['first', 'second']);
   });
 });

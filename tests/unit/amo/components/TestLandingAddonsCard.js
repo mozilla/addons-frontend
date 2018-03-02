@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
@@ -46,6 +46,15 @@ describe(__filename, () => {
     expect(root.find(AddonsCard)).toHaveProp('addons', addons);
   });
 
+  it('passes addonInstallSource to AddonsCard', () => {
+    const addonInstallSource = 'featured-on-home-page';
+    const addons = [createInternalAddon(fakeAddon)];
+    const root = render({ addons, addonInstallSource });
+
+    expect(root.find(AddonsCard))
+      .toHaveProp('addonInstallSource', addonInstallSource);
+  });
+
   it('sets the number of placeholders to render while loading', () => {
     const root = render({ loading: true });
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);
@@ -58,5 +67,11 @@ describe(__filename, () => {
     })];
     const root = render({ addons, placeholderCount: 2 });
     expect(root.find(AddonsCard)).toHaveProp('footerLink', null);
+  });
+
+  it('accepts a string for the footer link', () => {
+    const linkString = '/some/link/';
+    const root = render({ footerLink: linkString });
+    expect(root.find(AddonsCard).prop('footerLink').props.to).toEqual(linkString);
   });
 });

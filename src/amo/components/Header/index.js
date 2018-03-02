@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import PropTypes from 'prop-types';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -9,7 +10,7 @@ import SectionLinks from 'amo/components/SectionLinks';
 import AuthenticateButton, {
   createHandleLogOutFunction,
 } from 'core/components/AuthenticateButton';
-import { isAuthenticated, selectDisplayName } from 'core/reducers/user';
+import { getCurrentUser, hasAnyReviewerRelatedPermission } from 'amo/reducers/users';
 import { VIEW_CONTEXT_HOME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import DropdownMenu from 'ui/components/DropdownMenu';
@@ -21,14 +22,13 @@ import './styles.scss';
 export class HeaderBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
-    displayName: PropTypes.string,
     handleLogOut: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    isAuthenticated: PropTypes.bool.isRequired,
-    isHomePage: PropTypes.bool.isRequired,
+    isHomePage: PropTypes.bool,
     location: PropTypes.object.isRequired,
-    query: PropTypes.string.isRequired,
-    username: PropTypes.string,
+    query: PropTypes.string,
+    siteUser: PropTypes.object.isRequired,
+    isReviewer: PropTypes.bool.isRequired,
   }
 
   static defaultProps = {
@@ -44,12 +44,12 @@ export class HeaderBase extends React.Component {
 
   render() {
     const {
-      displayName,
       i18n,
       isHomePage,
       location,
       query,
-      username,
+      siteUser,
+      isReviewer,
     } = this.props;
 
     const headerLink = (
@@ -86,22 +86,22 @@ export class HeaderBase extends React.Component {
             className="Header-download-button Header-button"
           />
 
-          {this.props.isAuthenticated ? (
+          {siteUser ? (
             <DropdownMenu
-              text={displayName}
+              text={siteUser.displayName}
               className="Header-authenticate-button Header-button"
             >
               <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
               <DropdownMenuItem>
                 <Link
                   className="Header-user-menu-collections-link"
-                  href={`/collections/${username}/`}
+                  href={`/collections/${siteUser.username}/`}
                 >
                   {i18n.gettext('View My Collections')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href={`/user/${username}/`}>
+                <Link href={`/user/${siteUser.username}/`}>
                   {i18n.gettext('View Profile')}
                 </Link>
               </DropdownMenuItem>
@@ -128,9 +128,20 @@ export class HeaderBase extends React.Component {
                   {i18n.gettext('Submit a New Theme')}
                 </Link>
               </DropdownMenuItem>
+              {isReviewer &&
+                <DropdownMenuItem>
+                  <Link
+                    className="Header-user-menu-reviewer-tools-link"
+                    href="/reviewers/"
+                    prependClientApp={false}
+                  >
+                    {i18n.gettext('Reviewer Tools')}
+                  </Link>
+                </DropdownMenuItem>
+              }
 
               <DropdownMenuItem
-                className={'Header-logout-button'}
+                className="Header-logout-button"
                 detached
                 onClick={this.handleLogOut}
               >
@@ -139,8 +150,7 @@ export class HeaderBase extends React.Component {
             </DropdownMenu>
           ) : (
             <AuthenticateButton
-              className="Header-authenticate-button Header-button Button--action
-              Button--outline-only Button--small"
+              className="Header-authenticate-button Header-button"
               location={location}
               noIcon
             />
@@ -160,12 +170,12 @@ export class HeaderBase extends React.Component {
 export const mapStateToProps = (state) => {
   return {
     api: state.api,
-    displayName: selectDisplayName(state),
     isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
-    isAuthenticated: isAuthenticated(state),
-    username: state.user.username,
+    siteUser: getCurrentUser(state.users),
+    isReviewer: hasAnyReviewerRelatedPermission(state),
   };
 };
+
 
 export const mapDispatchToProps = (dispatch, ownProps) => ({
   handleLogOut: ownProps.handleLogOut || createHandleLogOutFunction(dispatch),

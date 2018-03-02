@@ -1,8 +1,10 @@
 /* @flow */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 
 import Link from 'amo/components/Link';
+import { INSTALL_SOURCE_HERO_PROMO } from 'core/constants';
+import { addQueryParams } from 'core/utils';
 
 import './styles.scss';
 
@@ -10,7 +12,7 @@ import './styles.scss';
 type Props = {|
   children?: any,
   linkTo?: Object | string,
-  styleName: string,
+  styleName?: string,
 |};
 
 export default class HeroSection extends React.Component<Props> {
@@ -25,15 +27,15 @@ export default class HeroSection extends React.Component<Props> {
 
     return (
       <div
-        className={classNames(
+        className={makeClassName(
           'HeroSection',
-          `HeroSection-styleName--${styleName}`,
+          `HeroSection-styleName--${String(styleName)}`,
         )}
       >
         {linkTo ? (
           <Link
             className="HeroSection-link-wrapper"
-            to={linkTo}
+            to={addQueryParams(linkTo, { src: INSTALL_SOURCE_HERO_PROMO })}
           >
             <div className="HeroSection-content">
               {children}

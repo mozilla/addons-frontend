@@ -1,26 +1,28 @@
 /* eslint-disable react/no-danger */
 
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { sprintf } from 'jed';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import HoverIntent from 'core/components/HoverIntent';
 import InstallButton from 'core/components/InstallButton';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
-  ADDON_TYPE_EXTENSION,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  ADDON_TYPE_THEME,
+  INSTALL_SOURCE_DISCOVERY,
   UNINSTALLING,
   validAddonTypes,
   validInstallStates,
@@ -43,6 +45,8 @@ export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This is added by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
@@ -51,14 +55,17 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    installURLs: PropTypes.func.isRequired,
-    needsRestart: PropTypes.bool.isRequired,
+    platformFiles: PropTypes.object,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
+    needsRestart: PropTypes.bool,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
+    themeAction: PropTypes.func,
     type: PropTypes.oneOf(validAddonTypes).isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     _tracking: PropTypes.object,
@@ -66,7 +73,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
-    installURLs: {},
+    platformFiles: {},
     needsRestart: false,
     // Defaults themeAction to the imported func.
     themeAction,
@@ -75,25 +82,29 @@ export class AddonBase extends React.Component {
 
   getError() {
     const { error, i18n, status } = this.props;
-    return status === ERROR ? (<div className="notification error" key="error-overlay">
-      <p className="message">{this.errorMessage()}</p>
-      {error && !error.startsWith('FATAL') ? (
-        // eslint-disable-next-line jsx-a11y/href-no-hash
-        <a
-          className="close"
-          href="#"
-          onClick={this.closeError}
-        >
-          {i18n.gettext('Close')}
-        </a>
-      ) : null}
-    </div>) : null;
+    return status === ERROR ? (
+      <div className="notification error" key="error-overlay">
+        <p className="message">{this.errorMessage()}</p>
+        {error && !error.startsWith('FATAL') ? (
+          // eslint-disable-next-line jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid
+          <a
+            className="close"
+            href="#"
+            onClick={this.closeError}
+          >
+            {i18n.gettext('Close')}
+          </a>
+        ) : null}
+      </div>
+    ) : null;
   }
 
   getRestart() {
-    return this.props.needsRestart ? (<div className="notification restart" key="restart-overlay">
-      <p className="message">{this.restartMessage()}</p>
-    </div>) : null;
+    return this.props.needsRestart ? (
+      <div className="notification restart" key="restart-overlay">
+        <p className="message">{this.restartMessage()}</p>
+      </div>
+    ) : null;
   }
 
   getLogo() {
@@ -107,7 +118,7 @@ export class AddonBase extends React.Component {
   getThemeImage() {
     const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === ADDON_TYPE_THEME) {
-      /* eslint-disable jsx-a11y/href-no-hash */
+      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
       return (
         <HoverIntent
           onHoverIntent={this.previewTheme}
@@ -128,7 +139,7 @@ export class AddonBase extends React.Component {
           </a>
         </HoverIntent>
       );
-      /* eslint-enable jsx-a11y/href-no-hash */
+      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
     return null;
   }
@@ -214,6 +225,7 @@ export class AddonBase extends React.Component {
     const {
       addon,
       clientApp,
+      defaultInstallSource,
       getClientCompatibility,
       heading,
       type,
@@ -224,7 +236,7 @@ export class AddonBase extends React.Component {
       throw new Error(`Invalid addon type "${type}"`);
     }
 
-    const addonClasses = classNames('addon', {
+    const addonClasses = makeClassName('addon', {
       theme: type === ADDON_TYPE_THEME,
       extension: type === ADDON_TYPE_EXTENSION,
     });
@@ -247,7 +259,8 @@ export class AddonBase extends React.Component {
     return (
       // Disabling this is fine since the onClick is just being used to delegate
       // click events bubbling from the link within the header.
-      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+      // eslint-disable-next-line max-len
+      /* eslint-disable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
       <div className={addonClasses}>
         {this.getThemeImage()}
         {this.getLogo()}
@@ -270,10 +283,12 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
+          {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton
-            className="Addon-install-button"
-            size="small"
             {...this.props}
+            className="Addon-install-button"
+            defaultInstallSource={defaultInstallSource}
+            size="small"
           />
         </div>
         {!compatible ? (
@@ -283,6 +298,8 @@ export class AddonBase extends React.Component {
           />
         ) : null}
       </div>
+      // eslint-disable-next-line max-len
+      /* eslint-enable jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */
     );
   }
 }
@@ -298,13 +315,14 @@ export function mapStateToProps(state, ownProps) {
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
-    installURLs: addon ? addon.installURLs : {},
+    platformFiles: addon ? addon.platformFiles : {},
     userAgentInfo: state.api.userAgentInfo,
   };
 }
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
-  withInstallHelpers({ src: 'discovery-promo' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);

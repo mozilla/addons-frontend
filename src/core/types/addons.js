@@ -100,7 +100,9 @@ export type ExternalAddonType = {|
   categories?: Object,
   contributions_url?: string,
   current_beta_version?: AddonVersionType,
-  current_version: AddonVersionType,
+  // If you make an API request as an admin for an incomplete
+  // add-on (status=0) then the current_version could be null.
+  current_version?: AddonVersionType,
   default_locale: string,
   description?: string,
   edit_url?: string,
@@ -153,12 +155,12 @@ export type AddonType = {
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl?: string,
-  installURLs: {
-    all: ?string,
-    android: ?string,
-    mac: ?string,
-    linux: ?string,
-    windows: ?string,
+  platformFiles: {
+    all: ?Object,
+    android: ?Object,
+    mac: ?Object,
+    linux: ?Object,
+    windows: ?Object,
   },
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,

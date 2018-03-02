@@ -1,7 +1,7 @@
 /* eslint-disable react/no-danger */
 
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -69,7 +69,7 @@ export class ShowMoreCardBase extends React.Component {
 
     return (
       <Card
-        className={classNames('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
+        className={makeClassName('ShowMoreCard', className, { 'ShowMoreCard--expanded': expanded })}
         header={header}
         footerLink={expanded ? null : readMoreLink}
       >

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2016-05-20 11:26+0000\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -35,13 +35,13 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 #, fuzzy
 msgid "Install Theme"
 msgstr "Installing %(name)s."
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr ""
 
@@ -81,60 +81,60 @@ msgstr "Your add-on is ready"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Now you can access %(name)s from the toolbar."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Hover to preview or click to install %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Hover over the image to preview"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Installation failed. Please try again."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "Download failed. Please check your connection."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "An unexpected error occurred during installation."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "An unexpected error occurred during uninstallation."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "An unexpected error occurred"
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "This add-on will be uninstalled after you restart Firefox."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Please restart Firefox to use this add-on."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Close"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ""
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 #, fuzzy
 msgid "This add-on does not support your version of Firefox."
 msgstr "This add-on will be uninstalled after you restart Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr ""
 
@@ -146,11 +146,11 @@ msgstr ""
 msgid "Discover Add-ons"
 msgstr "Discover Add-ons"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Personalize Your Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -163,19 +163,19 @@ msgstr ""
 "visual\n"
 "themes to powerful tools and features. Here are a few great ones to try out."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Click to play"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "to find out more about add-ons"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Close video"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "See more add-ons!"
 
@@ -188,6 +188,6 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr "An unexpected error occurred"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr ""

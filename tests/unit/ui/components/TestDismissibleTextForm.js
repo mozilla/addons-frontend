@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
@@ -90,7 +90,7 @@ describe(__filename, () => {
     const root = mountRender();
     // This checks that textarea.focus() was called.
     expect(
-      root.find('.DismissibleTextForm-textarea')
+      root.find('textarea.DismissibleTextForm-textarea')
         .matchesElement(document.activeElement)
     ).toEqual(true);
   });
@@ -143,7 +143,7 @@ describe(__filename, () => {
     });
 
     expect(root.find('.DismissibleTextForm-submit').childAt(0))
-      .toContain('Submit the form');
+      .toHaveText('Submit the form');
   });
 
   it('lets you configure the in-progress submit button text', () => {
@@ -153,7 +153,7 @@ describe(__filename, () => {
     });
 
     expect(root.find('.DismissibleTextForm-submit').childAt(0))
-      .toContain('Submitting the form');
+      .toHaveText('Submitting the form');
   });
 
   it('disables the submit button while submitting the form', () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -6,7 +6,6 @@ import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
-
 
 export class SuggestedPagesBase extends React.Component {
   static propTypes = {

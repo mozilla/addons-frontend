@@ -1,10 +1,10 @@
 import url from 'url';
 
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { oneLine } from 'common-tags';
+import { oneLine, oneLineTrim } from 'common-tags';
 import config from 'config';
 
 import { setInstallState } from 'core/actions/installations';
@@ -168,9 +168,13 @@ export function mapStateToProps(state, ownProps) {
   };
 }
 
-export function makeMapDispatchToProps({ WrappedComponent, src }) {
+export function makeMapDispatchToProps({
+  WrappedComponent, defaultInstallSource,
+}) {
   return function mapDispatchToProps(dispatch, ownProps) {
-    const mappedProps = { dispatch, src, WrappedComponent };
+    const mappedProps = {
+      dispatch, defaultInstallSource, WrappedComponent,
+    };
 
     if (config.get('server')) {
       // Return early without validating properties.
@@ -179,14 +183,19 @@ export function makeMapDispatchToProps({ WrappedComponent, src }) {
       return mappedProps;
     }
 
-    if (ownProps.installURLs === undefined) {
-      throw new Error(oneLine`installURLs is required, ensure component
-        props are set before withInstallHelpers is called`);
+    if (ownProps.platformFiles === undefined) {
+      throw new Error(oneLineTrim`The platformFiles prop is required;
+        ensure the wrapped component defines this property`);
     }
 
     if (ownProps.userAgentInfo === undefined) {
-      throw new Error(oneLine`userAgentInfo is required, ensure component
-        props are set before withInstallHelpers is called`);
+      throw new Error(oneLineTrim`The userAgentInfo prop is required;
+        ensure the wrapped component defines this property`);
+    }
+
+    if (ownProps.location === undefined) {
+      throw new Error(oneLineTrim`The location prop is required;
+        ensure the wrapped component defines this property`);
     }
 
     return mappedProps;
@@ -228,46 +237,64 @@ const userAgentOSToPlatform = {
  *
  * Parameter types:
  *
- * import type { AddonType } from 'src/core/types/addons';
- * import type { UserAgentInfoType } from 'src/core/reducers/api';
+ * import type { AddonType } from 'core/types/addons';
+ * import type { ReactRouterLocation } from 'core/types/router';
+ * import type { UserAgentInfoType } from 'core/reducers/api';
  *
  * type FindInstallUrlParams = {|
- *   installURLs: $PropertyType<AddonType, 'installURLs'>,
- *   src?: string,
+ *   appendSource?: boolean,
+ *   defaultInstallSource?: string,
+ *   location?: ReactRouterLocation,
+ *   platformFiles: $PropertyType<AddonType, 'platformFiles'>,
  *   userAgentInfo: UserAgentInfoType,
  * |};
  *
  */
-export const findInstallURL = ({ installURLs, userAgentInfo, src }) => {
-  if (!installURLs) {
-    throw new Error('The installURLs parameter is required');
+export const findInstallURL = ({
+  appendSource = true,
+  defaultInstallSource,
+  location,
+  platformFiles,
+  userAgentInfo,
+}) => {
+  if (!platformFiles) {
+    throw new Error('The platformFiles parameter is required');
   }
   if (!userAgentInfo) {
     throw new Error('The userAgentInfo parameter is required');
   }
 
+  let source;
+  if (appendSource) {
+    if (!location) {
+      throw new Error(
+        'The location parameter is required when appendSource is true');
+    }
+    source = location.query.src || defaultInstallSource;
+  }
+
   const agentOsName =
     userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
   const platform = userAgentOSToPlatform[agentOsName];
-  const platformURL = installURLs[platform];
+  const platformFile = platformFiles[platform];
 
   let installURL;
-  if (platformURL) {
-    installURL = platformURL;
+  if (platformFile) {
+    installURL = platformFile.url;
   }
 
-  if (!installURL) {
-    installURL = installURLs[OS_ALL];
+  if (!installURL && platformFiles[OS_ALL]) {
+    installURL = platformFiles[OS_ALL].url;
   }
 
   if (!installURL) {
     // This could happen for themes which do not have version files.
     log.debug(oneLine`No install URL exists for platform "${agentOsName}"
-      (mapped to "${platform}"); install URLs:`, installURLs);
+      (mapped to "${platform}"); platform files:`, platformFiles);
     return undefined;
   }
 
-  if (!src) {
+  if (!source) {
     return installURL;
   }
 
@@ -278,7 +305,7 @@ export const findInstallURL = ({ installURLs, userAgentInfo, src }) => {
     ...urlParts,
     // Reset the search string so we can define a new one.
     search: undefined,
-    query: { ...urlParts.query, src },
+    query: { ...urlParts.query, src: source },
   });
 };
 
@@ -287,14 +314,16 @@ export class WithInstallHelpers extends React.Component {
     WrappedComponent: PropTypes.func.isRequired,
     _addonManager: PropTypes.object,
     _tracking: PropTypes.object,
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     guid: PropTypes.string,
     iconUrl: PropTypes.string,
-    hasAddonManager: PropTypes.bool.isRequired,
-    installTheme: PropTypes.func.isRequired,
-    installURLs: PropTypes.string,
+    hasAddonManager: PropTypes.bool,
+    installTheme: PropTypes.func,
+    // See ReactRouterLocation from 'core/types/router'
+    location: PropTypes.object,
+    platformFiles: PropTypes.object,
     name: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     type: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
@@ -323,12 +352,16 @@ export class WithInstallHelpers extends React.Component {
   setCurrentStatus(newProps = this.props) {
     const {
       _addonManager,
+      defaultInstallSource,
       dispatch,
       hasAddonManager,
-      installURLs,
+      location,
+      platformFiles,
       userAgentInfo,
     } = this.props;
-    const installURL = findInstallURL({ installURLs, userAgentInfo });
+    const installURL = findInstallURL({
+      defaultInstallSource, location, platformFiles, userAgentInfo,
+    });
     if (!hasAddonManager) {
       log.info('No addon manager, cannot set add-on status');
       return Promise.resolve();
@@ -385,26 +418,37 @@ export class WithInstallHelpers extends React.Component {
     const {
       _addonManager,
       _tracking,
+      defaultInstallSource,
       dispatch,
       guid,
       iconUrl,
-      installURLs,
+      location,
+      platformFiles,
       name,
-      src,
       userAgentInfo,
     } = this.props;
 
-    dispatch({ type: START_DOWNLOAD, payload: { guid } });
-    _tracking.sendEvent({
-      action: TRACKING_TYPE_EXTENSION,
-      category: INSTALL_STARTED_CATEGORY,
-      label: name,
-    });
+    return new Promise((resolve) => {
+      dispatch({ type: START_DOWNLOAD, payload: { guid } });
+      _tracking.sendEvent({
+        action: TRACKING_TYPE_EXTENSION,
+        category: INSTALL_STARTED_CATEGORY,
+        label: name,
+      });
 
-    const installURL = findInstallURL({ installURLs, userAgentInfo });
-    return _addonManager.install(
-      installURL, makeProgressHandler(dispatch, guid), { src }
-    )
+      const installURL = findInstallURL({
+        defaultInstallSource, location, platformFiles, userAgentInfo,
+      });
+
+      resolve(installURL);
+    })
+      .then((installURL) => {
+        return _addonManager.install(
+          installURL,
+          makeProgressHandler(dispatch, guid),
+          { src: defaultInstallSource },
+        );
+      })
       .then(() => {
         _tracking.sendEvent({
           action: TRACKING_TYPE_EXTENSION,
@@ -499,14 +543,16 @@ export class WithInstallHelpers extends React.Component {
 }
 
 export function withInstallHelpers({
-  _makeMapDispatchToProps = makeMapDispatchToProps, src,
+  _makeMapDispatchToProps = makeMapDispatchToProps, defaultInstallSource,
 }) {
-  if (!src) {
-    throw new Error('src is required for withInstallHelpers');
+  if (typeof defaultInstallSource === 'undefined') {
+    throw new Error(
+      'defaultInstallSource is required for withInstallHelpers');
   }
   return (WrappedComponent) => compose(
     connect(
-      mapStateToProps, _makeMapDispatchToProps({ WrappedComponent, src })
+      mapStateToProps,
+      _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
     ),
   )(WithInstallHelpers);
 }

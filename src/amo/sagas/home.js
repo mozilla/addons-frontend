@@ -9,7 +9,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
 } from 'core/constants';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
@@ -19,10 +19,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 export function* fetchHomeAddons({
   payload: {
     errorHandlerId,
-    firstCollectionSlug,
-    firstCollectionUser,
-    secondCollectionSlug,
-    secondCollectionUser,
+    collectionsToFetch,
   },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -32,50 +29,47 @@ export function* fetchHomeAddons({
   try {
     const state = yield select(getState);
 
+    const collections = [];
+    // eslint-disable-next-line no-restricted-syntax
+    for (const collection of collectionsToFetch) {
+      const result = yield call(getCollectionAddons, {
+        api: state.api,
+        page: 1,
+        slug: collection.slug,
+        user: collection.user,
+      });
+      collections.push(result);
+    }
+
     const {
-      firstCollection,
-      secondCollection,
-      featuredThemes,
-      upAndComingExtensions,
+      featuredExtensions,
+      popularThemes,
     } = yield all({
-      firstCollection: call(getCollectionAddons, {
-        api: state.api,
-        page: 1,
-        slug: firstCollectionSlug,
-        user: firstCollectionUser,
-      }),
-      secondCollection: call(getCollectionAddons, {
-        api: state.api,
-        page: 1,
-        slug: secondCollectionSlug,
-        user: secondCollectionUser,
-      }),
-      featuredThemes: call(searchApi, {
+      featuredExtensions: call(searchApi, {
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
+          addonType: ADDON_TYPE_EXTENSION,
           featured: true,
           page_size: LANDING_PAGE_ADDON_COUNT,
           sort: SEARCH_SORT_RANDOM,
         },
         page: 1,
       }),
-      upAndComingExtensions: call(searchApi, {
+      popularThemes: call(searchApi, {
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_EXTENSION,
+          addonType: ADDON_TYPE_THEME,
           page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_TRENDING,
+          sort: SEARCH_SORT_POPULAR,
         },
         page: 1,
       }),
     });
 
     yield put(loadHomeAddons({
-      firstCollection,
-      secondCollection,
-      featuredThemes,
-      upAndComingExtensions,
+      collections,
+      featuredExtensions,
+      popularThemes,
     }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);

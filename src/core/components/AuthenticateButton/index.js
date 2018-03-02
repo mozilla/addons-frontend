@@ -1,18 +1,17 @@
 /* @flow */
 /* global Event, window */
 /* eslint-disable react/sort-comp */
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import { logOutUser } from 'core/actions';
 import { logOutFromServer, startLoginUrl } from 'core/api';
-import { isAuthenticated as isUserAuthenticated } from 'core/reducers/user';
+import { getCurrentUser, logOutUser } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
 import type { ApiStateType } from 'core/reducers/api';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
@@ -26,19 +25,21 @@ type HandleLogOutFunction = ({| api: ApiStateType |}) => Promise<void>;
 
 type Props = {|
   api: ApiStateType,
+  buttonType?: string,
   className?: string,
   handleLogIn: HandleLogInFunc,
   handleLogOut: HandleLogOutFunction,
   i18n: I18nType,
-  isAuthenticated: boolean,
   location: ReactRouterLocation,
   logInText?: string,
   logOutText?: string,
   noIcon: boolean,
+  siteUser: UserType | null,
 |};
 
 export class AuthenticateButtonBase extends React.Component<Props> {
   static defaultProps = {
+    buttonType: 'action',
     noIcon: false,
   }
 
@@ -46,9 +47,14 @@ export class AuthenticateButtonBase extends React.Component<Props> {
     event.preventDefault();
     event.stopPropagation();
     const {
-      api, handleLogIn, handleLogOut, isAuthenticated, location,
+      api,
+      handleLogIn,
+      handleLogOut,
+      location,
+      siteUser,
     } = this.props;
-    if (isAuthenticated) {
+
+    if (siteUser) {
       handleLogOut({ api });
     } else {
       handleLogIn(location);
@@ -57,9 +63,16 @@ export class AuthenticateButtonBase extends React.Component<Props> {
 
   render() {
     const {
-      i18n, isAuthenticated, logInText, logOutText, noIcon, className,
+      buttonType,
+      className,
+      i18n,
+      logInText,
+      logOutText,
+      noIcon,
+      siteUser,
     } = this.props;
-    const buttonText = isAuthenticated ?
+
+    const buttonText = siteUser ?
       logOutText || i18n.gettext('Log out') :
       logInText || i18n.gettext('Register or Log in');
 
@@ -70,9 +83,11 @@ export class AuthenticateButtonBase extends React.Component<Props> {
     // https://github.com/mozilla/addons-frontend/issues/1904
     return (
       <Button
-        href={`#${isAuthenticated ? 'logout' : 'login'}`}
+        href={`#${siteUser ? 'logout' : 'login'}`}
+        buttonType={buttonType}
         className={className}
         onClick={this.onClick}
+        micro
       >
         {noIcon ? null : <Icon name="user-dark" />}
         {buttonText}
@@ -83,22 +98,22 @@ export class AuthenticateButtonBase extends React.Component<Props> {
 
 type StateMappedProps = {|
   api: ApiStateType,
-  isAuthenticated: boolean,
   handleLogIn: HandleLogInFunc,
+  siteUser: UserType | null,
 |};
 
 export const mapStateToProps = (
   state: {|
     api: ApiStateType,
-    user: UserStateType,
+    users: UsersStateType,
   |}
 ): StateMappedProps => ({
   api: state.api,
-  isAuthenticated: isUserAuthenticated(state),
   handleLogIn(location, { _window = window } = {}) {
     // eslint-disable-next-line no-param-reassign
     _window.location = startLoginUrl({ location });
   },
+  siteUser: getCurrentUser(state.users),
 });
 
 type DispatchMappedProps = {|

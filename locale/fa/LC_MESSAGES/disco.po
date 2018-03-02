@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2017-08-24 11:48+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -39,12 +39,12 @@ msgstr "صفحه پیدا نشد"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "متاسفیم، نتوانستیم چیزی در آدرس URL وارد شده پیدا کنیم."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "نصب قالب"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "افزودن به فایرفاکس"
 
@@ -84,59 +84,59 @@ msgstr "افزودنی شما حاضر است"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "حالا شما می‌توانید به %(name)s از طریق نوار ابزار دسترسی داشته باشید."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "باشه!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr "برای پیش‌نمایش موس را بر روی‌اش نگه دارید یا برای نصب %(name)s کلیک کنید"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "برای پیش‌نمایش بر روی تصویر حرکت کنید"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "نصب شکست خورد. لطفا دوباره تلاش کنید."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "دریافت شکست خورد. لطفا اتصال خود را بررسی کنید."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "یک خطا غیر منتظره در هنگام نصب رُخ داد."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "یک خطا غیر منتظره در هنگام حذف رُخ داد."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "یک خطا غیر منتظره رُخ داد."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "این افزودنی پس از راه‌اندازی مجدد فایرفاکس حذف خواهد شد."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "لطفا برای استفاده از این افزودنی فایرفاکس را مجددا راه‌اندازی کنید."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "بستن"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "در حال حاضر فایرفاکس برای iOS از افزونه‌ها پشتیبانی نمی‌کند."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "این افزونه از نسخه فایرفاکس شما پشتیبانی نمی‌کند."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "این اقزونه از مرورگر شما پشتیبانی نمی‌کند."
 
@@ -148,11 +148,11 @@ msgstr "سیاست‌های حریم‌خصوصی"
 msgid "Discover Add-ons"
 msgstr "افزونه کشف کنید"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "فایرفاکس خود را شخصی سازی کنید"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -170,19 +170,19 @@ msgstr ""
 "که\n"
 "ما به دلیل کارایی و کارکردشان به شما توصیه می کنیم."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "کلیک برای پخش"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "برای پیداکردن اطلاعات بیشتر در مورد افزونه"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "بستن ویدئو"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "نمایش افزودنی‌های بیشتر!"
 
@@ -194,7 +194,7 @@ msgstr "نشست شما منسوخ شده است"
 msgid "An unexpected error occurred"
 msgstr "یک خطا غیر منتظره رُخ داد"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "برای ادامه صفحه را مجددا بارگیری کنید"
 

@@ -32,7 +32,7 @@ module.exports = {
 
   // 2592000 is 30 days in seconds.
   cookieMaxAge: 2592000,
-  cookieName: 'api_auth_token',
+  cookieName: 'frontend_auth_token',
   cookieSecure: true,
 
   enableClientConsole: false,
@@ -43,6 +43,13 @@ module.exports = {
   isDeployed: true,
   isDevelopment: false,
 
+  // For all Firefox 57+ (Quantum) UAs, send the `appversion` in all API
+  // search requests. This will return only compatible add-ons, which is
+  // good for UX (it prevents a lot of incompatible old add-ons).
+  // Disable this in development when working with stage data, which is
+  // very out-of-date and mostly not 57+ compatible.
+  restrictSearchResultsToAppVersion: true,
+
   // The canonical list of enabled apps.
   validAppNames,
 
@@ -50,11 +57,23 @@ module.exports = {
   serverHost: '127.0.0.1',
   serverPort: 4000,
 
+  // By default, sending stats to DataDog is enabled but the host setting
+  // must also be non-empty.
+  useDatadog: true,
+  // These are set with environment variables.
+  datadogHost: null,
+  datadogPort: null,
+
   // The CDN host for AMO.
   amoCDN: amoProdCDN,
   staticHost: amoProdCDN,
   apiHost: apiProdHost,
   apiPath: '/api/v3',
+
+  // The version for the favicon.
+  // This should be changed when a new favicon is pushed to the CDN to prevent
+  // client caching.
+  faviconVersion: 2,
 
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
@@ -70,11 +89,14 @@ module.exports = {
     'apiHost',
     'apiPath',
     'appName',
+    'betaVersions',
+    'restrictSearchResultsToAppVersion',
     'cookieMaxAge',
     'cookieName',
     'cookieSecure',
     'defaultLang',
     'enableClientConsole',
+    'enableCollectionEdit',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -254,4 +276,16 @@ module.exports = {
   // This setting is intended to simulate the Discopane's nginx cache
   // header for development purposes.
   cacheAllResponsesFor: null,
+
+  // See the Discopane config for how this is currently used.
+  discoParamsToUse: [],
+
+
+  // Feature flags.
+
+  // Expose the new screen for editing a collection.
+  enableCollectionEdit: false,
+
+  // If true, show a link to the beta versions page on the listing page.
+  betaVersions: true,
 };

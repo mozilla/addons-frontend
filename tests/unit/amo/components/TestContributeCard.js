@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { oneLine } from 'common-tags';
 
 import ContributeCard, {
@@ -57,7 +57,7 @@ describe(__filename, () => {
     const root = render();
     expect(root.find(Button)).toHaveLength(1);
     expect(root.find(Button)).toHaveProp('href', 'https://paypal.me/babar');
-    expect(root.find(Button).children()).toContain('Contribute now');
+    expect(root.find(Button).children().at(1)).toHaveText('Contribute now');
     expect(root.find(Button)).toHaveProp('target', '_blank');
     expect(root.find(Button)).toHaveProp('rel', 'noopener noreferrer');
   });

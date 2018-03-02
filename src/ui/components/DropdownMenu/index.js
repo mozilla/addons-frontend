@@ -1,7 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 import * as React from 'react';
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import onClickOutside from 'react-onclickoutside';
 
 import log from 'core/logger';
@@ -71,10 +71,11 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     // div below, but they're just re-creating hover in JS and dismissing
     // the menu when links inside it are clicked, so it's not really
     // an interactive element.
-    /* eslint-disable jsx-a11y/no-static-element-interactions */
+    // eslint-disable-next-line max-len
+    /* eslint-disable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
     return (
       <div
-        className={classNames('DropdownMenu', className, {
+        className={makeClassName('DropdownMenu', className, {
           'DropdownMenu--active': this.state.buttonIsActive,
         })}
         onClick={this.handleOnClickForLinks}
@@ -85,6 +86,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
           className="DropdownMenu-button"
           onClick={this.handleOnClick}
           title={text}
+          aria-haspopup="true"
         >
           <span className="DropdownMenu-button-text">
             {text}
@@ -93,13 +95,14 @@ export class DropdownMenuBase extends React.Component<Props, State> {
         </button>
 
         {children && (
-          <ul className="DropdownMenu-items">
+          <ul className="DropdownMenu-items" aria-hidden={!this.state.buttonIsActive} aria-label="submenu">
             {children}
           </ul>
         )}
       </div>
     );
-    /* eslint-enable jsx-a11y/no-static-element-interactions */
+    // eslint-disable-next-line max-len
+    /* eslint-enable jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
   }
 }
 

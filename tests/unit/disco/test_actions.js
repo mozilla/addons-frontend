@@ -31,14 +31,29 @@ describe('disco/actions/loadDiscoResults', () => {
 
 describe('disco/actions/getDiscoResults', () => {
   function defaultParams() {
-    return { errorHandlerId: 'some-id', telemetryClientId: 'client-id' };
+    return {
+      errorHandlerId: 'some-id',
+      taarParams: {
+        platform: 'Darwin',
+        'telemetry-client-id': 'client-id',
+      },
+    };
   }
 
   it('requires errorHandlerId', () => {
     const params = defaultParams();
     delete params.errorHandlerId;
-    expect(() => getDiscoResults(params))
-      .toThrow(/errorHandlerId is required/);
+    expect(() => {
+      getDiscoResults(params);
+    }).toThrow(/errorHandlerId is required/);
+  });
+
+  it('requires taarParams.platform', () => {
+    const params = defaultParams();
+    delete params.taarParams.platform;
+    expect(() => {
+      getDiscoResults(params);
+    }).toThrow(/taarParams\.platform is required/);
   });
 
   it('adds errorHandlerId to the payload', () => {

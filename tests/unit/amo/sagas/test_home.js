@@ -11,7 +11,7 @@ import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
@@ -49,10 +49,7 @@ describe(__filename, () => {
     function _fetchHomeAddons(params) {
       sagaTester.dispatch(fetchHomeAddons({
         errorHandlerId: errorHandler.id,
-        firstCollectionSlug: 'some-slug',
-        firstCollectionUser: 'some-user',
-        secondCollectionSlug: 'some-other-slug',
-        secondCollectionUser: 'some-other-user',
+        collectionsToFetch: [{ slug: 'some-slug', user: 'some-user' }],
         ...params,
       }));
     }
@@ -62,9 +59,8 @@ describe(__filename, () => {
 
       const firstCollectionSlug = 'collection-slug';
       const firstCollectionUser = 'user-id-or-name';
-
-      const secondCollectionSlug = 'another-slug';
-      const secondCollectionUser = 'another-user-id';
+      const secondCollectionSlug = 'collection-slug-2';
+      const secondCollectionUser = 'user-id-or-name-2';
 
       const baseArgs = { api: state.api };
       const baseFilters = {
@@ -72,6 +68,7 @@ describe(__filename, () => {
       };
 
       const firstCollection = createFakeCollectionAddons();
+      const secondCollection = createFakeCollectionAddons();
       mockCollectionsApi
         .expects('getCollectionAddons')
         .withArgs({
@@ -81,8 +78,6 @@ describe(__filename, () => {
           user: firstCollectionUser,
         })
         .returns(Promise.resolve(firstCollection));
-
-      const secondCollection = createFakeCollectionAddons();
       mockCollectionsApi
         .expects('getCollectionAddons')
         .withArgs({
@@ -92,25 +87,9 @@ describe(__filename, () => {
           user: secondCollectionUser,
         })
         .returns(Promise.resolve(secondCollection));
+      const collections = [firstCollection, secondCollection];
 
-      const featuredThemes = createAddonsApiResult([fakeTheme]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            addonType: ADDON_TYPE_THEME,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(featuredThemes));
-
-      const upAndComingExtensions = createAddonsApiResult([{
-        ...fakeAddon, slug: 'trending-addon',
-      }]);
+      const featuredExtensions = createAddonsApiResult([fakeAddon]);
       mockSearchApi
         .expects('search')
         .withArgs({
@@ -118,24 +97,38 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             addonType: ADDON_TYPE_EXTENSION,
-            sort: SEARCH_SORT_TRENDING,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
           },
           page: 1,
         })
-        .returns(Promise.resolve(upAndComingExtensions));
+        .returns(Promise.resolve(featuredExtensions));
+
+      const popularThemes = createAddonsApiResult([fakeTheme]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_THEME,
+            sort: SEARCH_SORT_POPULAR,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(popularThemes));
 
       _fetchHomeAddons({
-        firstCollectionSlug,
-        firstCollectionUser,
-        secondCollectionSlug,
-        secondCollectionUser,
+        collectionsToFetch: [
+          { slug: firstCollectionSlug, user: firstCollectionUser },
+          { slug: secondCollectionSlug, user: secondCollectionUser },
+        ],
       });
 
       const expectedLoadAction = loadHomeAddons({
-        firstCollection,
-        secondCollection,
-        featuredThemes,
-        upAndComingExtensions,
+        collections,
+        featuredExtensions,
+        popularThemes,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);

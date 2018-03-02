@@ -1,5 +1,5 @@
 /* @flow */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -137,37 +137,43 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
       linkTagEnd: '</a>',
     });
 
+    // The button prompt mentions abuse to make it clear that you can't
+    // use it to report general issues (like bugs) about the add-on.
+    // See https://github.com/mozilla/addons-frontend/issues/4025#issuecomment-349103373
+    const prompt = i18n.gettext('Report this add-on for abuse');
+
     /* eslint-disable react/no-danger */
     return (
       <div
-        className={classNames('ReportAbuseButton', {
+        className={makeClassName('ReportAbuseButton', {
           'ReportAbuseButton--is-expanded': abuseReport.uiVisible,
         })}
       >
         <div className="ReportAbuseButton--preview">
           <Button
-            className="ReportAbuseButton-show-more Button--report Button--fullwidth"
+            buttonType="neutral"
+            className="ReportAbuseButton-show-more"
             onClick={this.showReportUI}
+            puffy
           >
-            {i18n.gettext('Report this add-on for abuse')}
+            {prompt}
           </Button>
         </div>
 
         <div className="ReportAbuseButton--expanded">
-          <h3 className="ReportAbuseButton-header">
-            {i18n.gettext('Report this add-on for abuse')}
-          </h3>
+          <h3 className="ReportAbuseButton-header">{prompt}</h3>
 
           <p
             className="ReportAbuseButton-first-paragraph"
             dangerouslySetInnerHTML={sanitizeHTML(prefaceText, ['a'])}
           />
 
-          <p>{i18n.gettext(
-            `Please don't use this form to report bugs or request add-on
-            features; this report will be sent to Mozilla and not to the
-            add-on developer.`
-          )}</p>
+          <p>
+            {i18n.gettext(
+              `Please don't use this form to report bugs or request add-on
+              features; this report will be sent to Mozilla and not to the
+              add-on developer.`)}
+          </p>
 
           {errorHandler.renderErrorIfPresent()}
 
@@ -183,7 +189,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
 
           <div className="ReportAbuseButton-buttons">
             <a
-              className={classNames('ReportAbuseButton-dismiss-report', {
+              className={makeClassName('ReportAbuseButton-dismiss-report', {
                 'ReportAbuseButton-dismiss-report--disabled': loading,
               })}
               href="#cancel"
@@ -192,9 +198,11 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
               {i18n.gettext('Dismiss')}
             </a>
             <Button
-              className="ReportAbuseButton-send-report Button--report Button--small"
+              buttonType="alert"
+              className="ReportAbuseButton-send-report"
               disabled={sendButtonIsDisabled}
               onClick={this.sendReport}
+              micro
             >
               {loading ?
                 i18n.gettext('Sending abuse report') :
@@ -211,7 +219,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
 export const mapStateToProps = (
   state: {| abuse: AbuseState |}, ownProps: Props
 ) => {
-  const addon = ownProps.addon;
+  const { addon } = ownProps;
 
   return {
     abuseReport: addon && state.abuse.bySlug[addon.slug] ?

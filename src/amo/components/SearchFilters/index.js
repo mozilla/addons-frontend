@@ -1,5 +1,5 @@
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -20,6 +20,7 @@ import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import ExpandableCard from 'ui/components/ExpandableCard';
+import Select from 'ui/components/Select';
 
 import './styles.scss';
 
@@ -141,7 +142,7 @@ export class SearchFiltersBase extends React.Component {
           >
             {i18n.gettext('Sort by')}
           </label>
-          <select
+          <Select
             className="SearchFilters-select"
             id="SearchFilters-Sort"
             name="sort"
@@ -151,10 +152,10 @@ export class SearchFiltersBase extends React.Component {
             {this.sortOptions().map((option) => {
               return <option key={option.value} {...option} />;
             })}
-          </select>
+          </Select>
 
           {/* Categories are linked to addonType so we don't allow changing the
-            addonType if a filter is set. */}
+            addonType if a category is set. */}
           {!filters.category && (
             <div>
               <label
@@ -163,7 +164,7 @@ export class SearchFiltersBase extends React.Component {
               >
                 {i18n.gettext('Add-on Type')}
               </label>
-              <select
+              <Select
                 className="SearchFilters-AddonType SearchFilters-select"
                 id="SearchFilters-AddonType"
                 name="addonType"
@@ -173,7 +174,7 @@ export class SearchFiltersBase extends React.Component {
                 {this.addonTypeOptions().map((option) => {
                   return <option key={option.value} {...option} />;
                 })}
-              </select>
+              </Select>
             </div>
           )}
 
@@ -183,7 +184,7 @@ export class SearchFiltersBase extends React.Component {
           >
             {i18n.gettext('Operating System')}
           </label>
-          <select
+          <Select
             className="SearchFilters-OperatingSystem SearchFilters-select"
             id="SearchFilters-OperatingSystem"
             name="operatingSystem"
@@ -193,7 +194,7 @@ export class SearchFiltersBase extends React.Component {
             {this.operatingSystemOptions().map((option) => {
               return <option key={option.value} {...option} />;
             })}
-          </select>
+          </Select>
 
           <input
             className="SearchFilters-Featured"

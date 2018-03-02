@@ -1,6 +1,6 @@
 /* @flow */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -40,7 +40,7 @@ export class HeroBase extends React.Component<Props> {
       `Hero-order-${heroBanners[name].order.join('-')}` : null;
 
     return (
-      <Card className={classNames('Hero', `Hero-name-${name}`, orderStyle)}>
+      <Card className={makeClassName('Hero', `Hero-name-${name}`, orderStyle)}>
         <div className="Hero-contents">
           {heroBanners[name] ? heroBanners[name].order.map((index) => {
             return sections[index];

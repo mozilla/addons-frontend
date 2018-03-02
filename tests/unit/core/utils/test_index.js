@@ -1,12 +1,12 @@
 import url from 'url';
 
-import React from 'react';
+import * as React from 'react';
 import config from 'config';
 import { sprintf } from 'jed';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { compose } from 'redux';
 
 import * as api from 'core/api';
@@ -34,16 +34,15 @@ import {
   isAddonAuthor,
   isAllowedOrigin,
   isValidClientApp,
-  loadAddonIfNeeded,
   ngettext,
   nl2br,
   parsePage,
   refreshAddon,
   render404IfConfigKeyIsFalse,
-  safeAsyncConnect,
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
+  decodeHtmlEntities,
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
@@ -51,7 +50,6 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import I18nProvider from 'core/i18n/Provider';
 import { createInternalAddon, loadAddons } from 'core/reducers/addons';
 import {
-  dispatchSignInActions,
   fakeAddon,
   signedInApiState,
 } from 'tests/unit/amo/helpers';
@@ -345,7 +343,7 @@ describe(__filename, () => {
     });
 
     it('fetches and dispatches an add-on', () => {
-      const entities = createFetchAddonResult(fakeAddon).entities;
+      const { entities } = createFetchAddonResult(fakeAddon);
       mockApi
         .expects('fetchAddon')
         .once()
@@ -371,51 +369,6 @@ describe(__filename, () => {
           () => {
             expect(dispatch.called).toEqual(false);
           });
-    });
-  });
-
-  describe('loadAddonIfNeeded', () => {
-    const loadedSlug = 'my-addon';
-    let dispatch;
-
-    beforeEach(() => {
-      dispatch = sinon.spy();
-    });
-
-    function makeProps(slug) {
-      const addon = { ...fakeAddon, slug: loadedSlug };
-      const { store } = dispatchSignInActions();
-
-      store.dispatch(loadAddons(createFetchAddonResult(addon).entities));
-
-      return {
-        params: { slug },
-        store,
-      };
-    }
-
-    it('does not re-fetch the add-on if already loaded', () => {
-      return loadAddonIfNeeded(makeProps(loadedSlug))
-        .then(() => {
-          expect(dispatch.called).toEqual(false);
-        });
-    });
-
-    it('loads the add-on if it is not loaded', async () => {
-      const slug = 'other-addon';
-      const props = makeProps(slug);
-
-      const mockAddonRefresher = sinon.mock()
-        .once()
-        .withArgs({
-          addonSlug: slug,
-          apiState: props.store.getState().api,
-          dispatch: props.store.dispatch,
-        })
-        .returns(Promise.resolve());
-
-      await loadAddonIfNeeded(props, { _refreshAddon: mockAddonRefresher });
-      mockAddonRefresher.verify();
     });
   });
 
@@ -494,6 +447,13 @@ describe(__filename, () => {
       const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
       expect(url.parse(output, true).query).toEqual({ foo: '1', bar: 'updated' });
     });
+
+    it('handles relative URLs', () => {
+      const output = addQueryParams('/relative/path/?one=1', { two: '2' });
+      expect(output).toMatch(/^\/relative\/path\//);
+      expect(url.parse(output, true).query)
+        .toEqual({ one: '1', two: '2' });
+    });
   });
 
   describe('ngettext', () => {
@@ -534,91 +494,6 @@ describe(__filename, () => {
       expect(() => {
         visibleAddonType('hasOwnProperty');
       }).toThrowError('"hasOwnProperty" not found in VISIBLE_ADDON_TYPES_MAPPING');
-    });
-  });
-
-  describe('safeAsyncConnect', () => {
-    it('wraps promise callbacks in safePromise', () => {
-      const asyncConnect = sinon.stub();
-
-      safeAsyncConnect(
-        [{
-          promise: () => {
-            throw new Error('error in callback');
-          },
-        }],
-        { asyncConnect }
-      );
-
-      expect(asyncConnect.called).toBeTruthy();
-
-      const aConfig = asyncConnect.firstCall.args[0][0];
-      return aConfig.promise().then(unexpectedSuccess, (error) => {
-        expect(error.message).toEqual('error in callback');
-      });
-    });
-
-    it('requires a promise', () => {
-      expect(() => safeAsyncConnect([{ key: 'thing' }]))
-        .toThrowError(/Expected safeAsyncConnect.* config to define a promise/);
-    });
-
-    it('adds a deferred: true property', () => {
-      const asyncConnect = sinon.stub();
-
-      safeAsyncConnect(
-        [{
-          promise: () => {
-            throw new Error('error in callback');
-          },
-        }],
-        { asyncConnect }
-      );
-
-      expect(asyncConnect.called).toBeTruthy();
-
-      const aConfig = asyncConnect.firstCall.args[0][0];
-      expect(aConfig.deferred).toBe(true);
-    });
-
-    it('passes through other params', () => {
-      const asyncConnect = sinon.stub();
-
-      safeAsyncConnect(
-        [{
-          key: 'SomeKey',
-          promise: () => {},
-        }],
-        { asyncConnect }
-      );
-
-      expect(asyncConnect.called).toBeTruthy();
-
-      const aConfig = asyncConnect.firstCall.args[0][0];
-      expect(aConfig.key).toEqual('SomeKey');
-    });
-
-    it('passes through all configs', () => {
-      const asyncConnect = sinon.stub();
-
-      const config1 = { key: 'one', promise: () => {} };
-      const config2 = { key: 'two', promise: () => {} };
-      safeAsyncConnect([config1, config2], { asyncConnect });
-
-      expect(asyncConnect.called).toBeTruthy();
-
-      expect(asyncConnect.firstCall.args[0][0].key).toEqual('one');
-      expect(asyncConnect.firstCall.args[0][1].key).toEqual('two');
-    });
-
-    it('fills in an empty key to configs', () => {
-      const asyncConnect = sinon.stub();
-
-      safeAsyncConnect([{
-        promise: () => Promise.resolve(),
-      }], { asyncConnect });
-
-      expect(asyncConnect.firstCall.args[0][0].key).toEqual('__safeAsyncConnect_key__');
     });
   });
 
@@ -831,6 +706,17 @@ describe(__filename, () => {
       expect(sanitizeHTML(html, ['a'])).toEqual({
         __html: '<a href="http://example.org">link</a>',
       });
+    });
+  });
+
+  describe('decodeHtmlEntities', () => {
+    it('decodes entities', () => {
+      expect(decodeHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;'))
+        .toEqual('<>"&©®');
+    });
+
+    it('passes through anything else', () => {
+      expect(decodeHtmlEntities('just whatever')).toEqual('just whatever');
     });
   });
 });

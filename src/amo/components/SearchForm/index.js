@@ -1,6 +1,6 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -21,6 +21,7 @@ import {
 import {
   convertOSToFilterValue,
   convertFiltersToQueryParams,
+  convertQueryParamsToFilters,
 } from 'core/searchUtils';
 import Icon from 'ui/components/Icon';
 
@@ -32,11 +33,13 @@ export class SearchFormBase extends React.Component {
   static propTypes = {
     api: PropTypes.object.isRequired,
     className: PropTypes.string,
-    debounce: PropTypes.func.isRequired,
+    debounce: PropTypes.func,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     i18n: PropTypes.object.isRequired,
     loadingSuggestions: PropTypes.bool.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
     query: PropTypes.string.isRequired,
     router: PropTypes.object.isRequired,
@@ -87,12 +90,17 @@ export class SearchFormBase extends React.Component {
   }
 
   createFiltersFromQuery(newFilters) {
-    const { userAgentInfo } = this.props;
-    const filters = { ...newFilters };
+    const { location, userAgentInfo } = this.props;
+    // Preserve any existing search filters.
+    const filtersFromLocation = convertQueryParamsToFilters(location.query);
+    // Do not preserve page. New searches should always start on page 1.
+    delete filtersFromLocation.page;
 
-    filters.operatingSystem = convertOSToFilterValue(userAgentInfo.os.name);
-
-    return filters;
+    return {
+      operatingSystem: convertOSToFilterValue(userAgentInfo.os.name),
+      ...filtersFromLocation,
+      ...newFilters,
+    };
   }
 
   goToSearch(query) {
@@ -216,7 +224,7 @@ export class SearchFormBase extends React.Component {
     return (
       <form
         action={`/${api.lang}/${api.clientApp}${pathname}`}
-        className={classNames('SearchForm', className, {
+        className={makeClassName('SearchForm', className, {
           'SearchForm--autocompleteIsOpen': autocompleteIsOpen,
         })}
         method="GET"

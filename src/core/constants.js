@@ -25,11 +25,6 @@ export const validInstallStates = [
   UNKNOWN,
 ];
 
-// redux-connect action types; we watch for these in our `errorPage`
-// reducer to display error pages.
-export const REDUX_CONNECT_END_GLOBAL_LOAD = '@redux-conn/END_GLOBAL_LOAD';
-export const REDUX_CONNECT_LOAD_FAIL = '@redux-conn/LOAD_FAIL';
-
 // Add-on error states.
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
 export const INSTALL_CANCELLED = 'INSTALL_CANCELLED';
@@ -91,6 +86,18 @@ export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
+// Add-on install tracking sources.
+// These key values may be linked to historic analytic data.
+export const INSTALL_SOURCE_COLLECTION = 'collection';
+export const INSTALL_SOURCE_DETAIL_PAGE = 'dp-btn-primary';
+export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
+export const INSTALL_SOURCE_FEATURED = 'featured';
+export const INSTALL_SOURCE_HERO_PROMO = 'hp-dl-promo';
+export const INSTALL_SOURCE_MOST_POPULAR = 'mostpopular';
+export const INSTALL_SOURCE_SEARCH = 'search';
+export const INSTALL_SOURCE_TOP_RATED = 'rating';
+export const INSTALL_SOURCE_TRENDING = 'hotness';
+
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
@@ -119,12 +126,12 @@ export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
 export const LANDING_GET = 'LANDING_GET';
 export const LANDING_LOADED = 'LANDING_LOADED';
-export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const SEARCH_STARTED = 'SEARCH_STARTED';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
@@ -235,5 +242,13 @@ export const THEMES_REVIEW = 'Personas:Review';
 export const STATS_VIEW = 'Stats:View';
 // Can edit all collections.
 export const COLLECTIONS_EDIT = 'Collections:Edit';
+// Can confirm approval of automatically approved add-ons.
+export const ADDONS_POSTREVIEW = 'Addons:PostReview';
+// Can approve add-ons content.
+export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
+// Can review unlisted add-ons.
+export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
+// Can moderate user ratings on add-ons.
+export const RATINGS_MODERATE = 'Ratings:Moderate';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';

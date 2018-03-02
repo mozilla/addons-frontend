@@ -1,10 +1,12 @@
 /* global Response */
+import url from 'url';
+
 import base64url from 'base64url';
 import config, { util as configUtil } from 'config';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
-import React from 'react';
+import * as React from 'react';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 
@@ -18,6 +20,11 @@ import { fakeAddon } from 'tests/unit/amo/helpers';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
+
+export const randomId = () => {
+  // Add 1 to make sure it's never zero.
+  return Math.floor(Math.random() * 10000) + 1;
+};
 
 /*
  * Return a fake authentication token that can be
@@ -293,7 +300,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
       return root.shallow(shallowOptions);
     }
     // Unwrap the next component in the hierarchy.
-    root = root.first().shallow(shallowOptions);
+    root = root.dive();
   }
 
   throw new Error(oneLine`Could not find ${TargetComponent} in rendered
@@ -377,27 +384,36 @@ export function createFakeLanguageTool(otherProps = {}) {
   };
 }
 
-export function createUserProfileResponse({
+export function createUserAccountResponse({
   id = 123456,
+  biography = 'I love making add-ons!',
   username = 'user-1234',
-  displayName = null,
+  created = '2017-08-15T12:01:13Z',
+  /* eslint-disable camelcase */
+  average_addon_rating = 4.3,
+  display_name = null,
+  num_addons_listed = 1,
+  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  picture_type = '',
+  /* eslint-enable camelcase */
+  homepage = null,
   permissions = [],
 } = {}) {
   return {
-    average_addon_rating: null,
-    biography: '',
-    created: '2017-08-15T12:01:13Z',
-    display_name: displayName,
-    homepage: '',
+    average_addon_rating,
+    biography,
+    created,
+    display_name,
+    homepage,
     id,
     is_addon_developer: false,
     is_artist: false,
     location: '',
     name: '',
-    num_addons_listed: 0,
+    num_addons_listed,
     occupation: '',
-    picture_type: '',
-    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    picture_type,
+    picture_url,
     url: null,
     username,
     permissions,
@@ -413,5 +429,53 @@ export function createUserProfileResponse({
 //   ...
 // }
 export const getFakeConfig = (params = {}) => {
+  // eslint-disable-next-line no-restricted-syntax
+  for (const key of Object.keys(params)) {
+    if (!config.has(key)) {
+      // This will help alert us when a test accidentally relies
+      // on an invalid config key.
+      throw new Error(
+        `Cannot set a fake value for "${key}"; this key is invalid`);
+    }
+  }
   return Object.assign(configUtil.cloneDeep(config), params);
+};
+
+/*
+ * A sinon matcher to check if the URL contains the declared params.
+ *
+ * Example:
+ *
+ * mockWindow.expects('fetch').withArgs(urlWithTheseParams({ page: 1 }))
+ */
+export const urlWithTheseParams = (params) => {
+  return sinon.match((urlString) => {
+    const { query } = url.parse(urlString, true);
+
+    // eslint-disable-next-line no-restricted-syntax
+    for (const param in params) {
+      if (!query[param] || query[param] !== params[param].toString()) {
+        return false;
+      }
+    }
+
+    return true;
+  }, `urlWithTheseParams(${JSON.stringify(params)})`);
+};
+
+/*
+ * Returns a fake ReactRouter location object.
+ *
+ * See ReactRouterLocation in 'core/types/router';
+ */
+export const fakeRouterLocation = (props = {}) => {
+  return {
+    action: 'PUSH',
+    hash: '',
+    key: 'some-key',
+    pathname: '/some/url',
+    query: {},
+    search: '',
+    ...props,
+  };
 };

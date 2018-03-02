@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import config from 'config';
 
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -148,15 +149,19 @@ export function createInternalThemeData(
   };
 }
 
+type CreateInternalAddonOptions = {|
+  _config: typeof config,
+|};
+
 export function createInternalAddon(
-  apiAddon: ExternalAddonType
+  apiAddon: ExternalAddonType,
+  { _config = config }: CreateInternalAddonOptions = {}
 ): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
     contributions_url: apiAddon.contributions_url,
-    current_beta_version: apiAddon.current_beta_version,
     current_version: apiAddon.current_version,
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,
@@ -198,7 +203,7 @@ export function createInternalAddon(
     // some historic reason.
     iconUrl: apiAddon.icon_url,
 
-    installURLs: {
+    platformFiles: {
       all: undefined,
       android: undefined,
       linux: undefined,
@@ -209,6 +214,10 @@ export function createInternalAddon(
     isWebExtension: false,
     isMozillaSignedExtension: false,
   };
+
+  if (_config.get('betaVersions')) {
+    addon.current_beta_version = apiAddon.current_beta_version;
+  }
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
     const themeData = createInternalThemeData(apiAddon);
@@ -228,25 +237,28 @@ export function createInternalAddon(
     }
   }
 
-  if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {
-    apiAddon.current_version.files.forEach((file) => {
+  const currentVersion = apiAddon.current_version;
+
+  if (currentVersion && currentVersion.files.length > 0) {
+    currentVersion.files.forEach((file) => {
       // eslint-disable-next-line no-prototype-builtins
-      if (!addon.installURLs.hasOwnProperty(file.platform)) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (!addon.platformFiles.hasOwnProperty(file.platform)) {
         log.warn(oneLine`Add-on ID ${apiAddon.id}, slug ${apiAddon.slug}
           has a file with an unknown platform: ${file.platform}`);
       }
-      addon.installURLs[file.platform] = file.url;
+      addon.platformFiles[file.platform] = file;
     });
-    addon.isRestartRequired = apiAddon.current_version.files.some(
+    addon.isRestartRequired = currentVersion.files.some(
       (file) => !!file.is_restart_required
     );
     // The following checks are a bit fragile since only one file needs
     // to contain the flag. However, it is highly unlikely to create an
     // add-on with mismatched file flags in the current DevHub.
-    addon.isWebExtension = apiAddon.current_version.files.some(
+    addon.isWebExtension = currentVersion.files.some(
       (file) => !!file.is_webextension
     );
-    addon.isMozillaSignedExtension = apiAddon.current_version.files.some(
+    addon.isMozillaSignedExtension = currentVersion.files.some(
       (file) => !!file.is_mozilla_signed_extension
     );
   }

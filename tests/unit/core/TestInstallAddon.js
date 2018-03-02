@@ -1,6 +1,6 @@
 import config from 'config';
 import { mount, shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 import UAParser from 'ua-parser-js';
 
@@ -46,6 +46,7 @@ import {
   createFakeAddon, fakeAddon, fakeTheme,
 } from 'tests/unit/amo/helpers';
 import {
+  fakeRouterLocation,
   getFakeAddonManagerWrapper,
   sampleUserAgentParsed,
   shallowUntilTarget,
@@ -62,13 +63,19 @@ const {
   mapStateToProps,
   withInstallHelpers,
 } = installAddon;
-const BaseComponent = () => <div />;
 
-function componentWithInstallHelpers({ src = 'some-src' } = {}) {
+// See: https://github.com/airbnb/enzyme/issues/1232.
+class BaseComponent extends React.Component {
+  render() {
+    return <div />;
+  }
+}
+
+function componentWithInstallHelpers({ defaultInstallSource = 'some-src' } = {}) {
   // This simulates how a component would typically apply
   // the withInstallHelpers() HOC wrapper.
   return compose(
-    withInstallHelpers({ src })
+    withInstallHelpers({ defaultInstallSource })
   )(BaseComponent);
 }
 
@@ -80,23 +87,36 @@ const defaultProps = (overrides = {}) => {
     // TODO: remove this spread. This simulates how both
     // amo/Addon and disco/Addon spread `addon` after wrapping
     // themselves in the withInstallHelpers() HOC to get
-    // installURLs and iconUrl, etc.
+    // platformFiles and iconUrl, etc.
     ...addon,
     hasAddonManager: true,
     _addonManager: getFakeAddonManagerWrapper(),
+    dispatch: store.dispatch,
     store,
+    location: fakeRouterLocation(),
     userAgentInfo: sampleUserAgentParsed,
     ...overrides,
   };
 };
 
-function renderWithInstallHelpers({ src, ...customProps } = {}) {
-  const Component = componentWithInstallHelpers({ src });
+function render(Component, props) {
+  return shallowUntilTarget(
+    <Component {...props} />,
+    BaseComponent,
+    // If we do not disable these methods, `componentDidMount()` will be called
+    // but in most cases we do not have a complete fakeAddonManager.
+    // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+    { shallowOptions: { disableLifecycleMethods: true } }
+  );
+}
+
+function renderWithInstallHelpers({
+  defaultInstallSource, ...customProps
+} = {}) {
+  const Component = componentWithInstallHelpers({ defaultInstallSource });
 
   const props = defaultProps(customProps);
-  const root = shallowUntilTarget(
-    <Component {...props} />, BaseComponent
-  );
+  const root = render(Component, props);
 
   return { root, dispatch: props.store.dispatch };
 }
@@ -105,13 +125,23 @@ describe(__filename, () => {
   it('connects mapDispatchToProps for the component', () => {
     const _makeMapDispatchToProps = sinon.spy();
     const WrappedComponent = sinon.stub();
-    withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(WrappedComponent);
-    expect(_makeMapDispatchToProps.calledWith({ WrappedComponent, src: 'Howdy' })).toBeTruthy();
+
+    withInstallHelpers({
+      defaultInstallSource: 'Howdy', _makeMapDispatchToProps,
+    })(WrappedComponent);
+
+    sinon.assert.calledWith(_makeMapDispatchToProps, {
+      WrappedComponent, defaultInstallSource: 'Howdy',
+    });
   });
 
   it('wraps the component in WithInstallHelpers', () => {
     const _makeMapDispatchToProps = sinon.spy();
-    const Component = withInstallHelpers({ src: 'Howdy', _makeMapDispatchToProps })(() => {});
+
+    const Component = withInstallHelpers({
+      defaultInstallSource: 'Howdy', _makeMapDispatchToProps,
+    })(() => {});
+
     const { store } = createStore();
     const root = shallow(<Component store={store} />);
     expect(root.type()).toEqual(WithInstallHelpers);
@@ -184,7 +214,8 @@ describe(__filename, () => {
       _addonManager,
       store: createStore().store,
     };
-    const root = shallowUntilTarget(<Component {...props} />, BaseComponent);
+
+    const root = render(Component, props);
 
     // Update the component with the same props (i.e. same add-on guid)
     // and make sure the status is not set.
@@ -192,10 +223,10 @@ describe(__filename, () => {
     sinon.assert.notCalled(_addonManager.getAddon);
   });
 
-  it('throws without a src', () => {
+  it('throws without a defaultInstallSource', () => {
     expect(() => {
       withInstallHelpers({})(() => {});
-    }).toThrowError(/src is required/);
+    }).toThrowError(/defaultInstallSource is required/);
   });
 
   it('sets the current status in componentDidMount with an addonManager', () => {
@@ -235,6 +266,7 @@ describe(__filename, () => {
   describe('findInstallURL', () => {
     const _findInstallURL = ({
       addonFiles = [],
+      location = fakeRouterLocation(),
       userAgent = userAgentsByPlatform.windows.firefox40,
       ...params
     } = {}) => {
@@ -244,7 +276,8 @@ describe(__filename, () => {
       const userAgentInfo = userAgent && UAParser(userAgent);
 
       return installAddon.findInstallURL({
-        installURLs: addon && addon.installURLs,
+        location,
+        platformFiles: addon && addon.platformFiles,
         userAgentInfo,
         ...params,
       });
@@ -449,9 +482,9 @@ describe(__filename, () => {
         .toEqual(undefined);
     });
 
-    it('requires installURLs', () => {
+    it('requires platformFiles', () => {
       expect(() => _findInstallURL({ addonFiles: null }))
-        .toThrow(/installURLs parameter is required/);
+        .toThrow(/platformFiles parameter is required/);
     });
 
     it('requires userAgentInfo', () => {
@@ -459,44 +492,59 @@ describe(__filename, () => {
         .toThrow(/userAgentInfo parameter is required/);
     });
 
-    it('adds a src to the install URL', () => {
+    it('adds a default source to the install URL', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
       expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
-        src: 'homepage',
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
+        defaultInstallSource: 'homepage',
       }))
-        .toEqual('https://a.m.o/files/mac.xpi?src=homepage');
+        .toEqual(`${baseURL}?src=homepage`);
     });
 
-    it('only adds src to the URL when necessary', () => {
+    it('only adds a source to the URL when defined', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
       expect(_findInstallURL({
-        addonFiles: [
-          {
-            platform: OS_MAC,
-            url: 'https://a.m.o/files/mac.xpi',
-          },
-        ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
-        src: null,
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
+        defaultInstallSource: null,
       }))
-        .toEqual('https://a.m.o/files/mac.xpi');
+        .toEqual(baseURL);
+    });
+
+    it('prefers an external source over the default', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
+      const externalSource = 'my-reddit-post';
+      expect(_findInstallURL({
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
+        location: fakeRouterLocation({ query: { src: externalSource } }),
+        defaultInstallSource: 'default-source',
+      }))
+        .toEqual(`${baseURL}?src=${externalSource}`);
+    });
+
+    it('requires a location when appending a source', () => {
+      expect(() => _findInstallURL({ location: null }))
+        .toThrow(/location parameter is required/);
+    });
+
+    it('allows undefined locations when not appending a source', () => {
+      const baseURL = 'https://a.m.o/files/addon.xpi';
+      expect(_findInstallURL({
+        appendSource: false,
+        location: null,
+        addonFiles: [{ platform: OS_ALL, url: baseURL }],
+      }))
+        .toEqual(baseURL);
     });
 
     it('preserves the install URL query string', () => {
       const url = _findInstallURL({
         addonFiles: [
           {
-            platform: OS_MAC,
+            platform: OS_ALL,
             url: 'https://a.m.o/files/mac.xpi?lang=he',
           },
         ],
-        userAgent: userAgentsByPlatform.mac.firefox33,
-        src: 'homepage',
+        defaultInstallSource: 'homepage',
       });
 
       expect(url).toMatch(/src=homepage/);
@@ -506,7 +554,7 @@ describe(__filename, () => {
 });
 
 describe(`${__filename}: withInstallHelpers`, () => {
-  const src = 'some-install-source';
+  const defaultInstallSource = 'some-install-source';
   const WrappedComponent = sinon.stub();
   let configStub;
   let mapDispatchToProps;
@@ -521,7 +569,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
   beforeAll(() => {
     mapDispatchToProps = makeMapDispatchToProps({
-      WrappedComponent, src,
+      WrappedComponent, defaultInstallSource,
     });
   });
 
@@ -537,7 +585,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
         files: [{ platform: OS_ALL, url: installURL }],
       }));
 
-      const { root, dispatch } = renderWithInstallHelpers(addon);
+      const { root, dispatch } = renderWithInstallHelpers({
+        ...addon, defaultInstallSource: null,
+      });
       const { setCurrentStatus } = root.instance().props;
 
       return setCurrentStatus()
@@ -557,7 +607,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
         files: [{ platform: OS_ALL, url: installURL }],
       }));
 
-      const { root, dispatch } = renderWithInstallHelpers(addon);
+      const { root, dispatch } = renderWithInstallHelpers({
+        ...addon, defaultInstallSource: null,
+      });
       const { setCurrentStatus } = root.instance().props;
 
       dispatch.reset();
@@ -580,6 +632,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
+        defaultInstallSource: null,
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -609,6 +662,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
       const { root, dispatch } = renderWithInstallHelpers({
         ...addon,
+        defaultInstallSource: null,
         _addonManager: getFakeAddonManagerWrapper({
           getAddon: Promise.resolve({
             isActive: false,
@@ -640,7 +694,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -669,7 +725,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -698,7 +756,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -723,7 +783,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
 
       const { root, dispatch } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager,
+        ...addon,
+        _addonManager: fakeAddonManager,
+        defaultInstallSource: null,
       });
       const { setCurrentStatus } = root.instance().props;
 
@@ -756,6 +818,31 @@ describe(`${__filename}: withInstallHelpers`, () => {
             dispatch,
             setInstallState({
               guid: addon.guid, status: ERROR, error: FATAL_ERROR,
+            }),
+          );
+        });
+    });
+
+    it('adds defaultInstallSource to the URL', () => {
+      const installURL = 'http://the.url/';
+      const addon = createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url: installURL }],
+      }));
+
+      const { root, dispatch } = renderWithInstallHelpers({
+        ...addon,
+        defaultInstallSource,
+      });
+      const { setCurrentStatus } = root.instance().props;
+
+      return setCurrentStatus()
+        .then(() => {
+          sinon.assert.calledWith(
+            dispatch,
+            setInstallState({
+              guid: addon.guid,
+              status: ENABLED,
+              url: `${installURL}?src=${defaultInstallSource}`,
             }),
           );
         });
@@ -898,7 +985,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
     it('does not dispatch a FATAL_ERROR when setEnabled is missing', () => {
       const fakeAddonManager = {
-        enable: sinon.stub().returns(Promise.reject(new Error(SET_ENABLE_NOT_AVAILABLE))),
+        enable: sinon.stub().returns(Promise.reject(
+          new Error(SET_ENABLE_NOT_AVAILABLE)
+        )),
       };
       const { root, dispatch } = renderWithInstallHelpers({
         _addonManager: fakeAddonManager,
@@ -921,7 +1010,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       }));
       const fakeAddonManager = getFakeAddonManagerWrapper();
       const { root } = renderWithInstallHelpers({
-        ...addon, _addonManager: fakeAddonManager, src,
+        ...addon, _addonManager: fakeAddonManager, defaultInstallSource,
       });
       const { install } = root.instance().props;
 
@@ -929,9 +1018,9 @@ describe(`${__filename}: withInstallHelpers`, () => {
         .then(() => {
           sinon.assert.calledWith(
             fakeAddonManager.install,
-            installURL,
+            `${installURL}?src=${defaultInstallSource}`,
             sinon.match.func,
-            { src }
+            { src: defaultInstallSource }
           );
         });
     });
@@ -1222,16 +1311,20 @@ describe(`${__filename}: withInstallHelpers`, () => {
       sinon.restore();
       configStub = sinon.stub(config, 'get').withArgs('server').returns(true);
       expect(mapDispatchToProps(fakeDispatch))
-        .toEqual({ dispatch: fakeDispatch, src, WrappedComponent });
+        .toEqual({
+          dispatch: fakeDispatch,
+          defaultInstallSource,
+          WrappedComponent,
+        });
       sinon.assert.calledWith(configStub, 'server');
     });
 
-    it('requires installURLs', () => {
+    it('requires platformFiles', () => {
       const props = defaultProps();
-      delete props.installURLs;
+      delete props.platformFiles;
       expect(() => {
         makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/installURLs is required/);
+      }).toThrowError(/platformFiles prop is required/);
     });
 
     it('requires userAgentInfo', () => {
@@ -1239,7 +1332,15 @@ describe(`${__filename}: withInstallHelpers`, () => {
       delete props.userAgentInfo;
       expect(() => {
         makeMapDispatchToProps({})(fakeDispatch, props);
-      }).toThrowError(/userAgentInfo is required/);
+      }).toThrowError(/userAgentInfo prop is required/);
+    });
+
+    it('requires location', () => {
+      const props = defaultProps();
+      delete props.location;
+      expect(() => {
+        makeMapDispatchToProps({})(fakeDispatch, props);
+      }).toThrowError(/location prop is required/);
     });
 
     it('can wrap an extension with the right props', () => {

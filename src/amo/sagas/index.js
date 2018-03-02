@@ -15,7 +15,7 @@ import addons from 'core/sagas/addons';
 import search from 'core/sagas/search';
 import autocomplete from 'core/sagas/autocomplete';
 import languageTools from 'core/sagas/languageTools';
-import user from 'core/sagas/user';
+import users from 'amo/sagas/users';
 
 
 // Export all sagas for this app so runSaga can consume them.
@@ -32,6 +32,6 @@ export default function* rootSaga() {
     fork(languageTools),
     fork(reviews),
     fork(search),
-    fork(user),
+    fork(users),
   ]);
 }

@@ -1,7 +1,7 @@
 /* @flow */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -29,7 +29,7 @@ import type { UserReviewType } from 'amo/actions/reviews';
 import type { ReviewState } from 'amo/reducers/reviews';
 import type { AddonState } from 'core/reducers/addons';
 import type { ApiStateType } from 'core/reducers/api';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
@@ -86,7 +86,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       dispatch(setViewContext(addon.type));
     }
 
-    let location = this.props.location;
+    let { location } = this.props;
     let locationChanged = false;
     if (nextProps && nextProps.location) {
       if (nextProps.location !== location) {
@@ -99,7 +99,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       dispatch(fetchReviews({
         addonSlug: params.addonSlug,
         errorHandlerId: errorHandler.id,
-        page: parsePage(location.query.page),
+        page: location.query.page,
       }));
     }
   }
@@ -248,7 +248,7 @@ export class AddonReviewListBase extends React.Component<Props> {
             </div>
           </div>
 
-          {addon ? (
+          {addon && addon.current_version ? (
             <RatingManager
               addon={addon}
               location={location}
@@ -294,7 +294,7 @@ export class AddonReviewListBase extends React.Component<Props> {
 type AppState = {|
   addons: AddonState,
   api: ApiStateType,
-  user: UserStateType,
+  users: UsersStateType,
   reviews: ReviewState,
 |};
 
@@ -302,7 +302,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
   if (!ownProps || !ownProps.params || !ownProps.params.addonSlug) {
     throw new Error('The component had a falsey params.addonSlug parameter');
   }
-  const addonSlug = ownProps.params.addonSlug;
+  const { addonSlug } = ownProps.params;
   const reviewData = state.reviews.byAddon[addonSlug];
 
   return {
@@ -318,14 +318,14 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 }
 
 export const extractId = (ownProps: Props) => {
-  const { location, params } = ownProps;
+  const { location, params } = ownProps.router;
 
   return `${params.addonSlug}-${parsePage(location.query.page)}`;
 };
 
 export default compose(
-  connect(mapStateToProps),
-  translate({ withRef: true }),
-  withFixedErrorHandler({ fileName: __filename, extractId }),
   withRouter,
+  connect(mapStateToProps),
+  translate(),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonReviewListBase);

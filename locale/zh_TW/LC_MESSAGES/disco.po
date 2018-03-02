@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
-"PO-Revision-Date: 2017-08-23 13:53+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
+"PO-Revision-Date: 2018-02-14 02:48+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -19,13 +19,10 @@ msgid "Server Error"
 msgstr "伺服器發生錯誤"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr "抱歉，有錯誤發生，無法完成請求。我們已經記錄下此錯誤，將再行修復。"
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "錯誤代碼: %(status)s。"
 
@@ -37,12 +34,11 @@ msgstr "找不到頁面"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "很抱歉，我們找不到您輸入的網址的資料內容。"
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "安裝佈景主題"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "新增至 Firefox"
 
@@ -82,59 +78,59 @@ msgstr "您的附加元件已就緒"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "您現在可在工具列使用 %(name)s。"
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "好！"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr "滑動以預覽或點擊安裝 %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "滑過圖片進行預覽"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "安裝失敗，請再試一次。"
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "下載失敗，請檢查網路連線。"
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "安裝時發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "移除時發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "發生未預期的錯誤。"
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "您重新啟動 Firefox 後將移除此附加元件。"
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "重新啟動 Firefox 後即可使用此附加元件。"
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "關閉"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS 目前暫不支援附加元件。"
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "此附加元件不支援您的 Firefox。"
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "此附加元件不支援您的瀏覽器。"
 
@@ -146,37 +142,31 @@ msgstr "隱私權保護政策"
 msgid "Discover Add-ons"
 msgstr "探索附加元件"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "個人化您的 Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
-msgstr ""
-"全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有"
-"您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。"
-"為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+msgstr "全球各地的開發者打造了數以千計的附加元件，這些附加元件可讓您把 Firefox 變得有您的樣子。不論是漂亮的佈景主題、讓您瀏覽時更快，還是加上更安全的工具與功能。為了幫助您開始使用，以下是一些我們推薦的，效能與功能都很傑出的附加元件。"
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "點擊播放"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "以了解附加元件的更多資訊"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "關閉影片"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
-msgstr "看看更多附加元件！"
+msgstr "看更多附加元件！"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -186,7 +176,7 @@ msgstr "您的登入階段已逾期"
 msgid "An unexpected error occurred"
 msgstr "發生未預期的錯誤"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "重新載入以繼續"
 

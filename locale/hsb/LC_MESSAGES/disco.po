@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: 2017-08-23 19:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,12 +40,12 @@ msgstr "Strona njeje so namakała"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Bohužel njemóžemy ničo na URL namakać, kotryž sće podał."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Drastu instalować"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Programej Firefox přidać"
 
@@ -86,61 +86,61 @@ msgstr "Waš přidatk je hotowy"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Nětko maće přistup na %(name)s ze symboloweje lajsty."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "W porjadku!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Za přehladanje pokazowak myški nad tym dźeržeć abo za instalowanje %(name)s "
 "kliknyć"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Pohíbujće myšku nad wobraz za přehlad"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Instalacija je so nimokuliła. Prošu spytajće hišće raz."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "Sćehnjenje je so nimokuliło. Prošu přepruwujće swój zwisk."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "Njewočakowany zmylk je při instalowanju wustupił."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Njewočakowany zmylk je při wotinstalowanju wustupił."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "Njewočakowany zmylk je wustupił."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Tutón přidatk so wotinstaluje, po tym zo sće Firefox znowa startował."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Prošu startujće Firefox znowa, zo byšće tutón přidatk wužiwał."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Začinić"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox za iOS tuchwilu přidatki njepodpěruje."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "Tutón přidatk wašu wersiju wobhladowaka njepodpěruje."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "Tutón přidatk waš wobhladowak njepodpěruje."
 
@@ -152,11 +152,11 @@ msgstr "Prawidła priwatnosće"
 msgid "Discover Add-ons"
 msgstr "Přidatki wotkryć"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Přiměrće swój Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -170,19 +170,19 @@ msgstr ""
 "wěsćiše činja. Přidatki činja waš wobhladowak k wašemu. Za spočatk "
 "doporučamy wam někotre wukonliwe přidatki z wjele funkcijemi."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Klikńće, zo byšće wothrał"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "zo byšće wjace wo přidatkach zhonił"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Widejo začinić"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Wobhladajće sej dalše přidatki!"
 
@@ -194,7 +194,7 @@ msgstr "Waše posedźenje je spadnyło"
 msgid "An unexpected error occurred"
 msgstr "Njewočakowany zmylk je wustupił"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Začitajće znowa, zo byšće pokročował"
 

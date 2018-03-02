@@ -1,5 +1,5 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import { setHeroBannerOrder } from 'core/reducers/heroBanners';
 import Hero from 'ui/components/Hero';
@@ -33,8 +33,8 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy,
       setHeroBannerOrder({ name, random: true, sections }));
-    expect(root.find('.Hero')).toHaveLength(1);
-    expect(root.find('.Hero-name-TestingPage')).toHaveLength(1);
+    expect(root.find('.Card.Hero')).toHaveLength(1);
+    expect(root.find('.Card.Hero-name-TestingPage')).toHaveLength(1);
     expect(root.find('.something')).toHaveLength(1);
     expect(root.find('.something-else')).toHaveLength(1);
   });

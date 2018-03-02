@@ -1,18 +1,10 @@
 @import "~core/css/inc/vars";
 @import "~ui/css/vars";
 
-.ErrorList,
-.CardList .ErrorList {
-  background-color: $report-base-color;
-}
-
 .ErrorList {
-  border-radius: $border-radius-default;
-  color: $white;
   margin: 0;
   margin-bottom: 10px;
-  padding: 10px;
-  text-align: center;
+  padding: 0;
 }
 
 .ErrorList-item,

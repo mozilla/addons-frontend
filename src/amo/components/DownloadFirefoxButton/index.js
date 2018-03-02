@@ -1,6 +1,6 @@
 /* @flow */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -31,14 +31,10 @@ export const DownloadFirefoxButtonBase = ({
 
   return (
     <Button
-      className={classNames(
-        'DownloadFirefoxButton',
-        'Button',
-        'Button--confirm',
-        'Button--small',
-        className,
-      )}
+      buttonType="confirm"
+      className={makeClassName('DownloadFirefoxButton', className)}
       href={`https://www.mozilla.org/firefox/new/${queryString}`}
+      micro
     >
       {i18n.gettext('Download Firefox')}
     </Button>

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
-"PO-Revision-Date: 2017-08-28 11:22+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
+"PO-Revision-Date: 2018-01-10 12:04+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: fy_NL\n"
@@ -39,12 +39,12 @@ msgstr "Side net fûn"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, mar wy kinne gjin side op de ynfierde URL fine."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Tema ynstallearje"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Tafoegje oan Firefox"
 
@@ -85,61 +85,61 @@ msgstr "Jo add-on is ree"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Jo kinne %(name)s no benaderje fan de arkbalke ôf."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te "
 "ynstallearjen"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Hâld de mûsoanwizer boppe de ôfbylding foar in foarbyld"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Ynstallaasje mislearre. Probearje it opnij."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "Downloaden mislearre. Kontrolearje jo ferbining."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "Der is in ûnferwachte flater bard wylst it ynstallearjen."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Der is in ûnferwachte flater bard wylst it fuortsmiten."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "Der is in ûnferwachte flater bard."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Dizze add-on sil de-ynstallearre wurde neidat jo Firefox opnij starte."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Start Firefox opnij om dizze add-on te brûken."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Slute"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox foar iOS stipet op dit stuit gjin add-ons."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "Dizze add-on stipet jo ferzje fan Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "Dizze add-on wurdt net stipe troch jo browser."
 
@@ -151,11 +151,11 @@ msgstr "Privacybelied"
 msgid "Discover Add-ons"
 msgstr "Add-ons ûntdekke"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Personalisearje jo Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -164,28 +164,26 @@ msgid ""
 "their stand-out performance and functionality."
 msgstr ""
 "Der binne tûzenen fergese add-ons, makke troch ûntwikkelers fan oer de hiele "
-"wrâld,\n"
-"dy jo ynstallearje kinne om jo Firefox te personalisearjen. Fariearjend fan "
-"aardige fisuele tema’s\n"
-"oant krêftige helpmiddelen dy't it browsen flugger en feiliger meitsje, "
-"meitsje add-ons jo browser fan jo.\n"
+"wrâld, dy't jo ynstallearje kinne om jo Firefox te personalisearjen. "
+"Fariearjend fan aardige fisuele tema’s oant krêftige helpmiddelen dy't it "
+"browsen flugger en feiliger meitsje, meitsje add-ons jo browser persoanlik. "
 "Om jo op gong te helpen, binne hjir in pear add-ons dy't wy "
-"oanrekkomandearre fanwege harren bjusterbaarlike prestaasjes\n"
-"en funksjonaliteit."
+"oanrekommandearre fanwegen harren bjusterbaarlike prestaasjes en "
+"funksjonaliteit."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Klik om de fideo ôf te spyljen"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "en mear oer add-ons te ûntdekken"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Fideo slute"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Besjoch mear add-ons!"
 
@@ -197,6 +195,6 @@ msgstr "Jo sesje is ferrûn"
 msgid "An unexpected error occurred"
 msgstr "Der is in ûnferwachte flater bard"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Opnij lade om troch te gean"

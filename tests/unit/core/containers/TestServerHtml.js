@@ -1,15 +1,16 @@
 import Helmet from 'react-helmet';
-import React from 'react';
+import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
   findRenderedDOMComponentWithTag,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import ServerHtml from 'core/containers/ServerHtml';
 import FakeApp, {
   fakeAssets, fakeSRIData,
 } from 'tests/unit/core/server/fakeApp';
+import { getFakeConfig } from 'tests/unit/helpers';
 
 describe('<ServerHtml />', () => {
   const _helmetCanUseDOM = Helmet.canUseDOM;
@@ -111,9 +112,12 @@ describe('<ServerHtml />', () => {
   });
 
   it('renders favicon', () => {
-    const html = findRenderedDOMComponentWithTag(render(), 'html');
+    const amoCDN = 'https://test.cdn.net';
+    const _config = getFakeConfig({ amoCDN });
+    const html = findRenderedDOMComponentWithTag(render({ _config }), 'html');
     const favicon = html.querySelector('link[rel="shortcut icon"]');
-    expect(favicon.getAttribute('href')).toEqual('/favicon.ico?v=1');
+    expect(favicon.getAttribute('href')).toEqual(
+      `${amoCDN}/favicon.ico?v=${_config.get('faviconVersion')}`);
   });
 
   it('renders title', () => {

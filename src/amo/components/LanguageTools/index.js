@@ -1,6 +1,6 @@
 /* @flow */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import { compose } from 'redux';
@@ -201,8 +201,10 @@ export class LanguageToolsBase extends React.Component<Props> {
               });
 
               return (
+                // Required to preserve space between strong and span.
+                /* eslint-disable react/jsx-closing-tag-location */
                 <Tr
-                  className={classNames(
+                  className={makeClassName(
                     'LanguageTools-table-row',
                     `LanguageTools-lang-${language.locale}`,
                   )}
@@ -225,11 +227,12 @@ export class LanguageToolsBase extends React.Component<Props> {
                   </Td>
                 </Tr>
               );
-            }) : Array(50).fill(<Tr>
-              <Td><LoadingText /></Td>
-              <Td><LoadingText /></Td>
-              <Td><LoadingText /></Td>
-            </Tr>)}
+            }) : Array(50).fill(
+              <Tr>
+                <Td><LoadingText /></Td>
+                <Td><LoadingText /></Td>
+                <Td><LoadingText /></Td>
+              </Tr>)}
           </Tbody>
         </Table>
       </Card>

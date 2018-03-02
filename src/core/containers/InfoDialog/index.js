@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import onClickOutside from 'react-onclickoutside';
 import { connect } from 'react-redux';
@@ -36,13 +36,16 @@ class InfoDialogRaw extends React.Component {
             <h3 id="show-info-title">{i18n.gettext('Your add-on is ready')}</h3>
             <p id="show-info-description">{i18n.sprintf(
               i18n.gettext('Now you can access %(name)s from the toolbar.'),
-              { name: addonName })}</p>
+              { name: addonName })}
+            </p>
           </div>
         </div>
         <button
           ref={(button) => { if (button != null) { button.focus(); } }}
           onClick={closeAction}
-        >{i18n.gettext('OK!')}</button>
+        >
+          {i18n.gettext('OK!')}
+        </button>
       </div>
     );
   }

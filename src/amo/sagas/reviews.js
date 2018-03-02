@@ -1,5 +1,4 @@
 /* @flow */
-/* global Generator */
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */

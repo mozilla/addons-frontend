@@ -1,5 +1,5 @@
 /* global Node */
-import React from 'react';
+import * as React from 'react';
 import { mount } from 'enzyme';
 
 import createStore from 'amo/store';
@@ -29,6 +29,7 @@ import {
   createFakeEvent,
   createFakeMozWindow,
   fakeI18n,
+  fakeRouterLocation,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -54,6 +55,7 @@ describe(__filename, () => {
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: fakeI18n(),
+    location: fakeRouterLocation(),
     store: createStore().store,
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,
@@ -119,7 +121,7 @@ describe(__filename, () => {
     const button = root.childAt(1);
 
     expect(button.type()).toEqual(Button);
-    expect(button.children()).toContain('Install Theme');
+    expect(button.children().at(1)).toHaveText('Install Theme');
     expect(button).toHaveProp(
       'data-browsertheme', JSON.stringify(themePreview.getThemeData(addon))
     );
@@ -133,7 +135,7 @@ describe(__filename, () => {
     const root = renderToDom({ addon, installTheme, status: UNKNOWN });
 
     const preventDefault = sinon.spy();
-    const button = root.find('.InstallButton-button');
+    const button = root.find('button.InstallButton-button');
     button.simulate('click', createFakeEvent({ preventDefault }));
 
     sinon.assert.called(preventDefault);
@@ -159,10 +161,26 @@ describe(__filename, () => {
 
     expect(button.type()).toEqual(Button);
 
-    expect(button.children()).toContain('Add to Firefox');
+    expect(button.children().at(1)).toHaveText('Add to Firefox');
     expect(button).toHaveClassName('InstallButton-button');
-    expect(button).not.toHaveClassName('Button--small');
+    expect(button).not.toHaveClassName('Button--micro');
     expect(button).toHaveProp('href', installURL);
+  });
+
+  it('uses router location to create install URLs', () => {
+    const externalSource = 'my-blog';
+    const installURL = 'https://addons.mozilla.org/download';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      defaultInstallSource: 'this-should-be-overidden',
+      location: fakeRouterLocation({ query: { src: externalSource } }),
+    });
+
+    const button = root.childAt(1);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${externalSource}`);
   });
 
   it('disables add-on install when client does not support addons', () => {
@@ -213,36 +231,38 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', true);
   });
 
-  it('adds a src to extension buttons', () => {
+  it('adds defaultInstallSource to extension buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const src = 'homepage';
+    const defaultInstallSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultInstallSource,
       hasAddonManager: false,
-      src,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${defaultInstallSource}`);
   });
 
-  it('adds a src to search provider buttons', () => {
+  it('adds defaultInstallSource to search provider buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const src = 'homepage';
+    const defaultInstallSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_OPENSEARCH,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultInstallSource,
       hasAddonManager: false,
-      src,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${defaultInstallSource}`);
   });
 
   it('renders a switch button if useButton is false', () => {
@@ -261,7 +281,7 @@ describe(__filename, () => {
     expect(button.type()).toEqual(Button);
     expect(button).toHaveClassName('Button--action');
     expect(button).toHaveClassName('InstallButton-button');
-    expect(button.children()).toContain('Add to Firefox');
+    expect(button.children().at(1)).toHaveText('Add to Firefox');
   });
 
   it('renders a button for OpenSearch regardless of mozAddonManager', () => {
@@ -280,7 +300,7 @@ describe(__filename, () => {
     expect(button.type()).toEqual(Button);
     expect(button).toHaveClassName('Button--action');
     expect(button).toHaveClassName('InstallButton-button');
-    expect(button.children()).toContain('Add to Firefox');
+    expect(button.children().at(1)).toHaveText('Add to Firefox');
   });
 
   it('disables the OpenSearch button if not compatible', () => {
@@ -297,7 +317,7 @@ describe(__filename, () => {
 
     expect(button.type()).toEqual(Button);
     expect(button).toHaveClassName('InstallButton-button--disabled');
-    expect(button.children()).toContain('Add to Firefox');
+    expect(button.children().at(1)).toHaveText('Add to Firefox');
   });
 
   it('disables install switch and uses button for OpenSearch plugins', () => {
@@ -315,7 +335,8 @@ describe(__filename, () => {
     });
 
     const installButton = rootNode.find('.InstallButton-button');
-    expect(installButton.children()).toContain('Add to Firefox');
+    expect(installButton.children().at(1))
+      .toHaveText('Add to Firefox');
     installButton.simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(fakeLog.info, 'Adding OpenSearch Provider');
@@ -482,7 +503,7 @@ describe(__filename, () => {
       }));
 
       expect(_getFileHash({
-        addon, installURL: `${url}?src=dp-btn-primary`,
+        addon, installURL: `${url}?src=some-install-source`,
       }))
         .toEqual('hash-of-file');
     });
@@ -491,12 +512,14 @@ describe(__filename, () => {
       const url = 'https://a.m.o/addons/file.xpi';
       const addon = createInternalAddon(createFakeAddon({
         files: [{
-          platform: OS_ALL, url: `${url}?src=`, hash: 'hash-of-file',
+          platform: OS_ALL,
+          url: `${url}?src=some-install-source`,
+          hash: 'hash-of-file',
         }],
       }));
 
       expect(_getFileHash({
-        addon, installURL: `${url}?src=dp-btn-primary`,
+        addon, installURL: `${url}?src=some-install-source`,
       }))
         .toEqual('hash-of-file');
     });

@@ -49,7 +49,7 @@ describe(__filename, () => {
   it('calls the API to retrieve other add-ons', async () => {
     const addons = [fakeAddon];
     const authors = ['mozilla', 'johnedoe'];
-    const slug = fakeAddon.slug;
+    const { slug } = fakeAddon;
     const state = sagaTester.getState();
 
     mockApi
@@ -105,7 +105,7 @@ describe(__filename, () => {
   it('handles no API results', async () => {
     const addons = [];
     const authors = ['mozilla', 'johnedoe'];
-    const slug = fakeAddon.slug;
+    const { slug } = fakeAddon;
     const state = sagaTester.getState();
 
     mockApi

@@ -1,6 +1,6 @@
 /* @flow */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 
 import './styles.scss';
 
@@ -34,7 +34,7 @@ export default class LoadingText extends React.Component<Props> {
 
     return (
       <span
-        className={classNames(
+        className={makeClassName(
           'LoadingText',
           `LoadingText--delay-${delayStart}`,
           className,

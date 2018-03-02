@@ -1,7 +1,7 @@
-import React from 'react';
+import * as React from 'react';
 import {
   findRenderedComponentWithType, renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
 import Overlay from 'ui/components/Overlay';

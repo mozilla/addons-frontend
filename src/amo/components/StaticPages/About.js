@@ -1,6 +1,6 @@
 import Helmet from 'react-helmet';
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 
 import Card from 'ui/components/Card';

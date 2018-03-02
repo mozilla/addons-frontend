@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -33,12 +33,12 @@ msgstr "Ƥȧɠḗ ƞǿŧ ƒǿŭƞḓ"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Şǿřřẏ, ƀŭŧ ẇḗ ƈȧƞ'ŧ ƒīƞḓ ȧƞẏŧħīƞɠ ȧŧ ŧħḗ ŬŘĿ ẏǿŭ ḗƞŧḗřḗḓ."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
 msgstr "Īƞşŧȧŀŀ Ŧħḗḿḗ"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255
+#: src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Aḓḓ ŧǿ Ƒīřḗƒǿẋ"
 
@@ -78,59 +78,59 @@ msgstr "Ẏǿŭř ȧḓḓ-ǿƞ īş řḗȧḓẏ"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Ƞǿẇ ẏǿŭ ƈȧƞ ȧƈƈḗşş %(name)s ƒřǿḿ ŧħḗ ŧǿǿŀƀȧř."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "ǾĶ!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Ħǿṽḗř ŧǿ ƥřḗṽīḗẇ ǿř ƈŀīƈķ ŧǿ īƞşŧȧŀŀ %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
 msgstr "Ħǿṽḗř ǿṽḗř ŧħḗ īḿȧɠḗ ŧǿ ƥřḗṽīḗẇ"
 
-#: src/disco/components/Addon.js:164
+#: src/disco/components/Addon.js:170
 msgid "Installation failed. Please try again."
 msgstr "Īƞşŧȧŀŀȧŧīǿƞ ƒȧīŀḗḓ. Ƥŀḗȧşḗ ŧřẏ ȧɠȧīƞ."
 
-#: src/disco/components/Addon.js:166
+#: src/disco/components/Addon.js:172
 msgid "Download failed. Please check your connection."
 msgstr "Ḓǿẇƞŀǿȧḓ ƒȧīŀḗḓ. Ƥŀḗȧşḗ ƈħḗƈķ ẏǿŭř ƈǿƞƞḗƈŧīǿƞ."
 
-#: src/disco/components/Addon.js:168
+#: src/disco/components/Addon.js:174
 msgid "An unexpected error occurred during installation."
 msgstr "Aƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ ḓŭřīƞɠ īƞşŧȧŀŀȧŧīǿƞ."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Aƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ ḓŭřīƞɠ ŭƞīƞşŧȧŀŀȧŧīǿƞ."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
 msgstr "Aƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Ŧħīş ȧḓḓ-ǿƞ ẇīŀŀ ƀḗ ŭƞīƞşŧȧŀŀḗḓ ȧƒŧḗř ẏǿŭ řḗşŧȧřŧ Ƒīřḗƒǿẋ."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
 msgstr "Ƥŀḗȧşḗ řḗşŧȧřŧ Ƒīřḗƒǿẋ ŧǿ ŭşḗ ŧħīş ȧḓḓ-ǿƞ."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
 msgstr "Ƈŀǿşḗ"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ƒīřḗƒǿẋ ƒǿř īǾŞ ḓǿḗş ƞǿŧ ƈŭřřḗƞŧŀẏ şŭƥƥǿřŧ ȧḓḓ-ǿƞş."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "Ŧħīş ȧḓḓ-ǿƞ ḓǿḗş ƞǿŧ şŭƥƥǿřŧ ẏǿŭř ṽḗřşīǿƞ ǿƒ Ƒīřḗƒǿẋ."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "Ŧħīş ȧḓḓ-ǿƞ ḓǿḗş ƞǿŧ şŭƥƥǿřŧ ẏǿŭř ƀřǿẇşḗř."
 
@@ -142,27 +142,27 @@ msgstr "Ƥřīṽȧƈẏ Ƥǿŀīƈẏ"
 msgid "Discover Add-ons"
 msgstr "Ḓīşƈǿṽḗř Aḓḓ-ǿƞş"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Ƥḗřşǿƞȧŀīẑḗ Ẏǿŭř Ƒīřḗƒǿẋ"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid "There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr "Ŧħḗřḗ ȧřḗ ŧħǿŭşȧƞḓş ǿƒ ƒřḗḗ ȧḓḓ-ǿƞş, ƈřḗȧŧḗḓ ƀẏ ḓḗṽḗŀǿƥḗřş ȧŀŀ ǿṽḗř ŧħḗ ẇǿřŀḓ, ŧħȧŧ ẏǿŭ ƈȧƞ īƞşŧȧŀŀ ŧǿ ƥḗřşǿƞȧŀīẑḗ ẏǿŭř Ƒīřḗƒǿẋ. Ƒřǿḿ ƒŭƞ ṽīşŭȧŀ ŧħḗḿḗş ŧǿ ƥǿẇḗřƒŭŀ ŧǿǿŀş ŧħȧŧ ḿȧķḗ ƀřǿẇşīƞɠ ƒȧşŧḗř ȧƞḓ şȧƒḗř, ȧḓḓ-ǿƞş ḿȧķḗ ẏǿŭř ƀřǿẇşḗř ẏǿŭřş. Ŧǿ ħḗŀƥ ẏǿŭ ɠḗŧ şŧȧřŧḗḓ, ħḗřḗ ȧřḗ şǿḿḗ ẇḗ řḗƈǿḿḿḗƞḓ ƒǿř ŧħḗīř şŧȧƞḓ-ǿŭŧ ƥḗřƒǿřḿȧƞƈḗ ȧƞḓ ƒŭƞƈŧīǿƞȧŀīŧẏ."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Ƈŀīƈķ ŧǿ ƥŀȧẏ"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "ŧǿ ƒīƞḓ ǿŭŧ ḿǿřḗ ȧƀǿŭŧ ȧḓḓ-ǿƞş"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Ƈŀǿşḗ ṽīḓḗǿ"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Şḗḗ ḿǿřḗ ȧḓḓ-ǿƞş!"
 
@@ -174,6 +174,6 @@ msgstr "Ẏǿŭř şḗşşīǿƞ ħȧş ḗẋƥīřḗḓ"
 msgid "An unexpected error occurred"
 msgstr "Aƞ ŭƞḗẋƥḗƈŧḗḓ ḗřřǿř ǿƈƈŭřřḗḓ"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Řḗŀǿȧḓ Ŧǿ Ƈǿƞŧīƞŭḗ"

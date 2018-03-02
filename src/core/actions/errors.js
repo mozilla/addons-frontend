@@ -1,4 +1,6 @@
-import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
+import {
+  CLEAR_ERROR, SET_ERROR, SET_ERROR_MESSAGE,
+} from 'core/constants';
 
 export function setError({ error, id } = {}) {
   if (!id) {
@@ -10,6 +12,19 @@ export function setError({ error, id } = {}) {
   return {
     type: SET_ERROR,
     payload: { error, id },
+  };
+}
+
+export function setErrorMessage({ message, id } = {}) {
+  if (!id) {
+    throw new Error('id cannot be empty');
+  }
+  if (!message) {
+    throw new Error('message cannot be empty');
+  }
+  return {
+    type: SET_ERROR_MESSAGE,
+    payload: { id, message },
   };
 }
 

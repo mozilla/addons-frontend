@@ -1,5 +1,5 @@
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -55,7 +55,7 @@ export class CategoryHeaderBase extends React.Component {
 
     return (
       <Card
-        className={classNames('CategoryHeader', {
+        className={makeClassName('CategoryHeader', {
           'CategoryHeader--loading': !category,
           [`CategoryHeader--type-${addonType}`]: addonType,
         })}

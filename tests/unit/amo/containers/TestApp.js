@@ -1,12 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
-import { loadFail } from 'redux-connect/lib/store';
 import Helmet from 'react-helmet';
 
 import App, {
@@ -14,11 +13,9 @@ import App, {
   mapDispatchToProps,
   mapStateToProps,
 } from 'amo/components/App';
+import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import createStore from 'amo/store';
-import {
-  logOutUser as logOutUserAction,
-  setUserAgent as setUserAgentAction,
-} from 'core/actions';
+import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { createApiError } from 'core/api';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import {
@@ -28,8 +25,10 @@ import {
   maximumSetTimeoutDelay,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
+import { loadErrorPage } from 'core/reducers/errorPage';
 import {
   fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
   userAuthToken,
 } from 'tests/unit/helpers';
@@ -71,7 +70,7 @@ describe(__filename, () => {
     return {
       i18n: fakeI18n(),
       logOutUser: sinon.stub(),
-      location: sinon.stub(),
+      location: fakeRouterLocation(),
       isAuthenticated: true,
       store: createStore().store,
       ...customProps,
@@ -189,13 +188,13 @@ describe(__filename, () => {
       response: { status: 404 },
     });
 
-    store.dispatch(loadFail('App', apiError));
+    store.dispatch(loadErrorPage({ error: apiError }));
 
     const root = render({
       ErrorPage: DefaultErrorPage,
       clientApp: 'android',
       lang: 'en-GB',
-      location: { pathname: '/en-GB/android/' },
+      location: fakeRouterLocation({ pathname: '/en-GB/android/' }),
       store,
     });
     const rootNode = findDOMNode(root);

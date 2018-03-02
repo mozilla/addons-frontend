@@ -1,4 +1,5 @@
 @import "~normalize.css";
+@import "~photon-colors/colors";
 @import "~core/css/inc/lib";
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
@@ -14,11 +15,19 @@ html {
   box-sizing: border-box;
 }
 
-// Add default input and textarea background
-// to fix #3640
 input,
 textarea {
+  @include font-regular();
+
+  // Fix search input and possibly other inputs.
+  // See https://github.com/mozilla/addons-frontend/issues/3640
   background: $white;
+  border: 1px solid $grey-50;
+  border-radius: $border-radius-xs;
+  box-shadow: none;
+  font-size: $font-size-m-smaller;
+  line-height: 1.4;
+  padding: 4px;
 }
 
 *,

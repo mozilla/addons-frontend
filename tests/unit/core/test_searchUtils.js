@@ -14,10 +14,18 @@ import {
   fixFiltersForAndroidThemes,
 } from 'core/searchUtils';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { userAgents, userAgentsByPlatform } from 'tests/unit/helpers';
+import {
+  getFakeConfig,
+  userAgents,
+  userAgentsByPlatform,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
+  const fakeConfig = getFakeConfig({
+    restrictSearchResultsToAppVersion: true,
+  });
+
   describe('addVersionCompatibilityToFilters', () => {
     it('returns unmodified filters if not Firefox', () => {
       const { state } = dispatchClientMetadata({
@@ -25,6 +33,7 @@ describe(__filename, () => {
       });
 
       const newFilters = addVersionCompatibilityToFilters({
+        config: fakeConfig,
         filters: { query: 'foo' },
         userAgentInfo: state.api.userAgentInfo,
       });
@@ -69,6 +78,7 @@ describe(__filename, () => {
       });
 
       const newFilters = addVersionCompatibilityToFilters({
+        config: fakeConfig,
         filters: { query: 'foo' },
         userAgentInfo: state.api.userAgentInfo,
       });
@@ -77,6 +87,23 @@ describe(__filename, () => {
         compatibleWithVersion: '57.1',
         query: 'foo',
       });
+    });
+
+    it('does not add compatibleWithVersion when config is disabled', () => {
+      const fakeConfigWithVersionFalse = getFakeConfig({
+        restrictSearchResultsToAppVersion: false,
+      });
+      const { state } = dispatchClientMetadata({
+        userAgent: userAgentsByPlatform.mac.firefox57,
+      });
+
+      const newFilters = addVersionCompatibilityToFilters({
+        config: fakeConfigWithVersionFalse,
+        filters: { query: 'foo' },
+        userAgentInfo: state.api.userAgentInfo,
+      });
+
+      expect(newFilters).toEqual({ query: 'foo' });
     });
 
     it('requires filters', () => {

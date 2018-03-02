@@ -32,11 +32,6 @@
 }
 
 .DismissibleTextForm-textarea {
-  border: 1px solid $grey-50;
-  border-radius: $border-radius-s;
-  box-shadow: none;
-  font-size: $font-size-m-smaller;
-  line-height: 1.4;
   margin: 0 auto;
   // This is the height of two lines of text. Often the placeholder text
   // will span two lines–because this element will grow/shrink based on

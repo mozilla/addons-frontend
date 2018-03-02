@@ -24,6 +24,7 @@
 .AddonReviewListItem-body {
   font-size: $font-size-default;
   margin: 0 0 6px;
+  word-wrap: break-word;
 }
 
 .AddonReviewListItem-byline {
@@ -35,9 +36,11 @@
   a:visited,
   a:hover,
   a:active {
-    color: $blue-50;
-    font-weight: normal;
-    text-decoration: none;
+    &:not(.Button) {
+      color: $blue-50;
+      font-weight: normal;
+      text-decoration: none;
+    }
   }
 }
 

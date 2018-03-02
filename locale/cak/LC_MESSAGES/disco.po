@@ -1,186 +1,184 @@
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-11-14 21:53+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2018-02-06 19:31+0000\n"
+"PO-Revision-Date: 2018-02-25 16:50+0000\n"
+"Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: cak\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Rusachoj K'uxasamaj"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Kojakuyu', xa xk'ulwachitäj jun sachoj ruma ri' toq man xojtikïr ta xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' xtiqatikib'a'."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Rub'itz'ib' sachoj: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Man xilitäj ta ruxaq"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Kojakuyu', xa xe chi majun xqïl chupam ri URL xatz'ib'aj."
 
-#: src/core/components/InstallButton/index.js:227
+#: src/core/components/InstallButton/index.js:229
 msgid "Install Theme"
-msgstr ""
+msgstr "Tiyak Wachinïk"
 
-#: src/core/components/InstallButton/index.js:251
-#: src/core/components/InstallButton/index.js:272
+#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
-msgstr ""
+msgstr "Taya' chupam Firefox"
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Niqasäx %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
-msgstr ""
+msgstr "Niyak %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s xyak chuqa' tzijïl. Tipitz' richin nelesäx el."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
-msgstr ""
+msgstr "%(name)s xchup. Tipitz' richin nitzij."
 
 #: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Man niyak ta %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
-msgstr ""
+msgstr "%(name)s xelesäx el. Tipitz' richin niyak."
 
 #: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Man etaman ta rub'anikil ruyakij ri %(name)s."
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Ütz chik ri atz'aqat"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Wakami yatikïr yatok pa %(name)s rik'in ri kikajtz'ik samajib'äl."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
-msgstr ""
+msgstr "ÜTZ!"
 
-#: src/disco/components/Addon.js:125
+#: src/disco/components/Addon.js:131
 msgid "Hover to preview or click to install %(name)s"
-msgstr ""
+msgstr "Tiq'asäx pa ruwi' richin nitz'et o tipitz' richin niyak %(name)s"
 
-#: src/disco/components/Addon.js:140
+#: src/disco/components/Addon.js:146
 msgid "Hover over the image to preview"
-msgstr ""
-
-#: src/disco/components/Addon.js:164
-msgid "Installation failed. Please try again."
-msgstr ""
-
-#: src/disco/components/Addon.js:166
-msgid "Download failed. Please check your connection."
-msgstr ""
-
-#: src/disco/components/Addon.js:168
-msgid "An unexpected error occurred during installation."
-msgstr ""
+msgstr "Tiq'asäx pa ruwi' ri wachib'äl richin nitzu'"
 
 #: src/disco/components/Addon.js:170
+msgid "Installation failed. Please try again."
+msgstr "Xsach ri yakoj. Titojtob'ëx chik."
+
+#: src/disco/components/Addon.js:172
+msgid "Download failed. Please check your connection."
+msgstr "Xsach ri qasanïk. Tanik'oj ri awokem."
+
+#: src/disco/components/Addon.js:174
+msgid "An unexpected error occurred during installation."
+msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq niyak."
+
+#: src/disco/components/Addon.js:176
 msgid "An unexpected error occurred during uninstallation."
-msgstr ""
+msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq nelesäx."
 
-#: src/disco/components/Addon.js:173
+#: src/disco/components/Addon.js:179
 msgid "An unexpected error occurred."
-msgstr ""
+msgstr "Man oyob'en ta re sachoj xk'ulwachitäj."
 
-#: src/disco/components/Addon.js:181
+#: src/disco/components/Addon.js:187
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Re tz'aqat re' xtelesäx el chupam toq xtitikirisäx chik ri Firefox."
 
-#: src/disco/components/Addon.js:183
+#: src/disco/components/Addon.js:189
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Titikirisäx chik Firefox richin nokisäx re tz'aqat re'."
 
-#: src/disco/components/Addon.js:86
+#: src/disco/components/Addon.js:89
 msgid "Close"
-msgstr ""
+msgstr "Titz'apïx"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Wakami ri Firefox richin iOS man nuk'äm ta ri' kik'in ri taq chokoy."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
-msgstr ""
+msgstr "Man nuköch' ta re tz'aqat re' re ruwäch Firefox."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Man nuköch' ta re tz'aqat re' ri awokik'amaya'l."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Runa'ojil Ichinanem"
 
 #: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
-msgstr ""
+msgstr "Ke'ilitäj taq Tz'aqat"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
-msgstr ""
+msgstr "Tawichinaj ri Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
+"E k'o k'ïy sipan taq tz'aqat, enuk'un kuma ajb'anonela' chijun ri ruwach'ulew chuqa' yatkito' richin nawichinaj ri Firefox. Achi'el tik'asäs wachel taq wachinïk kik'in samajib'äl chuqa' achik'anel "
+"taq samaj richin anin chuqa' jikïl yatok pa k'amaya'l. Ri taq tz'aqat yatkito' richin nawichinaj ri awokik'amaya'l, richin natikirisaj yeqachilab'ej jujun chawe ruma ri rub'eyal yesamäj chuqa' ri "
+"kisamaj."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
-msgstr ""
+msgstr "Tipitz' richin nitzij"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
-msgstr ""
+msgstr "richin netamäx ch'aqa' chik chi kij ri taq tz'aqat"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
-msgstr ""
+msgstr "Titz'apïx silowäch"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
-msgstr ""
+msgstr "¡Ketz'et ch'aqa' chik taq tz'aqat!"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
-msgstr ""
+msgstr "Xk'is ri amolojri'ïl"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Man oyob'en ta re sachoj xk'ulwachitäj"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Tisamajib'ëx chik Richin Nisamäj chik"

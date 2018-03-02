@@ -1,10 +1,11 @@
 /* global InstallTrigger, window */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { getAddonIconUrl } from 'core/imageUtils';
 import InstallSwitch from 'core/components/InstallSwitch';
@@ -69,6 +70,7 @@ export class InstallButtonBase extends React.Component {
     category: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
+    defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     detailURL: PropTypes.string,
     enable: PropTypes.func,
@@ -85,10 +87,11 @@ export class InstallButtonBase extends React.Component {
     id: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     previewURL: PropTypes.string,
     slug: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
@@ -187,10 +190,11 @@ export class InstallButtonBase extends React.Component {
       addon,
       clientApp,
       className,
+      defaultInstallSource,
       getClientCompatibility,
       hasAddonManager,
       i18n,
-      src,
+      location,
       userAgentInfo,
       _log,
       _window,
@@ -206,22 +210,27 @@ export class InstallButtonBase extends React.Component {
       addon, clientApp, userAgentInfo });
 
     const buttonIsDisabled = !compatible;
-    const buttonClass = classNames(
+    const buttonClass = makeClassName(
       'InstallButton-button', 'Button--action', className, {
         'InstallButton-button--disabled': buttonIsDisabled,
       }
     );
     const installURL = findInstallURL({
-      installURLs: addon.installURLs, userAgentInfo, src,
+      defaultInstallSource,
+      location,
+      platformFiles: addon.platformFiles,
+      userAgentInfo,
     });
 
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
         <Button
+          buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
           data-browsertheme={JSON.stringify(getThemeData(addon))}
           onClick={this.installTheme}
+          puffy
         >
           <Icon name="plus" />
           {i18n.gettext('Install Theme')}
@@ -240,12 +249,14 @@ export class InstallButtonBase extends React.Component {
       };
       button = (
         <Button
+          buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
           href={installURL}
           prependClientApp={false}
           prependLang={false}
+          puffy
         >
           <Icon name="plus" />
           {i18n.gettext('Add to Firefox')}
@@ -261,12 +272,14 @@ export class InstallButtonBase extends React.Component {
       };
       button = (
         <Button
+          buttonType="action"
           className={buttonClass}
           disabled={buttonIsDisabled}
           onClick={onClick}
           href={installURL}
           prependClientApp={false}
           prependLang={false}
+          puffy
         >
           <Icon name="plus" />
           {i18n.gettext('Add to Firefox')}
@@ -275,7 +288,7 @@ export class InstallButtonBase extends React.Component {
     }
     return (
       <div
-        className={classNames('InstallButton', {
+        className={makeClassName('InstallButton', {
           'InstallButton--use-button': useButton,
           'InstallButton--use-switch': !useButton,
         })}
@@ -335,6 +348,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(InstallButtonBase);

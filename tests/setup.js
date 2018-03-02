@@ -2,6 +2,8 @@ import sinon from 'sinon';
 import config from 'config';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import values from 'object.values';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 
 // Side-effects from imports are quite unfortunate but this is required
 // to get all of the cool jest + enzyme integration for calls like:
@@ -9,6 +11,7 @@ import values from 'object.values';
 // See: github.com/mozilla/addons-frontend/pull/2540#discussion_r120926107
 import 'jest-enzyme';
 
+Enzyme.configure({ adapter: new Adapter() });
 
 if (!Object.values) {
   values.shim();

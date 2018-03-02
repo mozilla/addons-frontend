@@ -28,6 +28,7 @@
       "ignoreAtRules": ["if", "else"],
     }],
     "function-url-quotes": ["always"],
+    "function-blacklist": ["random"],
     "max-nesting-depth": [3, {
       "ignore": ["blockless-at-rules"],
     }],

@@ -1,6 +1,6 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
@@ -14,6 +14,9 @@ import Categories from 'amo/components/Categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_TOP_RATED,
+  INSTALL_SOURCE_TRENDING,
   SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
@@ -209,7 +212,7 @@ export class LandingPageBase extends React.Component {
     };
 
     return (
-      <div className={classNames('LandingPage', `LandingPage--${addonType}`)}>
+      <div className={makeClassName('LandingPage', `LandingPage--${addonType}`)}>
         <Helmet>
           <title>{headingText[addonType]}</title>
         </Helmet>
@@ -228,7 +231,8 @@ export class LandingPageBase extends React.Component {
         <Categories addonType={addonType} />
 
         <Button
-          className="LandingPage-button Button--light"
+          buttonType="light"
+          className="LandingPage-button"
           to={`/${getVisibleAddonType(addonType)}/categories/`}
         >
           {i18n.gettext('Explore all categories')}
@@ -237,6 +241,7 @@ export class LandingPageBase extends React.Component {
         {this.renderIfNotEmpty(
           featuredAddons,
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_FEATURED}
             addons={featuredAddons}
             className="FeaturedAddons"
             footerText={html.featuredFooterText}
@@ -248,6 +253,7 @@ export class LandingPageBase extends React.Component {
         {this.renderIfNotEmpty(
           highlyRatedAddons,
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_TOP_RATED}
             addons={highlyRatedAddons}
             className="HighlyRatedAddons"
             footerLink={html.highlyRatedFooterLink}
@@ -259,6 +265,7 @@ export class LandingPageBase extends React.Component {
         {this.renderIfNotEmpty(
           trendingAddons,
           <LandingAddonsCard
+            addonInstallSource={INSTALL_SOURCE_TRENDING}
             addons={trendingAddons}
             className="TrendingAddons"
             footerLink={html.trendingFooterLink}

@@ -1,6 +1,6 @@
 import { shallow } from 'enzyme';
-import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import * as React from 'react';
+import { renderIntoDocument } from 'react-dom/test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, {
@@ -49,7 +49,7 @@ describe('<ScreenShots />', () => {
   });
 
   it('renders custom thumbnail', () => {
-    const item = { src: 'https://foo.com/img.png' };
+    const item = { src: 'https://foo.com/img.png', title: 'test title' };
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');
@@ -57,6 +57,7 @@ describe('<ScreenShots />', () => {
     expect(thumbnail.prop('height')).toEqual(HEIGHT);
     expect(thumbnail.prop('width')).toEqual(WIDTH);
     expect(thumbnail.prop('alt')).toEqual('');
+    expect(thumbnail.prop('title')).toEqual('test title');
   });
 
   it('scrolls to the active item on close', () => {

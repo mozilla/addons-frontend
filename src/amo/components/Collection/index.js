@@ -1,5 +1,6 @@
 /* @flow */
-import React from 'react';
+import config from 'config';
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
@@ -7,17 +8,24 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
-  fetchCollection,
-  fetchCollectionPage,
+  fetchCurrentCollection,
+  fetchCurrentCollectionPage,
+  getCurrentCollection,
 } from 'amo/reducers/collections';
+import CollectionManager, {
+  COLLECTION_OVERLAY,
+} from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import { COLLECTIONS_EDIT } from 'core/constants';
+import {
+  COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION,
+} from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
+import { openFormOverlay } from 'core/reducers/formOverlay';
 import log from 'core/logger';
-import { hasPermission } from 'core/reducers/user';
+import { hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
-import { parsePage } from 'core/utils';
+import { parsePage, sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -26,7 +34,7 @@ import type {
   CollectionType,
 } from 'amo/reducers/collections';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { UserStateType } from 'core/reducers/user';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
@@ -34,6 +42,7 @@ import './styles.scss';
 
 
 type Props = {|
+  _config: typeof config,
   collection: CollectionType | null,
   dispatch: Function,
   errorHandler: ErrorHandlerType,
@@ -48,6 +57,10 @@ type Props = {|
 |};
 
 export class CollectionBase extends React.Component<Props> {
+  static defaultProps = {
+    _config: config,
+  };
+
   componentWillMount() {
     this.loadDataIfNeeded();
   }
@@ -73,7 +86,7 @@ export class CollectionBase extends React.Component<Props> {
 
     let collectionChanged = false;
     let addonsPageChanged = false;
-    let location = this.props.location;
+    let { location } = this.props;
 
     if (nextProps && nextProps.location) {
       const nextLocation = nextProps.location;
@@ -91,13 +104,13 @@ export class CollectionBase extends React.Component<Props> {
 
     if (collection && (
       collection.slug !== params.slug ||
-      collection.authorUsername !== params.user
+      collection.authorUsername.toLowerCase() !== params.user.toLowerCase()
     )) {
       collectionChanged = true;
     }
 
     if (!collection || collectionChanged) {
-      this.props.dispatch(fetchCollection({
+      this.props.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         page: parsePage(location.query.page),
         slug: params.slug,
@@ -108,7 +121,7 @@ export class CollectionBase extends React.Component<Props> {
     }
 
     if (collection && addonsPageChanged) {
-      this.props.dispatch(fetchCollectionPage({
+      this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         page: parsePage(location.query.page),
         slug: params.slug,
@@ -123,6 +136,33 @@ export class CollectionBase extends React.Component<Props> {
     return `/collections/${params.user}/${params.slug}/`;
   }
 
+  editCollection = (event: SyntheticEvent<any>) => {
+    const { dispatch } = this.props;
+    event.preventDefault();
+    event.stopPropagation();
+    dispatch(openFormOverlay(COLLECTION_OVERLAY));
+  }
+
+  editCollectionLink() {
+    const { _config, i18n } = this.props;
+    const props = {};
+
+    if (_config.get('enableCollectionEdit')) {
+      // TODO: make this a real link when the form is ready for release.
+      // https://github.com/mozilla/addons-frontend/issues/4293
+      props.href = '#';
+      props.onClick = this.editCollection;
+    } else {
+      props.href = `${this.url()}edit/`;
+    }
+
+    return (
+      <p className="Collection-edit-link">
+        <Link {...props}>{i18n.gettext('Edit this collection')}</Link>
+      </p>
+    );
+  }
+
   renderCollection() {
     const {
       collection,
@@ -134,6 +174,7 @@ export class CollectionBase extends React.Component<Props> {
 
     const addons = collection ? collection.addons : [];
 
+    /* eslint-disable react/no-danger */
     return (
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
@@ -141,7 +182,11 @@ export class CollectionBase extends React.Component<Props> {
             {collection ? collection.name : <LoadingText />}
           </h1>
           <p className="Collection-description">
-            {collection ? collection.description : <LoadingText />}
+            {collection ? (
+              <span
+                dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
+              />
+            ) : <LoadingText />}
           </p>
           <MetadataCard
             metadata={[
@@ -161,16 +206,11 @@ export class CollectionBase extends React.Component<Props> {
               },
             ]}
           />
-          {hasEditPermission && (
-            <p className="Collection-edit-link">
-              <Link href={`${this.url()}/edit/`}>
-                {i18n.gettext('Edit this collection')}
-              </Link>
-            </p>
-          )}
+          {hasEditPermission ? this.editCollectionLink() : null}
         </Card>
         <div className="Collection-items">
           <AddonsCard
+            addonInstallSource={INSTALL_SOURCE_COLLECTION}
             addons={addons}
             loading={!collection || loading}
           />
@@ -183,8 +223,14 @@ export class CollectionBase extends React.Component<Props> {
             />
           )}
         </div>
+        {/*
+          The manager overlay will render full-screen.
+          It will be opened/closed based on Redux state.
+        */}
+        <CollectionManager collection={collection} />
       </div>
     );
+    /* eslint-enable react/no-danger */
   }
 
   render() {
@@ -215,14 +261,15 @@ export class CollectionBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| collections: CollectionsState, user: UserStateType |}
+  state: {| collections: CollectionsState, users: UsersStateType |}
 ) => {
-  const { current: collection, loading } = state.collections;
+  const { loading } = state.collections.current;
 
   let hasEditPermission = false;
 
+  const collection = getCurrentCollection(state.collections);
   if (collection) {
-    hasEditPermission = collection.authorId === state.user.id ||
+    hasEditPermission = collection.authorId === state.users.currentUserID ||
       hasPermission(state, COLLECTIONS_EDIT);
   }
 

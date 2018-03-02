@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import {
   renderIntoDocument as render,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 
 import createStore from 'amo/store';
@@ -16,7 +16,7 @@ import { fakeI18n } from 'tests/unit/helpers';
 describe('<SearchResults />', () => {
   function renderResults(props) {
     const initialState = { api: { clientApp: 'android', lang: 'en-GB' } };
-    const { store } = createStore(initialState);
+    const { store } = createStore({ initialState });
 
     return findRenderedComponentWithType(render(
       <Provider store={store}>

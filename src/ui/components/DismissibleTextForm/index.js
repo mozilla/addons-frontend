@@ -1,7 +1,7 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
 /* global $PropertyType */
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 import Textarea from 'react-textarea-autosize';
@@ -101,7 +101,7 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
 
     return (
       <form
-        className={classNames('DismissibleTextForm-form', className)}
+        className={makeClassName('DismissibleTextForm-form', className)}
       >
         <Textarea
           defaultValue={this.state.text}
@@ -119,25 +119,21 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
           <Button
             href="#cancel"
             onClick={this.onDismiss}
-            className={classNames(
-              'DismissibleTextForm-dismiss',
-              'Button--cancel',
-              'Button--wide',
-            )}
+            className="DismissibleTextForm-dismiss"
             disabled={isSubmitting}
+            type="cancel"
           >
             {i18n.gettext('Cancel')}
           </Button>
           <Button
-            href="#submit"
-            onClick={this.onSubmit}
-            className={classNames(
+            buttonType="action"
+            className={makeClassName(
               'DismissibleTextForm-submit',
-              'Button--action',
-              'Button--wide',
               submitButtonClassName,
             )}
             disabled={submitButtonIsDisabled}
+            href="#submit"
+            onClick={this.onSubmit}
           >
             {isSubmitting ?
               text.submitButtonInProgressText : text.submitButtonText
