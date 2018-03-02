@@ -27,6 +27,7 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
 } from 'tests/unit/helpers';
 
 
@@ -60,7 +61,7 @@ describe(__filename, () => {
       // When mounting the base component, we have to define `location`
       // directly. When mounting the actual component, withRouter() will
       // pass `location` from `router.location`.
-      location: { query: { ...locationQuery } },
+      location: fakeRouterLocation({ query: { ...locationQuery } }),
       ...customProps,
     });
     return mount(
@@ -84,7 +85,7 @@ describe(__filename, () => {
       // The `withRouter()` HOC passes `location` from `router.location`
       // to the component. In other words, `location` cannot be set directly.
       fakeRouter = {
-        location: { query: {} },
+        location: fakeRouterLocation(),
         push: sinon.spy(),
       };
     });

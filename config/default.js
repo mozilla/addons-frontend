@@ -70,6 +70,11 @@ module.exports = {
   apiHost: apiProdHost,
   apiPath: '/api/v3',
 
+  // The version for the favicon.
+  // This should be changed when a new favicon is pushed to the CDN to prevent
+  // client caching.
+  faviconVersion: 2,
+
   // The keys listed here will be exposed on the client.
   // Since by definition client-side code is public these config keys
   // must not contain sensitive data.
@@ -273,7 +278,7 @@ module.exports = {
   cacheAllResponsesFor: null,
 
   // See the Discopane config for how this is currently used.
-  taarParamsToUse: [],
+  discoParamsToUse: [],
 
 
   // Feature flags.

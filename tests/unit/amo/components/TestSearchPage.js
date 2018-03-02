@@ -12,14 +12,16 @@ import {
 } from 'core/constants';
 import { sendServerRedirect } from 'core/reducers/redirectTo';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  fakeRouterLocation, shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
   let store;
 
   function render({
-    location = { query: { page: 2, q: 'burger' } },
+    location = fakeRouterLocation({ query: { page: 2, q: 'burger' } }),
     pathname = '/testingsearch/',
     ...props
   } = {}) {
@@ -52,7 +54,7 @@ describe(__filename, () => {
 
   it("doesn't duplicate the clientApp in the URL in the queryParams", () => {
     const root = render({
-      location: { query: { page: 3, q: 'fries' } },
+      location: fakeRouterLocation({ query: { page: 3, q: 'fries' } }),
     });
 
     expect(root.find(Search).prop('paginationQueryParams')).toEqual({
@@ -63,14 +65,14 @@ describe(__filename, () => {
 
   it('sets the paginationQueryParams from filters', () => {
     const root = render({
-      location: {
+      location: fakeRouterLocation({
         query: {
           featured: true,
           page: 2,
           q: 'burger',
           tag: 'firefox57',
         },
-      },
+      }),
     });
 
     expect(root.find(Search)).toHaveProp('paginationQueryParams', {
@@ -88,9 +90,9 @@ describe(__filename, () => {
     };
 
     const root = render({
-      location: {
+      location: fakeRouterLocation({
         query: { ...query, q: 'search term' },
-      },
+      }),
     });
 
     const params = root.find(Search).prop('paginationQueryParams');
@@ -100,7 +102,9 @@ describe(__filename, () => {
   it('dispatches a server redirect when `atype` parameter is "1"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { atype: 1 } }, store });
+    render({
+      location: fakeRouterLocation({ query: { atype: 1 } }), store,
+    });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -112,7 +116,9 @@ describe(__filename, () => {
   it('dispatches a server redirect when `atype` parameter is "3"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { atype: 3 } }, store });
+    render({
+      location: fakeRouterLocation({ query: { atype: 3 } }), store,
+    });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -124,7 +130,9 @@ describe(__filename, () => {
   it('dispatches a server redirect when `atype` parameter is "4"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { atype: 4 } }, store });
+    render({
+      location: fakeRouterLocation({ query: { atype: 4 } }), store,
+    });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -136,7 +144,9 @@ describe(__filename, () => {
   it('dispatches a server redirect when `atype` parameter is "5"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { atype: 5 } }, store });
+    render({
+      location: fakeRouterLocation({ query: { atype: 5 } }), store,
+    });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -148,7 +158,9 @@ describe(__filename, () => {
   it('dispatches a server redirect when `atype` parameter is "9"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { atype: 9 } }, store });
+    render({
+      location: fakeRouterLocation({ query: { atype: 9 } }), store,
+    });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -161,7 +173,9 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     // The `atype` value has no corresponding `addonType`.
-    render({ location: { query: { atype: 123 } }, store });
+    render({
+      location: fakeRouterLocation({ query: { atype: 123 } }), store,
+    });
 
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -169,7 +183,9 @@ describe(__filename, () => {
   it('dispatches a server redirect when `platform` parameter is "all"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { platform: 'all' } }, store });
+    render({
+      location: fakeRouterLocation({ query: { platform: 'all' } }), store,
+    });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -181,7 +197,9 @@ describe(__filename, () => {
   it('does not dispatch a server redirect when `platform` is not "all"', () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
-    render({ location: { query: { platform: OS_MAC } }, store });
+    render({
+      location: fakeRouterLocation({ query: { platform: OS_MAC } }), store,
+    });
 
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -190,7 +208,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const query = { page: 123, platform: 'all' };
 
-    render({ location: { query }, store });
+    render({ location: fakeRouterLocation({ query }), store });
 
     sinon.assert.calledWith(fakeDispatch, sendServerRedirect({
       status: 302,
@@ -202,12 +220,12 @@ describe(__filename, () => {
   describe('mapStateToProps()', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { state } = dispatchClientMetadata({ clientApp });
-    const location = {
+    const location = fakeRouterLocation({
       query: {
         page: 2,
         q: 'burger',
       },
-    };
+    });
 
     it('returns filters based on location (URL) data', () => {
       expect(mapStateToProps(state, { location })).toEqual({

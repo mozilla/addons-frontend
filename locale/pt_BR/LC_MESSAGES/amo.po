@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 22:50+0000\n"
-"Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-21 18:00+0000\n"
+"Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -237,75 +237,75 @@ msgstr "Usado por"
 msgid "Overall Rating"
 msgstr "Avaliação geral"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Leia a política de privacidade desta extensão"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Leia o contrato de licença desta extensão"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Ver todas as versões"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Ver todas as versões beta"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Links da extensão"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Versão"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Ultima atualização"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Licença"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Política de privacidade"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Contrato de licença de usuário final"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Histórico de versão"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Estatísticas de uso"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Mais informações"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Página Inicial"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Site de suporte"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "E-mail de suporte"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Visite o painel de estatísticas"
 
@@ -507,27 +507,31 @@ msgstr "Extensões"
 msgid "Creator"
 msgstr "Criador"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "Salvar coleção"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
 msgstr "Salvando coleção"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "Editar coleção"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "Nome da coleção"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "Descrição"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "URL personalizada"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr "O nome da coleção não pode estar em branco"
 

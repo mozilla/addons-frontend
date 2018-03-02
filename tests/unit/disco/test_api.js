@@ -15,7 +15,7 @@ describe(__filename, () => {
   beforeEach(() => {
     callApiMock = sinon.stub(coreApi, 'callApi');
     fakeConfig = getFakeConfig({
-      taarParamsToUse: ['clientId', 'platform'],
+      discoParamsToUse: ['clientId', 'platform'],
     });
     const { store } = createStore();
     apiState = dispatchClientMetadata({ store }).state.api;
@@ -67,7 +67,7 @@ describe(__filename, () => {
           platform: 'Darwin',
         },
         _config: getFakeConfig({
-          taarParamsToUse: ['fakeTestParam', 'platform'],
+          discoParamsToUse: ['fakeTestParam', 'platform'],
         }),
       });
 

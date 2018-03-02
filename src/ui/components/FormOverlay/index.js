@@ -122,12 +122,17 @@ export class FormOverlayBase extends React.Component<Props> {
             <form>
               {children}
               <div className="FormOverlay-form-buttons">
+                {/*
+                  type=button is necessary to override the default
+                  of type=submit
+                */}
                 <Button
                   buttonType="neutral"
                   disabled={formIsDisabled}
                   onClick={this.onCancel}
                   className="FormOverlay-cancel"
                   puffy
+                  type="button"
                 >
                   {i18n.gettext('Cancel')}
                 </Button>

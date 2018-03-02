@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 11:59+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-21 07:34+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -237,75 +237,75 @@ msgstr "Brûkt troch"
 msgid "Overall Rating"
 msgstr "Globale wurdearring"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "It privacybelied foar dizze add-on lêze"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "De lisinsjeoerienkomst foar dizze add-on lêze"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Alle ferzjes besjen"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Alle bètaferzjes besjen"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Add-on-keppelingen"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Ferzje"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Lêst bywurke"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Lisinsje"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Privacybelied"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Einbrûkerslisinsjeoerienkomst"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Ferzjeskiednis"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Brûksstatistiken"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Mear ynformaasje"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Startside"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Stipewebsite"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "E-mailadres foar stipe"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Statistikendashboerd besjen"
 
@@ -507,27 +507,31 @@ msgstr "Add-ons"
 msgid "Creator"
 msgstr "Auteur"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "Kolleksje bewarje"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
 msgstr "Kolleksje bewarje"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "Kolleksje bewurkje"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "Namme kolleksje"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "Beskriuwing"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "Oanpaste URL"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr "Namme kolleksje mei net leech wêze"
 

@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 01:05+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-25 23:50+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -237,75 +237,75 @@ msgstr "Utilisé par"
 msgid "Overall Rating"
 msgstr "Note globale"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Lire la politique de confidentialité de ce module"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Lire le contrat de licence de ce module"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Voir toutes les versions"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Parcourir toutes les versions bêta"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Liens du module"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Dernière mise à jour"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Licence"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Politique de confidentialité"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Contrat de licence d’utilisateur final"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Historique des versions"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Statistiques d’utilisation"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Plus d’informations"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Page d’accueil"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Site d’assistance"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "Courriel d’assistance"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Consulter le tableau de bord des statistiques"
 
@@ -507,27 +507,31 @@ msgstr "Modules complémentaires"
 msgid "Creator"
 msgstr "Créateur"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "Enregistrer la collection"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
 msgstr "Enregistrement de la collection"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "Modifier la collection"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "Nom de la collection"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "Description"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "Adresse web personnalisée"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr "Le nom de la collection ne peut pas être vide"
 
@@ -848,14 +852,12 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Changez le style de Firefox à l’aide de thèmes."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Politique de confidentialité"
+msgstr "Outils de confidentialité"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Voir plus de modules augmentant votre productivité"
+msgstr "Voir plus d’outils de confidentialité"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
@@ -867,7 +869,7 @@ msgstr "Voir plus de thèmes populaires"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "La recherche, repensée"
 
 #: src/amo/components/Home/index.js:241
 msgid "See more search extensions"
@@ -935,15 +937,15 @@ msgstr "Zoom pour Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Un outil simple pour agrandir ou réduire la taille du contenu web."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Ouvrez des pages dans des conteneurs jetables."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -975,7 +977,7 @@ msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Traductions instantanées en un clic."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
@@ -983,7 +985,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Un bloqueur de publicités efficace et puissant."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
@@ -1068,7 +1070,7 @@ msgstr "Connectez-vous pour noter ce module complémentaire"
 
 #: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr "Avez-vous apprécié votre usage de %(addonName)s ?"
+msgstr "Avez-vous apprécié votre utilisation de %(addonName)s ?"
 
 #: src/amo/components/ReportAbuseButton/index.js:108
 msgid "You reported this add-on for abuse"

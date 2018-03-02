@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <polygon id="geolocation-a" points="1.5 10.5 22.5 1.5 13.5 22.5 13.5 10.5"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="24" height="24"/>
+    <mask id="geolocation-b" fill="#fff">
+      <use xlink:href="#geolocation-a"/>
+    </mask>
+    <g fill="#0F1126" mask="url(#geolocation-b)">
+      <rect width="24" height="24"/>
+    </g>
+  </g>
+</svg>

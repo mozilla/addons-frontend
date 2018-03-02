@@ -156,13 +156,19 @@ export const addAddonToCollection = (
 
 export type UpdateCollectionParams = {|
   api: ApiStateType,
+  // We identify the collection by its slug. This is confusing because the
+  // slug can also be edited.
+  // TODO: use the actual ID instead.
+  // See https://github.com/mozilla/addons-server/issues/7529
   collectionSlug: string,
-  defaultLocale?: string,
-  description?: LocalizedString,
-  isPublic?: boolean,
-  name?: LocalizedString,
-  slug?: string,
-  user: string | number,
+  defaultLocale: ?string,
+  description: ?LocalizedString,
+  name: ?LocalizedString,
+  // This is a value for a new slug, if defined.
+  slug: ?string,
+  // Even though the API accepts string|number, we need to always use
+  // string usernames. This helps keep public-facing URLs consistent.
+  user: string,
   _validateLocalizedString?: typeof validateLocalizedString,
 |};
 
@@ -171,7 +177,6 @@ export const updateCollection = ({
   collectionSlug,
   defaultLocale,
   description,
-  isPublic,
   name,
   slug,
   user,
@@ -199,8 +204,10 @@ export const updateCollection = ({
       default_locale: defaultLocale,
       description,
       name,
-      public: isPublic,
       slug,
+      // The public=true|false flag is not sent to the API. This is
+      // because collections are always public. Omitting this parameter
+      // should cut down on unexpected bugs.
     },
     endpoint: `accounts/account/${user}/collections/${collectionSlug}`,
     method: 'PATCH',

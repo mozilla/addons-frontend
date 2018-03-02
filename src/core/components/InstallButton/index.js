@@ -5,6 +5,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { getAddonIconUrl } from 'core/imageUtils';
 import InstallSwitch from 'core/components/InstallSwitch';
@@ -69,6 +70,7 @@ export class InstallButtonBase extends React.Component {
     category: PropTypes.string,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
+    defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     detailURL: PropTypes.string,
     enable: PropTypes.func,
@@ -85,10 +87,11 @@ export class InstallButtonBase extends React.Component {
     id: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     name: PropTypes.string.isRequired,
     previewURL: PropTypes.string,
     slug: PropTypes.string.isRequired,
-    src: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
@@ -187,10 +190,11 @@ export class InstallButtonBase extends React.Component {
       addon,
       clientApp,
       className,
+      defaultInstallSource,
       getClientCompatibility,
       hasAddonManager,
       i18n,
-      src,
+      location,
       userAgentInfo,
       _log,
       _window,
@@ -212,7 +216,10 @@ export class InstallButtonBase extends React.Component {
       }
     );
     const installURL = findInstallURL({
-      installURLs: addon.installURLs, userAgentInfo, src,
+      defaultInstallSource,
+      location,
+      platformFiles: addon.platformFiles,
+      userAgentInfo,
     });
 
     if (addon.type === ADDON_TYPE_THEME) {
@@ -341,6 +348,7 @@ export function mapStateToProps(state) {
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
 )(InstallButtonBase);

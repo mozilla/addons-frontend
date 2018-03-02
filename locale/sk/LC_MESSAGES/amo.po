@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-01-30 21:15+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-14 23:01+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -257,76 +257,76 @@ msgstr "Používa"
 msgid "Overall Rating"
 msgstr "Celkové hodnotenie"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Prečítajte si zásady ochrany súkromia tohto doplnku"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Prečítajte si licenčnú zmluvu pre tento doplnok"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Zobraziť všetky verzie"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Zobraziť všetky beta verzie"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Odkazy doplnku"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Verzia"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197
 #: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Posledná aktualizácia"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Licencia"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Zásady ochrany súkromia"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Licenčná zmluva s koncovým používateľom"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "História verzií"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Štatistiky používania"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Ďalšie informácie"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Domovská stránka"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Stránka podpory"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "E-mail podpory"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Prejsť na nástenku štatistických údajov"
 
@@ -571,32 +571,33 @@ msgstr "Doplnky"
 msgid "Creator"
 msgstr "Autor:"
 
-#: src/amo/components/CollectionManager/index.js:119
-#, fuzzy
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
-msgstr "Vytvoriť novú kolekciu"
-
-#: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
-msgid "Saving collection"
-msgstr "Vytvoriť novú kolekciu"
-
-#: src/amo/components/CollectionManager/index.js:121
-#, fuzzy
-msgid "Edit collection"
-msgstr "Upraviť túto kolekciu"
-
-#: src/amo/components/CollectionManager/index.js:125
-msgid "Collection name"
-msgstr ""
+msgstr "Uložiť kolekciu"
 
 #: src/amo/components/CollectionManager/index.js:135
+msgid "Saving collection"
+msgstr "Ukladám kolekciu"
+
+#: src/amo/components/CollectionManager/index.js:136
+msgid "Edit collection"
+msgstr "Upraviť kolekciu"
+
+#: src/amo/components/CollectionManager/index.js:140
+msgid "Collection name"
+msgstr "Názov kolekcie"
+
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
+msgstr "Popis"
+
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "Musíte zadať názov kolekcie"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -968,9 +969,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Zmeňte vzhľad Firefoxu prostredníctvom tém."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Zásady ochrany súkromia"
+msgstr "Nástroje na ochranu súkromia"
 
 #: src/amo/components/Home/index.js:215
 #, fuzzy
@@ -1031,81 +1031,87 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
 "color-coded tabs."
 msgstr ""
+"Udržujte rôzne časti svojho internetového života - prácu, osobný život, atď "
+"- oddelené pomocou farebne odlíšených kariet."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Hľadať"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid ""
 "Enhance search results with thumbnail previews, popularity ranks & more."
 msgstr ""
+"Vylepšite výsledky vyhľadávania s náhľadmi, rebríčkami popularity a ďalšími "
+"vecami."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid ""
 "Automatically delete data (cookies, local storage, etc.) on all sites you "
 "visit except those on your whitelist."
 msgstr ""
+"Automaticky odstráňte údaje (cookies, miestne úložisko, aťď.) na všetkých "
+"stránkach, ktoré navštívite. Môžete takisto nastaviť výnimky."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "pre Firefox"
+msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
 msgstr ""
+"Jednoduchý nástroj na približovanie/odďaľovanie akéhokoľvek webového obsahu."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "Otvorte stránky v údajových kontajneroch."
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid ""
 "Replace your new tab with a personal dashboard—to-do lists, weather "
 "forecasts and more."
 msgstr ""
+"Nahraďte stránku novej karty vašou vlastnou nástenkou so zoznamom úloh, "
+"predpoveďou počasia a ďalšími vecmi."
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "Pozrite sa na to, kto vás sleduje."
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Translator"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
@@ -1117,11 +1123,11 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Efektívny a výkonný blokovač reklám."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
@@ -1170,6 +1176,8 @@ msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
 msgstr ""
+"Jazykové balíky zmenia jazyk rozhrania vášho prehliadača, vrátane ponuky a "
+"možností."
 
 #: src/amo/components/LanguageTools/index.js:167
 msgid "All Locales"
@@ -1534,6 +1542,8 @@ msgid ""
 "To see more ways you can contribute to the add-on community, please visit "
 "our %(startLink)swiki%(endLink)s"
 msgstr ""
+"Ak vás zaujímajú ďalšie možnosti, ako sa zapojiť, navštívte, prosím, našu "
+"%(startLink)swiki%(endLink)s"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
@@ -1552,6 +1562,8 @@ msgid ""
 "%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
 "found here%(endLink)s."
 msgstr ""
+"%(startLink)sInformácie o tom, ako kontaktovať tím Mozilly, ktorý sa stará o "
+"doplnky, nájdete tu%(endLink)s."
 
 #: src/amo/components/StaticPages/About.js:24
 #: src/amo/components/StaticPages/About.js:27
@@ -1566,12 +1578,19 @@ msgid ""
 "enhancing your interactions with Web content, and changing the way your "
 "browser looks."
 msgstr ""
+"Addons.mozilla.org (AMO) je oficiálna stránka Mozilly, ktorá slúži na "
+"objavovanie a inštaláciu doplnkov pre prehliadač Firefox. Pomocou doplnkov "
+"môžete upraviť a prispôsobiť si svoje prehliadanie tým, že pridáte do "
+"Firefoxu nové funkcie, ktoré vylepšia vašu interakciu s obsahom na webe či "
+"upravia to, ako váš prehliadač vyzerá."
 
 #: src/amo/components/StaticPages/About.js:44
 msgid ""
 "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
 "%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
 msgstr ""
+"Na AMO môžete taktiež nájsť doplnky pre Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s a %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
@@ -1612,6 +1631,13 @@ msgid ""
 "%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
 "Github."
 msgstr ""
+"Pomôžte nám vylepšiť túto webovú stránku. Jej zdrojový kód je otvorený a "
+"vždy uvítame hlásenie chýb či tvorbu patchov. Môžete začať s chybami "
+"označenými ako „%(startGoodFirstBugLink)sgood first bug"
+"%(endGoodFirstBugLink)s“ alebo si pozrite nevyriešené chyby na "
+"%(startAddonsServerRepoLink)sserverovej%(endAddonsServerRepoLink)s a "
+"%(startAddonsFrontendRepoLink)sfrontendovej%(endAddonsFrontendRepoLink)s "
+"časti na GitHube."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
@@ -1736,11 +1762,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "Často kladené otázky ohľadom recenzií"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:78
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "Ako môžem nahlásiť problematickú recenziu?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:79
 msgid ""
@@ -1760,6 +1786,8 @@ msgid ""
 "up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
 "additional discussion or follow-up."
 msgstr ""
+"Áno, autori doplnkov môžu odoslať odpoveď na recenziu. Ak chcete diskutovať, "
+"môžete založiť tému na našom %(startLink)sfóre%(endLink)s."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
@@ -1902,7 +1930,7 @@ msgstr "Prepnúť obsah"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Pre zavretie kliknite sem"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
@@ -1920,15 +1948,12 @@ msgstr ""
 #~ msgid "See more popular extensions"
 #~ msgstr "Ďalšie populárne rozšírenia"
 
-#, fuzzy
 #~ msgid "See more media downloaders"
 #~ msgstr "Ďalšie odporúčané témy vzhľadu"
 
-#, fuzzy
 #~ msgid "Top-rated Extensions"
 #~ msgstr "Najlepšie hodnotené rozšírenia"
 
-#, fuzzy
 #~ msgid "See more highly rated Extensions"
 #~ msgstr "Ďalšie rozšírenia s vysokým hodnotením"
 

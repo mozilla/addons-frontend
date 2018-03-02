@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
 "PO-Revision-Date: 2017-10-08 11:38+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -266,77 +266,77 @@ msgstr "Brukt av"
 msgid "Overall Rating"
 msgstr ""
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Les personvernbestemmelsen for denne utvidelsen"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Les lisensavtalen for denne utvidelsen"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Se alle versjoner"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Se alle beta-versjoner"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Lenker for utvidelser"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Versjon"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197
 #: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Sist oppdatert"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Lisens"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Personvernbestemmelse"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Lisensavtale for sluttbrukere"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Versjonshistorikk"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Brukerstatistikk"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Mer informasjon"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Hjemmeside"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Brukerstøtteside"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 #, fuzzy
 msgid "Support Email"
 msgstr "Brukerstøtteside"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Gå til statistikkoversikten"
 
@@ -593,30 +593,34 @@ msgstr "Utvidelser"
 msgid "Creator"
 msgstr "Laget av"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 #, fuzzy
 msgid "Save collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 #, fuzzy
 msgid "Saving collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 #, fuzzy
 msgid "Edit collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr ""
 

@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 14:45+0000\n"
-"Last-Translator: xcffl <xcffl@outlook.com>\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-21 05:52+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -234,75 +234,75 @@ msgstr "用户："
 msgid "Overall Rating"
 msgstr "综合评分"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "阅读此附加组件的隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "阅读此附加组件的许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "查看所有版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "查看所有测试版"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "附加组件链接"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "版本"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "上次更新"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "隐私政策"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "最终用户许可协议"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "版本历史"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "使用统计"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "更多信息"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "主页"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "支持网站"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "支持邮箱"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "前往统计面板"
 
@@ -503,27 +503,31 @@ msgstr "附加组件"
 msgid "Creator"
 msgstr "作者"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "保存收藏集"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
 msgstr "正在保存收藏集"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "编辑收藏集"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "收藏集名称"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "描述"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "自定义网址"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr "收藏集名称不得空白"
 

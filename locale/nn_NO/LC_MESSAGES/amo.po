@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 11:09+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-25 10:32+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -237,75 +237,75 @@ msgstr "Brukt av"
 msgid "Overall Rating"
 msgstr "Totalvurdering"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Les personvernpraksisen for denne utvidinga"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Les lisensavtalen for denne utvidinga"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Vis alle versjonar"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Vis alle beta-versjonane"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Lenker for utvidinga"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Versjon"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Sist oppdatert"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Lisens"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Personvernpraksis"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Lisensavtale for sluttbrukarar"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Versjonshistorikk"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Brukarstatistikk"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Meir informasjon"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Heimeside"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Brukarstøtteside"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "E-post for brukarstøtte"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Gå til statistikkoversikta"
 
@@ -507,27 +507,31 @@ msgstr "Utvidingar"
 msgid "Creator"
 msgstr "Laga av"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "Lagre samlinga"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
 msgstr "Lagrar samlinga"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "Rediger samlinga"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "Samlingsnamn"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "Skildring"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "Tilpassa URL"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr "Samlingsnamn kan ikkje vere tomt"
 
@@ -903,7 +907,7 @@ msgstr "Sjå på videoar"
 
 #: src/amo/components/HomeHeroBanner/index.js:107
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
@@ -919,7 +923,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
@@ -943,7 +947,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
-msgstr ""
+msgstr "Momentum"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Replace your new tab with a personal dashboard—to-do lists, weather forecasts and more."
@@ -951,7 +955,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Kimetrak"
-msgstr ""
+msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
@@ -959,7 +963,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
-msgstr ""
+msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
@@ -979,11 +983,11 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Effektiv, kraftfull annonseblokkerar."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
@@ -1659,7 +1663,7 @@ msgstr "Veksle innhald"
 
 #: src/ui/components/FormOverlay/index.js:117
 msgid "Click to close"
-msgstr ""
+msgstr "Klikk for å late att"
 
 #: src/ui/components/Rating/index.js:94
 msgid "Rated %(rating)s out of 5"
@@ -1671,7 +1675,7 @@ msgstr "Ingen vurderingar"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
-msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese meir"
+msgstr "<span class=\"visually-hidden\">Utvid og</span> les meir"
 
 #~ msgid "See more popular extensions"
 #~ msgstr "Vis fleire populære utvidingar"

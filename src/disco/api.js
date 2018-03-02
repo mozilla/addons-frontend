@@ -13,9 +13,9 @@ export const discoResult = new schema.Entity(
 );
 
 export function getDiscoveryAddons({ api, taarParams = {}, _config = config }) {
-  const taarParamsToUse = _config.get('taarParamsToUse');
+  const discoParamsToUse = _config.get('discoParamsToUse');
   const allowedTaarParams = Object.keys(taarParams).reduce((object, key) => {
-    if (taarParamsToUse.includes(key)) {
+    if (discoParamsToUse.includes(key)) {
       return { ...object, [key]: taarParams[key] };
     }
 

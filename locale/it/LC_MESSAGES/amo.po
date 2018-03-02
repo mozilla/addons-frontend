@@ -3,9 +3,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-14 14:22+0000\n"
-"Last-Translator: Elio <elio.gi@gmail.com>\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-24 08:00+0000\n"
+"Last-Translator: Winfox <openlib@email.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -238,75 +238,75 @@ msgstr "Utilizzato da"
 msgid "Overall Rating"
 msgstr "Valutazione complessiva"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Consulta l’informativa sulla privacy per questo componente aggiuntivo"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Consulta il contratto di licenza per questo componente aggiuntivo"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Visualizza tutte le versioni"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Visualizza tutte le versioni beta"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Link componente aggiuntivo"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Versione"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Ultimo aggiornamento"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Licenza"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Informativa sulla privacy"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Contratto di licenza per l’utente finale"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Cronologia versioni"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Statistiche utilizzo"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Ulteriori informazioni"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Pagina principale"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Sito di supporto"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "Email per il supporto"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "Vai al pannello Statistiche"
 
@@ -508,30 +508,33 @@ msgstr "Componenti aggiuntivi"
 msgid "Creator"
 msgstr "Autore"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "Salva raccolta"
 
-#: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
-msgstr "Crea una nuova raccolta"
+msgstr "Salvataggio della raccolta in corso…"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "Modifica raccolta"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "Nome della raccolta"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "Descrizione"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "URL personalizzato"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "Il campo Nome della della raccolta non può essere vuoto"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -867,7 +870,7 @@ msgstr "Visualizza altri temi popolari"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "Re-imagine search"
 
 #: src/amo/components/Home/index.js:241
 msgid "See more search extensions"
@@ -914,21 +917,20 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr "Mantieni i diversi aspetti della tua vita online, come lavoro, personale ecc., ben separati e organizzati con schede colorate."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Cerca"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "Migliora i risultati di ricerca con le anteprime in miniatura, le classifiche di popolarità e altro ancora."
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
-msgstr ""
+msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "Elimina automaticamente cookie, archiviazione locale e altri dati dai siti visitati, ad eccezione di quelli che specifichi nella tua whitelist."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Zoom for Firefox"
@@ -936,11 +938,11 @@ msgstr "Zoom per Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "Semplice strumento di ingrandimento e riduzione per una visione ravvicinata di qualsiasi contenuto web."
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
-msgstr ""
+msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
@@ -976,7 +978,7 @@ msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "Traduzioni istantanee in un clic."
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
@@ -984,7 +986,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "Blocca-pubblicità efficiente e completo."
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
@@ -992,7 +994,7 @@ msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "L’estensione antitracciamento più conosciuta, da oggi con il blocco degli annunci pubblicitari."
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."

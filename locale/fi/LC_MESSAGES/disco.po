@@ -1,10 +1,10 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-06 19:31+0000\n"
-"PO-Revision-Date: 2017-11-15 03:16+0000\n"
+"PO-Revision-Date: 2018-02-15 17:01+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -19,19 +19,16 @@ msgid "Server Error"
 msgstr "Palvelinvirhe"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Virhekoodi: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Sivua ei löytynyt"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -41,8 +38,7 @@ msgstr ""
 msgid "Install Theme"
 msgstr "Asenna teema"
 
-#: src/core/components/InstallButton/index.js:255
-#: src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
 msgid "Add to Firefox"
 msgstr "Lisää Firefoxiin"
 
@@ -151,17 +147,12 @@ msgid "Personalize Your Firefox"
 msgstr "Mukauta Firefoxiasi"
 
 #: src/disco/containers/DiscoPane.js:138
-#, fuzzy
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Firefoxille on tuhansia lisäosia, joilla teet siitä omanlaisesi – kaikkea "
-"hauskoista teemoista tehokkaisiin työkaluihin ja ominaisuuksiin. Tässä on "
-"muutamia hyviä lisäosia katsottavaksi."
+"Firefoxille on tuhansia ilmaisia lisäosia, joita tekevät kehittäjät ympäri maailmaa. Voit muokata Firefoxista omanlaisesi asentamalla niitä. Lisäosia on hauskoista teemoista tehokkaisiin "
+"työkaluihin, jotka tekevät selaamisesta nopeampaa ja turvallisempaa. Näin alkajaisiksi tässä on muutamia, joita suosittelemme niiden erinomaisen suorituskyvyn ja toiminnallisuuden vuoksi."
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"

@@ -99,7 +99,7 @@ export class AddonReviewListBase extends React.Component<Props> {
       dispatch(fetchReviews({
         addonSlug: params.addonSlug,
         errorHandlerId: errorHandler.id,
-        page: parsePage(location.query.page),
+        page: location.query.page,
       }));
     }
   }

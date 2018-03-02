@@ -12,6 +12,8 @@ import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_MOST_POPULAR,
   SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
@@ -24,9 +26,9 @@ import './styles.scss';
 
 
 export const COLLECTIONS_TO_FETCH = [
-  { slug: 'privacy-matters', user: 'mozilla' },
   { slug: 're-imagine-search', user: 'mozilla' },
-  { slug: 'addonsofthemonth', user: 'mozilla' },
+  { slug: 'privacy-matters', user: 'mozilla' },
+  { slug: 'dynamic-media-downloaders', user: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -194,6 +196,7 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
@@ -211,8 +214,8 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[0]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Privacy tools')}
-          footerText={i18n.gettext('See more privacy tools')}
+          header={i18n.gettext('Re-imagine search')}
+          footerText={i18n.gettext('See more search extensions')}
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
           }
@@ -220,6 +223,7 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
           addons={popularThemes}
           className="Home-PopularThemes"
           header={i18n.gettext('Popular themes')}
@@ -237,8 +241,8 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[1]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Re-imagine search')}
-          footerText={i18n.gettext('See more search extensions')}
+          header={i18n.gettext('Privacy tools')}
+          footerText={i18n.gettext('See more privacy tools')}
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
           }
@@ -248,8 +252,8 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[2]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext(`February’s new featured extensions`)}
-          footerText={i18n.gettext('See all the new featured extensions')}
+          header={i18n.gettext('Dynamic media downloaders')}
+          footerText={i18n.gettext('See more dynamic media downloaders')}
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
           }

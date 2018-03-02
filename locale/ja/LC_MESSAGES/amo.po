@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2018-02-13 20:50+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-21 05:53+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -234,75 +234,75 @@ msgstr "使用者:"
 msgid "Overall Rating"
 msgstr "全体評価"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "このアドオンのプライバシーポリシーを読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "このアドオンの使用許諾契約を読む"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "すべてのバージョンを見る"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "すべてのベータ版を見る"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "アドオンリンク"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "バージョン"
 
-#: src/amo/components/AddonMoreInfo/index.js:203 src/amo/components/Collection/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "最終更新日"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "ライセンス"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "プライバシーポリシー"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "エンドユーザー使用許諾契約"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "バージョン履歴"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "使用統計"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "詳しい情報"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "ホームページ"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "サポートサイト"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "サポートメールアドレス"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr "統計ダッシュボードへ"
 
@@ -503,27 +503,31 @@ msgstr "アドオン"
 msgid "Creator"
 msgstr "作者"
 
-#: src/amo/components/CollectionManager/index.js:119
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
 msgstr "コレクションを保存"
 
-#: src/amo/components/CollectionManager/index.js:120
+#: src/amo/components/CollectionManager/index.js:135
 msgid "Saving collection"
 msgstr "コレクションを保存中"
 
-#: src/amo/components/CollectionManager/index.js:121
+#: src/amo/components/CollectionManager/index.js:136
 msgid "Edit collection"
 msgstr "コレクションを編集"
 
-#: src/amo/components/CollectionManager/index.js:125
+#: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
 msgstr "コレクション名"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
 msgstr "説明"
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
+msgstr "カスタム URL"
+
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
 msgstr "コレクション名は必須です"
 
@@ -853,7 +857,7 @@ msgstr "人気テーマをもっと見る"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
-msgstr ""
+msgstr "検索の再定義"
 
 #: src/amo/components/Home/index.js:241
 msgid "See more search extensions"
@@ -905,7 +909,7 @@ msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
-msgstr ""
+msgstr "サムネイル付きプレビュー、人気ランキングなどで検索結果を拡張します。"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Forget Me Not"
@@ -913,7 +917,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Automatically delete data (cookies, local storage, etc.) on all sites you visit except those on your whitelist."
-msgstr ""
+msgstr "ホワイトリストへ追加したものを除き、訪れたすべてのサイトで自動的にデータ (Cookie、ローカルストレージなど) を消去します。"
 
 #: src/amo/components/HomeHeroBanner/index.js:146
 msgid "Zoom for Firefox"
@@ -921,7 +925,7 @@ msgstr "Zoom for Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
-msgstr ""
+msgstr "ウェブページを見やすくするためのシンプルな拡大・縮小ツールです。"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Temporary Containers"
@@ -929,7 +933,7 @@ msgstr "Temporary Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Open pages with disposable data containers."
-msgstr ""
+msgstr "使い捨てのデータコンテナーでページを開きます。"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Momentum"
@@ -945,7 +949,7 @@ msgstr "Kimetrak"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Track who’s tracking you."
-msgstr ""
+msgstr "あなたを追跡している人たちを追跡しましょう。"
 
 #: src/amo/components/HomeHeroBanner/index.js:62
 msgid "Mailvelope"
@@ -953,7 +957,7 @@ msgstr "Mailvelope"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Secure encryption for webmail."
-msgstr ""
+msgstr "ウェブメールの安全な暗号化。"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Translate Man"
@@ -961,7 +965,7 @@ msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
-msgstr ""
+msgstr "ポイント＆クリックによる即時翻訳。"
 
 #: src/amo/components/HomeHeroBanner/index.js:84
 msgid "uBlock Origin"
@@ -969,7 +973,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:86
 msgid "Efficient, powerful ad blocker."
-msgstr ""
+msgstr "効率的で強力な広告ブロッカー。"
 
 #: src/amo/components/HomeHeroBanner/index.js:94
 msgid "Ghostery"
@@ -977,7 +981,7 @@ msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Popular anti-tracking extension now has ad blocking ability."
-msgstr ""
+msgstr "人気のトラッキング防止拡張機能に広告ブロック機能が付きました。"
 
 #: src/amo/components/LandingPage/index.js:205
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."

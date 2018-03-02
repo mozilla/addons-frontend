@@ -1,36 +1,46 @@
+/* @flow */
+/* eslint-disable react/sort-comp */
 import makeClassName from 'classnames';
-import PropTypes from 'prop-types';
 import * as React from 'react';
 
 import SearchResult from 'amo/components/SearchResult';
 import CardList from 'ui/components/CardList';
+import type { AddonType } from 'core/types/addons';
 
 import './styles.scss';
 
 
-export default class AddonsCard extends React.Component {
-  static propTypes = {
-    addons: PropTypes.array.isRequired,
-    children: PropTypes.node,
-    className: PropTypes.string,
-    loading: PropTypes.bool,
-    // When loading, this is the number of placeholders
-    // that will be rendered.
-    placeholderCount: PropTypes.number,
-    type: PropTypes.string,
-    showMetadata: PropTypes.bool,
-    showSummary: PropTypes.bool,
-  }
+type Props = {|
+  addonInstallSource?: string,
+  addons?: Array<AddonType> | null,
+  children?: React.Node,
+  className?: string,
+  loading?: boolean,
+  // When loading, this is the number of placeholders
+  // that will be rendered.
+  placeholderCount: number,
+  type?: 'horizontal',
+  showMetadata?: boolean,
+  showSummary?: boolean,
+
+  // These are all passed through to Card.
+  footerLink?: Object | string | null,
+  footerText?: string,
+  header?: React.Node,
+|};
+
+export default class AddonsCard extends React.Component<Props> {
+  cardContainer: React.ElementRef<any> | null;
 
   static defaultProps = {
     loading: false,
     // Set this to the default API page size.
     placeholderCount: 25,
-    type: 'list',
   }
 
   render() {
     const {
+      addonInstallSource,
       addons,
       children,
       className,
@@ -48,6 +58,7 @@ export default class AddonsCard extends React.Component {
       addons.forEach((addon) => {
         searchResults.push(
           <SearchResult
+            addonInstallSource={addonInstallSource}
             addon={addon}
             key={addon.slug}
             showMetadata={showMetadata}
@@ -63,10 +74,13 @@ export default class AddonsCard extends React.Component {
       }
     }
 
+    const allClassNames = makeClassName('AddonsCard', className, {
+      'AddonsCard--horizontal': type === 'horizontal',
+    });
     return (
       <CardList
         {...otherProps}
-        className={makeClassName('AddonsCard', `AddonsCard--${type}`, className)}
+        className={allClassNames}
         ref={(ref) => { this.cardContainer = ref; }}
       >
         {children}

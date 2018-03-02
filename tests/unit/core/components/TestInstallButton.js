@@ -29,6 +29,7 @@ import {
   createFakeEvent,
   createFakeMozWindow,
   fakeI18n,
+  fakeRouterLocation,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -54,6 +55,7 @@ describe(__filename, () => {
     getClientCompatibility: () => ({ compatible: true }),
     hasAddonManager: true,
     i18n: fakeI18n(),
+    location: fakeRouterLocation(),
     store: createStore().store,
     userAgentInfo: sampleUserAgentParsed,
     ...customProps,
@@ -165,6 +167,22 @@ describe(__filename, () => {
     expect(button).toHaveProp('href', installURL);
   });
 
+  it('uses router location to create install URLs', () => {
+    const externalSource = 'my-blog';
+    const installURL = 'https://addons.mozilla.org/download';
+    const root = render({
+      addon: createInternalAddon(createFakeAddon({
+        files: [{ platform: OS_ALL, url: installURL }],
+      })),
+      defaultInstallSource: 'this-should-be-overidden',
+      location: fakeRouterLocation({ query: { src: externalSource } }),
+    });
+
+    const button = root.childAt(1);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${externalSource}`);
+  });
+
   it('disables add-on install when client does not support addons', () => {
     const installURL = 'https://addons.mozilla.org/download';
     const root = render({
@@ -213,36 +231,38 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', true);
   });
 
-  it('adds a src to extension buttons', () => {
+  it('adds defaultInstallSource to extension buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const src = 'homepage';
+    const defaultInstallSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_EXTENSION,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultInstallSource,
       hasAddonManager: false,
-      src,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${defaultInstallSource}`);
   });
 
-  it('adds a src to search provider buttons', () => {
+  it('adds defaultInstallSource to search provider buttons', () => {
     const installURL = 'https://addons.mozilla.org/download';
-    const src = 'homepage';
+    const defaultInstallSource = 'homepage';
     const root = render({
       addon: createInternalAddon(createFakeAddon({
         type: ADDON_TYPE_OPENSEARCH,
         files: [{ platform: OS_ALL, url: installURL }],
       })),
+      defaultInstallSource,
       hasAddonManager: false,
-      src,
     });
 
     const button = root.childAt(1);
-    expect(button).toHaveProp('href', `${installURL}?src=${src}`);
+    expect(button)
+      .toHaveProp('href', `${installURL}?src=${defaultInstallSource}`);
   });
 
   it('renders a switch button if useButton is false', () => {
@@ -483,7 +503,7 @@ describe(__filename, () => {
       }));
 
       expect(_getFileHash({
-        addon, installURL: `${url}?src=dp-btn-primary`,
+        addon, installURL: `${url}?src=some-install-source`,
       }))
         .toEqual('hash-of-file');
     });
@@ -492,12 +512,14 @@ describe(__filename, () => {
       const url = 'https://a.m.o/addons/file.xpi';
       const addon = createInternalAddon(createFakeAddon({
         files: [{
-          platform: OS_ALL, url: `${url}?src=`, hash: 'hash-of-file',
+          platform: OS_ALL,
+          url: `${url}?src=some-install-source`,
+          hash: 'hash-of-file',
         }],
       }));
 
       expect(_getFileHash({
-        addon, installURL: `${url}?src=dp-btn-primary`,
+        addon, installURL: `${url}?src=some-install-source`,
       }))
         .toEqual('hash-of-file');
     });

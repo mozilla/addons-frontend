@@ -56,4 +56,5 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'disable-crash-autosubmit@mozilla.org', // Disable Crash Auto Submit
   'taarexp@mozilla.com', // TAARExperiment
   'tls13-middlebox-draft22@mozilla.org', // TLS 1.3 Compatibility Testing of Middleboxes
+  'searchvolmodelextra@mozilla.com', // Search Volume Modeling Extra
 ];

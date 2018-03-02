@@ -69,7 +69,7 @@ export class DiscoPaneBase extends React.Component {
     // (yet unlikley) API response.
     if (!errorHandler.hasError() && !results.length) {
       // We accept all query params here and filter them out based on the
-      // `taarParamsToUse` config value. See:
+      // `discoParamsToUse` config value. See:
       // https://github.com/mozilla/addons-frontend/issues/4155
       const taarParams = { ...location.query, platform: params.platform };
 

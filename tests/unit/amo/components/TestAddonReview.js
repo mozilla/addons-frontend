@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
 import I18nProvider from 'core/i18n/Provider';
@@ -16,7 +17,7 @@ import {
   createFakeEvent, createStubErrorHandler, fakeI18n, shallowUntilTarget,
 } from 'tests/unit/helpers';
 import OverlayCard from 'ui/components/OverlayCard';
-import Rating from 'ui/components/Rating';
+import UserRating from 'ui/components/UserRating';
 
 const defaultReview = {
   addonId: fakeAddon.id,
@@ -67,8 +68,11 @@ describe(__filename, () => {
     const props = renderProps(customProps);
     return mount(
       <I18nProvider i18n={props.i18n}>
-        <AddonReview {...props} />
-      </I18nProvider>
+        <Provider store={props.store}>
+          <AddonReview {...props} />
+        </Provider>
+      </I18nProvider>,
+      { context: props }
     );
   };
 
@@ -301,7 +305,7 @@ describe(__filename, () => {
     const review = { ...defaultReview };
     const root = render({ review });
 
-    const rating = root.find(Rating);
+    const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
     const newRating = 1;
     onSelectRating(newRating);
@@ -322,7 +326,7 @@ describe(__filename, () => {
       target: { value: enteredReviewText },
     }));
 
-    const rating = root.find(Rating);
+    const rating = root.find(UserRating);
     const onSelectRating = rating.prop('onSelectRating');
     const newRating = 1;
     onSelectRating(newRating);

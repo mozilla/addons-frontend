@@ -155,12 +155,12 @@ export type AddonType = {
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl?: string,
-  installURLs: {
-    all: ?string,
-    android: ?string,
-    mac: ?string,
-    linux: ?string,
-    windows: ?string,
+  platformFiles: {
+    all: ?Object,
+    android: ?Object,
+    mac: ?Object,
+    linux: ?Object,
+    windows: ?Object,
   },
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,

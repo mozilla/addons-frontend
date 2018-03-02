@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import url from 'url';
 
+import { AllHtmlEntities } from 'html-entities';
 import config from 'config';
 import * as React from 'react';
 
@@ -145,6 +146,11 @@ export function isAllowedOrigin(urlString, {
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 
+/*
+ * Returns a new URL with query params appended to `urlString`.
+ *
+ * `urlString` can be a relative or absolute URL.
+ */
 export function addQueryParams(urlString, queryParams = {}) {
   const urlObj = url.parse(urlString, true);
   // Clear search, since query object will only be used if search
@@ -299,3 +305,11 @@ export function addonHasVersionHistory(addon) {
     ADDON_TYPE_THEME,
   ].includes(addon.type);
 }
+
+/*
+ * Decodes HTML entities into their respective symbols.
+ */
+export const decodeHtmlEntities = (string) => {
+  const entities = new AllHtmlEntities();
+  return entities.decode(string);
+};

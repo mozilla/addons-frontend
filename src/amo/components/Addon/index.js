@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import AddAddonToCollection from 'amo/components/AddAddonToCollection';
@@ -34,6 +35,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
@@ -62,19 +64,20 @@ export class AddonBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This prop is passed in by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
-    installURLs: PropTypes.object,
+    platformFiles: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
-    // This prop is passed in by withInstallHelpers({ src: '...' })
-    src: PropTypes.string.isRequired,
     // eslint-disable-next-line react/require-default-props
     themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
@@ -85,7 +88,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
-    installURLs: {},
+    platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
   }
 
@@ -433,11 +436,11 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      defaultInstallSource,
       errorHandler,
       getClientCompatibility,
       i18n,
       installStatus,
-      src,
       userAgentInfo,
     } = this.props;
 
@@ -554,7 +557,7 @@ export class AddonBase extends React.Component {
                     {...this.props}
                     disabled={!isCompatible}
                     ref={(ref) => { this.installButton = ref; }}
-                    src={src}
+                    defaultInstallSource={defaultInstallSource}
                     status={installStatus}
                     useButton
                   /> : null
@@ -639,7 +642,7 @@ export function mapStateToProps(state, ownProps) {
     // properties from addon.theme_data (which are spread onto addon) and
     // maybe others.
     ...addon,
-    installURLs: addon ? addon.installURLs : {},
+    platformFiles: addon ? addon.platformFiles : {},
     // The withInstallHelpers HOC also needs to access some properties in
     // here like guid and probably others.
     ...installedAddon,
@@ -656,8 +659,9 @@ export const extractId = (ownProps) => {
 };
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ src: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

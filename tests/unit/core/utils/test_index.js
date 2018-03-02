@@ -42,6 +42,7 @@ import {
   safePromise,
   sanitizeHTML,
   sanitizeUserHTML,
+  decodeHtmlEntities,
   visibleAddonType,
   trimAndAddProtocolToUrl,
 } from 'core/utils';
@@ -446,6 +447,13 @@ describe(__filename, () => {
       const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
       expect(url.parse(output, true).query).toEqual({ foo: '1', bar: 'updated' });
     });
+
+    it('handles relative URLs', () => {
+      const output = addQueryParams('/relative/path/?one=1', { two: '2' });
+      expect(output).toMatch(/^\/relative\/path\//);
+      expect(url.parse(output, true).query)
+        .toEqual({ one: '1', two: '2' });
+    });
   });
 
   describe('ngettext', () => {
@@ -698,6 +706,17 @@ describe(__filename, () => {
       expect(sanitizeHTML(html, ['a'])).toEqual({
         __html: '<a href="http://example.org">link</a>',
       });
+    });
+  });
+
+  describe('decodeHtmlEntities', () => {
+    it('decodes entities', () => {
+      expect(decodeHtmlEntities('&lt;&gt;&quot;&amp;&copy;&reg;'))
+        .toEqual('<>"&©®');
+    });
+
+    it('passes through anything else', () => {
+      expect(decodeHtmlEntities('just whatever')).toEqual('just whatever');
     });
   });
 });

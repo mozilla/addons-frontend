@@ -7,6 +7,11 @@ import {
   ADDON_TYPE_THEME,
   GLOBAL_EVENTS,
   INSTALL_STATE,
+  OS_ALL,
+  OS_ANDROID,
+  OS_LINUX,
+  OS_MAC,
+  OS_WINDOWS,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import I18nProvider from 'core/i18n/Provider';
@@ -22,6 +27,7 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   MockedSubComponent,
 } from 'tests/unit/helpers';
 import {
@@ -67,7 +73,7 @@ describe(__filename, () => {
       errorHandler: createStubErrorHandler(),
       dispatch: sinon.stub(),
       i18n,
-      location: { query: {} },
+      location: fakeRouterLocation(),
       params: { platform: 'Darwin' },
       results,
       _tracking: fakeTracking,
@@ -145,12 +151,12 @@ describe(__filename, () => {
         description: 'editorial text',
         heading: 'The Add-on',
         iconUrl: addon.icon_url,
-        installURLs: {
-          all: 'https://a.m.o/files/321/addon.xpi',
-          android: undefined,
-          linux: undefined,
-          mac: undefined,
-          windows: undefined,
+        platformFiles: {
+          [OS_ALL]: fakeDiscoAddon.current_version.files[0],
+          [OS_ANDROID]: undefined,
+          [OS_LINUX]: undefined,
+          [OS_MAC]: undefined,
+          [OS_WINDOWS]: undefined,
         },
         isMozillaSignedExtension: false,
         isRestartRequired: false,
@@ -218,11 +224,11 @@ describe(__filename, () => {
     });
 
     it('sends a telemetry client ID if there is one', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           clientId: 'telemetry-client-id',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.
@@ -240,13 +246,13 @@ describe(__filename, () => {
     });
 
     it('dispatches all query params', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           branch: 'foo',
           clientId: 'telemetry-client-id',
           study: 'bar',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.
@@ -266,11 +272,11 @@ describe(__filename, () => {
     });
 
     it('does not allow platform to be overriden', () => {
-      const location = {
+      const location = fakeRouterLocation({
         query: {
           platform: 'bar',
         },
-      };
+      });
       const dispatch = sinon.stub();
       const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
       // Set up some empty results so that the component fetches new ones.

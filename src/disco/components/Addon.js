@@ -6,21 +6,23 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
 import HoverIntent from 'core/components/HoverIntent';
 import InstallButton from 'core/components/InstallButton';
 import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
   CLICK_CATEGORY,
   DOWNLOAD_FAILED,
   ERROR,
-  ADDON_TYPE_EXTENSION,
   FATAL_ERROR,
   FATAL_INSTALL_ERROR,
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
-  ADDON_TYPE_THEME,
+  INSTALL_SOURCE_DISCOVERY,
   UNINSTALLING,
   validAddonTypes,
   validInstallStates,
@@ -43,6 +45,8 @@ export class AddonBase extends React.Component {
   static propTypes = {
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This is added by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
@@ -51,7 +55,9 @@ export class AddonBase extends React.Component {
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
     installTheme: PropTypes.func.isRequired,
-    installURLs: PropTypes.func,
+    platformFiles: PropTypes.object,
+    // See ReactRouterLocation in 'core/types/router'
+    location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
@@ -67,7 +73,7 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     getClientCompatibility: _getClientCompatibility,
-    installURLs: {},
+    platformFiles: {},
     needsRestart: false,
     // Defaults themeAction to the imported func.
     themeAction,
@@ -219,6 +225,7 @@ export class AddonBase extends React.Component {
     const {
       addon,
       clientApp,
+      defaultInstallSource,
       getClientCompatibility,
       heading,
       type,
@@ -276,10 +283,12 @@ export class AddonBase extends React.Component {
             />
             {this.getDescription()}
           </div>
+          {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton
-            className="Addon-install-button"
-            size="small"
             {...this.props}
+            className="Addon-install-button"
+            defaultInstallSource={defaultInstallSource}
+            size="small"
           />
         </div>
         {!compatible ? (
@@ -306,13 +315,14 @@ export function mapStateToProps(state, ownProps) {
     ...addon,
     ...installation,
     clientApp: state.api.clientApp,
-    installURLs: addon ? addon.installURLs : {},
+    platformFiles: addon ? addon.platformFiles : {},
     userAgentInfo: state.api.userAgentInfo,
   };
 }
 
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps, undefined, undefined, { withRef: true }),
-  withInstallHelpers({ src: 'discovery-promo' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DISCOVERY }),
 )(AddonBase);

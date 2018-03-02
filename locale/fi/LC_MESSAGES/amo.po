@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-13 19:14+0000\n"
-"PO-Revision-Date: 2017-11-29 20:21+0000\n"
+"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"PO-Revision-Date: 2018-02-15 17:17+0000\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -15,27 +15,24 @@ msgstr ""
 "X-Generator: Pontoon\n"
 
 #: src/amo/components/AddAddonToCollection/index.js:167
-#, fuzzy
 msgid "Loading…"
-msgstr "Ladataan"
+msgstr "Ladataan…"
 
 #: src/amo/components/AddAddonToCollection/index.js:169
 msgid "Adding…"
-msgstr ""
+msgstr "Lisätään…"
 
 #: src/amo/components/AddAddonToCollection/index.js:185
-#, fuzzy
 msgid "Select a collection…"
-msgstr "Selaa kaikkia laajennuksia"
+msgstr "Valitse kokoelma…"
 
 #: src/amo/components/AddAddonToCollection/index.js:190
-#, fuzzy
 msgid "Create new collection"
-msgstr "Selaa kaikkia laajennuksia"
+msgstr "Luo uusi kokoelma"
 
 #: src/amo/components/AddAddonToCollection/index.js:231
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "Lisätty kokoelmaan %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:247
@@ -43,9 +40,8 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#, fuzzy
 msgid "Add to collection"
-msgstr "Selaa kaikkia laajennuksia"
+msgstr "Lisää kokoelmaan"
 
 #: src/amo/components/Addon/index.js:182
 msgid "Cancel preview"
@@ -147,7 +143,7 @@ msgstr ""
 
 #: src/amo/components/Addon/index.js:565
 msgid "Extension Metadata"
-msgstr ""
+msgstr "Laajennuksen metatiedot"
 
 #: src/amo/components/Addon/index.js:583
 msgid "Screenshots"
@@ -182,34 +178,40 @@ msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr ""
+"Tämän lisäosan asentamiseksi tarvitsee <a href=\"%(downloadUrl)s\">ladata "
+"Firefox</a>."
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
-msgstr ""
+msgstr "Tämä lisäosa ei ole yhteensopiva käyttämäsi Firefox-version kanssa."
 
 #: src/amo/components/AddonCompatibilityError/index.js:69
 msgid "Your version of Firefox does not support search plugins."
-msgstr ""
+msgstr "Käyttämäsi Firefox-versio ei tue hakuliitännäisiä."
 
 #: src/amo/components/AddonCompatibilityError/index.js:72
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox iOS:lle ei tällä hetkellä tue lisäosia."
 
 #: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
-msgstr ""
+msgstr "Tämä lisäosa ei ole käytettävissä käyttämässäsi ympäristössä."
 
 #: src/amo/components/AddonCompatibilityError/index.js:78
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
+"Tämä lisäosa vaatii <a href=\"%(downloadUrl)s\">uudemman Firefox-version</a> "
+"(vähintään version %(minVersion)s). Käytössäsi on Firefox %(yourVersion)s."
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
 msgstr ""
+"Käyttämäsi selain ei tue lisäosia. Voit asentaa tämän lisäosan <a href="
+"\"%(downloadUrl)s\">lataamalla Firefoxin</a>."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -247,76 +249,76 @@ msgstr ""
 msgid "Overall Rating"
 msgstr "Kokonaisarvio"
 
-#: src/amo/components/AddonMoreInfo/index.js:108
+#: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
 msgstr "%(timeFromNow)s (%(date)s)"
 
-#: src/amo/components/AddonMoreInfo/index.js:128
+#: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
 msgstr "Lue tämän lisäosan tietosuojakäytäntö"
 
-#: src/amo/components/AddonMoreInfo/index.js:136
+#: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
 msgstr "Lue tämän lisäosan lisenssisopimus"
 
-#: src/amo/components/AddonMoreInfo/index.js:145
+#: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
 msgstr "Näytä kaikki versiot"
 
-#: src/amo/components/AddonMoreInfo/index.js:157
+#: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
 msgstr "Näytä kaikki beetaversiot"
 
-#: src/amo/components/AddonMoreInfo/index.js:182
+#: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
 msgstr "Lisäosan linkit"
 
-#: src/amo/components/AddonMoreInfo/index.js:195
+#: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
 msgstr "Versio"
 
-#: src/amo/components/AddonMoreInfo/index.js:203
+#: src/amo/components/AddonMoreInfo/index.js:197
 #: src/amo/components/Collection/index.js:203
 msgid "Last updated"
 msgstr "Viimeksi päivitetty"
 
-#: src/amo/components/AddonMoreInfo/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
 msgstr "Lisenssi"
 
-#: src/amo/components/AddonMoreInfo/index.js:216
+#: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
 msgstr "Tietosuojakäytäntö"
 
-#: src/amo/components/AddonMoreInfo/index.js:223
+#: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
 msgstr "Loppukäyttäjän lisenssisopimus"
 
-#: src/amo/components/AddonMoreInfo/index.js:230
+#: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
 msgstr "Versiohistoria"
 
-#: src/amo/components/AddonMoreInfo/index.js:242
+#: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
 msgstr "Käyttötilastot"
 
-#: src/amo/components/AddonMoreInfo/index.js:256
+#: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
 msgstr "Lisätietoja"
 
-#: src/amo/components/AddonMoreInfo/index.js:51
+#: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
 msgstr "Kotisivu"
 
-#: src/amo/components/AddonMoreInfo/index.js:62
+#: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
 msgstr "Tukisivusto"
 
-#: src/amo/components/AddonMoreInfo/index.js:76
+#: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
 msgstr "Sähköpostituki"
 
-#: src/amo/components/AddonMoreInfo/index.js:91
+#: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
 msgstr ""
 
@@ -375,12 +377,11 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr ""
+msgstr "Kehittäjän vastaus"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Kirjoita arvio"
+msgstr "Kirjoita vastaus tähän arvioon."
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
@@ -407,19 +408,16 @@ msgid "by %(authorName)s, %(timestamp)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:258
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Kirjoita arvio"
+msgstr "Muokkaa vastaustani"
 
 #: src/amo/components/AddonReviewListItem/index.js:259
-#, fuzzy
 msgid "Edit my review"
-msgstr "Kirjoita arvio"
+msgstr "Muokkaa arviotani"
 
 #: src/amo/components/AddonReviewListItem/index.js:277
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Esikatsele koskettamalla"
+msgstr "Vastaa tähän arvioon"
 
 #: src/amo/components/App/index.js:203
 #: src/amo/components/SectionLinks/index.js:149
@@ -441,15 +439,15 @@ msgstr "%s – Lisäosia Androidille"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
-msgstr ""
+msgstr "Luokkia ei löytynyt."
 
 #: src/amo/components/Categories/index.js:107
 msgid "Categories"
-msgstr ""
+msgstr "Luokat"
 
 #: src/amo/components/Categories/index.js:112
 msgid "Loading categories."
-msgstr ""
+msgstr "Ladataan luokkia."
 
 #: src/amo/components/Category/index.js:128
 #: src/amo/components/LandingPage/index.js:202
@@ -473,27 +471,24 @@ msgstr "Katso lisää suositeltuja lisäosia"
 #: src/amo/components/Category/index.js:139
 #: src/amo/components/LandingPage/index.js:130
 #: src/amo/components/Search/index.js:124
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Laajennukset"
+msgstr "Nousussa olevat laajennukset"
 
 #: src/amo/components/Category/index.js:148
 #: src/amo/components/LandingPage/index.js:135
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Laajennukset"
+msgstr "Katso lisää nousussa olevia laajennuksia"
 
 #: src/amo/components/Category/index.js:149
 #: src/amo/components/LandingPage/index.js:136
 #: src/amo/components/Search/index.js:136
 msgid "Top rated extensions"
-msgstr ""
+msgstr "Parhaiten arvioidut laajennukset"
 
 #: src/amo/components/Category/index.js:158
 #: src/amo/components/LandingPage/index.js:144
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Laajennukset"
+msgstr "Katso lisää parhaiten arvioituja laajennuksia"
 
 #: src/amo/components/Category/index.js:161
 #: src/amo/components/LandingPage/index.js:201
@@ -516,41 +511,39 @@ msgstr "Katso lisää suositeltuja teemoja"
 #: src/amo/components/LandingPage/index.js:156
 #: src/amo/components/Search/index.js:127
 msgid "Trending themes"
-msgstr ""
+msgstr "Nousussa olevat teemat"
 
 #: src/amo/components/Category/index.js:181
 #: src/amo/components/LandingPage/index.js:161
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Laajennukset"
+msgstr "Katso lisää nousussa olevia teemoja"
 
 #: src/amo/components/Category/index.js:182
 #: src/amo/components/LandingPage/index.js:162
 #: src/amo/components/Search/index.js:139
 msgid "Top rated themes"
-msgstr ""
+msgstr "Parhaiten arvioidut teemat"
 
 #: src/amo/components/Category/index.js:191
 #: src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
-msgstr ""
+msgstr "Katso lisää parhaiten arvioituja teemoja"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Selaa kaikkia tämän luokan lisäosia."
 
 #: src/amo/components/CategoryHeader/index.js:46
 msgid "Browse all extensions in this category."
-msgstr ""
+msgstr "Selaa kaikkia tämän luokan laajennuksia."
 
 #: src/amo/components/CategoryHeader/index.js:51
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "Selaa kaikkia tämän luokan teemoja."
 
 #: src/amo/components/Collection/index.js:159
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Selaa kaikkia laajennuksia"
+msgstr "Muokkaa tätä kokoelmaa"
 
 #: src/amo/components/Collection/index.js:193
 #: src/amo/components/Footer/index.js:43
@@ -561,41 +554,41 @@ msgstr "Lisäosat"
 msgid "Creator"
 msgstr "Tekijä"
 
-#: src/amo/components/CollectionManager/index.js:119
-#, fuzzy
+#: src/amo/components/CollectionManager/index.js:134
 msgid "Save collection"
-msgstr "Selaa kaikkia laajennuksia"
-
-#: src/amo/components/CollectionManager/index.js:120
-#, fuzzy
-msgid "Saving collection"
-msgstr "Selaa kaikkia laajennuksia"
-
-#: src/amo/components/CollectionManager/index.js:121
-#, fuzzy
-msgid "Edit collection"
-msgstr "Selaa kaikkia laajennuksia"
-
-#: src/amo/components/CollectionManager/index.js:125
-msgid "Collection name"
-msgstr ""
+msgstr "Tallenna kokoelma"
 
 #: src/amo/components/CollectionManager/index.js:135
+msgid "Saving collection"
+msgstr "Tallennetaan kokoelmaa"
+
+#: src/amo/components/CollectionManager/index.js:136
+msgid "Edit collection"
+msgstr "Muokkaa kokoelmaa"
+
+#: src/amo/components/CollectionManager/index.js:140
+msgid "Collection name"
+msgstr "Kokoelman nimi"
+
+#: src/amo/components/CollectionManager/index.js:150
 msgid "Description"
+msgstr "Kuvaus"
+
+#: src/amo/components/CollectionManager/index.js:159
+msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:81
+#: src/amo/components/CollectionManager/index.js:85
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "Kokoelman nimi ei voi olla tyhjä"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
-msgstr ""
+msgstr "Tue tätä kehittäjää"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Etsi laajennuksista ja teemoista"
+msgstr "Tue näitä kehittäjiä"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid ""
@@ -699,7 +692,7 @@ msgstr ""
 #: src/amo/components/ErrorPage/NotFound/index.js:49
 #: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
-msgstr ""
+msgstr "Sivua ei löytynyt"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
@@ -827,7 +820,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
-msgstr ""
+msgstr "Tietoja"
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
@@ -859,7 +852,7 @@ msgstr "Näytä perinteinen työpöytäsivusto"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
-msgstr ""
+msgstr "Näytä kokoelmani"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
@@ -897,11 +890,11 @@ msgstr "Firefoxin lisäosat"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Oma tili"
 
 #: src/amo/components/Home/index.js:111
 msgid "Abstract"
-msgstr ""
+msgstr "Abstraktit"
 
 #: src/amo/components/Home/index.js:116
 msgid "Nature"
@@ -909,55 +902,52 @@ msgstr "Luonto"
 
 #: src/amo/components/Home/index.js:121
 msgid "Film & TV"
-msgstr ""
+msgstr "TV ja elokuvat"
 
 #: src/amo/components/Home/index.js:126
 msgid "Scenery"
-msgstr ""
+msgstr "Maisemat"
 
 #: src/amo/components/Home/index.js:131
 msgid "Music"
-msgstr ""
+msgstr "Musiikki"
 
 #: src/amo/components/Home/index.js:136
 msgid "Seasonal"
-msgstr ""
+msgstr "Vuodenaikaiset"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
+"Muokkaa Firefoxin toimintaa laajennuksilla. Oletko kiinnostunut näistä?"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Muuta Firefoxin ulkoasua teemoilla."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Tietosuojakäytäntö"
+msgstr "Yksityisyystyökalut"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Selaa kaikkia laajennuksia"
+msgstr "Katso lisää yksityisyystyökaluja"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "Suositut teemat"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Etsi laajennuksista"
+msgstr "Katso lisää suosittuja teemoja"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
 msgstr ""
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Katso lisää välilehtilaajennuksia"
+msgstr "Katso lisää hakulaajennuksia"
 
 #: src/amo/components/Home/index.js:251
 #, fuzzy
@@ -971,19 +961,19 @@ msgstr "Katso lisää suositeltuja lisäosia"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
-msgstr ""
+msgstr "Kirjanmerkit"
 
 #: src/amo/components/Home/index.js:64
 msgid "Password managers"
-msgstr ""
+msgstr "Salasanojen hallintaohjelmat"
 
 #: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
-msgstr ""
+msgstr "Mainosestot"
 
 #: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Fiksummat kaupat"
 
 #: src/amo/components/Home/index.js:76
 msgid "Productivity"
@@ -1104,7 +1094,7 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:235
 msgid "Explore all categories"
-msgstr ""
+msgstr "Selaa kaikkia luokkia"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
@@ -1231,14 +1221,12 @@ msgid "Featured add-ons"
 msgstr "Suositellut lisäosat"
 
 #: src/amo/components/Search/index.js:130
-#, fuzzy
 msgid "Trending add-ons"
-msgstr "Firefoxin lisäosat"
+msgstr "Nousussa olevat lisäosat"
 
 #: src/amo/components/Search/index.js:142
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "Firefoxin lisäosat"
+msgstr "Parhaiten arvioidut lisäosat"
 
 #: src/amo/components/Search/index.js:148
 msgid "Popular extensions"
@@ -1345,11 +1333,11 @@ msgstr "Eniten käyttäjiä"
 
 #: src/amo/components/SearchFilters/index.js:125
 msgid "Top Rated"
-msgstr ""
+msgstr "Parhaiten arvioidut"
 
 #: src/amo/components/SearchFilters/index.js:126
 msgid "Trending"
-msgstr ""
+msgstr "Nousussa olevat"
 
 #: src/amo/components/SearchFilters/index.js:136
 msgid "Filter results"
@@ -1357,7 +1345,7 @@ msgstr "Hakutulosten suodatus"
 
 #: src/amo/components/SearchFilters/index.js:143
 msgid "Sort by"
-msgstr ""
+msgstr "Järjestelyperuste"
 
 #: src/amo/components/SearchFilters/index.js:165
 msgid "Add-on Type"
@@ -1424,7 +1412,7 @@ msgstr "Hakutyökalut"
 
 #: src/amo/components/SectionLinks/index.js:125
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Muiden selainten sivustot"
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
@@ -1718,7 +1706,7 @@ msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
-msgstr ""
+msgstr "Rekisteröidy tai kirjaudu"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid ""
@@ -1729,7 +1717,7 @@ msgstr ""
 #: src/core/components/ErrorPage/GenericError/index.js:34
 #: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Virhekoodi: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -1807,15 +1795,13 @@ msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 #: src/ui/components/FormOverlay/index.js:98
-#, fuzzy
 msgid "Submit"
-msgstr "Lähetä arvio"
+msgstr "Lähetä"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
 #: src/ui/components/FormOverlay/index.js:96
-#, fuzzy
 msgid "Submitting"
-msgstr "Lähetä arvio"
+msgstr "Lähetetään"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
@@ -1849,35 +1835,27 @@ msgstr "Ei arvioita"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "Lue lisää <span class=\"visually-hidden\">laajentamalla</span>"
 
-#, fuzzy
 #~ msgid "See more media downloaders"
 #~ msgstr "Laajennukset"
 
-#, fuzzy
 #~ msgid "Top-rated Extensions"
 #~ msgstr "Suositeltu laajennus"
 
-#, fuzzy
 #~ msgid "See more highly rated Extensions"
 #~ msgstr "Laajennukset"
 
-#, fuzzy
 #~ msgid "Top-rated Themes"
 #~ msgstr "Suositeltu teema"
 
-#, fuzzy
 #~ msgid "See more highly rated Themes"
 #~ msgstr "Katso lisää suositeltuja teemoja"
 
-#, fuzzy
 #~ msgid "Productivity tools"
 #~ msgstr "Tuottavuus"
 
-#, fuzzy
 #~ msgid "Privacy protection"
 #~ msgstr "Tietosuojakäytäntö"
 
-#, fuzzy
 #~ msgid "Top privacy extensions"
 #~ msgstr "Etsi laajennuksista"
 

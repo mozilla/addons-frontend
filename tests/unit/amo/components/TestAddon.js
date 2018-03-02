@@ -45,6 +45,7 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
   UNKNOWN,
 } from 'core/constants';
@@ -63,6 +64,7 @@ import {
   createFetchAddonResult,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -86,7 +88,7 @@ function renderProps({
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     getBrowserThemeData: () => '{}',
     i18n,
-    location: { pathname: '/addon/detail/' },
+    location: fakeRouterLocation(),
     params: params || { slug: addon ? addon.slug : fakeAddon.slug },
     // Configure Addon with a non-redux depdendent RatingManager.
     RatingManager: RatingManagerWithI18n,
@@ -262,7 +264,7 @@ describe(__filename, () => {
     expect(root.find(AddonMoreInfo)).toHaveLength(1);
 
     // Since withInstallHelpers relies on this, make sure it's initialized.
-    expect(root.instance().props.installURLs).toEqual({});
+    expect(root.instance().props.platformFiles).toEqual({});
   });
 
   it('does not dispatch fetchAddon action when slug is the same', () => {
@@ -672,7 +674,7 @@ describe(__filename, () => {
   });
 
   it('configures the overall ratings section', () => {
-    const location = { pathname: '/en-US/firefox/addon/some-slug/' };
+    const location = fakeRouterLocation();
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon, location })
       .find(RatingManagerWithI18n);
@@ -786,7 +788,8 @@ describe(__filename, () => {
 
     const button = root.find(InstallButton);
     // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button).toHaveProp('src', 'dp-btn-primary');
+    expect(button)
+      .toHaveProp('defaultInstallSource', INSTALL_SOURCE_DETAIL_PAGE);
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {
@@ -1387,10 +1390,10 @@ describe('mapStateToProps', () => {
 
   it('can handle a missing addon', () => {
     signIn();
-    const { addon, installURLs } = _mapStateToProps();
+    const { addon, platformFiles } = _mapStateToProps();
     expect(addon).toBeFalsy();
     // Make sure this isn't undefined since it gets read from `addon`.
-    expect(installURLs).toEqual({});
+    expect(platformFiles).toEqual({});
   });
 
   it('sets the clientApp and userAgent', () => {

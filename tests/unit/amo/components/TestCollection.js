@@ -26,6 +26,7 @@ import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
+  fakeRouterLocation,
   getFakeConfig,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -46,7 +47,7 @@ describe(__filename, () => {
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
-    location: { query: {} },
+    location: fakeRouterLocation(),
     params: {
       user: defaultUser,
       slug: defaultSlug,
@@ -137,7 +138,7 @@ describe(__filename, () => {
 
     renderComponent({
       errorHandler,
-      location: { query: { page } },
+      location: fakeRouterLocation({ query: { page } }),
       params: { slug, user },
       store,
     });
@@ -178,7 +179,7 @@ describe(__filename, () => {
       detail: defaultCollectionDetail,
     }));
 
-    const location = { query: {} };
+    const location = fakeRouterLocation();
 
     const wrapper = renderComponent({ location, store });
     fakeDispatch.reset();
@@ -258,10 +259,10 @@ describe(__filename, () => {
     const user = 'some-user';
     const page = 123;
 
-    const location = {
+    const location = fakeRouterLocation({
       pathname: `/collections/${user}/${slug}/`,
       query: { page },
-    };
+    });
 
     const newSlug = 'other-collection';
     const newLocation = {
@@ -302,8 +303,8 @@ describe(__filename, () => {
     }));
 
     const page = 123;
-    const location = { query: {} };
-    const newLocation = { query: { page } };
+    const location = fakeRouterLocation();
+    const newLocation = fakeRouterLocation({ query: { page } });
     const errorHandler = createStubErrorHandler();
 
     const wrapper = renderComponent({
@@ -609,7 +610,7 @@ describe(__filename, () => {
           user: 'foo',
           slug: 'collection-bar',
         },
-        location: { query: {} },
+        location: fakeRouterLocation(),
       });
 
       expect(extractId(props)).toEqual('foo/collection-bar/1');
@@ -621,7 +622,7 @@ describe(__filename, () => {
           user: 'foo',
           slug: 'collection-bar',
         },
-        location: { query: { page: 124 } },
+        location: fakeRouterLocation({ query: { page: 124 } }),
       });
 
       expect(extractId(props)).toEqual('foo/collection-bar/124');
