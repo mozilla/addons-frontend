@@ -219,23 +219,14 @@ export function dispatchClientMetadata({
 export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
-  username = 'user-1234',
-  // eslint-disable-next-line camelcase
-  display_name = null,
-  permissions = [],
+  userProps = {},
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
   store.dispatch(loadCurrentUserAccount({
-    user: createUserAccountResponse({
-      id: userId,
-      username,
-      // eslint-disable-next-line camelcase
-      display_name,
-      permissions,
-    }),
+    user: createUserAccountResponse({ id: userId, ...userProps }),
   }));
 
   return {

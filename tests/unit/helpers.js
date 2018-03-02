@@ -386,27 +386,34 @@ export function createFakeLanguageTool(otherProps = {}) {
 
 export function createUserAccountResponse({
   id = 123456,
+  biography = 'I love making add-ons!',
   username = 'user-1234',
-  // eslint-disable-next-line camelcase
+  created = '2017-08-15T12:01:13Z',
+  /* eslint-disable camelcase */
+  average_addon_rating = 4.3,
   display_name = null,
+  num_addons_listed = 1,
+  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  picture_type = '',
+  /* eslint-enable camelcase */
+  homepage = null,
   permissions = [],
 } = {}) {
   return {
-    average_addon_rating: null,
-    biography: '',
-    created: '2017-08-15T12:01:13Z',
-    // eslint-disable-next-line camelcase
+    average_addon_rating,
+    biography,
+    created,
     display_name,
-    homepage: '',
+    homepage,
     id,
     is_addon_developer: false,
     is_artist: false,
     location: '',
     name: '',
-    num_addons_listed: 0,
+    num_addons_listed,
     occupation: '',
-    picture_type: '',
-    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    picture_type,
+    picture_url,
     url: null,
     username,
     permissions,

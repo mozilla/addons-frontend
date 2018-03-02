@@ -531,7 +531,11 @@ describe(__filename, () => {
   });
 
   it('renders an edit link when user has `Collections:Edit` permission', () => {
-    const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
@@ -546,7 +550,9 @@ describe(__filename, () => {
   it('links to a Collection edit page', () => {
     // Turn off edit-overlay feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableCollectionEdit: false });
-    const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
+    const { store } = dispatchSignInActions({
+      userProps: { permissions: [COLLECTIONS_EDIT] },
+    });
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
@@ -565,7 +571,7 @@ describe(__filename, () => {
     // Turn on the edit-overlay feature.
     const fakeConfig = getFakeConfig({ enableCollectionEdit: true });
     const { store } = dispatchSignInActions({
-      permissions: [COLLECTIONS_EDIT],
+      userProps: { permissions: [COLLECTIONS_EDIT] },
     });
 
     store.dispatch(loadCurrentCollection({
