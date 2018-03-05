@@ -3,6 +3,7 @@ import SagaTester from 'redux-saga-tester';
 import * as api from 'core/api/abuse';
 import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
 import userAbuseReportsReducer, {
+  abortUserAbuseReport,
   loadUserAbuseReport,
   sendUserAbuseReport,
 } from 'amo/reducers/userAbuseReports';
@@ -59,7 +60,7 @@ describe(__filename, () => {
     const expectedLoadAction = loadUserAbuseReport({
       message: response.message,
       reporter: response.reporter,
-      user: response.user,
+      user,
     });
 
     await sagaTester.waitFor(expectedLoadAction.type);
@@ -83,12 +84,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(response));
 
-    _sendUserAbuseReport({ message });
+    _sendUserAbuseReport({ message, user });
 
     const expectedLoadAction = loadUserAbuseReport({
       message: response.message,
       reporter: response.reporter,
-      user: response.user,
+      user,
     });
 
     await sagaTester.waitFor(expectedLoadAction.type);
@@ -119,18 +120,19 @@ describe(__filename, () => {
     expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
   });
 
-  // it('resets the state when an error occurs', async () => {
-  //   const error = new Error('some API error maybe');
-  //   mockApi
-  //     .expects('reportUser')
-  //     .returns(Promise.reject(error));
+  it('resets the state when an error occurs', async () => {
+    const user = createUserAccountResponse({ id: 501 });
+    const error = new Error('some API error maybe');
+    mockApi
+      .expects('reportUser')
+      .returns(Promise.reject(error));
 
-  //   _sendUserAbuseReport();
+    _sendUserAbuseReport({ user });
 
-  //   const errorAction = errorHandler.createErrorAction(error);
-  //   await sagaTester.waitFor(errorAction.type);
-  //   expect(sagaTester.getCalledActions()[3]).toEqual('RESET ACTION');
-  // });
+    const abortAction = abortUserAbuseReport({ user });
+    await sagaTester.waitFor(abortAction.type);
+    expect(sagaTester.getCalledActions()[3]).toEqual(abortAction);
+  });
 
   it('throws an error if multiple reports are submitted for the same user', async () => {
     const user = createUserAccountResponse({ id: 50 });

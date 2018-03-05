@@ -1,5 +1,6 @@
 import userAbuseReportsReducer, {
   SEND_USER_ABUSE_REPORT,
+  abortUserAbuseReport,
   hideUserAbuseReportUI,
   initialState,
   loadUserAbuseReport,
@@ -40,6 +41,37 @@ describe(__filename, () => {
           50: { message: 'This user is mean' },
           51: { message: 'This user is boring' },
         },
+      });
+    });
+
+    describe('abortUserAbuseReport', () => {
+      it('resets the state of this abuse report', () => {
+        const user = createUserAccountResponse({ id: 501 });
+        let state = userAbuseReportsReducer(
+          initialState, showUserAbuseReportUI({ user }));
+        state = userAbuseReportsReducer(state, showUserAbuseReportUI({ user }));
+        state = userAbuseReportsReducer(state, sendUserAbuseReport({
+          errorHandlerId: 'some-error-handler',
+          message: 'foo',
+          user,
+        }));
+        state = userAbuseReportsReducer(state, abortUserAbuseReport({ user }));
+
+        expect(state).toMatchObject({
+          byUserId: {
+            [user.id]: {
+              hasSubmitted: false,
+              isSubmitting: false,
+              uiVisible: false,
+            },
+          },
+        });
+      });
+
+      it('requires a user param', () => {
+        expect(() => {
+          abortUserAbuseReport();
+        }).toThrow('user is required');
       });
     });
 

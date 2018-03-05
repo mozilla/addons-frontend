@@ -1,6 +1,8 @@
 /* @flow */
 import type { UserType } from 'amo/reducers/users';
 
+export const ABORT_USER_ABUSE_REPORT: 'ABORT_USER_ABUSE_REPORT' =
+  'ABORT_USER_ABUSE_REPORT';
 export const HIDE_USER_ABUSE_REPORT_UI: 'HIDE_USER_ABUSE_REPORT_UI' =
   'HIDE_USER_ABUSE_REPORT_UI';
 export const LOAD_USER_ABUSE_REPORT: 'LOAD_USER_ABUSE_REPORT' =
@@ -10,6 +12,28 @@ export const SEND_USER_ABUSE_REPORT: 'SEND_USER_ABUSE_REPORT' =
 export const SHOW_USER_ABUSE_REPORT_UI: 'SHOW_USER_ABUSE_REPORT_UI' =
   'SHOW_USER_ABUSE_REPORT_UI';
 
+
+type AbortUserAbuseReportParams = {|
+  user: UserType,
+|};
+
+type AbortUserAbuseReportAction = {|
+  type: typeof ABORT_USER_ABUSE_REPORT,
+  payload: AbortUserAbuseReportParams,
+|};
+
+export function abortUserAbuseReport(
+  { user }: AbortUserAbuseReportParams = {}
+): AbortUserAbuseReportAction {
+  if (!user) {
+    throw new Error('user is required');
+  }
+
+  return {
+    type: ABORT_USER_ABUSE_REPORT,
+    payload: { user },
+  };
+}
 
 type HideUserAbuseReportUIParams = {|
   user: UserType,
@@ -41,12 +65,7 @@ type LoadUserAbuseReportParams = {|
     url: string,
     username: string,
   |} | null,
-  user: {|
-    id: number,
-    name: string,
-    url: string,
-    username: string,
-  |},
+  user: UserType,
 |};
 
 type LoadUserAbuseReportAction = {|
@@ -54,6 +73,7 @@ type LoadUserAbuseReportAction = {|
   payload: {|
     message: string,
     reportedByUserId: number | null,
+    user: UserType,
   |},
 |};
 
@@ -149,6 +169,7 @@ export type UserAbuseReportsState = {|
 |};
 
 export type UserAbuseReportActionType =
+  | AbortUserAbuseReportAction
   | HideUserAbuseReportUIAction
   | SendUserAbuseReportAction
   | ShowUserAbuseReportUIActions
@@ -159,6 +180,22 @@ export default function userAbuseReportReducer(
   action: UserAbuseReportActionType,
 ) {
   switch (action.type) {
+    case ABORT_USER_ABUSE_REPORT: {
+      const { user } = action.payload;
+
+      return {
+        ...state,
+        byUserId: {
+          ...state.byUserId,
+          [user.id]: {
+            ...state.byUserId[user.id],
+            hasSubmitted: false,
+            isSubmitting: false,
+            uiVisible: false,
+          },
+        },
+      };
+    }
     case HIDE_USER_ABUSE_REPORT_UI: {
       const { user } = action.payload;
 

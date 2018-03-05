@@ -6,6 +6,7 @@ import { call, put, select, takeLatest } from 'redux-saga/effects';
 
 import {
   SEND_USER_ABUSE_REPORT,
+  abortUserAbuseReport,
   loadUserAbuseReport,
 } from 'amo/reducers/userAbuseReports';
 import { reportUser as reportUserApi } from 'core/api/abuse';
@@ -36,11 +37,13 @@ export function* reportUser({
     yield put(loadUserAbuseReport({
       message: response.message,
       reporter: response.reporter,
-      user: response.user,
+      user,
     }));
   } catch (error) {
     log.warn(`Reporting user for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));
+
+    yield put(abortUserAbuseReport({ user }));
   }
 }
 
