@@ -30,7 +30,6 @@ export function* fetchHomeAddons({
     const state = yield select(getState);
 
     const collections = [];
-    // eslint-disable-next-line no-restricted-syntax
     for (const collection of collectionsToFetch) {
       const result = yield call(getCollectionAddons, {
         api: state.api,
