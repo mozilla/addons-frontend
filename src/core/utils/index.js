@@ -35,7 +35,6 @@ export function ngettext(singular, plural, n) {
 
 export function getClientConfig(_config) {
   const clientConfig = {};
-  // eslint-disable-next-line no-restricted-syntax
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
   }

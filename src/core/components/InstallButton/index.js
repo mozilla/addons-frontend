@@ -46,7 +46,6 @@ export const getFileHash = ({ addon, installURL } = {}) => {
   // https://github.com/mozilla/addons-frontend/issues/3871
 
   if (addon.current_version) {
-    // eslint-disable-next-line no-restricted-syntax
     for (const file of addon.current_version.files) {
       // The API sometimes appends ?src= to URLs so we just check the
       // basename.

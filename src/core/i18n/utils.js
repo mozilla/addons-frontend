@@ -163,7 +163,6 @@ export function getLangFromHeader(
   let userLang;
   if (acceptLanguage) {
     const langList = parseAcceptLanguage(acceptLanguage);
-    // eslint-disable-next-line no-restricted-syntax
     for (const langPref of langList) {
       if (isSupportedLang(normalizeLang(langPref.lang), { _supportedLangs })) {
         userLang = langPref.lang;
