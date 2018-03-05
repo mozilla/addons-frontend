@@ -143,7 +143,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
               {i18n.gettext('You reported this user for abuse')}
             </h3>
 
-            <p className="ReportUserAbuse-first-paragraph">
+            <p>
               {i18n.gettext(
                 `We have received your report. Thanks for letting us know about
                 your concerns with this user.`
