@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-03-05 13:55+0000\n"
+"PO-Revision-Date: 2018-03-05 14:15+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -512,19 +512,16 @@ msgid "Creator"
 msgstr "Створив"
 
 #: src/amo/components/CollectionManager/index.js:134
-#, fuzzy
 msgid "Save collection"
-msgstr "Створити нову збірку"
+msgstr "Зберегти збірку"
 
 #: src/amo/components/CollectionManager/index.js:135
-#, fuzzy
 msgid "Saving collection"
-msgstr "Створити нову збірку"
+msgstr "Збереження збірки"
 
 #: src/amo/components/CollectionManager/index.js:136
-#, fuzzy
 msgid "Edit collection"
-msgstr "Змінити цю збірку"
+msgstr "Змінити збірку"
 
 #: src/amo/components/CollectionManager/index.js:140
 msgid "Collection name"
@@ -857,42 +854,36 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Змініть вигляд Firefox за допомогою тем."
 
 #: src/amo/components/Home/index.js:214
-#, fuzzy
 msgid "Privacy tools"
-msgstr "Політика приватності"
+msgstr "Засоби приватності"
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "See more privacy tools"
-msgstr "Більше інструментів продуктивності"
+msgstr "Перегляньте більше засобів приватності"
 
 #: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
 msgid "Popular themes"
 msgstr "Популярні теми"
 
 #: src/amo/components/Home/index.js:226
-#, fuzzy
 msgid "See more popular themes"
-msgstr "Більше популярних тем"
+msgstr "Перегляньте більше популярних тем"
 
 #: src/amo/components/Home/index.js:240
 msgid "Re-imagine search"
 msgstr "Переосмисліть пошук"
 
 #: src/amo/components/Home/index.js:241
-#, fuzzy
 msgid "See more search extensions"
-msgstr "Більше розширень для вкладок"
+msgstr "Перегляньте більше розширень для пошуку"
 
 #: src/amo/components/Home/index.js:251
-#, fuzzy
 msgid "February’s new featured extensions"
-msgstr "Більше відібраних розширень"
+msgstr "Нові відібрані розширення лютого"
 
 #: src/amo/components/Home/index.js:252
-#, fuzzy
 msgid "See all the new featured extensions"
-msgstr "Більше відібраних розширень"
+msgstr "Переглянути більше нових відібраних розширень"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -923,14 +914,12 @@ msgid "Multi-Account Containers"
 msgstr "Мульти-акаунтові контейнери"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs."
-msgstr "Розмежуйте різні частини вашої онлайн діяльності — роботу, особисте, тощо. — у вкладках з різним кольором"
+msgstr "Розмежуйте різні частини вашої онлайн діяльності — роботу, особисте, тощо — у вкладках з різними кольорами."
 
 #: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
 msgid "SearchPreview"
-msgstr "Пошук"
+msgstr "SearchPreview"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Enhance search results with thumbnail previews, popularity ranks & more."
