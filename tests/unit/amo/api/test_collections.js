@@ -8,7 +8,6 @@ import {
   listCollections,
   updateCollection,
 } from 'amo/api/collections';
-import { parsePage } from 'core/utils';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
@@ -94,7 +93,7 @@ describe(__filename, () => {
     });
 
     it('calls the collection add-ons list API', async () => {
-      const queryParams = { page: parsePage(1) };
+      const queryParams = { page: 1 };
       const params = getParams({ ...queryParams });
 
       mockApi

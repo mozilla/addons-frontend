@@ -16,7 +16,7 @@ import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { parsePage, sanitizeHTML } from 'core/utils';
+import { sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
@@ -117,8 +117,7 @@ export class AddonReviewListBase extends React.Component<Props> {
   }
 
   getCurrentPage() {
-    const { location } = this.props;
-    return parsePage(location.query.page);
+    return this.props.location.query.page || 1;
   }
 
   onReviewSubmitted = () => {
@@ -320,7 +319,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 export const extractId = (ownProps: Props) => {
   const { location, params } = ownProps.router;
 
-  return `${params.addonSlug}-${parsePage(location.query.page)}`;
+  return `${params.addonSlug}-${location.query.page || ''}`;
 };
 
 export default compose(

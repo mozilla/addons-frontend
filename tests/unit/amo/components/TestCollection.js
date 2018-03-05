@@ -121,7 +121,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
-      page: 1,
+      page: undefined,
       slug,
       user,
     }));
@@ -351,7 +351,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
-      page: 1,
+      page: undefined,
       ...newParams,
     }));
   });
@@ -402,7 +402,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
-      page: 1,
+      page: undefined,
       ...newParams,
     }));
   });
@@ -619,7 +619,7 @@ describe(__filename, () => {
         location: fakeRouterLocation(),
       });
 
-      expect(extractId(props)).toEqual('foo/collection-bar/1');
+      expect(extractId(props)).toEqual('foo/collection-bar/');
     });
 
     it('adds the page as part of unique ID', () => {

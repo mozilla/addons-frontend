@@ -25,7 +25,7 @@ import { openFormOverlay } from 'core/reducers/formOverlay';
 import log from 'core/logger';
 import { hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
-import { parsePage, sanitizeHTML } from 'core/utils';
+import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -112,7 +112,7 @@ export class CollectionBase extends React.Component<Props> {
     if (!collection || collectionChanged) {
       this.props.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
-        page: parsePage(location.query.page),
+        page: location.query.page,
         slug: params.slug,
         user: params.user,
       }));
@@ -123,7 +123,7 @@ export class CollectionBase extends React.Component<Props> {
     if (collection && addonsPageChanged) {
       this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
-        page: parsePage(location.query.page),
+        page: location.query.page,
         slug: params.slug,
         user: params.user,
       }));
@@ -218,7 +218,7 @@ export class CollectionBase extends React.Component<Props> {
             <Paginate
               LinkComponent={Link}
               count={collection.numberOfAddons}
-              currentPage={parsePage(location.query.page)}
+              currentPage={location.query.page}
               pathname={this.url()}
             />
           )}
@@ -284,7 +284,7 @@ export const extractId = (ownProps: Props) => {
   return [
     ownProps.params.user,
     ownProps.params.slug,
-    parsePage(ownProps.location.query.page),
+    ownProps.location.query.page,
   ].join('/');
 };
 
