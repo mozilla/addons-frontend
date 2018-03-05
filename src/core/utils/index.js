@@ -288,11 +288,6 @@ export function getCategoryColor(category) {
   return category.id;
 }
 
-export function parsePage(page) {
-  const parsed = parseInt(page, 10);
-  return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
-}
-
 export function addonHasVersionHistory(addon) {
   if (!addon) {
     throw new Error('addon is required');

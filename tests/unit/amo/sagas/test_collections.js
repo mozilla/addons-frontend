@@ -22,7 +22,6 @@ import apiReducer from 'core/reducers/api';
 import {
   beginFormOverlaySubmit, closeFormOverlay, finishFormOverlaySubmit,
 } from 'core/reducers/formOverlay';
-import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
@@ -34,6 +33,7 @@ import {
 describe(__filename, () => {
   const user = 'user-id-or-name';
   const slug = 'collection-slug';
+  const pageToFetch = 1;
 
   let clientData;
   let errorHandler;
@@ -82,14 +82,14 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           api: state.api,
-          page: parsePage(1),
+          page: pageToFetch,
           slug,
           user,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollection({ page: parsePage(1), slug, user });
+      _fetchCurrentCollection({ page: pageToFetch, slug, user });
 
       const expectedLoadAction = loadCurrentCollection({
         addons: collectionAddons,
@@ -143,14 +143,14 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           api: state.api,
-          page: parsePage(1),
+          page: pageToFetch,
           slug,
           user,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page: pageToFetch, slug, user });
 
       const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons,
@@ -162,7 +162,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page: pageToFetch, slug, user });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -178,7 +178,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page: pageToFetch, slug, user });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

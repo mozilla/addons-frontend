@@ -20,7 +20,6 @@ import reducer, {
   loadUserCollections,
   updateCollection,
 } from 'amo/reducers/collections';
-import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
@@ -31,6 +30,8 @@ import {
 
 describe(__filename, () => {
   describe('reducer', () => {
+    const pageToFetch = 2;
+
     it('initializes properly', () => {
       const state = reducer(undefined, {});
       expect(state).toEqual(initialState);
@@ -55,7 +56,7 @@ describe(__filename, () => {
     it('sets a loading flag when fetching a collection page', () => {
       const state = reducer(undefined, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
-        page: parsePage(2),
+        page: pageToFetch,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));
@@ -74,7 +75,7 @@ describe(__filename, () => {
 
       state = reducer(state, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
-        page: parsePage(2),
+        page: pageToFetch,
         slug: collectionDetail.slug,
         user: 'some-user-id-or-name',
       }));
@@ -135,7 +136,7 @@ describe(__filename, () => {
       // 2. User clicks the "next" pagination link.
       state = reducer(state, fetchCurrentCollectionPage({
         errorHandlerId: createStubErrorHandler().id,
-        page: parsePage(2),
+        page: pageToFetch,
         slug: 'some-collection-slug',
         user: 'some-user-id-or-name',
       }));

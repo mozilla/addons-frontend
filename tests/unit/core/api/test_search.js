@@ -6,7 +6,6 @@ import {
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
 } from 'core/constants';
-import { parsePage } from 'core/utils';
 import { dispatchSignInActions, fakeAddon } from 'tests/unit/amo/helpers';
 import {
   createApiResponse,
@@ -33,7 +32,7 @@ describe(__filename, () => {
     return search({
       api,
       auth: true,
-      filters: { page: parsePage(3), query: 'foo' },
+      filters: { page: 3, query: 'foo' },
       ...extraArguments,
     });
   }

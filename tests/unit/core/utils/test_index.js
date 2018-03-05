@@ -36,7 +36,6 @@ import {
   isValidClientApp,
   ngettext,
   nl2br,
-  parsePage,
   refreshAddon,
   render404IfConfigKeyIsFalse,
   safePromise,
@@ -629,40 +628,6 @@ describe(__filename, () => {
       const categoryColor = getCategoryColor(category);
 
       expect(categoryColor).toEqual(1);
-    });
-  });
-
-  describe('parsePage', () => {
-    it('returns a number', () => {
-      expect(parsePage(10)).toBe(10);
-    });
-
-    it('parses a number from a string', () => {
-      expect(parsePage('8')).toBe(8);
-    });
-
-    it('treats negatives as 1', () => {
-      expect(parsePage('-10')).toBe(1);
-    });
-
-    it('treats words as 1', () => {
-      expect(parsePage('hmmm')).toBe(1);
-    });
-
-    it('treats "0" as 1', () => {
-      expect(parsePage('0')).toBe(1);
-    });
-
-    it('treats 0 as 1', () => {
-      expect(parsePage(0)).toBe(1);
-    });
-
-    it('treats empty strings as 1', () => {
-      expect(parsePage('')).toBe(1);
-    });
-
-    it('treats undefined as 1', () => {
-      expect(parsePage(undefined)).toBe(1);
     });
   });
 
