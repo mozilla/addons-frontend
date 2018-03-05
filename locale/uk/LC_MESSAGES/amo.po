@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-03-05 14:15+0000\n"
+"PO-Revision-Date: 2018-03-05 15:03+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -934,9 +934,8 @@ msgid "Automatically delete data (cookies, local storage, etc.) on all sites you
 msgstr "Автоматично видаляйте дані (куки, автономні дані та ін.) для всіх сайтів, за винятком тих, що у білому списку."
 
 #: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
 msgid "Zoom for Firefox"
-msgstr "для Firefox"
+msgstr "Zoom для Firefox"
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Simple zoom in/out tool for a close-up view of any web content."
@@ -975,9 +974,8 @@ msgid "Secure encryption for webmail."
 msgstr "Безпечне шифрування для веб-пошти."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Translate Man"
-msgstr "S3.Перекладач"
+msgstr "Translate Man"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Point-and-click instant translations."
