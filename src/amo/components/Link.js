@@ -10,6 +10,7 @@ import Icon from 'ui/components/Icon';
 
 export class LinkBase extends React.Component {
   static propTypes = {
+    blackIcon: PropTypes.bool,
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
     children: PropTypes.node,
@@ -22,6 +23,7 @@ export class LinkBase extends React.Component {
   }
 
   static defaultProps = {
+    blackIcon: false,
     external: false,
     prependClientApp: true,
     prependLang: true,
@@ -46,6 +48,7 @@ export class LinkBase extends React.Component {
 
   render() {
     const {
+      blackIcon,
       clientApp,
       children,
       external,
@@ -79,7 +82,7 @@ export class LinkBase extends React.Component {
       return (
         <a {...customProps} href={linkHref}>
           {children}
-          {external ? <Icon name="external" /> : null}
+          {external ? <Icon name={blackIcon ? 'external-black' : 'external'} /> : null}
         </a>
       );
     }
@@ -98,7 +101,7 @@ export class LinkBase extends React.Component {
     return (
       <Link {...customProps} to={linkTo}>
         {children}
-        {external ? <Icon name="external" /> : null}
+        {external ? <Icon name={blackIcon ? 'external-black' : 'external'} /> : null}
       </Link>
     );
   }

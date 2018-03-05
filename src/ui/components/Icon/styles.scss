@@ -69,6 +69,15 @@
   width: 10px;
 }
 
+.Button--neutral:link.Button--puffy {
+  .Icon.Icon-external-black {
+    @include icon($name: "external-black");
+
+    height: 10px;
+    width: 10px;
+  }
+}
+
 .Icon-user {
   @include icon($name: "user");
 }
@@ -259,13 +268,4 @@
 
 .Icon-permission-webNavigation {
   @include permission-icon($name: "navigation");
-}
-
-.PermissionCard-learn-more.Button--neutral:link.Button--puffy {
-  .Icon {
-    @include icon($name: "external-black");
-
-    height: 10px;
-    width: 10px;
-  }
 }

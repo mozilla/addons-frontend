@@ -10,8 +10,6 @@ import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import Permission from 'ui/components/Permission';
 
-import './styles.scss';
-
 export class PermissionUtils {
   i18n: I18nType;
   permissionStrings: Object;
@@ -82,7 +80,8 @@ export class PermissionUtils {
   // Get a list of permissions from the correct platform file.
   getCurrentPermissions(
     addon: AddonType,
-    userAgentInfo: UserAgentInfoType): Array<string> {
+    userAgentInfo: UserAgentInfoType
+  ): Array<string> {
     const agentOsName =
       userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
     const platform = userAgentOSToPlatform[agentOsName];
@@ -93,11 +92,13 @@ export class PermissionUtils {
         (mapped to "${platform}"); platform files:`, addon.platformFiles);
       return [];
     }
-    return file.permissions;
+    return file.permissions || [];
   }
 
   // Classify a permission as a host permission or a regular permission.
-  classifyPermission(permission: string): Object {
+  classifyPermission(
+    permission: string,
+  ): {| type: 'permissions' | 'hosts', value: string |} {
     const match = /^(\w+)(?:\.(\w+)(?:\.\w+)*)?$/.exec(permission);
     let result = { type: 'permissions', value: permission };
     if (!match) {
@@ -112,7 +113,6 @@ export class PermissionUtils {
     const permissions = { hosts: [], permissions: [] };
 
     // First, categorize them into host permissions and regular permissions.
-    // eslint-disable-next-line no-restricted-syntax
     for (const permission of addonPermissions) {
       const { type, value } = this.classifyPermission(permission);
       permissions[type].push(value);
@@ -122,7 +122,6 @@ export class PermissionUtils {
     let allUrls = false;
     const wildcards = [];
     const sites = [];
-    // eslint-disable-next-line no-restricted-syntax
     for (const permission of permissions.hosts) {
       if (permission === '<all_urls>') {
         allUrls = true;
@@ -210,7 +209,6 @@ export class PermissionUtils {
     // Finally, show remaining permissions, sorted alphabetically by the
     // permission string to match Firefox.
     const permissionsCopy = permissions.permissions.slice(0);
-    // eslint-disable-next-line no-restricted-syntax
     for (const permission of permissionsCopy.sort()) {
       // nativeMessaging is handled above.
       if (permission === 'nativeMessaging') {
@@ -230,8 +228,4 @@ export class PermissionUtils {
     }
     return permissionsToDisplay;
   }
-}
-
-export default function createPermissionUtils(i18n: I18nType) {
-  return new PermissionUtils(i18n);
 }

@@ -3,13 +3,14 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-import createPermissionUtils from 'amo/components/PermissionsCard/permissions';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import type { ApiStateType, UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+
+import { PermissionUtils } from './permissions';
 
 import './styles.scss';
 
@@ -27,7 +28,7 @@ export class PermissionsCardBase extends React.Component<Props> {
       return null;
     }
 
-    const permissionUtils = createPermissionUtils(i18n);
+    const permissionUtils = new PermissionUtils(i18n);
 
     const addonPermissions = permissionUtils.getCurrentPermissions(
       addon, userAgentInfo,
@@ -55,6 +56,7 @@ export class PermissionsCardBase extends React.Component<Props> {
           className="PermissionCard-learn-more"
           href="https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions"
           external
+          blackIcon
           puffy
         >
           {i18n.gettext('Learn more about permissions')}

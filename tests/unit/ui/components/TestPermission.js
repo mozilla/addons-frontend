@@ -5,7 +5,7 @@ import Icon from 'ui/components/Icon';
 import Permission from 'ui/components/Permission';
 
 
-describe('Permission component', () => {
+describe(__filename, () => {
   const defaultProps = {
     className: 'my-class',
     description: 'A decription',

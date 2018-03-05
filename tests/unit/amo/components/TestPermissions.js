@@ -1,4 +1,4 @@
-import createPermissionUtils from 'amo/components/PermissionsCard/permissions';
+import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   OS_ALL,
@@ -16,17 +16,16 @@ import {
   fakePlatformFile,
 } from 'tests/unit/amo/helpers';
 
-describe('Permissions module', () => {
+describe(__filename, () => {
   let permissionUtils;
 
   beforeEach(() => {
-    permissionUtils = createPermissionUtils(fakeI18n());
+    permissionUtils = new PermissionUtils(fakeI18n());
   });
 
   describe('getCurrentPermissions', () => {
     const createAddon = (platforms = [OS_MAC, OS_ALL]) => {
       const files = [];
-      // eslint-disable-next-line no-restricted-syntax
       for (const platform of platforms) {
         files.push(
           {
@@ -84,7 +83,6 @@ describe('Permissions module', () => {
         'https://mozilla.org/a/b/c/',
         'https://mozilla.org/*/b/*/',
       ];
-      // eslint-disable-next-line no-restricted-syntax
       for (const permission of testPermissions) {
         const result = permissionUtils.classifyPermission(permission);
         expect(result).toEqual({ type: 'hosts', value: permission });
@@ -146,13 +144,19 @@ describe('Permissions module', () => {
         '*://developer.mozilla.org/*',
         '<all_urls>',
       ];
-      const result = permissionUtils.formatPermissions(testPermissions);
-      expect(result).toHaveLength(1);
-      expectHostPermission(result[0], 'Access your data for all websites');
+      for (const allUrlsPermission of ['<all_urls>', '*']) {
+        const result = permissionUtils.formatPermissions([
+          ...testPermissions,
+          allUrlsPermission,
+        ]);
+        expect(result).toHaveLength(1);
+        expectHostPermission(result[0], 'Access your data for all websites');
+      }
     });
 
     it('returns all permissions in the expected order', () => {
       const testPermissions = [
+        'moz-extension://should/not/generate/a/permission/',
         'tabs',
         '*://developer.mozilla.org/*',
         'nativeMessaging',

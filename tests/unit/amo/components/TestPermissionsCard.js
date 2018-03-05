@@ -15,7 +15,7 @@ import Button from 'ui/components/Button';
 import Permission from 'ui/components/Permission';
 
 
-describe('PermissionsCard component', () => {
+describe(__filename, () => {
   const { store } = dispatchClientMetadata();
   const createAddonWithPermissions = (permissions) => {
     return createInternalAddon(createFakeAddon({
@@ -65,7 +65,9 @@ describe('PermissionsCard component', () => {
       expect(root.find('.PermissionsCard')).toHaveLength(1);
       expect(root.find('.PermissionsCard-subhead')).toHaveLength(1);
       expect(root.find('.PermissionsCard-list')).toHaveLength(1);
+      expect(root.find(Button)).toHaveProp('blackIcon', true);
       expect(root.find(Button)).toHaveProp('className', 'PermissionCard-learn-more');
+      expect(root.find(Button)).toHaveProp('external', true);
       expect(root.find(Permission)).toHaveProp('className', permission);
     });
   });

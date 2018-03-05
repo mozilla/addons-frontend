@@ -155,13 +155,16 @@ export type AddonType = {
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl?: string,
-  platformFiles: {
-    all: ?Object,
-    android: ?Object,
-    mac: ?Object,
-    linux: ?Object,
-    windows: ?Object,
-  },
+  platformFiles: {|
+    // This seems necessary to help Flow know that computed
+    // keys always return an AddonFileType.
+    [anyPlatform: string]: ?AddonFileType,
+    all: ?AddonFileType,
+    android: ?AddonFileType,
+    mac: ?AddonFileType,
+    linux: ?AddonFileType,
+    windows: ?AddonFileType,
+  |},
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,

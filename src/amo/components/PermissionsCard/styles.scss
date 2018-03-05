@@ -25,8 +25,9 @@
     vertical-align: middle;
 
     .Icon {
+      @include margin-end(12px);
+
       height: 24px;
-      margin-right: 12px;
       width: 24px;
     }
   }

@@ -6,9 +6,11 @@ import {
 import { findDOMNode } from 'react-dom';
 import { Link as ReactRouterLink } from 'react-router';
 
-import Link, { mapStateToProps } from 'amo/components/Link';
+import Link, { LinkBase, mapStateToProps } from 'amo/components/Link';
 import createStore from 'amo/store';
 import { setClientApp, setLang } from 'core/actions';
+import Icon from 'ui/components/Icon';
+import { shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('<Link />', () => {
@@ -17,6 +19,16 @@ describe('<Link />', () => {
   function render(props) {
     // eslint-disable-next-line jsx-a11y/anchor-has-content
     return renderIntoDocument(<Link store={store} {...props} />);
+  }
+
+  function shallowRender(props) {
+    return shallowUntilTarget(
+      <Link
+        store={store}
+        {...props}
+      />,
+      LinkBase
+    );
   }
 
   beforeEach(() => {
@@ -196,5 +208,23 @@ describe('<Link />', () => {
       render({ href: '/test', to: '/test' });
     }).toThrowError(
       'Cannot use "href" prop and "to" prop in the same Link component');
+  });
+
+  it('creates an Icon with the correct name for `external`', () => {
+    const root = shallowRender({ to: '/test', external: true });
+
+    expect(root.find(Icon)).toHaveProp('name', `external`);
+  });
+
+  it('creates an Icon with the correct name for `external` and `blackIcon`', () => {
+    const root = shallowRender({ to: '/test', external: true, blackIcon: true });
+
+    expect(root.find(Icon)).toHaveProp('name', `external-black`);
+  });
+
+  it('does not create an Icon for just `blackIcon`', () => {
+    const root = shallowRender({ to: '/test', blackIcon: true });
+
+    expect(root.find(Icon)).toHaveLength(0);
   });
 });
