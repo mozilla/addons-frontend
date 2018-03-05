@@ -25,11 +25,13 @@ import './styles.scss';
 
 
 type Props = {|
-  abuseReports: UserAbuseReportsState,
   className?: string,
   dispatch: DispatchFunc,
+  hasSubmitted: bool,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  isSubmitting: bool,
+  uiVisible: bool,
   user?: UserType,
 |};
 
@@ -65,24 +67,25 @@ export class ReportUserAbuseBase extends React.Component<Props> {
   }
 
   render() {
-    const { abuseReports, className, errorHandler, i18n, user } = this.props;
-    const abuseReport = user ? abuseReports.byUserId[user.id] : null;
-
-    if (!user) {
-      return null;
-    }
+    const {
+      className,
+      errorHandler,
+      hasSubmitted,
+      i18n,
+      isSubmitting,
+      uiVisible,
+      user,
+    } = this.props;
 
     return (
       <div
         className={makeClassName('ReportUserAbuse', className, {
-          'ReportUserAbuse--is-expanded': abuseReport && abuseReport.uiVisible,
+          'ReportUserAbuse--is-expanded': uiVisible,
         })}
       >
         {errorHandler.renderErrorIfPresent()}
 
-        {
-          (!abuseReport || !abuseReport.uiVisible) &&
-          (!abuseReport || !abuseReport.hasSubmitted) && (
+        {(!uiVisible && !hasSubmitted) && (
           <Button
             buttonType="neutral"
             className="ReportUserAbuse-show-more"
@@ -94,7 +97,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
           </Button>
         )}
 
-        {(abuseReport && !abuseReport.hasSubmitted) && (
+        {(!hasSubmitted) && (
           <div className="ReportUserAbuse-form">
             <h2 className="ReportUserAbuse-header">
               {i18n.gettext('Report this user for abuse')}
@@ -122,9 +125,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
             </p>
 
             <DismissibleTextForm
-              isSubmitting={
-                abuseReport.isSubmitting && !errorHandler.hasError()
-              }
+              isSubmitting={isSubmitting}
               onDismiss={this.hideReportUI}
               onSubmit={this.sendReport}
               placeholder={i18n.gettext(
@@ -136,7 +137,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
           </div>
         )}
 
-        {abuseReport && abuseReport.hasSubmitted && (
+        {(hasSubmitted) && (
           <div className="ReportUserAbuse--report-sent">
             <h3 className="ReportUserAbuse-header">
               {i18n.gettext('You reported this user for abuse')}
@@ -163,10 +164,17 @@ export class ReportUserAbuseBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| userAbuseReports: UserAbuseReportsState |}
+  state: {| userAbuseReports: UserAbuseReportsState |},
+  ownProps: {| user?: UserType |},
 ) => {
+  const abuseReport = (
+    ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
+  ) ? state.userAbuseReports.byUserId[ownProps.user.id] : {};
+
   return {
-    abuseReports: state.userAbuseReports,
+    hasSubmitted: abuseReport.hasSubmitted || false,
+    isSubmitting: abuseReport.isSubmitting || false,
+    uiVisible: abuseReport.uiVisible || false,
   };
 };
 

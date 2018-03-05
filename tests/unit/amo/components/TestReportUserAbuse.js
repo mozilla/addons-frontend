@@ -10,6 +10,7 @@ import {
   sendUserAbuseReport,
   showUserAbuseReportUI,
 } from 'amo/reducers/userAbuseReports';
+import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
@@ -36,10 +37,12 @@ describe(__filename, () => {
     );
   }
 
-  it('renders nothing if no user exists', () => {
+  it('renders a disabled button if no user exists', () => {
     const root = renderShallow({ user: null });
 
-    expect(root.find('.ReportUserAbuse')).toHaveLength(0);
+    expect(root.find('.ReportUserAbuse')).toHaveLength(1);
+    expect(root.find('.ReportUserAbuse-show-more'))
+      .toHaveProp('disabled', true);
   });
 
   it('renders a button to report an user', () => {
@@ -122,5 +125,18 @@ describe(__filename, () => {
     const root = renderShallow({ errorHandler, store });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('allows user to submit again if an error occurred', () => {
+    const errorHandler = createStubErrorHandler();
+    const { store } = dispatchClientMetadata();
+    store.dispatch(setError({
+      error: new Error('something bad'),
+      id: errorHandler.id,
+    }));
+    const root = renderShallow({ errorHandler, store });
+
+    expect(root.find(DismissibleTextForm)).toHaveLength(1);
+    expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', false);
   });
 });
