@@ -1,19 +1,28 @@
 /* @flow */
 import type { UserType } from 'amo/reducers/users';
 
-export const HIDE_USER_ABUSE_REPORT_UI = 'HIDE_USER_ABUSE_REPORT_UI';
-export const LOAD_USER_ABUSE_REPORT = 'LOAD_USER_ABUSE_REPORT';
-export const SEND_USER_ABUSE_REPORT = 'SEND_USER_ABUSE_REPORT';
-export const SHOW_USER_ABUSE_REPORT_UI = 'SHOW_USER_ABUSE_REPORT_UI';
+export const HIDE_USER_ABUSE_REPORT_UI: 'HIDE_USER_ABUSE_REPORT_UI' =
+  'HIDE_USER_ABUSE_REPORT_UI';
+export const LOAD_USER_ABUSE_REPORT: 'LOAD_USER_ABUSE_REPORT' =
+  'LOAD_USER_ABUSE_REPORT';
+export const SEND_USER_ABUSE_REPORT: 'SEND_USER_ABUSE_REPORT' =
+  'SEND_USER_ABUSE_REPORT';
+export const SHOW_USER_ABUSE_REPORT_UI: 'SHOW_USER_ABUSE_REPORT_UI' =
+  'SHOW_USER_ABUSE_REPORT_UI';
 
 
-type HideUserAbuseReportUIType = {|
+type HideUserAbuseReportUIParams = {|
   user: UserType,
 |};
 
+type HideUserAbuseReportUIAction = {|
+  type: typeof HIDE_USER_ABUSE_REPORT_UI,
+  payload: HideUserAbuseReportUIParams,
+|};
+
 export function hideUserAbuseReportUI(
-  { user }: HideUserAbuseReportUIType = {}
-) {
+  { user }: HideUserAbuseReportUIParams = {}
+): HideUserAbuseReportUIAction {
   if (!user) {
     throw new Error('user is required');
   }
@@ -24,9 +33,14 @@ export function hideUserAbuseReportUI(
   };
 }
 
-type LoadUserAbuseReportType = {|
+type LoadUserAbuseReportParams = {|
   message: string,
-  reporter: Object | null,
+  reporter: {|
+    id: number,
+    name: string,
+    url: string,
+    username: string,
+  |} | null,
   user: {|
     id: number,
     name: string,
@@ -35,9 +49,17 @@ type LoadUserAbuseReportType = {|
   |},
 |};
 
+type LoadUserAbuseReportAction = {|
+  type: typeof LOAD_USER_ABUSE_REPORT,
+  payload: {|
+    message: string,
+    reportedByUserId: number | null,
+  |},
+|};
+
 export function loadUserAbuseReport(
-  { message, reporter, user }: LoadUserAbuseReportType = {}
-) {
+  { message, reporter, user }: LoadUserAbuseReportParams = {}
+): LoadUserAbuseReportAction {
   if (!message) {
     throw new Error('message is required');
   }
@@ -48,21 +70,28 @@ export function loadUserAbuseReport(
     throw new Error('user is required');
   }
 
+  const reportedByUserId = reporter ? reporter.id : null;
+
   return {
     type: LOAD_USER_ABUSE_REPORT,
-    payload: { message, reporter, user },
+    payload: { message, reportedByUserId, user },
   };
 }
 
-type SendUserAbuseReportAction = {|
+type SendUserAbuseReportParams = {|
   errorHandlerId: string,
   message: string,
-  user: UserType | null,
+  user: UserType,
+|};
+
+type SendUserAbuseReportAction = {|
+  type: typeof SEND_USER_ABUSE_REPORT,
+  payload: SendUserAbuseReportParams,
 |};
 
 export function sendUserAbuseReport(
-  { errorHandlerId, message, user }: SendUserAbuseReportAction = {}
-) {
+  { errorHandlerId, message, user }: SendUserAbuseReportParams = {}
+): SendUserAbuseReportAction {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
@@ -79,13 +108,18 @@ export function sendUserAbuseReport(
   };
 }
 
-type ShowUserAbuseReportUIType = {|
-  user?: UserType,
+type ShowUserAbuseReportUIParams = {|
+  user: UserType,
+|};
+
+type ShowUserAbuseReportUIActions = {|
+  type: typeof SHOW_USER_ABUSE_REPORT_UI,
+  payload: ShowUserAbuseReportUIParams,
 |};
 
 export function showUserAbuseReportUI(
-  { user }: ShowUserAbuseReportUIType = {}
-) {
+  { user }: ShowUserAbuseReportUIParams = {}
+): ShowUserAbuseReportUIActions {
   if (!user) {
     throw new Error('user is required');
   }
@@ -104,7 +138,7 @@ export type UserAbuseReportState = {|
   hasSubmitted?: bool,
   isSubmitting: bool,
   message?: string,
-  reporter: Object | null,
+  reportedByUserId: number | null,
   uiVisible?: boolean,
 |}
 
@@ -114,9 +148,15 @@ export type UserAbuseReportsState = {|
   },
 |};
 
+export type UserAbuseReportActionType =
+  | HideUserAbuseReportUIAction
+  | SendUserAbuseReportAction
+  | ShowUserAbuseReportUIActions
+  | LoadUserAbuseReportAction;
+
 export default function userAbuseReportReducer(
   state: UserAbuseReportsState = initialState,
-  action: Object
+  action: UserAbuseReportActionType,
 ) {
   switch (action.type) {
     case HIDE_USER_ABUSE_REPORT_UI: {
@@ -131,15 +171,14 @@ export default function userAbuseReportReducer(
       };
     }
     case LOAD_USER_ABUSE_REPORT: {
-      const { message, reporter, user } = action.payload;
+      const { message, reportedByUserId, user } = action.payload;
       return {
         ...state,
         byUserId: {
           ...state.byUserId,
           [user.id]: {
             message,
-            reporter,
-            user,
+            reportedByUserId,
             hasSubmitted: true,
             isSubmitting: false,
             uiVisible: false,

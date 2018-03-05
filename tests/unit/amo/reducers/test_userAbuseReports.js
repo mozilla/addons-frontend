@@ -163,7 +163,7 @@ describe(__filename, () => {
         }).toThrow('reporter cannot be undefined');
       });
 
-      it('reporter can be `null`', () => {
+      it('allows reporter to be `null`', () => {
         expect(() => {
           const paramsWithNull = abuseReportResponse({ reporter: null });
 

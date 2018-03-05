@@ -69,6 +69,35 @@ describe(__filename, () => {
     expect(loadAction).toEqual(expectedLoadAction);
   });
 
+  it('handles an empty reporter', async () => {
+    const user = createUserAccountResponse({ id: 50 });
+    const message = 'I have no reporter';
+    const response = createFakeUserAbuseReport({
+      message,
+      reporter: null,
+      user,
+    });
+
+    mockApi
+      .expects('reportUser')
+      .once()
+      .returns(Promise.resolve(response));
+
+    _sendUserAbuseReport({ message });
+
+    const expectedLoadAction = loadUserAbuseReport({
+      message: response.message,
+      reporter: response.reporter,
+      user: response.user,
+    });
+
+    await sagaTester.waitFor(expectedLoadAction.type);
+    mockApi.verify();
+
+    const loadAction = sagaTester.getCalledActions()[2];
+    expect(loadAction).toEqual(expectedLoadAction);
+  });
+
   it('clears the error handler', async () => {
     _sendUserAbuseReport();
 
@@ -89,6 +118,19 @@ describe(__filename, () => {
     await sagaTester.waitFor(errorAction.type);
     expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
   });
+
+  // it('resets the state when an error occurs', async () => {
+  //   const error = new Error('some API error maybe');
+  //   mockApi
+  //     .expects('reportUser')
+  //     .returns(Promise.reject(error));
+
+  //   _sendUserAbuseReport();
+
+  //   const errorAction = errorHandler.createErrorAction(error);
+  //   await sagaTester.waitFor(errorAction.type);
+  //   expect(sagaTester.getCalledActions()[3]).toEqual('RESET ACTION');
+  // });
 
   it('throws an error if multiple reports are submitted for the same user', async () => {
     const user = createUserAccountResponse({ id: 50 });
