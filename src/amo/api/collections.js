@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import { callApi, allPages, validateLocalizedString } from 'core/api';
 import type {
   ExternalCollectionAddon,
@@ -154,6 +156,55 @@ export const addAddonToCollection = (
   });
 };
 
+const modifyCollection = (
+  action: 'create' | 'update',
+  params: Object
+): Promise<void> => {
+  const {
+    api,
+    collectionSlug,
+    defaultLocale,
+    description,
+    name,
+    slug,
+    user,
+    _validateLocalizedString = validateLocalizedString,
+  } = params;
+
+  const creating = action === 'create';
+
+  invariant(api, 'The api parameter cannot be empty');
+  invariant(user, 'The user parameter cannot be empty');
+  if (creating) {
+    invariant(slug, 'The slug parameter cannot be empty');
+  } else {
+    invariant(collectionSlug, 'The collectionSlug parameter cannot be empty');
+  }
+
+  if (description) {
+    _validateLocalizedString(description);
+  }
+  if (name) {
+    _validateLocalizedString(name);
+  }
+
+  return callApi({
+    auth: true,
+    body: {
+      default_locale: defaultLocale,
+      description,
+      name,
+      slug,
+      // The public=true|false flag is not sent to the API. This is
+      // because collections are always public. Omitting this parameter
+      // should cut down on unexpected bugs.
+    },
+    endpoint: `accounts/account/${user}/collections/${collectionSlug || ''}`,
+    method: creating ? 'POST' : 'PATCH',
+    state: api,
+  });
+};
+
 export type UpdateCollectionParams = {|
   api: ApiStateType,
   // We identify the collection by its slug. This is confusing because the
@@ -182,35 +233,44 @@ export const updateCollection = ({
   user,
   _validateLocalizedString = validateLocalizedString,
 }: UpdateCollectionParams): Promise<void> => {
-  if (!api) {
-    throw new Error('The api parameter cannot be empty');
-  }
-  if (!collectionSlug) {
-    throw new Error('The collectionSlug parameter cannot be empty');
-  }
-  if (!user) {
-    throw new Error('The user parameter cannot be empty');
-  }
-  if (description) {
-    _validateLocalizedString(description);
-  }
-  if (name) {
-    _validateLocalizedString(name);
-  }
+  return modifyCollection('update', {
+    api,
+    collectionSlug,
+    defaultLocale,
+    description,
+    name,
+    slug,
+    user,
+    _validateLocalizedString,
+  });
+};
 
-  return callApi({
-    auth: true,
-    body: {
-      default_locale: defaultLocale,
-      description,
-      name,
-      slug,
-      // The public=true|false flag is not sent to the API. This is
-      // because collections are always public. Omitting this parameter
-      // should cut down on unexpected bugs.
-    },
-    endpoint: `accounts/account/${user}/collections/${collectionSlug}`,
-    method: 'PATCH',
-    state: api,
+export type CreateCollectionParams = {|
+  api: ApiStateType,
+  defaultLocale: ?string,
+  description: ?LocalizedString,
+  name: LocalizedString,
+  slug: string,
+  user: string,
+  _validateLocalizedString?: typeof validateLocalizedString,
+|};
+
+export const createCollection = ({
+  api,
+  defaultLocale,
+  description,
+  name,
+  slug,
+  user,
+  _validateLocalizedString = validateLocalizedString,
+}: CreateCollectionParams): Promise<void> => {
+  return modifyCollection('create', {
+    api,
+    defaultLocale,
+    description,
+    name,
+    slug,
+    user,
+    _validateLocalizedString,
   });
 };

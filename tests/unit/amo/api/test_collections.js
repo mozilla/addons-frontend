@@ -1,6 +1,7 @@
 import * as api from 'core/api';
 import {
   addAddonToCollection,
+  createCollection,
   getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
@@ -298,30 +299,6 @@ describe(__filename, () => {
       };
     };
 
-    it('requires an api parameter', () => {
-      const params = defaultParams();
-      delete params.api;
-
-      expect(() => updateCollection(params))
-        .toThrow(/api parameter cannot be empty/);
-    });
-
-    it('requires a collectionSlug parameter', () => {
-      const params = defaultParams();
-      delete params.collectionSlug;
-
-      expect(() => updateCollection(params))
-        .toThrow(/collectionSlug parameter cannot be empty/);
-    });
-
-    it('requires a user parameter', () => {
-      const params = defaultParams();
-      delete params.user;
-
-      expect(() => updateCollection(params))
-        .toThrow(/user parameter cannot be empty/);
-    });
-
     it('validates description value', async () => {
       const validator = sinon.stub();
       const description = { fr: 'la description' };
@@ -373,6 +350,72 @@ describe(__filename, () => {
         .returns(Promise.resolve());
 
       await updateCollection(params);
+
+      mockApi.verify();
+    });
+  });
+
+  describe('createCollection', () => {
+    const defaultParams = (params = {}) => {
+      return {
+        api: apiState,
+        slug: 'slug',
+        user: 'user-id-or-username',
+        ...params,
+      };
+    };
+
+    it('validates description value', async () => {
+      const validator = sinon.stub();
+      const description = { fr: 'la description' };
+      const params = defaultParams({
+        description, _validateLocalizedString: validator,
+      });
+
+      mockApi.expects('callApi');
+      await createCollection(params);
+
+      sinon.assert.calledWith(validator, description);
+      mockApi.verify();
+    });
+
+    it('validates name value', async () => {
+      const validator = sinon.stub();
+      const name = { fr: 'nomme' };
+      const params = defaultParams({
+        name, _validateLocalizedString: validator,
+      });
+
+      mockApi.expects('callApi');
+      await createCollection(params);
+
+      sinon.assert.calledWith(validator, name);
+      mockApi.verify();
+    });
+
+    it('makes a post request to the API', async () => {
+      const params = defaultParams({ name: { fr: 'nomme' } });
+
+      const endpoint =
+        `accounts/account/${params.user}/collections/`;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: {
+            default_locale: undefined,
+            description: undefined,
+            name: params.name,
+            slug: params.slug,
+          },
+          endpoint,
+          method: 'POST',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await createCollection(params);
 
       mockApi.verify();
     });
