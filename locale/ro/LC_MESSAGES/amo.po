@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-03-03 19:28+0000\n"
+"PO-Revision-Date: 2018-03-05 23:21+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -96,7 +96,7 @@ msgstr "Despre acest supliment"
 
 #: src/amo/components/Addon/index.js:339
 msgid "Release notes for %(addonVersion)s"
-msgstr "Note privind lansarea pentru %(addonVersion)s"
+msgstr "Note privind lansarea versiunii %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:368
 msgid "More dictionaries by %(author)s"
