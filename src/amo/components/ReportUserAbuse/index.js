@@ -16,6 +16,7 @@ import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import type { UserAbuseReportsState } from 'amo/reducers/userAbuseReports';
 import type { ErrorHandlerType } from 'core/errorHandler';
+import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 import type { UserType } from 'amo/reducers/users';
 import type { OnSubmitParams } from 'ui/components/DismissibleTextForm';
@@ -26,7 +27,7 @@ import './styles.scss';
 type Props = {|
   abuseReports: UserAbuseReportsState,
   className?: string,
-  dispatch: Function,
+  dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   user?: UserType,
