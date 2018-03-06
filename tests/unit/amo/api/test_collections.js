@@ -7,6 +7,7 @@ import {
   getCollectionAddons,
   getCollectionDetail,
   listCollections,
+  modifyCollection,
   updateCollection,
 } from 'amo/api/collections';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
@@ -289,11 +290,14 @@ describe(__filename, () => {
     });
   });
 
-  describe('updateCollection', () => {
+  describe('modifyCollection', () => {
+    const slug = 'collection-slug';
+    const name = { fr: 'nomme' };
+
     const defaultParams = (params = {}) => {
       return {
         api: apiState,
-        collectionSlug: 'collection-slug',
+        name,
         user: 'user-id-or-username',
         ...params,
       };
@@ -303,11 +307,13 @@ describe(__filename, () => {
       const validator = sinon.stub();
       const description = { fr: 'la description' };
       const params = defaultParams({
-        description, _validateLocalizedString: validator,
+        description,
+        slug,
+        _validateLocalizedString: validator,
       });
 
       mockApi.expects('callApi');
-      await updateCollection(params);
+      await modifyCollection('create', params);
 
       sinon.assert.calledWith(validator, description);
       mockApi.verify();
@@ -315,86 +321,20 @@ describe(__filename, () => {
 
     it('validates name value', async () => {
       const validator = sinon.stub();
-      const name = { fr: 'nomme' };
       const params = defaultParams({
-        name, _validateLocalizedString: validator,
+        slug,
+        _validateLocalizedString: validator,
       });
 
       mockApi.expects('callApi');
-      await updateCollection(params);
+      await modifyCollection('create', params);
 
       sinon.assert.calledWith(validator, name);
       mockApi.verify();
     });
 
-    it('makes a patch request to the API', async () => {
-      const params = defaultParams({ name: { fr: 'nomme' } });
-
-      const endpoint =
-        `accounts/account/${params.user}/collections/${params.collectionSlug}`;
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: {
-            default_locale: undefined,
-            description: undefined,
-            name: params.name,
-            slug: undefined,
-          },
-          endpoint,
-          method: 'PATCH',
-          state: params.api,
-        })
-        .once()
-        .returns(Promise.resolve());
-
-      await updateCollection(params);
-
-      mockApi.verify();
-    });
-  });
-
-  describe('createCollection', () => {
-    const defaultParams = (params = {}) => {
-      return {
-        api: apiState,
-        slug: 'slug',
-        user: 'user-id-or-username',
-        ...params,
-      };
-    };
-
-    it('validates description value', async () => {
-      const validator = sinon.stub();
-      const description = { fr: 'la description' };
-      const params = defaultParams({
-        description, _validateLocalizedString: validator,
-      });
-
-      mockApi.expects('callApi');
-      await createCollection(params);
-
-      sinon.assert.calledWith(validator, description);
-      mockApi.verify();
-    });
-
-    it('validates name value', async () => {
-      const validator = sinon.stub();
-      const name = { fr: 'nomme' };
-      const params = defaultParams({
-        name, _validateLocalizedString: validator,
-      });
-
-      mockApi.expects('callApi');
-      await createCollection(params);
-
-      sinon.assert.calledWith(validator, name);
-      mockApi.verify();
-    });
-
-    it('makes a post request to the API', async () => {
-      const params = defaultParams({ name: { fr: 'nomme' } });
+    it('makes a POST request to the API for create', async () => {
+      const params = defaultParams({ slug });
 
       const endpoint =
         `accounts/account/${params.user}/collections/`;
@@ -405,8 +345,8 @@ describe(__filename, () => {
           body: {
             default_locale: undefined,
             description: undefined,
-            name: params.name,
-            slug: params.slug,
+            name,
+            slug,
           },
           endpoint,
           method: 'POST',
@@ -415,9 +355,85 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve());
 
-      await createCollection(params);
+      await modifyCollection('create', params);
 
       mockApi.verify();
+    });
+
+    it('makes a PATCH request to the API for update', async () => {
+      const params = defaultParams({ collectionSlug: slug });
+
+      const endpoint =
+        `accounts/account/${params.user}/collections/${slug}`;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: {
+            default_locale: undefined,
+            description: undefined,
+            name,
+            slug: undefined,
+          },
+          endpoint,
+          method: 'PATCH',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await modifyCollection('update', params);
+
+      mockApi.verify();
+    });
+  });
+
+  describe('updateCollection', () => {
+    it('calls modifyCollection with the expected params', async () => {
+      const validator = sinon.stub();
+      const modifier = sinon.stub();
+      const modifyParams = {
+        api: apiState,
+        collectionSlug: 'collection-slug',
+        defaultLocale: undefined,
+        description: undefined,
+        name: undefined,
+        slug: undefined,
+        user: 'user-id-or-username',
+        _validateLocalizedString: validator,
+      };
+      const updateParams = {
+        ...modifyParams,
+        _modifyCollection: modifier,
+      };
+
+      await updateCollection(updateParams);
+
+      sinon.assert.calledWith(modifier, 'update', modifyParams);
+    });
+  });
+
+  describe('createCollection', () => {
+    it('calls modifyCollection with the expected params', async () => {
+      const validator = sinon.stub();
+      const modifier = sinon.stub();
+      const modifyParams = {
+        api: apiState,
+        defaultLocale: undefined,
+        description: undefined,
+        name: undefined,
+        slug: 'collection-slug',
+        user: 'user-id-or-username',
+        _validateLocalizedString: validator,
+      };
+      const createParams = {
+        ...modifyParams,
+        _modifyCollection: modifier,
+      };
+
+      await createCollection(createParams);
+
+      sinon.assert.calledWith(modifier, 'create', modifyParams);
     });
   });
 });
