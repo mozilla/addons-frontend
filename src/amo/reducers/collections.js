@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
@@ -32,6 +33,7 @@ export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
 export const UPDATE_COLLECTION: 'UPDATE_COLLECTION' = 'UPDATE_COLLECTION';
 export const DELETE_COLLECTION_BY_SLUG: 'DELETE_COLLECTION_BY_SLUG'
   = 'DELETE_COLLECTION_BY_SLUG';
+export const CREATE_COLLECTION: 'CREATE_COLLECTION' = 'CREATE_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -78,9 +80,6 @@ export type CollectionsState = {
       |};
     },
   },
-  collectionUpdates: {
-    [collectionSlug: string]: {| updating: boolean, successful?: boolean |},
-  },
 };
 
 export const initialState: CollectionsState = {
@@ -89,7 +88,6 @@ export const initialState: CollectionsState = {
   current: { id: null, loading: false },
   userCollections: {},
   addonInCollections: {},
-  collectionUpdates: {},
 };
 
 type FetchCurrentCollectionParams = {|
@@ -449,20 +447,83 @@ export const addAddonToCollection = ({
   };
 };
 
-type UpdateCollectionParams = {|
+type RequiredModifyCollectionParams = {|
   errorHandlerId: string,
-  collectionSlug: string,
+  formOverlayId: string,
+  user: string,
+|};
+
+type OptionalModifyCollectionParams = {|
   defaultLocale: ?string,
   description: ?LocalizedString,
+|};
+
+type CreateCollectionParams = {|
+  ...RequiredModifyCollectionParams,
+  ...OptionalModifyCollectionParams,
+  name: LocalizedString,
+  slug: string,
+|};
+
+type UpdateCollectionParams = {|
+  ...RequiredModifyCollectionParams,
+  ...OptionalModifyCollectionParams,
+  collectionSlug: string,
   name: ?LocalizedString,
   slug: ?string,
-  user: string,
+|};
+
+export type CreateCollectionAction = {|
+  type: typeof CREATE_COLLECTION,
+  payload: CreateCollectionParams,
 |};
 
 export type UpdateCollectionAction = {|
   type: typeof UPDATE_COLLECTION,
   payload: UpdateCollectionParams,
 |};
+
+export const validateRequiredCollectionParams = ({
+  errorHandlerId,
+  formOverlayId,
+  user,
+}: RequiredModifyCollectionParams) => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(formOverlayId, 'formOverlayId is required');
+  invariant(user, 'user is required');
+};
+
+export const createCollection = ({
+  errorHandlerId,
+  defaultLocale,
+  description,
+  formOverlayId,
+  name,
+  slug,
+  user,
+}: CreateCollectionParams = {}): CreateCollectionAction => {
+  validateRequiredCollectionParams({
+    errorHandlerId,
+    formOverlayId,
+    user,
+  });
+
+  invariant(name, 'name is required when creating');
+  invariant(slug, 'slug is required when creating');
+
+  return {
+    type: CREATE_COLLECTION,
+    payload: {
+      errorHandlerId,
+      defaultLocale,
+      description,
+      formOverlayId,
+      name,
+      slug,
+      user,
+    },
+  };
+};
 
 export const updateCollection = ({
   errorHandlerId,
@@ -473,15 +534,12 @@ export const updateCollection = ({
   slug,
   user,
 }: UpdateCollectionParams = {}): UpdateCollectionAction => {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-  if (!collectionSlug) {
-    throw new Error('collectionSlug is required');
-  }
-  if (!user) {
-    throw new Error('user is required');
-  }
+  validateRequiredCollectionParams({
+    errorHandlerId,
+    user,
+  });
+
+  invariant(collectionSlug, 'collectionSlug is required when updating');
 
   return {
     type: UPDATE_COLLECTION,
@@ -643,6 +701,7 @@ type Action =
   | AbortFetchUserCollectionsAction
   | AddAddonToCollectionAction
   | AddonAddedToCollectionAction
+  | CreateCollectionAction
   | DeleteCollectionBySlugAction
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction
@@ -866,20 +925,6 @@ const reducer = (
         state,
         loading: false,
       });
-    }
-
-    case UPDATE_COLLECTION: {
-      const { collectionSlug } = action.payload;
-
-      return {
-        ...state,
-        collectionUpdates: {
-          [collectionSlug]: {
-            ...state.collectionUpdates[collectionSlug],
-            updating: true,
-          },
-        },
-      };
     }
 
     case DELETE_COLLECTION_BY_SLUG: {

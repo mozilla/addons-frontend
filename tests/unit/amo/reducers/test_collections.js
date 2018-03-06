@@ -18,7 +18,6 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  updateCollection,
 } from 'amo/reducers/collections';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {

@@ -8,6 +8,7 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  createCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
@@ -458,6 +459,124 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('createCollection', () => {
+    const formOverlayId = 'some-form-overlay';
+
+    const _createCollection = (params = {}) => {
+      sagaTester.dispatch(createCollection({
+        errorHandlerId: errorHandler.id,
+        formOverlayId,
+        name: 'some-collection-name',
+        slug,
+        user,
+        ...params,
+      }));
+    };
+
+    it('sends a request to the collections API', async () => {
+      const params = {
+        description: { 'en-US': 'Collection description' },
+        name: { 'en-US': 'Collection name' },
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('createCollection')
+        .withArgs({
+          api: state.api,
+          defaultLocale: undefined,
+          description: params.description,
+          name: params.name,
+          slug,
+          user,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _createCollection(params);
+
+      const expectedAction = closeFormOverlay(formOverlayId);
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
+    it('redirects to the new collection after create', async () => {
+      mockApi.expects('createCollection').returns(Promise.resolve());
+
+      _createCollection();
+
+      const { lang, clientApp } = clientData.state.api;
+      const expectedAction = pushLocation(
+        `/${lang}/${clientApp}/collections/${user}/${slug}/`
+      );
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      mockApi.verify();
+    });
+
+    it('clears the error handler', async () => {
+      _createCollection();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('begins and finishes a form submit', async () => {
+      mockApi.expects('createCollection').returns(Promise.resolve());
+
+      _createCollection();
+
+      for (const expectedAction of [
+        beginFormOverlaySubmit(formOverlayId),
+        finishFormOverlaySubmit(formOverlayId),
+      ]) {
+        // eslint-disable-next-line no-await-in-loop
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+      }
+    });
+
+    it('closes the form overlay', async () => {
+      mockApi.expects('createCollection').returns(Promise.resolve());
+
+      _createCollection();
+
+      const expectedAction = closeFormOverlay(formOverlayId);
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('handles errors', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('createCollection')
+        .returns(Promise.reject(error));
+
+      _createCollection();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+
+      expect(sagaTester.getCalledActions()[4])
+        .toEqual(finishFormOverlaySubmit(formOverlayId));
+
+      // Make sure the form overlay is not closed on error.
+      expect(
+        sagaTester.getCalledActions().map((anyAction) => anyAction.type)
+      ).not.toContain(closeFormOverlay(formOverlayId).type);
     });
   });
 });
