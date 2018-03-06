@@ -20,7 +20,7 @@ export class PaginateBase extends React.Component {
   static propTypes = {
     LinkComponent: PropTypes.func,
     count: PropTypes.number.isRequired,
-    currentPage: PropTypes.number.isRequired,
+    currentPage: PropTypes.number,
     i18n: PropTypes.object.isRequired,
     pathname: PropTypes.string.isRequired,
     perPage: PropTypes.number,
@@ -31,6 +31,7 @@ export class PaginateBase extends React.Component {
   static defaultProps = {
     perPage: 25, // The default number of results per page returned by the API.
     showPages: 0,
+    currentPage: 1,
   }
 
   pageCount() {
@@ -73,9 +74,6 @@ export class PaginateBase extends React.Component {
 
     if (count === undefined) {
       throw new Error('The count property cannot be undefined');
-    }
-    if (currentPage === undefined) {
-      throw new Error('The currentPage property cannot be undefined');
     }
     if (pathname === undefined) {
       throw new Error('The pathname property cannot be undefined');
