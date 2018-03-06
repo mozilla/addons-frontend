@@ -31,7 +31,6 @@ export class PaginateBase extends React.Component {
   static defaultProps = {
     perPage: 25, // The default number of results per page returned by the API.
     showPages: 0,
-    currentPage: 1,
   }
 
   pageCount() {
@@ -71,6 +70,8 @@ export class PaginateBase extends React.Component {
       LinkComponent, count, currentPage, i18n, pathname, queryParams,
     } = this.props;
     const pageCount = this.pageCount();
+    let pageNumber = parseInt(currentPage, 10);
+    pageNumber = Number.isNaN(pageNumber) || pageNumber < 1 ? 1 : pageNumber;
 
     if (count === undefined) {
       throw new Error('The count property cannot be undefined');
@@ -84,7 +85,7 @@ export class PaginateBase extends React.Component {
 
     const linkParams = {
       LinkComponent,
-      currentPage,
+      currentPage: pageNumber,
       pathname,
       pageCount,
       queryParams,
@@ -95,15 +96,15 @@ export class PaginateBase extends React.Component {
       <div className="Paginate">
         <div className="Paginate-page-number">
           {i18n.sprintf(
-            i18n.gettext('Page %(currentPage)s of %(totalPages)s'),
-            { currentPage, totalPages: this.pageCount() }
+            i18n.gettext('Page %(pageNumber)s of %(totalPages)s'),
+            { pageNumber, totalPages: this.pageCount() }
           )}
         </div>
         <div className="Paginate-links">
           <PaginatorLink
             {...linkParams}
             className="Paginate-previous"
-            page={currentPage - 1}
+            page={pageNumber - 1}
             text={i18n.gettext('Previous')}
           />
           {this.visiblePages({ pageCount }).map((page) => (
@@ -116,7 +117,7 @@ export class PaginateBase extends React.Component {
           <PaginatorLink
             {...linkParams}
             className="Paginate-next"
-            page={currentPage + 1}
+            page={pageNumber + 1}
             text={i18n.gettext('Next')}
           />
         </div>
