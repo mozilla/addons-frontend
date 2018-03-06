@@ -185,4 +185,25 @@ describe('<Paginate />', () => {
     const firstLink = root.find(PaginatorLink).first();
     expect(firstLink).toHaveProp('currentPage', 1);
   });
+
+  it('converts a null currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: null, count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a non-numeric currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: 'abc', count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a negative currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: -5, count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
 });
