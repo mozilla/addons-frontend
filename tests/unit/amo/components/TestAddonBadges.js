@@ -181,4 +181,24 @@ describe(__filename, () => {
       expect(root.find(Badge)).toHaveLength(0);
     });
   });
+
+  it('displays a badge when the addon requires payment', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      requires_payment: true,
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveProp('type', 'requires-payment');
+    expect(root.find(Badge))
+      .toHaveProp('label', 'Some features may require payment');
+  });
+
+  it('does not display a badge when the addon does not require payment', () => {
+    const addon = createInternalAddon(createFakeAddon({
+      requires_payment: false,
+    }));
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
 });
