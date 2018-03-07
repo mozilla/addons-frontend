@@ -391,7 +391,7 @@ describe(__filename, () => {
   describe('updateCollection', () => {
     it('calls modifyCollection with the expected params', async () => {
       const validator = sinon.stub();
-      const modifier = sinon.stub();
+      const modifier = sinon.spy(() => Promise.resolve());
       const modifyParams = {
         api: apiState,
         collectionSlug: 'collection-slug',
@@ -416,7 +416,7 @@ describe(__filename, () => {
   describe('createCollection', () => {
     it('calls modifyCollection with the expected params', async () => {
       const validator = sinon.stub();
-      const modifier = sinon.stub();
+      const modifier = sinon.spy(() => Promise.resolve());
       const modifyParams = {
         api: apiState,
         defaultLocale: undefined,

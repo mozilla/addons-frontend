@@ -156,13 +156,48 @@ export const addAddonToCollection = (
   });
 };
 
+type ModifyCollectionParams = {|
+  api: ApiStateType,
+  defaultLocale: ?string,
+  description: ?LocalizedString,
+  // Even though the API accepts string|number, we need to always use
+  // string usernames. This helps keep public-facing URLs consistent.
+  user: string,
+  // eslint-disable-next-line no-use-before-define
+  _modifyCollection?: typeof modifyCollection,
+  _validateLocalizedString?: typeof validateLocalizedString,
+|};
+
+export type UpdateCollectionParams = {|
+  ...ModifyCollectionParams,
+  // We identify the collection by its slug. This is confusing because the
+  // slug can also be edited.
+  // TODO: use the actual ID instead.
+  // See https://github.com/mozilla/addons-server/issues/7529
+  collectionSlug: string,
+  name: ?LocalizedString,
+  // This is a value for a new slug, if defined.
+  slug: ?string,
+|};
+
+export type CreateCollectionParams = {|
+  ...ModifyCollectionParams,
+  name: LocalizedString,
+  slug: string,
+|};
+
 export const modifyCollection = (
   action: 'create' | 'update',
-  params: Object
+  params: {
+    ...ModifyCollectionParams,
+    collectionSlug?: string,
+    name?: ?LocalizedString,
+    slug?: ?string,
+  }
 ): Promise<void> => {
   const {
     api,
-    collectionSlug,
+    collectionSlug = '',
     defaultLocale,
     description,
     name,
@@ -206,35 +241,6 @@ export const modifyCollection = (
     state: api,
   });
 };
-
-type ModifyCollectionParams = {|
-  api: ApiStateType,
-  defaultLocale: ?string,
-  description: ?LocalizedString,
-  // Even though the API accepts string|number, we need to always use
-  // string usernames. This helps keep public-facing URLs consistent.
-  user: string,
-  _modifyCollection?: typeof modifyCollection,
-  _validateLocalizedString?: typeof validateLocalizedString,
-|};
-
-export type UpdateCollectionParams = {|
-  ...ModifyCollectionParams,
-  // We identify the collection by its slug. This is confusing because the
-  // slug can also be edited.
-  // TODO: use the actual ID instead.
-  // See https://github.com/mozilla/addons-server/issues/7529
-  collectionSlug: string,
-  name: ?LocalizedString,
-  // This is a value for a new slug, if defined.
-  slug: ?string,
-|};
-
-export type CreateCollectionParams = {|
-  ...ModifyCollectionParams,
-  name: LocalizedString,
-  slug: string,
-|};
 
 export const updateCollection = ({
   api,
