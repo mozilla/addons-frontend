@@ -65,8 +65,8 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(0);
 
-    expect(shelf).toHaveProp('header', 'Re-imagine search');
-    expect(shelf).toHaveProp('footerText', 'See more search extensions');
+    expect(shelf).toHaveProp('header', 'Good time tabs');
+    expect(shelf).toHaveProp('footerText', 'See more good time tabs extensions');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
     );
@@ -79,8 +79,8 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(1);
 
-    expect(shelf).toHaveProp('header', 'Privacy tools');
-    expect(shelf).toHaveProp('footerText', 'See more privacy tools');
+    expect(shelf).toHaveProp('header', 'Wikipedia boosters');
+    expect(shelf).toHaveProp('footerText', 'See more Wikipedia boosters');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
     );
@@ -93,8 +93,8 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(2);
 
-    expect(shelf).toHaveProp('header', 'Dynamic media downloaders');
-    expect(shelf).toHaveProp('footerText', 'See more dynamic media downloaders');
+    expect(shelf).toHaveProp('header', 'Trending extensions');
+    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
     );
