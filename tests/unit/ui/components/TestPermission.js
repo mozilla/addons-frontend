@@ -18,7 +18,7 @@ describe(__filename, () => {
   it('renders standard and custom class names', () => {
     const root = render();
 
-    expect(root.find('li')).toHaveProp('className', `Permission ${defaultProps.className}`);
+    expect(root.find('li')).toHaveClassName(`Permission ${defaultProps.className}`);
   });
 
   it('renders an icon with custom name', () => {

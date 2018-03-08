@@ -1,3 +1,5 @@
+import UAParser from 'ua-parser-js';
+
 import { PermissionUtils } from 'amo/components/PermissionsCard/permissions';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -5,16 +7,14 @@ import {
   OS_MAC,
 } from 'core/constants';
 import {
-  USER_AGENT_OS_MAC,
-  USER_AGENT_OS_WINDOWS,
-} from 'core/reducers/api';
-import {
   fakeI18n,
+  userAgentsByPlatform,
 } from 'tests/unit/helpers';
 import {
   createFakeAddon,
   fakePlatformFile,
 } from 'tests/unit/amo/helpers';
+
 
 describe(__filename, () => {
   let permissionUtils;
@@ -24,6 +24,10 @@ describe(__filename, () => {
   });
 
   describe('getCurrentPermissions', () => {
+    const permissionsForOSs = {
+      [OS_MAC]: ['bookmarks'],
+      [OS_ALL]: ['notifications'],
+    };
     const createAddon = (platforms = [OS_MAC, OS_ALL]) => {
       const files = [];
       for (const platform of platforms) {
@@ -31,34 +35,30 @@ describe(__filename, () => {
           {
             ...fakePlatformFile,
             platform,
-            permissions: [platform],
+            permissions: permissionsForOSs[platform],
           },
         );
       }
       return createInternalAddon(createFakeAddon({ files }));
     };
 
-    const fakeUserAgent = (osName) => {
-      return { os: { name: osName } };
-    };
-
     it('gets permissions for a specific os', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon(), fakeUserAgent(USER_AGENT_OS_MAC)
+        createAddon(), UAParser(userAgentsByPlatform.mac.firefox57)
       );
-      expect(result).toContain(OS_MAC);
+      expect(result).toEqual(permissionsForOSs[OS_MAC]);
     });
 
     it('gets permissions for a all_os if the specific platform is not found', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon(), fakeUserAgent(USER_AGENT_OS_WINDOWS)
+        createAddon(), UAParser(userAgentsByPlatform.windows.firefox40)
       );
-      expect(result).toContain(OS_ALL);
+      expect(result).toEqual(permissionsForOSs[OS_ALL]);
     });
 
     it('returns an empty array if all_os does not exist and the platform is not found', () => {
       const result = permissionUtils.getCurrentPermissions(
-        createAddon([OS_MAC]), fakeUserAgent(USER_AGENT_OS_WINDOWS)
+        createAddon([OS_MAC]), UAParser(userAgentsByPlatform.windows.firefox40)
       );
       expect(result).toHaveLength(0);
     });

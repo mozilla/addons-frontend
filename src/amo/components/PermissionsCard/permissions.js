@@ -85,6 +85,12 @@ export class PermissionUtils {
     const agentOsName =
       userAgentInfo.os.name && userAgentInfo.os.name.toLowerCase();
     const platform = userAgentOSToPlatform[agentOsName];
+
+    if (!platform) {
+      log.debug(`No platform exists for user agent OS "${agentOsName}"`);
+      return [];
+    }
+
     const file = addon.platformFiles[platform] || addon.platformFiles[OS_ALL];
 
     if (!file) {

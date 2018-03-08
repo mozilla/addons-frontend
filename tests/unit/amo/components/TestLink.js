@@ -13,7 +13,7 @@ import Icon from 'ui/components/Icon';
 import { shallowUntilTarget } from 'tests/unit/helpers';
 
 
-describe('<Link />', () => {
+describe(__filename, () => {
   let store;
 
   function render(props) {
@@ -23,10 +23,7 @@ describe('<Link />', () => {
 
   function shallowRender(props) {
     return shallowUntilTarget(
-      <Link
-        store={store}
-        {...props}
-      />,
+      <Link store={store} {...props} />,
       LinkBase
     );
   }
@@ -216,15 +213,15 @@ describe('<Link />', () => {
     expect(root.find(Icon)).toHaveProp('name', `external`);
   });
 
-  it('creates an Icon with the correct name for `external` and `blackIcon`', () => {
-    const root = shallowRender({ to: '/test', external: true, blackIcon: true });
+  it('creates an Icon with the correct name for `externalDark`', () => {
+    const root = shallowRender({ to: '/test', externalDark: true });
 
-    expect(root.find(Icon)).toHaveProp('name', `external-black`);
+    expect(root.find(Icon)).toHaveProp('name', `external-dark`);
   });
 
-  it('does not create an Icon for just `blackIcon`', () => {
-    const root = shallowRender({ to: '/test', blackIcon: true });
+  it('creates an Icon with the correct name for `external` and `externalDark`', () => {
+    const root = shallowRender({ to: '/test', external: true, externalDark: true });
 
-    expect(root.find(Icon)).toHaveLength(0);
+    expect(root.find(Icon)).toHaveProp('name', `external-dark`);
   });
 });

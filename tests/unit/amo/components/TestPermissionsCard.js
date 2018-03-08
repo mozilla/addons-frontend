@@ -41,18 +41,18 @@ describe(__filename, () => {
   describe('no permissions', () => {
     it('renders nothing without an addon', () => {
       const root = render({ addon: null });
-      expect(root.find('.PermissionsCard')).toHaveLength(0);
+      expect(root).not.toHaveClassName('PermissionsCard');
     });
 
     it('renders nothing for an addon with no permissions', () => {
       const addon = createAddonWithPermissions([]);
       const root = render({ addon });
-      expect(root.find('.PermissionsCard')).toHaveLength(0);
+      expect(root).not.toHaveClassName('PermissionsCard');
     });
 
     it('renders nothing for an addon with no displayable permissions', () => {
       const root = render();
-      expect(root.find('.PermissionsCard')).toHaveLength(0);
+      expect(root).not.toHaveClassName('PermissionsCard');
     });
   });
 
@@ -62,12 +62,12 @@ describe(__filename, () => {
       const root = render({
         addon: createAddonWithPermissions([permission]),
       });
+      expect(root).toHaveClassName('PermissionsCard');
       expect(root.find('.PermissionsCard')).toHaveLength(1);
       expect(root.find('.PermissionsCard-subhead')).toHaveLength(1);
       expect(root.find('.PermissionsCard-list')).toHaveLength(1);
-      expect(root.find(Button)).toHaveProp('blackIcon', true);
-      expect(root.find(Button)).toHaveProp('className', 'PermissionCard-learn-more');
-      expect(root.find(Button)).toHaveProp('external', true);
+      expect(root.find(Button)).toHaveClassName('PermissionCard-learn-more');
+      expect(root.find(Button)).toHaveProp('externalDark', true);
       expect(root.find(Permission)).toHaveProp('className', permission);
     });
   });

@@ -55,8 +55,7 @@ export class PermissionsCardBase extends React.Component<Props> {
           buttonType="neutral"
           className="PermissionCard-learn-more"
           href="https://support.mozilla.org/en-US/kb/permission-request-messages-firefox-extensions"
-          external
-          blackIcon
+          externalDark
           puffy
         >
           {i18n.gettext('Learn more about permissions')}
