@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:31+0000\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
 "PO-Revision-Date: 2017-08-25 13:44+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,12 +39,12 @@ msgstr "Fann ikkje sida"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Vi beklagar, men vi kan ikkje finne noko på adressa du tasta inn."
 
-#: src/core/components/InstallButton/index.js:229
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:255
-#: src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "Legg til i Firefox"
 
@@ -88,45 +88,45 @@ msgstr "No kan du få tilgang til %(name)s frå verktøylinja."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/disco/components/Addon.js:131
+#: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Hald musepeikaren over for å førehandsvise eller klikk for å installere "
 "%(name)s"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
 msgstr "Hald musepeikaren over bildet for å førehandsvise"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
 msgstr "Installasjonen feila. Prøv igjen."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:178
 msgid "Download failed. Please check your connection."
 msgstr "Mislykka nedlasting. Kontroller tilkoplinga di."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:180
 msgid "An unexpected error occurred during installation."
 msgstr "Det oppstod ein uventa feil under installeringa."
 
-#: src/disco/components/Addon.js:176
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Det oppstod ein uventa feil under avinstalleringa."
 
-#: src/disco/components/Addon.js:179
+#: src/disco/components/Addon.js:185
 msgid "An unexpected error occurred."
 msgstr "Det oppstod ein uventa feil."
 
-#: src/disco/components/Addon.js:187
+#: src/disco/components/Addon.js:193
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Denne utvidinga vert avinstallert etter omstart av Firefox."
 
-#: src/disco/components/Addon.js:189
+#: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
 msgstr "Start Firefox på nytt for å bruke denne utvidinga."
 
-#: src/disco/components/Addon.js:89
+#: src/disco/components/Addon.js:95
 msgid "Close"
 msgstr "Lukk"
 
