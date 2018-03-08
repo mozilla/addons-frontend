@@ -62,6 +62,13 @@ describe(__filename, () => {
       );
       expect(result).toHaveLength(0);
     });
+
+    it('returns an empty array if no platform is found for the user agent OS', () => {
+      const result = permissionUtils.getCurrentPermissions(
+        createAddon([OS_MAC]), { os: { name: 'invalid OS name' } }
+      );
+      expect(result).toHaveLength(0);
+    });
   });
 
   describe('classifyPermission', () => {

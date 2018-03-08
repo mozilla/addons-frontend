@@ -1,5 +1,5 @@
 /* @flow */
-import { oneLineTrim } from 'common-tags';
+import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import log from 'core/logger';
@@ -87,15 +87,15 @@ export class PermissionUtils {
     const platform = userAgentOSToPlatform[agentOsName];
 
     if (!platform) {
-      log.debug(oneLineTrim`No platform exists for user agent OS 
-      "${agentOsName || '<undefined agentOsName>'}"`);
+      log.error(oneLine`No platform exists for user agent OS 
+        "${agentOsName || '<undefined agentOsName>'}"`);
       return [];
     }
 
     const file = addon.platformFiles[platform] || addon.platformFiles[OS_ALL];
 
     if (!file) {
-      log.debug(oneLineTrim`No file exists for platform "${agentOsName}"
+      log.debug(oneLine`No file exists for platform "${agentOsName}"
         (mapped to "${platform}"); platform files:`, addon.platformFiles);
       return [];
     }

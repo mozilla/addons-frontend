@@ -69,14 +69,13 @@
   width: 10px;
 }
 
-.Button--neutral:link.Button--puffy,
-.Button--neutral:link {
-  .Icon.Icon-external-dark {
-    @include icon($name: "external-dark");
+.Icon-external-dark,
+// The Button override is to deal with @mixin button() from Button/styles.scss
+.Button--neutral:link.Button--puffy .Icon.Icon-external-dark {
+  @include icon($name: "external-dark");
 
-    height: 10px;
-    width: 10px;
-  }
+  height: 10px;
+  width: 10px;
 }
 
 .Icon-user {
