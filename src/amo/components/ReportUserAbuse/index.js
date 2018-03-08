@@ -121,7 +121,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
               {i18n.gettext(
                 `Please don't use this form to report bugs or contact this
                 user; your report will only be sent to Mozilla and not
-                to the add-on developer.`)}
+                to this user.`)}
             </p>
 
             <DismissibleTextForm
@@ -165,7 +165,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
 
 export const mapStateToProps = (
   state: {| userAbuseReports: UserAbuseReportsState |},
-  ownProps: {| user?: UserType |},
+  ownProps: Props,
 ) => {
   const abuseReport = (
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
