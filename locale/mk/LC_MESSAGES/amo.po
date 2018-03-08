@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-03-08 10:10+0000\n"
+"PO-Revision-Date: 2018-03-08 10:25+0000\n"
 "Last-Translator: goce.mitevski <goce.mitevski@gmail.com>\n"
 "Language-Team: none\n"
 "Language: mk\n"
@@ -187,7 +187,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:72
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox за iOS не поддржува додатоци."
 
 #: src/amo/components/AddonCompatibilityError/index.js:75
 msgid "This add-on is not available on your platform."
@@ -199,7 +199,7 @@ msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr ""
+msgstr "Вашиот прелистувач не поддржува додатоци. Можете да <a href=\"%(downloadUrl)s\">преземете Firefox</a> за да го инсталирате овој додаток."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -231,7 +231,7 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
-msgstr ""
+msgstr "Користено од"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
@@ -251,11 +251,11 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
-msgstr ""
+msgstr "Видете ги сите верзии"
 
 #: src/amo/components/AddonMoreInfo/index.js:152
 msgid "See all beta versions"
-msgstr ""
+msgstr "Видете ги сите бета-верзии"
 
 #: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
@@ -263,15 +263,15 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:190
 msgid "Version"
-msgstr ""
+msgstr "Верзија"
 
 #: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:203
 msgid "Last updated"
-msgstr ""
+msgstr "Обновено на"
 
 #: src/amo/components/AddonMoreInfo/index.js:204
 msgid "License"
-msgstr ""
+msgstr "Лиценца"
 
 #: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
@@ -283,7 +283,7 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:228
 msgid "Version History"
-msgstr ""
+msgstr "Историја на верзиите"
 
 #: src/amo/components/AddonMoreInfo/index.js:239
 msgid "Usage Statistics"
@@ -291,15 +291,15 @@ msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:254
 msgid "More information"
-msgstr ""
+msgstr "Повеќе информации"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 msgid "Homepage"
-msgstr ""
+msgstr "Почетна страница"
 
 #: src/amo/components/AddonMoreInfo/index.js:57
 msgid "Support Site"
-msgstr ""
+msgstr "Поддршка"
 
 #: src/amo/components/AddonMoreInfo/index.js:71
 msgid "Support Email"
@@ -327,19 +327,19 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
-msgstr ""
+msgstr "Напишете критика"
 
 #: src/amo/components/AddonReview/index.js:213
 msgid "Review text"
-msgstr ""
+msgstr "Содржина на критика"
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
-msgstr ""
+msgstr "Поднеси критика"
 
 #: src/amo/components/AddonReviewList/index.js:166
 msgid "Add-on icon"
-msgstr ""
+msgstr "Икона на додатокот"
 
 #: src/amo/components/AddonReviewList/index.js:172
 msgid "Reviews for %(addonName)s"
@@ -394,7 +394,7 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my review"
-msgstr ""
+msgstr "Промени ја мојата критика"
 
 #: src/amo/components/AddonReviewListItem/index.js:277
 msgid "Reply to this review"
@@ -402,7 +402,7 @@ msgstr ""
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:149
 msgid "Add-ons for Firefox"
-msgstr ""
+msgstr "Додатоци за Firefox"
 
 #: src/amo/components/App/index.js:204
 msgid "%s – Add-ons for Firefox"
@@ -418,15 +418,15 @@ msgstr ""
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
-msgstr ""
+msgstr "Категорите не се пронајдени."
 
 #: src/amo/components/Categories/index.js:107
 msgid "Categories"
-msgstr ""
+msgstr "Категории"
 
 #: src/amo/components/Categories/index.js:112
 msgid "Loading categories."
-msgstr ""
+msgstr "Се вчитуваат категории."
 
 #: src/amo/components/Category/index.js:128 src/amo/components/LandingPage/index.js:202 src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
@@ -458,11 +458,11 @@ msgstr ""
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:201 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
-msgstr ""
+msgstr "Теми"
 
 #: src/amo/components/Category/index.js:162 src/amo/components/LandingPage/index.js:147 src/amo/components/Search/index.js:114
 msgid "Featured themes"
-msgstr ""
+msgstr "Препорачани теми"
 
 #: src/amo/components/Category/index.js:171 src/amo/components/LandingPage/index.js:155
 msgid "See more featured themes"
@@ -478,7 +478,7 @@ msgstr ""
 
 #: src/amo/components/Category/index.js:182 src/amo/components/LandingPage/index.js:162 src/amo/components/Search/index.js:139
 msgid "Top rated themes"
-msgstr ""
+msgstr "Топ-рангирани теми"
 
 #: src/amo/components/Category/index.js:191 src/amo/components/LandingPage/index.js:167
 msgid "See more top rated themes"
@@ -590,7 +590,7 @@ msgstr ""
 
 #: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
-msgstr ""
+msgstr "Преземете Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -632,7 +632,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr ""
+msgstr "Серверска грешка"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -716,11 +716,11 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:146
 msgid "Privacy"
-msgstr ""
+msgstr "Приватност"
 
 #: src/amo/components/Footer/index.js:147
 msgid "Cookies"
-msgstr ""
+msgstr "Колачиња"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
@@ -746,7 +746,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:54
 msgid "Blog"
-msgstr ""
+msgstr "Блог"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
@@ -754,7 +754,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Форум"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
@@ -802,15 +802,15 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
-msgstr ""
+msgstr "Одјавете се"
 
 #: src/amo/components/Header/index.js:60
 msgid "Firefox Add-ons"
-msgstr ""
+msgstr "Додатоци за Firefox"
 
 #: src/amo/components/Header/index.js:94
 msgid "My Account"
-msgstr ""
+msgstr "Мој профил"
 
 #: src/amo/components/Home/index.js:111
 msgid "Abstract"
@@ -1002,7 +1002,7 @@ msgstr ""
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
-msgstr ""
+msgstr "Промени јазик"
 
 #: src/amo/components/LanguageTools/index.js:106
 msgid "Available for your locale"
@@ -1094,7 +1094,7 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:198
 msgid "Dismiss"
-msgstr ""
+msgstr "Откажи"
 
 #: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
@@ -1106,7 +1106,7 @@ msgstr ""
 
 #: src/amo/components/Search/index.js:106 src/amo/components/SearchResults.js:60
 msgid "Search results"
-msgstr ""
+msgstr "Резултати од пребарувањето"
 
 #: src/amo/components/Search/index.js:117
 msgid "Featured add-ons"
