@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"POT-Creation-Date: 2018-03-08 22:42+0000\n"
 "PO-Revision-Date: 2016-11-10 12:48+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
@@ -48,114 +48,114 @@ msgstr ""
 msgid "Add to collection"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Addon/index.js:182
+#: src/amo/components/Addon/index.js:185
 #, fuzzy
 msgid "Cancel preview"
 msgstr "Escribi una reseña"
 
-#: src/amo/components/Addon/index.js:182
+#: src/amo/components/Addon/index.js:185
 #, fuzzy
 msgid "Tap to preview"
 msgstr "Escribi una reseña"
 
-#: src/amo/components/Addon/index.js:233
+#: src/amo/components/Addon/index.js:236
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:242
+#: src/amo/components/Addon/index.js:245
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/Addon/index.js:258
+#: src/amo/components/Addon/index.js:261
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:267
+#: src/amo/components/Addon/index.js:270
 msgid "Rate your experience"
 msgstr "Valora la to esperiencia"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:288
 msgid "About this dictionary"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:291
 #, fuzzy
 msgid "About this extension"
 msgstr "Tocante a esta estesión"
 
-#: src/amo/components/Addon/index.js:291
+#: src/amo/components/Addon/index.js:294
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:294
+#: src/amo/components/Addon/index.js:297
 #, fuzzy
 msgid "About this search plugin"
 msgstr "Tocante a esta estesión"
 
-#: src/amo/components/Addon/index.js:297
+#: src/amo/components/Addon/index.js:300
 msgid "About this theme"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:300
+#: src/amo/components/Addon/index.js:303
 #, fuzzy
 msgid "About this add-on"
 msgstr "Add-ons de Firefox"
 
-#: src/amo/components/Addon/index.js:339
+#: src/amo/components/Addon/index.js:342
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:368
+#: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:374
 msgid "More dictionaries by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:378
+#: src/amo/components/Addon/index.js:381
 msgid "More extensions by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:384
 msgid "More extensions by these developers"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:388
+#: src/amo/components/Addon/index.js:391
 msgid "More language packs by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:391
+#: src/amo/components/Addon/index.js:394
 msgid "More language packs by these translators"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:398
+#: src/amo/components/Addon/index.js:401
 msgid "More themes by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:401
+#: src/amo/components/Addon/index.js:404
 msgid "More themes by these artists"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:408
+#: src/amo/components/Addon/index.js:411
 msgid "More add-ons by %(author)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:411
+#: src/amo/components/Addon/index.js:414
 msgid "More add-ons by these developers"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:491
+#: src/amo/components/Addon/index.js:494
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s%(startSpan)spor%(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:565
+#: src/amo/components/Addon/index.js:568
 msgid "Extension Metadata"
 msgstr "Datos meta d'estensión"
 
-#: src/amo/components/Addon/index.js:583
+#: src/amo/components/Addon/index.js:586
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
@@ -236,20 +236,20 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:43
 #, fuzzy
-msgid "Reviews"
-msgstr "Escribi una reseña"
+msgid "Ratings"
+msgstr "Nun hai valoraciones"
 
 #: src/amo/components/AddonMeta/index.js:46
 #, fuzzy
-msgid "Review"
-msgid_plural "Reviews"
-msgstr[0] "Escribi una reseña"
-msgstr[1] "Escribi una reseña"
+msgid "Rating"
+msgid_plural "Ratings"
+msgstr[0] "Nun hai valoraciones"
+msgstr[1] "Nun hai valoraciones"
 
 #: src/amo/components/AddonMeta/index.js:48
 #, fuzzy
-msgid "No Reviews"
-msgstr "Escribi una reseña"
+msgid "No Ratings"
+msgstr "Nun hai valoraciones"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
@@ -291,7 +291,7 @@ msgid "Version"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:205
 msgid "Last updated"
 msgstr ""
 
@@ -371,16 +371,16 @@ msgstr ""
 msgid "Submit review"
 msgstr "Escribi una reseña"
 
-#: src/amo/components/AddonReviewList/index.js:166
+#: src/amo/components/AddonReviewList/index.js:165
 #, fuzzy
 msgid "Add-on icon"
 msgstr "Add-ons pa Firefox"
 
-#: src/amo/components/AddonReviewList/index.js:172
+#: src/amo/components/AddonReviewList/index.js:171
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList/index.js:184
+#: src/amo/components/AddonReviewList/index.js:183
 #, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
@@ -388,7 +388,7 @@ msgstr[0] "Nun hai valoraciones"
 msgstr[1] "Nun hai valoraciones"
 
 # Example: by The Author, The Next Author
-#: src/amo/components/AddonReviewList/index.js:212
+#: src/amo/components/AddonReviewList/index.js:211
 msgid "by %(authorList)s"
 msgstr ""
 
@@ -425,17 +425,17 @@ msgstr ""
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewListItem/index.js:258
+#: src/amo/components/AddonReviewListItem/index.js:262
 #, fuzzy
 msgid "Edit my reply"
 msgstr "Escribi una reseña"
 
-#: src/amo/components/AddonReviewListItem/index.js:259
+#: src/amo/components/AddonReviewListItem/index.js:263
 #, fuzzy
 msgid "Edit my review"
 msgstr "Escribi una reseña"
 
-#: src/amo/components/AddonReviewListItem/index.js:277
+#: src/amo/components/AddonReviewListItem/index.js:281
 #, fuzzy
 msgid "Reply to this review"
 msgstr "Escribi una reseña"
@@ -474,94 +474,96 @@ msgstr "Estaya"
 msgid "Loading categories."
 msgstr ""
 
-#: src/amo/components/Category/index.js:128
-#: src/amo/components/LandingPage/index.js:202
+#: src/amo/components/Category/index.js:131
+#: src/amo/components/LandingPage/index.js:205
 #: src/amo/components/SectionLinks/index.js:83
 #, fuzzy
 msgid "Extensions"
 msgstr "Datos meta d'estensión"
 
-#: src/amo/components/Category/index.js:129
-#: src/amo/components/Home/index.js:199
-#: src/amo/components/LandingPage/index.js:121
-#: src/amo/components/Search/index.js:111
+#: src/amo/components/Category/index.js:132
+#: src/amo/components/Home/index.js:202
+#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/Search/index.js:110
 #, fuzzy
 msgid "Featured extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Category/index.js:138
-#: src/amo/components/Home/index.js:200
-#: src/amo/components/LandingPage/index.js:129
+#: src/amo/components/Category/index.js:141
+#: src/amo/components/Home/index.js:203
+#: src/amo/components/LandingPage/index.js:132
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Category/index.js:139
-#: src/amo/components/LandingPage/index.js:130
-#: src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:142
+#: src/amo/components/Home/index.js:255
+#: src/amo/components/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:123
 #, fuzzy
 msgid "Trending extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Category/index.js:148
-#: src/amo/components/LandingPage/index.js:135
+#: src/amo/components/Category/index.js:151
+#: src/amo/components/Home/index.js:256
+#: src/amo/components/LandingPage/index.js:138
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Category/index.js:149
-#: src/amo/components/LandingPage/index.js:136
-#: src/amo/components/Search/index.js:136
+#: src/amo/components/Category/index.js:152
+#: src/amo/components/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:135
 #, fuzzy
 msgid "Top rated extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Category/index.js:158
-#: src/amo/components/LandingPage/index.js:144
+#: src/amo/components/Category/index.js:161
+#: src/amo/components/LandingPage/index.js:147
 #, fuzzy
 msgid "See more top rated extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Category/index.js:161
-#: src/amo/components/LandingPage/index.js:201
+#: src/amo/components/Category/index.js:164
+#: src/amo/components/LandingPage/index.js:204
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:162
-#: src/amo/components/LandingPage/index.js:147
-#: src/amo/components/Search/index.js:114
+#: src/amo/components/Category/index.js:165
+#: src/amo/components/LandingPage/index.js:150
+#: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:171
-#: src/amo/components/LandingPage/index.js:155
+#: src/amo/components/Category/index.js:174
+#: src/amo/components/LandingPage/index.js:158
 #, fuzzy
 msgid "See more featured themes"
 msgstr "Restolar tolos temes"
 
-#: src/amo/components/Category/index.js:172
-#: src/amo/components/LandingPage/index.js:156
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:175
+#: src/amo/components/LandingPage/index.js:159
+#: src/amo/components/Search/index.js:126
 #, fuzzy
 msgid "Trending themes"
 msgstr "Restolar tolos temes"
 
-#: src/amo/components/Category/index.js:181
-#: src/amo/components/LandingPage/index.js:161
+#: src/amo/components/Category/index.js:184
+#: src/amo/components/LandingPage/index.js:164
 #, fuzzy
 msgid "See more trending themes"
 msgstr "Restolar tolos temes"
 
-#: src/amo/components/Category/index.js:182
-#: src/amo/components/LandingPage/index.js:162
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Category/index.js:185
+#: src/amo/components/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:138
 #, fuzzy
 msgid "Top rated themes"
 msgstr "Restolar tolos temes"
 
-#: src/amo/components/Category/index.js:191
-#: src/amo/components/LandingPage/index.js:167
+#: src/amo/components/Category/index.js:194
+#: src/amo/components/LandingPage/index.js:170
 #, fuzzy
 msgid "See more top rated themes"
 msgstr "Restolar tolos temes"
@@ -580,49 +582,49 @@ msgstr "Restolar toles estensiones"
 msgid "Browse all themes in this category."
 msgstr "Restolar tolos temes"
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:161
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Collection/index.js:193
+#: src/amo/components/Collection/index.js:195
 #: src/amo/components/Footer/index.js:43
 #, fuzzy
 msgid "Add-ons"
 msgstr "Add-ons pa Firefox"
 
-#: src/amo/components/Collection/index.js:197
+#: src/amo/components/Collection/index.js:199
 msgid "Creator"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:134
+#: src/amo/components/CollectionManager/index.js:137
 #, fuzzy
 msgid "Save collection"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:138
 #, fuzzy
 msgid "Saving collection"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/CollectionManager/index.js:136
+#: src/amo/components/CollectionManager/index.js:139
 #, fuzzy
 msgid "Edit collection"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/CollectionManager/index.js:140
+#: src/amo/components/CollectionManager/index.js:143
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:150
+#: src/amo/components/CollectionManager/index.js:153
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:159
+#: src/amo/components/CollectionManager/index.js:162
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:85
+#: src/amo/components/CollectionManager/index.js:86
 msgid "Collection name cannot be blank"
 msgstr ""
 
@@ -938,212 +940,243 @@ msgstr "Add-ons de Firefox"
 msgid "My Account"
 msgstr ""
 
-#: src/amo/components/Home/index.js:111
+#: src/amo/components/Home/index.js:113
 msgid "Abstract"
 msgstr "Abstrautu"
 
-#: src/amo/components/Home/index.js:116
+#: src/amo/components/Home/index.js:118
 msgid "Nature"
 msgstr ""
 
-#: src/amo/components/Home/index.js:121
+#: src/amo/components/Home/index.js:123
 msgid "Film & TV"
 msgstr ""
 
-#: src/amo/components/Home/index.js:126
+#: src/amo/components/Home/index.js:128
 #, fuzzy
 msgid "Scenery"
 msgstr "Vistosu"
 
-#: src/amo/components/Home/index.js:131
+#: src/amo/components/Home/index.js:133
 msgid "Music"
 msgstr ""
 
-#: src/amo/components/Home/index.js:136
+#: src/amo/components/Home/index.js:138
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/components/Home/index.js:166
+#: src/amo/components/Home/index.js:168
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:170
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/components/Home/index.js:214
-#, fuzzy
-msgid "Privacy tools"
-msgstr "Política de privacidá"
+#: src/amo/components/Home/index.js:217
+msgid "Good time tabs"
+msgstr ""
 
-#: src/amo/components/Home/index.js:215
+#: src/amo/components/Home/index.js:218
 #, fuzzy
-msgid "See more privacy tools"
+msgid "See more good time tabs extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
+#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 #, fuzzy
 msgid "Popular themes"
 msgstr "Restolar tolos temes"
 
-#: src/amo/components/Home/index.js:226
+#: src/amo/components/Home/index.js:230
 #, fuzzy
 msgid "See more popular themes"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Home/index.js:240
-msgid "Re-imagine search"
+#: src/amo/components/Home/index.js:244
+msgid "Wikipedia boosters"
 msgstr ""
 
-#: src/amo/components/Home/index.js:241
+#: src/amo/components/Home/index.js:245
 #, fuzzy
-msgid "See more search extensions"
-msgstr "Restolar toles estensiones"
+msgid "See more Wikipedia boosters"
+msgstr "Restolar tolos temes"
 
-#: src/amo/components/Home/index.js:251
-#, fuzzy
-msgid "February’s new featured extensions"
-msgstr "Restolar toles estensiones"
-
-#: src/amo/components/Home/index.js:252
-#, fuzzy
-msgid "See all the new featured extensions"
-msgstr "Restolar toles estensiones"
-
-#: src/amo/components/Home/index.js:60
+#: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
 msgstr ""
 
-#: src/amo/components/Home/index.js:64
+#: src/amo/components/Home/index.js:66
 msgid "Password managers"
 msgstr ""
 
-#: src/amo/components/Home/index.js:68
+#: src/amo/components/Home/index.js:70
 msgid "Ad blockers"
 msgstr ""
 
-#: src/amo/components/Home/index.js:72
+#: src/amo/components/Home/index.js:74
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/components/Home/index.js:76
+#: src/amo/components/Home/index.js:78
 msgid "Productivity"
 msgstr ""
 
-#: src/amo/components/Home/index.js:80
+#: src/amo/components/Home/index.js:82
 msgid "Watching Videos"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:107
+#: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Multi-Account Containers"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:110
+#: src/amo/components/HomeHeroBanner/index.js:111
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs."
+"color-coded tabs"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:120
-#, fuzzy
-msgid "SearchPreview"
-msgstr "Guetando..."
+#: src/amo/components/HomeHeroBanner/index.js:121
+msgid "AliTools"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:123
-msgid ""
-"Enhance search results with thumbnail previews, popularity ranks & more."
+#: src/amo/components/HomeHeroBanner/index.js:124
+msgid "Online shopping assistance"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
-msgid "Forget Me Not"
+msgid "Snake Game"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
-msgid ""
-"Automatically delete data (cookies, local storage, etc.) on all sites you "
-"visit except those on your whitelist."
+msgid "The classic game, always a click away"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:146
-#, fuzzy
-msgid "Zoom for Firefox"
-msgstr "Add-ons pa Firefox"
+#: src/amo/components/HomeHeroBanner/index.js:145
+msgid "Tab Invaders"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:149
-msgid "Simple zoom in/out tool for a close-up view of any web content."
+#: src/amo/components/HomeHeroBanner/index.js:148
+msgid "Space Invaders meets smart tab management"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:157
+msgid "Wikiwand"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:159
+msgid "Give Wikipedia a gorgeous makeover"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:167
+msgid "OneTab"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:170
+msgid "Convert your open tabs into a list and save precious memory"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:180
+msgid "Push to Kindle"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:182
+msgid "Send any Web page to your Kindle device"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:190
+#, fuzzy
+msgid "Search Site"
+msgstr "Guetando..."
+
+#: src/amo/components/HomeHeroBanner/index.js:193
+msgid "Search within just the domain you’re visiting"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:202
+msgid "LeechBlock NG"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:205
+msgid "Block time-wasting sites"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:214
+msgid "Tranquility Reader"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:217
+msgid "Remove clutter and improve readability"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-msgid "Temporary Containers"
+msgid "Facebook Video Downloader"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
-msgid "Open pages with disposable data containers."
+msgid "Download with a single click"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
-msgid "Momentum"
+msgid "AutoFormer+"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
-msgid ""
-"Replace your new tab with a personal dashboard—to-do lists, weather "
-"forecasts and more."
+msgid "Fill out a lot of forms? This might help"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Kimetrak"
+#: src/amo/components/HomeHeroBanner/index.js:51
+msgid "Myki Password Manager & Authenticator"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:54
-msgid "Track who’s tracking you."
+#: src/amo/components/HomeHeroBanner/index.js:53
+msgid "Cutting edge security"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:62
-msgid "Mailvelope"
+#: src/amo/components/HomeHeroBanner/index.js:61
+msgid "Notebook Web Clipper"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Secure encryption for webmail."
+#: src/amo/components/HomeHeroBanner/index.js:63
+msgid "Clip, save & organize your favorite stuff on the web"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-msgid "Translate Man"
+msgid "Flagfox"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:75
-msgid "Point-and-click instant translations."
+msgid "Displays a website’s server location by country flag"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:84
+#: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Efficient, powerful ad blocker."
+#: src/amo/components/HomeHeroBanner/index.js:87
+msgid "Efficient, powerful ad blocker"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:94
+#: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:97
-msgid "Popular anti-tracking extension now has ad blocking ability."
+#: src/amo/components/HomeHeroBanner/index.js:98
+msgid "Popular anti-tracking extension now has ad blocking ability"
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:205
+#: src/amo/components/LandingPage/index.js:208
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:207
+#: src/amo/components/LandingPage/index.js:210
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
 msgstr ""
 
-#: src/amo/components/LandingPage/index.js:235
+#: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
 msgstr ""
 
@@ -1264,37 +1297,37 @@ msgstr ""
 msgid "Send abuse report"
 msgstr ""
 
-#: src/amo/components/Search/index.js:106
-#: src/amo/components/SearchResults.js:60
+#: src/amo/components/Search/index.js:105
+#: src/amo/components/SearchResults.js:62
 #, fuzzy
 msgid "Search results"
 msgstr "Guetando..."
 
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:116
 #, fuzzy
 msgid "Featured add-ons"
 msgstr "Add-ons de Firefox"
 
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:129
 #, fuzzy
 msgid "Trending add-ons"
 msgstr "Add-ons de Firefox"
 
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:141
 #, fuzzy
 msgid "Top rated add-ons"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 #, fuzzy
 msgid "Popular extensions"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
 msgstr ""
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:160
 #, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "Nun s'alcontraron resultaos pa «%(query)s»."
@@ -1449,32 +1482,32 @@ msgstr "Guetando..."
 msgid "Loading"
 msgstr "Guetando..."
 
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/SearchResult/index.js:122
 #, fuzzy
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(users)s usuariu"
 msgstr[1] "%(users)s usuarios"
 
-#: src/amo/components/SearchResult/index.js:86
+#: src/amo/components/SearchResult/index.js:94
 msgid "No theme preview available"
 msgstr ""
 
-#: src/amo/components/SearchResults.js:38
+#: src/amo/components/SearchResults.js:39
 #, fuzzy
 msgid "Searching…"
 msgstr "Guetando..."
 
-#: src/amo/components/SearchResults.js:44
+#: src/amo/components/SearchResults.js:45
 msgid "No results were found for \"%(query)s\"."
 msgstr "Nun s'alcontraron resultaos pa «%(query)s»."
 
-#: src/amo/components/SearchResults.js:48
+#: src/amo/components/SearchResults.js:49
 #, fuzzy
 msgid "No results were found."
 msgstr "Nun s'alcontraron resultaos pa «%(query)s»."
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:52
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr ""
 
@@ -1803,13 +1836,13 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:229
+#: src/core/components/InstallButton/index.js:235
 #, fuzzy
 msgid "Install Theme"
 msgstr "Instalando %(name)s."
 
-#: src/core/components/InstallButton/index.js:255
-#: src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
 #, fuzzy
 msgid "Add to Firefox"
 msgstr "Add-ons pa Firefox"
@@ -1842,17 +1875,18 @@ msgstr "%(name)s desinstalóse. Primi pa instalar."
 msgid "Install state for %(name)s is unknown."
 msgstr "Desconozse l'estáu d'instalación pa %(name)s."
 
-#: src/core/components/Paginate/index.js:100
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Páxina %(currentPage)s de %(totalPages)s"
-
-#: src/core/components/Paginate/index.js:109
+#: src/core/components/Paginate/index.js:108
 msgid "Previous"
 msgstr "Previo"
 
-#: src/core/components/Paginate/index.js:122
+#: src/core/components/Paginate/index.js:121
 msgid "Next"
 msgstr "Siguiente"
+
+#: src/core/components/Paginate/index.js:99
+#, fuzzy
+msgid "Page %(pageNumber)s of %(totalPages)s"
+msgstr "Páxina %(currentPage)s de %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -1867,7 +1901,7 @@ msgid "OK!"
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:132
+#: src/ui/components/FormOverlay/index.js:137
 #, fuzzy
 msgid "Cancel"
 msgstr "Escribi una reseña"
@@ -1907,22 +1941,60 @@ msgstr ""
 msgid "Click to close"
 msgstr ""
 
-#: src/ui/components/Rating/index.js:94
+#: src/ui/components/Rating/index.js:100
+msgid "No ratings"
+msgstr "Nun hai valoraciones"
+
+#: src/ui/components/Rating/index.js:97
 #, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "Valoración media: %(rating)s de 5"
-
-#: src/ui/components/Rating/index.js:97
-msgid "No ratings"
-msgstr "Nun hai valoraciones"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
 #, fuzzy
-#~ msgid "See more media downloaders"
-#~ msgstr "Restolar tolos temes"
+#~ msgid "Reviews"
+#~ msgstr "Escribi una reseña"
+
+#, fuzzy
+#~ msgid "Review"
+#~ msgid_plural "Reviews"
+#~ msgstr[0] "Escribi una reseña"
+#~ msgstr[1] "Escribi una reseña"
+
+#, fuzzy
+#~ msgid "No Reviews"
+#~ msgstr "Escribi una reseña"
+
+#, fuzzy
+#~ msgid "Privacy tools"
+#~ msgstr "Política de privacidá"
+
+#, fuzzy
+#~ msgid "See more privacy tools"
+#~ msgstr "Restolar toles estensiones"
+
+#, fuzzy
+#~ msgid "See more search extensions"
+#~ msgstr "Restolar toles estensiones"
+
+#, fuzzy
+#~ msgid "February’s new featured extensions"
+#~ msgstr "Restolar toles estensiones"
+
+#, fuzzy
+#~ msgid "See all the new featured extensions"
+#~ msgstr "Restolar toles estensiones"
+
+#, fuzzy
+#~ msgid "SearchPreview"
+#~ msgstr "Guetando..."
+
+#, fuzzy
+#~ msgid "Zoom for Firefox"
+#~ msgstr "Add-ons pa Firefox"
 
 #, fuzzy
 #~ msgid "Top-rated Extensions"
