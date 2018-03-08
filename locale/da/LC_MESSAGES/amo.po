@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-20 21:49+0000\n"
+"POT-Creation-Date: 2018-03-08 22:42+0000\n"
 "PO-Revision-Date: 2018-02-18 23:26+0000\n"
 "Last-Translator: Mikkel Herold <mikkel@mzh.dk>\n"
 "Language-Team: none\n"
@@ -43,109 +43,109 @@ msgstr "Føj til…"
 msgid "Add to collection"
 msgstr "Føj til samling"
 
-#: src/amo/components/Addon/index.js:182
+#: src/amo/components/Addon/index.js:185
 msgid "Cancel preview"
 msgstr "Annuller forhåndsvisning"
 
-#: src/amo/components/Addon/index.js:182
+#: src/amo/components/Addon/index.js:185
 msgid "Tap to preview"
 msgstr "Tryk for at få vist eksempel"
 
-#: src/amo/components/Addon/index.js:233
+#: src/amo/components/Addon/index.js:236
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:242
+#: src/amo/components/Addon/index.js:245
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Læs %(count)s anmeldelse"
 msgstr[1] "Læs alle %(count)s anmeldelser"
 
-#: src/amo/components/Addon/index.js:258
+#: src/amo/components/Addon/index.js:261
 msgid "No reviews yet"
 msgstr "Ikke anmeldt endnu"
 
-#: src/amo/components/Addon/index.js:267
+#: src/amo/components/Addon/index.js:270
 msgid "Rate your experience"
 msgstr "Bedøm din oplevelse"
 
-#: src/amo/components/Addon/index.js:285
+#: src/amo/components/Addon/index.js:288
 msgid "About this dictionary"
 msgstr "Om denne ordbog"
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:291
 msgid "About this extension"
 msgstr "Om denne udvidelse"
 
-#: src/amo/components/Addon/index.js:291
+#: src/amo/components/Addon/index.js:294
 msgid "About this language pack"
 msgstr "Om denne sprogpakke"
 
-#: src/amo/components/Addon/index.js:294
+#: src/amo/components/Addon/index.js:297
 msgid "About this search plugin"
 msgstr "Om dette søge-plugin"
 
-#: src/amo/components/Addon/index.js:297
+#: src/amo/components/Addon/index.js:300
 msgid "About this theme"
 msgstr "Om dette tema"
 
-#: src/amo/components/Addon/index.js:300
+#: src/amo/components/Addon/index.js:303
 msgid "About this add-on"
 msgstr "Om denne tilføjelse"
 
-#: src/amo/components/Addon/index.js:339
+#: src/amo/components/Addon/index.js:342
 msgid "Release notes for %(addonVersion)s"
 msgstr "Udgivelsesnoter for %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:368
+#: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by %(author)s"
 msgstr "Flere ordbøger af %(author)s"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:374
 msgid "More dictionaries by these translators"
 msgstr "Flere ordbøger af disse oversættere"
 
-#: src/amo/components/Addon/index.js:378
+#: src/amo/components/Addon/index.js:381
 msgid "More extensions by %(author)s"
 msgstr "Flere udvidelser af %(author)s"
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:384
 msgid "More extensions by these developers"
 msgstr "Flere udvidelser af disse udviklere"
 
-#: src/amo/components/Addon/index.js:388
+#: src/amo/components/Addon/index.js:391
 msgid "More language packs by %(author)s"
 msgstr "Flere sprogpakker af %(author)s"
 
-#: src/amo/components/Addon/index.js:391
+#: src/amo/components/Addon/index.js:394
 msgid "More language packs by these translators"
 msgstr "Flere sprogpakker af disse oversættere"
 
-#: src/amo/components/Addon/index.js:398
+#: src/amo/components/Addon/index.js:401
 msgid "More themes by %(author)s"
 msgstr "Flere temaer af %(author)s"
 
-#: src/amo/components/Addon/index.js:401
+#: src/amo/components/Addon/index.js:404
 msgid "More themes by these artists"
 msgstr "Flere temaer af disse kunstnere"
 
-#: src/amo/components/Addon/index.js:408
+#: src/amo/components/Addon/index.js:411
 msgid "More add-ons by %(author)s"
 msgstr "Flere tilføjelser af %(author)s"
 
-#: src/amo/components/Addon/index.js:411
+#: src/amo/components/Addon/index.js:414
 msgid "More add-ons by these developers"
 msgstr "Flere tilføjelser af disse udviklere"
 
-#: src/amo/components/Addon/index.js:491
+#: src/amo/components/Addon/index.js:494
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s af %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:565
+#: src/amo/components/Addon/index.js:568
 msgid "Extension Metadata"
 msgstr "Metadata for udvidelsen"
 
-#: src/amo/components/Addon/index.js:583
+#: src/amo/components/Addon/index.js:586
 msgid "Screenshots"
 msgstr "Skærmbilleder"
 
@@ -229,18 +229,21 @@ msgid "No Users"
 msgstr "Ingen brugere"
 
 #: src/amo/components/AddonMeta/index.js:43
-msgid "Reviews"
-msgstr "Anmeldelser"
+#, fuzzy
+msgid "Ratings"
+msgstr "Ingen bedømmelser"
 
 #: src/amo/components/AddonMeta/index.js:46
-msgid "Review"
-msgid_plural "Reviews"
-msgstr[0] "Anmeldelse"
-msgstr[1] "Anmeldelser"
+#, fuzzy
+msgid "Rating"
+msgid_plural "Ratings"
+msgstr[0] "Ingen bedømmelser"
+msgstr[1] "Ingen bedømmelser"
 
 #: src/amo/components/AddonMeta/index.js:48
-msgid "No Reviews"
-msgstr "Ingen anmeldelser"
+#, fuzzy
+msgid "No Ratings"
+msgstr "Ingen bedømmelser"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
@@ -279,7 +282,7 @@ msgid "Version"
 msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:205
 msgid "Last updated"
 msgstr "Senest opdateret"
 
@@ -362,21 +365,21 @@ msgstr "Anmeldelsestekst"
 msgid "Submit review"
 msgstr "Indsend anmeldelse"
 
-#: src/amo/components/AddonReviewList/index.js:166
+#: src/amo/components/AddonReviewList/index.js:165
 msgid "Add-on icon"
 msgstr "Tilføjelses-ikon"
 
-#: src/amo/components/AddonReviewList/index.js:172
+#: src/amo/components/AddonReviewList/index.js:171
 msgid "Reviews for %(addonName)s"
 msgstr "Anmeldelser af %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:184
+#: src/amo/components/AddonReviewList/index.js:183
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s anmeldelse af denne tilføjelse"
 msgstr[1] "%(total)s anmeldelser af denne tilføjelse"
 
-#: src/amo/components/AddonReviewList/index.js:212
+#: src/amo/components/AddonReviewList/index.js:211
 msgid "by %(authorList)s"
 msgstr "af %(authorList)s"
 
@@ -412,15 +415,15 @@ msgstr "skrevet %(timestamp)s"
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "af %(authorName)s, %(timestamp)s"
 
-#: src/amo/components/AddonReviewListItem/index.js:258
+#: src/amo/components/AddonReviewListItem/index.js:262
 msgid "Edit my reply"
 msgstr "Rediger mit svar"
 
-#: src/amo/components/AddonReviewListItem/index.js:259
+#: src/amo/components/AddonReviewListItem/index.js:263
 msgid "Edit my review"
 msgstr "Rediger min anmeldelse"
 
-#: src/amo/components/AddonReviewListItem/index.js:277
+#: src/amo/components/AddonReviewListItem/index.js:281
 msgid "Reply to this review"
 msgstr "Svar på denne anmeldelse"
 
@@ -454,83 +457,85 @@ msgstr "Kategorier"
 msgid "Loading categories."
 msgstr "Indlæser kategorier."
 
-#: src/amo/components/Category/index.js:128
-#: src/amo/components/LandingPage/index.js:202
+#: src/amo/components/Category/index.js:131
+#: src/amo/components/LandingPage/index.js:205
 #: src/amo/components/SectionLinks/index.js:83
 msgid "Extensions"
 msgstr "Udvidelser"
 
-#: src/amo/components/Category/index.js:129
-#: src/amo/components/Home/index.js:199
-#: src/amo/components/LandingPage/index.js:121
-#: src/amo/components/Search/index.js:111
+#: src/amo/components/Category/index.js:132
+#: src/amo/components/Home/index.js:202
+#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Udvalgte udvidelser"
 
-#: src/amo/components/Category/index.js:138
-#: src/amo/components/Home/index.js:200
-#: src/amo/components/LandingPage/index.js:129
+#: src/amo/components/Category/index.js:141
+#: src/amo/components/Home/index.js:203
+#: src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "Se flere udvalgte udvidelser"
 
-#: src/amo/components/Category/index.js:139
-#: src/amo/components/LandingPage/index.js:130
-#: src/amo/components/Search/index.js:124
+#: src/amo/components/Category/index.js:142
+#: src/amo/components/Home/index.js:255
+#: src/amo/components/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "Trending udvidelser"
 
-#: src/amo/components/Category/index.js:148
-#: src/amo/components/LandingPage/index.js:135
+#: src/amo/components/Category/index.js:151
+#: src/amo/components/Home/index.js:256
+#: src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "Se flere trending udvidelser"
 
-#: src/amo/components/Category/index.js:149
-#: src/amo/components/LandingPage/index.js:136
-#: src/amo/components/Search/index.js:136
+#: src/amo/components/Category/index.js:152
+#: src/amo/components/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
 msgstr "Bedst bedømte udvidelser"
 
-#: src/amo/components/Category/index.js:158
-#: src/amo/components/LandingPage/index.js:144
+#: src/amo/components/Category/index.js:161
+#: src/amo/components/LandingPage/index.js:147
 msgid "See more top rated extensions"
 msgstr "Se flere bedst bedømte udvidelser"
 
-#: src/amo/components/Category/index.js:161
-#: src/amo/components/LandingPage/index.js:201
+#: src/amo/components/Category/index.js:164
+#: src/amo/components/LandingPage/index.js:204
 #: src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
 msgstr "Temaer"
 
-#: src/amo/components/Category/index.js:162
-#: src/amo/components/LandingPage/index.js:147
-#: src/amo/components/Search/index.js:114
+#: src/amo/components/Category/index.js:165
+#: src/amo/components/LandingPage/index.js:150
+#: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Udvalgte temaer"
 
-#: src/amo/components/Category/index.js:171
-#: src/amo/components/LandingPage/index.js:155
+#: src/amo/components/Category/index.js:174
+#: src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "Se flere udvalgte temaer"
 
-#: src/amo/components/Category/index.js:172
-#: src/amo/components/LandingPage/index.js:156
-#: src/amo/components/Search/index.js:127
+#: src/amo/components/Category/index.js:175
+#: src/amo/components/LandingPage/index.js:159
+#: src/amo/components/Search/index.js:126
 msgid "Trending themes"
 msgstr "Trending temaer"
 
-#: src/amo/components/Category/index.js:181
-#: src/amo/components/LandingPage/index.js:161
+#: src/amo/components/Category/index.js:184
+#: src/amo/components/LandingPage/index.js:164
 msgid "See more trending themes"
 msgstr "Se flere trending temaer"
 
-#: src/amo/components/Category/index.js:182
-#: src/amo/components/LandingPage/index.js:162
-#: src/amo/components/Search/index.js:139
+#: src/amo/components/Category/index.js:185
+#: src/amo/components/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:138
 msgid "Top rated themes"
 msgstr "Bedst bedømte temaer"
 
-#: src/amo/components/Category/index.js:191
-#: src/amo/components/LandingPage/index.js:167
+#: src/amo/components/Category/index.js:194
+#: src/amo/components/LandingPage/index.js:170
 msgid "See more top rated themes"
 msgstr "Se flere bedst bedømte temaer"
 
@@ -546,44 +551,44 @@ msgstr "Gennemse alle udvidelser i denne kategori."
 msgid "Browse all themes in this category."
 msgstr "Gennemse alle temaer i denne kategori."
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:161
 msgid "Edit this collection"
 msgstr "Rediger denne samling"
 
-#: src/amo/components/Collection/index.js:193
+#: src/amo/components/Collection/index.js:195
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Tilføjelser"
 
-#: src/amo/components/Collection/index.js:197
+#: src/amo/components/Collection/index.js:199
 msgid "Creator"
 msgstr "Lavet af"
 
-#: src/amo/components/CollectionManager/index.js:134
+#: src/amo/components/CollectionManager/index.js:137
 msgid "Save collection"
 msgstr "Gem samling"
 
-#: src/amo/components/CollectionManager/index.js:135
+#: src/amo/components/CollectionManager/index.js:138
 msgid "Saving collection"
 msgstr "Gemmer samling"
 
-#: src/amo/components/CollectionManager/index.js:136
+#: src/amo/components/CollectionManager/index.js:139
 msgid "Edit collection"
 msgstr "Rediger samling"
 
-#: src/amo/components/CollectionManager/index.js:140
+#: src/amo/components/CollectionManager/index.js:143
 msgid "Collection name"
 msgstr "Samlingens navn"
 
-#: src/amo/components/CollectionManager/index.js:150
+#: src/amo/components/CollectionManager/index.js:153
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/amo/components/CollectionManager/index.js:159
+#: src/amo/components/CollectionManager/index.js:162
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:85
+#: src/amo/components/CollectionManager/index.js:86
 msgid "Collection name cannot be blank"
 msgstr "Samlingens navn kan ikke være blankt"
 
@@ -923,194 +928,236 @@ msgstr "Tilføjelser til Firefox"
 msgid "My Account"
 msgstr "Min konto"
 
-#: src/amo/components/Home/index.js:111
+#: src/amo/components/Home/index.js:113
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/components/Home/index.js:116
+#: src/amo/components/Home/index.js:118
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/components/Home/index.js:121
+#: src/amo/components/Home/index.js:123
 msgid "Film & TV"
 msgstr "Film & TV"
 
-#: src/amo/components/Home/index.js:126
+#: src/amo/components/Home/index.js:128
 msgid "Scenery"
 msgstr "Landskab"
 
-#: src/amo/components/Home/index.js:131
+#: src/amo/components/Home/index.js:133
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/components/Home/index.js:136
+#: src/amo/components/Home/index.js:138
 msgid "Seasonal"
 msgstr "Sæsonbestemt"
 
-#: src/amo/components/Home/index.js:166
+#: src/amo/components/Home/index.js:168
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Få nye funktioner ved hjælp af udvidelser. Er du interesseret i…"
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:170
 msgid "Change the way Firefox looks with themes."
 msgstr "Skift udseende på Firefox ved hjælp af temaer."
 
-#: src/amo/components/Home/index.js:214
-msgid "Privacy tools"
-msgstr "Privatlivsværktøjer"
+#: src/amo/components/Home/index.js:217
+msgid "Good time tabs"
+msgstr ""
 
-#: src/amo/components/Home/index.js:215
-msgid "See more privacy tools"
-msgstr "Se flere privatlivsværktøjer"
+#: src/amo/components/Home/index.js:218
+#, fuzzy
+msgid "See more good time tabs extensions"
+msgstr "Se flere bedst bedømte udvidelser"
 
-#: src/amo/components/Home/index.js:225 src/amo/components/Search/index.js:151
+#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
 msgstr "Populære temaer"
 
-#: src/amo/components/Home/index.js:226
+#: src/amo/components/Home/index.js:230
 msgid "See more popular themes"
 msgstr "Se flere populære temaer"
 
-#: src/amo/components/Home/index.js:240
-msgid "Re-imagine search"
-msgstr "Søgning på en ny måde"
+#: src/amo/components/Home/index.js:244
+msgid "Wikipedia boosters"
+msgstr ""
 
-#: src/amo/components/Home/index.js:241
-msgid "See more search extensions"
-msgstr "Se flere søge-udvidelser"
+#: src/amo/components/Home/index.js:245
+#, fuzzy
+msgid "See more Wikipedia boosters"
+msgstr "Se flere medie-downloadere"
 
-#: src/amo/components/Home/index.js:251
-msgid "February’s new featured extensions"
-msgstr "Februars nye udvalgte udvidelser"
-
-#: src/amo/components/Home/index.js:252
-msgid "See all the new featured extensions"
-msgstr "Se alle de nye udvalgte udvidelser"
-
-#: src/amo/components/Home/index.js:60
+#: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
 msgstr "Bogmærker"
 
-#: src/amo/components/Home/index.js:64
+#: src/amo/components/Home/index.js:66
 msgid "Password managers"
 msgstr "Håndtering af adgangskoder"
 
-#: src/amo/components/Home/index.js:68
+#: src/amo/components/Home/index.js:70
 msgid "Ad blockers"
 msgstr "Annonceblokering"
 
-#: src/amo/components/Home/index.js:72
+#: src/amo/components/Home/index.js:74
 msgid "Smarter Shopping"
 msgstr "Smartere shopping"
 
-#: src/amo/components/Home/index.js:76
+#: src/amo/components/Home/index.js:78
 msgid "Productivity"
 msgstr "Produktivitet"
 
-#: src/amo/components/Home/index.js:80
+#: src/amo/components/Home/index.js:82
 msgid "Watching Videos"
 msgstr "At se videoer"
 
-#: src/amo/components/HomeHeroBanner/index.js:107
+#: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
-#: src/amo/components/HomeHeroBanner/index.js:110
+#: src/amo/components/HomeHeroBanner/index.js:111
+#, fuzzy
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs."
+"color-coded tabs"
 msgstr ""
 "Hold forskellige dele af dit liv på nettet — arbejde, personligt osv. — "
 "adskilt med farvekodede faneblade."
 
-#: src/amo/components/HomeHeroBanner/index.js:120
-msgid "SearchPreview"
-msgstr "SearchPreview"
+#: src/amo/components/HomeHeroBanner/index.js:121
+#, fuzzy
+msgid "AliTools"
+msgstr "Funktioner"
 
-#: src/amo/components/HomeHeroBanner/index.js:123
-msgid ""
-"Enhance search results with thumbnail previews, popularity ranks & more."
+#: src/amo/components/HomeHeroBanner/index.js:124
+msgid "Online shopping assistance"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
-msgid "Forget Me Not"
-msgstr "Forget Me Not"
+msgid "Snake Game"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
-msgid ""
-"Automatically delete data (cookies, local storage, etc.) on all sites you "
-"visit except those on your whitelist."
+msgid "The classic game, always a click away"
 msgstr ""
-"Slet automatisk data (cookies, lokalt lager osv.) fra alle websteder, du "
-"besøger, undtagen dem på din hvidliste."
 
-#: src/amo/components/HomeHeroBanner/index.js:146
-msgid "Zoom for Firefox"
-msgstr "Zoom for Firefox"
+#: src/amo/components/HomeHeroBanner/index.js:145
+msgid "Tab Invaders"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:149
-msgid "Simple zoom in/out tool for a close-up view of any web content."
+#: src/amo/components/HomeHeroBanner/index.js:148
+msgid "Space Invaders meets smart tab management"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:157
+msgid "Wikiwand"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:159
+msgid "Give Wikipedia a gorgeous makeover"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:167
+msgid "OneTab"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:170
+msgid "Convert your open tabs into a list and save precious memory"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:180
+msgid "Push to Kindle"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:182
+msgid "Send any Web page to your Kindle device"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:190
+#, fuzzy
+msgid "Search Site"
+msgstr "Søg"
+
+#: src/amo/components/HomeHeroBanner/index.js:193
+msgid "Search within just the domain you’re visiting"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:202
+msgid "LeechBlock NG"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:205
+msgid "Block time-wasting sites"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:214
+msgid "Tranquility Reader"
+msgstr ""
+
+#: src/amo/components/HomeHeroBanner/index.js:217
+msgid "Remove clutter and improve readability"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-msgid "Temporary Containers"
-msgstr "Temporary Containers"
+#, fuzzy
+msgid "Facebook Video Downloader"
+msgstr "Video DownloadHelper"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
-msgid "Open pages with disposable data containers."
+msgid "Download with a single click"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
-msgid "Momentum"
-msgstr "Momentum"
+msgid "AutoFormer+"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
-msgid ""
-"Replace your new tab with a personal dashboard—to-do lists, weather "
-"forecasts and more."
+msgid "Fill out a lot of forms? This might help"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:52
-msgid "Kimetrak"
-msgstr "Kimetrak"
+#: src/amo/components/HomeHeroBanner/index.js:51
+msgid "Myki Password Manager & Authenticator"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:54
-msgid "Track who’s tracking you."
-msgstr "Hold øje med hvem der sporer dig."
+#: src/amo/components/HomeHeroBanner/index.js:53
+msgid "Cutting edge security"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:62
-msgid "Mailvelope"
-msgstr "Mailvelope"
+#: src/amo/components/HomeHeroBanner/index.js:61
+msgid "Notebook Web Clipper"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Secure encryption for webmail."
-msgstr "Sikker kryptering til webmail."
+#: src/amo/components/HomeHeroBanner/index.js:63
+msgid "Clip, save & organize your favorite stuff on the web"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-msgid "Translate Man"
-msgstr "Translate Man"
+#, fuzzy
+msgid "Flagfox"
+msgstr "Rapportér"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
-msgid "Point-and-click instant translations."
+msgid "Displays a website’s server location by country flag"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:84
+#: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
-#: src/amo/components/HomeHeroBanner/index.js:86
-msgid "Efficient, powerful ad blocker."
+#: src/amo/components/HomeHeroBanner/index.js:87
+#, fuzzy
+msgid "Efficient, powerful ad blocker"
 msgstr "Effektiv blokering af reklamer."
 
-#: src/amo/components/HomeHeroBanner/index.js:94
+#: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
-#: src/amo/components/HomeHeroBanner/index.js:97
-msgid "Popular anti-tracking extension now has ad blocking ability."
+#: src/amo/components/HomeHeroBanner/index.js:98
+#, fuzzy
+msgid "Popular anti-tracking extension now has ad blocking ability"
 msgstr "Populær anti-sporings-udvidelse - kan nu blokere reklamer."
 
-#: src/amo/components/LandingPage/index.js:205
+#: src/amo/components/LandingPage/index.js:208
 msgid ""
 "Change your browser's appearance. Choose from thousands of themes to give "
 "Firefox the look you want."
@@ -1118,7 +1165,7 @@ msgstr ""
 "Skift din browsers udseende. Vælg mellem tusindvis af temaer, og giv Firefox "
 "det udseende, du ønsker."
 
-#: src/amo/components/LandingPage/index.js:207
+#: src/amo/components/LandingPage/index.js:210
 msgid ""
 "Explore powerful tools and features to customize Firefox and make the "
 "browser all your own."
@@ -1126,7 +1173,7 @@ msgstr ""
 "Udforsk kraftfulde værktøjer og funktioner til at tilpasse Firefox, og gør "
 "den til din helt egen."
 
-#: src/amo/components/LandingPage/index.js:235
+#: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
 msgstr "Udforsk alle kategorier"
 
@@ -1260,32 +1307,32 @@ msgstr "Sender rapport om misbrug"
 msgid "Send abuse report"
 msgstr "Send rapport om misbrug"
 
-#: src/amo/components/Search/index.js:106
-#: src/amo/components/SearchResults.js:60
+#: src/amo/components/Search/index.js:105
+#: src/amo/components/SearchResults.js:62
 msgid "Search results"
 msgstr "Søgeresultater"
 
-#: src/amo/components/Search/index.js:117
+#: src/amo/components/Search/index.js:116
 msgid "Featured add-ons"
 msgstr "Udvalgte tilføjelser"
 
-#: src/amo/components/Search/index.js:130
+#: src/amo/components/Search/index.js:129
 msgid "Trending add-ons"
 msgstr "Trending tilføjelser"
 
-#: src/amo/components/Search/index.js:142
+#: src/amo/components/Search/index.js:141
 msgid "Top rated add-ons"
 msgstr "Bedst bedømte tilføjelser"
 
-#: src/amo/components/Search/index.js:148
+#: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
 msgstr "Populære udvidelser"
 
-#: src/amo/components/Search/index.js:154
+#: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
 msgstr "Populære tilføjelser"
 
-#: src/amo/components/Search/index.js:161
+#: src/amo/components/Search/index.js:160
 msgid "Search results for \"%(query)s\""
 msgstr "Resultat af søgning efter \"%(query)s\""
 
@@ -1425,29 +1472,29 @@ msgstr "Søg"
 msgid "Loading"
 msgstr "Indlæser"
 
-#: src/amo/components/SearchResult/index.js:114
+#: src/amo/components/SearchResult/index.js:122
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s bruger"
 msgstr[1] "%(total)s brugere"
 
-#: src/amo/components/SearchResult/index.js:86
+#: src/amo/components/SearchResult/index.js:94
 msgid "No theme preview available"
 msgstr "Det er ikke muligt, at forhåndsvise tema"
 
-#: src/amo/components/SearchResults.js:38
+#: src/amo/components/SearchResults.js:39
 msgid "Searching…"
 msgstr "Søger…"
 
-#: src/amo/components/SearchResults.js:44
+#: src/amo/components/SearchResults.js:45
 msgid "No results were found for \"%(query)s\"."
 msgstr "Der blev ikke fundet nogen forekomster af \"%(query)s\"."
 
-#: src/amo/components/SearchResults.js:48
+#: src/amo/components/SearchResults.js:49
 msgid "No results were found."
 msgstr "Der blev ikke fundet nogen."
 
-#: src/amo/components/SearchResults.js:51
+#: src/amo/components/SearchResults.js:52
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Indtast en søgeterm for at søge i tilføjelser til Firefox."
 
@@ -1849,12 +1896,12 @@ msgstr "Fejlkode: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Vi beklager, men vi kan ikke finde noget på adressen, du indtastede."
 
-#: src/core/components/InstallButton/index.js:229
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
 msgstr "Installer tema"
 
-#: src/core/components/InstallButton/index.js:255
-#: src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "Føj til Firefox"
 
@@ -1886,17 +1933,18 @@ msgstr "%(name)s er afinstalleret. Klik for at installere."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installationstilstand for %(name)s er ukendt."
 
-#: src/core/components/Paginate/index.js:100
-msgid "Page %(currentPage)s of %(totalPages)s"
-msgstr "Side %(currentPage)s af %(totalPages)s"
-
-#: src/core/components/Paginate/index.js:109
+#: src/core/components/Paginate/index.js:108
 msgid "Previous"
 msgstr "Forrige"
 
-#: src/core/components/Paginate/index.js:122
+#: src/core/components/Paginate/index.js:121
 msgid "Next"
 msgstr "Næste"
+
+#: src/core/components/Paginate/index.js:99
+#, fuzzy
+msgid "Page %(pageNumber)s of %(totalPages)s"
+msgstr "Side %(currentPage)s af %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -1911,7 +1959,7 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:132
+#: src/ui/components/FormOverlay/index.js:137
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1949,26 +1997,89 @@ msgstr "Skift indhold"
 msgid "Click to close"
 msgstr "Klik for at lukke"
 
-#: src/ui/components/Rating/index.js:94
-msgid "Rated %(rating)s out of 5"
-msgstr "Bedømmelse: %(rating)s ud af 5"
-
-#: src/ui/components/Rating/index.js:97
+#: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Ingen bedømmelser"
+
+#: src/ui/components/Rating/index.js:97
+msgid "Rated %(rating)s out of 5"
+msgstr "Bedømmelse: %(rating)s ud af 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Udvid</span> for at læse mere"
+
+#~ msgid "Reviews"
+#~ msgstr "Anmeldelser"
+
+#~ msgid "Review"
+#~ msgid_plural "Reviews"
+#~ msgstr[0] "Anmeldelse"
+#~ msgstr[1] "Anmeldelser"
+
+#~ msgid "No Reviews"
+#~ msgstr "Ingen anmeldelser"
+
+#~ msgid "Privacy tools"
+#~ msgstr "Privatlivsværktøjer"
+
+#~ msgid "See more privacy tools"
+#~ msgstr "Se flere privatlivsværktøjer"
+
+#~ msgid "Re-imagine search"
+#~ msgstr "Søgning på en ny måde"
+
+#~ msgid "See more search extensions"
+#~ msgstr "Se flere søge-udvidelser"
+
+#~ msgid "February’s new featured extensions"
+#~ msgstr "Februars nye udvalgte udvidelser"
+
+#~ msgid "See all the new featured extensions"
+#~ msgstr "Se alle de nye udvalgte udvidelser"
+
+#~ msgid "SearchPreview"
+#~ msgstr "SearchPreview"
+
+#~ msgid "Forget Me Not"
+#~ msgstr "Forget Me Not"
+
+#~ msgid ""
+#~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
+#~ "visit except those on your whitelist."
+#~ msgstr ""
+#~ "Slet automatisk data (cookies, lokalt lager osv.) fra alle websteder, du "
+#~ "besøger, undtagen dem på din hvidliste."
+
+#~ msgid "Zoom for Firefox"
+#~ msgstr "Zoom for Firefox"
+
+#~ msgid "Temporary Containers"
+#~ msgstr "Temporary Containers"
+
+#~ msgid "Momentum"
+#~ msgstr "Momentum"
+
+#~ msgid "Kimetrak"
+#~ msgstr "Kimetrak"
+
+#~ msgid "Track who’s tracking you."
+#~ msgstr "Hold øje med hvem der sporer dig."
+
+#~ msgid "Mailvelope"
+#~ msgstr "Mailvelope"
+
+#~ msgid "Secure encryption for webmail."
+#~ msgstr "Sikker kryptering til webmail."
+
+#~ msgid "Translate Man"
+#~ msgstr "Translate Man"
 
 #~ msgid "See more popular extensions"
 #~ msgstr "Se flere populære udvidelser"
 
 #~ msgid "Media downloaders"
 #~ msgstr "Medie-downloadere"
-
-#~ msgid "See more media downloaders"
-#~ msgstr "Se flere medie-downloadere"
 
 #~ msgid "Top-rated Extensions"
 #~ msgstr "Bedst bedømte udvidelser"
@@ -2049,9 +2160,6 @@ msgstr "<span class=\"visually-hidden\">Udvid</span> for at læse mere"
 
 #~ msgid "Capture full-page screenshots."
 #~ msgstr "Tag skærmbillede af hele sider."
-
-#~ msgid "Video DownloadHelper"
-#~ msgstr "Video DownloadHelper"
 
 #~ msgid "Easily download video from hundreds of popular websites."
 #~ msgstr "Download nemt videoer fra hundredvis af populære websteder."
