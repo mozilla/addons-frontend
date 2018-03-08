@@ -87,7 +87,8 @@ export class PermissionUtils {
     const platform = userAgentOSToPlatform[agentOsName];
 
     if (!platform) {
-      log.debug(`No platform exists for user agent OS "${agentOsName}"`);
+      log.debug(oneLineTrim`No platform exists for user agent OS 
+      "${agentOsName || '<undefined agentOsName>'}"`);
       return [];
     }
 
