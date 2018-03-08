@@ -39,7 +39,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
           <h3>{i18n.gettext('AutoFormer+')}</h3>
 
           <p>
-            {i18n.gettext(`Fill out a lot of forms? This might help`)}
+            {i18n.gettext('Fill out a lot of forms? This might help')}
           </p>
         </HeroSection>
       ),
