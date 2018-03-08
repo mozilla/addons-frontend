@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-02-20 21:49+0000\n"
-"PO-Revision-Date: 2018-03-08 13:49+0000\n"
+"PO-Revision-Date: 2018-03-08 18:49+0000\n"
 "Last-Translator: goce.mitevski <goce.mitevski@gmail.com>\n"
 "Language-Team: none\n"
 "Language: mk\n"
@@ -486,7 +486,7 @@ msgstr ""
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
-msgstr ""
+msgstr "Разгледајте ги сите додатоци во оваа категорија."
 
 #: src/amo/components/CategoryHeader/index.js:46
 msgid "Browse all extensions in this category."
@@ -494,7 +494,7 @@ msgstr ""
 
 #: src/amo/components/CategoryHeader/index.js:51
 msgid "Browse all themes in this category."
-msgstr ""
+msgstr "Разгледајте ги сите теми во оваа категорија."
 
 #: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
@@ -598,7 +598,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
-msgstr ""
+msgstr "Не е авторизирано"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
 msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
@@ -1170,21 +1170,21 @@ msgstr[1] ""
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Се пребарува за \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
-msgstr ""
+msgstr "Се вчитуваат додатоците"
 
 #: src/amo/components/SearchContextCard/index.js:82
 msgid "No add-ons found"
-msgstr ""
+msgstr "Не се пронајдени додатоци"
 
 #: src/amo/components/SearchContextCard/index.js:84
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%(count)s додаток беше најден"
+msgstr[1] "%(count)s додатоци беа најдени"
 
 #: src/amo/components/SearchFilters/index.js:101 src/amo/components/SearchFilters/index.js:111
 msgid "All"
@@ -1252,15 +1252,15 @@ msgstr ""
 
 #: src/amo/components/SearchForm/index.js:196
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Оди до страницата со додатоци"
 
 #: src/amo/components/SearchForm/index.js:214
 msgid "Find add-ons"
-msgstr ""
+msgstr "Најди додатоци"
 
 #: src/amo/components/SearchForm/index.js:239 src/amo/components/SearchForm/index.js:269
 msgid "Search"
-msgstr ""
+msgstr "Барај"
 
 #: src/amo/components/SearchForm/index.js:80
 msgid "Loading"
@@ -1274,7 +1274,7 @@ msgstr[1] "%(total)s корисници"
 
 #: src/amo/components/SearchResult/index.js:86
 msgid "No theme preview available"
-msgstr ""
+msgstr "Нема достапен преглед на темата"
 
 #: src/amo/components/SearchResults.js:38
 msgid "Searching…"
@@ -1282,7 +1282,7 @@ msgstr "Пребарува…"
 
 #: src/amo/components/SearchResults.js:44
 msgid "No results were found for \"%(query)s\"."
-msgstr ""
+msgstr "Не се пронајдени резултати за \"%(query)s\"."
 
 #: src/amo/components/SearchResults.js:48
 msgid "No results were found."
@@ -1614,7 +1614,7 @@ msgstr "Вашиот додаток е подготвен"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "Сега имате пристап до %(name)s од алатникот."
 
 #: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
@@ -1646,7 +1646,7 @@ msgstr ""
 
 #: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
-msgstr ""
+msgstr "Превчитајте за да продолжите"
 
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
