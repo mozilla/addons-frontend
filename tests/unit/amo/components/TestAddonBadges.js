@@ -31,6 +31,16 @@ describe(__filename, () => {
     expect(root.html()).toEqual(null);
   });
 
+  it('displays no badges when none are called for', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      type: ADDON_TYPE_EXTENSION,
+    });
+    const root = shallowRender({ addon });
+
+    expect(root.find(Badge)).toHaveLength(0);
+  });
+
   it('displays a badge when the addon is featured', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
@@ -71,7 +81,7 @@ describe(__filename, () => {
     const addon = createInternalAddon({ ...fakeAddon, is_featured: false });
     const root = shallowRender({ addon });
 
-    expect(root.find(Badge)).toHaveLength(0);
+    expect(root.find(Badge).find({ type: 'featured' })).toHaveLength(0);
   });
 
   it('displays a badge when the addon needs restart', () => {
@@ -96,7 +106,7 @@ describe(__filename, () => {
   it('does not display the "restart required" badge when isRestartRequired is not true', () => {
     const root = shallowRender({ addon: createInternalAddon(fakeAddon) });
 
-    expect(root.find(Badge)).toHaveLength(0);
+    expect(root.find(Badge).find({ type: 'restart-required' })).toHaveLength(0);
   });
 
   it('displays a badge when the addon is experimental', () => {
@@ -115,7 +125,7 @@ describe(__filename, () => {
     }));
     const root = shallowRender({ addon });
 
-    expect(root.find(Badge)).toHaveLength(0);
+    expect(root.find(Badge).find({ type: 'experimental' })).toHaveLength(0);
   });
 
   describe('Quantum compatible badge', () => {
@@ -135,7 +145,7 @@ describe(__filename, () => {
 
       const root = shallowRender({ addon });
 
-      expect(root.find(Badge)).toHaveLength(0);
+      expect(root.find(Badge).find({ type: 'not-compatible' })).toHaveLength(0);
     });
 
     it('displays a badge when the addon is not compatible with Quantum', () => {
@@ -199,6 +209,6 @@ describe(__filename, () => {
     }));
     const root = shallowRender({ addon });
 
-    expect(root.find(Badge)).toHaveLength(0);
+    expect(root.find(Badge).find({ type: 'requires-payment' })).toHaveLength(0);
   });
 });
