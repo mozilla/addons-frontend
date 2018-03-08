@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import type { UserType } from 'amo/reducers/users';
 
 export const ABORT_USER_ABUSE_REPORT: 'ABORT_USER_ABUSE_REPORT' =
@@ -25,9 +27,7 @@ type AbortUserAbuseReportAction = {|
 export function abortUserAbuseReport(
   { user }: AbortUserAbuseReportParams = {}
 ): AbortUserAbuseReportAction {
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(user, 'user is required');
 
   return {
     type: ABORT_USER_ABUSE_REPORT,
@@ -47,9 +47,7 @@ type HideUserAbuseReportUIAction = {|
 export function hideUserAbuseReportUI(
   { user }: HideUserAbuseReportUIParams = {}
 ): HideUserAbuseReportUIAction {
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(user, 'user is required');
 
   return {
     type: HIDE_USER_ABUSE_REPORT_UI,
@@ -80,15 +78,9 @@ type LoadUserAbuseReportAction = {|
 export function loadUserAbuseReport(
   { message, reporter, user }: LoadUserAbuseReportParams = {}
 ): LoadUserAbuseReportAction {
-  if (!message) {
-    throw new Error('message is required');
-  }
-  if (reporter === undefined) {
-    throw new Error('reporter cannot be undefined');
-  }
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(message, 'message is required');
+  invariant(reporter !== undefined, 'reporter cannot be undefined');
+  invariant(user, 'user is required');
 
   const reportedByUserId = reporter ? reporter.id : null;
 
@@ -112,15 +104,9 @@ type SendUserAbuseReportAction = {|
 export function sendUserAbuseReport(
   { errorHandlerId, message, user }: SendUserAbuseReportParams = {}
 ): SendUserAbuseReportAction {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-  if (!message) {
-    throw new Error('message is required');
-  }
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(message, 'message is required');
+  invariant(user, 'user is required');
 
   return {
     type: SEND_USER_ABUSE_REPORT,
@@ -140,9 +126,7 @@ type ShowUserAbuseReportUIActions = {|
 export function showUserAbuseReportUI(
   { user }: ShowUserAbuseReportUIParams = {}
 ): ShowUserAbuseReportUIActions {
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(user, 'user is required');
 
   return {
     type: SHOW_USER_ABUSE_REPORT_UI,
