@@ -22,28 +22,6 @@ describe(__filename, () => {
       expect(state).toEqual(initialState);
     });
 
-    it('allows abuse reports for multiple users', () => {
-      const { store } = dispatchClientMetadata();
-
-      store.dispatch(loadUserAbuseReport(createFakeUserAbuseReport({
-        message: 'This user is mean',
-        reporter: null,
-        user: createUserAccountResponse({ id: 50 }),
-      })));
-      store.dispatch(loadUserAbuseReport(createFakeUserAbuseReport({
-        message: 'This user is boring',
-        reporter: null,
-        user: createUserAccountResponse({ id: 51 }),
-      })));
-
-      expect(store.getState().userAbuseReports).toMatchObject({
-        byUserId: {
-          50: { message: 'This user is mean' },
-          51: { message: 'This user is boring' },
-        },
-      });
-    });
-
     describe('abortUserAbuseReport', () => {
       it('resets the state of this abuse report', () => {
         const user = createUserAccountResponse({ id: 501 });
@@ -66,12 +44,6 @@ describe(__filename, () => {
             },
           },
         });
-      });
-
-      it('requires a user param', () => {
-        expect(() => {
-          abortUserAbuseReport();
-        }).toThrow('user is required');
       });
     });
 
@@ -107,12 +79,6 @@ describe(__filename, () => {
           },
         });
       });
-
-      it('requires a user param', () => {
-        expect(() => {
-          showUserAbuseReportUI();
-        }).toThrow('user is required');
-      });
     });
 
     describe('sendUserAbuseReport', () => {
@@ -132,33 +98,6 @@ describe(__filename, () => {
         expect(action.type).toEqual(SEND_USER_ABUSE_REPORT);
         expect(action.payload).toEqual(params);
       });
-
-      it('requires an errorHandlerId', () => {
-        expect(() => {
-          const partialParams = defaultParams();
-          delete partialParams.errorHandlerId;
-
-          sendUserAbuseReport(partialParams);
-        }).toThrow('errorHandlerId is required');
-      });
-
-      it('requires a message', () => {
-        expect(() => {
-          const partialParams = defaultParams();
-          delete partialParams.message;
-
-          sendUserAbuseReport(partialParams);
-        }).toThrow('message is required');
-      });
-
-      it('requires a user', () => {
-        expect(() => {
-          const partialParams = defaultParams();
-          delete partialParams.user;
-
-          sendUserAbuseReport(partialParams);
-        }).toThrow('user is required');
-      });
     });
 
     describe('loadUserAbuseReport', () => {
@@ -175,15 +114,6 @@ describe(__filename, () => {
           initialState, loadUserAbuseReport(abuseReportResponse()));
 
         expect(state.byUserId[12].message).toEqual('I am Groot!');
-      });
-
-      it('requires a message', () => {
-        expect(() => {
-          const partialParams = abuseReportResponse();
-          delete partialParams.message;
-
-          loadUserAbuseReport(partialParams);
-        }).toThrow('message is required');
       });
 
       it('requires a defined reporter', () => {
@@ -203,13 +133,26 @@ describe(__filename, () => {
         }).not.toThrow('reporter cannot be undefined');
       });
 
-      it('requires a user', () => {
-        expect(() => {
-          const partialParams = abuseReportResponse();
-          delete partialParams.user;
+      it('allows abuse reports for multiple users', () => {
+        const { store } = dispatchClientMetadata();
 
-          loadUserAbuseReport(partialParams);
-        }).toThrow('user is required');
+        store.dispatch(loadUserAbuseReport(createFakeUserAbuseReport({
+          message: 'This user is mean',
+          reporter: null,
+          user: createUserAccountResponse({ id: 50 }),
+        })));
+        store.dispatch(loadUserAbuseReport(createFakeUserAbuseReport({
+          message: 'This user is boring',
+          reporter: null,
+          user: createUserAccountResponse({ id: 51 }),
+        })));
+
+        expect(store.getState().userAbuseReports).toMatchObject({
+          byUserId: {
+            50: { message: 'This user is mean' },
+            51: { message: 'This user is boring' },
+          },
+        });
       });
     });
   });
