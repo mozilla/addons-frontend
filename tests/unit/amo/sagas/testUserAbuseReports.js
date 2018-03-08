@@ -63,11 +63,10 @@ describe(__filename, () => {
       user,
     });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
+    const calledAction = await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
 
-    const loadAction = sagaTester.getCalledActions()[2];
-    expect(loadAction).toEqual(expectedLoadAction);
+    expect(calledAction).toEqual(expectedLoadAction);
   });
 
   it('handles an empty reporter', async () => {
@@ -92,19 +91,17 @@ describe(__filename, () => {
       user,
     });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
+    const calledAction = await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
 
-    const loadAction = sagaTester.getCalledActions()[2];
-    expect(loadAction).toEqual(expectedLoadAction);
+    expect(calledAction).toEqual(expectedLoadAction);
   });
 
   it('clears the error handler', async () => {
     _sendUserAbuseReport();
 
-    await sagaTester.waitFor(CLEAR_ERROR);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    const calledAction = await sagaTester.waitFor(CLEAR_ERROR);
+    expect(calledAction).toEqual(errorHandler.createClearingAction());
   });
 
   it('dispatches an error', async () => {
@@ -116,8 +113,8 @@ describe(__filename, () => {
     _sendUserAbuseReport();
 
     const errorAction = errorHandler.createErrorAction(error);
-    await sagaTester.waitFor(errorAction.type);
-    expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    const calledAction = await sagaTester.waitFor(errorAction.type);
+    expect(calledAction).toEqual(errorAction);
   });
 
   it('resets the state when an error occurs', async () => {
@@ -130,15 +127,15 @@ describe(__filename, () => {
     _sendUserAbuseReport({ user });
 
     const abortAction = abortUserAbuseReport({ user });
-    await sagaTester.waitFor(abortAction.type);
-    expect(sagaTester.getCalledActions()[3]).toEqual(abortAction);
+    const calledAction = await sagaTester.waitFor(abortAction.type);
+    expect(calledAction).toEqual(abortAction);
   });
 
   it('throws an error if multiple reports are submitted for the same user', async () => {
     const user = createUserAccountResponse({ id: 50 });
 
     _sendUserAbuseReport({
-      message: 'This add-on is malwaré!',
+      message: 'This user is uncool!',
       user,
     });
 
@@ -150,7 +147,7 @@ describe(__filename, () => {
     });
 
     await sagaTester.waitFor(SET_ERROR);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    const calledAction = await sagaTester.waitFor(CLEAR_ERROR);
+    expect(calledAction).toEqual(errorHandler.createClearingAction());
   });
 });

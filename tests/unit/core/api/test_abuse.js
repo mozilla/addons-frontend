@@ -26,7 +26,7 @@ describe(__filename, () => {
       });
     }
 
-    it('calls the report add-on abuse API', () => {
+    it('calls the report add-on abuse API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
 
@@ -44,14 +44,14 @@ describe(__filename, () => {
           addon: { ...fakeAddon, slug: 'cool-addon' },
           message,
         }));
-      return reportAddon({
+
+      await reportAddon({
         addonSlug: 'cool-addon',
         api: apiState,
         message,
-      })
-        .then(() => {
-          mockApi.verify();
-        });
+      });
+
+      mockApi.verify();
     });
   });
 
@@ -62,7 +62,7 @@ describe(__filename, () => {
       });
     }
 
-    it('calls the report add-on abuse API', () => {
+    it('calls the report add-on abuse API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
       const user = createUserAccountResponse({ id: 5001 });
@@ -78,14 +78,14 @@ describe(__filename, () => {
         })
         .once()
         .returns(mockResponse({ message, user }));
-      return reportUser({
+
+      await reportUser({
         api: apiState,
         message,
         user,
-      })
-        .then(() => {
-          mockApi.verify();
-        });
+      });
+
+      mockApi.verify();
     });
   });
 });

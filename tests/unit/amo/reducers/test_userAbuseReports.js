@@ -110,10 +110,12 @@ describe(__filename, () => {
       }
 
       it('saves the abuse report response to the reducer', () => {
+        const abuseReport = abuseReportResponse();
         const state = userAbuseReportsReducer(
-          initialState, loadUserAbuseReport(abuseReportResponse()));
+          initialState, loadUserAbuseReport(abuseReport));
 
-        expect(state.byUserId[12].message).toEqual('I am Groot!');
+        expect(state.byUserId[abuseReport.user.id].message)
+          .toEqual('I am Groot!');
       });
 
       it('requires a defined reporter', () => {
