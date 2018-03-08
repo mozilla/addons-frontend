@@ -26,7 +26,25 @@ export type ReportUserParams = {|
   user: UserType,
 |};
 
-export function reportUser({ api, message, user }: ReportUserParams) {
+export type ReportUserResponse = {|
+  message: string,
+  reporter: {|
+    id: number,
+    name: string,
+    url: string,
+    username: string,
+  |} | null,
+  user: {|
+    id: number,
+    name: string,
+    url: string,
+    username: string,
+  |},
+|};
+
+export function reportUser(
+  { api, message, user }: ReportUserParams
+): Promise<ReportUserResponse> {
   return callApi({
     auth: true,
     endpoint: 'abuse/report/user',
