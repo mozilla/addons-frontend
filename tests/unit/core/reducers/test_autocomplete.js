@@ -67,6 +67,7 @@ describe(__filename, () => {
       expect(loading).toEqual(false);
       expect(suggestions).toEqual([
         {
+          loading: false,
           name: result.name,
           url: result.url,
           iconUrl: result.icon_url,
