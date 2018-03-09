@@ -136,7 +136,6 @@ describe(__filename, () => {
   });
 
   it('allows user to submit again if an error occurred', () => {
-    const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
     const errorHandler = new ErrorHandler({
       id: 'some-error-handler-id',
