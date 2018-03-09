@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 02:12+0000\n"
+"PO-Revision-Date: 2018-03-09 02:48+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -849,12 +849,11 @@ msgstr "Mude a aparência do Firefox com temas."
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Boas e velhas abas"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Ver mais extensões melhor avaliadas"
+msgstr "Mais extensões em boas e velhas abas"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -866,12 +865,11 @@ msgstr "Mais temas populares"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Facilitadores para Wikipédia"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Veja mais gerenciadores de download"
+msgstr "Mais extensões em facilitadores para Wikipédia"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
