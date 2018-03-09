@@ -103,8 +103,8 @@ describe(__filename, () => {
   });
 
   describe('formatPermissions', () => {
-    const expectPermission = (permission, className, description) => {
-      expect(permission.props.className).toEqual(className);
+    const expectPermission = (permission, type, description) => {
+      expect(permission.props.type).toEqual(type);
       expect(permission.props.description).toEqual(description);
     };
 
@@ -123,10 +123,14 @@ describe(__filename, () => {
       ];
       const result = permissionUtils.formatPermissions(testPermissions);
       expect(result).toHaveLength(4);
-      expectHostPermission(result[0], 'Access your data for sites in the mozilla.org domain');
-      expectHostPermission(result[1], 'Access your data for sites in the mozilla.com domain');
-      expectHostPermission(result[2], 'Access your data for sites in the mozilla.ca domain');
-      expectHostPermission(result[3], 'Access your data in 3 other domains');
+      expectHostPermission(result[0],
+        'Access your data for sites in the mozilla.org domain');
+      expectHostPermission(result[1],
+        'Access your data for sites in the mozilla.com domain');
+      expectHostPermission(result[2],
+        'Access your data for sites in the mozilla.ca domain');
+      expectHostPermission(result[3],
+        'Access your data in 3 other domains');
     });
 
     it('formats site permissions', () => {
@@ -139,8 +143,10 @@ describe(__filename, () => {
       ];
       const result = permissionUtils.formatPermissions(testPermissions);
       expect(result).toHaveLength(4);
-      expectHostPermission(result[0], 'Access your data for developer.mozilla.org');
-      expectHostPermission(result[1], 'Access your data for addons.mozilla.org');
+      expectHostPermission(result[0],
+        'Access your data for developer.mozilla.org');
+      expectHostPermission(result[1],
+        'Access your data for addons.mozilla.org');
       expectHostPermission(result[2], 'Access your data for www.mozilla.org');
       expectHostPermission(result[3], 'Access your data on 2 other sites');
     });

@@ -10,6 +10,7 @@ import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import Permission from 'ui/components/Permission';
 
+/* eslint-disable no-continue */
 export class PermissionUtils {
   i18n: I18nType;
   permissionStrings: Object;
@@ -87,7 +88,7 @@ export class PermissionUtils {
     const platform = userAgentOSToPlatform[agentOsName];
 
     if (!platform) {
-      log.error(oneLine`No platform exists for user agent OS 
+      log.error(oneLine`No platform exists for user agent OS
         "${agentOsName || '<undefined agentOsName>'}"`);
       return [];
     }
@@ -115,7 +116,7 @@ export class PermissionUtils {
   }
 
   // Format and sequence all the Permission components.
-  formatPermissions(addonPermissions: Array<string>): Array<Object> {
+  formatPermissions(addonPermissions: Array<string>): Array<React.Element<typeof Permission>> {
     const permissionsToDisplay = [];
     const permissions = { hosts: [], permissions: [] };
 
@@ -135,13 +136,11 @@ export class PermissionUtils {
         break;
       }
       if (permission.startsWith('moz-extension:')) {
-        // eslint-disable-next-line no-continue
         continue;
       }
       const match = /^[a-z*]+:\/\/([^/]+)\//.exec(permission);
       if (!match) {
         log.debug(`Host permission string "${permission}" appears to be invalid.`);
-        // eslint-disable-next-line no-continue
         continue;
       }
       if (match[1] === '*') {
@@ -160,7 +159,7 @@ export class PermissionUtils {
     if (allUrls) {
       permissionsToDisplay.push(
         <Permission
-          className="hostPermission"
+          type="hostPermission"
           description={this.permissionStrings.allUrls}
           key="allUrls"
         />
@@ -174,7 +173,7 @@ export class PermissionUtils {
           permissionsToDisplay.push(...items.map((item) => {
             return (
               <Permission
-                className="hostPermission"
+                type="hostPermission"
                 description={this.permissionStrings[itemKey](item)}
                 key={item}
               />
@@ -189,7 +188,7 @@ export class PermissionUtils {
           const remaining = list.length - 3;
           permissionsToDisplay.push(
             <Permission
-              className="hostPermission"
+              type="hostPermission"
               description={this.permissionStrings[moreKey](remaining)}
               key={moreKey}
             />
@@ -206,7 +205,7 @@ export class PermissionUtils {
     if (permissions.permissions.includes(nativeMessagingPermission)) {
       permissionsToDisplay.push(
         <Permission
-          className={nativeMessagingPermission}
+          type={nativeMessagingPermission}
           description={this.permissionStrings[nativeMessagingPermission]}
           key={nativeMessagingPermission}
         />
@@ -226,7 +225,7 @@ export class PermissionUtils {
       if (this.permissionStrings[permission]) {
         permissionsToDisplay.push(
           <Permission
-            className={permission}
+            type={permission}
             description={this.permissionStrings[permission]}
             key={permission}
           />

@@ -7,38 +7,38 @@ import Permission from 'ui/components/Permission';
 
 describe(__filename, () => {
   const defaultProps = {
-    className: 'my-class',
-    description: 'A decription',
+    type: 'my-type',
+    description: 'A description',
   };
 
-  function render(props = defaultProps) {
-    return shallow(<Permission {...props} />);
+  function render(props = {}) {
+    return shallow(<Permission {...defaultProps} {...props} />);
   }
 
-  it('renders standard and custom class names', () => {
+  it('renders an li element', () => {
     const root = render();
 
-    expect(root.find('li')).toHaveClassName(`Permission ${defaultProps.className}`);
+    expect(root.find('li')).toHaveClassName(`Permission`);
   });
 
   it('renders an icon with custom name', () => {
-    const root = render();
+    const type = 'testType';
+    const root = render({ type });
 
-    expect(root.find(Icon)).toHaveProp('name', `permission-${defaultProps.className}`);
+    expect(root.find(Icon)).toHaveProp('name', `permission-${type}`);
   });
 
   it('replaces dots in icon name with dashes', () => {
-    const root = render({
-      ...defaultProps,
-      className: 'my.class',
-    });
+    const root = render({ type: 'test.Type' });
 
-    expect(root.find(Icon)).toHaveProp('name', `permission-${defaultProps.className}`);
+    expect(root.find(Icon)).toHaveProp('name', 'permission-test-Type');
   });
 
   it('renders the description', () => {
-    const root = render();
+    const description = 'It can access your bookmarks';
+    const root = render({ description });
 
-    expect(root.find('.Permission-description')).toHaveText(defaultProps.description);
+    expect(root.find('.Permission-description').text())
+      .toEqual(description);
   });
 });

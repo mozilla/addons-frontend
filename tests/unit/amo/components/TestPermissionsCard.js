@@ -16,7 +16,12 @@ import Permission from 'ui/components/Permission';
 
 
 describe(__filename, () => {
-  const { store } = dispatchClientMetadata();
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   const createAddonWithPermissions = (permissions) => {
     return createInternalAddon(createFakeAddon({
       files: [{
@@ -45,13 +50,14 @@ describe(__filename, () => {
     });
 
     it('renders nothing for an addon with no permissions', () => {
-      const addon = createAddonWithPermissions([]);
-      const root = render({ addon });
+      const root = render({ addon: createAddonWithPermissions([]) });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
 
     it('renders nothing for an addon with no displayable permissions', () => {
-      const root = render();
+      const root = render({
+        addon: createAddonWithPermissions(['activeTab']),
+      });
       expect(root).not.toHaveClassName('PermissionsCard');
     });
   });
@@ -63,12 +69,11 @@ describe(__filename, () => {
         addon: createAddonWithPermissions([permission]),
       });
       expect(root).toHaveClassName('PermissionsCard');
-      expect(root.find('.PermissionsCard')).toHaveLength(1);
-      expect(root.find('.PermissionsCard-subhead')).toHaveLength(1);
-      expect(root.find('.PermissionsCard-list')).toHaveLength(1);
+      expect(root.find('p')).toHaveClassName('PermissionsCard-subhead');
+      expect(root.find('ul')).toHaveClassName('PermissionsCard-list');
       expect(root.find(Button)).toHaveClassName('PermissionCard-learn-more');
       expect(root.find(Button)).toHaveProp('externalDark', true);
-      expect(root.find(Permission)).toHaveProp('className', permission);
+      expect(root.find(Permission)).toHaveProp('type', permission);
     });
   });
 });
