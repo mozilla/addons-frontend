@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 02:05+0000\n"
+"PO-Revision-Date: 2018-03-09 02:12+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -902,9 +902,8 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Mantenha diferentes partes da sua vida on-line — como trabalho, pessoal, etc. — separadas por abas coloridas."
+msgstr "Mantém diferentes partes da sua vida on-line—como trabalho, pessoal, etc.—separadas por abas coloridas"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "AliTools"
