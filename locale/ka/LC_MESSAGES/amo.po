@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 06:50+0000\n"
+"PO-Revision-Date: 2018-03-09 06:58+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -850,12 +850,11 @@ msgstr "გააფორმეთ Firefox თქვენი გემოვ�
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "ჩანართების გამავალფეროვნება"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "სხვა საუკეთესოდ შეფასებული გაფართოებები"
+msgstr "იხილეთ ჩანართების გასამრავალფეროვნებელი საშუალებები"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -927,7 +926,7 @@ msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "კოსმოსური დამპყრობლების შეტაკება ჩანართების ჯგუფთან"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
