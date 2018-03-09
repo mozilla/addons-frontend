@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 06:10+0000\n"
+"PO-Revision-Date: 2018-03-09 06:30+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -960,7 +960,7 @@ msgstr "Search Site"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "მოიძიეთ მასალა, უშუალოდ იმ საიტზე, რომელსაც ათვალიერებთ"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -968,7 +968,7 @@ msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "შეზღუდეთ უსარგებლო საიტები"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
@@ -976,7 +976,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "მოაშორეთ ზედმეტი ნაწილები ვებგვერდიდან, კითხვის გასაადვილებლად"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -1000,16 +1000,15 @@ msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "უსაფრთხოების ახალ დონეზე აყვანა"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
 msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "რჩეული საიტების სანიშნების გამოსახვა."
+msgstr "ჩაინიშნეთ, შეინახეთ და დაალაგეთ თქვენი რჩეული ვებშიგთავსი"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Flagfox"
@@ -1017,25 +1016,23 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "გამოსახეთ საიტის სერვერის მდებარეობა ქვეყნის დროშით"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "რეკლამების შედეგიანი, მძლავრი შემზღუდავი."
+msgstr "რეკლამების შედეგიანი, მძლავრი შემზღუდავი"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "ცნობილი გაფართოება თვალთვალის ასარიდებლად, რეკლამების შეზღუდვის შესაძლებლობით."
+msgstr "ცნობილი გაფართოება თვალთვალის ასარიდებლად, რეკლამების შეზღუდვის შესაძლებლობით"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1681,9 +1678,8 @@ msgid "Next"
 msgstr "შემდეგი"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "%(currentPage)s გვერდი %(totalPages)s-დან"
+msgstr "%(pageNumber)s გვერდი %(totalPages)s-დან"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
