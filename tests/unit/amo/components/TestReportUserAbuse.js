@@ -3,13 +3,13 @@ import * as React from 'react';
 import ReportUserAbuse, {
   ReportUserAbuseBase,
 } from 'amo/components/ReportUserAbuse';
-import { setError } from 'core/actions/errors';
 import {
   hideUserAbuseReportUI,
   loadUserAbuseReport,
   sendUserAbuseReport,
   showUserAbuseReportUI,
 } from 'amo/reducers/userAbuseReports';
+import { ErrorHandler } from 'core/errorHandler';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
@@ -124,12 +124,12 @@ describe(__filename, () => {
   });
 
   it('renders an error if one exists', () => {
-    const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
-    store.dispatch(setError({
-      error: new Error('something bad'),
-      id: errorHandler.id,
-    }));
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('something bad'));
     const root = renderShallow({ errorHandler, store });
 
     expect(root.find(ErrorList)).toHaveLength(1);
@@ -138,10 +138,11 @@ describe(__filename, () => {
   it('allows user to submit again if an error occurred', () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
-    store.dispatch(setError({
-      error: new Error('something bad'),
-      id: errorHandler.id,
-    }));
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('something bad'));
     const root = renderShallow({ errorHandler, store });
 
     expect(root.find(DismissibleTextForm)).toHaveLength(1);
