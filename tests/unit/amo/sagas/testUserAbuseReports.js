@@ -40,27 +40,27 @@ describe(__filename, () => {
     sagaTester.dispatch(sendUserAbuseReport({
       errorHandlerId: errorHandler.id,
       message: 'Testing',
-      user: createUserAccountResponse(),
+      userId: createUserAccountResponse().id,
       ...params,
     }));
   }
 
   it('calls the API for abuse', async () => {
-    const user = createUserAccountResponse({ id: 50 });
+    const userId = createUserAccountResponse({ id: 50 }).id;
     const message = 'I would prefer the user be XUL';
-    const response = createFakeUserAbuseReport({ message, user });
+    const response = createFakeUserAbuseReport({ message, userId });
 
     mockApi
       .expects('reportUser')
       .once()
       .returns(Promise.resolve(response));
 
-    _sendUserAbuseReport({ message, user });
+    _sendUserAbuseReport({ message, userId });
 
     const expectedLoadAction = loadUserAbuseReport({
       message: response.message,
       reporter: response.reporter,
-      user,
+      userId,
     });
 
     const calledAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -70,12 +70,12 @@ describe(__filename, () => {
   });
 
   it('handles an empty reporter', async () => {
-    const user = createUserAccountResponse({ id: 50 });
+    const userId = createUserAccountResponse({ id: 50 }).id;
     const message = 'I have no reporter';
     const response = createFakeUserAbuseReport({
       message,
       reporter: null,
-      user,
+      userId,
     });
 
     mockApi
@@ -83,12 +83,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(response));
 
-    _sendUserAbuseReport({ message, user });
+    _sendUserAbuseReport({ message, userId });
 
     const expectedLoadAction = loadUserAbuseReport({
       message: response.message,
       reporter: response.reporter,
-      user,
+      userId,
     });
 
     const calledAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -118,32 +118,32 @@ describe(__filename, () => {
   });
 
   it('resets the state when an error occurs', async () => {
-    const user = createUserAccountResponse({ id: 501 });
+    const userId = createUserAccountResponse({ id: 501 }).id;
     const error = new Error('some API error maybe');
     mockApi
       .expects('reportUser')
       .returns(Promise.reject(error));
 
-    _sendUserAbuseReport({ user });
+    _sendUserAbuseReport({ userId });
 
-    const abortAction = abortUserAbuseReport({ user });
+    const abortAction = abortUserAbuseReport({ userId });
     const calledAction = await sagaTester.waitFor(abortAction.type);
     expect(calledAction).toEqual(abortAction);
   });
 
   it('throws an error if multiple reports are submitted for the same user', async () => {
-    const user = createUserAccountResponse({ id: 50 });
+    const userId = createUserAccountResponse({ id: 50 }).id;
 
     _sendUserAbuseReport({
       message: 'This user is uncool!',
-      user,
+      userId,
     });
 
     // Report the same add-on again; this will cause the reducer to throw
     // an error and the saga should dispatch an error.
     _sendUserAbuseReport({
       message: 'Duplicate!',
-      user,
+      userId,
     });
 
     await sagaTester.waitFor(SET_ERROR);

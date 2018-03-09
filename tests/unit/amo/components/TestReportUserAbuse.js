@@ -67,7 +67,7 @@ describe(__filename, () => {
 
     root.instance().showReportUI();
 
-    sinon.assert.calledWith(dispatchSpy, showUserAbuseReportUI({ user }));
+    sinon.assert.calledWith(dispatchSpy, showUserAbuseReportUI({ userId: user.id }));
   });
 
   it('hides more content when hideReportUI is called', () => {
@@ -81,7 +81,7 @@ describe(__filename, () => {
 
     root.instance().hideReportUI();
 
-    sinon.assert.calledWith(dispatchSpy, hideUserAbuseReportUI({ user }));
+    sinon.assert.calledWith(dispatchSpy, hideUserAbuseReportUI({ userId: user.id }));
   });
 
   it('dispatches the send abuse report action', () => {
@@ -95,7 +95,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, sendUserAbuseReport({
       errorHandlerId: root.instance().props.errorHandler.id,
       message: 'This user is funny',
-      user,
+      userId: user.id,
     }));
   });
 
@@ -106,7 +106,11 @@ describe(__filename, () => {
       message: 'Seriously, where is my money?!',
       user,
     });
-    store.dispatch(loadUserAbuseReport(abuseResponse));
+    store.dispatch(loadUserAbuseReport({
+      message: abuseResponse.message,
+      reporter: abuseResponse.reporter,
+      userId: user.id,
+    }));
     const root = renderShallow({ store, user });
 
     expect(root.find('.ReportUserAbuse--report-sent')).toHaveLength(1);

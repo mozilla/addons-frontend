@@ -16,7 +16,7 @@ export const SHOW_USER_ABUSE_REPORT_UI: 'SHOW_USER_ABUSE_REPORT_UI' =
 
 
 type AbortUserAbuseReportParams = {|
-  user: UserType,
+  userId: number,
 |};
 
 type AbortUserAbuseReportAction = {|
@@ -25,18 +25,18 @@ type AbortUserAbuseReportAction = {|
 |};
 
 export function abortUserAbuseReport(
-  { user }: AbortUserAbuseReportParams = {}
+  { userId }: AbortUserAbuseReportParams = {}
 ): AbortUserAbuseReportAction {
-  invariant(user, 'user is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: ABORT_USER_ABUSE_REPORT,
-    payload: { user },
+    payload: { userId },
   };
 }
 
 type HideUserAbuseReportUIParams = {|
-  user: UserType,
+  userId: number,
 |};
 
 type HideUserAbuseReportUIAction = {|
@@ -45,13 +45,13 @@ type HideUserAbuseReportUIAction = {|
 |};
 
 export function hideUserAbuseReportUI(
-  { user }: HideUserAbuseReportUIParams = {}
+  { userId }: HideUserAbuseReportUIParams = {}
 ): HideUserAbuseReportUIAction {
-  invariant(user, 'user is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: HIDE_USER_ABUSE_REPORT_UI,
-    payload: { user },
+    payload: { userId },
   };
 }
 
@@ -63,7 +63,7 @@ type LoadUserAbuseReportParams = {|
     url: string,
     username: string,
   |} | null,
-  user: UserType,
+  userId: number,
 |};
 
 type LoadUserAbuseReportAction = {|
@@ -71,29 +71,29 @@ type LoadUserAbuseReportAction = {|
   payload: {|
     message: string,
     reportedByUserId: number | null,
-    user: UserType,
+    userId: number,
   |},
 |};
 
 export function loadUserAbuseReport(
-  { message, reporter, user }: LoadUserAbuseReportParams = {}
+  { message, reporter, userId }: LoadUserAbuseReportParams = {}
 ): LoadUserAbuseReportAction {
   invariant(message, 'message is required');
   invariant(reporter !== undefined, 'reporter cannot be undefined');
-  invariant(user, 'user is required');
+  invariant(userId, 'userId is required');
 
   const reportedByUserId = reporter ? reporter.id : null;
 
   return {
     type: LOAD_USER_ABUSE_REPORT,
-    payload: { message, reportedByUserId, user },
+    payload: { message, reportedByUserId, userId },
   };
 }
 
 type SendUserAbuseReportParams = {|
   errorHandlerId: string,
   message: string,
-  user: UserType,
+  userId: number,
 |};
 
 type SendUserAbuseReportAction = {|
@@ -102,20 +102,20 @@ type SendUserAbuseReportAction = {|
 |};
 
 export function sendUserAbuseReport(
-  { errorHandlerId, message, user }: SendUserAbuseReportParams = {}
+  { errorHandlerId, message, userId }: SendUserAbuseReportParams = {}
 ): SendUserAbuseReportAction {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(message, 'message is required');
-  invariant(user, 'user is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: SEND_USER_ABUSE_REPORT,
-    payload: { errorHandlerId, message, user },
+    payload: { errorHandlerId, message, userId },
   };
 }
 
 type ShowUserAbuseReportUIParams = {|
-  user: UserType,
+  userId: number,
 |};
 
 type ShowUserAbuseReportUIActions = {|
@@ -124,13 +124,13 @@ type ShowUserAbuseReportUIActions = {|
 |};
 
 export function showUserAbuseReportUI(
-  { user }: ShowUserAbuseReportUIParams = {}
+  { userId }: ShowUserAbuseReportUIParams = {}
 ): ShowUserAbuseReportUIActions {
-  invariant(user, 'user is required');
+  invariant(userId, 'userId is required');
 
   return {
     type: SHOW_USER_ABUSE_REPORT_UI,
-    payload: { user },
+    payload: { userId },
   };
 }
 
@@ -165,14 +165,14 @@ export default function userAbuseReportReducer(
 ) {
   switch (action.type) {
     case ABORT_USER_ABUSE_REPORT: {
-      const { user } = action.payload;
+      const { userId } = action.payload;
 
       return {
         ...state,
         byUserId: {
           ...state.byUserId,
-          [user.id]: {
-            ...state.byUserId[user.id],
+          [userId]: {
+            ...state.byUserId[userId],
             hasSubmitted: false,
             isSubmitting: false,
             uiVisible: false,
@@ -181,23 +181,23 @@ export default function userAbuseReportReducer(
       };
     }
     case HIDE_USER_ABUSE_REPORT_UI: {
-      const { user } = action.payload;
+      const { userId } = action.payload;
 
       return {
         ...state,
         byUserId: {
           ...state.byUserId,
-          [user.id]: { ...state.byUserId[user.id], uiVisible: false },
+          [userId]: { ...state.byUserId[userId], uiVisible: false },
         },
       };
     }
     case LOAD_USER_ABUSE_REPORT: {
-      const { message, reportedByUserId, user } = action.payload;
+      const { message, reportedByUserId, userId } = action.payload;
       return {
         ...state,
         byUserId: {
           ...state.byUserId,
-          [user.id]: {
+          [userId]: {
             message,
             reportedByUserId,
             hasSubmitted: true,
@@ -208,24 +208,24 @@ export default function userAbuseReportReducer(
       };
     }
     case SEND_USER_ABUSE_REPORT: {
-      const { user } = action.payload;
+      const { userId } = action.payload;
 
       return {
         ...state,
         byUserId: {
           ...state.byUserId,
-          [user.id]: { ...state.byUserId[user.id], isSubmitting: true },
+          [userId]: { ...state.byUserId[userId], isSubmitting: true },
         },
       };
     }
     case SHOW_USER_ABUSE_REPORT_UI: {
-      const { user } = action.payload;
+      const { userId } = action.payload;
 
       return {
         ...state,
         byUserId: {
           ...state.byUserId,
-          [user.id]: { ...state.byUserId[user.id], uiVisible: true },
+          [userId]: { ...state.byUserId[userId], uiVisible: true },
         },
       };
     }

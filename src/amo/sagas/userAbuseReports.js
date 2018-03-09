@@ -15,10 +15,11 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* reportUser({
+  // TODO: Use a type for this.
   payload: {
     errorHandlerId,
     message,
-    user,
+    userId,
   },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -31,19 +32,19 @@ export function* reportUser({
     const response = yield call(reportUserApi, {
       api: state.api,
       message,
-      user,
+      userId,
     });
 
     yield put(loadUserAbuseReport({
       message: response.message,
       reporter: response.reporter,
-      user,
+      userId,
     }));
   } catch (error) {
     log.warn(`Reporting user for abuse failed: ${error}`);
     yield put(errorHandler.createErrorAction(error));
 
-    yield put(abortUserAbuseReport({ user }));
+    yield put(abortUserAbuseReport({ userId }));
   }
 }
 

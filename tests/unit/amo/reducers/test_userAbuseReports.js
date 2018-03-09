@@ -24,20 +24,20 @@ describe(__filename, () => {
 
     describe('abortUserAbuseReport', () => {
       it('resets the state of this abuse report', () => {
-        const user = createUserAccountResponse({ id: 501 });
+        const userId = createUserAccountResponse({ id: 501 }).id;
         let state = userAbuseReportsReducer(
-          initialState, showUserAbuseReportUI({ user }));
-        state = userAbuseReportsReducer(state, showUserAbuseReportUI({ user }));
+          initialState, showUserAbuseReportUI({ userId }));
+        state = userAbuseReportsReducer(state, showUserAbuseReportUI({ userId }));
         state = userAbuseReportsReducer(state, sendUserAbuseReport({
           errorHandlerId: 'some-error-handler',
           message: 'foo',
-          user,
+          userId,
         }));
-        state = userAbuseReportsReducer(state, abortUserAbuseReport({ user }));
+        state = userAbuseReportsReducer(state, abortUserAbuseReport({ userId }));
 
         expect(state).toMatchObject({
           byUserId: {
-            [user.id]: {
+            [userId]: {
               hasSubmitted: false,
               isSubmitting: false,
               uiVisible: false,
@@ -49,33 +49,27 @@ describe(__filename, () => {
 
     describe('hideUserAbuseReportUI', () => {
       it('sets the uiVisible state to false', () => {
-        const user = createUserAccountResponse();
+        const userId = createUserAccountResponse();
         const state = userAbuseReportsReducer(
-          initialState, hideUserAbuseReportUI({ user }));
+          initialState, hideUserAbuseReportUI({ userId }));
 
         expect(state).toMatchObject({
           byUserId: {
-            [user.id]: { uiVisible: false },
+            [userId]: { uiVisible: false },
           },
         });
-      });
-
-      it('requires a user param', () => {
-        expect(() => {
-          hideUserAbuseReportUI();
-        }).toThrow('user is required');
       });
     });
 
     describe('showUserAbuseReportUI', () => {
       it('sets the uiVisible state to true', () => {
-        const user = createUserAccountResponse();
+        const userId = createUserAccountResponse().id;
         const state = userAbuseReportsReducer(
-          initialState, showUserAbuseReportUI({ user }));
+          initialState, showUserAbuseReportUI({ userId }));
 
         expect(state).toMatchObject({
           byUserId: {
-            [user.id]: { uiVisible: true },
+            [userId]: { uiVisible: true },
           },
         });
       });
@@ -86,7 +80,7 @@ describe(__filename, () => {
         return {
           errorHandlerId: 'some-error-handler',
           message: 'The add-on is malware',
-          user: createUserAccountResponse(),
+          userId: createUserAccountResponse().id,
           ...params,
         };
       }
@@ -112,7 +106,11 @@ describe(__filename, () => {
       it('saves the abuse report response to the reducer', () => {
         const abuseReport = abuseReportResponse();
         const state = userAbuseReportsReducer(
-          initialState, loadUserAbuseReport(abuseReport));
+          initialState, loadUserAbuseReport({
+            message: abuseReport.message,
+            reporter: abuseReport.reporter,
+            userId: abuseReport.user.id,
+          }));
 
         expect(state.byUserId[abuseReport.user.id].message)
           .toEqual('I am Groot!');
@@ -138,21 +136,32 @@ describe(__filename, () => {
       it('allows abuse reports for multiple users', () => {
         const { store } = dispatchClientMetadata();
 
-        store.dispatch(loadUserAbuseReport(createFakeUserAbuseReport({
+        const firstReport = createFakeUserAbuseReport({
           message: 'This user is mean',
           reporter: null,
           user: createUserAccountResponse({ id: 50 }),
-        })));
-        store.dispatch(loadUserAbuseReport(createFakeUserAbuseReport({
+        });
+        const secondReport = createFakeUserAbuseReport({
           message: 'This user is boring',
           reporter: null,
           user: createUserAccountResponse({ id: 51 }),
-        })));
+        });
+
+        store.dispatch(loadUserAbuseReport({
+          message: firstReport.message,
+          reporter: firstReport.reporter,
+          userId: firstReport.user.id,
+        }));
+        store.dispatch(loadUserAbuseReport({
+          message: secondReport.message,
+          reporter: secondReport.reporter,
+          userId: secondReport.user.id,
+        }));
 
         expect(store.getState().userAbuseReports).toMatchObject({
           byUserId: {
-            50: { message: 'This user is mean' },
-            51: { message: 'This user is boring' },
+            [firstReport.user.id]: { message: 'This user is mean' },
+            [secondReport.user.id]: { message: 'This user is boring' },
           },
         });
       });

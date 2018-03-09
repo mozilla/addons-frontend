@@ -42,7 +42,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
     const { dispatch, user } = this.props;
 
     if (user) {
-      dispatch(hideUserAbuseReportUI({ user }));
+      dispatch(hideUserAbuseReportUI({ userId: user.id }));
     }
   }
 
@@ -53,7 +53,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
       dispatch(sendUserAbuseReport({
         errorHandlerId: errorHandler.id,
         message: reportData.text,
-        user,
+        userId: user.id,
       }));
     }
   }
@@ -62,7 +62,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
     const { dispatch, user } = this.props;
 
     if (user) {
-      dispatch(showUserAbuseReportUI({ user }));
+      dispatch(showUserAbuseReportUI({ userId: user.id }));
     }
   }
 
