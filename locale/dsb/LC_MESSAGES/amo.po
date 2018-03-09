@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 19:09+0000\n"
+"PO-Revision-Date: 2018-03-09 19:24+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -220,21 +220,18 @@ msgid "No Users"
 msgstr "Žedne wužywarje"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Žedne pógódnośenja"
+msgstr "Pógódnośenja"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Žedne pógódnośenja"
-msgstr[1] "Žedne pógódnośenja"
-msgstr[2] "Žedne pógódnośenja"
-msgstr[3] "Žedne pógódnośenja"
+msgstr[0] "Pógódnośenje"
+msgstr[1] "Pógódnośeni"
+msgstr[2] "Pógódnośenja"
+msgstr[3] "Pógódnośenja"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
 msgstr "Žedne pógódnośenja"
 
@@ -867,9 +864,8 @@ msgid "Good time tabs"
 msgstr "Nowe rejtarki"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Dalšne nejwušej pógódnośone rozšyrjenja se woglědaś"
+msgstr "Dalšne dobre rozšyrjenja se woglědaś"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -884,9 +880,8 @@ msgid "Wikipedia boosters"
 msgstr "Pólěpšenja Wikipedije"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Dalšne rědy za ześěgnjenje medijow se woglědaś"
+msgstr "Dalšne pólěpšenja Wikipedije se woglědaś"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -917,14 +912,12 @@ msgid "Multi-Account Containers"
 msgstr "Wěcejkontowe kontejnery"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - pśez rejtarki koděrowane z barwami."
+msgstr "Rozeznajśo rozdźělne źěle wašogo žywjenja online - źěło, wósobinske atd. - pśez rejtarki koděrowane z barwami"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Rědy"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -971,9 +964,8 @@ msgid "Send any Web page to your Kindle device"
 msgstr "Pósćelśo webbok na swój rěd Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-#, fuzzy
 msgid "Search Site"
-msgstr "Pytaś"
+msgstr "Sedło pśeglědaś"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
@@ -985,76 +977,71 @@ msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "Blokěrujśo cas brojece sedła"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
-msgstr ""
+msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Gjałmot wótwónoźeś a cytabnosć pólěpšyś"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Z jadnym kliknjenim ześěgnuś"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
-msgstr ""
+msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Wupołnjujośo wjele formularow? Tole mógło pomagaś"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Wěstota na nejnowšem stawje"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Wizuelne cytańske znamjenja za waše nejlubše městna w interneśe."
+msgstr "Waš nejlubšy material w interneśe wurězaś, składowaś a organizěrowaś"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Wóznamjeniś"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Pokazujo stojnišćo serwera websedła z chórgoju kraja"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Eficientny, mócny wabjeński blokěrowak."
+msgstr "Eficientny, mócny wabjeński blokěrowak"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "Woblubowane rozšyrjenje pśeśiwo slědowanjeju móžo něnto wabjenje blokěrowaś."
+msgstr "Woblubowane rozšyrjenje pśeśiwo slědowanjeju móžo něnto wabjenje blokěrowaś"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1712,9 +1699,8 @@ msgid "Next"
 msgstr "Pśiduce"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Bok %(currentPage)s z %(totalPages)s"
+msgstr "Bok %(pageNumber)s z %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
