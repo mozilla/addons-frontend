@@ -1,5 +1,6 @@
 /* @flow */
 import type { AddonType } from 'core/types/addons';
+import type { AbuseReporter } from 'core/types/api';
 
 export const DISABLE_ADDON_ABUSE_BUTTON_UI = 'DISABLE_ADDON_ABUSE_BUTTON_UI';
 export const ENABLE_ADDON_ABUSE_BUTTON_UI = 'ENABLE_ADDON_ABUSE_BUTTON_UI';
@@ -60,7 +61,7 @@ type LoadAddonAbuseReportType = {
     slug: string,
   |},
   message: string,
-  reporter: Object | null,
+  reporter: AbuseReporter | null,
 };
 
 export function loadAddonAbuseReport(
@@ -130,7 +131,7 @@ export const initialState = {
 export type AddonAbuseState = {|
   buttonEnabled?: bool,
   message: string,
-  reporter: Object | null,
+  reporter: AbuseReporter | null,
   uiVisible?: boolean,
 |}
 

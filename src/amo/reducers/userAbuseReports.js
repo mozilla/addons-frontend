@@ -1,7 +1,7 @@
 /* @flow */
 import invariant from 'invariant';
 
-import type { UserType } from 'amo/reducers/users';
+import type { AbuseReporter } from 'core/types/api';
 
 export const ABORT_USER_ABUSE_REPORT: 'ABORT_USER_ABUSE_REPORT' =
   'ABORT_USER_ABUSE_REPORT';
@@ -57,12 +57,7 @@ export function hideUserAbuseReportUI(
 
 type LoadUserAbuseReportParams = {|
   message: string,
-  reporter: {|
-    id: number,
-    name: string,
-    url: string,
-    username: string,
-  |} | null,
+  reporter: AbuseReporter,
   userId: number,
 |};
 
