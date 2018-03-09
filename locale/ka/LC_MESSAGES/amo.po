@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 06:30+0000\n"
+"PO-Revision-Date: 2018-03-09 06:50+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -216,7 +216,7 @@ msgstr "არცერთი მომხმარებელი"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Ratings"
-msgstr "შეფასებები"
+msgstr "შეფასება"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Rating"
@@ -867,12 +867,11 @@ msgstr "სხვა მეტად სასურველი თემებ
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "ვიკიპედიით სარგებლობის საშუალებები"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "მედიაფაილების სხვა ჩამომტვირთველები"
+msgstr "იხილეთ ვიკიპედიასთან სამუშაო საშულებები"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -936,7 +935,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "გაამშვენიერეთ და გააუმჯობესეთ ვიკიპედიის იერსახე"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
@@ -944,7 +943,7 @@ msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "წარმოადგინეთ გახსნილი ჩანართები სიის სახით და დაზოგეთ ძვირფასი მეხსიერება"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
