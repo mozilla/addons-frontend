@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 06:21+0000\n"
+"PO-Revision-Date: 2018-03-09 18:30+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -864,9 +864,8 @@ msgid "Good time tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Dalše najwyše pohódnoćene rozšěrjenja sej wobhladać"
+msgstr "Dalše dobre rozšěrjenja sej wobhladać"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -881,9 +880,8 @@ msgid "Wikipedia boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Dalše nastroje za sćahowanje medijow"
+msgstr "Dalše polěpšenja Wikipedije sej wobhladać"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
