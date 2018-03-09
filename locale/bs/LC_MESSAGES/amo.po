@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 06:27+0000\n"
+"PO-Revision-Date: 2018-03-09 10:10+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -859,12 +859,11 @@ msgstr "Promijenite izgled Firefoxa sa temama."
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Sve za nove tabove"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Vidi više najbolje ocjenjenih ekstenzija"
+msgstr "Pogledajte više dobrih proširenja za tabove"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -876,12 +875,11 @@ msgstr "Pogledajte više popularnih tema"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Wikipedia poboljšanja"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Pogledaj više preuzimača medija"
+msgstr "Pogledajte više Wikipedia poboljšanja"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -912,38 +910,36 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Zadržite različite dijelove vašeg života na mreži—službeno, privatno, itd.—odvojenim od šarenih tabova."
+msgstr "Zadržite različite dijelove vašeg života na mreži—službeno, privatno, itd.—odvojenim od šarenih tabova"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Alati"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Pomoć za online kupovinu"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Klasična igra, uvijek dostupna na jedan klik"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders zadovoljava upravljanje pametnim tabovima"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
@@ -966,9 +962,8 @@ msgid "Send any Web page to your Kindle device"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-#, fuzzy
 msgid "Search Site"
-msgstr "Traži"
+msgstr "Traži stranicu"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
@@ -991,9 +986,8 @@ msgid "Remove clutter and improve readability"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
@@ -1020,14 +1014,12 @@ msgid "Notebook Web Clipper"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Vizuelne zabilješke za vaša omiljena mjesta na webu."
+msgstr "Snimite, sačuvajte i organizujte vaše omiljene stvari na webu"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Oznaka"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1038,18 +1030,16 @@ msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Učinkovit, snažan bloker reklama."
+msgstr "Učinkovit, snažan bloker reklama"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "Popularno proširenje proziv praćenja sada ima sposobnost blokiranja reklama."
+msgstr "Popularno proširenje proziv praćenja sada ima sposobnost blokiranja reklama"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1698,9 +1688,8 @@ msgid "Next"
 msgstr "Sljedeća"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Stranica %(currentPage)s od %(totalPages)s"
+msgstr "Stranica %(pageNumber)s od %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
