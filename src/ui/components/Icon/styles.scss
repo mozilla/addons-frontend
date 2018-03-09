@@ -174,3 +174,7 @@
 .Icon-x-mark {
   @include icon($name: "x-mark");
 }
+
+.Icon-requires-payment {
+  @include icon($name: "requires-payment");
+}
