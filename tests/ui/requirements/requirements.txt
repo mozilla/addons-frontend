@@ -8,7 +8,7 @@ funcsigs==1.0.2
 idna==2.6
 pluggy==0.6.0
 py==1.5.2
-PyPOM==1.2.0
+PyPOM==1.3.0
 pytest==3.4.1
 pytest-base-url==1.4.1
 pytest-firefox==0.1.1
@@ -18,9 +18,9 @@ pytest-metadata==1.6.0
 pytest-repeat==0.4.1
 pytest-selenium==1.11.4
 pytest-variables==1.7.1
-pytest-xdist==1.22.1
+pytest-xdist==1.22.2
 requests==2.18.4
-selenium==3.9.0
+selenium==3.10.0
 six==1.11.0
 urllib3==1.22
 zope.component==4.4.1
