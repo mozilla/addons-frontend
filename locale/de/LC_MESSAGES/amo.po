@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 07:30+0000\n"
+"PO-Revision-Date: 2018-03-09 07:38+0000\n"
 "Last-Translator: Michael Köhler <michael.koehler1@gmx.de>\n"
 "Language-Team: none\n"
 "Language: de\n"
@@ -869,12 +869,11 @@ msgstr "Weitere beliebte Themes ansehen"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Wikipedia-Verbesserungen"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Mehr Downloadwerkzeuge für Medien ansehen"
+msgstr "Mehr Wikipedia-Verbesserungen ansehen"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -905,144 +904,136 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
 msgstr "Trennen Sie verschiedene Bereiche Ihres Online-Lebens – Arbeit, Privates, usw. – durch farbkodierte Tabs."
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Werkzeuge"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Hilfe beim Online-Einkauf"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Das klassische Spiel, immer einen Klick entfernt"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders trifft intelligente Tab-Verwaltung"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Wikipedia schöner aussehen lassen"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "Verwandeln Sie Ihre offenen Tabs in eine Liste und sparen Sie Speicherplatz"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Senden Sie eine Webseite an Ihr Kindle-Gerät"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-#, fuzzy
 msgid "Search Site"
-msgstr "Suchen"
+msgstr "Search Site"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Durchsuchen Sie die Domain, die Sie gerade besuchen"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
-msgstr ""
+msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "Blockieren Sie zeitfressende Websites"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
-msgstr ""
+msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Entfernt störende Elemente und verbessert die Lesbarkeit"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Mit einem Klick herunterladen"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
-msgstr ""
+msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Viele Formulare auszufüllen? Das hier könnte helfen"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Sicherheit der neuesten Generation"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Visuelle Lesezeichen für Ihre Lieblingsplätze im Internet"
+msgstr "Ihre Lieblingsinhalte im Internet ausschneiden, speichern und ordnen"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Melden"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Zeigt die Länderflagge des Server-Standorts einer Website"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Effizienter, mächtiger Werbeblocker."
+msgstr "Effizienter, mächtiger Werbeblocker"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "Die beliebte Erweiterung zum Schutz vor Aktivitätenverfolgung, jetzt mit Werbeblocker."
+msgstr "Die beliebte Erweiterung zum Schutz vor Aktivitätenverfolgung, jetzt mit Werbeblocker"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1685,9 +1676,8 @@ msgid "Next"
 msgstr "Nächste"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Seite %(currentPage)s von %(totalPages)s"
+msgstr "Seite %(pageNumber)s von %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
