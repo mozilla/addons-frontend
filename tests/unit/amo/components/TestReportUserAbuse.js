@@ -14,6 +14,7 @@ import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import ErrorList from 'ui/components/ErrorList';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  createFakeEvent,
   createFakeUserAbuseReport,
   createStubErrorHandler,
   createUserAccountResponse,
@@ -66,7 +67,7 @@ describe(__filename, () => {
     const user = createUserAccountResponse();
     const root = renderShallow({ store, user });
 
-    root.instance().showReportUI();
+    root.find('.ReportUserAbuse-show-more').simulate('click', createFakeEvent());
 
     sinon.assert.calledWith(dispatchSpy, showUserAbuseReportUI({ userId: user.id }));
   });
@@ -77,10 +78,11 @@ describe(__filename, () => {
     const user = createUserAccountResponse();
     const root = renderShallow({ store, user });
 
-    root.instance().showReportUI();
+    root.find('.ReportUserAbuse-show-more').simulate('click', createFakeEvent());
     dispatchSpy.reset();
 
-    root.instance().hideReportUI();
+    const dismiss = root.find(DismissibleTextForm).prop('onDismiss');
+    dismiss();
 
     sinon.assert.calledWith(dispatchSpy, hideUserAbuseReportUI({ userId: user.id }));
   });
@@ -91,7 +93,8 @@ describe(__filename, () => {
     const user = createUserAccountResponse();
     const root = renderShallow({ store, user });
 
-    root.instance().sendReport({ text: 'This user is funny' });
+    const submit = root.find(DismissibleTextForm).prop('onSubmit');
+    submit({ text: 'This user is funny' });
 
     sinon.assert.calledWith(dispatchSpy, sendUserAbuseReport({
       errorHandlerId: root.instance().props.errorHandler.id,
