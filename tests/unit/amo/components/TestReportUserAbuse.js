@@ -23,16 +23,17 @@ import {
 
 
 describe(__filename, () => {
-  const defaultRenderProps = {
+  const defaultProps = (props = {}) => ({
     errorHandler: createStubErrorHandler(),
     i18n: fakeI18n(),
     store: dispatchClientMetadata().store,
     user: createUserAccountResponse({ id: 9 }),
-  };
+    ...props,
+  });
 
-  function renderShallow({ ...props } = {}) {
+  function renderShallow(props) {
     return shallowUntilTarget(
-      <ReportUserAbuse {...defaultRenderProps} {...props} />,
+      <ReportUserAbuse {...defaultProps(props)} />,
       ReportUserAbuseBase
     );
   }
@@ -49,8 +50,8 @@ describe(__filename, () => {
     const root = renderShallow();
 
     expect(root.find('.ReportUserAbuse')).toHaveLength(1);
-    expect(root.find('.ReportUserAbuse-show-more').prop('children'))
-      .toEqual('Report this user for abuse');
+    expect(root.find('.ReportUserAbuse-show-more').children())
+      .toHaveText('Report this user for abuse');
   });
 
   it('shows the preview content when first rendered', () => {
