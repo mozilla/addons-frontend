@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 02:08+0000\n"
+"PO-Revision-Date: 2018-03-09 07:07+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -841,12 +841,11 @@ msgstr "使用佈景主題修改 Firefox 外觀。"
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "好時光分頁標籤"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "看更多高分擴充套件"
+msgstr "看更多分頁好時光擴充套件"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -858,7 +857,7 @@ msgstr "看更多熱門佈景主題"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "維基百科大補包"
 
 #: src/amo/components/Home/index.js:245
 msgid "See more Wikipedia boosters"
@@ -902,7 +901,7 @@ msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "線上購物小助手"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
@@ -910,7 +909,7 @@ msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "滑鼠一點即可開啟經典遊戲"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
@@ -918,7 +917,7 @@ msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "當小蜜蜂遇到智慧分頁管理"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
@@ -926,7 +925,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "給維基百科一個華麗的改造"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
@@ -934,7 +933,7 @@ msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "將開啟的分頁轉換成清單，省下寶貴的記憶體"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
@@ -942,7 +941,7 @@ msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "將任何網頁傳送到您的 Kindle 裝置"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Search Site"
@@ -950,7 +949,7 @@ msgstr "搜尋網站"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "在您開啟的網站網域內搜尋"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -958,7 +957,7 @@ msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "封鎖浪費時間的網站"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
@@ -966,7 +965,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "移除雜亂的部份，增加可讀性"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -974,7 +973,7 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "滑鼠一點即可下載"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -982,24 +981,23 @@ msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "填一堆表格很煩嗎？這個套件或許能幫上忙"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "尖端安全"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
 msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "讓您快速前往最愛之處的視覺化書籤。"
+msgstr "剪輯、儲存並管理您在網路上最愛的東西"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Flagfox"
@@ -1007,7 +1005,7 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "顯示網站伺服器所在地點的國旗"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
@@ -1022,9 +1020,8 @@ msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "知名的反追蹤擴充套件，現在也有封鎖廣告的功能了。"
+msgstr "知名的反追蹤擴充套件，現在也有封鎖廣告的功能了"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1637,9 +1634,8 @@ msgid "Next"
 msgstr "下一個"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "第 %(currentPage)s 頁，共 %(totalPages)s 頁"
+msgstr "第 %(pageNumber)s 頁，共 %(totalPages)s 頁"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
