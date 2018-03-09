@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 01:08+0000\n"
+"PO-Revision-Date: 2018-03-09 01:30+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -895,7 +895,7 @@ msgstr "Produtividade"
 
 #: src/amo/components/Home/index.js:82
 msgid "Watching Videos"
-msgstr "Vendo videos"
+msgstr "Ver vídeos"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Multi-Account Containers"
@@ -916,15 +916,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "O jogo clássico sempre a um clique de distância"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
@@ -932,27 +932,27 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Dá a Wikipedia uma maravilhosa transformação"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "Converte as suas abas abertas em uma lista e economiza a preciosa memória"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Envia qualquer página da Web para o seu dispositivo Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Search Site"
@@ -960,11 +960,11 @@ msgstr "Site de pesquisa"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Pesquise apenas dentro do domínio que você está visitando"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
-msgstr ""
+msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
@@ -1007,14 +1007,12 @@ msgid "Notebook Web Clipper"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Favoritos visuais para os seus lugares favoritos na web."
+msgstr "Capture, salve e organize suas coisas favoritas na web"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Sinalizar"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1025,18 +1023,16 @@ msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Bloqueador de anúncios eficiente e poderoso."
+msgstr "Bloqueador de anúncios eficiente e poderoso"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "A popular extensão contra o rastreamento agora possui a capacidade de bloquear de anúncios."
+msgstr "A popular extensão contra rastreamento agora possui capacidade de bloquear anúncios"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1679,9 +1675,8 @@ msgid "Next"
 msgstr "Próximo"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Página %(currentPage)s de %(totalPages)s"
+msgstr "Página %(pageNumber)s de %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
