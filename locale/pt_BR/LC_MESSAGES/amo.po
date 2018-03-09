@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 01:30+0000\n"
+"PO-Revision-Date: 2018-03-09 01:49+0000\n"
 "Last-Translator: Cynthia Pereira <cynthiacpereira@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -437,7 +437,7 @@ msgstr "Extensões em destaque"
 
 #: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
-msgstr "Ver mais extensões em destaque"
+msgstr "Mais extensões em destaque"
 
 #: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
@@ -445,7 +445,7 @@ msgstr "Extensões em tendência"
 
 #: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
-msgstr "Ver mais extensões em tendência"
+msgstr "Mais extensões em tendência"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
@@ -453,7 +453,7 @@ msgstr "Extensões melhor avaliadas"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
 msgid "See more top rated extensions"
-msgstr "Ver mais extensões melhor avaliadas"
+msgstr "Mais extensões melhor avaliadas"
 
 #: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -956,7 +956,7 @@ msgstr "Envia qualquer página da Web para o seu dispositivo Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Search Site"
-msgstr "Site de pesquisa"
+msgstr "Search Site"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
@@ -972,7 +972,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
-msgstr ""
+msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
@@ -984,27 +984,27 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Baixa com um único clique"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
-msgstr ""
+msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Preenche muitos formulários? Isso pode ajudar"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Segurança de ponta"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
 msgid "Clip, save & organize your favorite stuff on the web"
@@ -1016,7 +1016,7 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Exibe a localização do servidor de um site pela bandeira do país"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
