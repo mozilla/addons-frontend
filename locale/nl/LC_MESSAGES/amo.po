@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 12:10+0000\n"
+"PO-Revision-Date: 2018-03-09 12:15+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -918,7 +918,7 @@ msgstr "Snake-spel"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr "Het klassieke spel, altijd op een muisklik afstand"
+msgstr "Het klassieke spel, altijd via één muisklik"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
@@ -982,7 +982,7 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr "Download in één muisklik"
+msgstr "Downloaden met één muisklik"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1014,7 +1014,7 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr "Geeft de serverlocatie van de website weer met een landenvlag"
+msgstr "Geeft de serverlocatie van een website weer met een landenvlag"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
