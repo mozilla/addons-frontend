@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-10 09:57+0000\n"
+"PO-Revision-Date: 2018-03-10 10:15+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -876,7 +876,7 @@ msgstr "Več priljubljenih tem"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Boljša Wikipedija"
 
 #: src/amo/components/Home/index.js:245
 msgid "See more Wikipedia boosters"
@@ -911,9 +911,8 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Ohranite svoja spletna življenja – službeno, osebno ... – ločena po raznobarvnih zavihkih."
+msgstr "Ohranite svoja spletna življenja – službeno, osebno ... – ločena po raznobarvnih zavihkih"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "AliTools"
@@ -961,7 +960,7 @@ msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Pošljite si katerokoli spletno stran na napravo Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 #, fuzzy
@@ -989,17 +988,16 @@ msgid "Remove clutter and improve readability"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Prenos z enim klikom"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
-msgstr ""
+msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
@@ -1007,7 +1005,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
@@ -1015,7 +1013,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
 #, fuzzy
