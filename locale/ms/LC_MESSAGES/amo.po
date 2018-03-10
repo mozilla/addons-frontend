@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-10 02:50+0000\n"
+"PO-Revision-Date: 2018-03-10 03:02+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -215,20 +215,17 @@ msgid "No Users"
 msgstr "Tiada Pengguna"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Tiada kadar"
+msgstr "Penarafan"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Tiada kadar"
+msgstr[0] "Penarafan"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
-msgstr "Tiada kadar"
+msgstr "Tiada Penarafan"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
@@ -857,9 +854,8 @@ msgid "Good time tabs"
 msgstr "Tab kegemaran"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Lihat ekstensi tahap tinggi selanjutnya"
+msgstr "Lihat tab kegemaran selanjutnya"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -874,9 +870,8 @@ msgid "Wikipedia boosters"
 msgstr "Penggalak Wikipedia"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Lihat pemuat turun media selanjutnya"
+msgstr "Lihat Wikipedia boosters selanjutnya"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -907,144 +902,136 @@ msgid "Multi-Account Containers"
 msgstr "Penyimpan Multi-Akaun"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Letakkan bahagian lain kehidupan atas talian anda—kerja, peribadi, dsb.—diasingkan oleh tab berkod-warna."
+msgstr "Letakkan bahagian lain kehidupan atas talian anda—kerja, peribadi, dsb.—diasingkan oleh tab berkod-warna"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Alatan"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Bantuan membeli-belah atas talian"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Permainan klasik, hanya perlu klik"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders memenuhi pengurusan tab pintar"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Beri Wikipedia hiasan yang cantik"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "Tukar tab terbuka menjadi senarai dan menjimatkan memori"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Hantar halaman Web ke peranti Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-#, fuzzy
 msgid "Search Site"
-msgstr "Carian"
+msgstr "Carian Laman"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Buat carian dari dalam domain yang anda lawati"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
-msgstr ""
+msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "Sekat laman yang tidak berfaedah"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
-msgstr ""
+msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Buang kekusutan dan baiki bacaan"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Muat turun dengan satu klik"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
-msgstr ""
+msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Isi banyak borang? Ini mungkin boleh membantu"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Keselamatan canggih"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Tandabuku visual untuk meletakkan web kegemaran anda."
+msgstr "Klip, simpan & susun kegemaran anda dalam laman web"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Tanda"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Memaparkan lokasi pelayan laman web dengan bendera negara"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Penyekat iklan yang efisien dan berkuasa."
+msgstr "Penyekat iklan yang efisien dan berkuasa"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "Ekstensi anti-penjejakan yang popular kini sudah ada kebolehan menyekat iklan."
+msgstr "Ekstensi anti-penjejakan yang popular kini sudah ada kebolehan menyekat iklan"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1685,9 +1672,8 @@ msgid "Next"
 msgstr "Berikut"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Halaman %(currentPage)s daripada %(totalPages)s"
+msgstr "Halaman %(pageNumber)s daripada %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
