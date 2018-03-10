@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-10 09:45+0000\n"
+"PO-Revision-Date: 2018-03-10 09:57+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -879,9 +879,8 @@ msgid "Wikipedia boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Več razširitev za prenašanje predstavnosti"
+msgstr "Več izboljšav za Wikipedijo"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -917,25 +916,24 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr "Ohranite svoja spletna življenja – službeno, osebno ... – ločena po raznobarvnih zavihkih."
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Orodja"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Pomoč za spletno nakupovanje"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Klasična igra, vedno le klik stran"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
@@ -943,7 +941,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
@@ -951,7 +949,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
@@ -959,7 +957,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
-msgstr ""
+msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
