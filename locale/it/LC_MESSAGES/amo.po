@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-10 13:23+0000\n"
-"Last-Translator: Sav22999 <savemore99.sm@gmail.com>\n"
+"PO-Revision-Date: 2018-03-11 11:19+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1000,15 +1000,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Sicurezza all’avanguardia"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
 #, fuzzy
@@ -1016,9 +1016,8 @@ msgid "Clip, save & organize your favorite stuff on the web"
 msgstr "Segnalibri bene in vista per i tuoi siti preferiti sul Web."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Segnala"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1029,9 +1028,8 @@ msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Blocca-pubblicità efficiente e completo."
+msgstr "Blocca-pubblicità efficiente e completo"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
@@ -1687,9 +1685,8 @@ msgid "Next"
 msgstr "Successiva"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Pagina %(currentPage)s di %(totalPages)s"
+msgstr "Pagina %(pageNumber)s di %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
