@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-10 15:45+0000\n"
+"PO-Revision-Date: 2018-03-11 20:30+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -859,12 +859,11 @@ msgstr "Spremenite videz Firefoxa z uporabo tem."
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Vse za zavihke"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Več najbolje ocenjenih razširitev"
+msgstr "Več odličnih razširitev za zavihke"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
