@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-10 13:06+0000\n"
-"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
+"PO-Revision-Date: 2018-03-11 07:44+0000\n"
+"Last-Translator: goofy <goofy@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -870,7 +870,7 @@ msgstr "Voir plus de thèmes populaires"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Optimiseurs pour Wikipédia"
 
 #: src/amo/components/Home/index.js:245
 #, fuzzy
@@ -916,7 +916,7 @@ msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Aide aux achats en ligne"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
@@ -924,7 +924,7 @@ msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Un grand classique, à portée de clic"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
@@ -932,7 +932,7 @@ msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Quand les Space Invaders font le ménage des onglets"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
@@ -965,7 +965,7 @@ msgstr "Rechercher"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Rechercher seulement dans le domaine que vous parcourez"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -973,7 +973,7 @@ msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "Bloquez les sites qui vous font perdre du temps"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
@@ -981,7 +981,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Supprimez les éléments inutiles et améliorez la lisibilité"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -989,7 +989,7 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Télécharger en un seul clic"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
