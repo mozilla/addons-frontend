@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-11 20:30+0000\n"
+"PO-Revision-Date: 2018-03-11 20:33+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -943,7 +943,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Vdahnite Wikipediji novo podobo"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
@@ -1014,9 +1014,8 @@ msgid "Notebook Web Clipper"
 msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Ploščice zaznamkov za vaša priljubljena spletna mesta."
+msgstr "Zajemite, shranite in organizirajte svojo priljubljeno vsebino na spletu"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Flagfox"
