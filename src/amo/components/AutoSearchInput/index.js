@@ -50,7 +50,8 @@ type Props = {|
   inputPlaceholder?: string,
   loadingSuggestions: boolean,
   location: ReactRouterLocation,
-  // TODO: type
+  // TODO: create a type for the inverse of paramsToFilter in
+  // core/searchUtils.
   onSearch: (searchFilters: Object) => void,
   onSuggestionSelected: (SuggestionType) => void,
   query?: string,
