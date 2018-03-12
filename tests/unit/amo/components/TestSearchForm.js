@@ -88,9 +88,10 @@ describe(__filename, () => {
     const root = render();
 
     const filters = { query: 'panda themes' };
-    simulateAutoSearchCallback({
-      args: [filters], root, propName: 'onSearch',
+    const onSearch = simulateAutoSearchCallback({
+      root, propName: 'onSearch',
     });
+    onSearch(filters);
 
     sinon.assert.calledWith(fakeRouter.push, {
       pathname: root.instance().baseSearchURL(),
@@ -105,9 +106,10 @@ describe(__filename, () => {
     const suggestion = createInternalSuggestion(
       createFakeAutocompleteResult({ url, name: 'uBlock Origin' })
     );
-    simulateAutoSearchCallback({
-      args: [suggestion], root, propName: 'onSuggestionSelected',
+    const onSuggestionSelected = simulateAutoSearchCallback({
+      root, propName: 'onSuggestionSelected',
     });
+    onSuggestionSelected(suggestion);
 
     sinon.assert.calledWith(fakeRouter.push, url);
   });

@@ -69,11 +69,10 @@ describe(__filename, () => {
   const fetchSuggestions = (
     { root, query, reason = 'input-changed' }
   ) => {
-    simulateAutosuggestCallback({
-      root,
-      propName: 'onSuggestionsFetchRequested',
-      args: [{ value: query, reason }],
+    const onSuggestionsFetchRequested = simulateAutosuggestCallback({
+      root, propName: 'onSuggestionsFetchRequested',
     });
+    onSuggestionsFetchRequested({ value: query, reason });
   };
 
   describe('search input', () => {
@@ -338,9 +337,10 @@ describe(__filename, () => {
 
   describe('clearing search suggestions', () => {
     const clearSuggestions = (root) => {
-      return simulateAutosuggestCallback({
+      const onSuggestionsClearRequested = simulateAutosuggestCallback({
         root, propName: 'onSuggestionsClearRequested',
       });
+      onSuggestionsClearRequested();
     };
 
     it('closes suggestion menu when cleared', () => {
@@ -371,11 +371,10 @@ describe(__filename, () => {
 
   describe('selecting search suggestions', () => {
     const selectSuggestion = ({ root, suggestion }) => {
-      return simulateAutosuggestCallback({
-        root,
-        args: [createFakeEvent(), { suggestion }],
-        propName: 'onSuggestionSelected',
+      const onSuggestionSelected = simulateAutosuggestCallback({
+        root, propName: 'onSuggestionSelected',
       });
+      onSuggestionSelected(createFakeEvent(), { suggestion });
     };
 
     it('executes a callback when selecting a suggestion', () => {
@@ -450,9 +449,10 @@ describe(__filename, () => {
         createFakeAutocompleteResult()
       ),
     } = {}) => {
-      const suggestion = simulateAutosuggestCallback({
-        root, args: [suggestionData], propName: 'renderSuggestion',
+      const _renderSuggestion = simulateAutosuggestCallback({
+        root, propName: 'renderSuggestion',
       });
+      const suggestion = _renderSuggestion(suggestionData);
       return shallow(<div>{suggestion}</div>).find(SearchSuggestion);
     };
 
@@ -463,11 +463,10 @@ describe(__filename, () => {
       );
 
       const root = render();
-      const value = simulateAutosuggestCallback({
-        root,
-        args: [suggestion],
-        propName: 'getSuggestionValue',
+      const getSuggestionValue = simulateAutosuggestCallback({
+        root, propName: 'getSuggestionValue',
       });
+      const value = getSuggestionValue(suggestion);
 
       expect(value).toEqual(name);
     });
