@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-12 17:31+0000\n"
+"PO-Revision-Date: 2018-03-12 17:35+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -204,34 +204,31 @@ msgstr "Váš prehliadač nepodporuje doplnky. Ak si chcete tento doplnok nainš
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
-msgstr "používateľov"
+msgstr "Počet používateľov"
 
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "používateľ"
+msgstr[1] "používatelia"
+msgstr[2] "používateľov"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
 msgstr "Žiadni používatelia"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Žiadne hodnotenie"
+msgstr "Hodnotenia"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Žiadne hodnotenie"
-msgstr[1] "Žiadne hodnotenie"
-msgstr[2] "Žiadne hodnotenie"
+msgstr[0] "hodnotenie"
+msgstr[1] "hodnotenia"
+msgstr[2] "hodnotení"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
 msgstr "Žiadne hodnotenie"
 
@@ -241,7 +238,7 @@ msgstr "Používa"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr "Celkové hodnotenie"
+msgstr "celkové hodnotenie"
 
 #: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
