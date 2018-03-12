@@ -15,15 +15,13 @@ export class SearchFormBase extends React.Component {
     api: PropTypes.object.isRequired,
     className: PropTypes.string,
     pathname: PropTypes.string.isRequired,
-    query: PropTypes.string.isRequired,
+    query: PropTypes.string,
     router: PropTypes.object.isRequired,
   }
 
   onSearch = (filters) => {
-    const { api, pathname, router } = this.props;
-
-    router.push({
-      pathname: `/${api.lang}/${api.clientApp}${pathname}`,
+    this.props.router.push({
+      pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
   }
@@ -32,26 +30,23 @@ export class SearchFormBase extends React.Component {
     this.props.router.push(suggestion.url);
   }
 
-  render() {
-    const {
-      api,
-      className,
-      pathname,
-      query,
-    } = this.props;
+  baseSearchURL() {
+    const { api, pathname } = this.props;
+    return `/${api.lang}/${api.clientApp}${pathname}`;
+  }
 
-    const inputName = 'q';
-    // TODO: file a bug about support non-javascript form submissions maybe
+  render() {
+    const { className, query } = this.props;
+
     return (
       <form
-        action={`/${api.lang}/${api.clientApp}${pathname}`}
+        action={this.baseSearchURL()}
         className={makeClassName('SearchForm', className)}
         method="GET"
-        ref={(ref) => { this.form = ref; }}
         data-no-csrf
       >
         <AutoSearchInput
-          inputName={inputName}
+          inputName="q"
           onSearch={this.onSearch}
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}

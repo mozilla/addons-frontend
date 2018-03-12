@@ -1,33 +1,17 @@
-import { mount } from 'enzyme';
 import * as React from 'react';
 
-import SearchForm, {
-  SearchFormBase,
-  mapStateToProps,
-  SEARCH_TERM_MAX_LENGTH,
-} from 'amo/components/SearchForm';
-import Suggestion from 'amo/components/SearchSuggestion';
-import {
-  ADDON_TYPE_EXTENSION,
-  CLIENT_APP_ANDROID,
-  OS_LINUX,
-  OS_WINDOWS,
-} from 'core/constants';
-import LoadingText from 'ui/components/LoadingText';
-import {
-  autocompleteCancel,
-  autocompleteStart,
-} from 'core/reducers/autocomplete';
+import AutoSearchInput from 'amo/components/AutoSearchInput';
+import SearchForm, { SearchFormBase } from 'amo/components/SearchForm';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
+import { createInternalSuggestion } from 'core/reducers/autocomplete';
+import { convertFiltersToQueryParams } from 'core/searchUtils';
 import {
   createFakeAutocompleteResult,
-  dispatchAutocompleteResults,
-  dispatchSignInActions,
+  dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
 import {
-  createFakeEvent,
-  createStubErrorHandler,
-  fakeI18n,
   fakeRouterLocation,
+  shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 
@@ -35,8 +19,6 @@ describe(__filename, () => {
   let fakeRouter;
 
   beforeEach(() => {
-    // The `withRouter()` HOC passes `location` from `router.location`
-    // to the component. In other words, `location` cannot be set directly.
     fakeRouter = {
       location: fakeRouterLocation(),
       push: sinon.spy(),
@@ -45,79 +27,101 @@ describe(__filename, () => {
 
   const getProps = (customProps = {}) => {
     return {
-      i18n: fakeI18n(),
       pathname: '/search/',
-      query: 'foo',
       router: fakeRouter,
-      store: dispatchSignInActions().store,
+      store: dispatchClientMetadata().store,
       ...customProps,
     };
   };
 
-  function mountComponent(customProps = {}) {
+  const render = (customProps = {}) => {
     const props = getProps(customProps);
-    return mount(<SearchForm {...props} />);
-  }
-
-  // We use `mount` and the base version of this component for these tests
-  // because we need to check the state of the component and the only way
-  // to do that is to mount it directly without HOC.
-  function mountBaseComponent({ locationQuery, ...customProps } = {}) {
-    const props = getProps({
-      // When mounting the base component, we have to define `location`
-      // directly. When mounting the actual component, withRouter() will
-      // pass `location` from `router.location`.
-      location: fakeRouterLocation({ query: { ...locationQuery } }),
-      ...customProps,
-    });
-    return mount(
-      <SearchFormBase
-        dispatch={sinon.stub()}
-        {...mapStateToProps(props.store.getState())}
-        {...props}
-      />
-    );
-  }
-
-  const createFakeChangeEvent = (value = '') => {
-    return createFakeEvent({
-      target: { value },
-    });
+    return shallowUntilTarget(<SearchForm {...props} />, SearchFormBase);
   };
 
-  describe('render/UI', () => {
-    it('renders a form', () => {
-      const wrapper = mountComponent();
+  const simulateAutoSearchCallback = ({ args = [], wrapper, propName }) => {
+    const autoSearch = wrapper.find(AutoSearchInput);
+    expect(autoSearch).toHaveProp(propName);
 
-      expect(wrapper.find('.SearchForm')).toHaveLength(1);
+    const callback = autoSearch.prop(propName);
+    expect(typeof callback).toEqual('function');
+
+    const result = callback(...args);
+
+    // Since the component might call setState() and that would happen
+    // outside of a standard React lifestyle hook, we have to re-render.
+    wrapper.update();
+
+    return result;
+  };
+
+  it('renders a form', () => {
+    const wrapper = render();
+
+    expect(wrapper.find('.SearchForm')).toHaveLength(1);
+  });
+
+  it('configures an initial query value', () => {
+    const query = 'rainbow pandas';
+    const wrapper = render({ query });
+
+    expect(wrapper.find(AutoSearchInput)).toHaveProp('query', query);
+  });
+
+  it('can render a custom className', () => {
+    const className = 'MyClass';
+    const wrapper = render({ className });
+
+    expect(wrapper).toHaveClassName(className);
+  });
+
+  it('generates a base search URL', () => {
+    const { store } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_FIREFOX,
+      lang: 'en-GB',
+    });
+    const root = render({ store, pathname: '/find-stuff/' });
+
+    expect(root.instance().baseSearchURL())
+      .toEqual(`/en-GB/${CLIENT_APP_FIREFOX}/find-stuff/`);
+  });
+
+  it('sets the form action URL', () => {
+    const wrapper = render();
+
+    expect(wrapper.find('form'))
+      .toHaveProp('action', wrapper.instance().baseSearchURL());
+  });
+
+  it('changes the URL on search', () => {
+    const wrapper = render();
+
+    const filters = { query: 'panda themes' };
+    simulateAutoSearchCallback({
+      args: [filters],
+      wrapper,
+      propName: 'onSearch',
     });
 
-    it('changes the URL on submit', () => {
-      const wrapper = mountComponent();
+    sinon.assert.calledWith(fakeRouter.push, {
+      pathname: wrapper.instance().baseSearchURL(),
+      query: convertFiltersToQueryParams(filters),
+    });
+  });
 
-      sinon.assert.notCalled(fakeRouter.push);
-      wrapper.find('.SearchForm-query').simulate(
-        'change', createFakeChangeEvent('adblock'));
-      wrapper.find('form').simulate('submit');
-      sinon.assert.called(fakeRouter.push);
+  it('pushes a new route when a suggestion is selected', () => {
+    const wrapper = render();
+
+    const url = '/some/url/to/the/extension/detail/page';
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ url, name: 'uBlock Origin' })
+    );
+    simulateAutoSearchCallback({
+      args: [suggestion],
+      wrapper,
+      propName: 'onSuggestionSelected',
     });
 
-    it('updates the state and push a new route when a suggestion is selected', () => {
-      const result = createFakeAutocompleteResult();
-      const { store } = dispatchAutocompleteResults({ results: [result] });
-      const { autocomplete: autocompleteState } = store.getState();
-
-      const wrapper = mountBaseComponent({
-        query: 'foo',
-        suggestions: autocompleteState.suggestions,
-      });
-      expect(wrapper.state('searchValue')).toEqual('foo');
-
-      wrapper.find('input').simulate('focus');
-      wrapper.find(Suggestion).simulate('click');
-      expect(wrapper.state('searchValue')).toEqual('');
-      sinon.assert.callCount(fakeRouter.push, 1);
-      sinon.assert.calledWith(fakeRouter.push, result.url);
-    });
+    sinon.assert.calledWith(fakeRouter.push, url);
   });
 });
