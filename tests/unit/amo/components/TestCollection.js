@@ -425,7 +425,7 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
 
-  it('does not render the pagination when no add-ons in the collection', () => {
+  it('does not render the pagination when no add-ons are in the collection', () => {
     const { store } = dispatchClientMetadata();
 
     const collectionAddons = createFakeCollectionAddons({ addons: [] });
@@ -438,6 +438,19 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find(Paginate)).toHaveLength(0);
+  });
+
+  it('renders a message when no add-ons are in the collection', () => {
+    const { store } = dispatchClientMetadata();
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons({ addons: [] }),
+      detail: createFakeCollectionDetail({ count: 0 }),
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find('.Collection-items-empty').render().text())
+      .toEqual('This collection does not have any add-ons yet.');
   });
 
   it('renders loading indicator on add-ons when fetching next page', () => {

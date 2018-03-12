@@ -2,7 +2,7 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
-import { all, call, put, select, takeLatest } from 'redux-saga/effects';
+import { call, put, select, takeLatest } from 'redux-saga/effects';
 import { push as pushLocation } from 'react-router-redux';
 /* eslint-enable import/order */
 
@@ -36,11 +36,16 @@ import type {
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
+  CollectionAddonsListResponse,
   FetchCurrentCollectionAction,
   FetchCurrentCollectionPageAction,
   FetchUserCollectionsAction,
   UpdateCollectionAction,
 } from 'amo/reducers/collections';
+
+function emptyAddons(): CollectionAddonsListResponse {
+  return { count: 0, next: '', previous: '', results: [] };
+}
 
 export function* fetchCurrentCollection({
   payload: {
@@ -70,10 +75,10 @@ export function* fetchCurrentCollection({
       ...baseParams,
       page,
     };
-    const { detail, addons } = yield all({
-      detail: call(api.getCollectionDetail, detailParams),
-      addons: call(api.getCollectionAddons, addonsParams),
-    });
+    const detail = yield call(api.getCollectionDetail, detailParams);
+    const addons = detail.addon_count ?
+      yield call(api.getCollectionAddons, addonsParams) :
+      emptyAddons();
 
     yield put(loadCurrentCollection({ addons, detail }));
   } catch (error) {

@@ -345,6 +345,8 @@ export const createFakeCollectionDetail = ({
 export const createFakeCollectionAddons = ({ addons = [fakeAddon] } = {}) => {
   return {
     count: addons.length,
+    previous: '',
+    next: '',
     results: addons.map((addon) => ({
       addon,
       downloads: 0,
