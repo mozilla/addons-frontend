@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-12 17:31+0000\n"
+"PO-Revision-Date: 2018-03-12 17:45+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -315,7 +315,7 @@ msgstr "Diga ao mundo porquê que acha que esta extensão é fantástica! Por fa
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Diga-nos o que gostou mais acerca desta extensão. Seja específico e conciso."
+msgstr "Diga-nos o que mais gostou acerca desta extensão. Seja específico(a) e conciso(a)."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -505,7 +505,7 @@ msgstr "Extras"
 
 #: src/amo/components/Collection/index.js:199
 msgid "Creator"
-msgstr "Criador"
+msgstr "Criador(a)"
 
 #: src/amo/components/CollectionManager/index.js:137
 msgid "Save collection"
@@ -633,7 +633,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
-msgstr "Erro de servidor"
+msgstr "Erro do servidor"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
@@ -849,12 +849,11 @@ msgstr "Altere o aspeto do Firefox com temas."
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Novo separador"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Ver mais extensões no top de avaliações"
+msgstr "Ver mais extensões para o novo separador"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -866,12 +865,11 @@ msgstr "Ver mais temas populares"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Boosters para Wikipédia"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Ver mais transferidores de multimédia"
+msgstr "Ver mais boosters para Wikipédia"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -935,7 +933,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr "Dê uma maravilhosa reforma à Wikipedia"
+msgstr "Dê uma maravilhosa reforma à Wikipédia"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
