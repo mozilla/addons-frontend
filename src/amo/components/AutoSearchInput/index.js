@@ -33,11 +33,16 @@ import './styles.scss';
 
 export const SEARCH_TERM_MAX_LENGTH = 100;
 
-type SuggestionType = {|
+// TODO: port reducers/autocomplete.js to Flow and move this there.
+export type SuggestionType = {|
   iconUrl: string,
   name: string,
   url: string,
 |};
+
+// TODO: create a type for the inverse of paramsToFilter in
+// core/searchUtils and move this there.
+export type SearchFilters = Object;
 
 type Props = {|
   errorHandler: ErrorHandlerType,
@@ -49,9 +54,7 @@ type Props = {|
   inputPlaceholder?: string,
   loadingSuggestions: boolean,
   location: ReactRouterLocation,
-  // TODO: create a type for the inverse of paramsToFilter in
-  // core/searchUtils.
-  onSearch: (searchFilters: Object) => void,
+  onSearch: (SearchFilters) => void,
   onSuggestionSelected: (SuggestionType) => void,
   query?: string,
   // This is optional accessibility text for the icon associated with

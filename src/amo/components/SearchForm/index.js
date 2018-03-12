@@ -1,38 +1,44 @@
+/* @flow */
 import makeClassName from 'classnames';
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { withRouter } from 'react-router';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+import type {
+  SearchFilters, SuggestionType,
+} from 'amo/components/AutoSearchInput';
+import type { ApiStateType } from 'core/reducers/api';
+import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
-export class SearchFormBase extends React.Component {
-  static propTypes = {
-    api: PropTypes.object.isRequired,
-    className: PropTypes.string,
-    pathname: PropTypes.string.isRequired,
-    query: PropTypes.string,
-    router: PropTypes.object.isRequired,
-  }
+type Props = {|
+  apiLang: string | null,
+  className?: string,
+  clientApp: string | null,
+  pathname: string,
+  query?: string,
+  router: ReactRouterType,
+|};
 
-  onSearch = (filters) => {
+export class SearchFormBase extends React.Component<Props> {
+  onSearch = (filters: SearchFilters) => {
     this.props.router.push({
       pathname: this.baseSearchURL(),
       query: convertFiltersToQueryParams(filters),
     });
   }
 
-  onSuggestionSelected = (suggestion) => {
+  onSuggestionSelected = (suggestion: SuggestionType) => {
     this.props.router.push(suggestion.url);
   }
 
   baseSearchURL() {
-    const { api, pathname } = this.props;
-    return `/${api.lang}/${api.clientApp}${pathname}`;
+    const { apiLang, clientApp, pathname } = this.props;
+    return `/${apiLang || ''}/${clientApp || ''}${pathname}`;
   }
 
   render() {
@@ -56,8 +62,12 @@ export class SearchFormBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
-  return { api: state.api };
+export function mapStateToProps(
+  state: {| api: ApiStateType |}
+): $Shape<Props> {
+  const { api } = state;
+
+  return { apiLang: api.lang, clientApp: api.clientApp };
 }
 
 export default compose(

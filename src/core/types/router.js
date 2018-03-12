@@ -13,3 +13,13 @@ export type ReactRouterLocation = {|
   search: string, // e.g. ?q=search-string
   state?: Object,
 |};
+
+type pushParams = {|
+  pathname: string,
+  query: { [param: string]: string },
+|};
+
+export type ReactRouterType = {|
+  location: ReactRouterLocation,
+  push: (pushURL: string | pushParams) => void,
+|};
