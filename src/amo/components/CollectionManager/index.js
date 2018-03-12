@@ -7,7 +7,11 @@ import { compose } from 'redux';
 import config from 'config';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
-import { updateCollection } from 'amo/reducers/collections';
+import {
+  createCollection,
+  updateCollection,
+} from 'amo/reducers/collections';
+import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
@@ -21,6 +25,7 @@ import type {
   CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
+import type { UsersStateType } from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
@@ -31,6 +36,7 @@ import type { ReactRouterType } from 'core/types/router';
 import './styles.scss';
 
 type Props = {|
+  creating: boolean,
   collection: CollectionType | null,
   clientApp: ?string,
   dispatch: DispatchFunc,
@@ -39,6 +45,7 @@ type Props = {|
   router: ReactRouterType,
   siteLang: ?string,
   isCollectionBeingModified: boolean,
+  currentUsername: string,
 |};
 
 type State = {|
@@ -88,10 +95,13 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   onSubmit = (event: SyntheticEvent<any>) => {
     const {
+      creating,
       collection,
-      errorHandler,
       dispatch,
+      errorHandler,
+      i18n,
       siteLang,
+      currentUsername,
     } = this.props;
     event.preventDefault();
     event.stopPropagation();
@@ -101,8 +111,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     name = name && name.trim();
     slug = slug && slug.trim();
 
-    if (!collection) {
-      // You'd have to click really fast to access a form without a
+    if (!creating && !collection) {
+      // You'd have to click really fast to access an edit form without a
       // collection so a user will not likely see this.
       throw new Error(
         'The form cannot be submitted without a collection');
@@ -114,16 +124,24 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         'The form cannot be submitted without a site language');
     }
 
-    dispatch(updateCollection({
-      collectionSlug: collection.slug,
-      defaultLocale: collection.defaultLocale,
+    const payload: Object = {
+      collectionSlug: (collection && collection.slug) || undefined,
+      defaultLocale: (collection && collection.defaultLocale) || siteLang,
       description: { [siteLang]: this.state.description },
       errorHandlerId: errorHandler.id,
-      name: { [siteLang]: name },
-      user: collection.authorUsername,
-      slug,
-    }));
-  };
+      formOverlayId:
+        creating ? CREATE_COLLECTION_OVERLAY : EDIT_COLLECTION_OVERLAY,
+      name: { [siteLang]: this.state.name },
+      user: (collection && collection.authorUsername) || currentUsername,
+      slug: this.state.slug,
+    };
+
+    if (creating) {
+      dispatch(createCollection(payload));
+    } else {
+      dispatch(updateCollection(payload));
+    }
+  }
 
   onTextInput = (
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -155,18 +173,12 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   }
 
   render() {
-    const {
-      collection, errorHandler, i18n, isCollectionBeingModified, siteLang,
-    } = this.props;
+    const { isCollectionBeingModified, collection, errorHandler, i18n, siteLang, currentUsername } = this.props;
     const { name, slug } = this.state;
 
-    let collectionUrlPrefix = '';
-    if (collection && siteLang) {
-      const apiHost = config.get('apiHost');
-      const { authorUsername } = collection;
-      collectionUrlPrefix =
-        `${apiHost}/${siteLang}/firefox/collections/${authorUsername}/`;
-    }
+    const collectionUrlPrefix =
+      `${config.get('apiHost')}/${siteLang || ''}/firefox/collections/
+       ${(collection && collection.authorUsername) || currentUsername}/`;
 
     // TODO: also disable the form while submitting.
     // https://github.com/mozilla/addons-frontend/issues/4635
@@ -277,13 +289,13 @@ export const extractId = (ownProps: Props) => {
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (
-  state: {| api: ApiStateType, collections: CollectionsState |},
-) => {
+export const mapStateToProps = (state: {| api: ApiStateType, collections: CollectionsState, users: UsersStateType, |}) => {
+  const currentUser = getCurrentUser(state.users);
   return {
     clientApp: state.api.clientApp,
     siteLang: state.api.lang,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,
+    currentUsername: currentUser && currentUser.username,
   };
 };
 

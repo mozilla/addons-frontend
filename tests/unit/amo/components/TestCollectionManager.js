@@ -5,6 +5,7 @@ import CollectionManager, {
   extractId, CollectionManagerBase,
 } from 'amo/components/CollectionManager';
 import {
+  createCollection,
   createInternalCollection,
   beginCollectionModification,
   finishCollectionModification,
@@ -40,10 +41,17 @@ const simulateAutoSearchCallback = (props = {}) => {
 describe(__filename, () => {
   let fakeRouter;
   let store;
+  const signedInUsername = 'user123';
+  const lang = 'en-US';
 
   beforeEach(() => {
     fakeRouter = createFakeRouter();
     store = dispatchClientMetadata().store;
+    dispatchSignInActions({
+      lang,
+      store,
+      userProps: { username: signedInUsername },
+    });
   });
 
   const getProps = ({
@@ -55,6 +63,7 @@ describe(__filename, () => {
   }) => {
     return {
       collection,
+      creating: false,
       i18n: fakeI18n(),
       router,
       store,
@@ -102,7 +111,18 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
-  it('populates the form with collection data', () => {
+  it('can render an empty form for create', () => {
+    const root = render({ collection: null, creating: true });
+
+    expect(root).toHaveProp('title', 'Create collection');
+    expect(root).toHaveProp('id', CREATE_COLLECTION_OVERLAY);
+    expect(root.find('#collectionName')).toHaveProp('value', null);
+    expect(root.find('#collectionDescription'))
+      .toHaveProp('defaultValue', null);
+    expect(root.find('#collectionSlug')).toHaveProp('value', null);
+  });
+
+  it('populates the edit form with collection data', () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
         name: 'OG name',
@@ -196,6 +216,34 @@ describe(__filename, () => {
     expect(root.find('#collectionDescription'))
       .toHaveProp('value', 'New description');
     expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
+  });
+
+  it('creates a collection on submit', () => {
+    const errorHandler = createStubErrorHandler();
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ collection: null, creating: true, errorHandler });
+
+    // Fill in the form with values.
+    const name = 'A collection name';
+    const description = 'A collection description';
+    const slug = 'collection-slug';
+
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'description', text: description });
+    typeInput({ root, name: 'slug', text: slug });
+
+    simulateSubmit(root);
+
+    sinon.assert.calledWith(dispatchSpy, createCollection({
+      defaultLocale: lang,
+      description: { [lang]: description },
+      errorHandlerId: errorHandler.id,
+      formOverlayId: CREATE_COLLECTION_OVERLAY,
+      name: { [lang]: name },
+      slug,
+      user: signedInUsername,
+    }));
   });
 
   it('updates the collection on submit', () => {

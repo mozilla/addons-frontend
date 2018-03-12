@@ -47,6 +47,12 @@ export default (
         component={CollectionEdit}
       />
       <Route path="collections/:user/:slug/" component={Collection} />
+      {config.get('enableCollectionEdit') ?
+        <Route
+          path="collections/add/"
+          component={(props) => <Collection {...props} creating />}
+        /> : null
+      }
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
       <Route path="language-tools/" component={LanguageTools} />
