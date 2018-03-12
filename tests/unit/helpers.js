@@ -477,3 +477,35 @@ export const fakeRouterLocation = (props = {}) => {
     ...props,
   };
 };
+
+/*
+ * Simulate how a component you depend on will invoke a callback.
+ *
+ * type SimulateComponentCallbackParams = {|
+ *   // This is the root of your parent component (an enzyme wrapper object).
+ *   root: Object,
+ *   // This is the component class you want to simulate.
+ *   Component: React.Element<any>,
+ *   // This is the property name for the callback.
+ *   propName: string,
+ *   // This is an array of arguments to send the callback.
+ *   args?: Array<any>,
+ * |};
+ */
+export const simulateComponentCallback = ({
+  Component, args = [], root, propName,
+}) => {
+  const component = root.find(Component);
+  expect(component).toHaveProp(propName);
+
+  const callback = component.prop(propName);
+  expect(typeof callback).toEqual('function');
+
+  const result = callback(...args);
+
+  // Since the component might call setState() and that would happen
+  // outside of a standard React lifestyle hook, we have to re-render.
+  root.update();
+
+  return result;
+};

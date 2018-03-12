@@ -27,6 +27,7 @@ import {
   fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
+  simulateComponentCallback,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -59,20 +60,10 @@ describe(__filename, () => {
     return mount(<AutoSearchInput {...props} />);
   };
 
-  const simulateAutosuggestCallback = ({ args = [], root, propName }) => {
-    const autosuggest = root.find(Autosuggest);
-    expect(autosuggest).toHaveProp(propName);
-
-    const callback = autosuggest.prop(propName);
-    expect(typeof callback).toEqual('function');
-
-    const result = callback(...args);
-
-    // Since the component might call setState() and that would happen
-    // outside of a standard React lifestyle hook, we have to re-render.
-    root.update();
-
-    return result;
+  const simulateAutosuggestCallback = (props = {}) => {
+    return simulateComponentCallback({
+      Component: Autosuggest, ...props,
+    });
   };
 
   const fetchSuggestions = (
