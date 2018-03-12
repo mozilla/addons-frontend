@@ -392,13 +392,18 @@ describe(__filename, () => {
     });
 
     it('does not execute callback when selecting a placeholder', () => {
-      const onSuggestionSelected = sinon.stub();
-      const root = render({ onSuggestionSelected });
+      const { store } = dispatchClientMetadata();
+      store.dispatch(autocompleteStart({
+        errorHandlerId: 'some-error-handler',
+        filters: { query: 'ad blockers' },
+      }));
 
-      const suggestion = createInternalSuggestion({
-        ...createFakeAutocompleteResult({ name: 'uBlock Origin' }),
-        loading: true,
-      });
+      const onSuggestionSelected = sinon.stub();
+      const root = render({ store, onSuggestionSelected });
+
+      const suggestion = createInternalSuggestion(
+        createFakeAutocompleteResult({ name: 'uBlock Origin' })
+      );
 
       selectSuggestion({ root, suggestion });
 
@@ -476,15 +481,20 @@ describe(__filename, () => {
 
       expect(suggestion).toHaveProp('name', name);
       expect(suggestion).toHaveProp('iconUrl', suggestionData.iconUrl);
-      expect(suggestion).toHaveProp('loading', suggestionData.loading);
     });
 
     it('renders a placeholder while loading', () => {
-      const suggestionData = createInternalSuggestion({
-        ...createFakeAutocompleteResult(),
-        loading: true,
-      });
-      const suggestion = renderSuggestion({ suggestionData });
+      const { store } = dispatchClientMetadata();
+      store.dispatch(autocompleteStart({
+        errorHandlerId: 'some-error-handler',
+        filters: { query: 'ad blockers' },
+      }));
+
+      const root = render({ store });
+      const suggestionData = createInternalSuggestion(
+        createFakeAutocompleteResult()
+      );
+      const suggestion = renderSuggestion({ root, suggestionData });
 
       expect(suggestion).toHaveProp('loading', true);
     });

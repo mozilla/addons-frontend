@@ -40,14 +40,9 @@ export function autocompleteLoad({ results }) {
   };
 }
 
-export const createInternalSuggestion = (
-  { loading = false, ...externalSuggestion }
-) => {
+export const createInternalSuggestion = (externalSuggestion) => {
   return {
     iconUrl: getAddonIconUrl(externalSuggestion),
-    // This property gets set to true for placeholder objects
-    // which are used to render loading states
-    loading,
     name: externalSuggestion.name,
     url: externalSuggestion.url,
   };

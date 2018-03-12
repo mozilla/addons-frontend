@@ -35,7 +35,6 @@ export const SEARCH_TERM_MAX_LENGTH = 100;
 
 type SuggestionType = {|
   iconUrl: string,
-  loading: boolean,
   name: string,
   url: string,
 |};
@@ -225,10 +224,8 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
   ) => {
     e.preventDefault();
 
-    // TODO: this can probably check props.loadingSuggestions and then
-    // the loading attribute can be removed from suggestion objects.
-    if (suggestion.loading) {
-      log.debug('Ignoring loading suggestion selected');
+    if (this.props.loadingSuggestions) {
+      log.debug('Ignoring a click on the suggestion while loading');
       return;
     }
 
@@ -237,8 +234,8 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
   }
 
   renderSuggestion = (suggestion: SuggestionType) => {
-    const { i18n, selectSuggestionText } = this.props;
-    const { name, iconUrl, loading } = suggestion;
+    const { i18n, loadingSuggestions, selectSuggestionText } = this.props;
+    const { name, iconUrl } = suggestion;
 
     const arrowAlt =
       selectSuggestionText || i18n.gettext('Go to the add-on page');
@@ -246,7 +243,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
       <SearchSuggestion
         name={name}
         iconUrl={iconUrl}
-        loading={loading}
+        loading={loadingSuggestions}
         arrowAlt={arrowAlt}
       />
     );
