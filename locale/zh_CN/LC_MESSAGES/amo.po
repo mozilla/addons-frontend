@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-13 09:28+0000\n"
+"PO-Revision-Date: 2018-03-13 09:35+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -841,12 +841,11 @@ msgstr "使用主题改变 Firefox 的外观。"
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "美好时光标签页"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "查看更多好评扩展"
+msgstr "查看更多美好时光标签页扩展"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -858,12 +857,11 @@ msgstr "看看更多流行主题"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "维基百科增强工具"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "查看更多媒体下载器"
+msgstr "查看更多维基百科增强工具"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -894,9 +892,8 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "用多彩的标签页将工作、私人等您的不同网上身份分隔开。"
+msgstr "用多彩的标签页区分您不同的网络身份—办公、学校、私人"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
 msgid "AliTools"
@@ -988,47 +985,43 @@ msgstr "填一堆表格很烦吗？这个扩展或许能帮上忙"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
-msgstr ""
+msgstr "Myki 密码管理与认证器"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "尖端安全"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
-msgstr ""
+msgstr "Notebook 网页剪辑器"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "以可视化的形式摆放您喜欢的网站。"
+msgstr "剪切、保存并管理您在网络上最喜欢的东西"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "标记"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "显示网站服务器所在的国家/地区的旗帜"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "高效而强大的广告过滤器。"
+msgstr "高效而强大的广告过滤器"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "知名的反跟踪扩展，现在也有广告过滤功能了。"
+msgstr "知名的反跟踪扩展，现在也有广告过滤功能了"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1641,9 +1634,8 @@ msgid "Next"
 msgstr "下一页"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "页面 %(currentPage)s / %(totalPages)s"
+msgstr "第 %(pageNumber)s 页，共 %(totalPages)s 页"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
