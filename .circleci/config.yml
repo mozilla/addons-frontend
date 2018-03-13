@@ -6,6 +6,9 @@ jobs:
     working_directory: ~/addons-frontend
     steps:
       - checkout
+      - run:
+          name: Install dependencies
+          command: sudo apt-get update; sudo apt-get install pigz
       - run: docker info
         # Build the container, using Circle's Docker cache. Only use 1 image per
         # day to keep the cache size down.
@@ -25,13 +28,19 @@ jobs:
         # write the sha256 sum to an artifact to make image verification easier
       - run:
           name: Write the sha256 sum to an artifact
-          command:
+          command: |
             docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
         # Clean up any old images; save the new one.
       - run:
           name: Clean up any old images and save the new one.
-          command:
-            I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*; docker save addons-frontend | pigz --fast -c > ~/docker/$I; ls -l ~/docker
+          command: |
+            I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*
+            docker save addons-frontend | pigz --fast -c > ~/docker/$I
+            ls -l ~/docker
+      - save_cache:
+        key: docker-cache-{{ checksum "~/docker" }}
+        paths:
+          - ~/docker
       - persist_to_workspace:
           root: .
           paths:
