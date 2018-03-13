@@ -25,12 +25,10 @@ jobs:
           > version.json
       - run: docker build --pull -t addons-frontend .
       - run: docker images
-        # write the sha256 sum to an artifact to make image verification easier
       - run:
-          name: Write the sha256 sum to an artifact
+          name: Write the sha256 sum to an artifact for verification
           command: |
             docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
-        # Clean up any old images; save the new one.
       - run:
           name: Clean up any old images and save the new one.
           command: |
