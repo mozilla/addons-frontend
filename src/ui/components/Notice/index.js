@@ -25,7 +25,7 @@ type Props = {
  * See https://design.firefox.com/photon/components/message-bars.html
  */
 const Notice = ({
-  action, actionText, children, className, type = 'generic',
+  action, actionText, children, className, type,
 }: Props) => {
   if (!validTypes.includes(type)) {
     throw new Error(`Unknown type: ${type}`);
