@@ -85,13 +85,13 @@ export function loadUserAbuseReport(
   };
 }
 
-type SendUserAbuseReportParams = {|
+export type SendUserAbuseReportParams = {|
   errorHandlerId: string,
   message: string,
   userId: number,
 |};
 
-type SendUserAbuseReportAction = {|
+export type SendUserAbuseReportAction = {|
   type: typeof SEND_USER_ABUSE_REPORT,
   payload: SendUserAbuseReportParams,
 |};

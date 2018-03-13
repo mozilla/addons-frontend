@@ -1,3 +1,4 @@
+/* @flow */
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
@@ -12,6 +13,8 @@ import {
 import { reportUser as reportUserApi } from 'core/api/abuse';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import type { SendUserAbuseReportAction } from 'amo/reducers/userAbuseReports';
+import type { ReportUserParams } from 'core/api/abuse';
 
 
 export function* reportUser({
@@ -21,7 +24,7 @@ export function* reportUser({
     message,
     userId,
   },
-}) {
+}: SendUserAbuseReportAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -29,11 +32,8 @@ export function* reportUser({
   try {
     const state = yield select(getState);
 
-    const response = yield call(reportUserApi, {
-      api: state.api,
-      message,
-      userId,
-    });
+    const params: ReportUserParams = { api: state.api, message, userId };
+    const response = yield call(reportUserApi, params);
 
     yield put(loadUserAbuseReport({
       message: response.message,
@@ -48,6 +48,6 @@ export function* reportUser({
   }
 }
 
-export default function* userAbuseReportsSaga() {
+export default function* userAbuseReportsSaga(): Generator<any, any, any> {
   yield takeLatest(SEND_USER_ABUSE_REPORT, reportUser);
 }
