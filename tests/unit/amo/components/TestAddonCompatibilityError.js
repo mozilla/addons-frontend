@@ -79,7 +79,7 @@ describe(__filename, () => {
       'type', 'generic');
   });
 
-  it('renders an error notice for other reasons browsers', () => {
+  it('renders an error notice for other reasons than non-Firefox', () => {
     _dispatchClientMetadata({
       userAgent: userAgentsByPlatform.mac.firefox57,
     });
