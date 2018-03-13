@@ -447,13 +447,13 @@ export const addAddonToCollection = ({
   };
 };
 
-type RequiredModifyCollectionParams = {|
+export type RequiredModifyCollectionParams = {|
   errorHandlerId: string,
   formOverlayId: string,
   user: string,
 |};
 
-type OptionalModifyCollectionParams = {|
+export type OptionalModifyCollectionParams = {|
   defaultLocale: ?string,
   description: ?LocalizedString,
 |};

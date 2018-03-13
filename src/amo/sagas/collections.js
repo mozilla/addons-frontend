@@ -30,16 +30,16 @@ import type {
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
-  UpdateCollectionParams,
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
-  CreateCollectionAction,
   FetchCurrentCollectionAction,
   FetchCurrentCollectionPageAction,
   FetchUserCollectionsAction,
-  UpdateCollectionAction,
+  OptionalModifyCollectionParams,
+  RequiredModifyCollectionParams,
 } from 'amo/reducers/collections';
+import type { LocalizedString } from 'core/types/api';
 
 export function* fetchCurrentCollection({
   payload: {
@@ -165,11 +165,9 @@ export function* addAddonToCollection({
   }
 }
 
-export function* modifyCollection(
-  action: 'create' | 'update',
-  params: Object,
-): Generator<any, any, any> {
-  const {
+export function* modifyCollection({
+  type,
+  payload: {
     collectionSlug,
     defaultLocale,
     description,
@@ -177,15 +175,26 @@ export function* modifyCollection(
     name,
     slug,
     user,
-  } = params;
+  },
+}: {
+  type: typeof CREATE_COLLECTION | typeof UPDATE_COLLECTION,
+  payload: {
+    ...RequiredModifyCollectionParams,
+    ...OptionalModifyCollectionParams,
+    collectionSlug?: string,
+    name?: ?LocalizedString,
+    slug?: ?string,
+  }
+}): Generator<any, any, any> {
+  const creating = type === CREATE_COLLECTION;
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
   try {
     const state = yield select(getState);
 
-    if (action === 'create') {
-      const apiParams: CreateCollectionParams = {
+    if (creating) {
+      const apiParams = {
         api: state.api,
         defaultLocale,
         description,
@@ -195,7 +204,7 @@ export function* modifyCollection(
       };
       yield call(api.createCollection, apiParams);
     } else {
-      const apiParams: UpdateCollectionParams = {
+      const apiParams = {
         api: state.api,
         collectionSlug,
         defaultLocale,
@@ -209,6 +218,11 @@ export function* modifyCollection(
 
     const { lang, clientApp } = state.api;
     const effectiveSlug = slug || collectionSlug;
+    if (!effectiveSlug) {
+      // This is impossible, but Flow doesn't know that based on the type
+      // declaration for payload.
+      throw new Error('The collection to modify does not have a slug.');
+    }
     // TODO: invalidate the stored collection instead of redirecting.
     // Ultimately, we just want to invalidate the old collection data.
     // This redirect is in place to handle slug changes but it causes
@@ -219,7 +233,7 @@ export function* modifyCollection(
       `/${lang}/${clientApp}/collections/${user}/${effectiveSlug}/`
     ));
 
-    const slugWasEdited = slug && slug !== collectionSlug;
+    const slugWasEdited = !creating && slug && slug !== collectionSlug;
     if (!slugWasEdited) {
       // Invalidate the stored collection object. This will force each
       // component to re-fetch the collection. This is only necessary
@@ -227,59 +241,9 @@ export function* modifyCollection(
       yield put(deleteCollectionBySlug(effectiveSlug));
     }
   } catch (error) {
-    log.warn(`Failed to ${action} collection: ${error}`);
+    log.warn(`Failed to ${CREATE_COLLECTION}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
-}
-
-export function* createCollection({
-  payload: {
-    errorHandlerId,
-    defaultLocale,
-    description,
-    formOverlayId,
-    name,
-    slug,
-    user,
-  },
-}: CreateCollectionAction,
-_modifyCollection: typeof modifyCollection = modifyCollection,
-): Generator<any, any, any> {
-  yield _modifyCollection('create', {
-    errorHandlerId,
-    defaultLocale,
-    description,
-    formOverlayId,
-    name,
-    slug,
-    user,
-  });
-}
-
-export function* updateCollection({
-  payload: {
-    errorHandlerId,
-    collectionSlug,
-    defaultLocale,
-    description,
-    formOverlayId,
-    name,
-    slug,
-    user,
-  },
-}: UpdateCollectionAction,
-_modifyCollection: typeof modifyCollection = modifyCollection,
-): Generator<any, any, any> {
-  yield _modifyCollection('update', {
-    errorHandlerId,
-    collectionSlug,
-    defaultLocale,
-    description,
-    formOverlayId,
-    name,
-    slug,
-    user,
-  });
 }
 
 export default function* collectionsSaga(): Generator<any, any, any> {
@@ -289,6 +253,5 @@ export default function* collectionsSaga(): Generator<any, any, any> {
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
-  yield takeLatest(CREATE_COLLECTION, createCollection);
-  yield takeLatest(UPDATE_COLLECTION, updateCollection);
+  yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
 }

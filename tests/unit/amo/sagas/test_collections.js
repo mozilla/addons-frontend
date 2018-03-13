@@ -325,12 +325,25 @@ describe(__filename, () => {
     });
   });
 
-  describe('updateCollection', () => {
+  describe('modifyCollection', () => {
+    const formOverlayId = 'some-form-overlay';
+
+    const _createCollection = (params = {}) => {
+      sagaTester.dispatch(createCollection({
+        errorHandlerId: errorHandler.id,
+        formOverlayId,
+        name: 'some-collection-name',
+        slug,
+        user,
+        ...params,
+      }));
+    };
+
     const _updateCollection = (params = {}) => {
       sagaTester.dispatch(updateCollection({
         errorHandlerId: errorHandler.id,
         collectionSlug: 'some-collection',
-        user: 'some-user',
+        user,
         ...params,
       }));
     };
@@ -407,176 +420,225 @@ describe(__filename, () => {
       // Update everything except the slug.
       _updateCollection({
         collectionSlug, user: userName, slug: undefined,
-      });
 
-      const { lang, clientApp } = clientData.state.api;
-      const expectedAction = pushLocation(
-        `/${lang}/${clientApp}/collections/${userName}/${collectionSlug}/`
-      );
+    describe('common logic', () => {
+      // The common logic can be tested either by dispatching updateCollection
+      // or createCollection, so we just use _updateCollection.
+      it('clears the error handler', async () => {
+        _updateCollection();
 
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
+        const expectedAction = errorHandler.createClearingAction();
 
-      mockApi.verify();
-    });
-
-    it('redirects to the new slug after update', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
-
-      const userName = 'collection-username';
-      const newSlug = 'new-slug';
-      _updateCollection({ user: userName, slug: newSlug });
-
-      const { lang, clientApp } = clientData.state.api;
-      const expectedAction = pushLocation(
-        `/${lang}/${clientApp}/collections/${userName}/${newSlug}/`
-      );
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-      mockApi.verify();
-    });
-
-    it('clears the error handler', async () => {
-      _updateCollection();
-
-      const expectedAction = errorHandler.createClearingAction();
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-    });
-
-    it('handles errors', async () => {
-      const collectionSlug = 'a-collection';
-      const error = new Error('some API error maybe');
-
-      mockApi
-        .expects('updateCollection')
-        .returns(Promise.reject(error));
-
-      _updateCollection({ collectionSlug });
-
-      const expectedAction = errorHandler.createErrorAction(error);
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-    });
-  });
-
-  describe('createCollection', () => {
-    const formOverlayId = 'some-form-overlay';
-
-    const _createCollection = (params = {}) => {
-      sagaTester.dispatch(createCollection({
-        errorHandlerId: errorHandler.id,
-        formOverlayId,
-        name: 'some-collection-name',
-        slug,
-        user,
-        ...params,
-      }));
-    };
-
-    it('sends a request to the collections API', async () => {
-      const params = {
-        description: { 'en-US': 'Collection description' },
-        name: { 'en-US': 'Collection name' },
-      };
-      const state = sagaTester.getState();
-
-      mockApi
-        .expects('createCollection')
-        .withArgs({
-          api: state.api,
-          defaultLocale: undefined,
-          description: params.description,
-          name: params.name,
-          slug,
-          user,
-        })
-        .once()
-        .returns(Promise.resolve());
-
-      _createCollection(params);
-
-      const expectedAction = closeFormOverlay(formOverlayId);
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-
-      mockApi.verify();
-    });
-
-    it('redirects to the new collection after create', async () => {
-      mockApi.expects('createCollection').returns(Promise.resolve());
-
-      _createCollection();
-
-      const { lang, clientApp } = clientData.state.api;
-      const expectedAction = pushLocation(
-        `/${lang}/${clientApp}/collections/${user}/${slug}/`
-      );
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-
-      mockApi.verify();
-    });
-
-    it('clears the error handler', async () => {
-      _createCollection();
-
-      const expectedAction = errorHandler.createClearingAction();
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-    });
-
-    it('begins and finishes a form submit', async () => {
-      mockApi.expects('createCollection').returns(Promise.resolve());
-
-      _createCollection();
-
-      for (const expectedAction of [
-        beginFormOverlaySubmit(formOverlayId),
-        finishFormOverlaySubmit(formOverlayId),
-      ]) {
-        // eslint-disable-next-line no-await-in-loop
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
-      }
+      });
+
+      it('begins and finishes a form submit', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+        _updateCollection({ formOverlayId });
+
+        for (const expectedAction of [
+          beginFormOverlaySubmit(formOverlayId),
+          finishFormOverlaySubmit(formOverlayId),
+        ]) {
+          // eslint-disable-next-line no-await-in-loop
+          const action = await sagaTester.waitFor(expectedAction.type);
+          expect(action).toEqual(expectedAction);
+        }
+      });
+
+      it('closes the form overlay', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        _updateCollection({ formOverlayId });
+
+        const expectedAction = closeFormOverlay(formOverlayId);
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+      });
+
+      it('handles errors', async () => {
+        const error = new Error('some API error maybe');
+
+        mockApi
+          .expects('updateCollection')
+          .returns(Promise.reject(error));
+
+        _updateCollection({ formOverlayId });
+
+        const expectedAction = errorHandler.createErrorAction(error);
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+
+        expect(sagaTester.getCalledActions()[4])
+          .toEqual(finishFormOverlaySubmit(formOverlayId));
+
+        // Make sure the form overlay is not closed on error.
+        expect(
+          sagaTester.getCalledActions().map((anyAction) => anyAction.type)
+        ).not.toContain(closeFormOverlay(formOverlayId).type);
+      });
     });
 
-    it('closes the form overlay', async () => {
-      mockApi.expects('createCollection').returns(Promise.resolve());
+    describe('update logic', () => {
+      it('sends a request to the collection API', async () => {
+        const params = {
+          collectionSlug: 'a-collection',
+          description: { 'en-US': 'New collection description' },
+          formOverlayId,
+          name: { 'en-US': 'New collection name' },
+          slug: 'new-slug',
+          user,
+        };
+        const state = sagaTester.getState();
 
-      _createCollection();
+        mockApi
+          .expects('updateCollection')
+          .withArgs({
+            api: state.api,
+            collectionSlug: params.collectionSlug,
+            defaultLocale: undefined,
+            description: params.description,
+            name: params.name,
+            slug: params.slug,
+            user,
+          })
+          .once()
+          .returns(Promise.resolve());
 
-      const expectedAction = closeFormOverlay(formOverlayId);
+        _updateCollection(params);
 
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
+        const expectedAction = finishFormOverlaySubmit(params.formOverlayId);
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
+
+      it('deletes collection object after successful update', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        // For this test, make sure the slug is not getting updated.
+        _updateCollection({ collectionSlug, slug: undefined });
+
+        const expectedAction = deleteCollectionBySlug(collectionSlug);
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
+
+      it('does not delete collection when slug is changed', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        _updateCollection({
+          collectionSlug, formOverlayId, slug: 'new-slug',
+        });
+
+        await sagaTester.waitFor(
+          finishFormOverlaySubmit(formOverlayId).type
+        );
+        mockApi.verify();
+
+        // Make sure the the collection is not deleted.
+        expect(
+          sagaTester.getCalledActions().map((action) => action.type)
+        ).not.toContain(deleteCollectionBySlug(collectionSlug).type);
+      });
+
+      it('redirects to the existing slug after update', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        // Update everything except the slug.
+        _updateCollection({
+          collectionSlug, user, slug: undefined,
+        });
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
+        );
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+
+        mockApi.verify();
+      });
+
+      it('redirects to the new slug after update', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const newSlug = 'new-slug';
+        _updateCollection({ user, slug: newSlug });
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${newSlug}/`
+        );
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
     });
 
-    it('handles errors', async () => {
-      const error = new Error('some API error maybe');
+    describe('create logic', () => {
+      it('sends a request to the collections API', async () => {
+        const params = {
+          description: { 'en-US': 'Collection description' },
+          formOverlayId,
+          name: { 'en-US': 'Collection name' },
+          slug,
+          user,
+        };
+        const state = sagaTester.getState();
 
-      mockApi
-        .expects('createCollection')
-        .returns(Promise.reject(error));
+        mockApi
+          .expects('createCollection')
+          .withArgs({
+            api: state.api,
+            defaultLocale: undefined,
+            description: params.description,
+            name: params.name,
+            slug,
+            user,
+          })
+          .once()
+          .returns(Promise.resolve());
 
-      _createCollection();
+        _createCollection(params);
 
-      const expectedAction = errorHandler.createErrorAction(error);
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
+        const expectedAction = closeFormOverlay(formOverlayId);
 
-      expect(sagaTester.getCalledActions()[4])
-        .toEqual(finishFormOverlaySubmit(formOverlayId));
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
 
-      // Make sure the form overlay is not closed on error.
-      expect(
-        sagaTester.getCalledActions().map((anyAction) => anyAction.type)
-      ).not.toContain(closeFormOverlay(formOverlayId).type);
+        mockApi.verify();
+      });
+
+      it('redirects to the new collection after create', async () => {
+        const params = {
+          slug,
+          user,
+        };
+
+        mockApi.expects('createCollection').returns(Promise.resolve());
+        _createCollection(params);
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+        );
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+
+        mockApi.verify();
+      });
     });
   });
 });
