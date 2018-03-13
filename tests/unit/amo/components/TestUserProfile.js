@@ -278,7 +278,7 @@ describe(__filename, () => {
 
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
   });
-  
+
   it('still renders a report abuse component if user is not loaded', () => {
     // The ReportUserAbuse handles an empty `user` object so we should
     // always pass the `user` prop to it.
