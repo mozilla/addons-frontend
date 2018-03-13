@@ -43,6 +43,7 @@ describe(__filename, () => {
       location: fakeRouterLocation(),
       onSearch: sinon.stub(),
       onSuggestionSelected: sinon.stub(),
+      selectSuggestionText: 'Go to the extension detail page',
       store,
       ...customProps,
     };
@@ -482,7 +483,7 @@ describe(__filename, () => {
       expect(suggestion).toHaveProp('iconUrl', suggestionData.iconUrl);
     });
 
-    it('renders a placeholder while loading', () => {
+    it('renders search suggestion in a loading state', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(autocompleteStart({
         errorHandlerId: 'some-error-handler',
@@ -504,12 +505,6 @@ describe(__filename, () => {
       const suggestion = renderSuggestion({ root });
 
       expect(suggestion).toHaveProp('arrowAlt', selectSuggestionText);
-    });
-
-    it('renders default arrow alt text', () => {
-      const suggestion = renderSuggestion();
-
-      expect(suggestion).toHaveProp('arrowAlt', 'Go to the add-on page');
     });
   });
 
@@ -541,7 +536,7 @@ describe(__filename, () => {
         .toEqual(root.find(Autosuggest).prop('suggestions'));
     });
 
-    it('returns placeholders while loading', () => {
+    it('configures search suggestions in a loading state', () => {
       const { store } = dispatchClientMetadata();
       store.dispatch(autocompleteStart({
         errorHandlerId: 'some-error-handler',
@@ -551,10 +546,9 @@ describe(__filename, () => {
       const root = render({ store });
       const suggestions = getSuggestions(root);
 
-      expect(suggestions[0]).toMatchObject({ loading: true });
-
       // Exactly 10 placeholders are returned.
       expect(suggestions).toHaveLength(10);
+      expect(suggestions[0]).toMatchObject({ name: 'Loading' });
     });
   });
 

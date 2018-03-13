@@ -57,9 +57,8 @@ type Props = {|
   onSearch: (SearchFilters) => void,
   onSuggestionSelected: (SuggestionType) => void,
   query?: string,
-  // This is optional accessibility text for the icon associated with
-  // selecting a search suggestion from the list.
-  selectSuggestionText?: string,
+  // This is accessibility text for what selecting a suggestion will do.
+  selectSuggestionText: string,
   suggestions: Array<SuggestionType>,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -105,6 +104,8 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
     invariant(props.onSearch, 'The onSearch property is required');
     invariant(props.onSuggestionSelected,
       'The onSuggestionSelected property is required');
+    invariant(props.selectSuggestionText,
+      'The selectSuggestionText property is required');
 
     this.state = {
       autocompleteIsOpen: false,
@@ -131,7 +132,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
     return {
       operatingSystem: convertOSToFilterValue(userAgentInfo.os.name),
       ...filtersFromLocation,
-      ...{ query },
+      query,
     };
   }
 
@@ -179,11 +180,11 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
 
   getSuggestions(): Array<SuggestionType> {
     if (this.props.loadingSuggestions) {
-      // 10 is the maximum number of results returned by the API
+      // Return 10 pseudo suggestion objects while loading.
+      // 10 is the maximum number of results returned by the API.
       return Array(10).fill({
         iconUrl: getAddonIconUrl(),
         name: this.props.i18n.gettext('Loading'),
-        loading: true,
         url: undefined,
       });
     }
@@ -222,10 +223,10 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
   }
 
   handleSuggestionSelected = (
-    e: SyntheticEvent<any>,
+    event: SyntheticEvent<any>,
     { suggestion }: {| suggestion: SuggestionType |}
   ) => {
-    e.preventDefault();
+    event.preventDefault();
 
     if (this.props.loadingSuggestions) {
       log.debug('Ignoring a click on the suggestion while loading');
@@ -237,17 +238,15 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
   }
 
   renderSuggestion = (suggestion: SuggestionType) => {
-    const { i18n, loadingSuggestions, selectSuggestionText } = this.props;
+    const { loadingSuggestions, selectSuggestionText } = this.props;
     const { name, iconUrl } = suggestion;
 
-    const arrowAlt =
-      selectSuggestionText || i18n.gettext('Go to the add-on page');
     return (
       <SearchSuggestion
         name={name}
         iconUrl={iconUrl}
         loading={loadingSuggestions}
-        arrowAlt={arrowAlt}
+        arrowAlt={selectSuggestionText}
       />
     );
   }

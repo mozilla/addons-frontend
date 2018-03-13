@@ -10,6 +10,7 @@ import {
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
 import {
+  fakeI18n,
   fakeRouterLocation,
   shallowUntilTarget,
   simulateComponentCallback,
@@ -28,6 +29,7 @@ describe(__filename, () => {
 
   const getProps = (customProps = {}) => {
     return {
+      i18n: fakeI18n(),
       pathname: '/search/',
       router: fakeRouter,
       store: dispatchClientMetadata().store,

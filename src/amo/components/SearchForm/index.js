@@ -7,10 +7,12 @@ import { withRouter } from 'react-router';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
+import translate from 'core/i18n/translate';
 import type {
   SearchFilters, SuggestionType,
 } from 'amo/components/AutoSearchInput';
 import type { ApiStateType } from 'core/reducers/api';
+import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
@@ -19,6 +21,7 @@ type Props = {|
   apiLang: string | null,
   className?: string,
   clientApp: string | null,
+  i18n: I18nType,
   pathname: string,
   query?: string,
   router: ReactRouterType,
@@ -42,7 +45,7 @@ export class SearchFormBase extends React.Component<Props> {
   }
 
   render() {
-    const { className, query } = this.props;
+    const { className, i18n, query } = this.props;
 
     return (
       <form
@@ -56,6 +59,7 @@ export class SearchFormBase extends React.Component<Props> {
           onSearch={this.onSearch}
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}
+          selectSuggestionText={i18n.gettext('Go to the add-on page')}
         />
       </form>
     );
@@ -73,4 +77,5 @@ export function mapStateToProps(
 export default compose(
   withRouter,
   connect(mapStateToProps),
+  translate(),
 )(SearchFormBase);
