@@ -51,7 +51,7 @@ jobs:
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
             docker push $DOCKERHUB_REPO:$CIRCLE_TAG
-  release-master: # build formaster
+  release-master: # build for master
     machine: true
     working_directory: ~/addons-frontend
     steps:
