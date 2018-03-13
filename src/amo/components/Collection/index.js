@@ -35,6 +35,7 @@ import type {
 } from 'amo/reducers/collections';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UsersStateType } from 'amo/reducers/users';
+import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
@@ -44,7 +45,7 @@ import './styles.scss';
 type Props = {|
   _config: typeof config,
   collection: CollectionType | null,
-  dispatch: Function,
+  dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
