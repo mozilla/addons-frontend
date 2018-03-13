@@ -31,8 +31,8 @@ import {
   createInternalAddon, fetchAddon as fetchAddonAction, loadAddons,
 } from 'core/reducers/addons';
 import {
-  fetchOtherAddonsByAuthors,
-  loadOtherAddonsByAuthors,
+  fetchAddonsByAuthors,
+  loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
@@ -140,8 +140,8 @@ describe(__filename, () => {
     return loadAddons(createFetchAddonResult(addon).entities);
   };
 
-  const _loadOtherAddonsByAuthors = ({ addon, addonsByAuthors }) => {
-    return loadOtherAddonsByAuthors({
+  const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
+    return loadAddonsByAuthors({
       slug: addon.slug,
       addons: addonsByAuthors,
     });
@@ -1064,7 +1064,7 @@ describe(__filename, () => {
       store.dispatch(_loadAddons({ addon }));
 
       if (addonsByAuthors) {
-        store.dispatch(_loadOtherAddonsByAuthors({ addon, addonsByAuthors }));
+        store.dispatch(_loadAddonsByAuthors({ addon, addonsByAuthors }));
       }
 
       return { store };
@@ -1084,7 +1084,7 @@ describe(__filename, () => {
 
       renderComponent({ params: { slug: addon.slug }, store });
 
-      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+      sinon.assert.calledWith(fakeDispatch, fetchAddonsByAuthors({
         addonType: addon.type,
         authors: addon.authors.map((author) => author.username),
         errorHandlerId: createStubErrorHandler().id,
@@ -1128,7 +1128,7 @@ describe(__filename, () => {
       ).addon;
       root.setProps({ addon: addonFromState });
 
-      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+      sinon.assert.calledWith(fakeDispatch, fetchAddonsByAuthors({
         addonType: newAddon.type,
         authors: newAddon.authors.map((author) => author.username),
         errorHandlerId: createStubErrorHandler().id,

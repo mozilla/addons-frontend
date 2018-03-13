@@ -1,9 +1,9 @@
 import { ADDON_TYPE_THEME } from 'core/constants';
 import reducer, {
-  OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
-  fetchOtherAddonsByAuthors,
+  ADDONS_BY_AUTHORS_PAGE_SIZE,
+  fetchAddonsByAuthors,
   initialState,
-  loadOtherAddonsByAuthors,
+  loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
@@ -19,7 +19,7 @@ describe(__filename, () => {
     it('ignores unrelated actions', () => {
       // Load some initial state to be sure that an unrelated action does not
       // change it.
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
+      const state = reducer(undefined, loadAddonsByAuthors({
         slug: fakeAddon.slug,
         addons: [fakeAddon],
       }));
@@ -28,7 +28,7 @@ describe(__filename, () => {
     });
 
     it('allows an empty list of add-ons', () => {
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
+      const state = reducer(undefined, loadAddonsByAuthors({
         slug: 'addon-slug',
         addons: [],
       }));
@@ -38,7 +38,7 @@ describe(__filename, () => {
     });
 
     it('adds related add-ons by slug', () => {
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
+      const state = reducer(undefined, loadAddonsByAuthors({
         slug: 'addon-slug',
         addons: [fakeAddon],
       }));
@@ -49,26 +49,26 @@ describe(__filename, () => {
 
     it('always ensures the page size is consistent', () => {
       const slug = 'addon-slug';
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
+      const state = reducer(undefined, loadAddonsByAuthors({
         slug,
         // This is the case where there are more add-ons loaded than needed.
-        addons: Array(OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
+        addons: Array(ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
       }));
       expect(state.byAddonSlug[slug])
-        .toHaveLength(OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE);
+        .toHaveLength(ADDONS_BY_AUTHORS_PAGE_SIZE);
     });
 
     it('resets the loaded add-ons', () => {
       const slug = 'addon-slug';
 
-      const previousState = reducer(undefined, loadOtherAddonsByAuthors({
+      const previousState = reducer(undefined, loadAddonsByAuthors({
         addons: [fakeAddon],
         slug,
       }));
       expect(previousState.byAddonSlug)
         .toEqual({ 'addon-slug': [createInternalAddon(fakeAddon)] });
 
-      const state = reducer(previousState, fetchOtherAddonsByAuthors({
+      const state = reducer(previousState, fetchAddonsByAuthors({
         authors: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
@@ -79,7 +79,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('fetchOtherAddonsByAuthors()', () => {
+  describe('fetchAddonsByAuthors()', () => {
     const getParams = () => {
       return {
         authors: ['user1', 'user2'],
@@ -93,7 +93,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.errorHandlerId;
       expect(() => {
-        fetchOtherAddonsByAuthors(params);
+        fetchAddonsByAuthors(params);
       }).toThrow(/An errorHandlerId is required/);
     });
 
@@ -101,7 +101,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.slug;
       expect(() => {
-        fetchOtherAddonsByAuthors(params);
+        fetchAddonsByAuthors(params);
       }).toThrow(/An add-on slug is required/);
     });
 
@@ -109,7 +109,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.addonType;
       expect(() => {
-        fetchOtherAddonsByAuthors(params);
+        fetchAddonsByAuthors(params);
       }).toThrow(/An add-on type is required/);
     });
 
@@ -117,7 +117,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.authors;
       expect(() => {
-        fetchOtherAddonsByAuthors(params);
+        fetchAddonsByAuthors(params);
       }).toThrow(/Authors are required/);
     });
 
@@ -125,12 +125,12 @@ describe(__filename, () => {
       const params = getParams();
       params.authors = 'invalid-type';
       expect(() => {
-        fetchOtherAddonsByAuthors(params);
+        fetchAddonsByAuthors(params);
       }).toThrow(/The authors parameter must be an array/);
     });
   });
 
-  describe('loadOtherAddonsByAuthors()', () => {
+  describe('loadAddonsByAuthors()', () => {
     const getParams = () => {
       return {
         addons: [fakeAddon],
@@ -142,7 +142,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.slug;
       expect(() => {
-        loadOtherAddonsByAuthors(params);
+        loadAddonsByAuthors(params);
       }).toThrow(/An add-on slug is required/);
     });
 
@@ -150,7 +150,7 @@ describe(__filename, () => {
       const params = getParams();
       delete params.addons;
       expect(() => {
-        loadOtherAddonsByAuthors(params);
+        loadAddonsByAuthors(params);
       }).toThrow(/A set of add-ons is required/);
     });
   });

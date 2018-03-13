@@ -11,30 +11,30 @@ export const initialState: State = {
   byAddonSlug: {},
 };
 
-export const OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE = 6;
+export const ADDONS_BY_AUTHORS_PAGE_SIZE = 6;
 
 // For further information about this notation, see:
 // https://github.com/mozilla/addons-frontend/pull/3027#discussion_r137661289
-export const FETCH_OTHER_ADDONS_BY_AUTHORS: 'FETCH_OTHER_ADDONS_BY_AUTHORS'
-  = 'FETCH_OTHER_ADDONS_BY_AUTHORS';
-export const LOAD_OTHER_ADDONS_BY_AUTHORS: 'LOAD_OTHER_ADDONS_BY_AUTHORS'
-  = 'LOAD_OTHER_ADDONS_BY_AUTHORS';
+export const FETCH_ADDONS_BY_AUTHORS: 'FETCH_ADDONS_BY_AUTHORS'
+  = 'FETCH_ADDONS_BY_AUTHORS';
+export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS'
+  = 'LOAD_ADDONS_BY_AUTHORS';
 
-type FetchOtherAddonsByAuthorsParams = {|
+type FetchAddonsByAuthorsParams = {|
   addonType: string,
   authors: Array<string>,
   errorHandlerId: string,
   slug: string,
 |};
 
-type FetchOtherAddonsByAuthorsAction = {|
-  type: typeof FETCH_OTHER_ADDONS_BY_AUTHORS,
-  payload: FetchOtherAddonsByAuthorsParams,
+type FetchAddonsByAuthorsAction = {|
+  type: typeof FETCH_ADDONS_BY_AUTHORS,
+  payload: FetchAddonsByAuthorsParams,
 |};
 
-export const fetchOtherAddonsByAuthors = (
-  { addonType, authors, errorHandlerId, slug }: FetchOtherAddonsByAuthorsParams
-): FetchOtherAddonsByAuthorsAction => {
+export const fetchAddonsByAuthors = (
+  { addonType, authors, errorHandlerId, slug }: FetchAddonsByAuthorsParams
+): FetchAddonsByAuthorsAction => {
   if (!errorHandlerId) {
     throw new Error('An errorHandlerId is required');
   }
@@ -56,7 +56,7 @@ export const fetchOtherAddonsByAuthors = (
   }
 
   return {
-    type: FETCH_OTHER_ADDONS_BY_AUTHORS,
+    type: FETCH_ADDONS_BY_AUTHORS,
     payload: {
       addonType,
       authors,
@@ -66,19 +66,19 @@ export const fetchOtherAddonsByAuthors = (
   };
 };
 
-type LoadOtherAddonsByAuthorsParams = {|
+type LoadAddonsByAuthorsParams = {|
   slug: string,
   addons: Array<ExternalAddonType>,
 |};
 
-type LoadOtherAddonsByAuthorsAction = {|
-  type: typeof LOAD_OTHER_ADDONS_BY_AUTHORS,
-  payload: LoadOtherAddonsByAuthorsParams,
+type LoadAddonsByAuthorsAction = {|
+  type: typeof LOAD_ADDONS_BY_AUTHORS,
+  payload: LoadAddonsByAuthorsParams,
 |};
 
-export const loadOtherAddonsByAuthors = (
-  { addons, slug }: LoadOtherAddonsByAuthorsParams
-): LoadOtherAddonsByAuthorsAction => {
+export const loadAddonsByAuthors = (
+  { addons, slug }: LoadAddonsByAuthorsParams
+): LoadAddonsByAuthorsAction => {
   if (!slug) {
     throw new Error('An add-on slug is required.');
   }
@@ -88,21 +88,21 @@ export const loadOtherAddonsByAuthors = (
   }
 
   return {
-    type: LOAD_OTHER_ADDONS_BY_AUTHORS,
+    type: LOAD_ADDONS_BY_AUTHORS,
     payload: { slug, addons },
   };
 };
 
 type Action =
-  | FetchOtherAddonsByAuthorsAction
-  | LoadOtherAddonsByAuthorsAction;
+  | FetchAddonsByAuthorsAction
+  | LoadAddonsByAuthorsAction;
 
 const reducer = (
   state: State = initialState,
   action: Action
 ): State => {
   switch (action.type) {
-    case FETCH_OTHER_ADDONS_BY_AUTHORS:
+    case FETCH_ADDONS_BY_AUTHORS:
       return {
         ...state,
         byAddonSlug: {
@@ -110,13 +110,13 @@ const reducer = (
           [action.payload.slug]: undefined,
         },
       };
-    case LOAD_OTHER_ADDONS_BY_AUTHORS:
+    case LOAD_ADDONS_BY_AUTHORS:
       return {
         ...state,
         byAddonSlug: {
           ...state.byAddonSlug,
           [action.payload.slug]: action.payload.addons
-            .slice(0, OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE)
+            .slice(0, ADDONS_BY_AUTHORS_PAGE_SIZE)
             .map((addon) => createInternalAddon(addon)),
         },
       };
