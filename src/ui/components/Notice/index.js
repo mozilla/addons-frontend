@@ -7,8 +7,9 @@ import Button from 'ui/components/Button';
 import './styles.scss';
 
 const errorType: 'error' = 'error';
+const genericType: 'generic' = 'generic';
 const successType: 'success' = 'success';
-const validTypes = [errorType, successType];
+const validTypes = [errorType, genericType, successType];
 
 type Props = {
   action?: Function,
@@ -22,11 +23,9 @@ type Props = {
  * A Photon style notification bar.
  *
  * See https://design.firefox.com/photon/components/message-bars.html
- *
- * TODO: implement generic notices and warnings.
  */
 const Notice = ({
-  action, actionText, children, className, type,
+  action, actionText, children, className, type = 'generic',
 }: Props) => {
   if (!validTypes.includes(type)) {
     throw new Error(`Unknown type: ${type}`);
