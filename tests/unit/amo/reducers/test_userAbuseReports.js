@@ -7,7 +7,6 @@ import userAbuseReportsReducer, {
   sendUserAbuseReport,
   showUserAbuseReportUI,
 } from 'amo/reducers/userAbuseReports';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeUserAbuseReport,
   createUserAccountResponse,
@@ -134,8 +133,6 @@ describe(__filename, () => {
       });
 
       it('allows abuse reports for multiple users', () => {
-        const { store } = dispatchClientMetadata();
-
         const firstReport = createFakeUserAbuseReport({
           message: 'This user is mean',
           reporter: null,
@@ -147,18 +144,18 @@ describe(__filename, () => {
           user: createUserAccountResponse({ id: 51 }),
         });
 
-        store.dispatch(loadUserAbuseReport({
+        let state = userAbuseReportsReducer(initialState, loadUserAbuseReport({
           message: firstReport.message,
           reporter: firstReport.reporter,
           userId: firstReport.user.id,
         }));
-        store.dispatch(loadUserAbuseReport({
+        state = userAbuseReportsReducer(state, loadUserAbuseReport({
           message: secondReport.message,
           reporter: secondReport.reporter,
           userId: secondReport.user.id,
         }));
 
-        expect(store.getState().userAbuseReports).toMatchObject({
+        expect(state).toMatchObject({
           byUserId: {
             [firstReport.user.id]: { message: 'This user is mean' },
             [secondReport.user.id]: { message: 'This user is boring' },
