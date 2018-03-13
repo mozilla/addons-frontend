@@ -40,6 +40,14 @@ export function autocompleteLoad({ results }) {
   };
 }
 
+export const createInternalSuggestion = (externalSuggestion) => {
+  return {
+    iconUrl: getAddonIconUrl(externalSuggestion),
+    name: externalSuggestion.name,
+    url: externalSuggestion.url,
+  };
+};
+
 export default function reducer(state = initialState, action = {}) {
   const { payload } = action;
 
@@ -60,11 +68,7 @@ export default function reducer(state = initialState, action = {}) {
         // TODO: Remove this when `null` names are not returned. See:
         // https://github.com/mozilla/addons-server/issues/6189
         .filter((result) => result.name !== null)
-        .map((result) => ({
-          name: result.name,
-          url: result.url,
-          iconUrl: getAddonIconUrl(result),
-        }));
+        .map((result) => createInternalSuggestion(result));
 
       return {
         ...state,

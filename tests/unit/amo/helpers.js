@@ -266,12 +266,15 @@ export function createAddonsApiResult(results) {
   return normalize({ results }, { results: [addonSchema] });
 }
 
-export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+export function createFakeAutocompleteResult({
+  name = 'suggestion-result', ...props
+} = {}) {
   return {
     id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
+    ...props,
   };
 }
 

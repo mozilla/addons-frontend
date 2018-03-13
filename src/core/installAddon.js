@@ -4,7 +4,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
-import { oneLine, oneLineTrim } from 'common-tags';
+import { oneLine } from 'common-tags';
 import config from 'config';
 
 import { setInstallState } from 'core/actions/installations';
@@ -184,17 +184,17 @@ export function makeMapDispatchToProps({
     }
 
     if (ownProps.platformFiles === undefined) {
-      throw new Error(oneLineTrim`The platformFiles prop is required;
+      throw new Error(oneLine`The platformFiles prop is required;
         ensure the wrapped component defines this property`);
     }
 
     if (ownProps.userAgentInfo === undefined) {
-      throw new Error(oneLineTrim`The userAgentInfo prop is required;
+      throw new Error(oneLine`The userAgentInfo prop is required;
         ensure the wrapped component defines this property`);
     }
 
     if (ownProps.location === undefined) {
-      throw new Error(oneLineTrim`The location prop is required;
+      throw new Error(oneLine`The location prop is required;
         ensure the wrapped component defines this property`);
     }
 
