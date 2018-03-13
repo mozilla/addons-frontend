@@ -115,23 +115,6 @@ describe(__filename, () => {
           .toEqual('I am Groot!');
       });
 
-      it('requires a defined reporter', () => {
-        expect(() => {
-          const partialParams = abuseReportResponse();
-          delete partialParams.reporter;
-
-          loadUserAbuseReport(partialParams);
-        }).toThrow('reporter cannot be undefined');
-      });
-
-      it('allows reporter to be `null`', () => {
-        expect(() => {
-          const paramsWithNull = abuseReportResponse({ reporter: null });
-
-          loadUserAbuseReport(paramsWithNull);
-        }).not.toThrow('reporter cannot be undefined');
-      });
-
       it('allows abuse reports for multiple users', () => {
         const firstReport = createFakeUserAbuseReport({
           message: 'This user is mean',

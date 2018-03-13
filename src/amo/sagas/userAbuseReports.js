@@ -18,7 +18,6 @@ import type { ReportUserParams } from 'core/api/abuse';
 
 
 export function* reportUser({
-  // TODO: Use a type for this.
   payload: {
     errorHandlerId,
     message,
