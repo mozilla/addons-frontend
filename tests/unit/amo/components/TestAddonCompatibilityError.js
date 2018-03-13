@@ -12,6 +12,7 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
+import Notice from 'ui/components/Notice';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   fakeI18n, shallowUntilTarget, userAgentsByPlatform,
@@ -66,6 +67,26 @@ describe(__filename, () => {
     expect(
       root.find('.AddonCompatibilityError').render().text()
     ).toContain('You need to download Firefox to install this add-on.');
+  });
+
+  it('renders a generic notice for non-Firefox browsers', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.chrome41,
+    });
+    const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
+
+    expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
+      'type', 'generic');
+  });
+
+  it('renders an error notice for other reasons than non-Firefox', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.firefox57,
+    });
+    const root = render({ reason: INCOMPATIBLE_OVER_MAX_VERSION });
+
+    expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
+      'type', 'error');
   });
 
   it('renders a notice if add-on is over maxVersion/compat is strict', () => {
