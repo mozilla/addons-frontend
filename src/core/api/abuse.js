@@ -1,6 +1,5 @@
 /* @flow */
 import { callApi } from 'core/api';
-import type { UserType } from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 
 

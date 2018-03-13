@@ -1,7 +1,7 @@
 import SagaTester from 'redux-saga-tester';
 
 import * as api from 'core/api/abuse';
-import { CLEAR_ERROR, SET_ERROR } from 'core/constants';
+import { CLEAR_ERROR } from 'core/constants';
 import userAbuseReportsReducer, {
   abortUserAbuseReport,
   loadUserAbuseReport,
