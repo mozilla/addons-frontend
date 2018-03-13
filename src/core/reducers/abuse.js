@@ -1,6 +1,6 @@
 /* @flow */
 import type { AddonType } from 'core/types/addons';
-import type { AbuseReporter } from 'core/types/api';
+import type { AbuseReporter } from 'core/api/abuse';
 
 export const DISABLE_ADDON_ABUSE_BUTTON_UI = 'DISABLE_ADDON_ABUSE_BUTTON_UI';
 export const ENABLE_ADDON_ABUSE_BUTTON_UI = 'ENABLE_ADDON_ABUSE_BUTTON_UI';

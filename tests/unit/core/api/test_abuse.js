@@ -82,7 +82,7 @@ describe(__filename, () => {
       await reportUser({
         api: apiState,
         message,
-        user,
+        userId: user.id,
       });
 
       mockApi.verify();
