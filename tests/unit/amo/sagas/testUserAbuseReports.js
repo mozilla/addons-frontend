@@ -130,24 +130,4 @@ describe(__filename, () => {
     const calledAction = await sagaTester.waitFor(abortAction.type);
     expect(calledAction).toEqual(abortAction);
   });
-
-  it('throws an error if multiple reports are submitted for the same user', async () => {
-    const userId = createUserAccountResponse({ id: 50 }).id;
-
-    _sendUserAbuseReport({
-      message: 'This user is uncool!',
-      userId,
-    });
-
-    // Report the same add-on again; this will cause the reducer to throw
-    // an error and the saga should dispatch an error.
-    _sendUserAbuseReport({
-      message: 'Duplicate!',
-      userId,
-    });
-
-    await sagaTester.waitFor(SET_ERROR);
-    const calledAction = await sagaTester.waitFor(CLEAR_ERROR);
-    expect(calledAction).toEqual(errorHandler.createClearingAction());
-  });
 });
