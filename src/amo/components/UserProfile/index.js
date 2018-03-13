@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import { fetchUserAccount } from 'amo/reducers/users';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -153,6 +154,8 @@ export class UserProfileBase extends React.Component<Props> {
                 dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
               />
             ) : null}
+
+            <ReportUserAbuse className="UserProfile-abuse-button" user={user} />
           </Card>
         </div>
       </div>

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import UserProfile, { UserProfileBase } from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-// import ReportAbuseButton from 'amo/components/ReportAbuseButton';
+import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import { fetchUserAccount, getCurrentUser } from 'amo/reducers/users';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
@@ -92,23 +92,23 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  // it('renders the user avatar', () => {
-  //   const root = renderUserProfile();
+  it('renders the user avatar', () => {
+    const root = renderUserProfile();
 
-  //   expect(root.find('.UserProfile-user-info').shallow().find(UserAvatar))
-  //     .toHaveProp(
-  //       'user',
-  //       getCurrentUser(root.instance().props.store.getState().users)
-  //     );
-  // });
+    expect(root.find('.UserProfile-user-info').shallow().find(UserAvatar))
+      .toHaveProp(
+        'user',
+        getCurrentUser(root.instance().props.store.getState().users)
+      );
+  });
 
-  // it('renders a placeholder avatar while user is loading', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-ready' } });
+  it('renders a placeholder avatar while user is loading', () => {
+    const root = renderUserProfile({ params: { username: 'not-ready' } });
 
-  //   expect(
-  //     root.find('.UserProfile-user-info').shallow().find(UserAvatar)
-  //   ).toHaveProp('user', undefined);
-  // });
+    expect(
+      root.find('.UserProfile-user-info').shallow().find(UserAvatar)
+    ).toHaveProp('user', undefined);
+  });
 
   it("renders the user's name", () => {
     const root = renderUserProfile();
@@ -273,17 +273,19 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-biography')).toHaveLength(0);
   });
 
-  // it('renders a report abuse button if user is loaded', () => {
-  //   const root = renderUserProfile();
+  it('renders a report abuse button if user is loaded', () => {
+    const root = renderUserProfile();
 
-  //   expect(root.find(ReportAbuseButton)).toHaveLength(1);
-  // });
-  //
-  // it('renders no report abuse button if user is not loaded', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-loaded' } });
+    expect(root.find(ReportUserAbuse)).toHaveLength(1);
+  });
+  
+  it('still renders a report abuse component if user is not loaded', () => {
+    // The ReportUserAbuse handles an empty `user` object so we should
+    // always pass the `user` prop to it.
+    const root = renderUserProfile({ params: { username: 'not-loaded' } });
 
-  //   expect(root.find(ReportAbuseButton)).toHaveLength(0);
-  // });
+    expect(root.find(ReportUserAbuse)).toHaveLength(1);
+  });
 
   it('renders a not found page if the API request is a 404', () => {
     const { store } = dispatchSignInActions();
