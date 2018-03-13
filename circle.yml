@@ -1,0 +1,88 @@
+version: 2.0
+
+jobs:
+  build: # build for the master branch
+    machine: true
+    working_directory: ~/addons-frontend
+    steps:
+      - checkout
+      - run: docker info
+        # Build the container, using Circle's Docker cache. Only use 1 image per
+        # day to keep the cache size down.
+      - run:
+          name: Build the container ( Next 3 steps )
+          command: I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
+      - run: >
+          printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
+          "$CIRCLE_SHA1"
+          "$CIRCLE_TAG"
+          "$CIRCLE_PROJECT_USERNAME"
+          "$CIRCLE_PROJECT_REPONAME"
+          "$CIRCLE_BUILD_URL"
+          > version.json
+      - run: docker build --pull -t addons-frontend .
+      - run: docker images
+        # write the sha256 sum to an artifact to make image verification easier
+      - run:
+          name: Write the sha256 sum to an artifact
+          command:
+            docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
+        # Clean up any old images; save the new one.
+      - run:
+          name: Clean up any old images and save the new one.
+          command:
+            I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*; docker save addons-frontend | pigz --fast -c > ~/docker/$I; ls -l ~/docker
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./*
+  release-tag: # build for releases (tags)
+    machine: true
+    working_directory: ~/addons-frontend
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build docker image and push to repo
+          command: |
+            [ ! -z $DOCKERHUB_REPO ]
+            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            echo $DOCKERHUB_REPO:$CIRCLE_TAG
+            docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
+            docker images
+            docker push $DOCKERHUB_REPO:$CIRCLE_TAG
+  release-master: # build formaster
+    machine: true
+    working_directory: ~/addons-frontend
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build docker image and push to repo
+          command: |
+            [ ! -z $DOCKERHUB_REPO ]
+            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            docker tag addons-frontend $DOCKERHUB_REPO:latest
+            docker push $DOCKERHUB_REPO:latest
+workflows:
+  version: 2
+  build_deploy_release:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - release-tags:
+          requires:
+              - build
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+      - release-master:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
