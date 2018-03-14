@@ -3072,13 +3072,13 @@ eslint-config-amo@^1.1.0:
     eslint-plugin-jsx-a11y "^6.0.2"
     eslint-plugin-react "7.5.1"
 
-eslint-config-amo@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.6.0.tgz#9abf47de0bc0dc3603bfb2bbeb7eb2246259c1bd"
+eslint-config-amo@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-amo/-/eslint-config-amo-1.7.0.tgz#2a5b5174997b001323150692de8d02a93ecb2c47"
   dependencies:
     eslint-config-airbnb "16.1.0"
     eslint-plugin-import "2.8.0"
-    eslint-plugin-jest "21.7.0"
+    eslint-plugin-jest "21.13.0"
     eslint-plugin-jsx-a11y "^6.0.2"
     eslint-plugin-react "7.5.1"
 
@@ -3111,13 +3111,13 @@ eslint-plugin-import@2.8.0:
     minimatch "^3.0.3"
     read-pkg-up "^2.0.0"
 
+eslint-plugin-jest@21.13.0:
+  version "21.13.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.13.0.tgz#9fc903158d79e953aefd861a55e8a8c9f6ab3d36"
+
 eslint-plugin-jest@21.6.2:
   version "21.6.2"
   resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.6.2.tgz#aaa7b37c621e49aa0b13f4dc5f7038f73c64b438"
-
-eslint-plugin-jest@21.7.0:
-  version "21.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest/-/eslint-plugin-jest-21.7.0.tgz#651f1c6ce999af3ac59ab8bf8a376d742fd0fc23"
 
 eslint-plugin-jsx-a11y@^6.0.2:
   version "6.0.3"
@@ -4471,9 +4471,9 @@ intl@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/intl/-/intl-1.2.5.tgz#82244a2190c4e419f8371f5aa34daa3420e2abde"
 
-invariant@2.2.3:
-  version "2.2.3"
-  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.3.tgz#1a827dfde7dcbd7c323f0ca826be8fa7c5e9d688"
+invariant@2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
     loose-envify "^1.0.0"
 
@@ -7349,9 +7349,9 @@ range-parser@~1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.0.3.tgz#6872823535c692e2c2a0103826afd82c2e0ff175"
 
-raven-js@3.23.1:
-  version "3.23.1"
-  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.23.1.tgz#34a5d7b5b3dd626a3d59e7a264e1d19a4c799cdb"
+raven-js@3.23.2:
+  version "3.23.2"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.23.2.tgz#b71df14a066e450326b5356cc7fcc035510fdb26"
 
 raven@2.3.0:
   version "2.3.0"
