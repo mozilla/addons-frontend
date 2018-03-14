@@ -49,6 +49,8 @@ type Props = {|
   debounce: typeof defaultDebounce,
   dispatch: DispatchFunc,
   i18n: I18nType,
+  inputLabelIsHidden?: boolean,
+  inputLabelText?: string,
   // This is the name property of the <input> tag.
   inputName: string,
   inputPlaceholder?: string,
@@ -96,6 +98,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
 
   static defaultProps = {
     debounce: defaultDebounce,
+    inputLabelIsHidden: false,
   };
 
   constructor(props: Props) {
@@ -255,6 +258,8 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
     const {
       errorHandler,
       i18n,
+      inputLabelIsHidden,
+      inputLabelText,
       inputName,
       inputPlaceholder,
     } = this.props;
@@ -290,45 +295,49 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
       >
         {errorHandler.renderErrorIfPresent()}
         <label
-          className="visually-hidden"
+          className={makeClassName('AutoSearchInput-label', {
+            'visually-hidden': inputLabelIsHidden,
+          })}
           htmlFor={inputName}
         >
-          {i18n.gettext('Search')}
+          {inputLabelText || i18n.gettext('Search')}
         </label>
-        <Icon
-          className="AutoSearchInput-icon-magnifying-glass"
-          name="magnifying-glass"
-        />
-        <Autosuggest
-          focusInputOnSuggestionClick={false}
-          getSuggestionValue={(suggestion) => suggestion.name}
-          inputProps={inputProps}
-          onSuggestionsClearRequested={
-            this.handleSuggestionsClearRequested
-          }
-          onSuggestionsFetchRequested={
-            this.handleSuggestionsFetchRequested
-          }
-          onSuggestionSelected={this.handleSuggestionSelected}
-          ref={(autosuggest) => {
-            if (autosuggest) {
-              this.searchInput = autosuggest.input;
+        <div className="AutoSearchInput-search-box">
+          <Icon
+            className="AutoSearchInput-icon-magnifying-glass"
+            name="magnifying-glass"
+          />
+          <Autosuggest
+            focusInputOnSuggestionClick={false}
+            getSuggestionValue={(suggestion) => suggestion.name}
+            inputProps={inputProps}
+            onSuggestionsClearRequested={
+              this.handleSuggestionsClearRequested
             }
-          }}
-          renderSuggestion={this.renderSuggestion}
-          suggestions={this.getSuggestions()}
-          theme={theme}
-        />
-        <button
-          className="AutoSearchInput-submit-button"
-          onClick={this.handleSearch}
-          type="submit"
-        >
-          <span className="visually-hidden">
-            {i18n.gettext('Search')}
-          </span>
-          <Icon name="arrow" />
-        </button>
+            onSuggestionsFetchRequested={
+              this.handleSuggestionsFetchRequested
+            }
+            onSuggestionSelected={this.handleSuggestionSelected}
+            ref={(autosuggest) => {
+              if (autosuggest) {
+                this.searchInput = autosuggest.input;
+              }
+            }}
+            renderSuggestion={this.renderSuggestion}
+            suggestions={this.getSuggestions()}
+            theme={theme}
+          />
+          <button
+            className="AutoSearchInput-submit-button"
+            onClick={this.handleSearch}
+            type="submit"
+          >
+            <span className="visually-hidden">
+              {i18n.gettext('Search')}
+            </span>
+            <Icon name="arrow" />
+          </button>
+        </div>
       </div>
     );
   }

@@ -2,6 +2,10 @@
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
+.AutoSearchInput-search-box {
+  position: relative;
+}
+
 .AutoSearchInput-query {
   @include padding-end(6px);
   @include padding-start(28px);

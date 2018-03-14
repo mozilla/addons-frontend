@@ -199,6 +199,28 @@ describe(__filename, () => {
 
       sinon.assert.called(blurSpy);
     });
+
+    it('shows the input label by default', () => {
+      const root = render();
+
+      expect(root.find('.AutoSearchInput-label'))
+        .not.toHaveClassName('visually-hidden');
+    });
+
+    it('lets you hide the input label', () => {
+      const root = render({ inputLabelIsHidden: true });
+
+      expect(root.find('.AutoSearchInput-label'))
+        .toHaveClassName('visually-hidden');
+    });
+
+    it('lets you configure the input label text', () => {
+      const inputLabelText = 'Search for add-ons';
+      const root = render({ inputLabelText });
+
+      expect(root.find('.AutoSearchInput-label').text())
+        .toContain(inputLabelText);
+    });
   });
 
   describe('fetching search suggestions', () => {
