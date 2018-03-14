@@ -1,9 +1,8 @@
 # These environment variables must be set in CircleCI UI
 #
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
-# DOCKER_EMAIL   - login info for docker hub
-# DOCKER_USER
-# DOCKER_PASS
+# DOCKER_USER - Login user for docker hub
+# DOCKER_PASS - Login password for docker hub user
 version: 2.0
 
 jobs:
@@ -20,7 +19,7 @@ jobs:
         # day to keep the cache size down.
       - run:
           name: Build the container ( Next 3 steps )
-          command: I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
+          command: IMG="image-$(date +%j).gz"; if [[ -e ~/addons-frontend/docker/$IMG ]]; then echo "Loading $IMG"; pigz -d -c ~/addons-frontend/docker/$IMG | docker load; fi
       - run: >
           printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
           "$CIRCLE_SHA1"
@@ -34,24 +33,18 @@ jobs:
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
-            docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
+            docker images --no-trunc | awk '/^app/ {print $3}' | sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
       - run:
           name: Clean up any old images and save the new one.
           command: |
-            I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*
-            docker save addons-frontend | pigz --fast -c > ~/docker/$I
-            ls -l ~/docker
-      - save_cache:
-          key: docker-cache-{{ checksum "~/docker" }}
-          paths:
-            - ~/docker
+            IMG="image-$(date +%j).gz"; mkdir -p ~/addons-frontend/docker; rm ~/addons-frontend/docker/*; docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$IMG; ls -l ~/addons-frontend/docker
+            ls -l ~/addons-frontend/docker
       - persist_to_workspace:
           root: .
           paths:
             - ./*
   release-tag: # build for releases (tags)
     machine: true
-    working_directory: ~/addons-frontend
     steps:
       - attach_workspace:
           at: .
@@ -59,14 +52,13 @@ jobs:
           name: Build docker image and push to repo
           command: |
             [ ! -z $DOCKERHUB_REPO ]
-            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
             echo $DOCKERHUB_REPO:$CIRCLE_TAG
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
             docker push $DOCKERHUB_REPO:$CIRCLE_TAG
   release-master: # build for master
     machine: true
-    working_directory: ~/addons-frontend
     steps:
       - attach_workspace:
           at: .
@@ -74,7 +66,7 @@ jobs:
           name: Build docker image and push to repo
           command: |
             [ ! -z $DOCKERHUB_REPO ]
-            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker tag addons-frontend $DOCKERHUB_REPO:latest
             docker push $DOCKERHUB_REPO:latest
 workflows:
