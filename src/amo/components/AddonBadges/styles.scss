@@ -7,19 +7,13 @@
 
   @include respond-to(large) {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column;
+    position: absolute;
+    right: 0;
+    width: auto;
   }
 }
 
 .AddonBadges .Badge {
   @include text-align-end();
-
-  @include respond-to(large) {
-    @include margin-end(6px);
-    @include text-align-start();
-  }
-
-  @include respond-to(extraLarge) {
-    @include margin-end($padding-page-l);
-  }
 }
