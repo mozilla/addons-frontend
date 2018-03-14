@@ -50,7 +50,7 @@ jobs:
           at: .
       - run:
           name: Load saved image
-          command: docker load -i image-*
+          command: docker load -i docker/image-*
       - run:
           name: Build docker image and push to repo
           command: |
@@ -67,7 +67,7 @@ jobs:
           at: .
       - run:
           name: Load saved image
-          command: docker load -i image-*
+          command: docker load -i docker/image-*
       - run:
           name: Build docker image and push to repo
           command: |
