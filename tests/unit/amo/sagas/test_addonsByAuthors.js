@@ -67,25 +67,27 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authors, slug });
+    _fetchAddonsByAuthors({ authors, excludeAddonBySlug: slug });
 
-    const expectedLoadAction = loadAddonsByAuthors({ addons, slug });
+    const expectedLoadAction = loadAddonsByAuthors({
+      addons,
+      excludeAddonBySlug: slug,
+    });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
+    const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
 
-    const loadAction = sagaTester.getCalledActions()[2];
     expect(loadAction).toEqual(expectedLoadAction);
   });
 
   it('clears the error handler', async () => {
-    _fetchAddonsByAuthors({ authors: [], slug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authors: [], excludeAddonBySlug: fakeAddon.slug });
 
     const expectedAction = errorHandler.createClearingAction();
 
-    await sagaTester.waitFor(expectedAction.type);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    const errorAction = await sagaTester.waitFor(expectedAction.type);
+
+    expect(errorAction).toEqual(errorHandler.createClearingAction());
   });
 
   it('dispatches an error', async () => {
@@ -95,11 +97,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.reject(error));
 
-    _fetchAddonsByAuthors({ authors: [], slug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authors: [], excludeAddonBySlug: fakeAddon.slug });
 
     const errorAction = errorHandler.createErrorAction(error);
-    await sagaTester.waitFor(errorAction.type);
-    expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    const calledErrorAction = await sagaTester.waitFor(errorAction.type);
+
+    expect(calledErrorAction).toEqual(errorAction);
   });
 
   it('handles no API results', async () => {
@@ -123,14 +126,16 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authors, slug });
+    _fetchAddonsByAuthors({ authors, excludeAddonBySlug: slug });
 
-    const expectedLoadAction = loadAddonsByAuthors({ addons, slug });
+    const expectedLoadAction = loadAddonsByAuthors({
+      addons,
+      excludeAddonBySlug: slug,
+    });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
+    const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
 
-    const loadAction = sagaTester.getCalledActions()[2];
     expect(loadAction).toEqual(expectedLoadAction);
   });
 });

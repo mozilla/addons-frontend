@@ -20,7 +20,7 @@ describe(__filename, () => {
       // Load some initial state to be sure that an unrelated action does not
       // change it.
       const state = reducer(undefined, loadAddonsByAuthors({
-        slug: fakeAddon.slug,
+        excludeAddonBySlug: fakeAddon.slug,
         addons: [fakeAddon],
       }));
       const newState = reducer(state, { type: 'UNRELATED' });
@@ -29,7 +29,7 @@ describe(__filename, () => {
 
     it('allows an empty list of add-ons', () => {
       const state = reducer(undefined, loadAddonsByAuthors({
-        slug: 'addon-slug',
+        excludeAddonBySlug: 'addon-slug',
         addons: [],
       }));
       expect(state.byAddonSlug).toEqual({
@@ -39,7 +39,7 @@ describe(__filename, () => {
 
     it('adds related add-ons by slug', () => {
       const state = reducer(undefined, loadAddonsByAuthors({
-        slug: 'addon-slug',
+        excludeAddonBySlug: 'addon-slug',
         addons: [fakeAddon],
       }));
       expect(state.byAddonSlug).toEqual({
@@ -48,22 +48,42 @@ describe(__filename, () => {
     });
 
     it('always ensures the page size is consistent', () => {
-      const slug = 'addon-slug';
+      const excludeAddonBySlug = 'addon-slug';
       const state = reducer(undefined, loadAddonsByAuthors({
-        slug,
+        excludeAddonBySlug,
         // This is the case where there are more add-ons loaded than needed.
         addons: Array(ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
       }));
-      expect(state.byAddonSlug[slug])
+      expect(state.byAddonSlug[excludeAddonBySlug])
         .toHaveLength(ADDONS_BY_AUTHORS_PAGE_SIZE);
     });
 
-    it('resets the loaded add-ons', () => {
-      const slug = 'addon-slug';
+    it('returns state if no excluded slug is specified', () => {
+      const excludeAddonBySlug = 'addon-slug';
+      const fakeInternalAddon = createInternalAddon(fakeAddon);
 
       const previousState = reducer(undefined, loadAddonsByAuthors({
         addons: [fakeAddon],
-        slug,
+        excludeAddonBySlug,
+      }));
+      expect(previousState.byAddonSlug)
+        .toEqual({ 'addon-slug': [fakeInternalAddon] });
+
+      const state = reducer(previousState, fetchAddonsByAuthors({
+        authors: ['author2'],
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'error-handler-id',
+      }));
+
+      expect(state.byAddonSlug).toEqual({ 'addon-slug': [fakeInternalAddon] });
+    });
+
+    it('resets the loaded add-ons', () => {
+      const excludeAddonBySlug = 'addon-slug';
+
+      const previousState = reducer(undefined, loadAddonsByAuthors({
+        addons: [fakeAddon],
+        excludeAddonBySlug,
       }));
       expect(previousState.byAddonSlug)
         .toEqual({ 'addon-slug': [createInternalAddon(fakeAddon)] });
@@ -72,86 +92,91 @@ describe(__filename, () => {
         authors: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
-        slug,
+        excludeAddonBySlug,
       }));
-      expect(state.byAddonSlug)
-        .toEqual({ 'addon-slug': undefined });
+
+      expect(state.byAddonSlug).toEqual({ 'addon-slug': undefined });
     });
   });
 
-  describe('fetchAddonsByAuthors()', () => {
-    const getParams = () => {
-      return {
-        authors: ['user1', 'user2'],
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'error-handler-id',
-        slug: 'addon-slug',
-      };
-    };
+  // describe('fetchAddonsByAuthors()', () => {
+  //   const getParams = () => {
+  //     return {
+  //       authors: ['user1', 'user2'],
+  //       addonType: ADDON_TYPE_THEME,
+  //       errorHandlerId: 'error-handler-id',
+  //       excludeAddonBySlug: 'addon-slug',
+  //     };
+  //   };
 
-    it('requires an error id', () => {
-      const params = getParams();
-      delete params.errorHandlerId;
-      expect(() => {
-        fetchAddonsByAuthors(params);
-      }).toThrow(/An errorHandlerId is required/);
-    });
+  //   it('requires an error id', () => {
+  //     const params = getParams();
+  //     delete params.errorHandlerId;
+  //     expect(() => {
+  //       fetchAddonsByAuthors(params);
+  //     }).toThrow(/An errorHandlerId is required/);
+  //   });
 
-    it('requires a slug', () => {
-      const params = getParams();
-      delete params.slug;
-      expect(() => {
-        fetchAddonsByAuthors(params);
-      }).toThrow(/An add-on slug is required/);
-    });
+  //   it('requires a slug', () => {
+  //     const params = getParams();
+  //     delete params.slug;
+  //     expect(() => {
+  //       fetchAddonsByAuthors(params);
+  //     }).toThrow(/An add-on slug is required/);
+  //   });
 
-    it('requires an add-on type', () => {
-      const params = getParams();
-      delete params.addonType;
-      expect(() => {
-        fetchAddonsByAuthors(params);
-      }).toThrow(/An add-on type is required/);
-    });
+  //   it('requires an add-on type', () => {
+  //     const params = getParams();
+  //     delete params.addonType;
+  //     expect(() => {
+  //       fetchAddonsByAuthors(params);
+  //     }).toThrow(/An add-on type is required/);
+  //   });
 
-    it('requires some authors', () => {
-      const params = getParams();
-      delete params.authors;
-      expect(() => {
-        fetchAddonsByAuthors(params);
-      }).toThrow(/Authors are required/);
-    });
+  //   it('requires some authors', () => {
+  //     const params = getParams();
+  //     delete params.authors;
+  //     expect(() => {
+  //       fetchAddonsByAuthors(params);
+  //     }).toThrow(/Authors are required/);
+  //   });
 
-    it('requires an array of authors', () => {
-      const params = getParams();
-      params.authors = 'invalid-type';
-      expect(() => {
-        fetchAddonsByAuthors(params);
-      }).toThrow(/The authors parameter must be an array/);
-    });
-  });
+  //   it('requires an array of authors', () => {
+  //     const params = getParams();
+  //     params.authors = 'invalid-type';
+  //     expect(() => {
+  //       fetchAddonsByAuthors(params);
+  //     }).toThrow(/The authors parameter must be an array/);
+  //   });
+  // });
 
   describe('loadAddonsByAuthors()', () => {
     const getParams = () => {
       return {
         addons: [fakeAddon],
-        slug: 'addon-slug',
+        excludeAddonBySlug: fakeAddon.slug,
       };
     };
 
-    it('requires an add-on slug', () => {
+    it('returns state if no excludeAddonBySlug specified', () => {
       const params = getParams();
-      delete params.slug;
-      expect(() => {
-        loadAddonsByAuthors(params);
-      }).toThrow(/An add-on slug is required/);
+      delete params.excludeAddonBySlug;
+
+      const newState = reducer(initialState, loadAddonsByAuthors(params));
+
+      expect(newState).toEqual(initialState);
     });
 
-    it('requires an array of add-ons', () => {
+    it('returns modified state if excludeAddonBySlug is set', () => {
       const params = getParams();
-      delete params.addons;
-      expect(() => {
-        loadAddonsByAuthors(params);
-      }).toThrow(/A set of add-ons is required/);
+
+      const newState = reducer(initialState, loadAddonsByAuthors(params));
+
+      expect(newState).toMatchObject({
+        byAddonSlug: {
+          [fakeAddon.slug]: [createInternalAddon(fakeAddon)],
+        },
+      });
     });
   });
 });

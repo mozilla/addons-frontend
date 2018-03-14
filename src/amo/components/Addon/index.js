@@ -166,7 +166,7 @@ export class AddonBase extends React.Component {
       addonType: addon.type,
       authors: addon.authors.map((author) => author.username),
       errorHandlerId: errorHandler.id,
-      slug: addon.slug,
+      excludeAddonBySlug: addon.slug,
     }));
   }
 

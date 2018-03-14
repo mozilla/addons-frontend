@@ -11,7 +11,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* fetchAddonsByAuthors({ payload }) {
-  const { errorHandlerId, authors, slug, addonType } = payload;
+  const { errorHandlerId, authors, addonType, excludeAddonBySlug } = payload;
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -24,7 +24,7 @@ export function* fetchAddonsByAuthors({ payload }) {
       filters: {
         addonType,
         author: authors.join(','),
-        exclude_addons: slug,
+        exclude_addons: excludeAddonBySlug,
         page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
         sort: SEARCH_SORT_TRENDING,
       },
@@ -34,7 +34,7 @@ export function* fetchAddonsByAuthors({ payload }) {
     // https://github.com/mozilla/addons-frontend/issues/2917 is done.
     const addons = Object.values(response.entities.addons || {});
 
-    yield put(loadAddonsByAuthors({ addons, slug }));
+    yield put(loadAddonsByAuthors({ addons, excludeAddonBySlug }));
   } catch (error) {
     log.warn(`Search for addons by authors results failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));

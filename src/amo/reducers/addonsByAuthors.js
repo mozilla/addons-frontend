@@ -1,6 +1,8 @@
 /* @flow */
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import invariant from 'invariant';
+
 import { createInternalAddon } from 'core/reducers/addons';
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 
 type State = {
@@ -24,7 +26,7 @@ type FetchAddonsByAuthorsParams = {|
   addonType: string,
   authors: Array<string>,
   errorHandlerId: string,
-  slug: string,
+  excludeAddonBySlug?: string,
 |};
 
 type FetchAddonsByAuthorsAction = {|
@@ -33,27 +35,12 @@ type FetchAddonsByAuthorsAction = {|
 |};
 
 export const fetchAddonsByAuthors = (
-  { addonType, authors, errorHandlerId, slug }: FetchAddonsByAuthorsParams
+  { addonType, authors, errorHandlerId, excludeAddonBySlug }: FetchAddonsByAuthorsParams
 ): FetchAddonsByAuthorsAction => {
-  if (!errorHandlerId) {
-    throw new Error('An errorHandlerId is required');
-  }
-
-  if (!slug) {
-    throw new Error('An add-on slug is required.');
-  }
-
-  if (!addonType) {
-    throw new Error('An add-on type is required.');
-  }
-
-  if (!authors) {
-    throw new Error('Authors are required.');
-  }
-
-  if (!Array.isArray(authors)) {
-    throw new Error('The authors parameter must be an array.');
-  }
+  invariant(errorHandlerId, 'An errorHandlerId is required');
+  invariant(addonType, 'An add-on type is required.');
+  invariant(authors, 'Authors are required.');
+  invariant(Array.isArray(authors), 'The authors parameter must be an array.');
 
   return {
     type: FETCH_ADDONS_BY_AUTHORS,
@@ -61,14 +48,14 @@ export const fetchAddonsByAuthors = (
       addonType,
       authors,
       errorHandlerId,
-      slug,
+      excludeAddonBySlug,
     },
   };
 };
 
 type LoadAddonsByAuthorsParams = {|
-  slug: string,
   addons: Array<ExternalAddonType>,
+  excludeAddonBySlug?: string,
 |};
 
 type LoadAddonsByAuthorsAction = {|
@@ -77,19 +64,13 @@ type LoadAddonsByAuthorsAction = {|
 |};
 
 export const loadAddonsByAuthors = (
-  { addons, slug }: LoadAddonsByAuthorsParams
+  { addons, excludeAddonBySlug }: LoadAddonsByAuthorsParams
 ): LoadAddonsByAuthorsAction => {
-  if (!slug) {
-    throw new Error('An add-on slug is required.');
-  }
-
-  if (!addons) {
-    throw new Error('A set of add-ons is required.');
-  }
+  invariant(addons, 'A set of add-ons is required.');
 
   return {
     type: LOAD_ADDONS_BY_AUTHORS,
-    payload: { slug, addons },
+    payload: { addons, excludeAddonBySlug },
   };
 };
 
@@ -103,19 +84,27 @@ const reducer = (
 ): State => {
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS:
+      if (!action.payload.excludeAddonBySlug) {
+        return state;
+      }
+
       return {
         ...state,
         byAddonSlug: {
           ...state.byAddonSlug,
-          [action.payload.slug]: undefined,
+          [action.payload.excludeAddonBySlug]: undefined,
         },
       };
     case LOAD_ADDONS_BY_AUTHORS:
+      if (!action.payload.excludeAddonBySlug) {
+        return state;
+      }
+
       return {
         ...state,
         byAddonSlug: {
           ...state.byAddonSlug,
-          [action.payload.slug]: action.payload.addons
+          [action.payload.excludeAddonBySlug]: action.payload.addons
             .slice(0, ADDONS_BY_AUTHORS_PAGE_SIZE)
             .map((addon) => createInternalAddon(addon)),
         },

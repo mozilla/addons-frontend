@@ -142,8 +142,8 @@ describe(__filename, () => {
 
   const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
-      slug: addon.slug,
       addons: addonsByAuthors,
+      excludeAddonBySlug: addon.slug,
     });
   };
 
@@ -1077,6 +1077,11 @@ describe(__filename, () => {
       return root.find('.AddonDescription-more-addons');
     };
 
+    const defaultAddonsByAuthors = [{
+      ...fakeAddon,
+      excludeAddonBySlug: 'another-slug',
+    }];
+
     it('fetches the other add-ons by authors', () => {
       const addon = fakeAddon;
       const { store } = dispatchAddonData({ addon });
@@ -1140,7 +1145,7 @@ describe(__filename, () => {
       const addon = fakeTheme;
       const { store } = dispatchAddonData({
         addon,
-        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+        addonsByAuthors: defaultAddonsByAuthors,
       });
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
@@ -1153,7 +1158,7 @@ describe(__filename, () => {
       const addon = fakeAddon;
       const { store } = dispatchAddonData({
         addon,
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, excludeAddonBySlug: 'another-slug' }],
       });
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
@@ -1209,7 +1214,7 @@ describe(__filename, () => {
     it('displays the artist name when add-on is a theme', () => {
       const root = renderMoreAddons({
         addon: fakeTheme,
-        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+        addonsByAuthors: defaultAddonsByAuthors,
       });
       expect(root).toHaveProp('header', 'More themes by MaDonna');
     });
@@ -1239,7 +1244,7 @@ describe(__filename, () => {
           ...fakeTheme,
           authors: Array(2).fill(fakeTheme.authors[0]),
         },
-        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+        addonsByAuthors: defaultAddonsByAuthors,
       });
       expect(root).toHaveProp('header', 'More themes by these artists');
     });
