@@ -62,7 +62,7 @@ describe(__filename, () => {
       }));
     }
 
-    it('calls the API to fetch a collection', async () => {
+    it('calls the APIs to fetch a collection and its add-ons', async () => {
       const state = sagaTester.getState();
 
       const collectionAddons = createFakeCollectionAddons();
@@ -88,6 +88,34 @@ describe(__filename, () => {
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
+
+      _fetchCurrentCollection({ page, slug, user });
+
+      const expectedLoadAction = loadCurrentCollection({
+        addons: collectionAddons,
+        detail: collectionDetail,
+      });
+
+      const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
+      expect(loadAction).toEqual(expectedLoadAction);
+      mockApi.verify();
+    });
+
+    it('does not call the API to fetch addons if the collection is empty', async () => {
+      const state = sagaTester.getState();
+
+      const collectionAddons = createFakeCollectionAddons({ addons: [] });
+      const collectionDetail = createFakeCollectionDetail({ count: 0 });
+
+      mockApi
+        .expects('getCollectionDetail')
+        .withArgs({
+          api: state.api,
+          slug,
+          user,
+        })
+        .once()
+        .returns(Promise.resolve(collectionDetail));
 
       _fetchCurrentCollection({ page, slug, user });
 

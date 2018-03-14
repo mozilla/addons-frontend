@@ -210,6 +210,12 @@ export class CollectionBase extends React.Component<Props> {
           {hasEditPermission ? this.editCollectionLink() : null}
         </Card>
         <div className="Collection-items">
+          {!addons || !addons.length ?
+            <Card className="Collection-items-empty">
+              {i18n.gettext('This collection does not have any add-ons yet.')}
+            </Card> :
+            null
+          }
           <AddonsCard
             addonInstallSource={INSTALL_SOURCE_COLLECTION}
             addons={addons}
