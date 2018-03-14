@@ -2,6 +2,7 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
+import invariant from 'invariant';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { push as pushLocation } from 'react-router-redux';
 /* eslint-enable import/order */
@@ -27,9 +28,11 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CreateCollectionAddonParams,
+  CreateCollectionParams,
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
+  UpdateCollectionParams,
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
@@ -176,7 +179,7 @@ export function* modifyCollection({
     slug,
     user,
   },
-}: {
+}: {|
   type: typeof CREATE_COLLECTION | typeof UPDATE_COLLECTION,
   payload: {
     ...RequiredModifyCollectionParams,
@@ -185,7 +188,7 @@ export function* modifyCollection({
     name?: ?LocalizedString,
     slug?: ?string,
   }
-}): Generator<any, any, any> {
+|}): Generator<any, any, any> {
   const creating = type === CREATE_COLLECTION;
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -194,7 +197,9 @@ export function* modifyCollection({
     const state = yield select(getState);
 
     if (creating) {
-      const apiParams = {
+      invariant(name, 'name cannot be empty when creating');
+      invariant(slug, 'slug cannot be empty when creating');
+      const apiParams: CreateCollectionParams = {
         api: state.api,
         defaultLocale,
         description,
@@ -204,7 +209,9 @@ export function* modifyCollection({
       };
       yield call(api.createCollection, apiParams);
     } else {
-      const apiParams = {
+      invariant(collectionSlug,
+        'collectionSlug cannot be empty when updating');
+      const apiParams: UpdateCollectionParams = {
         api: state.api,
         collectionSlug,
         defaultLocale,
@@ -218,11 +225,8 @@ export function* modifyCollection({
 
     const { lang, clientApp } = state.api;
     const effectiveSlug = slug || collectionSlug;
-    if (!effectiveSlug) {
-      // This is impossible, but Flow doesn't know that based on the type
-      // declaration for payload.
-      throw new Error('The collection to modify does not have a slug.');
-    }
+    invariant(effectiveSlug,
+      'Both slug and collectionSlug cannot be empty');
     // TODO: invalidate the stored collection instead of redirecting.
     // Ultimately, we just want to invalidate the old collection data.
     // This redirect is in place to handle slug changes but it causes
@@ -241,7 +245,7 @@ export function* modifyCollection({
       yield put(deleteCollectionBySlug(effectiveSlug));
     }
   } catch (error) {
-    log.warn(`Failed to ${CREATE_COLLECTION}: ${error}`);
+    log.warn(`Failed to ${type}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }

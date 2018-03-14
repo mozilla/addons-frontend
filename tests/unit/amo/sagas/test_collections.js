@@ -435,13 +435,12 @@ describe(__filename, () => {
 
       it('begins and finishes a form submit', async () => {
         mockApi.expects('updateCollection').returns(Promise.resolve());
-        _updateCollection({ formOverlayId });
+        _updateCollection();
 
         for (const expectedAction of [
           beginFormOverlaySubmit(formOverlayId),
           finishFormOverlaySubmit(formOverlayId),
         ]) {
-          // eslint-disable-next-line no-await-in-loop
           const action = await sagaTester.waitFor(expectedAction.type);
           expect(action).toEqual(expectedAction);
         }
@@ -450,7 +449,7 @@ describe(__filename, () => {
       it('closes the form overlay', async () => {
         mockApi.expects('updateCollection').returns(Promise.resolve());
 
-        _updateCollection({ formOverlayId });
+        _updateCollection();
 
         const expectedAction = closeFormOverlay(formOverlayId);
 
@@ -465,7 +464,7 @@ describe(__filename, () => {
           .expects('updateCollection')
           .returns(Promise.reject(error));
 
-        _updateCollection({ formOverlayId });
+        _updateCollection();
 
         const expectedAction = errorHandler.createErrorAction(error);
         const action = await sagaTester.waitFor(expectedAction.type);
