@@ -99,57 +99,6 @@ describe(__filename, () => {
     });
   });
 
-  // describe('fetchAddonsByAuthors()', () => {
-  //   const getParams = () => {
-  //     return {
-  //       authors: ['user1', 'user2'],
-  //       addonType: ADDON_TYPE_THEME,
-  //       errorHandlerId: 'error-handler-id',
-  //       excludeAddonBySlug: 'addon-slug',
-  //     };
-  //   };
-
-  //   it('requires an error id', () => {
-  //     const params = getParams();
-  //     delete params.errorHandlerId;
-  //     expect(() => {
-  //       fetchAddonsByAuthors(params);
-  //     }).toThrow(/An errorHandlerId is required/);
-  //   });
-
-  //   it('requires a slug', () => {
-  //     const params = getParams();
-  //     delete params.slug;
-  //     expect(() => {
-  //       fetchAddonsByAuthors(params);
-  //     }).toThrow(/An add-on slug is required/);
-  //   });
-
-  //   it('requires an add-on type', () => {
-  //     const params = getParams();
-  //     delete params.addonType;
-  //     expect(() => {
-  //       fetchAddonsByAuthors(params);
-  //     }).toThrow(/An add-on type is required/);
-  //   });
-
-  //   it('requires some authors', () => {
-  //     const params = getParams();
-  //     delete params.authors;
-  //     expect(() => {
-  //       fetchAddonsByAuthors(params);
-  //     }).toThrow(/Authors are required/);
-  //   });
-
-  //   it('requires an array of authors', () => {
-  //     const params = getParams();
-  //     params.authors = 'invalid-type';
-  //     expect(() => {
-  //       fetchAddonsByAuthors(params);
-  //     }).toThrow(/The authors parameter must be an array/);
-  //   });
-  // });
-
   describe('loadAddonsByAuthors()', () => {
     const getParams = () => {
       return {

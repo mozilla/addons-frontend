@@ -59,6 +59,40 @@ describe(__filename, () => {
         filters: {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
+          exclude_addons: undefined, // `callApi` will internally unset this
+          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          sort: SEARCH_SORT_TRENDING,
+        },
+      })
+      .once()
+      .returns(Promise.resolve(createAddonsApiResult(addons)));
+
+    _fetchAddonsByAuthors({ authors });
+
+    const expectedLoadAction = loadAddonsByAuthors({
+      addons,
+      excludeAddonBySlug: undefined,
+    });
+
+    const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
+    mockApi.verify();
+
+    expect(loadAction).toEqual(expectedLoadAction);
+  });
+
+  it('sends `exclude_addons` param if `excludeAddonBySlug` is set', async () => {
+    const addons = [fakeAddon];
+    const authors = ['mozilla', 'johnedoe'];
+    const { slug } = fakeAddon;
+    const state = sagaTester.getState();
+
+    mockApi
+      .expects('search')
+      .withArgs({
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          author: authors.join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
