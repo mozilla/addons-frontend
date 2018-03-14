@@ -49,6 +49,9 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Load saved image
+          command: docker load -i image-*
+      - run:
           name: Build docker image and push to repo
           command: |
             [ ! -z $DOCKERHUB_REPO ]
@@ -62,6 +65,9 @@ jobs:
     steps:
       - attach_workspace:
           at: .
+      - run:
+          name: Load saved image
+          command: docker load -i image-*
       - run:
           name: Build docker image and push to repo
           command: |
