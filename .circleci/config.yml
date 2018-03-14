@@ -34,7 +34,7 @@ jobs:
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
-            docker images --no-trunc | awk '/^app/ {print $3}' sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
+            docker images --no-trunc | awk '/^app/ {print $3}' | sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
       - run:
           name: Clean up any old images and save the new one.
           command: |
