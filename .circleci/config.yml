@@ -42,9 +42,9 @@ jobs:
             docker save addons-frontend | pigz --fast -c > ~/docker/$I
             ls -l ~/docker
       - save_cache:
-        key: docker-cache-{{ checksum "~/docker" }}
-        paths:
-          - ~/docker
+          key: docker-cache-{{ checksum "~/docker" }}
+          paths:
+            - ~/docker
       - persist_to_workspace:
           root: .
           paths:
