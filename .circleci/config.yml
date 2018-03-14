@@ -20,11 +20,7 @@ jobs:
         # day to keep the cache size down.
       - run:
           name: Build the container ( Next 3 steps )
-<<<<<<< HEAD
-          command: I="image-$(date +%j).gz"; if [[ -e ~/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/docker/$I | docker load; fi
-=======
           command: I="image-$(date +%j).gz"; if [[ -e ~/addons-frontend/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/addons-frontend/docker/$I | docker load; fi
->>>>>>> Updated file paths and removed caching.
       - run: >
           printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
           "$CIRCLE_SHA1"
@@ -38,33 +34,18 @@ jobs:
       - run:
           name: Write the sha256 sum to an artifact for verification
           command: |
-<<<<<<< HEAD
-            docker images --no-trunc | awk '/^app/ {print $3}' | tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
-      - run:
-          name: Clean up any old images and save the new one.
-          command: |
-            I="image-$(date +%j).gz"; mkdir -p ~/docker; rm ~/docker/*
-            docker save addons-frontend | pigz --fast -c > ~/docker/$I
-            ls -l ~/docker
-      - save_cache:
-          key: docker-cache-{{ checksum "~/docker" }}
-          paths:
-            - ~/docker
-=======
             docker images --no-trunc | awk '/^app/ {print $3}' sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
       - run:
           name: Clean up any old images and save the new one.
           command: |
             docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$I
             ls -l ~/addons-frontend/docker
->>>>>>> Updated file paths and removed caching.
       - persist_to_workspace:
           root: .
           paths:
             - ./*
   release-tag: # build for releases (tags)
     machine: true
-    working_directory: ~/addons-frontend
     steps:
       - attach_workspace:
           at: .
@@ -72,18 +53,13 @@ jobs:
           name: Build docker image and push to repo
           command: |
             [ ! -z $DOCKERHUB_REPO ]
-<<<<<<< HEAD
-            docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
-=======
             docker login -u $DOCKER_USER -p $DOCKER_PASS
->>>>>>> Updated file paths and removed caching.
             echo $DOCKERHUB_REPO:$CIRCLE_TAG
             docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
             docker images
             docker push $DOCKERHUB_REPO:$CIRCLE_TAG
   release-master: # build for master
     machine: true
-    working_directory: ~/addons-frontend
     steps:
       - attach_workspace:
           at: .
