@@ -1,8 +1,8 @@
 # These environment variables must be set in CircleCI UI
 #
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
-# DOCKER_USER
-# DOCKER_PASS
+# DOCKER_USER - Login user for docker hub
+# DOCKER_PASS - Login password for docker hub user
 version: 2.0
 
 jobs:
