@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-11 07:44+0000\n"
-"Last-Translator: goofy <goofy@babelzilla.org>\n"
+"PO-Revision-Date: 2018-03-14 21:27+0000\n"
+"Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -873,9 +873,8 @@ msgid "Wikipedia boosters"
 msgstr "Optimiseurs pour Wikipédia"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Voir plus de gestionnaires multimédia"
+msgstr "Voir plus d’optimisations pour Wikipédia"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -997,7 +996,7 @@ msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Vous remplissez énormément de formulaires ? Ceci devrait vous aider"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
