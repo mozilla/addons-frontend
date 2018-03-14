@@ -37,7 +37,7 @@ jobs:
       - run:
           name: Clean up any old images and save the new one.
           command: |
-            IMG="image-$(date +%j).gz"; mkdir -p ~/addons-frontend/docker; rm -r ~/addons-frontend/docker; docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$IMG; ls -l ~/addons-frontend/docker
+            IMG="image-$(date +%j).gz"; mkdir -p ~/addons-frontend/docker; rm -r ~/addons-frontend/docker/*; docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$IMG; ls -l ~/addons-frontend/docker
             ls -l ~/addons-frontend/docker
       - persist_to_workspace:
           root: .
