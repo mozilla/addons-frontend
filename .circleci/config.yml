@@ -35,7 +35,7 @@ jobs:
           command: |
             docker images --no-trunc | awk '/^app/ {print $3}' | sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
       - run:
-          name: Clean up any old images and save the new one.
+          name: Save new image
           command: |
             IMG="image-$(date +%j).gz"; docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$IMG; ls -l ~/addons-frontend/docker
             ls -l ~/addons-frontend/docker
