@@ -1,7 +1,6 @@
 # These environment variables must be set in CircleCI UI
 #
 # DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
-# DOCKER_EMAIL   - login info for docker hub
 # DOCKER_USER
 # DOCKER_PASS
 version: 2.0
@@ -20,7 +19,7 @@ jobs:
         # day to keep the cache size down.
       - run:
           name: Build the container ( Next 3 steps )
-          command: I="image-$(date +%j).gz"; if [[ -e ~/addons-frontend/docker/$I ]]; then echo "Loading $I"; pigz -d -c ~/addons-frontend/docker/$I | docker load; fi
+          command: IMG="image-$(date +%j).gz"; if [[ -e ~/addons-frontend/docker/$IMG ]]; then echo "Loading $IMG"; pigz -d -c ~/addons-frontend/docker/$IMG | docker load; fi
       - run: >
           printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
           "$CIRCLE_SHA1"
@@ -38,7 +37,7 @@ jobs:
       - run:
           name: Clean up any old images and save the new one.
           command: |
-            docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$I
+            IMG="image-$(date +%j).gz"; mkdir -p ~/addons-frontend/docker; rm ~/addons-frontend/docker/*; docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$IMG; ls -l ~/addons-frontend/docker
             ls -l ~/addons-frontend/docker
       - persist_to_workspace:
           root: .
