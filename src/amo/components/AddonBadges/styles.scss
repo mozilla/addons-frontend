@@ -12,5 +12,9 @@
 }
 
 .AddonBadges .Badge {
-  @include text-align-end();
+  @include text-align-start();
+
+  @include respond-to(large) {
+    @include text-align-end();
+  }
 }
