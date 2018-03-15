@@ -285,3 +285,79 @@ export const createCollection = ({
     _validateLocalizedString,
   });
 };
+
+type ModifyCollectionAddonBaseParams = {|
+  addonId: number,
+  api: ApiStateType,
+  collectionSlug: string,
+  user: string,
+  _modifyCollectionAddon?: (any) => Promise<void>,
+|};
+
+export type CreateCollectionAddonParams = {|
+  ...ModifyCollectionAddonBaseParams,
+  notes?: string,
+|};
+
+export type UpdateCollectionAddonParams = {|
+  ...ModifyCollectionAddonBaseParams,
+  notes: string | null,
+|};
+
+type ModifyCollectionAddonParams =
+  | {| action: 'create', ...CreateCollectionAddonParams |}
+  | {| action: 'update', ...UpdateCollectionAddonParams |};
+
+export const modifyCollectionAddon = (
+  params: ModifyCollectionAddonParams,
+): Promise<void> => {
+  const { action, api, user, collectionSlug, addonId } = params;
+
+  invariant(action, 'The action parameter is required');
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(api, 'The api parameter is required');
+  invariant(collectionSlug, 'The collectionSlug parameter is required');
+  invariant(user, 'The user parameter is required');
+
+  let method = 'POST';
+  const body = { addon: addonId, notes: params.notes || null };
+  let endpoint =
+    `accounts/account/${user}/collections/${collectionSlug}/addons`;
+
+  if (action === 'update') {
+    if (typeof params.notes === 'undefined') {
+      throw new Error(`When action=${action}, notes cannot be undefined`);
+    }
+    method = 'PATCH';
+    delete body.addon;
+    endpoint = `${endpoint}/${addonId}`;
+  }
+
+  return callApi({ auth: true, body, endpoint, method, state: api });
+};
+
+export const createCollectionAddon = ({
+  api,
+  collectionSlug,
+  addonId,
+  notes,
+  user,
+  _modifyCollectionAddon = modifyCollectionAddon,
+}: CreateCollectionAddonParams): Promise<void> => {
+  return _modifyCollectionAddon({
+    action: 'create', api, collectionSlug, addonId, notes, user,
+  });
+};
+
+export const updateCollectionAddon = ({
+  api,
+  collectionSlug,
+  addonId,
+  notes,
+  user,
+  _modifyCollectionAddon = modifyCollectionAddon,
+}: UpdateCollectionAddonParams): Promise<void> => {
+  return _modifyCollectionAddon({
+    action: 'update', api, collectionSlug, addonId, notes, user,
+  });
+};
