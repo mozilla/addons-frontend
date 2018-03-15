@@ -15,8 +15,6 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { ReactRouterType } from 'core/types/router';
 
-import './styles.scss';
-
 type Props = {|
   apiLang: string | null,
   className?: string,
@@ -60,6 +58,7 @@ export class SearchFormBase extends React.Component<Props> {
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}
           selectSuggestionText={i18n.gettext('Go to the add-on page')}
+          showInputLabel={false}
         />
       </form>
     );
