@@ -313,7 +313,7 @@ type ModifyCollectionAddonParams =
 export const modifyCollectionAddon = (
   params: ModifyCollectionAddonParams,
 ): Promise<void> => {
-  const { action, api, user, collectionSlug, addonId } = params;
+  const { action, addonId, api, collectionSlug, user } = params;
 
   invariant(action, 'The action parameter is required');
   invariant(addonId, 'The addonId parameter is required');
@@ -327,7 +327,7 @@ export const modifyCollectionAddon = (
     `accounts/account/${user}/collections/${collectionSlug}/addons`;
 
   if (action === 'update') {
-    if (typeof params.notes === 'undefined') {
+    if (params.notes === undefined) {
       throw new Error(`When action=${action}, notes cannot be undefined`);
     }
     method = 'PATCH';
@@ -339,27 +339,27 @@ export const modifyCollectionAddon = (
 };
 
 export const createCollectionAddon = ({
+  addonId,
   api,
   collectionSlug,
-  addonId,
   notes,
   user,
   _modifyCollectionAddon = modifyCollectionAddon,
 }: CreateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
-    action: 'create', api, collectionSlug, addonId, notes, user,
+    action: 'create', addonId, api, collectionSlug, notes, user,
   });
 };
 
 export const updateCollectionAddon = ({
+  addonId,
   api,
   collectionSlug,
-  addonId,
   notes,
   user,
   _modifyCollectionAddon = modifyCollectionAddon,
 }: UpdateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
-    action: 'update', api, collectionSlug, addonId, notes, user,
+    action: 'update', addonId, api, collectionSlug, notes, user,
   });
 };
