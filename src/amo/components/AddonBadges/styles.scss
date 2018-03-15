@@ -6,11 +6,8 @@
   width: 100%;
 
   @include respond-to(large) {
-    display: flex;
-    flex-flow: column;
-    position: absolute;
-    right: 0;
-    width: auto;
+    grid-column: 2;
+    grid-row: 1;
   }
 }
 
