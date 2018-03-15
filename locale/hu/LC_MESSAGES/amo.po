@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 11:23+0000\n"
+"PO-Revision-Date: 2018-03-15 15:56+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -849,12 +849,11 @@ msgstr "Szabja testre a Firefox kinézetet témákkal."
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Szórakoztató lapok"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "További legjobbra értékelt kiterjesztések megtekintése"
+msgstr "További szórakoztató lap kiterjesztések"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
