@@ -2,6 +2,22 @@ import config from 'config';
 import * as React from 'react';
 import { IndexRoute, Route } from 'react-router';
 
+import About from 'amo/components/StaticPages/About';
+import Addon from 'amo/components/Addon';
+import AddonReviewList from 'amo/components/AddonReviewList';
+import App from 'amo/components/App';
+import CategoriesPage from 'amo/components/CategoriesPage';
+import Category from 'amo/components/Category';
+import Home from 'amo/components/Home';
+import LandingPage from 'amo/components/LandingPage';
+import LanguageTools from 'amo/components/LanguageTools';
+import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import ReviewGuide from 'amo/components/StaticPages/ReviewGuide';
+import SearchPage from 'amo/components/SearchPage';
+import ServerError from 'amo/components/ErrorPage/ServerError';
+import Collection from 'amo/components/Collection';
+import UserProfile from 'amo/components/UserProfile';
 import SimulateAsyncError from
   'core/containers/error-simulation/SimulateAsyncError';
 import SimulateClientError from
@@ -9,27 +25,11 @@ import SimulateClientError from
 import SimulateSyncError from
   'core/containers/error-simulation/SimulateSyncError';
 
-import About from './components/StaticPages/About';
-import Addon from './components/Addon';
-import AddonReviewList from './components/AddonReviewList';
-import App from './components/App';
-import CategoriesPage from './components/CategoriesPage';
-import Category from './components/Category';
-import Home from './components/Home';
-import LandingPage from './components/LandingPage';
-import LanguageTools from './components/LanguageTools';
-import NotAuthorized from './components/ErrorPage/NotAuthorized';
-import NotFound from './components/ErrorPage/NotFound';
-import ReviewGuide from './components/StaticPages/ReviewGuide';
-import SearchPage from './components/SearchPage';
-import ServerError from './components/ErrorPage/ServerError';
-import Collection from './components/Collection';
-
 // If you add a new route here, check that the nginx rules maintained by ops
 // are in sync. See:
 // https://github.com/mozilla-services/puppet-config/tree/master/amo
 export default (
-  <div>
+  <React.Fragment>
     <Route path="/:lang" component={App}>
       <Route path="about" component={About} />
       { /* TODO: Post launch update this URL and redirect see #3374/ */ }
@@ -39,6 +39,8 @@ export default (
       <IndexRoute component={Home} />
       <Route path="addon/:slug/" component={Addon} />
       <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
+      {config.get('enableUserProfile') &&
+        <Route path="user/:username/" component={UserProfile} />}
       <Route path="collections/:user/:slug/" component={Collection} />
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
@@ -59,5 +61,5 @@ export default (
       <Route path=":visibleAddonType/" component={LandingPage} />
       <Route path="*" component={NotFound} />
     </Route>
-  </div>
+  </React.Fragment>
 );

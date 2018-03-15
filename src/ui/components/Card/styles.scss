@@ -6,6 +6,7 @@ $footer-padding: 10px;
 
 .Card-header {
   @include addonSection();
+  @include font-bold();
   @include text-align-start();
 
   border-top-left-radius: $border-radius-default;

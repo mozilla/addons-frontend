@@ -1,0 +1,49 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+$avatar-size: 64px;
+
+.UserProfile {
+  margin: $padding-page;
+}
+
+.UserProfile-wrapper {
+  display: flex;
+}
+
+.UserProfile-user-info {
+  @include respond-to(large) {
+    min-width: 300px;
+    width: 35%;
+  }
+}
+
+.UserProfile-avatar {
+  display: block;
+  height: $avatar-size;
+  margin: 0 0 12px;
+  width: $avatar-size;
+}
+
+.UserProfile-name {
+  @include font-regular();
+
+  font-size: $font-size-l;
+  margin: 0;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
+}
+
+.UserProfile-rating-average .Rating {
+  @include margin-start(-3px);
+
+  justify-content: start;
+  margin: 0;
+}
+
+.UserProfile-abuse-button .ReportUserAbuse-show-more {
+  width: 100%;
+}

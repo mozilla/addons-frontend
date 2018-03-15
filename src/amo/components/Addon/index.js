@@ -20,7 +20,7 @@ import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
+import { fetchAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import {
   fetchAddon,
   getAddonByID,
@@ -119,7 +119,7 @@ export class AddonBase extends React.Component {
         }
 
         dispatch(setViewContext(addon.type));
-        this.dispatchFetchOtherAddonsByAuthors({ addon });
+        this.dispatchFetchAddonsByAuthors({ addon });
       } else {
         dispatch(fetchAddon({ slug: params.slug, errorHandler }));
       }
@@ -139,7 +139,7 @@ export class AddonBase extends React.Component {
     }
 
     if (newAddon && oldAddon !== newAddon) {
-      this.dispatchFetchOtherAddonsByAuthors({ addon: newAddon });
+      this.dispatchFetchAddonsByAuthors({ addon: newAddon });
     }
   }
 
@@ -159,14 +159,14 @@ export class AddonBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  dispatchFetchOtherAddonsByAuthors({ addon }) {
+  dispatchFetchAddonsByAuthors({ addon }) {
     const { dispatch, errorHandler } = this.props;
 
-    dispatch(fetchOtherAddonsByAuthors({
+    dispatch(fetchAddonsByAuthors({
       addonType: addon.type,
       authors: addon.authors.map((author) => author.username),
       errorHandlerId: errorHandler.id,
-      slug: addon.slug,
+      excludeAddonBySlug: addon.slug,
     }));
   }
 

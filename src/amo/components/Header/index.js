@@ -1,3 +1,4 @@
+import config from 'config';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -101,9 +102,15 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href={`/user/${siteUser.username}/`}>
-                  {i18n.gettext('View Profile')}
-                </Link>
+                {config.get('enableUserProfile') ? (
+                  <Link href={`/user/${siteUser.username}/`}>
+                    {i18n.gettext('View Profile')}
+                  </Link>
+                ) : (
+                  <Link to={`/user/${siteUser.username}/`}>
+                    {i18n.gettext('View Profile')}
+                  </Link>
+                )}
               </DropdownMenuItem>
               <DropdownMenuItem>
                 <Link href="/users/edit">
