@@ -543,9 +543,8 @@ describe(__filename, () => {
         action: 'update', notes: undefined,
       });
 
-      expect(
-        () => modifyCollectionAddon(params)
-      ).toThrow('When action=update, notes cannot be undefined');
+      expect(() => modifyCollectionAddon(params))
+        .toThrow('When action=update, notes cannot be undefined');
     });
 
     it('allows you to nullify add-on notes', async () => {
