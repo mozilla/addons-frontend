@@ -126,11 +126,13 @@ export const getAllUserCollections = async (
   return results;
 };
 
+type CollectionAddonNotes = string | null;
+
 export type AddAddonToCollectionParams = {|
   addon: string | number,
   api: ApiStateType,
   collection: string | number,
-  notes?: string,
+  notes?: CollectionAddonNotes,
   user: string | number,
 |};
 
@@ -296,12 +298,12 @@ type ModifyCollectionAddonBaseParams = {|
 
 export type CreateCollectionAddonParams = {|
   ...ModifyCollectionAddonBaseParams,
-  notes?: string,
+  notes?: CollectionAddonNotes,
 |};
 
 export type UpdateCollectionAddonParams = {|
   ...ModifyCollectionAddonBaseParams,
-  notes: string | null,
+  notes: CollectionAddonNotes,
 |};
 
 type ModifyCollectionAddonParams =
