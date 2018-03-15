@@ -53,12 +53,12 @@ export class SearchFormBase extends React.Component<Props> {
         data-no-csrf
       >
         <AutoSearchInput
-          inputLabelIsHidden
           inputName="q"
           onSearch={this.onSearch}
           onSuggestionSelected={this.onSuggestionSelected}
           query={query}
           selectSuggestionText={i18n.gettext('Go to the add-on page')}
+          showInputLabel={false}
         />
       </form>
     );

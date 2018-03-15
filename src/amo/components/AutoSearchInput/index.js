@@ -49,7 +49,6 @@ type Props = {|
   debounce: typeof defaultDebounce,
   dispatch: DispatchFunc,
   i18n: I18nType,
-  inputLabelIsHidden?: boolean,
   inputLabelText?: string,
   // This is the name property of the <input> tag.
   inputName: string,
@@ -61,6 +60,7 @@ type Props = {|
   query?: string,
   // This is accessibility text for what selecting a suggestion will do.
   selectSuggestionText: string,
+  showInputLabel?: boolean,
   suggestions: Array<SuggestionType>,
   userAgentInfo: UserAgentInfoType,
 |};
@@ -98,7 +98,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
 
   static defaultProps = {
     debounce: defaultDebounce,
-    inputLabelIsHidden: false,
+    showInputLabel: true,
   };
 
   constructor(props: Props) {
@@ -258,10 +258,10 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
     const {
       errorHandler,
       i18n,
-      inputLabelIsHidden,
       inputLabelText,
       inputName,
       inputPlaceholder,
+      showInputLabel,
     } = this.props;
 
     const autocompleteIsOpen = this.state.autocompleteIsOpen &&
@@ -296,7 +296,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
         {errorHandler.renderErrorIfPresent()}
         <label
           className={makeClassName('AutoSearchInput-label', {
-            'visually-hidden': inputLabelIsHidden,
+            'visually-hidden': !showInputLabel,
           })}
           htmlFor={inputName}
         >

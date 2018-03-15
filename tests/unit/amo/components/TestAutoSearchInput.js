@@ -208,7 +208,7 @@ describe(__filename, () => {
     });
 
     it('lets you hide the input label', () => {
-      const root = render({ inputLabelIsHidden: true });
+      const root = render({ showInputLabel: false });
 
       expect(root.find('.AutoSearchInput-label'))
         .toHaveClassName('visually-hidden');
