@@ -1,0 +1,8 @@
+# This file is used to override the docker-compose file from addons-server.
+# It will build the current commit into a image and use that for creating
+# a AMO frontend for testing.
+version: "2.3"
+
+services:
+  addons-frontend:
+    build: ../.
