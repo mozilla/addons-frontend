@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-09 09:41+0000\n"
+"PO-Revision-Date: 2018-03-16 23:12+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -214,18 +214,15 @@ msgid "No Users"
 msgstr "Kullanıcı yok"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Puan yok"
+msgstr "Puan"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Puan yok"
+msgstr[0] "Puan"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
 msgstr "Puan yok"
 
@@ -901,14 +898,12 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) renkli sekmelerle ayırın."
+msgstr "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) renkli sekmelerle ayırın"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Araçlar"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -980,9 +975,8 @@ msgid "Remove clutter and improve readability"
 msgstr "Gereksiz öğeleri atarak okunurluğu artırın"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
@@ -1014,9 +1008,8 @@ msgid "Clip, save & organize your favorite stuff on the web"
 msgstr "Web'deki en sevdiğiniz yerler için görsel yer imleri."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "İşaretle"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1027,18 +1020,16 @@ msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Verimli ve etkili bir reklam engelleyici."
+msgstr "Verimli ve etkili bir reklam engelleyici"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "Popüler anti-takip eklentisine reklam engelleme özelliği de geldi."
+msgstr "Popüler anti-takip eklentisine reklam engelleme özelliği de geldi"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1672,9 +1663,8 @@ msgid "Next"
 msgstr "Sonraki"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Sayfa %(currentPage)s / %(totalPages)s"
+msgstr "Sayfa %(pageNumber)s / %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
