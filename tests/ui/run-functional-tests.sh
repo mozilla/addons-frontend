@@ -9,3 +9,4 @@ docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.fu
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml restart worker
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec web make -f Makefile-docker update_deps
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml restart web
+docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec --user root selenium-firefox tox -e ui-tests
