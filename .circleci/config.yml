@@ -43,6 +43,25 @@ jobs:
           root: .
           paths:
             - ./*
+  integration-test:
+    working_directory: ~/addons-frontend
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            pip install docker-compose>=1.18
+            docker-compose --version
+      - run:
+          name: Install tox
+          command: pip install tox
+      - run:
+          name: Run tests
+          command: tox -e ui-test-ci
+      - store_artifacts:
+          path: addons-server/ui-test.html
   release-tag: # build for releases (tags)
     machine: true
     steps:
@@ -97,3 +116,13 @@ workflows:
           filters:
             branches:
               only: master
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 0,2 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - integration-test
