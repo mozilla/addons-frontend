@@ -1,0 +1,16 @@
+@import "~photon-colors/colors";
+
+.EditableCollectionAddon {
+  border-bottom: 1px solid $grey-30;
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: 32px auto;
+  padding: 12px;
+}
+
+.EditableCollectionAddon-name {
+  align-items: center;
+  display: flex;
+  font-size: 16px;
+  margin: 0;
+}

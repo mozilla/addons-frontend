@@ -21,6 +21,7 @@
   border-radius: $border-radius-s;
   display: block;
   margin: 12px;
+  overflow: auto;
   min-width: 65%;
   padding: 24px;
 
@@ -63,11 +64,6 @@
     display: block;
     font-size: $font-size-s;
     padding: 24px 0 6px;
-  }
-
-  label:first-of-type {
-    // This provides room for an error banner at the top of the form.
-    padding-top: 12px;
   }
 
   input,

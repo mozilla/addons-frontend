@@ -1,6 +1,27 @@
 @import "~photon-colors/colors";
 @import "~core/css/inc/mixins";
 @import "~core/css/inc/vars.scss";
+@import "~amo/css/inc/vars";
+
+.CollectionManager {
+  .AutoSearchInput-query {
+    border: 1px solid $grey-50;
+    border-radius: $border-radius-xs;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+
+  .FormOverlay-overlay {
+    height: 90%;
+  }
+}
+
+.CollectionManager .AutoSearchInput--autocompleteIsOpen .AutoSearchInput-query {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 
 .CollectionManager-slug {
   // Always render the grid left-to-right. This UI involves a URL so
@@ -15,6 +36,17 @@
     border-radius: 0 $border-radius-xs $border-radius-xs 0;
     width: auto;
   }
+}
+
+.FormOverlay-form .CollectionManager-collectionName {
+  // This provides room for an error banner at the top of the form.
+  padding-top: 12px;
+}
+
+.CollectionManager-addons {
+  margin-top: 24px;
+  max-height: 22vh;
+  overflow: auto;
 }
 
 .CollectionManager-slug-url-hint {

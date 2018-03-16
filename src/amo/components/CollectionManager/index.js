@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import config from 'config';
 
+import AutoSearchInput from 'amo/components/AutoSearchInput';
+import EditableCollectionAddon
+  from 'amo/components/EditableCollectionAddon';
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -139,7 +142,10 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         title={i18n.gettext('Edit collection')}
       >
         {errorHandler.renderErrorIfPresent()}
-        <label htmlFor="collectionName">
+        <label
+          className="CollectionManager-collectionName"
+          htmlFor="collectionName"
+        >
           {i18n.gettext('Collection name')}
         </label>
         <input
@@ -178,6 +184,22 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             type="text"
             value={this.state.slug}
           />
+        </div>
+        <AutoSearchInput
+          inputName="collection-addon-query"
+          inputPlaceholder={
+            i18n.gettext('Enter the name of an add-on to include')
+          }
+          onSearch={() => {}}
+          onSuggestionSelected={() => {}}
+          selectSuggestionText={i18n.gettext('Add to collection')}
+        />
+        <div className="CollectionManager-addons">
+          {collection && collection.addons && collection.addons.map(
+            (addon) => {
+              return <EditableCollectionAddon addon={addon} />;
+            }
+          )}
         </div>
       </FormOverlay>
     );
