@@ -55,11 +55,8 @@ jobs:
             pip install docker-compose>=1.18
             docker-compose --version
       - run:
-          name: Install tox
-          command: pip install tox
-      - run:
           name: Run tests
-          command: tox -e ui-test-ci
+          command: ./tests/ui/run-functional-tests.sh
       - store_artifacts:
           path: addons-server/ui-test.html
   release-tag: # build for releases (tags)
