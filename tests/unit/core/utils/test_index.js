@@ -37,6 +37,7 @@ import {
   ngettext,
   nl2br,
   refreshAddon,
+  removeProtocolFromURL,
   render404IfConfigKeyIsFalse,
   safePromise,
   sanitizeHTML,
@@ -682,6 +683,20 @@ describe(__filename, () => {
 
     it('passes through anything else', () => {
       expect(decodeHtmlEntities('just whatever')).toEqual('just whatever');
+    });
+  });
+
+  describe('removeProtocolFromURL', () => {
+    it('removes http:// from URL', () => {
+      expect(removeProtocolFromURL('http://test.com/')).toEqual('test.com/');
+    });
+
+    it('removes https:// from URL', () => {
+      expect(removeProtocolFromURL('https://test.com/')).toEqual('test.com/');
+    });
+
+    it('removes // from URL', () => {
+      expect(removeProtocolFromURL('//test.com/')).toEqual('test.com/');
     });
   });
 });

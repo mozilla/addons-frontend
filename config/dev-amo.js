@@ -28,4 +28,5 @@ module.exports = {
   betaVersions: true,
 
   enableCollectionEdit: true,
+  enableUserProfile: true,
 };
