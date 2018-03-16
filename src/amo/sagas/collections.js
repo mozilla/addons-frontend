@@ -28,7 +28,7 @@ import {
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
-  AddAddonToCollectionParams,
+  CreateCollectionAddonParams,
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
@@ -147,14 +147,14 @@ export function* addAddonToCollection({
   try {
     const state = yield select(getState);
 
-    const params: AddAddonToCollectionParams = {
-      addon: addonId,
+    const params: CreateCollectionAddonParams = {
+      addonId,
       api: state.api,
-      collection: collectionSlug,
+      collectionSlug,
       notes,
       user: userId,
     };
-    yield call(api.addAddonToCollection, params);
+    yield call(api.createCollectionAddon, params);
 
     yield put(addonAddedToCollection({
       addonId, userId, collectionId,
