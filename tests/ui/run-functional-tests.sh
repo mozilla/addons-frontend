@@ -4,6 +4,7 @@ docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.fu
 until docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml images | grep "addonsserver_addons-frontend_1" ;
     do printf "."; sleep 1
 done
+echo
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml ps
 # Make sure dependencies get updated in worker and web container
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec worker make -f Makefile-docker update_deps
