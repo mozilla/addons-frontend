@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-17 10:10+0000\n"
+"PO-Revision-Date: 2018-03-17 10:30+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -404,18 +404,16 @@ msgid "Add-ons for Firefox"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
 #: src/amo/components/App/index.js:204
-#, fuzzy
 msgid "%s – Add-ons for Firefox"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "%s – ส่วนเสริมสำหรับ Firefox"
 
 #: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:136
 msgid "Add-ons for Android"
 msgstr "ส่วนเสริมสำหรับ Android"
 
 #: src/amo/components/App/index.js:208
-#, fuzzy
 msgid "%s – Add-ons for Android"
-msgstr "ส่วนเสริมสำหรับ Firefox"
+msgstr "%s – ส่วนเสริมสำหรับ Android"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -450,14 +448,12 @@ msgid "See more trending extensions"
 msgstr "ดูส่วนขยายที่กำลังนิยมเพิ่มเติม"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
-#, fuzzy
 msgid "Top rated extensions"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ส่วนขยายที่ได้รับการจัดอันดับสูงสุด"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
 #: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:93
 msgid "Themes"
@@ -480,14 +476,12 @@ msgid "See more trending themes"
 msgstr "ดูชุดตกแต่งที่กำลังนิยมเพิ่มเติม"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
-#, fuzzy
 msgid "Top rated themes"
-msgstr "เรียกดูชุดตกแต่งทั้งหมด"
+msgstr "ชุดตกแต่งที่ได้รับการจัดอันดับสูงสุด"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "เรียกดูชุดตกแต่งทั้งหมด"
+msgstr "ดูชุดตกแต่งที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -759,7 +753,7 @@ msgstr "บล็อก"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
 msgid "Developer Hub"
-msgstr ""
+msgstr "ศูนย์กลางนักพัฒนา"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
@@ -1053,9 +1047,8 @@ msgid "Explore powerful tools and features to customize Firefox and make the bro
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:238
-#, fuzzy
 msgid "Explore all categories"
-msgstr "ไม่สามารถโหลดหมวดหมู่"
+msgstr "สำรวจหมวดหมู่ทั้งหมด"
 
 #: src/amo/components/LanguagePicker.js:50
 msgid "Change language"
@@ -1157,7 +1150,7 @@ msgstr "ยกเลิก"
 
 #: src/amo/components/ReportAbuseButton/index.js:208
 msgid "Sending abuse report"
-msgstr ""
+msgstr "กำลังส่งรายงานการละเมิด"
 
 #: src/amo/components/ReportAbuseButton/index.js:209
 msgid "Send abuse report"
@@ -1190,7 +1183,7 @@ msgstr "ส่วนเสริมยอดนิยม"
 
 #: src/amo/components/Search/index.js:160
 msgid "Search results for \"%(query)s\""
-msgstr "ผลการค้นหาสำหรับ \"%(query)s\""
+msgstr "ผลการค้นหา \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:40
 #, fuzzy
@@ -1223,15 +1216,13 @@ msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
-#, fuzzy
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
-msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "%(count)s ผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:77
-#, fuzzy
 msgid "Searching for \"%(query)s\""
-msgstr "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr "กำลังค้นหา \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
@@ -1307,9 +1298,8 @@ msgid "Operating System"
 msgstr "ระบบปฏิบัติการ"
 
 #: src/amo/components/SearchFilters/index.js:211
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "ส่วนเสริม Firefox"
+msgstr "ส่วนเสริมที่แนะนำเท่านั้น"
 
 #: src/amo/components/SearchForm/index.js:196
 msgid "Go to the add-on page"
@@ -1361,9 +1351,8 @@ msgid "Search Tools"
 msgstr "เครื่องมือค้นหา"
 
 #: src/amo/components/SectionLinks/index.js:125
-#, fuzzy
 msgid "Other Browser Sites"
-msgstr "เบราว์เซอร์ iOS"
+msgstr "ไซต์ของเบราว์เซอร์อื่น ๆ"
 
 #: src/amo/components/SectionLinks/index.js:58
 msgid "for Firefox"
