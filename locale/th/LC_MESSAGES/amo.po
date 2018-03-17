@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-17 10:39+0000\n"
+"PO-Revision-Date: 2018-03-17 11:41+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -93,9 +93,8 @@ msgid "About this add-on"
 msgstr "เกี่ยวกับส่วนเสริมนี้"
 
 #: src/amo/components/Addon/index.js:342
-#, fuzzy
 msgid "Release notes for %(addonVersion)s"
-msgstr "บทวิจารณ์สำหรับ %(addonName)s"
+msgstr "บันทึกประจำรุ่นสำหรับ %(addonVersion)s"
 
 #: src/amo/components/Addon/index.js:371
 msgid "More dictionaries by %(author)s"
