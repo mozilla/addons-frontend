@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-17 10:30+0000\n"
+"PO-Revision-Date: 2018-03-17 10:39+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -729,9 +729,8 @@ msgid "Legal"
 msgstr "ข้อกฎหมาย"
 
 #: src/amo/components/Footer/index.js:149
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "รายงานข้อบกพร่อง"
+msgstr "รายงานการละเมิดเครื่องหมายการค้า"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -859,14 +858,12 @@ msgid "See more good time tabs extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-#, fuzzy
 msgid "Popular themes"
-msgstr "เรียกดูชุดตกแต่งทั้งหมด"
+msgstr "ชุดตกแต่งยอดนิยม"
 
 #: src/amo/components/Home/index.js:230
-#, fuzzy
 msgid "See more popular themes"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ดูชุดตกแต่งยอดนิยมเพิ่มเติม"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
@@ -1059,9 +1056,8 @@ msgid "Available for your locale"
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:142
-#, fuzzy
 msgid "Dictionaries and Language Packs"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
+msgstr "พจนานุกรมและชุดภาษา"
 
 #: src/amo/components/LanguageTools/index.js:156
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
@@ -1169,9 +1165,8 @@ msgid "Trending add-ons"
 msgstr "ส่วนเสริมที่กำลังนิยม"
 
 #: src/amo/components/Search/index.js:141
-#, fuzzy
 msgid "Top rated add-ons"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ส่วนเสริมที่ได้รับการจัดอันดับสูงสุด"
 
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
