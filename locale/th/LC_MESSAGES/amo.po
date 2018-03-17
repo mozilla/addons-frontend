@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-17 08:57+0000\n"
+"PO-Revision-Date: 2018-03-17 09:49+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -69,34 +69,28 @@ msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
 #: src/amo/components/Addon/index.js:288
-#, fuzzy
 msgid "About this dictionary"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนพจนานุกรมนี้"
+msgstr "เกี่ยวกับพจนานุกรมนี้"
 
 #: src/amo/components/Addon/index.js:291
-#, fuzzy
 msgid "About this extension"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
+msgstr "เกี่ยวกับส่วนขยายนี้"
 
 #: src/amo/components/Addon/index.js:294
-#, fuzzy
 msgid "About this language pack"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
+msgstr "เกี่ยวกับชุดภาษานี้"
 
 #: src/amo/components/Addon/index.js:297
-#, fuzzy
 msgid "About this search plugin"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนเครื่องมือค้นหานี้"
+msgstr "เกี่ยวกับปลั๊กอินการค้นหานี้"
 
 #: src/amo/components/Addon/index.js:300
-#, fuzzy
 msgid "About this theme"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดตกแต่งนี้"
+msgstr "เกี่ยวกับชุดตกแต่งนี้"
 
 #: src/amo/components/Addon/index.js:303
-#, fuzzy
 msgid "About this add-on"
-msgstr "เกี่ยวกับ %(addonType)s นี้"
+msgstr "เกี่ยวกับส่วนเสริมนี้"
 
 #: src/amo/components/Addon/index.js:342
 #, fuzzy
@@ -1117,9 +1111,8 @@ msgid "Log in to rate this language pack"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดภาษานี้"
 
 #: src/amo/components/RatingManager/index.js:143
-#, fuzzy
 msgid "Log in to rate this search plugin"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนเครื่องมือค้นหานี้"
+msgstr "เข้าสู่ระบบเพื่อให้คะแนนปลั๊กอินการค้นหานี้"
 
 #: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"

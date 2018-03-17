@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:45+0000\n"
-"PO-Revision-Date: 2017-08-22 22:11+0000\n"
+"PO-Revision-Date: 2018-03-17 09:50+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -124,12 +124,11 @@ msgstr "ปิด"
 
 #: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox สำหรับ iOS ไม่รองรับส่วนเสริมในขณะนี้"
 
 #: src/disco/components/AddonCompatibilityError/index.js:45
-#, fuzzy
 msgid "This add-on does not support your version of Firefox."
-msgstr "ส่วนเสริมนี้จะถูกถอนการติดตั้งหลังจากคุณเริ่มการทำงาน Firefox ใหม่"
+msgstr "ส่วนเสริมนี้ไม่รองรับ Firefox รุ่นของคุณ"
 
 #: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
