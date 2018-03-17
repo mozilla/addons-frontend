@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-17 06:43+0000\n"
+"PO-Revision-Date: 2018-03-17 06:48+0000\n"
 "Last-Translator: Adeel <meetadeel@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ur\n"
@@ -210,12 +210,12 @@ msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
-msgstr ""
+msgstr "‏‏صارفين"
 
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
 msgid_plural "Users"
-msgstr[0] ""
+msgstr[0] "صارف"
 msgstr[1] ""
 
 #: src/amo/components/AddonMeta/index.js:36
@@ -234,7 +234,7 @@ msgstr[1] ""
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
-msgstr ""
+msgstr "کوئی درجہ بندی نہیں"
 
 #: src/amo/components/AddonMeta/index.js:53
 msgid "Used by"
@@ -261,9 +261,8 @@ msgid "See all versions"
 msgstr "تمام ورژن دیکھیں"
 
 #: src/amo/components/AddonMoreInfo/index.js:152
-#, fuzzy
 msgid "See all beta versions"
-msgstr "تمام توسیعات براؤز کریں"
+msgstr "تمام beta ورژن دیکھیں"
 
 #: src/amo/components/AddonMoreInfo/index.js:178
 msgid "Add-on Links"
