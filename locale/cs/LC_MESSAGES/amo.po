@@ -218,17 +218,15 @@ msgid "No Users"
 msgstr "Žádní uživatelé"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Nehodnoceno"
+msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Nehodnoceno"
-msgstr[1] "Nehodnoceno"
-msgstr[2] "Nehodnoceno"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: src/amo/components/AddonMeta/index.js:48
 #, fuzzy
@@ -878,9 +876,8 @@ msgid "Wikipedia boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Více nástrojů pro stahování médií"
+msgstr ""
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -916,9 +913,8 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr "Oddělte různé části svého online já (pracovní, osobní...) do jednotlivých kontejnerů"
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Nástroje"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -990,9 +986,8 @@ msgid "Remove clutter and improve readability"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
@@ -1019,14 +1014,12 @@ msgid "Notebook Web Clipper"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Vizuální záložky pro vaše oblíbené weby."
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Nahlásit"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1696,9 +1689,8 @@ msgid "Next"
 msgstr "Další"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Stránka %(currentPage)s z %(totalPages)s"
+msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
