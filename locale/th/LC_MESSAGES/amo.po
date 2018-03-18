@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-18 07:49+0000\n"
+"PO-Revision-Date: 2018-03-18 08:08+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -305,12 +305,11 @@ msgstr "อีเมลสนับสนุน"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "เยี่ยมชมแดชบอร์ดสถิติ"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม!"
+msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม! โปรดปฏิบัติตาม %(linkStart)sคู่มือบทวิจารณ์%(linkEnd)s ของเรา"
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -762,7 +761,7 @@ msgstr "รายงานข้อบกพร่อง"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr ""
+msgstr "คู่มือบทวิจารณ์"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -897,16 +896,15 @@ msgstr "การดูวิดีโอ"
 
 #: src/amo/components/HomeHeroBanner/index.js:108
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "การแยกข้อมูลหลายบัญชี"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "เครื่องมือ"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -914,7 +912,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "เกมงู"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
@@ -930,7 +928,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
@@ -938,7 +936,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
@@ -1050,7 +1048,7 @@ msgstr "เปลี่ยนภาษา"
 
 #: src/amo/components/LanguageTools/index.js:106
 msgid "Available for your locale"
-msgstr ""
+msgstr "พร้อมใช้งานสำหรับภาษาของคุณ"
 
 #: src/amo/components/LanguageTools/index.js:142
 msgid "Dictionaries and Language Packs"
@@ -1178,34 +1176,29 @@ msgid "Search results for \"%(query)s\""
 msgstr "ผลการค้นหา \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:40
-#, fuzzy
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
-msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "พบ %(count)s ส่วนขยายสำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:46
-#, fuzzy
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
-msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "พบ %(count)s พจนานุกรมสำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:52
-#, fuzzy
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
-msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "พบ %(count)s ชุดภาษาสำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:58
-#, fuzzy
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
-msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "พบ %(count)s ชุดตกแต่งสำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:64
-#, fuzzy
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
-msgstr[0] "ไม่พบผลลัพธ์สำหรับ \"%(query)s\""
+msgstr[0] "พบ %(count)s ผลลัพธ์สำหรับ \"%(query)s\""
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
@@ -1295,7 +1288,7 @@ msgstr "ส่วนเสริมที่แนะนำเท่านั้
 
 #: src/amo/components/SearchForm/index.js:196
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "ไปยังหน้าของส่วนเสริม"
 
 #: src/amo/components/SearchForm/index.js:214
 msgid "Find add-ons"
@@ -1316,7 +1309,7 @@ msgstr[0] "%(total)s ผู้ใช้"
 
 #: src/amo/components/SearchResult/index.js:94
 msgid "No theme preview available"
-msgstr ""
+msgstr "ไม่มีตัวอย่างชุดตกแต่ง"
 
 #: src/amo/components/SearchResults.js:39
 msgid "Searching…"
@@ -1422,7 +1415,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "มีส่วนร่วม"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
