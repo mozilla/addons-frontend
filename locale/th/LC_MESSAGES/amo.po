@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-18 07:06+0000\n"
+"PO-Revision-Date: 2018-03-18 07:49+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -244,7 +244,7 @@ msgstr "อ่านนโยบายความเป็นส่วนตั
 
 #: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
-msgstr ""
+msgstr "อ่านข้อตกลงสัญญาอนุญาตสำหรับส่วนเสริมนี้"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
@@ -355,7 +355,7 @@ msgstr "โดย %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr "การตอบกลับของนักพัฒนา"
+msgstr "การตอบสนองของนักพัฒนา"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Write a reply to this review."
@@ -531,7 +531,7 @@ msgstr "URL ที่กำหนดเอง"
 
 #: src/amo/components/CollectionManager/index.js:86
 msgid "Collection name cannot be blank"
-msgstr ""
+msgstr "ชื่อชุดสะสมไม่สามารถเว้นว่างได้"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -607,7 +607,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
 msgid "This add-on has been removed by its author."
-msgstr ""
+msgstr "ส่วนเสริมนี้ถูกเอาออกโดยผู้สร้าง"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
@@ -708,7 +708,7 @@ msgstr "เบราว์เซอร์ Focus"
 
 #: src/amo/components/Footer/index.js:117
 msgid "Desktop Browser"
-msgstr ""
+msgstr "เบราว์เซอร์สำหรับเดสก์ท็อป"
 
 #: src/amo/components/Footer/index.js:122
 msgid "Beta, Nightly, Developer Edition"
@@ -769,9 +769,8 @@ msgid "Site Status"
 msgstr "สถานะไซต์"
 
 #: src/amo/components/Footer/index.js:86
-#, fuzzy
 msgid "View classic desktop site"
-msgstr "ดูไซต์สำหรับเดสก์ท็อป"
+msgstr "ดูไซต์สำหรับเดสก์ท็อปแบบคลาสสิก"
 
 #: src/amo/components/Header/index.js:100
 msgid "View My Collections"
