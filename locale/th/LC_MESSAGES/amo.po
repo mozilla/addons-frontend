@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-18 08:48+0000\n"
+"PO-Revision-Date: 2018-03-18 09:00+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -796,9 +796,8 @@ msgid "Submit a New Theme"
 msgstr "ส่งชุดตกแต่งใหม่"
 
 #: src/amo/components/Header/index.js:138
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "ไม่มีบทวิจารณ์"
+msgstr "เครื่องมือผู้วิจารณ์"
 
 #: src/amo/components/Header/index.js:148 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
@@ -924,7 +923,7 @@ msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders มาเจอกับการจัดการแท็บอย่างชาญฉลาด"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
@@ -932,7 +931,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "เปลี่ยนโฉม Wikipedia ให้งดงาม"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
@@ -972,7 +971,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "เอาความยุ่งเหยิงออกและปรับปรุงความสามารถในการอ่าน"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
