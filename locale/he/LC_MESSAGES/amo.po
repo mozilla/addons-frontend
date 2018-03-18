@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-18 16:33+0000\n"
+"PO-Revision-Date: 2018-03-18 17:10+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1481,11 +1481,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
-msgstr "כדאי להשאיר את הסקירה מתומצתת וקלה להבנה."
+msgstr "לשמור על הסקירות מתומצתות וקלות להבנה."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr "כדאי לספק פרטים ספציפיים ומועילים. למשל:"
+msgstr "לספק פרטים ספציפיים ומועילים. למשל:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
@@ -1509,7 +1509,7 @@ msgstr "האם תוספת זו תמשיך לשמש אותך?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr "מומלץ לקרוא את הסקירה לפני שליחתה למניעת טעויות כתיב."
+msgstr "לקרוא את הסקירה לפני שליחתה למניעת טעויות כתיב."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1517,7 +1517,7 @@ msgstr "לא לעשות:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr "שליחה של סקירות באורך של מילה בודדה כמו „מצוין!”, „מעולה” או „גרוע”."
+msgstr "לפרסם סקירות באורך של מילה בודדה כמו „מצוין!”, „מעולה” או „גרוע”."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
