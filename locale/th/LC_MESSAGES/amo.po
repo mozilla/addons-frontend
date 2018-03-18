@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-18 09:15+0000\n"
+"PO-Revision-Date: 2018-03-18 10:34+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -777,11 +777,11 @@ msgstr "ดูชุดสะสมของฉัน"
 
 #: src/amo/components/Header/index.js:105
 msgid "View Profile"
-msgstr ""
+msgstr "ดูข้อมูลส่วนตัว"
 
 #: src/amo/components/Header/index.js:110
 msgid "Edit Profile"
-msgstr ""
+msgstr "แก้ไขข้อมูลส่วนตัว"
 
 #: src/amo/components/Header/index.js:114
 msgid "Tools"
