@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-17 11:41+0000\n"
+"PO-Revision-Date: 2018-03-18 07:06+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -232,7 +232,7 @@ msgstr "ใช้โดย"
 
 #: src/amo/components/AddonMeta/index.js:73
 msgid "Overall Rating"
-msgstr ""
+msgstr "การจัดอันดับโดยรวม"
 
 #: src/amo/components/AddonMoreInfo/index.js:103
 msgid "%(timeFromNow)s (%(date)s)"
@@ -355,12 +355,11 @@ msgstr "โดย %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr ""
+msgstr "การตอบกลับของนักพัฒนา"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "เขียนบทวิจารณ์"
+msgstr "เขียนการตอบกลับบทวิจารณ์นี้"
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
@@ -612,7 +611,7 @@ msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
 msgid "This add-on has been disabled by an administrator."
-msgstr ""
+msgstr "ส่วนเสริมนี้ถูกปิดใช้งานโดยผู้ดูแลระบบ"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
 msgid "Sorry, but we can't find anything at the address you entered."
@@ -1706,9 +1705,8 @@ msgid "No ratings"
 msgstr "ไม่มีการจัดอันดับ"
 
 #: src/ui/components/Rating/index.js:97
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "การจัดอันดับเฉลี่ย: %(rating)s จาก 5"
+msgstr "ได้รับการจัดอันดับ %(rating)s จาก 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
