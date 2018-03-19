@@ -1,4 +1,5 @@
 @import "~photon-colors/colors";
+@import "~core/css/inc/vars";
 
 .EditableCollectionAddon {
   border-bottom: 1px solid $grey-30;
@@ -11,6 +12,6 @@
 .EditableCollectionAddon-name {
   align-items: center;
   display: flex;
-  font-size: 16px;
+  font-size: $font-size-m;
   margin: 0;
 }
