@@ -9,12 +9,13 @@ import './styles.scss';
 
 type Props = {|
   addon: AddonType,
+  className?: string,
 |};
 
-const EditableCollectionAddon = ({ addon }: Props) => {
+const EditableCollectionAddon = ({ addon, className }: Props) => {
   const iconURL = getAddonIconUrl(addon);
   return (
-    <div className="EditableCollectionAddon">
+    <div className={makeClassName('EditableCollectionAddon', className)}>
       <img src={iconURL} alt="" />
       <h2 className="EditableCollectionAddon-name">
         {addon.name}

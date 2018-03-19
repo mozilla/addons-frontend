@@ -197,7 +197,9 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         <div className="CollectionManager-addons">
           {collection && collection.addons && collection.addons.map(
             (addon) => {
-              return <EditableCollectionAddon addon={addon} />;
+              return (
+                <EditableCollectionAddon key={addon.id} addon={addon} />
+              );
             }
           )}
         </div>

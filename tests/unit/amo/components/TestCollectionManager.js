@@ -3,11 +3,14 @@ import * as React from 'react';
 import CollectionManager, {
   extractId, CollectionManagerBase, COLLECTION_OVERLAY,
 } from 'amo/components/CollectionManager';
+import EditableCollectionAddon
+  from 'amo/components/EditableCollectionAddon';
 import {
   createInternalCollection, updateCollection,
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
 import { setErrorMessage } from 'core/actions/errors';
+import { createInternalAddon } from 'core/reducers/addons';
 import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
@@ -16,9 +19,11 @@ import {
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import {
+  createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import FormOverlay from 'ui/components/FormOverlay';
@@ -347,6 +352,26 @@ describe(__filename, () => {
     const state = root.state();
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
+  });
+
+  it('renders editable collection add-ons', () => {
+    const extAddon1 = { ...fakeAddon, name: 'uBlock' };
+    const extAddon2 = { ...fakeAddon, name: 'AdBlockPlus' };
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail(),
+      items: createFakeCollectionAddons({
+        addons: [extAddon1, extAddon2],
+      }).results,
+    });
+    const root = render({ collection });
+
+    const addons = root.find(EditableCollectionAddon);
+    expect(addons).toHaveLength(2);
+    expect(addons.at(0))
+      .toHaveProp('addon', createInternalAddon(extAddon1));
+    expect(addons.at(1))
+      .toHaveProp('addon', createInternalAddon(extAddon2));
   });
 
   describe('extractId', () => {
