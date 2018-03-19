@@ -12,10 +12,6 @@
       box-shadow: none;
     }
   }
-
-  .FormOverlay-overlay {
-    height: 90%;
-  }
 }
 
 .CollectionManager .AutoSearchInput--autocompleteIsOpen .AutoSearchInput-query {
@@ -38,15 +34,13 @@
   }
 }
 
-.FormOverlay-form .CollectionManager-collectionName {
+.FormOverlay-content .CollectionManager-collectionName {
   // This provides room for an error banner at the top of the form.
   padding-top: 12px;
 }
 
 .CollectionManager-addons {
   margin-top: 24px;
-  max-height: 22vh;
-  overflow: auto;
 }
 
 .CollectionManager-slug-url-hint {

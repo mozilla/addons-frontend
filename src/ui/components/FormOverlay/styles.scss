@@ -19,11 +19,12 @@
 .FormOverlay-overlay {
   background-color: $white;
   border-radius: $border-radius-s;
-  display: block;
-  margin: 12px;
-  overflow: auto;
-  min-width: 65%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 95%;
+  margin: 0;
   padding: 24px;
+  width: 95%;
 
   .ErrorList {
     margin: 0;
@@ -37,7 +38,8 @@
   justify-content: flex-end;
 }
 
-.FormOverlay-form-buttons {
+.FormOverlay-footer {
+  align-items: end;
   display: grid;
   grid-gap: 16px;
   grid-template-columns: min-content min-content;
@@ -57,8 +59,10 @@
   margin: 0 0 12px;
 }
 
-.FormOverlay-form {
-  margin: 0 48px;
+.FormOverlay-content {
+  margin: 0;
+  overflow: auto;
+  padding: 0 48px;
 
   label {
     display: block;
