@@ -12,6 +12,9 @@ import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
 import FormOverlay from 'ui/components/FormOverlay';
+import type {
+  SearchFilters, SuggestionType,
+} from 'amo/components/AutoSearchInput';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
@@ -110,6 +113,18 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  // eslint-disable-next-line no-unused-vars
+  onSearchAddon = (filters: SearchFilters) => {
+    // TODO: implement onSearchAddon
+    // https://github.com/mozilla/addons-frontend/issues/4590
+  }
+
+  // eslint-disable-next-line no-unused-vars
+  onAddonSelected = (suggestion: SuggestionType) => {
+    // TODO: implement onAddonSelected
+    // https://github.com/mozilla/addons-frontend/issues/4590
+  }
+
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
@@ -190,8 +205,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           inputPlaceholder={
             i18n.gettext('Enter the name of an add-on to include')
           }
-          onSearch={() => {}}
-          onSuggestionSelected={() => {}}
+          onSearch={this.onSearchAddon}
+          onSuggestionSelected={this.onAddonSelected}
           selectSuggestionText={i18n.gettext('Add to collection')}
         />
         <div className="CollectionManager-addons">
