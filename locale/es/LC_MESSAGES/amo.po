@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-19 22:45+0000\n"
+"PO-Revision-Date: 2018-03-19 22:34+0000\n"
 "Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -853,9 +853,8 @@ msgid "Good time tabs"
 msgstr "Pestañas para pasar un buen rato"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Ver más extensiones más valoradas"
+msgstr "Ver más extensiones para pestañas"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -867,12 +866,11 @@ msgstr "Ver más temas populares"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Integraciones con Wikipedia"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Ver más gestores de descarga multimedia"
+msgstr "Ver más integraciones con Wikipedia"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -1007,14 +1005,12 @@ msgid "Notebook Web Clipper"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Marcadores visuales para tus sitios favoritos de la web."
+msgstr "Recorta, guarda y organiza tus cosas favoritas en la web"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Etiquetar"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
