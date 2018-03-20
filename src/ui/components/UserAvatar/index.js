@@ -18,7 +18,7 @@ const UserAvatar = ({ className, user }: Props) => {
     <div className={_className}>
       {
         (user && user.picture_type && user.picture_type.length) ?
-          <img alt="" src={user.picture_url} /> :
+          <img className="UserAvatar-image" alt="" src={user.picture_url} /> :
           <Icon name="anonymous-user" />
       }
     </div>

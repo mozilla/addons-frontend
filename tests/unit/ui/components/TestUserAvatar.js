@@ -22,28 +22,9 @@ describe(__filename, () => {
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ user });
 
-    expect(root.find('.UserAvatar img')).toHaveLength(1);
-    expect(root.find('.UserAvatar img')).toHaveProp(
+    expect(root.find('.UserAvatar-image')).toHaveLength(1);
+    expect(root.find('.UserAvatar-image')).toHaveProp(
       'src', 'http://tofumatt.com/photo.jpg');
-  });
-
-  it('renders extra classNames when rendering an <img> tag', () => {
-    const { state } = dispatchSignInActions({
-      userProps: {
-        picture_url: 'http://tofumatt.com/photo.jpg',
-        picture_type: 'jpg',
-      },
-    });
-    const user = getCurrentUser(state.users);
-    const root = renderUserAvatar({ className: 'test', user });
-
-    expect(root.find('.UserAvatar.test')).toHaveLength(1);
-  });
-
-  it('renders extra classNames when rendering an Icon component', () => {
-    const root = renderUserAvatar({ className: 'test', user: undefined });
-
-    expect(root.find(Icon).parent().find('.test')).toHaveLength(1);
   });
 
   it('renders an anonymous icon if the user has no photo', () => {
