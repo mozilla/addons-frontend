@@ -61,7 +61,7 @@ describe(__filename, () => {
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
     expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-      return element.prop('href') === '/search-tools/';
+      return (element.prop('to') && element.prop('to').pathname) === '/search/';
     })).toHaveProp('children', 'Search Tools');
   });
 

@@ -116,7 +116,7 @@ export class SectionLinksBase extends React.Component<Props> {
             <DropdownMenuItem>
               <Link
                 className="SectionLinks-dropdownlink"
-                href="/search-tools/"
+                to={{ pathname: '/search/', query: { type: 'search' } }}
               >
                 {i18n.gettext('Search Tools')}
               </Link>

@@ -7,6 +7,7 @@ import { compose } from 'redux';
 
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
   SEARCH_SORT_TOP_RATED,
@@ -100,6 +101,7 @@ export class SearchFiltersBase extends React.Component {
     return [
       { children: i18n.gettext('All'), value: NO_FILTER },
       { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
+      { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
       { children: i18n.gettext('Theme'), value: ADDON_TYPE_THEME },
     ];
   }
