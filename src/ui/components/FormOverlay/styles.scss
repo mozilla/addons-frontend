@@ -26,6 +26,11 @@
   padding: 24px;
   width: 95%;
 
+  @include respond-to(extraLarge) {
+    // Set the width to 900px - 22px.
+    width: 876px;
+  }
+
   .ErrorList {
     margin: 0;
   }
