@@ -1,3 +1,4 @@
+import deepEqual from 'deep-eql';
 import SagaTester from 'redux-saga-tester';
 
 import addonsByAuthorsReducer, {
@@ -7,6 +8,7 @@ import addonsByAuthorsReducer, {
 } from 'amo/reducers/addonsByAuthors';
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
@@ -41,14 +43,85 @@ describe(__filename, () => {
   function _fetchAddonsByAuthors(params) {
     sagaTester.dispatch(fetchAddonsByAuthors({
       errorHandlerId: errorHandler.id,
-      addonType: ADDON_TYPE_THEME,
       ...params,
     }));
   }
 
   it('calls the API to retrieve other add-ons', async () => {
-    const addons = [fakeAddon];
+    const fakeAddons = [{ ...fakeAddon, id: 54, slug: 'fifty-four' }];
+    const fakeThemes = [
+      { ...fakeAddon, id: 55, slug: 'fifty-five', type: ADDON_TYPE_THEME },
+    ];
     const authors = ['mozilla', 'johnedoe'];
+    const state = sagaTester.getState();
+
+    mockApi
+      .expects('search')
+      .withArgs({
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          author: authors.sort().join(','),
+          exclude_addons: undefined, // `callApi` will internally unset this
+          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          sort: SEARCH_SORT_TRENDING,
+        },
+      })
+      .once()
+      .returns(Promise.resolve(createAddonsApiResult(fakeThemes)));
+
+    mockApi
+      .expects('search')
+      .withArgs({
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          author: authors.sort().join(','),
+          exclude_addons: undefined, // `callApi` will internally unset this
+          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          sort: SEARCH_SORT_TRENDING,
+        },
+      })
+      .once()
+      .returns(Promise.resolve(createAddonsApiResult(fakeAddons)));
+
+    _fetchAddonsByAuthors({ addonType: ADDON_TYPE_THEME, authors });
+    _fetchAddonsByAuthors({ addonType: ADDON_TYPE_EXTENSION, authors });
+
+    const loadActionForAddons = loadAddonsByAuthors({
+      addons: fakeAddons,
+      addonType: ADDON_TYPE_EXTENSION,
+      authors,
+      forAddonSlug: undefined,
+    });
+    const loadActionForThemes = loadAddonsByAuthors({
+      addons: fakeThemes,
+      addonType: ADDON_TYPE_THEME,
+      authors,
+      forAddonSlug: undefined,
+    });
+
+    await sagaTester.waitFor(loadActionForAddons.type);
+    mockApi.verify();
+
+    let matchingActions = 0;
+    sagaTester.getCalledActions().filter((action) => {
+      return action.type === loadActionForAddons.type;
+    }).forEach((action) => {
+      if (
+        deepEqual(action, loadActionForAddons) ||
+        deepEqual(action, loadActionForThemes)
+      ) {
+        matchingActions++;
+      }
+    });
+
+    expect(matchingActions).toEqual(2);
+  });
+
+  it('calls the API multiple times for different addonType', async () => {
+    const addons = [fakeAddon];
+    const authors = ['mozilla'];
     const state = sagaTester.getState();
 
     mockApi
@@ -66,10 +139,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authors });
+    _fetchAddonsByAuthors({ authors, addonType: ADDON_TYPE_THEME });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
+      addonType: ADDON_TYPE_THEME,
+      authors,
       forAddonSlug: undefined,
     });
 
@@ -90,8 +165,8 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
-          author: authors.join(','),
+          addonType: undefined,
+          author: authors.sort().join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -104,6 +179,7 @@ describe(__filename, () => {
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
+      authors,
       forAddonSlug: slug,
     });
 
@@ -149,8 +225,8 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
-          author: authors.join(','),
+          addonType: undefined,
+          author: authors.sort().join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -163,6 +239,7 @@ describe(__filename, () => {
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
+      authors,
       forAddonSlug: slug,
     });
 
