@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-08 22:42+0000\n"
+"POT-Creation-Date: 2018-03-20 20:23+0000\n"
 "PO-Revision-Date: 2018-02-18 23:26+0000\n"
 "Last-Translator: Mikkel Herold <mikkel@mzh.dk>\n"
 "Language-Team: none\n"
@@ -40,112 +40,113 @@ msgid "Add to…"
 msgstr "Føj til…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
+#: src/amo/components/CollectionManager/index.js:211
 msgid "Add to collection"
 msgstr "Føj til samling"
 
-#: src/amo/components/Addon/index.js:185
+#: src/amo/components/Addon/index.js:189
 msgid "Cancel preview"
 msgstr "Annuller forhåndsvisning"
 
-#: src/amo/components/Addon/index.js:185
+#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "Tryk for at få vist eksempel"
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:245
+#: src/amo/components/Addon/index.js:249
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Læs %(count)s anmeldelse"
 msgstr[1] "Læs alle %(count)s anmeldelser"
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:265
 msgid "No reviews yet"
 msgstr "Ikke anmeldt endnu"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:274
 msgid "Rate your experience"
 msgstr "Bedøm din oplevelse"
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:292
 msgid "About this dictionary"
 msgstr "Om denne ordbog"
 
-#: src/amo/components/Addon/index.js:291
+#: src/amo/components/Addon/index.js:295
 msgid "About this extension"
 msgstr "Om denne udvidelse"
 
-#: src/amo/components/Addon/index.js:294
+#: src/amo/components/Addon/index.js:298
 msgid "About this language pack"
 msgstr "Om denne sprogpakke"
 
-#: src/amo/components/Addon/index.js:297
+#: src/amo/components/Addon/index.js:301
 msgid "About this search plugin"
 msgstr "Om dette søge-plugin"
 
-#: src/amo/components/Addon/index.js:300
+#: src/amo/components/Addon/index.js:304
 msgid "About this theme"
 msgstr "Om dette tema"
 
-#: src/amo/components/Addon/index.js:303
+#: src/amo/components/Addon/index.js:307
 msgid "About this add-on"
 msgstr "Om denne tilføjelse"
 
-#: src/amo/components/Addon/index.js:342
+#: src/amo/components/Addon/index.js:346
 msgid "Release notes for %(addonVersion)s"
 msgstr "Udgivelsesnoter for %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:371
+#: src/amo/components/Addon/index.js:375
 msgid "More dictionaries by %(author)s"
 msgstr "Flere ordbøger af %(author)s"
 
-#: src/amo/components/Addon/index.js:374
+#: src/amo/components/Addon/index.js:378
 msgid "More dictionaries by these translators"
 msgstr "Flere ordbøger af disse oversættere"
 
-#: src/amo/components/Addon/index.js:381
+#: src/amo/components/Addon/index.js:385
 msgid "More extensions by %(author)s"
 msgstr "Flere udvidelser af %(author)s"
 
-#: src/amo/components/Addon/index.js:384
+#: src/amo/components/Addon/index.js:388
 msgid "More extensions by these developers"
 msgstr "Flere udvidelser af disse udviklere"
 
-#: src/amo/components/Addon/index.js:391
+#: src/amo/components/Addon/index.js:395
 msgid "More language packs by %(author)s"
 msgstr "Flere sprogpakker af %(author)s"
 
-#: src/amo/components/Addon/index.js:394
+#: src/amo/components/Addon/index.js:398
 msgid "More language packs by these translators"
 msgstr "Flere sprogpakker af disse oversættere"
 
-#: src/amo/components/Addon/index.js:401
+#: src/amo/components/Addon/index.js:405
 msgid "More themes by %(author)s"
 msgstr "Flere temaer af %(author)s"
 
-#: src/amo/components/Addon/index.js:404
+#: src/amo/components/Addon/index.js:408
 msgid "More themes by these artists"
 msgstr "Flere temaer af disse kunstnere"
 
-#: src/amo/components/Addon/index.js:411
+#: src/amo/components/Addon/index.js:415
 msgid "More add-ons by %(author)s"
 msgstr "Flere tilføjelser af %(author)s"
 
-#: src/amo/components/Addon/index.js:414
+#: src/amo/components/Addon/index.js:418
 msgid "More add-ons by these developers"
 msgstr "Flere tilføjelser af disse udviklere"
 
-#: src/amo/components/Addon/index.js:494
+#: src/amo/components/Addon/index.js:498
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s af %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:568
+#: src/amo/components/Addon/index.js:572
 msgid "Extension Metadata"
 msgstr "Metadata for udvidelsen"
 
-#: src/amo/components/Addon/index.js:586
+#: src/amo/components/Addon/index.js:590
 msgid "Screenshots"
 msgstr "Skærmbilleder"
 
@@ -172,6 +173,10 @@ msgstr "Eksperimentel"
 #: src/amo/components/AddonBadges/index.js:64
 msgid "Not compatible with Firefox Quantum"
 msgstr "Ikke kompatibel med Firefox Quantum"
+
+#: src/amo/components/AddonBadges/index.js:70
+msgid "Some features may require payment"
+msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid ""
@@ -282,7 +287,7 @@ msgid "Version"
 msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:205
+#: src/amo/components/Collection/index.js:206
 msgid "Last updated"
 msgstr "Senest opdateret"
 
@@ -311,6 +316,7 @@ msgid "More information"
 msgstr "Mere information"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
+#: src/amo/components/UserProfile/index.js:109
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -428,7 +434,7 @@ msgid "Reply to this review"
 msgstr "Svar på denne anmeldelse"
 
 #: src/amo/components/App/index.js:203
-#: src/amo/components/SectionLinks/index.js:149
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Tilføjelser til Firefox"
 
@@ -437,13 +443,26 @@ msgid "%s – Add-ons for Firefox"
 msgstr "%s – Tilføjelser til Firefox"
 
 #: src/amo/components/App/index.js:207
-#: src/amo/components/SectionLinks/index.js:136
+#: src/amo/components/SectionLinks/index.js:137
 msgid "Add-ons for Android"
 msgstr "Tilføjelser til Android"
 
 #: src/amo/components/App/index.js:208
 msgid "%s – Add-ons for Android"
 msgstr "%s – Tilføjelser til Android"
+
+#: src/amo/components/AutoSearchInput/index.js:190
+msgid "Loading"
+msgstr "Indlæser"
+
+#: src/amo/components/AutoSearchInput/index.js:277
+msgid "Find add-ons"
+msgstr "Find tilføjelser"
+
+#: src/amo/components/AutoSearchInput/index.js:303
+#: src/amo/components/AutoSearchInput/index.js:336
+msgid "Search"
+msgstr "Søg"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -459,7 +478,7 @@ msgstr "Indlæser kategorier."
 
 #: src/amo/components/Category/index.js:131
 #: src/amo/components/LandingPage/index.js:205
-#: src/amo/components/SectionLinks/index.js:83
+#: src/amo/components/SectionLinks/index.js:84
 msgid "Extensions"
 msgstr "Udvidelser"
 
@@ -502,7 +521,7 @@ msgstr "Se flere bedst bedømte udvidelser"
 
 #: src/amo/components/Category/index.js:164
 #: src/amo/components/LandingPage/index.js:204
-#: src/amo/components/SectionLinks/index.js:93
+#: src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
 msgstr "Temaer"
 
@@ -551,44 +570,48 @@ msgstr "Gennemse alle udvidelser i denne kategori."
 msgid "Browse all themes in this category."
 msgstr "Gennemse alle temaer i denne kategori."
 
-#: src/amo/components/Collection/index.js:161
+#: src/amo/components/Collection/index.js:162
 msgid "Edit this collection"
 msgstr "Rediger denne samling"
 
-#: src/amo/components/Collection/index.js:195
+#: src/amo/components/Collection/index.js:196
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Tilføjelser"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:200
 msgid "Creator"
 msgstr "Lavet af"
 
-#: src/amo/components/CollectionManager/index.js:137
+#: src/amo/components/CollectionManager/index.js:156
 msgid "Save collection"
 msgstr "Gem samling"
 
-#: src/amo/components/CollectionManager/index.js:138
+#: src/amo/components/CollectionManager/index.js:157
 msgid "Saving collection"
 msgstr "Gemmer samling"
 
-#: src/amo/components/CollectionManager/index.js:139
+#: src/amo/components/CollectionManager/index.js:158
 msgid "Edit collection"
 msgstr "Rediger samling"
 
-#: src/amo/components/CollectionManager/index.js:143
+#: src/amo/components/CollectionManager/index.js:165
 msgid "Collection name"
 msgstr "Samlingens navn"
 
-#: src/amo/components/CollectionManager/index.js:153
+#: src/amo/components/CollectionManager/index.js:175
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: src/amo/components/CollectionManager/index.js:162
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:86
+#: src/amo/components/CollectionManager/index.js:207
+msgid "Find an add-on to include in this collection"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
 msgstr "Samlingens navn kan ikke være blankt"
 
@@ -756,12 +779,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Anmeldt som fejlrapport eller support-spørgsmål"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
-msgstr "Rapportér"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
 msgstr "Anmeldt"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flag"
+msgstr "Rapportér"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -862,7 +885,7 @@ msgstr "Om"
 msgid "Blog"
 msgstr "Blog"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:83
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:88
 msgid "Developer Hub"
 msgstr "Udviklercentral"
 
@@ -886,45 +909,45 @@ msgstr "Status for websted"
 msgid "View classic desktop site"
 msgstr "Vis klassisk desktop-site"
 
-#: src/amo/components/Header/index.js:100
+#: src/amo/components/Header/index.js:105
 msgid "View My Collections"
 msgstr "Vis mine samlinger"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:110
 msgid "View Profile"
 msgstr "Vis profil"
 
-#: src/amo/components/Header/index.js:110
+#: src/amo/components/Header/index.js:115
 msgid "Edit Profile"
 msgstr "Rediger profil"
 
-#: src/amo/components/Header/index.js:114
+#: src/amo/components/Header/index.js:119
 msgid "Tools"
 msgstr "Funktioner"
 
-#: src/amo/components/Header/index.js:120
+#: src/amo/components/Header/index.js:125
 msgid "Submit a New Add-on"
 msgstr "Indsend en ny tilføjelse"
 
-#: src/amo/components/Header/index.js:128
+#: src/amo/components/Header/index.js:133
 msgid "Submit a New Theme"
 msgstr "Indsend et nyt tema"
 
-#: src/amo/components/Header/index.js:138
+#: src/amo/components/Header/index.js:143
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "Anmeldelser"
 
-#: src/amo/components/Header/index.js:148
+#: src/amo/components/Header/index.js:153
 #: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "Log ud"
 
-#: src/amo/components/Header/index.js:60
+#: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "Tilføjelser til Firefox"
 
-#: src/amo/components/Header/index.js:94
+#: src/amo/components/Header/index.js:99
 msgid "My Account"
 msgstr "Min konto"
 
@@ -1181,15 +1204,15 @@ msgstr "Udforsk alle kategorier"
 msgid "Change language"
 msgstr "Skift sprog"
 
-#: src/amo/components/LanguageTools/index.js:106
+#: src/amo/components/LanguageTools/index.js:107
 msgid "Available for your locale"
 msgstr "Tilgængelig på dit sprog"
 
-#: src/amo/components/LanguageTools/index.js:142
+#: src/amo/components/LanguageTools/index.js:143
 msgid "Dictionaries and Language Packs"
 msgstr "Ordbøger og sprogpakker"
 
-#: src/amo/components/LanguageTools/index.js:156
+#: src/amo/components/LanguageTools/index.js:157
 msgid ""
 "Installing a dictionary add-on will add a new language option to your spell-"
 "checker, which checks your spelling as you type in Firefox."
@@ -1197,7 +1220,7 @@ msgstr ""
 "Hvis du installerer en ordbog, tilføjes et nyt sprog til din stavekontrol, "
 "som kontrollerer din stavning, mens du skriver i Firefox."
 
-#: src/amo/components/LanguageTools/index.js:161
+#: src/amo/components/LanguageTools/index.js:162
 msgid ""
 "Language packs change your browser's interface language, including menu "
 "options and settings."
@@ -1205,21 +1228,145 @@ msgstr ""
 "Sprogpakker ændrer sproget i din browsers brugerflade, herunder menuer og "
 "indstillinger."
 
-#: src/amo/components/LanguageTools/index.js:167
+#: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
 msgstr "Alle sprog"
 
-#: src/amo/components/LanguageTools/index.js:173
+#: src/amo/components/LanguageTools/index.js:174
 msgid "Locale Name"
 msgstr "Sprognavn"
 
-#: src/amo/components/LanguageTools/index.js:176
+#: src/amo/components/LanguageTools/index.js:177
 msgid "Language Packs"
 msgstr "Sprogpakker"
 
-#: src/amo/components/LanguageTools/index.js:179
+#: src/amo/components/LanguageTools/index.js:180
 msgid "Dictionaries"
 msgstr "Ordbøger"
+
+#: src/amo/components/PermissionsCard/index.js:47
+#, fuzzy
+msgid "Permissions"
+msgstr "Version"
+
+#: src/amo/components/PermissionsCard/index.js:50
+#, fuzzy
+msgid "This add-on can:"
+msgstr "Om denne tilføjelse"
+
+#: src/amo/components/PermissionsCard/index.js:61
+msgid "Learn more about permissions"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:24
+msgid "Read and modify bookmarks"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:25
+msgid "Read and modify browser settings"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:26
+msgid "Clear recent browsing history, cookies, and related data"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:27
+msgid "Get data from the clipboard"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:28
+msgid "Input data to the clipboard"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:29
+msgid "Extend developer tools to access your data in open tabs"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:30
+msgid "Download files and read and modify the browser’s download history"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:31
+msgid "Open files downloaded to your computer"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:32
+msgid "Read the text of all open tabs"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:33
+msgid "Access your location"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:34
+#: src/amo/components/PermissionsCard/permissions.js:46
+#, fuzzy
+msgid "Access browsing history"
+msgstr "Versions-historik"
+
+#: src/amo/components/PermissionsCard/permissions.js:35
+msgid "Monitor extension usage and manage themes"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:38
+msgid "Exchange messages with programs other than Firefox"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:39
+msgid "Display notifications to you"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:40
+msgid "Provide cryptographic authentication services"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:41
+msgid "Control browser proxy setting"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:42
+msgid "Read and modify privacy settings"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:43
+msgid "Access recently closed tabs"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:44
+msgid "Access browser tabs"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:45
+msgid "Hide and show browser tabs"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:47
+msgid "Store unlimited amount of client-side data"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:48
+msgid "Access browser activity during navigation"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:49
+msgid "Access your data for all websites"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:52
+msgid "Access your data for sites in the %(domain)s domain"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:60
+msgid "Access your data in %(count)s other domains"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:66
+msgid "Access your data for %(site)s"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on %(count)s other sites"
+msgstr ""
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1249,11 +1396,11 @@ msgstr "Log ind for at bedømme denne tilføjelse"
 msgid "How are you enjoying your experience with %(addonName)s?"
 msgstr "Hvordan er din oplevelse med %(addonName)s?"
 
-#: src/amo/components/ReportAbuseButton/index.js:108
+#: src/amo/components/ReportAbuseButton/index.js:109
 msgid "You reported this add-on for abuse"
 msgstr "Du har rapporteret denne tilføjelse for misbrug"
 
-#: src/amo/components/ReportAbuseButton/index.js:112
+#: src/amo/components/ReportAbuseButton/index.js:113
 msgid ""
 "We have received your report. Thanks for letting us know about your concerns "
 "with this add-on."
@@ -1261,13 +1408,14 @@ msgstr ""
 "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende "
 "denne tilføjelse med os."
 
-#: src/amo/components/ReportAbuseButton/index.js:119
+#: src/amo/components/ReportAbuseButton/index.js:120
+#: src/amo/components/ReportUserAbuse/index.js:154
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 "Vi kan ikke svare på alle rapporter om misbrug, men vi vil undersøge "
 "problemet."
 
-#: src/amo/components/ReportAbuseButton/index.js:130
+#: src/amo/components/ReportAbuseButton/index.js:131
 msgid ""
 "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
 "%(linkTagEnd)s or has security or privacy issues, please report these issues "
@@ -1278,11 +1426,11 @@ msgstr ""
 "et sikkerhedsproblem, bedes du rapportere problemerne til Mozilla ved hjælp "
 "af denne formular."
 
-#: src/amo/components/ReportAbuseButton/index.js:143
+#: src/amo/components/ReportAbuseButton/index.js:144
 msgid "Report this add-on for abuse"
 msgstr "Rapportér denne tilføjelse for misbrug"
 
-#: src/amo/components/ReportAbuseButton/index.js:172
+#: src/amo/components/ReportAbuseButton/index.js:173
 msgid ""
 "Please don't use this form to report bugs or request add-on features; this "
 "report will be sent to Mozilla and not to the add-on developer."
@@ -1291,21 +1439,69 @@ msgstr ""
 "Denne rapport vil blive sendt til Mozilla - ikke til udvikleren, der har "
 "lavet tilføjelsen."
 
-#: src/amo/components/ReportAbuseButton/index.js:185
+#: src/amo/components/ReportAbuseButton/index.js:186
 msgid "Explain how this add-on is violating our policies."
 msgstr "Forklar hvordan denne tilføjelse krænker vores retningslinjer."
 
-#: src/amo/components/ReportAbuseButton/index.js:198
+#: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
 msgstr "Annuller"
 
-#: src/amo/components/ReportAbuseButton/index.js:208
+#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Sending abuse report"
 msgstr "Sender rapport om misbrug"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportAbuseButton/index.js:210
+#: src/amo/components/ReportUserAbuse/index.js:134
 msgid "Send abuse report"
 msgstr "Send rapport om misbrug"
+
+#: src/amo/components/ReportUserAbuse/index.js:103
+#: src/amo/components/ReportUserAbuse/index.js:96
+#, fuzzy
+msgid "Report this user for abuse"
+msgstr "Rapportér denne tilføjelse for misbrug"
+
+#: src/amo/components/ReportUserAbuse/index.js:109
+#, fuzzy
+msgid ""
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
+"%(linkTagEnd)s, please report this user to Mozilla."
+msgstr ""
+"Hvis du mener, at denne tilføjelse krænker %(linkTagStart)sMozillas "
+"retningslinjer for tilføjelser%(linkTagEnd)s, privatlivets fred eller udgør "
+"et sikkerhedsproblem, bedes du rapportere problemerne til Mozilla ved hjælp "
+"af denne formular."
+
+#: src/amo/components/ReportUserAbuse/index.js:121
+#, fuzzy
+msgid ""
+"Please don't use this form to report bugs or contact this user; your report "
+"will only be sent to Mozilla and not to this user."
+msgstr ""
+"Brug ikke denne formular til fejlrapporter eller forslag til funktioner. "
+"Denne rapport vil blive sendt til Mozilla - ikke til udvikleren, der har "
+"lavet tilføjelsen."
+
+#: src/amo/components/ReportUserAbuse/index.js:131
+#, fuzzy
+msgid "Explain how this user is violating our policies."
+msgstr "Forklar hvordan denne tilføjelse krænker vores retningslinjer."
+
+#: src/amo/components/ReportUserAbuse/index.js:143
+#, fuzzy
+msgid "You reported this user for abuse"
+msgstr "Du har rapporteret denne tilføjelse for misbrug"
+
+#: src/amo/components/ReportUserAbuse/index.js:147
+#, fuzzy
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this user."
+msgstr ""
+"Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende "
+"denne tilføjelse med os."
 
 #: src/amo/components/Search/index.js:105
 #: src/amo/components/SearchResults.js:62
@@ -1455,22 +1651,9 @@ msgstr "Styresystem"
 msgid "Featured add-ons only"
 msgstr "Kun udvalgte tilføjelser"
 
-#: src/amo/components/SearchForm/index.js:196
+#: src/amo/components/SearchForm/index.js:60
 msgid "Go to the add-on page"
 msgstr "Gå til tilføjelsens side"
-
-#: src/amo/components/SearchForm/index.js:214
-msgid "Find add-ons"
-msgstr "Find tilføjelser"
-
-#: src/amo/components/SearchForm/index.js:239
-#: src/amo/components/SearchForm/index.js:269
-msgid "Search"
-msgstr "Søg"
-
-#: src/amo/components/SearchForm/index.js:80
-msgid "Loading"
-msgstr "Indlæser"
 
 #: src/amo/components/SearchResult/index.js:122
 msgid "%(total)s user"
@@ -1498,33 +1681,33 @@ msgstr "Der blev ikke fundet nogen."
 msgid "Please enter a search term to search Firefox Add-ons."
 msgstr "Indtast en søgeterm for at søge i tilføjelser til Firefox."
 
-#: src/amo/components/SectionLinks/index.js:112
+#: src/amo/components/SectionLinks/index.js:100
+msgid "More…"
+msgstr "Mere…"
+
+#: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
 msgstr "Ordbøger & sprogpakker"
 
-#: src/amo/components/SectionLinks/index.js:120
+#: src/amo/components/SectionLinks/index.js:121
 msgid "Search Tools"
 msgstr "Søgeværktøjer"
 
-#: src/amo/components/SectionLinks/index.js:125
+#: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
 msgstr "Andre browser-sites"
 
-#: src/amo/components/SectionLinks/index.js:58
+#: src/amo/components/SectionLinks/index.js:59
 msgid "for Firefox"
 msgstr "til Firefox"
 
-#: src/amo/components/SectionLinks/index.js:60
+#: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
 msgstr "til Android"
 
-#: src/amo/components/SectionLinks/index.js:72
+#: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
 msgstr "Udforsk"
-
-#: src/amo/components/SectionLinks/index.js:99
-msgid "More…"
-msgstr "Mere…"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid ""
@@ -1875,6 +2058,25 @@ msgstr "Gennemse alle temaer"
 msgid "Add-ons Home Page"
 msgstr "Tilføjelsens hjemmeside"
 
+#: src/amo/components/UserProfile/index.js:118
+#, fuzzy
+msgid "User since"
+msgstr "Brugere"
+
+#: src/amo/components/UserProfile/index.js:125
+#, fuzzy
+msgid "Number of add-ons"
+msgstr "Populære tilføjelser"
+
+#: src/amo/components/UserProfile/index.js:131
+msgid "Average rating of developer’s add-ons"
+msgstr ""
+
+#: src/amo/components/UserProfile/index.js:87
+#, fuzzy
+msgid "User Profile for %(user)s"
+msgstr "Resultat af søgning efter \"%(query)s\""
+
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
 msgstr "Registrer dig eller log ind"
@@ -1959,7 +2161,7 @@ msgid "OK!"
 msgstr "OK!"
 
 #: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:137
+#: src/ui/components/FormOverlay/index.js:139
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -1993,7 +2195,7 @@ msgstr "Genindlæs for at fortsætte"
 msgid "Toggle contents"
 msgstr "Skift indhold"
 
-#: src/ui/components/FormOverlay/index.js:117
+#: src/ui/components/FormOverlay/index.js:118
 msgid "Click to close"
 msgstr "Klik for at lukke"
 
