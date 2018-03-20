@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-20 22:10+0000\n"
+"PO-Revision-Date: 2018-03-20 22:25+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -1297,36 +1297,28 @@ msgid "Send abuse report"
 msgstr "Nitaq rutzijol tz'ilanem"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Tiya' rutzijol itzel rokisaxik re tz'aqat re'"
+msgstr "Tiya' rutzijol rutz'ilanem re okisanel re'"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"We nana'ojij chi re tz'aqat re' yerutz'ila' ri %(linkTagStart)skina'ojil kitz'aqat Mozilla%(linkTagEnd)s o k'o k'ayewal pa ruwi' jikomal o ichinanem, taya' rutzijol chi re ri Mozilla rik'in "
-"rokisaxik re nojwuj re'."
+msgstr "We nana'ojij chi re tz'aqat re' yerutz'ila' ri %(linkTagStart)sKina'ojil Kitz'aqat Mozilla%(linkTagEnd)s, taya' rutzijol re okisanel re' chi re ri Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Man tawokisaj re nojwuj re' richin naya' rutzijol k'ayewal pa tz'aqat o richin ye'ak'utuj k'ak'a' taq samaj; re rutzijol re' xtitaq chi re ri Mozilla, man chi re ta ri rub'anonel tz'aqat."
+msgstr "Man tawokisaj re nojwuj re' richin naya' rutzijol k'ayewal o yatzijon rik'in re okisanel re'; re rutzijol re' xtitaq chi re ri Mozilla, man chi re ta re okisanel re'."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Tacholo chi qe achike rub'eyal re tz'aqat re' nutz'ila' ri qana'ojil."
+msgstr "Tacholo chi qe achike rub'eyal re okisanel re' nutz'ila' ri qana'ojil."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Xaya' rutzijol itzel rokisaxik re tz'aqat re'"
+msgstr "Xaya' rutzijol re okisanel re' ruam nitz'ilon"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Xqak'ül ri atzijol. Niqak'awomaj chawe ruma ri taq amayoj chi rij re chokoy re'."
+msgstr "Xqak'ül ri atzijol. Niqak'awomaj chawe ruma ri taq amayoj chi rij re okisanel re'."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1780,23 +1772,20 @@ msgid "Add-ons Home Page"
 msgstr "Kitikirib'al Ruxaq Tz'aqat"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Okisanela'"
+msgstr "Okisanel pa"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "K'ïy kiwinaq taq tz'aqat"
+msgstr "Kajlab'al tz'aqat"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
 msgstr "Nik'aj kejqalem taq rutz'aqat b'anonel"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Kekanöx taq ruq'i'oj \"%(query)s\""
+msgstr "Ruwäch Rub'i' Okisanel richin %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
