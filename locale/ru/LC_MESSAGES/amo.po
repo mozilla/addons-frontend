@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:42+0000\n"
-"PO-Revision-Date: 2018-03-08 23:57+0000\n"
+"PO-Revision-Date: 2018-03-20 14:39+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -857,12 +857,11 @@ msgstr "Измените, как Firefox будет выглядеть с тем
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Улучшатели вкладок"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Больше самых высоко оцененных расширений"
+msgstr "Больше улучшателей вкладок"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -874,12 +873,11 @@ msgstr "Больше популярных тем"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Улучшатели Википедии"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Посмотреть больше загрузчиков медиа"
+msgstr "Более улучшателей Википедии"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -919,39 +917,39 @@ msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Помощники в онлайн-шоппинге"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Классическая игра, на расстоянии одного щелчка"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders занимается умным управлением вкладками"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Преобразите Википедию"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "Конвертирует ваши открытые вкладки в список и экономит память"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
@@ -959,7 +957,7 @@ msgstr "Отправить на Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Отправьте любую веб-страницу на ваше Kindle-устройство"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Search Site"
@@ -967,7 +965,7 @@ msgstr "Поиск по сайту"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Ищите в пределах сайта, на котором вы находитесь"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -975,15 +973,15 @@ msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "Блокируйте сайты, тратящие время впустую"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
-msgstr ""
+msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Удалите лишнее и улучшите читабельность"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -991,7 +989,7 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Загрузка в один щелчок"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -999,7 +997,7 @@ msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Заполняете много форм? Это может помочь"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
@@ -1007,16 +1005,15 @@ msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Безопасность последнего поколения"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
 msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Визуальные закладки для ваших любимых сайтов со всего Интернета."
+msgstr "Захватывайте, сохраняйте и организуйте любимое содержимое из Интернета"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Flagfox"
@@ -1024,7 +1021,7 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Показывает расположение сервера веб-сайта в виде флага страны"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
