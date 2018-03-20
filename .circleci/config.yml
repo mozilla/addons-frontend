@@ -1,0 +1,127 @@
+# These environment variables must be set in CircleCI UI
+#
+# DOCKERHUB_REPO - docker hub repo, format: <username>/<repo>
+# DOCKER_USER - Login user for docker hub
+# DOCKER_PASS - Login password for docker hub user
+version: 2.0
+
+jobs:
+  build: # build for the master branch and tags
+    machine: true
+    working_directory: ~/addons-frontend
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: sudo apt-get update; sudo apt-get install pigz
+      - run: docker info
+        # Build the container, using Circle's Docker cache. Only use 1 image per
+        # day to keep the cache size down.
+      - run:
+          name: Build the container ( Next 3 steps )
+          command: IMG="image-$(date +%j).gz"; if [[ -e ~/addons-frontend/docker/$IMG ]]; then echo "Loading $IMG"; pigz -d -c ~/addons-frontend/docker/$IMG | docker load; fi
+      - run: >
+          printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
+          "$CIRCLE_SHA1"
+          "$CIRCLE_TAG"
+          "$CIRCLE_PROJECT_USERNAME"
+          "$CIRCLE_PROJECT_REPONAME"
+          "$CIRCLE_BUILD_URL"
+          > version.json
+      - run: docker build --pull -t addons-frontend .
+      - run: docker images
+      - run:
+          name: Write the sha256 sum to an artifact for verification
+          command: |
+            docker images --no-trunc | awk '/^app/ {print $3}' | sudo tee $CIRCLE_ARTIFACTS/docker-image-shasum256.txt
+      - run:
+          name: Save new image
+          command: |
+            IMG="image-$(date +%j).gz"; docker save addons-frontend | pigz --fast -c > ~/addons-frontend/docker/$IMG; ls -l ~/addons-frontend/docker
+            ls -l ~/addons-frontend/docker
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./*
+  integration-test:
+    working_directory: ~/addons-frontend
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            pip install docker-compose>=1.18
+            docker-compose --version
+      - run:
+          name: Run tests
+          command: ./tests/ui/run-functional-tests.sh
+      - store_artifacts:
+          path: addons-server/ui-test.html
+  release-tag: # build for releases (tags)
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Load saved image
+          command: docker load -i docker/image-*
+      - run:
+          name: Build docker image and push to repo
+          command: |
+            [ ! -z $DOCKERHUB_REPO ]
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            echo $DOCKERHUB_REPO:$CIRCLE_TAG
+            docker tag addons-frontend $DOCKERHUB_REPO:$CIRCLE_TAG
+            docker images
+            docker push $DOCKERHUB_REPO:$CIRCLE_TAG
+  release-master: # build for master
+    machine: true
+    steps:
+      - attach_workspace:
+          at: .
+      - run:
+          name: Load saved image
+          command: docker load -i docker/image-*
+      - run:
+          name: Build docker image and push to repo
+          command: |
+            [ ! -z $DOCKERHUB_REPO ]
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker tag addons-frontend $DOCKERHUB_REPO:latest
+            docker push $DOCKERHUB_REPO:latest
+workflows:
+  version: 2
+  build_deploy_release:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+            tags:
+              only: /.*/
+      - release-tag:
+          requires:
+              - build
+          filters:
+            tags:
+              only: /.*/
+            branches:
+              ignore: /.*/
+      - release-master:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
+  scheduled-workflow:
+    triggers:
+      - schedule:
+          cron: "0 0,2 * * *"
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - integration-test
