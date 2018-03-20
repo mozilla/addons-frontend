@@ -116,6 +116,7 @@ const reducer = (
       // Reset the data for each author requested.
       for (const authorUsername of action.payload.authors) {
         // TODO: Reset the userId here too.
+        // See: https://github.com/mozilla/addons-frontend/issues/4602
         newState.byUsername[authorUsername] = undefined;
       }
 
