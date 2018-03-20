@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-20 21:06+0000\n"
+"PO-Revision-Date: 2018-03-20 21:16+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1291,35 +1291,28 @@ msgid "Send abuse report"
 msgstr "Wyślij zgłoszenie o nadużyciu"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Zgłoś ten dodatek za nadużycie"
+msgstr "Zgłoś tego użytkownika za nadużycie"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Jeśli uważasz, że ten dodatek narusza %(linkTagStart)szasady dodatków Mozilli%(linkTagEnd)s albo ma błędy bezpieczeństwa lub prywatności, to prosimy zgłosić to do Mozilli za pomocą tego formularza."
+msgstr "Jeśli uważasz, że ten użytkownik narusza %(linkTagStart)szasady dodatków Mozilli%(linkTagEnd)s, to prosimy zgłosić go do Mozilli."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Prosimy nie używać tego formularza do zgłaszania błędów i próśb o nowe funkcje w dodatkach. Zgłoszenie zostanie wysłane do Mozilli, nie do autora dodatku."
+msgstr "Prosimy nie używać tego formularza do zgłaszania błędów i kontaktowania się z tym użytkownikiem. Zgłoszenie zostanie wysłane tylko do Mozilli, nie do tego użytkownika."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Wyjaśnij, jak ten dodatek narusza nasze zasady."
+msgstr "Wyjaśnij, jak ten użytkownik narusza nasze zasady."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Zgłoszono ten dodatek za nadużycie"
+msgstr "Zgłoszono tego użytkownika za nadużycie"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Otrzymaliśmy Twoje zgłoszenie. Dziękujemy za poinformowanie nas o problemach z tym dodatkiem."
+msgstr "Otrzymaliśmy Twoje zgłoszenie. Dziękujemy za poinformowanie nas o problemach z tym użytkownikiem."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1778,23 +1771,20 @@ msgid "Add-ons Home Page"
 msgstr "Strona domowa dodatków"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Użytkownicy"
+msgstr "Data założenia konta"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Popularne dodatki"
+msgstr "Liczba dodatków"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Średnia ocena dodatków autora"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Wyniki wyszukiwania „%(query)s”"
+msgstr "Profil użytkownika „%(user)s”"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
