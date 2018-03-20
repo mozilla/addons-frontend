@@ -6,7 +6,7 @@
 version: 2.0
 
 jobs:
-  build: # build for the master branch
+  build: # build for the master branch and tags
     machine: true
     working_directory: ~/addons-frontend
     steps:
@@ -100,13 +100,13 @@ workflows:
             branches:
               only: master
             tags:
-              only: /\d{4}\.\d{2}\.\d{2}/
+              only: /.*/
       - release-tag:
           requires:
               - build
           filters:
             tags:
-              only: /\d{4}\.\d{2}\.\d{2}/
+              only: /.*/
             branches:
               ignore: /.*/
       - release-master:
