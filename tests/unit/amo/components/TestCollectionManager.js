@@ -1,28 +1,42 @@
 import * as React from 'react';
 
+import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
   extractId, CollectionManagerBase, COLLECTION_OVERLAY,
 } from 'amo/components/CollectionManager';
+import EditableCollectionAddon
+  from 'amo/components/EditableCollectionAddon';
 import {
   createInternalCollection, updateCollection,
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
 import { setErrorMessage } from 'core/actions/errors';
+import { createInternalAddon } from 'core/reducers/addons';
+import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
+  simulateComponentCallback,
 } from 'tests/unit/helpers';
 import {
+  createFakeAutocompleteResult,
+  createFakeCollectionAddons,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
+  fakeAddon,
 } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import FormOverlay from 'ui/components/FormOverlay';
 
+const simulateAutoSearchCallback = (props = {}) => {
+  return simulateComponentCallback({
+    Component: AutoSearchInput, ...props,
+  });
+};
 
 describe(__filename, () => {
   let store;
@@ -347,6 +361,51 @@ describe(__filename, () => {
     const state = root.state();
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
+  });
+
+  it('renders editable collection add-ons', () => {
+    const externalAddon1 = { ...fakeAddon, name: 'uBlock' };
+    const externalAddon2 = { ...fakeAddon, name: 'AdBlockPlus' };
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail(),
+      items: createFakeCollectionAddons({
+        addons: [externalAddon1, externalAddon2],
+      }).results,
+    });
+    const root = render({ collection });
+
+    const addons = root.find(EditableCollectionAddon);
+    expect(addons).toHaveLength(2);
+    expect(addons.at(0))
+      .toHaveProp('addon', createInternalAddon(externalAddon1));
+    expect(addons.at(1))
+      .toHaveProp('addon', createInternalAddon(externalAddon2));
+  });
+
+  it('handles searching for an add-on', () => {
+    const root = render();
+
+    const search = simulateAutoSearchCallback({
+      root, propName: 'onSearch',
+    });
+    search({ query: 'ad blocker' });
+    // TODO: test onSearch
+    // https://github.com/mozilla/addons-frontend/issues/4590
+  });
+
+  it('handles selecting an add-on', () => {
+    const root = render();
+
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+    );
+    const selectSuggestion = simulateAutoSearchCallback({
+      root, propName: 'onSuggestionSelected',
+    });
+    selectSuggestion(suggestion);
+    // TODO: test onSuggestionSelected
+    // https://github.com/mozilla/addons-frontend/issues/4590
   });
 
   describe('extractId', () => {

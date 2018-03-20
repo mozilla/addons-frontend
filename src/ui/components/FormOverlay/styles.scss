@@ -19,10 +19,17 @@
 .FormOverlay-overlay {
   background-color: $white;
   border-radius: $border-radius-s;
-  display: block;
-  margin: 12px;
-  min-width: 65%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  height: 95%;
+  margin: 0;
   padding: 24px;
+  width: 95%;
+
+  @include respond-to(extraLarge) {
+    // Set the width to 900px - 22px.
+    width: 876px;
+  }
 
   .ErrorList {
     margin: 0;
@@ -36,7 +43,8 @@
   justify-content: flex-end;
 }
 
-.FormOverlay-form-buttons {
+.FormOverlay-footer {
+  align-items: end;
   display: grid;
   grid-gap: 16px;
   grid-template-columns: min-content min-content;
@@ -56,18 +64,15 @@
   margin: 0 0 12px;
 }
 
-.FormOverlay-form {
-  margin: 0 48px;
+.FormOverlay-content {
+  margin: 0;
+  overflow: auto;
+  padding: 0 48px;
 
   label {
     display: block;
     font-size: $font-size-s;
     padding: 24px 0 6px;
-  }
-
-  label:first-of-type {
-    // This provides room for an error banner at the top of the form.
-    padding-top: 12px;
   }
 
   input,

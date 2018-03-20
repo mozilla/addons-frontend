@@ -4,11 +4,18 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import config from 'config';
 
+import AutoSearchInput from 'amo/components/AutoSearchInput';
+import EditableCollectionAddon
+  from 'amo/components/EditableCollectionAddon';
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
 import FormOverlay from 'ui/components/FormOverlay';
+import type {
+  SearchFilters, SuggestionType,
+} from 'amo/components/AutoSearchInput';
 import type { CollectionType } from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
@@ -107,6 +114,18 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     this.setState({ [event.target.name]: event.target.value });
   }
 
+  onSearchAddon = (filters: SearchFilters) => {
+    // TODO: implement onSearchAddon
+    // https://github.com/mozilla/addons-frontend/issues/4590
+    log.debug('TODO: handle seaching for add-on', filters);
+  }
+
+  onAddonSelected = (suggestion: SuggestionType) => {
+    // TODO: implement onAddonSelected
+    // https://github.com/mozilla/addons-frontend/issues/4590
+    log.debug('TODO: handle selecting an add-on', suggestion);
+  }
+
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
@@ -139,7 +158,10 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         title={i18n.gettext('Edit collection')}
       >
         {errorHandler.renderErrorIfPresent()}
-        <label htmlFor="collectionName">
+        <label
+          className="CollectionManager-collectionName"
+          htmlFor="collectionName"
+        >
           {i18n.gettext('Collection name')}
         </label>
         <input
@@ -178,6 +200,24 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             type="text"
             value={this.state.slug}
           />
+        </div>
+        <AutoSearchInput
+          inputName="collection-addon-query"
+          inputPlaceholder={
+            i18n.gettext('Find an add-on to include in this collection')
+          }
+          onSearch={this.onSearchAddon}
+          onSuggestionSelected={this.onAddonSelected}
+          selectSuggestionText={i18n.gettext('Add to collection')}
+        />
+        <div className="CollectionManager-addons">
+          {collection && collection.addons && collection.addons.map(
+            (addon) => {
+              return (
+                <EditableCollectionAddon key={addon.id} addon={addon} />
+              );
+            }
+          )}
         </div>
       </FormOverlay>
     );
