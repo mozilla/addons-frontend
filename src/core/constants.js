@@ -110,6 +110,8 @@ export const SEARCH_SORT_TRENDING = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
 export const SEARCH_SORT_POPULAR = 'users';
 export const SEARCH_SORT_RANDOM = 'random';
+export const SEARCH_SORT_RELEVANCE = 'relevance';
+export const SEARCH_SORT_UPDATED = 'updated';
 
 // Operating system for add-ons and files
 export const OS_ALL = 'all';

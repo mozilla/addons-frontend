@@ -7,10 +7,13 @@ import { compose } from 'redux';
 
 import {
   ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   SEARCH_SORT_POPULAR,
+  SEARCH_SORT_RELEVANCE,
   SEARCH_SORT_TOP_RATED,
   SEARCH_SORT_TRENDING,
+  SEARCH_SORT_UPDATED,
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
@@ -100,6 +103,7 @@ export class SearchFiltersBase extends React.Component {
     return [
       { children: i18n.gettext('All'), value: NO_FILTER },
       { children: i18n.gettext('Extension'), value: ADDON_TYPE_EXTENSION },
+      { children: i18n.gettext('Search Tool'), value: ADDON_TYPE_OPENSEARCH },
       { children: i18n.gettext('Theme'), value: ADDON_TYPE_THEME },
     ];
   }
@@ -119,8 +123,8 @@ export class SearchFiltersBase extends React.Component {
     const { i18n } = this.props;
 
     return [
-      { children: i18n.gettext('Relevance'), value: 'relevance' },
-      { children: i18n.gettext('Recently Updated'), value: 'updated' },
+      { children: i18n.gettext('Relevance'), value: SEARCH_SORT_RELEVANCE },
+      { children: i18n.gettext('Recently Updated'), value: SEARCH_SORT_UPDATED },
       { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
       { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
       { children: i18n.gettext('Trending'), value: SEARCH_SORT_TRENDING },
