@@ -126,38 +126,6 @@ export const getAllUserCollections = async (
   return results;
 };
 
-type CollectionAddonNotes = string | null;
-
-export type AddAddonToCollectionParams = {|
-  addon: string | number,
-  api: ApiStateType,
-  collection: string | number,
-  notes?: CollectionAddonNotes,
-  user: string | number,
-|};
-
-export const addAddonToCollection = (
-  { addon, api, collection, notes, user }: AddAddonToCollectionParams
-): Promise<void> => {
-  if (!addon) {
-    throw new Error('The addon parameter is required');
-  }
-  if (!collection) {
-    throw new Error('The collection parameter is required');
-  }
-  if (!user) {
-    throw new Error('The user parameter is required');
-  }
-
-  return callApi({
-    auth: true,
-    body: { addon, notes },
-    endpoint: `accounts/account/${user}/collections/${collection}/addons`,
-    method: 'POST',
-    state: api,
-  });
-};
-
 type ModifyCollectionParams = {|
   api: ApiStateType,
   defaultLocale: ?string,
@@ -292,9 +260,11 @@ type ModifyCollectionAddonBaseParams = {|
   addonId: number,
   api: ApiStateType,
   collectionSlug: string,
-  user: string,
+  user: string | number,
   _modifyCollectionAddon?: (any) => Promise<void>,
 |};
+
+type CollectionAddonNotes = string | null;
 
 export type CreateCollectionAddonParams = {|
   ...ModifyCollectionAddonBaseParams,
@@ -322,14 +292,14 @@ export const modifyCollectionAddon = (
   invariant(user, 'The user parameter is required');
 
   let method = 'POST';
-  const body = { addon: addonId, notes: params.notes || null };
+  const body = { addon: addonId, notes: params.notes };
   let endpoint =
     `accounts/account/${user}/collections/${collectionSlug}/addons`;
 
   if (action === 'update') {
-    if (params.notes === undefined) {
-      throw new Error(`When action=${action}, notes cannot be undefined`);
-    }
+    // TODO: once `notes` can be null, we can check for `undefined` values
+    // to make sure that the caller didn't forget to set `notes`.
+    // See https://github.com/mozilla/addons-server/issues/7832
     method = 'PATCH';
     delete body.addon;
     endpoint = `${endpoint}/${addonId}`;

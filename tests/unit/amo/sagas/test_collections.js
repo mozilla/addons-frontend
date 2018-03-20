@@ -275,11 +275,11 @@ describe(__filename, () => {
       const state = sagaTester.getState();
 
       mockApi
-        .expects('addAddonToCollection')
+        .expects('createCollectionAddon')
         .withArgs({
-          addon: params.addonId,
+          addonId: params.addonId,
           api: state.api,
-          collection: collectionSlug,
+          collectionSlug,
           notes: undefined,
           user: params.userId,
         })
@@ -314,7 +314,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
 
       mockApi
-        .expects('addAddonToCollection')
+        .expects('createCollectionAddon')
         .returns(Promise.reject(error));
 
       _addAddonToCollection({ addonId, userId });

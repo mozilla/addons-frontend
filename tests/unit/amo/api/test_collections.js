@@ -2,7 +2,6 @@ import { oneLineTrim } from 'common-tags';
 
 import * as api from 'core/api';
 import {
-  addAddonToCollection,
   createCollection,
   createCollectionAddon,
   getAllCollectionAddons,
@@ -182,87 +181,6 @@ describe(__filename, () => {
       const params = getListParams({ user });
       await listCollections(params);
       mockApi.verify();
-    });
-  });
-
-  describe('addAddonToCollection', () => {
-    const getAddParams = (params = {}) => {
-      return {
-        addon: 'addon-id-or-slug',
-        api: apiState,
-        collection: 'collection-id-or-slug',
-        user: 'user-id-or-username',
-        ...params,
-      };
-    };
-
-    it('posts an addon to a collection', async () => {
-      const params = getAddParams({
-        addon: 'some-addon',
-        user: 'my-username',
-        collection: 'my-collection',
-      });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: 'some-addon', notes: undefined },
-          endpoint:
-            'accounts/account/my-username/collections/my-collection/addons',
-          method: 'POST',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      await addAddonToCollection(params);
-      mockApi.verify();
-    });
-
-    it('posts an addon with notes', async () => {
-      const notes = 'some notes about the add-on';
-      const params = getAddParams({ addon: 'some-addon', notes });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: 'some-addon', notes },
-          endpoint: `accounts/account/${params.user}` +
-            `/collections/${params.collection}/addons`,
-          method: 'POST',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      await addAddonToCollection(params);
-      mockApi.verify();
-    });
-
-    it('requires an addon', () => {
-      const params = getAddParams();
-      delete params.addon;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/addon parameter is required/);
-    });
-
-    it('requires a collection', () => {
-      const params = getAddParams();
-      delete params.collection;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/collection parameter is required/);
-    });
-
-    it('requires a user', () => {
-      const params = getAddParams();
-      delete params.user;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/user parameter is required/);
     });
   });
 
@@ -470,7 +388,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          body: { addon: params.addonId, notes: null },
+          body: { addon: params.addonId, notes: undefined },
           endpoint,
           method: 'POST',
           state: params.api,
@@ -534,17 +452,6 @@ describe(__filename, () => {
       await modifyCollectionAddon(params);
 
       mockApi.verify();
-    });
-
-    it('throws if you PATCH with undefined add-on notes', async () => {
-      mockApi.expects('callApi').returns(Promise.resolve());
-
-      const params = defaultParams({
-        action: 'update', notes: undefined,
-      });
-
-      expect(() => modifyCollectionAddon(params))
-        .toThrow('When action=update, notes cannot be undefined');
     });
 
     it('allows you to nullify add-on notes', async () => {
