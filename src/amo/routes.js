@@ -11,6 +11,7 @@ import Category from 'amo/components/Category';
 import Home from 'amo/components/Home';
 import LandingPage from 'amo/components/LandingPage';
 import LanguageTools from 'amo/components/LanguageTools';
+import SearchTools from 'amo/components/SearchTools';
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReviewGuide from 'amo/components/StaticPages/ReviewGuide';
@@ -44,6 +45,7 @@ export default (
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
       <Route path="language-tools/" component={LanguageTools} />
+      <Route path="search-tools/" component={SearchTools} />
       <Route path="search/" component={SearchPage} />
       <Route
         path="401/"
