@@ -22,8 +22,8 @@ describe(__filename, () => {
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ user });
 
-    expect(root.find('img.UserAvatar')).toHaveLength(1);
-    expect(root.find('.UserAvatar')).toHaveProp(
+    expect(root.find('.UserAvatar img')).toHaveLength(1);
+    expect(root.find('.UserAvatar img')).toHaveProp(
       'src', 'http://tofumatt.com/photo.jpg');
   });
 
@@ -37,13 +37,13 @@ describe(__filename, () => {
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ className: 'test', user });
 
-    expect(root.find('img.test')).toHaveLength(1);
+    expect(root.find('.UserAvatar.test')).toHaveLength(1);
   });
 
   it('renders extra classNames when rendering an Icon component', () => {
     const root = renderUserAvatar({ className: 'test', user: undefined });
 
-    expect(root.find(Icon).find('.test')).toHaveLength(1);
+    expect(root.find(Icon).parent().find('.test')).toHaveLength(1);
   });
 
   it('renders an anonymous icon if the user has no photo', () => {
@@ -58,14 +58,14 @@ describe(__filename, () => {
     const user = getCurrentUser(state.users);
     const root = renderUserAvatar({ user });
 
-    expect(root.find(Icon).find('.UserAvatar'))
+    expect(root.find('.UserAvatar').find(Icon))
       .toHaveProp('name', 'anonymous-user');
   });
 
   it('renders an anonymous icon if there is no user', () => {
     const root = renderUserAvatar({ user: undefined });
 
-    expect(root.find(Icon).find('.UserAvatar'))
+    expect(root.find('.UserAvatar').find(Icon))
       .toHaveProp('name', 'anonymous-user');
   });
 });

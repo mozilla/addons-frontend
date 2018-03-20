@@ -20,10 +20,15 @@ $avatar-size: 64px;
 }
 
 .UserProfile-avatar {
-  display: block;
   height: $avatar-size;
   margin: 0 0 12px;
+  overflow: hidden;
   width: $avatar-size;
+
+  img {
+    height: auto;
+    width: 100%;
+  }
 }
 
 .UserProfile-name {
