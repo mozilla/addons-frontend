@@ -364,13 +364,13 @@ describe(__filename, () => {
   });
 
   it('renders editable collection add-ons', () => {
-    const extAddon1 = { ...fakeAddon, name: 'uBlock' };
-    const extAddon2 = { ...fakeAddon, name: 'AdBlockPlus' };
+    const externalAddon1 = { ...fakeAddon, name: 'uBlock' };
+    const externalAddon2 = { ...fakeAddon, name: 'AdBlockPlus' };
 
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail(),
       items: createFakeCollectionAddons({
-        addons: [extAddon1, extAddon2],
+        addons: [externalAddon1, externalAddon2],
       }).results,
     });
     const root = render({ collection });
@@ -378,9 +378,9 @@ describe(__filename, () => {
     const addons = root.find(EditableCollectionAddon);
     expect(addons).toHaveLength(2);
     expect(addons.at(0))
-      .toHaveProp('addon', createInternalAddon(extAddon1));
+      .toHaveProp('addon', createInternalAddon(externalAddon1));
     expect(addons.at(1))
-      .toHaveProp('addon', createInternalAddon(extAddon2));
+      .toHaveProp('addon', createInternalAddon(externalAddon2));
   });
 
   it('handles searching for an add-on', () => {

@@ -9,6 +9,7 @@ import EditableCollectionAddon
   from 'amo/components/EditableCollectionAddon';
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
 import FormOverlay from 'ui/components/FormOverlay';
@@ -113,16 +114,16 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  // eslint-disable-next-line no-unused-vars
   onSearchAddon = (filters: SearchFilters) => {
     // TODO: implement onSearchAddon
     // https://github.com/mozilla/addons-frontend/issues/4590
+    log.debug('TODO: handle seaching for add-on', filters);
   }
 
-  // eslint-disable-next-line no-unused-vars
   onAddonSelected = (suggestion: SuggestionType) => {
     // TODO: implement onAddonSelected
     // https://github.com/mozilla/addons-frontend/issues/4590
+    log.debug('TODO: handle selecting an add-on', suggestion);
   }
 
   propsToState(props: Props) {
@@ -203,7 +204,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         <AutoSearchInput
           inputName="collection-addon-query"
           inputPlaceholder={
-            i18n.gettext('Enter the name of an add-on to include')
+            i18n.gettext('Find an add-on to include in this collection')
           }
           onSearch={this.onSearchAddon}
           onSuggestionSelected={this.onAddonSelected}
