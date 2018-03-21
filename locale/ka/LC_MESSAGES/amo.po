@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 18:31+0000\n"
+"PO-Revision-Date: 2018-03-21 18:45+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1211,15 +1211,15 @@ msgstr "%(domain)s მისამართის საიტებზე თ�
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "თქვენს მონაცემებთან წვდომა, %(count)s სხვა მისამართზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "თქვენს მონაცემებთან წვდომა %(site)s საიტებზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "თქვენს მონაცემებთან წვდომა, %(count)s სხვა საიტზე"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1294,38 +1294,28 @@ msgid "Send abuse report"
 msgstr "დარღვევის შესახებ მოხსენების გაგზავნა"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "მოხსენება დარღვევის შესახებ ამ დამატებასთან დაკავშირებით"
+msgstr "მოხსენება ამ მომხმარებლის მიერ დარღვევის შესახებ"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"თუ მიგაჩნიათ, რომ ეს დამატება არღვევს %(linkTagStart)sMozilla-ს დამატებების დებულებებს%(linkTagEnd)s, ან ხარვეზები აქვს უსაფრთხოებასა და პირადი მონაცემების დაცვაში, გთხოვთ მოგვახსენოთ, მოცემული "
-"ველის საშუალებით."
+msgstr "თუ მიგაჩნიათ, რომ ეს მომხმარებელი არღვევს %(linkTagStart)sMozilla-ს დამატებების დებულებებს%(linkTagEnd)s, გთხოვთ მოახსენოთ მის შესახებ Mozilla-ს."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
-"გთხოვთ, არ გამოიყენოთ ეს ველი დამატების ხარვეზების შესახებ მოსაზრებების, ან მის შესაძლებლობებთან დაკავშირებით, მოთხოვნების გამოსაგზავნად; ეს მოხსენება ეგზავნება Mozilla-ს და არა დამატების "
-"შემმუშავებელს."
+msgstr "გთხოვთ, არ გამოიყენოთ ეს ველი დამატების ხარვეზების აღნიშვნის, ან ამ მომხმარებელთან დაკავშირების მიზნით; თქვენი მოხსენება ეგზავნება Mozilla-ს და არა დამატების შემმუშავებელს."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "განმარტეთ, როგორ არღვევს ეს დამატება ჩვენს დებულებებს."
+msgstr "განმარტეთ, როგორ არღვევს ეს მომხმარებელი ჩვენს დებულებებს."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "თქვენ გამოგზავნეთ მოხსენება დარღვევაზე, ამ დამატებასთან დაკავშირებით"
+msgstr "თქვენ გაგზავნეთ მოხსენება, ამ მომხმარებლის მიერ დარღვევის შესახებ"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი დამოკიდებულების შესახებ, ამ დამატების მიმართ."
+msgstr "ჩვენ მივიღეთ თქვენი მოხსენება. გმადლობთ, რომ გვაცნობეთ თქვენი დამოკიდებულების შესახებ, ამ მომხმარებლის თაობაზე."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1778,23 +1768,20 @@ msgid "Add-ons Home Page"
 msgstr "დამატების მთავარი გვერდი"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "მომხმარებელი"
+msgstr "გაწევრიანების თარიღი:"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "ყველაზე მეტად სასურველი დამატებები"
+msgstr "დამატებების რაოდენობა"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "შემმუშავებლის დამატებების საშუალო შეფასება"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "ძიების შედეგები \"%(query)s\" ფრაზისთვის"
+msgstr "მომხმარებლის პროფილი %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
