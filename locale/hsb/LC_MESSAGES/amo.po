@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-20 22:49+0000\n"
+"PO-Revision-Date: 2018-03-21 06:15+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -177,7 +177,7 @@ msgstr "Njekompatibelny z Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Někotre funkcije móhli sej płaćenje wužadać"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -557,7 +557,7 @@ msgstr "Swójska adresa"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Přidatk namakać, kotrež so do tuteje zběrki přejimuje"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
