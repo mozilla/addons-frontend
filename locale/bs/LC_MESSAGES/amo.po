@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:30+0000\n"
+"PO-Revision-Date: 2018-03-21 06:32+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -177,7 +177,7 @@ msgstr "Nije kompatibilno sa Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Neke funkcije mogu zahtijevati plaćanje"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -1320,9 +1320,8 @@ msgid "You reported this user for abuse"
 msgstr "Prijavili ste ovog korisnika za zlostavljanje"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Primili smo vaš izvještaj. Hvala za dijeljenje vaše zabrinutosti o ovom dodatku."
+msgstr "Primili smo vašu prijavu. Hvala za dijeljenje vaše zabrinutosti o ovom korisniku."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1781,23 +1780,20 @@ msgid "Add-ons Home Page"
 msgstr "Početna stranica dodataka"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Korisnici"
+msgstr "Korisnik od"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Popularni dodaci"
+msgstr "Broj dodataka"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Rezultati pretrage za \"%(query)s\""
+msgstr "Korisnički profil za %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
