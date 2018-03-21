@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:42+0000\n"
-"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
+"PO-Revision-Date: 2018-03-21 12:44+0000\n"
+"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1102,7 +1102,7 @@ msgstr "Woordenboeken"
 
 #: src/amo/components/PermissionsCard/index.js:47
 msgid "Permissions"
-msgstr ""
+msgstr "Toestemmingen"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
@@ -1110,115 +1110,115 @@ msgstr "Deze add-on kan:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Meer info over toestemmingen"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Bladwijzers lezen en aanpassen"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Browserinstellingen lezen en aanpassen"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Recente browsergeschiedenis, cookies en gerelateerde gegevens wissen"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Gegevens van het klembord ophalen"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Gegevens op het klembord plaatsen"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Ontwikkelaarshulpmiddelen uitbreiden om uw gegevens in open tabbladen te benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Bestanden downloaden en downloadgeschiedenis van de browser lezen en aanpassen"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Naar uw computer gedownloade bestanden openen"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "De tekst van alle open tabbladen lezen"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "Uw locatie benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access browsing history"
-msgstr ""
+msgstr "Browsergeschiedenis benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Extensiegebruik bewaken en thema’s beheren"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Berichten met andere programma’s dan Firefox uitwisselen"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Notificaties weergeven"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Cryptografische authenticatieservices bieden"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "Browserproxyinstellingen beheren"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Privacyinstellingen lezen en aanpassen"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Onlangs gesloten tabbladen benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Browsertabbladen benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Browsertabbladen verbergen en tonen"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Gegevens aan clientzijde onbeperkt opslaan"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Browseractiviteit tijdens navigeren benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Uw gegevens voor alle websites benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "Uw gegevens voor websites in het domein %(domain)s benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "Uw gegevens in %(count)s andere domeinen benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "Uw gegevens voor %(site)s benaderen"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Uw gegevens op %(count)s andere websites benaderen"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1296,27 +1296,23 @@ msgstr "Deze gebruiker rapporteren wegens misbruik"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
+msgstr "Als u denkt dat deze gebruiker in strijd met het %(linkTagStart)sadd-onbeleid van Mozilla%(linkTagEnd)s handelt, rapporteer deze gebruiker dan bij Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Gebruik dit formulier niet om fouten te melden of add-on-functies aan te vragen; deze melding wordt naar Mozilla verstuurd, en niet naar de add-on-ontwikkelaar."
+msgstr "Gebruik dit formulier niet om bugs te melden of contact met deze gebruiker op te nemen; uw rapport wordt alleen naar Mozilla verstuurd, en niet naar deze gebruiker."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Leg uit hoe deze add-on in strijd is met ons beleid."
+msgstr "Leg uit hoe deze gebruiker in strijd met ons beleid handelt."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "U hebt deze add-on gerapporteerd wegens misbruik"
+msgstr "U hebt deze gebruiker gerapporteerd wegens misbruik"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "We hebben uw melding ontvangen. Bedankt dat u ons op de hoogte hebt gebracht van uw zorgen over deze add-on."
+msgstr "We hebben uw melding ontvangen. Bedankt dat u ons op de hoogte hebt gebracht van uw zorgen over deze gebruiker."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1767,23 +1763,20 @@ msgid "Add-ons Home Page"
 msgstr "Add-ons-startpagina"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Gebruikers"
+msgstr "Gebruiker sinds"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Populaire add-ons"
+msgstr "Aantal add-ons"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Gemiddelde waardering van add-ons van ontwikkelaar"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Zoekresultaten voor ‘%(query)s’"
+msgstr "Gebruikersprofiel voor %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
