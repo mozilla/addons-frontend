@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 01:31+0000\n"
+"PO-Revision-Date: 2018-03-21 01:35+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1181,35 +1181,35 @@ msgstr "ブラウザーのタブへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "ブラウザーのタブの表示状態の変更"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "クライアントサイドのデータをサイズ制限なしで保存"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "ページ遷移中のブラウザーアクティビティへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "全ウェブサイトのユーザーデータへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "%(domain)s ドメインにあるサイトのユーザーデータへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "その他 %(count)s ドメイン内のデータへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "%(site)s のユーザーデータへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "その他 %(count)s サイト上のデータへのアクセス"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1735,7 +1735,7 @@ msgstr "アドオンの数"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "この開発者のアドオンの平均評価"
 
 #: src/amo/components/UserProfile/index.js:87
 msgid "User Profile for %(user)s"
