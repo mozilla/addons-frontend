@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 11:42+0000\n"
+"PO-Revision-Date: 2018-03-21 11:52+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1223,7 +1223,7 @@ msgstr "Отримувати доступ до ваших даних для %(si
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Отримувати доступ до ваших даних на %(count)s інших сайтах"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1786,7 +1786,7 @@ msgstr "Кількість додатків"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Середня оцінка додатків розробника"
 
 #: src/amo/components/UserProfile/index.js:87
 msgid "User Profile for %(user)s"
