@@ -31,13 +31,11 @@ type AddonFileType = {|
   url: string,
 |};
 
-export type AddonVersionType = {|
+type PartialAddonVersionType = {|
   channel: string,
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
-  // The `text` property is omitted from addon.current_version.license.
-  license: { name: string, url: string },
   reviewed: Date,
   // This is the developer-defined version number.
   // It could, for example, be set to "0".
@@ -46,12 +44,23 @@ export type AddonVersionType = {|
   version: string,
 |};
 
-export type AddonAuthorType = {|
+export type AddonVersionType = {|
+  ...PartialAddonVersionType,
+  // The `text` property is omitted from addon.current_version.license.
+  license: { name: string, url: string },
+  release_notes?: string,
+|};
+
+type PartialAddonAuthorType = {|
   id: number,
   name: string,
-  picture_url: string,
   url: string,
   username: string,
+|};
+
+export type AddonAuthorType = {|
+  ...PartialAddonAuthorType,
+  picture_url: string,
 |};
 
 export type LanguageToolType = {|
@@ -169,4 +178,10 @@ export type AddonType = {
   isRestartRequired: boolean,
   isWebExtension: boolean,
   themeData?: ThemeData,
+};
+
+export type SearchResultAddonType = {
+  ...AddonType,
+  authors?: PartialAddonAuthorType,
+  current_version?: PartialAddonVersionType,
 };
