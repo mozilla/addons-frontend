@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:24+0000\n"
+"PO-Revision-Date: 2018-03-21 06:38+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1100,9 +1100,8 @@ msgid "Dictionaries"
 msgstr "מילונים"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "גרסה"
+msgstr "הרשאות"
 
 #: src/amo/components/PermissionsCard/index.js:50
 #, fuzzy
@@ -1115,23 +1114,23 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "קריאה ועריכת סימניות"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "קריאה ועריכת הגדרות הדפדפן"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "איפוס היסטוריית הגלישה, העוגיות והנתונים הנוספים שצברת לאחרונה"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "קבלת נתונים מלוח העריכה"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "הזנת נתונים בלוח העריכה"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
@@ -1139,15 +1138,15 @@ msgstr "הרחבת כלי הפיתוח לקבלת גישה לנתונים שלך
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "הורדת קבצים, קריאה ועריכת היסטורית ההורדות של הדפדפן"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "פתיחת קבצים שהורדו למחשב שלך"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "קריאת הטקסט של כל הלשוניות הפתוחות"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
@@ -1159,27 +1158,27 @@ msgstr "גישה להיסטורית הגלישה"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "ניטור שימוש בהרחבות וניהול ערכות נושא"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "החלפת הודעות עם יישומים אחרים מ־Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "הצגת התרעות"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "אספקת שירותי אימות מוצפנים"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "שליטה בהגדרות המתווך של הדפדפן"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "קריאה ועריכה של הגדרות פרטיות"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
@@ -1191,11 +1190,11 @@ msgstr "גישה ללשוניות"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "הסתרה והצגת לשוניות הדפדפן"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "אחסון נתונים בלתי מוגבלים של צד לקוח"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
@@ -1298,9 +1297,8 @@ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Poli
 msgstr "אם לדעתך משתמש זה מפר את %(linkTagStart)sמדיניות התוספות של Mozilla%(linkTagEnd)s, נא לדווח עליו ל־Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "נא לא להשתמש בטופס זה כדי לדווח על תקלות או לבקש להוסיף תכונות לתוספת; דיווח זה יישלח ל־Mozilla ולא למפתח התוספת."
+msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
@@ -1311,9 +1309,8 @@ msgid "You reported this user for abuse"
 msgstr "דיווחת על משתמש זה בגין שימוש לרעה"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו על החששות שלך בנוגע לתוספת זו."
+msgstr "קיבלנו את הדיווח שלך. תודה שהודעת לנו על החששות שלך בנוגע למשתמש זה."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1754,23 +1751,20 @@ msgid "Add-ons Home Page"
 msgstr "דף הבית של התוספות"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "משתמשים"
+msgstr "משתמש מאז"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "תוספות פופולריות"
+msgstr "מספר התוספות"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "תוצאות חיפוש עבור ״%(query)s״"
+msgstr "פרופיל משתמש עבור %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
