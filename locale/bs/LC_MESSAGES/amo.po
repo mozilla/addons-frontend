@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:32+0000\n"
+"PO-Revision-Date: 2018-03-21 07:10+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -556,7 +556,7 @@ msgstr "Prilagođeni URL"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Pronađite dodatak za uključivanje u ovu kolekciju"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1119,43 +1119,43 @@ msgstr "Ovaj dodatak može:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Saznajte više o dozvolama"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Čitajte i mijenjajte zabilješke"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Čitajte i mijenjajte postavke browsera"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Očisti skorašnju historiju surfanja, kolačiće, i srodne podatke"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Dobavi podatke iz bilježnice"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Unosi podatke u bilježnicu"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Omogućite razvojnim alatima da pristupe vašim podacima u otvorenim tabovima"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Preuzima datoteke, čita i uređuje historijat preuzimanja browsera"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Otvorite datoteke preuzete na vaš računar"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Čita tekst iz svih otvorenih tabova"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
