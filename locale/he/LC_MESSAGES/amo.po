@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:38+0000\n"
+"PO-Revision-Date: 2018-03-21 06:28+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -1110,7 +1110,7 @@ msgstr "על אודות תוספת זו"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "מידע נוסף על הרשאות"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
@@ -1760,7 +1760,7 @@ msgstr "מספר התוספות"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "דירוג ממוצע של התוספות של המפתח"
 
 #: src/amo/components/UserProfile/index.js:87
 msgid "User Profile for %(user)s"
