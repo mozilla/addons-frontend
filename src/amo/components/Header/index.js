@@ -66,7 +66,7 @@ export class HeaderBase extends React.Component {
 
     const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
     const viewProfileLinkProps = config.get('enableUserProfile') ?
-      { href: viewProfileURL } : { to: viewProfileURL };
+      { to: viewProfileURL } : { href: viewProfileURL };
 
     return (
       <header className="Header">
