@@ -180,8 +180,8 @@ export type AddonType = {
   themeData?: ThemeData,
 };
 
-export type SearchResultAddonType = {
+export type SearchResultAddonType = {|
   ...AddonType,
   authors?: PartialAddonAuthorType,
   current_version?: PartialAddonVersionType,
-};
+|};
