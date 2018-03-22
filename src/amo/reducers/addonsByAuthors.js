@@ -3,7 +3,9 @@ import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type {
+  SearchResultAddonType, ExternalAddonType,
+} from 'core/types/addons';
 
 
 type State = {
@@ -12,7 +14,7 @@ type State = {
   // That said, these are partial add-ons returned from the search
   // results and fetching all add-on data for each add-on might be too
   // expensive.
-  byAddonId: { [number]: Array<AddonType> },
+  byAddonId: { [number]: Array<SearchResultAddonType> },
   byAddonSlug: { [string]: Array<number> },
   byUserId: { [number]: Array<number> },
   byUsername: { [string]: Array<number> },
