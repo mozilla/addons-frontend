@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 11:31+0000\n"
+"PO-Revision-Date: 2018-03-22 11:44+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -549,7 +549,7 @@ msgstr "Адрес по желание"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Потърсете добавка, която да включите в този списък"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -886,12 +886,11 @@ msgstr "Повече популярни теми"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Подобрения на Wikipedia"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Повече от изтегляне на медия"
+msgstr "Повече от подобренията за Wikipedia"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -1147,80 +1146,79 @@ msgstr "Отваря изтеглените на компютъра файлов
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Прочита текста от всички отворени раздели"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "Достъпва вашето местоположение"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Хронология на изданията"
+msgstr "Достъпва историята на разглеждане"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Следи използването на разширения и управлението на теми"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Обменя съобщения с приложения различни от Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Показва известия"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Предоставя шифровани услуги за упълномощаване"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "Управлява настройките на мрежовия посредник"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Чете и променя настройките за поверителност"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Достъпва наскоро затворените раздели"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Достъпва разделите"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Скрива и показва разделите на четеца"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Съхраняванеограничено количество данни при клиента"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Достъпва действията на четеца по време на разглеждане"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Достъпва данните ви за всички страници"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "Достъпва данните ви за страниците от домейна %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "Достъпва данните ви от %(count)s други домейна"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "Достъпва данните ви от %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Достъпва данните ви от %(count)s други страници"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1294,37 +1292,28 @@ msgid "Send abuse report"
 msgstr "Изпращане"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Докладване на добавката за нарушение"
+msgstr "Докладване на потребителя за нарушение"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Ако смятате, че добавката е в нарушение на %(linkTagStart)sполитиката Mozilla за добавките%(linkTagEnd)s или има преблем със сигурността и поверителността, моля, докладвайте тези проблеми на Mozilla"
-" чрез този формуляр."
+msgstr "Ако смятате, че потребителят е в нарушение на %(linkTagStart)sполитиката на Mozilla за добавките%(linkTagEnd)s, моля, докладвайте този потребител на Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
-"Моля не използвайте формуляра да докладвате за дефекти или да изпращате желания за нови възможности на добавката, защото този доклад ще бъде изпратен към Mozilla, а не към разработчика на добавката."
+msgstr "Моля не използвайте формуляра да докладвате за дефекти или за връзка с потребителя, защото този доклад ще бъде изпратен към Mozilla, а не към него."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Обяснете как добавката нарушава нашите правила."
+msgstr "Обяснете как потребителя е в нарушение на нашите правила."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Докладвахте добавката за нарушение"
+msgstr "Докладвахте потребителя за нарушение"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Получихме вашия доклад. Благодаря, че ни информирате за вашите проблеми с тази добавка."
+msgstr "Получихме вашия доклад. Благодаря, че ни информирате за проблемите с този потребител."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1761,23 +1750,20 @@ msgid "Add-ons Home Page"
 msgstr "Страница на добавката"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Потребители"
+msgstr "Потребител от"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Известни разширения"
+msgstr "Брой добавки"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Средна оценка на разширенията"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Резултати от търсене на „%(query)s“"
+msgstr "Профил на %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -1840,9 +1826,8 @@ msgid "Next"
 msgstr "Следваща"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Страница %(currentPage)s от %(totalPages)s"
+msgstr "Страница %(pageNumber)s от %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
