@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 06:09+0000\n"
+"PO-Revision-Date: 2018-03-22 06:27+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -177,7 +177,7 @@ msgstr "Njekompatibelny z Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Někotare funkcije mógli se płaśenje pominaś"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -557,7 +557,7 @@ msgstr "Swójska adresa"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Dodank namakaś, kótaryž se do toś teje zběrki pśewzejo"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1121,47 +1121,47 @@ msgstr "Toś ten dodank móžo:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Dalšne informacije wó pšawach"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Cytańske znamjenja cytaś a změniś"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Nastajenja wobglědowaka cytaś a změniś"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Aktualnu pśeglědowańsku historiju, cookieje a pśisłušne daty wulašowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Daty z mjazywótkłada zasajźiś"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Daty do mjazywótkłada kopěrowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Rozšyŕśo wuwijarske rědy, aby pśistup na swóje daty we wócynjonych rejtarkach měł"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Ześěgniśo dataje a cytajśo a změńśo ześěgnjeńsku historiju swójogo wobglědowaka"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Dataje wócyniś, kótarež su se na wašom licadle ześěgnuli"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Tekst wšych wócynjonych rejtarkow cytaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "Mějśo pśistup na swójo městno"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access browsing history"
@@ -1169,67 +1169,67 @@ msgstr "Mějśo pśistup na pśeglědowańsku historiju"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Wužywanje rozšyrjenjow wobglědowaś a drastwy zastojaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Powěsći z drugimi programami ako Firefox wuměniś"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Powěźeńki na was pokazaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Kryptografiske awtentificěrowańske słužby wobstaraś"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "Proksy-nastajenje wobglědowaka kontrolěrowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Nastajenja priwatnosći cytaś a změniś"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Mějśo pśistup na njedawno zacynjone rejtarki"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Mějśo pśistup na rejtarki wobglědowaka"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Rejtarki wobglědowaka schowaś a pokazaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Njewobgranicowanu licbu klientowych datow składowaś"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Mějśo pśistup na aktiwitu wobglědowaka za nawigaciju"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Mějśo pśistup na swóje daty za wšykne websedła"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "Mějśo pśistup na swóje daty za sedła w domenje %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "Mějśo pśistup na swóje daty w %(count)s drugich domenach"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "Mějśo pśistup na swóje daty za %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Mějśo pśistup na swóje daty w %(count)s drugich sedłach"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1306,31 +1306,24 @@ msgid "Report this user for abuse"
 msgstr "Toś togo wužywarja znjewužywanja dla k wěsći daś"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Jolic se toś ten dodank pśeśiwo %(linkTagStart)ssměrnicy Mozilla za dodanki%(linkTagEnd)s pśejźo abo ma problemy z wěstotu abo priwatnosću, dajśo pšosym Mozilla toś te problemy z pomocu toś togo "
-"formulara."
+msgstr "Jolic se toś ten wužywaŕ pśeśiwo %(linkTagStart)ssměrnicy Mozilla za dodanki%(linkTagEnd)s pśejźo, dajśo to pšosym Mozillak k wěsći."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Pšosym njewužywajśo toś ten formular, aby programowe zmólki abo žycenja za nowymi funkcijami dodanka k wěsći dał; toś ta rozpšawa se na Mozilla a nic na wuwijarja dodanka pósćelo."
+msgstr "Pšosym njewužywajśo toś ten formular, aby programowe zmólki k wěsći dał abo wužywarja kontaktěrował; waša rozpšawa se na Mozilla a nic na wužywarja pósćelo."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Wujasniśo, w kakem nastupanju se toś ten dodank pśeśiwo našym pšawidłam pśejźo."
+msgstr "Wujasniśo, w kakem nastupanju se toś ten wužywaŕ pśeśiwo našym pšawidłam pśejźo."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Sćo toś ten dodank znjewužywanja dla k wěsći dał"
+msgstr "Sćo toś togo wužywarja znjewužywanja dla k wěsći dał"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja nastupajucy toś ten dodank k wěsći dał."
+msgstr "Smy wašu rozpšawu dóstali. Źěkujomy se, až sćo nam swóje wobmyslenja nastupajucy toś togo wužywarja k wěsći dał."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1798,23 +1791,20 @@ msgid "Add-ons Home Page"
 msgstr "Startowy bok dodankow"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Wužywarje"
+msgstr "Wužywaŕ wót"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Woblubowane dodanki"
+msgstr "Licba dodankow"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Pśerězne pógódnośenje dodankow wuwijarja"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Pytańske wuslědki za \"%(query)s\""
+msgstr "Wužywarski profil za %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
