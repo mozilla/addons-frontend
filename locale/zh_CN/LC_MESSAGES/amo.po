@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 06:25+0000\n"
+"PO-Revision-Date: 2018-03-22 06:43+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -545,7 +545,7 @@ msgstr "自定义网址"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "搜索附加组件并加入此收藏集"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1189,27 +1189,27 @@ msgstr "无限量存储客户端数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "获知浏览器导航时的行为状态"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "存取您在所有网站的数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "存取您在 %(domain)s 域名的数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "存取您在其他 %(count)s 个域名的数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "存取您在 %(site)s 的数据"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "存取您在其他 %(count)s 个站点的数据"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1280,34 +1280,28 @@ msgid "Send abuse report"
 msgstr "提交滥用报告"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "举报此附加组件的滥用行为"
+msgstr "举报此用户的滥用行为"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "如果您认为此附加组件违背了 %(linkTagStart)sMozilla 附加组件政策%(linkTagEnd)s 或存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
+msgstr "如果您认为此用户违背了 %(linkTagStart)sMozilla 附加组件政策%(linkTagEnd)s 或存在安全或隐私问题，请使用此表单向 Mozilla 报告问题。"
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "请勿使用此表单报告附加组件的缺陷或请求功能。此表单将发给 Mozilla 官方，而非附加组件的开发者。"
+msgstr "此表单只会发给 Mozilla 官方而不会发给这位用户，请不要使用此表单反馈附加组件的缺陷或联系此用户。"
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "解释此附加组件哪里违背了我们的政策。"
+msgstr "请解释此用户违反了哪些政策。"
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "您已报告此附加组件的滥用"
+msgstr "您已报告此用户的滥用行为"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "我们已收到您的报告。感谢您对此的关注。"
+msgstr "我们已收到您的报告。感谢告知。"
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1732,23 +1726,20 @@ msgid "Add-ons Home Page"
 msgstr "附加组件首页"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "用户"
+msgstr "注册时间"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "最流行的附加组件"
+msgstr "附加组件数量"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "开发者的附加组件平均得分"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "“%(query)s”的搜索结果"
+msgstr "%(user)s 的用户资料"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
