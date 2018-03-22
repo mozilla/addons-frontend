@@ -27,6 +27,19 @@ describe(__filename, () => {
       'src', 'http://tofumatt.com/photo.jpg');
   });
 
+  it('renders extra classNames while rendering user avatar', () => {
+    const { state } = dispatchSignInActions({
+      userProps: {
+        picture_url: 'http://tofumatt.com/photo.jpg',
+        picture_type: 'jpg',
+      },
+    });
+    const user = getCurrentUser(state.users);
+    const root = renderUserAvatar({ className: 'test', user });
+
+    expect(root.find('.test')).toHaveLength(1);
+  });
+
   it('renders an anonymous icon if the user has no photo', () => {
     const { state } = dispatchSignInActions({
       userProps: {
