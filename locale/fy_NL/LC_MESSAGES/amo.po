@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 12:35+0000\n"
+"PO-Revision-Date: 2018-03-22 12:09+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -175,7 +175,7 @@ msgstr "Net kompatibel mei Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Guon funksjes kinne betelling fereaskje"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
