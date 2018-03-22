@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 06:10+0000\n"
+"PO-Revision-Date: 2018-03-22 06:28+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1221,7 +1221,7 @@ msgstr "Mějće přistup na swoje daty za sydła w domenje %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr "Mějće přistup na swoje daty w %(count)s druheich domenach"
+msgstr "Mějće přistup na swoje daty w %(count)s druhich domenach"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
@@ -1311,7 +1311,7 @@ msgstr "Jeli so tutón wužiwar přećiwo %(linkTagStart)ssměrnicy Mozilla za p
 
 #: src/amo/components/ReportUserAbuse/index.js:121
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Prošu njewužiwajće tutón formular, zo byšće programowe zmylki zdźělił abo tutoho wužiwarja kontaktować; tuta rozprawa so na Mozilla a nic na wužiwarja pósćele."
+msgstr "Prošu njewužiwajće tutón formular, zo byšće programowe zmylki zdźělił abo tutoho wužiwarja kontaktował; waša rozprawa so na Mozilla a nic na wužiwarja pósćele."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
