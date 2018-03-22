@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:15+0000\n"
+"PO-Revision-Date: 2018-03-22 06:10+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1303,7 +1303,7 @@ msgstr "Rozprawa wo znjewužiwanju pósłać"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
 msgid "Report this user for abuse"
-msgstr "Tutón přidatk znjewužiwanja dla zdźělić"
+msgstr "Tuho wužiwarja znjewužiwanja dla zdźělić"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
