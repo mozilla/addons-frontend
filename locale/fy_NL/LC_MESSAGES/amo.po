@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 12:09+0000\n"
+"PO-Revision-Date: 2018-03-22 12:23+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -549,7 +549,7 @@ msgstr "Oanpaste URL"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "In add-on fine om yn dizze kolleksje op te nimmen"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1109,47 +1109,47 @@ msgstr "Dizze add-on kin:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Mear ynfo oer tastimmingen"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "Blêdwizers lêze en oanpasse"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "Browserynstellingen lêze en oanpasse"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Resinte browserskiednis, cookies en relatearre gegevens wiskje"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Gegevens fan it klamboerd ophelje"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Gegevens op it klamboerd pleatse"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Untwikkelershelpmiddelen útwreidzje om jo gegevens yn iepen ljepblêden te benaderjen"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Bestannen downloade en downloadskiednis fan de browser lêze en oanpasse"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Nei jo kompjûter downloade bestannen iepenje"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "De tekst fan alle iepen ljepblêden lêze"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "Jo lokaasje benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access browsing history"
@@ -1157,67 +1157,67 @@ msgstr "Sneupskiednis iepenje"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Utwreidingsgebrûk beweitsje en tema’s beheare"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Berjochten mei oare programma’s as Firefox útwikselje"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Notifikaasjes werjaan"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Kryptografyske autentikaasjetsjinsten biede"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "Browserproxyynstellingen beheare"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Privacyynstellingen lêze en oanpasse"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Koartlyn sluten ljepblêden benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Browserljepblêden benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Browserljepblêden ferstopje en toane"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Gegevens oan clientside ûnbeheind bewarje"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Browseraktiviteit wylst navigearjen benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Jo gegevens foar alle websites benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "Jo gegevens foar websites yn it domein %(domain)s benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "Jo gegevens yn %(count)s oare domeinen benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "Jo gegevens foar %(site)s benaderje"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Jo gegevens op %(count)s oare websites benaderje"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1771,7 +1771,7 @@ msgstr "Oantal add-ons"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Gemiddelde wurdearring fan add-ons fan ûntwikkeler"
 
 #: src/amo/components/UserProfile/index.js:87
 msgid "User Profile for %(user)s"
