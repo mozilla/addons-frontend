@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 01:51+0000\n"
-"Last-Translator: Gonçalo Matos <goncalo.matos@me.com>\n"
+"PO-Revision-Date: 2018-03-20 22:27+0000\n"
+"Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -179,7 +179,7 @@ msgstr "Algumas funcionalidades podem requerer pagamento"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "Tem de <a href=\"%(downloadUrl)s\">descarregar o Firefox</a> para instalar este extra."
+msgstr "Tem de <a href=\"%(downloadUrl)s\">transferir o Firefox</a> para instalar este extra."
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
@@ -203,7 +203,7 @@ msgstr "Este extra requer uma <a href=\"%(downloadUrl)s\">versão mais recente d
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
 msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "O seu navegador não suporta extras. Pode <a href=\"%(downloadUrl)s\">descarregar o Firefox</a> para instalar este extra."
+msgstr "O seu navegador não suporta extras. Pode <a href=\"%(downloadUrl)s\">transferir o Firefox</a> para instalar este extra."
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -609,7 +609,7 @@ msgstr "Contribuir agora"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
-msgstr "Descarregar o Firefox"
+msgstr "Transferir o Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1137,7 +1137,7 @@ msgstr "Estender as ferramentas de programador para aceder aos seus dados em sep
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr "Descarregar ficheiros, ler e modificar o histórico de descargas do navegador"
+msgstr "Transferir ficheiros, ler e modificar o histórico de transferências do navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
@@ -1805,7 +1805,7 @@ msgstr "Adicionar ao Firefox"
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
-msgstr "A descarregar %(name)s."
+msgstr "A transferir %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
