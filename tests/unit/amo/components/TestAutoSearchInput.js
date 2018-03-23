@@ -333,18 +333,6 @@ describe(__filename, () => {
       sinon.assert.callCount(dispatchSpy, 1);
     });
 
-    it('does not fetch suggestions on focus', () => {
-      const { store } = dispatchClientMetadata();
-      const dispatchSpy = sinon.stub(store, 'dispatch');
-      const root = render({ store });
-
-      fetchSuggestions({
-        root, query: 'panda themes', reason: 'input-focused',
-      });
-
-      sinon.assert.notCalled(dispatchSpy);
-    });
-
     it('keeps the search results menu open while searching', () => {
       const { store } = dispatchAutocompleteResults({
         results: [createFakeAutocompleteResult()],
