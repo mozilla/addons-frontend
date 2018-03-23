@@ -316,7 +316,7 @@ describe(__filename, () => {
         root, query: 't'.repeat(SEARCH_TERM_MAX_LENGTH + 1),
       });
 
-      sinon.assert.notCalled(dispatchSpy);
+      sinon.assert.called(dispatchSpy);
     });
 
     it('does not fetch suggestions on focus', () => {
