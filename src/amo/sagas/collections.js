@@ -182,6 +182,7 @@ export function* updateCollection({
   yield put(errorHandler.createClearingAction());
 
   try {
+    // TODO: remove all the overlay state changes
     yield put(beginFormOverlaySubmit(formOverlayId));
 
     const state = yield select(getState);

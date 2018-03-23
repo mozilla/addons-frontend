@@ -12,6 +12,25 @@
       box-shadow: none;
     }
   }
+
+  label {
+    display: block;
+    font-size: $font-size-s;
+    padding: 24px 0 6px;
+  }
+
+  .CollectionManager-collectionName {
+    padding-top: 0;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+
+  textarea {
+    min-height: $font-size-default * 3;
+  }
 }
 
 .CollectionManager .AutoSearchInput--autocompleteIsOpen .AutoSearchInput-query {
@@ -24,7 +43,7 @@
   // it should always be displayed left-to-right.
   direction: ltr;
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto 75px;
 
   input {
     // Disregarding text direction is intentional.
@@ -32,15 +51,6 @@
     border-radius: 0 $border-radius-xs $border-radius-xs 0;
     width: auto;
   }
-}
-
-.FormOverlay-content .CollectionManager-collectionName {
-  // This provides room for an error banner at the top of the form.
-  padding-top: 12px;
-}
-
-.CollectionManager-addons {
-  margin-top: 24px;
 }
 
 .CollectionManager-slug-url-hint {
@@ -56,4 +66,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   width: auto;
+}
+
+.CollectionManager-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 36px;
+}
+
+.CollectionManager-cancel {
+  align-self: start;
 }

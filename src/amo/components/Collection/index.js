@@ -16,6 +16,7 @@ import CollectionManager, {
   COLLECTION_OVERLAY,
 } from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION,
 } from 'core/constants';
@@ -23,7 +24,7 @@ import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import { openFormOverlay } from 'core/reducers/formOverlay';
 import log from 'core/logger';
-import { hasPermission } from 'amo/reducers/users';
+import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
@@ -42,13 +43,15 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 
-type Props = {|
+export type Props = {|
   _config: typeof config,
   collection: CollectionType | null,
   dispatch: DispatchFunc,
+  editing: boolean,
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
+  isLoggedIn: boolean,
   loading: boolean,
   location: ReactRouterLocation,
   params: {|
@@ -60,6 +63,7 @@ type Props = {|
 export class CollectionBase extends React.Component<Props> {
   static defaultProps = {
     _config: config,
+    editing: false,
   };
 
   componentWillMount() {
@@ -137,6 +141,10 @@ export class CollectionBase extends React.Component<Props> {
     return `/collections/${params.user}/${params.slug}/`;
   }
 
+  editUrl() {
+    return `${this.url()}edit/`;
+  }
+
   editCollection = (event: SyntheticEvent<any>) => {
     const { dispatch } = this.props;
     event.preventDefault();
@@ -151,10 +159,9 @@ export class CollectionBase extends React.Component<Props> {
     if (_config.get('enableCollectionEdit')) {
       // TODO: make this a real link when the form is ready for release.
       // https://github.com/mozilla/addons-frontend/issues/4293
-      props.href = '#';
-      props.onClick = this.editCollection;
+      props.to = this.editUrl();
     } else {
-      props.href = `${this.url()}edit/`;
+      props.href = this.editUrl();
     }
 
     return (
@@ -164,50 +171,74 @@ export class CollectionBase extends React.Component<Props> {
     );
   }
 
+  renderCardContents() {
+    const {
+      collection, editing, hasEditPermission, i18n, isLoggedIn, location,
+    } = this.props;
+
+    if (editing) {
+      if (!isLoggedIn) {
+        return (
+          <AuthenticateButton
+            noIcon
+            location={location}
+            logInText={i18n.gettext('Sign in to edit this collection')}
+          />
+        );
+      }
+      return <CollectionManager collection={collection} />;
+    }
+
+    /* eslint-disable react/no-danger */
+    return (
+      <React.Fragment>
+        <h1 className="Collection-title">
+          {collection ? collection.name : <LoadingText />}
+        </h1>
+        <p className="Collection-description">
+          {collection ? (
+            <span
+              dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
+            />
+          ) : <LoadingText />}
+        </p>
+        <MetadataCard
+          metadata={[
+            {
+              content: collection ? collection.numberOfAddons : null,
+              title: i18n.gettext('Add-ons'),
+            },
+            {
+              content: collection ? collection.authorName : null,
+              title: i18n.gettext('Creator'),
+            },
+            {
+              content: collection ?
+                i18n.moment(collection.lastUpdatedDate).format('ll') :
+                null,
+              title: i18n.gettext('Last updated'),
+            },
+          ]}
+        />
+        {hasEditPermission ? this.editCollectionLink() : null}
+      </React.Fragment>
+    );
+    /* eslint-enable react/no-danger */
+  }
+
   renderCollection() {
     const {
       collection,
-      hasEditPermission,
-      i18n,
       loading,
       location,
     } = this.props;
 
     const addons = collection ? collection.addons : [];
 
-    /* eslint-disable react/no-danger */
     return (
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
-          <h1 className="Collection-title">
-            {collection ? collection.name : <LoadingText />}
-          </h1>
-          <p className="Collection-description">
-            {collection ? (
-              <span
-                dangerouslySetInnerHTML={sanitizeHTML(collection.description)}
-              />
-            ) : <LoadingText />}
-          </p>
-          <MetadataCard
-            metadata={[
-              {
-                content: collection ? collection.numberOfAddons : null,
-                title: i18n.gettext('Add-ons'),
-              },
-              {
-                content: collection ? collection.authorName : null,
-                title: i18n.gettext('Creator'),
-              },
-              {
-                content: collection ?
-                  i18n.moment(collection.lastUpdatedDate).format('ll') :
-                  null,
-                title: i18n.gettext('Last updated'),
-              },
-            ]}
-          />
-          {hasEditPermission ? this.editCollectionLink() : null}
+          {this.renderCardContents()}
         </Card>
         <div className="Collection-items">
           <AddonsCard
@@ -224,14 +255,8 @@ export class CollectionBase extends React.Component<Props> {
             />
           )}
         </div>
-        {/*
-          The manager overlay will render full-screen.
-          It will be opened/closed based on Redux state.
-        */}
-        <CollectionManager collection={collection} />
       </div>
     );
-    /* eslint-enable react/no-danger */
   }
 
   render() {
@@ -266,16 +291,18 @@ export const mapStateToProps = (
 ) => {
   const { loading } = state.collections.current;
 
+  const currentUser = getCurrentUser(state.users);
   let hasEditPermission = false;
 
   const collection = getCurrentCollection(state.collections);
-  if (collection) {
-    hasEditPermission = collection.authorId === state.users.currentUserID ||
+  if (collection && currentUser) {
+    hasEditPermission = collection.authorId === currentUser.id ||
       hasPermission(state, COLLECTIONS_EDIT);
   }
 
   return {
     collection,
+    isLoggedIn: !!currentUser,
     loading,
     hasEditPermission,
   };
