@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 11:44+0000\n"
+"PO-Revision-Date: 2018-03-23 16:07+0000\n"
 "Last-Translator: :stoyan <stoyan@gmx.com>\n"
 "Language-Team: none\n"
 "Language: bg\n"
@@ -453,7 +453,7 @@ msgstr "Препоръчани добавки"
 
 #: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
-msgstr "Повече от препоръчаните разширения"
+msgstr "Повече препоръчани разширения"
 
 #: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
@@ -461,7 +461,7 @@ msgstr "Популярни разширения"
 
 #: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
-msgstr "Повече от препоръчаните разширения"
+msgstr "Повече популярни разширения"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
@@ -469,7 +469,7 @@ msgstr "Най-високо оценени разширения"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
 msgid "See more top rated extensions"
-msgstr "Повече от високо оценените разширения"
+msgstr "Повече високо оценени разширения"
 
 #: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -481,7 +481,7 @@ msgstr "Препоръчани теми"
 
 #: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
-msgstr "Повече от препоръчаните теми"
+msgstr "Повече препоръчани теми"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
 msgid "Trending themes"
@@ -489,7 +489,7 @@ msgstr "Популярни теми"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
 msgid "See more trending themes"
-msgstr "Повече от препоръчаните теми"
+msgstr "Повече популярни теми"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
 msgid "Top rated themes"
@@ -497,7 +497,7 @@ msgstr "Най-високо оценени теми"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
 msgid "See more top rated themes"
-msgstr "Повече от високо оценените теми"
+msgstr "Повече високо оценени теми"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -869,12 +869,11 @@ msgstr "Променете облика на Firefox с теми."
 
 #: src/amo/components/Home/index.js:217
 msgid "Good time tabs"
-msgstr ""
+msgstr "Подобряване на новия раздел"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Повече от високо оценените разширения"
+msgstr "Повече подобряващи новия раздел"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -890,7 +889,7 @@ msgstr "Подобрения на Wikipedia"
 
 #: src/amo/components/Home/index.js:245
 msgid "See more Wikipedia boosters"
-msgstr "Повече от подобренията за Wikipedia"
+msgstr "Повече подобрения за Wikipedia"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -930,7 +929,7 @@ msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Помощник в пазаруването онлайн"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
@@ -938,7 +937,7 @@ msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Класическата игра, на ръка разстояние"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
@@ -946,7 +945,7 @@ msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders се занимава с умно управление на раздели"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
@@ -954,7 +953,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Преобразяване на Wikipedia"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
@@ -962,7 +961,7 @@ msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "Обърнете отворените раздели в списък и спестете памет"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
@@ -970,7 +969,7 @@ msgstr "Push to Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Send any Web page to your Kindle device"
-msgstr ""
+msgstr "Изпратете всяка страница на вашето устройство Kindle"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "Search Site"
@@ -978,7 +977,7 @@ msgstr "Search Site"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Търсете само в пределите на текущия домейн"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -986,7 +985,7 @@ msgstr "LeechBlock NG"
 
 #: src/amo/components/HomeHeroBanner/index.js:205
 msgid "Block time-wasting sites"
-msgstr ""
+msgstr "Забранява страниците, които губят вашето време"
 
 #: src/amo/components/HomeHeroBanner/index.js:214
 msgid "Tranquility Reader"
@@ -994,7 +993,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Премахване на ненужното и подобряване на четимостта"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -1002,7 +1001,7 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Изтегляне с едно натискане"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1010,7 +1009,7 @@ msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Попълвате ли много формуляри? Това може да ви е отпомощ"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
@@ -1018,7 +1017,7 @@ msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Безопасност от последно поколение"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
@@ -1034,7 +1033,7 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Показва местоположението на сървъра на страницата във вид на знаме"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
@@ -1050,7 +1049,7 @@ msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr ""
+msgstr "Популярното разширение за защита от проследяване вече има възможности за спиране на реклами"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1683,19 +1682,19 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Включвате HTML, препратки, части от код или изходен код. Отзивите трябва да бъдат само текст."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Make false statements, disparage add-on authors or personally insult them."
-msgstr ""
+msgstr "Правите лъжливи твърдения, да унижавате или лично да оскърбявате автора на добавката."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
 msgid "Include your own or anyone else’s email, phone number, or other personal details."
-msgstr ""
+msgstr "Включвате свой или чужд електронен адрес, телефонен номер или други лични данни."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
 msgid "Post reviews for an add-on you or your organization wrote or represent."
-msgstr ""
+msgstr "Изпращате отзиви на добавка, написана или представлявана от вас или вашата организация."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:67
 msgid ""
