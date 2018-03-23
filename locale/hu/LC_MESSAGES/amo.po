@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-23 09:49+0000\n"
+"PO-Revision-Date: 2018-03-23 09:52+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1294,16 +1294,12 @@ msgid "Report this user for abuse"
 msgstr "Felhasználó jelentése visszaélésért"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Ha úgy gondolja, hogy ez a kiegészítő megsérti a %(linkTagStart)sMozilla kiegészítőkről szóló irányelveit%(linkTagEnd)s, vagy biztonsági és adatvédelmi problémái vannak, jelentse ezeket a Mozillának"
-" az űrlap kitöltésével."
+msgstr "Ha úgy gondolja, hogy ez a felhasználó megsérti a %(linkTagStart)sMozilla kiegészítőkről szóló irányelveit%(linkTagEnd)s, jelentse a felhasználót a Mozillának."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Ne használja ezt az űrlapot hibajelentésre, vagy új funkciók kérésére; ez a jelentés a Mozillának kerül elküldésre, és nem a kiegészítő fejlesztőjének."
+msgstr "Ne használja ezt az űrlapot hibajelentésre, vagy a felhasználóval történő kapcsolatfelvételre; ez a jelentés a Mozillának kerül elküldésre, és nem a felhasználónak."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
