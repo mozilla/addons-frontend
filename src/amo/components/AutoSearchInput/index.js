@@ -31,6 +31,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 
 import './styles.scss';
 
+export const SEARCH_TERM_MIN_LENGTH = 3;
 export const SEARCH_TERM_MAX_LENGTH = 100;
 
 // TODO: port reducers/autocomplete.js to Flow and move this there.
@@ -162,10 +163,20 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
       return;
     }
 
+    if (value.length < SEARCH_TERM_MIN_LENGTH) {
+      log.debug(oneLine`Ignoring suggestions fetch because query
+      subceeds min length (${SEARCH_TERM_MIN_LENGTH})`);
+
+      this.props.dispatch(autocompleteCancel());
+      return;
+    }
+
     if (value.length > SEARCH_TERM_MAX_LENGTH) {
       log.debug(oneLine`Ignoring suggestions fetch because query
         exceeds max length (${SEARCH_TERM_MAX_LENGTH})`
       );
+
+      this.props.dispatch(autocompleteCancel());
       return;
     }
 
@@ -271,6 +282,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
 
     const inputProps = {
       className: 'AutoSearchInput-query',
+      minLength: SEARCH_TERM_MIN_LENGTH,
       maxLength: SEARCH_TERM_MAX_LENGTH,
       name: inputName,
       onChange: this.handleSearchChange,
