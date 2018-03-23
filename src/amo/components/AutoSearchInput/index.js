@@ -155,7 +155,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
   }
 
   handleSuggestionsFetchRequested = (
-    { value, reason }: OnSuggestionsFetchRequestedParams
+    { value }: OnSuggestionsFetchRequestedParams
   ) => {
     if (!value) {
       log.debug(oneLine`Ignoring suggestions fetch requested because
@@ -183,11 +183,6 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
     const filters = this.createFiltersFromQuery(value);
 
     this.setState({ autocompleteIsOpen: true });
-
-    if (reason === 'input-focused') {
-      log.debug('Ignoring suggestions fetch on search input focus');
-      return;
-    }
 
     this.dispatchAutocompleteStart({ filters });
   }
