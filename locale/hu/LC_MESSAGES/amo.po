@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 13:09+0000\n"
+"PO-Revision-Date: 2018-03-23 09:49+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -175,7 +175,7 @@ msgstr "Nem kompatibilis a Firefox Quantummal"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Néhány funkció fizetéshez kötött lehet"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -549,7 +549,7 @@ msgstr "Egyéni URL"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Keressen egy kiegészítőt, amely bekerüljön ebbe a gyűjteménybe"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1209,7 +1209,7 @@ msgstr "Az adatai elérése a(z) %(domain)s tartományban lévő lapokhoz"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "Hozzáférés az adataihoz %(count)s másik tartományban"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
@@ -1217,7 +1217,7 @@ msgstr "Az adatai elérése itt: %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Hozzáférés az adataihoz %(count)s másik weboldalon"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
