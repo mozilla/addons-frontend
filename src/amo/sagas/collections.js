@@ -182,7 +182,9 @@ export function* updateCollection({
   yield put(errorHandler.createClearingAction());
 
   try {
-    // TODO: remove all the overlay state changes
+    // TODO: remove overlay state changes and replace them
+    // with actions that will toggle the loading state so that
+    // CollectionManager can disable its form inputs.
     yield put(beginFormOverlaySubmit(formOverlayId));
 
     const state = yield select(getState);

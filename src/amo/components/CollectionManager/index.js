@@ -168,6 +168,9 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         `${apiHost}/${siteLang}/firefox/collections/${authorUsername}/`;
     }
 
+    // TODO: also disable the form while submitting.
+    // The collectionUpdates state will handle this but it needs
+    // to be hooked up the saga.
     const formIsDisabled = !collection;
 
     return (
@@ -236,7 +239,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           selectSuggestionText={i18n.gettext('Add to collection')}
         />
         <footer className="CollectionManager-footer">
-          {/* TODO: put back disabled flags maybe from collectionUpdates state */}
           {/*
             type=button is necessary to override the default
             of type=submit

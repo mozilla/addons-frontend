@@ -21,7 +21,7 @@ type pushParams = {|
 
 export type ReactRouterType = {|
   location: ReactRouterLocation,
-  // These are parameters derived by the <Route/> config.
+  // These are parameters derived from the <Route/> config.
   params: { [param: string]: string },
   push: (pushURL: string | pushParams) => void,
 |};
