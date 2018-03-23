@@ -3,7 +3,7 @@ import * as React from 'react';
 import Autosuggest from 'react-autosuggest';
 
 import AutoSearchInput, {
-  extractId, AutoSearchInputBase, SEARCH_TERM_MAX_LENGTH,
+  extractId, AutoSearchInputBase, SEARCH_TERM_MIN_LENGTH, SEARCH_TERM_MAX_LENGTH,
 } from 'amo/components/AutoSearchInput';
 import SearchSuggestion from 'amo/components/SearchSuggestion';
 import {
@@ -305,6 +305,18 @@ describe(__filename, () => {
       fetchSuggestions({ root, query: '' });
 
       sinon.assert.notCalled(dispatchSpy);
+    });
+
+    it('does not fetch suggestions for a really short value', () => {
+      const { store } = dispatchClientMetadata();
+      const dispatchSpy = sinon.stub(store, 'dispatch');
+      const root = render({ store });
+
+      fetchSuggestions({
+        root, query: 't'.repeat(SEARCH_TERM_MIN_LENGTH - 1),
+      });
+
+      sinon.assert.called(dispatchSpy);
     });
 
     it('does not fetch suggestions for a really long value', () => {
