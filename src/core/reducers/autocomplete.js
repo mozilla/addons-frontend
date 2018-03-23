@@ -56,6 +56,7 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         loading: false,
+        suggestions: [],
       };
     case AUTOCOMPLETE_STARTED:
       return {
