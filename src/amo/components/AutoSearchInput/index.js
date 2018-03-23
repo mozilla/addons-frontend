@@ -165,7 +165,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
 
     if (value.length < SEARCH_TERM_MIN_LENGTH) {
       log.debug(oneLine`Ignoring suggestions fetch because query
-      subceeds min length (${SEARCH_TERM_MIN_LENGTH})`);
+      does not meet the required length (${SEARCH_TERM_MIN_LENGTH})`);
 
       this.props.dispatch(autocompleteCancel());
       return;
