@@ -316,7 +316,8 @@ describe(__filename, () => {
         root, query: 't'.repeat(SEARCH_TERM_MIN_LENGTH - 1),
       });
 
-      sinon.assert.called(dispatchSpy);
+      sinon.assert.calledWith(dispatchSpy, autocompleteCancel());
+      sinon.assert.callCount(dispatchSpy, 1);
     });
 
     it('does not fetch suggestions for a really long value', () => {
@@ -328,7 +329,8 @@ describe(__filename, () => {
         root, query: 't'.repeat(SEARCH_TERM_MAX_LENGTH + 1),
       });
 
-      sinon.assert.called(dispatchSpy);
+      sinon.assert.calledWith(dispatchSpy, autocompleteCancel());
+      sinon.assert.callCount(dispatchSpy, 1);
     });
 
     it('does not fetch suggestions on focus', () => {
