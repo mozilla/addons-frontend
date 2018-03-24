@@ -166,6 +166,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
 
     // TODO: also disable the form while submitting.
+    // https://github.com/mozilla/addons-frontend/issues/4635
     // The collectionUpdates state will handle this but it needs
     // to be hooked up the saga.
     const formIsDisabled = !collection;
