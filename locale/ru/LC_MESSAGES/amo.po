@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-20 22:53+0000\n"
-"Last-Translator: Victor Bychek <a@bychek.ru>\n"
+"PO-Revision-Date: 2018-03-24 18:11+0000\n"
+"Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -1225,7 +1225,7 @@ msgstr "Получать доступ к вашим данных на %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Получать доступ к вашим данных на %(count)s других сайтах"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1298,36 +1298,28 @@ msgid "Send abuse report"
 msgstr "Отправить сообщение о нарушении правил"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Сообщить о нарушении правил этим дополнением"
+msgstr "Сообщить о нарушении правил этим пользователем"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Если вы считаете, что это дополнение нарушает %(linkTagStart)sполитики Mozilla в отношении дополнений%(linkTagEnd)s, или имеет проблемы с безопасностью или приватностью, сообщите об этих проблемах в"
-" Mozilla, используя эту форму."
+msgstr "Если вы считаете, что этот пользователь нарушает %(linkTagStart)sполитики Mozilla в отношении дополнений%(linkTagEnd)s, пожалуйста, сообщите об этом пользователе в Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Не используйте эту форму, чтобы сообщать об ошибках или запрашивать новые функции в дополнении; это сообщение будет отправлено в Mozilla, а не разработчику дополнения."
+msgstr "Пожалуйста, не используйте эту форму для отправки сообщений об ошибках или связи с этим пользователем; это сообщение будет отправлено только в Mozilla, а не этому пользователю."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Объясните, как это дополнение нарушает наши политики."
+msgstr "Объясните, как этот пользователь нарушает наши политики."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Вы сообщили о нарушении правил этим дополнением"
+msgstr "Вы сообщили о нарушении правил этим пользователем"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Мы получили ваше сообщение. Спасибо, что сообщили нам о вашей обеспокоенности этим дополнением."
+msgstr "Мы получили вашу жалобу. Спасибо, что сообщили нам о вашей обеспокоенности этим пользователем."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1789,23 +1781,20 @@ msgid "Add-ons Home Page"
 msgstr "Домашняя страница дополнений"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Пользователей"
+msgstr "Пользователь с"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Популярные дополнения"
+msgstr "Количество дополнений"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Средний рейтинг дополнений разработчика"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Результаты поиска для \"%(query)s\""
+msgstr "Профиль пользователя %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
