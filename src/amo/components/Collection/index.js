@@ -12,9 +12,7 @@ import {
   fetchCurrentCollectionPage,
   getCurrentCollection,
 } from 'amo/reducers/collections';
-import CollectionManager, {
-  COLLECTION_OVERLAY,
-} from 'amo/components/CollectionManager';
+import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
@@ -22,7 +20,6 @@ import {
 } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
-import { openFormOverlay } from 'core/reducers/formOverlay';
 import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';

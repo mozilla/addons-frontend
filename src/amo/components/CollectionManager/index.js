@@ -43,8 +43,6 @@ type State = {|
   slug?: string | null,
 |};
 
-export const COLLECTION_OVERLAY = 'COLLECTION_OVERLAY';
-
 export class CollectionManagerBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -121,7 +119,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       defaultLocale: collection.defaultLocale,
       description: { [siteLang]: this.state.description },
       errorHandlerId: errorHandler.id,
-      formOverlayId: COLLECTION_OVERLAY,
       name: { [siteLang]: this.state.name },
       user: collection.authorUsername,
       slug: this.state.slug,

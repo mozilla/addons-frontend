@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
-  extractId, CollectionManagerBase, COLLECTION_OVERLAY,
+  extractId, CollectionManagerBase,
 } from 'amo/components/CollectionManager';
 import {
   createInternalCollection, updateCollection,
@@ -224,7 +224,6 @@ describe(__filename, () => {
       defaultLocale: collection.defaultLocale,
       description: { [lang]: description },
       errorHandlerId: errorHandler.id,
-      formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: name },
       slug,
       user: authorUsername,
@@ -280,7 +279,6 @@ describe(__filename, () => {
       defaultLocale: collection.defaultLocale,
       description: { [lang]: '' },
       errorHandlerId: root.instance().props.errorHandler.id,
-      formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: collection.name },
       slug: collection.slug,
       user: authorUsername,
