@@ -145,13 +145,6 @@ export class CollectionBase extends React.Component<Props> {
     return `${this.url()}edit/`;
   }
 
-  editCollection = (event: SyntheticEvent<any>) => {
-    const { dispatch } = this.props;
-    event.preventDefault();
-    event.stopPropagation();
-    dispatch(openFormOverlay(COLLECTION_OVERLAY));
-  }
-
   editCollectionLink() {
     const { _config, i18n } = this.props;
     const props = {};
