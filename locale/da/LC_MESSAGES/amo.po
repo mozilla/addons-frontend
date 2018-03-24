@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 23:44+0000\n"
+"PO-Revision-Date: 2018-03-24 13:05+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -943,7 +943,7 @@ msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Det klassiske spil, altid kun et klik væk"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
@@ -983,7 +983,7 @@ msgstr "Search Site"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Search within just the domain you’re visiting"
-msgstr ""
+msgstr "Begræns søgningen til websider på det domæne, du besøger"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1793,7 +1793,7 @@ msgstr "Populære tilføjelser"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Gennemsnitlig bedømmelse af udviklerens tilføjelser"
 
 #: src/amo/components/UserProfile/index.js:87
 #, fuzzy
