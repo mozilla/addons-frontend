@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-08 23:11+0000\n"
-"Last-Translator: Mikkel Herold <mikkel@mzh.dk>\n"
+"PO-Revision-Date: 2018-03-22 14:03+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgstr "Ikke kompatibel med Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Nogle funktioner kan kræve betaling"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -551,7 +551,7 @@ msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Find en tilføjelse, der skal medtages i denne samling"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -889,12 +889,11 @@ msgstr "Se flere populære temaer"
 
 #: src/amo/components/Home/index.js:244
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "Wikipedia-boostere"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Se flere medie-downloadere"
+msgstr "Se flere Wikipedia-boostere"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -940,7 +939,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
@@ -948,27 +947,27 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
-msgstr ""
+msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders møder smart fanebladshåndtering"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Giv Wikipedia en smuk makeover"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "OneTab"
-msgstr ""
+msgstr "OneTab"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Convert your open tabs into a list and save precious memory"
-msgstr ""
+msgstr "Konvertér dine åbne faneblade til lister og spar dyrebar hukommelse"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Push to Kindle"
