@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-25 10:43+0000\n"
+"PO-Revision-Date: 2018-03-25 10:42+0000\n"
 "Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -1317,9 +1317,8 @@ msgid "You reported this user for abuse"
 msgstr "Hai effettuato una segnalazione d’abuso per questo utente"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Abbiamo ricevuto la tua segnalazione. Grazie per averci comunicato i tuoi dubbi su questo componente aggiuntivo."
+msgstr "Abbiamo ricevuto la tua segnalazione. Grazie per averci comunicato i tuoi dubbi su questo utente."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
