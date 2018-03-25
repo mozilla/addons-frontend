@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-23 11:07+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2018-03-25 10:43+0000\n"
+"Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1105,14 +1105,12 @@ msgid "Dictionaries"
 msgstr "Dizionari"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "Versione"
+msgstr "Permessi"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "Informazioni sul componente aggiuntivo"
+msgstr "Questo componente aggiuntivo può:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
@@ -1298,16 +1296,12 @@ msgid "Send abuse report"
 msgstr "Invia segnalazione d’abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Segnala questo componente aggiuntivo per abuso"
+msgstr "Segnala questo utente per abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Se ritieni che questo componente aggiuntivo violi le %(linkTagStart)spolitiche Mozilla sui componenti aggiuntivi%(linkTagEnd)s o presenti dei possibili rischi di sicurezza o privacy, utilizza il "
-"seguente modulo per segnalarlo."
+msgstr "Se ritieni che questo utente violi le %(linkTagStart)spolitiche Mozilla sui componenti aggiuntivi%(linkTagEnd)s segnalalo a Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
 #, fuzzy
@@ -1315,14 +1309,12 @@ msgid "Please don't use this form to report bugs or contact this user; your repo
 msgstr "Attenzione: non utilizzare questo modulo per segnalare bug o richiedere nuove funzionalità; la segnalazione verrà inoltrata direttamente a Mozilla e non all’autore del componente aggiuntivo."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Spiega perché ritieni che questo componente aggiuntivo violi le politiche Mozilla."
+msgstr "Spiega perché ritieni che questo utente abbia violato le politiche Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Hai effettuato una segnalazione d’abuso per questo componente aggiuntivo"
+msgstr "Hai effettuato una segnalazione d’abuso per questo utente"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 #, fuzzy
@@ -1789,9 +1781,8 @@ msgid "User since"
 msgstr "Utenti"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Componenti aggiuntivi più popolari"
+msgstr "Numero di componenti aggiuntivi"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
