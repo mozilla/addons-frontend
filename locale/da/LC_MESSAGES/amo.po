@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-24 13:05+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2018-03-24 07:09+0000\n"
+"Last-Translator: Kim Ludvigsen <ludvigs@kimludvigsen.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -220,16 +220,14 @@ msgid "No Users"
 msgstr "Ingen brugere"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Ingen bedømmelser"
+msgstr "Bedømmelser"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Ingen bedømmelser"
-msgstr[1] "Ingen bedømmelser"
+msgstr[0] "Bedømmelse"
+msgstr[1] "Bedømmelser"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
@@ -924,14 +922,12 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-#, fuzzy
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr "Hold forskellige dele af dit liv på nettet — arbejde, personligt osv. — adskilt med farvekodede faneblade."
+msgstr "Hold forskellige dele af dit liv på nettet adskilt med farvekodede faneblade (arbejde, personligt osv.)."
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Funktioner"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -1002,9 +998,8 @@ msgid "Remove clutter and improve readability"
 msgstr "Fjern distraherende elementer og forøg læsbarheden"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
@@ -1035,9 +1030,8 @@ msgid "Clip, save & organize your favorite stuff on the web"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Rapportér"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1048,18 +1042,16 @@ msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Effektiv blokering af reklamer."
+msgstr "Effektiv blokering af reklamer"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
 msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
-#, fuzzy
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr "Populær anti-sporings-udvidelse - kan nu blokere reklamer."
+msgstr "Populær anti-sporings-udvidelse - kan nu blokere reklamer"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
@@ -1110,14 +1102,12 @@ msgid "Dictionaries"
 msgstr "Ordbøger"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "Version"
+msgstr "Tilladelser"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "Om denne tilføjelse"
+msgstr "Denne tilføjelse kan:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
@@ -1164,9 +1154,8 @@ msgid "Access your location"
 msgstr "Se min position"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Versions-historik"
+msgstr "Tilgå browserhistorik"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
@@ -1303,36 +1292,28 @@ msgid "Send abuse report"
 msgstr "Send rapport om misbrug"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Rapportér denne tilføjelse for misbrug"
+msgstr "Rapportér denne bruger for misbrug"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Hvis du mener, at denne tilføjelse krænker %(linkTagStart)sMozillas retningslinjer for tilføjelser%(linkTagEnd)s, privatlivets fred eller udgør et sikkerhedsproblem, bedes du rapportere problemerne "
-"til Mozilla ved hjælp af denne formular."
+msgstr "Hvis du mener, at denne bruger krænker %(linkTagStart)sMozillas retningslinjer for tilføjelser%(linkTagEnd)s, bedes du rapportere problemerne til Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Brug ikke denne formular til fejlrapporter eller forslag til funktioner. Denne rapport vil blive sendt til Mozilla - ikke til udvikleren, der har lavet tilføjelsen."
+msgstr "Brug ikke denne formular til fejlrapporter eller til at kontakte denne bruger. Din rapport vil kun blive sendt til Mozilla - ikke til denne bruger."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Forklar hvordan denne tilføjelse krænker vores retningslinjer."
+msgstr "Forklar hvordan denne bruger krænker vores retningslinjer."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Du har rapporteret denne tilføjelse for misbrug"
+msgstr "Du har rapporteret denne bruger for misbrug"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende denne tilføjelse med os."
+msgstr "Vi har modtaget din rapport. Tak fordi du deler dine bekymringer vedrørende denne bruger med os."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1782,23 +1763,20 @@ msgid "Add-ons Home Page"
 msgstr "Tilføjelsens hjemmeside"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Brugere"
+msgstr "Bruger siden"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Populære tilføjelser"
+msgstr "Antal tilføjelser"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
 msgstr "Gennemsnitlig bedømmelse af udviklerens tilføjelser"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Resultat af søgning efter \"%(query)s\""
+msgstr "Brugerprofil for %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -1861,9 +1839,8 @@ msgid "Next"
 msgstr "Næste"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Side %(currentPage)s af %(totalPages)s"
+msgstr "Side %(pageNumber)s af %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
