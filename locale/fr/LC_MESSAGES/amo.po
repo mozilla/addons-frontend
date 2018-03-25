@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-25 01:10+0000\n"
+"PO-Revision-Date: 2018-03-25 01:15+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -549,7 +549,7 @@ msgstr "Adresse web personnalisée"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Rechercher un module à inclure dans cette collection"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1110,13 +1110,12 @@ msgid "Permissions"
 msgstr "Permissions"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "À propos de ce module"
+msgstr "Ce module peut :"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "En savoir plus à propos des permissions"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
@@ -1297,21 +1296,16 @@ msgid "Send abuse report"
 msgstr "Signaler"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Signaler ce module"
+msgstr "Signaler cet utilisateur"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Si vous pensez que ce module va à l’encontre de la %(linkTagStart)sPolitique de Mozilla sur les modules complémentaires%(linkTagEnd)s, ou si vous pensez que ce module peut poser des problèmes de "
-"sécurité ou porter atteinte à la vie privée, merci de signaler ces problèmes à Mozilla en utilisant ce formulaire."
+msgstr "Si vous pensez que cet utilisateur va à l’encontre de la %(linkTagStart)sPolitique de Mozilla sur les modules complémentaires%(linkTagEnd)s, merci de le signaler à Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Merci de ne pas utiliser ce formulaire pour signaler des problèmes ou pour demander l’ajout de fonctionnalités à ce module. Ce formulaire est envoyé à Mozilla et non au développeur du module."
+msgstr "Merci de ne pas utiliser ce formulaire pour signaler des problèmes ou pour contacter cet utilisateur. Ce formulaire est envoyé à Mozilla et non à cet utilisateur."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
@@ -1322,9 +1316,8 @@ msgid "You reported this user for abuse"
 msgstr "Vous avez signalé cet utilisateur"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Nous avons reçu votre rapport. Merci de nous signaler tout problème avec ce module."
+msgstr "Nous avons reçu votre rapport. Merci de nous avoir signalé vos préoccupations concernant cet utilisateur."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
@@ -1779,23 +1772,20 @@ msgid "Add-ons Home Page"
 msgstr "Page d’accueil des modules"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Utilisateurs"
+msgstr "Utilisateur depuis"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Modules populaires"
+msgstr "Nombre de modules"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Moyenne des notes des modules du développeur"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Résultats de la recherche pour « %(query)s »"
+msgstr "Profil utilisateur de %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
