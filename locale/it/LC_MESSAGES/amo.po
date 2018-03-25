@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-25 10:42+0000\n"
-"Last-Translator: Sav22999 <saverio.morelli@outlook.it>\n"
+"PO-Revision-Date: 2018-03-25 12:30+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1157,9 +1157,8 @@ msgid "Access your location"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Cronologia versioni"
+msgstr "Accedere alla cronologia di navigazione"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
@@ -1304,9 +1303,8 @@ msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Poli
 msgstr "Se ritieni che questo utente violi le %(linkTagStart)spolitiche Mozilla sui componenti aggiuntivi%(linkTagEnd)s segnalalo a Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Attenzione: non utilizzare questo modulo per segnalare bug o richiedere nuove funzionalità; la segnalazione verrà inoltrata direttamente a Mozilla e non all’autore del componente aggiuntivo."
+msgstr "Attenzione: non utilizzare questo modulo per segnalare bug o contattare l’utente; la segnalazione verrà inoltrata direttamente a Mozilla e non all’utente."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
@@ -1775,9 +1773,8 @@ msgid "Add-ons Home Page"
 msgstr "Pagina iniziale componenti aggiuntivi"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Utenti"
+msgstr "Utente da"
 
 #: src/amo/components/UserProfile/index.js:125
 msgid "Number of add-ons"
@@ -1788,9 +1785,8 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Media delle valutazioni per i componenti aggiuntivi di questo sviluppatore"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Risultati di ricerca per “%(query)s”"
+msgstr "Profilo utente di %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
