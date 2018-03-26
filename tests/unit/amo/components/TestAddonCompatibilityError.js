@@ -76,7 +76,7 @@ describe(__filename, () => {
     const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
 
     expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
-      'type', 'generic');
+      'type', 'success');
   });
 
   it('renders an error notice for other reasons than non-Firefox', () => {
