@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-22 18:31+0000\n"
+"PO-Revision-Date: 2018-03-26 19:09+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -545,7 +545,7 @@ msgstr "Özel URL"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Bu koleksiyona eklemek için bir eklenti bulun"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -1109,7 +1109,7 @@ msgstr "Bu eklenti şunları yapabilir:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "İzinler hakkında daha fazla bilgi alın"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
@@ -1771,7 +1771,7 @@ msgstr "Eklenti sayısı"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Geliştiricinin eklentilerinin ortalama puanı"
 
 #: src/amo/components/UserProfile/index.js:87
 msgid "User Profile for %(user)s"
