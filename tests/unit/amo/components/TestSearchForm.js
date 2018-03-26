@@ -10,8 +10,8 @@ import {
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
 import {
+  createFakeRouter,
   fakeI18n,
-  fakeRouterLocation,
   shallowUntilTarget,
   simulateComponentCallback,
 } from 'tests/unit/helpers';
@@ -21,10 +21,7 @@ describe(__filename, () => {
   let fakeRouter;
 
   beforeEach(() => {
-    fakeRouter = {
-      location: fakeRouterLocation(),
-      push: sinon.spy(),
-    };
+    fakeRouter = createFakeRouter();
   });
 
   const getProps = (customProps = {}) => {

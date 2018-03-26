@@ -497,6 +497,21 @@ export const fakeRouterLocation = (props = {}) => {
 };
 
 /*
+ * Returns a fake ReactRouter object.
+ *
+ * See ReactRouterType in 'core/types/router';
+ */
+export const createFakeRouter = (
+  { location = fakeRouterLocation() } = {}
+) => {
+  return {
+    location,
+    params: {},
+    push: sinon.spy(),
+  };
+};
+
+/*
  * Simulate how a component you depend on will invoke a callback.
  *
  * The return value is an executable callback that you can call
