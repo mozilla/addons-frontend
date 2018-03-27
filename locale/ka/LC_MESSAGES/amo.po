@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 18:45+0000\n"
+"PO-Revision-Date: 2018-03-27 19:58+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -225,7 +225,7 @@ msgstr "შეფასება"
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "შეფასებები"
+msgstr[0] "შეფასება"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
