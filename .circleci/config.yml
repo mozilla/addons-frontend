@@ -62,6 +62,14 @@ jobs:
       - run:
           name: Build the container ( Next 2 steps )
           command: IMG="image-$(date +%j).gz"; if [[ -e ~/addons-frontend/docker/$IMG ]]; then echo "Loading $IMG"; pigz -d -c ~/addons-frontend/docker/$IMG | docker load; fi
+      - run: >
+          printf '{"commit":"%s","version":"%s","source":"https://github.com/%s/%s","build":"%s"}\n'
+          "$CIRCLE_SHA1"
+          "$CIRCLE_TAG"
+          "$CIRCLE_PROJECT_USERNAME"
+          "$CIRCLE_PROJECT_REPONAME"
+          "$CIRCLE_BUILD_URL"
+          > version.json
       - run: docker build --pull -t addons-frontend .
       - run: docker images
       - run:
