@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 19:24+0000\n"
+"PO-Revision-Date: 2018-03-27 15:31+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1162,9 +1162,8 @@ msgid "Access your location"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Zgodovina različic"
+msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
@@ -1303,9 +1302,8 @@ msgid "Report this user for abuse"
 msgstr "Prijavi tega uporabnika zaradi zlorabe"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr "Če sumite, da ta dodatek krši %(linkTagStart)sMozilline pravilnike za dodatke%(linkTagEnd)s ali da ima težave z zasebnostjo ali varnostjo, prijavite te težave Mozilli prek tega obrazca."
+msgstr "Če sumite, da ta uporabnik krši %(linkTagStart)sMozilline pravilnike za dodatke%(linkTagEnd)s, ga prijavite Mozilli."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
 #, fuzzy
