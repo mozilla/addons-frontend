@@ -80,6 +80,9 @@ export type CollectionsState = {
       |};
     },
   },
+  collectionUpdates: {
+    [collectionSlug: string]: {| updating: boolean, successful?: boolean |},
+  },
 };
 
 export const initialState: CollectionsState = {
@@ -88,6 +91,7 @@ export const initialState: CollectionsState = {
   current: { id: null, loading: false },
   userCollections: {},
   addonInCollections: {},
+  collectionUpdates: {},
 };
 
 type FetchCurrentCollectionParams = {|
@@ -449,7 +453,6 @@ export const addAddonToCollection = ({
 
 export type RequiredModifyCollectionParams = {|
   errorHandlerId: string,
-  formOverlayId: string,
   user: string,
 |};
 
@@ -485,11 +488,9 @@ export type UpdateCollectionAction = {|
 
 export const validateRequiredCollectionParams = ({
   errorHandlerId,
-  formOverlayId,
   user,
 }: RequiredModifyCollectionParams) => {
   invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(formOverlayId, 'formOverlayId is required');
   invariant(user, 'user is required');
 };
 
@@ -497,14 +498,12 @@ export const createCollection = ({
   errorHandlerId,
   defaultLocale,
   description,
-  formOverlayId,
   name,
   slug,
   user,
 }: CreateCollectionParams = {}): CreateCollectionAction => {
   validateRequiredCollectionParams({
     errorHandlerId,
-    formOverlayId,
     user,
   });
 
@@ -517,7 +516,6 @@ export const createCollection = ({
       errorHandlerId,
       defaultLocale,
       description,
-      formOverlayId,
       name,
       slug,
       user,
@@ -925,6 +923,20 @@ const reducer = (
         state,
         loading: false,
       });
+    }
+
+    case UPDATE_COLLECTION: {
+      const { collectionSlug } = action.payload;
+
+      return {
+        ...state,
+        collectionUpdates: {
+          [collectionSlug]: {
+            ...state.collectionUpdates[collectionSlug],
+            updating: true,
+          },
+        },
+      };
     }
 
     case DELETE_COLLECTION_BY_SLUG: {

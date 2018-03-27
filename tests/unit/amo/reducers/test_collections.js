@@ -18,6 +18,7 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  updateCollection,
 } from 'amo/reducers/collections';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
@@ -829,45 +830,14 @@ describe(__filename, () => {
   });
 
   describe('updateCollection', () => {
-    const getParams = (params = {}) => {
-      return {
-        errorHandlerId: 'error-handler-id',
-        collectionSlug: 'some-collection',
-        user: 'some-user-name',
-        ...params,
-      };
-    };
-
-    it('requires errorHandlerId parameter', () => {
-      const params = getParams();
-      delete params.errorHandlerId;
-
-      expect(() => updateCollection(params))
-        .toThrow(/errorHandlerId is required/);
-    });
-
-    it('requires collectionSlug parameter', () => {
-      const params = getParams();
-      delete params.collectionSlug;
-
-      expect(() => updateCollection(params))
-        .toThrow(/collectionSlug is required/);
-    });
-
-    it('requires user parameter', () => {
-      const params = getParams();
-      delete params.user;
-
-      expect(() => updateCollection(params))
-        .toThrow(/user is required/);
-    });
-
     it('changes update state', () => {
       const collectionSlug = 'some-collection';
 
-      const state = reducer(initialState, updateCollection(getParams({
+      const state = reducer(initialState, updateCollection({
+        errorHandlerId: 'error-handler-id',
         collectionSlug,
-      })));
+        user: 'some-user-name',
+      }));
 
       expect(state.collectionUpdates[collectionSlug].updating)
         .toEqual(true);

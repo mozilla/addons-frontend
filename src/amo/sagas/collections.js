@@ -36,13 +36,12 @@ import type {
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
+  CreateCollectionAction,
   FetchCurrentCollectionAction,
   FetchCurrentCollectionPageAction,
   FetchUserCollectionsAction,
-  OptionalModifyCollectionParams,
-  RequiredModifyCollectionParams,
+  UpdateCollectionAction,
 } from 'amo/reducers/collections';
-import type { LocalizedString } from 'core/types/api';
 
 export function* fetchCurrentCollection({
   payload: {
@@ -168,57 +167,56 @@ export function* addAddonToCollection({
   }
 }
 
-export function* modifyCollection({
-  type,
-  payload: {
-    collectionSlug,
+export function* modifyCollection(
+  action: CreateCollectionAction | UpdateCollectionAction
+): Generator<any, any, any> {
+  const { type, payload } = action;
+  const creating = type === CREATE_COLLECTION;
+
+  const {
     defaultLocale,
     description,
     errorHandlerId,
     name,
     slug,
     user,
-  },
-}: {|
-  type: typeof CREATE_COLLECTION | typeof UPDATE_COLLECTION,
-  payload: {
-    ...RequiredModifyCollectionParams,
-    ...OptionalModifyCollectionParams,
-    collectionSlug?: string,
-    name?: ?LocalizedString,
-    slug?: ?string,
-  }
-|}): Generator<any, any, any> {
-  const creating = type === CREATE_COLLECTION;
+  } = payload;
+
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
+
+  let collectionSlug;
+  if (action.type === UPDATE_COLLECTION) {
+    collectionSlug = action.payload.collectionSlug;
+  }
 
   try {
     const state = yield select(getState);
 
+    const baseApiParams = {
+      api: state.api,
+      defaultLocale,
+      description,
+      user,
+    };
+
     if (creating) {
       invariant(name, 'name cannot be empty when creating');
       invariant(slug, 'slug cannot be empty when creating');
-      const apiParams: CreateCollectionParams = {
-        api: state.api,
-        defaultLocale,
-        description,
+      const apiParams: $Shape<CreateCollectionParams> = {
         name,
         slug,
-        user,
+        ...baseApiParams,
       };
       yield call(api.createCollection, apiParams);
     } else {
       invariant(collectionSlug,
         'collectionSlug cannot be empty when updating');
-      const apiParams: UpdateCollectionParams = {
-        api: state.api,
+      const apiParams: $Shape<UpdateCollectionParams> = {
         collectionSlug,
-        defaultLocale,
-        description,
         name,
         slug,
-        user,
+        ...baseApiParams,
       };
       yield call(api.updateCollection, apiParams);
     }

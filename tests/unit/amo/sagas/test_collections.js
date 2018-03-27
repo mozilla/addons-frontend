@@ -326,12 +326,9 @@ describe(__filename, () => {
   });
 
   describe('modifyCollection', () => {
-    const formOverlayId = 'some-form-overlay';
-
     const _createCollection = (params = {}) => {
       sagaTester.dispatch(createCollection({
         errorHandlerId: errorHandler.id,
-        formOverlayId,
         name: 'some-collection-name',
         slug,
         user,
@@ -348,79 +345,6 @@ describe(__filename, () => {
       }));
     };
 
-    it('sends a patch to the collection API', async () => {
-      const params = {
-        collectionSlug: 'a-collection',
-        description: { 'en-US': 'New collection description' },
-        name: { 'en-US': 'New collection name' },
-        slug: 'new-slug',
-        user: 543,
-      };
-      const state = sagaTester.getState();
-
-      mockApi
-        .expects('updateCollection')
-        .withArgs({
-          api: state.api,
-          collectionSlug: params.collectionSlug,
-          defaultLocale: undefined,
-          description: params.description,
-          name: params.name,
-          slug: params.slug,
-          user: params.user,
-        })
-        .once()
-        .returns(Promise.resolve());
-
-      _updateCollection(params);
-
-      const expectedAction = pushLocation('/example/collection/url/');
-      await sagaTester.waitFor(expectedAction.type);
-
-      mockApi.verify();
-    });
-
-    it('deletes collection object after successful update', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
-
-      const collectionSlug = 'some-collection';
-      // For this test, make sure the slug is not getting updated.
-      _updateCollection({ collectionSlug, slug: undefined });
-
-      const expectedAction = deleteCollectionBySlug(collectionSlug);
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-      mockApi.verify();
-    });
-
-    it('does not delete collection when slug is changed', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
-
-      const collectionSlug = 'some-collection';
-      _updateCollection({
-        collectionSlug, slug: 'new-slug',
-      });
-
-      const expectedAction = pushLocation('/example/collection/url/');
-      await sagaTester.waitFor(expectedAction.type);
-      mockApi.verify();
-
-      // Make sure the the collection is not deleted.
-      expect(
-        sagaTester.getCalledActions().map((action) => action.type)
-      ).not.toContain(deleteCollectionBySlug(collectionSlug).type);
-    });
-
-    it('redirects to the existing slug after update', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
-
-      const userName = 'collection-username';
-      const collectionSlug = 'some-collection';
-      // Update everything except the slug.
-      _updateCollection({
-        collectionSlug, user: userName, slug: undefined,
-
     describe('common logic', () => {
       // The common logic can be tested either by dispatching updateCollection
       // or createCollection, so we just use _updateCollection.
@@ -428,30 +352,6 @@ describe(__filename, () => {
         _updateCollection();
 
         const expectedAction = errorHandler.createClearingAction();
-
-        const action = await sagaTester.waitFor(expectedAction.type);
-        expect(action).toEqual(expectedAction);
-      });
-
-      it('begins and finishes a form submit', async () => {
-        mockApi.expects('updateCollection').returns(Promise.resolve());
-        _updateCollection();
-
-        for (const expectedAction of [
-          beginFormOverlaySubmit(formOverlayId),
-          finishFormOverlaySubmit(formOverlayId),
-        ]) {
-          const action = await sagaTester.waitFor(expectedAction.type);
-          expect(action).toEqual(expectedAction);
-        }
-      });
-
-      it('closes the form overlay', async () => {
-        mockApi.expects('updateCollection').returns(Promise.resolve());
-
-        _updateCollection();
-
-        const expectedAction = closeFormOverlay(formOverlayId);
 
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
@@ -469,14 +369,6 @@ describe(__filename, () => {
         const expectedAction = errorHandler.createErrorAction(error);
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
-
-        expect(sagaTester.getCalledActions()[4])
-          .toEqual(finishFormOverlaySubmit(formOverlayId));
-
-        // Make sure the form overlay is not closed on error.
-        expect(
-          sagaTester.getCalledActions().map((anyAction) => anyAction.type)
-        ).not.toContain(closeFormOverlay(formOverlayId).type);
       });
     });
 
@@ -485,7 +377,6 @@ describe(__filename, () => {
         const params = {
           collectionSlug: 'a-collection',
           description: { 'en-US': 'New collection description' },
-          formOverlayId,
           name: { 'en-US': 'New collection name' },
           slug: 'new-slug',
           user,
@@ -508,7 +399,12 @@ describe(__filename, () => {
 
         _updateCollection(params);
 
-        const expectedAction = finishFormOverlaySubmit(params.formOverlayId);
+        // TODO: Instead of this we should probably update the collectionUpdates state,
+        // and wait for that.
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${params.slug}/`
+        );
 
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
@@ -534,12 +430,17 @@ describe(__filename, () => {
 
         const collectionSlug = 'some-collection';
         _updateCollection({
-          collectionSlug, formOverlayId, slug: 'new-slug',
+          collectionSlug, slug: 'new-slug',
         });
 
-        await sagaTester.waitFor(
-          finishFormOverlaySubmit(formOverlayId).type
+        // TODO: Instead of this we should probably update the collectionUpdates state,
+        // and wait for that.
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
         );
+
+        await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
 
         // Make sure the the collection is not deleted.
@@ -589,7 +490,6 @@ describe(__filename, () => {
       it('sends a request to the collections API', async () => {
         const params = {
           description: { 'en-US': 'Collection description' },
-          formOverlayId,
           name: { 'en-US': 'Collection name' },
           slug,
           user,
@@ -611,11 +511,12 @@ describe(__filename, () => {
 
         _createCollection(params);
 
-        const expectedAction = closeFormOverlay(formOverlayId);
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+        );
 
-        const action = await sagaTester.waitFor(expectedAction.type);
-        expect(action).toEqual(expectedAction);
-
+        await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
       });
 
