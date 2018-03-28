@@ -4,7 +4,8 @@ import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import type {
-  AddonType, ExternalAddonType,
+  ExternalAddonType,
+  SearchResultAddonType,
 } from 'core/types/addons';
 
 
@@ -16,7 +17,7 @@ export type AddonsByAuthorsState = {|
   // That said, these are partial add-ons returned from the search
   // results and fetching all add-on data for each add-on might be too
   // expensive.
-  byAddonId: { [AddonId]: AddonType },
+  byAddonId: { [AddonId]: SearchResultAddonType },
   byAddonSlug: { [string]: Array<AddonId> },
   byUserId: { [number]: Array<AddonId> },
   byUsername: { [string]: Array<AddonId> },
