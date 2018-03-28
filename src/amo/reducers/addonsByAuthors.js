@@ -8,7 +8,7 @@ import type {
 } from 'core/types/addons';
 
 
-export type AddonsByAuthors = {|
+export type AddonsByAuthorsState = {|
   // TODO: It might be nice to eventually stop storing add-ons in this
   // reducer at all and rely on the add-ons in the `addons` reducer.
   // That said, these are partial add-ons returned from the search
@@ -22,7 +22,7 @@ export type AddonsByAuthors = {|
   loadingFor: { [string]: boolean },
 |};
 
-export const initialState: AddonsByAuthors = {
+export const initialState: AddonsByAuthorsState = {
   byAddonId: {},
   byAddonSlug: {},
   byUserId: {},
@@ -101,14 +101,14 @@ export const joinAuthorNames = (
 };
 
 export const getLoadingForAuthorNames = (
-  state: AddonsByAuthors, authorNames: Array<string>, addonType?: string
+  state: AddonsByAuthorsState, authorNames: Array<string>, addonType?: string
 ) => {
   return authorNames && authorNames.length ?
     (state.loadingFor[joinAuthorNames(authorNames, addonType)] || null) : null;
 };
 
 export const getAddonsForSlug = (
-  state: AddonsByAuthors,
+  state: AddonsByAuthorsState,
   slug: string,
 ) => {
   const ids = state.byAddonSlug[slug];
@@ -119,7 +119,7 @@ export const getAddonsForSlug = (
 };
 
 export const getAddonsForUsernames = (
-  state: AddonsByAuthors,
+  state: AddonsByAuthorsState,
   usernames: Array<string>,
   addonType?: string,
   excludeSlug?: string,
@@ -160,9 +160,9 @@ type Action =
   | LoadAddonsByAuthorsAction;
 
 const reducer = (
-  state: AddonsByAuthors = initialState,
+  state: AddonsByAuthorsState = initialState,
   action: Action
-): AddonsByAuthors => {
+): AddonsByAuthorsState => {
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);

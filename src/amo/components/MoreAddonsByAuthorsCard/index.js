@@ -19,7 +19,7 @@ import {
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import type { AddonsByAuthors } from 'amo/reducers/addonsByAuthors';
+import type { AddonsByAuthorsState } from 'amo/reducers/addonsByAuthors';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
@@ -182,7 +182,7 @@ export class MoreAddonsByAuthorsCardBase extends React.Component<Props> {
 }
 
 export const mapStateToProps = (
-  state: {| addonsByAuthors: AddonsByAuthors |}, ownProps: Props
+  state: {| addonsByAuthors: AddonsByAuthorsState |}, ownProps: Props
 ) => {
   const { addonType, authorNames, forAddonSlug, numberOfAddons } = ownProps;
 
