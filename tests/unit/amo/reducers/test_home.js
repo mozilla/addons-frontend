@@ -34,7 +34,7 @@ describe(__filename, () => {
           addons: Array(10).fill(fakeAddon),
         })],
         featuredExtensions: createAddonsApiResult([fakeAddon]),
-        popularThemes: createAddonsApiResult([fakeTheme]),
+        featuredThemes: createAddonsApiResult([fakeTheme]),
       }));
 
       const homeState = store.getState().home;
@@ -50,7 +50,7 @@ describe(__filename, () => {
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);
-      expect(homeState.popularThemes).toEqual([
+      expect(homeState.featuredThemes).toEqual([
         createInternalAddon(fakeTheme),
       ]);
     });
@@ -96,7 +96,7 @@ describe(__filename, () => {
     const defaultParams = {
       collections: [],
       featuredExtensions: {},
-      popularThemes: {},
+      featuredThemes: {},
     };
 
     it('throws an error when the collections array is missing', () => {
@@ -119,11 +119,11 @@ describe(__filename, () => {
 
     it('throws an error when popular themes are missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.popularThemes;
+      delete partialParams.featuredThemes;
 
       expect(() => {
         loadHomeAddons(partialParams);
-      }).toThrow('popularThemes are required');
+      }).toThrow('featuredThemes are required');
     });
   });
 });
