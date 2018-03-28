@@ -8,17 +8,19 @@ import type {
 } from 'core/types/addons';
 
 
+type AddonId = number;
+
 export type AddonsByAuthorsState = {|
   // TODO: It might be nice to eventually stop storing add-ons in this
   // reducer at all and rely on the add-ons in the `addons` reducer.
   // That said, these are partial add-ons returned from the search
   // results and fetching all add-on data for each add-on might be too
   // expensive.
-  byAddonId: { [number]: AddonType },
-  byAddonSlug: { [string]: Array<number> },
-  byUserId: { [number]: Array<number> },
-  byUsername: { [string]: Array<number> },
-  forAuthorNamesAndAddonType: { [string]: Array<number> | null },
+  byAddonId: { [AddonId]: AddonType },
+  byAddonSlug: { [string]: Array<AddonId> },
+  byUserId: { [number]: Array<AddonId> },
+  byUsername: { [string]: Array<AddonId> },
+  forAuthorNamesAndAddonType: { [string]: Array<AddonId> | null },
   loadingFor: { [string]: boolean },
 |};
 
