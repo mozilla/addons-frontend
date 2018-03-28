@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2018-03-05 23:21+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -41,17 +41,17 @@ msgid "Add to…"
 msgstr "Adaugă în…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Adaugă în colecție"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "Anulează previzualizarea"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "Atinge pentru previzualizare"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "Anulează previzualizarea"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -289,7 +289,7 @@ msgid "Version"
 msgstr "Versiune"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Ultima actualizare"
 
@@ -367,15 +367,15 @@ msgstr ""
 msgid "Submit review"
 msgstr ""
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Pictograma suplimentului"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr ""
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s recenzie pentru acest supliment"
@@ -383,7 +383,7 @@ msgstr[1] "%(total)s recenzii pentru acest supliment"
 msgstr[2] "%(total)s de recenzii pentru acest supliment"
 
 # Example: by The Author, The Next Author
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "de %(authorList)s"
 
@@ -449,16 +449,16 @@ msgstr "Suplimente pentru Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Suplimente pentru Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Se încarcă"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Găsește suplimente"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr ""
 
@@ -568,53 +568,53 @@ msgstr "Răsfoiește toate extensiile din această categorie."
 msgid "Browse all themes in this category."
 msgstr "Răsfoiește toate temele din această categorie."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "Editează această colecție"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "Editează această colecție"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Suplimente"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Creator"
 
-#: src/amo/components/CollectionManager/index.js:156
-#, fuzzy
-msgid "Save collection"
-msgstr "Editează această colecție"
-
-#: src/amo/components/CollectionManager/index.js:157
-#, fuzzy
-msgid "Saving collection"
-msgstr "Editează această colecție"
-
-#: src/amo/components/CollectionManager/index.js:158
-#, fuzzy
-msgid "Edit collection"
-msgstr "Editează această colecție"
-
-#: src/amo/components/CollectionManager/index.js:165
-msgid "Collection name"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:175
-msgid "Description"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:184
-msgid "Custom URL"
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:196
+msgid "Description"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
 msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "Editează această colecție"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -767,12 +767,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Semnalat(ă)"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Semnalează"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Semnalat(ă)"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -2055,22 +2055,15 @@ msgstr ""
 msgid "OK!"
 msgstr ""
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr ""
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr ""
 
@@ -2090,10 +2083,6 @@ msgstr ""
 msgid "Toggle contents"
 msgstr ""
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Nicio evaluare"
@@ -2106,6 +2095,14 @@ msgstr "Evaluat(ă) cu %(rating)s din 5 stele"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Extinde pentru</span> Mai multe informații"
+
+#, fuzzy
+#~ msgid "Saving collection"
+#~ msgstr "Editează această colecție"
+
+#, fuzzy
+#~ msgid "Edit collection"
+#~ msgstr "Editează această colecție"
 
 #~ msgid "Reviews"
 #~ msgstr "Recenzii"

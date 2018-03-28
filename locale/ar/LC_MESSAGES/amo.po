@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2018-03-13 10:12+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
@@ -44,18 +44,18 @@ msgid "Add to…"
 msgstr "إضافة إلى…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 #, fuzzy
 msgid "Add to collection"
 msgstr "لِج لتقييم الامتداد هذا"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "ألغِ المعاينة"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "انقر للمعاينة"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "ألغِ المعاينة"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -309,7 +309,7 @@ msgid "Version"
 msgstr "الإصدارة"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "آخر تحديث"
 
@@ -389,15 +389,15 @@ msgstr ""
 msgid "Submit review"
 msgstr "أرسِل المراجعة"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "أيقونة الإضافة"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "مراجعات %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 #, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
@@ -408,7 +408,7 @@ msgstr[3] "%(total)s مراجعات"
 msgstr[4] "%(total)s مراجعة"
 msgstr[5] "%(total)s مراجعة"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 #, fuzzy
 msgid "by %(authorList)s"
 msgstr "كتبها %(authorName)s، %(timestamp)s"
@@ -477,16 +477,16 @@ msgstr "إضافات إصدارة أندرويد"
 msgid "%s – Add-ons for Android"
 msgstr "%s - إضافات إصدارة أندرويد"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "يُحمّل"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "ابحث في الإضافات"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr ""
 
@@ -602,54 +602,54 @@ msgstr "تصفح كل الامتدادات في هذه الفئة."
 msgid "Browse all themes in this category."
 msgstr "تصفح كل السمات في هذه الفئة."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 #, fuzzy
 msgid "Edit this collection"
 msgstr "لِج لتقييم الامتداد هذا"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "لِج لتقييم الامتداد هذا"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "الإضافات"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "الصانع"
 
-#: src/amo/components/CollectionManager/index.js:156
-#, fuzzy
-msgid "Save collection"
-msgstr "لِج لتقييم الامتداد هذا"
-
-#: src/amo/components/CollectionManager/index.js:157
-#, fuzzy
-msgid "Saving collection"
-msgstr "لِج لتقييم الامتداد هذا"
-
-#: src/amo/components/CollectionManager/index.js:158
-#, fuzzy
-msgid "Edit collection"
-msgstr "لِج لتقييم الامتداد هذا"
-
-#: src/amo/components/CollectionManager/index.js:165
-msgid "Collection name"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:175
-msgid "Description"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:184
-msgid "Custom URL"
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:196
+msgid "Description"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr ""
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "ألغِ"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "لِج لتقييم الامتداد هذا"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -804,11 +804,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -2109,22 +2109,15 @@ msgstr "بات بإمكانك الآن الوصول إلى %(name)s من شري�
 msgid "OK!"
 msgstr ""
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "ألغِ"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr ""
 
@@ -2144,10 +2137,6 @@ msgstr "أعِد التحميل للمتابعة"
 msgid "Toggle contents"
 msgstr ""
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "لا تقييمات"
@@ -2159,6 +2148,14 @@ msgstr "مقيّمة بِ‍ %(rating)s من ٥"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Saving collection"
+#~ msgstr "لِج لتقييم الامتداد هذا"
+
+#, fuzzy
+#~ msgid "Edit collection"
+#~ msgstr "لِج لتقييم الامتداد هذا"
 
 #~ msgid "Reviews"
 #~ msgstr "لا مراجعات"

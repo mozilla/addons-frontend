@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2018-03-03 12:26+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "Rnu ɣer…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Rnu ar tegrumma"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "Sefsex taskant"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "Senned akken ad tsekned"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "Sefsex taskant"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -286,7 +286,7 @@ msgid "Version"
 msgstr "Lqem"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Aleqqem aneggaru"
 
@@ -367,21 +367,21 @@ msgstr "Aḍris n ucegger"
 msgid "Submit review"
 msgstr "Azen acegger"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Tignit n uzegrir"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Iceggiren i %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s iceggiren i uzegrir-a"
 msgstr[1] "%(total)s n iceggiren i uzegrir-a"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "sγur %(authorList)s"
 
@@ -447,16 +447,16 @@ msgstr "Izegrar i Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Izegrar i Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Asali"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Nadi isiɣzaf"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Nadi"
 
@@ -574,54 +574,54 @@ msgstr "Inig γer akk isiɣzaf di taggayt-ag."
 msgid "Browse all themes in this category."
 msgstr "Inig ɣer akk isental di teggayt-a."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Inig akk taggayt"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "Inig akk taggayt"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Izegrar"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Yerna-t"
 
-#: src/amo/components/CollectionManager/index.js:156
-#, fuzzy
-msgid "Save collection"
-msgstr "Inig akk taggayt"
-
-#: src/amo/components/CollectionManager/index.js:157
-#, fuzzy
-msgid "Saving collection"
-msgstr "Inig akk taggayt"
-
-#: src/amo/components/CollectionManager/index.js:158
-#, fuzzy
-msgid "Edit collection"
-msgstr "Inig akk taggayt"
-
-#: src/amo/components/CollectionManager/index.js:165
-msgid "Collection name"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:175
-msgid "Description"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:184
-msgid "Custom URL"
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:196
+msgid "Description"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr ""
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "Sefsex"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "Inig akk taggayt"
 
 #: src/amo/components/ContributeCard/index.js:36
 #, fuzzy
@@ -794,12 +794,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Yettwacreḍ d tuzna n ubug neɣ asuter n tallelt"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-#, fuzzy
-msgid "Flagged"
+msgid "Flag"
 msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+#, fuzzy
+msgid "Flagged"
 msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -2084,22 +2084,15 @@ msgstr "Tzemreḍ tura ad tkecmeḍ %(name)s seg ufeggag n ifecka."
 msgid "OK!"
 msgstr "IH!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "Sefsex"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "Sekcem aḍris."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Azen"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "Tuzna"
 
@@ -2119,10 +2112,6 @@ msgstr "Smiren akken ad tkemmleḍ"
 msgid "Toggle contents"
 msgstr "Ldi/Mdel igburen"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Ulac tazmilt"
@@ -2134,6 +2123,14 @@ msgstr "Yettwasezmel %(rating)s ugar n 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Sneflito</span> Ɣeṛ ugar"
+
+#, fuzzy
+#~ msgid "Saving collection"
+#~ msgstr "Inig akk taggayt"
+
+#, fuzzy
+#~ msgid "Edit collection"
+#~ msgstr "Inig akk taggayt"
 
 #~ msgid "Reviews"
 #~ msgstr "Iceggiren"

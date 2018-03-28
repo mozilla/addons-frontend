@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2017-03-18 02:37+0000\n"
 "Last-Translator: Firman <firmanwyd2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -43,18 +43,18 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 #, fuzzy
 msgid "Add to collection"
 msgstr "Jelajahi semua ekstensi"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "Batalkan pratinjau"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "Ketuk untuk pratinjau"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "Batalkan pratinjau"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -299,7 +299,7 @@ msgid "Version"
 msgstr "Versi"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Terakhir dimutakhirkan"
 
@@ -380,21 +380,21 @@ msgstr "Teks ulasan"
 msgid "Submit review"
 msgstr "Kirim ulasan"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Ikon pengaya"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 #, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 #, fuzzy
 msgid "by %(authorList)s"
 msgstr "dari %(authorName)s, %(timestamp)s"
@@ -470,17 +470,17 @@ msgstr "Pengaya untuk Firefox"
 msgid "%s – Add-ons for Android"
 msgstr "Pengaya untuk Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Memuat"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 #, fuzzy
 msgid "Find add-ons"
 msgstr "Memuat pengaya"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Cari"
 
@@ -598,55 +598,56 @@ msgstr "Jelajahi semua ekstensi pada kategori ini."
 msgid "Browse all themes in this category."
 msgstr "Jelajahi semua tema pada kategori ini."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Jelajahi semua ekstensi"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "Jelajahi semua ekstensi"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 #, fuzzy
 msgid "Add-ons"
 msgstr "Tautan Pengaya"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:156
-#, fuzzy
-msgid "Save collection"
-msgstr "Jelajahi semua ekstensi"
-
-#: src/amo/components/CollectionManager/index.js:157
-#, fuzzy
-msgid "Saving collection"
-msgstr "Jelajahi semua ekstensi"
-
-#: src/amo/components/CollectionManager/index.js:158
-#, fuzzy
-msgid "Edit collection"
-msgstr "Jelajahi semua ekstensi"
-
-#: src/amo/components/CollectionManager/index.js:165
-msgid "Collection name"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:175
-msgid "Description"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:184
-msgid "Custom URL"
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:196
+msgid "Description"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr ""
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+#, fuzzy
+msgid "Cancel"
+msgstr "Batalkan pratinjau"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "Jelajahi semua ekstensi"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -793,11 +794,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -2080,24 +2081,16 @@ msgstr ""
 msgid "OK!"
 msgstr "Oke!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-#, fuzzy
-msgid "Cancel"
-msgstr "Batalkan pratinjau"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 #, fuzzy
 msgid "Enter text."
 msgstr "Enter"
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Kirim"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 #, fuzzy
 msgid "Submitting"
 msgstr "Kirim"
@@ -2118,10 +2111,6 @@ msgstr ""
 msgid "Toggle contents"
 msgstr ""
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Tidak ada peringkat"
@@ -2133,6 +2122,14 @@ msgstr "Peringkat %(rating)s dari 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Saving collection"
+#~ msgstr "Jelajahi semua ekstensi"
+
+#, fuzzy
+#~ msgid "Edit collection"
+#~ msgstr "Jelajahi semua ekstensi"
 
 #, fuzzy
 #~ msgid "Reviews"

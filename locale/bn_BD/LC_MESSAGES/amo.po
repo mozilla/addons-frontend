@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "যোগ করতে…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "সংগ্রহতে যোগ করুন"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "পর্যালোচনা বাতিল করুন"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "পর্যালোচনা বাতিল করুন"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -287,7 +287,7 @@ msgid "Version"
 msgstr "সংস্করণ"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "শেষ আপডেট"
 
@@ -365,21 +365,21 @@ msgstr "টেক্সট পর্যালোচনা করুন"
 msgid "Submit review"
 msgstr "পর্যালোচনা লিখুন"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "অ্যাড-অন আইকন"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "পর্যালোচনা %(addonName)s এর জন্যে"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "অ্যাড-অনের জন্য %(total)s পর্যালোচনা"
 msgstr[1] "এই অ্যাড-অনের জন্য %(total)s পর্যালোচনা"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "%(authorList)s দ্বারা"
 
@@ -445,16 +445,16 @@ msgstr "Android এর জন্য অ্যাড-অন"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Android এর জন্য অ্যাড-অন"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "লোড করা হচ্ছে"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "অ্যাড-অন খুঁজুন"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "অনুসন্ধান"
 
@@ -564,53 +564,53 @@ msgstr "এই বিষয়শ্রেণীর সব এক্সটেনশ
 msgid "Browse all themes in this category."
 msgstr "এই বিষয়শ্রেণীর সব থিম ব্রাউজ করুন।"
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "সংগ্রহটি সম্পাদনা করুন"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "অ্যাড-অন"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "রচয়িতা"
 
-#: src/amo/components/CollectionManager/index.js:156
-#, fuzzy
-msgid "Save collection"
-msgstr "নতুন সংগ্রহ তৈরি করুন"
-
-#: src/amo/components/CollectionManager/index.js:157
-#, fuzzy
-msgid "Saving collection"
-msgstr "নতুন সংগ্রহ তৈরি করুন"
-
-#: src/amo/components/CollectionManager/index.js:158
-#, fuzzy
-msgid "Edit collection"
-msgstr "সংগ্রহটি সম্পাদনা করুন"
-
-#: src/amo/components/CollectionManager/index.js:165
-msgid "Collection name"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:175
-msgid "Description"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:184
-msgid "Custom URL"
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:196
+msgid "Description"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr ""
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "বাতিল করুন"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "নতুন সংগ্রহ তৈরি করুন"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -764,12 +764,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "ফ্ল্যাগকৃত"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "ফ্লাগ"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "ফ্ল্যাগকৃত"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -2031,22 +2031,15 @@ msgstr "আপনি এখন টুলবার থেকে %(name)s এ প�
 msgid "OK!"
 msgstr "ঠিক আছে!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "বাতিল করুন"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "জমা দিন"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "জমা হচ্ছে"
 
@@ -2066,10 +2059,6 @@ msgstr "অব্যাহত রাখতে রিলোড করুন"
 msgid "Toggle contents"
 msgstr ""
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "কোন রেটিং নেই"
@@ -2081,6 +2070,14 @@ msgstr "5 এর মধ্যে %(rating)s রেটিং দেওয়া হ�
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "পড়তে হলে <span class=\"visually-hidden\">সম্প্রসারণ করুন</span>"
+
+#, fuzzy
+#~ msgid "Saving collection"
+#~ msgstr "নতুন সংগ্রহ তৈরি করুন"
+
+#, fuzzy
+#~ msgid "Edit collection"
+#~ msgstr "সংগ্রহটি সম্পাদনা করুন"
 
 #~ msgid "Reviews"
 #~ msgstr "পর্যালোচনা"

@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2018-03-12 17:35+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "Pridať do…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Pridať do kolekcie"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "Zrušiť ukážku"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "Ťuknutím zobrazíte ukážku"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "Zrušiť ukážku"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -288,7 +288,7 @@ msgid "Version"
 msgstr "Verzia"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Posledná aktualizácia"
 
@@ -369,22 +369,22 @@ msgstr "Text recenzie"
 msgid "Submit review"
 msgstr "Odoslať recenziu"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Ikona doplnku"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Recenzie doplnku %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s recenzia tohto doplnku"
 msgstr[1] "%(total)s recenzie tohto doplnku"
 msgstr[2] "%(total)s recenzií tohto doplnku"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "autor: %(authorList)s"
 
@@ -450,16 +450,16 @@ msgstr "Doplnky pre Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s - Doplnky pre Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Načítavanie"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Hľadať"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Hľadať"
 
@@ -576,50 +576,53 @@ msgstr "Prehliadať všetky rozšírenia v tejto kategórii."
 msgid "Browse all themes in this category."
 msgstr "Prehliadať všetky témy vzhľadu v tejto kategórii."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "Upraviť túto kolekciu"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "Upraviť túto kolekciu"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Doplnky"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Autor:"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "Uložiť kolekciu"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "Musíte zadať názov kolekcie"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "Ukladám kolekciu"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "Upraviť kolekciu"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "Názov kolekcie"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "Popis"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "Musíte zadať názov kolekcie"
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "Uložiť kolekciu"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -785,12 +788,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Nahlásené ako správa o chybe, alebo žiadosť o podporu"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Nahlásené"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Nahlásiť"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Nahlásené"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -2117,22 +2120,15 @@ msgstr "Teraz môžete pristupovať k %(name)s z panela nástrojov."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "Zrušiť"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "Zadajte text."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Odoslať"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "Odosiela sa"
 
@@ -2152,10 +2148,6 @@ msgstr "Ak chcete pokračovať, obnovte kartu"
 msgid "Toggle contents"
 msgstr "Prepnúť obsah"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr "Pre zavretie kliknite sem"
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Žiadne hodnotenie"
@@ -2168,6 +2160,15 @@ msgstr "Hodnotenie: %(rating)s z 5"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "Viac si môžete prečítať po <span class=\"visually-hidden\">rozbalení</span>"
+
+#~ msgid "Saving collection"
+#~ msgstr "Ukladám kolekciu"
+
+#~ msgid "Edit collection"
+#~ msgstr "Upraviť kolekciu"
+
+#~ msgid "Click to close"
+#~ msgstr "Pre zavretie kliknite sem"
 
 #~ msgid "Reviews"
 #~ msgstr "Žiadne recenzie"

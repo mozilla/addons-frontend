@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-28 18:03+0000\n"
 "PO-Revision-Date: 2018-03-15 21:50+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "Προσθήκη σε…"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Προσθήκη σε συλλογή"
 
 #: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "Ακύρωση προεπισκόπησης"
-
-#: src/amo/components/Addon/index.js:189
 msgid "Tap to preview"
 msgstr "Πατήστε για προεπισκόπηση"
+
+#: src/amo/components/Addon/index.js:189
+msgid "Cancel preview"
+msgstr "Ακύρωση προεπισκόπησης"
 
 #: src/amo/components/Addon/index.js:240
 msgid "This add-on cannot be rated because no versions have been published."
@@ -286,7 +286,7 @@ msgid "Version"
 msgstr "Έκδοση"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Τελευταία ενημέρωση"
 
@@ -369,21 +369,21 @@ msgstr "Κείμενο κριτικής"
 msgid "Submit review"
 msgstr "Υποβολή κριτικής"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Εικονίδιο προσθέτου"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Κριτικές για το %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s κριτική για το πρόσθετο"
 msgstr[1] "%(total)s κριτικές για το πρόσθετο"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "από %(authorList)s"
 
@@ -452,16 +452,16 @@ msgstr "Πρόσθετα για Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Πρόσθετα για Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Φόρτωση"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Εύρεση προσθέτων"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Αναζήτηση"
 
@@ -576,51 +576,54 @@ msgstr "Περιήγηση σε όλες τις επεκτάσεις αυτής 
 msgid "Browse all themes in this category."
 msgstr "Περιήγηση σε όλα τα θέματα αυτής της κατηγορίας."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Περιήγηση σε όλες τις επεκτάσεις"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Πρόσθετα"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Δημιουργός"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "Αποθήκευση συλλογής"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "Το όνομα συλλογής δεν μπορεί να είναι κενό"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "Αποθήκευση συλλογής"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "Επεξεργασία συλλογής"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "Όνομα συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr "Προσαρμοσμένο URL"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "Το όνομα συλλογής δεν μπορεί να είναι κενό"
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "Αποθήκευση συλλογής"
 
 #: src/amo/components/ContributeCard/index.js:36
 #, fuzzy
@@ -787,12 +790,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Επισημάνθηκε"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Επισήμανση"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Επισημάνθηκε"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 #, fuzzy
@@ -2069,22 +2072,15 @@ msgstr "Μπορείτε πλέον να έχετε πρόσβαση στο %(na
 msgid "OK!"
 msgstr "Εντάξει!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "Ακύρωση"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "Εισάγετε κείμενο."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Υποβολή"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 msgid "Submitting"
 msgstr "Υποβολή"
 
@@ -2104,10 +2100,6 @@ msgstr "Επαναφορτώστε τη σελίδα για να συνεχίσ�
 msgid "Toggle contents"
 msgstr "Εναλλαγή περιεχομένων"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Καμία κριτική"
@@ -2120,6 +2112,12 @@ msgstr "Βαθμολογία %(rating)s από 5"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Επέκταση για</span> ανάγνωση περισσότερων"
+
+#~ msgid "Saving collection"
+#~ msgstr "Αποθήκευση συλλογής"
+
+#~ msgid "Edit collection"
+#~ msgstr "Επεξεργασία συλλογής"
 
 #~ msgid "Reviews"
 #~ msgstr "Κριτικές"
