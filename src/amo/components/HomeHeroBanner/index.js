@@ -162,35 +162,35 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-13"
-          linkTo="/addon/onetab/"
+          linkTo="/addon/black-menu-google/"
         >
-          <h3>{i18n.gettext('OneTab')}</h3>
+          <h3>{i18n.gettext('Black Menu for Google')}</h3>
 
           <p>
-            {i18n.gettext(`Convert your open tabs into a list and save
-              precious memory`)}
+            {i18n.gettext(`Easy drop-down menu access to Google services
+              like Search and Translate`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-14"
-          linkTo="/addon/kindle-it/"
+          linkTo="/addon/honey/"
         >
-          <h3>{i18n.gettext('Push to Kindle')}</h3>
+          <h3>{i18n.gettext('Honey')}</h3>
 
-          <p>{i18n.gettext('Send any Web page to your Kindle device')}</p>
+          <p>{i18n.gettext('Automatically searches for coupon codes')}</p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-15"
-          linkTo="/addon/search-site-we/"
+          linkTo="/addon/shine-reddit/"
         >
-          <h3>{i18n.gettext('Search Site')}</h3>
+          <h3>{i18n.gettext('SHINE for Reddit')}</h3>
 
           <p>
-            {i18n.gettext('Search within just the domain you’re visiting')}
+            {i18n.gettext('Experience Reddit with alternative designs')}
           </p>
         </HeroSection>
       ),

@@ -13,8 +13,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_MOST_POPULAR,
-  SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -26,9 +24,9 @@ import './styles.scss';
 
 
 export const COLLECTIONS_TO_FETCH = [
-  { slug: 'good-time-tabs', user: 'mozilla' },
+  { slug: 'social-media-customization', user: 'mozilla' },
   { slug: 'wikipedia-boosters', user: 'mozilla' },
-  { slug: 'trending-add-ons', user: 'mozilla' },
+  { slug: 'good-time-tabs', user: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -37,7 +35,7 @@ export class HomeBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
-    popularThemes: PropTypes.array.isRequired,
+    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
   }
@@ -158,7 +156,7 @@ export class HomeBase extends React.Component {
       errorHandler,
       collections,
       featuredExtensions,
-      popularThemes,
+      featuredThemes,
       i18n,
       resultsLoaded,
     } = this.props;
@@ -196,45 +194,15 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={featuredExtensions}
-          className="Home-FeaturedExtensions"
-          header={i18n.gettext('Featured extensions')}
-          footerText={i18n.gettext('See more featured extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              featured: true,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
           addons={collections[0]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Good time tabs')}
-          footerText={i18n.gettext('See more good time tabs extensions')}
+          header={i18n.gettext('Social media customization')}
+          footerText={
+            i18n.gettext('See more social media customization extensions')
+          }
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
           }
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
-          addons={popularThemes}
-          className="Home-PopularThemes"
-          header={i18n.gettext('Popular themes')}
-          footerText={i18n.gettext('See more popular themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_THEME,
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
           loading={resultsLoaded === false}
         />
 
@@ -250,13 +218,45 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredThemes}
+          className="Home-FeaturedThemes"
+          header={i18n.gettext('Featured themes')}
+          footerText={i18n.gettext('See more featured themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
           addons={collections[2]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Trending extensions')}
-          footerText={i18n.gettext('See more trending extensions')}
+          header={i18n.gettext('Good time tabs')}
+          footerText={i18n.gettext('See more good time tabs extensions')}
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
           }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            },
+          }}
           loading={resultsLoaded === false}
         />
 
@@ -281,7 +281,7 @@ export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
-    popularThemes: state.home.popularThemes,
+    featuredThemes: state.home.featuredThemes,
     resultsLoaded: state.home.resultsLoaded,
   };
 }
