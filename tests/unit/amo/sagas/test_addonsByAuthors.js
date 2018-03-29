@@ -1,4 +1,3 @@
-import deepEqual from 'deep-eql';
 import SagaTester from 'redux-saga-tester';
 
 import addonsByAuthorsReducer, {
@@ -8,7 +7,6 @@ import addonsByAuthorsReducer, {
 } from 'amo/reducers/addonsByAuthors';
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
-  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
