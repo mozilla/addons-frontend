@@ -90,6 +90,16 @@ describe(__filename, () => {
     );
   }
 
+  function renderAddonsWithType({ addonType, multipleAuthors = false } = {}) {
+    const authorNames = multipleAuthors ?
+      [fakeAuthor.username, 'secondAuthor'] : [fakeAuthor.username];
+    const { store } = dispatchClientMetadata();
+    const errorHandler = createStubErrorHandler();
+    store.dispatch(addonsWithAuthorsOfType({ addonType, multipleAuthors }));
+
+    return render({ addonType, authorNames, errorHandler, store });
+  }
+
   it('should render a card', () => {
     const { store } = dispatchClientMetadata();
     const authorNames = ['test', 'test2', 'test3'];
@@ -278,15 +288,9 @@ describe(__filename, () => {
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({ addonType: ADDON_TYPE_DICT }));
-
-    const root = render({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_DICT,
-      authorNames: [fakeAuthor.username],
-      errorHandler,
-      store,
+      multipleAuthors: false,
     });
 
     expect(root.find(AddonsCard))
@@ -294,18 +298,9 @@ describe(__filename, () => {
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT with multiple authors', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_DICT,
       multipleAuthors: true,
-    }));
-
-    const root = render({
-      addonType: ADDON_TYPE_DICT,
-      authorNames: [fakeAuthor.username, 'secondAuthor'],
-      errorHandler,
-      store,
     });
 
     expect(root.find(AddonsCard))
@@ -313,15 +308,9 @@ describe(__filename, () => {
   });
 
   it('shows extensions in header for ADDON_TYPE_EXTENSION', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({ addonType: ADDON_TYPE_EXTENSION }));
-
-    const root = render({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: [fakeAuthor.username],
-      errorHandler,
-      store,
+      multipleAuthors: false,
     });
 
     expect(root.find(AddonsCard))
@@ -329,18 +318,9 @@ describe(__filename, () => {
   });
 
   it('shows extensions in header for ADDON_TYPE_EXTENSION with multiple authors', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_EXTENSION,
       multipleAuthors: true,
-    }));
-
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorNames: [fakeAuthor.username, 'secondAuthor'],
-      errorHandler,
-      store,
     });
 
     expect(root.find(AddonsCard))
@@ -348,15 +328,9 @@ describe(__filename, () => {
   });
 
   it('shows extensions in header for ADDON_TYPE_LANG', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({ addonType: ADDON_TYPE_LANG }));
-
-    const root = render({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_LANG,
-      authorNames: [fakeAuthor.username],
-      errorHandler,
-      store,
+      multipleAuthors: false,
     });
 
     expect(root.find(AddonsCard))
@@ -364,18 +338,9 @@ describe(__filename, () => {
   });
 
   it('shows extensions in header for ADDON_TYPE_LANG with multiple authors', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_LANG,
       multipleAuthors: true,
-    }));
-
-    const root = render({
-      addonType: ADDON_TYPE_LANG,
-      authorNames: [fakeAuthor.username, 'secondAuthor'],
-      errorHandler,
-      store,
     });
 
     expect(root.find(AddonsCard))
@@ -383,15 +348,9 @@ describe(__filename, () => {
   });
 
   it('shows extensions in header for ADDON_TYPE_THEME', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({ addonType: ADDON_TYPE_THEME }));
-
-    const root = render({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
-      authorNames: [fakeAuthor.username],
-      errorHandler,
-      store,
+      multipleAuthors: false,
     });
 
     expect(root.find(AddonsCard))
@@ -399,18 +358,9 @@ describe(__filename, () => {
   });
 
   it('shows extensions in header for ADDON_TYPE_THEME with multiple authors', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
       multipleAuthors: true,
-    }));
-
-    const root = render({
-      addonType: ADDON_TYPE_THEME,
-      authorNames: [fakeAuthor.username, 'secondAuthor'],
-      errorHandler,
-      store,
     });
 
     expect(root.find(AddonsCard))
@@ -418,17 +368,9 @@ describe(__filename, () => {
   });
 
   it('shows add-ons in header if no specific addonType translation found', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_OPENSEARCH,
-    }));
-
-    const root = render({
-      addonType: ADDON_TYPE_OPENSEARCH,
-      authorNames: [fakeAuthor.username],
-      errorHandler,
-      store,
+      multipleAuthors: false,
     });
 
     expect(root.find(AddonsCard))
@@ -436,18 +378,9 @@ describe(__filename, () => {
   });
 
   it('shows add-ons in header if no specific addonType found with multiple authors', () => {
-    const { store } = dispatchClientMetadata();
-    const errorHandler = createStubErrorHandler();
-    store.dispatch(addonsWithAuthorsOfType({
+    const root = renderAddonsWithType({
       addonType: ADDON_TYPE_OPENSEARCH,
       multipleAuthors: true,
-    }));
-
-    const root = render({
-      addonType: ADDON_TYPE_OPENSEARCH,
-      authorNames: [fakeAuthor.username, 'secondAuthor'],
-      errorHandler,
-      store,
     });
 
     expect(root.find(AddonsCard))
