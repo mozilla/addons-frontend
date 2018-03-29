@@ -80,6 +80,7 @@ describe(__filename, () => {
 
   function render(customProps = {}) {
     const props = {
+      numberOfAddons: 4,
       i18n: fakeI18n(),
       store: dispatchClientMetadata().store,
       ...customProps,
@@ -112,10 +113,15 @@ describe(__filename, () => {
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
       authorNames,
+      numberOfAddons: 4,
       store,
     });
 
     expect(root).toHaveClassName('AddonsByAuthorsCard');
+    expect(root.find(AddonsCard))
+      .toHaveProp('placeholderCount', root.instance().props.numberOfAddons);
+    expect(root.find(AddonsCard)).toHaveProp('showSummary', false);
+    expect(root.find(AddonsCard)).toHaveProp('type', 'horizontal');
   });
 
   it('should render a className', () => {
