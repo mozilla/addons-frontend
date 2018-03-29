@@ -86,7 +86,7 @@ export class MoreAddonsByAuthorsCardBase extends React.Component<Props> {
   dispatchFetchAddonsByAuthors({ addonType, authorNames, forAddonSlug }: Object) {
     this.props.dispatch(fetchAddonsByAuthors({
       addonType,
-      authors: authorNames,
+      authorNames,
       forAddonSlug,
       errorHandlerId: this.props.errorHandler.id,
     }));

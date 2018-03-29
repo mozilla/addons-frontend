@@ -72,7 +72,7 @@ describe(__filename, () => {
         },
       ],
       addonType,
-      authors: multipleAuthors ?
+      authorNames: multipleAuthors ?
         [fakeAuthor.username, 'secondAuthor'] : [fakeAuthor.username],
     });
   }
@@ -95,7 +95,7 @@ describe(__filename, () => {
     const authorNames = ['test', 'test2', 'test3'];
     store.dispatch(loadAddonsByAuthors({
       addons: Object.values(fakeAddons()),
-      authors: authorNames,
+      authorNames,
     }));
 
     const root = render({
@@ -112,7 +112,7 @@ describe(__filename, () => {
     const authorNames = ['test', 'test2', 'test3'];
     store.dispatch(loadAddonsByAuthors({
       addons: Object.values(fakeAddons()),
-      authors: authorNames,
+      authorNames,
     }));
 
     const root = render({
@@ -130,7 +130,7 @@ describe(__filename, () => {
     const authorNames = ['test', 'test2', 'test3'];
     store.dispatch(loadAddonsByAuthors({
       addons: [],
-      authors: authorNames,
+      authorNames,
     }));
 
     const root = render({ authorNames, store });
@@ -154,7 +154,7 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     store.dispatch(fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
-      authors: ['test2'],
+      authorNames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
 
@@ -183,7 +183,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
-      authors: ['test2'],
+      authorNames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
   });
@@ -209,7 +209,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_THEME,
-      authors: ['test1'],
+      authorNames: ['test1'],
       errorHandlerId: errorHandler.id,
     }));
 
@@ -224,7 +224,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_THEME,
-      authors: ['test2'],
+      authorNames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
   });
@@ -249,7 +249,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
-      authors: ['test2'],
+      authorNames: ['test2'],
       errorHandlerId: errorHandler.id,
       forAddonSlug: 'testing',
     }));
