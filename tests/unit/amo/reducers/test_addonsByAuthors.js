@@ -444,7 +444,6 @@ describe(__filename, () => {
       }));
 
       expect(getLoadingForAuthorNames(state, [])).toEqual(null);
-      expect(getLoadingForAuthorNames(state, null)).toEqual(null);
     });
   });
 
