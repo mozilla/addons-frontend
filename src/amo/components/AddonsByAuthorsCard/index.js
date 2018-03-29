@@ -45,7 +45,7 @@ type Props = {|
   type?: 'horizontal',
 |};
 
-export class MoreAddonsByAuthorsCardBase extends React.Component<Props> {
+export class AddonsByAuthorsCardBase extends React.Component<Props> {
   static defaultProps = {
     showSummary: false,
     type: 'horizontal',
@@ -162,8 +162,8 @@ export class MoreAddonsByAuthorsCardBase extends React.Component<Props> {
         );
     }
 
-    const classnames = makeClassName('MoreAddonsByAuthorsCard', className, {
-      'MoreAddonsByAuthorsCard--theme': addonType === ADDON_TYPE_THEME,
+    const classnames = makeClassName('AddonsByAuthorsCard', className, {
+      'AddonsByAuthorsCard--theme': addonType === ADDON_TYPE_THEME,
     });
 
     return (
@@ -199,5 +199,5 @@ export const mapStateToProps = (
 export default compose(
   translate(),
   connect(mapStateToProps),
-  withErrorHandler({ name: 'MoreAddonsByAuthorsCard' }),
-)(MoreAddonsByAuthorsCardBase);
+  withErrorHandler({ name: 'AddonsByAuthorsCard' }),
+)(AddonsByAuthorsCardBase);

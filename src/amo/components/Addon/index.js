@@ -14,7 +14,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
-import MoreAddonsByAuthorsCard from 'amo/components/MoreAddonsByAuthorsCard';
+import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
@@ -485,7 +485,7 @@ export class AddonBase extends React.Component {
         <div className="Addon-details">
           <div className="Addon-main-content">
             {addon && addonType === ADDON_TYPE_THEME && (
-              <MoreAddonsByAuthorsCard
+              <AddonsByAuthorsCard
                 addonType={addonType}
                 authorNames={addon.authors.map((author) => author.username)}
                 className="Addon-MoreAddonsCard"
@@ -519,7 +519,7 @@ export class AddonBase extends React.Component {
           {this.renderVersionReleaseNotes()}
 
           {addon && addonType !== ADDON_TYPE_THEME && (
-            <MoreAddonsByAuthorsCard
+            <AddonsByAuthorsCard
               addonType={addonType}
               authorNames={addon.authors.map((author) => author.username)}
               className="Addon-MoreAddonsCard"

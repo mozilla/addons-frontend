@@ -2,7 +2,7 @@
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
-.MoreAddonsByAuthorsCard {
+.AddonsByAuthorsCard {
   margin-top: 0;
 
   .Card-contents .AddonsCard-list {
@@ -20,7 +20,7 @@
   }
 }
 
-.MoreAddonsByAuthorsCard:not(.MoreAddonsByAuthorsCard--theme) {
+.AddonsByAuthorsCard:not(.AddonsByAuthorsCard--theme) {
   .Card-contents .AddonsCard-list {
     @include respond-to(large) {
       grid-template-columns: repeat(1, 1fr);
@@ -32,7 +32,7 @@
   }
 }
 
-.MoreAddonsByAuthorsCard--theme {
+.AddonsByAuthorsCard--theme {
   .Card-contents .AddonsCard-list {
     .SearchResult-result {
       width: 100%;

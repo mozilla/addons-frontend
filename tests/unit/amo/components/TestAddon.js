@@ -19,7 +19,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
-import MoreAddonsByAuthorsCard from 'amo/components/MoreAddonsByAuthorsCard';
+import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
@@ -1073,7 +1073,7 @@ describe(__filename, () => {
       const { store } = dispatchAddonData({ addon, addonsByAuthors });
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      return root.find(MoreAddonsByAuthorsCard);
+      return root.find(AddonsByAuthorsCard);
     };
 
     it('puts "add-ons by author" in main content if type is theme', () => {
@@ -1085,7 +1085,7 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root.find('.Addon-main-content').find(MoreAddonsByAuthorsCard))
+      expect(root.find('.Addon-main-content').find(AddonsByAuthorsCard))
         .toHaveLength(1);
     });
 
@@ -1098,9 +1098,9 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root.find('.Addon-main-content').find(MoreAddonsByAuthorsCard))
+      expect(root.find('.Addon-main-content').find(AddonsByAuthorsCard))
         .toHaveLength(0);
-      expect(root.find(MoreAddonsByAuthorsCard)).toHaveLength(1);
+      expect(root.find(AddonsByAuthorsCard)).toHaveLength(1);
     });
 
     it('is hidden when an add-on has not loaded yet', () => {

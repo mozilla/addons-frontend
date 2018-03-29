@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import MoreAddonsByAuthorsCard, {
-  MoreAddonsByAuthorsCardBase,
-} from 'amo/components/MoreAddonsByAuthorsCard';
+import AddonsByAuthorsCard, {
+  AddonsByAuthorsCardBase,
+} from 'amo/components/AddonsByAuthorsCard';
 import {
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
@@ -86,8 +86,8 @@ describe(__filename, () => {
     };
 
     return shallowUntilTarget(
-      <MoreAddonsByAuthorsCard {...props} />,
-      MoreAddonsByAuthorsCardBase
+      <AddonsByAuthorsCard {...props} />,
+      AddonsByAuthorsCardBase
     );
   }
 
@@ -115,7 +115,7 @@ describe(__filename, () => {
       store,
     });
 
-    expect(root).toHaveClassName('MoreAddonsByAuthorsCard');
+    expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
   it('should render a className', () => {
@@ -146,7 +146,7 @@ describe(__filename, () => {
 
     const root = render({ authorNames, store });
 
-    expect(root).not.toHaveClassName('MoreAddonsByAuthorsCard');
+    expect(root).not.toHaveClassName('AddonsByAuthorsCard');
     expect(root.html()).toBeNull();
   });
 
@@ -156,7 +156,7 @@ describe(__filename, () => {
       authorNames: ['test2'],
     });
 
-    expect(root).not.toHaveClassName('MoreAddonsByAuthorsCard');
+    expect(root).not.toHaveClassName('AddonsByAuthorsCard');
     expect(root.html()).toBeNull();
   });
 
@@ -177,7 +177,7 @@ describe(__filename, () => {
     });
 
     expect(root).toHaveProp('loading', true);
-    expect(root).toHaveClassName('MoreAddonsByAuthorsCard');
+    expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
   it('should dispatch a fetch action if no add-ons found', () => {
