@@ -5,7 +5,7 @@ import reducer, {
   getAddonsForSlug,
   getAddonsForUsernames,
   getLoadingForAuthorNames,
-  joinAuthorNames,
+  joinAuthorNamesAndAddonType,
   initialState,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
@@ -149,7 +149,7 @@ describe(__filename, () => {
       }));
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNames(['author1'], ADDON_TYPE_THEME)]: true,
+        [joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME)]: true,
       });
     });
   });
@@ -281,7 +281,7 @@ describe(__filename, () => {
       }));
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNames(['author1'])]: false,
+        [joinAuthorNamesAndAddonType(['author1'])]: false,
       });
     });
 
@@ -299,7 +299,7 @@ describe(__filename, () => {
       }));
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNames(['author1'], ADDON_TYPE_THEME)]: false,
+        [joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME)]: false,
       });
     });
   });
@@ -448,19 +448,19 @@ describe(__filename, () => {
     });
   });
 
-  describe('joinAuthorNames', () => {
+  describe('joinAuthorNamesAndAddonType', () => {
     it('returns authorNames', () => {
-      expect(joinAuthorNames(['author1', 'author2']))
+      expect(joinAuthorNamesAndAddonType(['author1', 'author2']))
         .toEqual('author1-author2');
     });
 
     it('returns authorNames + addonType', () => {
-      expect(joinAuthorNames(['author1', 'author2'], ADDON_TYPE_THEME))
+      expect(joinAuthorNamesAndAddonType(['author1', 'author2'], ADDON_TYPE_THEME))
         .toEqual(`author1-author2-${ADDON_TYPE_THEME}`);
     });
 
     it('handles a single authorName', () => {
-      expect(joinAuthorNames(['author1'], ADDON_TYPE_THEME))
+      expect(joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME))
         .toEqual(`author1-${ADDON_TYPE_THEME}`);
     });
   });

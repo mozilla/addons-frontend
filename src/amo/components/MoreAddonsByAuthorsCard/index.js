@@ -29,7 +29,7 @@ import './styles.scss';
 
 
 type Props = {|
-  addons?: Array<AddonType> | null,
+  addons?: Array<AddonType>,
   addonType?: string,
   authorNames: Array<string>,
   className?: string,

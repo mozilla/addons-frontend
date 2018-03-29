@@ -21,7 +21,7 @@ export type AddonsByAuthorsState = {|
   byAddonSlug: { [string]: Array<AddonId> },
   byUserId: { [number]: Array<AddonId> },
   byUsername: { [string]: Array<AddonId> },
-  forAuthorNamesAndAddonType: { [string]: Array<AddonId> | null },
+  byAuthorNamesAndAddonType: { [string]: Array<AddonId> | null },
   loadingFor: { [string]: boolean },
 |};
 
@@ -30,7 +30,7 @@ export const initialState: AddonsByAuthorsState = {
   byAddonSlug: {},
   byUserId: {},
   byUsername: {},
-  forAuthorNamesAndAddonType: {},
+  byAuthorNamesAndAddonType: {},
   loadingFor: {},
 };
 
@@ -98,7 +98,7 @@ export const loadAddonsByAuthors = (
   };
 };
 
-export const joinAuthorNames = (
+export const joinAuthorNamesAndAddonType = (
   authorNames: Array<string>, addonType?: string
 ) => {
   return authorNames.sort().join('-') + (addonType ? `-${addonType}` : '');
@@ -107,8 +107,10 @@ export const joinAuthorNames = (
 export const getLoadingForAuthorNames = (
   state: AddonsByAuthorsState, authorNames: Array<string>, addonType?: string
 ) => {
-  return authorNames && authorNames.length ?
-    (state.loadingFor[joinAuthorNames(authorNames, addonType)] || null) : null;
+  return (
+    state.loadingFor[joinAuthorNamesAndAddonType(authorNames, addonType)] ||
+    null
+  );
 };
 
 export const getAddonsForSlug = (
@@ -178,9 +180,9 @@ const reducer = (
         };
       }
 
-      newState.loadingFor[joinAuthorNames(
+      newState.loadingFor[joinAuthorNamesAndAddonType(
         action.payload.authorNames, action.payload.addonType)] = true;
-      newState.forAuthorNamesAndAddonType[joinAuthorNames(
+      newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
         action.payload.authorNames, action.payload.addonType)] = null;
 
       return newState;
@@ -199,15 +201,15 @@ const reducer = (
       const addons = action.payload.addons
         .map((addon) => createInternalAddon(addon));
 
-      const authorNamesWithAddonType = joinAuthorNames(
+      const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
         action.payload.authorNames, action.payload.addonType);
 
-      newState.forAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
+      newState.byAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
       newState.loadingFor[authorNamesWithAddonType] = false;
 
       for (const addon of addons) {
         newState.byAddonId[addon.id] = addon;
-        newState.forAuthorNamesAndAddonType[authorNamesWithAddonType]
+        newState.byAuthorNamesAndAddonType[authorNamesWithAddonType]
           .push(addon.id);
 
         if (addon.authors) {
