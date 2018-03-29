@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-26 19:09+0000\n"
+"PO-Revision-Date: 2018-03-29 16:33+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -868,9 +868,8 @@ msgid "Good time tabs"
 msgstr "Sekme ustaları"
 
 #: src/amo/components/Home/index.js:218
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "En yüksek puanlı diğer eklentilere bakın"
+msgstr "Diğer sekme eklentilerine bakın"
 
 #: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -885,9 +884,8 @@ msgid "Wikipedia boosters"
 msgstr "Wikipedia güçlendiricileri"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Diğer ortam indiricilere bakın"
+msgstr "Diğer Wikipedia güçlendiricilerine bakın"
 
 #: src/amo/components/Home/index.js:62
 msgid "Bookmarks"
@@ -1023,9 +1021,8 @@ msgid "Notebook Web Clipper"
 msgstr "Notebook Web Clipper"
 
 #: src/amo/components/HomeHeroBanner/index.js:63
-#, fuzzy
 msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Web'deki en sevdiğiniz yerler için görsel yer imleri."
+msgstr "Web'deki en sevdiğiniz şeyleri saklayın, kaydedin ve düzenleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:73
 msgid "Flagfox"
@@ -1306,19 +1303,16 @@ msgid "Please don't use this form to report bugs or contact this user; your repo
 msgstr "Hataları bildirmek veya özellik talep etmek için bu formu kullanmayın. Bu rapor eklenti geliştiricisine değil, Mozilla’ya gönderilir."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Bu eklentinin ilkelerimizi ne şekilde ihlal ettiğini açıklayın."
+msgstr "Bu kullanıcının ilkelerimizi nasıl ihlal ettiğini açıklayın."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Bu eklenti için kötüye kullanım bildirdiniz"
+msgstr "Bu kullanıcı için kötüye kullanım bildirdiniz"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Raporunuzu aldık. Bu eklenti ile ilgili endişelerinizi bize bildirdiğiniz için teşekkürler."
+msgstr "Raporunuzu aldık. Bu kullanıcı ile ilgili endişelerinizi bize bildirdiğiniz için teşekkürler."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
