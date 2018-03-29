@@ -28,27 +28,28 @@ import {
 
 
 describe(__filename, () => {
+  const fakeAuthorOne = { ...fakeAuthor, username: 'krupa', id: 51 };
+  const fakeAuthorTwo = { ...fakeAuthor, username: 'tofumatt', id: 61 };
+  const fakeAuthorThree = { ...fakeAuthor, username: 'fligtar', id: 71 };
+
   function fakeAddons() {
     const firstAddon = {
       ...fakeAddon,
       id: 6,
-      authors: [
-        { ...fakeAuthor, username: 'test', id: 51 },
-        { ...fakeAuthor, username: 'test2', id: 61 },
-      ],
+      authors: [fakeAuthorOne, fakeAuthorTwo],
     };
-    const secondAddon = {
-      ...fakeAddon,
-      id: 7,
-      authors: [{ ...fakeAuthor, username: 'test2', id: 61 }],
-    };
-    const thirdAddon = {
-      ...fakeAddon,
-      id: 8,
-      authors: [{ ...fakeAuthor, username: 'test3', id: 71 }],
-    };
+    const secondAddon = { ...fakeAddon, id: 7, authors: [fakeAuthorTwo] };
+    const thirdAddon = { ...fakeAddon, id: 8, authors: [fakeAuthorThree] };
 
     return { firstAddon, secondAddon, thirdAddon };
+  }
+
+  function fakeAuthorNames() {
+    return [
+      fakeAuthorOne.username,
+      fakeAuthorTwo.username,
+      fakeAuthorThree.username,
+    ];
   }
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
@@ -59,7 +60,7 @@ describe(__filename, () => {
           id: 5,
           slug: 'foo',
           type: addonType,
-          authors: [fakeAuthor],
+          authors: [fakeAuthorOne],
         },
         {
           ...fakeAddon,
@@ -67,13 +68,13 @@ describe(__filename, () => {
           slug: 'bar',
           type: addonType,
           authors: multipleAuthors ?
-            [{ ...fakeAuthor, id: 50000, username: 'secondAuthor' }] :
-            [fakeAuthor],
+            [fakeAuthorTwo] :
+            [fakeAuthorOne],
         },
       ],
       addonType,
       authorNames: multipleAuthors ?
-        [fakeAuthor.username, 'secondAuthor'] : [fakeAuthor.username],
+        [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username],
     });
   }
 
@@ -92,7 +93,7 @@ describe(__filename, () => {
 
   function renderAddonsWithType({ addonType, multipleAuthors = false } = {}) {
     const authorNames = multipleAuthors ?
-      [fakeAuthor.username, 'secondAuthor'] : [fakeAuthor.username];
+      [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username];
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
     store.dispatch(addonsWithAuthorsOfType({ addonType, multipleAuthors }));
@@ -102,7 +103,7 @@ describe(__filename, () => {
 
   it('should render a card', () => {
     const { store } = dispatchClientMetadata();
-    const authorNames = ['test', 'test2', 'test3'];
+    const authorNames = fakeAuthorNames();
     store.dispatch(loadAddonsByAuthors({
       addons: Object.values(fakeAddons()),
       authorNames,
@@ -119,7 +120,7 @@ describe(__filename, () => {
 
   it('should render a className', () => {
     const { store } = dispatchClientMetadata();
-    const authorNames = ['test', 'test2', 'test3'];
+    const authorNames = fakeAuthorNames();
     store.dispatch(loadAddonsByAuthors({
       addons: Object.values(fakeAddons()),
       authorNames,
@@ -137,7 +138,7 @@ describe(__filename, () => {
 
   it('should render nothing if there are no add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const authorNames = ['test', 'test2', 'test3'];
+    const authorNames = fakeAuthorNames();
     store.dispatch(loadAddonsByAuthors({
       addons: [],
       authorNames,
@@ -198,7 +199,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('should dispatch a fetch action if props are updated', () => {
+  it('should dispatch a fetch action if authorNames are updated', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -234,6 +235,32 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_THEME,
+      authorNames: ['test2'],
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('should dispatch a fetch action if addonType is updated', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorNames: ['test2'],
+      errorHandler,
+      store,
+    });
+
+    dispatchSpy.reset();
+
+    root.setProps({
+      addonType: ADDON_TYPE_OPENSEARCH,
+      authorNames: ['test2'],
+    });
+
+    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
+      addonType: ADDON_TYPE_OPENSEARCH,
       authorNames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
