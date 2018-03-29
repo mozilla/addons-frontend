@@ -1118,7 +1118,7 @@ describe(__filename, () => {
     });
 
     it('displays more add-ons by authors', () => {
-      const addon = fakeAddon;
+      const addon = createInternalAddon({ ...fakeAddon });
       const addonsByAuthors = [
         { ...fakeAddon, slug: 'addon-1', id: 1 },
         { ...fakeAddon, slug: 'addon-2', id: 2 },
@@ -1127,10 +1127,32 @@ describe(__filename, () => {
 
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
-      expect(root).not.toHaveClassName('.AddonDescription-more-addons--theme');
+      expect(root).toHaveClassName('.Addon-MoreAddonsCard');
       expect(root).toHaveProp('authorNames',
         addon.authors.map((author) => (author.username))
       );
+      expect(root).toHaveProp('addonType', addon.type);
+      expect(root).toHaveProp('forAddonSlug', addon.slug);
+      expect(root).toHaveProp('numberOfAddons', 4);
+    });
+
+    it('displays more add-ons by authors when add-on is a theme', () => {
+      const addon = createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME });
+      const addonsByAuthors = [
+        { ...fakeAddon, slug: 'addon-1', id: 1 },
+        { ...fakeAddon, slug: 'addon-2', id: 2 },
+        { ...fakeAddon, slug: 'addon-3', id: 3 },
+      ];
+
+      const root = renderMoreAddons({ addon, addonsByAuthors });
+
+      expect(root).toHaveClassName('.Addon-MoreAddonsCard');
+      expect(root).toHaveProp('authorNames',
+        addon.authors.map((author) => (author.username))
+      );
+      expect(root).toHaveProp('addonType', addon.type);
+      expect(root).toHaveProp('forAddonSlug', addon.slug);
+      expect(root).toHaveProp('numberOfAddons', 3);
     });
 
     it('adds a CSS class to the main component when there are add-ons', () => {
