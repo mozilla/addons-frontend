@@ -53,12 +53,14 @@ export class PermissionUtils {
           { domain }
         );
       },
-      // Note that we do not need to use ngettext for this as count will never
-      // be less than 2.
       tooManyWildcards: (count) => {
-        return i18n.sprintf(
-          i18n.gettext('Access your data in %(count)s other domains'),
-          { count: i18n.formatNumber(count) },
+        return i18n.ngettext(
+          i18n.gettext('Access your data in 1 other domain'),
+          i18n.sprintf(
+            i18n.gettext('Access your data in %(count)s other domains'),
+            { count: i18n.formatNumber(count) },
+          ),
+          count
         );
       },
       oneSite: (site) => {
@@ -67,12 +69,14 @@ export class PermissionUtils {
           { site }
         );
       },
-      // Note that we do not need to use ngettext for this as count will never
-      // be less than 2.
       tooManySites: (count) => {
-        return i18n.sprintf(
-          i18n.gettext('Access your data on %(count)s other sites'),
-          { count: i18n.formatNumber(count) },
+        return i18n.ngettext(
+          i18n.gettext('Access your data on 1 other site'),
+          i18n.sprintf(
+            i18n.gettext('Access your data on %(count)s other sites'),
+            { count: i18n.formatNumber(count) },
+          ),
+          count
         );
       },
     };
