@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import Badge from 'ui/components/Badge';
 import Icon from 'ui/components/Icon';
@@ -34,6 +34,26 @@ describe(__filename, () => {
     expect(badge.find(Icon)).toHaveProp('alt', 'restart required');
     expect(badge.find(Icon)).toHaveProp('name', 'restart');
     expect(badge.text()).toContain('restart required');
+  });
+
+  it('displays the experimental badge icon for type `experimental`', () => {
+    const badge = shallow(<Badge type="experimental" label="experimental" />);
+
+    expect(badge).toHaveClassName('Badge');
+    expect(badge).toHaveClassName('Badge-experimental');
+    expect(badge.find(Icon)).toHaveLength(1);
+    expect(badge.find(Icon)).toHaveProp('name', 'experimental-badge');
+    expect(badge.text()).toContain('experimental');
+  });
+
+  it('displays the payment required badge icon for type `requires-payment`', () => {
+    const badge = shallow(
+      <Badge type="requires-payment" label="label text" />
+    );
+
+    expect(badge).toHaveClassName('Badge-requires-payment');
+    expect(badge.find(Icon)).toHaveProp('name', 'requires-payment');
+    expect(badge.text()).toContain('label text');
   });
 
   it('throws an error if invalid type is supplied', () => {

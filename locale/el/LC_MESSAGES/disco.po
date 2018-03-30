@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-12 19:30+0000\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
 "PO-Revision-Date: 2017-08-26 08:57+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -27,54 +27,54 @@ msgstr ""
 "σας. Έχουμε καταγράψει αυτό το σφάλμα και θα το ερευνήσουμε."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Κωδικός σφάλματος: %(status)s."
 
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "Η σελίδα δεν βρέθηκε"
 
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Συγγνώμη, αλλά δεν μπορούμε να βρούμε τίποτα στο URL που εισήγατε."
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
-msgid "Add to Firefox"
-msgstr "Προσθήκη στο Firefox"
-
-#: src/core/components/InstallButton/index.js:85
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
 msgstr "Εγκατάσταση θέματος"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
+msgid "Add to Firefox"
+msgstr "Προσθήκη στο Firefox"
+
+#: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
 msgstr "Γίνεται λήψη του %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:58
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
 msgstr "Γίνεται εγκατάσταση του %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr ""
 "Το %(name)s έχει εγκατασταθεί και ενεργοποιηθεί. Κάντε κλικ για "
 "απεγκατάσταση."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για ενεργοποίηση."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "Γίνεται απεγκατάσταση του %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ για εγκατάσταση."
 
-#: src/core/components/InstallSwitch/index.js:74
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "Η κατάσταση εγκατάστασης για το %(name)s είναι άγνωστη."
 
@@ -86,61 +86,61 @@ msgstr "Το πρόσθετό σας είναι έτοιμο"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "Έχετε πλέον πρόσβαση στο %(name)s από τη γραμμή εργαλείων."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "ΟΚ!"
 
-#: src/disco/components/Addon.js:122
+#: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 "Περάστε από πάνω τον κέρσορα για προεπισκόπηση ή κάντε κλικ για εγκατάσταση "
 "του %(name)s"
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
 msgstr "Μετακινήστε τον κέρσορα πάνω από την εικόνα για προεπισκόπηση"
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
 msgstr "Αποτυχία εγκατάστασης. Παρακαλώ προσπαθήστε ξανά."
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:178
 msgid "Download failed. Please check your connection."
 msgstr "Αποτυχία λήψης. Παρακαλώ ελέγξτε τη σύνδεσή σας."
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:180
 msgid "An unexpected error occurred during installation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την εγκατάσταση."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα κατά την απεγκατάσταση."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:185
 msgid "An unexpected error occurred."
 msgstr "Προέκυψε ένα απροσδόκητο σφάλμα."
 
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon.js:193
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Αυτό το πρόσθετο θα απεγκατασταθεί αφού επανεκκινήσετε το Firefox."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
 msgstr "Παρακαλώ επανεκκινήστε το Firefox για χρήση του πρόσθετου."
 
-#: src/disco/components/Addon.js:83
+#: src/disco/components/Addon.js:95
 msgid "Close"
 msgstr "Κλείσιμο"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Το Firefox για iOS δεν υποστηρίζει προς το παρόν τα πρόσθετα."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "Αυτό το πρόσθετο δεν υποστηρίζει την έκδοση του Firefox σας."
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "Αυτό το πρόσθετο δεν υποστηρίζει το πρόγραμμα περιήγησής σας."
 
@@ -152,11 +152,11 @@ msgstr "Πολιτική απορρήτου"
 msgid "Discover Add-ons"
 msgstr "Ανακάλυψη πρόσθετων"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Εξατομίκευση Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -171,19 +171,19 @@ msgstr ""
 "σας μοναδικό. Για να σας βοηθήσουμε να ξεκινήσετε, ορίστε μερικά πρόσθετα "
 "που προτείνουμε για την ξεχωριστή απόδοση και λειτουργικότητά τους."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Κάντε κλικ για αναπαραγωγή"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "για να μάθετε περισσότερα σχετικά με τα πρόσθετα"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Κλείσιμο βίντεο"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Προβολή περισσότερων προσθέτων!"
 
@@ -195,6 +195,6 @@ msgstr "Η συνεδρία σας έληξε"
 msgid "An unexpected error occurred"
 msgstr "Προέκυψε απροσδόκητο σφάλμα"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "Κάντε εκ νέου φόρτωση για να συνεχίσετε"

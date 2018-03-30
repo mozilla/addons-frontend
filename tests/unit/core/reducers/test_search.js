@@ -1,8 +1,14 @@
 import { searchLoad, searchStart } from 'core/actions/search';
-import search, { initialState } from 'core/reducers/search';
+import { createInternalAddon } from 'core/reducers/addons';
+import search, {
+  abortSearch,
+  initialState,
+  resetSearch,
+} from 'core/reducers/search';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
-describe('search reducer', () => {
+describe(__filename, () => {
   it('defaults to an set of filters', () => {
     const { filters } = search(undefined, { type: 'unrelated' });
     expect(filters).toEqual({});
@@ -18,6 +24,24 @@ describe('search reducer', () => {
     expect(results).toEqual([]);
   });
 
+  describe('SEARCH_ABORTED', () => {
+    it('resets the results and loading flag', () => {
+      const state = search(initialState, searchStart({
+        errorHandlerId: 'foo',
+        filters: { query: 'foo' },
+      }));
+      expect(state.filters).toEqual({ query: 'foo' });
+      expect(state.loading).toBe(true);
+      expect(state.results).toEqual([]);
+
+      const newState = search(state, abortSearch());
+      expect(newState.filters).toEqual({ query: 'foo' });
+      expect(newState.loading).toBe(false);
+      expect(newState.results).toEqual([]);
+      expect(newState.count).toEqual(0);
+    });
+  });
+
   describe('SEARCH_STARTED', () => {
     it('sets the filters and loading', () => {
       const state = search(initialState, searchStart({
@@ -27,6 +51,7 @@ describe('search reducer', () => {
       expect(state.filters).toEqual({ query: 'foo' });
       expect(state.loading).toBe(true);
       expect(state.results).toEqual([]);
+      expect(state.count).toEqual(0);
     });
   });
 
@@ -44,9 +69,9 @@ describe('search reducer', () => {
         result: { results: ['foo', 'food'] },
         entities: {
           addons: {
-            bar: { slug: 'bar' },
-            foo: { slug: 'foo' },
-            food: { slug: 'food' },
+            bar: { ...fakeAddon, slug: 'bar' },
+            foo: { ...fakeAddon, slug: 'foo' },
+            food: { ...fakeAddon, slug: 'food' },
           },
         },
       };
@@ -66,13 +91,32 @@ describe('search reducer', () => {
 
     it('sets the results', () => {
       const { results } = getNextState();
-      expect(results).toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+      expect(results).toEqual([
+        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+        createInternalAddon({ ...fakeAddon, slug: 'food' }),
+      ]);
     });
 
     it('sets the results in order', () => {
       response.result.results = ['food', 'foo'];
       const { results } = getNextState();
-      expect(results).toEqual([{ slug: 'food' }, { slug: 'foo' }]);
+      expect(results).toEqual([
+        createInternalAddon({ ...fakeAddon, slug: 'food' }),
+        createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+      ]);
+    });
+  });
+
+  describe('SEARCH_RESET', () => {
+    it('resets the state to its initial state', () => {
+      const state = search(initialState, searchStart({
+        errorHandlerId: 'foo',
+        filters: { query: 'foo' },
+      }));
+      expect(state).not.toEqual(initialState);
+
+      const newState = search(state, resetSearch());
+      expect(newState).toEqual(initialState);
     });
   });
 });

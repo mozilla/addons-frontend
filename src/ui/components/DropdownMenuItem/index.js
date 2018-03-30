@@ -1,6 +1,6 @@
 /* @flow */
-import React from 'react';
-import classNames from 'classnames';
+import * as React from 'react';
+import makeClassName from 'classnames';
 
 import Link from 'amo/components/Link';
 
@@ -18,7 +18,7 @@ const DropdownMenuItem = (
   { children, className, onClick, detached = false }: Props
 ) => {
   const childIsComponent = typeof children === 'object';
-  const _classNames = classNames('DropdownMenuItem', {
+  const _classNames = makeClassName('DropdownMenuItem', {
     'DropdownMenuItem-section': !childIsComponent && !onClick,
     'DropdownMenuItem-link': childIsComponent || onClick,
     'DropdownMenuItem--detached': detached,

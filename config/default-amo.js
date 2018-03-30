@@ -79,6 +79,14 @@ module.exports = {
     '__frontend_version__',
     '__version__',
   ],
+
+  // These routes are allowed through to the app rather than 404.
+  // Anything in here should also be present in validClientAppUrlExceptions.
+  clientAppRoutes: [
+    'about',
+    'review_guide',
+  ],
+
   // These URLs are exceptions to our trailing slash URL redirects; if we
   // find a URL that matches this pattern we won't redirect to the same url
   // with an appended `/`. This is usually because if we redirect, it will
@@ -98,6 +106,8 @@ module.exports = {
     '/$lang/$clientApp/users/login',
     '/$lang/$clientApp/users/logout',
     '/$lang/$clientApp/users/register',
+    '/$lang/about',
+    '/$lang/review_guide',
   ],
 
   trackingEnabled: true,

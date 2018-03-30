@@ -1,9 +1,13 @@
 import { shallow } from 'enzyme';
-import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import * as React from 'react';
+import { renderIntoDocument } from 'react-dom/test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
-import ScreenShots, { thumbnailContent } from 'amo/components/ScreenShots';
+import ScreenShots, {
+  HEIGHT,
+  WIDTH,
+  thumbnailContent,
+} from 'amo/components/ScreenShots';
 
 describe('<ScreenShots />', () => {
   const previews = [
@@ -25,15 +29,15 @@ describe('<ScreenShots />', () => {
         title: 'A screenshot',
         src: 'http://img.com/one',
         thumbnail_src: 'http://img.com/1',
-        h: 200,
-        w: 320,
+        h: HEIGHT,
+        w: WIDTH,
       },
       {
         title: 'Another screenshot',
         src: 'http://img.com/two',
         thumbnail_src: 'http://img.com/2',
-        h: 200,
-        w: 320,
+        h: HEIGHT,
+        w: WIDTH,
       },
     ];
     const root = shallow(<ScreenShots previews={previews} />);
@@ -45,14 +49,15 @@ describe('<ScreenShots />', () => {
   });
 
   it('renders custom thumbnail', () => {
-    const item = { src: 'https://foo.com/img.png' };
+    const item = { src: 'https://foo.com/img.png', title: 'test title' };
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');
     expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(200);
-    expect(thumbnail.prop('width')).toEqual(320);
+    expect(thumbnail.prop('height')).toEqual(HEIGHT);
+    expect(thumbnail.prop('width')).toEqual(WIDTH);
     expect(thumbnail.prop('alt')).toEqual('');
+    expect(thumbnail.prop('title')).toEqual('test title');
   });
 
   it('scrolls to the active item on close', () => {

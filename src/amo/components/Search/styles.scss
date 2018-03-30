@@ -5,9 +5,9 @@
   @include respond-to(large) {
     display: grid;
     grid-auto-flow: column dense;
-    grid-gap: 10px;
-    grid-template-columns: minmax(300px, 35%) auto;
-    padding: $padding-page;
+    grid-gap: $padding-page-l;
+    grid-template-columns: minmax(300px, 35%) 1fr;
+    padding: $padding-page-l;
   }
 
   .Card {
@@ -45,20 +45,39 @@
   .SearchResults {
     @include respond-to(large) {
       grid-column: 2;
-      grid-row: 2 / 4;
+      grid-row: 2 / 5;
       // Allows the grid item to contain the content preventing overflow.
       min-width: 0;
+      // Hack to force column height calculations in ESR 52.
+      // See: https://github.com/mozilla/addons/issues/566
+      width: 100%;
+
+      .SearchResult {
+        padding: 24px 36px;
+      }
     }
   }
 
   .Paginate {
     @include respond-to(large) {
-      grid-column: 1 / -1;
-      grid-row: 4;
+      grid-column: 2;
     }
   }
 
   .SearchResults-message {
+    background: $base-color;
+    border-bottom-left-radius: $border-radius-default;
+    border-bottom-right-radius: $border-radius-default;
+    margin-top: 0;
+    padding: 20px;
     word-wrap: break-word;
+  }
+
+  .ErrorList {
+    margin: 10px 10px 0;
+
+    @include respond-to(large) {
+      margin: 0;
+    }
   }
 }

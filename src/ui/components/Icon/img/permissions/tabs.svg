@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <path id="tabs-a" d="M22.5,16.5 L21,16.5 L21,7.5 C21,5.84314575 19.6568542,4.5 18,4.5 L6,4.5 C4.34314575,4.5 3,5.84314575 3,7.5 L3,16.5 L1.5,16.5 C0.671572875,16.5 1.01453063e-16,17.1715729 0,18 C-1.01453063e-16,18.8284271 0.671572875,19.5 1.5,19.5 L22.5,19.5 C23.3284271,19.5 24,18.8284271 24,18 C24,17.1715729 23.3284271,16.5 22.5,16.5 Z"/>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <rect width="24" height="24"/>
+    <mask id="tabs-b" fill="#fff">
+      <use xlink:href="#tabs-a"/>
+    </mask>
+    <g fill="#0F1126" mask="url(#tabs-b)">
+      <rect width="24" height="24"/>
+    </g>
+  </g>
+</svg>

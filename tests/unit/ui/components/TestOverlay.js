@@ -1,5 +1,5 @@
-import React from 'react';
-import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
+import * as React from 'react';
+import { renderIntoDocument, Simulate } from 'react-dom/test-utils';
 
 import Overlay from 'ui/components/Overlay';
 
@@ -43,6 +43,13 @@ describe('<Overlay />', () => {
     const root = render({ visibleOnLoad: true });
     Simulate.click(root.overlayBackground);
     expect(root.overlayContainer.className).not.toContain('Overlay--visible');
+  });
+
+  it('calls onEscapeOverlay when clicking the background', () => {
+    const onEscapeOverlay = sinon.stub();
+    const root = render({ visibleOnLoad: true, onEscapeOverlay });
+    Simulate.click(root.overlayBackground);
+    sinon.assert.called(onEscapeOverlay);
   });
 
   it('is shown and hidden when `hide()` and `show()` are called', () => {

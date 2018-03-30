@@ -1,6 +1,6 @@
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 import PropTypes from 'prop-types';
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
@@ -52,7 +52,7 @@ export class ExpandableCardBase extends React.Component {
 
     return (
       <Card
-        className={classNames('ExpandableCard', className, {
+        className={makeClassName('ExpandableCard', className, {
           'ExpandableCard--expanded': expanded,
         })}
         header={headerWithExpandLink}

@@ -1,11 +1,28 @@
-import { setAddonReviews, setReview } from 'amo/actions/reviews';
-import reviews, { initialState } from 'amo/reducers/reviews';
+import {
+  clearAddonReviews,
+  flagReview,
+  sendReplyToReview,
+  setReviewWasFlagged,
+  showEditReviewForm,
+  showReplyToReviewForm,
+  denormalizeReview,
+  hideEditReviewForm,
+  hideReplyToReviewForm,
+  setAddonReviews,
+  setReview,
+  setReviewReply,
+} from 'amo/actions/reviews';
+import { REVIEW_FLAG_REASON_SPAM } from 'amo/constants';
+import reviewsReducer, {
+  changeViewState, expandReviewObjects, initialState, storeReviewObjects,
+} from 'amo/reducers/reviews';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
-describe('amo.reducers.reviews', () => {
+describe(__filename, () => {
   function setFakeReview({
     userId = fakeReview.user.id,
     addonId = fakeReview.addon.id,
+    reply = null,
     versionId = fakeReview.version.id,
     ...overrides } = {}
   ) {
@@ -19,6 +36,10 @@ describe('amo.reducers.reviews', () => {
         ...fakeReview.addon,
         id: addonId,
       },
+      reply: reply ? {
+        ...fakeReview,
+        ...reply,
+      } : null,
       version: {
         ...fakeReview.version,
         id: versionId,
@@ -28,48 +49,97 @@ describe('amo.reducers.reviews', () => {
   }
 
   it('defaults to an empty object', () => {
-    expect(reviews(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(initialState);
+    expect(reviewsReducer(undefined, { type: 'SOME_OTHER_ACTION' })).toEqual(initialState);
   });
 
   it('stores a user review', () => {
     const action = setFakeReview();
-    const state = reviews(undefined, action);
+    const state = reviewsReducer(undefined, action);
     const storedReview =
       state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+
     expect(storedReview).toEqual({
-      id: fakeReview.id,
       addonId: fakeReview.addon.id,
       addonSlug: fakeReview.addon.slug,
+      body: fakeReview.body,
       created: fakeReview.created,
-      rating: fakeReview.rating,
-      versionId: fakeReview.version.id,
+      id: fakeReview.id,
       isLatest: fakeReview.is_latest,
+      rating: fakeReview.rating,
+      reply: null,
+      title: fakeReview.title,
       userId: fakeReview.user.id,
       userName: fakeReview.user.name,
       userUrl: fakeReview.user.url,
-      body: fakeReview.body,
-      title: fakeReview.title,
+      versionId: fakeReview.version.id,
     });
+  });
+
+  it('stores a user review with a reply', () => {
+    const replyBody = 'This is a developer reply';
+    const action = setFakeReview({
+      reply: {
+        body: replyBody,
+      },
+    });
+    const state = reviewsReducer(undefined, action);
+    const storedReview =
+      state[fakeReview.user.id][fakeReview.addon.id][fakeReview.id];
+
+    expect(storedReview.reply.body).toEqual(replyBody);
+  });
+
+  it('stores a review object', () => {
+    const review = { ...fakeReview, id: 1 };
+    const action = setReview(review);
+    const state = reviewsReducer(undefined, action);
+    expect(state.byId[review.id]).toEqual(denormalizeReview(review));
+  });
+
+  it('stores a review reply object', () => {
+    const review = { ...fakeReview, id: 1, body: 'Original review body' };
+    const state = reviewsReducer(undefined, setReview(review));
+
+    const reply = { ...review, id: 2, body: 'A developer reply' };
+    const newState = reviewsReducer(state, setReviewReply({
+      originalReviewId: review.id, reply,
+    }));
+
+    expect(newState.byId[review.id].body)
+      .toEqual('Original review body');
+    expect(newState.byId[review.id].reply.body)
+      .toEqual('A developer reply');
+    expect(newState.byId[review.id].reply)
+      .toEqual(denormalizeReview(reply));
+  });
+
+  it('cannot store a reply to a non-existant review', () => {
+    const reply = { ...fakeReview, body: 'A developer reply' };
+    expect(() => {
+      reviewsReducer(undefined, setReviewReply({
+        originalReviewId: 3, reply,
+      }));
+    }).toThrow(/review ID 3 .* does not exist/);
   });
 
   it('preserves existing user rating data', () => {
     let state;
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 1,
       userId: 1,
       addonId: 1,
       rating: 1,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 2,
       userId: 1,
       addonId: 2,
       rating: 5,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 3,
       userId: 2,
       addonId: 2,
@@ -87,17 +157,17 @@ describe('amo.reducers.reviews', () => {
     const userId = fakeReview.user.id;
     const addonId = fakeReview.addon.id;
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 1,
       versionId: 1,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 2,
       versionId: 2,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 3,
       versionId: 3,
     }));
@@ -110,7 +180,7 @@ describe('amo.reducers.reviews', () => {
 
   it('preserves unrelated state', () => {
     let state = { ...initialState, somethingUnrelated: 'erp' };
-    state = reviews(state, setFakeReview());
+    state = reviewsReducer(state, setFakeReview());
     expect(state.somethingUnrelated).toEqual('erp');
   });
 
@@ -119,17 +189,17 @@ describe('amo.reducers.reviews', () => {
     const userId = fakeReview.user.id;
     let state;
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 1,
       is_latest: true,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 2,
       is_latest: true,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 3,
       is_latest: true,
     }));
@@ -145,12 +215,12 @@ describe('amo.reducers.reviews', () => {
     const userId = fakeReview.user.id;
     let state;
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 1,
       is_latest: true,
     }));
 
-    state = reviews(state, setFakeReview({
+    state = reviewsReducer(state, setFakeReview({
       id: 2,
       is_latest: false,
     }));
@@ -166,11 +236,11 @@ describe('amo.reducers.reviews', () => {
       const action = setAddonReviews({
         addonSlug: fakeAddon.slug, reviews: [review1, review2], reviewCount: 2,
       });
-      const state = reviews(undefined, action);
+      const state = reviewsReducer(undefined, action);
       const storedReviews = state.byAddon[fakeAddon.slug].reviews;
       expect(storedReviews.length).toEqual(2);
-      expect(storedReviews[0].id).toEqual(review1.id);
-      expect(storedReviews[1].id).toEqual(review2.id);
+      expect(storedReviews[0]).toEqual(review1.id);
+      expect(storedReviews[1]).toEqual(review2.id);
     });
 
     it('preserves existing add-on reviews', () => {
@@ -181,28 +251,351 @@ describe('amo.reducers.reviews', () => {
       const review3 = { ...fakeReview, id: 4 };
 
       let state;
-      state = reviews(state, setAddonReviews({
+      state = reviewsReducer(state, setAddonReviews({
         addonSlug: addon1.slug, reviews: [review1], reviewCount: 1,
       }));
-      state = reviews(state, setAddonReviews({
+      state = reviewsReducer(state, setAddonReviews({
         addonSlug: addon2.slug, reviews: [review2, review3], reviewCount: 2,
       }));
 
-      expect(state.byAddon[addon1.slug].reviews[0].id).toEqual(review1.id);
-      expect(state.byAddon[addon2.slug].reviews[0].id).toEqual(review2.id);
-      expect(state.byAddon[addon2.slug].reviews[1].id).toEqual(review3.id);
+      expect(state.byAddon[addon1.slug].reviews[0]).toEqual(review1.id);
+      expect(state.byAddon[addon2.slug].reviews[0]).toEqual(review2.id);
+      expect(state.byAddon[addon2.slug].reviews[1]).toEqual(review3.id);
+    });
+
+    it('stores review objects', () => {
+      const review1 = fakeReview;
+      const review2 = { ...fakeReview, id: 3 };
+      const action = setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews: [review1, review2], reviewCount: 2,
+      });
+      const state = reviewsReducer(undefined, action);
+      expect(state.byId[review1.id]).toEqual(denormalizeReview(review1));
+      expect(state.byId[review2.id]).toEqual(denormalizeReview(review2));
     });
 
     it('stores review counts', () => {
-      const state = reviews(undefined, setAddonReviews({
+      const state = reviewsReducer(undefined, setAddonReviews({
         addonSlug: 'slug1', reviews: [fakeReview], reviewCount: 1,
       }));
-      const newState = reviews(state, setAddonReviews({
+      const newState = reviewsReducer(state, setAddonReviews({
         addonSlug: 'slug2', reviews: [fakeReview, fakeReview], reviewCount: 2,
       }));
 
       expect(newState.byAddon.slug1.reviewCount).toEqual(1);
       expect(newState.byAddon.slug2.reviewCount).toEqual(2);
+    });
+  });
+
+  describe('clearAddonReviews', () => {
+    it('clears add-on reviews', () => {
+      const addonSlug = 'some-slug';
+
+      const action = setAddonReviews({
+        addonSlug, reviews: [fakeReview], reviewCount: 1,
+      });
+
+      const state = reviewsReducer(undefined, action);
+      const newState = reviewsReducer(
+        state, clearAddonReviews({ addonSlug })
+      );
+
+      expect(newState.byAddon[addonSlug]).toBeUndefined();
+    });
+
+    it('preserves unrelated add-on reviews', () => {
+      const firstSlug = 'first';
+      const secondSlug = 'second';
+
+      const review = { ...fakeReview, id: 1 };
+      const action = setAddonReviews({
+        addonSlug: firstSlug, reviews: [review], reviewCount: 1,
+      });
+
+      const state = reviewsReducer(undefined, action);
+      const newState = reviewsReducer(
+        state, clearAddonReviews({ addonSlug: secondSlug })
+      );
+
+      const storedReviews = newState.byAddon[firstSlug].reviews;
+      expect(storedReviews[0]).toEqual(review.id);
+      expect(storedReviews.length).toEqual(1);
+    });
+  });
+
+  describe('expandReviewObjects', () => {
+    it('expands IDs into objects', () => {
+      const review1 = { ...fakeReview, id: 1 };
+      const review2 = { ...fakeReview, id: 2 };
+      const action = setAddonReviews({
+        addonSlug: fakeAddon.slug,
+        reviews: [review1, review2],
+        reviewCount: 2,
+      });
+      const state = reviewsReducer(undefined, action);
+
+      const expanded = expandReviewObjects({
+        state,
+        reviews: state.byAddon[fakeAddon.slug].reviews,
+      });
+
+      expect(expanded[0]).toEqual(denormalizeReview(review1));
+      expect(expanded[1]).toEqual(denormalizeReview(review2));
+    });
+
+    it('throws an error if the review does not exist', () => {
+      const nonExistantIds = [99678];
+      expect(() => {
+        expandReviewObjects({
+          state: initialState, reviews: nonExistantIds,
+        });
+      }).toThrow(/No stored review exists for ID 99678/);
+    });
+  });
+
+  describe('storeReviewObjects', () => {
+    it('stores review objects by ID', () => {
+      const reviews = [
+        denormalizeReview({ ...fakeReview, id: 1 }),
+        denormalizeReview({ ...fakeReview, id: 2 }),
+      ];
+      expect(storeReviewObjects({ state: initialState, reviews }))
+        .toEqual({
+          [reviews[0].id]: reviews[0],
+          [reviews[1].id]: reviews[1],
+        });
+    });
+
+    it('preserves existing reviews', () => {
+      const review1 = denormalizeReview({ ...fakeReview, id: 1 });
+      const review2 = denormalizeReview({ ...fakeReview, id: 2 });
+
+      const state = initialState;
+      const byId = storeReviewObjects({ state, reviews: [review1] });
+
+      expect(storeReviewObjects({
+        state: { ...state, byId },
+        reviews: [review2],
+      })).toEqual({
+        [review1.id]: review1,
+        [review2.id]: review2,
+      });
+    });
+
+    it('throws an error for falsy IDs', () => {
+      const reviews = [
+        denormalizeReview({ ...fakeReview, id: undefined }),
+      ];
+      expect(() => {
+        storeReviewObjects({ state: initialState, reviews });
+      }).toThrow(/Cannot store review because review.id is falsy/);
+    });
+  });
+
+  describe('showEditReviewForm', () => {
+    it('stores view state about showing an edit review form', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, showEditReviewForm({
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].editingReview).toEqual(true);
+    });
+  });
+
+  describe('showReplyToReviewForm', () => {
+    it('stores view state about showing a reply form', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, showReplyToReviewForm({
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].replyingToReview).toEqual(true);
+    });
+  });
+
+  describe('hideEditReviewForm', () => {
+    it('stores view state about hiding an edit review form', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, hideEditReviewForm({
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].editingReview).toEqual(false);
+    });
+  });
+
+  describe('hideReplyToReviewForm', () => {
+    it('stores view state about hiding a reply', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, hideReplyToReviewForm({
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].replyingToReview).toEqual(false);
+    });
+
+    it('unsets the submittingReply flag', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, sendReplyToReview({
+        errorHandlerId: 'some-id',
+        originalReviewId: review.id,
+        body: 'a reply',
+      }));
+      const newState = reviewsReducer(state, hideReplyToReviewForm({
+        reviewId: review.id,
+      }));
+
+      expect(newState.view[review.id].submittingReply).toEqual(false);
+    });
+  });
+
+  describe('sendReplyToReview', () => {
+    it('stores view state about submitting a reply', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, sendReplyToReview({
+        errorHandlerId: 'some-id',
+        originalReviewId: review.id,
+        body: 'a reply',
+      }));
+
+      expect(state.view[review.id].submittingReply).toEqual(true);
+    });
+  });
+
+  describe('review flagging', () => {
+    it('stores view state about flagging a review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, flagReview({
+        errorHandlerId: 'some-id',
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].flag).toMatchObject({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        inProgress: true,
+        wasFlagged: false,
+      });
+    });
+
+    it('stores view state about a flagged review', () => {
+      const review = { ...fakeReview, id: 837 };
+
+      const state = reviewsReducer(undefined, setReviewWasFlagged({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        reviewId: review.id,
+      }));
+
+      expect(state.view[review.id].flag).toMatchObject({
+        reason: REVIEW_FLAG_REASON_SPAM,
+        inProgress: false,
+        wasFlagged: true,
+      });
+    });
+  });
+
+  describe('changeViewState', () => {
+    it('preserves view state for other reviews', () => {
+      const review1 = { ...fakeReview, id: 1 };
+      const review2 = { ...fakeReview, id: 2 };
+
+      const state = changeViewState({
+        state: initialState,
+        reviewId: review1.id,
+        stateChange: {
+          someFlag: true,
+        },
+      });
+
+      const newState = changeViewState({
+        state,
+        reviewId: review2.id,
+        stateChange: {
+          someFlag: true,
+        },
+      });
+
+      expect(newState.view[review1.id].someFlag).toEqual(true);
+      expect(newState.view[review2.id].someFlag).toEqual(true);
+    });
+
+    it('preserves existing view state for the review', () => {
+      const review = { ...fakeReview, id: 987 };
+
+      const state = changeViewState({
+        state: initialState,
+        reviewId: review.id,
+        stateChange: {
+          firstFlag: true,
+        },
+      });
+
+      const newState = changeViewState({
+        state,
+        reviewId: review.id,
+        stateChange: {
+          secondFlag: true,
+        },
+      });
+
+      expect(newState.view[review.id].firstFlag).toEqual(true);
+      expect(newState.view[review.id].secondFlag).toEqual(true);
+    });
+
+    it('preserves existing flag review values', () => {
+      const review = { ...fakeReview, id: 987 };
+
+      const state = changeViewState({
+        state: initialState,
+        reviewId: review.id,
+        stateChange: {
+          flag: {
+            reason: REVIEW_FLAG_REASON_SPAM,
+            inProgress: true,
+          },
+        },
+      });
+
+      const newState = changeViewState({
+        state,
+        reviewId: review.id,
+        stateChange: {
+          flag: {
+            reason: REVIEW_FLAG_REASON_SPAM,
+            wasFlagged: true,
+          },
+        },
+      });
+
+      const newFlag = newState.view[review.id].flag;
+      expect(newFlag.inProgress).toEqual(true);
+      expect(newFlag.wasFlagged).toEqual(true);
+      expect(newFlag.reason).toEqual(REVIEW_FLAG_REASON_SPAM);
+    });
+
+    it('sets default view states', () => {
+      const review = { ...fakeReview, id: 987 };
+
+      const state = changeViewState({
+        state: initialState,
+        reviewId: review.id,
+        stateChange: {},
+      });
+
+      expect(state.view[review.id]).toEqual({
+        editingReview: false,
+        flag: {},
+        replyingToReview: false,
+        submittingReply: false,
+      });
     });
   });
 });

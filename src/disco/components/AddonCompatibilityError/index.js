@@ -1,5 +1,6 @@
 /* eslint-disable react/no-danger */
-import React, { PropTypes } from 'react';
+import * as React from 'react';
+import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
@@ -8,7 +9,7 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 
 import './style.scss';
 
@@ -52,7 +53,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     return (
       <div
         className="AddonCompatibilityError"
-        dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
+        dangerouslySetInnerHTML={sanitizeHTMLWithExternalLinks(message, ['a'])}
       />
     );
   }

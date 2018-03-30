@@ -26,7 +26,6 @@ if (!app && !buildAll) {
 }
 
 const appsBuildList = buildAll ? config.get('validAppNames') : [app];
-// eslint-disable-next-line no-restricted-syntax
 for (const appName of appsBuildList) {
   const localeDir = path.join(__dirname, '../locale');
   const poFiles = glob.sync(`${localeDir}/**/${appName}.po`);

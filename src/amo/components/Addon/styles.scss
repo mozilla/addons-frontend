@@ -3,11 +3,27 @@
 @import "~ui/css/vars";
 
 .Addon {
-  padding: 20px 10px;
+  padding: $padding-page;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
 }
 
 .Addon .Card {
-  margin-bottom: 10px;
+  margin-bottom: $padding-page;
+
+  @include respond-to(large) {
+    margin-bottom: $padding-page-l;
+  }
+}
+
+.Addon-icon {
+  min-height: 72px;
+
+  @include respond-to(medium) {
+    min-height: 96px;
+  }
 }
 
 .Addon-icon-image {
@@ -20,12 +36,45 @@
   }
 }
 
+.Addon-header-wrapper {
+  @include respond-to(large) {
+    display: flex;
+  }
+}
+
+.Addon-header-info-card {
+  @include respond-to(large) {
+    @include margin-end($padding-page-l);
+
+    width: 65%;
+  }
+
+  .AddonCompatibilityError {
+    margin: 0;
+    margin-bottom: 12px;
+  }
+}
+
+.Addon-header-meta-and-ratings {
+  @include respond-to(large) {
+    min-width: 300px;
+    width: 35%;
+  }
+}
+
 .Addon-title {
+  @include font-regular();
+
   color: $black;
   font-size: $font-size-l;
-  margin: 10px 0;
+  grid-column: 1 / span 2;
+  margin: 0 0 $padding-page-l;
   width: 100%;
   word-wrap: break-word;
+
+  .Addon-persona & {
+    margin: $padding-page-l 0;
+  }
 
   @include respond-to(medium) {
     font-size: $font-size-xl;
@@ -33,13 +82,14 @@
 }
 
 .Addon-author {
+  @include font-light();
+
   display: block;
   word-wrap: break-word;
 
   &,
   a,
   a:link {
-    color: $black;
     font-size: $font-size-m;
     font-weight: normal;
     text-decoration: none;
@@ -51,9 +101,8 @@
 }
 
 .Addon-header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .Addon-theme-header {
@@ -80,72 +129,47 @@
   width: 100%;
 }
 
-.Addon-title {
-  order: 1;
+.Addon-summary-and-install-button-wrapper {
+  grid-column: 1 / span 2;
+  width: 100%;
 
   @include respond-to(medium) {
-    flex-basis: 100%;
-    flex-grow: 1;
-
-    .Addon-persona & {
-      flex-basis: 75%;
-      flex-grow: 0;
-    }
+    display: flex;
+    justify-content: space-between;
   }
-}
-
-.Addon .AddonMeta {
-  order: 2;
-
-  @include respond-to(medium) {
-    @include margin-start(auto);
-
-    margin: 10px 0;
-    order: 0;
-    text-align: right;
-  }
-}
-
-.Addon-persona .AddonMeta {
-  @include respond-to(medium) {
-    order: 1;
-  }
-}
-
-.Addon .AddonMeta-item {
-  @include margin-start(auto);
 }
 
 .Addon-summary {
-  flex-basis: 100%;
-  flex-grow: 1;
-  order: 2;
+  font-size: $font-size-m-smaller;
+  overflow-x: auto;
+  word-wrap: break-word;
 
   @include respond-to(medium) {
-    flex-grow: 0;
-    margin-bottom: 0;
+    @include margin-end(24px);
+
     max-width: 550px;
   }
 }
 
-.Addon .InstallButton {
-  margin-top: auto;
-  order: 3;
+.AddonDescription-contents {
+  word-wrap: break-word;
 }
 
 .Addon .InstallButton {
   @include respond-to(medium) {
     @include margin-start(auto);
 
-    align-self: flex-end;
+    align-content: center;
+    align-self: center;
   }
 }
 
-.Addon-badges {
-  flex-basis: 100%;
-  flex-grow: 1;
-  margin-bottom: 10px;
-  order: 4;
+.Addon .InstallButton-button {
+  width: 100%;
+
+  @include respond-to(medium) {
+    width: auto;
+  }
 }
 
 .AddonDescription-more-addons {
@@ -155,9 +179,26 @@
     background-color: $white;
     display: grid;
     grid-auto-flow: initial;
+    grid-gap: 6px;
     grid-template-columns: repeat(2, 1fr);
     margin: 0;
     padding: 0;
+
+    .SearchResult-metadata {
+      display: none;
+    }
+  }
+}
+
+.AddonDescription-more-addons:not(.AddonDescription-more-addons--theme) {
+  .Card-contents .AddonsCard-list {
+    @include respond-to(large) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @include respond-to(extraExtraLarge) {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 }
 
@@ -176,12 +217,6 @@
       border-radius: $border-radius-default;
     }
 
-    @include respond-to(large) {
-      .SearchResult.SearchResult--theme {
-        margin: 0 5px;
-      }
-    }
-
     @include respond-to(extraLarge) {
       grid-template-columns: repeat(3, 1fr);
     }
@@ -193,39 +228,18 @@
   .Addon-details {
     display: grid;
     grid-auto-flow: column dense;
-    grid-gap: 0 10px;
+    grid-gap: 0 $padding-page-l;
     grid-template-columns: minmax(300px, 35%) auto;
-    margin: 10px 0 0;
+    margin: 0;
 
-    .AddonDescription {
+    .Addon-main-content {
       grid-column: 2;
-      grid-row: 1 / span 5;
-
-      .Addon--has-more-than-0-addons.Addon-persona & {
-        // This span makes sure the left widget does not move vertically when
-        // there is a long description.
-        grid-row: 2 / span 50000;
-      }
-
-      .Addon--has-more-than-3-addons.Addon-persona & {
-        grid-row: 3;
-      }
-    }
-
-    .AddonDescription-version-notes {
-      grid-column: 1;
-    }
-
-    .AddonDescription-more-addons {
-      grid-column: 1;
-    }
-
-    .AddonDescription-more-addons--theme {
-      grid-column: 2;
-
-      .Addon--has-more-than-3-addons & {
-        grid-row: 1 / span 2;
-      }
+      // This span makes sure the left widget does not move vertically when
+      // there is a long description.
+      grid-row: 1 / span 100000;
+      // Fixes screenshot overflow in FF 52 ESR.
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .AddonDescription-contents {
@@ -234,35 +248,9 @@
   }
 
   .Addon-screenshots {
-    grid-column: 1 / 2;
     // overflow required to fix content overlap in Safari.
     // See https://github.com/mozilla/addons-frontend/issues/2847
     overflow-x: hidden;
-  }
-
-  .Addon-overall-rating {
-    grid-column: 1 / 2;
-
-    .Addon--has-more-than-0-addons.Addon-persona & {
-      grid-row: 1 / span 2;
-    }
-
-    .Addon--has-more-than-3-addons.Addon-persona & {
-      grid-row: 1;
-    }
-  }
-
-  .AddonMoreInfo {
-    grid-column: 1 / 2;
-    grid-row: 4 / span 1;
-
-    .Addon--has-more-than-0-addons.Addon-persona & {
-      grid-row: 3 / span 1;
-    }
-
-    .Addon--has-more-than-3-addons.Addon-persona & {
-      grid-row: 2 / span 2;
-    }
   }
 
   // We hide this "Read reviews" link on larger displays as we actually show

@@ -19,7 +19,9 @@ describe('Prefix Middleware', () => {
     fakeConfig.set('validClientApplications', ['firefox', 'android']);
     fakeConfig.set('validLocaleUrlExceptions', ['downloads']);
     fakeConfig.set(
-      'validClientAppUrlExceptions', ['developers', 'validprefix']);
+      'validClientAppUrlExceptions', ['about', 'developers', 'validprefix']);
+    fakeConfig.set('clientAppRoutes', ['about']);
+    fakeConfig.set('validTrailingSlashUrlExceptions', ['about']);
   });
 
   it('should call res.redirect if changing the case', () => {
@@ -184,6 +186,17 @@ describe('Prefix Middleware', () => {
   it('should populate res.locals for a valid request', () => {
     const fakeReq = {
       originalUrl: '/en-US/firefox/',
+      headers: {},
+    };
+    prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });
+    expect(fakeRes.locals.lang).toEqual('en-US');
+    expect(fakeRes.locals.clientApp).toEqual('firefox');
+    sinon.assert.notCalled(fakeRes.redirect);
+  });
+
+  it('should populate a valid client app for a non clientApp URL', () => {
+    const fakeReq = {
+      originalUrl: '/en-US/about',
       headers: {},
     };
     prefixMiddleware(fakeReq, fakeRes, fakeNext, { _config: fakeConfig });

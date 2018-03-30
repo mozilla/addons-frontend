@@ -1,173 +1,276 @@
-import classNames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import CategoryIcon from 'amo/components/CategoryIcon';
+import HomeHeroBanner from 'amo/components/HomeHeroBanner';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
+import { fetchHomeAddons } from 'amo/reducers/home';
 import {
-  CLIENT_APP_ANDROID,
-  CLIENT_APP_FIREFOX,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  INSTALL_SOURCE_FEATURED,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
+import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import Card from 'ui/components/Card';
+import Icon from 'ui/components/Icon';
 
 import './styles.scss';
 
 
-export const CategoryLink = ({ children, name, slug, type }) => {
-  return (
-    <li className={classNames('Home-category-li', `Home-${name}`)}>
-      <Link to={`/${type}/${slug}/`} className="Home-category-link">
-        <span>{children}</span>
-      </Link>
-    </li>
-  );
-};
-CategoryLink.propTypes = {
-  children: PropTypes.node.isRequired,
-  name: PropTypes.string.isRequired,
-  slug: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-};
-
-export const ExtensionLink = (props) => {
-  return <CategoryLink type="extensions" {...props} />;
-};
-
-export const ThemeLink = (props) => {
-  return <CategoryLink type="themes" {...props} />;
-};
+export const COLLECTIONS_TO_FETCH = [
+  { slug: 'social-media-customization', user: 'mozilla' },
+  { slug: 'wikipedia-boosters', user: 'mozilla' },
+  { slug: 'good-time-tabs', user: 'mozilla' },
+];
 
 export class HomeBase extends React.Component {
   static propTypes = {
-    clientApp: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
+    errorHandler: PropTypes.object.isRequired,
+    collections: PropTypes.array.isRequired,
+    featuredExtensions: PropTypes.array.isRequired,
+    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
+    resultsLoaded: PropTypes.bool.isRequired,
   }
 
   componentWillMount() {
-    const { dispatch } = this.props;
+    const { dispatch, errorHandler, resultsLoaded } = this.props;
 
     dispatch(setViewContext(VIEW_CONTEXT_HOME));
+
+    if (!resultsLoaded) {
+      dispatch(fetchHomeAddons({
+        errorHandlerId: errorHandler.id,
+        collectionsToFetch: COLLECTIONS_TO_FETCH,
+      }));
+    }
   }
 
-  extensionsCategoriesForClientApp() {
-    const { clientApp, i18n } = this.props;
-
-    let linkHTML = null;
-
-    if (clientApp === CLIENT_APP_ANDROID) {
-      linkHTML = (
-        <ul className="Home-category-list">
-          <ExtensionLink name="block-ads" slug="security-privacy">
-            {i18n.gettext('Block ads')}
-          </ExtensionLink>
-          <ExtensionLink name="screenshot" slug="photos-media">
-            {i18n.gettext('Screenshot')}
-          </ExtensionLink>
-          <ExtensionLink name="find-news" slug="feeds-news-blogging">
-            {i18n.gettext('Find news')}
-          </ExtensionLink>
-          <ExtensionLink name="shop-online" slug="shopping">
-            {i18n.gettext('Shop online')}
-          </ExtensionLink>
-          <ExtensionLink name="be-social" slug="social-networking">
-            {i18n.gettext('Be social')}
-          </ExtensionLink>
-          <ExtensionLink name="play-games" slug="sports-games">
-            {i18n.gettext('Play games')}
-          </ExtensionLink>
-        </ul>
-      );
-    }
-
-    if (clientApp === CLIENT_APP_FIREFOX) {
-      linkHTML = (
-        <ul className="Home-category-list">
-          <ExtensionLink name="block-ads" slug="privacy-security">
-            {i18n.gettext('Block ads')}
-          </ExtensionLink>
-          <ExtensionLink name="screenshot" slug="photos-music-videos">
-            {i18n.gettext('Screenshot')}
-          </ExtensionLink>
-          <ExtensionLink name="find-news" slug="feeds-news-blogging">
-            {i18n.gettext('Find news')}
-          </ExtensionLink>
-          <ExtensionLink name="shop-online" slug="shopping">
-            {i18n.gettext('Shop online')}
-          </ExtensionLink>
-          <ExtensionLink name="be-social" slug="social-communication">
-            {i18n.gettext('Be social')}
-          </ExtensionLink>
-          <ExtensionLink name="play-games" slug="games-entertainment">
-            {i18n.gettext('Play games')}
-          </ExtensionLink>
-        </ul>
-      );
-    }
-
-    return linkHTML;
-  }
-
-  themesCategoriesForClientApp() {
+  renderCuratedCollections() {
     const { i18n } = this.props;
+    const curatedMozillaCollections = [
+      {
+        title: i18n.gettext('Bookmarks'),
+        collectionSlug: 'bookmark-managers',
+      },
+      {
+        title: i18n.gettext('Password managers'),
+        collectionSlug: 'password-managers',
+      },
+      {
+        title: i18n.gettext('Ad blockers'),
+        collectionSlug: 'ad-blockers',
+      },
+      {
+        title: i18n.gettext('Smarter Shopping'),
+        collectionSlug: 'smarter-shopping',
+      },
+      {
+        title: i18n.gettext('Productivity'),
+        collectionSlug: 'be-more-productive',
+      },
+      {
+        title: i18n.gettext('Watching Videos'),
+        collectionSlug: 'watching-videos',
+      },
+    ];
 
     return (
-      <ul className="Home-category-list">
-        <ThemeLink name="wild" slug="nature">{i18n.gettext('Wild')}</ThemeLink>
-        <ThemeLink name="abstract" slug="abstract">{i18n.gettext('Abstract')}</ThemeLink>
-        <ThemeLink name="holiday" slug="holiday">{i18n.gettext('Holiday')}</ThemeLink>
-        <ThemeLink name="scenic" slug="scenery">{i18n.gettext('Scenic')}</ThemeLink>
-        <ThemeLink name="sporty" slug="sports">{i18n.gettext('Sporty')}</ThemeLink>
-        <ThemeLink name="solid" slug="solid">{i18n.gettext('Solid')}</ThemeLink>
+      <ul className="Home-SubjectShelf-list">
+        {curatedMozillaCollections.map(({ collectionSlug, title }) => (
+          <li
+            className="Home-SubjectShelf-list-item"
+            key={collectionSlug}
+          >
+            <Link
+              to={`/collections/mozilla/${collectionSlug}/`}
+              className="Home-SubjectShelf-link"
+            >
+              <Icon name={`Home-SubjectShelf-${collectionSlug}`} />
+              <span>{title}</span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
+  renderCuratedThemes() {
+    const { i18n } = this.props;
+    const curatedThemes = [
+      {
+        color: 8,
+        slug: 'abstract',
+        title: i18n.gettext('Abstract'),
+      },
+      {
+        color: 8,
+        slug: 'nature',
+        title: i18n.gettext('Nature'),
+      },
+      {
+        color: 10,
+        slug: 'film-and-tv',
+        title: i18n.gettext('Film & TV'),
+      },
+      {
+        color: 8,
+        slug: 'scenery',
+        title: i18n.gettext('Scenery'),
+      },
+      {
+        color: 10,
+        slug: 'music',
+        title: i18n.gettext('Music'),
+      },
+      {
+        color: 9,
+        slug: 'seasonal',
+        title: i18n.gettext('Seasonal'),
+      },
+    ];
+
+    return (
+      <ul className="Home-SubjectShelf-list">
+        {curatedThemes.map(({ color, slug, title }) => (
+          <li className="Home-SubjectShelf-list-item" key={slug}>
+            <Link to={`/themes/${slug}/`} className="Home-SubjectShelf-link">
+              <CategoryIcon name={slug} color={color} />
+              <span>{title}</span>
+            </Link>
+          </li>
+        ))}
       </ul>
     );
   }
 
   render() {
-    const { i18n } = this.props;
+    const {
+      errorHandler,
+      collections,
+      featuredExtensions,
+      featuredThemes,
+      i18n,
+      resultsLoaded,
+    } = this.props;
+
+    // translators: The ending ellipsis alludes to a row of icons for each type
+    // of extension.
+    const extensionsHeader = i18n.gettext(`Customize the way Firefox works with
+      extensions. Are you interested in…`);
+    const themesHeader = i18n.gettext(`Change the way Firefox looks with
+      themes.`);
 
     return (
       <div className="Home">
+        <span
+          className="visually-hidden do-not-remove"
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{ __html: '<!-- Godzilla of browsers -->' }}
+        />
+
+        {errorHandler.renderErrorIfPresent()}
+
+        <HomeHeroBanner />
+
         <Card
-          className="Home-category-card Home-category-card--extensions"
-          footerLink={<Link to="/extensions/">
-            {i18n.gettext('Browse all extensions')}
-          </Link>}
+          className="Home-SubjectShelf Home-CuratedCollections"
+          header={extensionsHeader}
         >
-          <div className="Home-text-wrapper">
-            <h2 className="Home-subheading">
-              {i18n.gettext('You can change how Firefox works…')}
+          <div className="Home-SubjectShelf-text-wrapper">
+            <h2 className="Home-SubjectShelf-subheading">
+              {extensionsHeader}
             </h2>
-            <p className="Home-description">
-              {i18n.gettext(
-                'Install powerful tools that make browsing faster and safer, add-ons make your browser yours.')}
-            </p>
           </div>
 
-          {this.extensionsCategoriesForClientApp()}
+          {this.renderCuratedCollections()}
         </Card>
 
+        <LandingAddonsCard
+          addons={collections[0]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Social media customization')}
+          footerText={
+            i18n.gettext('See more social media customization extensions')
+          }
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[1]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Wikipedia boosters')}
+          footerText={i18n.gettext('See more Wikipedia boosters')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredThemes}
+          className="Home-FeaturedThemes"
+          header={i18n.gettext('Featured themes')}
+          footerText={i18n.gettext('See more featured themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[2]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Good time tabs')}
+          footerText={i18n.gettext('See more good time tabs extensions')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredExtensions}
+          className="Home-FeaturedExtensions"
+          header={i18n.gettext('Featured extensions')}
+          footerText={i18n.gettext('See more featured extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
         <Card
-          className="Home-category-card Home-category-card--themes"
-          footerLink={<Link to="/themes/">
-            {i18n.gettext('Browse all themes')}
-          </Link>}
+          className="Home-SubjectShelf Home-CuratedThemes"
+          header={themesHeader}
         >
-          <div className="Home-text-wrapper">
-            <h2 className="Home-subheading">
-              {i18n.gettext('…or what it looks like')}
+          <div className="Home-SubjectShelf-text-wrapper">
+            <h2 className="Home-SubjectShelf-subheading">
+              {themesHeader}
             </h2>
-            <p className="Home-description">
-              {i18n.gettext(
-                "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want.")}
-            </p>
           </div>
 
-          {this.themesCategoriesForClientApp()}
+          {this.renderCuratedThemes()}
         </Card>
       </div>
     );
@@ -175,11 +278,16 @@ export class HomeBase extends React.Component {
 }
 
 export function mapStateToProps(state) {
-  return { clientApp: state.api.clientApp };
+  return {
+    collections: state.home.collections,
+    featuredExtensions: state.home.featuredExtensions,
+    featuredThemes: state.home.featuredThemes,
+    resultsLoaded: state.home.resultsLoaded,
+  };
 }
 
 export default compose(
-  // This allows us to dispatch from our component.
   connect(mapStateToProps),
-  translate({ withRef: true }),
+  translate(),
+  withErrorHandler({ name: 'Home' }),
 )(HomeBase);

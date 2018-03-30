@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 describe('I18nProvider', () => {
@@ -28,7 +28,7 @@ describe('I18nProvider', () => {
   }
 
   it('sets the i18n as context', () => {
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
     render({ i18n });
     expect(i18n.gettext.calledWith('Howdy')).toBeTruthy();
   });

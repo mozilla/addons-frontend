@@ -45,7 +45,6 @@ const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
 const entryPoints = {};
-// eslint-disable-next-line no-restricted-syntax
 for (const app of appsBuildList) {
   entryPoints[app] = [
     hmr,
@@ -76,9 +75,9 @@ export default Object.assign({}, webpackConfig, {
     // [Invariant](https://github.com/zertosh/invariant) which
     // hides error messages in the production build.
     new webpack.NormalModuleReplacementPlugin(
-      /^react$/, 'react/dist/react.js'),
+      /^react$/, 'react/umd/react.development.js'),
     new webpack.NormalModuleReplacementPlugin(
-      /^react-dom$/, 'react-dom/dist/react-dom.js'),
+      /^react-dom$/, 'react-dom/umd/react-dom.development.js'),
     new webpack.NormalModuleReplacementPlugin(
       /^redux$/, 'redux/dist/redux.js'),
     new webpack.HotModuleReplacementPlugin(),

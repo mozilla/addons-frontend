@@ -398,15 +398,7 @@ describe('i18n utils', () => {
       }
     }
 
-    beforeEach(() => {
-      // FIXME: Our moment is not immutable so we reset it before each test.
-      // This is annoying to work around because of the locale `require()`s
-      // and it only affects tests so it'd be nice to fix but doesn't break
-      // anything.
-      moment.locale('en');
-    });
-
-    it('adds a localised moment to the i18n object', () => {
+    it('adds a localised moment function to the i18n object', () => {
       const i18nData = {};
       const i18n = utils.makeI18n(i18nData, 'en-US', FakeJed);
       expect(i18n.moment).toBeTruthy();
@@ -426,7 +418,8 @@ describe('i18n utils', () => {
         },
       };
       const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
-      expect(i18n.moment.locale()).toEqual('fr');
+      expect(i18n.moment().locale()).toEqual('fr');
+      sinon.assert.called(i18nData.options._momentDefineLocale);
     });
 
     it('does not localise if _momentDefineLocale is not a function', () => {
@@ -438,7 +431,18 @@ describe('i18n utils', () => {
       };
 
       const i18n = utils.makeI18n(i18nData, 'en', FakeJed);
-      expect(i18n.moment.locale()).toEqual('en');
+      expect(i18n.moment().locale()).toEqual('en');
+    });
+
+    it('always passes the locale to moment', () => {
+      const i18nData = {
+        options: {
+          _momentDefineLocale: null,
+          locale_data: { messages: { '': { lang: 'fr' } } },
+        },
+      };
+      const i18n = utils.makeI18n(i18nData, 'fr', FakeJed);
+      expect(i18n.moment().locale()).toEqual('fr');
     });
 
     it('formats a number', () => {
@@ -474,6 +478,19 @@ describe('i18n utils', () => {
       expect(i18n.formatNumber(number)).toEqual('12 345');
       sinon.assert.calledWith(toLocaleStringSpy, 'fr');
       sinon.assert.notCalled(numberFormatSpy);
+    });
+
+    it('always returns a scoped moment instance', () => {
+      const i18n = utils.makeI18n({}, 'fr', FakeJed);
+      // Modifying the locale globally below does not affect the instance
+      // created previously.
+      moment.locale('de');
+      expect(i18n.moment().locale()).toEqual('fr');
+    });
+
+    it('formats a date', () => {
+      const i18n = utils.makeI18n({}, 'fr', FakeJed);
+      expect(i18n.moment('1988-09-22').format('ll')).toEqual('22 sept. 1988');
     });
   });
 });

@@ -3,11 +3,10 @@
 /* global $PropertyType, Event, Navigator, Node, navigator, window */
 import config from 'config';
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import cookie from 'react-cookie';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
-import LoadingBar from 'react-redux-loading-bar';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
 
@@ -15,14 +14,16 @@ import SearchForm from 'amo/components/SearchForm';
 import { getDjangoBase62, getErrorComponent } from 'amo/utils';
 import Footer from 'amo/components/Footer';
 import Header from 'amo/components/Header';
+import { logOutUser as logOutUserAction } from 'amo/reducers/users';
 import type { ViewContextType } from 'amo/reducers/viewContext';
 import { addChangeListeners } from 'core/addonManager';
-import {
-  logOutUser as logOutUserAction,
-  setUserAgent as setUserAgentAction,
-} from 'core/actions';
+import { setUserAgent as setUserAgentAction } from 'core/actions';
 import { setInstallState } from 'core/actions/installations';
-import { VIEW_CONTEXT_HOME, maximumSetTimeoutDelay } from 'core/constants';
+import {
+  CLIENT_APP_ANDROID,
+  VIEW_CONTEXT_HOME,
+  maximumSetTimeoutDelay,
+} from 'core/constants';
 import DefaultErrorPage from 'core/components/ErrorPage';
 import InfoDialog from 'core/containers/InfoDialog';
 import translate from 'core/i18n/translate';
@@ -31,8 +32,10 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 import type { InstalledAddon } from 'core/reducers/installations';
+import type { I18nType } from 'core/types/i18n';
 
 import 'core/fonts/fira.scss';
+import 'core/fonts/opensans.scss';
 import './styles.scss';
 
 
@@ -40,29 +43,29 @@ interface MozNavigator extends Navigator {
   mozAddonManager?: Object,
 }
 
-type AppProps = {
+type Props = {|
   ErrorPage: typeof DefaultErrorPage,
   FooterComponent: typeof Footer,
   InfoDialogComponent: typeof InfoDialog,
   HeaderComponent: typeof Header,
-  _addChangeListeners: () => void,
+  _addChangeListeners: (callback: Function, mozAddonManager?: Object) => void,
   _navigator: typeof navigator,
   authToken?: string,
   authTokenValidFor?: number,
-  children: any,
+  children?: React.Node,
+  clientApp: string,
   handleGlobalEvent: () => void,
-  i18n: Object,
+  i18n: I18nType,
   isHomePage: boolean,
   location: ReactRouterLocation,
   logOutUser: () => void,
   mozAddonManager: $PropertyType<MozNavigator, 'mozAddonManager'>,
-  setUserAgent: () => void,
+  setUserAgent: (userAgent: string) => void,
   userAgent: string,
-}
+|}
 
-export class AppBase extends React.Component {
-  header: Node;
-  props: AppProps;
+export class AppBase extends React.Component<Props> {
+  header: React.ElementRef<typeof Header>;
   scheduledLogout: number;
 
   static defaultProps = {
@@ -106,7 +109,7 @@ export class AppBase extends React.Component {
     }
   }
 
-  componentWillReceiveProps(nextProps: AppProps) {
+  componentWillReceiveProps(nextProps: Props) {
     const { authToken } = nextProps;
     if (authToken) {
       this.setLogOutTimer(authToken);
@@ -189,17 +192,29 @@ export class AppBase extends React.Component {
       HeaderComponent,
       InfoDialogComponent,
       children,
+      clientApp,
       i18n,
       isHomePage,
       location,
     } = this.props;
 
     const query = location.query ? location.query.q : null;
+
+    let defaultTitle = i18n.gettext('Add-ons for Firefox');
+    let titleTemplate = i18n.gettext('%s – Add-ons for Firefox');
+
+    if (clientApp === CLIENT_APP_ANDROID) {
+      defaultTitle = i18n.gettext('Add-ons for Android');
+      titleTemplate = i18n.gettext('%s – Add-ons for Android');
+    }
+
     return (
       <NestedStatus code={200}>
         <div className="amo">
-          <LoadingBar className="App-loading-bar" />
-          <Helmet defaultTitle={i18n.gettext('Add-ons for Firefox')} />
+          <Helmet
+            defaultTitle={defaultTitle}
+            titleTemplate={titleTemplate}
+          />
           <InfoDialogComponent />
           <HeaderComponent
             SearchFormComponent={SearchForm}
@@ -230,6 +245,7 @@ export const mapStateToProps = (state: {
   viewContext: ViewContextType,
 }) => ({
   authToken: state.api && state.api.token,
+  clientApp: state.api.clientApp,
   isHomePage: state.viewContext.context === VIEW_CONTEXT_HOME,
   userAgent: state.api.userAgent,
 });
@@ -250,5 +266,5 @@ export function mapDispatchToProps(dispatch: DispatchFunc) {
 
 export default compose(
   connect(mapStateToProps, mapDispatchToProps),
-  translate({ withRef: true }),
+  translate(),
 )(AppBase);

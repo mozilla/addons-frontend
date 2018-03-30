@@ -1,18 +1,18 @@
 /* global window */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
-import Button from 'ui/components/Button';
+import Notice from 'ui/components/Notice';
 
 import './styles.scss';
 
 
-class ErrorList extends React.Component {
+export class ErrorListBase extends React.Component {
   static propTypes = {
     _window: PropTypes.object,
     code: PropTypes.string,
@@ -41,7 +41,7 @@ class ErrorList extends React.Component {
       if (code === API_ERROR_SIGNATURE_EXPIRED) {
         // This API error describes exactly what happened but that isn't
         // very helpful for AMO users. Let's help them figure it out.
-        log.debug(`Detected ${code}, replacing API translation: ${message}`);
+        log.debug(`Detected ${code}, replacing API message: ${message}`);
         message = i18n.gettext('Your session has expired');
       }
       items.push(message);
@@ -52,26 +52,50 @@ class ErrorList extends React.Component {
       items.push(i18n.gettext('An unexpected error occurred'));
     }
 
+    let action;
+    let actionText;
     if (code === API_ERROR_SIGNATURE_EXPIRED) {
-      items.push(
-        <Button
-          className="Button--action"
-          onClick={() => _window.location.reload()}
-        >
-          {i18n.gettext('Reload To Continue')}
-        </Button>
-      );
+      // Let the user recover from signature expired errors.
+      action = () => _window.location.reload();
+      actionText = i18n.gettext('Reload To Continue');
+      if (items.length > 1) {
+        // There will never be more than one message but if there is, log a message
+        // to help someone debug the problem.
+        log.warn(
+          'The API unexpectedly returned multiple signature expired errors'
+        );
+      }
     }
 
     return (
-      <ul className={classNames('ErrorList', className)}>
-        { // eslint-disable-next-line react/no-array-index-key
-          items.map((item, index) => <li className="ErrorList-item" key={`erroritem-${index}`}>{item}</li>)}
+      <ul className={makeClassName('ErrorList', className)}>
+        {
+          items.map((item, index) => {
+            return (
+              <li
+                className="ErrorList-item"
+                // We don't have message IDs but it's safe to rely on
+                // array indices since they are returned from the API
+                // in a predictable order.
+                // eslint-disable-next-line react/no-array-index-key
+                key={`erroritem-${index}`}
+              >
+                <Notice
+                  type="error"
+                  action={action}
+                  actionText={actionText}
+                >
+                  {item}
+                </Notice>
+              </li>
+            );
+          })
+        }
       </ul>
     );
   }
 }
 
 export default compose(
-  translate({ withRef: true }),
-)(ErrorList);
+  translate(),
+)(ErrorListBase);

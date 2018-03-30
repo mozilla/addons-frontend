@@ -4,26 +4,26 @@
 
 .CategoryHeader {
   border-radius: $border-radius-default;
-  padding: 10px 10px 0;
+  margin-bottom: 10px;
   width: 100%;
-}
 
-.Card-contents {
-  @for $i from 1 through 12 {
-    .CategoryHeader--category-color-#{$i} & {
-      background: nth($category-colors, $i);
-    }
+  @include respond-to(large) {
+    margin-bottom: 30px;
   }
 }
 
 .CategoryHeader-wrapper {
+  align-items: center;
   display: flex;
   flex-flow: row;
-  justify-content: center;
+  justify-content: space-between;
+  margin: 10px;
 }
 
 .CategoryHeader-contents {
-  align-self: center;
+  @include text-align-start();
+
+  flex: 2;
 
   .CategoryHeader--loading & {
     width: 50%;
@@ -31,15 +31,23 @@
 }
 
 .CategoryHeader-name {
-  color: $white;
+  @include font-light();
+
   font-size: $font-size-l;
-  margin: 0;
-  text-shadow: 1px 1px 0 transparentize(invert($white), 0.5);
+  margin: 10px 0;
+
+  @include respond-to(medium) {
+    font-size: $font-size-xl;
+  }
 }
 
 .CategoryHeader-description {
+  display: none;
   margin-top: 5px;
-  max-width: 320px;
+
+  @include respond-to(medium) {
+    display: block;
+  }
 
   .CategoryHeader--loading & {
     @include text-align-start();
@@ -47,8 +55,19 @@
 }
 
 .CategoryHeader-paragraph {
-  color: $white;
   font-size: $font-size-m;
   margin: 0;
-  text-shadow: 1px 1px 0 transparentize(invert($white), 0.5);
+}
+
+.CategoryHeader-icon {
+  @include text-align-end();
+
+  display: block;
+  flex: 1;
+
+  @include respond-to(medium) {
+    .Icon {
+      margin: 10px;
+    }
+  }
 }

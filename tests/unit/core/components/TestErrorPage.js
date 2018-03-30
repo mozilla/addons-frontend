@@ -1,53 +1,81 @@
-import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
+import { mount } from 'enzyme';
+import * as React from 'react';
 import { Provider } from 'react-redux';
-import { loadFail } from 'redux-connect/lib/store';
 
-import ErrorPage, { mapStateToProps } from 'core/components/ErrorPage';
+import ErrorPage, { ErrorPageBase } from 'core/components/ErrorPage';
 import { createApiError } from 'core/api';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { loadErrorPage } from 'core/reducers/errorPage';
+import { getErrorComponent } from 'core/utils';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 
-describe('<ErrorPage />', () => {
-  function render({ ...props }, store = dispatchSignInActions().store) {
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
+describe(__filename, () => {
+  let store;
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
+  const getProps = (customProps = {}) => {
+    return {
+      i18n: fakeI18n(),
+      store,
+      ...customProps,
+    };
+  };
+
+  const render = (customProps = {}) => {
+    const props = getProps(customProps);
+    return shallowUntilTarget(<ErrorPage {...props} />, ErrorPageBase);
+  };
+
+  const renderAndMount = (customProps = {}) => {
+    const props = getProps(customProps);
+    return mount(
+      <Provider store={props.store}>
+        <I18nProvider i18n={props.i18n}>
           <ErrorPage {...props} />
         </I18nProvider>
       </Provider>
-    ), ErrorPage));
-  }
+    );
+  };
 
   it('renders children when there are no errors', () => {
-    const rootNode = render({ children: <div>hello</div> });
+    const root = render({ children: <p className="content">hello</p> });
 
-    expect(rootNode.textContent).toEqual('hello');
+    expect(root.find('.content')).toHaveLength(1);
   });
 
   it('renders an error page on error', () => {
-    const { store } = dispatchSignInActions();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
     });
-    store.dispatch(loadFail('ReduxKey', error));
+    store.dispatch(loadErrorPage({ error }));
 
-    const rootNode = render({ children: <div>hello</div> }, store);
+    const root = render({ children: <p className="content">hello</p> });
 
-    expect(rootNode.textContent).not.toEqual('hello');
-    expect(rootNode.textContent).toContain('Error code: 404');
+    expect(root.find('.content')).toHaveLength(0);
+    const expectedError = getErrorComponent(404);
+
+    const errorComponent = root.find(expectedError);
+    expect(errorComponent).toHaveLength(1);
+    expect(errorComponent).toHaveProp('status', 404);
+    expect(errorComponent).toHaveProp('error', error);
   });
-});
 
-describe('<ErrorPage mapStateToProps />', () => {
-  it('returns errorPage from state', () => {
-    expect(mapStateToProps({ errorPage: 'howdy' })).toEqual({ errorPage: 'howdy' });
+  it('catches and reports errors in child components', () => {
+    const error = new Error('random error');
+
+    const Content = () => {
+      throw error;
+    };
+
+    const dispatchStub = sinon.stub(store, 'dispatch');
+    renderAndMount({ children: <Content /> });
+
+    sinon.assert.calledWith(dispatchStub, loadErrorPage({ error }));
   });
 });

@@ -1,0 +1,63 @@
+@import "~ui/css/vars";
+
+.ReportAbuseButton {
+  margin: 12px auto 0;
+}
+
+.ReportAbuseButton-header {
+  margin-bottom: 0;
+}
+
+.ReportAbuseButton-first-paragraph {
+  margin-top: 6px;
+}
+
+.ReportAbuseButton--preview {
+  display: inline-block;
+  width: 100%;
+
+  .ReportAbuseButton--is-expanded & {
+    display: none;
+  }
+}
+
+.ReportAbuseButton--expanded {
+  display: none;
+
+  .ReportAbuseButton--is-expanded & {
+    display: block;
+  }
+}
+
+.ReportAbuseButton-show-more {
+  width: 100%;
+}
+
+.ReportAbuseButton-textarea {
+  font-size: $font-size-m-smaller;
+  line-height: 1.4;
+  margin: 5px auto;
+  // This is the height of two lines of text. Often the placeholder text
+  // will span two lines–because this element will grow/shrink based on
+  // the contents of the text inside it, we set a minimum height so it
+  // won't shrink when the two-line placeholder is replaced with a single
+  // character when the user starts typing.
+  min-height: 51px;
+  padding: 5px;
+  resize: none;
+  width: 100%;
+}
+
+.ReportAbuseButton-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.ReportAbuseButton-dismiss-report {
+  align-self: center;
+}
+
+.ReportAbuseButton-dismiss-report--disabled:link {
+  color: $neutral-base-color;
+  cursor: not-allowed;
+}

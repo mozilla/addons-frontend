@@ -3,45 +3,127 @@
 @import "~ui/css/vars";
 
 .Footer {
+  @include font-opensans-regular();
+
   background: $footer-base-color;
   color: $white;
-  padding: 20px;
+  font-weight: lighter;
+  width: 100%;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    @include font-opensans-regular();
+
+    color: $white;
+    font-size: 16px;
+    font-weight: lighter;
+    margin: 0 0 12px;
+    text-decoration: none;
+  }
+
+  a:active,
+  a:hover {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.Footer-wrapper {
+  padding: 58px 20px;
 
   @include respond-to(medium) {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px $header-footer-gutter;
+    padding: 58px $header-footer-gutter;
   }
 
   @include respond-to(large) {
+    display: grid;
+    grid-template-areas:
+      "logo amo-links firefox-links"
+      "legal-links legal-links legal-links"
+      "copyright copyright language";
+    grid-template-columns: 1fr 1fr 1fr;
     margin: 0 auto;
     max-width: $max-content-width;
     width: 100%;
   }
 }
 
-.Footer-language-and-links {
-  max-width: 220px;
-  width: 100%;
+.Footer-amo-links {
+  grid-area: amo-links;
+}
+
+.Footer-firefox-links {
+  grid-area: firefox-links;
+}
+
+.Footer-links-header {
+  margin: 40px 0 0;
+
+  @include respond-to(large) {
+    margin: 0;
+  }
+
+  a:link,
+  a:visited {
+    @include font-opensans-bold();
+
+    font-size: $font-size-m;
+    margin: 0;
+  }
 }
 
 .Footer-links {
   list-style: none;
-  margin: 20px 0 0;
+  margin: 10px 0 0;
   padding: 0;
+
+  li {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .Footer-link-social {
+    display: inline-block;
+    @include margin-end(20px);
+  }
 }
 
-.Footer-link,
-.Footer-link:link {
-  color: $white;
-  display: block;
-  margin: 0 0 10px;
-  text-decoration: none;
+.Footer-legal-links {
+  grid-area: legal-links;
+  list-style: none;
+  margin-top: 40px;
+  padding: 0;
 
-  &:active,
-  &:hover {
-    text-decoration: underline;
+  li {
+    display: inline-block;
+    @include margin-end(30px);
   }
+
+  a:link {
+    font-size: $font-size-s;
+  }
+}
+
+.Footer-links-social {
+  margin-top: 30px;
+}
+
+.Footer-copyright {
+  font-size: $font-size-s;
+  grid-area: copyright;
+  @include padding-end(20px);
+
+  a:link,
+  a:visited {
+    color: $grey-40;
+    font-size: $font-size-s;
+  }
+}
+
+.Footer-mozilla-link-wrapper {
+  grid-area: logo;
 }
 
 .Footer-mozilla-link {
@@ -49,6 +131,28 @@
   margin-top: 10px;
 
   @include respond-to(medium) {
-    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+.Footer-language-picker {
+  grid-area: language;
+  margin-top: 40px;
+
+  @include respond-to(medium) {
+    margin-top: 7px;
+  }
+
+  .LanguagePicker-header {
+    @include margin-end(20px);
+
+    display: inline-block;
+    font-size: $font-size-s;
+    font-weight: lighter;
+  }
+
+  .LanguagePicker-selector {
+    color: $black;
+    display: inline-block;
   }
 }

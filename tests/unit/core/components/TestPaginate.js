@@ -1,22 +1,14 @@
 /* global document */
+import * as React from 'react';
 
-import React from 'react';
-import { render, findDOMNode } from 'react-dom';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-  scryRenderedComponentsWithType,
-} from 'react-addons-test-utils';
-import { Route, Router, createMemoryHistory } from 'react-router';
-
-import Paginate from 'core/components/Paginate';
+import Paginate, { PaginateBase } from 'core/components/Paginate';
 import PaginatorLink from 'core/components/PaginatorLink';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('<Paginate />', () => {
   const getRenderProps = () => ({
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     count: 20,
     currentPage: 1,
     pathname: '/some/path',
@@ -27,31 +19,19 @@ describe('<Paginate />', () => {
       ...getRenderProps(),
       ...extra,
     };
-    return findRenderedComponentWithType(renderIntoDocument(
-      <Paginate {...props} />
-    ), Paginate).getWrappedInstance();
+
+    return shallowUntilTarget(<Paginate {...props} />, PaginateBase);
   }
 
   describe('methods', () => {
     describe('validation', () => {
       it('does not allow an undefined count', () => {
-        const props = getRenderProps();
-        delete props.count;
-        expect(() => renderIntoDocument(<Paginate {...props} />))
+        expect(() => renderPaginate({ count: undefined }))
           .toThrowError(/count property cannot be undefined/);
       });
 
-      it('does not allow an undefined currentPage', () => {
-        const props = getRenderProps();
-        delete props.currentPage;
-        expect(() => renderIntoDocument(<Paginate {...props} />))
-          .toThrowError(/currentPage property cannot be undefined/);
-      });
-
       it('does not allow an undefined pathname', () => {
-        const props = getRenderProps();
-        delete props.pathname;
-        expect(() => renderIntoDocument(<Paginate {...props} />))
+        expect(() => renderPaginate({ pathname: undefined }))
           .toThrowError(/pathname property cannot be undefined/);
       });
     });
@@ -59,17 +39,17 @@ describe('<Paginate />', () => {
     describe('pageCount()', () => {
       it('is count / perPage', () => {
         const root = renderPaginate({ count: 100, perPage: 5 });
-        expect(root.pageCount()).toEqual(20);
+        expect(root.instance().pageCount()).toEqual(20);
       });
 
       it('uses the ceiling of the result', () => {
         const root = renderPaginate({ count: 101, perPage: 5 });
-        expect(root.pageCount()).toEqual(21);
+        expect(root.instance().pageCount()).toEqual(21);
       });
 
       it('can handle a count of zero', () => {
         const root = renderPaginate({ count: 0 });
-        expect(root.pageCount()).toEqual(0);
+        expect(root.instance().pageCount()).toEqual(0);
       });
 
       it('does not allow a per page value of zero', () => {
@@ -86,7 +66,7 @@ describe('<Paginate />', () => {
     describe('visiblePages()', () => {
       function getVisiblePages(customProps = {}) {
         const root = renderPaginate(customProps);
-        return root.visiblePages({ pageCount: root.pageCount() });
+        return root.instance().visiblePages({ pageCount: root.instance().pageCount() });
       }
 
       describe('with lots of pages', () => {
@@ -163,13 +143,15 @@ describe('<Paginate />', () => {
       const commonParams = { count: 3, perPage: 10, showPages: 5 };
 
       it('will not render if there is only one page', () => {
-        const root = findDOMNode(renderPaginate({ ...commonParams }));
-        expect(root).toEqual(null);
+        const root = renderPaginate({ ...commonParams });
+
+        expect(root.find('.Paginate')).toHaveLength(0);
       });
 
       it('will render with more than one page', () => {
-        const root = findDOMNode(renderPaginate({ ...commonParams, count: 30 }));
-        expect(root.classList.contains('Paginate')).toBeTruthy();
+        const root = renderPaginate({ ...commonParams, count: 30 });
+
+        expect(root.find('.Paginate')).toHaveLength(1);
       });
     });
   });
@@ -178,11 +160,9 @@ describe('<Paginate />', () => {
     const currentPage = 1;
     const pageCount = 3;
     const queryParams = { color: 'red' };
-    const LinkComponent = () => <div />;
     const pathname = '/some/path';
 
     const root = renderPaginate({
-      LinkComponent,
       count: 3,
       currentPage,
       pathname,
@@ -191,54 +171,39 @@ describe('<Paginate />', () => {
       queryParams,
     });
 
-    const links = scryRenderedComponentsWithType(root, PaginatorLink);
+    const firstLink = root.find(PaginatorLink).first();
     // Just do a quick sanity check on the first link.
-    expect(links[0].props.LinkComponent).toEqual(LinkComponent);
-    expect(links[0].props.queryParams).toEqual(queryParams);
-    expect(links[0].props.currentPage).toEqual(currentPage);
-    expect(links[0].props.pathname).toEqual(pathname);
-    expect(links[0].props.pageCount).toEqual(pageCount);
+    expect(firstLink).toHaveProp('queryParams', queryParams);
+    expect(firstLink).toHaveProp('currentPage', currentPage);
+    expect(firstLink).toHaveProp('pathname', pathname);
+    expect(firstLink).toHaveProp('pageCount', pageCount);
   });
 
-  it('renders the right links', () => {
-    const pathname = '/some-path/';
+  it('defaults currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: undefined, count: 30 });
 
-    class PaginateWrapper extends React.Component {
-      render() {
-        const props = {
-          ...getRenderProps(),
-          count: 250,
-          currentPage: 5,
-          showPages: 5,
-          pathname,
-        };
-        return <Paginate {...props} />;
-      }
-    }
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
 
-    function renderPaginateRoute() {
-      return new Promise((resolve) => {
-        const node = document.createElement('div');
-        render((
-          <Router history={createMemoryHistory('/')}>
-            <Route path="/" component={PaginateWrapper} />
-          </Router>
-        ), node, () => {
-          resolve(node);
-        });
-      });
-    }
+  it('converts a null currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: null, count: 30 });
 
-    return renderPaginateRoute().then((root) => {
-      const links = Array.from(root.querySelectorAll('a'));
-      expect(links.map((link) => [link.textContent, link.getAttribute('href')])).toEqual([
-        ['Previous', '/some-path/?page=4'],
-        ['3', '/some-path/?page=3'],
-        ['4', '/some-path/?page=4'],
-        ['6', '/some-path/?page=6'],
-        ['7', '/some-path/?page=7'],
-        ['Next', '/some-path/?page=6'],
-      ]);
-    });
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a non-numeric currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: 'abc', count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a negative currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: -5, count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
   });
 });

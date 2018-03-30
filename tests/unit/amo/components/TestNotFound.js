@@ -1,40 +1,57 @@
-import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
-import { loadFail } from 'redux-connect/lib/store';
+import * as React from 'react';
 
-import NotFound from 'amo/components/ErrorPage/NotFound';
+import NotFound, {
+  NotFoundBase,
+} from 'amo/components/ErrorPage/NotFound';
+import SuggestedPages from 'amo/components/SuggestedPages';
 import { createApiError } from 'core/api';
-import I18nProvider from 'core/i18n/Provider';
+import {
+  ERROR_ADDON_DISABLED_BY_ADMIN, ERROR_ADDON_DISABLED_BY_DEV,
+} from 'core/constants';
+import { loadErrorPage } from 'core/reducers/errorPage';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
-describe('<NotFound />', () => {
-  function render({ ...props }) {
+describe(__filename, () => {
+  function render(customProps = {}) {
     const { store } = dispatchSignInActions();
     const error = createApiError({
       apiURL: 'http://test.com',
       response: { status: 404 },
     });
-    store.dispatch(loadFail('ReduxKey', error));
+    store.dispatch(loadErrorPage({ error }));
 
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <NotFound {...props} />
-        </I18nProvider>
-      </Provider>
-    ), NotFound));
+    const props = {
+      i18n: fakeI18n(),
+      store,
+      ...customProps,
+    };
+
+    return shallowUntilTarget(<NotFound {...props} />, NotFoundBase);
   }
 
   it('renders a not found error', () => {
-    const rootNode = render();
+    const root = render();
 
-    expect(rootNode.textContent).toContain('Page not found');
+    expect(root.find('.ErrorPage'))
+      .toHaveProp('header', 'Page not found');
+    expect(root.find(SuggestedPages)).toHaveLength(1);
+    expect(root.find('.NotFound-fileAnIssueText').html())
+      .toContain('file an issue');
+  });
+
+  it('renders a disabled by developer error', () => {
+    const root = render({ errorCode: ERROR_ADDON_DISABLED_BY_DEV });
+
+    expect(root.find('.NotFound-explanation').html())
+      .toContain('This add-on has been removed by its author.');
+  });
+
+  it('renders a disabled by admin error', () => {
+    const root = render({ errorCode: ERROR_ADDON_DISABLED_BY_ADMIN });
+
+    expect(root.find('.NotFound-explanation').html())
+      .toContain('This add-on has been disabled by an administrator.');
   });
 });

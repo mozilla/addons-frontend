@@ -1,65 +1,83 @@
-import { mount, shallow } from 'enzyme';
-import React from 'react';
-import { Provider } from 'react-redux';
+import * as React from 'react';
 
-import NotFound from 'amo/components/ErrorPage/NotFound';
 import { setViewContext } from 'amo/actions/viewContext';
 import * as landingActions from 'amo/actions/landing';
-import { LandingPageBase, mapStateToProps } from 'amo/components/LandingPage';
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
+import LandingPage, { LandingPageBase } from 'amo/components/LandingPage';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TRENDING,
   SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
 import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
-import { dispatchClientMetadata, fakeAddon } from 'tests/unit/amo/helpers';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
+import {
+  createAddonsApiResult,
+  dispatchClientMetadata,
+  fakeAddon,
+} from 'tests/unit/amo/helpers';
+import {
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 
 
-describe('<LandingPage />', () => {
-  function renderProps(props = {}) {
+describe(__filename, () => {
+  let store;
+
+  function renderProps({
+    _store = store,
+    ...otherProps
+  } = {}) {
     return {
-      dispatch: sinon.stub(),
       errorHandler: createStubErrorHandler(),
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
-      resultsLoaded: false,
-      ...props,
+      store: _store,
+      ...otherProps,
     };
   }
 
   function render(props = {}) {
-    return shallow(<LandingPageBase {...renderProps(props)} />, {
-      lifecycleExperimental: true,
-    });
-  }
-
-  function renderAndMount(props = {}) {
-    const { store } = dispatchClientMetadata();
-    return mount(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <LandingPageBase {...renderProps(props)} />
-        </I18nProvider>
-      </Provider>
+    return shallowUntilTarget(
+      <LandingPage {...renderProps(props)} />,
+      LandingPageBase
     );
   }
 
+  const _getAndLoadLandingAddons = ({
+    addonType = ADDON_TYPE_EXTENSION,
+    errorHandler = createStubErrorHandler(),
+    ...otherParams
+  } = {}) => {
+    store.dispatch(landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(landingActions.loadLanding({
+      addonType,
+      featured: createAddonsApiResult([]),
+      highlyRated: createAddonsApiResult([]),
+      trending: createAddonsApiResult([]),
+      ...otherParams,
+    }));
+  };
+
+  beforeEach(() => {
+    store = dispatchClientMetadata().store;
+  });
+
   it('dispatches setViewContext on load and update', () => {
-    const fakeDispatch = sinon.stub();
-    const root = render({
-      dispatch: fakeDispatch,
-      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
-    });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render();
 
-    sinon.assert.calledWith(
-      fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+
     fakeDispatch.reset();
-
     root.setProps({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
@@ -68,97 +86,97 @@ describe('<LandingPage />', () => {
   });
 
   it('dispatches getLanding when results are not loaded', () => {
-    const addonType = ADDON_TYPE_EXTENSION;
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    render({
-      dispatch,
-      errorHandler,
-      params: { visibleAddonType: visibleAddonType(addonType) },
-      resultsLoaded: false,
-    });
+    const errorHandler = createStubErrorHandler();
 
-    sinon.assert.calledWith(dispatch,
-      landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
-    );
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
+
+    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
+      addonType: ADDON_TYPE_EXTENSION,
+      errorHandlerId: errorHandler.id,
+    }));
   });
 
-  it('dispatches getLanding when addonType changes', () => {
+  it('dispatches getLanding when addon type changes', () => {
     const addonType = ADDON_TYPE_EXTENSION;
-    const addonTypeOfResults = ADDON_TYPE_THEME;
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    render({
-      addonTypeOfResults,
-      dispatch,
-      errorHandler,
-      params: { visibleAddonType: visibleAddonType(addonType) },
-      resultsLoaded: true,
-      loading: false,
-    });
+    const errorHandler = createStubErrorHandler();
 
-    sinon.assert.calledWith(dispatch,
-      landingActions.getLanding({ addonType, errorHandlerId: errorHandler.id })
-    );
-  });
+    // We load theme add-ons.
+    _getAndLoadLandingAddons({ addonType: ADDON_TYPE_THEME, errorHandler });
+    store.dispatch(setViewContext(ADDON_TYPE_THEME));
 
-  it('dispatches getLanding when visibleAddonType changes', () => {
-    const firstAddonType = ADDON_TYPE_EXTENSION;
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
     const root = render({
-      addonTypeOfResults: firstAddonType,
-      dispatch,
       errorHandler,
-      params: { visibleAddonType: visibleAddonType(firstAddonType) },
-      resultsLoaded: true,
-      loading: false,
+      params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
+      store,
     });
+    fakeDispatch.reset();
 
-    dispatch.reset();
-
-    const secondAddonType = ADDON_TYPE_THEME;
+    // Now we request extension add-ons.
     root.setProps({
-      params: { visibleAddonType: visibleAddonType(secondAddonType) },
+      params: { visibleAddonType: visibleAddonType(addonType) },
     });
 
-    sinon.assert.calledWith(dispatch,
-      landingActions.getLanding({
-        addonType: secondAddonType, errorHandlerId: errorHandler.id,
-      })
-    );
+    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
+    sinon.assert.callCount(fakeDispatch, 2);
+  });
+
+  it('does not dispatch getLanding when addon type does not change', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const params = { visibleAddonType: visibleAddonType(addonType) };
+    const errorHandler = createStubErrorHandler();
+
+    // We load extension add-ons.
+    _getAndLoadLandingAddons({ addonType, errorHandler });
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ errorHandler, params, store });
+
+    fakeDispatch.reset();
+
+    // We request extension add-ons again.
+    root.setProps({ params });
+
+    // Make sure only setViewContext is dispatched, not getLanding
+    sinon.assert.calledWith(fakeDispatch, setViewContext(addonType));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('does not dispatch getLanding while loading', () => {
-    const dispatch = sinon.stub();
-    const errorHandler = new ErrorHandler({ id: 'some-id', dispatch });
-    render({
-      dispatch,
-      errorHandler,
-      resultsLoaded: false,
-      loading: true,
-    });
+    const errorHandler = createStubErrorHandler();
+
+    store.dispatch(landingActions.getLanding({
+      addonType: ADDON_TYPE_EXTENSION,
+      errorHandlerId: errorHandler.id,
+    }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
 
     // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.callCount(dispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('does not dispatch getLanding when there is an error', () => {
-    const dispatch = sinon.stub();
     const errorHandler = new ErrorHandler({
-      id: 'some-id', dispatch, capturedError: new Error('some error'),
+      id: 'some-id',
+      dispatch: store.dispatch,
     });
-    render({
-      dispatch,
-      errorHandler,
-      loading: false,
-      resultsLoaded: false,
-    });
+    errorHandler.handle(new Error('some error'));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
 
     // Make sure only setViewContext is dispatched, not getLanding
-    sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
-    sinon.assert.callCount(dispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.callCount(fakeDispatch, 1);
   });
 
   it('renders an error', () => {
@@ -169,12 +187,11 @@ describe('<LandingPage />', () => {
   });
 
   it('renders a LandingPage with no addons set', () => {
-    const root = renderAndMount({
+    const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION) },
     });
 
-    expect(root).toIncludeText('Featured extensions');
-    expect(root).toIncludeText('More featured extensions');
+    expect(root).toIncludeText('Explore powerful tools and features');
   });
 
   it('renders a link to all categories', () => {
@@ -188,107 +205,118 @@ describe('<LandingPage />', () => {
   });
 
   it('sets the links in each footer for extensions', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_EXTENSION,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Featured', slug: 'featured' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Trending', slug: 'trending' },
+      ]),
+    }));
+
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
     };
     const root = render({ params: fakeParams });
 
-    expect(root.childAt(3)).toHaveProp('footerLink', {
-      pathname: `/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`,
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_EXTENSION, featured: true },
     });
-    expect(root.childAt(4)).toHaveProp('footerLink', {
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(5)).toHaveProp('footerLink', {
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_POPULAR },
+      query: { addonType: ADDON_TYPE_EXTENSION, sort: SEARCH_SORT_TRENDING },
     });
   });
 
   it('sets the links in each footer for themes', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Featured', slug: 'featured' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Trending', slug: 'trending' },
+      ]),
+    }));
+
     const fakeParams = {
       visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
     };
     const root = render({ params: fakeParams });
 
-    expect(root.childAt(3)).toHaveProp('footerLink', {
-      pathname: `/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`,
+    const addonCards = root.find(LandingAddonsCard);
+    expect(addonCards.at(0)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: { addonType: ADDON_TYPE_THEME, featured: true },
     });
-    expect(root.childAt(4)).toHaveProp('footerLink', {
+    expect(addonCards.at(1)).toHaveProp('footerLink', {
       pathname: '/search/',
       query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TOP_RATED },
     });
-    expect(root.childAt(5)).toHaveProp('footerLink', {
+    expect(addonCards.at(2)).toHaveProp('footerLink', {
       pathname: '/search/',
-      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_POPULAR },
+      query: { addonType: ADDON_TYPE_THEME, sort: SEARCH_SORT_TRENDING },
     });
   });
 
   it('renders a LandingPage with themes HTML', () => {
-    const root = renderAndMount({
+    const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(root).toIncludeText('Featured themes');
-    expect(root).toIncludeText('More featured themes');
+    expect(root).toIncludeText("Change your browser's appearance");
   });
 
   it('renders each add-on when set', () => {
-    const { store } = dispatchClientMetadata();
     store.dispatch(landingActions.loadLanding({
       addonType: ADDON_TYPE_THEME,
-      featured: {
-        entities: {
-          addons: {
-            howdy: {
-              ...fakeAddon, name: 'Howdy', slug: 'howdy',
-            },
-            'howdy-again': {
-              ...fakeAddon, name: 'Howdy again', slug: 'howdy-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['howdy', 'howdy-again'] },
-      },
-      highlyRated: {
-        entities: {
-          addons: {
-            high: {
-              ...fakeAddon, name: 'High', slug: 'high',
-            },
-            'high-again': {
-              ...fakeAddon, name: 'High again', slug: 'high-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['high', 'high-again'] },
-      },
-      popular: {
-        entities: {
-          addons: {
-            pop: {
-              ...fakeAddon, name: 'Pop', slug: 'pop',
-            },
-            'pop-again': {
-              ...fakeAddon, name: 'Pop again', slug: 'pop-again',
-            },
-          },
-        },
-        result: { count: 50, results: ['pop', 'pop-again'] },
-      },
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
     }));
-    const root = renderAndMount({
-      ...mapStateToProps(store.getState()),
+
+    const root = render({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
 
-    expect(
-      root.find('.SearchResult-name')
-        .map((heading) => heading.text()))
-      .toEqual([
-        'Howdy', 'Howdy again', 'High', 'High again', 'Pop', 'Pop again',
-      ]);
+    const landingShelves = root.find(LandingAddonsCard);
+
+    // featured
+    expect(landingShelves.at(0).prop('addons').map((addon) => addon.name))
+      .toEqual(['Howdy', 'Howdy again', 'Howdy 2', 'Howdy again 2']);
+    // highly rated
+    expect(landingShelves.at(1).prop('addons').map((addon) => addon.name))
+      .toEqual(['High', 'High again']);
+    // trending
+    expect(landingShelves.at(2).prop('addons').map((addon) => addon.name))
+      .toEqual(['Pop', 'Pop again']);
+
+    expect(landingShelves.at(0))
+      .toHaveProp('footerText', 'See more featured themes');
   });
 
   it('renders not found if add-on type is not supported', () => {
@@ -302,5 +330,160 @@ describe('<LandingPage />', () => {
     });
     root.setProps({ params: { visibleAddonType: 'XUL' } });
     expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('dispatches getLanding when category filter is set', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+
+    const errorHandler = createStubErrorHandler();
+
+    // This loads a set of add-ons for a category.
+    store.dispatch(landingActions.getLanding({
+      addonType,
+      category: 'some-category',
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(landingActions.loadLanding({
+      addonType,
+      featured: createAddonsApiResult([]),
+      highlyRated: createAddonsApiResult([]),
+      trending: createAddonsApiResult([]),
+    }));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({ errorHandler, store });
+
+    sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
+    sinon.assert.calledWith(fakeDispatch, landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    sinon.assert.callCount(fakeDispatch, 2);
+  });
+
+  it('does not dispatch setViewContext when addonType does not change', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const errorHandler = createStubErrorHandler();
+    const params = { visibleAddonType: visibleAddonType(addonType) };
+
+    store.dispatch(landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(setViewContext(addonType));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ errorHandler, params, store });
+
+    fakeDispatch.reset();
+    root.setProps({ params });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch setViewContext when context does not change', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const errorHandler = createStubErrorHandler();
+    const params = { visibleAddonType: visibleAddonType(addonType) };
+
+    store.dispatch(landingActions.getLanding({
+      addonType,
+      errorHandlerId: errorHandler.id,
+    }));
+    store.dispatch(setViewContext(addonType));
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({ errorHandler, params, store });
+
+    const { context } = store.getState().viewContext;
+
+    fakeDispatch.reset();
+    root.setProps({ context });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('renders an HTML title for themes', () => {
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_THEME),
+    };
+    const wrapper = render({ params: fakeParams });
+    expect(wrapper.find('title')).toHaveText('Themes');
+  });
+
+  it('renders an HTML title for extensions', () => {
+    const fakeParams = {
+      visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+    };
+    const wrapper = render({ params: fakeParams });
+    expect(wrapper.find('title')).toHaveText('Extensions');
+  });
+
+  it('hides the trending shelf when there are no add-ons for it', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      trending: createAddonsApiResult([]),
+    }));
+
+    const root = render();
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
+  });
+
+  it('hides the featured shelf when there are no add-ons for it', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
+    }));
+
+    const root = render();
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('HighlyRatedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
+  });
+
+  it('hides the highly rated shelf when there are no add-ons for it', () => {
+    store.dispatch(landingActions.loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+        { ...fakeAddon, name: 'Howdy 2', slug: 'howdy-2' },
+        { ...fakeAddon, name: 'Howdy again 2', slug: 'howdy-again-2' },
+      ]),
+      highlyRated: createAddonsApiResult([]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
+    }));
+
+    const root = render();
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
   });
 });

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -24,21 +24,36 @@ import Switch from 'ui/components/Switch';
 
 export class InstallSwitchBase extends React.Component {
   static propTypes = {
+    accentcolor: PropTypes.string,
     addon: PropTypes.object.isRequired,
+    author: PropTypes.string,
+    category: PropTypes.string,
+    description: PropTypes.string,
+    detailURL: PropTypes.string,
     disabled: PropTypes.bool,
     downloadProgress: PropTypes.number,
     enable: PropTypes.func,
+    footer: PropTypes.string,
+    footerURL: PropTypes.string,
     guid: PropTypes.string.isRequired,
     handleChange: PropTypes.func,
+    header: PropTypes.string,
+    headerURL: PropTypes.string,
     i18n: PropTypes.object.isRequired,
+    iconURL: PropTypes.string,
+    id: PropTypes.string,
     install: PropTypes.func.isRequired,
     installTheme: PropTypes.func.isRequired,
     installURL: PropTypes.string,
     name: PropTypes.string.isRequired,
+    previewURL: PropTypes.string,
     slug: PropTypes.string.isRequired,
     status: PropTypes.oneOf(validStates),
+    textcolor: PropTypes.string,
     type: PropTypes.oneOf(validAddonTypes),
     uninstall: PropTypes.func.isRequired,
+    updateURL: PropTypes.string,
+    version: PropTypes.string,
   }
 
   static defaultProps = {
@@ -123,7 +138,24 @@ export class InstallSwitchBase extends React.Component {
   }
 
   render() {
-    const browsertheme = JSON.stringify(getThemeData(this.props));
+    const browsertheme = JSON.stringify(getThemeData({
+      accentcolor: this.props.accentcolor,
+      author: this.props.author,
+      category: this.props.category,
+      description: this.props.description,
+      detailURL: this.props.detailURL,
+      footer: this.props.footer,
+      footerURL: this.props.footerURL,
+      header: this.props.header,
+      headerURL: this.props.headerURL,
+      iconURL: this.props.iconURL,
+      id: this.props.id,
+      name: this.props.name,
+      previewURL: this.props.previewURL,
+      textcolor: this.props.textcolor,
+      updateURL: this.props.updateURL,
+      version: this.props.version,
+    }));
     const { disabled, handleChange, slug, status, ...otherProps } = this.props;
 
     if (!validStates.includes(status)) {

@@ -1,6 +1,8 @@
 {
   "amoCDN": "AMO_CDN",
   "apiHost": "API_HOST",
+  "datadogHost": "DATADOG_HOST",
+  "datadogPort": "DATADOG_PORT",
   "CSP": "CSP",
   "fxaConfig": "FXA_CONFIG",
   "proxyApiHost": "PROXY_API_HOST",
@@ -9,5 +11,6 @@
   "serverHost": "SERVER_HOST",
   "serverPort": "SERVER_PORT",
   "staticHost": "STATIC_HOST",
-  "trackingEnabled": "TRACKING_ENABLED"
+  "trackingEnabled": "TRACKING_ENABLED",
+  "webpackServerHost": "WEBPACK_SERVER_HOST"
 }

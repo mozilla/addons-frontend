@@ -1,126 +1,168 @@
 /* @flow */
-import type { AddonType } from 'core/types/addons';
+import deepcopy from 'deepcopy';
+import invariant from 'invariant';
+
+import { createInternalAddon } from 'core/reducers/addons';
+import type {
+  SearchResultAddonType, ExternalAddonType,
+} from 'core/types/addons';
 
 
 type State = {
-  byAddonSlug: { [string]: AddonType },
+  // TODO: It might be nice to eventually stop storing add-ons in this
+  // reducer at all and rely on the add-ons in the `addons` reducer.
+  // That said, these are partial add-ons returned from the search
+  // results and fetching all add-on data for each add-on might be too
+  // expensive.
+  byAddonId: { [number]: Array<SearchResultAddonType> },
+  byAddonSlug: { [string]: Array<number> },
+  byUserId: { [number]: Array<number> },
+  byUsername: { [string]: Array<number> },
 };
 
 export const initialState: State = {
+  byAddonId: {},
   byAddonSlug: {},
+  byUserId: {},
+  byUsername: {},
 };
 
-export const OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE = 6;
+export const ADDONS_BY_AUTHORS_PAGE_SIZE = 6;
 
 // For further information about this notation, see:
 // https://github.com/mozilla/addons-frontend/pull/3027#discussion_r137661289
-export const FETCH_OTHER_ADDONS_BY_AUTHORS: 'FETCH_OTHER_ADDONS_BY_AUTHORS'
-  = 'FETCH_OTHER_ADDONS_BY_AUTHORS';
-export const LOAD_OTHER_ADDONS_BY_AUTHORS: 'LOAD_OTHER_ADDONS_BY_AUTHORS'
-  = 'LOAD_OTHER_ADDONS_BY_AUTHORS';
+export const FETCH_ADDONS_BY_AUTHORS: 'FETCH_ADDONS_BY_AUTHORS'
+  = 'FETCH_ADDONS_BY_AUTHORS';
+export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS'
+  = 'LOAD_ADDONS_BY_AUTHORS';
 
-type FetchOtherAddonsByAuthorsParams = {|
+type FetchAddonsByAuthorsParams = {|
   addonType: string,
   authors: Array<string>,
   errorHandlerId: string,
-  slug: string,
+  forAddonSlug?: string,
 |};
 
-type FetchOtherAddonsByAuthorsAction = {|
-  type: typeof FETCH_OTHER_ADDONS_BY_AUTHORS,
-  payload: FetchOtherAddonsByAuthorsParams,
+type FetchAddonsByAuthorsAction = {|
+  type: typeof FETCH_ADDONS_BY_AUTHORS,
+  payload: FetchAddonsByAuthorsParams,
 |};
 
-export const fetchOtherAddonsByAuthors = (
-  { addonType, authors, errorHandlerId, slug }: FetchOtherAddonsByAuthorsParams
-): FetchOtherAddonsByAuthorsAction => {
-  if (!errorHandlerId) {
-    throw new Error('An errorHandlerId is required');
-  }
-
-  if (!slug) {
-    throw new Error('An add-on slug is required.');
-  }
-
-  if (!addonType) {
-    throw new Error('An add-on type is required.');
-  }
-
-  if (!authors) {
-    throw new Error('Authors are required.');
-  }
-
-  if (!Array.isArray(authors)) {
-    throw new Error('The authors parameter must be an array.');
-  }
+export const fetchAddonsByAuthors = (
+  { addonType, authors, errorHandlerId, forAddonSlug }: FetchAddonsByAuthorsParams
+): FetchAddonsByAuthorsAction => {
+  invariant(errorHandlerId, 'An errorHandlerId is required');
+  invariant(addonType, 'An add-on type is required.');
+  invariant(authors, 'Authors are required.');
+  invariant(Array.isArray(authors), 'The authors parameter must be an array.');
 
   return {
-    type: FETCH_OTHER_ADDONS_BY_AUTHORS,
+    type: FETCH_ADDONS_BY_AUTHORS,
     payload: {
       addonType,
       authors,
       errorHandlerId,
-      slug,
+      forAddonSlug,
     },
   };
 };
 
-type LoadOtherAddonsByAuthorsParams = {|
-  slug: string,
-  addons: Array<AddonType>,
+type LoadAddonsByAuthorsParams = {|
+  addons: Array<ExternalAddonType>,
+  forAddonSlug?: string,
 |};
 
-type LoadOtherAddonsByAuthorsAction = {|
-  type: typeof LOAD_OTHER_ADDONS_BY_AUTHORS,
-  payload: LoadOtherAddonsByAuthorsParams,
+type LoadAddonsByAuthorsAction = {|
+  type: typeof LOAD_ADDONS_BY_AUTHORS,
+  payload: LoadAddonsByAuthorsParams,
 |};
 
-export const loadOtherAddonsByAuthors = (
-  { addons, slug }: LoadOtherAddonsByAuthorsParams
-): LoadOtherAddonsByAuthorsAction => {
-  if (!slug) {
-    throw new Error('An add-on slug is required.');
-  }
-
-  if (!addons) {
-    throw new Error('A set of add-ons is required.');
-  }
+export const loadAddonsByAuthors = (
+  { addons, forAddonSlug }: LoadAddonsByAuthorsParams
+): LoadAddonsByAuthorsAction => {
+  invariant(addons, 'A set of add-ons is required.');
 
   return {
-    type: LOAD_OTHER_ADDONS_BY_AUTHORS,
-    payload: { slug, addons },
+    type: LOAD_ADDONS_BY_AUTHORS,
+    payload: { addons, forAddonSlug },
   };
 };
 
+export const getAddonsForSlug = (state: State, slug: string) => {
+  const ids = state.byAddonSlug[slug];
+
+  return ids ? ids.map((id) => {
+    return state.byAddonId[id];
+  }) : null;
+};
+
 type Action =
-  | FetchOtherAddonsByAuthorsAction
-  | LoadOtherAddonsByAuthorsAction;
+  | FetchAddonsByAuthorsAction
+  | LoadAddonsByAuthorsAction;
 
 const reducer = (
   state: State = initialState,
   action: Action
 ): State => {
   switch (action.type) {
-    case FETCH_OTHER_ADDONS_BY_AUTHORS:
-      return {
-        ...state,
-        byAddonSlug: {
-          ...state.byAddonSlug,
-          [action.payload.slug]: undefined,
-        },
-      };
-    case LOAD_OTHER_ADDONS_BY_AUTHORS:
-      return {
-        ...state,
-        byAddonSlug: {
-          ...state.byAddonSlug,
-          [action.payload.slug]: action.payload.addons
-            // This ensures we do not display the main add-on in the list of
-            // "add-ons by these authors".
-            .filter((addon) => addon.slug !== action.payload.slug)
-            .slice(0, OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE),
-        },
-      };
+    case FETCH_ADDONS_BY_AUTHORS: {
+      const newState = deepcopy(state);
+
+      if (action.payload.forAddonSlug) {
+        newState.byAddonSlug = {
+          ...newState.byAddonSlug,
+          [action.payload.forAddonSlug]: undefined,
+        };
+      }
+
+      // Reset the data for each author requested.
+      for (const authorUsername of action.payload.authors) {
+        // TODO: Reset the userId here too.
+        // See: https://github.com/mozilla/addons-frontend/issues/4602
+        newState.byUsername[authorUsername] = undefined;
+      }
+
+      return newState;
+    }
+    case LOAD_ADDONS_BY_AUTHORS: {
+      const newState = deepcopy(state);
+
+      if (action.payload.forAddonSlug) {
+        newState.byAddonSlug = {
+          [action.payload.forAddonSlug]: action.payload.addons
+            .slice(0, ADDONS_BY_AUTHORS_PAGE_SIZE)
+            .map((addon) => addon.id),
+        };
+      }
+
+      const addons = action.payload.addons
+        .map((addon) => createInternalAddon(addon));
+
+      for (const addon of addons) {
+        newState.byAddonId[addon.id] = addon;
+
+        if (addon.authors) {
+          for (const author of addon.authors) {
+            if (!newState.byUserId[author.id]) {
+              newState.byUserId[author.id] = [];
+            }
+            if (!newState.byUsername[author.username]) {
+              newState.byUsername[author.username] = [];
+            }
+
+            if (!newState.byUserId[author.id].includes(addon.id)) {
+              newState.byUserId[author.id].push(addon.id);
+            }
+
+            if (!newState.byUsername[author.username].includes(addon.id)) {
+              newState.byUsername[author.username].push(addon.id);
+            }
+          }
+        }
+      }
+
+      return newState;
+    }
     default:
       return state;
   }

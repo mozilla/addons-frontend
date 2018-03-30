@@ -2,6 +2,12 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
+.Categories .Card-contents {
+  @include respond-to(large) {
+    padding-bottom: 12px;
+  }
+}
+
 .Categories-loadingText {
   @include margin-end(5px);
 }
@@ -15,6 +21,11 @@
 
 .Categories-item {
   $category-gutter: 7px;
+
+  @include respond-to(large) {
+    $category-gutter: 12px;
+  }
+
   @include margin-end($category-gutter);
 
   display: inline-block;

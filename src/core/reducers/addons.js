@@ -1,11 +1,20 @@
 /* @flow */
+import { oneLine } from 'common-tags';
+import config from 'config';
+
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import log from 'core/logger';
+import type {
+  AddonType,
+  ExternalAddonType,
+  ThemeData,
+} from 'core/types/addons';
 
 
 export const LOAD_ADDONS = 'LOAD_ADDONS';
 export const FETCH_ADDON = 'FETCH_ADDON';
+export const LOAD_ADDON_RESULTS = 'LOAD_ADDON_RESULTS';
 
 type ExternalAddonMap = {
   [addonSlug: string]: ExternalAddonType,
@@ -16,6 +25,9 @@ export type LoadAddonsAction = {|
   type: string,
 |};
 
+// TODO: We should remove this method and move all calls to `loadAddonResults`.
+// This function relies on normalizr messing with our response data.
+// See: https://github.com/mozilla/addons-frontend/issues/2917
 export function loadAddons(
   entities: {| addons?: ExternalAddonMap |}
 ): LoadAddonsAction {
@@ -45,7 +57,9 @@ export type FetchAddonAction = {|
   |},
 |};
 
-export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddonAction {
+export function fetchAddon(
+  { errorHandler, slug }: FetchAddonParams
+): FetchAddonAction {
   if (!errorHandler) {
     throw new Error('errorHandler cannot be empty');
   }
@@ -55,6 +69,28 @@ export function fetchAddon({ errorHandler, slug }: FetchAddonParams): FetchAddon
   return {
     type: FETCH_ADDON,
     payload: { errorHandlerId: errorHandler.id, slug },
+  };
+}
+
+type LoadAddonResultsParams = {|
+  addons: ExternalAddonMap,
+|}
+
+export type LoadAddonResultsAction = {|
+  payload: {| addons: ExternalAddonMap |},
+  type: string,
+|};
+
+export function loadAddonResults(
+  { addons }: LoadAddonResultsParams = {}
+): LoadAddonResultsAction {
+  if (!addons) {
+    throw new Error('addons are required');
+  }
+
+  return {
+    type: LOAD_ADDONS,
+    payload: { addons },
   };
 }
 
@@ -77,14 +113,55 @@ export function removeUndefinedProps(object: Object): Object {
   return newObject;
 }
 
-export function createInternalAddon(
+export function createInternalThemeData(
   apiAddon: ExternalAddonType
+): ThemeData | null {
+  if (!apiAddon.theme_data) {
+    return null;
+  }
+
+  return {
+    accentcolor: apiAddon.theme_data.accentcolor,
+    author: apiAddon.theme_data.author,
+    category: apiAddon.theme_data.category,
+
+    // TODO: Set this back to apiAddon.theme_data.description after
+    // https://github.com/mozilla/addons-frontend/issues/1416 is fixed.
+    // theme_data will contain `description: 'None'` when the description is
+    // actually `null` and we don't want to set that on the addon itself so we
+    // reset it in case it's been overwritten.
+    //
+    // See also https://github.com/mozilla/addons-server/issues/5650.
+    description: apiAddon.description,
+
+    detailURL: apiAddon.theme_data.detailURL,
+    footer: apiAddon.theme_data.footer,
+    footerURL: apiAddon.theme_data.footerURL,
+    header: apiAddon.theme_data.header,
+    headerURL: apiAddon.theme_data.headerURL,
+    iconURL: apiAddon.theme_data.iconURL,
+    id: apiAddon.theme_data.id,
+    name: apiAddon.theme_data.name,
+    previewURL: apiAddon.theme_data.previewURL,
+    textcolor: apiAddon.theme_data.textcolor,
+    updateURL: apiAddon.theme_data.updateURL,
+    version: apiAddon.theme_data.version,
+  };
+}
+
+type CreateInternalAddonOptions = {|
+  _config: typeof config,
+|};
+
+export function createInternalAddon(
+  apiAddon: ExternalAddonType,
+  { _config = config }: CreateInternalAddonOptions = {}
 ): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
     average_daily_users: apiAddon.average_daily_users,
     categories: apiAddon.categories,
-    current_beta_version: apiAddon.current_beta_version,
+    contributions_url: apiAddon.contributions_url,
     current_version: apiAddon.current_version,
     default_locale: apiAddon.default_locale,
     description: apiAddon.description,
@@ -101,6 +178,7 @@ export function createInternalAddon(
     is_source_public: apiAddon.is_source_public,
     last_updated: apiAddon.last_updated,
     latest_unlisted_version: apiAddon.latest_unlisted_version,
+    locale_disambiguation: apiAddon.locale_disambiguation,
     name: apiAddon.name,
     previews: apiAddon.previews,
     public_stats: apiAddon.public_stats,
@@ -113,63 +191,75 @@ export function createInternalAddon(
     support_email: apiAddon.support_email,
     support_url: apiAddon.support_url,
     tags: apiAddon.tags,
+    target_locale: apiAddon.target_locale,
     type: apiAddon.type,
     url: apiAddon.url,
     weekly_downloads: apiAddon.weekly_downloads,
 
     // These are custom properties not in the API response.
 
-    // TODO: remove this if possible. I think it was added by mistake
-    // but there are some things relying on it :/
+    // TODO: remove this if possible. This is used by core/installAddon
+    // and DiscoPane components which do camel case conversions for
+    // some historic reason.
     iconUrl: apiAddon.icon_url,
 
+    platformFiles: {
+      all: undefined,
+      android: undefined,
+      linux: undefined,
+      mac: undefined,
+      windows: undefined,
+    },
     isRestartRequired: false,
+    isWebExtension: false,
+    isMozillaSignedExtension: false,
   };
 
-  if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
-    // This merges theme_data into the addon.
-    // TODO: Let's stop doing that because it's confusing. Lots of
-    // deep button / install code will need to be fixed.
-    addon = {
-      ...addon,
-      ...removeUndefinedProps({
-        accentcolor: apiAddon.theme_data.accentcolor,
-        author: apiAddon.theme_data.author,
-        category: apiAddon.theme_data.category,
-
-        // TODO: Set this back to apiAddon.theme_data.description after
-        // https://github.com/mozilla/addons-frontend/issues/1416
-        // is fixed.
-        // theme_data will contain `description: 'None'` when the
-        // description
-        // is actually `null` and we don't want to set that on the addon
-        // itself so we reset it in case it's been overwritten.
-        //
-        // See also https://github.com/mozilla/addons-server/issues/5650.
-        description: apiAddon.description,
-
-        detailURL: apiAddon.theme_data.detailURL,
-        footer: apiAddon.theme_data.footer,
-        footerURL: apiAddon.theme_data.footerURL,
-        header: apiAddon.theme_data.header,
-        headerURL: apiAddon.theme_data.headerURL,
-        iconURL: apiAddon.theme_data.iconURL,
-        id: apiAddon.theme_data.id,
-        name: apiAddon.theme_data.name,
-        previewURL: apiAddon.theme_data.previewURL,
-        textcolor: apiAddon.theme_data.textcolor,
-        updateURL: apiAddon.theme_data.updateURL,
-        version: apiAddon.theme_data.version,
-      }),
-    };
+  if (_config.get('betaVersions')) {
+    addon.current_beta_version = apiAddon.current_beta_version;
   }
 
-  if (apiAddon.current_version && apiAddon.current_version.files.length > 0) {
-    // TODO: support specific platform files.
-    // See https://github.com/mozilla/addons-frontend/issues/2998
-    addon.installURL = apiAddon.current_version.files[0].url || '';
-    addon.isRestartRequired = apiAddon.current_version.files.some(
+  if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
+    const themeData = createInternalThemeData(apiAddon);
+
+    if (themeData !== null) {
+      // This merges theme_data into the addon.
+      //
+      // TODO: Let's stop doing that because it's confusing. Lots of deep
+      // button/install code will need to be fixed.
+      //
+      // Use addon.themeData[themeProp] instead of addon[themeProp].
+      addon = {
+        ...addon,
+        ...removeUndefinedProps(themeData),
+        themeData,
+      };
+    }
+  }
+
+  const currentVersion = apiAddon.current_version;
+
+  if (currentVersion && currentVersion.files.length > 0) {
+    currentVersion.files.forEach((file) => {
+      // eslint-disable-next-line no-prototype-builtins
+      // eslint-disable-next-line no-prototype-builtins
+      if (!addon.platformFiles.hasOwnProperty(file.platform)) {
+        log.warn(oneLine`Add-on ID ${apiAddon.id}, slug ${apiAddon.slug}
+          has a file with an unknown platform: ${file.platform}`);
+      }
+      addon.platformFiles[file.platform] = file;
+    });
+    addon.isRestartRequired = currentVersion.files.some(
       (file) => !!file.is_restart_required
+    );
+    // The following checks are a bit fragile since only one file needs
+    // to contain the flag. However, it is highly unlikely to create an
+    // add-on with mismatched file flags in the current DevHub.
+    addon.isWebExtension = currentVersion.files.some(
+      (file) => !!file.is_webextension
+    );
+    addon.isMozillaSignedExtension = currentVersion.files.some(
+      (file) => !!file.is_mozilla_signed_extension
     );
   }
 
@@ -183,10 +273,51 @@ export function createInternalAddon(
   return addon;
 }
 
-const initialState = {};
+type AddonID = number;
 
-type AddonState = {
-  [addonSlug: string]: AddonType,
+export type AddonState = {|
+  // Flow wants hash maps with string keys.
+  // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+  byID: { [addonId: string]: AddonType },
+  byGUID: { [addonGUID: string]: AddonID },
+  bySlug: { [addonSlug: string]: AddonID },
+|};
+
+export const initialState: AddonState = {
+  byID: {},
+  byGUID: {},
+  bySlug: {},
+};
+
+export const getAddonByID = (
+  state: { addons: AddonState }, id: AddonID
+): AddonType | null => {
+  return state.addons.byID[`${id}`] || null;
+};
+
+export const getAddonBySlug = (
+  state: { addons: AddonState }, slug: string
+): AddonType | null => {
+  const addonId = state.addons.bySlug[slug];
+
+  return getAddonByID(state, addonId);
+};
+
+export const getAddonByGUID = (
+  state: { addons: AddonState }, guid: string
+): AddonType | null => {
+  const addonId = state.addons.byGUID[guid];
+
+  return getAddonByID(state, addonId);
+};
+
+export const getAllAddons = (
+  state: { addons: AddonState }
+): Array<AddonType> => {
+  const addons = state.addons.byID;
+
+  // $FLOW_FIXME: see https://github.com/facebook/flow/issues/2221.
+  return Object.values(addons);
 };
 
 export default function addonsReducer(
@@ -195,12 +326,35 @@ export default function addonsReducer(
 ) {
   switch (action.type) {
     case LOAD_ADDONS: {
-      const { addons } = action.payload;
-      const newState = { ...state };
-      Object.keys(addons).forEach((key) => {
-        newState[key] = createInternalAddon(addons[key]);
+      const { addons: loadedAddons } = action.payload;
+
+      const byID = { ...state.byID };
+      const byGUID = { ...state.byGUID };
+      const bySlug = { ...state.bySlug };
+
+      Object.keys(loadedAddons).forEach((key) => {
+        const addon = createInternalAddon(loadedAddons[key]);
+        // Flow wants hash maps with string keys.
+        // See: https://zhenyong.github.io/flowtype/docs/objects.html#objects-as-maps
+        byID[`${addon.id}`] = addon;
+
+        if (addon.slug) {
+          bySlug[addon.slug] = addon.id;
+        }
+
+        if (addon.guid) {
+          // `guid` is already "normalized" with the `getGuid()` function in
+          // `createInternalAddon()`.
+          byGUID[addon.guid] = addon.id;
+        }
       });
-      return newState;
+
+      return {
+        ...state,
+        byID,
+        byGUID,
+        bySlug,
+      };
     }
     default:
       return state;

@@ -1,18 +1,29 @@
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import {
+  ADDON_TYPE_EXTENSION, OS_ALL, OS_ANDROID, OS_LINUX, OS_MAC, OS_WINDOWS,
+} from 'core/constants';
 import addons, {
   createInternalAddon,
   fetchAddon,
+  getAddonByGUID,
+  getAddonByID,
+  getAddonBySlug,
+  getAllAddons,
   getGuid,
   loadAddons,
+  loadAddonResults,
   removeUndefinedProps,
 } from 'core/reducers/addons';
 import {
   createFetchAddonResult,
   createFetchAllAddonsResult,
   createStubErrorHandler,
+  getFakeConfig,
 } from 'tests/unit/helpers';
 import {
-  createFakeAddon, fakeAddon, fakeTheme,
+  createFakeAddon,
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeTheme,
 } from 'tests/unit/amo/helpers';
 
 
@@ -28,36 +39,57 @@ describe(__filename, () => {
     const firstState = addons(undefined,
       loadAddons(createFetchAddonResult(fakeAddon).entities));
 
-    const anotherFakeAddon = { ...fakeAddon, slug: 'testing1234', id: 6401 };
+    const anotherFakeAddon = {
+      ...fakeAddon,
+      slug: 'testing1234',
+      id: 6401,
+    };
     const newState = addons(firstState,
       loadAddons(createFetchAddonResult(anotherFakeAddon).entities));
 
-    expect(newState).toEqual({
-      ...firstState,
-      [anotherFakeAddon.slug]: {
-        ...createInternalAddon(anotherFakeAddon),
-        installURL: '',
-        isRestartRequired: false,
-      },
+    const internalAddon = createInternalAddon(anotherFakeAddon);
+    expect(newState.byID).toEqual({
+      ...firstState.byID,
+      [anotherFakeAddon.id]: internalAddon,
+    });
+    expect(newState.bySlug).toEqual({
+      ...firstState.bySlug,
+      [anotherFakeAddon.slug]: anotherFakeAddon.id,
+    });
+    expect(newState.byGUID).toEqual({
+      ...firstState.byGUID,
+      [anotherFakeAddon.guid]: anotherFakeAddon.id,
     });
   });
 
-  it('stores all add-ons', () => {
+  it('stores all add-ons, indexed by id', () => {
     const addonResults = [
-      { ...fakeAddon, slug: 'first-slug' },
-      { ...fakeAddon, slug: 'second-slug' },
+      { ...fakeAddon, slug: 'first-slug', id: 123 },
+      { ...fakeAddon, slug: 'second-slug', id: 456 },
     ];
     const state = addons(undefined,
       loadAddons(createFetchAllAddonsResult(addonResults).entities));
-    expect(Object.keys(state).sort())
-      .toEqual(['first-slug', 'second-slug']);
+    expect(Object.keys(state.byID).sort()).toEqual(['123', '456']);
+  });
+
+  it('store all add-on slugs with their IDs', () => {
+    const addonResults = [
+      { ...fakeAddon, slug: 'first-slug', id: 123 },
+      { ...fakeAddon, slug: 'second-slug', id: 456 },
+    ];
+    const state = addons(undefined,
+      loadAddons(createFetchAllAddonsResult(addonResults).entities));
+    expect(state.bySlug).toEqual({
+      'first-slug': 123,
+      'second-slug': 456,
+    });
   });
 
   it('ignores empty results', () => {
     const addonResults = [];
     const state = addons(undefined,
       loadAddons(createFetchAllAddonsResult(addonResults).entities));
-    expect(Object.keys(state)).toEqual([]);
+    expect(Object.keys(state.byID)).toEqual([]);
   });
 
   it('stores a modified extension object', () => {
@@ -65,11 +97,19 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(extension).entities));
 
-    expect(state[extension.slug]).toEqual({
+    expect(state.byID[extension.id]).toEqual({
       ...extension,
       iconUrl: extension.icon_url,
-      installURL: '',
+      platformFiles: {
+        [OS_ALL]: fakeAddon.current_version.files[0],
+        [OS_ANDROID]: undefined,
+        [OS_LINUX]: undefined,
+        [OS_MAC]: undefined,
+        [OS_WINDOWS]: undefined,
+      },
       isRestartRequired: false,
+      isWebExtension: true,
+      isMozillaSignedExtension: false,
     });
   });
 
@@ -78,19 +118,33 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(theme).entities));
 
+    // We manually recreate the theme addon to test that the mapper is doing
+    // what we expect it to below.
     const expectedTheme = {
       ...theme,
       // Expect theme_data to be merged into the addon.
       ...theme.theme_data,
+      themeData: {
+        ...theme.theme_data,
+        description: theme.description,
+      },
       description: theme.description,
       guid: getGuid(theme),
       iconUrl: theme.icon_url,
-      installURL: '',
+      platformFiles: {
+        [OS_ALL]: fakeTheme.current_version.files[0],
+        [OS_ANDROID]: undefined,
+        [OS_LINUX]: undefined,
+        [OS_MAC]: undefined,
+        [OS_WINDOWS]: undefined,
+      },
       isRestartRequired: false,
+      isWebExtension: true,
+      isMozillaSignedExtension: false,
     };
     delete expectedTheme.theme_data;
 
-    expect(state[theme.slug]).toEqual(expectedTheme);
+    expect(state.byID[theme.id]).toEqual(expectedTheme);
   });
 
   it('does not let theme_data set properties to undefined', () => {
@@ -104,7 +158,7 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(theme).entities));
 
-    expect(state[theme.slug].id).toEqual(theme.id);
+    expect(state.byID[theme.id].id).toEqual(theme.id);
   });
 
   it('does not store undefined properties', () => {
@@ -113,7 +167,7 @@ describe(__filename, () => {
       loadAddons(createFetchAddonResult(extension).entities));
 
     // eslint-disable-next-line no-prototype-builtins
-    expect(state[extension.slug].hasOwnProperty('description'))
+    expect(state.byID[extension.id].hasOwnProperty('description'))
       .toEqual(false);
   });
 
@@ -121,22 +175,69 @@ describe(__filename, () => {
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(fakeTheme).entities));
 
-    expect(state[fakeTheme.slug].guid)
+    expect(state.byID[fakeTheme.id].guid)
       .toEqual('54321@personas.mozilla.org');
   });
 
-  it('reads the install URL from the file', () => {
-    const addon = {
-      ...fakeAddon,
-      slug: 'installable',
-      current_version: {
-        ...fakeAddon.current_version,
-        files: [{ url: 'https://a.m.o/download.xpi' }, { file: 'data' }],
-      },
-    };
+  it('maps platforms to file objects', () => {
+    const addon = createFakeAddon({
+      files: [
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_MAC,
+          url: 'https://a.m.o/mac.xpi',
+        },
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_WINDOWS,
+          url: 'https://a.m.o/windows.xpi',
+        },
+        {
+          ...fakeAddon.current_version.files[0],
+          platform: OS_ALL,
+          url: 'https://a.m.o/all.xpi',
+        },
+      ],
+    });
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].installURL).toEqual('https://a.m.o/download.xpi');
+    expect(state.byID[addon.id].platformFiles[OS_ALL].url)
+      .toEqual('https://a.m.o/all.xpi');
+    expect(state.byID[addon.id].platformFiles[OS_MAC].url)
+      .toEqual('https://a.m.o/mac.xpi');
+    expect(state.byID[addon.id].platformFiles[OS_WINDOWS].url)
+      .toEqual('https://a.m.o/windows.xpi');
+  });
+
+  it('handles an empty array of files', () => {
+    const addon = createFakeAddon({ files: [] });
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      [OS_ALL]: undefined,
+      [OS_ANDROID]: undefined,
+      [OS_LINUX]: undefined,
+      [OS_MAC]: undefined,
+      [OS_WINDOWS]: undefined,
+    });
+  });
+
+  it('handles files for unknown platforms', () => {
+    const addon = createFakeAddon({
+      files: [{
+        platform: 'unexpectedPlatform',
+        url: 'https://a.m.o/files/somewhere.xpi',
+      }],
+    });
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].platformFiles).toMatchObject({
+      unexpectedPlatform: {
+        ...fakeAddon.current_version.files[0],
+        platform: 'unexpectedPlatform',
+        url: 'https://a.m.o/files/somewhere.xpi',
+      },
+    });
   });
 
   it('sets the icon_url as iconUrl', () => {
@@ -146,7 +247,7 @@ describe(__filename, () => {
     };
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].iconUrl).toEqual(addon.icon_url);
+    expect(state.byID[addon.id].iconUrl).toEqual(addon.icon_url);
   });
 
   it('does not use description from theme_data', () => {
@@ -161,12 +262,13 @@ describe(__filename, () => {
       theme_data: {
         ...fakeTheme.theme_data,
         description: 'None',
+        id: 42,
       },
     };
     const state = addons(
       {}, loadAddons(createFetchAddonResult(theme).entities));
 
-    expect(state[theme.slug].description).toBe(null);
+    expect(state.byID[theme.id].description).toEqual(null);
   });
 
   it('exposes `isRestartRequired` attribute from current version files', () => {
@@ -178,7 +280,7 @@ describe(__filename, () => {
 
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].isRestartRequired).toBe(true);
+    expect(state.byID[addon.id].isRestartRequired).toBe(true);
   });
 
   it('sets `isRestartRequired` to `false` when restart is not required', () => {
@@ -190,7 +292,7 @@ describe(__filename, () => {
 
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].isRestartRequired).toBe(false);
+    expect(state.byID[addon.id].isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `false` when addon has no files', () => {
@@ -198,7 +300,7 @@ describe(__filename, () => {
 
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].isRestartRequired).toBe(false);
+    expect(state.byID[addon.id].isRestartRequired).toBe(false);
   });
 
   it('sets `isRestartRequired` to `true` when any file declares it', () => {
@@ -211,7 +313,103 @@ describe(__filename, () => {
 
     const state = addons(undefined,
       loadAddons(createFetchAddonResult(addon).entities));
-    expect(state[addon.slug].isRestartRequired).toBe(true);
+    expect(state.byID[addon.id].isRestartRequired).toBe(true);
+  });
+
+  it('exposes `isWebExtension` attribute from current version files', () => {
+    const addon = createFakeAddon({
+      files: [{ is_webextension: true }],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isWebExtension).toBe(true);
+  });
+
+  it('sets `isWebExtension` to `false` when add-on is not a web extension', () => {
+    const addon = createFakeAddon({
+      files: [{ is_webextension: false }],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isWebExtension).toBe(false);
+  });
+
+  it('sets `isWebExtension` to `false` when addon has no files', () => {
+    const addon = createFakeAddon({ files: [] });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isWebExtension).toBe(false);
+  });
+
+  it('sets `isWebExtension` to `true` when any file declares it', () => {
+    const addon = createFakeAddon({
+      files: [
+        { is_webextension: false },
+        { is_webextension: true },
+      ],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isWebExtension).toBe(true);
+  });
+
+  it('exposes `isMozillaSignedExtension` from current version files', () => {
+    const addon = createFakeAddon({
+      files: [{ is_mozilla_signed_extension: true }],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
+  });
+
+  it('sets `isMozillaSignedExtension` to `false` when not declared', () => {
+    const addon = createFakeAddon({
+      files: [{ is_mozilla_signed_extension: false }],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(false);
+  });
+
+  it('sets `isMozillaSignedExtension` to `false` without files', () => {
+    const addon = createFakeAddon({ files: [] });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(false);
+  });
+
+  it('sets `isMozillaSignedExtension` to `true` when any file declares it', () => {
+    const addon = createFakeAddon({
+      files: [
+        { is_mozilla_signed_extension: false },
+        { is_mozilla_signed_extension: true },
+      ],
+    });
+
+    const state = addons(undefined,
+      loadAddons(createFetchAddonResult(addon).entities));
+    expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
+  });
+
+  it('does not expose beta version properties if disabled', () => {
+    const addon = createInternalAddon(
+      {
+        ...fakeAddon,
+        slug: 'some-slug',
+        current_beta_version: {
+          ...fakeAddon.current_version,
+          version: '3.0.0-beta',
+        },
+      },
+      { _config: getFakeConfig({ betaVersions: false }) });
+    expect(addon.current_beta_version).toBeUndefined();
   });
 
   describe('fetchAddon', () => {
@@ -267,6 +465,78 @@ describe(__filename, () => {
       const example = { thing: undefined };
       removeUndefinedProps(example);
       expect(example).toEqual({ thing: undefined });
+    });
+  });
+
+  describe('loadAddonResults', () => {
+    it('requires addons', () => {
+      expect(() => {
+        loadAddonResults();
+      }).toThrow('addons are required');
+    });
+  });
+
+  describe('getAddonByID', () => {
+    it('returns null if no add-on found with the given slug', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAddonByID(state, 'id')).toEqual(null);
+    });
+
+    it('returns an add-on by id', () => {
+      const { store } = dispatchClientMetadata();
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
+
+      expect(getAddonByID(store.getState(), fakeAddon.id))
+        .toEqual(createInternalAddon(fakeAddon));
+    });
+  });
+
+  describe('getAddonBySlug', () => {
+    it('returns null if no add-on found with the given slug', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAddonBySlug(state, 'slug')).toEqual(null);
+    });
+
+    it('returns an add-on by slug', () => {
+      const { store } = dispatchClientMetadata();
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
+
+      expect(getAddonBySlug(store.getState(), fakeAddon.slug))
+        .toEqual(createInternalAddon(fakeAddon));
+    });
+  });
+
+  describe('getAddonByGUID', () => {
+    it('returns null if no add-on found with the given guid', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAddonByGUID(state, 'guid')).toEqual(null);
+    });
+
+    it('returns an add-on by guid', () => {
+      const { store } = dispatchClientMetadata();
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
+
+      expect(getAddonByGUID(store.getState(), fakeAddon.guid))
+        .toEqual(createInternalAddon(fakeAddon));
+    });
+  });
+
+  describe('getAllAddons', () => {
+    it('returns an empty array when no add-ons are loaded', () => {
+      const { state } = dispatchClientMetadata();
+
+      expect(getAllAddons(state)).toEqual([]);
+    });
+
+    it('returns an array of add-ons', () => {
+      const { store } = dispatchClientMetadata();
+      store.dispatch(loadAddons(createFetchAddonResult(fakeAddon).entities));
+
+      expect(getAllAddons(store.getState()))
+        .toEqual([createInternalAddon(fakeAddon)]);
     });
   });
 });

@@ -1,55 +1,55 @@
-import React from 'react';
-import { findDOMNode } from 'react-dom';
-import { renderIntoDocument, Simulate } from 'react-addons-test-utils';
+import * as React from 'react';
 
 import { API_ERROR_SIGNATURE_EXPIRED } from 'core/constants';
-import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
-import ErrorList from 'ui/components/ErrorList';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import ErrorList, { ErrorListBase } from 'ui/components/ErrorList';
 
 function render(customProps = {}) {
   const props = {
+    i18n: fakeI18n(),
     messages: [],
     _window: { location: { reload: sinon.stub() } },
     ...customProps,
   };
-  return findDOMNode(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
-      <ErrorList {...props} />
-    </I18nProvider>
-  ));
+  return shallowUntilTarget(<ErrorList {...props} />, ErrorListBase);
 }
 
-describe('ui/components/ErrorList', () => {
+describe(__filename, () => {
   it('supports a custom class name', () => {
     const root = render({ className: 'MyClass' });
-    expect(root.className).toContain('MyClass');
+    expect(root).toHaveClassName('MyClass');
+    expect(root).toHaveClassName('ErrorList');
   });
 
   it('renders a message', () => {
     const root = render({ messages: ['Some error'] });
-    expect(root.textContent).toEqual('Some error');
+
+    const notice = root.find('Notice');
+    expect(notice.prop('type')).toEqual('error');
+    expect(notice.html()).toContain('Some error');
   });
 
   it('renders a generic message for errors without a message', () => {
     const root = render({ messages: [] });
-    expect(root.textContent).toEqual('An unexpected error occurred');
+    expect(root.find('Notice').html())
+      .toContain('An unexpected error occurred');
   });
 
   it('renders all messages', () => {
     const root = render({
       messages: ['One', 'Two', 'Three'],
     });
-    const items = root.querySelectorAll('.ErrorList-item');
-    expect(items[0].textContent).toEqual('One');
-    expect(items[1].textContent).toEqual('Two');
-    expect(items[2].textContent).toEqual('Three');
+    const items = root.find('Notice');
+    expect(items.at(0).html()).toContain('One');
+    expect(items.at(1).html()).toContain('Two');
+    expect(items.at(2).html()).toContain('Three');
   });
 
   it('renders object messages', () => {
     const objectMessage = { thisIsNot: 'a string' };
     const root = render({ messages: [objectMessage] });
-    expect(root.textContent).toEqual(JSON.stringify(objectMessage));
+    expect(root.find('Notice').childAt(0).text())
+      .toEqual(JSON.stringify(objectMessage));
   });
 
   it('renders a reload button for signature expired errors', () => {
@@ -60,13 +60,28 @@ describe('ui/components/ErrorList', () => {
       messages: ['Signature error'],
     });
 
-    const message = root.querySelectorAll('.ErrorList-item')[0];
-    // A better message should be displayed:
-    expect(message.textContent).toEqual('Your session has expired');
+    const notice = root.find('Notice');
+    // Make sure the Signature error message is replaced with a new message.
+    expect(notice.html()).toContain('Your session has expired');
 
-    const button = root.querySelector('.ErrorList-item .Button');
-    expect(button.textContent).toEqual('Reload To Continue');
-    Simulate.click(button);
-    expect(_window.location.reload.called).toBeTruthy();
+    expect(notice.prop('actionText')).toEqual('Reload To Continue');
+    expect(notice.prop('action')).toBeDefined();
+
+    const action = notice.prop('action');
+    // Simulate how <Notice /> will execute this callback on button press.
+    action();
+
+    // The button should reload the location.
+    sinon.assert.called(_window.location.reload);
+  });
+
+  it('handles multiple signature expired errors', () => {
+    // Make sure this doesn't throw any errors when logging a warning.
+    const root = render({
+      code: API_ERROR_SIGNATURE_EXPIRED,
+      messages: ['First signature error', 'Second signature error'],
+    });
+
+    expect(root.find('.ErrorList-item')).toHaveLength(2);
   });
 });

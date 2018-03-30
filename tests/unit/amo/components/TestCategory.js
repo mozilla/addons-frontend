@@ -1,24 +1,39 @@
-import { shallow } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
-import { CategoryBase, mapStateToProps } from 'amo/components/Category';
+import { getLanding, loadLanding } from 'amo/actions/landing';
+import { setViewContext } from 'amo/actions/viewContext';
+import Category, { CategoryBase } from 'amo/components/Category';
 import CategoryHeader from 'amo/components/CategoryHeader';
+import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
-import Search from 'amo/components/Search';
 import { categoriesFetch, categoriesLoad } from 'core/actions/categories';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  CATEGORIES_FETCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
+  SEARCH_SORT_TRENDING,
+  SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
+import { ErrorHandler } from 'core/errorHandler';
 import { visibleAddonType } from 'core/utils';
-import { createStubErrorHandler, getFakeI18nInst } from 'tests/unit/helpers';
-import { dispatchClientMetadata, fakeCategory } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
+import {
+  createStubErrorHandler,
+  fakeI18n,
+  fakeRouterLocation,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
+import {
+  createAddonsApiResult,
+  dispatchClientMetadata,
+  fakeAddon,
+  fakeCategory,
+} from 'tests/unit/amo/helpers';
 
 
-describe('Category', () => {
+describe(__filename, () => {
   let errorHandler;
   let store;
 
@@ -37,6 +52,34 @@ describe('Category', () => {
     }));
   }
 
+  function _getLanding(params = {}) {
+    store.dispatch(getLanding({
+      addonType: fakeCategory.type,
+      category: fakeCategory.slug,
+      errorHandlerId: errorHandler.id,
+      ...params,
+    }));
+  }
+
+  function _loadLanding(params = {}) {
+    store.dispatch(loadLanding({
+      addonType: ADDON_TYPE_THEME,
+      featured: createAddonsApiResult([
+        { ...fakeAddon, name: 'Howdy', slug: 'howdy' },
+        { ...fakeAddon, name: 'Howdy again', slug: 'howdy-again' },
+      ]),
+      highlyRated: createAddonsApiResult([
+        { ...fakeAddon, name: 'High', slug: 'high' },
+        { ...fakeAddon, name: 'High again', slug: 'high-again' },
+      ]),
+      trending: createAddonsApiResult([
+        { ...fakeAddon, name: 'Pop', slug: 'pop' },
+        { ...fakeAddon, name: 'Pop again', slug: 'pop-again' },
+      ]),
+      ...params,
+    }));
+  }
+
   function renderProps(
     customProps = {},
     {
@@ -47,25 +90,30 @@ describe('Category', () => {
     if (autoDispatchCategories) {
       _categoriesLoad();
     }
-    const state = store.getState();
 
     return {
-      ...mapStateToProps(state),
-      dispatch: store.dispatch,
       errorHandler,
-      i18n: getFakeI18nInst(),
-      location: { query: {} },
+      i18n: fakeI18n(),
+      location: fakeRouterLocation(),
       params: {
         slug: fakeCategory.slug,
         visibleAddonType: visibleAddonType(fakeCategory.type),
         ...paramOverrides,
       },
+      store,
       ...customProps,
     };
   }
 
   function render(props = {}, options = {}) {
-    return shallow(<CategoryBase {...renderProps(props, options)} />);
+    return shallowUntilTarget(
+      <Category {...renderProps(props, options)} />,
+      CategoryBase,
+      // TODO: ideally, we would like to enable the lifecycle methods, but it
+      // produces unexpected errors, related to Enzyme 3.
+      // See: http://airbnb.io/enzyme/docs/guides/migration-from-2-to-3.html#lifecycle-methods.
+      { shallowOptions: { disableLifecycleMethods: true } }
+    );
   }
 
   function _categoriesFetch(overrides = {}) {
@@ -77,85 +125,192 @@ describe('Category', () => {
 
   it('outputs a category page', () => {
     const root = render();
-
     expect(root).toHaveClassName('Category');
   });
 
   it('should render an error', () => {
-    const root = render();
-    root.setProps({
-      errorHandler: createStubErrorHandler(
-        new Error('example of an error')
-      ),
+    const customErrorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
     });
+    customErrorHandler.handle(new Error('an unexpected error'));
+
+    const root = render({ errorHandler: customErrorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('should render an error without a category too', () => {
-    const root = render({}, {
-      paramOverrides: { slug: 'unknown-category' },
-    });
-    root.setProps({
-      errorHandler: createStubErrorHandler(new Error('example')),
-    });
-
-    expect(root.find(ErrorList)).toHaveLength(1);
-  });
-
-  it('configures a Search component', () => {
-    const location = { query: { page: 2 } };
-    const params = {
-      slug: fakeCategory.slug,
-      visibleAddonType: visibleAddonType(fakeCategory.type),
-    };
-    const root = render({ location, params });
-    const search = root.find(Search);
-
-    expect(search).toHaveProp('filters', {
-      addonType: fakeCategory.type,
-      category: fakeCategory.slug,
-      page: location.query.page,
-    });
-    expect(search).toHaveProp('paginationQueryParams', {
-      page: location.query.page,
-    });
-    expect(search).toHaveProp('pathname',
-      `/${params.visibleAddonType}/${fakeCategory.slug}/`);
-    expect(search).toHaveProp('enableSearchFilters', false);
-  });
-
-  it('fetches categories when not yet loaded', () => {
+  it('fetches categories and landing data ' +
+     'and sets a viewContext when not yet loaded', () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
+    sinon.assert.callCount(fakeDispatch, 3);
     sinon.assert.calledWithMatch(fakeDispatch, categoriesFetch({
+      errorHandlerId: errorHandler.id,
+    }));
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeCategory.type));
+    sinon.assert.calledWith(fakeDispatch, getLanding({
+      addonType: fakeCategory.type,
+      category: fakeCategory.slug,
       errorHandlerId: errorHandler.id,
     }));
   });
 
   it('does not fetch categories when already loaded', () => {
+    _categoriesFetch();
     _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
-    sinon.assert.notCalled(fakeDispatch);
+    sinon.assert.neverCalledWith(fakeDispatch, sinon.match({ type: CATEGORIES_FETCH }));
   });
 
   it('does not fetch categories when an empty set was loaded', () => {
     _categoriesLoad({ result: [] });
+
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
     sinon.assert.notCalled(fakeDispatch);
   });
 
-  it('does not fetch categories while already loading them', () => {
+  it('does not fetch anything while already loading data', () => {
     _categoriesFetch();
+    _getLanding();
+
     const fakeDispatch = sinon.stub(store, 'dispatch');
     render({}, { autoDispatchCategories: false });
 
     sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when nothing has changed', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    const root = render();
+    fakeDispatch.reset();
+
+    // This will trigger the componentWillReceiveProps() method.
+    root.setProps();
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when there is an error', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const root = render({}, { autoDispatchCategories: false });
+
+    const customErrorHandler = root.instance().props.errorHandler;
+    customErrorHandler.captureError(new Error('an unexpected error'));
+
+    fakeDispatch.reset();
+    root.setProps({ errorHandler: customErrorHandler });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when visible addon type is invalid', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        visibleAddonType: 'invalid',
+      },
+    });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any action when category slug is invalid', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        slug: 'invalid',
+      },
+    });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches getLanding when results are not loaded', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    render({}, { autoDispatchCategories: false });
+
+    sinon.assert.calledWith(fakeDispatch, getLanding({
+      addonType: fakeCategory.type,
+      category: fakeCategory.slug,
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('dispatches getLanding when category changes', () => {
+    const category = 'some-category-slug';
+
+    _categoriesFetch();
+    _categoriesLoad({
+      result: [
+        { ...fakeCategory },
+        { ...fakeCategory, slug: category },
+      ],
+    });
+    _getLanding();
+    _loadLanding();
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        slug: category,
+      },
+    });
+
+    sinon.assert.calledWith(fakeDispatch, getLanding({
+      addonType: fakeCategory.type,
+      category,
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('dispatches getLanding when addonType changes', () => {
+    const addonType = ADDON_TYPE_EXTENSION;
+    const category = fakeCategory.slug;
+
+    _categoriesFetch();
+    _categoriesLoad({
+      result: [
+        { ...fakeCategory },
+        { ...fakeCategory, type: addonType },
+      ],
+    });
+    _getLanding();
+    _loadLanding();
+
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+
+    render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        visibleAddonType: visibleAddonType(addonType),
+      },
+    });
+
+    sinon.assert.calledWith(fakeDispatch, getLanding({
+      addonType,
+      category,
+      errorHandlerId: errorHandler.id,
+    }));
   });
 
   it('passes a category to the header', () => {
@@ -166,15 +321,194 @@ describe('Category', () => {
 
   it('sets loading to true if categories are loading', () => {
     _categoriesFetch();
-    const root = render({}, { autoDispatchCategories: false });
 
+    const root = render({}, { autoDispatchCategories: false });
+    expect(root.instance().props.loading).toEqual(true);
+  });
+
+  it('sets loading to true if landing data are loading', () => {
+    _getLanding();
+
+    const root = render({}, { autoDispatchCategories: false });
     expect(root.instance().props.loading).toEqual(true);
   });
 
   it('sets loading to false if nothing is loading', () => {
     const root = render({}, { autoDispatchCategories: false });
-
     expect(root.instance().props.loading).toEqual(false);
+  });
+
+  it('sets the correct header/footer texts and links for extensions', () => {
+    _categoriesFetch();
+    _categoriesLoad({
+      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
+    });
+    _getLanding();
+    _loadLanding();
+
+    const root = render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      },
+    });
+
+    const landingShelves = root.find(LandingAddonsCard);
+    expect(landingShelves).toHaveLength(3);
+
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(0)).toHaveProp('header', 'Featured extensions');
+    expect(landingShelves.at(0)).toHaveProp('footerText', 'See more featured extensions');
+    expect(landingShelves.at(0)).toHaveProp('footerLink', {
+      pathname: `/search/`,
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category: fakeCategory.slug,
+        featured: true,
+      },
+    });
+
+    expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
+    expect(landingShelves.at(1)).toHaveProp('header', 'Top rated extensions');
+    expect(landingShelves.at(1)).toHaveProp('footerText', 'See more top rated extensions');
+    expect(landingShelves.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TOP_RATED,
+      },
+    });
+
+    expect(landingShelves.at(2)).toHaveClassName('TrendingAddons');
+    expect(landingShelves.at(2))
+      .toHaveProp('header', 'Trending extensions');
+    expect(landingShelves.at(2)).toHaveProp('footerText', 'See more trending extensions');
+    expect(landingShelves.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_EXTENSION,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    });
+  });
+
+  it('sets the correct header/footer texts and links for themes', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding();
+
+    const root = render({}, { autoDispatchCategories: false });
+
+    const landingShelves = root.find(LandingAddonsCard);
+    expect(landingShelves).toHaveLength(3);
+
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(0)).toHaveProp('header', 'Featured themes');
+    expect(landingShelves.at(0)).toHaveProp('footerText', 'See more featured themes');
+    expect(landingShelves.at(0)).toHaveProp('footerLink', {
+      pathname: `/search/`,
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        category: fakeCategory.slug,
+        featured: true,
+      },
+    });
+
+    expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
+    expect(landingShelves.at(1)).toHaveProp('header', 'Top rated themes');
+    expect(landingShelves.at(1)).toHaveProp('footerText', 'See more top rated themes');
+    expect(landingShelves.at(1)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TOP_RATED,
+      },
+    });
+
+    expect(landingShelves.at(2)).toHaveClassName('TrendingAddons');
+    expect(landingShelves.at(2)).toHaveProp('header', 'Trending themes');
+    expect(landingShelves.at(2)).toHaveProp('footerText', 'See more trending themes');
+    expect(landingShelves.at(2)).toHaveProp('footerLink', {
+      pathname: '/search/',
+      query: {
+        addonType: ADDON_TYPE_THEME,
+        category: fakeCategory.slug,
+        sort: SEARCH_SORT_TRENDING,
+      },
+    });
+  });
+
+  it('hides the trending shelf when there are no add-ons for it', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding({ trending: createAddonsApiResult([]) });
+
+    const root = render({}, { autoDispatchCategories: false });
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('HighlyRatedAddons');
+  });
+
+  it('hides the featured shelf when there are no add-ons for it', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding({ featured: createAddonsApiResult([]) });
+
+    const root = render({}, { autoDispatchCategories: false });
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('HighlyRatedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
+  });
+
+  it('hides the highly rated shelf when there are no add-ons for it', () => {
+    _categoriesFetch();
+    _categoriesLoad();
+    _getLanding();
+    _loadLanding({ highlyRated: createAddonsApiResult([]) });
+
+    const root = render({}, { autoDispatchCategories: false });
+    const landingShelves = root.find(LandingAddonsCard);
+
+    expect(root.find(LandingAddonsCard)).toHaveLength(2);
+    expect(landingShelves.at(0)).toHaveClassName('FeaturedAddons');
+    expect(landingShelves.at(1)).toHaveClassName('TrendingAddons');
+  });
+
+  it('renders an HTML title for a theme category', () => {
+    const wrapper = render();
+    expect(wrapper.find('title')).toHaveText('Testing category – Themes');
+  });
+
+  it('renders an HTML title for an extension category', () => {
+    _categoriesFetch();
+    _categoriesLoad({
+      result: [{ ...fakeCategory, type: ADDON_TYPE_EXTENSION }],
+    });
+    _getLanding();
+    _loadLanding();
+
+    const wrapper = render({}, {
+      autoDispatchCategories: false,
+      paramOverrides: {
+        visibleAddonType: visibleAddonType(ADDON_TYPE_EXTENSION),
+      },
+    });
+    expect(wrapper.find('title')).toHaveText('Testing category – Extensions');
+  });
+
+  it('does not render an HTML title when there is no category', () => {
+    const wrapper = render({}, { autoDispatchCategories: false });
+    expect(wrapper.find('title')).toHaveLength(0);
   });
 
   describe('category lookup', () => {

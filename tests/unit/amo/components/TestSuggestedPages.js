@@ -1,35 +1,31 @@
-import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
+import * as React from 'react';
 
-import SuggestedPages from 'amo/components/SuggestedPages';
-import createStore from 'amo/store';
-import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import Link from 'amo/components/Link';
+import SuggestedPages, {
+  SuggestedPagesBase,
+} from 'amo/components/SuggestedPages';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
+describe(__filename, () => {
+  const render = ({ ...props }) => {
+    const allProps = { ...props, i18n: fakeI18n() };
 
-describe('<SuggestedPages />', () => {
-  function render({ ...props }) {
-    const { store } = createStore();
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <SuggestedPages {...props} />
-        </I18nProvider>
-      </Provider>
-    ), SuggestedPages));
-  }
+    return shallowUntilTarget(
+      <SuggestedPages {...allProps} />,
+      SuggestedPagesBase
+    );
+  };
 
   it('renders Suggested Pages', () => {
-    const rootNode = render();
+    const wrapper = render();
 
-    expect(rootNode.textContent).toContain('Suggested Pages');
-    expect(rootNode.textContent).toContain('Browse all extensions');
+    expect(wrapper.text()).toContain('Suggested Pages');
     // There should be three links on the page.
-    expect(rootNode.querySelectorAll('a').length).toBe(3);
+    const links = wrapper.find(Link);
+    expect(links).toHaveLength(3);
+
+    expect(links.at(0)).toHaveProp('to', '/extensions/');
+    expect(links.at(1)).toHaveProp('to', '/themes/');
+    expect(links.at(2)).toHaveProp('to', '/');
   });
 });

@@ -25,11 +25,6 @@ export const validInstallStates = [
   UNKNOWN,
 ];
 
-// redux-connect action types; we watch for these in our `errorPage`
-// reducer to display error pages.
-export const REDUX_CONNECT_END_GLOBAL_LOAD = '@redux-conn/END_GLOBAL_LOAD';
-export const REDUX_CONNECT_LOAD_FAIL = '@redux-conn/LOAD_FAIL';
-
 // Add-on error states.
 export const DOWNLOAD_FAILED = 'DOWNLOAD_FAILED';
 export const INSTALL_CANCELLED = 'INSTALL_CANCELLED';
@@ -83,25 +78,44 @@ export const INCOMPATIBLE_OVER_MAX_VERSION = 'INCOMPATIBLE_OVER_MAX_VERSION';
 export const INCOMPATIBLE_NO_OPENSEARCH = 'INCOMPATIBLE_NO_OPENSEARCH';
 export const INCOMPATIBLE_NOT_FIREFOX = 'INCOMPATIBLE_NOT_FIREFOX';
 export const INCOMPATIBLE_UNDER_MIN_VERSION = 'INCOMPATIBLE_UNDER_MIN_VERSION';
+export const INCOMPATIBLE_UNSUPPORTED_PLATFORM =
+  'INCOMPATIBLE_UNSUPPORTED_PLATFORM';
 
 // Tracking add-on types
 export const TRACKING_TYPE_EXTENSION = 'addon';
 export const TRACKING_TYPE_THEME = 'theme';
 export const TRACKING_TYPE_INVALID = 'invalid';
 
+// Add-on install tracking sources.
+// These key values may be linked to historic analytic data.
+export const INSTALL_SOURCE_COLLECTION = 'collection';
+export const INSTALL_SOURCE_DETAIL_PAGE = 'dp-btn-primary';
+export const INSTALL_SOURCE_DISCOVERY = 'discovery-promo';
+export const INSTALL_SOURCE_FEATURED = 'featured';
+export const INSTALL_SOURCE_HERO_PROMO = 'hp-dl-promo';
+export const INSTALL_SOURCE_MOST_POPULAR = 'mostpopular';
+export const INSTALL_SOURCE_SEARCH = 'search';
+export const INSTALL_SOURCE_TOP_RATED = 'rating';
+export const INSTALL_SOURCE_TRENDING = 'hotness';
+
 // View Contexts that aren't an addonType
 export const VIEW_CONTEXT_EXPLORE = 'VIEW_CONTEXT_EXPLORE';
 export const VIEW_CONTEXT_HOME = 'VIEW_CONTEXT_HOME';
+// Language tools contain both ADDON_TYPE_DICT and ADDON_TYPE_LANG so
+// we share a custom view context for both add-on types.
+export const VIEW_CONTEXT_LANGUAGE_TOOLS = 'VIEW_CONTEXT_LANGUAGE_TOOLS';
 
 // Add-on Search Sort Values
-export const SEARCH_SORT_POPULAR = 'hotness';
+export const SEARCH_SORT_TRENDING = 'hotness';
 export const SEARCH_SORT_TOP_RATED = 'rating';
+export const SEARCH_SORT_POPULAR = 'users';
+export const SEARCH_SORT_RANDOM = 'random';
 
-// Operating system for add-ons
+// Operating system for add-ons and files
+export const OS_ALL = 'all';
 export const OS_WINDOWS = 'windows';
 export const OS_MAC = 'mac';
 export const OS_LINUX = 'linux';
-// TODO: Do we need this? We have clientApp.
 export const OS_ANDROID = 'android';
 
 // Action types.
@@ -112,12 +126,12 @@ export const FEATURED_GET = 'FEATURED_GET';
 export const FEATURED_LOADED = 'FEATURED_LOADED';
 export const LANDING_GET = 'LANDING_GET';
 export const LANDING_LOADED = 'LANDING_LOADED';
-export const LOG_OUT_USER = 'LOG_OUT_USER';
 export const SEARCH_LOADED = 'SEARCH_LOADED';
 export const SEARCH_STARTED = 'SEARCH_STARTED';
 export const SET_AUTH_TOKEN = 'SET_AUTH_TOKEN';
 export const SET_CLIENT_APP = 'SET_CLIENT_APP';
 export const SET_ERROR = 'SET_ERROR';
+export const SET_ERROR_MESSAGE = 'SET_ERROR_MESSAGE';
 export const SET_LANG = 'SET_LANG';
 export const SET_USER_AGENT = 'SET_USER_AGENT';
 export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
@@ -159,6 +173,7 @@ export const INSTALL_ERROR = 'INSTALL_ERROR';
 
 // Tracking categories.
 export const INSTALL_CATEGORY = 'AMO Addon / Theme Installs';
+export const INSTALL_STARTED_CATEGORY = 'AMO Addon / Theme Installs Started';
 export const UNINSTALL_CATEGORY = 'AMO Addon / Theme Uninstalls';
 export const CLICK_CATEGORY = 'AMO Addon / Theme Clicks';
 
@@ -189,6 +204,10 @@ export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';
 export const API_ERROR_DECODING_SIGNATURE = 'ERROR_DECODING_SIGNATURE';
 export const API_ERROR_INVALID_HEADER = 'ERROR_INVALID_HEADER';
 export const API_ERROR_SIGNATURE_EXPIRED = 'ERROR_SIGNATURE_EXPIRED';
+// Interpreted error codes.
+export const ERROR_ADDON_DISABLED_BY_DEV = 'ERROR_ADDON_DISABLED_BY_DEV';
+export const ERROR_ADDON_DISABLED_BY_ADMIN =
+  'ERROR_ADDON_DISABLED_BY_ADMIN';
 
 // This is the limit in milleseconds for how long a setTimeout delay can be.
 // No setTimeout should be scheduled for this time because it
@@ -209,3 +228,27 @@ export const CATEGORY_COLORS = {
   [ADDON_TYPE_OPENSEARCH]: 12,
   [ADDON_TYPE_THEME]: 12,
 };
+
+// Can access the website admin interface index page. Inner pages may require
+// other/additional permissions.
+export const ADMIN_TOOLS_VIEW = 'AdminTools:View';
+// Allows viewing and editing of any add-ons details in developer tools.
+export const ADDONS_EDIT = 'Addons:Edit';
+// Can access the add-on reviewer tools to approve/reject add-on submissions.
+export const ADDONS_REVIEW = 'Addons:Review';
+// Can access the theme reviewer tools to approve/reject theme submissions.
+export const THEMES_REVIEW = 'Personas:Review';
+// Can view statistics for all addons, regardless of privacy settings.
+export const STATS_VIEW = 'Stats:View';
+// Can edit all collections.
+export const COLLECTIONS_EDIT = 'Collections:Edit';
+// Can confirm approval of automatically approved add-ons.
+export const ADDONS_POSTREVIEW = 'Addons:PostReview';
+// Can approve add-ons content.
+export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
+// Can review unlisted add-ons.
+export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
+// Can moderate user ratings on add-ons.
+export const RATINGS_MODERATE = 'Ratings:Moderate';
+// Super powers. It means absolutely all permissions.
+export const ALL_SUPER_POWERS = '*:*';

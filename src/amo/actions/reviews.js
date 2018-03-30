@@ -1,8 +1,22 @@
 /* @flow */
 import {
-  FETCH_REVIEWS, SET_ADDON_REVIEWS, SET_REVIEW,
+  CLEAR_ADDON_REVIEWS,
+  FETCH_REVIEWS,
+  HIDE_EDIT_REVIEW_FORM,
+  HIDE_REPLY_TO_REVIEW_FORM,
+  SEND_REPLY_TO_REVIEW,
+  SEND_REVIEW_FLAG,
+  SET_ADDON_REVIEWS,
+  SET_REVIEW,
+  SET_REVIEW_REPLY,
+  SET_REVIEW_WAS_FLAGGED,
+  SHOW_EDIT_REVIEW_FORM,
+  SHOW_REPLY_TO_REVIEW_FORM,
 } from 'amo/constants';
-import type { ApiReviewType } from 'amo/api';
+import type { FlagReviewReasonType } from 'amo/constants';
+import type {
+  ExternalReviewReplyType, ExternalReviewType,
+} from 'amo/api/reviews';
 
 export type UserReviewType = {|
   addonId: number,
@@ -11,15 +25,18 @@ export type UserReviewType = {|
   created: Date,
   id: number,
   isLatest: boolean,
-  rating: number,
+  rating: number | null,
+  reply: UserReviewType | null,
   title: string,
   userId: number,
   userName: string,
   userUrl: string,
-  versionId: ?number,
+  versionId: number | null,
 |};
 
-export function denormalizeReview(review: ApiReviewType): UserReviewType {
+export function denormalizeReview(
+  review: ExternalReviewType | ExternalReviewReplyType
+): UserReviewType {
   return {
     addonId: review.addon.id,
     addonSlug: review.addon.slug,
@@ -27,26 +44,53 @@ export function denormalizeReview(review: ApiReviewType): UserReviewType {
     created: review.created,
     id: review.id,
     isLatest: review.is_latest,
-    rating: review.rating,
+    rating: review.rating || null,
+    reply: review.reply ? denormalizeReview(review.reply) : null,
     title: review.title,
     userId: review.user.id,
     userName: review.user.name,
     userUrl: review.user.url,
-    // TODO: Figure out why version could be null and/or plan for it.
-    versionId: review.version && review.version.id,
+    versionId: review.version ? review.version.id : null,
   };
 }
 
 export type SetReviewAction = {|
-  type: string,
+  type: typeof SET_REVIEW,
   payload: UserReviewType,
 |};
 
-export const setReview = (review: ApiReviewType): SetReviewAction => {
+export const setReview = (review: ExternalReviewType): SetReviewAction => {
   if (!review) {
     throw new Error('review cannot be empty');
   }
+  // TODO: move denormalizeReview() to the reducer.
+  // https://github.com/mozilla/addons-frontend/issues/3342
   return { type: SET_REVIEW, payload: denormalizeReview(review) };
+};
+
+type SetReviewReplyParams = {|
+  originalReviewId: number,
+  reply: ExternalReviewReplyType,
+|};
+
+export type SetReviewReplyAction = {|
+  type: typeof SET_REVIEW_REPLY,
+  payload: SetReviewReplyParams,
+|};
+
+export const setReviewReply = (
+  { originalReviewId, reply }: SetReviewReplyParams = {}
+): SetReviewReplyAction => {
+  if (!originalReviewId) {
+    throw new Error('The originalReviewId parameter is required');
+  }
+  if (!reply) {
+    throw new Error('The reply parameter is required');
+  }
+  return {
+    type: SET_REVIEW_REPLY,
+    payload: { originalReviewId, reply },
+  };
 };
 
 type FetchReviewsParams = {|
@@ -56,7 +100,7 @@ type FetchReviewsParams = {|
 |};
 
 export type FetchReviewsAction = {|
-  type: string,
+  type: typeof FETCH_REVIEWS,
   payload: {|
     addonSlug: string,
     errorHandlerId: string,
@@ -89,7 +133,7 @@ export const setDenormalizedReview = (
 };
 
 export type SetAddonReviewsAction = {|
-  type: string,
+  type: typeof SET_ADDON_REVIEWS,
   payload: {|
     addonSlug: string,
     reviewCount: number,
@@ -100,7 +144,7 @@ export type SetAddonReviewsAction = {|
 type SetAddonReviewsParams = {|
   addonSlug: string,
   reviewCount: number,
-  reviews: Array<ApiReviewType>,
+  reviews: Array<ExternalReviewType>,
 |};
 
 export const setAddonReviews = (
@@ -122,5 +166,185 @@ export const setAddonReviews = (
       reviewCount,
       reviews: reviews.map((review) => denormalizeReview(review)),
     },
+  };
+};
+
+type SendReplyToReviewParams = {|
+  errorHandlerId: string,
+  originalReviewId: number,
+  body: string,
+  title?: string,
+|};
+
+export type SendReplyToReviewAction = {|
+  type: typeof SEND_REPLY_TO_REVIEW,
+  payload: SendReplyToReviewParams,
+|};
+
+export const sendReplyToReview = ({
+  errorHandlerId, originalReviewId, body, title,
+}: SendReplyToReviewParams = {}): SendReplyToReviewAction => {
+  if (!errorHandlerId) {
+    throw new Error('The errorHandlerId parameter is required');
+  }
+  if (!originalReviewId) {
+    throw new Error('The originalReviewId parameter is required');
+  }
+  if (!body) {
+    throw new Error('The body parameter is required');
+  }
+  return {
+    type: SEND_REPLY_TO_REVIEW,
+    payload: { errorHandlerId, originalReviewId, body, title },
+  };
+};
+
+type ReviewIdActionParams = {|
+  reviewId: number,
+  type: string,
+|};
+
+export const reviewIdAction = (
+  { reviewId, type }: ReviewIdActionParams = {}
+): any => {
+  if (!reviewId) {
+    throw new Error('The reviewId parameter is required');
+  }
+  return { type, payload: { reviewId } };
+};
+
+type ShowEditReviewFormParams = {|
+  reviewId: number,
+|};
+
+export type ShowEditReviewFormAction = {|
+  type: typeof SHOW_EDIT_REVIEW_FORM,
+  payload: ShowEditReviewFormParams,
+|};
+
+export const showEditReviewForm = (
+  { reviewId }: ShowEditReviewFormParams = {}
+): ShowEditReviewFormAction => {
+  return reviewIdAction({ type: SHOW_EDIT_REVIEW_FORM, reviewId });
+};
+
+type ShowReplyToReviewParams = {|
+  reviewId: number,
+|};
+
+export type ShowReplyToReviewFormAction = {|
+  type: typeof SHOW_REPLY_TO_REVIEW_FORM,
+  payload: ShowReplyToReviewParams,
+|};
+
+export const showReplyToReviewForm = (
+  { reviewId }: ShowReplyToReviewParams = {}
+): ShowReplyToReviewFormAction => {
+  return reviewIdAction({ type: SHOW_REPLY_TO_REVIEW_FORM, reviewId });
+};
+
+type HideEditReviewFormParams = {|
+  reviewId: number,
+|};
+
+export type HideEditReviewFormAction = {|
+  type: typeof HIDE_EDIT_REVIEW_FORM,
+  payload: HideEditReviewFormParams,
+|};
+
+export const hideEditReviewForm = (
+  { reviewId }: HideEditReviewFormParams = {}
+): HideEditReviewFormAction => {
+  return reviewIdAction({ type: HIDE_EDIT_REVIEW_FORM, reviewId });
+};
+
+type HideReplyToReviewFormParams = {|
+  reviewId: number,
+|};
+
+export type HideReplyToReviewFormAction = {|
+  type: typeof HIDE_REPLY_TO_REVIEW_FORM,
+  payload: HideReplyToReviewFormParams,
+|};
+
+export const hideReplyToReviewForm = (
+  { reviewId }: HideReplyToReviewFormParams = {}
+): HideReplyToReviewFormAction => {
+  return reviewIdAction({ type: HIDE_REPLY_TO_REVIEW_FORM, reviewId });
+};
+
+type FlagReviewParams = {|
+  errorHandlerId: string,
+  note?: string,
+  reason: FlagReviewReasonType,
+  reviewId: number,
+|};
+
+export type FlagReviewAction = {|
+  type: typeof SEND_REVIEW_FLAG,
+  payload: FlagReviewParams,
+|};
+
+export const flagReview = (
+  { errorHandlerId, note, reason, reviewId }: FlagReviewParams = {}
+): FlagReviewAction => {
+  if (!errorHandlerId) {
+    throw new Error('The errorHandlerId parameter is required');
+  }
+  if (!reason) {
+    throw new Error('The reason parameter is required');
+  }
+  if (!reviewId) {
+    throw new Error('The reviewId parameter is required');
+  }
+  return {
+    type: SEND_REVIEW_FLAG,
+    payload: { errorHandlerId, note, reason, reviewId },
+  };
+};
+
+type ReviewWasFlaggedParams = {|
+  reason: FlagReviewReasonType,
+  reviewId: number,
+|};
+
+export type ReviewWasFlaggedAction = {|
+  type: typeof SET_REVIEW_WAS_FLAGGED,
+  payload: ReviewWasFlaggedParams,
+|};
+
+export const setReviewWasFlagged = (
+  { reason, reviewId }: ReviewWasFlaggedParams = {}
+): ReviewWasFlaggedAction => {
+  if (!reason) {
+    throw new Error('The reason parameter is required');
+  }
+  if (!reviewId) {
+    throw new Error('The reviewId parameter is required');
+  }
+  return {
+    type: SET_REVIEW_WAS_FLAGGED,
+    payload: { reason, reviewId },
+  };
+};
+
+type ClearAddonReviewsParams = {|
+  addonSlug: string,
+|};
+
+export type ClearAddonReviewsAction = {|
+  type: typeof CLEAR_ADDON_REVIEWS,
+  payload: ClearAddonReviewsParams,
+|};
+
+export const clearAddonReviews = (
+  { addonSlug }: ClearAddonReviewsParams
+): ClearAddonReviewsAction => {
+  if (!addonSlug) {
+    throw new Error('the addonSlug parameter is required');
+  }
+  return {
+    type: CLEAR_ADDON_REVIEWS,
+    payload: { addonSlug },
   };
 };

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import SearchFilters, {
   SearchFiltersBase,
@@ -10,7 +10,7 @@ import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createStubErrorHandler,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -30,7 +30,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <SearchFilters
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         pathname={pathname}
         router={fakeRouter}
         store={store}
@@ -139,5 +139,116 @@ describe(__filename, () => {
     select.simulate('change', createFakeEvent({ currentTarget }));
 
     sinon.assert.notCalled(fakeRouter.push);
+  });
+
+  it('changes the URL when featured checkbox is checked', () => {
+    const root = render({ filters: { query: 'Music player' } });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        featured: true,
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('deletes featured filter when checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        featured: true,
+        query: 'Music player',
+      },
+    });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('resets the page filter when checkbox is checked', () => {
+    const root = render({
+      filters: {
+        page: 42,
+        query: 'Music player',
+      },
+    });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        featured: true,
+        page: 1,
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('resets the page filter when checkbox is unchecked', () => {
+    const root = render({
+      filters: {
+        featured: true,
+        page: 42,
+        query: 'Music player',
+      },
+    });
+
+    const checkbox = root.find('.SearchFilters-Featured');
+    checkbox.simulate('change', createFakeEvent());
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        page: 1,
+        query: 'Music player',
+      }),
+    });
+  });
+
+  it('resets the page filter when a select is updated', () => {
+    const root = render({
+      filters: {
+        page: 42,
+        query: 'Cool things',
+      },
+    });
+
+    const select = root.find('.SearchFilters-AddonType');
+    const currentTarget = {
+      getAttribute: () => {
+        return select.prop('name');
+      },
+      value: ADDON_TYPE_EXTENSION,
+    };
+
+    select.simulate('change', createFakeEvent({ currentTarget }));
+
+    sinon.assert.calledWithExactly(fakeRouter.push, {
+      pathname: `/en-US/android/search/`,
+      query: convertFiltersToQueryParams({
+        addonType: ADDON_TYPE_EXTENSION,
+        page: 1,
+        query: 'Cool things',
+      }),
+    });
+  });
+
+  it('does not display the addonType filter when a category is defined', () => {
+    // See: https://github.com/mozilla/addons-frontend/issues/3747
+    const root = render({ filters: { category: 'abstract' } });
+
+    expect(root.find('.SearchFilters-AddonType')).toHaveLength(0);
   });
 });

@@ -1,15 +1,17 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
 import translate from 'core/i18n/translate';
 
+// For the AMO-specific component see
+// src/amo/components/ErrorPage/NotFound
 
 export class NotFoundBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    status: PropTypes.number.isRequired,
+    status: PropTypes.number,
   }
 
   static defaultProps = {

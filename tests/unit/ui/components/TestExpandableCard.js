@@ -1,19 +1,19 @@
 import { mount } from 'enzyme';
-import React from 'react';
+import * as React from 'react';
 
 import ExpandableCard, {
   ExpandableCardBase,
 } from 'ui/components/ExpandableCard';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
 
 function render(props) {
   return shallowUntilTarget(
-    <ExpandableCard i18n={getFakeI18nInst()} {...props} />,
+    <ExpandableCard i18n={fakeI18n()} {...props} />,
     ExpandableCardBase
   );
 }
@@ -35,22 +35,22 @@ describe(__filename, () => {
   it('toggles when clicked', () => {
     // We have to mount for this test because of the usage of `setState`
     // in this component.
-    const root = mount(<ExpandableCard i18n={getFakeI18nInst()} />);
-    const card = root.find('.ExpandableCard');
+    const root = mount(<ExpandableCard i18n={fakeI18n()} />);
+    const card = () => root.find('.ExpandableCard');
     const fakeEvent = createFakeEvent();
 
     // Clicking on the toggle should expand the card.
     root.find('.ExpandableCard-ToggleLink').simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
-    expect(card).toHaveClassName('ExpandableCard--expanded');
+    expect(card()).toHaveClassName('ExpandableCard--expanded');
 
     // Clicking on the toggle again should set the card to be unexpanded.
     fakeEvent.preventDefault.reset();
     root.find('.ExpandableCard-ToggleLink').simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);
-    expect(card).not.toHaveClassName('ExpandableCard--expanded');
+    expect(card()).not.toHaveClassName('ExpandableCard--expanded');
   });
 
   it('renders className', () => {

@@ -16,7 +16,6 @@ const appName = config.get('appName');
 const appsBuildList = appName ? [appName] : config.get('validAppNames');
 
 const entryPoints = {};
-// eslint-disable-next-line no-restricted-syntax
 for (const app of appsBuildList) {
   entryPoints[app] = `${app}/client`;
 }
@@ -34,6 +33,11 @@ export default {
   },
   module: {
     rules: getRules(),
+  },
+  node: {
+    // This allows us to use `__filename` in our code base, for instance to
+    // have unique names in the error handlers.
+    __filename: true,
   },
   plugins: [
     ...getPlugins(),

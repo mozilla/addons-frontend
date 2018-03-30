@@ -1,152 +1,247 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* @flow */
+import * as React from 'react';
+import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import { STATS_VIEW } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { trimAndAddProtocolToUrl } from 'core/utils';
+import { hasPermission } from 'amo/reducers/users';
+import type { AddonType } from 'core/types/addons';
+import {
+  addonHasVersionHistory,
+  isAddonAuthor,
+  trimAndAddProtocolToUrl,
+} from 'core/utils';
 import Card from 'ui/components/Card';
+import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
+import type { I18nType } from 'core/types/i18n';
+import type { UsersStateType } from 'amo/reducers/users';
 
-import './styles.scss';
 
+type Props = {|
+  addon: AddonType | null,
+  i18n: I18nType,
+  userId: number | null,
+  hasStatsPermission: boolean,
+|};
 
-export class AddonMoreInfoBase extends React.Component {
-  static propTypes = {
-    addon: PropTypes.object.isRequired,
-    i18n: PropTypes.object.isRequired,
-  }
-
+export class AddonMoreInfoBase extends React.Component<Props> {
   listContent() {
-    const { addon, i18n } = this.props;
+    const { addon, i18n, userId, hasStatsPermission } = this.props;
 
     if (!addon) {
-      return (
-        <dl className="AddonMoreInfo-contents">
-          <dt className="AddonMoreInfo-loading-title">
-            <LoadingText maxWidth={40} />
-          </dt>
-          <dd className="AddonMoreInfo-loading-content">
-            <LoadingText width={25} />
-          </dd>
-          <dt className="AddonMoreInfo-loading-title">
-            <LoadingText maxWidth={40} />
-          </dt>
-          <dd className="AddonMoreInfo-loading-content">
-            <LoadingText width={25} />
-          </dd>
-        </dl>
-      );
+      return this.renderDefinitions({
+        versionLastUpdated: <LoadingText minWidth={20} />,
+        versionLicense: <LoadingText minWidth={20} />,
+      });
     }
 
     let homepage = trimAndAddProtocolToUrl(addon.homepage);
     if (homepage) {
       homepage = (
-        <li><a className="AddonMoreInfo-homepage-link" href={homepage}>
-          {i18n.gettext('Homepage')}
-        </a></li>
+        <li>
+          <a className="AddonMoreInfo-homepage-link" href={homepage}>
+            {i18n.gettext('Homepage')}
+          </a>
+        </li>
       );
     }
 
     let supportUrl = trimAndAddProtocolToUrl(addon.support_url);
     if (supportUrl) {
       supportUrl = (
-        <li><a className="AddonMoreInfo-support-link" href={supportUrl}>
-          {i18n.gettext('Support Site')}
-        </a></li>
+        <li>
+          <a className="AddonMoreInfo-support-link" href={supportUrl}>
+            {i18n.gettext('Support Site')}
+          </a>
+        </li>
       );
     }
 
+    let supportEmail = addon.support_email;
+    if (supportEmail && /.+@.+/.test(supportEmail)) {
+      supportEmail = (
+        <li>
+          <a
+            className="AddonMoreInfo-support-email"
+            href={`mailto:${supportEmail}`}
+          >
+            {i18n.gettext('Support Email')}
+          </a>
+        </li>
+      );
+    } else {
+      supportEmail = null;
+    }
+
+    let statsLink = null;
+    if (isAddonAuthor({ addon, userId }) || addon.public_stats || hasStatsPermission) {
+      statsLink = (
+        <Link
+          className="AddonMoreInfo-stats-link"
+          href={`/addon/${addon.slug}/statistics/`}
+        >
+          {i18n.gettext('Visit stats dashboard')}
+        </Link>
+      );
+    }
+
+    const currentVersion = addon.current_version;
+
+    return this.renderDefinitions({
+      homepage,
+      supportUrl,
+      supportEmail,
+      statsLink,
+      version: currentVersion && addonHasVersionHistory(addon) ?
+        currentVersion.version : null,
+      versionLastUpdated: i18n.sprintf(
+        // translators: This will output, in English:
+        // "2 months ago (Dec 12 2016)"
+        i18n.gettext('%(timeFromNow)s (%(date)s)'), {
+          timeFromNow: i18n.moment(addon.last_updated).fromNow(),
+          date: i18n.moment(addon.last_updated).format('ll'),
+        }
+      ),
+      versionLicenseLink: currentVersion && currentVersion.license ? (
+        <Link
+          className="AddonMoreInfo-license-link"
+          href={currentVersion.license.url}
+          prependClientApp={false}
+          prependLang={false}
+        >
+          {currentVersion.license.name}
+        </Link>
+      ) : null,
+      privacyPolicyLink: addon.has_privacy_policy ? (
+        <Link
+          className="AddonMoreInfo-privacy-policy-link"
+          href={`/addon/${addon.slug}/privacy/`}
+        >
+          {i18n.gettext('Read the privacy policy for this add-on')}
+        </Link>
+      ) : null,
+      eulaLink: addon.has_eula ? (
+        <Link
+          className="AddonMoreInfo-eula-link"
+          href={`/addon/${addon.slug}/eula/`}
+        >
+          {i18n.gettext('Read the license agreement for this add-on')}
+        </Link>
+      ) : null,
+      versionHistoryLink: addonHasVersionHistory(addon) ? (
+        <li>
+          <Link
+            className="AddonMoreInfo-version-history-link"
+            href={`/addon/${addon.slug}/versions/`}
+          >
+            {i18n.gettext('See all versions')}
+          </Link>
+        </li>
+      ) : null,
+      // Since current_beta_version is just an alias to the latest beta,
+      // we can assume that no betas exist at all if it is null.
+      betaVersionsLink: addon.current_beta_version ? (
+        <li>
+          <Link
+            className="AddonMoreInfo-beta-versions-link"
+            href={`/addon/${addon.slug}/versions/beta`}
+          >
+            {i18n.gettext('See all beta versions')}
+          </Link>
+        </li>
+      ) : null,
+    });
+  }
+
+  renderDefinitions({
+    homepage = null,
+    supportUrl = null,
+    supportEmail = null,
+    statsLink = null,
+    privacyPolicyLink = null,
+    eulaLink = null,
+    version = null,
+    versionLastUpdated,
+    versionLicenseLink = null,
+    versionHistoryLink = null,
+    betaVersionsLink = null,
+  }: Object) {
+    const { i18n } = this.props;
     return (
-      <dl className="AddonMoreInfo-contents">
-        {homepage || supportUrl ? (
-          <dt className="AddonMoreInfo-links-title">
-            {i18n.gettext('Add-on Links')}
-          </dt>
-        ) : null}
-        {homepage || supportUrl ? (
-          <dd className="AddonMoreInfo-links-contents">
+      <DefinitionList className="AddonMoreInfo-dl">
+        {(homepage || supportUrl || supportEmail) && (
+          <Definition
+            className="AddonMoreInfo-links"
+            term={i18n.gettext('Add-on Links')}
+          >
             <ul className="AddonMoreInfo-links-contents-list">
               {homepage}
               {supportUrl}
+              {supportEmail}
             </ul>
-          </dd>
-        ) : null}
-        <dt>{i18n.gettext('Version')}</dt>
-        <dd className="AddonMoreInfo-version">
-          {addon.current_version.version}
-        </dd>
-        <dt>{i18n.gettext('Last updated')}</dt>
-        <dd>
-          {i18n.sprintf(
-            // translators: This will output, in English:
-            // "2 months ago (Dec 12 2016)"
-            i18n.gettext('%(timeFromNow)s (%(date)s)'), {
-              timeFromNow: i18n.moment(addon.last_updated).fromNow(),
-              date: i18n.moment(addon.last_updated).format('ll'),
-            }
-          )}
-        </dd>
-        {addon.current_version.license ? (
-          <dt className="AddonMoreInfo-license-title">
-            {i18n.gettext('License')}
-          </dt>
-        ) : null}
-        {addon.current_version.license ? (
-          <dd>
-            <a
-              className="AddonMoreInfo-license-link"
-              href={addon.current_version.license.url}
-            >
-              {addon.current_version.license.name}
-            </a>
-          </dd>
-        ) : null}
-        {addon.has_privacy_policy ? (
-          <dt className="AddonMoreInfo-privacy-policy-title">
-            {i18n.gettext('Privacy Policy')}
-          </dt>
-        ) : null}
-        {addon.has_privacy_policy ? (
-          <dd>
-            <Link
-              className="AddonMoreInfo-privacy-policy-link"
-              href={`/addon/${addon.slug}/privacy/`}
-            >
-              {i18n.gettext('Read the privacy policy for this add-on')}
-            </Link>
-          </dd>
-        ) : null}
-        {addon.has_eula ? (
-          <dt className="AddonMoreInfo-eula-title">
-            {i18n.gettext('End-User License Agreement')}
-          </dt>
-        ) : null}
-        {addon.has_eula ? (
-          <dd>
-            <Link
-              className="AddonMoreInfo-eula-link"
-              href={`/addon/${addon.slug}/eula/`}
-            >
-              {i18n.gettext('Read the license agreement for this add-on')}
-            </Link>
-          </dd>
-        ) : null}
-        {addon.id ? (
-          <dt
-            className="AddonMoreInfo-database-id-title"
-            title={i18n.gettext(`This ID is useful for debugging and
-              identifying your add-on to site administrators.`)}
+          </Definition>
+        )}
+        {(version) && (
+          <Definition
+            className="AddonMoreInfo-version"
+            term={i18n.gettext('Version')}
           >
-            {i18n.gettext('Site Identifier')}
-          </dt>
-        ) : null}
-        {addon.id ? (
-          <dd className="AddonMoreInfo-database-id-content">
-            {addon.id}
-          </dd>
-        ) : null}
-      </dl>
+            {version}
+          </Definition>
+        )}
+        <Definition
+          className="AddonMoreInfo-last-updated"
+          term={i18n.gettext('Last updated')}
+        >
+          {versionLastUpdated}
+        </Definition>
+        {(versionLicenseLink) && (
+          <Definition
+            className="AddonMoreInfo-license"
+            term={i18n.gettext('License')}
+          >
+            {versionLicenseLink}
+          </Definition>
+        )}
+        {(privacyPolicyLink) && (
+          <Definition
+            className="AddonMoreInfo-privacy-policy"
+            term={i18n.gettext('Privacy Policy')}
+          >
+            {privacyPolicyLink}
+          </Definition>
+        )}
+        {(eulaLink) && (
+          <Definition
+            className="AddonMoreInfo-eula"
+            term={i18n.gettext('End-User License Agreement')}
+          >
+            {eulaLink}
+          </Definition>
+        )}
+        {(versionHistoryLink || betaVersionsLink) && (
+          <Definition
+            className="AddonMoreInfo-version-history"
+            term={i18n.gettext('Version History')}
+          >
+            <ul className="AddonMoreInfo-links-contents-list">
+              {versionHistoryLink}
+              {betaVersionsLink}
+            </ul>
+          </Definition>
+        )}
+        {(statsLink) && (
+          <Definition
+            className="AddonMoreInfo-stats"
+            term={i18n.gettext('Usage Statistics')}
+          >
+            {statsLink}
+          </Definition>
+        )}
+      </DefinitionList>
     );
   }
 
@@ -164,6 +259,14 @@ export class AddonMoreInfoBase extends React.Component {
   }
 }
 
+export const mapStateToProps = (state: {| users: UsersStateType |}) => {
+  return {
+    userId: state.users.currentUserID,
+    hasStatsPermission: hasPermission(state, STATS_VIEW),
+  };
+};
+
 export default compose(
+  connect(mapStateToProps),
   translate(),
 )(AddonMoreInfoBase);

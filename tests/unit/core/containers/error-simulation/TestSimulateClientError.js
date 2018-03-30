@@ -1,9 +1,9 @@
-import React from 'react';
+import * as React from 'react';
 import { findDOMNode } from 'react-dom';
 import {
   Simulate,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import { SimulateClientErrorBase } from
   'core/containers/error-simulation/SimulateClientError';

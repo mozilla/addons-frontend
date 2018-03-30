@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 
 import Footer, { FooterBase } from 'disco/components/Footer';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 function render(props = {}) {
   return shallowUntilTarget(
-    <Footer i18n={getFakeI18nInst()} {...props} />, FooterBase
+    <Footer i18n={fakeI18n()} {...props} />, FooterBase
   );
 }
 

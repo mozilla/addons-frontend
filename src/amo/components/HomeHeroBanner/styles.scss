@@ -1,0 +1,77 @@
+@import "~core/css/inc/vars";
+
+/* stylelint-disable indentation */
+$colors-first-item:  ("violet", #7950f2, #6741d9)
+                     ("grape", #be4bdb, #ae3ec9);
+$colors-second-item: ("indigo", #4c6ef5, #3b5bdb)
+                     ("blue", #228ae6, #1b6ec2);
+$colors-third-item:  ("cyan", #15aabf, #1098ad)
+                     ("teal", #12b886, #0ca678);
+
+/* stylelint-enable indentation */
+
+@function encodeColor($string) {
+  @if type-of($string) == "color" {
+    $hex: str-slice(ie-hex-str($string), 4);
+    $string:unquote("#{$hex}");
+  }
+
+  $string: "%23" + $string;
+
+  @return $string;
+}
+
+@mixin bubbles($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin polka-dots($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin floor-tile($foreground, $background) {
+  background-color: $background;
+  background-image: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 10h10v10H0V10zM10 0h10v10H10V0z' fill='#{encodeColor($foreground)}' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+@mixin hover($background) {
+  transition: background-color $transition-short ease-in-out;
+
+  &:hover {
+    background-color: darken($background, 20%);
+  }
+}
+
+.HeroSection {
+  &:nth-child(1) {
+    $color: nth($colors-first-item, 1);
+    $bg-color: nth($color, 2);
+    $fg-color: nth($color, 3);
+
+    @include hover($bg-color);
+
+    @include bubbles($fg-color, $bg-color);
+  }
+
+  &:nth-child(2) {
+    $color: nth($colors-second-item, 1);
+    $bg-color: nth($color, 2);
+    $fg-color: nth($color, 3);
+
+    @include hover($bg-color);
+
+    @include polka-dots($fg-color, $bg-color);
+  }
+
+  &:nth-child(3) {
+    $color: nth($colors-third-item, 1);
+    $bg-color: nth($color, 2);
+    $fg-color: nth($color, 3);
+
+    @include hover($bg-color);
+
+    @include floor-tile($fg-color, $bg-color);
+  }
+}

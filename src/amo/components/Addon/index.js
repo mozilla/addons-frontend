@@ -1,36 +1,56 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
+import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 
 import { setViewContext } from 'amo/actions/viewContext';
+import AddAddonToCollection from 'amo/components/AddAddonToCollection';
+import AddonBadges from 'amo/components/AddonBadges';
+import AddonsCard from 'amo/components/AddonsCard';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
-import { fetchAddon } from 'core/reducers/addons';
-import { withErrorHandler } from 'core/errorHandler';
+import {
+  fetchAddonsByAuthors,
+  getAddonsForSlug,
+} from 'amo/reducers/addonsByAuthors';
+import {
+  fetchAddon,
+  getAddonByID,
+  getAddonBySlug,
+} from 'core/reducers/addons';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
-  getClientCompatibility as _getClientCompatibility,
+  nl2br,
   sanitizeHTML,
   sanitizeUserHTML,
 } from 'core/utils';
+import {
+  getClientCompatibility as _getClientCompatibility,
+} from 'core/utils/compatibility';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -39,8 +59,6 @@ import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
-import Badge from 'ui/components/Badge';
-import AddonsCard from 'amo/components/AddonsCard';
 
 import './styles.scss';
 
@@ -50,12 +68,17 @@ export class AddonBase extends React.Component {
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
+    // This prop is passed in by withInstallHelpers()
+    defaultInstallSource: PropTypes.string.isRequired,
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
+    platformFiles: PropTypes.object,
     isPreviewingTheme: PropTypes.bool.isRequired,
+    lang: PropTypes.string.isRequired,
+    // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
     resetThemePreview: PropTypes.func.isRequired,
@@ -69,14 +92,17 @@ export class AddonBase extends React.Component {
 
   static defaultProps = {
     RatingManager: DefaultRatingManager,
+    platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
   }
 
   componentWillMount() {
     const {
       addon,
+      clientApp,
       dispatch,
       errorHandler,
+      lang,
       params,
     } = this.props;
 
@@ -84,8 +110,19 @@ export class AddonBase extends React.Component {
     // of an error.
     if (!errorHandler.hasError()) {
       if (addon) {
+        // eslint-disable-next-line no-restricted-globals
+        if (!isNaN(params.slug)) {
+          // We only load add-ons by slug, but ID must be supported too because
+          // it is a legacy behavior.
+          dispatch(sendServerRedirect({
+            status: 301,
+            url: `/${lang}/${clientApp}/addon/${addon.slug}/`,
+          }));
+          return;
+        }
+
         dispatch(setViewContext(addon.type));
-        this.dispatchFetchOtherAddonsByAuthors({ addon });
+        this.dispatchFetchAddonsByAuthors({ addon });
       } else {
         dispatch(fetchAddon({ slug: params.slug, errorHandler }));
       }
@@ -105,7 +142,7 @@ export class AddonBase extends React.Component {
     }
 
     if (newAddon && oldAddon !== newAddon) {
-      this.dispatchFetchOtherAddonsByAuthors({ addon: newAddon });
+      this.dispatchFetchAddonsByAuthors({ addon: newAddon });
     }
   }
 
@@ -125,27 +162,14 @@ export class AddonBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  getFeaturedText(addonType) {
-    const { i18n } = this.props;
-
-    switch (addonType) {
-      case ADDON_TYPE_EXTENSION:
-        return i18n.gettext('Featured Extension');
-      case ADDON_TYPE_THEME:
-        return i18n.gettext('Featured Theme');
-      default:
-        return i18n.gettext('Featured Add-on');
-    }
-  }
-
-  dispatchFetchOtherAddonsByAuthors({ addon }) {
+  dispatchFetchAddonsByAuthors({ addon }) {
     const { dispatch, errorHandler } = this.props;
 
-    dispatch(fetchOtherAddonsByAuthors({
+    dispatch(fetchAddonsByAuthors({
       addonType: addon.type,
       authors: addon.authors.map((author) => author.username),
       errorHandlerId: errorHandler.id,
-      slug: addon.slug,
+      forAddonSlug: addon.slug,
     }));
   }
 
@@ -176,7 +200,8 @@ export class AddonBase extends React.Component {
         >
           {installStatus !== ENABLED ? (
             <Button
-              className="Addon-theme-header-label Button--action"
+              buttonType="action"
+              className="Addon-theme-header-label"
               disabled={!compatible}
               htmlFor="Addon-theme-header"
             >
@@ -200,8 +225,26 @@ export class AddonBase extends React.Component {
     let content;
     let footerPropName = 'footerText';
 
-    if (addon && addon.ratings.count) {
-      const count = addon.ratings.count;
+    let ratingManager;
+    if (addon && addon.current_version) {
+      ratingManager = (
+        <RatingManager
+          addon={addon}
+          location={location}
+          version={addon.current_version}
+        />
+      );
+    } else {
+      ratingManager = (
+        <p className="Addon-no-rating-manager">
+          {i18n.gettext(`This add-on cannot be rated because no versions
+            have been published.`)}
+        </p>
+      );
+    }
+
+    if (addon && addon.ratings.text_count) {
+      const count = addon.ratings.text_count;
       const linkText = i18n.sprintf(
         i18n.ngettext('Read %(count)s review', 'Read all %(count)s reviews', count),
         { count: i18n.formatNumber(count) },
@@ -232,36 +275,51 @@ export class AddonBase extends React.Component {
         className="Addon-overall-rating"
         {...props}
       >
-        {addon ?
-          <RatingManager
-            addon={addon}
-            location={location}
-            version={addon.current_version}
-          /> : null
-        }
+        {ratingManager}
       </Card>
     );
   }
 
   renderShowMoreCard() {
     const { addon, i18n } = this.props;
-    const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
+    let title;
     const descriptionProps = {};
+
     if (addon) {
-      const description =
-        addon.description ? addon.description : addon.summary;
+      switch (addon.type) {
+        case ADDON_TYPE_DICT:
+          title = i18n.gettext('About this dictionary');
+          break;
+        case ADDON_TYPE_EXTENSION:
+          title = i18n.gettext('About this extension');
+          break;
+        case ADDON_TYPE_LANG:
+          title = i18n.gettext('About this language pack');
+          break;
+        case ADDON_TYPE_OPENSEARCH:
+          title = i18n.gettext('About this search plugin');
+          break;
+        case ADDON_TYPE_THEME:
+          title = i18n.gettext('About this theme');
+          break;
+        default:
+          title = i18n.gettext('About this add-on');
+      }
+
+      const description = addon.description ? addon.description : addon.summary;
       if (!description || !description.length) {
         return null;
       }
       descriptionProps.dangerouslySetInnerHTML = sanitizeUserHTML(description);
     } else {
+      title = <LoadingText width={40} />;
       descriptionProps.children = <LoadingText width={100} />;
     }
 
     return (
       <ShowMoreCard
-        header={i18n.sprintf(i18n.gettext('About this %(addonType)s'), { addonType })}
+        header={title}
         className="AddonDescription"
       >
         <div
@@ -293,7 +351,7 @@ export class AddonBase extends React.Component {
     /* eslint-disable react/no-danger */
     return (
       <ShowMoreCard className="AddonDescription-version-notes" header={header}>
-        <p dangerouslySetInnerHTML={releaseNotes} />
+        <div dangerouslySetInnerHTML={releaseNotes} />
       </ShowMoreCard>
     );
     /* eslint-enable react/no-danger */
@@ -321,7 +379,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       case ADDON_TYPE_EXTENSION:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -332,7 +389,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       case ADDON_TYPE_LANG:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -343,7 +399,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       case ADDON_TYPE_THEME:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -354,7 +409,6 @@ export class AddonBase extends React.Component {
           authorNames.length
         );
         break;
-
       default:
         header = i18n.ngettext(
           i18n.sprintf(
@@ -366,7 +420,7 @@ export class AddonBase extends React.Component {
         );
     }
 
-    const classnames = classNames('AddonDescription-more-addons', {
+    const classnames = makeClassName('AddonDescription-more-addons', {
       'AddonDescription-more-addons--theme': addonType === ADDON_TYPE_THEME,
     });
 
@@ -375,7 +429,6 @@ export class AddonBase extends React.Component {
         addons={addonsByAuthors}
         className={classnames}
         header={header}
-        showMetadata={false}
         showSummary={false}
         type="horizontal"
       />
@@ -387,6 +440,7 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      defaultInstallSource,
       errorHandler,
       getClientCompatibility,
       i18n,
@@ -397,13 +451,16 @@ export class AddonBase extends React.Component {
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
-      // A 401 is made to look like a 404 on purpose.
-      // See https://github.com/mozilla/addons-frontend/issues/3061
+
+      // 401 and 403 are made to look like a 404 on purpose.
+      // See: https://github.com/mozilla/addons-frontend/issues/3061.
       if (errorHandler.capturedError.responseStatusCode === 401 ||
+          errorHandler.capturedError.responseStatusCode === 403 ||
           errorHandler.capturedError.responseStatusCode === 404
       ) {
-        return <NotFound />;
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
       }
+
       // Show a list of errors at the top of the add-on section.
       errorBanner = errorHandler.renderError();
     }
@@ -411,19 +468,31 @@ export class AddonBase extends React.Component {
     const addonType = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     const summaryProps = {};
+    let showSummary = false;
     if (addon) {
       // Themes lack a summary so we do the inverse :-/
       // TODO: We should file an API bug about this...
       const summary = addon.summary ? addon.summary : addon.description;
-      summaryProps.dangerouslySetInnerHTML = sanitizeHTML(summary, ['a']);
+
+      if (summary && summary.length) {
+        summaryProps.dangerouslySetInnerHTML = sanitizeHTML(
+          nl2br(summary), ['a', 'br']);
+        showSummary = true;
+      }
     } else {
       summaryProps.children = <LoadingText width={100} />;
+      showSummary = true;
     }
 
     const titleProps = {};
     if (addon) {
-      const authorList = addon.authors.map(
-        (author) => `<a href="${author.url}">${author.name}</a>`);
+      const authorList = addon.authors.map((author) => {
+        if (author.url) {
+          return `<a href="${author.url}">${author.name}</a>`;
+        }
+
+        return author.name;
+      });
       const title = i18n.sprintf(
         // translators: Example: The Add-On <span>by The Author</span>
         i18n.gettext('%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s'), {
@@ -441,92 +510,106 @@ export class AddonBase extends React.Component {
     const addonPreviews = addon ? addon.previews : [];
 
     let isCompatible = false;
-    let isFeatured = false;
-    let isRestartRequired = false;
     let compatibility;
     if (addon) {
       compatibility = getClientCompatibility({
         addon, clientApp, userAgentInfo,
       });
       isCompatible = compatibility.compatible;
-      isFeatured = addon.is_featured;
-      isRestartRequired = addon.isRestartRequired;
     }
 
     const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
 
     return (
       <div
-        className={classNames('Addon', `Addon-${addonType}`, {
+        className={makeClassName('Addon', `Addon-${addonType}`, {
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
+        data-site-identifier={addon ? addon.id : null}
       >
+        {addon && (
+          <Helmet>
+            <title>{addon.name}</title>
+          </Helmet>
+        )}
+
         {errorBanner}
-        <Card className="" photonStyle>
-          <header className="Addon-header">
-            <h1 className="Addon-title" {...titleProps} />
-            <p className="Addon-summary" {...summaryProps} />
+        <div className="Addon-header-wrapper">
+          <Card className="Addon-header-info-card" photonStyle>
+            {compatibility && !isCompatible ? (
+              <AddonCompatibilityError
+                className="Addon-header-compatibility-error"
+                maxVersion={compatibility.maxVersion}
+                minVersion={compatibility.minVersion}
+                reason={compatibility.reason}
+              />
+            ) : null}
+            <header className="Addon-header">
+              {this.headerImage({ compatible: isCompatible })}
 
-            <div className="Addon-badges">
-              {isFeatured ? (
-                <Badge
-                  type="featured"
-                  label={this.getFeaturedText(addonType)}
-                />
-              ) : null}
-              {isRestartRequired ? (
-                <Badge
-                  type="restart-required"
-                  label={i18n.gettext('Restart Required')}
-                />
-              ) : null}
-            </div>
+              <h1 className="Addon-title" {...titleProps} />
 
-            {addon ?
-              <InstallButton
-                {...this.props}
-                className="Button--action Button--small"
-                disabled={!isCompatible}
-                ref={(ref) => { this.installButton = ref; }}
-                status={installStatus}
-              /> : null
-            }
+              <AddonBadges addon={addon} />
 
-            {this.headerImage({ compatible: isCompatible })}
+              <div className="Addon-summary-and-install-button-wrapper">
+                {showSummary ?
+                  <p className="Addon-summary" {...summaryProps} /> : null}
 
-            <h2 className="visually-hidden">
-              {i18n.gettext('Extension Metadata')}
-            </h2>
+                {addon ?
+                  <InstallButton
+                    {...this.props}
+                    disabled={!isCompatible}
+                    ref={(ref) => { this.installButton = ref; }}
+                    defaultInstallSource={defaultInstallSource}
+                    status={installStatus}
+                    useButton
+                  /> : null
+                }
+              </div>
 
+              <h2 className="visually-hidden">
+                {i18n.gettext('Extension Metadata')}
+              </h2>
+            </header>
+          </Card>
+
+          <Card className="Addon-header-meta-and-ratings" photonStyle>
             <AddonMeta addon={addon} />
-          </header>
-
-          {compatibility && !isCompatible ? (
-            <AddonCompatibilityError
-              maxVersion={compatibility.maxVersion}
-              minVersion={compatibility.minVersion}
-              reason={compatibility.reason}
-            />
-          ) : null}
-        </Card>
+          </Card>
+        </div>
 
         <div className="Addon-details">
-          {addonPreviews.length > 0 ? (
-            <Card
-              className="Addon-screenshots"
-              header={i18n.gettext('Screenshots')}
-            >
-              <ScreenShots previews={addonPreviews} />
-            </Card>
-          ) : null}
+          <div className="Addon-main-content">
+            {addonType === ADDON_TYPE_THEME ?
+              this.renderMoreAddonsByAuthors() : null}
 
-          {this.renderShowMoreCard()}
+            {addonPreviews.length > 0 ? (
+              <Card
+                className="Addon-screenshots"
+                header={i18n.gettext('Screenshots')}
+              >
+                <ScreenShots previews={addonPreviews} />
+              </Card>
+            ) : null}
+
+            {this.renderShowMoreCard()}
+          </div>
+
           {this.renderRatingsCard()}
 
+          <ContributeCard addon={addon} />
+
+          <AddAddonToCollection addon={addon} />
+
           <AddonMoreInfo addon={addon} />
+
+          <PermissionsCard addon={addon} />
+
           {this.renderVersionReleaseNotes()}
-          {this.renderMoreAddonsByAuthors()}
+
+          {addonType !== ADDON_TYPE_THEME ?
+            this.renderMoreAddonsByAuthors() : null}
         </div>
       </div>
     );
@@ -536,13 +619,20 @@ export class AddonBase extends React.Component {
 
 export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
-  const addon = state.addons[slug];
+  let addon = getAddonBySlug(state, slug);
+
+  // It is possible to load an add-on by its ID but in the routing parameters,
+  // the parameter is always named `slug`.
+  // eslint-disable-next-line no-restricted-globals
+  if (slug && !isNaN(slug)) {
+    addon = getAddonByID(state, slug);
+  }
 
   let addonsByAuthors;
   let installedAddon = {};
 
   if (addon) {
-    addonsByAuthors = state.addonsByAuthors.byAddonSlug[addon.slug];
+    addonsByAuthors = getAddonsForSlug(state.addonsByAuthors, addon.slug);
     installedAddon = state.installations[addon.guid] || {};
   }
 
@@ -558,19 +648,26 @@ export function mapStateToProps(state, ownProps) {
     // properties from addon.theme_data (which are spread onto addon) and
     // maybe others.
     ...addon,
+    platformFiles: addon ? addon.platformFiles : {},
     // The withInstallHelpers HOC also needs to access some properties in
     // here like guid and probably others.
     ...installedAddon,
     installStatus: installedAddon.status || UNKNOWN,
     clientApp: state.api.clientApp,
+    lang: state.api.lang,
     userAgentInfo: state.api.userAgentInfo,
     addonsByAuthors,
   };
 }
 
+export const extractId = (ownProps) => {
+  return ownProps.params.slug;
+};
+
 export default compose(
+  withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ src: 'dp-btn-primary' }),
-  withErrorHandler({ name: 'Addon' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

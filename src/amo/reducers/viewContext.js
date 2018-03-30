@@ -4,13 +4,14 @@ import {
   ADDON_TYPE_THEME,
   VIEW_CONTEXT_EXPLORE,
   VIEW_CONTEXT_HOME,
+  VIEW_CONTEXT_LANGUAGE_TOOLS,
   SET_VIEW_CONTEXT,
 } from 'core/constants';
 
 
 export type ViewContextType = {|
   context: ADDON_TYPE_EXTENSION | ADDON_TYPE_THEME | VIEW_CONTEXT_EXPLORE |
-    VIEW_CONTEXT_HOME,
+    VIEW_CONTEXT_HOME | VIEW_CONTEXT_LANGUAGE_TOOLS,
 |}
 
 export type ViewContextActionType = {|

@@ -1,15 +1,15 @@
 /* global document, window */
 /* eslint-disable jsx-a11y/href-no-hash */
 
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 import 'react-photoswipe/lib/photoswipe.css';
 
 import 'amo/css/ScreenShots.scss';
 
-const HEIGHT = 200;
-const WIDTH = 320;
+export const HEIGHT = 1024;
+export const WIDTH = 1366; // This is the same as our $max-content-width;
 const PHOTO_SWIPE_OPTIONS = {
   closeEl: true,
   captionEl: true,
@@ -44,7 +44,7 @@ const formatPreviews = (previews) => (
 );
 
 export const thumbnailContent = (item) => (
-  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" />
+  <img src={item.src} className="ScreenShots-image" height={HEIGHT} width={WIDTH} alt="" title={item.title} />
 );
 
 export default class ScreenShots extends React.Component {

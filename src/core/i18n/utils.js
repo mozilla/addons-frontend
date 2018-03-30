@@ -131,6 +131,7 @@ export function parseAcceptLanguage(header: string) {
     let q = 1;
     if (parts.length > 1 && parts[1].trim().indexOf('q=') === 0) {
       const qVal = parseFloat(parts[1].split('=')[1]);
+      // eslint-disable-next-line no-restricted-globals
       if (isNaN(qVal) === false) {
         q = qVal;
       }
@@ -162,7 +163,6 @@ export function getLangFromHeader(
   let userLang;
   if (acceptLanguage) {
     const langList = parseAcceptLanguage(acceptLanguage);
-    // eslint-disable-next-line no-restricted-syntax
     for (const langPref of langList) {
       if (isSupportedLang(normalizeLang(langPref.lang), { _supportedLangs })) {
         userLang = langPref.lang;
@@ -276,19 +276,29 @@ export function makeI18n(
   // localised dates, times, etc.
   if (i18n.options && typeof i18n.options._momentDefineLocale === 'function') {
     i18n.options._momentDefineLocale();
-    moment.locale(makeMomentLocale(i18n.lang));
   }
 
-  // Wrap the core Jed functionality so that we can always strip leading whitespace
-  // from translation keys to match the same process used in extraction.
+  // Wrap the core Jed functionality so that we can always strip leading
+  // whitespace from translation keys to match the same process used in
+  // extraction.
   i18n._dcnpgettext = i18n.dcnpgettext;
   i18n.dcnpgettext = function dcnpgettext(domain, context, singularKey, pluralKey, val) {
     return i18n._dcnpgettext(domain, context, oneLineTranslationString(singularKey),
       oneLineTranslationString(pluralKey), val);
   };
 
-  // We add a translated "moment" property to our `i18n` object
-  // to make translated date/time/etc. easy.
-  i18n.moment = moment;
+  const momentLocale = makeMomentLocale(i18n.lang);
+
+  // We add a translated "moment" property to our `i18n` object to make
+  // translated date/time/etc. easy.
+  i18n.moment = (...params) => {
+    const scopedMoment = moment(...params);
+
+    // This also makes sure moment always uses the current locale.
+    scopedMoment.locale(momentLocale);
+
+    return scopedMoment;
+  };
+
   return i18n;
 }

@@ -1,7 +1,7 @@
 /* @flow */
 /* global $PropertyType */
 import classnames from 'classnames';
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
@@ -16,10 +16,11 @@ import { getCategoryColor, visibleAddonType } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
-type CategoryType = {
+type CategoryType = {|
   application: string,
   description?: string,
   id: number,
@@ -28,7 +29,7 @@ type CategoryType = {
   slug: string,
   type: string,
   weight: number,
-};
+|};
 
 type CategoriesStateType = {|
   categories: {
@@ -39,18 +40,18 @@ type CategoriesStateType = {|
   loading: boolean,
 |};
 
-type CategoriesProps = {
+type Props = {
   addonType: string,
   className: string,
   clientApp: string,
   categoriesState?: $PropertyType<CategoriesStateType, 'categories'>,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  i18n: Object,
+  i18n: I18nType,
   loading: boolean,
 }
 
-export class CategoriesBase extends React.Component {
+export class CategoriesBase extends React.Component<Props> {
   componentWillMount() {
     const {
       addonType, categoriesState, dispatch, errorHandler, loading,
@@ -63,14 +64,12 @@ export class CategoriesBase extends React.Component {
     dispatch(setViewContext(addonType));
   }
 
-  componentWillReceiveProps({ addonType: newAddonType }: CategoriesProps) {
+  componentWillReceiveProps({ addonType: newAddonType }: Props) {
     const { addonType: oldAddonType, dispatch } = this.props;
     if (oldAddonType !== newAddonType) {
       dispatch(setViewContext(newAddonType));
     }
   }
-
-  props: CategoriesProps;
 
   render() {
     /* eslint-disable react/no-array-index-key */
@@ -117,7 +116,6 @@ export class CategoriesBase extends React.Component {
                 <LoadingText
                   className="Categories-loading-text"
                   key={`Categories-loading-text-${index}`}
-                  maxWidth={20}
                   range={3}
                 />
               );
@@ -130,9 +128,7 @@ export class CategoriesBase extends React.Component {
               // See https://github.com/facebook/flow/issues/2174
               // and https://github.com/facebook/flow/issues/2221
               // $FLOW_IGNORE
-              const name = category.name;
-              // $FLOW_IGNORE
-              const slug = category.slug;
+              const { name, slug } = category;
 
               return (
                 <li className="Categories-item" key={name}>

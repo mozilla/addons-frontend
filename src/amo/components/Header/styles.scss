@@ -12,13 +12,13 @@
   padding: 0 12px;
 
   @include respond-to(medium) {
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr;
     min-height: 98px;
     padding: 0 $header-footer-gutter 10px;
   }
 
-  @include respond-to(large) {
-    grid-template-columns: max-content auto auto;
+  @include respond-to(extraLarge) {
+    grid-template-columns: max-content 1fr 1fr;
     grid-template-rows: 46px auto;
     margin: 0 auto;
     max-width: $max-content-width;
@@ -41,12 +41,11 @@
     @include text-align-start();
 
     align-self: end;
-    grid-column: 1 / 3;
     grid-row: 1 / 2;
-    margin: 24px 0 0;
+    margin: 48px 0 0;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     @include margin-end(24px);
 
     align-self: center;
@@ -56,24 +55,7 @@
   }
 }
 
-.Header-addons-icon {
-  @include margin-end(14px);
-
-  height: 32px;
-  vertical-align: bottom;
-  width: 32px;
-
-  @include respond-to(medium) {
-    vertical-align: middle;
-  }
-
-  @include respond-to(large) {
-    vertical-align: bottom;
-  }
-}
-
 .Header-title-wrapper {
-  font-size: $font-size-l;
   margin: 0;
 }
 
@@ -81,31 +63,42 @@
   &,
   &:link {
     color: $white;
-    font-size: $font-size-l;
-    font-weight: 300;
-    margin: 0;
-    text-decoration: none;
+  }
 
-    @include respond-to(extraLarge) {
-      font-size: $font-size-header-title;
-    }
+  background-image: url("./styles/firefox-addons-min.svg");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 225px 48px;
+  display: block;
+  height: 48px;
+  margin: 0;
+  width: 100%;
+
+  @include respond-to(medium) {
+    background-position: left bottom;
+    width: 225px;
+  }
+
+  @include respond-to(extraExtraLarge) {
+    background-size: 300px 64px;
+    height: 64px;
+    width: 300px;
   }
 }
 
 .Header-user-and-external-links {
-  @include margin-start(auto);
   @include text-align-end();
 
   grid-column: 3 / span 2;
   grid-row: 1 / 2;
-  margin-top: 11px;
+  margin-top: 10px;
 
   @include respond-to(medium) {
     grid-column: 4 / -1;
     grid-row: 1 / 2;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     grid-column: 2 / -1;
     grid-row: 1 / 2;
   }
@@ -113,7 +106,7 @@
 
 .Header-button {
   margin-bottom: 12px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 .Header-developer-hub-link {
@@ -128,6 +121,7 @@
       display: inline-block;
       font-size: $font-size-s;
       font-weight: normal;
+      padding-top: 4px;
       text-decoration: none;
     }
   }
@@ -142,10 +136,21 @@
 }
 
 .Header-SectionLinks {
+  align-items: baseline;
   grid-column: 1 / span 4;
   grid-row: 3 / 4;
   margin: 16px auto 1px;
+  min-height: 28px;
   z-index: 4;
+
+  .DropdownMenu-button-text {
+    overflow: visible;
+    padding-bottom: 3px;
+  }
+
+  .Icon-inverted-caret {
+    height: 9px;
+  }
 
   @include respond-to(medium) {
     @include margin-start(-12px);
@@ -153,16 +158,14 @@
     align-self: end;
     grid-column: 1 / 3;
     grid-row: 2 / 2;
-    margin: 0;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     @include margin-end(12px);
 
     align-self: center;
     grid-column: 2;
-    grid-row: 2 / 2;
-    margin: 20px 0 6px;
+    margin: 22px 0 0;
     padding: 0;
   }
 }
@@ -170,23 +173,21 @@
 .Header-search-form {
   grid-column: 1 / 2;
   grid-row: 1 / 3;
+  justify-self: end;
   margin: 10px 0 0;
   min-width: 144px;
 
   @include respond-to(medium) {
-    @include margin-start(auto);
-
     grid-column: 3 / 3;
     grid-row: 2 / 2;
-    margin-top: 0;
+    margin-top: 6px;
     max-width: 250px;
   }
 
-  @include respond-to(large) {
+  @include respond-to(extraLarge) {
     align-self: center;
-    margin-top: 6px;
+    margin: 0;
     max-width: 284px;
-    min-width: 144px;
     width: 100%;
   }
 }

@@ -1,5 +1,5 @@
 import { oneLine } from 'common-tags';
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
@@ -8,6 +8,9 @@ import { compose } from 'redux';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
+  SEARCH_SORT_TRENDING,
   OS_LINUX,
   OS_MAC,
   OS_WINDOWS,
@@ -17,6 +20,7 @@ import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { convertFiltersToQueryParams } from 'core/searchUtils';
 import ExpandableCard from 'ui/components/ExpandableCard';
+import Select from 'ui/components/Select';
 
 import './styles.scss';
 
@@ -36,7 +40,7 @@ export class SearchFiltersBase extends React.Component {
   onSelectElementChange = (event) => {
     event.preventDefault();
 
-    const { clientApp, filters, lang, pathname, router } = this.props;
+    const { filters } = this.props;
     const newFilters = { ...filters };
 
     // Get the filter we're supposed to change and set it.
@@ -54,13 +58,40 @@ export class SearchFiltersBase extends React.Component {
       delete newFilters[filterName];
     }
 
-    // TODO: We do this in a few places; make a helper for it.
+    this.doSearch({ newFilters });
+
+    return false;
+  }
+
+  onChangeCheckbox = () => {
+    const { filters } = this.props;
+    const newFilters = { ...filters };
+
+    // When a checkbox changes, we want to invert its previous value.
+    // If it was checked, then we remove the filter since the API only supports
+    // `featured=true`, otherwise we set this filter.
+    if (filters.featured) {
+      delete newFilters.featured;
+    } else {
+      newFilters.featured = true;
+    }
+
+    this.doSearch({ newFilters });
+  }
+
+  doSearch({ newFilters }) {
+    const { clientApp, lang, pathname, router } = this.props;
+
+    if (newFilters.page) {
+      // Since it's now a new search, reset the page.
+      // eslint-disable-next-line
+      newFilters.page = 1;
+    }
+
     router.push({
       pathname: `/${lang}/${clientApp}${pathname}`,
       query: convertFiltersToQueryParams(newFilters),
     });
-
-    return false;
   }
 
   addonTypeOptions() {
@@ -90,8 +121,9 @@ export class SearchFiltersBase extends React.Component {
     return [
       { children: i18n.gettext('Relevance'), value: 'relevance' },
       { children: i18n.gettext('Recently Updated'), value: 'updated' },
-      { children: i18n.gettext('Most Users'), value: 'users' },
-      { children: i18n.gettext('Top Rated'), value: 'rating' },
+      { children: i18n.gettext('Most Users'), value: SEARCH_SORT_POPULAR },
+      { children: i18n.gettext('Top Rated'), value: SEARCH_SORT_TOP_RATED },
+      { children: i18n.gettext('Trending'), value: SEARCH_SORT_TRENDING },
     ];
   }
 
@@ -103,59 +135,82 @@ export class SearchFiltersBase extends React.Component {
         className="SearchFilters"
         header={i18n.gettext('Filter results')}
       >
-        <label
-          className="SearchFilters-label"
-          htmlFor="SearchFilters-Sort"
-        >
-          {i18n.gettext('Sort by')}
-        </label>
-        <select
-          className="SearchFilters-select"
-          id="SearchFilters-Sort"
-          name="sort"
-          onChange={this.onSelectElementChange}
-          value={filters.sort || 'relevance'}
-        >
-          {this.sortOptions().map((option) => {
-            return <option key={option.name} {...option} />;
-          })}
-        </select>
+        <form autoComplete="off">
+          <label
+            className="SearchFilters-label"
+            htmlFor="SearchFilters-Sort"
+          >
+            {i18n.gettext('Sort by')}
+          </label>
+          <Select
+            className="SearchFilters-select"
+            id="SearchFilters-Sort"
+            name="sort"
+            onChange={this.onSelectElementChange}
+            value={filters.sort || 'relevance'}
+          >
+            {this.sortOptions().map((option) => {
+              return <option key={option.value} {...option} />;
+            })}
+          </Select>
 
-        <label
-          className="SearchFilters-AddonType-label SearchFilters-label"
-          htmlFor="SearchFilters-AddonType"
-        >
-          {i18n.gettext('Add-on Type')}
-        </label>
-        <select
-          className="SearchFilters-AddonType SearchFilters-select"
-          id="SearchFilters-AddonType"
-          name="addonType"
-          onChange={this.onSelectElementChange}
-          value={filters.addonType || NO_FILTER}
-        >
-          {this.addonTypeOptions().map((option) => {
-            return <option key={option.name} {...option} />;
-          })}
-        </select>
+          {/* Categories are linked to addonType so we don't allow changing the
+            addonType if a category is set. */}
+          {!filters.category && (
+            <div>
+              <label
+                className="SearchFilters-AddonType-label SearchFilters-label"
+                htmlFor="SearchFilters-AddonType"
+              >
+                {i18n.gettext('Add-on Type')}
+              </label>
+              <Select
+                className="SearchFilters-AddonType SearchFilters-select"
+                id="SearchFilters-AddonType"
+                name="addonType"
+                onChange={this.onSelectElementChange}
+                value={filters.addonType || NO_FILTER}
+              >
+                {this.addonTypeOptions().map((option) => {
+                  return <option key={option.value} {...option} />;
+                })}
+              </Select>
+            </div>
+          )}
 
-        <label
-          className="SearchFilters-OperatingSystem-label SearchFilters-label"
-          htmlFor="SearchFilters-OperatingSystem"
-        >
-          {i18n.gettext('Operating System')}
-        </label>
-        <select
-          className="SearchFilters-OperatingSystem SearchFilters-select"
-          id="SearchFilters-OperatingSystem"
-          name="operatingSystem"
-          onChange={this.onSelectElementChange}
-          value={filters.operatingSystem || NO_FILTER}
-        >
-          {this.operatingSystemOptions().map((option) => {
-            return <option key={option.name} {...option} />;
-          })}
-        </select>
+          <label
+            className="SearchFilters-OperatingSystem-label SearchFilters-label"
+            htmlFor="SearchFilters-OperatingSystem"
+          >
+            {i18n.gettext('Operating System')}
+          </label>
+          <Select
+            className="SearchFilters-OperatingSystem SearchFilters-select"
+            id="SearchFilters-OperatingSystem"
+            name="operatingSystem"
+            onChange={this.onSelectElementChange}
+            value={filters.operatingSystem || NO_FILTER}
+          >
+            {this.operatingSystemOptions().map((option) => {
+              return <option key={option.value} {...option} />;
+            })}
+          </Select>
+
+          <input
+            className="SearchFilters-Featured"
+            checked={!!filters.featured}
+            id="SearchFilters-Featured"
+            name="featured"
+            onChange={this.onChangeCheckbox}
+            type="checkbox"
+          />
+          <label
+            className="SearchFilters-label SearchFilters-Featured-label"
+            htmlFor="SearchFilters-Featured"
+          >
+            {i18n.gettext('Featured add-ons only')}
+          </label>
+        </form>
       </ExpandableCard>
     );
   }
@@ -173,5 +228,5 @@ export default compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'Search' }),
+  withErrorHandler({ name: 'SearchFilters' }),
 )(SearchFiltersBase);

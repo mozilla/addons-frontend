@@ -1,12 +1,14 @@
-import React from 'react';
+import * as React from 'react';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
   Simulate,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import {
   findDOMNode,
 } from 'react-dom';
+
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
 
 import HoverIntent from 'core/components/HoverIntent';
 

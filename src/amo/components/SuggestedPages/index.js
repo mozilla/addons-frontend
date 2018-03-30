@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
@@ -6,7 +6,6 @@ import Link from 'amo/components/Link';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { visibleAddonType } from 'core/utils';
-
 
 export class SuggestedPagesBase extends React.Component {
   static propTypes = {
@@ -22,12 +21,12 @@ export class SuggestedPagesBase extends React.Component {
 
         <ul>
           <li>
-            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/featured/`}>
+            <Link to={`/${visibleAddonType(ADDON_TYPE_EXTENSION)}/`}>
               {i18n.gettext('Browse all extensions')}
             </Link>
           </li>
           <li>
-            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/featured/`}>
+            <Link to={`/${visibleAddonType(ADDON_TYPE_THEME)}/`}>
               {i18n.gettext('Browse all themes')}
             </Link>
           </li>
@@ -43,5 +42,5 @@ export class SuggestedPagesBase extends React.Component {
 }
 
 export default compose(
-  translate({ withRef: true }),
+  translate(),
 )(SuggestedPagesBase);

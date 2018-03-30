@@ -202,38 +202,58 @@ If you would like to use `https://addons-dev.allizom.org` for data you should us
 `yarn amo:dev` command. See the table of commands up above for similar
 hosted options.
 
-### Configuring for local development
+### Local configuration
 
-The `dev` scripts above will connect to a hosted development API by default.
-If you want to run your own
-[addons-server](https://github.com/mozilla/addons-server)
-API or make any other local changes, just add a local configuration
-file for each app. For example, to run your own discovery pane API, first create
-a local config file:
+If you need to override any settings while running `yarn amo`, `yarn amo:dev`, or `yarn amo:stage`, first create a local config file named exactly like this:
 
-    touch config/local-development-disco.js
+    touch config/local-development-amo.js
 
-Be sure to prefix the file with **local-development-** so that it doesn't pollute the
-test suite.
-Here's what `local-development-disco.js` would look like when
-overriding the `apiHost` parameter so that it points to your docker container:
+Make any config changes. For example:
 
 ```javascript
 module.exports = {
-  apiHost: 'http://olympia.dev',
+  trackingEnabled: true,
 };
 ```
 
-When you start up your front-end Discovery Pane server, it will now apply
-overrides from your local configuration file:
-
-    yarn disco
+Restart the server to see it take affect.
 
 Consult the
 [config file loading order docs](https://github.com/lorenwest/node-config/wiki/Configuration-Files#file-load-order)
 to learn more about how configuration is applied.
 
-#### Disabling CSP for local development
+### Running the Discopane for local development
+
+When running `yarn disco`, your local server will be configured for a hosted development API. If you want to run your own [addons-server](https://github.com/mozilla/addons-server) API or make any other local changes, you'll need to create a custom config file named exactly like this:
+
+    touch config/local-development-disco.js
+
+Here's what `local-development-disco.js` would look like when overriding the `apiHost` parameter so that it points to your docker container:
+
+```javascript
+module.exports = {
+  apiHost: 'http://olympia.test',
+};
+```
+
+Restart the server to see it take affect.
+
+### Configuring an Android device for local development
+
+If you want to access your local server on an Android device you will need to change a few settings. Let's say your local machine is accessible on your network at the IP address `10.0.0.1`. You could start your server like this:
+
+```
+API_HOST=http://10.0.0.1:3000 \
+    SERVER_HOST=10.0.0.1 \
+    WEBPACK_SERVER_HOST=10.0.0.1 \
+    yarn amo:dev
+```
+
+On your Android device, you could then access the development site at `http://10.0.0.1:3000`.
+
+**NOTE**: At this time, it is not possible to sign in with this configuration because the Firefox Accounts client redirects to `localhost:3000`. You may be able to try a different approach by editing `/etc/hosts` on your device so that `localhost` points to your development machine but this has not been fully tested.
+
+### Disabling CSP for local development
 
 When developing locally with a webpack server, the randomly generated asset
 URL will fail our Content Security Policy (CSP) and clutter your console
@@ -347,7 +367,7 @@ be sure to clear your cookies.
 
 ### Working with UX Mocks
 
-When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
+When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans), [Open Sans](https://www.fontsquirrel.com/fonts/open-sans) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
 
 ## What version is deployed?
 

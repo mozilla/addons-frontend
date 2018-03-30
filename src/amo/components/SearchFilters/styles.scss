@@ -9,22 +9,12 @@
 }
 
 .SearchFilters-select {
-  @include padding-end(10px);
-  @include padding-start(5px);
-
-  appearance: none;
-  background: $grey-30 url("~ui/components/Icon/triangle-down-black.svg") no-repeat calc(100% - 10px) 50%;
-  background-size: 12px;
-  border: 0;
-  border-radius: $border-radius-s;
-  display: block;
-  line-height: 1.2;
   margin: 0 0 5px;
-  padding-bottom: 10px;
-  padding-top: 10px;
   width: 100%;
+}
 
-  [dir=rtl] & {
-    background-position: 10px 50%;
-  }
+.SearchFilters-Featured-label {
+  @include margin-start(5px);
+
+  display: inline-block;
 }

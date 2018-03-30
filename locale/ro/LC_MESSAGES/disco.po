@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-12 19:30+0000\n"
-"PO-Revision-Date: 2016-07-21 23:36+0000\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
+"PO-Revision-Date: 2018-01-24 00:52+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -26,53 +26,52 @@ msgid ""
 msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr ""
 
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr ""
 
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr ""
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
-msgid "Add to Firefox"
-msgstr ""
-
-#: src/core/components/InstallButton/index.js:85
-#, fuzzy
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
-msgstr "Se instalează %(name)s."
+msgstr "Instalează tema"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
+msgid "Add to Firefox"
+msgstr "Adaugă în Firefox"
+
+#: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
 msgstr "Se descarcă %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:58
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
 msgstr "Se instalează %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s este instalat și activat. Clic pentru dezinstalare."
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s este dezactivat. Clic pentru activare."
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "Se dezinstalează %(name)s."
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s este dezinstalat. Clic pentru instalare."
 
-#: src/core/components/InstallSwitch/index.js:74
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
@@ -82,77 +81,77 @@ msgstr "Suplimentul tău e pregătit"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr "Acum poți accesa %(name)s de pe bara de unelte."
+msgstr "Acum poți accesa %(name)s de pe bara de instrumente."
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "Ok!"
 
-#: src/disco/components/Addon.js:122
+#: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
 msgstr ""
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
-msgstr ""
+msgstr "Plasează cursorul pe imagine pentru previzualizare"
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
 msgstr ""
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:178
 msgid "Download failed. Please check your connection."
 msgstr ""
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:180
 msgid "An unexpected error occurred during installation."
 msgstr "S-a produs o eroare neașteptată în timpul instalării."
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "S-a produs o eroare neașteptată în timpul dezinstalării."
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:185
 msgid "An unexpected error occurred."
 msgstr "S-a produs o eroare neașteptată."
 
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon.js:193
 msgid "This add-on will be uninstalled after you restart Firefox."
-msgstr ""
+msgstr "Acest supliment va fi dezinstalat după ce repornești Firefox."
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
-msgstr ""
+msgstr "Te rugăm să repornești Firefox pentru a folosi acest supliment."
 
-#: src/disco/components/Addon.js:83
+#: src/disco/components/Addon.js:95
 msgid "Close"
 msgstr "Închide"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
-msgstr ""
+msgstr "Firefox pentru iOS nu supportă în prezent suplimente."
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr ""
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr ""
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
-msgstr ""
+msgstr "Politica de confidențialitate"
 
 #: src/disco/containers/App.js:37
 msgid "Discover Add-ons"
 msgstr "Descoperă suplimente"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "Personalizează Firefox"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -160,20 +159,26 @@ msgid ""
 "your browser yours. To help you get started, here are some we recommend for "
 "their stand-out performance and functionality."
 msgstr ""
+"Există mii de suplimente gratuite, create de dezvoltatori din întreaga lume, "
+"pe care le poți instala pentru a personaliza Firefox. De la teme vizuale "
+"amuzante la instrumente puternice care fac navigarea mai rapidă și mai "
+"sigură, suplimentele îți creează o experiență unică în browser. Pentru a te "
+"ajuta să începi, iată câteva dintre ele pe care le recomandăm pentru "
+"performanța și funcționalitatea remarcantă a acestora."
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "Clic pentru redare"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "pentru a afla mai multe despre suplimente"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "Închide videoclipul"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "Vezi mai multe suplimente!"
 
@@ -186,6 +191,6 @@ msgstr ""
 msgid "An unexpected error occurred"
 msgstr "S-a produs o eroare neașteptată."
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr ""

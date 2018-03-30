@@ -1,8 +1,8 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { findDOMNode } from 'react-dom';
 import { findRenderedComponentWithType, renderIntoDocument }
-  from 'react-addons-test-utils';
+  from 'react-dom/test-utils';
 import { createStore, combineReducers } from 'redux';
 import { shallow } from 'enzyme';
 
@@ -10,11 +10,18 @@ import I18nProvider from 'core/i18n/Provider';
 import { createApiError } from 'core/api/index';
 import { ERROR_UNKNOWN } from 'core/constants';
 import translate from 'core/i18n/translate';
-import { clearError, setError } from 'core/actions/errors';
-import { ErrorHandler, withErrorHandler, withRenderedErrorHandler }
-  from 'core/errorHandler';
+import {
+  clearError, setError, setErrorMessage,
+} from 'core/actions/errors';
+import {
+  ErrorHandler,
+  normalizeFileNameId,
+  withErrorHandler,
+  withFixedErrorHandler,
+  withRenderedErrorHandler,
+} from 'core/errorHandler';
 import errors from 'core/reducers/errors';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 import { createFakeApiError } from 'tests/unit/core/reducers/test_errors';
 import ErrorList from 'ui/components/ErrorList';
 
@@ -36,13 +43,13 @@ function createWrappedComponent({
   id, store = createErrorStore(), decorator = withErrorHandler,
   customProps = {}, ...options
 } = {}) {
-  const SomeComponent = translate({ withRef: true })(SomeComponentBase);
+  const SomeComponent = translate()(SomeComponentBase);
   const ComponentWithErrorHandling = decorator({
     id, name: 'SomeComponent', ...options,
   })(SomeComponent);
 
   const tree = renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
+    <I18nProvider i18n={fakeI18n()}>
       <ComponentWithErrorHandling store={store} {...customProps} />
     </I18nProvider>
   );
@@ -51,13 +58,44 @@ function createWrappedComponent({
   return { store, component, dom: findDOMNode(tree), tree };
 }
 
-describe('errorHandler', () => {
+describe(__filename, () => {
   describe('withErrorHandler', () => {
     it('provides a unique errorHandler property', () => {
       const { component } = createWrappedComponent();
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       expect(errorHandler).toBeInstanceOf(ErrorHandler);
       expect(errorHandler.id).toMatch(/^SomeComponent-/);
+    });
+
+    it('throws an error if both `id` and `extractId` parameters are given', () => {
+      expect(() => {
+        createWrappedComponent({
+          id: 'error-handler-id',
+          extractId: () => 'unique-id',
+        });
+      }).toThrow('You can define either `id` or `extractId` but not both.');
+    });
+
+    it('throws an error if `extractId` is not a function', () => {
+      expect(() => {
+        createWrappedComponent({
+          extractId: 'invalid type',
+        });
+      }).toThrow(
+        '`extractId` must be a function taking `ownProps` as unique argument.'
+      );
+    });
+
+    it('creates an error handler ID with `extractId`', () => {
+      const { component } = createWrappedComponent({
+        // Passed to the wrapped component.
+        customProps: {
+          propWithUniqueValue: '1234',
+        },
+        // Passed to the error handler HOC.
+        extractId: (ownProps) => ownProps.propWithUniqueValue,
+      });
+      expect(component.props.errorHandler.id).toEqual('SomeComponent-1234');
     });
 
     it('creates a unique handler ID per wrapped component', () => {
@@ -67,7 +105,7 @@ describe('errorHandler', () => {
     });
 
     it('creates a unique handler ID per component instance', () => {
-      const SomeComponent = translate({ withRef: true })(SomeComponentBase);
+      const SomeComponent = translate()(SomeComponentBase);
       const ComponentWithErrorHandling =
         withErrorHandler({ name: 'SomeComponent' })(SomeComponent);
 
@@ -121,7 +159,7 @@ describe('errorHandler', () => {
       sinon.spy(store, 'dispatch');
       const { component } = createWrappedComponent({ store });
 
-      const errorHandler = component.props.errorHandler;
+      const { errorHandler } = component.props;
       const error = new Error();
       errorHandler.handle(error);
 
@@ -299,6 +337,20 @@ describe('errorHandler', () => {
         .toThrow(/dispatch function has not been configured/);
     });
 
+    it('requires a dispatch function to add a message', () => {
+      const handler = new ErrorHandler({ id: 'some-id' });
+      expect(() => handler.addMessage('some message'))
+        .toThrow(/dispatch function has not been configured/);
+    });
+
+    it('dispatches a message', () => {
+      const message = 'Name field cannot be blank';
+      errorHandler.addMessage(message);
+      sinon.assert.calledWith(errorHandler.dispatch,
+        setErrorMessage({ id: errorHandler.id, message })
+      );
+    });
+
     it('lets you create an error action', () => {
       const error = new Error();
       expect(errorHandler.createErrorAction(error))
@@ -355,6 +407,71 @@ describe('errorHandler', () => {
       const wrapper = shallow(<div>{handler.renderErrorIfPresent()}</div>);
       expect(handler.renderErrorIfPresent()).not.toBe(null);
       expect(wrapper.find(ErrorList)).toHaveLength(1);
+    });
+  });
+
+  describe('withFixedErrorHandler', () => {
+    const createFixedErrorComponent = (params = {}) => {
+      return createWrappedComponent({
+        decorator: withFixedErrorHandler,
+        fileName: '/path/to/src/SomeComponent/index.js',
+        ...params,
+      });
+    };
+
+    it('throws an error when `extractId` is missing', () => {
+      expect(() => {
+        createFixedErrorComponent({
+          extractId: null,
+        });
+      }).toThrow('`extractId` is required and must be a function.');
+    });
+
+    it('throws an error when `fileName` is not supplied', () => {
+      expect(() => {
+        createFixedErrorComponent({
+          fileName: undefined,
+          extractId: {},
+        });
+      }).toThrow('`fileName` parameter is required.');
+    });
+
+    it('throws an error when `extractId` is not a function', () => {
+      expect(() => {
+        createFixedErrorComponent({
+          extractId: {},
+        });
+      }).toThrow('`extractId` is required and must be a function.');
+    });
+
+    it('creates an error handler with a fixed ID', () => {
+      const { component } = createFixedErrorComponent({
+        fileName: '/path/to/src/SomeComponent/index.js',
+        extractId: () => 'unique-id-based-on-props',
+      });
+      const { errorHandler } = component.props;
+      expect(errorHandler).toBeInstanceOf(ErrorHandler);
+      expect(errorHandler.id)
+        .toEqual('src/SomeComponent/index.js-unique-id-based-on-props');
+    });
+  });
+
+  describe('normalizeFileNameId', () => {
+    it('returns a path relative to the project root directory', () => {
+      expect(normalizeFileNameId('/path/to/src/foo/index.js'))
+        .toEqual('src/foo/index.js');
+    });
+
+    it('returns the given filename if `src` is not in it', () => {
+      const filename = 'tests/unit/core/utils/test_index.js';
+
+      expect(normalizeFileNameId(filename)).toEqual(filename);
+    });
+
+    it('does not strip `src` in a given relative filename', () => {
+      const filename = 'src/file.js';
+
+      expect(normalizeFileNameId(filename)).toEqual(filename);
     });
   });
 });

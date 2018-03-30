@@ -1,23 +1,27 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* @flow */
+import * as React from 'react';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
 import SuggestedPages from 'amo/components/SuggestedPages';
+import {
+  ERROR_ADDON_DISABLED_BY_ADMIN, ERROR_ADDON_DISABLED_BY_DEV,
+} from 'core/constants';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
+import type { I18nType } from 'core/types/i18n';
 
 import 'amo/components/ErrorPage/ErrorPage.scss';
 
+type Props = {|
+  errorCode?: string,
+  i18n: I18nType,
+|};
 
-export class NotFoundBase extends React.Component {
-  static propTypes = {
-    i18n: PropTypes.object.isRequired,
-  }
-
+export class NotFoundBase extends React.Component<Props> {
   render() {
-    const { i18n } = this.props;
+    const { errorCode, i18n } = this.props;
 
     const fileAnIssueText = i18n.sprintf(i18n.gettext(`
       If you followed a link from somewhere, please
@@ -25,6 +29,17 @@ export class NotFoundBase extends React.Component {
       what you were looking for, and we'll do our best to fix it.`),
     { url: 'https://github.com/mozilla/addons-frontend/issues/new/' });
 
+    let explanation;
+    if (errorCode === ERROR_ADDON_DISABLED_BY_DEV) {
+      explanation = i18n.gettext(
+        'This add-on has been removed by its author.');
+    } else if (errorCode === ERROR_ADDON_DISABLED_BY_ADMIN) {
+      explanation = i18n.gettext(
+        'This add-on has been disabled by an administrator.');
+    } else {
+      explanation = i18n.gettext(
+        `Sorry, but we can't find anything at the address you entered.`);
+    }
 
     /* eslint-disable react/no-danger */
     return (
@@ -33,16 +48,16 @@ export class NotFoundBase extends React.Component {
           className="ErrorPage NotFound"
           header={i18n.gettext('Page not found')}
         >
-          <p>
-            {i18n.gettext(`
-              Sorry, but we can't find anything at the address you entered.
-              If you followed a link to an add-on, it's possible that add-on
-              has been removed by its author.`)}
-          </p>
+          <p className="NotFound-explanation">{explanation}</p>
 
           <SuggestedPages />
 
-          <p dangerouslySetInnerHTML={sanitizeHTML(fileAnIssueText, ['a'])} />
+          <p
+            className="NotFound-fileAnIssueText"
+            dangerouslySetInnerHTML={
+              sanitizeHTML(fileAnIssueText, ['a'])
+            }
+          />
         </Card>
       </NestedStatus>
     );

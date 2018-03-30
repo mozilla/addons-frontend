@@ -4,12 +4,15 @@
 // Desktop variables (from specs)
 $black: #343a40;
 $white: #fff;
-$header-base-color: #232442;
+$header-base-color: #0f1126;
+$footer-base-color: #051818;
 $header-search-color: #36395b;
-$footer-base-color: #100f27;
 $action-base-color: #329af0;
 $action-hover-color: #72c3fc;
 $action-active-color: #1c7cd6;
+$cancel-base-color: $grey-50;
+$cancel-hover-color: $grey-40;
+$cancel-active-color: $grey-50;
 $confirm-base-color: #51cf66;
 $confirm-hover-color: #8ce99a;
 $confirm-active-color: #37b24d;
@@ -49,7 +52,14 @@ $font-size-xxl: 42px;
 $font-size-header-title: 34px;
 
 // Border radius sizes
-// Border-Radius Variables
 $border-radius-default: 9px;
 $border-radius-s: 4px;
 $border-radius-m: 8px;
+$ui-border-radius-l: 12px;
+
+// Hero
+$hero-title-font-size: 33px;
+$hero-subtitle-font-size: 22px;
+
+// Animation
+$easing-curve: cubic-bezier(0.07, 0.95, 0, 1);

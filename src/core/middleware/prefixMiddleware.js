@@ -28,6 +28,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   // Get the application from the UA if one wasn't specified in the URL (or
   // if it turns out to be invalid).
   const application = getClientApp(req.headers['user-agent']);
+  // clientApp values that are allowed through to the router
+  // TODO: This can be removed when we upgrade to react-router v4.
+  const clientAppRoutes = _config.get('clientAppRoutes');
 
   const hasValidLang = isValidLang(langFromURL);
   const hasValidLocaleException = isValidLocaleUrlException(
@@ -84,15 +87,15 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
     log.info(
       'URL is valid because we added/changed the first part to a clientApp.');
   } else if (hasValidLocaleException || hasValidClientAppUrlException) {
-    if (hasValidLang || hasValidLocaleException) {
+    if (clientAppRoutes.includes(URLParts[1]) === false &&
+      (hasValidLang || hasValidLocaleException)) {
       log.info('Exception in URL found; we fallback to addons-server.');
-
+      // TODO: Remove this once upgraded to react-router 4.
       res.status(404).end(oneLine`This page does not exist in addons-frontend.
         Returning 404; this error should trigger upstream (usually
         addons-server) to return a valid response.`);
       return next();
     }
-
     log.info('Exception in URL found; prepending lang to URL.');
   } else if (!hasValidClientApp) {
     // If the app supplied is not valid we need to prepend one.
@@ -122,7 +125,9 @@ export function prefixMiddleware(req, res, next, { _config = config } = {}) {
   /* eslint-disable no-param-reassign */
   const [newLang, newApp] = URLParts;
   res.locals.lang = newLang;
-  res.locals.clientApp = newApp;
+  // The newApp part of the URL might not be a client application
+  // so it's important to re-check that here before assuming it's good.
+  res.locals.clientApp = isValidClientApp(newApp) ? newApp : application;
   // Get detailed info on the current user agent so we can make sure add-ons
   // are compatible with the current clientApp/version combo.
   res.locals.userAgent = req.headers['user-agent'];

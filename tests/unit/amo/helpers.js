@@ -3,41 +3,77 @@ import config from 'config';
 
 import createStore from 'amo/store';
 import {
-  setClientApp, setLang, setAuthToken, setUserAgent,
+  setClientApp,
+  setLang,
+  setAuthToken,
+  setUserAgent,
 } from 'core/actions';
 import { addon as addonSchema } from 'core/api';
 import {
-  ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME, CLIENT_APP_FIREFOX,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+  CLIENT_APP_FIREFOX,
+  ENABLED,
+  OS_ALL,
 } from 'core/constants';
 import { searchLoad, searchStart } from 'core/actions/search';
-import { autocompleteLoad, autocompleteStart } from 'core/reducers/autocomplete';
-import { loadUserProfile } from 'core/reducers/user';
-
+import {
+  autocompleteLoad,
+  autocompleteStart,
+} from 'core/reducers/autocomplete';
+import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   createStubErrorHandler,
-  createUserProfileResponse,
-  userAuthToken,
+  createUserAccountResponse,
+  randomId,
   sampleUserAgent,
   signedInApiState as coreSignedInApiState,
-} from '../helpers';
+  userAuthToken,
+} from 'tests/unit/helpers';
 
+
+export const fakePlatformFile = Object.freeze({
+  created: '2014-11-22T10:09:01Z',
+  hash: 'a1b2c3d4',
+  id: 57721,
+  is_mozilla_signed_extension: false,
+  is_restart_required: false,
+  is_webextension: true,
+  permissions: ['activeTab', 'webRequest'],
+  platform: OS_ALL,
+  status: 'public',
+  url: 'https://a.m.o/files/321/addon.xpi',
+});
+
+export const fakeAuthor = Object.freeze({
+  id: 98811255,
+  name: 'Krupa',
+  picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
+  url: 'http://olympia.test/en-US/firefox/user/krupa/',
+  username: 'krupa',
+});
 
 export const fakeAddon = Object.freeze({
-  authors: [{
-    name: 'Krupa',
-    url: 'http://olympia.dev/en-US/firefox/user/krupa/',
-    username: 'krupa',
-  }],
+  authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
   current_beta_version: null,
   current_version: {
+    compatibility: {
+      [CLIENT_APP_ANDROID]: {
+        min: '48.0',
+        max: '*',
+      },
+      [CLIENT_APP_FIREFOX]: {
+        min: '48.0',
+        max: '*',
+      },
+    },
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
-    files: [{
-      is_webextension: true,
-    }],
+    files: [fakePlatformFile],
     is_strict_compatibility_enabled: false,
   },
   description: 'This is a longer description of the chill out add-on',
@@ -63,8 +99,9 @@ export const fakeAddon = Object.freeze({
   }],
   public_stats: true,
   ratings: {
-    count: 10,
     average: 3.5,
+    count: 10,
+    text_count: 5,
   },
   requires_payment: false,
   review_url: 'https://addons.m.o/en-US/editors/review/2377',
@@ -83,9 +120,14 @@ export const fakeTheme = Object.freeze({
   ...fakeAddon,
   authors: [{
     name: 'MaDonna',
-    url: 'http://olympia.dev/en-US/firefox/user/madonna/',
+    url: 'http://olympia.test/en-US/firefox/user/madonna/',
     username: 'MaDonna',
   }],
+  current_version: {
+    ...fakeAddon.current_version,
+    compatibility: {},
+    version: '0',
+  },
   description: 'This is the add-on description',
   guid: 'dancing-daisies-theme@my-addons.firefox',
   id: 54321,
@@ -110,6 +152,17 @@ export const fakeTheme = Object.freeze({
     version: '1.0',
   },
   type: ADDON_TYPE_THEME,
+});
+
+export const fakeInstalledAddon = Object.freeze({
+  downloadProgress: 0,
+  error: undefined,
+  guid: 'installed-addon@company',
+  isPreviewingTheme: false,
+  needsRestart: false,
+  status: ENABLED,
+  themePreviewNode: undefined,
+  url: 'https://a.m.o/addon/detail/view',
 });
 
 export const fakeReview = Object.freeze({
@@ -148,12 +201,12 @@ export const fakeCategory = Object.freeze({
  */
 export const signedInApiState = Object.freeze({
   ...coreSignedInApiState,
-  clientApp: 'firefox',
+  clientApp: CLIENT_APP_FIREFOX,
 });
 
 export function dispatchClientMetadata({
   store = createStore().store,
-  clientApp = 'android',
+  clientApp = CLIENT_APP_ANDROID,
   lang = 'en-US',
   userAgent = sampleUserAgent,
 } = {}) {
@@ -170,15 +223,14 @@ export function dispatchClientMetadata({
 export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
-  username = 'user-1234',
-  displayName = null,
+  userProps = {},
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
-  store.dispatch(loadUserProfile({
-    profile: createUserProfileResponse({ id: userId, username, displayName }),
+  store.dispatch(loadCurrentUserAccount({
+    user: createUserAccountResponse({ id: userId, ...userProps }),
   }));
 
   return {
@@ -216,22 +268,39 @@ export function createAddonsApiResult(results) {
   return normalize({ results }, { results: [addonSchema] });
 }
 
-export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+export function createFakeAutocompleteResult({
+  name = 'suggestion-result', ...props
+} = {}) {
   return {
-    id: Date.now(),
+    id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
+    ...props,
   };
 }
 
-export function createFakeAddon({ files = {} } = {}) {
+export function createFakeAddon({
+  files = [...fakeAddon.current_version.files],
+  compatibility = { ...fakeAddon.current_version.compatibility },
+  // eslint-disable-next-line camelcase
+  is_strict_compatibility_enabled = fakeAddon.current_version.is_strict_compatibility_enabled,
+  ...overrides
+} = {}) {
   return {
     ...fakeAddon,
     current_version: {
       ...fakeAddon.current_version,
-      files,
+      compatibility,
+      files: files.map((fileProps) => {
+        return {
+          ...fakeAddon.current_version.files[0],
+          ...fileProps,
+        };
+      }),
+      is_strict_compatibility_enabled,
     },
+    ...overrides,
   };
 }
 
@@ -248,3 +317,43 @@ export function dispatchAutocompleteResults({
 
   return { store };
 }
+
+export const createFakeCollectionDetail = ({
+  name = 'My Addons',
+  count = 123,
+  authorId = 99999,
+  authorName = 'John Doe',
+  authorUsername = 'johndoe',
+  ...params
+} = {}) => {
+  return {
+    addon_count: count,
+    author: {
+      id: authorId,
+      name: authorName,
+      url: 'http://olympia.test/en-US/firefox/user/johndoe/',
+      username: authorUsername,
+    },
+    default_locale: 'en-US',
+    description: 'some description',
+    id: randomId(),
+    modified: Date.now(),
+    name,
+    public: true,
+    slug: 'my-addons',
+    url: `https://example.org/en-US/firefox/collections/johndoe/my-addons/`,
+    uuid: 'ef7e1344-1c3d-4bbb-bbd8-df9d8c9020ec',
+    ...params,
+  };
+};
+
+export const createFakeCollectionAddons = ({ addons = [fakeAddon] } = {}) => {
+  return {
+    count: addons.length,
+    results: addons.map((addon) => ({
+      addon,
+      downloads: 0,
+      notes: null,
+    })),
+  };
+};

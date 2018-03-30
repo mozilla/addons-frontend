@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-09-12 19:30+0000\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
 "PO-Revision-Date: 2017-08-23 10:03+0000\n"
 "Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
 "Language-Team: none\n"
@@ -27,52 +27,52 @@ msgstr ""
 "调查。"
 
 #: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:31
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "错误代码：%(status)s。"
 
-#: src/core/components/ErrorPage/NotFound/index.js:25
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "找不到页面"
 
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "很抱歉，但我们无法用您输入的地址找到信息。"
 
-#: src/core/components/InstallButton/index.js:107
-#: src/core/components/InstallButton/index.js:125
-msgid "Add to Firefox"
-msgstr "添加到 Firefox"
-
-#: src/core/components/InstallButton/index.js:85
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
 msgstr "安装主题"
 
-#: src/core/components/InstallSwitch/index.js:55
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
+msgid "Add to Firefox"
+msgstr "添加到 Firefox"
+
+#: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
 msgstr "正在下载 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:58
+#: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
 msgstr "正在安装 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:62
+#: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
 msgstr "%(name)s 已安装成功并启用。若不喜欢可点击卸载。"
 
-#: src/core/components/InstallSwitch/index.js:65
+#: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
 msgstr "%(name)s 已被禁用。点击可启用。"
 
-#: src/core/components/InstallSwitch/index.js:68
+#: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
 msgstr "正在卸载 %(name)s。"
 
-#: src/core/components/InstallSwitch/index.js:71
+#: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
 msgstr "%(name)s 已被卸载。点击可重新安装。"
 
-#: src/core/components/InstallSwitch/index.js:74
+#: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安装状态未知。"
 
@@ -84,59 +84,59 @@ msgstr "您的附加组件已就绪"
 msgid "Now you can access %(name)s from the toolbar."
 msgstr "您现在可以在工具栏找到 %(name)s 了。"
 
-#: src/core/containers/InfoDialog/index.js:45
+#: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "知道了！"
 
-#: src/disco/components/Addon.js:122
+#: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
 msgstr "鼠标悬停在上面即可预览，点击可安装 %(name)s"
 
-#: src/disco/components/Addon.js:137
+#: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
 msgstr "鼠标悬停在上面的图像上就能预览"
 
-#: src/disco/components/Addon.js:161
+#: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
 msgstr "安装失败。请重试。"
 
-#: src/disco/components/Addon.js:163
+#: src/disco/components/Addon.js:178
 msgid "Download failed. Please check your connection."
 msgstr "下载失败。请检查您的网络连接。"
 
-#: src/disco/components/Addon.js:165
+#: src/disco/components/Addon.js:180
 msgid "An unexpected error occurred during installation."
 msgstr "安装时发生意外错误。"
 
-#: src/disco/components/Addon.js:167
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "卸载时发生意外错误。"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:185
 msgid "An unexpected error occurred."
 msgstr "发生意外错误。"
 
-#: src/disco/components/Addon.js:178
+#: src/disco/components/Addon.js:193
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "此附加组件将在您重启 Firefox 后被卸载。"
 
-#: src/disco/components/Addon.js:180
+#: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
 msgstr "重启 Firefox 后即可使用此附加组件。"
 
-#: src/disco/components/Addon.js:83
+#: src/disco/components/Addon.js:95
 msgid "Close"
 msgstr "关闭"
 
-#: src/disco/components/AddonCompatibilityError/index.js:41
+#: src/disco/components/AddonCompatibilityError/index.js:42
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox iOS 版目前不支持附加组件。"
 
-#: src/disco/components/AddonCompatibilityError/index.js:44
+#: src/disco/components/AddonCompatibilityError/index.js:45
 msgid "This add-on does not support your version of Firefox."
 msgstr "此附加组件不支持您的 Firefox 版本。"
 
-#: src/disco/components/AddonCompatibilityError/index.js:49
+#: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
 msgstr "您的浏览器不支持此附加组件。"
 
@@ -148,11 +148,11 @@ msgstr "隐私政策"
 msgid "Discover Add-ons"
 msgstr "探寻附加组件"
 
-#: src/disco/containers/DiscoPane.js:121
+#: src/disco/containers/DiscoPane.js:137
 msgid "Personalize Your Firefox"
 msgstr "让火狐有你的个性"
 
-#: src/disco/containers/DiscoPane.js:122
+#: src/disco/containers/DiscoPane.js:138
 msgid ""
 "There are thousands of free add-ons, created by developers all over the "
 "world, that you can install to personalize your Firefox. From fun visual "
@@ -164,19 +164,19 @@ msgstr ""
 "Firefox 有您的个性。这里不但有养眼的主题，还有各式功能强大的工具，帮您更快更"
 "安全地上网冲浪。为了协助您上手，下面提供了一些我们力荐的轻巧好用的附加组件。"
 
-#: src/disco/containers/DiscoPane.js:130
+#: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
 msgstr "点击播放"
 
-#: src/disco/containers/DiscoPane.js:131
+#: src/disco/containers/DiscoPane.js:148
 msgid "to find out more about add-ons"
 msgstr "进一步了解附加组件"
 
-#: src/disco/containers/DiscoPane.js:145
+#: src/disco/containers/DiscoPane.js:162
 msgid "Close video"
 msgstr "关闭视频"
 
-#: src/disco/containers/DiscoPane.js:164
+#: src/disco/containers/DiscoPane.js:182
 msgid "See more add-ons!"
 msgstr "看看更多附加组件！"
 
@@ -188,7 +188,7 @@ msgstr "您的会话已过期"
 msgid "An unexpected error occurred"
 msgstr "发生错误"
 
-#: src/ui/components/ErrorList/index.js:61
+#: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
 msgstr "重新载入以继续"
 

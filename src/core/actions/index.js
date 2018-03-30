@@ -1,6 +1,5 @@
 /* @flow */
 import {
-  LOG_OUT_USER,
   SET_AUTH_TOKEN,
   SET_CLIENT_APP,
   SET_LANG,
@@ -20,14 +19,6 @@ export function setAuthToken(token: string): SetAuthTokenAction {
     type: SET_AUTH_TOKEN,
     payload: { token },
   };
-}
-
-export type LogOutUserAction = {|
-  type: string,
-|};
-
-export function logOutUser(): LogOutUserAction {
-  return { type: LOG_OUT_USER };
 }
 
 export type SetClientAppAction = {|

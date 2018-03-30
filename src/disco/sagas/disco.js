@@ -13,13 +13,13 @@ import { getDiscoveryAddons } from 'disco/api';
 
 
 export function* fetchDiscoveryAddons({
-  payload: { errorHandlerId, telemetryClientId },
+  payload: { errorHandlerId, taarParams },
 }) {
   const errorHandler = createErrorHandler(errorHandlerId);
   try {
     const state = yield select(getState);
     const { entities, result } = yield call(getDiscoveryAddons, {
-      api: state.api, telemetryClientId,
+      api: state.api, taarParams,
     });
 
     yield put(loadAddons(entities));

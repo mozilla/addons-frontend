@@ -1,8 +1,8 @@
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 
-import './Card.scss';
+import './styles.scss';
 
 
 export default class Card extends React.Component {
@@ -48,7 +48,7 @@ export default class Card extends React.Component {
 
     return (
       <section
-        className={classNames('Card', className, {
+        className={makeClassName('Card', className, {
           'Card--photon': photonStyle,
           'Card--no-header': !header,
           'Card--no-footer': !footer,
@@ -56,7 +56,12 @@ export default class Card extends React.Component {
         ref={(ref) => { this.cardContainer = ref; }}
       >
         {header ? (
-          <h2 className="Card-header" ref={(ref) => { this.header = ref; }}>{header}</h2>
+          <header
+            className="Card-header"
+            ref={(ref) => { this.header = ref; }}
+          >
+            {header}
+          </header>
         ) : null}
 
         {children ? (

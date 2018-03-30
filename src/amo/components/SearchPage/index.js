@@ -1,41 +1,111 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Search from 'amo/components/Search';
 import {
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
+import { makeQueryString } from 'core/api';
+import log from 'core/logger';
+import { sendServerRedirect } from 'core/reducers/redirectTo';
+import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
+import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterLocation } from 'core/types/router';
 
 
-type PropTypes = {|
+type Props = {|
+  clientApp: string,
+  dispatch: DispatchFunc,
   filters: Object,
+  lang: string,
+  location: ReactRouterLocation,
   pathname: string,
 |};
 
-export const SearchPageBase = ({ filters, pathname, ...props }: PropTypes) => {
-  const paginationQueryParams = convertFiltersToQueryParams({
-    addonType: filters.addonType,
-    operatingSystem: filters.operatingSystem,
-    page: filters.page,
-    query: filters.query,
-    sort: filters.sort,
-  });
+export class SearchPageBase extends React.Component<Props> {
+  componentWillMount() {
+    const { clientApp, filters, lang, location } = this.props;
 
-  return (
-    <Search
-      {...props}
-      enableSearchFilters
-      filters={filters}
-      paginationQueryParams={paginationQueryParams}
-      pathname={pathname}
-    />
-  );
-};
+    let shouldRedirect = false;
+    const newFilters = { ...filters };
 
-export function mapStateToProps(state: any, ownProps: any) {
+    // The legacy frontend uses `all` to express "all platforms" but we now use
+    // no parameter (empty) to target all platforms. In addition, the query
+    // parameter `platform` is mapped to the `operatingSystem` filter.
+    // See: https://github.com/mozilla/addons-frontend/issues/3870.
+    if (
+      newFilters.operatingSystem &&
+      newFilters.operatingSystem.toLowerCase() === 'all'
+    ) {
+      log.info('`operatingSystem` filter is set to "all", omitting it.');
+      delete newFilters.operatingSystem;
+
+      shouldRedirect = true;
+    }
+
+    // Map the old `atype` parameter to its corresponding `adddonType`.
+    // See: https://github.com/mozilla/addons-frontend/issues/3791.
+    if (location.query.atype) {
+      switch (String(location.query.atype)) {
+        case '1':
+          newFilters.addonType = ADDON_TYPE_EXTENSION;
+          break;
+        case '3':
+          newFilters.addonType = ADDON_TYPE_DICT;
+          break;
+        case '4':
+          newFilters.addonType = ADDON_TYPE_OPENSEARCH;
+          break;
+        case '5':
+          newFilters.addonType = ADDON_TYPE_LANG;
+          break;
+        case '9':
+          newFilters.addonType = ADDON_TYPE_THEME;
+          break;
+        default:
+          return;
+      }
+
+      shouldRedirect = true;
+    }
+
+    if (shouldRedirect) {
+      const queryString = makeQueryString(
+        convertFiltersToQueryParams(newFilters)
+      );
+
+      this.props.dispatch(sendServerRedirect({
+        status: 302,
+        url: `/${lang}/${clientApp}/search/${queryString}`,
+      }));
+    }
+  }
+
+  render() {
+    const { filters, pathname, ...otherProps } = this.props;
+
+    return (
+      <Search
+        {...otherProps}
+        enableSearchFilters
+        filters={filters}
+        paginationQueryParams={convertFiltersToQueryParams(filters)}
+        pathname={pathname}
+      />
+    );
+  }
+}
+
+export function mapStateToProps(state: any, ownProps: Props) {
   const { location } = ownProps;
 
   const filtersFromLocation = convertQueryParamsToFilters(location.query);
@@ -52,7 +122,11 @@ export function mapStateToProps(state: any, ownProps: any) {
   delete filters.clientApp;
   delete filters.lang;
 
-  return { filters };
+  return {
+    filters,
+    clientApp: state.api.clientApp,
+    lang: state.api.lang,
+  };
 }
 
 export default compose(

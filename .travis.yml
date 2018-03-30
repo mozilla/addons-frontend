@@ -1,38 +1,73 @@
 sudo: required
+_aliases:
+  - &tox
+    language: python
+    python: 3.6
+    before_install: nvm install 6
+    install: pip install tox
+    script: tox
+  - &node-prod
+    # This is the NodeJS version we run in production.
+    language: node_js
+    node_js: '6'
+    before_install: npm install -g yarn
+  - &node-next
+    # This is the next NodeJS version we will support.
+    language: node_js
+    node_js: '8'
+    before_install: npm install -g yarn
 services:
   - docker
-addons:
-  firefox: latest
-language: node_js
-node_js:
-- '6'
-env:
-  matrix:
-  # This is currently failing on master only.
-  # See https://github.com/mozilla/addons-frontend/issues/2691
-  # - TASK=build CHECK_BUNDLESIZE=1 ADDONS_FRONTEND_BUILD_ALL=1
-  - TASK=build ADDONS_FRONTEND_BUILD_ALL=1
-  - TASK=lint
-  - TASK=test-ci
-  - TASK=nsp-check
-  - TOXENV=discopane-ui-tests GUI=1 PYTEST_BASE_URL=http://localhost:4000
-  - TOXENV=flake8
 cache:
   yarn: true
   directories:
   - node_modules
-before_install:
-- npm install -g yarn
-- if [ $TOXENV ]; then sudo pip install tox; fi
-- if [[ $TOXENV == 'discopane-ui-tests' ]]; then wget -O geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v0.14.0/geckodriver-v0.14.0-linux64.tar.gz; fi
-- if [[ $TOXENV == 'discopane-ui-tests' ]]; then gunzip -c geckodriver.tar.gz | tar xopf -; fi
-- if [[ $TOXENV == 'discopane-ui-tests' ]]; then chmod +x geckodriver && sudo mv geckodriver /usr/local/bin; fi
-before_script:
-- if [ $GUI ]; then export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start && sleep 3; fi
-script:
-- if [[ $TOXENV == 'discopane-ui-tests' ]]; then
-    yarn start-func-test-server;
-  fi
-- if [ $TOXENV ]; then tox; fi
-- if [ $TASK ]; then yarn $TASK; fi
-- if [ $CHECK_BUNDLESIZE ]; then yarn bundlesize; fi
+jobs:
+  include:
+    # Test the build process.
+    - stage:
+      <<: *node-prod
+      env: ADDONS_FRONTEND_BUILD_ALL=1
+      script: yarn build
+    - stage:
+      <<: *node-next
+      env: ADDONS_FRONTEND_BUILD_ALL=1
+      script: yarn build
+    # Run the unit/integration tests.
+    - stage:
+      <<: *node-prod
+      script: yarn test-ci
+    - stage:
+      <<: *node-next
+      script: yarn test-ci
+    - stage:
+      <<: *node-prod
+      script: yarn lint
+    - stage:
+      <<: *node-prod
+      script: yarn nsp-check
+    # Run the functional tests.
+    - stage:
+      <<: *tox
+      addons:
+        firefox: latest-nightly
+        hosts: example.com
+      env: TOXENV=discopane-ui-tests GECKODRIVER=0.19.1 MOZ_HEADLESS=1 PATH=./node_modules/.bin:$PATH
+      install:
+        - yarn
+        - yarn start-func-test-server &
+      before_script:
+        - wget -O /tmp/geckodriver.tar.gz https://github.com/mozilla/geckodriver/releases/download/v$GECKODRIVER/geckodriver-v$GECKODRIVER-linux64.tar.gz
+        - mkdir $HOME/geckodriver && tar xvf /tmp/geckodriver.tar.gz -C $HOME/geckodriver
+        - export PATH=$HOME/geckodriver:$PATH
+        - firefox --version
+        - geckodriver --version
+        - pip install tox
+        # Wait for server to be available
+        - until $(curl --output /dev/null --silent --head --fail -k https://example.com:4000); do printf '.'; sleep 5; done
+    - stage:
+      <<: *tox
+      env: TOXENV=flake8
+    - stage:
+      <<: *tox
+      env: TOXENV=dennis-lint

@@ -34,3 +34,8 @@
 .DropdownMenuItem--detached {
   margin-top: 8px;
 }
+
+.DropdownMenuItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

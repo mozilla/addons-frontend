@@ -1,8 +1,9 @@
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
+import CategoryIcon from 'amo/components/CategoryIcon';
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { getCategoryColor } from 'core/utils';
@@ -22,7 +23,14 @@ export class CategoryHeaderBase extends React.Component {
     const { category, i18n } = this.props;
 
     const addonType = category && category.type ? category.type : null;
-    const color = category ? getCategoryColor(category) : 0;
+
+    let color = 0;
+    let icon = null;
+
+    if (category) {
+      color = getCategoryColor(category);
+      icon = category.slug === 'other' ? `other-${addonType}` : category.slug;
+    }
 
     // This is here until
     // https://github.com/mozilla/addons-server/issues/5728
@@ -47,9 +55,8 @@ export class CategoryHeaderBase extends React.Component {
 
     return (
       <Card
-        className={classNames('CategoryHeader', {
+        className={makeClassName('CategoryHeader', {
           'CategoryHeader--loading': !category,
-          [`CategoryHeader--category-color-${color}`]: color,
           [`CategoryHeader--type-${addonType}`]: addonType,
         })}
       >
@@ -72,6 +79,11 @@ export class CategoryHeaderBase extends React.Component {
               )}
             </div>
           </div>
+          {icon && (
+            <div className="CategoryHeader-icon">
+              <CategoryIcon name={icon} color={color} />
+            </div>
+          )}
         </div>
       </Card>
     );

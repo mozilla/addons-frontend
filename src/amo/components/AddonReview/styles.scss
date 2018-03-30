@@ -1,0 +1,69 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+
+.Overlay-contents .AddonReview {
+  .Card-contents {
+    background: $base-color;
+    max-height: 80vh;
+    padding: 10px 0;
+  }
+
+  .Rating {
+    margin: 6px 0 12px;
+  }
+}
+
+.AddonReview-form-input {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.AddonReview-form-input,
+.AddonReview-prompt {
+  padding: 0 10px;
+}
+
+.AddonReview-prompt {
+  margin: 0;
+}
+
+.AddonReview-header {
+  font-size: $font-size-form-header;
+  margin-bottom: 12px;
+}
+
+.AddonReview-textarea,
+.AddonReview-submit {
+  border: 2px solid $form-border-color;
+  border-radius: 8px;
+  box-shadow: none;
+  margin-bottom: 12px;
+  padding: 0.7em;
+  text-align: left;
+  width: 100%;
+}
+
+.AddonReview-textarea {
+  min-height: 125px;
+  resize: vertical;
+
+  @include respond-to(medium) {
+    min-height: 200px;
+  }
+}
+
+.AddonReview-submit {
+  background: none;
+  border: 0;
+  border-radius: 0;
+  border-top: 2px solid $link-color;
+  color: $link-color;
+  font-size: $font-size-s;
+  margin-bottom: 0;
+  // This is an attempt at vertically centering the text. It accounts
+  // for the rounded corners of the overlay.
+  padding: 15px 0 5px;
+  text-align: center;
+  vertical-align: bottom;
+}

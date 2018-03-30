@@ -1,7 +1,10 @@
-import React from 'react';
-import { renderIntoDocument } from 'react-addons-test-utils';
+import * as React from 'react';
+import {
+  findRenderedComponentWithType, renderIntoDocument,
+} from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
+import Overlay from 'ui/components/Overlay';
 import OverlayCard from 'ui/components/OverlayCard';
 
 
@@ -13,6 +16,13 @@ describe('<OverlayCard />', () => {
   it('renders an OverlayCard', () => {
     const root = render();
     expect(root.overlayCard).toBeTruthy();
+  });
+
+  it('passes onEscapeOverlay to Overlay', () => {
+    const onEscapeOverlay = sinon.stub();
+    const root = render({ onEscapeOverlay });
+    const overlay = findRenderedComponentWithType(root, Overlay);
+    expect(overlay.props.onEscapeOverlay).toEqual(onEscapeOverlay);
   });
 
   it('passes the header', () => {

@@ -1,19 +1,22 @@
 /* eslint-disable react/no-danger */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 
+import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   INCOMPATIBLE_FIREFOX_FOR_IOS,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
 import _log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
+import Notice from 'ui/components/Notice';
 
 import './style.scss';
 
@@ -21,11 +24,10 @@ import './style.scss';
 export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
     i18n: PropTypes.object.isRequired,
-    lang: PropTypes.string.isRequired,
     log: PropTypes.object,
     minVersion: PropTypes.string.isRequired,
     reason: PropTypes.string.isRequired,
-    userAgentInfo: PropTypes.object.isRequired,
+    userAgentInfo: PropTypes.object,
   }
 
   static defaultProps = {
@@ -36,14 +38,16 @@ export class AddonCompatibilityErrorBase extends React.Component {
   render() {
     const {
       i18n,
-      lang,
       log,
       minVersion,
       reason,
       userAgentInfo,
     } = this.props;
-    const downloadUrl = `https://www.mozilla.org/${lang}/firefox/`;
-    let message;
+
+    const queryString = makeQueryStringWithUTM({
+      utm_content: 'install-addon-button',
+    });
+    const downloadUrl = `https://www.mozilla.org/firefox/new/${queryString}`;
 
     if (typeof reason === 'undefined') {
       throw new Error('AddonCompatibilityError requires a "reason" prop');
@@ -52,6 +56,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
       throw new Error('minVersion is required; it cannot be undefined');
     }
 
+    let message;
     if (reason === INCOMPATIBLE_NOT_FIREFOX) {
       message = i18n.sprintf(i18n.gettext(`You need to
         <a href="%(downloadUrl)s">download Firefox</a> to install this
@@ -66,6 +71,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
     } else if (reason === INCOMPATIBLE_FIREFOX_FOR_IOS) {
       message = i18n.gettext(
         'Firefox for iOS does not currently support add-ons.');
+    } else if (reason === INCOMPATIBLE_UNSUPPORTED_PLATFORM) {
+      message = i18n.gettext(
+        'This add-on is not available on your platform.');
     } else if (reason === INCOMPATIBLE_UNDER_MIN_VERSION) {
       message = i18n.sprintf(i18n.gettext(`This add-on requires a
         <a href="%(downloadUrl)s">newer version of Firefox</a> (at least
@@ -87,17 +95,21 @@ export class AddonCompatibilityErrorBase extends React.Component {
       ), { downloadUrl });
     }
 
+    // Make the "you should download firefox" error message less scary than
+    // the rest of them: https://github.com/mozilla/addons-frontend/issues/4547
+    const noticeType = reason === INCOMPATIBLE_NOT_FIREFOX ?
+      'success' : 'error';
+
     return (
-      <div
-        className="AddonCompatibilityError"
-        dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])}
-      />
+      <Notice type={noticeType} className="AddonCompatibilityError">
+        <span dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
+      </Notice>
     );
   }
 }
 
 export function mapStateToProps(state) {
-  return { lang: state.api.lang, userAgentInfo: state.api.userAgentInfo };
+  return { userAgentInfo: state.api.userAgentInfo };
 }
 
 export default compose(

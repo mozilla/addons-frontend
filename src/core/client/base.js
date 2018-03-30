@@ -1,15 +1,15 @@
 /* global document */
 
-import 'babel-polyfill';
+import 'core/polyfill';
 import { oneLine } from 'common-tags';
 import config from 'config';
 import FastClick from 'fastclick';
 import RavenJs from 'raven-js';
-import React from 'react';
+import * as React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
-import { ReduxAsyncConnect } from 'redux-connect';
+import { syncHistoryWithStore } from 'react-router-redux';
 import useScroll from 'react-router-scroll/lib/useScroll';
 
 import { langToLocale, makeI18n, sanitizeLanguage } from 'core/i18n/utils';
@@ -50,30 +50,26 @@ export default function makeClient(
         log.error('Could not load initial redux data');
       }
     }
-    const { sagaMiddleware, store } = createStore(initialState);
+
+    const { sagaMiddleware, store } = createStore({
+      history: browserHistory, initialState,
+    });
+    const history = syncHistoryWithStore(browserHistory, store);
+
     if (sagas && sagaMiddleware) {
       sagaMiddleware.run(sagas);
     } else {
       log.warn(`sagas not found for this app (src/${appName}/sagas)`);
     }
 
-    // wrapper to make redux-connect applyRouterMiddleware compatible see
-    // https://github.com/taion/react-router-scroll/issues/3
-    const useReduxAsyncConnect = () => ({
-      renderRouterContext: (child, props) => (
-        <ReduxAsyncConnect {...props}>{child}</ReduxAsyncConnect>
-      ),
-    });
-
     const middleware = applyRouterMiddleware(
       useScroll(),
-      useReduxAsyncConnect(),
     );
 
     render(
       <I18nProvider i18n={i18n}>
         <Provider store={store} key="provider">
-          <Router render={middleware} history={browserHistory}>
+          <Router render={middleware} history={history}>
             {routes}
           </Router>
         </Provider>

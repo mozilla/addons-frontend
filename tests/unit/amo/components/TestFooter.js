@@ -1,28 +1,15 @@
-import React from 'react';
-import {
-  renderIntoDocument,
-  findRenderedComponentWithType,
-} from 'react-addons-test-utils';
-import { findDOMNode } from 'react-dom';
-import { Provider } from 'react-redux';
+import * as React from 'react';
 
-import Footer from 'amo/components/Footer';
-import I18nProvider from 'core/i18n/Provider';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import Footer, { FooterBase } from 'amo/components/Footer';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('Footer', () => {
   function renderFooter({ ...props }) {
-    const { store } = dispatchSignInActions();
-
-    return findDOMNode(findRenderedComponentWithType(renderIntoDocument(
-      <Provider store={store}>
-        <I18nProvider i18n={getFakeI18nInst()}>
-          <Footer {...props} />
-        </I18nProvider>
-      </Provider>
-    ), Footer));
+    return shallowUntilTarget(
+      <Footer i18n={fakeI18n()} {...props} />,
+      FooterBase
+    );
   }
 
   it('renders a footer', () => {
@@ -32,13 +19,18 @@ describe('Footer', () => {
     // cause a 404 error.
     // See:
     // github.com/mozilla/addons-frontend/pull/2524#pullrequestreview-42911624
-    expect(root.querySelector('.Footer-privacy').textContent).toEqual('Privacy policy');
-    expect(root.querySelector('.Footer-privacy').href).toEqual('https://www.mozilla.org/privacy/websites/');
-    expect(root.querySelector('.Footer-legal').textContent).toEqual('Legal notices');
-    expect(root.querySelector('.Footer-legal').href).toEqual('https://www.mozilla.org/about/legal/');
+    expect(root.find('.Footer-privacy-link')).toHaveText('Privacy');
+    expect(root.find('.Footer-privacy-link')).toHaveProp('href', 'https://www.mozilla.org/privacy/websites/');
+    expect(root.find('.Footer-legal-link')).toHaveText('Legal');
+    expect(root.find('.Footer-legal-link')).toHaveProp('href', 'https://www.mozilla.org/about/legal/');
+    expect(root.find('.Footer-cookies-link')).toHaveText('Cookies');
+    expect(root.find('.Footer-cookies-link')).toHaveProp('href', 'https://www.mozilla.org/privacy/websites/#cookies');
+    expect(root.find('.Footer-trademark-abuse-link')).toHaveText('Report Trademark Abuse');
+    expect(root.find('.Footer-trademark-abuse-link')).toHaveProp('href', 'https://www.mozilla.org/about/legal/fraud-report/');
+
     // This link isn't localized because MDN will 404 on some
     // locales and not others.
     // See also https://bugzilla.mozilla.org/show_bug.cgi?id=1283422
-    expect(root.querySelector('.Footer-fileissue').href).toEqual('https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
+    expect(root.find('.Footer-bug-report-link')).toHaveProp('href', 'https://developer.mozilla.org/Add-ons/AMO/Policy/Contact');
   });
 });

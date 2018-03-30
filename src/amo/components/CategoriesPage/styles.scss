@@ -1,4 +1,5 @@
 @import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .CategoriesPage {
   margin: $padding-page;
@@ -10,5 +11,9 @@
   .Categories-loading-text {
     display: block;
     margin: 0 0 5px;
+  }
+
+  @include respond-to(large) {
+    margin: $padding-page-l;
   }
 }

@@ -1,0 +1,196 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: disco\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
+"PO-Revision-Date: 2017-12-07 07:04+0000\n"
+"Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Pontoon\n"
+
+#: src/core/components/ErrorPage/GenericError/index.js:25
+msgid "Server Error"
+msgstr "Greška servera"
+
+#: src/core/components/ErrorPage/GenericError/index.js:28
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Žao nam je, došlo je do greške i nismo mogli završiti vaš zahtjev. Prijavili "
+"smo ovu grešku i istražit ćemo je."
+
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
+msgid "Error code: %(status)s."
+msgstr "Kod greške: %(status)s."
+
+#: src/core/components/ErrorPage/NotFound/index.js:27
+msgid "Page not found"
+msgstr "Stranica nije pronađena"
+
+#: src/core/components/ErrorPage/NotFound/index.js:29
+msgid "Sorry, but we can't find anything at the URL you entered."
+msgstr "Žao nam je ali ne možemo ništa pronaći na URL koji ste unijeli."
+
+#: src/core/components/InstallButton/index.js:235
+msgid "Install Theme"
+msgstr "Instaliraj temu"
+
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
+msgid "Add to Firefox"
+msgstr "Dodaj na Firefox"
+
+#: src/core/components/InstallSwitch/index.js:70
+msgid "Downloading %(name)s."
+msgstr "Preuzimanje %(name)s."
+
+#: src/core/components/InstallSwitch/index.js:73
+msgid "Installing %(name)s."
+msgstr "Instaliranje %(name)s."
+
+#: src/core/components/InstallSwitch/index.js:77
+msgid "%(name)s is installed and enabled. Click to uninstall."
+msgstr "%(name)s je instalirano i omogućeno. Klikni za deinstalaciju."
+
+#: src/core/components/InstallSwitch/index.js:80
+msgid "%(name)s is disabled. Click to enable."
+msgstr "%(name)s je onemogućeno. Klikni da omogućiš."
+
+#: src/core/components/InstallSwitch/index.js:83
+msgid "Uninstalling %(name)s."
+msgstr "Deinstaliranje %(name)s."
+
+#: src/core/components/InstallSwitch/index.js:86
+msgid "%(name)s is uninstalled. Click to install."
+msgstr "%(name)s je deinstalirano. Klikni za instalaciju."
+
+#: src/core/components/InstallSwitch/index.js:89
+msgid "Install state for %(name)s is unknown."
+msgstr "Stanje instalacije za %(name)s je nepoznato."
+
+#: src/core/containers/InfoDialog/index.js:36
+msgid "Your add-on is ready"
+msgstr "Vaš dodatak je spreman"
+
+#: src/core/containers/InfoDialog/index.js:38
+msgid "Now you can access %(name)s from the toolbar."
+msgstr "Sada možete pristupiti %(name)s preko alatne trake."
+
+#: src/core/containers/InfoDialog/index.js:47
+msgid "OK!"
+msgstr "OK!"
+
+#: src/disco/components/Addon.js:137
+msgid "Hover to preview or click to install %(name)s"
+msgstr "Pređite mišem za pregled ili kliknite da instalirate %(name)s"
+
+#: src/disco/components/Addon.js:152
+msgid "Hover over the image to preview"
+msgstr "Pređite mišem preko slike da je pregledate"
+
+#: src/disco/components/Addon.js:176
+msgid "Installation failed. Please try again."
+msgstr "Instalacija nije uspjela. Molimo pokušajte ponovo."
+
+#: src/disco/components/Addon.js:178
+msgid "Download failed. Please check your connection."
+msgstr "Preuzimanje nije uspjelo. Molimo provjerite vezu."
+
+#: src/disco/components/Addon.js:180
+msgid "An unexpected error occurred during installation."
+msgstr "Dogodila se neočekivana greška pri instalaciji."
+
+#: src/disco/components/Addon.js:182
+msgid "An unexpected error occurred during uninstallation."
+msgstr "Dogodila se neočekivana greška pri deinstalaciji."
+
+#: src/disco/components/Addon.js:185
+msgid "An unexpected error occurred."
+msgstr "Dogodila se neočekivana greška."
+
+#: src/disco/components/Addon.js:193
+msgid "This add-on will be uninstalled after you restart Firefox."
+msgstr "Ovaj dodatak će biti deinstaliran nakon što restartujete Firefox."
+
+#: src/disco/components/Addon.js:195
+msgid "Please restart Firefox to use this add-on."
+msgstr "Molimo restartujte Firefox da bi koristili ovaj dodatak."
+
+#: src/disco/components/Addon.js:95
+msgid "Close"
+msgstr "Zatvori"
+
+#: src/disco/components/AddonCompatibilityError/index.js:42
+msgid "Firefox for iOS does not currently support add-ons."
+msgstr "Firefox za iOS trenutno ne podržava dodatke."
+
+#: src/disco/components/AddonCompatibilityError/index.js:45
+msgid "This add-on does not support your version of Firefox."
+msgstr "Ovaj dodatak ne podržava verziju vašeg Firefoxa."
+
+#: src/disco/components/AddonCompatibilityError/index.js:50
+msgid "This add-on does not support your browser."
+msgstr "Ovaj dodatak ne podržava vaš browser."
+
+#: src/disco/components/Footer/index.js:26
+msgid "Privacy Policy"
+msgstr "Polica privatnosti"
+
+#: src/disco/containers/App.js:37
+msgid "Discover Add-ons"
+msgstr "Otkrijte dodatke"
+
+#: src/disco/containers/DiscoPane.js:137
+msgid "Personalize Your Firefox"
+msgstr "Prilagodite Firefox sebi"
+
+#: src/disco/containers/DiscoPane.js:138
+msgid ""
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
+msgstr ""
+"Postoje hiljade besplatnih dodataka, napravljenih od programera širom "
+"svijeta, koje možete instalirati na vaš prilagođeni Firefox. Od zanimljivih "
+"tema do moćnih alata koji čine vaše pretraživanje bržim i sigurnijim, dodaci "
+"čine vaš browser samo vašim. Za početak možete testirati sljedeće, koji se "
+"preporučuju za izuzetne performanse i upotrebljivost."
+
+#: src/disco/containers/DiscoPane.js:147
+msgid "Click to play"
+msgstr "Kliknite za reprodukciju"
+
+#: src/disco/containers/DiscoPane.js:148
+msgid "to find out more about add-ons"
+msgstr "i otkrijte više o dodacima"
+
+#: src/disco/containers/DiscoPane.js:162
+msgid "Close video"
+msgstr "Zatvori video"
+
+#: src/disco/containers/DiscoPane.js:182
+msgid "See more add-ons!"
+msgstr "Vidi više dodataka!"
+
+#: src/ui/components/ErrorList/index.js:45
+msgid "Your session has expired"
+msgstr "Vaša sesija je istekla"
+
+#: src/ui/components/ErrorList/index.js:52
+msgid "An unexpected error occurred"
+msgstr "Dogodila se neočekivana greška"
+
+#: src/ui/components/ErrorList/index.js:60
+msgid "Reload To Continue"
+msgstr "Ponovo učitaj za nastavak"

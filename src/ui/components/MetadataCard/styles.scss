@@ -1,0 +1,37 @@
+@import "~photon-colors/colors";
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.MetadataCard {
+  background-color: $grey-10;
+  border-radius: $border-radius-m;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  @include respond-to(large) {
+    margin: 0 -12px;
+  }
+}
+
+.MetadataCard-list {
+  @include text-align-start();
+
+  flex: 1;
+  hyphens: auto;
+  margin: 12px;
+  max-width: 25%;
+  word-wrap: break-word;
+
+  dd {
+    line-height: 1.4;
+    margin: 0;
+    min-height: 18px;
+  }
+
+  dt {
+    color: $grey-50;
+    line-height: 1.4;
+  }
+}

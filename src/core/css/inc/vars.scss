@@ -13,7 +13,6 @@ $button-background-color: #0095dd;
 $base-color: #fff;
 $link-color: #0568ba;
 $warning: #d63920;
-$focus-outline-color: #0096dc;
 
 // Fonts
 $default-font-family: "Clear Sans", Helvetica, Arial, sans-serif;
@@ -34,12 +33,14 @@ $transition-long: $transition-short * 7;
 
 // Border-Radius Variables
 $border-radius-default: 9px;
+$border-radius-xs: 2px;
 $border-radius-s: 4px;
 $border-radius-m: 8px;
 
 // Page padding (this is the padding for an entire page that isn't full-width,
 // like the AddonsDetail page)
 $padding-page: 10px;
+$padding-page-l: 24px;
 
 // Restrict the max-width of modals.
 $max-modal-width: 768px;

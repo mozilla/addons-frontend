@@ -1,10 +1,7 @@
-import {
-  LANDING_GET,
-  LANDING_LOADED,
-} from 'core/constants';
+import { LANDING_GET, LANDING_LOADED } from 'core/constants';
 
 
-export function getLanding({ addonType, errorHandlerId }) {
+export function getLanding({ addonType, errorHandlerId, category = null }) {
   if (!addonType) {
     throw new Error('addonType must be set');
   }
@@ -14,11 +11,11 @@ export function getLanding({ addonType, errorHandlerId }) {
 
   return {
     type: LANDING_GET,
-    payload: { addonType, errorHandlerId },
+    payload: { addonType, errorHandlerId, category },
   };
 }
 
-export function loadLanding({ addonType, featured, highlyRated, popular }) {
+export function loadLanding({ addonType, featured, highlyRated, trending }) {
   if (!addonType) {
     throw new Error('addonType parameter cannot be empty');
   }
@@ -28,11 +25,11 @@ export function loadLanding({ addonType, featured, highlyRated, popular }) {
   if (!highlyRated) {
     throw new Error('highlyRated parameter cannot be empty');
   }
-  if (!popular) {
-    throw new Error('popular parameter cannot be empty');
+  if (!trending) {
+    throw new Error('trending parameter cannot be empty');
   }
   return {
     type: LANDING_LOADED,
-    payload: { addonType, featured, highlyRated, popular },
+    payload: { addonType, featured, highlyRated, trending },
   };
 }

@@ -1,6 +1,7 @@
 import { createStore as _createStore, combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
+import { browserHistory } from 'react-router';
+import { routerMiddleware, routerReducer as routing } from 'react-router-redux';
 
 import { middleware } from 'core/store';
 import addons from 'core/reducers/addons';
@@ -10,9 +11,12 @@ import errorPage from 'core/reducers/errorPage';
 import infoDialog from 'core/reducers/infoDialog';
 import installations from 'core/reducers/installations';
 import discoResults from 'disco/reducers/discoResults';
+import redirectTo from 'core/reducers/redirectTo';
 
 
-export default function createStore(initialState = {}) {
+export default function createStore({
+  history = browserHistory, initialState = {},
+} = {}) {
   const sagaMiddleware = createSagaMiddleware();
   const store = _createStore(
     combineReducers({
@@ -23,10 +27,14 @@ export default function createStore(initialState = {}) {
       errorPage,
       installations,
       infoDialog,
-      reduxAsyncConnect,
+      redirectTo,
+      routing,
     }),
     initialState,
-    middleware({ sagaMiddleware }),
+    middleware({
+      routerMiddleware: routerMiddleware(history),
+      sagaMiddleware,
+    }),
   );
 
   return { sagaMiddleware, store };

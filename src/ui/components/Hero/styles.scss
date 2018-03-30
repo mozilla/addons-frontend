@@ -1,0 +1,70 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.Hero {
+  margin: 0 0 $padding-page;
+
+  @include respond-to(large) {
+    margin: 0 0 $padding-page-l;
+  }
+}
+
+.Hero .Card-contents {
+  padding: 12px;
+
+  @include respond-to(large) {
+    padding: $padding-page-l;
+  }
+}
+
+.Hero-contents {
+  display: grid;
+  grid-gap: 12px;
+  grid-template: 1fr;
+  grid-template-areas:
+    "first"
+    "second"
+    "third";
+  padding-bottom: 10px;
+
+  @include respond-to(medium) {
+    grid-template: 1fr 1fr / 60% 1fr;
+    grid-template-areas:
+      "first second"
+      "first third";
+    height: auto;
+    margin-bottom: -12px;
+  }
+
+  @include respond-to(large) {
+    grid-gap: $padding-page-l;
+  }
+}
+
+.Hero .HeroSection {
+  &:first-of-type {
+    grid-area: first;
+  }
+
+  &:nth-of-type(2) {
+    grid-area: second;
+  }
+
+  &:nth-of-type(3) {
+    grid-area: third;
+  }
+
+  @include respond-to(medium) {
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      .HeroSection-content h3 {
+        font-size: $hero-subtitle-font-size;
+      }
+
+      .HeroSection-content p {
+        display: none;
+      }
+    }
+  }
+}

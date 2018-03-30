@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+/* @flow */
+import * as React from 'react';
 import { compose } from 'redux';
 import NestedStatus from 'react-nested-status';
 
@@ -7,15 +7,16 @@ import SuggestedPages from 'amo/components/SuggestedPages';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Card from 'ui/components/Card';
+import type { I18nType } from 'core/types/i18n';
 
 import 'amo/components/ErrorPage/ErrorPage.scss';
 
 
-export class NotAuthorizedBase extends React.Component {
-  static propTypes = {
-    i18n: PropTypes.object.isRequired,
-  }
+type Props = {|
+  i18n: I18nType,
+|};
 
+export class NotAuthorizedBase extends React.Component<Props> {
   render() {
     const { i18n } = this.props;
 

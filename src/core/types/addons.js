@@ -4,24 +4,79 @@ import { validAddonTypes } from 'core/constants';
 // You have to just laugh at this line!
 type AddonTypeType = validAddonTypes;
 
-export type AddonVersionType = {|
+type AddonStatus =
+  | 'beta'
+  | 'lite'
+  | 'public'
+  | 'deleted'
+  | 'pending'
+  | 'disabled'
+  | 'rejected'
+  | 'nominated'
+  | 'incomplete'
+  | 'unreviewed'
+  | 'lite-nominated'
+  | 'review-pending';
+
+type AddonFileType = {|
+  created: string,
+  hash: string,
+  id: number,
+  is_mozilla_signed_extension: boolean,
+  is_restart_required: boolean,
+  is_webextension: boolean,
+  permissions?: Array<string>,
+  platform: 'all' | 'android' | 'mac' | 'linux' | 'windows',
+  status: AddonStatus,
+  url: string,
+|};
+
+type PartialAddonVersionType = {|
   channel: string,
   edit_url: string,
-  files: Array<Object>,
+  files: Array<AddonFileType>,
   id: number,
-  // The `text` property is omitted from addon.current_version.license.
-  license: { name: string, url: string },
   reviewed: Date,
+  // This is the developer-defined version number.
+  // It could, for example, be set to "0".
+  // See:
+  // https://github.com/mozilla/addons-frontend/pull/3271#discussion_r142159199
   version: string,
 |};
 
-export type AddonAuthorType = {|
+export type AddonVersionType = {|
+  ...PartialAddonVersionType,
+  // The `text` property is omitted from addon.current_version.license.
+  license: { name: string, url: string },
+  release_notes?: string,
+|};
+
+type PartialAddonAuthorType = {|
+  id: number,
   name: string,
   url: string,
   username: string,
 |};
 
-type ThemeData = {|
+export type AddonAuthorType = {|
+  ...PartialAddonAuthorType,
+  picture_url: string,
+|};
+
+export type LanguageToolType = {|
+  current_version: AddonVersionType,
+  default_locale: string,
+  guid: string,
+  id: number,
+  locale_disambiguation?: string,
+  name: string,
+  slug: string,
+  target_locale?: string,
+  type: string,
+  url: string,
+|};
+
+export type ThemeData = {|
   accentcolor?: string,
   author?: string,
   category?: string,
@@ -49,54 +104,48 @@ type ThemeData = {|
  * See: https://addons-server.readthedocs.io/en/latest/topics/api/addons.html#detail
  */
 export type ExternalAddonType = {|
-  authors: Array<AddonAuthorType>,
-  average_daily_users: number,
-  categories: Object,
+  authors?: Array<AddonAuthorType>,
+  average_daily_users?: number,
+  categories?: Object,
+  contributions_url?: string,
   current_beta_version?: AddonVersionType,
-  current_version: AddonVersionType,
+  // If you make an API request as an admin for an incomplete
+  // add-on (status=0) then the current_version could be null.
+  current_version?: AddonVersionType,
   default_locale: string,
-  description: string,
-  edit_url: string,
+  description?: string,
+  edit_url?: string,
   guid: string,
-  has_eula: boolean,
-  has_privacy_policy: boolean,
+  has_eula?: boolean,
+  has_privacy_policy?: boolean,
   homepage?: string,
-  icon_url: string,
+  icon_url?: string,
   id: number,
-  is_disabled: boolean,
-  is_experimental: boolean,
-  is_featured: boolean,
-  is_source_public: boolean,
-  last_updated: Date,
-  latest_unlisted_version: ?AddonVersionType,
+  is_disabled?: boolean,
+  is_experimental?: boolean,
+  is_featured?: boolean,
+  is_source_public?: boolean,
+  last_updated?: Date,
+  latest_unlisted_version?: ?AddonVersionType,
+  locale_disambiguation?: string,
   name: string,
-  previews: Array<Object>,
-  public_stats: boolean,
-  ratings: {|
+  previews?: Array<Object>,
+  public_stats?: boolean,
+  ratings?: {|
     average: number,
     bayesian_average: number,
     count: number,
+    text_count: number,
   |},
-  requires_payment: boolean,
-  review_url: string,
+  requires_payment?: boolean,
+  review_url?: string,
   slug: string,
-  status:
-    | 'beta'
-    | 'lite'
-    | 'public'
-    | 'deleted'
-    | 'pending'
-    | 'disabled'
-    | 'rejected'
-    | 'nominated'
-    | 'incomplete'
-    | 'unreviewed'
-    | 'lite-nominated'
-    | 'review-pending',
+  status?: AddonStatus,
   summary?: string,
   support_email?: string,
   support_url?: string,
-  tags: Array<string>,
+  tags?: Array<string>,
+  target_locale?: string,
   theme_data?: ThemeData,
   type: AddonTypeType,
   url: string,
@@ -114,7 +163,25 @@ export type AddonType = {
   ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
-  iconUrl: string,
-  installURL?: string,
+  iconUrl?: string,
+  platformFiles: {|
+    // This seems necessary to help Flow know that computed
+    // keys always return an AddonFileType.
+    [anyPlatform: string]: ?AddonFileType,
+    all: ?AddonFileType,
+    android: ?AddonFileType,
+    mac: ?AddonFileType,
+    linux: ?AddonFileType,
+    windows: ?AddonFileType,
+  |},
+  isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
+  isWebExtension: boolean,
+  themeData?: ThemeData,
 };
+
+export type SearchResultAddonType = {|
+  ...AddonType,
+  authors?: PartialAddonAuthorType,
+  current_version?: PartialAddonVersionType,
+|};

@@ -1,0 +1,97 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.AutoSearchInput-search-box {
+  position: relative;
+}
+
+.AutoSearchInput-query {
+  @include padding-end(6px);
+  @include padding-start(28px);
+
+  // This prevents a flicker of black when focusing on mobile.
+  background-color: $white;
+  border: 1px solid $white;
+  border-radius: $border-radius-s;
+  color: $black;
+  height: 27px;
+  line-height: 27px;
+  outline: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+
+  &:hover {
+    border-color: $teal-50;
+  }
+
+  &:focus {
+    @include focus();
+
+    border-color: $teal-50;
+  }
+
+  @include respond-to(medium) {
+    @include padding-end(28px);
+  }
+
+  .AutoSearchInput--autocompleteIsOpen & {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+.AutoSearchInput-suggestions-list {
+  @include end(0);
+
+  background-color: $white;
+  border-bottom-left-radius: $border-radius-s;
+  border-bottom-right-radius: $border-radius-s;
+  box-shadow: 1px 4px 3px transparentize($black, 0.5);
+  color: $black;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+}
+
+.AutoSearchInput-suggestions-item {
+  cursor: pointer;
+  display: block;
+  outline: none;
+  padding: 5px 6px;
+  width: 100%;
+}
+
+.AutoSearchInput-suggestions-item:hover,
+.AutoSearchInput-suggestions-item:active,
+.AutoSearchInput-suggestions-item:focus,
+.AutoSearchInput-suggestions-item--highlighted {
+  color: $link-color;
+  white-space: normal;
+
+  .SearchSuggestion-icon-arrow {
+    display: block;
+  }
+}
+
+.AutoSearchInput-icon-magnifying-glass {
+  @include start(6px);
+
+  position: absolute;
+  top: 6px;
+}
+
+.AutoSearchInput-submit-button {
+  display: none;
+
+  @include respond-to(medium) {
+    @include end(0);
+
+    display: block;
+    position: absolute;
+    top: 6px;
+  }
+}

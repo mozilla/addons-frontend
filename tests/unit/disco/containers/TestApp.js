@@ -1,19 +1,19 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 import { findDOMNode } from 'react-dom';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 import NestedStatus from 'react-nested-status';
 import { Provider } from 'react-redux';
-import { loadFail } from 'redux-connect/lib/store';
 
 import { AppBase, mapStateToProps } from 'disco/containers/App';
 import createStore from 'disco/store';
 import { createApiError } from 'core/api';
 import I18nProvider from 'core/i18n/Provider';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { loadErrorPage } from 'core/reducers/errorPage';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 class MyComponent extends React.Component {
@@ -25,7 +25,7 @@ class MyComponent extends React.Component {
 function renderProps(customProps = {}) {
   return {
     browserVersion: '50',
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     store: createStore().store,
     ...customProps,
   };
@@ -90,7 +90,7 @@ describe('App errors', () => {
       apiURL: 'http://test.com',
       response: { status: 404 },
     });
-    store.dispatch(loadFail('ReduxKey', error));
+    store.dispatch(loadErrorPage({ error }));
 
     const rootNode = renderApp({ store });
     expect(rootNode.textContent).not.toContain('The component');
@@ -103,7 +103,7 @@ describe('App errors', () => {
       apiURL: 'http://test.com',
       response: { status: 500 },
     });
-    store.dispatch(loadFail('ReduxKey', error));
+    store.dispatch(loadErrorPage({ error }));
 
     const rootNode = renderApp({ store });
     expect(rootNode.textContent).not.toContain('The component');

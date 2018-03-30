@@ -6,26 +6,34 @@ import { all, fork } from 'redux-saga/effects';
 
 import addonsByAuthors from 'amo/sagas/addonsByAuthors';
 import categories from 'amo/sagas/categories';
-import featured from 'amo/sagas/featured';
+import collections from 'amo/sagas/collections';
+import home from 'amo/sagas/home';
 import landing from 'amo/sagas/landing';
 import reviews from 'amo/sagas/reviews';
+import abuse from 'core/sagas/abuse';
 import addons from 'core/sagas/addons';
 import search from 'core/sagas/search';
 import autocomplete from 'core/sagas/autocomplete';
-import user from 'core/sagas/user';
+import languageTools from 'core/sagas/languageTools';
+import userAbuseReports from 'amo/sagas/userAbuseReports';
+import users from 'amo/sagas/users';
 
 
 // Export all sagas for this app so runSaga can consume them.
 export default function* rootSaga() {
   yield all([
+    fork(abuse),
     fork(addons),
     fork(addonsByAuthors),
     fork(autocomplete),
     fork(categories),
-    fork(featured),
+    fork(collections),
+    fork(home),
     fork(landing),
+    fork(languageTools),
     fork(reviews),
     fork(search),
-    fork(user),
+    fork(userAbuseReports),
+    fork(users),
   ]);
 }

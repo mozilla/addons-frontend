@@ -1,10 +1,10 @@
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import NestedStatus from 'react-nested-status';
 import { compose } from 'redux';
-import classNames from 'classnames';
+import makeClassName from 'classnames';
 
 import DefaultErrorPage from 'core/components/ErrorPage';
 import translate from 'core/i18n/translate';
@@ -15,7 +15,7 @@ import 'disco/css/App.scss';
 
 export class AppBase extends React.Component {
   static propTypes = {
-    ErrorPage: PropTypes.node.isRequired,
+    ErrorPage: PropTypes.node,
     browserVersion: PropTypes.string.isRequired,
     children: PropTypes.node,
     i18n: PropTypes.object.isRequired,
@@ -27,7 +27,7 @@ export class AppBase extends React.Component {
 
   render() {
     const { ErrorPage, browserVersion, children, i18n } = this.props;
-    const classes = classNames('disco-pane', {
+    const classes = makeClassName('disco-pane', {
       'padding-compensation': parseInt(browserVersion, 10) < 50,
     });
 

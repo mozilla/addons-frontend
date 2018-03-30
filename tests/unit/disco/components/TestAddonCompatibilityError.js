@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
@@ -9,7 +9,7 @@ import {
   INCOMPATIBLE_UNDER_MIN_VERSION,
 } from 'core/constants';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
 describe('AddonCompatibilityError', () => {
@@ -18,7 +18,7 @@ describe('AddonCompatibilityError', () => {
 
     return shallowUntilTarget(
       <AddonCompatibilityError
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         store={store}
         minVersion={null}
         {...props}

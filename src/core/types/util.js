@@ -1,5 +1,4 @@
 /* @flow */
-/* global $Shape */
 
 // TODO: This can go away when https://github.com/facebook/flow/issues/2405
 // is fixed.

@@ -1,11 +1,11 @@
-import React from 'react';
+import * as React from 'react';
 
 import DownloadFirefoxButton, {
   DownloadFirefoxButtonBase,
 } from 'amo/components/DownloadFirefoxButton';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
-  getFakeI18nInst,
+  fakeI18n,
   shallowUntilTarget,
   userAgents,
 } from 'tests/unit/helpers';
@@ -17,7 +17,7 @@ describe(__filename, () => {
 
     return shallowUntilTarget(
       <DownloadFirefoxButton
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         store={store}
         {...props}
       />,
@@ -59,5 +59,12 @@ describe(__filename, () => {
     const root = render({ store });
 
     expect(root).toHaveClassName('DownloadFirefoxButton');
+    expect(root).toHaveProp('href', [
+      'https://www.mozilla.org/firefox/new/',
+      '?utm_source=addons.mozilla.org',
+      '&utm_medium=referral',
+      '&utm_campaign=non-fx-button',
+      '&utm_content=header-download-button',
+    ].join(''));
   });
 });

@@ -1,4 +1,5 @@
 @import "~normalize.css";
+@import "~photon-colors/colors";
 @import "~core/css/inc/lib";
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
@@ -6,12 +7,28 @@
 
 html,
 body {
-  background: $footer-base-color;
+  background: $header-base-color;
   height: 100%;
 }
 
 html {
   box-sizing: border-box;
+}
+
+input,
+textarea {
+  @include font-regular();
+
+  // Fix search input and possibly other inputs.
+  // See https://github.com/mozilla/addons-frontend/issues/3640
+  background: $white;
+  border: 1px solid $grey-50;
+  border-radius: $border-radius-xs;
+  box-shadow: none;
+  color: $black;
+  font-size: $font-size-m-smaller;
+  line-height: 1.4;
+  padding: 4px;
 }
 
 *,
@@ -42,6 +59,10 @@ body {
   background: $background-grey;
   flex-grow: 1;
   padding: 0 0 $padding-page;
+
+  @include respond-to(large) {
+    padding: 0 0 $padding-page-l;
+  }
 }
 
 .App-content-wrapper {
@@ -77,7 +98,6 @@ a:link {
   @include font-medium();
 
   color: $link-color;
-  font-size: 14px;
 }
 
 em {
@@ -108,12 +128,4 @@ fieldset {
   border: 0;
   margin: 0;
   padding: 0;
-}
-
-.App-loading-bar {
-  background: $loading-bar-color;
-  height: 2px;
-  position: fixed;
-  top: 0;
-  z-index: 10000;
 }

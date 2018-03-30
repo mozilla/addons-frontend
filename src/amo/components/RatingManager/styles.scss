@@ -18,6 +18,16 @@ $button-height:
   margin-top: $rating-top-margin + $button-margin;
   padding: 0;
   position: absolute;
-  text-transform: uppercase;
   width: 100%;
+}
+
+.RatingManager {
+  fieldset {
+    // Prevent content overflow.
+    min-width: 0;
+  }
+
+  legend {
+    word-wrap: break-word;
+  }
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import SearchContextCard, {
   SearchContextCardBase,
@@ -9,8 +9,13 @@ import {
   dispatchSearchResults,
   fakeAddon,
 } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
-
+import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_DICT,
+  ADDON_TYPE_LANG,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 
 describe('SearchContextCard', () => {
   let _store;
@@ -23,7 +28,7 @@ describe('SearchContextCard', () => {
 
     return shallowUntilTarget(
       <SearchContextCard
-        i18n={getFakeI18nInst()}
+        i18n={fakeI18n()}
         {...props}
       />,
       SearchContextCardBase
@@ -104,4 +109,150 @@ describe('SearchContextCard', () => {
     expect(root.find('.SearchContextCard-header'))
       .toIncludeText('No add-ons found');
   });
+
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_THEME', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_THEME,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('1 theme found for "test"');
+  });
+
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_THEME', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_THEME,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('2 themes found for "test"');
+  });
+
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_DICT', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_DICT,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('1 dictionary found for "test"');
+  });
+
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_DICT', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_DICT,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('2 dictionaries found for "test"');
+  });
+
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_EXTENSION', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('1 extension found for "test"');
+  });
+
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_EXTENSION', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('2 extensions found for "test"');
+  });
+
+  it('should render singular form when only one result is found with addonType ADDON_TYPE_LANG', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: ADDON_TYPE_LANG,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('1 language pack found for "test"');
+  });
+
+  it('should render plural form when multiple results are found with addonType ADDON_TYPE_LANG', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: ADDON_TYPE_LANG,
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('2 language packs found for "test"');
+  });
+
+  it('should render singular form when only one result is found with addonType theme', () => {
+    const { store } = dispatchSearchResults({
+      addons: { [fakeAddon.slug]: fakeAddon },
+      filters: {
+        addonType: 'theme',
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('1 result found for "test"');
+  });
+
+  it('should render plural form when multiple results are found with addonType theme', () => {
+    const { store } = dispatchSearchResults({
+      filters: {
+        addonType: 'theme',
+        query: 'test',
+      },
+    });
+
+    const root = render({ store });
+
+    expect(root.find('.SearchContextCard-header'))
+      .toIncludeText('2 results found for "test"');
+  });
 });
+

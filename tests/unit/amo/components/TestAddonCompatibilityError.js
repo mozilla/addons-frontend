@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import AddonCompatibilityError, {
   AddonCompatibilityErrorBase,
@@ -10,27 +10,35 @@ import {
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_OVER_MAX_VERSION,
   INCOMPATIBLE_UNDER_MIN_VERSION,
+  INCOMPATIBLE_UNSUPPORTED_PLATFORM,
 } from 'core/constants';
-import { signedInApiState } from 'tests/unit/amo/helpers';
-import { getFakeI18nInst, shallowUntilTarget } from 'tests/unit/helpers';
+import Notice from 'ui/components/Notice';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  fakeI18n, shallowUntilTarget, userAgentsByPlatform,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
-  const defaultUserAgentInfo = {
-    browser: { name: 'Firefox' },
-    os: { name: 'Plan 9' },
+  let store;
+
+  beforeEach(() => {
+    // Set up an empty store and let each test call
+    // dispatchClientMetadata().
+    store = createStore().store;
+  });
+
+  const _dispatchClientMetadata = (params = {}) => {
+    return dispatchClientMetadata({
+      store,
+      userAgent: userAgentsByPlatform.mac.firefox57,
+      ...params,
+    });
   };
 
   function render({ ...props }) {
-    const api = {
-      ...signedInApiState,
-      lang: props.lang,
-      userAgentInfo: props.userAgentInfo,
-    };
-    const { store } = createStore({ api });
-
     const defaultProps = {
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       minVersion: null,
       store,
     };
@@ -42,29 +50,50 @@ describe(__filename, () => {
   }
 
   it('renders a notice for non-Firefox browsers', () => {
-    const root = render({
-      lang: 'en-GB',
-      reason: INCOMPATIBLE_NOT_FIREFOX,
-      userAgentInfo: { browser: { name: 'Chrome' }, os: {} },
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.chrome41,
     });
+    const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
 
     expect(
       root.find('.AddonCompatibilityError').render().find('a').attr('href')
-    ).toEqual('https://www.mozilla.org/en-GB/firefox/');
+    ).toEqual([
+      'https://www.mozilla.org/firefox/new/',
+      '?utm_source=addons.mozilla.org',
+      '&utm_medium=referral',
+      '&utm_campaign=non-fx-button',
+      '&utm_content=install-addon-button',
+    ].join(''));
     expect(
       root.find('.AddonCompatibilityError').render().text()
     ).toContain('You need to download Firefox to install this add-on.');
   });
 
-  it('renders a notice if add-on is over maxVersion/compat is strict', () => {
-    const root = render({
-      lang: 'en-GB',
-      reason: INCOMPATIBLE_OVER_MAX_VERSION,
-      userAgentInfo: {
-        browser: { name: 'Firefox', version: { major: '57' } },
-        os: {},
-      },
+  it('renders a generic notice for non-Firefox browsers', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.chrome41,
     });
+    const root = render({ reason: INCOMPATIBLE_NOT_FIREFOX });
+
+    expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
+      'type', 'success');
+  });
+
+  it('renders an error notice for other reasons than non-Firefox', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.firefox57,
+    });
+    const root = render({ reason: INCOMPATIBLE_OVER_MAX_VERSION });
+
+    expect(root.find('.AddonCompatibilityError').find(Notice)).toHaveProp(
+      'type', 'error');
+  });
+
+  it('renders a notice if add-on is over maxVersion/compat is strict', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.firefox57,
+    });
+    const root = render({ reason: INCOMPATIBLE_OVER_MAX_VERSION });
 
     expect(
       root.find('.AddonCompatibilityError').render().text()
@@ -72,54 +101,58 @@ describe(__filename, () => {
   });
 
   it('renders a notice for old versions of Firefox', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.firefox33,
+    });
     const root = render({
-      lang: 'en-GB',
-      minVersion: '11.0',
+      minVersion: '34.0',
       reason: INCOMPATIBLE_UNDER_MIN_VERSION,
-      userAgentInfo: {
-        browser: { name: 'Firefox', version: '8.0' }, os: {},
-      },
     });
 
     const text = root.find('.AddonCompatibilityError').render().text();
 
     expect(
       root.find('.AddonCompatibilityError').render().find('a').attr('href')
-    ).toEqual('https://www.mozilla.org/en-GB/firefox/');
+    ).toMatch(new RegExp('https://www.mozilla.org/firefox/new/'));
     expect(text).toContain(
       'This add-on requires a newer version of Firefox');
-    expect(text).toContain('(at least version 11.0)');
-    expect(text).toContain('You are using Firefox 8.0');
+    expect(text).toContain('(at least version 34.0)');
+    expect(text).toContain('You are using Firefox 33.0');
   });
 
   it('renders a notice for iOS users', () => {
-    const root = render({
-      reason: INCOMPATIBLE_FIREFOX_FOR_IOS,
-      userAgentInfo: { browser: { name: 'Firefox' }, os: { name: 'iOS' } },
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.ios.firefox1iPhone,
     });
+    const root = render({ reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
 
     expect(root.find('.AddonCompatibilityError').render().text())
       .toContain('Firefox for iOS does not currently support add-ons.');
   });
 
   it('renders a notice for browsers that do not support OpenSearch', () => {
-    const root = render({
-      reason: INCOMPATIBLE_NO_OPENSEARCH,
-      userAgentInfo: {
-        browser: { name: 'Firefox' }, os: { name: 'Plan 9' },
-      },
-    });
+    _dispatchClientMetadata();
+    const root = render({ reason: INCOMPATIBLE_NO_OPENSEARCH });
 
     expect(root.find('.AddonCompatibilityError').render().text())
       .toContain('Your version of Firefox does not support search plugins.');
   });
 
+  it('renders a notice if add-on is incompatible with the platform', () => {
+    _dispatchClientMetadata();
+    const root = render({ reason: INCOMPATIBLE_UNSUPPORTED_PLATFORM });
+
+    expect(
+      root.find('.AddonCompatibilityError').render().text()
+    ).toContain('This add-on is not available on your platform.');
+  });
+
   it('renders a notice and logs warning when reason code not known', () => {
+    _dispatchClientMetadata();
     const fakeLog = { warn: sinon.stub() };
     const root = render({
       log: fakeLog,
       reason: 'fake reason',
-      userAgentInfo: defaultUserAgentInfo,
     });
 
     sinon.assert.calledWith(
@@ -132,17 +165,18 @@ describe(__filename, () => {
   });
 
   it('throws an error if no reason is supplied', () => {
+    _dispatchClientMetadata();
     expect(() => {
-      render({ userAgentInfo: defaultUserAgentInfo });
+      render();
     }).toThrowError('AddonCompatibilityError requires a "reason" prop');
   });
 
   it('throws an error if minVersion is missing', () => {
+    _dispatchClientMetadata();
     expect(() => {
       render({
         minVersion: undefined,
         reason: INCOMPATIBLE_NOT_FIREFOX,
-        userAgentInfo: defaultUserAgentInfo,
       });
     }).toThrowError('minVersion is required; it cannot be undefined');
   });

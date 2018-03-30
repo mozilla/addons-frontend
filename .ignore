@@ -1,0 +1,6 @@
+# This configures rg not to search some files/directories.
+# Keep in mind that most ignore patterns are covered by .gitignore.
+# More info: https://github.com/BurntSushi/ripgrep
+
+locale
+yarn.lock

@@ -2,14 +2,16 @@ import {
   LANDING_GET,
   LANDING_LOADED,
 } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 
 
 export const initialState = {
   addonType: null,
+  category: null,
   featured: { count: 0, results: [] },
   highlyRated: { count: 0, results: [] },
   loading: false,
-  popular: { count: 0, results: [] },
+  trending: { count: 0, results: [] },
   resultsLoaded: false,
 };
 
@@ -20,18 +22,20 @@ export default function landing(state = initialState, action) {
       return {
         ...initialState,
         addonType: payload.addonType,
+        category: payload.category,
         loading: true,
         resultsLoaded: false,
       };
+
     case LANDING_LOADED: {
       const newState = { ...state, loading: false, resultsLoaded: true };
 
-      ['featured', 'highlyRated', 'popular'].forEach((key) => {
+      ['featured', 'highlyRated', 'trending'].forEach((key) => {
         if (payload[key]) {
           newState[key] = {
             count: payload[key].result.count,
             results: payload[key].result.results.map((slug) => (
-              payload[key].entities.addons[slug]
+              createInternalAddon(payload[key].entities.addons[slug])
             )),
           };
         }

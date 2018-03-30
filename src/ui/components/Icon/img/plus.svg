@@ -1,0 +1,27 @@
+<svg width="48px" height="48px" viewBox="12 6 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-11.9%" y="-36.7%" width="123.7%" height="186.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="8" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.0470588235   0 0 0 0 0.0470588235   0 0 0 0 0.0509803922  0 0 0 0.1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Screens" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="Extension-Detail---1366px" transform="translate(-612.000000, -355.000000)" stroke="#FFFFFF" stroke-width="3">
+            <g id="Group-16" transform="translate(24.000000, 136.000000)">
+                <g id="Group-75-Copy-4" filter="url(#filter-1)" transform="translate(579.000000, 209.000000)">
+                    <g id="Group-70" transform="translate(25.000000, 22.000000)">
+                        <path d="M8,0 L8,16" id="Shape"></path>
+                        <path d="M0,8 L16,8" id="Shape"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

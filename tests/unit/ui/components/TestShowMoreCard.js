@@ -1,15 +1,15 @@
-import React from 'react';
+import * as React from 'react';
 import { mount } from 'enzyme';
 import { findDOMNode } from 'react-dom';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
+import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 
-import { ShowMoreCardBase } from 'ui/components/ShowMoreCard';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { ShowMoreCardBase, MAX_HEIGHT } from 'ui/components/ShowMoreCard';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 function render(props) {
   return renderIntoDocument(
-    <ShowMoreCardBase i18n={getFakeI18nInst()} {...props} />
+    <ShowMoreCardBase i18n={fakeI18n()} {...props} />
   );
 }
 
@@ -40,7 +40,7 @@ describe(__filename, () => {
 
   it('truncates the contents if they are too long', () => {
     const root = render({ children: 'Hello I am description' });
-    root.truncateToMaxHeight({ clientHeight: 101 });
+    root.truncateToMaxHeight({ clientHeight: MAX_HEIGHT + 1 });
     expect(root.state.expanded).toEqual(false);
   });
 
@@ -60,7 +60,7 @@ describe(__filename, () => {
   });
 
   it('executes truncateToMaxHeight when it recieves props', () => {
-    const root = mount(<ShowMoreCardBase i18n={getFakeI18nInst()} />);
+    const root = mount(<ShowMoreCardBase i18n={fakeI18n()} />);
     const component = root.instance();
 
     const contentNode = findDOMNode(component.contents);
@@ -72,7 +72,7 @@ describe(__filename, () => {
 
   it('expands if new child content is smaller', () => {
     const root = mount(
-      <ShowMoreCardBase i18n={getFakeI18nInst()}>
+      <ShowMoreCardBase i18n={fakeI18n()}>
         This would be very long content, but we cannot get `clientHeight` in
         the tests, so this will be forced below (via setState()).
       </ShowMoreCardBase>

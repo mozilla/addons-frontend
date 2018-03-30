@@ -1,14 +1,14 @@
 /* eslint-disable react/no-multi-comp */
-import React from 'react';
+import * as React from 'react';
 import PropTypes from 'prop-types';
 import {
   renderIntoDocument,
   findRenderedComponentWithType,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import I18nProvider from 'core/i18n/Provider';
 import translate from 'core/i18n/translate';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 class OuterComponent extends React.Component {
@@ -34,7 +34,7 @@ class InnerComponent extends React.Component {
 describe('translate()', () => {
   function render({
     Component = translate()(InnerComponent),
-    i18n = getFakeI18nInst(),
+    i18n = fakeI18n(),
     componentProps = {},
   } = {}) {
     return renderIntoDocument(
@@ -47,14 +47,14 @@ describe('translate()', () => {
   }
 
   it('pulls i18n from context', () => {
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
     render({ i18n });
     expect(i18n.gettext.called).toBeTruthy();
   });
 
   it('overrides the i18n from props', () => {
-    const contextI18n = getFakeI18nInst();
-    const propsI18n = getFakeI18nInst();
+    const contextI18n = fakeI18n();
+    const propsI18n = fakeI18n();
     render({ i18n: contextI18n, componentProps: { i18n: propsI18n } });
     expect(contextI18n.gettext.called).toBeFalsy();
     expect(propsI18n.gettext.called).toBeTruthy();

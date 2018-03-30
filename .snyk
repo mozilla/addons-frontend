@@ -1,0 +1,24 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:content-type-parser:20170905':
+    - jsdom > content-type-parser:
+        reason: >-
+          We only use this for DOMPurify (no external fetching) so we are
+          probably not vulnerable
+        expires: '2018-02-23T22:52:31.923Z'
+  'npm:hoek:20180212':
+    - jsdom > request > hawk > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-03-17T17:23:51.194Z'
+    - jsdom > request > hawk > boom > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-03-17T17:23:51.194Z'
+    - jsdom > request > hawk > sntp > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-03-17T17:23:51.194Z'
+    - jsdom > request > hawk > cryptiles > boom > hoek:
+        reason: Our app doesn't rely on HAWK
+        expires: '2018-03-17T17:23:51.195Z'
+patch: {}
+version: v1.10.1

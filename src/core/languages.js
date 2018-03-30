@@ -2,7 +2,7 @@ import config from 'config';
 
 
 /* eslint-disable */
-const languages = {
+export const unfilteredLanguages = {
     "af": {
         "English": "Afrikaans",
         "native": "Afrikaans"
@@ -615,8 +615,8 @@ const languages = {
 /* eslint-enable */
 
 export default config.get('langs').reduce((object, locale) => {
-  if (typeof languages[locale] !== 'undefined') {
-    return { ...object, [locale]: languages[locale] };
+  if (typeof unfilteredLanguages[locale] !== 'undefined') {
+    return { ...object, [locale]: unfilteredLanguages[locale] };
   }
 
   return object;

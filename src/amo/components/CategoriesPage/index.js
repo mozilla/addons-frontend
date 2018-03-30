@@ -1,5 +1,5 @@
 /* @flow */
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 
 import Categories from 'amo/components/Categories';
@@ -8,13 +8,11 @@ import translate from 'core/i18n/translate';
 
 import './styles.scss';
 
-type CategoriesPageProps = {|
+type Props = {|
   params: {| visibleAddonType: string |},
 |};
 
-export class CategoriesPageBase extends React.Component {
-  props: CategoriesPageProps;
-
+export class CategoriesPageBase extends React.Component<Props> {
   render() {
     const addonType = apiAddonType(this.props.params.visibleAddonType);
     return <Categories addonType={addonType} className="CategoriesPage" />;

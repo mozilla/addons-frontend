@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
@@ -6,7 +6,7 @@ import SearchResult from 'amo/components/SearchResult';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
-describe('<AddonsCard />', () => {
+describe(__filename, () => {
   let addons;
 
   function render(props = {}) {
@@ -18,6 +18,18 @@ describe('<AddonsCard />', () => {
       { ...fakeAddon, name: 'I am add-on! ', slug: 'i-am-addon' },
       { ...fakeAddon, name: 'I am also add-on!', slug: 'i-am-also-addon' },
     ];
+  });
+
+  it('can render a horizontal class', () => {
+    const root = render({ type: 'horizontal' });
+
+    expect(root).toHaveClassName('AddonsCard--horizontal');
+  });
+
+  it('does not render a horizontal class by default', () => {
+    const root = render();
+
+    expect(root).not.toHaveClassName('AddonsCard--horizontal');
   });
 
   it('renders add-ons when supplied', () => {
@@ -61,5 +73,14 @@ describe('<AddonsCard />', () => {
     const results = root.find(SearchResult);
     expect(results).toHaveLength(1);
     expect(results.at(0)).toHaveProp('addon', fakeAddon);
+  });
+
+  it('renders search results with addonInstallSource', () => {
+    const addonInstallSource = 'featured-on-home-page';
+    const root = render({ addons: [fakeAddon], addonInstallSource });
+
+    const results = root.find(SearchResult);
+    expect(results.at(0))
+      .toHaveProp('addonInstallSource', addonInstallSource);
   });
 });

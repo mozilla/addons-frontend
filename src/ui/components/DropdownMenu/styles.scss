@@ -6,28 +6,25 @@
   @include text-align-start();
 
   display: inline-block;
-  padding-bottom: 6px;
-  padding-top: 8px;
+  height: 27px;
+  padding-bottom: 2px;
+  padding-top: 4px;
   position: relative;
 
-  // This is needed because `:hover` on mobile prevents the main button to
-  // close the dropdown menu. On mobile, `.DropdownMenu--active` controls the
-  // visibility of the menu. On "large" devices (and above), `:hover` also
-  // opens the menu.
-  @include respond-to(large) {
-    &:hover {
-      .DropdownMenu-items {
-        display: block;
-      }
-
-      .Icon-inverted-caret {
-        opacity: 1;
-      }
-    }
+  @include respond-to(medium) {
+    height: auto;
+    padding-bottom: 6px;
   }
 }
 
 .DropdownMenu-button {
+  &:focus {
+    // Fix outline for Firefox (see #3110)
+    outline: 1px dotted $white;
+    // Restore default outline for webkit.
+    outline: auto 5px -webkit-focus-ring-color;
+  }
+
   .DropdownMenu-button-text {
     @include font-regular();
 
@@ -36,7 +33,7 @@
     font-size: $font-size-s;
     font-weight: normal;
     max-width: 100px;
-    overflow-x: hidden;
+    overflow: hidden;
     text-decoration: none;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -75,6 +72,7 @@
   display: none;
   list-style-type: none;
   margin: 0;
+  max-width: 245px;
   padding: 4px 24px 20px;
   position: absolute;
   top: 30px;
@@ -82,6 +80,8 @@
   width: auto;
   z-index: 10;
 
+  // This is the triangle at the top of the dropdown menu which is
+  // actually just a tilted square.
   &::after {
     @include end(36px);
 
@@ -97,5 +97,9 @@
 
   .DropdownMenu--active & {
     display: block;
+  }
+
+  @include respond-to(extraLarge) {
+    max-width: 300px;
   }
 }

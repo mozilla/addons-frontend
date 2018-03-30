@@ -1,21 +1,30 @@
 /* global window */
 import querystring from 'querystring';
 
-import config, { util as configUtil } from 'config';
+import config from 'config';
 import utf8 from 'utf8';
 
 import * as api from 'core/api';
-import { ADDON_TYPE_THEME, CLIENT_APP_ANDROID } from 'core/constants';
 import {
+  ADDON_TYPE_THEME,
+  CLIENT_APP_ANDROID,
+} from 'core/constants';
+import {
+  createFakeAutocompleteResult,
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
+import {
+  apiResponsePage,
   createApiResponse,
   createStubErrorHandler,
+  fakeRouterLocation,
   generateHeaders,
+  getFakeConfig,
   signedInApiState,
   unexpectedSuccess,
-  userAuthToken,
+  urlWithTheseParams,
 } from 'tests/unit/helpers';
-import { createFakeAutocompleteResult } from 'tests/unit/amo/helpers';
-
 
 describe(__filename, () => {
   let mockWindow;
@@ -27,74 +36,82 @@ describe(__filename, () => {
 
   describe('core.callApi', () => {
     it('does not use remote host for api calls', () => {
-      expect(apiHost).toEqual('https://localhost');
+      expect(apiHost)
+        .toEqual('http://if-you-see-this-host-file-a-bug');
     });
 
-    it('transforms method to upper case', () => {
+    it('transforms method to upper case', async () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/`, {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
-        })
-        .once()
+        .withArgs(sinon.match.any, sinon.match({ method: 'GET' }))
         .returns(createApiResponse());
-      return api.callApi({ endpoint: 'resource', method: 'get' })
-        .then(() => mockWindow.verify());
+
+      await api.callApi({ endpoint: 'resource', method: 'get' });
+      mockWindow.verify();
     });
 
-    it('does not encode non-ascii URLs in UTF8 on the client', () => {
+    it('adds some query string params to all requests', async () => {
+      const lang = 'en-US';
+      const { state } = dispatchClientMetadata({ lang });
+
+      mockWindow.expects('fetch')
+        .withArgs(urlWithTheseParams({ lang, wrap_outgoing_links: true }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint: 'resource', state: state.api });
+      mockWindow.verify();
+    });
+
+    it('overrides lang parameter if already present', async () => {
+      const lang = 'en-US';
+      const { state } = dispatchClientMetadata({ lang });
+
+      mockWindow.expects('fetch')
+        .withArgs(urlWithTheseParams({ lang }))
+        .returns(createApiResponse());
+
+      await api.callApi({
+        endpoint: 'resource?lang=fr', state: state.api,
+      });
+      mockWindow.verify();
+    });
+
+    it('does not encode non-ascii URLs in UTF8 on the client', async () => {
       const endpoint = 'project-ă-ă-â-â-日本語';
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/${endpoint}/`, {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
-        })
-        .once()
+        .withArgs(sinon.match(`/api/v3/${endpoint}/`))
         .returns(createApiResponse());
 
-      // We use `cloneDeep()` to allow modifications on the `config` object,
-      // since a call to `get()` makes it immutable.
-      const clientConfig = configUtil.cloneDeep(config);
-      clientConfig.client = true;
-      clientConfig.server = false;
+      const clientConfig = getFakeConfig({ client: true, server: false });
 
-      return api.callApi({
-        _config: clientConfig,
-        endpoint,
-      }).then(() => mockWindow.verify());
+      await api.callApi({ _config: clientConfig, endpoint });
+      mockWindow.verify();
     });
 
-    it('encodes non-ascii URLs in UTF8 on the server', () => {
+    it('encodes non-ascii URLs in UTF8 on the server', async () => {
       const endpoint = 'diccionario-español-venezuela';
       mockWindow.expects('fetch')
-        .withArgs(utf8.encode(`${apiHost}/api/v3/${endpoint}/`), {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
-        })
-        .once()
+        .withArgs(
+          sinon.match(utf8.encode(`/api/v3/${endpoint}/`))
+        )
         .returns(createApiResponse());
 
-      // We use `cloneDeep()` to allow modifications on the `config` object,
-      // since a call to `get()` makes it immutable.
-      const serverConfig = configUtil.cloneDeep(config);
-      serverConfig.server = true;
+      const serverConfig = getFakeConfig({ server: true });
 
-      return api.callApi({
-        _config: serverConfig,
-        endpoint,
-      }).then(() => mockWindow.verify());
+      await api.callApi({ _config: serverConfig, endpoint });
+      mockWindow.verify();
     });
 
-    it('clears an error handler before making a request', () => {
+    it('clears an error handler before making a request', async () => {
       mockWindow.expects('fetch').returns(createApiResponse());
 
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'clear');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
-        .then(() => {
-          expect(errorHandler.clear.called).toBeTruthy();
-        });
+      await api.callApi({ endpoint: 'resource', errorHandler });
+      expect(errorHandler.clear.called).toBeTruthy();
     });
 
-    it('passes errors to the error handler', () => {
+    it('passes errors to the error handler', async () => {
       const nonFieldErrors = ['user_id and password cannot be blank'];
       mockWindow.expects('fetch').returns(createApiResponse({
         ok: false,
@@ -104,15 +121,15 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
+      await api.callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
           expect(errorHandler.handle.called).toBeTruthy();
-          const args = errorHandler.handle.firstCall.args;
+          const { args } = errorHandler.handle.firstCall;
           expect(args[0].response.data.non_field_errors).toEqual(nonFieldErrors);
         });
     });
 
-    it('handles error responses with JSON syntax errors', () => {
+    it('handles error responses with JSON syntax errors', async () => {
       mockWindow.expects('fetch').returns(createApiResponse({
         json() {
           return Promise.reject(
@@ -123,13 +140,13 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource' })
+      await api.callApi({ endpoint: 'resource' })
         .then(unexpectedSuccess, (err) => {
           expect(err.message).toEqual('pretend this was a response with invalid JSON');
         });
     });
 
-    it('handles non-JSON responses', () => {
+    it('handles non-JSON responses', async () => {
       mockWindow.expects('fetch').returns(createApiResponse({
         headers: generateHeaders({ 'Content-Type': 'text/plain' }),
         text() {
@@ -137,14 +154,12 @@ describe(__filename, () => {
         },
       }));
 
-      return api.callApi({ endpoint: 'resource' })
-        .then((responseData) => {
-          mockWindow.verify();
-          expect(responseData).toEqual({});
-        });
+      const responseData = await api.callApi({ endpoint: 'resource' });
+      mockWindow.verify();
+      expect(responseData).toEqual({});
     });
 
-    it('handles any fetch error', () => {
+    it('handles any fetch error', async () => {
       mockWindow.expects('fetch').returns(Promise.reject(new Error(
         'this could be any error'
       )));
@@ -152,27 +167,115 @@ describe(__filename, () => {
       const errorHandler = createStubErrorHandler();
       sinon.stub(errorHandler, 'handle');
 
-      return api.callApi({ endpoint: 'resource', errorHandler })
+      await api.callApi({ endpoint: 'resource', errorHandler })
         .then(unexpectedSuccess, () => {
           expect(errorHandler.handle.called).toBeTruthy();
-          const args = errorHandler.handle.firstCall.args;
+          const { args } = errorHandler.handle.firstCall;
           expect(args[0].message).toEqual('this could be any error');
         });
     });
 
-    it('handles an oddly-cased Content-Type', () => {
+    it('handles an oddly-cased Content-Type', async () => {
       const response = createApiResponse({
         headers: generateHeaders({ 'Content-Type': 'Application/JSON' }),
       });
 
+      mockWindow.expects('fetch').returns(response);
+
+      // Make sure this doesn't throw an error.
+      await api.callApi({ endpoint: 'resource', method: 'GET' });
+      mockWindow.verify();
+    });
+
+    it('only adds a trailing slash when necessary', async () => {
+      const endpoint = 'some-endpoint/';
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/resource/`, {
-          body: undefined, credentials: undefined, method: 'GET', headers: {},
-        })
-        .once()
-        .returns(response);
-      return api.callApi({ endpoint: 'resource', method: 'GET' })
-        .then(() => mockWindow.verify());
+        .withArgs(sinon.match(`/api/v3/${endpoint}?`))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('only adds a preceding slash when necessary', async () => {
+      const endpoint = '/some-endpoint/';
+      mockWindow.expects('fetch')
+        .withArgs(sinon.match('/api/v3/some-endpoint/?'))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('preserves endpoint query string parameters', async () => {
+      const endpoint = 'some-endpoint/?page=2';
+      mockWindow.expects('fetch')
+        .withArgs(urlWithTheseParams({ page: 2 }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('will override endpoint query string parameters', async () => {
+      const endpoint = 'some-endpoint/?page=2';
+      mockWindow.expects('fetch')
+        .withArgs(urlWithTheseParams({ page: 3 }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, params: { page: 3 } });
+      mockWindow.verify();
+    });
+
+    it('will merge endpoint params with custom params', async () => {
+      const endpoint = 'some-endpoint/?page=1';
+      mockWindow.expects('fetch')
+        .withArgs(urlWithTheseParams({ page: 1, color: 'blue' }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, params: { color: 'blue' } });
+      mockWindow.verify();
+    });
+
+    it('converts absolute URLs to relative', async () => {
+      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      mockWindow.expects('fetch')
+        .withArgs(sinon.match('/api/v3/some-endpoint/'))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('preserves query when converting absolute URLs', async () => {
+      const endpoint =
+        'https://elsewhere.org/api/v3/some-endpoint/?page=2';
+      mockWindow.expects('fetch')
+        .withArgs(urlWithTheseParams({ page: 2 }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint });
+      mockWindow.verify();
+    });
+
+    it('throws an error for absolute URL with a bad prefix', async () => {
+      const endpoint = 'https://elsewhere.org/nope/some-endpoint/';
+      mockWindow.expects('fetch').returns(createApiResponse());
+
+      await api.callApi({ endpoint })
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toContain(endpoint);
+          expect(error.message).toMatch(/unexpected prefix/);
+        });
+    });
+
+    it('throws an error for undefined URLs', async () => {
+      mockWindow.expects('fetch').returns(createApiResponse());
+
+      await api.callApi({ endpoint: undefined })
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/endpoint URL cannot be falsy/);
+        });
     });
   });
 
@@ -219,45 +322,9 @@ describe(__filename, () => {
     });
   });
 
-  describe('featured add-ons api', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: {
-        results: [
-          { slug: 'foo' },
-          { slug: 'food' },
-          { slug: 'football' },
-        ],
-      },
-    });
-
-    it('sets the app, lang, and type query', () => {
-      mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/featured/?app=android&type=persona&lang=en-US`)
-        .once()
-        .returns(mockResponse());
-      return api.featured({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-        filters: { addonType: ADDON_TYPE_THEME },
-      })
-        .then((response) => {
-          expect(response).toEqual({
-            entities: {
-              addons: {
-                foo: { slug: 'foo' },
-                food: { slug: 'food' },
-                football: { slug: 'football' },
-              },
-            },
-            result: {
-              results: ['foo', 'food', 'football'],
-            },
-          });
-          return mockWindow.verify();
-        });
-    });
-  });
-
   describe('add-on api', () => {
+    const { api: defaultApiState } = dispatchClientMetadata().state;
+
     function mockResponse(responseProps = {}) {
       return createApiResponse({
         jsonData: {
@@ -268,42 +335,34 @@ describe(__filename, () => {
       });
     }
 
-    it('sets the lang and slug', () => {
+    const _fetchAddon = ({
+      apiState = defaultApiState, ...params
+    } = {}) => {
+      return api.fetchAddon({ api: apiState, ...params });
+    };
+
+    it('sets the slug', async () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/addon/foo/?lang=en-US`, {
-          body: undefined,
-          credentials: undefined,
-          headers: {},
-          method: 'GET',
-        })
-        .once()
+        .withArgs(sinon.match('/api/v3/addons/addon/foo/'))
         .returns(mockResponse());
-      return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
-        .then(() => mockWindow.verify());
+      await _fetchAddon({ slug: 'foo' });
+      mockWindow.verify();
     });
 
-    it('normalizes the response', () => {
-      mockWindow.expects('fetch').once().returns(mockResponse());
-      return api.fetchAddon('foo')
-        .then((results) => {
-          const foo = { slug: 'foo', name: 'Foo!' };
-          expect(results.result).toEqual('foo');
-          expect(results.entities).toEqual({ addons: { foo } });
-        });
+    it('normalizes the response', async () => {
+      mockWindow.expects('fetch').returns(mockResponse());
+      const results = await _fetchAddon({ slug: 'foo' });
+
+      const foo = { slug: 'foo', name: 'Foo!' };
+      expect(results.result).toEqual('foo');
+      expect(results.entities).toEqual({ addons: { foo } });
     });
 
-    it('fails when the add-on is not found', () => {
-      mockWindow
-        .expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/addon/foo/?lang=en-US`, {
-          body: undefined,
-          credentials: undefined,
-          headers: {},
-          method: 'GET',
-        })
-        .once()
+    it('fails when the add-on is not found', async () => {
+      mockWindow.expects('fetch')
         .returns(mockResponse({ ok: false }));
-      return api.fetchAddon({ api: { lang: 'en-US' }, slug: 'foo' })
+
+      await _fetchAddon({ slug: 'foo' })
         .then(unexpectedSuccess,
           (error) => {
             expect(error.message)
@@ -311,25 +370,21 @@ describe(__filename, () => {
           });
     });
 
-    it('includes the authorization token if available', () => {
-      const token = userAuthToken();
+    it('includes the authorization token if available', async () => {
+      const { api: apiState } = dispatchSignInActions().state;
       mockWindow
         .expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/addon/bar/?lang=en-US`, {
-          body: undefined,
-          credentials: undefined,
-          headers: { authorization: `Bearer ${token}` },
-          method: 'GET',
-        })
-        .once()
-        .returns(mockResponse());
-      return api.fetchAddon({ api: { lang: 'en-US', token }, slug: 'bar' })
-        .then((results) => {
-          const foo = { slug: 'foo', name: 'Foo!' };
-          expect(results.result).toEqual('foo');
-          expect(results.entities).toEqual({ addons: { foo } });
-          mockWindow.verify();
+        .callsFake((urlString, request) => {
+          expect(request.headers.authorization)
+            .toEqual(`Bearer ${apiState.token}`);
+          return mockResponse();
         });
+
+      const results = await _fetchAddon({ api: apiState, slug: 'bar' });
+      const foo = { slug: 'foo', name: 'Foo!' };
+      expect(results.result).toEqual('foo');
+      expect(results.entities).toEqual({ addons: { foo } });
+      mockWindow.verify();
     });
   });
 
@@ -342,7 +397,7 @@ describe(__filename, () => {
 
     it('includes an abbreviated URL', () => {
       const error = _createApiError({
-        apiURL: `${config.get('apiHost')}/api/v3/addons/addon/123/`,
+        apiURL: `${apiHost}/api/v3/addons/addon/123/`,
       });
       expect(error.message)
         .toMatch(new RegExp('Error calling: /api/v3/addons/addon/123/'));
@@ -350,7 +405,7 @@ describe(__filename, () => {
 
     it('strips query params from the abbreviated URL', () => {
       const error = _createApiError({
-        apiURL: `${config.get('apiHost')}/api/resource/?lang=en-US`,
+        apiURL: `${apiHost}/api/resource/?lang=en-US`,
       });
       // Add a space at the end of the URL to make sure the query string
       // isn't there.
@@ -364,7 +419,7 @@ describe(__filename, () => {
 
     it('includes response status in the error message', () => {
       const error = _createApiError({
-        apiURL: `${config.get('apiHost')}/api/resource/`,
+        apiURL: `${apiHost}/api/resource/`,
         response: { status: 422 },
       });
       expect(error.message)
@@ -377,13 +432,15 @@ describe(__filename, () => {
       querystring.parse(api.startLoginUrl({ location }).split('?')[1]);
 
     it('includes the next path', () => {
-      const location = { pathname: '/foo', query: { bar: 'BAR' } };
+      const location = fakeRouterLocation({
+        pathname: '/foo', query: { bar: 'BAR' },
+      });
       expect(getStartLoginQs(location)).toEqual({ to: '/foo?bar=BAR' });
     });
 
     it('includes the next path the config if set', () => {
       sinon.stub(config, 'get').withArgs('fxaConfig').returns('my-config');
-      const location = { pathname: '/foo' };
+      const location = fakeRouterLocation({ pathname: '/foo' });
       expect(getStartLoginQs(location)).toEqual({ to: '/foo', config: 'my-config' });
     });
   });
@@ -402,37 +459,37 @@ describe(__filename, () => {
       });
     }
 
-    it('sets the lang and calls the right API endpoint', () => {
+    it('calls the right API endpoint', async () => {
       mockWindow.expects('fetch')
-        .withArgs(
-          `${apiHost}/api/v3/addons/categories/?lang=en-US`)
-        .once()
+        .withArgs(sinon.match('/api/v3/addons/categories/'))
         .returns(mockResponse());
-      return api.categories({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
-      })
-        .then(() => mockWindow.verify());
+
+      await api.categories({ api: dispatchClientMetadata().state.api });
+      mockWindow.verify();
     });
   });
 
-  describe('logOutFromServer', () => {
-    it('makes a delete request to the session endpoint', () => {
+  describe('logOutFromServer', async () => {
+    it('makes a delete request to the session endpoint', async () => {
       const mockResponse = createApiResponse({ jsonData: { ok: true } });
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/accounts/session/?lang=en-US`, {
-          body: undefined,
+        .withArgs(sinon.match('/api/v3/accounts/session/'), sinon.match({
           credentials: 'include',
-          headers: { authorization: 'Bearer secret-token' },
           method: 'DELETE',
-        })
-        .once()
+        }))
         .returns(mockResponse);
-      return api.logOutFromServer({ api: signedInApiState })
-        .then(() => mockWindow.verify());
+
+      await api.logOutFromServer({ api: signedInApiState });
+      mockWindow.verify();
     });
   });
 
   describe('autocomplete api', () => {
+    const { api: defaultApiState } = dispatchClientMetadata({
+      clientApp: CLIENT_APP_ANDROID,
+      lang: 'en-US',
+    }).state;
+
     const mockResponse = () => createApiResponse({
       jsonData: {
         results: [
@@ -443,33 +500,126 @@ describe(__filename, () => {
       },
     });
 
-    it('sets the app, lang, and query', () => {
+    it('sets the app and query', async () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&lang=en-US`)
-        .once()
+        .withArgs(urlWithTheseParams({
+          q: 'foo',
+          app: defaultApiState.clientApp,
+        }))
         .returns(mockResponse());
-      return api.autocomplete({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+
+      await api.autocomplete({
+        api: defaultApiState,
         filters: {
           query: 'foo',
         },
-      })
-        .then(() => mockWindow.verify());
+      });
+      mockWindow.verify();
     });
 
-    it('optionally takes addon type as filter', () => {
+    it('optionally takes addon type as filter', async () => {
       mockWindow.expects('fetch')
-        .withArgs(`${apiHost}/api/v3/addons/autocomplete/?app=android&q=foo&type=persona&lang=en-US`)
-        .once()
+        .withArgs(urlWithTheseParams({
+          q: 'foo',
+          type: ADDON_TYPE_THEME,
+        }))
         .returns(mockResponse());
-      return api.autocomplete({
-        api: { clientApp: CLIENT_APP_ANDROID, lang: 'en-US' },
+
+      await api.autocomplete({
+        api: defaultApiState,
         filters: {
           query: 'foo',
           addonType: ADDON_TYPE_THEME,
         },
-      })
-        .then(() => mockWindow.verify());
+      });
+      mockWindow.verify();
+    });
+  });
+
+  describe('allPages', () => {
+    it('gets results for all pages', async () => {
+      let page = 0;
+      const nextURL = 'some/endpoint?page=2';
+      const page1results = ['one'];
+      const page2results = ['two', 'three'];
+
+      const getNextResponse = sinon.mock()
+        .twice()
+        .callsFake(() => {
+          page += 1;
+          let next;
+          let results = [];
+          if (page === 1) {
+            next = nextURL;
+            results = page1results;
+          } else {
+            results = page2results;
+          }
+          return Promise.resolve(apiResponsePage({ next, results }));
+        });
+
+      const { results } = await api.allPages(getNextResponse);
+
+      expect(results).toEqual(page1results.concat(page2results));
+      getNextResponse.verify();
+
+      // Make sure nextURL is only passed on the second call.
+      expect(getNextResponse.firstCall.args[0]).toEqual(undefined);
+      expect(getNextResponse.secondCall.args[0]).toEqual(nextURL);
+    });
+
+    it('passes through response data', async () => {
+      const proxiedResponse = apiResponsePage({
+        count: 120,
+        page_size: 25,
+      });
+      const response = await api.allPages(
+        () => Promise.resolve(proxiedResponse)
+      );
+
+      expect(response).toEqual({
+        count: proxiedResponse.count,
+        page_size: proxiedResponse.page_size,
+        results: [],
+      });
+    });
+
+    it('passes through errors', async () => {
+      const error = new Error('some API error');
+      await api.allPages(() => Promise.reject(error))
+        .then(unexpectedSuccess, (errorResult) => {
+          expect(errorResult).toEqual(error);
+        });
+    });
+
+    it('gives up after too many pages', async () => {
+      const getNextResponse = () => Promise.resolve(apiResponsePage({
+        // Return a next URL forever.
+        next: 'some/endpoint?page=2',
+      }));
+      await api.allPages(getNextResponse, { pageLimit: 2 })
+        .then(unexpectedSuccess, (error) => {
+          expect(error.message).toMatch(/too many pages/);
+        });
+    });
+  });
+
+  describe('validateLocalizedString', () => {
+    it('throws an error for invalid locale keys', () => {
+      const description = { notAValidKey: 'some description' };
+
+      expect(() => api.validateLocalizedString(description))
+        .toThrow(/Unknown locale: "notAValidKey"/);
+    });
+
+    it('allows valid locale keys', () => {
+      const description = { fr: 'la description' };
+      api.validateLocalizedString(description);
+    });
+
+    it('throws an error for non-object values', () => {
+      expect(() => api.validateLocalizedString(9))
+        .toThrow('Expected an object type, got "number"');
     });
   });
 });

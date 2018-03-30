@@ -1,7 +1,7 @@
 /* global document */
 import { shallow } from 'enzyme';
-import React from 'react';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
+import * as React from 'react';
+import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import ReactDOM, { findDOMNode } from 'react-dom';
 
 import {
@@ -9,7 +9,7 @@ import {
   ShowInfoDialog,
   mapStateToProps,
 } from 'core/containers/InfoDialog';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
 let closeAction;
@@ -20,7 +20,7 @@ function getInfoDialog(props = {}) {
     addonName: 'A Test Add-on',
     imageURL: 'https://addons-dev-cdn.allizom.org/whatever',
     closeAction,
-    i18n: getFakeI18nInst(),
+    i18n: fakeI18n(),
     ...props,
   };
   return <InfoDialogBase {...renderProps} />;

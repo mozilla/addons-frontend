@@ -1,12 +1,14 @@
-import React from 'react';
+import * as React from 'react';
+import { Provider } from 'react-redux';
 import {
   findRenderedComponentWithType,
   renderIntoDocument,
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import translate from 'core/i18n/translate';
 import { setAuthToken } from 'core/actions';
-import { loadUserProfile } from 'core/reducers/user';
+import { createInternalAddon } from 'core/reducers/addons';
+import { loadCurrentUserAccount } from 'amo/reducers/users';
 import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
@@ -16,7 +18,7 @@ import {
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
 import { initialApiState } from 'core/reducers/api';
-import * as amoApi from 'amo/api';
+import * as reviewsApi from 'amo/api/reviews';
 import createStore from 'amo/store';
 import { setReview } from 'amo/actions/reviews';
 import {
@@ -26,45 +28,58 @@ import {
   fakeAddon, fakeReview, signedInApiState,
 } from 'tests/unit/amo/helpers';
 import {
-  createUserProfileResponse,
-  getFakeI18nInst,
+  createUserAccountResponse,
+  fakeI18n,
+  fakeRouterLocation,
   userAuthToken,
 } from 'tests/unit/helpers';
 
 
-function render(customProps = {}) {
-  const props = {
-    AddonReview: () => <div />,
-    AuthenticateButton: () => <div />,
-    addon: fakeAddon,
-    apiState: signedInApiState,
-    errorHandler: sinon.stub(),
-    location: { pathname: '/some/location/' },
-    version: fakeAddon.current_version,
-    userId: 91234,
-    submitReview: () => Promise.resolve(),
-    loadSavedReview: () => Promise.resolve(),
-    ...customProps,
-  };
-  const RatingManager = translate({ withRef: true })(RatingManagerBase);
-  const root = findRenderedComponentWithType(renderIntoDocument(
-    <I18nProvider i18n={getFakeI18nInst()}>
-      <RatingManager {...props} />
-    </I18nProvider>
-  ), RatingManager);
-
-  return root.getWrappedInstance();
-}
-
 describe('RatingManager', () => {
+  let store;
+
+  beforeEach(() => {
+    store = createStore().store;
+  });
+
+  function render(customProps = {}) {
+    const props = {
+      AddonReview: () => <div />,
+      AuthenticateButton: () => <div />,
+      ReportAbuseButton: () => <div />,
+      addon: createInternalAddon(fakeAddon),
+      apiState: signedInApiState,
+      errorHandler: sinon.stub(),
+      location: fakeRouterLocation({ pathname: '/some/location/' }),
+      version: fakeAddon.current_version,
+      userId: 91234,
+      submitReview: () => Promise.resolve(),
+      loadSavedReview: () => Promise.resolve(),
+      store,
+      ...customProps,
+    };
+    const RatingManager = translate({ withRef: true })(RatingManagerBase);
+    const root = findRenderedComponentWithType(renderIntoDocument(
+      <I18nProvider i18n={fakeI18n()}>
+        <Provider store={props.store}>
+          <RatingManager {...props} />
+        </Provider>
+      </I18nProvider>
+    ), RatingManager);
+
+    return root.getWrappedInstance();
+  }
+
   it('prompts you to rate the add-on by name', () => {
-    const root = render({ addon: { ...fakeAddon, name: 'Some Add-on' } });
+    const root = render({
+      addon: createInternalAddon({ ...fakeAddon, name: 'Some Add-on' }),
+    });
     expect(root.ratingLegend.textContent).toContain('Some Add-on');
   });
 
   it('loads saved ratings on construction', () => {
     const userId = 12889;
-    const addon = { ...fakeAddon, id: 3344 };
+    const addon = createInternalAddon({ ...fakeAddon, id: 3344 });
     const version = {
       ...fakeAddon.current_version,
       id: 9966,
@@ -93,7 +108,9 @@ describe('RatingManager', () => {
       submitReview,
       apiState: { ...signedInApiState, token: 'new-token' },
       version: { id: 321 },
-      addon: { ...fakeAddon, id: 12345, slug: 'some-slug' },
+      addon: createInternalAddon({
+        ...fakeAddon, id: 12345, slug: 'some-slug',
+      }),
     });
     return root.onSelectRating(5)
       .then(() => {
@@ -141,7 +158,9 @@ describe('RatingManager', () => {
         id: 2,
       },
     };
-    const addon = { ...fakeAddon, id: newReview.addon.id };
+    const addon = createInternalAddon({
+      ...fakeAddon, id: newReview.addon.id,
+    });
 
     const root = render({
       apiState: { ...signedInApiState, token: 'new-token' },
@@ -174,16 +193,41 @@ describe('RatingManager', () => {
 
     return root.onSelectRating(5)
       .then(() => {
-        expect(FakeAddonReview.called).toBeTruthy();
+        sinon.assert.called(FakeAddonReview);
 
         const props = FakeAddonReview.firstCall.args[0];
         expect(props.review).toEqual(userReview);
 
         // Now make sure the callback is configured.
         expect(root.state.showTextEntry).toEqual(true);
-        // Trigger the callback just like AddonReview would after completion.
+        // Trigger the callback just like AddonReview would
+        // after completion.
         props.onReviewSubmitted();
         expect(root.state.showTextEntry).toEqual(false);
+      });
+  });
+
+  it('calls back to the parent component after submitting a review', () => {
+    const userReview = setReview(fakeReview).payload;
+    const FakeAddonReview = sinon.spy(() => <div />);
+    const parentOnReviewSubmitted = sinon.stub();
+    const root = render({
+      AddonReview: FakeAddonReview,
+      userReview,
+      onReviewSubmitted: parentOnReviewSubmitted,
+    });
+
+    // Select a rating to open the submit review UI.
+    return root.onSelectRating(5)
+      .then(() => {
+        sinon.assert.called(FakeAddonReview);
+        const props = FakeAddonReview.firstCall.args[0];
+
+        // Simulate pressing submit in the review UI.
+        props.onReviewSubmitted();
+
+        // Make sure the parent's callback was executed.
+        sinon.assert.called(parentOnReviewSubmitted);
       });
   });
 
@@ -203,24 +247,32 @@ describe('RatingManager', () => {
 
   it('configures a rating component', () => {
     const userReview = setReview(fakeReview).payload;
-    const RatingStub = sinon.spy(() => (<div />));
+    const UserRatingStub = sinon.spy(() => (<div />));
 
-    const root = render({ Rating: RatingStub, userReview });
+    const root = render({ UserRating: UserRatingStub, userReview });
 
-    expect(RatingStub.called).toEqual(true);
-    const props = RatingStub.firstCall.args[0];
+    expect(UserRatingStub.called).toEqual(true);
+    const props = UserRatingStub.firstCall.args[0];
     expect(props.onSelectRating).toEqual(root.onSelectRating);
-    expect(props.rating).toEqual(userReview.rating);
+    expect(props.review).toEqual(userReview);
   });
 
   it('sets a blank rating when there is no saved review', () => {
-    const RatingStub = sinon.spy(() => (<div />));
+    const UserRatingStub = sinon.spy(() => (<div />));
 
-    render({ Rating: RatingStub, userReview: null });
+    render({ UserRating: UserRatingStub, userReview: null });
 
-    expect(RatingStub.called).toEqual(true);
-    const props = RatingStub.firstCall.args[0];
+    expect(UserRatingStub.called).toEqual(true);
+    const props = UserRatingStub.firstCall.args[0];
     expect(props.rating).toBe(undefined);
+  });
+
+  it('passes an add-on to the report abuse button', () => {
+    const ReportAbuseButton = sinon.spy(() => <div />);
+    const addon = createInternalAddon({ ...fakeAddon });
+    render({ ReportAbuseButton, addon });
+
+    sinon.assert.calledWithMatch(ReportAbuseButton, { addon });
   });
 
   describe('when user is signed out', () => {
@@ -232,7 +284,7 @@ describe('RatingManager', () => {
       const AuthenticateButton = sinon.spy(() => <div />);
       renderWithoutUser({
         AuthenticateButton,
-        addon: { ...fakeAddon, type: addonType },
+        addon: createInternalAddon({ ...fakeAddon, type: addonType }),
       });
       expect(AuthenticateButton.called).toBeTruthy();
       const props = AuthenticateButton.firstCall.args[0];
@@ -247,7 +299,7 @@ describe('RatingManager', () => {
 
     it('renders an AuthenticateButton', () => {
       const AuthenticateButton = sinon.spy(() => <div />);
-      const location = { pathname: '/some/path/' };
+      const location = fakeRouterLocation();
       renderWithoutUser({ AuthenticateButton, location });
 
       expect(AuthenticateButton.called).toBeTruthy();
@@ -304,7 +356,7 @@ describe('RatingManager', () => {
     let actions;
 
     beforeEach(() => {
-      mockApi = sinon.mock(amoApi);
+      mockApi = sinon.mock(reviewsApi);
       dispatch = sinon.stub();
       actions = mapDispatchToProps(dispatch);
     });
@@ -373,16 +425,10 @@ describe('RatingManager', () => {
   });
 
   describe('mapStateToProps', () => {
-    let store;
-
-    beforeEach(() => {
-      store = createStore().store;
-    });
-
     function getMappedProps({
       state = store.getState(),
       componentProps = {
-        addon: fakeAddon,
+        addon: createInternalAddon(fakeAddon),
         version: fakeAddon.current_version,
       },
     } = {}) {
@@ -391,8 +437,8 @@ describe('RatingManager', () => {
 
     function signIn({ userId = 98765 } = {}) {
       store.dispatch(setAuthToken(userAuthToken()));
-      store.dispatch(loadUserProfile({
-        profile: createUserProfileResponse({ id: userId }),
+      store.dispatch(loadCurrentUserAccount({
+        user: createUserAccountResponse({ id: userId }),
       }));
     }
 
@@ -432,7 +478,7 @@ describe('RatingManager', () => {
       store.dispatch(action);
       const dispatchedReview = action.payload;
 
-      const userReview = getMappedProps().userReview;
+      const { userReview } = getMappedProps();
       expect(userReview).toEqual(dispatchedReview);
     });
 

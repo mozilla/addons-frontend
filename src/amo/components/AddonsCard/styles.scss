@@ -10,12 +10,12 @@
       background: $white;
       border-bottom-left-radius: $border-radius-default;
       border-bottom-right-radius: $border-radius-default;
-      padding: 0 20px;
+      padding: 12px 6px;
     }
 
     .Card-footer,
     .Card-footer-link {
-      @include end(20px);
+      @include end(0);
       @include text-align-end();
 
       background: none;
@@ -30,10 +30,19 @@
       grid-template-columns: repeat(4, 25%);
 
       .SearchResult {
-        @include padding-start(0);
-
         grid-column: auto;
-        margin-bottom: 0;
+        margin: 0 6px 1px;
+        // Prevents content overflow.
+        min-width: 0;
+        padding: 0;
+      }
+
+      .SearchResult-link {
+        display: inline-block;
+        height: 100%;
+        padding: 12px 24px;
+        transition: background-color $transition-short ease-in-out;
+        width: 100%;
       }
 
       .SearchResult-result {
@@ -51,10 +60,13 @@
         grid-column: 2 / 2;
         grid-row: 1 / 2;
         margin: 0;
+        // Prevents content overflow.
+        min-width: 0;
         width: auto;
       }
 
       .SearchResult-metadata,
+      .SearchResult-metadata .SearchResult-author,
       .SearchResult-summary {
         display: none;
       }
@@ -66,18 +78,37 @@
         grid-row: 2 / 2;
       }
 
+      .SearchResult-users,
+      .SearchResult-metadata {
+        height: 24px;
+      }
+
       .SearchResult--theme {
-        @include margin-end(25px);
-
-        padding: 10px 0;
-
         // stylelint-disable max-nesting-depth
         .SearchResult-result {
           display: block;
         }
 
         .SearchResult-icon-wrapper {
+          border-radius: $border-radius-default;
           margin: 0 0 5px;
+          width: 100%;
+        }
+        // stylelint-enable max-nesting-depth
+      }
+
+      .SearchResult-link:focus,
+      .SearchResult-link:hover {
+        background-color: $grey-10;
+        border-radius: $border-radius-default;
+
+        // stylelint-disable max-nesting-depth
+        .SearchResult-users {
+          display: none;
+        }
+
+        .SearchResult-metadata {
+          display: block;
         }
         // stylelint-enable max-nesting-depth
       }

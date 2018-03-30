@@ -15,7 +15,6 @@ describe('Frameguard Middleware', () => {
     delete process.env.NODE_APP_INSTANCE;
   });
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const appName of appsList) {
     // eslint-disable-next-line no-loop-func
     it(`provides the expected x-frame-options headers for ${appName}`, () => {

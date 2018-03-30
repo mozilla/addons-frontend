@@ -1,10 +1,11 @@
 import { getLanding } from 'amo/actions/landing';
 import landing, { initialState } from 'amo/reducers/landing';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
-describe('landing reducer', () => {
+describe(__filename, () => {
   it('defaults to not loading', () => {
     const { loading } = landing(undefined, { type: 'unrelated' });
 
@@ -12,28 +13,28 @@ describe('landing reducer', () => {
   });
 
   it('defaults to zero count', () => {
-    const { featured, highlyRated, popular } = landing(undefined, {
+    const { featured, highlyRated, trending } = landing(undefined, {
       type: 'unrelated',
     });
 
     expect(featured.count).toBe(0);
     expect(highlyRated.count).toBe(0);
-    expect(popular.count).toBe(0);
+    expect(trending.count).toBe(0);
   });
 
   it('defaults to empty results', () => {
-    const { featured, highlyRated, popular } = landing(undefined, {
+    const { featured, highlyRated, trending } = landing(undefined, {
       type: 'unrelated',
     });
     expect(featured.results).toEqual([]);
     expect(highlyRated.results).toEqual([]);
-    expect(popular.results).toEqual([]);
+    expect(trending.results).toEqual([]);
   });
 
   describe('LANDING_GET', () => {
     it('sets the initialState', () => {
       const {
-        addonType, featured, highlyRated, loading, popular,
+        addonType, featured, highlyRated, loading, trending,
       } = landing(initialState, getLanding({
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'some-error-handler',
@@ -43,7 +44,7 @@ describe('landing reducer', () => {
       expect(loading).toEqual(true);
       expect(featured).toEqual(initialState.featured);
       expect(highlyRated).toEqual(initialState.highlyRated);
-      expect(popular).toEqual(initialState.popular);
+      expect(trending).toEqual(initialState.trending);
     });
 
     it('sets resultsLoaded to false', () => {
@@ -76,7 +77,7 @@ describe('landing reducer', () => {
 
       expect(state.featured).toEqual(initialState.featured);
       expect(state.highlyRated).toEqual(initialState.highlyRated);
-      expect(state.popular).toEqual(initialState.popular);
+      expect(state.trending).toEqual(initialState.trending);
     });
   });
 
@@ -84,9 +85,9 @@ describe('landing reducer', () => {
     it('sets the results', () => {
       const entities = {
         addons: {
-          bar: { slug: 'bar' },
-          foo: { slug: 'foo' },
-          food: { slug: 'food' },
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
         },
       };
       const state = landing(initialState, {
@@ -98,23 +99,26 @@ describe('landing reducer', () => {
             result: { count: 2, results: ['foo', 'food'] },
           },
           highlyRated: { entities, result: { count: 0, results: [] } },
-          popular: { entities, result: { count: 0, results: [] } },
+          trending: { entities, result: { count: 0, results: [] } },
         },
       });
       expect(state.featured.count).toEqual(2);
       expect(state.featured.results)
-        .toEqual([{ slug: 'foo' }, { slug: 'food' }]);
+        .toEqual([
+          createInternalAddon({ ...fakeAddon, slug: 'foo' }),
+          createInternalAddon({ ...fakeAddon, slug: 'food' }),
+        ]);
       expect(state.highlyRated).toEqual({ count: 0, results: [] });
-      expect(state.popular).toEqual({ count: 0, results: [] });
+      expect(state.trending).toEqual({ count: 0, results: [] });
       expect(state.resultsLoaded).toEqual(true);
     });
 
     it('does not set null keys', () => {
       const entities = {
         addons: {
-          bar: { slug: 'bar' },
-          foo: { slug: 'foo' },
-          food: { slug: 'food' },
+          bar: { ...fakeAddon, slug: 'bar' },
+          foo: { ...fakeAddon, slug: 'foo' },
+          food: { ...fakeAddon, slug: 'food' },
         },
       };
       const { highlyRated } = landing({
@@ -128,7 +132,7 @@ describe('landing reducer', () => {
             entities,
             result: { count: 2, results: ['foo', 'food'] },
           },
-          popular: { entities, result: { count: 0, results: [] } },
+          trending: { entities, result: { count: 0, results: [] } },
         },
       });
       expect(highlyRated).toEqual('hello');

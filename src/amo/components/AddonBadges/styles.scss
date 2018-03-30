@@ -1,0 +1,20 @@
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+@import "~ui/css/vars";
+
+.AddonBadges {
+  width: 100%;
+
+  @include respond-to(large) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+}
+
+.AddonBadges .Badge {
+  @include text-align-start();
+
+  @include respond-to(large) {
+    @include text-align-end();
+  }
+}

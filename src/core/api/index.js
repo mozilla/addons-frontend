@@ -8,21 +8,26 @@ import { schema as normalizrSchema, normalize } from 'normalizr';
 import { oneLine } from 'common-tags';
 import config from 'config';
 
+import languages from 'core/languages';
 import { initialApiState } from 'core/reducers/api';
 import log from 'core/logger';
-import { convertFiltersToQueryParams } from 'core/searchUtils';
+import {
+  addVersionCompatibilityToFilters,
+  convertFiltersToQueryParams,
+} from 'core/searchUtils';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
+import type { LocalizedString, PaginatedApiResponse } from 'core/types/api';
 import type { ReactRouterLocation } from 'core/types/router';
 
 
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
-const Entity = normalizrSchema.Entity;
+const { Entity } = normalizrSchema;
 
 export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 
-export function makeQueryString(query: { [key: string]: * }) {
+export function makeQueryString(query: { [key: string]: any }) {
   const resolvedQuery = { ...query };
   Object.keys(resolvedQuery).forEach((key) => {
     const value = resolvedQuery[key];
@@ -88,10 +93,40 @@ export function callApi({
   errorHandler,
   _config = config,
 }: CallApiParams): Promise<any> {
+  if (!endpoint) {
+    return Promise.reject(
+      new Error(`endpoint URL cannot be falsy: "${endpoint}"`)
+    );
+  }
   if (errorHandler) {
     errorHandler.clear();
   }
-  const queryString = makeQueryString({ ...params, lang: state.lang });
+
+  const parsedUrl = url.parse(endpoint, true);
+  let adjustedEndpoint = parsedUrl.pathname || '';
+  if (!parsedUrl.host) {
+    // If it's a relative URL, add the API prefix.
+    const slash = !adjustedEndpoint.startsWith('/') ? '/' : '';
+    adjustedEndpoint =
+      `${config.get('apiPath')}${slash}${adjustedEndpoint}`;
+  } else if (!adjustedEndpoint.startsWith(config.get('apiPath'))) {
+    // If it's an absolute URL, it must have the correct prefix.
+    return Promise.reject(
+      new Error(`Absolute URL "${endpoint}" has an unexpected prefix.`)
+    );
+  }
+
+  // Preserve the original query string if there is one.
+  // This might happen when we parse `next` URLs returned by the API.
+  const queryString = makeQueryString({
+    ...parsedUrl.query,
+    ...params,
+    lang: state.lang,
+    // Always return URLs wrapped by the outgoing proxy.
+    // Example: http://outgoing.prod.mozaws.net/
+    wrap_outgoing_links: true,
+  });
+
   const options = {
     headers: {},
     // Always make sure the method is upper case so that the browser won't
@@ -113,14 +148,16 @@ export function callApi({
     }
   }
 
-  let apiURL = `${API_BASE}/${endpoint}/${queryString}`;
+  adjustedEndpoint = adjustedEndpoint.endsWith('/') ?
+    adjustedEndpoint : `${adjustedEndpoint}/`;
+  let apiURL =
+    `${config.get('apiHost')}${adjustedEndpoint}${queryString}`;
   if (_config.get('server')) {
     log.debug('Encoding `apiURL` in UTF8 before fetch().');
     // Workaround for https://github.com/bitinn/node-fetch/issues/245
     apiURL = utf8.encode(apiURL);
   }
 
-  // $FLOW_FIXME: once everything uses Flow we won't have to use toUpperCase
   return fetch(apiURL, options)
     .then((response) => {
       const contentType = response.headers.get('Content-Type').toLowerCase();
@@ -149,9 +186,6 @@ export function callApi({
       }
 
       // If response is not ok we'll throw an error.
-      // Note that if callApi is executed by an asyncConnect() handler,
-      // then redux-connect will catch this exception and
-      // dispatch a LOAD_FAIL action which puts the error in the state.
       const apiError = createApiError({ apiURL, response, jsonResponse });
       if (errorHandler) {
         errorHandler.handle(apiError);
@@ -197,25 +231,6 @@ export function startLoginUrl(
   return `${API_BASE}/accounts/login/start/${query}`;
 }
 
-type FeaturedParams = {|
-  api: ApiStateType,
-  filters: Object,
-  page: number,
-|};
-
-export function featured({ api, filters, page }: FeaturedParams) {
-  return callApi({
-    endpoint: 'addons/featured',
-    params: {
-      app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
-      page,
-    },
-    schema: { results: [addon] },
-    state: api,
-  });
-}
-
 export function categories({ api }: {| api: ApiStateType |}) {
   return callApi({
     endpoint: 'addons/categories',
@@ -243,12 +258,67 @@ type AutocompleteParams = {|
 |};
 
 export function autocomplete({ api, filters }: AutocompleteParams) {
+  const filtersWithAppVersion = addVersionCompatibilityToFilters({
+    filters,
+    userAgentInfo: api.userAgentInfo,
+  });
+
   return callApi({
     endpoint: 'addons/autocomplete',
     params: {
       app: api.clientApp,
-      ...convertFiltersToQueryParams(filters),
+      ...convertFiltersToQueryParams(filtersWithAppVersion),
     },
     state: api,
   });
 }
+
+type GetNextResponseType =
+  (nextURL?: string) => Promise<PaginatedApiResponse<any>>;
+
+type AllPagesOptions = {| pageLimit: number |};
+
+export const allPages = async (
+  getNextResponse: GetNextResponseType,
+  { pageLimit = 100 }: AllPagesOptions = {},
+): Promise<PaginatedApiResponse<any>> => {
+  let results = [];
+  let nextURL;
+  let count = 0;
+  let pageSize = 0;
+
+  for (let page = 1; page <= pageLimit; page++) {
+    const response = await getNextResponse(nextURL);
+    if (!count) {
+      // Every response page returns a count for all results.
+      count = response.count;
+    }
+    if (!pageSize) {
+      pageSize = response.page_size;
+    }
+    results = results.concat(response.results);
+
+    if (response.next) {
+      nextURL = response.next;
+      log.debug(oneLine`Fetching next page "${nextURL}" of
+        ${getNextResponse}`);
+    } else {
+      return { count, page_size: pageSize, results };
+    }
+  }
+
+  // If we get this far the callback may not be advancing pages correctly.
+  throw new Error(`Fetched too many pages (the limit is ${pageLimit})`);
+};
+
+export const validateLocalizedString = (localizedString: LocalizedString) => {
+  if (typeof localizedString !== 'object') {
+    throw new Error(
+      `Expected an object type, got "${typeof localizedString}"`);
+  }
+  Object.keys(localizedString).forEach((localeKey) => {
+    if (typeof languages[localeKey] === 'undefined') {
+      throw new Error(`Unknown locale: "${localeKey}"`);
+    }
+  });
+};

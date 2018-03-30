@@ -1,14 +1,30 @@
-import React from 'react';
+import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
+import { oneLine } from 'common-tags';
 
-import { clearError, setError } from 'core/actions/errors';
+import {
+  clearError, setError, setErrorMessage,
+} from 'core/actions/errors';
 import log from 'core/logger';
 import ErrorList from 'ui/components/ErrorList';
 
 function generateHandlerId({ name = '' } = {}) {
   return `${name}-${Math.random().toString(36).substr(2, 9)}`;
 }
+
+// We need this function to retrieve a relative path based on `__filename` on
+// both the server and client sides. The polyfill for `__filename` on the
+// client returns a relative path but `__filename` on the server is an absolute
+// path.
+export const normalizeFileNameId = (filename) => {
+  let fileId = filename;
+  if (!fileId.startsWith('src')) {
+    fileId = fileId.replace(/^.*src/, 'src');
+  }
+
+  return fileId;
+};
 
 /*
  * Error handling utility for components.
@@ -58,11 +74,20 @@ export class ErrorHandler {
     return setError({ error, id: this.id });
   }
 
+  addMessage(message) {
+    this.dispatchAction(setErrorMessage({ id: this.id, message }));
+  }
+
   handle(error) {
-    if (!this.dispatch) {
-      throw new Error('A dispatch function has not been configured');
-    }
     const action = this.createErrorAction(error);
+    this.dispatchAction(action);
+  }
+
+  dispatchAction(action) {
+    if (!this.dispatch) {
+      throw new Error(
+        'A dispatch function has not been configured');
+    }
     this.dispatch(action);
   }
 }
@@ -88,7 +113,7 @@ export type ErrorHandlerType = typeof ErrorHandler;
  *     const { errorHandler } = this.props;
  *     return (
  *       <div>
- *         {errorHandler.hasErrorIfPresent()}
+ *         {errorHandler.renderErrorIfPresent()}
  *         <div>some content</div>
  *       </div>
  *     );
@@ -99,31 +124,53 @@ export type ErrorHandlerType = typeof ErrorHandler;
  *   withErrorHandler({ name: 'SomeComponent' }),
  * )(SomeComponent);
  */
-export function withErrorHandler({ name, id }) {
+export function withErrorHandler({ name, id, extractId = null }) {
+  if (id && extractId) {
+    throw new Error('You can define either `id` or `extractId` but not both.');
+  }
+
+  if (extractId && typeof extractId !== 'function') {
+    throw new Error(
+      '`extractId` must be a function taking `ownProps` as unique argument.'
+    );
+  }
+
   return (WrappedComponent) => {
     const mapStateToProps = () => {
-      // Each component instance gets its own error handler ID.
-      let defaultInstanceId = id;
-      if (!defaultInstanceId) {
-        defaultInstanceId = generateHandlerId({ name });
-        log.debug(`Generated error handler ID: ${defaultInstanceId}`);
+      let defaultErrorId;
+
+      if (!extractId) {
+        // Each component instance gets its own error handler ID.
+        defaultErrorId = id;
+
+        if (!defaultErrorId) {
+          defaultErrorId = generateHandlerId({ name });
+          log.debug(`Generated error handler ID: ${defaultErrorId}`);
+        }
       }
 
-      // Now that the component has been instantiated, return its
-      // state mapper function.
+      // Now that the component has been instantiated, return its state mapper
+      // function.
       return (state, ownProps) => {
-        const instanceId = ownProps.errorHandler ?
-          ownProps.errorHandler.id : defaultInstanceId;
+        if (extractId) {
+          defaultErrorId = `${name}-${extractId(ownProps)}`;
+          log.debug(oneLine`Generated error handler ID with extractId():
+            ${defaultErrorId}`);
+        }
+
+        const errorId = ownProps.errorHandler ?
+          ownProps.errorHandler.id : defaultErrorId;
+
         return {
-          error: state.errors[instanceId],
-          instanceId,
+          error: state.errors[errorId],
+          errorId,
         };
       };
     };
 
     const mergeProps = (stateProps, dispatchProps, ownProps) => {
       const errorHandler = ownProps.errorHandler || new ErrorHandler({
-        id: stateProps.instanceId,
+        id: stateProps.errorId,
       });
       errorHandler.setDispatch(dispatchProps.dispatch);
       if (stateProps.error) {
@@ -138,6 +185,29 @@ export function withErrorHandler({ name, id }) {
     )(WrappedComponent);
   };
 }
+
+/*
+ * This decorator works like the `withErrorHandler()` decorator but aims at
+ * synchronizing both the server and client sides by using a fixed error
+ * handler ID.
+ *
+ * The `fileName` parameter must be set to `__filename` in the component code.
+ *
+ * The `extractId` function is used to create a unique error handler per
+ * rendered component. This function takes the component's props and must
+ * return a unique string based on these props (e.g., based on the `slug`,
+ * `uniqueId`, `page`, etc.).
+ */
+export const withFixedErrorHandler = ({ fileName, extractId }) => {
+  if (!fileName) {
+    throw new Error('`fileName` parameter is required.');
+  }
+  if (typeof extractId !== 'function') {
+    throw new Error('`extractId` is required and must be a function.');
+  }
+
+  return withErrorHandler({ name: normalizeFileNameId(fileName), extractId });
+};
 
 /*
  * This is a decorator that automatically renders errors.

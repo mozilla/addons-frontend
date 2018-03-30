@@ -1,5 +1,5 @@
-import React from 'react';
-import { Simulate, renderIntoDocument } from 'react-addons-test-utils';
+import * as React from 'react';
+import { Simulate, renderIntoDocument } from 'react-dom/test-utils';
 import { findDOMNode } from 'react-dom';
 
 import {
@@ -13,16 +13,16 @@ import {
   ENABLING,
   INSTALLED,
   INSTALLING,
-  ADDON_TYPE_THEME,
   UNINSTALLED,
   UNINSTALLING,
   UNKNOWN,
 } from 'core/constants';
-import * as themePreview from 'core/themePreview';
-import { getFakeI18nInst } from 'tests/unit/helpers';
+import { createInternalAddon } from 'core/reducers/addons';
+import { fakeTheme } from 'tests/unit/amo/helpers';
+import { fakeI18n } from 'tests/unit/helpers';
 
 
-describe('<InstallSwitch />', () => {
+describe(__filename, () => {
   function renderButton(props = {}) {
     const renderProps = {
       dispatch: sinon.spy(),
@@ -30,7 +30,7 @@ describe('<InstallSwitch />', () => {
       install: sinon.spy(),
       installTheme: sinon.spy(),
       uninstall: sinon.spy(),
-      i18n: getFakeI18nInst(),
+      i18n: fakeI18n(),
       slug: 'foo',
       name: 'test-addon',
       ...props,
@@ -42,13 +42,13 @@ describe('<InstallSwitch />', () => {
 
   it('should be disabled if isDisabled status is UNKNOWN', () => {
     const button = renderButton({ status: UNKNOWN });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.disabled).toEqual(true);
   });
 
   it('should reflect DISABLED status', () => {
     const button = renderButton({ status: DISABLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.disabled).toEqual(false);
     expect(switchEl.props.label).toContain('test-addon is disabled');
     expect(switchEl.props.label).toContain('Click to enable');
@@ -56,7 +56,7 @@ describe('<InstallSwitch />', () => {
 
   it('should reflect UNINSTALLED status', () => {
     const button = renderButton({ status: UNINSTALLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.disabled).toEqual(false);
     expect(switchEl.props.label).toContain('test-addon is uninstalled');
     expect(switchEl.props.label).toContain('Click to install');
@@ -64,14 +64,14 @@ describe('<InstallSwitch />', () => {
 
   it('should reflect INSTALLED status', () => {
     const button = renderButton({ status: INSTALLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
     expect(switchEl.props.success).toEqual(true);
   });
 
   it('should reflect ENABLED status', () => {
     const button = renderButton({ status: ENABLED });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
     expect(switchEl.props.label).toContain('test-addon is installed and enabled');
     expect(switchEl.props.label).toContain('Click to uninstall');
@@ -80,27 +80,27 @@ describe('<InstallSwitch />', () => {
 
   it('should reflect download downloadProgress', () => {
     const button = renderButton({ status: DOWNLOADING, downloadProgress: 50 });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.progress).toEqual(50);
     expect(switchEl.props.label).toContain('Downloading test-addon');
   });
 
   it('should reflect installation', () => {
     const button = renderButton({ status: INSTALLING });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
     expect(switchEl.props.label).toContain('Installing test-addon');
   });
 
   it('should reflect ENABLING status', () => {
     const button = renderButton({ status: ENABLING });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.checked).toEqual(true);
   });
 
   it('should reflect uninstallation', () => {
     const button = renderButton({ status: UNINSTALLING });
-    const switchEl = button.switchEl;
+    const { switchEl } = button;
     expect(switchEl.props.label).toContain('Uninstalling test-addon');
   });
 
@@ -136,30 +136,32 @@ describe('<InstallSwitch />', () => {
   });
 
   it('should call installTheme function on click when uninstalled theme', () => {
+    const addon = createInternalAddon(fakeTheme);
     const installTheme = sinon.spy();
-    const browsertheme = { theme: 'data' };
-    sinon.stub(themePreview, 'getThemeData').returns(browsertheme);
-    const guid = 'test-guid';
-    const name = 'hai';
-    const button = renderButton({
+    const props = {
+      addon,
+      // Simulate the state mapper spreads.
+      ...addon,
       installTheme,
-      type: ADDON_TYPE_THEME,
-      guid,
-      name,
       status: UNINSTALLED,
-    });
+    };
+
+    const button = renderButton(props);
+
     const root = findDOMNode(button.switchEl);
     Simulate.click(root);
-    expect(installTheme.calledOnce).toBeTruthy();
-    const themeDataEl = installTheme.args[0][0];
-    expect(themeDataEl.getAttribute('data-browsertheme')).toEqual(JSON.stringify(browsertheme));
+
+    sinon.assert.calledOnce(installTheme);
+    const themeDataEl = installTheme.firstCall.args[0];
+    expect(JSON.parse(themeDataEl.getAttribute('data-browsertheme')))
+      .toEqual(addon.themeData);
   });
 
   it('should call install function on click when uninstalled', () => {
     const guid = '@foo';
     const name = 'hai';
     const install = sinon.spy();
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
     const installURL = 'https://my.url/download';
     const button = renderButton({ guid, i18n, install, installURL, name, status: UNINSTALLED });
     const root = findDOMNode(button.switchEl);
@@ -171,7 +173,7 @@ describe('<InstallSwitch />', () => {
     const guid = '@foo';
     const name = 'hai';
     const enable = sinon.spy();
-    const i18n = getFakeI18nInst();
+    const i18n = fakeI18n();
     const installURL = 'https://my.url/download';
     const button = renderButton({ guid, i18n, enable, installURL, name, status: DISABLED });
     const root = findDOMNode(button.switchEl);

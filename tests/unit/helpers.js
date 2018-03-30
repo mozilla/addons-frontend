@@ -1,22 +1,30 @@
 /* global Response */
+import url from 'url';
+
 import base64url from 'base64url';
-import config from 'config';
+import config, { util as configUtil } from 'config';
 import { shallow } from 'enzyme';
 import Jed from 'jed';
 import { normalize } from 'normalizr';
-import React from 'react';
+import * as React from 'react';
 import UAParser from 'ua-parser-js';
 import { oneLine } from 'common-tags';
 
 import { getDjangoBase62 } from 'amo/utils';
 import * as coreApi from 'core/api';
-import { ADDON_TYPE_EXTENSION } from 'core/constants';
+import { ADDON_TYPE_EXTENSION, ADDON_TYPE_LANG } from 'core/constants';
 import { makeI18n } from 'core/i18n/utils';
 import { initialApiState } from 'core/reducers/api';
 import { ErrorHandler } from 'core/errorHandler';
+import { fakeAddon } from 'tests/unit/amo/helpers';
 
 export const sampleUserAgent = 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0) Gecko/20100101 Firefox/40.1';
 export const sampleUserAgentParsed = UAParser(sampleUserAgent);
+
+export const randomId = () => {
+  // Add 1 to make sure it's never zero.
+  return Math.floor(Math.random() * 10000) + 1;
+};
 
 /*
  * Return a fake authentication token that can be
@@ -50,7 +58,10 @@ const enabledExtension = Promise.resolve({
 });
 
 export function getFakeAddonManagerWrapper({
-  getAddon = enabledExtension, permissionPromptsEnabled = true } = {}) {
+  getAddon = enabledExtension,
+  permissionPromptsEnabled = true,
+  ...overrides
+} = {}) {
   return {
     addChangeListeners: sinon.stub(),
     enable: sinon.stub().returns(Promise.resolve()),
@@ -58,11 +69,22 @@ export function getFakeAddonManagerWrapper({
     install: sinon.stub().returns(Promise.resolve()),
     uninstall: sinon.stub().returns(Promise.resolve()),
     hasPermissionPromptsEnabled: sinon.stub().returns(permissionPromptsEnabled),
+    ...overrides,
   };
 }
 
+/*
+ * A promise resolution callback for expecting rejected promises.
+ *
+ * For example:
+ *
+ * return somePromiseThatShouldFail()
+ *   .then(unexpectedSuccess, (error) => {
+ *     expect(error.message).toMatch(/the error/);
+ *   });
+ */
 export function unexpectedSuccess() {
-  return expect(false).toBe(true);
+  return Promise.reject(new Error('The promise succeeded unexpectedly'));
 }
 
 export function JedSpy(data = {}) {
@@ -81,7 +103,7 @@ export function JedSpy(data = {}) {
 /*
  * Creates a stand-in for a jed instance,
  */
-export function getFakeI18nInst({ lang = config.get('defaultLang') } = {}) {
+export function fakeI18n({ lang = config.get('defaultLang') } = {}) {
   return makeI18n({}, lang, JedSpy);
 }
 
@@ -109,6 +131,55 @@ export const signedInApiState = Object.freeze({
   userId: 102345,
 });
 
+export const userAgentsByPlatform = {
+  android: {
+    firefox40Mobile: oneLine`Mozilla/5.0 (Android; Mobile; rv:40.0)
+      Gecko/40.0 Firefox/40.0`,
+    firefox40Tablet: oneLine`Mozilla/5.0 (Android; Tablet; rv:40.0)
+      Gecko/40.0 Firefox/40.0`,
+  },
+  bsd: {
+    firefox40FreeBSD: oneLine`Mozilla/5.0 (X11; FreeBSD amd64; rv:40.0)
+      Gecko/20100101 Firefox/40.0`,
+  },
+  firefoxOS: {
+    firefox26: 'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
+  },
+  ios: {
+    firefox1iPad: oneLine`Mozilla/5.0 (iPad; CPU iPhone OS 8_3
+      like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko)
+      FxiOS/1.0 Mobile/12F69 Safari/600.1.4`,
+    firefox1iPhone: oneLine`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3
+      like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko)
+      FxiOS/1.0 Mobile/12F69n Safari/600.1.4`,
+    firefox1iPodTouch: oneLine`Mozilla/5.0 (iPod touch; CPU iPhone
+      OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko)
+      FxiOS/1.0 Mobile/12F69 Safari/600.1.4`,
+  },
+  linux: {
+    firefox10: oneLine`Mozilla/5.0 (X11; Linux i686; rv:10.0)
+      Gecko/20100101 Firefox/10.0`,
+    firefox57Ubuntu: oneLine`Mozilla/5.0 (X11; Ubuntu; Linux i686;
+      rv:57.0) Gecko/20100101 Firefox/57.0`,
+  },
+  mac: {
+    chrome41: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1)
+      AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
+    firefox33: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10;
+      rv:33.0) Gecko/20100101 Firefox/33.0`,
+    firefox57: oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
+      Gecko/20100101 Firefox/57.1`,
+  },
+  unix: {
+    firefox51: oneLine`Mozilla/51.0.2 (X11; Unix x86_64; rv:29.0)
+      Gecko/20170101 Firefox/51.0.2`,
+  },
+  windows: {
+    firefox40: oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
+      Gecko/20100101 Firefox/40.1`,
+  },
+};
+
 export const userAgents = {
   androidWebkit: [
     oneLine`Mozilla/5.0 (Linux; U; Android 4.0.3; ko-kr; LG-L160L Build/IML74K)
@@ -130,59 +201,48 @@ export const userAgents = {
   chrome: [
     oneLine`Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko)
       Chrome/41.0.2228.0 Safari/537.36`,
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36
-      (KHTML, like Gecko) Chrome/41.0.2227.1 Safari/537.36`,
+    userAgentsByPlatform.mac.chrome41,
   ],
   firefox: [
-    'Mozilla/5.0 (X11; Linux i686; rv:10.0) Gecko/20100101 Firefox/10.0',
-    oneLine`Mozilla/5.0 (Windows NT 6.1; WOW64; rv:40.0)
-      Gecko/20100101 Firefox/40.1`,
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10; rv:33.0)
-      Gecko/20100101 Firefox/33.0`,
+    userAgentsByPlatform.linux.firefox10,
+    userAgentsByPlatform.windows.firefox40,
+    userAgentsByPlatform.mac.firefox33,
     'Mozilla/5.0 (X11; Linux i586; rv:31.0) Gecko/20100101 Firefox/31.0',
     // Firefox ESR 52
     oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:52.2.1)
       Gecko/20100101 Firefox/52.2.1`,
-    // Firefox 57 (first version that is WebExtension-only) for Mac
-    oneLine`Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:57.0)
-      Gecko/20100101 Firefox/57.1`,
+    userAgentsByPlatform.mac.firefox57,
   ],
   firefoxOS: [
-    'Mozilla/5.0 (Mobile; rv:26.0) Gecko/26.0 Firefox/26.0',
+    userAgentsByPlatform.firefoxOS.firefox26,
     'Mozilla/5.0 (Tablet; rv:26.0) Gecko/26.0 Firefox/26.0',
     'Mozilla/5.0 (TV; rv:44.0) Gecko/44.0 Firefox/44.0',
     'Mozilla/5.0 (Mobile; nnnn; rv:26.0) Gecko/26.0 Firefox/26.0',
   ],
   firefoxAndroid: [
-    'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0',
-    'Mozilla/5.0 (Android; Tablet; rv:40.0) Gecko/40.0 Firefox/40.0',
+    userAgentsByPlatform.android.firefox40Mobile,
+    userAgentsByPlatform.android.firefox40Tablet,
     'Mozilla/5.0 (Android 4.4; Mobile; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:41.0) Gecko/41.0 Firefox/41.0',
     'Mozilla/5.0 (Android 4.4; Tablet; rv:57.0) Gecko/57.0 Firefox/57.0',
   ],
   firefoxIOS: [
-    oneLine`Mozilla/5.0 (iPod touch; CPU iPhone OS 8_3 like Mac OS X)
-      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
-      Safari/600.1.4`,
-    oneLine`Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X)
-      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
-      Safari/600.1.4`,
-    oneLine`Mozilla/5.0 (iPad; CPU iPhone OS 8_3 like Mac OS X)
-      AppleWebKit/600.1.4 (KHTML, like Gecko) FxiOS/1.0 Mobile/12F69
-      Safari/600.1.4`,
+    userAgentsByPlatform.ios.firefox1iPodTouch,
+    userAgentsByPlatform.ios.firefox1iPhone,
+    userAgentsByPlatform.ios.firefox1iPad,
   ],
 };
 
 export function apiResponsePage({
   count, next, previous, pageSize = 25, results = [],
 } = {}) {
-  return Promise.resolve({
+  return {
     count: typeof count !== 'undefined' ? count : results.length,
     next,
     page_size: pageSize,
     previous,
     results,
-  });
+  };
 }
 
 export function createFetchAddonResult(addon) {
@@ -240,7 +300,7 @@ export function shallowUntilTarget(componentInstance, TargetComponent, {
       return root.shallow(shallowOptions);
     }
     // Unwrap the next component in the hierarchy.
-    root = root.first().shallow(shallowOptions);
+    root = root.dive();
   }
 
   throw new Error(oneLine`Could not find ${TargetComponent} in rendered
@@ -256,6 +316,12 @@ export function createFakeEvent(extraProps = {}) {
     ...extraProps,
   };
 }
+
+export const createFakeMozWindow = () => {
+  // This is a special Mozilla window that allows you to
+  // install open search add-ons.
+  return { external: { AddSearchProvider: sinon.stub() } };
+};
 
 export function createStubErrorHandler(capturedError = null) {
   return new ErrorHandler({
@@ -287,27 +353,193 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createUserProfileResponse({
+
+export function createFakeLanguageTool(otherProps = {}) {
+  return {
+    id: fakeAddon.id,
+    current_version: fakeAddon.current_version,
+    default_locale: 'en-US',
+    guid: fakeAddon.guid,
+    locale_disambiguation: '',
+    name: fakeAddon.name,
+    target_locale: 'ach',
+    type: ADDON_TYPE_LANG,
+    url: 'https://addons.allizom.org/en-US/firefox/addon/acholi-ug-lp-test',
+    ...otherProps,
+  };
+}
+
+export function createUserAccountResponse({
   id = 123456,
+  biography = 'I love making add-ons!',
   username = 'user-1234',
-  displayName = null,
+  created = '2017-08-15T12:01:13Z',
+  /* eslint-disable camelcase */
+  average_addon_rating = 4.3,
+  display_name = null,
+  num_addons_listed = 1,
+  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  picture_type = '',
+  /* eslint-enable camelcase */
+  homepage = null,
+  permissions = [],
 } = {}) {
   return {
-    average_addon_rating: null,
-    biography: '',
-    created: '2017-08-15T12:01:13Z',
-    display_name: displayName,
-    homepage: '',
+    average_addon_rating,
+    biography,
+    created,
+    display_name,
+    homepage,
     id,
     is_addon_developer: false,
     is_artist: false,
     location: '',
     name: '',
-    num_addons_listed: 0,
+    num_addons_listed,
     occupation: '',
-    picture_type: '',
-    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    picture_type,
+    picture_url,
     url: null,
     username,
+    permissions,
   };
 }
+
+export function createFakeAddonAbuseReport({
+  addon = fakeAddon,
+  message,
+  reporter = null,
+} = {}) {
+  return {
+    addon: {
+      guid: addon.guid,
+      id: addon.id,
+      slug: addon.slug,
+    },
+    message,
+    reporter,
+  };
+}
+
+export function createFakeUserAbuseReport({
+  message,
+  reporter = null,
+  user = createUserAccountResponse(),
+} = {}) {
+  return {
+    message,
+    reporter,
+    user: {
+      id: user.id,
+      name: user.name,
+      url: user.url,
+      username: user.username,
+    },
+  };
+}
+
+// Returns a real-ish config object with custom parameters.
+//
+// Example:
+//
+// const fakeConfig = getFakeConfig({ isDevelopment: true });
+// if (fakeConfig.get('isDevelopment')) {
+//   ...
+// }
+export const getFakeConfig = (params = {}) => {
+  for (const key of Object.keys(params)) {
+    if (!config.has(key)) {
+      // This will help alert us when a test accidentally relies
+      // on an invalid config key.
+      throw new Error(
+        `Cannot set a fake value for "${key}"; this key is invalid`);
+    }
+  }
+  return Object.assign(configUtil.cloneDeep(config), params);
+};
+
+/*
+ * A sinon matcher to check if the URL contains the declared params.
+ *
+ * Example:
+ *
+ * mockWindow.expects('fetch').withArgs(urlWithTheseParams({ page: 1 }))
+ */
+export const urlWithTheseParams = (params) => {
+  return sinon.match((urlString) => {
+    const { query } = url.parse(urlString, true);
+
+    for (const param in params) {
+      if (!query[param] || query[param] !== params[param].toString()) {
+        return false;
+      }
+    }
+
+    return true;
+  }, `urlWithTheseParams(${JSON.stringify(params)})`);
+};
+
+/*
+ * Returns a fake ReactRouter location object.
+ *
+ * See ReactRouterLocation in 'core/types/router';
+ */
+export const fakeRouterLocation = (props = {}) => {
+  return {
+    action: 'PUSH',
+    hash: '',
+    key: 'some-key',
+    pathname: '/some/url',
+    query: {},
+    search: '',
+    ...props,
+  };
+};
+
+/*
+ * Returns a fake ReactRouter object.
+ *
+ * See ReactRouterType in 'core/types/router';
+ */
+export const createFakeRouter = (
+  { location = fakeRouterLocation() } = {}
+) => {
+  return {
+    location,
+    params: {},
+    push: sinon.spy(),
+  };
+};
+
+/*
+ * Simulate how a component you depend on will invoke a callback.
+ *
+ * The return value is an executable callback that you can call
+ * with the necessary arguments.
+ *
+ * type SimulateComponentCallbackParams = {|
+ *   // This is the root of your parent component (an enzyme wrapper object).
+ *   root: Object,
+ *   // This is the component class you want to simulate.
+ *   Component: React.Element<any>,
+ *   // This is the property name for the callback.
+ *   propName: string,
+ * |};
+ */
+export const simulateComponentCallback = ({ Component, root, propName }) => {
+  const component = root.find(Component);
+  expect(component).toHaveProp(propName);
+
+  const callback = component.prop(propName);
+  expect(typeof callback).toEqual('function');
+
+  return (...args) => {
+    const result = callback(...args);
+
+    // Since the component might call setState() and that would happen
+    // outside of a standard React lifestyle hook, we have to re-render.
+    root.update();
+
+    return result;
+  };
+};

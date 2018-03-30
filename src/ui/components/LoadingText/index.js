@@ -1,24 +1,22 @@
 /* @flow */
-import classNames from 'classnames';
-import React from 'react';
+import makeClassName from 'classnames';
+import * as React from 'react';
 
 import './styles.scss';
 
 
-type LoadingTextProps = {
+type Props = {|
   className?: string,
   width?: number,
   minWidth: number,
   range: number,
-}
+|};
 
-export default class LoadingText extends React.Component {
+export default class LoadingText extends React.Component<Props> {
   static defaultProps = {
     minWidth: 20,
     range: 60,
   }
-
-  props: LoadingTextProps;
 
   render() {
     const { className, minWidth, range, width } = this.props;
@@ -36,7 +34,7 @@ export default class LoadingText extends React.Component {
 
     return (
       <span
-        className={classNames(
+        className={makeClassName(
           'LoadingText',
           `LoadingText--delay-${delayStart}`,
           className,

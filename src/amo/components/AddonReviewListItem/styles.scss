@@ -1,0 +1,80 @@
+@import "~photon-colors/colors";
+@import "~core/css/inc/mixins";
+@import "~amo/css/inc/vars";
+
+.AddonReviewListItem {
+  word-wrap: break-word;
+
+  .Rating {
+    margin: 0;
+
+    @include margin-end(6px);
+  }
+
+  .ErrorList {
+    margin-top: 6px;
+  }
+}
+
+.AddonReviewListItem-review-header {
+  margin: 0;
+  padding: 0;
+}
+
+.AddonReviewListItem-body {
+  font-size: $font-size-default;
+  margin: 0 0 6px;
+  word-wrap: break-word;
+}
+
+.AddonReviewListItem-byline {
+  color: $sub-text-color;
+  display: flex;
+  font-size: $font-size-s;
+
+  a:link,
+  a:visited,
+  a:hover,
+  a:active {
+    &:not(.Button) {
+      color: $blue-50;
+      font-weight: normal;
+      text-decoration: none;
+    }
+  }
+}
+
+.AddonReviewListItem-control {
+  display: flex;
+  @include margin-start(6px);
+
+  @include respond-to(medium) {
+    @include margin-start(24px);
+  }
+
+  .Icon-reply-arrow {
+    @include margin-end(6px);
+  }
+}
+
+.AddonReviewListItem-reply {
+  background-color: transparentize($blue-50, 0.95);
+  border-radius: $border-radius-default;
+  margin-top: 12px;
+  padding: 12px;
+
+  @include respond-to(medium) {
+    margin-top: 24px;
+    padding: 24px;
+
+    @include margin-start(12px);
+  }
+}
+
+.AddonReviewListItem-reply-header {
+  margin: 0 0 6px;
+
+  .Icon-reply-arrow {
+    @include margin-end(12px);
+  }
+}

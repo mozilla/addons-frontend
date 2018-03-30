@@ -1,8 +1,9 @@
-import React from 'react';
+/* eslint-disable react/no-multi-comp */
+import * as React from 'react';
 import Helmet from 'react-helmet';
 import { Router, Route } from 'react-router';
+import { routerReducer } from 'react-router-redux';
 import { applyMiddleware, createStore, combineReducers } from 'redux';
-import { reducer as reduxAsyncConnect } from 'redux-connect';
 import createSagaMiddleware from 'redux-saga';
 import NestedStatus from 'react-nested-status';
 import supertest from 'supertest';
@@ -11,56 +12,68 @@ import cheerio from 'cheerio';
 
 import baseServer from 'core/server/base';
 import apiReducer from 'core/reducers/api';
-import userReducer from 'core/reducers/user';
-import userSaga from 'core/sagas/user';
-import * as userApi from 'core/api/user';
+import redirectToReducer, {
+  sendServerRedirect,
+} from 'core/reducers/redirectTo';
+import usersReducer, { getCurrentUser } from 'amo/reducers/users';
+import usersSaga from 'amo/sagas/users';
+import * as usersApi from 'amo/api/users';
 import FakeApp, { fakeAssets } from 'tests/unit/core/server/fakeApp';
-import { createUserProfileResponse, userAuthToken } from 'tests/unit/helpers';
+import { createUserAccountResponse, userAuthToken } from 'tests/unit/helpers';
 
-
-describe(__filename, () => {
-  let mockUserApi;
-
-  const _helmetCanUseDOM = Helmet.canUseDOM;
-  const defaultStubRoutes = (
-    <Router>
-      <Route path="*" component={FakeApp} />
-    </Router>
+function createStoreAndSagas({
+  reducers = {
+    api: apiReducer,
+    routing: routerReducer,
+    users: usersReducer,
+  },
+} = {}) {
+  const sagaMiddleware = createSagaMiddleware();
+  const store = createStore(
+    combineReducers(reducers),
+    // Do not define an initial state.
+    undefined,
+    applyMiddleware(sagaMiddleware),
   );
 
-  beforeEach(() => {
+  return { store, sagaMiddleware };
+}
+
+const stubRoutes = (
+  <Router>
+    <Route path="*" component={FakeApp} />
+  </Router>
+);
+
+export class ServerTestHelper {
+  constructor() {
+    this.helmetCanUseDOM = Helmet.canUseDOM;
+    this.nestedStatusCanUseDOM = NestedStatus.canUseDOM;
+  }
+
+  beforeEach() {
     Helmet.canUseDOM = false;
+    // See: https://github.com/gaearon/react-side-effect/releases/tag/v1.0.0
+    // (`react-side-effect` is a dependency of `react-nested-status`).
+    NestedStatus.canUseDOM = false;
     global.webpackIsomorphicTools = {
       assets: () => fakeAssets,
     };
-    mockUserApi = sinon.mock(userApi);
-  });
-
-  afterEach(() => {
-    Helmet.canUseDOM = _helmetCanUseDOM;
-    delete global.webpackIsomorphicTools;
-  });
-
-  function createStoreAndSagas({
-    reducers = { reduxAsyncConnect, api: apiReducer, user: userReducer },
-  } = {}) {
-    const sagaMiddleware = createSagaMiddleware();
-    const store = createStore(
-      combineReducers(reducers),
-      // Do not define an initial state.
-      undefined,
-      applyMiddleware(sagaMiddleware),
-    );
-
-    return { store, sagaMiddleware };
   }
 
-  function testClient({
-    stubRoutes = defaultStubRoutes,
+  afterEach() {
+    Helmet.canUseDOM = this.helmetCanUseDOM;
+    NestedStatus.canUseDOM = this.nestedStatusCanUseDOM;
+    delete global.webpackIsomorphicTools;
+  }
+
+  testClient({
+    routes = stubRoutes,
     store = null,
     sagaMiddleware = null,
     appSagas = null,
     config = defaultConfig,
+    baseServerParams = {},
   } = {}) {
     function _createStoreAndSagas() {
       if (store === null) {
@@ -73,13 +86,30 @@ describe(__filename, () => {
     // eslint-disable-next-line no-empty-function
     function* fakeSaga() {}
 
-    const app = baseServer(stubRoutes, _createStoreAndSagas, {
+    const app = baseServer(routes, _createStoreAndSagas, {
       appSagas: appSagas || fakeSaga,
       appInstanceName: 'testapp',
       config,
+      ...baseServerParams,
     });
     return supertest(app);
   }
+}
+
+describe(__filename, () => {
+  let mockUsersApi;
+
+  const serverTestHelper = new ServerTestHelper();
+  const testClient = (...args) => serverTestHelper.testClient(...args);
+
+  beforeEach(() => {
+    serverTestHelper.beforeEach();
+    mockUsersApi = sinon.mock(usersApi);
+  });
+
+  afterEach(() => {
+    serverTestHelper.afterEach();
+  });
 
   describe('app', () => {
     it('varies on DNT', async () => {
@@ -103,13 +133,13 @@ describe(__filename, () => {
         }
       }
 
-      const stubRoutes = (
+      const notFoundStubRoutes = (
         <Router>
           <Route path="*" component={NotFound} />
         </Router>
       );
 
-      const response = await testClient({ stubRoutes })
+      const response = await testClient({ routes: notFoundStubRoutes })
         .get('/en-US/firefox/simulation-of-a-non-existent-page')
         .end();
 
@@ -143,52 +173,53 @@ describe(__filename, () => {
     });
 
     it('fetches the user profile when given a token', async () => {
-      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+      const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.resolve(profile));
+        .returns(Promise.resolve(user));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+      const response = await testClient({ store, sagaMiddleware, appSagas: usersSaga })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, user } = store.getState();
+      const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
       expect(api.token).toEqual(token);
-      expect(user.id).toEqual(42);
-      expect(user.username).toEqual('babar');
-      mockUserApi.verify();
+      expect(users.currentUserID).toEqual(42);
+      expect(getCurrentUser(users).username).toEqual('babar');
+      mockUsersApi.verify();
     });
 
     it('returns a 500 error page when retrieving the user profile fails', async () => {
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.reject(new Error('example of an API error')));
+        .rejects(new Error('example of an API error'));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
-      const response = await testClient({ store, sagaMiddleware, appSagas: userSaga })
+      const response = await testClient({ store, sagaMiddleware, appSagas: usersSaga })
         .get('/en-US/firefox/')
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
       expect(response.statusCode).toEqual(500);
+      mockUsersApi.verify();
     });
 
     it('fetches the user profile even when SSR is disabled', async () => {
-      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+      const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.resolve(profile));
+        .returns(Promise.resolve(user));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
@@ -201,7 +232,7 @@ describe(__filename, () => {
       const client = testClient({
         store,
         sagaMiddleware,
-        appSagas: userSaga,
+        appSagas: usersSaga,
         config,
       });
 
@@ -210,13 +241,13 @@ describe(__filename, () => {
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, user } = store.getState();
+      const { api, users } = store.getState();
 
       expect(response.statusCode).toEqual(200);
       expect(api.token).toEqual(token);
-      expect(user.id).toEqual(42);
-      expect(user.username).toEqual('babar');
-      mockUserApi.verify();
+      expect(users.currentUserID).toEqual(42);
+      expect(getCurrentUser(users).username).toEqual('babar');
+      mockUsersApi.verify();
 
       // Parse the HTML response to retrieve the serialized redux state.
       // We do this here to make sure the sagas are actually run, because the
@@ -226,16 +257,16 @@ describe(__filename, () => {
       const reduxStoreState = JSON.parse($('#redux-store-state').html());
 
       expect(reduxStoreState.api).toEqual(api);
-      expect(reduxStoreState.user).toEqual(user);
+      expect(getCurrentUser(reduxStoreState.users)).toMatchObject(user);
     });
 
     it('it serializes the redux state in html', async () => {
-      const profile = createUserProfileResponse({ id: 42, username: 'babar' });
+      const user = createUserAccountResponse({ id: 42, username: 'babar' });
 
-      mockUserApi
-        .expects('userProfile')
+      mockUsersApi
+        .expects('currentUserAccount')
         .once()
-        .returns(Promise.resolve(profile));
+        .returns(Promise.resolve(user));
 
       const token = userAuthToken();
       const { store, sagaMiddleware } = createStoreAndSagas();
@@ -243,7 +274,7 @@ describe(__filename, () => {
       const client = testClient({
         store,
         sagaMiddleware,
-        appSagas: userSaga,
+        appSagas: usersSaga,
       });
 
       const response = await client
@@ -251,14 +282,55 @@ describe(__filename, () => {
         .set('cookie', `${defaultConfig.get('cookieName')}="${token}"`)
         .end();
 
-      const { api, user } = store.getState();
+      const { api, users } = store.getState();
 
       // Parse the HTML response to retrieve the serialized redux state.
       const $ = cheerio.load(response.res.text);
       const reduxStoreState = JSON.parse($('#redux-store-state').html());
 
       expect(reduxStoreState.api).toEqual(api);
-      expect(reduxStoreState.user).toEqual(user);
+      expect(reduxStoreState.users).toMatchObject(users);
+      mockUsersApi.verify();
+    });
+
+    it('performs a server redirect when requested by the app', async () => {
+      const { store, sagaMiddleware } = createStoreAndSagas({
+        reducers: {
+          redirectTo: redirectToReducer,
+          routing: routerReducer,
+        },
+      });
+      const newURL = '/redirect/to/this/url';
+
+      class Redirect extends React.Component {
+        componentWillMount() {
+          store.dispatch(sendServerRedirect({
+            status: 301,
+            url: newURL,
+          }));
+        }
+
+        render() {
+          return <p>a component that requests a server redirect</p>;
+        }
+      }
+
+      const redirectRoutes = (
+        <Router>
+          <Route path="*" component={Redirect} />
+        </Router>
+      );
+
+      const client = testClient({
+        routes: redirectRoutes,
+        sagaMiddleware,
+        store,
+      });
+
+      const response = await client.get(`/en-US/firefox/`).end();
+
+      expect(response.status).toEqual(301);
+      expect(response.headers.location).toEqual(newURL);
     });
   });
 });

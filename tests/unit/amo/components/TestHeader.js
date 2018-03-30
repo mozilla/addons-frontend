@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Header, { HeaderBase } from 'amo/components/Header';
@@ -12,7 +12,8 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
-  getFakeI18nInst,
+  fakeI18n,
+  fakeRouterLocation,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 
@@ -22,10 +23,9 @@ describe(__filename, () => {
     store = dispatchClientMetadata().store,
     ...props
   } = {}) {
-    const fakeI18n = getFakeI18nInst();
     const allProps = {
-      i18n: fakeI18n,
-      location: {},
+      i18n: fakeI18n(),
+      location: fakeRouterLocation(),
       query: '',
       ...props,
     };
@@ -43,8 +43,8 @@ describe(__filename, () => {
 
     expect(root.find('.Header-title-wrapper')).toHaveTagName('h1');
     expect(root.find('.Header-title').type()).toEqual(Link);
-    expect(root.find('.Header-title').prop('children'))
-      .toContain('Firefox Add-ons');
+    expect(root.find('.Header-title .visually-hidden').childAt(0))
+      .toHaveText('Firefox Add-ons');
   });
 
   it('always renders a link in the header when not on homepage', () => {
@@ -54,8 +54,8 @@ describe(__filename, () => {
     // homepage; other routes will render their own, more relevant, H1 tags.
     expect(root.find('h1')).toHaveLength(0);
     expect(root.find('.Header-title').type()).toEqual(Link);
-    expect(root.find('.Header-title').prop('children'))
-      .toContain('Firefox Add-ons');
+    expect(root.find('.Header-title .visually-hidden').childAt(0))
+      .toHaveText('Firefox Add-ons');
   });
 
   it('displays `login` text when user is not signed in', () => {
@@ -67,7 +67,12 @@ describe(__filename, () => {
 
   it('displays a menu and the display name when user is signed in', () => {
     const displayName = 'King of the Elephants';
-    const { store } = dispatchSignInActions({ username: 'babar', displayName });
+    const { store } = dispatchSignInActions({
+      userProps: {
+        display_name: displayName,
+        username: 'babar',
+      },
+    });
     const wrapper = renderHeader({ store });
 
     expect(wrapper.find(DropdownMenu)).toHaveLength(1);
@@ -75,15 +80,30 @@ describe(__filename, () => {
   });
 
   it('displays the username when user is signed in but has no display name', () => {
-    const { store } = dispatchSignInActions({ username: 'babar' });
+    const { store } = dispatchSignInActions({
+      userProps: { username: 'babar' },
+    });
     const wrapper = renderHeader({ store });
 
     expect(wrapper.find(DropdownMenu)).toHaveLength(1);
     expect(wrapper.find(DropdownMenu)).toHaveProp('text', 'babar');
   });
 
+  it("displays user's collection when user is signed in", () => {
+    const { store } = dispatchSignInActions({
+      userProps: { username: 'babar' },
+    });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-collections-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.prop('children')).toEqual('View My Collections');
+  });
+
   it('allows a signed-in user to log out', () => {
-    const { store } = dispatchSignInActions({ username: 'babar' });
+    const { store } = dispatchSignInActions({
+      userProps: { username: 'babar' },
+    });
     const handleLogOut = sinon.stub();
 
     const wrapper = renderHeader({ store, handleLogOut });
@@ -94,5 +114,30 @@ describe(__filename, () => {
     sinon.assert.calledWith(handleLogOut, {
       api: store.getState().api,
     });
+  });
+
+  it('displays the reviewer tools link when user has a reviewer permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: ['Addons:PostReview'],
+        username: 'babar',
+      },
+    });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-reviewer-tools-link');
+
+    expect(link).toHaveLength(1);
+    expect(link.prop('children')).toEqual('Reviewer Tools');
+    expect(link).toHaveProp('href', '/reviewers/');
+  });
+
+  it('does not display the reviewer tools link when user does not have permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: { username: 'babar' },
+    });
+    const wrapper = renderHeader({ store });
+    const link = wrapper.find('.Header-user-menu-reviewer-tools-link');
+
+    expect(link).toHaveLength(0);
   });
 });
