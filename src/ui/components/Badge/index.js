@@ -8,7 +8,8 @@ import './styles.scss';
 
 type Props = {|
   label: string,
-  type?: 'experimental' | 'featured' | 'restart-required' | 'not-compatible',
+  type?: 'experimental' | 'featured' | 'restart-required' | 'not-compatible'
+    | 'requires-payment',
 |};
 
 const getIconNameForType = (type) => {
@@ -29,14 +30,15 @@ const Badge = ({ label, type }: Props) => {
     'experimental',
     'featured',
     'restart-required',
+    'requires-payment',
   ].includes(type)) {
     throw new Error(`Invalid badge type given: "${type}"`);
   }
 
   return (
     <div className={type ? `Badge Badge-${type}` : 'Badge'}>
-      {label}
       {type && <Icon alt={label} name={getIconNameForType(type)} />}
+      {label}
     </div>
   );
 };

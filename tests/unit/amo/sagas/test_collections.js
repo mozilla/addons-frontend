@@ -19,10 +19,6 @@ import collectionsReducer, {
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
-import {
-  beginFormOverlaySubmit, closeFormOverlay, finishFormOverlaySubmit,
-} from 'core/reducers/formOverlay';
-import { parsePage } from 'core/utils';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
@@ -34,6 +30,7 @@ import {
 describe(__filename, () => {
   const user = 'user-id-or-name';
   const slug = 'collection-slug';
+  const page = 1;
 
   let clientData;
   let errorHandler;
@@ -82,14 +79,14 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           api: state.api,
-          page: parsePage(1),
+          page,
           slug,
           user,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollection({ page: parsePage(1), slug, user });
+      _fetchCurrentCollection({ page, slug, user });
 
       const expectedLoadAction = loadCurrentCollection({
         addons: collectionAddons,
@@ -143,14 +140,14 @@ describe(__filename, () => {
         .expects('getCollectionAddons')
         .withArgs({
           api: state.api,
-          page: parsePage(1),
+          page,
           slug,
           user,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page, slug, user });
 
       const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons,
@@ -162,7 +159,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page, slug, user });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -178,7 +175,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollectionPage({ page: parsePage(1), slug, user });
+      _fetchCurrentCollectionPage({ page, slug, user });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -275,11 +272,11 @@ describe(__filename, () => {
       const state = sagaTester.getState();
 
       mockApi
-        .expects('addAddonToCollection')
+        .expects('createCollectionAddon')
         .withArgs({
-          addon: params.addonId,
+          addonId: params.addonId,
           api: state.api,
-          collection: collectionSlug,
+          collectionSlug,
           notes: undefined,
           user: params.userId,
         })
@@ -314,7 +311,7 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
 
       mockApi
-        .expects('addAddonToCollection')
+        .expects('createCollectionAddon')
         .returns(Promise.reject(error));
 
       _addAddonToCollection({ addonId, userId });
@@ -331,7 +328,6 @@ describe(__filename, () => {
     const _updateCollection = (params = {}) => {
       sagaTester.dispatch(updateCollection({
         errorHandlerId: errorHandler.id,
-        formOverlayId: 'some-form-overlay',
         collectionSlug: 'some-collection',
         user: 'some-user',
         ...params,
@@ -342,7 +338,6 @@ describe(__filename, () => {
       const params = {
         collectionSlug: 'a-collection',
         description: { 'en-US': 'New collection description' },
-        formOverlayId: 'some-form-overlay',
         name: { 'en-US': 'New collection name' },
         slug: 'new-slug',
         user: 543,
@@ -365,10 +360,9 @@ describe(__filename, () => {
 
       _updateCollection(params);
 
-      const expectedAction = finishFormOverlaySubmit(params.formOverlayId);
+      const expectedAction = pushLocation('/example/collection/url/');
+      await sagaTester.waitFor(expectedAction.type);
 
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
       mockApi.verify();
     });
 
@@ -389,15 +383,13 @@ describe(__filename, () => {
     it('does not delete collection when slug is changed', async () => {
       mockApi.expects('updateCollection').returns(Promise.resolve());
 
-      const formOverlayId = 'some-form-id';
       const collectionSlug = 'some-collection';
       _updateCollection({
-        collectionSlug, formOverlayId, slug: 'new-slug',
+        collectionSlug, slug: 'new-slug',
       });
 
-      await sagaTester.waitFor(
-        finishFormOverlaySubmit(formOverlayId).type
-      );
+      const expectedAction = pushLocation('/example/collection/url/');
+      await sagaTester.waitFor(expectedAction.type);
       mockApi.verify();
 
       // Make sure the the collection is not deleted.
@@ -453,38 +445,19 @@ describe(__filename, () => {
       expect(action).toEqual(expectedAction);
     });
 
-    it('begins a form submit', async () => {
-      const formOverlayId = 'my-form-overlay';
-      _updateCollection({ formOverlayId });
-
-      const expectedAction = beginFormOverlaySubmit(formOverlayId);
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-    });
-
     it('handles errors', async () => {
       const collectionSlug = 'a-collection';
-      const formOverlayId = 'my-form-overlay';
       const error = new Error('some API error maybe');
 
       mockApi
         .expects('updateCollection')
         .returns(Promise.reject(error));
 
-      _updateCollection({ collectionSlug, formOverlayId });
+      _updateCollection({ collectionSlug });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
-
-      expect(sagaTester.getCalledActions()[4])
-        .toEqual(finishFormOverlaySubmit(formOverlayId));
-
-      // Make sure the form overlay is not closed on error.
-      expect(
-        sagaTester.getCalledActions().map((anyAction) => anyAction.type)
-      ).not.toContain(closeFormOverlay(formOverlayId).type);
     });
   });
 });

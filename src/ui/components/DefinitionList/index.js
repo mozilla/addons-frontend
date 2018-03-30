@@ -24,7 +24,7 @@ export const Definition = (
 
 type DefinitionListProps = {|
   className?: string,
-  children: React.ChildrenArray<React.Element<typeof Definition>>,
+  children: React.ChildrenArray<React.Element<typeof Definition> | null>,
 |};
 
 const DefinitionList = ({ className, children }: DefinitionListProps) => {

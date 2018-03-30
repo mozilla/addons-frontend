@@ -1,9 +1,9 @@
 import SagaTester from 'redux-saga-tester';
 
 import addonsByAuthorsReducer, {
-  OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
-  fetchOtherAddonsByAuthors,
-  loadOtherAddonsByAuthors,
+  ADDONS_BY_AUTHORS_PAGE_SIZE,
+  fetchAddonsByAuthors,
+  loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
@@ -38,8 +38,8 @@ describe(__filename, () => {
     sagaTester.start(addonsByAuthorsSaga);
   });
 
-  function _fetchOtherAddonsByAuthors(params) {
-    sagaTester.dispatch(fetchOtherAddonsByAuthors({
+  function _fetchAddonsByAuthors(params) {
+    sagaTester.dispatch(fetchAddonsByAuthors({
       errorHandlerId: errorHandler.id,
       addonType: ADDON_TYPE_THEME,
       ...params,
@@ -47,6 +47,39 @@ describe(__filename, () => {
   }
 
   it('calls the API to retrieve other add-ons', async () => {
+    const addons = [fakeAddon];
+    const authors = ['mozilla', 'johnedoe'];
+    const state = sagaTester.getState();
+
+    mockApi
+      .expects('search')
+      .withArgs({
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          author: authors.join(','),
+          exclude_addons: undefined, // `callApi` will internally unset this
+          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          sort: SEARCH_SORT_TRENDING,
+        },
+      })
+      .once()
+      .returns(Promise.resolve(createAddonsApiResult(addons)));
+
+    _fetchAddonsByAuthors({ authors });
+
+    const expectedLoadAction = loadAddonsByAuthors({
+      addons,
+      forAddonSlug: undefined,
+    });
+
+    const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
+    mockApi.verify();
+
+    expect(loadAction).toEqual(expectedLoadAction);
+  });
+
+  it('sends `exclude_addons` param if `forAddonSlug` is set', async () => {
     const addons = [fakeAddon];
     const authors = ['mozilla', 'johnedoe'];
     const { slug } = fakeAddon;
@@ -60,32 +93,34 @@ describe(__filename, () => {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
           exclude_addons: slug,
-          page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
+          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchOtherAddonsByAuthors({ authors, slug });
+    _fetchAddonsByAuthors({ authors, forAddonSlug: slug });
 
-    const expectedLoadAction = loadOtherAddonsByAuthors({ addons, slug });
+    const expectedLoadAction = loadAddonsByAuthors({
+      addons,
+      forAddonSlug: slug,
+    });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
+    const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
 
-    const loadAction = sagaTester.getCalledActions()[2];
     expect(loadAction).toEqual(expectedLoadAction);
   });
 
   it('clears the error handler', async () => {
-    _fetchOtherAddonsByAuthors({ authors: [], slug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authors: [], forAddonSlug: fakeAddon.slug });
 
     const expectedAction = errorHandler.createClearingAction();
 
-    await sagaTester.waitFor(expectedAction.type);
-    expect(sagaTester.getCalledActions()[1])
-      .toEqual(errorHandler.createClearingAction());
+    const errorAction = await sagaTester.waitFor(expectedAction.type);
+
+    expect(errorAction).toEqual(errorHandler.createClearingAction());
   });
 
   it('dispatches an error', async () => {
@@ -95,11 +130,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.reject(error));
 
-    _fetchOtherAddonsByAuthors({ authors: [], slug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authors: [], forAddonSlug: fakeAddon.slug });
 
     const errorAction = errorHandler.createErrorAction(error);
-    await sagaTester.waitFor(errorAction.type);
-    expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    const calledErrorAction = await sagaTester.waitFor(errorAction.type);
+
+    expect(calledErrorAction).toEqual(errorAction);
   });
 
   it('handles no API results', async () => {
@@ -116,21 +152,23 @@ describe(__filename, () => {
           addonType: ADDON_TYPE_THEME,
           author: authors.join(','),
           exclude_addons: slug,
-          page_size: OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
+          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchOtherAddonsByAuthors({ authors, slug });
+    _fetchAddonsByAuthors({ authors, forAddonSlug: slug });
 
-    const expectedLoadAction = loadOtherAddonsByAuthors({ addons, slug });
+    const expectedLoadAction = loadAddonsByAuthors({
+      addons,
+      forAddonSlug: slug,
+    });
 
-    await sagaTester.waitFor(expectedLoadAction.type);
+    const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
     mockApi.verify();
 
-    const loadAction = sagaTester.getCalledActions()[2];
     expect(loadAction).toEqual(expectedLoadAction);
   });
 });

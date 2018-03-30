@@ -12,7 +12,6 @@ const langs = config.get('langs');
 const basePath = config.get('basePath');
 
 describe(__filename, () => {
-  // eslint-disable-next-line no-restricted-syntax
   for (const lang of langs) {
     // eslint-disable no-loop-func
     it(`should have a corresponding ${lang} dir in locale`, () => {
@@ -20,7 +19,6 @@ describe(__filename, () => {
     });
   }
 
-  // eslint-disable-next-line no-restricted-syntax
   for (const localeDir of glob.sync('locale/*')) {
     const locale = path.basename(localeDir);
     const lang = localeToLang(locale);
@@ -34,7 +32,6 @@ describe(__filename, () => {
 });
 
 describe('Check Locale JS for entities', () => {
-  // eslint-disable-next-line no-restricted-syntax
   for (const localeJSFile of glob.sync('src/locale/*/*.js')) {
     it(`${localeJSFile} should not have html entities`, (done) => {
       fs.readFile(localeJSFile, 'utf8', (err, data) => {

@@ -33,14 +33,29 @@ import {
 } from 'tests/unit/helpers';
 
 
+export const fakePlatformFile = Object.freeze({
+  created: '2014-11-22T10:09:01Z',
+  hash: 'a1b2c3d4',
+  id: 57721,
+  is_mozilla_signed_extension: false,
+  is_restart_required: false,
+  is_webextension: true,
+  permissions: ['activeTab', 'webRequest'],
+  platform: OS_ALL,
+  status: 'public',
+  url: 'https://a.m.o/files/321/addon.xpi',
+});
+
+export const fakeAuthor = Object.freeze({
+  id: 98811255,
+  name: 'Krupa',
+  picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
+  url: 'http://olympia.test/en-US/firefox/user/krupa/',
+  username: 'krupa',
+});
+
 export const fakeAddon = Object.freeze({
-  authors: [{
-    id: 98811255,
-    name: 'Krupa',
-    picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
-    url: 'http://olympia.test/en-US/firefox/user/krupa/',
-    username: 'krupa',
-  }],
+  authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
   current_beta_version: null,
@@ -58,18 +73,7 @@ export const fakeAddon = Object.freeze({
     id: 123,
     license: { name: 'tofulicense', url: 'http://license.com/' },
     version: '2.0.0',
-    files: [{
-      created: '2014-11-22T10:09:01Z',
-      hash: 'a1b2c3d4',
-      id: 57721,
-      is_mozilla_signed_extension: false,
-      is_restart_required: false,
-      is_webextension: true,
-      permissions: ['activeTab', 'webRequest'],
-      platform: OS_ALL,
-      status: 'public',
-      url: 'https://a.m.o/files/321/addon.xpi',
-    }],
+    files: [fakePlatformFile],
     is_strict_compatibility_enabled: false,
   },
   description: 'This is a longer description of the chill out add-on',
@@ -219,23 +223,14 @@ export function dispatchClientMetadata({
 export function dispatchSignInActions({
   authToken = userAuthToken(),
   userId = 12345,
-  username = 'user-1234',
-  // eslint-disable-next-line camelcase
-  display_name = null,
-  permissions = [],
+  userProps = {},
   ...otherArgs
 } = {}) {
   const { store } = dispatchClientMetadata(otherArgs);
 
   store.dispatch(setAuthToken(authToken));
   store.dispatch(loadCurrentUserAccount({
-    user: createUserAccountResponse({
-      id: userId,
-      username,
-      // eslint-disable-next-line camelcase
-      display_name,
-      permissions,
-    }),
+    user: createUserAccountResponse({ id: userId, ...userProps }),
   }));
 
   return {
@@ -273,12 +268,15 @@ export function createAddonsApiResult(results) {
   return normalize({ results }, { results: [addonSchema] });
 }
 
-export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+export function createFakeAutocompleteResult({
+  name = 'suggestion-result', ...props
+} = {}) {
   return {
     id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
+    ...props,
   };
 }
 

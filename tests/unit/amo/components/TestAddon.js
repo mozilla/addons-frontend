@@ -19,6 +19,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
+import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import routes from 'amo/routes';
@@ -30,8 +31,8 @@ import {
   createInternalAddon, fetchAddon as fetchAddonAction, loadAddons,
 } from 'core/reducers/addons';
 import {
-  fetchOtherAddonsByAuthors,
-  loadOtherAddonsByAuthors,
+  fetchAddonsByAuthors,
+  loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
@@ -45,6 +46,7 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
   UNKNOWN,
 } from 'core/constants';
@@ -138,10 +140,10 @@ describe(__filename, () => {
     return loadAddons(createFetchAddonResult(addon).entities);
   };
 
-  const _loadOtherAddonsByAuthors = ({ addon, addonsByAuthors }) => {
-    return loadOtherAddonsByAuthors({
-      slug: addon.slug,
+  const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
+    return loadAddonsByAuthors({
       addons: addonsByAuthors,
+      forAddonSlug: addon.slug,
     });
   };
 
@@ -787,7 +789,8 @@ describe(__filename, () => {
 
     const button = root.find(InstallButton);
     // This value is passed to <Addon/> by the withInstallHelpers() HOC.
-    expect(button).toHaveProp('defaultInstallSource', 'dp-btn-primary');
+    expect(button)
+      .toHaveProp('defaultInstallSource', INSTALL_SOURCE_DETAIL_PAGE);
   });
 
   it('enables a theme preview for non-enabled add-ons', () => {
@@ -878,6 +881,17 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon });
     expect(root.find(AddonMeta).prop('addon')).toEqual(addon);
+  });
+
+  it('renders permissions for the add-on', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon });
+    expect(root.find(PermissionsCard)).toHaveProp('addon', addon);
+  });
+
+  it('renders permissions with no add-on', () => {
+    const root = shallowRender({ addon: null });
+    expect(root.find(PermissionsCard)).toHaveProp('addon', null);
   });
 
   describe('read reviews footer', () => {
@@ -1050,7 +1064,7 @@ describe(__filename, () => {
       store.dispatch(_loadAddons({ addon }));
 
       if (addonsByAuthors) {
-        store.dispatch(_loadOtherAddonsByAuthors({ addon, addonsByAuthors }));
+        store.dispatch(_loadAddonsByAuthors({ addon, addonsByAuthors }));
       }
 
       return { store };
@@ -1070,11 +1084,11 @@ describe(__filename, () => {
 
       renderComponent({ params: { slug: addon.slug }, store });
 
-      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+      sinon.assert.calledWith(fakeDispatch, fetchAddonsByAuthors({
         addonType: addon.type,
         authors: addon.authors.map((author) => author.username),
         errorHandlerId: createStubErrorHandler().id,
-        slug: addon.slug,
+        forAddonSlug: addon.slug,
       }));
     });
 
@@ -1114,11 +1128,11 @@ describe(__filename, () => {
       ).addon;
       root.setProps({ addon: addonFromState });
 
-      sinon.assert.calledWith(fakeDispatch, fetchOtherAddonsByAuthors({
+      sinon.assert.calledWith(fakeDispatch, fetchAddonsByAuthors({
         addonType: newAddon.type,
         authors: newAddon.authors.map((author) => author.username),
         errorHandlerId: createStubErrorHandler().id,
-        slug: newAddon.slug,
+        forAddonSlug: newAddon.slug,
       }));
     });
 
@@ -1126,7 +1140,7 @@ describe(__filename, () => {
       const addon = fakeTheme;
       const { store } = dispatchAddonData({
         addon,
-        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
@@ -1139,7 +1153,7 @@ describe(__filename, () => {
       const addon = fakeAddon;
       const { store } = dispatchAddonData({
         addon,
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
@@ -1171,7 +1185,7 @@ describe(__filename, () => {
     it('displays the developer name when add-on is an extension', () => {
       const root = renderMoreAddons({
         addon: fakeAddon,
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More extensions by Krupa');
     });
@@ -1179,7 +1193,7 @@ describe(__filename, () => {
     it('displays the translator name when add-on is a dictionary', () => {
       const root = renderMoreAddons({
         addon: { ...fakeAddon, type: ADDON_TYPE_DICT },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More dictionaries by Krupa');
     });
@@ -1187,7 +1201,7 @@ describe(__filename, () => {
     it('displays the translator name when add-on is a language pack', () => {
       const root = renderMoreAddons({
         addon: { ...fakeAddon, type: ADDON_TYPE_LANG },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More language packs by Krupa');
     });
@@ -1195,7 +1209,7 @@ describe(__filename, () => {
     it('displays the artist name when add-on is a theme', () => {
       const root = renderMoreAddons({
         addon: fakeTheme,
-        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeTheme, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More themes by MaDonna');
     });
@@ -1203,7 +1217,7 @@ describe(__filename, () => {
     it('displays the author name in any other cases', () => {
       const root = renderMoreAddons({
         addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More add-ons by Krupa');
     });
@@ -1214,7 +1228,7 @@ describe(__filename, () => {
           ...fakeAddon,
           authors: Array(2).fill(fakeAddon.authors[0]),
         },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More extensions by these developers');
     });
@@ -1225,7 +1239,7 @@ describe(__filename, () => {
           ...fakeTheme,
           authors: Array(2).fill(fakeTheme.authors[0]),
         },
-        addonsByAuthors: [{ ...fakeTheme, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeTheme, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More themes by these artists');
     });
@@ -1237,7 +1251,7 @@ describe(__filename, () => {
           authors: Array(2).fill(fakeAddon.authors[0]),
           type: ADDON_TYPE_LANG,
         },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root)
         .toHaveProp('header', 'More language packs by these translators');
@@ -1250,7 +1264,7 @@ describe(__filename, () => {
           authors: Array(2).fill(fakeAddon.authors[0]),
           type: ADDON_TYPE_DICT,
         },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root)
         .toHaveProp('header', 'More dictionaries by these translators');
@@ -1263,7 +1277,7 @@ describe(__filename, () => {
           authors: Array(2).fill(fakeAddon.authors[0]),
           type: ADDON_TYPE_OPENSEARCH,
         },
-        addonsByAuthors: [{ ...fakeAddon, slug: 'another-slug' }],
+        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
       });
       expect(root).toHaveProp('header', 'More add-ons by these developers');
     });
@@ -1271,9 +1285,9 @@ describe(__filename, () => {
     it('displays more add-ons by authors', () => {
       const addon = fakeAddon;
       const addonsByAuthors = [
-        { ...fakeAddon, slug: 'addon-1' },
-        { ...fakeAddon, slug: 'addon-2' },
-        { ...fakeAddon, slug: 'addon-3' },
+        { ...fakeAddon, slug: 'addon-1', id: 1 },
+        { ...fakeAddon, slug: 'addon-2', id: 2 },
+        { ...fakeAddon, slug: 'addon-3', id: 3 },
       ];
 
       const root = renderMoreAddons({ addon, addonsByAuthors });
@@ -1287,9 +1301,9 @@ describe(__filename, () => {
     it('indicates when other add-ons are themes', () => {
       const addon = fakeTheme;
       const addonsByAuthors = [
-        { ...fakeTheme, slug: 'addon-1' },
-        { ...fakeTheme, slug: 'addon-2' },
-        { ...fakeTheme, slug: 'addon-3' },
+        { ...fakeTheme },
+        { ...fakeTheme },
+        { ...fakeTheme },
       ];
 
       const root = renderMoreAddons({ addon, addonsByAuthors });

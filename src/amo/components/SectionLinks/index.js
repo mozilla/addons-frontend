@@ -22,6 +22,7 @@ import DropdownMenu from 'ui/components/DropdownMenu';
 import DropdownMenuItem from 'ui/components/DropdownMenuItem';
 import type { ViewContextType } from 'amo/reducers/viewContext';
 import type { ApiStateType } from 'core/reducers/api';
+import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -30,7 +31,7 @@ import './styles.scss';
 type Props = {|
   className?: string,
   clientApp: string,
-  dispatch: Function,
+  dispatch: DispatchFunc,
   i18n: I18nType,
   router: Object,
   viewContext: ViewContextType,

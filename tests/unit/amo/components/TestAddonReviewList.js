@@ -668,7 +668,7 @@ describe(__filename, () => {
         location: fakeRouterLocation(),
       });
 
-      expect(extractId(ownProps)).toEqual(`foobar-1`);
+      expect(extractId(ownProps)).toEqual(`foobar-`);
     });
   });
 });

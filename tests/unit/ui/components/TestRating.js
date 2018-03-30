@@ -27,7 +27,7 @@ function makeFakeEvent() {
   };
 }
 
-describe('ui/components/Rating', () => {
+describe(__filename, () => {
   function selectRating(root, ratingNumber) {
     const button = root.ratingElements[ratingNumber];
     expect(button).toBeTruthy();
@@ -40,13 +40,23 @@ describe('ui/components/Rating', () => {
   });
 
   it('can be classified as small', () => {
-    const root = render({ styleName: 'small' });
+    const root = render({ styleSize: 'small' });
     expect(root.element.className).toContain('Rating--small');
   });
 
-  it('throws an error for invalid styleNames', () => {
-    expect(() => render({ styleName: 'x-large' }))
-      .toThrowError(/styleName=x-large is not a valid value; possible values: small,/);
+  it('can be classified as owned', () => {
+    const root = render({ isOwner: true });
+    expect(root.element.className).toContain('Rating--by-owner');
+  });
+
+  it('classifies as unowned by default', () => {
+    const root = render();
+    expect(root.element.className).not.toContain('Rating--by-owner');
+  });
+
+  it('throws an error for invalid styleSize', () => {
+    expect(() => render({ styleSize: 'x-large' }))
+      .toThrowError(/styleSize=x-large is not a valid value; possible values: small,/);
   });
 
   it('lets you select a one star rating', () => {
@@ -122,6 +132,14 @@ describe('ui/components/Rating', () => {
     const root = render({ rating: 3.60001 });
 
     expect(findDOMNode(root).title).toContain('3.6 out of 5');
+  });
+
+  it('converts rating numbers to a float', () => {
+    const rootWithInteger = render({ rating: 3 });
+    const rootWithString = render({ rating: '3.60001' });
+
+    expect(findDOMNode(rootWithInteger).title).toContain('3 out of 5');
+    expect(findDOMNode(rootWithString).title).toContain('3.6 out of 5');
   });
 
   it('rounds readOnly average ratings to nearest 0.5 multiple', () => {

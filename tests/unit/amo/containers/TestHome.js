@@ -12,7 +12,6 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -65,8 +64,8 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(0);
 
-    expect(shelf).toHaveProp('header', 'Re-imagine search');
-    expect(shelf).toHaveProp('footerText', 'See more search extensions');
+    expect(shelf).toHaveProp('header', 'Social media customization');
+    expect(shelf).toHaveProp('footerText', 'See more social media customization extensions');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
     );
@@ -79,8 +78,8 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(1);
 
-    expect(shelf).toHaveProp('header', 'Privacy tools');
-    expect(shelf).toHaveProp('footerText', 'See more privacy tools');
+    expect(shelf).toHaveProp('header', 'Wikipedia boosters');
+    expect(shelf).toHaveProp('footerText', 'See more Wikipedia boosters');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
     );
@@ -93,8 +92,8 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(2);
 
-    expect(shelf).toHaveProp('header', 'Dynamic media downloaders');
-    expect(shelf).toHaveProp('footerText', 'See more dynamic media downloaders');
+    expect(shelf).toHaveProp('header', 'Good time tabs');
+    expect(shelf).toHaveProp('footerText', 'See more good time tabs extensions');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
     );
@@ -140,18 +139,18 @@ describe(__filename, () => {
     });
   });
 
-  it('renders a popular themes shelf', () => {
+  it('renders a featured themes shelf', () => {
     const root = render();
 
     const shelves = root.find(LandingAddonsCard);
-    const shelf = shelves.find('.Home-PopularThemes');
-    expect(shelf).toHaveProp('header', 'Popular themes');
-    expect(shelf).toHaveProp('footerText', 'See more popular themes');
+    const shelf = shelves.find('.Home-FeaturedThemes');
+    expect(shelf).toHaveProp('header', 'Featured themes');
+    expect(shelf).toHaveProp('footerText', 'See more featured themes');
     expect(shelf).toHaveProp('footerLink', {
       pathname: '/search/',
       query: {
         addonType: ADDON_TYPE_THEME,
-        sort: SEARCH_SORT_POPULAR,
+        featured: true,
       },
     });
     expect(shelf).toHaveProp('loading', true);
@@ -211,12 +210,12 @@ describe(__filename, () => {
       createFakeCollectionAddons({ addons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
-    const popularThemes = createAddonsApiResult(themes);
+    const featuredThemes = createAddonsApiResult(themes);
 
     store.dispatch(loadHomeAddons({
       collections,
       featuredExtensions,
-      popularThemes,
+      featuredThemes,
     }));
 
     const fakeDispatch = sinon.stub(store, 'dispatch');
@@ -251,9 +250,9 @@ describe(__filename, () => {
     expect(featuredExtensionsShelf)
       .toHaveProp('addons', addons.map((addon) => createInternalAddon(addon)));
 
-    const popularThemesShelf = shelves.find('.Home-PopularThemes');
-    expect(popularThemesShelf).toHaveProp('loading', false);
-    expect(popularThemesShelf)
+    const featuredThemesShelf = shelves.find('.Home-FeaturedThemes');
+    expect(featuredThemesShelf).toHaveProp('loading', false);
+    expect(featuredThemesShelf)
       .toHaveProp('addons', themes.map((theme) => createInternalAddon(theme)));
   });
 

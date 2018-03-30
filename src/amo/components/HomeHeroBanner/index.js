@@ -22,57 +22,58 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-1"
-          linkTo="/addon/temporary-containers/"
+          linkTo="/addon/facebook-video-downloader-hd/"
         >
-          <h3>{i18n.gettext('Temporary Containers')}</h3>
+          <h3>{i18n.gettext('Facebook Video Downloader')}</h3>
 
           <p>
-            {i18n.gettext('Open pages with disposable data containers')}
+            {i18n.gettext('Download with a single click')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-2"
-          linkTo="/addon/momentumdash/"
+          linkTo="/addon/autoformer/"
         >
-          <h3>{i18n.gettext('Momentum')}</h3>
+          <h3>{i18n.gettext('AutoFormer+')}</h3>
 
           <p>
-            {i18n.gettext(`Replace your new tab with a personal
-              dashboard—to-do lists, weather forecasts and more`)}
+            {i18n.gettext('Fill out a lot of forms? This might help')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-3"
-          linkTo="/addon/kimetrak/"
+          linkTo="/addon/myki-password-manager/"
         >
-          <h3>{i18n.gettext('Kimetrak')}</h3>
+          <h3>{i18n.gettext('Myki Password Manager & Authenticator')}</h3>
 
-          <p>{i18n.gettext('Track who’s tracking you')}</p>
+          <p>{i18n.gettext('Cutting edge security')}</p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-4"
-          linkTo="/addon/mailvelope/"
+          linkTo="/addon/notebook_web_clipper/"
         >
-          <h3>{i18n.gettext('Mailvelope')}</h3>
+          <h3>{i18n.gettext('Notebook Web Clipper')}</h3>
           <p>
-            {i18n.gettext('Secure encryption for webmail')}
+            {i18n.gettext(`Clip, save & organize your favorite stuff
+              on the web`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-5"
-          linkTo="/addon/翻译侠-translate-man/"
+          linkTo="/addon/flagfox/"
         >
-          <h3>{i18n.gettext('Translate Man')}</h3>
+          <h3>{i18n.gettext('Flagfox')}</h3>
           <p>
-            {i18n.gettext('Point-and-click instant translations')}
+            {i18n.gettext(`Displays a website’s server location by country
+              flag`)}
           </p>
         </HeroSection>
       ),
@@ -115,39 +116,36 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-9"
-          linkTo="/addon/searchpreview/"
+          linkTo="/addon/ali-tools/"
         >
-          <h3>{i18n.gettext('SearchPreview')}</h3>
+          <h3>{i18n.gettext('AliTools')}</h3>
 
           <p>
-            {i18n.gettext(`Enhance search results with thumbnail previews,
-              popularity ranks & more`)}
+            {i18n.gettext('Online shopping assistance')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-10"
-          linkTo="/addon/forget_me_not/"
+          linkTo="/addon/snake-game/"
         >
-          <h3>{i18n.gettext('Forget Me Not')}</h3>
+          <h3>{i18n.gettext('Snake Game')}</h3>
 
           <p>
-            {i18n.gettext(`Automatically delete data (cookies, local storage,
-              etc.) on all sites you visit except those on your whitelist`)}
+            {i18n.gettext('The classic game, always a click away')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-11"
-          linkTo="/addon/zoom/"
+          linkTo="/addon/tab-invaders/"
         >
-          <h3>{i18n.gettext('Zoom for Firefox')}</h3>
+          <h3>{i18n.gettext('Tab Invaders')}</h3>
 
           <p>
-            {i18n.gettext(`Simple zoom in/out tool for a close-up view of any
-              web content`)}
+            {i18n.gettext('Space Invaders meets smart tab management')}
           </p>
         </HeroSection>
       ),
@@ -164,47 +162,59 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-13"
-          linkTo="/addon/onetab/"
+          linkTo="/addon/black-menu-google/"
         >
-          <h3>{i18n.gettext('OneTab')}</h3>
+          <h3>{i18n.gettext('Black Menu for Google')}</h3>
 
           <p>
-            {i18n.gettext(`Convert your open tabs into a list and save
-              precious memory`)}
+            {i18n.gettext(`Easy drop-down menu access to Google services
+              like Search and Translate`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-14"
-          linkTo="/addon/kindle-it/"
+          linkTo="/addon/honey/"
         >
-          <h3>{i18n.gettext('Push to Kindle')}</h3>
+          <h3>{i18n.gettext('Honey')}</h3>
 
-          <p>{i18n.gettext('Send any Web page to your Kindle device')}</p>
+          <p>{i18n.gettext('Automatically searches for coupon codes')}</p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-15"
-          linkTo="/addon/search-site-we/"
+          linkTo="/addon/shine-reddit/"
         >
-          <h3>{i18n.gettext('Search Site')}</h3>
+          <h3>{i18n.gettext('SHINE for Reddit')}</h3>
 
           <p>
-            {i18n.gettext('Search within just the domain you’re visiting')}
+            {i18n.gettext('Experience Reddit with alternative designs')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-16"
-          linkTo="/addon/youtube-dark-purple/"
+          linkTo="/addon/leechblock-ng/"
         >
-          <h3>{i18n.gettext('Dark Purple YouTube Theme')}</h3>
+          <h3>{i18n.gettext('LeechBlock NG')}</h3>
 
           <p>
-            {i18n.gettext('Enjoy YouTube with a different look')}
+            {i18n.gettext('Block time-wasting sites')}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-17"
+          linkTo="/addon/tranquility-1/"
+        >
+          <h3>{i18n.gettext('Tranquility Reader')}</h3>
+
+          <p>
+            {i18n.gettext('Remove clutter and improve readability')}
           </p>
         </HeroSection>
       ),

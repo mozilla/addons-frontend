@@ -46,6 +46,16 @@ describe(__filename, () => {
     expect(badge.text()).toContain('experimental');
   });
 
+  it('displays the payment required badge icon for type `requires-payment`', () => {
+    const badge = shallow(
+      <Badge type="requires-payment" label="label text" />
+    );
+
+    expect(badge).toHaveClassName('Badge-requires-payment');
+    expect(badge.find(Icon)).toHaveProp('name', 'requires-payment');
+    expect(badge.text()).toContain('label text');
+  });
+
   it('throws an error if invalid type is supplied', () => {
     expect(() => {
       shallow(<Badge type="invalid" label="foo" />);

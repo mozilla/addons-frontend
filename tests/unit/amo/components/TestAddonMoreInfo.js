@@ -323,7 +323,9 @@ describe(__filename, () => {
     });
     const root = render({
       addon,
-      store: dispatchSignInActions({ permissions: [STATS_VIEW] }).store,
+      store: dispatchSignInActions({
+        userProps: { permissions: [STATS_VIEW] },
+      }).store,
     });
 
     const statsLink = root.find('.AddonMoreInfo-stats-link');

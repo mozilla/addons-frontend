@@ -1,3 +1,5 @@
+import url from 'url';
+
 import { shallow } from 'enzyme';
 import * as React from 'react';
 
@@ -93,6 +95,15 @@ describe(__filename, () => {
 
     expect(root.find('.SearchResult-link'))
       .toHaveProp('to', '/addon/a-search-result/');
+  });
+
+  it('links to the detail page with a source', () => {
+    const addonInstallSource = 'home-page-featured';
+    const root = render({ addonInstallSource });
+
+    const link = root.find('.SearchResult-link');
+    expect(url.parse(link.prop('to'), true).query)
+      .toMatchObject({ src: addonInstallSource });
   });
 
   it('renders the star ratings', () => {

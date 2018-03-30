@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import { callApi, allPages, validateLocalizedString } from 'core/api';
 import type {
   ExternalCollectionAddon,
@@ -124,73 +126,67 @@ export const getAllUserCollections = async (
   return results;
 };
 
-export type AddAddonToCollectionParams = {|
-  addon: string | number,
+type ModifyCollectionParams = {|
   api: ApiStateType,
-  collection: string | number,
-  notes?: string,
-  user: string | number,
+  defaultLocale: ?string,
+  description: ?LocalizedString,
+  // Even though the API accepts string|number, we need to always use
+  // string usernames. This helps keep public-facing URLs consistent.
+  user: string,
+  // eslint-disable-next-line no-use-before-define
+  _modifyCollection?: typeof modifyCollection,
+  _validateLocalizedString?: typeof validateLocalizedString,
 |};
 
-export const addAddonToCollection = (
-  { addon, api, collection, notes, user }: AddAddonToCollectionParams
-): Promise<void> => {
-  if (!addon) {
-    throw new Error('The addon parameter is required');
-  }
-  if (!collection) {
-    throw new Error('The collection parameter is required');
-  }
-  if (!user) {
-    throw new Error('The user parameter is required');
-  }
-
-  return callApi({
-    auth: true,
-    body: { addon, notes },
-    endpoint: `accounts/account/${user}/collections/${collection}/addons`,
-    method: 'POST',
-    state: api,
-  });
-};
-
 export type UpdateCollectionParams = {|
-  api: ApiStateType,
+  ...ModifyCollectionParams,
   // We identify the collection by its slug. This is confusing because the
   // slug can also be edited.
   // TODO: use the actual ID instead.
   // See https://github.com/mozilla/addons-server/issues/7529
   collectionSlug: string,
-  defaultLocale: ?string,
-  description: ?LocalizedString,
   name: ?LocalizedString,
   // This is a value for a new slug, if defined.
   slug: ?string,
-  // Even though the API accepts string|number, we need to always use
-  // string usernames. This helps keep public-facing URLs consistent.
-  user: string,
-  _validateLocalizedString?: typeof validateLocalizedString,
 |};
 
-export const updateCollection = ({
-  api,
-  collectionSlug,
-  defaultLocale,
-  description,
-  name,
-  slug,
-  user,
-  _validateLocalizedString = validateLocalizedString,
-}: UpdateCollectionParams): Promise<void> => {
-  if (!api) {
-    throw new Error('The api parameter cannot be empty');
+export type CreateCollectionParams = {|
+  ...ModifyCollectionParams,
+  name: LocalizedString,
+  slug: string,
+|};
+
+export const modifyCollection = (
+  action: 'create' | 'update',
+  params: {
+    ...ModifyCollectionParams,
+    collectionSlug?: string,
+    name?: ?LocalizedString,
+    slug?: ?string,
   }
-  if (!collectionSlug) {
-    throw new Error('The collectionSlug parameter cannot be empty');
+): Promise<void> => {
+  const {
+    api,
+    collectionSlug = '',
+    defaultLocale,
+    description,
+    name,
+    slug,
+    user,
+    _validateLocalizedString = validateLocalizedString,
+  } = params;
+
+  const creating = action === 'create';
+
+  invariant(api, 'The api parameter is required');
+  invariant(user, 'The user parameter is required');
+  if (creating) {
+    invariant(slug, 'The slug parameter is required when creating');
+  } else {
+    invariant(collectionSlug,
+      'The collectionSlug parameter is required when updating');
   }
-  if (!user) {
-    throw new Error('The user parameter cannot be empty');
-  }
+
   if (description) {
     _validateLocalizedString(description);
   }
@@ -209,8 +205,131 @@ export const updateCollection = ({
       // because collections are always public. Omitting this parameter
       // should cut down on unexpected bugs.
     },
-    endpoint: `accounts/account/${user}/collections/${collectionSlug}`,
-    method: 'PATCH',
+    endpoint:
+      `accounts/account/${user}/collections/${creating ? '' : collectionSlug}`,
+    method: creating ? 'POST' : 'PATCH',
     state: api,
+  });
+};
+
+export const updateCollection = ({
+  api,
+  collectionSlug,
+  defaultLocale,
+  description,
+  name,
+  slug,
+  user,
+  _modifyCollection = modifyCollection,
+  _validateLocalizedString = validateLocalizedString,
+}: UpdateCollectionParams): Promise<void> => {
+  return _modifyCollection('update', {
+    api,
+    collectionSlug,
+    defaultLocale,
+    description,
+    name,
+    slug,
+    user,
+    _validateLocalizedString,
+  });
+};
+
+export const createCollection = ({
+  api,
+  defaultLocale,
+  description,
+  name,
+  slug,
+  user,
+  _modifyCollection = modifyCollection,
+  _validateLocalizedString = validateLocalizedString,
+}: CreateCollectionParams): Promise<void> => {
+  return _modifyCollection('create', {
+    api,
+    defaultLocale,
+    description,
+    name,
+    slug,
+    user,
+    _validateLocalizedString,
+  });
+};
+
+type ModifyCollectionAddonBaseParams = {|
+  addonId: number,
+  api: ApiStateType,
+  collectionSlug: string,
+  user: string | number,
+  _modifyCollectionAddon?: (any) => Promise<void>,
+|};
+
+type CollectionAddonNotes = string | null;
+
+export type CreateCollectionAddonParams = {|
+  ...ModifyCollectionAddonBaseParams,
+  notes?: CollectionAddonNotes,
+|};
+
+export type UpdateCollectionAddonParams = {|
+  ...ModifyCollectionAddonBaseParams,
+  notes: CollectionAddonNotes,
+|};
+
+type ModifyCollectionAddonParams =
+  | {| action: 'create', ...CreateCollectionAddonParams |}
+  | {| action: 'update', ...UpdateCollectionAddonParams |};
+
+export const modifyCollectionAddon = (
+  params: ModifyCollectionAddonParams,
+): Promise<void> => {
+  const { action, addonId, api, collectionSlug, user } = params;
+
+  invariant(action, 'The action parameter is required');
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(api, 'The api parameter is required');
+  invariant(collectionSlug, 'The collectionSlug parameter is required');
+  invariant(user, 'The user parameter is required');
+
+  let method = 'POST';
+  const body = { addon: addonId, notes: params.notes };
+  let endpoint =
+    `accounts/account/${user}/collections/${collectionSlug}/addons`;
+
+  if (action === 'update') {
+    // TODO: once `notes` can be null, we can check for `undefined` values
+    // to make sure that the caller didn't forget to set `notes`.
+    // See https://github.com/mozilla/addons-server/issues/7832
+    method = 'PATCH';
+    delete body.addon;
+    endpoint = `${endpoint}/${addonId}`;
+  }
+
+  return callApi({ auth: true, body, endpoint, method, state: api });
+};
+
+export const createCollectionAddon = ({
+  addonId,
+  api,
+  collectionSlug,
+  notes,
+  user,
+  _modifyCollectionAddon = modifyCollectionAddon,
+}: CreateCollectionAddonParams): Promise<void> => {
+  return _modifyCollectionAddon({
+    action: 'create', addonId, api, collectionSlug, notes, user,
+  });
+};
+
+export const updateCollectionAddon = ({
+  addonId,
+  api,
+  collectionSlug,
+  notes,
+  user,
+  _modifyCollectionAddon = modifyCollectionAddon,
+}: UpdateCollectionAddonParams): Promise<void> => {
+  return _modifyCollectionAddon({
+    action: 'update', addonId, api, collectionSlug, notes, user,
   });
 };

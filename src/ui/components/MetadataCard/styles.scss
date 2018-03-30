@@ -19,8 +19,10 @@
   @include text-align-start();
 
   flex: 1;
+  hyphens: auto;
   margin: 12px;
   max-width: 25%;
+  word-wrap: break-word;
 
   dd {
     line-height: 1.4;
@@ -31,6 +33,5 @@
   dt {
     color: $grey-50;
     line-height: 1.4;
-    word-wrap: break-word;
   }
 }

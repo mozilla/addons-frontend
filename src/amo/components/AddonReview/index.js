@@ -14,7 +14,7 @@ import translate from 'core/i18n/translate';
 import defaultLocalStateCreator, { LocalState } from 'core/localState';
 import log from 'core/logger';
 import OverlayCard from 'ui/components/OverlayCard';
-import Rating from 'ui/components/Rating';
+import UserRating from 'ui/components/UserRating';
 import type { UserReviewType } from 'amo/actions/reviews';
 import type { SubmitReviewParams } from 'amo/api/reviews';
 import type { ApiStateType } from 'core/reducers/api';
@@ -201,9 +201,9 @@ export class AddonReviewBase extends React.Component<Props, State> {
           dangerouslySetInnerHTML={sanitizeHTML(prompt, ['a'])}
         />
         {/* eslint-enable react/no-danger */}
-        <Rating
-          styleName="large"
-          rating={review.rating}
+        <UserRating
+          styleSize="large"
+          review={review}
           onSelectRating={this.onSelectRating}
         />
         <form className="AddonReview-form" onSubmit={this.onSubmit}>

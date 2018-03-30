@@ -76,6 +76,31 @@
   }
 }
 
+.Notice-generic {
+  .Notice-button {
+    @include button(
+      $background: $blue-60,
+      $background-active: $blue-80,
+      $background-hover: $blue-70,
+      $color: $grey-90
+    );
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url("./media/generic-info-mark.svg");
+  }
+
+  background-color: $grey-20;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $grey-90;
+  }
+}
+
 .Notice-success {
   .Notice-button {
     @include button(

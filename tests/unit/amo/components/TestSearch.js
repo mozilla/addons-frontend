@@ -360,7 +360,7 @@ describe(__filename, () => {
         },
       };
 
-      expect(extractId(ownProps)).toEqual(1);
+      expect(extractId(ownProps)).toEqual(undefined);
     });
   });
 });

@@ -1,14 +1,19 @@
+import { oneLineTrim } from 'common-tags';
+
 import * as api from 'core/api';
 import {
-  addAddonToCollection,
+  createCollection,
+  createCollectionAddon,
   getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
   getCollectionDetail,
   listCollections,
+  modifyCollection,
+  modifyCollectionAddon,
   updateCollection,
+  updateCollectionAddon,
 } from 'amo/api/collections';
-import { parsePage } from 'core/utils';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
   createFakeCollectionAddons,
@@ -94,7 +99,7 @@ describe(__filename, () => {
     });
 
     it('calls the collection add-ons list API', async () => {
-      const queryParams = { page: parsePage(1) };
+      const queryParams = { page: 1 };
       const params = getParams({ ...queryParams });
 
       mockApi
@@ -179,87 +184,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('addAddonToCollection', () => {
-    const getAddParams = (params = {}) => {
-      return {
-        addon: 'addon-id-or-slug',
-        api: apiState,
-        collection: 'collection-id-or-slug',
-        user: 'user-id-or-username',
-        ...params,
-      };
-    };
-
-    it('posts an addon to a collection', async () => {
-      const params = getAddParams({
-        addon: 'some-addon',
-        user: 'my-username',
-        collection: 'my-collection',
-      });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: 'some-addon', notes: undefined },
-          endpoint:
-            'accounts/account/my-username/collections/my-collection/addons',
-          method: 'POST',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      await addAddonToCollection(params);
-      mockApi.verify();
-    });
-
-    it('posts an addon with notes', async () => {
-      const notes = 'some notes about the add-on';
-      const params = getAddParams({ addon: 'some-addon', notes });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: 'some-addon', notes },
-          endpoint: `accounts/account/${params.user}` +
-            `/collections/${params.collection}/addons`,
-          method: 'POST',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      await addAddonToCollection(params);
-      mockApi.verify();
-    });
-
-    it('requires an addon', () => {
-      const params = getAddParams();
-      delete params.addon;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/addon parameter is required/);
-    });
-
-    it('requires a collection', () => {
-      const params = getAddParams();
-      delete params.collection;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/collection parameter is required/);
-    });
-
-    it('requires a user', () => {
-      const params = getAddParams();
-      delete params.user;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/user parameter is required/);
-    });
-  });
-
   describe('getAllUserCollections', () => {
     it('returns collections from multiple pages', async () => {
       const user = 'some-user-id';
@@ -289,49 +213,30 @@ describe(__filename, () => {
     });
   });
 
-  describe('updateCollection', () => {
+  describe('modifyCollection', () => {
+    const slug = 'collection-slug';
+    const name = { fr: 'nomme' };
+
     const defaultParams = (params = {}) => {
       return {
         api: apiState,
-        collectionSlug: 'collection-slug',
+        name,
         user: 'user-id-or-username',
         ...params,
       };
     };
 
-    it('requires an api parameter', () => {
-      const params = defaultParams();
-      delete params.api;
-
-      expect(() => updateCollection(params))
-        .toThrow(/api parameter cannot be empty/);
-    });
-
-    it('requires a collectionSlug parameter', () => {
-      const params = defaultParams();
-      delete params.collectionSlug;
-
-      expect(() => updateCollection(params))
-        .toThrow(/collectionSlug parameter cannot be empty/);
-    });
-
-    it('requires a user parameter', () => {
-      const params = defaultParams();
-      delete params.user;
-
-      expect(() => updateCollection(params))
-        .toThrow(/user parameter cannot be empty/);
-    });
-
     it('validates description value', async () => {
       const validator = sinon.stub();
       const description = { fr: 'la description' };
       const params = defaultParams({
-        description, _validateLocalizedString: validator,
+        description,
+        slug,
+        _validateLocalizedString: validator,
       });
 
       mockApi.expects('callApi');
-      await updateCollection(params);
+      await modifyCollection('create', params);
 
       sinon.assert.calledWith(validator, description);
       mockApi.verify();
@@ -339,23 +244,23 @@ describe(__filename, () => {
 
     it('validates name value', async () => {
       const validator = sinon.stub();
-      const name = { fr: 'nomme' };
       const params = defaultParams({
-        name, _validateLocalizedString: validator,
+        slug,
+        _validateLocalizedString: validator,
       });
 
       mockApi.expects('callApi');
-      await updateCollection(params);
+      await modifyCollection('create', params);
 
       sinon.assert.calledWith(validator, name);
       mockApi.verify();
     });
 
-    it('makes a patch request to the API', async () => {
-      const params = defaultParams({ name: { fr: 'nomme' } });
+    it('makes a POST request to the API for create', async () => {
+      const params = defaultParams({ slug });
 
       const endpoint =
-        `accounts/account/${params.user}/collections/${params.collectionSlug}`;
+        `accounts/account/${params.user}/collections/`;
       mockApi
         .expects('callApi')
         .withArgs({
@@ -363,7 +268,34 @@ describe(__filename, () => {
           body: {
             default_locale: undefined,
             description: undefined,
-            name: params.name,
+            name,
+            slug,
+          },
+          endpoint,
+          method: 'POST',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await modifyCollection('create', params);
+
+      mockApi.verify();
+    });
+
+    it('makes a PATCH request to the API for update', async () => {
+      const params = defaultParams({ collectionSlug: slug });
+
+      const endpoint =
+        `accounts/account/${params.user}/collections/${slug}`;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: {
+            default_locale: undefined,
+            description: undefined,
+            name,
             slug: undefined,
           },
           endpoint,
@@ -373,9 +305,215 @@ describe(__filename, () => {
         .once()
         .returns(Promise.resolve());
 
-      await updateCollection(params);
+      await modifyCollection('update', params);
 
       mockApi.verify();
+    });
+  });
+
+  describe('updateCollection', () => {
+    it('calls modifyCollection with the expected params', async () => {
+      const validator = sinon.stub();
+      const modifier = sinon.spy(() => Promise.resolve());
+      const modifyParams = {
+        api: apiState,
+        collectionSlug: 'collection-slug',
+        defaultLocale: undefined,
+        description: undefined,
+        name: undefined,
+        slug: undefined,
+        user: 'user-id-or-username',
+        _validateLocalizedString: validator,
+      };
+      const updateParams = {
+        ...modifyParams,
+        _modifyCollection: modifier,
+      };
+
+      await updateCollection(updateParams);
+
+      sinon.assert.calledWith(modifier, 'update', modifyParams);
+    });
+  });
+
+  describe('createCollection', () => {
+    it('calls modifyCollection with the expected params', async () => {
+      const validator = sinon.stub();
+      const modifier = sinon.spy(() => Promise.resolve());
+      const modifyParams = {
+        api: apiState,
+        defaultLocale: undefined,
+        description: undefined,
+        name: undefined,
+        slug: 'collection-slug',
+        user: 'user-id-or-username',
+        _validateLocalizedString: validator,
+      };
+      const createParams = {
+        ...modifyParams,
+        _modifyCollection: modifier,
+      };
+
+      await createCollection(createParams);
+
+      sinon.assert.calledWith(modifier, 'create', modifyParams);
+    });
+  });
+
+  describe('modifyCollectionAddon', () => {
+    const defaultParams = (params = {}) => {
+      return {
+        action: 'create',
+        addonId: 123458,
+        api: apiState,
+        collectionSlug: 'some-collection',
+        user: 'user-id-or-username',
+        ...params,
+      };
+    };
+
+    it('POSTs a collection addon', async () => {
+      const params = defaultParams({
+        action: 'create',
+        addonId: 987675,
+        collectionSlug: 'my-collection',
+        user: 'my-user',
+      });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: { addon: params.addonId, notes: undefined },
+          endpoint,
+          method: 'POST',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+
+    it('POSTs notes for a collection addon', async () => {
+      const notes = 'This is a really great add-on';
+      const params = defaultParams({ action: 'create', notes });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs(sinon.match({
+          body: { addon: params.addonId, notes },
+          endpoint,
+          method: 'POST',
+        }))
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+
+    it('PATCHes notes for a collection addon', async () => {
+      const notes = 'This add-on is essential';
+      const params = defaultParams({
+        action: 'update',
+        addonId: 987675,
+        collectionSlug: 'my-collection',
+        notes,
+        user: 'my-user',
+      });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons/${params.addonId}
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: { notes },
+          endpoint,
+          method: 'PATCH',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+
+    it('allows you to nullify add-on notes', async () => {
+      const notes = null;
+      const params = defaultParams({ action: 'update', notes });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons/${params.addonId}
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs(sinon.match({
+          body: { notes },
+          endpoint,
+          method: 'PATCH',
+        }))
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+  });
+
+  describe('createCollectionAddon', () => {
+    it('calls modifyCollectionAddon', async () => {
+      const params = {
+        addonId: 1122432,
+        api: apiState,
+        collectionSlug: 'the-collection',
+        notes: 'Beware of this one weird bug',
+        user: 'the-user',
+      };
+
+      const modifier = sinon.spy(() => Promise.resolve());
+
+      await createCollectionAddon({
+        _modifyCollectionAddon: modifier, ...params,
+      });
+
+      sinon.assert.calledWith(modifier, { action: 'create', ...params });
+    });
+  });
+
+  describe('updateCollectionAddon', () => {
+    it('calls modifyCollectionAddon', async () => {
+      const params = {
+        addonId: 1122432,
+        api: apiState,
+        collectionSlug: 'cool-collection',
+        notes: 'This add-on speaks to my soul',
+        user: 'cool-user',
+      };
+
+      const modifier = sinon.spy(() => Promise.resolve());
+
+      await updateCollectionAddon({
+        _modifyCollectionAddon: modifier, ...params,
+      });
+
+      sinon.assert.calledWith(modifier, { action: 'update', ...params });
     });
   });
 });

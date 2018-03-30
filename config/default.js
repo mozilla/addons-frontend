@@ -97,6 +97,7 @@ module.exports = {
     'defaultLang',
     'enableClientConsole',
     'enableCollectionEdit',
+    'enableUserProfile',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -288,4 +289,9 @@ module.exports = {
 
   // If true, show a link to the beta versions page on the listing page.
   betaVersions: true,
+
+  // Show and link to User Profiles using the front-end. These pages
+  // are still in development so this should only be enabled locally and
+  // on `-dev`.
+  enableUserProfile: false,
 };

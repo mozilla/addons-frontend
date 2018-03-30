@@ -353,21 +353,6 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createFakeAddonAbuseReport({
-  addon = fakeAddon,
-  message,
-  reporter = null,
-} = {}) {
-  return {
-    addon: {
-      guid: addon.guid,
-      id: addon.id,
-      slug: addon.slug,
-    },
-    message,
-    reporter,
-  };
-}
 
 export function createFakeLanguageTool(otherProps = {}) {
   return {
@@ -386,30 +371,70 @@ export function createFakeLanguageTool(otherProps = {}) {
 
 export function createUserAccountResponse({
   id = 123456,
+  biography = 'I love making add-ons!',
   username = 'user-1234',
-  // eslint-disable-next-line camelcase
+  created = '2017-08-15T12:01:13Z',
+  /* eslint-disable camelcase */
+  average_addon_rating = 4.3,
   display_name = null,
+  num_addons_listed = 1,
+  picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+  picture_type = '',
+  /* eslint-enable camelcase */
+  homepage = null,
   permissions = [],
 } = {}) {
   return {
-    average_addon_rating: null,
-    biography: '',
-    created: '2017-08-15T12:01:13Z',
-    // eslint-disable-next-line camelcase
+    average_addon_rating,
+    biography,
+    created,
     display_name,
-    homepage: '',
+    homepage,
     id,
     is_addon_developer: false,
     is_artist: false,
     location: '',
     name: '',
-    num_addons_listed: 0,
+    num_addons_listed,
     occupation: '',
-    picture_type: '',
-    picture_url: `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
+    picture_type,
+    picture_url,
     url: null,
     username,
     permissions,
+  };
+}
+
+export function createFakeAddonAbuseReport({
+  addon = fakeAddon,
+  message,
+  reporter = null,
+} = {}) {
+  return {
+    addon: {
+      guid: addon.guid,
+      id: addon.id,
+      slug: addon.slug,
+    },
+    message,
+    reporter,
+  };
+}
+
+export function createFakeUserAbuseReport({
+  message,
+  reporter = null,
+  user = createUserAccountResponse(),
+} = {}) {
+  return {
+    message,
+    reporter,
+    user: {
+      id: user.id,
+      name: user.name,
+      url: user.url,
+      username: user.username,
+    },
   };
 }
 
@@ -422,7 +447,6 @@ export function createUserAccountResponse({
 //   ...
 // }
 export const getFakeConfig = (params = {}) => {
-  // eslint-disable-next-line no-restricted-syntax
   for (const key of Object.keys(params)) {
     if (!config.has(key)) {
       // This will help alert us when a test accidentally relies
@@ -445,7 +469,6 @@ export const urlWithTheseParams = (params) => {
   return sinon.match((urlString) => {
     const { query } = url.parse(urlString, true);
 
-    // eslint-disable-next-line no-restricted-syntax
     for (const param in params) {
       if (!query[param] || query[param] !== params[param].toString()) {
         return false;
@@ -470,5 +493,53 @@ export const fakeRouterLocation = (props = {}) => {
     query: {},
     search: '',
     ...props,
+  };
+};
+
+/*
+ * Returns a fake ReactRouter object.
+ *
+ * See ReactRouterType in 'core/types/router';
+ */
+export const createFakeRouter = (
+  { location = fakeRouterLocation() } = {}
+) => {
+  return {
+    location,
+    params: {},
+    push: sinon.spy(),
+  };
+};
+
+/*
+ * Simulate how a component you depend on will invoke a callback.
+ *
+ * The return value is an executable callback that you can call
+ * with the necessary arguments.
+ *
+ * type SimulateComponentCallbackParams = {|
+ *   // This is the root of your parent component (an enzyme wrapper object).
+ *   root: Object,
+ *   // This is the component class you want to simulate.
+ *   Component: React.Element<any>,
+ *   // This is the property name for the callback.
+ *   propName: string,
+ * |};
+ */
+export const simulateComponentCallback = ({ Component, root, propName }) => {
+  const component = root.find(Component);
+  expect(component).toHaveProp(propName);
+
+  const callback = component.prop(propName);
+  expect(typeof callback).toEqual('function');
+
+  return (...args) => {
+    const result = callback(...args);
+
+    // Since the component might call setState() and that would happen
+    // outside of a standard React lifestyle hook, we have to re-render.
+    root.update();
+
+    return result;
   };
 };

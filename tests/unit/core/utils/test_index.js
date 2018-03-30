@@ -36,8 +36,8 @@ import {
   isValidClientApp,
   ngettext,
   nl2br,
-  parsePage,
   refreshAddon,
+  removeProtocolFromURL,
   render404IfConfigKeyIsFalse,
   safePromise,
   sanitizeHTML,
@@ -447,6 +447,13 @@ describe(__filename, () => {
       const output = addQueryParams('http://whatever.com/?foo=1&bar=2', { bar: 'updated' });
       expect(url.parse(output, true).query).toEqual({ foo: '1', bar: 'updated' });
     });
+
+    it('handles relative URLs', () => {
+      const output = addQueryParams('/relative/path/?one=1', { two: '2' });
+      expect(output).toMatch(/^\/relative\/path\//);
+      expect(url.parse(output, true).query)
+        .toEqual({ one: '1', two: '2' });
+    });
   });
 
   describe('ngettext', () => {
@@ -625,40 +632,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('parsePage', () => {
-    it('returns a number', () => {
-      expect(parsePage(10)).toBe(10);
-    });
-
-    it('parses a number from a string', () => {
-      expect(parsePage('8')).toBe(8);
-    });
-
-    it('treats negatives as 1', () => {
-      expect(parsePage('-10')).toBe(1);
-    });
-
-    it('treats words as 1', () => {
-      expect(parsePage('hmmm')).toBe(1);
-    });
-
-    it('treats "0" as 1', () => {
-      expect(parsePage('0')).toBe(1);
-    });
-
-    it('treats 0 as 1', () => {
-      expect(parsePage(0)).toBe(1);
-    });
-
-    it('treats empty strings as 1', () => {
-      expect(parsePage('')).toBe(1);
-    });
-
-    it('treats undefined as 1', () => {
-      expect(parsePage(undefined)).toBe(1);
-    });
-  });
-
   describe('sanitizeUserHTML', () => {
     const sanitize = (...args) => sanitizeUserHTML(...args).__html;
 
@@ -710,6 +683,20 @@ describe(__filename, () => {
 
     it('passes through anything else', () => {
       expect(decodeHtmlEntities('just whatever')).toEqual('just whatever');
+    });
+  });
+
+  describe('removeProtocolFromURL', () => {
+    it('removes http:// from URL', () => {
+      expect(removeProtocolFromURL('http://test.com/')).toEqual('test.com/');
+    });
+
+    it('removes https:// from URL', () => {
+      expect(removeProtocolFromURL('https://test.com/')).toEqual('test.com/');
+    });
+
+    it('removes // from URL', () => {
+      expect(removeProtocolFromURL('//test.com/')).toEqual('test.com/');
     });
   });
 });

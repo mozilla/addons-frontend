@@ -28,7 +28,7 @@ describe(__filename, () => {
       } = reducer(previousState, autocompleteCancel());
 
       expect(loading).toEqual(false);
-      expect(suggestions).toEqual(previousState.suggestions);
+      expect(suggestions).toEqual([]);
     });
 
     it('handles AUTOCOMPLETE_STARTED', () => {

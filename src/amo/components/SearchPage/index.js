@@ -18,12 +18,13 @@ import {
   convertFiltersToQueryParams,
   convertQueryParamsToFilters,
 } from 'core/searchUtils';
+import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
 
 
 type Props = {|
   clientApp: string,
-  dispatch: Function,
+  dispatch: DispatchFunc,
   filters: Object,
   lang: string,
   location: ReactRouterLocation,
