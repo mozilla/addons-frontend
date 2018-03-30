@@ -65,7 +65,6 @@ export default Object.assign({}, webpackConfig, {
     chunkFilename: '[name]-[hash].js',
     publicPath: `//${webpackHost}:${webpackPort}/`,
   }),
-  mainFields: ['browser', 'main'],
   module: {
     rules: getRules({ babelQuery: BABEL_QUERY, bundleStylesWithJs: true }),
   },

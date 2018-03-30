@@ -82,6 +82,5 @@ export default {
       'node_modules',
     ],
     extensions: ['.js', '.jsx'],
-    mainFields: ['browser', 'main'],
   },
 };
