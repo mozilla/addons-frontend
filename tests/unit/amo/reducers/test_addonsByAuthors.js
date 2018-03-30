@@ -142,6 +142,29 @@ describe(__filename, () => {
       expect(state.byUsername).toMatchObject(firstState.byUsername);
     });
 
+    it('sets the byAuthorNamesAndAddonType state for authorNames on fetch', () => {
+      const state = reducer(undefined, fetchAddonsByAuthors({
+        authorNames: ['author1'],
+        errorHandlerId: 'error-handler-id',
+      }));
+
+      expect(state.byAuthorNamesAndAddonType).toMatchObject({
+        [joinAuthorNamesAndAddonType(['author1'])]: null,
+      });
+    });
+
+    it('sets the byAuthorNamesAndAddonType state for authorNames + addonType on fetch', () => {
+      const state = reducer(undefined, fetchAddonsByAuthors({
+        authorNames: ['author1'],
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'error-handler-id',
+      }));
+
+      expect(state.byAuthorNamesAndAddonType).toMatchObject({
+        [joinAuthorNamesAndAddonType(['author1'], ADDON_TYPE_THEME)]: null,
+      });
+    });
+
     it('sets the loading state for authorNames on fetch', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
         authorNames: ['author1'],
