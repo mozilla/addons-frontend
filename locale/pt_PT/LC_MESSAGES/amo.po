@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-30 20:46+0000\n"
+"PO-Revision-Date: 2018-03-30 20:57+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -869,12 +869,11 @@ msgstr "Altere o aspeto do Firefox com temas."
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "Personalização de redes sociais"
 
 #: src/amo/components/Home/index.js:201
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "Ver mais extensões para o novo separador"
+msgstr "Ver mais extensões de personalização de redes sociais"
 
 #: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
