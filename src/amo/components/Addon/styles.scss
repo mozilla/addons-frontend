@@ -67,6 +67,7 @@
 
   color: $black;
   font-size: $font-size-l;
+  grid-column: 1 / span 2;
   margin: 0 0 $padding-page-l;
   width: 100%;
   word-wrap: break-word;
@@ -100,10 +101,8 @@
 }
 
 .Addon-header {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
 .Addon-theme-header {
@@ -131,6 +130,7 @@
 }
 
 .Addon-summary-and-install-button-wrapper {
+  grid-column: 1 / span 2;
   width: 100%;
 
   @include respond-to(medium) {

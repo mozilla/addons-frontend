@@ -46,14 +46,16 @@ export const fakePlatformFile = Object.freeze({
   url: 'https://a.m.o/files/321/addon.xpi',
 });
 
+export const fakeAuthor = Object.freeze({
+  id: 98811255,
+  name: 'Krupa',
+  picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
+  url: 'http://olympia.test/en-US/firefox/user/krupa/',
+  username: 'krupa',
+});
+
 export const fakeAddon = Object.freeze({
-  authors: [{
-    id: 98811255,
-    name: 'Krupa',
-    picture_url: 'https://addons.cdn.mozilla.net/static/img/anon_user.png',
-    url: 'http://olympia.test/en-US/firefox/user/krupa/',
-    username: 'krupa',
-  }],
+  authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
   current_beta_version: null,
@@ -266,12 +268,15 @@ export function createAddonsApiResult(results) {
   return normalize({ results }, { results: [addonSchema] });
 }
 
-export function createFakeAutocompleteResult({ name = 'suggestion-result' } = {}) {
+export function createFakeAutocompleteResult({
+  name = 'suggestion-result', ...props
+} = {}) {
   return {
     id: randomId(),
     icon_url: `${config.get('amoCDN')}/${name}.png`,
     name,
     url: `https://example.org/en-US/firefox/addons/${name}/`,
+    ...props,
   };
 }
 

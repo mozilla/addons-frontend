@@ -104,52 +104,52 @@ export class FormOverlayBase extends React.Component<Props> {
         className={makeClassName('FormOverlay', className)}
         role="presentation"
       >
-        <div
+        <form
           onClick={this.onClickOverlay}
           className="FormOverlay-overlay"
           role="presentation"
         >
-          <div className="FormOverlay-close-control">
+          <header>
+            <div className="FormOverlay-close-control">
+              <Button
+                className="FormOverlay-close-button"
+                onClick={this.onClickExIcon}
+              >
+                <Icon name="x-mark" alt={i18n.gettext('Click to close')} />
+              </Button>
+            </div>
+            <h3 className="FormOverlay-h3">{title}</h3>
+          </header>
+          <section className="FormOverlay-content">
+            {children}
+          </section>
+          <footer className="FormOverlay-footer">
+            {/*
+              type=button is necessary to override the default
+              of type=submit
+            */}
             <Button
-              className="FormOverlay-close-button"
-              onClick={this.onClickExIcon}
+              buttonType="neutral"
+              disabled={formIsDisabled}
+              onClick={this.onCancel}
+              className="FormOverlay-cancel"
+              puffy
+              type="button"
             >
-              <Icon name="x-mark" alt={i18n.gettext('Click to close')} />
+              {i18n.gettext('Cancel')}
             </Button>
-          </div>
-          <h3 className="FormOverlay-h3">{title}</h3>
-          <div className="FormOverlay-form">
-            <form>
-              {children}
-              <div className="FormOverlay-form-buttons">
-                {/*
-                  type=button is necessary to override the default
-                  of type=submit
-                */}
-                <Button
-                  buttonType="neutral"
-                  disabled={formIsDisabled}
-                  onClick={this.onCancel}
-                  className="FormOverlay-cancel"
-                  puffy
-                  type="button"
-                >
-                  {i18n.gettext('Cancel')}
-                </Button>
-                <Button
-                  buttonType="action"
-                  disabled={formIsDisabled}
-                  className="FormOverlay-submit"
-                  onClick={this.onSubmit}
-                  type="submit"
-                  puffy
-                >
-                  {submitPrompt}
-                </Button>
-              </div>
-            </form>
-          </div>
-        </div>
+            <Button
+              buttonType="action"
+              disabled={formIsDisabled}
+              className="FormOverlay-submit"
+              onClick={this.onSubmit}
+              type="submit"
+              puffy
+            >
+              {submitPrompt}
+            </Button>
+          </footer>
+        </form>
       </div>
     );
   }

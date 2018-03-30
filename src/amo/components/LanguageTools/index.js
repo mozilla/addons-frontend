@@ -27,6 +27,7 @@ import type { ErrorHandlerType } from 'core/errorHandler';
 import type { ApiStateType } from 'core/reducers/api';
 import type { LanguageToolsState } from 'core/reducers/languageTools';
 import type { LanguageToolType } from 'core/types/addons';
+import type { DispatchFunc } from 'core/types/redux';
 import type { I18nType } from 'core/types/i18n';
 
 
@@ -70,7 +71,7 @@ export const LanguageToolList = ({ languageTools }: LanguageToolListProps) => {
 
 type Props = {|
   languageTools: Array<LanguageToolType>,
-  dispatch: Function,
+  dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   lang: string,

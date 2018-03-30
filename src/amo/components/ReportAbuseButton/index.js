@@ -20,6 +20,7 @@ import {
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import type { AddonAbuseState, AbuseState } from 'core/reducers/abuse';
+import type { DispatchFunc } from 'core/types/redux';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -29,7 +30,7 @@ import './styles.scss';
 type Props = {|
   abuseReport: AddonAbuseState,
   addon: AddonType,
-  dispatch: Function,
+  dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   loading: bool,
   i18n: I18nType,

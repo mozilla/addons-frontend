@@ -288,7 +288,6 @@ export const allPages = async (
   let pageSize = 0;
 
   for (let page = 1; page <= pageLimit; page++) {
-    // eslint-disable-next-line no-await-in-loop
     const response = await getNextResponse(nextURL);
     if (!count) {
       // Every response page returns a count for all results.

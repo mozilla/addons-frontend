@@ -454,7 +454,6 @@ type UpdateCollectionParams = {|
   collectionSlug: string,
   defaultLocale: ?string,
   description: ?LocalizedString,
-  formOverlayId: string,
   name: ?LocalizedString,
   slug: ?string,
   user: string,
@@ -470,7 +469,6 @@ export const updateCollection = ({
   collectionSlug,
   defaultLocale,
   description,
-  formOverlayId,
   name,
   slug,
   user,
@@ -484,9 +482,6 @@ export const updateCollection = ({
   if (!user) {
     throw new Error('user is required');
   }
-  if (!formOverlayId) {
-    throw new Error('formOverlayId is required');
-  }
 
   return {
     type: UPDATE_COLLECTION,
@@ -495,7 +490,6 @@ export const updateCollection = ({
       collectionSlug,
       defaultLocale,
       description,
-      formOverlayId,
       name,
       slug,
       user,

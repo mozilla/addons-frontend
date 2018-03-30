@@ -32,7 +32,9 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type {
+  ReactRouterLocation, ReactRouterType,
+} from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -48,7 +50,7 @@ type Props = {|
   params: {| addonSlug: string |},
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
-  router: Object,
+  router: ReactRouterType,
 |};
 
 export class AddonReviewListBase extends React.Component<Props> {

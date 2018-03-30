@@ -353,21 +353,6 @@ export function createApiResponse({
   return Promise.resolve(response);
 }
 
-export function createFakeAddonAbuseReport({
-  addon = fakeAddon,
-  message,
-  reporter = null,
-} = {}) {
-  return {
-    addon: {
-      guid: addon.guid,
-      id: addon.id,
-      slug: addon.slug,
-    },
-    message,
-    reporter,
-  };
-}
 
 export function createFakeLanguageTool(otherProps = {}) {
   return {
@@ -417,6 +402,39 @@ export function createUserAccountResponse({
     url: null,
     username,
     permissions,
+  };
+}
+
+export function createFakeAddonAbuseReport({
+  addon = fakeAddon,
+  message,
+  reporter = null,
+} = {}) {
+  return {
+    addon: {
+      guid: addon.guid,
+      id: addon.id,
+      slug: addon.slug,
+    },
+    message,
+    reporter,
+  };
+}
+
+export function createFakeUserAbuseReport({
+  message,
+  reporter = null,
+  user = createUserAccountResponse(),
+} = {}) {
+  return {
+    message,
+    reporter,
+    user: {
+      id: user.id,
+      name: user.name,
+      url: user.url,
+      username: user.username,
+    },
   };
 }
 
@@ -475,5 +493,53 @@ export const fakeRouterLocation = (props = {}) => {
     query: {},
     search: '',
     ...props,
+  };
+};
+
+/*
+ * Returns a fake ReactRouter object.
+ *
+ * See ReactRouterType in 'core/types/router';
+ */
+export const createFakeRouter = (
+  { location = fakeRouterLocation() } = {}
+) => {
+  return {
+    location,
+    params: {},
+    push: sinon.spy(),
+  };
+};
+
+/*
+ * Simulate how a component you depend on will invoke a callback.
+ *
+ * The return value is an executable callback that you can call
+ * with the necessary arguments.
+ *
+ * type SimulateComponentCallbackParams = {|
+ *   // This is the root of your parent component (an enzyme wrapper object).
+ *   root: Object,
+ *   // This is the component class you want to simulate.
+ *   Component: React.Element<any>,
+ *   // This is the property name for the callback.
+ *   propName: string,
+ * |};
+ */
+export const simulateComponentCallback = ({ Component, root, propName }) => {
+  const component = root.find(Component);
+  expect(component).toHaveProp(propName);
+
+  const callback = component.prop(propName);
+  expect(typeof callback).toEqual('function');
+
+  return (...args) => {
+    const result = callback(...args);
+
+    // Since the component might call setState() and that would happen
+    // outside of a standard React lifestyle hook, we have to re-render.
+    root.update();
+
+    return result;
   };
 };

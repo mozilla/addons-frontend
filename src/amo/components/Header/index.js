@@ -1,3 +1,4 @@
+import config from 'config';
 import PropTypes from 'prop-types';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -63,6 +64,10 @@ export class HeaderBase extends React.Component {
       </Link>
     );
 
+    const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
+    const viewProfileLinkProps = config.get('enableUserProfile') ?
+      { to: viewProfileURL } : { href: viewProfileURL };
+
     return (
       <header className="Header">
         <div className="Header-content">
@@ -101,7 +106,7 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href={`/user/${siteUser.username}/`}>
+                <Link {...viewProfileLinkProps}>
                   {i18n.gettext('View Profile')}
                 </Link>
               </DropdownMenuItem>

@@ -1,15 +1,35 @@
 import { ADDON_TYPE_THEME } from 'core/constants';
 import reducer, {
-  OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE,
-  fetchOtherAddonsByAuthors,
+  ADDONS_BY_AUTHORS_PAGE_SIZE,
+  fetchAddonsByAuthors,
+  getAddonsForSlug,
   initialState,
-  loadOtherAddonsByAuthors,
+  loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeAuthor } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
+  function fakeAddons() {
+    const firstAddon = {
+      ...fakeAddon,
+      id: 6,
+      authors: [
+        { username: 'test', id: 51 },
+        { username: 'test2', id: 61 },
+      ],
+    };
+    const secondAddon = {
+      ...fakeAddon, id: 7, authors: [{ username: 'test2', id: 61 }],
+    };
+    const thirdAddon = {
+      ...fakeAddon, id: 8, authors: [{ username: 'test3', id: 71 }],
+    };
+
+    return { firstAddon, secondAddon, thirdAddon };
+  }
+
   describe('reducer', () => {
     it('initializes properly', () => {
       const state = reducer(undefined, {});
@@ -19,8 +39,8 @@ describe(__filename, () => {
     it('ignores unrelated actions', () => {
       // Load some initial state to be sure that an unrelated action does not
       // change it.
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
-        slug: fakeAddon.slug,
+      const state = reducer(undefined, loadAddonsByAuthors({
+        forAddonSlug: fakeAddon.slug,
         addons: [fakeAddon],
       }));
       const newState = reducer(state, { type: 'UNRELATED' });
@@ -28,8 +48,8 @@ describe(__filename, () => {
     });
 
     it('allows an empty list of add-ons', () => {
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
-        slug: 'addon-slug',
+      const state = reducer(undefined, loadAddonsByAuthors({
+        forAddonSlug: 'addon-slug',
         addons: [],
       }));
       expect(state.byAddonSlug).toEqual({
@@ -38,120 +58,174 @@ describe(__filename, () => {
     });
 
     it('adds related add-ons by slug', () => {
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
-        slug: 'addon-slug',
+      const state = reducer(undefined, loadAddonsByAuthors({
+        forAddonSlug: 'addon-slug',
         addons: [fakeAddon],
       }));
       expect(state.byAddonSlug).toEqual({
-        'addon-slug': [createInternalAddon(fakeAddon)],
+        'addon-slug': [fakeAddon.id],
       });
     });
 
     it('always ensures the page size is consistent', () => {
-      const slug = 'addon-slug';
-      const state = reducer(undefined, loadOtherAddonsByAuthors({
-        slug,
+      const forAddonSlug = 'addon-slug';
+      const state = reducer(undefined, loadAddonsByAuthors({
+        forAddonSlug,
         // This is the case where there are more add-ons loaded than needed.
-        addons: Array(OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
+        addons: Array(ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
       }));
-      expect(state.byAddonSlug[slug])
-        .toHaveLength(OTHER_ADDONS_BY_AUTHORS_PAGE_SIZE);
+      expect(state.byAddonSlug[forAddonSlug])
+        .toHaveLength(ADDONS_BY_AUTHORS_PAGE_SIZE);
+    });
+
+    it('returns state if no excluded slug is specified', () => {
+      const forAddonSlug = 'addon-slug';
+
+      const previousState = reducer(undefined, loadAddonsByAuthors({
+        addons: [fakeAddon],
+        forAddonSlug,
+      }));
+      expect(previousState.byAddonSlug)
+        .toEqual({ 'addon-slug': [fakeAddon.id] });
+
+      const state = reducer(previousState, fetchAddonsByAuthors({
+        authors: ['author2'],
+        addonType: ADDON_TYPE_THEME,
+        errorHandlerId: 'error-handler-id',
+      }));
+
+      expect(state.byAddonSlug).toEqual({ 'addon-slug': [fakeAddon.id] });
     });
 
     it('resets the loaded add-ons', () => {
-      const slug = 'addon-slug';
+      const forAddonSlug = 'addon-slug';
 
-      const previousState = reducer(undefined, loadOtherAddonsByAuthors({
+      const previousState = reducer(undefined, loadAddonsByAuthors({
         addons: [fakeAddon],
-        slug,
+        forAddonSlug,
       }));
       expect(previousState.byAddonSlug)
-        .toEqual({ 'addon-slug': [createInternalAddon(fakeAddon)] });
+        .toEqual({ 'addon-slug': [fakeAddon.id] });
 
-      const state = reducer(previousState, fetchOtherAddonsByAuthors({
+      const state = reducer(previousState, fetchAddonsByAuthors({
         authors: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
-        slug,
+        forAddonSlug,
       }));
-      expect(state.byAddonSlug)
-        .toEqual({ 'addon-slug': undefined });
+
+      expect(state.byAddonSlug).toMatchObject({ 'addon-slug': undefined });
+      expect(state.byUsername).toMatchObject({ author1: undefined });
     });
   });
 
-  describe('fetchOtherAddonsByAuthors()', () => {
-    const getParams = () => {
+  describe('loadAddonsByAuthors()', () => {
+    const getParams = (extra = {}) => {
       return {
-        authors: ['user1', 'user2'],
-        addonType: ADDON_TYPE_THEME,
-        errorHandlerId: 'error-handler-id',
-        slug: 'addon-slug',
+        addons: [],
+        forAddonSlug: fakeAddon.slug,
+        ...extra,
       };
     };
 
-    it('requires an error id', () => {
-      const params = getParams();
-      delete params.errorHandlerId;
-      expect(() => {
-        fetchOtherAddonsByAuthors(params);
-      }).toThrow(/An errorHandlerId is required/);
+    it('adds each add-on to each author array', () => {
+      const firstAuthor = { ...fakeAuthor, id: 50 };
+      const secondAuthor = { ...fakeAuthor, id: 60 };
+      const multiAuthorAddon = {
+        ...fakeAddon,
+        authors: [firstAuthor, secondAuthor],
+      };
+      const params = getParams({ addons: [multiAuthorAddon] });
+
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byUserId).toEqual({
+        [firstAuthor.id]: [multiAuthorAddon.id],
+        [secondAuthor.id]: [multiAuthorAddon.id],
+      });
     });
 
-    it('requires a slug', () => {
-      const params = getParams();
-      delete params.slug;
-      expect(() => {
-        fetchOtherAddonsByAuthors(params);
-      }).toThrow(/An add-on slug is required/);
+    it('adds each different add-on to the byAddonId dictionary', () => {
+      const addons = fakeAddons();
+      const params = getParams({
+        addons: Object.values(addons),
+        forAddonSlug: undefined,
+      });
+
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byAddonId).toEqual({
+        [addons.firstAddon.id]: createInternalAddon(addons.firstAddon),
+        [addons.secondAddon.id]: createInternalAddon(addons.secondAddon),
+        [addons.thirdAddon.id]: createInternalAddon(addons.thirdAddon),
+      });
     });
 
-    it('requires an add-on type', () => {
-      const params = getParams();
-      delete params.addonType;
-      expect(() => {
-        fetchOtherAddonsByAuthors(params);
-      }).toThrow(/An add-on type is required/);
+    it('adds each different add-on to each author array', () => {
+      // See fakeAddons() output, above.
+      const firstAuthorId = 51;
+      const secondAuthorId = 61;
+      const thirdAuthorId = 71;
+      const addons = fakeAddons();
+      const params = getParams({
+        addons: Object.values(addons),
+        forAddonSlug: undefined,
+      });
+
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byUserId).toEqual({
+        [firstAuthorId]: [addons.firstAddon.id],
+        [secondAuthorId]: [addons.firstAddon.id, addons.secondAddon.id],
+        [thirdAuthorId]: [addons.thirdAddon.id],
+      });
     });
 
-    it('requires some authors', () => {
+    it('does not modify byAddonSlug if forAddonSlug is not set', () => {
       const params = getParams();
-      delete params.authors;
-      expect(() => {
-        fetchOtherAddonsByAuthors(params);
-      }).toThrow(/Authors are required/);
+      delete params.forAddonSlug;
+
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byAddonSlug).toEqual(initialState.byAddonSlug);
     });
 
-    it('requires an array of authors', () => {
-      const params = getParams();
-      params.authors = 'invalid-type';
-      expect(() => {
-        fetchOtherAddonsByAuthors(params);
-      }).toThrow(/The authors parameter must be an array/);
-    });
-  });
-
-  describe('loadOtherAddonsByAuthors()', () => {
-    const getParams = () => {
-      return {
+    it('modifies byAddonSlug if forAddonSlug is set', () => {
+      const params = getParams({
         addons: [fakeAddon],
-        slug: 'addon-slug',
-      };
-    };
+        forAddonSlug: fakeAddon.slug,
+      });
 
-    it('requires an add-on slug', () => {
-      const params = getParams();
-      delete params.slug;
-      expect(() => {
-        loadOtherAddonsByAuthors(params);
-      }).toThrow(/An add-on slug is required/);
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byAddonSlug)
+        .toEqual({ [fakeAddon.slug]: [fakeAddon.id] });
+    });
+  });
+
+  describe('getAddonsForSlug', () => {
+    it('returns addons', () => {
+      const addons = fakeAddons();
+      const state = reducer(undefined, loadAddonsByAuthors({
+        addons: Object.values(addons),
+        forAddonSlug: 'test',
+      }));
+
+      expect(getAddonsForSlug(state, 'test')).toEqual([
+        createInternalAddon(addons.firstAddon),
+        createInternalAddon(addons.secondAddon),
+        createInternalAddon(addons.thirdAddon),
+      ]);
     });
 
-    it('requires an array of add-ons', () => {
-      const params = getParams();
-      delete params.addons;
-      expect(() => {
-        loadOtherAddonsByAuthors(params);
-      }).toThrow(/A set of add-ons is required/);
+    it('returns nothing if no add-ons are found', () => {
+      const addons = fakeAddons();
+      const state = reducer(undefined, loadAddonsByAuthors({
+        addons: Object.values(addons),
+        forAddonSlug: 'test',
+      }));
+
+      expect(getAddonsForSlug(state, 'not-a-slug')).toBeNull();
     });
   });
 });

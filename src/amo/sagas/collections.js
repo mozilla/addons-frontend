@@ -22,13 +22,10 @@ import {
   loadUserCollections,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
-import {
-  beginFormOverlaySubmit, closeFormOverlay, finishFormOverlaySubmit,
-} from 'core/reducers/formOverlay';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
-  AddAddonToCollectionParams,
+  CreateCollectionAddonParams,
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
@@ -147,14 +144,14 @@ export function* addAddonToCollection({
   try {
     const state = yield select(getState);
 
-    const params: AddAddonToCollectionParams = {
-      addon: addonId,
+    const params: CreateCollectionAddonParams = {
+      addonId,
       api: state.api,
-      collection: collectionSlug,
+      collectionSlug,
       notes,
       user: userId,
     };
-    yield call(api.addAddonToCollection, params);
+    yield call(api.createCollectionAddon, params);
 
     yield put(addonAddedToCollection({
       addonId, userId, collectionId,
@@ -172,7 +169,6 @@ export function* updateCollection({
     collectionSlug,
     defaultLocale,
     description,
-    formOverlayId,
     name,
     slug,
     user,
@@ -182,8 +178,6 @@ export function* updateCollection({
   yield put(errorHandler.createClearingAction());
 
   try {
-    yield put(beginFormOverlaySubmit(formOverlayId));
-
     const state = yield select(getState);
     const params: UpdateCollectionParams = {
       api: state.api,
@@ -198,9 +192,6 @@ export function* updateCollection({
 
     const slugWasEdited = slug && slug !== collectionSlug;
     const effectiveSlug = slug || collectionSlug;
-
-    yield put(closeFormOverlay(formOverlayId));
-    yield put(finishFormOverlaySubmit(formOverlayId));
 
     const { lang, clientApp } = state.api;
     // TODO: invalidate the stored collection instead of redirecting.
@@ -222,7 +213,6 @@ export function* updateCollection({
   } catch (error) {
     log.warn(`Failed to update collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(finishFormOverlaySubmit(formOverlayId));
   }
 }
 

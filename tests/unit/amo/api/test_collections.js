@@ -1,14 +1,18 @@
+import { oneLineTrim } from 'common-tags';
+
 import * as api from 'core/api';
 import {
-  addAddonToCollection,
   createCollection,
+  createCollectionAddon,
   getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
   getCollectionDetail,
   listCollections,
   modifyCollection,
+  modifyCollectionAddon,
   updateCollection,
+  updateCollectionAddon,
 } from 'amo/api/collections';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
@@ -177,87 +181,6 @@ describe(__filename, () => {
       const params = getListParams({ user });
       await listCollections(params);
       mockApi.verify();
-    });
-  });
-
-  describe('addAddonToCollection', () => {
-    const getAddParams = (params = {}) => {
-      return {
-        addon: 'addon-id-or-slug',
-        api: apiState,
-        collection: 'collection-id-or-slug',
-        user: 'user-id-or-username',
-        ...params,
-      };
-    };
-
-    it('posts an addon to a collection', async () => {
-      const params = getAddParams({
-        addon: 'some-addon',
-        user: 'my-username',
-        collection: 'my-collection',
-      });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: 'some-addon', notes: undefined },
-          endpoint:
-            'accounts/account/my-username/collections/my-collection/addons',
-          method: 'POST',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      await addAddonToCollection(params);
-      mockApi.verify();
-    });
-
-    it('posts an addon with notes', async () => {
-      const notes = 'some notes about the add-on';
-      const params = getAddParams({ addon: 'some-addon', notes });
-
-      mockApi
-        .expects('callApi')
-        .withArgs({
-          auth: true,
-          body: { addon: 'some-addon', notes },
-          endpoint: `accounts/account/${params.user}` +
-            `/collections/${params.collection}/addons`,
-          method: 'POST',
-          state: apiState,
-        })
-        .once()
-        .returns(createApiResponse());
-
-      await addAddonToCollection(params);
-      mockApi.verify();
-    });
-
-    it('requires an addon', () => {
-      const params = getAddParams();
-      delete params.addon;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/addon parameter is required/);
-    });
-
-    it('requires a collection', () => {
-      const params = getAddParams();
-      delete params.collection;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/collection parameter is required/);
-    });
-
-    it('requires a user', () => {
-      const params = getAddParams();
-      delete params.user;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/user parameter is required/);
     });
   });
 
@@ -434,6 +357,163 @@ describe(__filename, () => {
       await createCollection(createParams);
 
       sinon.assert.calledWith(modifier, 'create', modifyParams);
+    });
+  });
+
+  describe('modifyCollectionAddon', () => {
+    const defaultParams = (params = {}) => {
+      return {
+        action: 'create',
+        addonId: 123458,
+        api: apiState,
+        collectionSlug: 'some-collection',
+        user: 'user-id-or-username',
+        ...params,
+      };
+    };
+
+    it('POSTs a collection addon', async () => {
+      const params = defaultParams({
+        action: 'create',
+        addonId: 987675,
+        collectionSlug: 'my-collection',
+        user: 'my-user',
+      });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: { addon: params.addonId, notes: undefined },
+          endpoint,
+          method: 'POST',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+
+    it('POSTs notes for a collection addon', async () => {
+      const notes = 'This is a really great add-on';
+      const params = defaultParams({ action: 'create', notes });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs(sinon.match({
+          body: { addon: params.addonId, notes },
+          endpoint,
+          method: 'POST',
+        }))
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+
+    it('PATCHes notes for a collection addon', async () => {
+      const notes = 'This add-on is essential';
+      const params = defaultParams({
+        action: 'update',
+        addonId: 987675,
+        collectionSlug: 'my-collection',
+        notes,
+        user: 'my-user',
+      });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons/${params.addonId}
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          body: { notes },
+          endpoint,
+          method: 'PATCH',
+          state: params.api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+
+    it('allows you to nullify add-on notes', async () => {
+      const notes = null;
+      const params = defaultParams({ action: 'update', notes });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+        ${params.collectionSlug}/addons/${params.addonId}
+      `;
+      mockApi
+        .expects('callApi')
+        .withArgs(sinon.match({
+          body: { notes },
+          endpoint,
+          method: 'PATCH',
+        }))
+        .returns(Promise.resolve());
+
+      await modifyCollectionAddon(params);
+
+      mockApi.verify();
+    });
+  });
+
+  describe('createCollectionAddon', () => {
+    it('calls modifyCollectionAddon', async () => {
+      const params = {
+        addonId: 1122432,
+        api: apiState,
+        collectionSlug: 'the-collection',
+        notes: 'Beware of this one weird bug',
+        user: 'the-user',
+      };
+
+      const modifier = sinon.spy(() => Promise.resolve());
+
+      await createCollectionAddon({
+        _modifyCollectionAddon: modifier, ...params,
+      });
+
+      sinon.assert.calledWith(modifier, { action: 'create', ...params });
+    });
+  });
+
+  describe('updateCollectionAddon', () => {
+    it('calls modifyCollectionAddon', async () => {
+      const params = {
+        addonId: 1122432,
+        api: apiState,
+        collectionSlug: 'cool-collection',
+        notes: 'This add-on speaks to my soul',
+        user: 'cool-user',
+      };
+
+      const modifier = sinon.spy(() => Promise.resolve());
+
+      await updateCollectionAddon({
+        _modifyCollectionAddon: modifier, ...params,
+      });
+
+      sinon.assert.calledWith(modifier, { action: 'update', ...params });
     });
   });
 });

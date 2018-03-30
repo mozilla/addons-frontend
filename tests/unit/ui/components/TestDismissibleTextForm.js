@@ -107,20 +107,6 @@ describe(__filename, () => {
     sinon.assert.called(onDismiss);
   });
 
-  it('clears the text when dismissing a textarea', () => {
-    const root = shallowRender();
-
-    typeSomeText({ root, text: 'Some review text' });
-
-    // Click the cancel button.
-    root.find('.DismissibleTextForm-dismiss')
-      .simulate('click', createFakeEvent());
-
-    // Make sure the default textarea value was cleared.
-    expect(root.find('.DismissibleTextForm-textarea'))
-      .toHaveProp('defaultValue', '');
-  });
-
   it('calls back when submitting the form', () => {
     const onSubmit = sinon.stub();
     const root = shallowRender({ onSubmit });

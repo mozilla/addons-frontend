@@ -6,20 +6,15 @@
   width: 100%;
 
   @include respond-to(large) {
-    display: flex;
-    flex-flow: row wrap;
+    grid-column: 2;
+    grid-row: 1;
   }
 }
 
 .AddonBadges .Badge {
-  @include text-align-end();
+  @include text-align-start();
 
   @include respond-to(large) {
-    @include margin-end(6px);
-    @include text-align-start();
-  }
-
-  @include respond-to(extraLarge) {
-    @include margin-end($padding-page-l);
+    @include text-align-end();
   }
 }

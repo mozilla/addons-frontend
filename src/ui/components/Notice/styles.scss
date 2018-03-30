@@ -2,7 +2,7 @@
 @import "~core/css/inc/vars";
 @import "~ui/css/vars";
 @import "~ui/components/Button/styles";
-@import "~photon-colors/colors";
+@import "~photon-colors/photon-colors";
 
 .Notice {
   border-radius: $border-radius-s;
@@ -73,6 +73,31 @@
   :hover,
   :active {
     color: $white;
+  }
+}
+
+.Notice-generic {
+  .Notice-button {
+    @include button(
+      $background: $blue-60,
+      $background-active: $blue-80,
+      $background-hover: $blue-70,
+      $color: $grey-90
+    );
+    @include notice_button();
+  }
+
+  .Notice-icon {
+    background-image: url("./media/generic-info-mark.svg");
+  }
+
+  background-color: $grey-20;
+
+  &,
+  :link,
+  :hover,
+  :active {
+    color: $grey-90;
   }
 }
 

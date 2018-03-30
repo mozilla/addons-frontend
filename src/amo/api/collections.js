@@ -126,36 +126,6 @@ export const getAllUserCollections = async (
   return results;
 };
 
-export type AddAddonToCollectionParams = {|
-  addon: string | number,
-  api: ApiStateType,
-  collection: string | number,
-  notes?: string,
-  user: string | number,
-|};
-
-export const addAddonToCollection = (
-  { addon, api, collection, notes, user }: AddAddonToCollectionParams
-): Promise<void> => {
-  if (!addon) {
-    throw new Error('The addon parameter is required');
-  }
-  if (!collection) {
-    throw new Error('The collection parameter is required');
-  }
-  if (!user) {
-    throw new Error('The user parameter is required');
-  }
-
-  return callApi({
-    auth: true,
-    body: { addon, notes },
-    endpoint: `accounts/account/${user}/collections/${collection}/addons`,
-    method: 'POST',
-    state: api,
-  });
-};
-
 type ModifyCollectionParams = {|
   api: ApiStateType,
   defaultLocale: ?string,
@@ -283,5 +253,83 @@ export const createCollection = ({
     slug,
     user,
     _validateLocalizedString,
+  });
+};
+
+type ModifyCollectionAddonBaseParams = {|
+  addonId: number,
+  api: ApiStateType,
+  collectionSlug: string,
+  user: string | number,
+  _modifyCollectionAddon?: (any) => Promise<void>,
+|};
+
+type CollectionAddonNotes = string | null;
+
+export type CreateCollectionAddonParams = {|
+  ...ModifyCollectionAddonBaseParams,
+  notes?: CollectionAddonNotes,
+|};
+
+export type UpdateCollectionAddonParams = {|
+  ...ModifyCollectionAddonBaseParams,
+  notes: CollectionAddonNotes,
+|};
+
+type ModifyCollectionAddonParams =
+  | {| action: 'create', ...CreateCollectionAddonParams |}
+  | {| action: 'update', ...UpdateCollectionAddonParams |};
+
+export const modifyCollectionAddon = (
+  params: ModifyCollectionAddonParams,
+): Promise<void> => {
+  const { action, addonId, api, collectionSlug, user } = params;
+
+  invariant(action, 'The action parameter is required');
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(api, 'The api parameter is required');
+  invariant(collectionSlug, 'The collectionSlug parameter is required');
+  invariant(user, 'The user parameter is required');
+
+  let method = 'POST';
+  const body = { addon: addonId, notes: params.notes };
+  let endpoint =
+    `accounts/account/${user}/collections/${collectionSlug}/addons`;
+
+  if (action === 'update') {
+    // TODO: once `notes` can be null, we can check for `undefined` values
+    // to make sure that the caller didn't forget to set `notes`.
+    // See https://github.com/mozilla/addons-server/issues/7832
+    method = 'PATCH';
+    delete body.addon;
+    endpoint = `${endpoint}/${addonId}`;
+  }
+
+  return callApi({ auth: true, body, endpoint, method, state: api });
+};
+
+export const createCollectionAddon = ({
+  addonId,
+  api,
+  collectionSlug,
+  notes,
+  user,
+  _modifyCollectionAddon = modifyCollectionAddon,
+}: CreateCollectionAddonParams): Promise<void> => {
+  return _modifyCollectionAddon({
+    action: 'create', addonId, api, collectionSlug, notes, user,
+  });
+};
+
+export const updateCollectionAddon = ({
+  addonId,
+  api,
+  collectionSlug,
+  notes,
+  user,
+  _modifyCollectionAddon = modifyCollectionAddon,
+}: UpdateCollectionAddonParams): Promise<void> => {
+  return _modifyCollectionAddon({
+    action: 'update', addonId, api, collectionSlug, notes, user,
   });
 };
