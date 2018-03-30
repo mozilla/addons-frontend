@@ -68,7 +68,6 @@ const BABEL_QUERY = Object.assign({}, babelrcObject, {
 
 export default Object.assign({}, webpackConfig, {
   entry: { [appName]: `${appName}/client` },
-  mainFields: ['browser', 'main'],
   module: {
     rules: getRules({ babelQuery: BABEL_QUERY }),
   },
