@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-20 23:31+0000\n"
-"Last-Translator: Mateus Generoso <mtsgeneroso@gmail.com>\n"
+"PO-Revision-Date: 2018-03-30 03:38+0000\n"
+"Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgstr "Não compatível com o Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Algumas funcionalidades podem solicitar pagamento"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -549,7 +549,7 @@ msgstr "URL personalizada"
 
 #: src/amo/components/CollectionManager/index.js:207
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Localize uma extensão para incluir nesta coleção"
 
 #: src/amo/components/CollectionManager/index.js:93
 msgid "Collection name cannot be blank"
@@ -993,7 +993,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Remove a bagunça e melhora a legibilidade"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -1121,104 +1121,103 @@ msgstr "Ler e modificar as configurações do navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "Limpar histórico de navegação, cookies e dados recentes"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Obter dados da área de transferência"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Enviar dados para a área de transferência"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "Estender as ferramentas de desenvolvimento para acessar seus dados nas abas abertas"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "Fazer download de arquivos, ler e modificar o histórico de download do navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Abrir arquivos baixados no seu computador"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "Ler o texto de todas as abas abertas"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "Acessar sua localização"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Histórico de versão"
+msgstr "Acessar o histórico de navegação"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "Monitorar o uso de extensões e gerenciar temas"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Trocar mensagens com outros programas além do Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Exibir notificações para você"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Fornecer serviços de autenticação criptográfica"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "Controlar configuração de proxy de navegação"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Ler e modificar as configurações de privacidade"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Acessar abas fechadas recentemente"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Acessar as abas do navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Ocultar e mostrar abas do navegador"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Armazenar uma quantidade ilimitada de dados no seu computador"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Acessar atividades do navegador durante a navegação"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Acessar seus dados em todos os sites visitados"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "Acessar seus dados em páginas do domínio %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "Acessar seus dados em outros %(count)s domínios"
 
 #: src/amo/components/PermissionsCard/permissions.js:66
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "Acessar seus dados em %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "Acessar seus dados em outros %(count)s sites"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1291,36 +1290,28 @@ msgid "Send abuse report"
 msgstr "Enviar denúncia de abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
-#, fuzzy
 msgid "Report this user for abuse"
-msgstr "Denunciar esta extensão por abuso"
+msgstr "Denunciar este usuário por abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-#, fuzzy
 msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
-msgstr ""
-"Se você acha que esta extensão viola as %(linkTagStart)spolíticas de extensão da Mozilla%(linkTagEnd)s ou tem problemas de segurança ou privacidade, informe estes problemas para a Mozilla usando "
-"este formulário."
+msgstr "Se você acha que este usuário está violando as %(linkTagStart)spolíticas de extensão da Mozilla%(linkTagEnd)s, por favor, denuncie-o à Mozilla."
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-#, fuzzy
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr "Por favor, não use este formulário para denunciar erros ou solicitar funcionalidades para a extensão; este formulário será enviado para a Mozilla e não para o desenvolvedor da extensão."
+msgstr "Não use este formulário para denunciar erros ou entrar em contato com este usuário; este formulário será enviado apenas para a Mozilla e não para este usuário."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
-#, fuzzy
 msgid "Explain how this user is violating our policies."
-msgstr "Explique como esta extensão está violando nossas políticas."
+msgstr "Explique como este usuário está violando nossas políticas."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Você denunciou esta extensão por abuso"
+msgstr "Você denunciou este usuário por abuso"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-#, fuzzy
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr "Recebemos seu relatório. Obrigado por nos informar sobre suas preocupações com esta extensão."
+msgstr "Recebemos sua denúncia. Obrigado por nos informar sobre suas preocupações com este usuário."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
