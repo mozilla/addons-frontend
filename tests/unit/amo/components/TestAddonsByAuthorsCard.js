@@ -7,6 +7,7 @@ import {
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
+import { createInternalAddon } from 'core/reducers/addons';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_DICT,
@@ -28,18 +29,29 @@ import {
 
 
 describe(__filename, () => {
-  const fakeAuthorOne = { ...fakeAuthor, username: 'krupa', id: 51 };
-  const fakeAuthorTwo = { ...fakeAuthor, username: 'tofumatt', id: 61 };
-  const fakeAuthorThree = { ...fakeAuthor, username: 'fligtar', id: 71 };
+  const fakeAuthorOne = {
+    ...fakeAuthor, name: 'Krupa', username: 'krupa', id: 51,
+  };
+  const fakeAuthorTwo = {
+    ...fakeAuthor, name: 'Matt', username: 'tofumatt', id: 61,
+  };
+  const fakeAuthorThree = {
+    ...fakeAuthor, name: 'Fligtar', username: 'fligtar', id: 71,
+  };
 
   function fakeAddons() {
     const firstAddon = {
       ...fakeAddon,
       id: 6,
+      slug: 'first',
       authors: [fakeAuthorOne, fakeAuthorTwo],
     };
-    const secondAddon = { ...fakeAddon, id: 7, authors: [fakeAuthorTwo] };
-    const thirdAddon = { ...fakeAddon, id: 8, authors: [fakeAuthorThree] };
+    const secondAddon = {
+      ...fakeAddon, id: 7, slug: 'second', authors: [fakeAuthorTwo],
+    };
+    const thirdAddon = {
+      ...fakeAddon, id: 8, slug: 'third', authors: [fakeAuthorThree],
+    };
 
     return { firstAddon, secondAddon, thirdAddon };
   }
@@ -105,10 +117,8 @@ describe(__filename, () => {
   it('should render a card', () => {
     const { store } = dispatchClientMetadata();
     const authorNames = fakeAuthorNames();
-    store.dispatch(loadAddonsByAuthors({
-      addons: Object.values(fakeAddons()),
-      authorNames,
-    }));
+    const addons = Object.values(fakeAddons()).sort();
+    store.dispatch(loadAddonsByAuthors({ addons, authorNames }));
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
@@ -117,7 +127,17 @@ describe(__filename, () => {
       store,
     });
 
+    // The sort of the add-ons in the reducer isn't set, so we just make sure
+    // to sort the add-ons here because the order isn't guaranteed.
+    function sortAddons(addonsArray) {
+      return addonsArray.sort((a, b) => {
+        return a.id > b.id;
+      });
+    }
+
     expect(root).toHaveClassName('AddonsByAuthorsCard');
+    expect(sortAddons(root.find(AddonsCard).prop('addons')))
+      .toEqual(sortAddons(addons).map(createInternalAddon));
     expect(root.find(AddonsCard))
       .toHaveProp('placeholderCount', root.instance().props.numberOfAddons);
     expect(root.find(AddonsCard)).toHaveProp('showSummary', false);

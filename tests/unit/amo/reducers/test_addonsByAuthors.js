@@ -145,12 +145,11 @@ describe(__filename, () => {
     it('sets the loading state for authorNames on fetch', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
         authorNames: ['author1'],
-        addonType: null,
         errorHandlerId: 'error-handler-id',
       }));
 
       expect(state.loadingFor).toMatchObject({
-        [joinAuthorNamesAndAddonType(['author1'], null)]: true,
+        [joinAuthorNamesAndAddonType(['author1'])]: true,
       });
     });
 
@@ -180,7 +179,7 @@ describe(__filename, () => {
     it('adds each add-on to each author array', () => {
       const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
       const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
-      const authorNames = [firstAuthor, secondAuthor];
+      const authorNames = [firstAuthor.username, secondAuthor.username];
       const multiAuthorAddon = {
         ...fakeAddon,
         authors: [firstAuthor, secondAuthor],
@@ -192,6 +191,47 @@ describe(__filename, () => {
       expect(newState.byUserId).toEqual({
         [firstAuthor.id]: [multiAuthorAddon.id],
         [secondAuthor.id]: [multiAuthorAddon.id],
+      });
+    });
+
+    it('sets the authorName request list when loaded', () => {
+      const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
+      const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
+      const authorNames = [firstAuthor.username, secondAuthor.username];
+      const multiAuthorAddon = {
+        ...fakeAddon,
+        authors: [firstAuthor, secondAuthor],
+      };
+      const params = getParams({
+        addons: [multiAuthorAddon],
+        authorNames,
+      });
+
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byAuthorNamesAndAddonType).toEqual({
+        [joinAuthorNamesAndAddonType(authorNames)]: [multiAuthorAddon.id],
+      });
+    });
+
+    it('sets the authorName + addonType request list when loaded', () => {
+      const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
+      const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
+      const authorNames = [firstAuthor.username, secondAuthor.username];
+      const multiAuthorAddon = {
+        ...fakeAddon,
+        authors: [firstAuthor, secondAuthor],
+      };
+      const params = getParams({
+        addons: [multiAuthorAddon],
+        addonType: ADDON_TYPE_EXTENSION,
+        authorNames,
+      });
+
+      const newState = reducer(undefined, loadAddonsByAuthors(params));
+
+      expect(newState.byAuthorNamesAndAddonType).toEqual({
+        [joinAuthorNamesAndAddonType(authorNames, ADDON_TYPE_EXTENSION)]: [multiAuthorAddon.id],
       });
     });
 
