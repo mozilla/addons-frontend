@@ -65,7 +65,7 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
 
   onDismiss = (event: SyntheticEvent<any>) => {
     event.preventDefault();
-    this.setState({ text: '' });
+
     this.props.onDismiss();
   }
 

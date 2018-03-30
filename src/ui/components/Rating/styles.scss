@@ -54,24 +54,19 @@
   }
 }
 
-.Rating--small .Rating-choice,
-.Rating--small-monochrome .Rating-choice {
+.Rating--small .Rating-choice {
   background-size: $rating-s-star-size;
   height: $rating-s-star-size + $rating-s-star-gutter;
   margin: 0;
   width: $rating-s-star-size + $rating-s-star-gutter;
 }
 
-.Rating--small-monochrome {
+.Rating--by-owner {
   .Rating-choice {
-    background-image: url("~ui/components/Icon/img/star-empty.svg");
+    background-image: url("./img/dim-star-gold.svg");
   }
 
   .Rating-selected-star {
-    background-image: url("~ui/components/Icon/img/star-full.svg");
-  }
-
-  .Rating-half-star {
-    background-image: url("~ui/components/Icon/img/star-half.svg");
+    background-image: url("./img/full-star-gold.svg");
   }
 }

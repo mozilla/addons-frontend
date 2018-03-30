@@ -1,5 +1,5 @@
 import * as api from 'core/api';
-import { reportAddon } from 'core/api/abuse';
+import { reportAddon, reportUser } from 'core/api/abuse';
 import {
   dispatchClientMetadata,
   fakeAddon,
@@ -7,6 +7,8 @@ import {
 import {
   createApiResponse,
   createFakeAddonAbuseReport,
+  createFakeUserAbuseReport,
+  createUserAccountResponse,
 } from 'tests/unit/helpers';
 
 
@@ -24,7 +26,7 @@ describe(__filename, () => {
       });
     }
 
-    it('calls the report add-on abuse API', () => {
+    it('calls the report add-on abuse API', async () => {
       const apiState = dispatchClientMetadata().store.getState().api;
       const message = 'I do not like this!';
 
@@ -42,14 +44,48 @@ describe(__filename, () => {
           addon: { ...fakeAddon, slug: 'cool-addon' },
           message,
         }));
-      return reportAddon({
+
+      await reportAddon({
         addonSlug: 'cool-addon',
         api: apiState,
         message,
-      })
-        .then(() => {
-          mockApi.verify();
-        });
+      });
+
+      mockApi.verify();
+    });
+  });
+
+  describe('reportUser', () => {
+    function mockResponse({ message, user }) {
+      return createApiResponse({
+        jsonData: createFakeUserAbuseReport({ message, user }),
+      });
+    }
+
+    it('calls the report add-on abuse API', async () => {
+      const apiState = dispatchClientMetadata().store.getState().api;
+      const message = 'I do not like this!';
+      const user = createUserAccountResponse({ id: 5001 });
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: 'abuse/report/user',
+          method: 'POST',
+          body: { message, user: '5001' },
+          state: apiState,
+        })
+        .once()
+        .returns(mockResponse({ message, user }));
+
+      await reportUser({
+        api: apiState,
+        message,
+        userId: user.id,
+      });
+
+      mockApi.verify();
     });
   });
 });

@@ -46,6 +46,15 @@ describe(__filename, () => {
     expect(root.find(AddonsCard)).toHaveProp('addons', addons);
   });
 
+  it('passes addonInstallSource to AddonsCard', () => {
+    const addonInstallSource = 'featured-on-home-page';
+    const addons = [createInternalAddon(fakeAddon)];
+    const root = render({ addons, addonInstallSource });
+
+    expect(root.find(AddonsCard))
+      .toHaveProp('addonInstallSource', addonInstallSource);
+  });
+
   it('sets the number of placeholders to render while loading', () => {
     const root = render({ loading: true });
     expect(root).toHaveProp('placeholderCount', LANDING_PAGE_ADDON_COUNT);

@@ -16,10 +16,14 @@ import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import { fetchOtherAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
+import {
+  fetchAddonsByAuthors,
+  getAddonsForSlug,
+} from 'amo/reducers/addonsByAuthors';
 import {
   fetchAddon,
   getAddonByID,
@@ -35,6 +39,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
@@ -117,7 +122,7 @@ export class AddonBase extends React.Component {
         }
 
         dispatch(setViewContext(addon.type));
-        this.dispatchFetchOtherAddonsByAuthors({ addon });
+        this.dispatchFetchAddonsByAuthors({ addon });
       } else {
         dispatch(fetchAddon({ slug: params.slug, errorHandler }));
       }
@@ -137,7 +142,7 @@ export class AddonBase extends React.Component {
     }
 
     if (newAddon && oldAddon !== newAddon) {
-      this.dispatchFetchOtherAddonsByAuthors({ addon: newAddon });
+      this.dispatchFetchAddonsByAuthors({ addon: newAddon });
     }
   }
 
@@ -157,14 +162,14 @@ export class AddonBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  dispatchFetchOtherAddonsByAuthors({ addon }) {
+  dispatchFetchAddonsByAuthors({ addon }) {
     const { dispatch, errorHandler } = this.props;
 
-    dispatch(fetchOtherAddonsByAuthors({
+    dispatch(fetchAddonsByAuthors({
       addonType: addon.type,
       authors: addon.authors.map((author) => author.username),
       errorHandlerId: errorHandler.id,
-      slug: addon.slug,
+      forAddonSlug: addon.slug,
     }));
   }
 
@@ -599,6 +604,8 @@ export class AddonBase extends React.Component {
 
           <AddonMoreInfo addon={addon} />
 
+          <PermissionsCard addon={addon} />
+
           {this.renderVersionReleaseNotes()}
 
           {addonType !== ADDON_TYPE_THEME ?
@@ -625,7 +632,7 @@ export function mapStateToProps(state, ownProps) {
   let installedAddon = {};
 
   if (addon) {
-    addonsByAuthors = state.addonsByAuthors.byAddonSlug[addon.slug];
+    addonsByAuthors = getAddonsForSlug(state.addonsByAuthors, addon.slug);
     installedAddon = state.installations[addon.guid] || {};
   }
 
@@ -661,6 +668,6 @@ export default compose(
   withRouter,
   translate({ withRef: true }),
   connect(mapStateToProps),
-  withInstallHelpers({ defaultInstallSource: 'dp-btn-primary' }),
+  withInstallHelpers({ defaultInstallSource: INSTALL_SOURCE_DETAIL_PAGE }),
   withFixedErrorHandler({ fileName: __filename, extractId }),
 )(AddonBase);

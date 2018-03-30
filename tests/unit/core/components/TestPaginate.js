@@ -30,11 +30,6 @@ describe('<Paginate />', () => {
           .toThrowError(/count property cannot be undefined/);
       });
 
-      it('does not allow an undefined currentPage', () => {
-        expect(() => renderPaginate({ currentPage: undefined }))
-          .toThrowError(/currentPage property cannot be undefined/);
-      });
-
       it('does not allow an undefined pathname', () => {
         expect(() => renderPaginate({ pathname: undefined }))
           .toThrowError(/pathname property cannot be undefined/);
@@ -182,5 +177,33 @@ describe('<Paginate />', () => {
     expect(firstLink).toHaveProp('currentPage', currentPage);
     expect(firstLink).toHaveProp('pathname', pathname);
     expect(firstLink).toHaveProp('pageCount', pageCount);
+  });
+
+  it('defaults currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: undefined, count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a null currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: null, count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a non-numeric currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: 'abc', count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
+  });
+
+  it('converts a negative currentPage to 1', () => {
+    const root = renderPaginate({ currentPage: -5, count: 30 });
+
+    const firstLink = root.find(PaginatorLink).first();
+    expect(firstLink).toHaveProp('currentPage', 1);
   });
 });

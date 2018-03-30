@@ -9,11 +9,17 @@
   margin: 0 0 6px;
 
   @include respond-to(medium) {
+    display: flex;
+    flex-direction: row-reverse;
     margin: 0 0 12px;
   }
 
   .Icon {
-    @include margin-start(6px);
+    @include margin(0, 6px, 0, 0);
+
+    @include respond-to(medium) {
+      @include margin(0, 0, 0, 6px);
+    }
 
     vertical-align: top;
   }

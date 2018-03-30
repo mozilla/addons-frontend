@@ -6,11 +6,11 @@ import Collection, {
   mapStateToProps,
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
-import { COLLECTION_OVERLAY } from 'amo/components/CollectionManager';
+import CollectionManager from 'amo/components/CollectionManager';
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
-import { openFormOverlay } from 'core/reducers/formOverlay';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -23,7 +23,6 @@ import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
-  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -121,7 +120,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
-      page: 1,
+      page: undefined,
       slug,
       user,
     }));
@@ -351,7 +350,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
-      page: 1,
+      page: undefined,
       ...newParams,
     }));
   });
@@ -402,7 +401,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
-      page: 1,
+      page: undefined,
       ...newParams,
     }));
   });
@@ -531,7 +530,11 @@ describe(__filename, () => {
   });
 
   it('renders an edit link when user has `Collections:Edit` permission', () => {
-    const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
@@ -546,7 +549,9 @@ describe(__filename, () => {
   it('links to a Collection edit page', () => {
     // Turn off edit-overlay feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableCollectionEdit: false });
-    const { store } = dispatchSignInActions({ permissions: [COLLECTIONS_EDIT] });
+    const { store } = dispatchSignInActions({
+      userProps: { permissions: [COLLECTIONS_EDIT] },
+    });
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
@@ -561,11 +566,11 @@ describe(__filename, () => {
       `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
   });
 
-  it('opens the Collection manager for editing on click', () => {
-    // Turn on the edit-overlay feature.
+  it('links internally to a Collection edit page', () => {
+    // Turn on the edit-collection feature.
     const fakeConfig = getFakeConfig({ enableCollectionEdit: true });
     const { store } = dispatchSignInActions({
-      permissions: [COLLECTIONS_EDIT],
+      userProps: { permissions: [COLLECTIONS_EDIT] },
     });
 
     store.dispatch(loadCurrentCollection({
@@ -573,19 +578,12 @@ describe(__filename, () => {
       detail: defaultCollectionDetail,
     }));
 
-    const dispatchSpy = sinon.spy(store, 'dispatch');
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
-    const editLinkWrapper = wrapper.find('.Collection-edit-link');
-    expect(editLinkWrapper).toHaveLength(1);
-
-    const editLink = editLinkWrapper.find(Link);
+    const editLink = wrapper.find('.Collection-edit-link').find(Link);
     expect(editLink).toHaveLength(1);
-    editLink.simulate('click', createFakeEvent());
-
-    sinon.assert.calledWith(
-      dispatchSpy, openFormOverlay(COLLECTION_OVERLAY)
-    );
+    expect(editLink).toHaveProp('to',
+      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
   });
 
   it('renders an edit link when user is the collection owner', () => {
@@ -603,6 +601,60 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
   });
 
+  it('passes a collection to CollectionManager when editing', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const collectionDetail = createFakeCollectionDetail();
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({ store, editing: true });
+
+    const manager = root.find(CollectionManager);
+    expect(manager).toHaveProp('collection');
+    expect(manager.prop('collection').id).toEqual(collectionDetail.id);
+
+    // Make sure these were not rendered.
+    expect(root.find('.Collection-title')).toHaveLength(0);
+    expect(root.find('.Collection-description')).toHaveLength(0);
+    expect(root.find(MetadataCard)).toHaveLength(0);
+  });
+
+  it('passes a null collection to CollectionManager when editing', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const root = renderComponent({ store, editing: true });
+
+    const manager = root.find(CollectionManager);
+    expect(manager).toHaveProp('collection', null);
+  });
+
+  it('renders AuthenticateButton when editing and not signed in', () => {
+    const { store } = dispatchClientMetadata();
+    const location = fakeRouterLocation({
+      pathname: '/current/edit/url/',
+    });
+    const root = renderComponent({ store, editing: true, location });
+
+    const authButton = root.find(AuthenticateButton);
+    expect(authButton).toHaveProp('location', location);
+
+    // Make sure these were not rendered.
+    expect(root.find(CollectionManager)).toHaveLength(0);
+    expect(root.find('.Collection-title')).toHaveLength(0);
+    expect(root.find('.Collection-description')).toHaveLength(0);
+    expect(root.find(MetadataCard)).toHaveLength(0);
+  });
+
   describe('errorHandler - extractId', () => {
     it('returns a unique ID based on params', () => {
       const props = getProps({
@@ -613,7 +665,7 @@ describe(__filename, () => {
         location: fakeRouterLocation(),
       });
 
-      expect(extractId(props)).toEqual('foo/collection-bar/1');
+      expect(extractId(props)).toEqual('foo/collection-bar/');
     });
 
     it('adds the page as part of unique ID', () => {

@@ -67,7 +67,7 @@ export class AddonMetaBase extends React.Component<Props> {
                   className="AddonMeta-item-header"
                   rating={averageRating}
                   readOnly
-                  styleName="small"
+                  styleSize="small"
                 />
               ),
               title: i18n.gettext('Overall Rating'),

@@ -14,6 +14,7 @@ export class LinkBase extends React.Component {
     clientApp: PropTypes.string.isRequired,
     children: PropTypes.node,
     external: PropTypes.bool,
+    externalDark: PropTypes.bool,
     href: PropTypes.string,
     lang: PropTypes.string.isRequired,
     prependClientApp: PropTypes.bool,
@@ -23,6 +24,7 @@ export class LinkBase extends React.Component {
 
   static defaultProps = {
     external: false,
+    externalDark: false,
     prependClientApp: true,
     prependLang: true,
   }
@@ -49,6 +51,7 @@ export class LinkBase extends React.Component {
       clientApp,
       children,
       external,
+      externalDark,
       href,
       lang,
       prependClientApp,
@@ -58,6 +61,8 @@ export class LinkBase extends React.Component {
     } = this.props;
     const urlPrefix = this.urlPrefix({
       clientApp, lang, prependClientApp, prependLang });
+    const needsExternalIcon = externalDark || external;
+    const iconName = externalDark ? 'external-dark' : 'external';
 
     if (typeof href === 'string' && typeof to !== 'undefined') {
       throw new Error(
@@ -79,7 +84,7 @@ export class LinkBase extends React.Component {
       return (
         <a {...customProps} href={linkHref}>
           {children}
-          {external ? <Icon name="external" /> : null}
+          {needsExternalIcon ? <Icon name={iconName} /> : null}
         </a>
       );
     }
@@ -98,7 +103,7 @@ export class LinkBase extends React.Component {
     return (
       <Link {...customProps} to={linkTo}>
         {children}
-        {external ? <Icon name="external" /> : null}
+        {needsExternalIcon ? <Icon name={iconName} /> : null}
       </Link>
     );
   }

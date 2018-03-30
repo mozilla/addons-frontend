@@ -29,7 +29,6 @@ import {
   convertFiltersToQueryParams,
   hasSearchFilters,
 } from 'core/searchUtils';
-import { parsePage } from 'core/utils';
 
 import './styles.scss';
 
@@ -191,8 +190,6 @@ export class SearchBase extends React.Component {
       }
     }
 
-    const page = parsePage(filters.page);
-
     // We allow specific paginationQueryParams instead of always using
     // convertFiltersToQueryParams(filters) so certain search filters
     // aren't repeated if they are elsewhere in the URL. This is useful
@@ -209,7 +206,7 @@ export class SearchBase extends React.Component {
       <Paginate
         LinkComponent={LinkComponent}
         count={count}
-        currentPage={page}
+        currentPage={filters.page}
         pathname={pathname}
         queryParams={queryParams}
       />
@@ -254,7 +251,7 @@ export function mapStateToProps(state) {
 // This ID does not need to differentiate between component instances because
 // the error handler gets cleared every time the search filters change.
 export const extractId = (ownProps) => {
-  return parsePage(ownProps.filters.page);
+  return ownProps.filters.page;
 };
 
 export default compose(

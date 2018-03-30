@@ -31,13 +31,11 @@ type AddonFileType = {|
   url: string,
 |};
 
-export type AddonVersionType = {|
+type PartialAddonVersionType = {|
   channel: string,
   edit_url: string,
   files: Array<AddonFileType>,
   id: number,
-  // The `text` property is omitted from addon.current_version.license.
-  license: { name: string, url: string },
   reviewed: Date,
   // This is the developer-defined version number.
   // It could, for example, be set to "0".
@@ -46,12 +44,23 @@ export type AddonVersionType = {|
   version: string,
 |};
 
-export type AddonAuthorType = {|
+export type AddonVersionType = {|
+  ...PartialAddonVersionType,
+  // The `text` property is omitted from addon.current_version.license.
+  license: { name: string, url: string },
+  release_notes?: string,
+|};
+
+type PartialAddonAuthorType = {|
   id: number,
   name: string,
-  picture_url: string,
   url: string,
   username: string,
+|};
+
+export type AddonAuthorType = {|
+  ...PartialAddonAuthorType,
+  picture_url: string,
 |};
 
 export type LanguageToolType = {|
@@ -155,15 +164,24 @@ export type AddonType = {
   ...ThemeData,
   // Here are some custom properties for our internal representation.
   iconUrl?: string,
-  platformFiles: {
-    all: ?Object,
-    android: ?Object,
-    mac: ?Object,
-    linux: ?Object,
-    windows: ?Object,
-  },
+  platformFiles: {|
+    // This seems necessary to help Flow know that computed
+    // keys always return an AddonFileType.
+    [anyPlatform: string]: ?AddonFileType,
+    all: ?AddonFileType,
+    android: ?AddonFileType,
+    mac: ?AddonFileType,
+    linux: ?AddonFileType,
+    windows: ?AddonFileType,
+  |},
   isMozillaSignedExtension: boolean,
   isRestartRequired: boolean,
   isWebExtension: boolean,
   themeData?: ThemeData,
 };
+
+export type SearchResultAddonType = {|
+  ...AddonType,
+  authors?: PartialAddonAuthorType,
+  current_version?: PartialAddonVersionType,
+|};

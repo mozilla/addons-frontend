@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:31+0000\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
 "PO-Revision-Date: 2017-10-06 11:22+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
@@ -39,12 +39,12 @@ msgstr "הדף לא נמצא"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "מצטערים, אבל לא הצלחנו למצוא כלום בכתובת שהזנת."
 
-#: src/core/components/InstallButton/index.js:229
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
 msgstr "התקנת ערכת נושא"
 
-#: src/core/components/InstallButton/index.js:255
-#: src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "הוספה ל־Firefox"
 
@@ -88,43 +88,43 @@ msgstr "כעת ניתן לגשת אל %(name)s מסרגל הכלים."
 msgid "OK!"
 msgstr "בסדר!"
 
-#: src/disco/components/Addon.js:131
+#: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
 msgstr "רחפו לתצוגה מקדימה או לחצו להתקנת %(name)s"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
 msgstr "רחפו על התמונה לתצוגה מקדימה"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
 msgstr "ההתקנה נכשלה. נא לנסות שנית."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:178
 msgid "Download failed. Please check your connection."
 msgstr "ההורדה נכשלה. נא לבדוק את החיבור שלך."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:180
 msgid "An unexpected error occurred during installation."
 msgstr "אירעה שגיאה לא צפויה במהלך ההתקנה."
 
-#: src/disco/components/Addon.js:176
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "אירעה שגיאה לא צפויה במהלך הסרת ההתקנה."
 
-#: src/disco/components/Addon.js:179
+#: src/disco/components/Addon.js:185
 msgid "An unexpected error occurred."
 msgstr "אירעה שגיאה לא צפויה."
 
-#: src/disco/components/Addon.js:187
+#: src/disco/components/Addon.js:193
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "תוספת זו תוסר לאחר ש־Firefox יופעל מחדש."
 
-#: src/disco/components/Addon.js:189
+#: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
 msgstr "נא להפעיל מחדש את Firefox כדי להשתמש בתוספת זו."
 
-#: src/disco/components/Addon.js:89
+#: src/disco/components/Addon.js:95
 msgid "Close"
 msgstr "סגירה"
 

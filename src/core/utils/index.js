@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 import url from 'url';
 
-import { AllHtmlEntities } from 'html-entities';
 import config from 'config';
+import { AllHtmlEntities } from 'html-entities';
+import invariant from 'invariant';
 import * as React from 'react';
 
 import { loadAddons } from 'core/reducers/addons';
@@ -35,7 +36,6 @@ export function ngettext(singular, plural, n) {
 
 export function getClientConfig(_config) {
   const clientConfig = {};
-  // eslint-disable-next-line no-restricted-syntax
   for (const key of _config.get('clientConfigKeys')) {
     clientConfig[key] = _config.get(key);
   }
@@ -146,6 +146,11 @@ export function isAllowedOrigin(urlString, {
   return allowedOrigins.includes(`${parsedURL.protocol}//${parsedURL.host}`);
 }
 
+/*
+ * Returns a new URL with query params appended to `urlString`.
+ *
+ * `urlString` can be a relative or absolute URL.
+ */
 export function addQueryParams(urlString, queryParams = {}) {
   const urlObj = url.parse(urlString, true);
   // Clear search, since query object will only be used if search
@@ -186,6 +191,13 @@ export function getErrorComponent(status) {
     default:
       return GenericError;
   }
+}
+
+export function removeProtocolFromURL(urlWithProtocol) {
+  invariant(urlWithProtocol, 'urlWithProtocol is required');
+
+  // `//test.com` is a valid, protocol-relative URL which we'll allow.
+  return urlWithProtocol.replace(/^(https?:|)\/\//, '');
 }
 
 export function isValidLocaleUrlException(value, { _config = config } = {}) {
@@ -282,11 +294,6 @@ export function getCategoryColor(category) {
   }
 
   return category.id;
-}
-
-export function parsePage(page) {
-  const parsed = parseInt(page, 10);
-  return Number.isNaN(parsed) || parsed < 1 ? 1 : parsed;
 }
 
 export function addonHasVersionHistory(addon) {

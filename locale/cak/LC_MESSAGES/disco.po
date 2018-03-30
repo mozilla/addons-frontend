@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-02-06 19:31+0000\n"
+"POT-Creation-Date: 2018-03-08 22:45+0000\n"
 "PO-Revision-Date: 2018-02-25 16:50+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Rusachoj K'uxasamaj"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Kojakuyu', xa xk'ulwachitäj jun sachoj ruma ri' toq man xojtikïr ta xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' xtiqatikib'a'."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Kojakuyu', xa xk'ulwachitäj jun sachoj ruma ri' toq man xojtikïr ta "
+"xqatz'aqatisaj ri ak'utuxik. Xqatz'ib'aj ri sachoj chuqa' xtiqatikib'a'."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Rub'itz'ib' sachoj: %(status)s."
 
@@ -34,11 +39,12 @@ msgstr "Man xilitäj ta ruxaq"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Kojakuyu', xa xe chi majun xqïl chupam ri URL xatz'ib'aj."
 
-#: src/core/components/InstallButton/index.js:229
+#: src/core/components/InstallButton/index.js:235
 msgid "Install Theme"
 msgstr "Tiyak Wachinïk"
 
-#: src/core/components/InstallButton/index.js:255 src/core/components/InstallButton/index.js:278
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "Taya' chupam Firefox"
 
@@ -82,43 +88,43 @@ msgstr "Wakami yatikïr yatok pa %(name)s rik'in ri kikajtz'ik samajib'äl."
 msgid "OK!"
 msgstr "ÜTZ!"
 
-#: src/disco/components/Addon.js:131
+#: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
 msgstr "Tiq'asäx pa ruwi' richin nitz'et o tipitz' richin niyak %(name)s"
 
-#: src/disco/components/Addon.js:146
+#: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
 msgstr "Tiq'asäx pa ruwi' ri wachib'äl richin nitzu'"
 
-#: src/disco/components/Addon.js:170
+#: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
 msgstr "Xsach ri yakoj. Titojtob'ëx chik."
 
-#: src/disco/components/Addon.js:172
+#: src/disco/components/Addon.js:178
 msgid "Download failed. Please check your connection."
 msgstr "Xsach ri qasanïk. Tanik'oj ri awokem."
 
-#: src/disco/components/Addon.js:174
+#: src/disco/components/Addon.js:180
 msgid "An unexpected error occurred during installation."
 msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq niyak."
 
-#: src/disco/components/Addon.js:176
+#: src/disco/components/Addon.js:182
 msgid "An unexpected error occurred during uninstallation."
 msgstr "Xk'ulwachitäj jun man oyob'en ta sachoj toq nelesäx."
 
-#: src/disco/components/Addon.js:179
+#: src/disco/components/Addon.js:185
 msgid "An unexpected error occurred."
 msgstr "Man oyob'en ta re sachoj xk'ulwachitäj."
 
-#: src/disco/components/Addon.js:187
+#: src/disco/components/Addon.js:193
 msgid "This add-on will be uninstalled after you restart Firefox."
 msgstr "Re tz'aqat re' xtelesäx el chupam toq xtitikirisäx chik ri Firefox."
 
-#: src/disco/components/Addon.js:189
+#: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
 msgstr "Titikirisäx chik Firefox richin nokisäx re tz'aqat re'."
 
-#: src/disco/components/Addon.js:89
+#: src/disco/components/Addon.js:95
 msgid "Close"
 msgstr "Titz'apïx"
 
@@ -148,12 +154,18 @@ msgstr "Tawichinaj ri Firefox"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"E k'o k'ïy sipan taq tz'aqat, enuk'un kuma ajb'anonela' chijun ri ruwach'ulew chuqa' yatkito' richin nawichinaj ri Firefox. Achi'el tik'asäs wachel taq wachinïk kik'in samajib'äl chuqa' achik'anel "
-"taq samaj richin anin chuqa' jikïl yatok pa k'amaya'l. Ri taq tz'aqat yatkito' richin nawichinaj ri awokik'amaya'l, richin natikirisaj yeqachilab'ej jujun chawe ruma ri rub'eyal yesamäj chuqa' ri "
-"kisamaj."
+"E k'o k'ïy sipan taq tz'aqat, enuk'un kuma ajb'anonela' chijun ri "
+"ruwach'ulew chuqa' yatkito' richin nawichinaj ri Firefox. Achi'el tik'asäs "
+"wachel taq wachinïk kik'in samajib'äl chuqa' achik'anel taq samaj richin "
+"anin chuqa' jikïl yatok pa k'amaya'l. Ri taq tz'aqat yatkito' richin "
+"nawichinaj ri awokik'amaya'l, richin natikirisaj yeqachilab'ej jujun chawe "
+"ruma ri rub'eyal yesamäj chuqa' ri kisamaj."
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"

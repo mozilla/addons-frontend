@@ -10,6 +10,10 @@
   width: $default-icon-size;
 }
 
+@mixin permission-icon($name) {
+  @include icon($name: "permissions/#{$name}");
+}
+
 .Icon-arrow {
   @include icon($name: "arrow");
 
@@ -63,6 +67,19 @@
 
   height: 10px;
   width: 10px;
+}
+
+.Icon-external-dark,
+// The Button override is to deal with @mixin button() from Button/styles.scss
+.Button--neutral:link.Button--puffy .Icon.Icon-external-dark {
+  @include icon($name: "external-dark");
+
+  height: 10px;
+  width: 10px;
+}
+
+.Icon-anonymous-user {
+  @include icon($name: "anonymous-user");
 }
 
 .Icon-user {
@@ -173,4 +190,86 @@
 
 .Icon-x-mark {
   @include icon($name: "x-mark");
+}
+
+.Icon-requires-payment {
+  @include icon($name: "requires-payment");
+}
+
+.Icon-permission-bookmarks {
+  @include permission-icon($name: "bookmarks");
+}
+
+.Icon-permission-browserSettings,
+.Icon-permission-proxy {
+  @include permission-icon($name: "browser");
+}
+
+.Icon-permission-browsingData {
+  @include permission-icon($name: "info");
+}
+
+.Icon-permission-clipboardRead,
+.Icon-permission-clipboardWrite {
+  @include permission-icon($name: "clipboard");
+}
+
+.Icon-permission-devtools {
+  @include permission-icon($name: "dev");
+}
+
+.Icon-permission-downloads,
+.Icon-permission-downloads-open {
+  @include permission-icon($name: "downloads");
+}
+
+.Icon-permission-find {
+  @include permission-icon($name: "search");
+}
+
+.Icon-permission-geolocation {
+  @include permission-icon($name: "geolocation");
+}
+
+.Icon-permission-history {
+  @include permission-icon($name: "history");
+}
+
+.Icon-permission-management {
+  @include permission-icon($name: "settings");
+}
+
+.Icon-permission-nativeMessaging {
+  @include permission-icon($name: "messages");
+}
+
+.Icon-permission-notifications {
+  @include permission-icon($name: "notifications");
+}
+
+.Icon-permission-pkcs11 {
+  @include permission-icon($name: "cryptographic");
+}
+
+.Icon-permission-privacy,
+.Icon-permission-hostPermission {
+  @include permission-icon($name: "privacy");
+}
+
+.Icon-permission-sessions,
+.Icon-permission-tabs,
+.Icon-permission-tabHide {
+  @include permission-icon($name: "tabs");
+}
+
+.Icon-permission-topSites {
+  @include permission-icon($name: "top-sites");
+}
+
+.Icon-permission-unlimitedStorage {
+  @include permission-icon($name: "storage");
+}
+
+.Icon-permission-webNavigation {
+  @include permission-icon($name: "navigation");
 }

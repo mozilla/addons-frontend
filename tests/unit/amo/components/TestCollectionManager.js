@@ -1,33 +1,46 @@
 import * as React from 'react';
 
+import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
-  extractId, CollectionManagerBase, COLLECTION_OVERLAY,
+  extractId, CollectionManagerBase,
 } from 'amo/components/CollectionManager';
 import {
   createInternalCollection, updateCollection,
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
 import { setErrorMessage } from 'core/actions/errors';
+import { CLIENT_APP_FIREFOX } from 'core/constants';
+import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
 import {
   createFakeEvent,
+  createFakeRouter,
   createStubErrorHandler,
   fakeI18n,
   shallowUntilTarget,
+  simulateComponentCallback,
 } from 'tests/unit/helpers';
 import {
+  createFakeAutocompleteResult,
   createFakeCollectionDetail,
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
-import FormOverlay from 'ui/components/FormOverlay';
+import LoadingText from 'ui/components/LoadingText';
 
+const simulateAutoSearchCallback = (props = {}) => {
+  return simulateComponentCallback({
+    Component: AutoSearchInput, ...props,
+  });
+};
 
 describe(__filename, () => {
+  let fakeRouter;
   let store;
 
   beforeEach(() => {
+    fakeRouter = createFakeRouter();
     store = dispatchClientMetadata().store;
   });
 
@@ -35,11 +48,13 @@ describe(__filename, () => {
     collection = createInternalCollection({
       detail: createFakeCollectionDetail(),
     }),
+    router = fakeRouter,
     ...customProps
   }) => {
     return {
       collection,
       i18n: fakeI18n(),
+      router,
       store,
       ...customProps,
     };
@@ -53,21 +68,13 @@ describe(__filename, () => {
   };
 
   const simulateCancel = (root) => {
-    const form = root.find(FormOverlay);
-    expect(form).toHaveProp('onCancel');
-    const onCancel = form.prop('onCancel');
-
-    // Simulate pressing the cancel button on the form.
-    onCancel(createFakeEvent());
+    root.find('.CollectionManager-cancel')
+      .simulate('click', createFakeEvent());
   };
 
   const simulateSubmit = (root) => {
-    const form = root.find(FormOverlay);
-    expect(form).toHaveProp('onSubmit');
-    const onSubmit = form.prop('onSubmit');
-
-    // Simulate pressing the submit button on the form.
-    onSubmit(createFakeEvent());
+    // Submit the root form component.
+    root.find('.CollectionManager').simulate('submit', createFakeEvent());
   };
 
   const typeInput = ({ root, name, text }) => {
@@ -77,6 +84,21 @@ describe(__filename, () => {
       target: { name, value: text },
     }));
   };
+
+  it('renders loading text before a collection has loaded', () => {
+    const root = render({ collection: null });
+
+    expect(root.find(LoadingText)).toHaveLength(2);
+  });
+
+  it('disables the form buttons before a collection has loaded', () => {
+    const root = render({ collection: null });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', true);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
 
   it('populates the form with collection data', () => {
     const collection = createInternalCollection({
@@ -91,7 +113,7 @@ describe(__filename, () => {
     expect(root.find('#collectionName'))
       .toHaveProp('value', collection.name);
     expect(root.find('#collectionDescription'))
-      .toHaveProp('defaultValue', collection.description);
+      .toHaveProp('value', collection.description);
     expect(root.find('#collectionSlug'))
       .toHaveProp('value', collection.slug);
   });
@@ -111,7 +133,7 @@ describe(__filename, () => {
     expect(root.find('#collectionName'))
       .toHaveProp('value', decodeHtmlEntities(name));
     expect(root.find('#collectionDescription'))
-      .toHaveProp('defaultValue', decodeHtmlEntities(description));
+      .toHaveProp('value', decodeHtmlEntities(description));
   });
 
   it('does not populate form when updating to the same collection', () => {
@@ -140,7 +162,7 @@ describe(__filename, () => {
     // Make sure the internal state is preserved.
     expect(root.find('#collectionName')).toHaveProp('value', name);
     expect(root.find('#collectionDescription'))
-      .toHaveProp('defaultValue', description);
+      .toHaveProp('value', description);
     expect(root.find('#collectionSlug')).toHaveProp('value', slug);
   });
 
@@ -170,7 +192,7 @@ describe(__filename, () => {
 
     expect(root.find('#collectionName')).toHaveProp('value', 'New name');
     expect(root.find('#collectionDescription'))
-      .toHaveProp('defaultValue', 'New description');
+      .toHaveProp('value', 'New description');
     expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
   });
 
@@ -202,7 +224,6 @@ describe(__filename, () => {
       defaultLocale: collection.defaultLocale,
       description: { [lang]: description },
       errorHandlerId: errorHandler.id,
-      formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: name },
       slug,
       user: authorUsername,
@@ -258,7 +279,6 @@ describe(__filename, () => {
       defaultLocale: collection.defaultLocale,
       description: { [lang]: '' },
       errorHandlerId: root.instance().props.errorHandler.id,
-      formOverlayId: COLLECTION_OVERLAY,
       name: { [lang]: collection.name },
       slug: collection.slug,
       user: authorUsername,
@@ -307,6 +327,28 @@ describe(__filename, () => {
     sinon.assert.called(clearError);
   });
 
+  it('redirects to the detail view on cancel', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'de';
+    const localStore = dispatchClientMetadata({ clientApp, lang }).store;
+
+    const slug = 'my-collection';
+    const username = 'some-username';
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({
+        authorUsername: username, slug,
+      }),
+    });
+    const root = render({ collection, store: localStore });
+
+    simulateCancel(root);
+
+    sinon.assert.calledWith(
+      fakeRouter.push,
+      `/${lang}/${clientApp}/collections/${username}/${slug}/`
+    );
+  });
+
   it('populates form state when updating to a new collection', () => {
     const root = render({ collection: null });
 
@@ -347,6 +389,31 @@ describe(__filename, () => {
     const state = root.state();
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
+  });
+
+  it('handles searching for an add-on', () => {
+    const root = render();
+
+    const search = simulateAutoSearchCallback({
+      root, propName: 'onSearch',
+    });
+    search({ query: 'ad blocker' });
+    // TODO: test onSearch
+    // https://github.com/mozilla/addons-frontend/issues/4590
+  });
+
+  it('handles selecting an add-on', () => {
+    const root = render();
+
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+    );
+    const selectSuggestion = simulateAutoSearchCallback({
+      root, propName: 'onSuggestionSelected',
+    });
+    selectSuggestion(suggestion);
+    // TODO: test onSuggestionSelected
+    // https://github.com/mozilla/addons-frontend/issues/4590
   });
 
   describe('extractId', () => {

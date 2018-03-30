@@ -21,10 +21,14 @@
   @include font-light();
 
   font-size: $font-size-l;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 
 .Collection-description {
   font-size: $font-size-s;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 
 .Collection-author-name-value {

@@ -16,7 +16,7 @@ import { fetchAddon, getAddonBySlug } from 'core/reducers/addons';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import { parsePage, sanitizeHTML } from 'core/utils';
+import { sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import log from 'core/logger';
 import Link from 'amo/components/Link';
@@ -32,7 +32,9 @@ import type { ApiStateType } from 'core/reducers/api';
 import type { UsersStateType } from 'amo/reducers/users';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
-import type { ReactRouterLocation } from 'core/types/router';
+import type {
+  ReactRouterLocation, ReactRouterType,
+} from 'core/types/router';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
@@ -48,7 +50,7 @@ type Props = {|
   params: {| addonSlug: string |},
   reviewCount?: number,
   reviews?: Array<UserReviewType>,
-  router: Object,
+  router: ReactRouterType,
 |};
 
 export class AddonReviewListBase extends React.Component<Props> {
@@ -117,8 +119,7 @@ export class AddonReviewListBase extends React.Component<Props> {
   }
 
   getCurrentPage() {
-    const { location } = this.props;
-    return parsePage(location.query.page);
+    return this.props.location.query.page || 1;
   }
 
   onReviewSubmitted = () => {
@@ -320,7 +321,7 @@ export function mapStateToProps(state: AppState, ownProps: Props) {
 export const extractId = (ownProps: Props) => {
   const { location, params } = ownProps.router;
 
-  return `${params.addonSlug}-${parsePage(location.query.page)}`;
+  return `${params.addonSlug}-${location.query.page || ''}`;
 };
 
 export default compose(

@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import {
   ADDONS_CONTENTREVIEW,
   ADDONS_EDIT,
@@ -171,6 +173,11 @@ export const getCurrentUser = (users: UsersStateType) => {
   }
 
   return users.byID[users.currentUserID];
+};
+
+export const getUserByUsername = (users: UsersStateType, username: string) => {
+  invariant(username, 'username is required');
+  return users.byID[users.byUsername[username]];
 };
 
 export const getDisplayName = (user: ExternalUserType) => {

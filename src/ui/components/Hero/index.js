@@ -7,12 +7,13 @@ import { compose } from 'redux';
 import { setHeroBannerOrder } from 'core/reducers/heroBanners';
 import Card from 'ui/components/Card';
 import HeroSection from 'ui/components/HeroSection';
+import type { DispatchFunc } from 'core/types/redux';
 
 import './styles.scss';
 
 
 type Props = {|
-  dispatch: Function,
+  dispatch: DispatchFunc,
   heroBanners: Object,
   name: string,
   random?: boolean,

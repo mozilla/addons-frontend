@@ -64,6 +64,12 @@ export const AddonBadgesBase = (props: Props) => {
           label={i18n.gettext('Not compatible with Firefox Quantum')}
         />
       ) : null}
+      {addon.requires_payment ? (
+        <Badge
+          type="requires-payment"
+          label={i18n.gettext('Some features may require payment')}
+        />
+      ) : null}
     </div>
   );
 };

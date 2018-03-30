@@ -95,8 +95,13 @@ export class AddonCompatibilityErrorBase extends React.Component {
       ), { downloadUrl });
     }
 
+    // Make the "you should download firefox" error message less scary than
+    // the rest of them: https://github.com/mozilla/addons-frontend/issues/4547
+    const noticeType = reason === INCOMPATIBLE_NOT_FIREFOX ?
+      'success' : 'error';
+
     return (
-      <Notice type="error" className="AddonCompatibilityError">
+      <Notice type={noticeType} className="AddonCompatibilityError">
         <span dangerouslySetInnerHTML={sanitizeHTML(message, ['a'])} />
       </Notice>
     );

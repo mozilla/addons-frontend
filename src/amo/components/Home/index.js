@@ -12,7 +12,7 @@ import { fetchHomeAddons } from 'amo/reducers/home';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
+  INSTALL_SOURCE_FEATURED,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -24,9 +24,9 @@ import './styles.scss';
 
 
 export const COLLECTIONS_TO_FETCH = [
-  { slug: 're-imagine-search', user: 'mozilla' },
-  { slug: 'privacy-matters', user: 'mozilla' },
-  { slug: 'dynamic-media-downloaders', user: 'mozilla' },
+  { slug: 'social-media-customization', user: 'mozilla' },
+  { slug: 'wikipedia-boosters', user: 'mozilla' },
+  { slug: 'good-time-tabs', user: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -35,7 +35,7 @@ export class HomeBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
-    popularThemes: PropTypes.array.isRequired,
+    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
   }
@@ -156,7 +156,7 @@ export class HomeBase extends React.Component {
       errorHandler,
       collections,
       featuredExtensions,
-      popularThemes,
+      featuredThemes,
       i18n,
       resultsLoaded,
     } = this.props;
@@ -194,6 +194,58 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
+          addons={collections[0]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Social media customization')}
+          footerText={
+            i18n.gettext('See more social media customization extensions')
+          }
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[1]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Wikipedia boosters')}
+          footerText={i18n.gettext('See more Wikipedia boosters')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredThemes}
+          className="Home-FeaturedThemes"
+          header={i18n.gettext('Featured themes')}
+          footerText={i18n.gettext('See more featured themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[2]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Good time tabs')}
+          footerText={i18n.gettext('See more good time tabs extensions')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={featuredExtensions}
           className="Home-FeaturedExtensions"
           header={i18n.gettext('Featured extensions')}
@@ -205,54 +257,6 @@ export class HomeBase extends React.Component {
               featured: true,
             },
           }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={collections[0]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Re-imagine search')}
-          footerText={i18n.gettext('See more search extensions')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
-          }
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={popularThemes}
-          className="Home-PopularThemes"
-          header={i18n.gettext('Popular themes')}
-          footerText={i18n.gettext('See more popular themes')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_THEME,
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={collections[1]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Privacy tools')}
-          footerText={i18n.gettext('See more privacy tools')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
-          }
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={collections[2]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Dynamic media downloaders')}
-          footerText={i18n.gettext('See more dynamic media downloaders')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
-          }
           loading={resultsLoaded === false}
         />
 
@@ -277,7 +281,7 @@ export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
-    popularThemes: state.home.popularThemes,
+    featuredThemes: state.home.featuredThemes,
     resultsLoaded: state.home.resultsLoaded,
   };
 }
