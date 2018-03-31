@@ -14,6 +14,19 @@ $cell-padding: 6px;
 
 .LanguageTools-table {
   width: 100%;
+
+  .responsiveTable tbody tr {
+    padding-top: 0;
+  }
+
+  th,
+  td {
+    padding: $cell-padding;
+  }
+
+  td {
+    min-height: $font-size-m + (2 * $cell-padding);
+  }
 }
 
 .LanguageTools-table-row {
@@ -38,21 +51,6 @@ $cell-padding: 6px;
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.LanguageTools-table {
-  .responsiveTable tbody tr {
-    padding-top: 0;
-  }
-
-  th,
-  td {
-    padding: $cell-padding;
-  }
-
-  td {
-    min-height: $font-size-m + (2 * $cell-padding);
-  }
 }
 
 .LanguageTool-localeName {
