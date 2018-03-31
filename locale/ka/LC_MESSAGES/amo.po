@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-31 02:46+0000\n"
+"PO-Revision-Date: 2018-03-31 02:54+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -971,15 +971,15 @@ msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "ფასდაკლების კოდებისა და ბარათების ავტომატური მოძიება"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
-msgstr ""
+msgstr "SHINE for Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "გამოცადეთ Reddit საიტი განსხვავებული გაფორმებებით"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1210,9 +1210,8 @@ msgid "Access your data for sites in the %(domain)s domain"
 msgstr "%(domain)s მისამართის საიტებზე თქვენს მონაცემებთან წვდომა"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
-#, fuzzy
 msgid "Access your data in 1 other domain"
-msgstr "თქვენს მონაცემებთან წვდომა, %(count)s სხვა მისამართზე"
+msgstr "თქვენს მონაცემებთან წვდომა, 1 სხვა მისამართზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
@@ -1223,9 +1222,8 @@ msgid "Access your data for %(site)s"
 msgstr "თქვენს მონაცემებთან წვდომა %(site)s საიტებზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
-#, fuzzy
 msgid "Access your data on 1 other site"
-msgstr "თქვენს მონაცემებთან წვდომა, %(count)s სხვა საიტზე"
+msgstr "თქვენს მონაცემებთან წვდომა, 1 სხვა საიტზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
