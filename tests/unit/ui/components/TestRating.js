@@ -180,12 +180,12 @@ describe(__filename, () => {
 
   it('renders an accessible description for null stars', () => {
     const root = render({ rating: null });
-    expect(findDOMNode(root).textContent).toEqual('No ratings');
+    expect(findDOMNode(root).textContent).toEqual('Click the stars to rate this add-on');
   });
 
   it('renders an accessible description for 0 stars', () => {
     const root = render({ rating: 0 });
-    expect(findDOMNode(root).textContent).toEqual('No ratings');
+    expect(findDOMNode(root).textContent).toEqual('Click the stars to rate this add-on');
   });
 
   it('renders an accessible description for ratings', () => {
@@ -271,7 +271,7 @@ describe(__filename, () => {
     });
 
     it('renders empty ratings', () => {
-      expect(getRating({ rating: null })).toEqual('No ratings');
+      expect(getRating({ rating: null })).toEqual('Click the stars to rate this add-on');
     });
   });
 });
