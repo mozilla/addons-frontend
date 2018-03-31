@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-31 17:42+0000\n"
+"PO-Revision-Date: 2018-03-31 18:23+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -175,7 +175,7 @@ msgstr "אין תאימות ל־Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "חלק מהתכונות עשויות לדרוש תשלום"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -869,7 +869,7 @@ msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "התאמה אישית למדיה חברתית"
 
 #: src/amo/components/Home/index.js:201
 msgid "See more social media customization extensions"
@@ -969,7 +969,7 @@ msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "חיפוש אוטומטי אחר קודי קופון"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
@@ -1306,7 +1306,7 @@ msgstr "אם לדעתך משתמש זה מפר את %(linkTagStart)sמדיניו
 
 #: src/amo/components/ReportUserAbuse/index.js:121
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "נא לא להשתמש בטופס זה כדי לדווח על תקלות או כדי ליצור קשר עם משתמש זה; הדיווח שלך יישלח ל־Mozilla ולא למשתמש זה."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
