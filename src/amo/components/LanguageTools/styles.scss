@@ -12,6 +12,31 @@ $cell-padding: 6px;
   }
 }
 
+.LanguageTools-table {
+  width: 100%;
+}
+
+.LanguageTools-header-row {
+  background: $grey-30;
+}
+
+.LanguageTools-header-cell {
+  @include text-align-start();
+
+  font-size: $font-size-m;
+}
+
+.LanguageTools-addon-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// We target tags and some very specific classNames (which we tend to avoid
+// doing in our styles) because this needs to override rules set by
+// `react-super-responsive-table`, which gives us the awesome responsive
+// table used on this page but sets some unfortunate default border/padding
+// values.
 .LanguageTools-table.responsiveTable {
   tbody tr {
     border: 1px solid $grey-30;
@@ -36,22 +61,6 @@ $cell-padding: 6px;
   td {
     min-height: $font-size-m + (2 * $cell-padding);
   }
-}
-
-.LanguageTools-header-row {
-  background: $grey-30;
-}
-
-.LanguageTools-header-cell {
-  @include text-align-start();
-
-  font-size: $font-size-m;
-}
-
-.LanguageTools-addon-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .LanguageTool-localeName {
