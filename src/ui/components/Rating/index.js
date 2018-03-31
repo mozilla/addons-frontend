@@ -50,7 +50,7 @@ export class RatingBase extends React.Component {
   }
 
   renderRatings() {
-    const { readOnly } = this.props;
+    const { readOnly, i18n } = this.props;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
@@ -64,9 +64,14 @@ export class RatingBase extends React.Component {
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
+        title: rating ? i18n.sprintf(i18n.gettext(`Update your rating to %(thisRating)s out of 5.`), { thisRating }) :
+          i18n.sprintf(i18n.gettext(`Rate this add-on %(thisRating)s out of 5.`), { thisRating }),
       };
 
       if (readOnly) {
+        props.title = rating ? i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
+          { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) }) :
+          i18n.gettext(`This add-on has not been rated yet.`);
         return <div {...props} />;
       }
 
@@ -82,18 +87,11 @@ export class RatingBase extends React.Component {
   }
 
   render() {
-    const { className, i18n, rating, readOnly, styleSize, isOwner } = this.props;
+    const { className, readOnly, styleSize, isOwner } = this.props;
     if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         `styleSize=${styleSize} is not a valid value; ` +
         `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
-    }
-    let description = i18n.gettext('This add-on has no ratings.');
-    if (rating) {
-      description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-        { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
-    } else if (!readOnly) {
-      description = i18n.gettext('Click to rate this add-on');
     }
 
     const allClassNames = makeClassName(
@@ -106,11 +104,9 @@ export class RatingBase extends React.Component {
       <div
         className={allClassNames}
         ref={(ref) => { this.element = ref; }}
-        title={description}
       >
         <span className="Rating-star-group">
           {this.renderRatings()}
-          <span className="visually-hidden">{description}</span>
         </span>
       </div>
     );
