@@ -12,28 +12,29 @@ $cell-padding: 6px;
   }
 }
 
-.LanguageTools-table {
-  width: 100%;
+.LanguageTools-table.responsiveTable {
+  tbody tr {
+    border: 1px solid $grey-30;
+    border-bottom: 0;
+    padding: 0;
 
-  .responsiveTable tbody tr {
-    padding-top: 0;
+    &:nth-child(even) {
+      background: $grey-20;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $grey-30;
+    }
   }
 
   th,
   td {
+    border: 0;
     padding: $cell-padding;
   }
 
   td {
     min-height: $font-size-m + (2 * $cell-padding);
-  }
-}
-
-.LanguageTools-table-row {
-  border-bottom: 1px solid $grey-50;
-
-  &:nth-child(even) {
-    background: $grey-20;
   }
 }
 
