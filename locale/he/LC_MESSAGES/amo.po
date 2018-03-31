@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-31 17:15+0000\n"
+"PO-Revision-Date: 2018-03-31 17:42+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -516,9 +516,8 @@ msgid "Edit this collection"
 msgstr "עריכת אוסף זה"
 
 #: src/amo/components/Collection/index.js:175
-#, fuzzy
 msgid "Sign in to edit this collection"
-msgstr "עריכת אוסף זה"
+msgstr "יש להתחבר כדי לערוך אוסף זה"
 
 #: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -873,9 +872,8 @@ msgid "Social media customization"
 msgstr ""
 
 #: src/amo/components/Home/index.js:201
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "הצגת הרחבות חיפוש נוספות"
+msgstr "הצגת הרחבות נוספות להתאמה אישית למדיה חברתית"
 
 #: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
@@ -1211,9 +1209,8 @@ msgid "Access your data for sites in the %(domain)s domain"
 msgstr "גישה לכל המידע שלך עבור אתרים תחת שם המתחם %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
-#, fuzzy
 msgid "Access your data in 1 other domain"
-msgstr "גישה לכל המידע שלך ב־%(count)s שמות מתחם נוספים"
+msgstr "גישה לנתונים שלך בשם מתחם אחד נוסף"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
@@ -1224,9 +1221,8 @@ msgid "Access your data for %(site)s"
 msgstr "גישה לכל המידע עבור %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
-#, fuzzy
 msgid "Access your data on 1 other site"
-msgstr "גישה לכל המידע שלך ב־%(count)s אתרים נוספים"
+msgstr "גישה לנתונים שלך באתר אחד נוסף"
 
 #: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
