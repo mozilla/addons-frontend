@@ -39,19 +39,14 @@ export default {
     // have unique names in the error handlers.
     __filename: true,
   },
+  optimization: {
+    minimize: true,
+  },
   plugins: [
     ...getPlugins(),
     new ExtractTextPlugin({
       filename: '[name]-[contenthash].css',
       allChunks: true,
-    }),
-    // optimizations
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      comments: false,
-      compress: {
-        drop_console: true,
-      },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
     new SriPlugin({ hashFuncNames: ['sha512'] }),

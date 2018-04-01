@@ -37,7 +37,7 @@
   },
   "betterScripts": {
     "build": {
-      "command": "npm run clean && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --config webpack.prod.config.babel.js",
+      "command": "npm run clean && npm run version-check && npm run build-locales && webpack --bail --verbose --display-error-details --progress --colors --mode production --config webpack.prod.config.babel.js",
       "env": {
         "NODE_ICU_DATA": "./node_modules/full-icu",
         "NODE_PATH": "./:./src"
@@ -160,10 +160,11 @@
     "config": "1.30.0",
     "deepcopy": "0.6.3",
     "deep-eql": "3.0.1",
+    "deepcopy": "0.6.3",
     "dompurify": "1.0.2",
     "es6-error": "4.1.0",
     "express": "4.16.2",
-    "extract-text-webpack-plugin": "3.0.2",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
     "fastclick": "1.0.6",
     "full-icu": "1.2.1",
     "helmet": "3.12.0",
@@ -230,7 +231,6 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "babel-register": "^6.24.1",
-    "bundle-loader": "^0.5.5",
     "chalk": "^2.0.1",
     "cheerio": "^1.0.0-rc.2",
     "chokidar-cli": "^1.2.0",
@@ -281,14 +281,15 @@
     "stylelint-config-standard": "^17.0.0",
     "stylelint-config-suitcss": "^14.0.0",
     "supertest": "^3.0.0",
-    "svg-url-loader": "^2.0.2",
+    "svg-url-loader": "^2.3.2",
     "tmp": "^0.0.33",
     "tosource": "^1.0.0",
-    "webpack": "^4.4.0",
+    "webpack": "4.1.0",
+    "webpack-cli": "^2.0.13",
     "webpack-dev-middleware": "^1.10.2",
     "webpack-dev-server": "^3.1.1",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-subresource-integrity": "^1.0.0-rc.1"
+    "webpack-subresource-integrity": "^1.1.0-rc.4"
   },
   "snyk": true
 }
