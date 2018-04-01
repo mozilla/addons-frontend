@@ -170,7 +170,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     // https://github.com/mozilla/addons-frontend/issues/4635
     // The collectionUpdates state will handle this but it needs
     // to be hooked up the saga.
-    const formIsDisabled = (!collection || !name.trim());
+    const formIsDisabled = !collection;
+    const isNameBlank = !(name && name.trim().length);
 
     return (
       <form
@@ -254,7 +255,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           </Button>
           <Button
             buttonType="action"
-            disabled={formIsDisabled}
+            disabled={formIsDisabled || isNameBlank}
             className="CollectionManager-submit"
             type="submit"
             puffy
