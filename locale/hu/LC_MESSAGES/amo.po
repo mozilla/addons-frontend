@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-04-01 11:27+0000\n"
+"PO-Revision-Date: 2018-04-01 14:19+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -869,7 +869,7 @@ msgstr "Szabja testre a Firefox kinézetet témákkal."
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "Közösségi média testreszabása"
 
 #: src/amo/components/Home/index.js:201
 msgid "See more social media customization extensions"
@@ -957,27 +957,27 @@ msgstr "Tegye gyönyörűvé a Wikipédiát"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Fekete menü a Google-höz"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Egyszerű legördülő menüs elérés a Google szolgáltatásaihoz, mint a Kereső vagy a Fordító"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
-msgstr ""
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "Automatikusan kuponkódokat keres"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
-msgstr ""
+msgstr "SHINE for Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "Tapasztalja meg a Redditet alternatív megjelenítésekkel"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
