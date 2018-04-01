@@ -82,7 +82,10 @@ export default function makeClient(
   try {
     if (locale !== langToLocale(config.get('defaultLang'))) {
       // eslint-disable-next-line max-len, global-require, import/no-dynamic-require
-      require(`bundle-loader?name=[name]-i18n-[folder]!../../locale/${locale}/${appName}.js`)(renderApp);
+      // 
+      const localeData = import(/* webpackChunkName: "${appName}-i18n-${locale}" */`../../locale/${locale}/${appName}.js`).then(() => {
+        renderApp(localeData);
+      });
     } else {
       renderApp({});
     }
