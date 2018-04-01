@@ -15,7 +15,7 @@ describe('ReviewGuide', () => {
   it('outputs an review guide page', () => {
     const root = render();
     expect(root).toHaveClassName('StaticPage');
-    expect(root.find('#review-guide')).toBePresent();
+    expect(root.find('#review-guide')).toExist();
   });
 });
 

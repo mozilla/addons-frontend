@@ -15,7 +15,7 @@ describe('About', () => {
   it('outputs an about page', () => {
     const root = render();
     expect(root).toHaveClassName('StaticPage');
-    expect(root.find('#about')).toBePresent();
+    expect(root.find('#about')).toExist();
   });
 });
 
