@@ -256,6 +256,16 @@ describe(__filename, () => {
     }));
   });
 
+  it('disables submit button when the name is blank', () => {
+    const root = render();
+
+    // Enter in a blank collection name.
+    typeInput({ root, name: 'name', text: '' });
+
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
   it('allows a blank description', () => {
     const authorUsername = 'collection-owner';
     const lang = 'en-US';

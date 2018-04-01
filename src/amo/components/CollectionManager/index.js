@@ -156,6 +156,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   render() {
     const { collection, errorHandler, i18n, siteLang } = this.props;
+    const { name } = this.state;
 
     let collectionUrlPrefix = '';
     if (collection && siteLang) {
@@ -169,7 +170,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     // https://github.com/mozilla/addons-frontend/issues/4635
     // The collectionUpdates state will handle this but it needs
     // to be hooked up the saga.
-    const formIsDisabled = !collection;
+    const formIsDisabled = (!collection || !name.trim());
 
     return (
       <form
