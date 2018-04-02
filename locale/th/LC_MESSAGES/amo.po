@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-04-02 18:30+0000\n"
+"PO-Revision-Date: 2018-04-02 18:31+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -550,7 +550,6 @@ msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: src/amo/components/CollectionManager/index.js:261
-#, fuzzy
 msgid "Save Collection"
 msgstr "บันทึกชุดสะสม"
 
@@ -1755,9 +1754,8 @@ msgid "User since"
 msgstr "ผู้ใช้"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "ส่วนเสริมยอดนิยม"
+msgstr "จำนวนส่วนเสริม"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
