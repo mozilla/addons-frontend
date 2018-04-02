@@ -262,6 +262,8 @@ describe(__filename, () => {
     // Enter in a blank collection name.
     typeInput({ root, name: 'name', text: '' });
 
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
     expect(root.find('.CollectionManager-submit'))
       .toHaveProp('disabled', true);
   });
