@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-04-02 17:42+0000\n"
+"PO-Revision-Date: 2018-04-02 18:10+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1201,35 +1201,35 @@ msgstr "จัดเก็บข้อมูลฝั่งลูกข่าย
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "เข้าถึงกิจกรรมของเบราว์เซอร์ระหว่างการนำทาง"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณสำหรับเว็บไซต์ทั้งหมด"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณสำหรับไซต์ในโดเมน %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access your data in 1 other domain"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน 1 โดเมนอื่น"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน %(count)s โดเมนอื่น ๆ"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on 1 other site"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน 1 ไซต์อื่น"
 
 #: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน %(count)s ไซต์อื่น ๆ"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
