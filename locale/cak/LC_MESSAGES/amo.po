@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-04-02 20:21+0000\n"
+"PO-Revision-Date: 2018-04-02 20:39+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -519,9 +519,8 @@ msgid "Edit this collection"
 msgstr "Tinuk' re mol re'"
 
 #: src/amo/components/Collection/index.js:175
-#, fuzzy
 msgid "Sign in to edit this collection"
-msgstr "Tinuk' re mol re'"
+msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
 
 #: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -556,9 +555,8 @@ msgid "Cancel"
 msgstr "Tiq'at"
 
 #: src/amo/components/CollectionManager/index.js:261
-#, fuzzy
 msgid "Save Collection"
-msgstr "Tiyak ri mol"
+msgstr "Tiyak ri Mol"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -881,9 +879,8 @@ msgid "Social media customization"
 msgstr "Richinaxik k'amawinaqil"
 
 #: src/amo/components/Home/index.js:201
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "Ketz'et ch'aqa' chik taq kik'amal jeb'ël kiq'ijul taq ruwi'"
+msgstr "Ketz'et ch'aqa' chik taq k'amal yekichinaj taq k'amawinaqil"
 
 #: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
@@ -1218,9 +1215,8 @@ msgid "Access your data for sites in the %(domain)s domain"
 msgstr "Katok pa ri taq atzij richin ri taq ruxaq k'amaya'l pa %(domain)s ajk'amal"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
-#, fuzzy
 msgid "Access your data in 1 other domain"
-msgstr "Katok pa ri atzij pa %(count)s juley chik ajk'amal"
+msgstr "Katok pan atzij pa 1 chik ajk'amal"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
@@ -1231,9 +1227,8 @@ msgid "Access your data for %(site)s"
 msgstr "Katok pa taq atzij richin %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
-#, fuzzy
 msgid "Access your data on 1 other site"
-msgstr "Katok pa ri atzij pa %(count)s juley chik ruxaq"
+msgstr "Katok pan atzij pa 1chik ruxaq"
 
 #: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
