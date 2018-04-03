@@ -1,4 +1,5 @@
 @import "~core/css/inc/vars";
+@import "~core/css/inc/mixins";
 
 .ShowMoreCard-contents {
   &::after {
@@ -25,5 +26,23 @@
     }
 
     max-height: none;
+  }
+}
+
+.AddonDescription {
+  .ShowMoreCard-contents {
+    @include respond-to(large) {
+      &::after {
+        height: 0;
+      }
+
+      max-height: none;
+    }
+  }
+
+  .Card-footer-link {
+    @include respond-to(large) {
+      display: none;
+    }
   }
 }
