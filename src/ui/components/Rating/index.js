@@ -92,7 +92,7 @@ export class RatingBase extends React.Component {
         `styleSize=${styleSize} is not a valid value; ` +
         `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
     }
-    let description;
+    let description = i18n.gettext('This add-on has no ratings.');
     if (rating) {
       description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
         { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });

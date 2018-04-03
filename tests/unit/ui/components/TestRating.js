@@ -190,7 +190,7 @@ describe(__filename, () => {
 
   it('renders nothing if no rating and readOnly', () => {
     const root = render({ rating: null, readOnly: true });
-    expect(findDOMNode(root).textContent).toEqual('');
+    expect(findDOMNode(root).textContent).toEqual('This add-on has no ratings.');
   });
 
   it('renders an accessible description for ratings', () => {
