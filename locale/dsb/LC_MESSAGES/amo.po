@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-03 20:51+0000\n"
+"PO-Revision-Date: 2018-04-03 20:53+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1235,9 +1235,9 @@ msgstr "Mějśo pśistup na swóje daty za %(site)s"
 msgid "Access your data on %(count)s other site"
 msgid_plural "Access your data on %(count)s other sites"
 msgstr[0] "Mějśo pśistup na swóje daty na %(count)s drugem websedle"
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[1] "Mějśo pśistup na swóje daty na %(count)s drugima websedłoma"
+msgstr[2] "Mějśo pśistup na swóje daty na %(count)s drugich websedłach"
+msgstr[3] "Mějśo pśistup na swóje daty na %(count)s drugich websedłach"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1442,9 +1442,8 @@ msgid "Extension"
 msgstr "Rozšyrjenje"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Pytańske rědy"
+msgstr "Pytański rěd"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1928,14 +1927,12 @@ msgid "Toggle contents"
 msgstr "Wopśimjeśe pśešaltowaś"
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Click to rate this add-on"
-msgstr "Pśizjawśo se, aby toś ten dodank pógódnośił"
+msgstr "Klikniśo, aby toś ten dodank pógódnośił"
 
 #: src/ui/components/Rating/index.js:95
-#, fuzzy
 msgid "This add-on has no ratings."
-msgstr "Toś ten dodank móžo:"
+msgstr "Toś ten dodank njama pógódnośenja."
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
