@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"POT-Creation-Date: 2018-04-03 18:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,114 +38,74 @@ msgid "Add to…"
 msgstr "…oʇ pp∀"
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Add to collection"
 msgstr "uoıʇɔǝʅʅoɔ oʇ pp∀"
 
-#: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "ʍǝıʌǝɹd ʅǝɔuɐↃ"
-
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "ʍǝıʌǝɹd oʇ dɐ⊥"
 
-#: src/amo/components/Addon/index.js:240
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "ʍǝıʌǝɹd ʅǝɔuɐↃ"
+
+#: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ".pǝɥsıʅqnd uǝǝq ǝʌɐɥ suoısɹǝʌ ou ǝsnɐɔǝq pǝʇɐɹ ǝq ʇouuɐɔ uo-ppɐ sıɥ⊥"
 
-#: src/amo/components/Addon/index.js:249
+#: src/amo/components/Addon/index.js:230
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "ʍǝıʌǝɹ %(count)s pɐǝᴚ"
 msgstr[1] "sʍǝıʌǝɹ %(count)s ʅʅɐ pɐǝᴚ"
 
-#: src/amo/components/Addon/index.js:265
+#: src/amo/components/Addon/index.js:246
 msgid "No reviews yet"
 msgstr "ʇǝʎ sʍǝıʌǝɹ oN"
 
-#: src/amo/components/Addon/index.js:274
+#: src/amo/components/Addon/index.js:255
 msgid "Rate your experience"
 msgstr "ǝɔuǝıɹǝdxǝ ɹnoʎ ǝʇɐᴚ"
 
-#: src/amo/components/Addon/index.js:292
+#: src/amo/components/Addon/index.js:273
 msgid "About this dictionary"
 msgstr "ʎɹɐuoıʇɔıp sıɥʇ ʇnoq∀"
 
-#: src/amo/components/Addon/index.js:295
+#: src/amo/components/Addon/index.js:276
 msgid "About this extension"
 msgstr "uoısuǝʇxǝ sıɥʇ ʇnoq∀"
 
-#: src/amo/components/Addon/index.js:298
+#: src/amo/components/Addon/index.js:279
 msgid "About this language pack"
 msgstr "ʞɔɐd ǝƃɐnƃuɐʅ sıɥʇ ʇnoq∀"
 
-#: src/amo/components/Addon/index.js:301
+#: src/amo/components/Addon/index.js:282
 msgid "About this search plugin"
 msgstr "uıƃnʅd ɥɔɹɐǝs sıɥʇ ʇnoq∀"
 
-#: src/amo/components/Addon/index.js:304
+#: src/amo/components/Addon/index.js:285
 msgid "About this theme"
 msgstr "ǝɯǝɥʇ sıɥʇ ʇnoq∀"
 
-#: src/amo/components/Addon/index.js:307
+#: src/amo/components/Addon/index.js:288
 msgid "About this add-on"
 msgstr "uo-ppɐ sıɥʇ ʇnoq∀"
 
-#: src/amo/components/Addon/index.js:346
+#: src/amo/components/Addon/index.js:327
 msgid "Release notes for %(addonVersion)s"
 msgstr "%(addonVersion)s ɹoɟ sǝʇou ǝsɐǝʅǝᴚ"
 
-#: src/amo/components/Addon/index.js:375
-msgid "More dictionaries by %(author)s"
-msgstr "%(author)s ʎq sǝıɹɐuoıʇɔıp ǝɹoW"
-
-#: src/amo/components/Addon/index.js:378
-msgid "More dictionaries by these translators"
-msgstr "sɹoʇɐʅsuɐɹʇ ǝsǝɥʇ ʎq sǝıɹɐuoıʇɔıp ǝɹoW"
-
-#: src/amo/components/Addon/index.js:385
-msgid "More extensions by %(author)s"
-msgstr "%(author)s ʎq suoısuǝʇxǝ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:388
-msgid "More extensions by these developers"
-msgstr "sɹǝdoʅǝʌǝp ǝsǝɥʇ ʎq suoısuǝʇxǝ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:395
-msgid "More language packs by %(author)s"
-msgstr "%(author)s ʎq sʞɔɐd ǝƃɐnƃuɐʅ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:398
-msgid "More language packs by these translators"
-msgstr "sɹoʇɐʅsuɐɹʇ ǝsǝɥʇ ʎq sʞɔɐd ǝƃɐnƃuɐʅ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:405
-msgid "More themes by %(author)s"
-msgstr "%(author)s ʎq sǝɯǝɥʇ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:408
-msgid "More themes by these artists"
-msgstr "sʇsıʇɹɐ ǝsǝɥʇ ʎq sǝɯǝɥʇ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:415
-msgid "More add-ons by %(author)s"
-msgstr "%(author)s ʎq suo-ppɐ ǝɹoW"
-
-#: src/amo/components/Addon/index.js:418
-msgid "More add-ons by these developers"
-msgstr "sɹǝdoʅǝʌǝp ǝsǝɥʇ ʎq suo-ppɐ ǝɹoW"
-
 # Example: The Add-On <span>by The Author</span>
-#: src/amo/components/Addon/index.js:498
+#: src/amo/components/Addon/index.js:401
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(startSpan)s%(authorList)s ʎq%(endSpan)s %(addonName)s"
 
-#: src/amo/components/Addon/index.js:572
+#: src/amo/components/Addon/index.js:475
 msgid "Extension Metadata"
 msgstr "ɐʇɐpɐʇǝW uoısuǝʇxƎ"
 
-#: src/amo/components/Addon/index.js:590
+#: src/amo/components/Addon/index.js:500
 msgid "Screenshots"
 msgstr "sʇoɥsuǝǝɹɔS"
 
@@ -429,6 +389,46 @@ msgstr "ʍǝıʌǝɹ ʎɯ ʇıpƎ"
 msgid "Reply to this review"
 msgstr "ʍǝıʌǝɹ sıɥʇ oʇ ʎʅdǝᴚ"
 
+#: src/amo/components/AddonsByAuthorsCard/index.js:117
+msgid "More dictionaries by %(author)s"
+msgstr "%(author)s ʎq sǝıɹɐuoıʇɔıp ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:120
+msgid "More dictionaries by these translators"
+msgstr "sɹoʇɐʅsuɐɹʇ ǝsǝɥʇ ʎq sǝıɹɐuoıʇɔıp ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:127
+msgid "More extensions by %(author)s"
+msgstr "%(author)s ʎq suoısuǝʇxǝ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:130
+msgid "More extensions by these developers"
+msgstr "sɹǝdoʅǝʌǝp ǝsǝɥʇ ʎq suoısuǝʇxǝ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:137
+msgid "More language packs by %(author)s"
+msgstr "%(author)s ʎq sʞɔɐd ǝƃɐnƃuɐʅ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:140
+msgid "More language packs by these translators"
+msgstr "sɹoʇɐʅsuɐɹʇ ǝsǝɥʇ ʎq sʞɔɐd ǝƃɐnƃuɐʅ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:147
+msgid "More themes by %(author)s"
+msgstr "%(author)s ʎq sǝɯǝɥʇ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:150
+msgid "More themes by these artists"
+msgstr "sʇsıʇɹɐ ǝsǝɥʇ ʎq sǝɯǝɥʇ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:157
+msgid "More add-ons by %(author)s"
+msgstr "%(author)s ʎq suo-ppɐ ǝɹoW"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:160
+msgid "More add-ons by these developers"
+msgstr "sɹǝdoʅǝʌǝp ǝsǝɥʇ ʎq suo-ppɐ ǝɹoW"
+
 #: src/amo/components/App/index.js:203
 #: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -588,28 +588,28 @@ msgstr "ɹoʇɐǝɹↃ"
 msgid "Collection name cannot be blank"
 msgstr "ʞuɐʅq ǝq ʇouuɐɔ ǝɯɐu uoıʇɔǝʅʅoↃ"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:186
 msgid "Collection name"
 msgstr "ǝɯɐu uoıʇɔǝʅʅoↃ"
 
-#: src/amo/components/CollectionManager/index.js:196
+#: src/amo/components/CollectionManager/index.js:198
 msgid "Description"
 msgstr "uoıʇdıɹɔsǝᗡ"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:209
 msgid "Custom URL"
 msgstr "⅂ᴚ∩ ɯoʇsnↃ"
 
-#: src/amo/components/CollectionManager/index.js:233
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Find an add-on to include in this collection"
 msgstr "uoıʇɔǝʅʅoɔ sıɥʇ uı ǝpnʅɔuı oʇ uo-ppɐ uɐ puıℲ"
 
-#: src/amo/components/CollectionManager/index.js:252
+#: src/amo/components/CollectionManager/index.js:254
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "ʅǝɔuɐↃ"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:263
 #, fuzzy
 msgid "Save Collection"
 msgstr "uoıʇɔǝʅʅoɔ ǝʌɐS"
@@ -1346,27 +1346,23 @@ msgstr "sǝʇısqǝʍ ʅʅɐ ɹoɟ ɐʇɐp ɹnoʎ ssǝɔɔ∀"
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "uıɐɯop %(domain)s ǝɥʇ uı sǝʇıs ɹoɟ ɐʇɐp ɹnoʎ ssǝɔɔ∀"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
+#: src/amo/components/PermissionsCard/permissions.js:57
 #, fuzzy
-msgid "Access your data in 1 other domain"
-msgstr "suıɐɯop ɹǝɥʇo %(count)s uı ɐʇɐp ɹnoʎ ssǝɔɔ∀"
+msgid "Access your data in %(count)s other domain"
+msgid_plural "Access your data in %(count)s other domains"
+msgstr[0] "suıɐɯop ɹǝɥʇo %(count)s uı ɐʇɐp ɹnoʎ ssǝɔɔ∀"
+msgstr[1] "suıɐɯop ɹǝɥʇo %(count)s uı ɐʇɐp ɹnoʎ ssǝɔɔ∀"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
-msgid "Access your data in %(count)s other domains"
-msgstr "suıɐɯop ɹǝɥʇo %(count)s uı ɐʇɐp ɹnoʎ ssǝɔɔ∀"
-
-#: src/amo/components/PermissionsCard/permissions.js:68
+#: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
 msgstr "%(site)s ɹoɟ ɐʇɐp ɹnoʎ ssǝɔɔ∀"
 
-#: src/amo/components/PermissionsCard/permissions.js:74
+#: src/amo/components/PermissionsCard/permissions.js:70
 #, fuzzy
-msgid "Access your data on 1 other site"
-msgstr "sǝʇıs ɹǝɥʇo %(count)s uo ɐʇɐp ɹnoʎ ssǝɔɔ∀"
-
-#: src/amo/components/PermissionsCard/permissions.js:76
-msgid "Access your data on %(count)s other sites"
-msgstr "sǝʇıs ɹǝɥʇo %(count)s uo ɐʇɐp ɹnoʎ ssǝɔɔ∀"
+msgid "Access your data on %(count)s other site"
+msgid_plural "Access your data on %(count)s other sites"
+msgstr[0] "sǝʇıs ɹǝɥʇo %(count)s uo ɐʇɐp ɹnoʎ ssǝɔɔ∀"
+msgstr[1] "sǝʇıs ɹǝɥʇo %(count)s uo ɐʇɐp ɹnoʎ ssǝɔɔ∀"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1578,68 +1574,73 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "punoɟ uo-ppɐ %(count)s"
 msgstr[1] "punoɟ suo-ppɐ %(count)s"
 
-#: src/amo/components/SearchFilters/index.js:101
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:104
+#: src/amo/components/SearchFilters/index.js:115
 msgid "All"
 msgstr "ʅʅ∀"
 
-#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:105
 msgid "Extension"
 msgstr "uoısuǝʇxƎ"
 
-#: src/amo/components/SearchFilters/index.js:103
+#: src/amo/components/SearchFilters/index.js:106
+#, fuzzy
+msgid "Search Tool"
+msgstr "sʅoo⊥ ɥɔɹɐǝS"
+
+#: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
 msgstr "ǝɯǝɥ⊥"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:116
 msgid "Windows"
 msgstr "sʍopuıＭ"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:117
 msgid "macOS"
 msgstr "SOɔɐɯ"
 
-#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:118
 msgid "Linux"
 msgstr "xnuı⅂"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Relevance"
 msgstr "ǝɔuɐʌǝʅǝᴚ"
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Recently Updated"
 msgstr "pǝʇɐpd∩ ʎʅʇuǝɔǝᴚ"
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Most Users"
 msgstr "sɹǝs∩ ʇsoW"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Top Rated"
 msgstr "pǝʇɐᴚ do⊥"
 
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:130
 msgid "Trending"
 msgstr "ƃuıpuǝɹ⊥"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Filter results"
 msgstr "sʇʅnsǝɹ ɹǝʇʅıℲ"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Sort by"
 msgstr "ʎq ʇɹoS"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Add-on Type"
 msgstr "ǝdʎ⊥ uo-pp∀"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:189
 msgid "Operating System"
 msgstr "ɯǝʇsʎS ƃuıʇɐɹǝdO"
 
-#: src/amo/components/SearchFilters/index.js:211
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Featured add-ons only"
 msgstr "ʎʅuo suo-ppɐ pǝɹnʇɐǝℲ"
 
@@ -2171,8 +2172,14 @@ msgid "Toggle contents"
 msgstr "sʇuǝʇuoɔ ǝʅƃƃo⊥"
 
 #: src/ui/components/Rating/index.js:100
-msgid "No ratings"
-msgstr "sƃuıʇɐɹ oN"
+#, fuzzy
+msgid "Click to rate this add-on"
+msgstr "uo-ppɐ sıɥʇ ǝʇɐɹ oʇ uı ƃo⅂"
+
+#: src/ui/components/Rating/index.js:95
+#, fuzzy
+msgid "This add-on has no ratings."
+msgstr ":uɐɔ uo-ppɐ sıɥ⊥"
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
@@ -2181,6 +2188,17 @@ msgstr "5 ɟo ʇno %(rating)s pǝʇɐᴚ"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "ǝɹoɯ pɐǝᴚ <span class=\"visually-hidden\">oʇ puɐdxƎ</span>"
+
+#, fuzzy
+#~ msgid "Access your data in 1 other domain"
+#~ msgstr "suıɐɯop ɹǝɥʇo %(count)s uı ɐʇɐp ɹnoʎ ssǝɔɔ∀"
+
+#, fuzzy
+#~ msgid "Access your data on 1 other site"
+#~ msgstr "sǝʇıs ɹǝɥʇo %(count)s uo ɐʇɐp ɹnoʎ ssǝɔɔ∀"
+
+#~ msgid "No ratings"
+#~ msgstr "sƃuıʇɐɹ oN"
 
 #~ msgid "Saving collection"
 #~ msgstr "uoıʇɔǝʅʅoɔ ƃuıʌɐS"

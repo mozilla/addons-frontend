@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"POT-Creation-Date: 2018-04-03 18:14+0000\n"
 "PO-Revision-Date: 2018-04-02 18:31+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,112 +39,73 @@ msgstr "เพิ่มไปยัง %(collectionName)s แล้ว"
 msgid "Add to…"
 msgstr "เพิ่มไปยัง…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/AddAddonToCollection/index.js:252
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Add to collection"
 msgstr "เพิ่มไปยังชุดสะสม"
 
-#: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "ยกเลิกการแสดงตัวอย่าง"
-
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "แตะเพื่อแสดงตัวอย่าง"
 
-#: src/amo/components/Addon/index.js:240
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "ยกเลิกการแสดงตัวอย่าง"
+
+#: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:249
+#: src/amo/components/Addon/index.js:230
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "อ่าน %(count)s บทวิจารณ์ทั้งหมด"
 
-#: src/amo/components/Addon/index.js:265
+#: src/amo/components/Addon/index.js:246
 msgid "No reviews yet"
 msgstr "ยังไม่มีบทวิจารณ์"
 
-#: src/amo/components/Addon/index.js:274
+#: src/amo/components/Addon/index.js:255
 msgid "Rate your experience"
 msgstr "ให้คะแนนประสบการณ์ของคุณ"
 
-#: src/amo/components/Addon/index.js:292
+#: src/amo/components/Addon/index.js:273
 msgid "About this dictionary"
 msgstr "เกี่ยวกับพจนานุกรมนี้"
 
-#: src/amo/components/Addon/index.js:295
+#: src/amo/components/Addon/index.js:276
 msgid "About this extension"
 msgstr "เกี่ยวกับส่วนขยายนี้"
 
-#: src/amo/components/Addon/index.js:298
+#: src/amo/components/Addon/index.js:279
 msgid "About this language pack"
 msgstr "เกี่ยวกับชุดภาษานี้"
 
-#: src/amo/components/Addon/index.js:301
+#: src/amo/components/Addon/index.js:282
 msgid "About this search plugin"
 msgstr "เกี่ยวกับปลั๊กอินการค้นหานี้"
 
-#: src/amo/components/Addon/index.js:304
+#: src/amo/components/Addon/index.js:285
 msgid "About this theme"
 msgstr "เกี่ยวกับชุดตกแต่งนี้"
 
-#: src/amo/components/Addon/index.js:307
+#: src/amo/components/Addon/index.js:288
 msgid "About this add-on"
 msgstr "เกี่ยวกับส่วนเสริมนี้"
 
-#: src/amo/components/Addon/index.js:346
+#: src/amo/components/Addon/index.js:327
 msgid "Release notes for %(addonVersion)s"
 msgstr "บันทึกประจำรุ่นสำหรับ %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:375
-msgid "More dictionaries by %(author)s"
-msgstr "พจนานุกรมเพิ่มเติมโดย %(author)s"
-
-#: src/amo/components/Addon/index.js:378
-msgid "More dictionaries by these translators"
-msgstr "พจนานุกรมเพิ่มเติมโดยผู้แปลเหล่านี้"
-
-#: src/amo/components/Addon/index.js:385
-msgid "More extensions by %(author)s"
-msgstr "ส่วนขยายเพิ่มเติมโดย %(author)s"
-
-#: src/amo/components/Addon/index.js:388
-msgid "More extensions by these developers"
-msgstr "ส่วนขยายเพิ่มเติมโดยนักพัฒนาเหล่านี้"
-
-#: src/amo/components/Addon/index.js:395
-msgid "More language packs by %(author)s"
-msgstr "ชุดภาษาเพิ่มเติมโดย %(author)s"
-
-#: src/amo/components/Addon/index.js:398
-msgid "More language packs by these translators"
-msgstr "ชุดภาษาเพิ่มเติมโดยผู้แปลเหล่านี้"
-
-#: src/amo/components/Addon/index.js:405
-msgid "More themes by %(author)s"
-msgstr "ชุดตกแต่งเพิ่มเติมโดย %(author)s"
-
-#: src/amo/components/Addon/index.js:408
-msgid "More themes by these artists"
-msgstr "ชุดตกแต่งเพิ่มเติมโดยศิลปินเหล่านี้"
-
-#: src/amo/components/Addon/index.js:415
-msgid "More add-ons by %(author)s"
-msgstr "ส่วนเสริมเพิ่มเติมโดย %(author)s"
-
-#: src/amo/components/Addon/index.js:418
-msgid "More add-ons by these developers"
-msgstr "ส่วนเสริมเพิ่มเติมโดยนักพัฒนาเหล่านี้"
-
-#: src/amo/components/Addon/index.js:498
+#: src/amo/components/Addon/index.js:401
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:572
+#: src/amo/components/Addon/index.js:475
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/components/Addon/index.js:590
+#: src/amo/components/Addon/index.js:500
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 
@@ -177,8 +138,11 @@ msgid "Some features may require payment"
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
-msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "คุณจำเป็นต้อง <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
+msgid ""
+"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
+"add-on."
+msgstr ""
+"คุณจำเป็นต้อง <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
 msgid "This add-on is not compatible with your version of Firefox."
@@ -197,12 +161,20 @@ msgid "This add-on is not available on your platform."
 msgstr "ส่วนเสริมนี้ไม่พร้อมใช้งานบนแพลตฟอร์มของคุณ"
 
 #: src/amo/components/AddonCompatibilityError/index.js:78
-msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
-msgstr "ส่วนเสริมนี้ต้องการ <a href=\"%(downloadUrl)s\">Firefox รุ่นใหม่กว่า</a> (ขั้นต่ำรุ่น %(minVersion)s) คุณกำลังใช้ Firefox %(yourVersion)s"
+msgid ""
+"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
+"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgstr ""
+"ส่วนเสริมนี้ต้องการ <a href=\"%(downloadUrl)s\">Firefox รุ่นใหม่กว่า</a> (ขั้นต่ำรุ่น "
+"%(minVersion)s) คุณกำลังใช้ Firefox %(yourVersion)s"
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
-msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
-msgstr "เบราว์เซอร์ของคุณไม่รองรับส่วนเสริม คุณสามารถ <a href=\"%(downloadUrl)s\">ดาวน์โหลด Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
+msgid ""
+"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
+"\">download Firefox</a> to install this add-on."
+msgstr ""
+"เบราว์เซอร์ของคุณไม่รองรับส่วนเสริม คุณสามารถ <a href=\"%(downloadUrl)s\">ดาวน์โหลด "
+"Firefox</a> เพื่อติดตั้งส่วนเสริมนี้"
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
@@ -267,7 +239,8 @@ msgstr "ลิงก์ส่วนเสริม"
 msgid "Version"
 msgstr "รุ่น"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:197
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "อัปเดตล่าสุด"
 
@@ -295,7 +268,8 @@ msgstr "สถิติการใช้งาน"
 msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
-#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:46
+#: src/amo/components/UserProfile/index.js:109
 msgid "Homepage"
 msgstr "หน้าแรก"
 
@@ -312,19 +286,26 @@ msgid "Visit stats dashboard"
 msgstr "เยี่ยมชมแดชบอร์ดสถิติ"
 
 #: src/amo/components/AddonReview/index.js:169
-msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม! โปรดปฏิบัติตาม %(linkStart)sคู่มือบทวิจารณ์%(linkEnd)s ของเรา"
+msgid ""
+"Tell the world why you think this extension is fantastic! Please follow our "
+"%(linkStart)sreview guidelines%(linkEnd)s."
+msgstr ""
+"บอกให้โลกรู้ว่าทำไมคุณจึงคิดว่าส่วนขยายนี้ยอดเยี่ยม! โปรดปฏิบัติตาม %(linkStart)sคู่มือบทวิจารณ์"
+"%(linkEnd)s ของเรา"
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:177
-msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+msgid ""
+"Tell the world about this extension. Please follow our %(linkStart)sreview "
+"guidelines%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:181
-msgid "Tell us about your experience with this extension. Be specific and concise."
+msgid ""
+"Tell us about your experience with this extension. Be specific and concise."
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:197
@@ -400,7 +381,48 @@ msgstr "แก้ไขบทวิจารณ์ของฉัน"
 msgid "Reply to this review"
 msgstr "ตอบกลับบทวิจารณ์นี้"
 
-#: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:117
+msgid "More dictionaries by %(author)s"
+msgstr "พจนานุกรมเพิ่มเติมโดย %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:120
+msgid "More dictionaries by these translators"
+msgstr "พจนานุกรมเพิ่มเติมโดยผู้แปลเหล่านี้"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:127
+msgid "More extensions by %(author)s"
+msgstr "ส่วนขยายเพิ่มเติมโดย %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:130
+msgid "More extensions by these developers"
+msgstr "ส่วนขยายเพิ่มเติมโดยนักพัฒนาเหล่านี้"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:137
+msgid "More language packs by %(author)s"
+msgstr "ชุดภาษาเพิ่มเติมโดย %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:140
+msgid "More language packs by these translators"
+msgstr "ชุดภาษาเพิ่มเติมโดยผู้แปลเหล่านี้"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:147
+msgid "More themes by %(author)s"
+msgstr "ชุดตกแต่งเพิ่มเติมโดย %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:150
+msgid "More themes by these artists"
+msgstr "ชุดตกแต่งเพิ่มเติมโดยศิลปินเหล่านี้"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:157
+msgid "More add-ons by %(author)s"
+msgstr "ส่วนเสริมเพิ่มเติมโดย %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:160
+msgid "More add-ons by these developers"
+msgstr "ส่วนเสริมเพิ่มเติมโดยนักพัฒนาเหล่านี้"
+
+#: src/amo/components/App/index.js:203
+#: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "ส่วนเสริมสำหรับ Firefox"
 
@@ -408,7 +430,8 @@ msgstr "ส่วนเสริมสำหรับ Firefox"
 msgid "%s – Add-ons for Firefox"
 msgstr "%s – ส่วนเสริมสำหรับ Firefox"
 
-#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:137
+#: src/amo/components/App/index.js:207
+#: src/amo/components/SectionLinks/index.js:137
 msgid "Add-ons for Android"
 msgstr "ส่วนเสริมสำหรับ Android"
 
@@ -424,7 +447,8 @@ msgstr "กำลังโหลด"
 msgid "Find add-ons"
 msgstr "ค้นหาส่วนเสริม"
 
-#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "ค้นหา"
 
@@ -440,59 +464,85 @@ msgstr "หมวดหมู่"
 msgid "Loading categories."
 msgstr "กำลังโหลดหมวดหมู่"
 
-#: src/amo/components/Category/index.js:131 src/amo/components/LandingPage/index.js:205 src/amo/components/SectionLinks/index.js:84
+#: src/amo/components/Category/index.js:131
+#: src/amo/components/LandingPage/index.js:205
+#: src/amo/components/SectionLinks/index.js:84
 msgid "Extensions"
 msgstr "ส่วนขยาย"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132
+#: src/amo/components/Home/index.js:251
+#: src/amo/components/LandingPage/index.js:124
+#: src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "ส่วนขยายที่แนะนำ"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141
+#: src/amo/components/Home/index.js:252
+#: src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "ดูส่วนขยายที่แนะนำเพิ่มเติม"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142
+#: src/amo/components/LandingPage/index.js:133
+#: src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "ส่วนขยายที่กำลังนิยม"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151
+#: src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "ดูส่วนขยายที่กำลังนิยมเพิ่มเติม"
 
-#: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
+#: src/amo/components/Category/index.js:152
+#: src/amo/components/LandingPage/index.js:139
+#: src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
 msgstr "ส่วนขยายที่ได้รับการจัดอันดับสูงสุด"
 
-#: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
+#: src/amo/components/Category/index.js:161
+#: src/amo/components/LandingPage/index.js:147
 msgid "See more top rated extensions"
 msgstr "ดูส่วนขยายที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
-#: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
+#: src/amo/components/Category/index.js:164
+#: src/amo/components/LandingPage/index.js:204
+#: src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165
+#: src/amo/components/Home/index.js:224
+#: src/amo/components/LandingPage/index.js:150
+#: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "ชุดตกแต่งที่แนะนำ"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174
+#: src/amo/components/Home/index.js:225
+#: src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "ดูชุดตกแต่งที่แนะนำเพิ่มเติม"
 
-#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
+#: src/amo/components/Category/index.js:175
+#: src/amo/components/LandingPage/index.js:159
+#: src/amo/components/Search/index.js:126
 msgid "Trending themes"
 msgstr "ชุดตกแต่งที่กำลังนิยม"
 
-#: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
+#: src/amo/components/Category/index.js:184
+#: src/amo/components/LandingPage/index.js:164
 msgid "See more trending themes"
 msgstr "ดูชุดตกแต่งที่กำลังนิยมเพิ่มเติม"
 
-#: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
+#: src/amo/components/Category/index.js:185
+#: src/amo/components/LandingPage/index.js:165
+#: src/amo/components/Search/index.js:138
 msgid "Top rated themes"
 msgstr "ชุดตกแต่งที่ได้รับการจัดอันดับสูงสุด"
 
-#: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
+#: src/amo/components/Category/index.js:194
+#: src/amo/components/LandingPage/index.js:170
 msgid "See more top rated themes"
 msgstr "ดูชุดตกแต่งที่ได้รับการจัดอันดับสูงสุดเพิ่มเติม"
 
@@ -517,7 +567,8 @@ msgstr "แก้ไขชุดสะสมนี้"
 msgid "Sign in to edit this collection"
 msgstr "แก้ไขชุดสะสมนี้"
 
-#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "ส่วนเสริม"
 
@@ -529,27 +580,28 @@ msgstr "ผู้สร้าง"
 msgid "Collection name cannot be blank"
 msgstr "ชื่อชุดสะสมไม่สามารถเว้นว่างได้"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:186
 msgid "Collection name"
 msgstr "ชื่อชุดสะสม"
 
-#: src/amo/components/CollectionManager/index.js:196
+#: src/amo/components/CollectionManager/index.js:198
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:209
 msgid "Custom URL"
 msgstr "URL ที่กำหนดเอง"
 
-#: src/amo/components/CollectionManager/index.js:233
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:252 src/ui/components/DismissibleTextForm/index.js:126
+#: src/amo/components/CollectionManager/index.js:254
+#: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:263
 msgid "Save Collection"
 msgstr "บันทึกชุดสะสม"
 
@@ -562,11 +614,15 @@ msgid "Support these developers"
 msgstr "สนับสนุนนักพัฒนาเหล่านี้"
 
 #: src/amo/components/ContributeCard/index.js:41
-msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
+msgid ""
+"The developer of this extension asks that you help support its continued "
+"development by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:43
-msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
+msgid ""
+"The developers of this extension ask that you help support its continued "
+"development by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:50
@@ -578,11 +634,15 @@ msgid "Support these artists"
 msgstr "สนับสนุนศิลปินเหล่านี้"
 
 #: src/amo/components/ContributeCard/index.js:55
-msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
+msgid ""
+"The artist of this theme asks that you help support its continued creation "
+"by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:57
-msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
+msgid ""
+"The artists of this theme ask that you help support its continued creation "
+"by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:64
@@ -594,23 +654,31 @@ msgid "Support these authors"
 msgstr "สนับสนุนผู้สร้างเหล่านี้"
 
 #: src/amo/components/ContributeCard/index.js:69
-msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
+msgid ""
+"The author of this add-on asks that you help support its continued work by "
+"making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:71
-msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
+msgid ""
+"The authors of this add-on ask that you help support its continued work by "
+"making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr ""
 
-#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
+#: src/amo/components/DownloadFirefoxButton/index.js:39
+#: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "ดาวน์โหลด Firefox"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
+msgid ""
+"If you are signed in and think this message is an error, please <a href="
+"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
+"trying to access, and we'll fix the issue."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
@@ -618,11 +686,16 @@ msgid "Not Authorized"
 msgstr "ไม่ได้รับอนุญาต"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
-msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
+msgid ""
+"Sorry, but you aren't authorized to access this page. If you aren't signed "
+"in, try signing in using the link at the top of the page."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
-msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
+msgid ""
+"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
+"issue</a>. Tell us where you came from and what you were looking for, and "
+"we'll do our best to fix it."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
@@ -637,22 +710,28 @@ msgstr "ส่วนเสริมนี้ถูกปิดใช้งาน
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:49
+#: src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "ไม่พบหน้า"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
-" and we'll do our best to fix it."
+"If you have additional information that would help us you can <a href="
+"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
+"a>. Tell us what steps you took that lead to the error and we'll do our best "
+"to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "ข้อผิดพลาดเซิร์ฟเวอร์"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error with our server and we couldn't complete your "
+"request. We have logged this error and will investigate it."
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
@@ -752,8 +831,9 @@ msgstr "รายงานการละเมิดเครื่องหม
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
-" or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
+"this site is licensed under the %(startLicenseLink)sCreative Commons "
+"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:23
@@ -820,7 +900,8 @@ msgstr "ส่งชุดตกแต่งใหม่"
 msgid "Reviewer Tools"
 msgstr "เครื่องมือผู้วิจารณ์"
 
-#: src/amo/components/Header/index.js:153 src/core/components/AuthenticateButton/index.js:76
+#: src/amo/components/Header/index.js:153
+#: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "ออกจากระบบ"
 
@@ -920,7 +1001,9 @@ msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
+msgid ""
+"Keep different parts of your online life—work, personal, etc.—separated by "
+"color-coded tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
@@ -1052,11 +1135,15 @@ msgid "Popular anti-tracking extension now has ad blocking ability"
 msgstr "ส่วนขยายป้องกันการติดตามยอดนิยมตอนนี้มีความสามารถในการปิดกั้นโฆษณา"
 
 #: src/amo/components/LandingPage/index.js:208
-msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
+msgid ""
+"Change your browser's appearance. Choose from thousands of themes to give "
+"Firefox the look you want."
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:210
-msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
+msgid ""
+"Explore powerful tools and features to customize Firefox and make the "
+"browser all your own."
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:238
@@ -1076,11 +1163,15 @@ msgid "Dictionaries and Language Packs"
 msgstr "พจนานุกรมและชุดภาษา"
 
 #: src/amo/components/LanguageTools/index.js:157
-msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
+msgid ""
+"Installing a dictionary add-on will add a new language option to your spell-"
+"checker, which checks your spelling as you type in Firefox."
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:162
-msgid "Language packs change your browser's interface language, including menu options and settings."
+msgid ""
+"Language packs change your browser's interface language, including menu "
+"options and settings."
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:168
@@ -1152,7 +1243,8 @@ msgstr "อ่านข้อความของแท็บที่เปิ
 msgid "Access your location"
 msgstr "เข้าถึงตำแหน่งที่ตั้งของคุณ"
 
-#: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:34
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access browsing history"
 msgstr "เข้าถึงประวัติการท่องเว็บ"
 
@@ -1208,25 +1300,21 @@ msgstr "เข้าถึงข้อมูลของคุณสำหรั
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "เข้าถึงข้อมูลของคุณสำหรับไซต์ในโดเมน %(domain)s"
 
-#: src/amo/components/PermissionsCard/permissions.js:58
-msgid "Access your data in 1 other domain"
-msgstr "เข้าถึงข้อมูลของคุณใน 1 โดเมนอื่น"
+#: src/amo/components/PermissionsCard/permissions.js:57
+#, fuzzy
+msgid "Access your data in %(count)s other domain"
+msgid_plural "Access your data in %(count)s other domains"
+msgstr[0] "เข้าถึงข้อมูลของคุณใน %(count)s โดเมนอื่น ๆ"
 
-#: src/amo/components/PermissionsCard/permissions.js:60
-msgid "Access your data in %(count)s other domains"
-msgstr "เข้าถึงข้อมูลของคุณใน %(count)s โดเมนอื่น ๆ"
-
-#: src/amo/components/PermissionsCard/permissions.js:68
+#: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
 msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(site)s"
 
-#: src/amo/components/PermissionsCard/permissions.js:74
-msgid "Access your data on 1 other site"
-msgstr "เข้าถึงข้อมูลของคุณใน 1 ไซต์อื่น"
-
-#: src/amo/components/PermissionsCard/permissions.js:76
-msgid "Access your data on %(count)s other sites"
-msgstr "เข้าถึงข้อมูลของคุณใน %(count)s ไซต์อื่น ๆ"
+#: src/amo/components/PermissionsCard/permissions.js:70
+#, fuzzy
+msgid "Access your data on %(count)s other site"
+msgid_plural "Access your data on %(count)s other sites"
+msgstr[0] "เข้าถึงข้อมูลของคุณใน %(count)s ไซต์อื่น ๆ"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1262,15 +1350,21 @@ msgid "You reported this add-on for abuse"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
-msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this add-on."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:154
+#: src/amo/components/ReportAbuseButton/index.js:120
+#: src/amo/components/ReportUserAbuse/index.js:154
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:131
-msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
+msgid ""
+"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
+"%(linkTagEnd)s or has security or privacy issues, please report these issues "
+"to Mozilla using this form."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:144
@@ -1278,7 +1372,9 @@ msgid "Report this add-on for abuse"
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:173
-msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
+msgid ""
+"Please don't use this form to report bugs or request add-on features; this "
+"report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:186
@@ -1289,25 +1385,32 @@ msgstr ""
 msgid "Dismiss"
 msgstr "ยกเลิก"
 
-#: src/amo/components/ReportAbuseButton/index.js:209 src/amo/components/ReportUserAbuse/index.js:135
+#: src/amo/components/ReportAbuseButton/index.js:209
+#: src/amo/components/ReportUserAbuse/index.js:135
 msgid "Sending abuse report"
 msgstr "กำลังส่งรายงานการละเมิด"
 
-#: src/amo/components/ReportAbuseButton/index.js:210 src/amo/components/ReportUserAbuse/index.js:134
+#: src/amo/components/ReportAbuseButton/index.js:210
+#: src/amo/components/ReportUserAbuse/index.js:134
 msgid "Send abuse report"
 msgstr "ส่งรายงานการละเมิด"
 
-#: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
+#: src/amo/components/ReportUserAbuse/index.js:103
+#: src/amo/components/ReportUserAbuse/index.js:96
 #, fuzzy
 msgid "Report this user for abuse"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
+msgid ""
+"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
+"%(linkTagEnd)s, please report this user to Mozilla."
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
+msgid ""
+"Please don't use this form to report bugs or contact this user; your report "
+"will only be sent to Mozilla and not to this user."
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:131
@@ -1320,10 +1423,13 @@ msgid "You reported this user for abuse"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-msgid "We have received your report. Thanks for letting us know about your concerns with this user."
+msgid ""
+"We have received your report. Thanks for letting us know about your concerns "
+"with this user."
 msgstr ""
 
-#: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
+#: src/amo/components/Search/index.js:105
+#: src/amo/components/SearchResults.js:62
 msgid "Search results"
 msgstr "ผลการค้นหา"
 
@@ -1402,67 +1508,73 @@ msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "พบ %(count)s ส่วนเสริม"
 
-#: src/amo/components/SearchFilters/index.js:101 src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:104
+#: src/amo/components/SearchFilters/index.js:115
 msgid "All"
 msgstr "ทั้งหมด"
 
-#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:105
 msgid "Extension"
 msgstr "ส่วนขยาย"
 
-#: src/amo/components/SearchFilters/index.js:103
+#: src/amo/components/SearchFilters/index.js:106
+#, fuzzy
+msgid "Search Tool"
+msgstr "เครื่องมือค้นหา"
+
+#: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
 msgstr "ชุดตกแต่ง"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:116
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:117
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:118
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Relevance"
 msgstr "ความเกี่ยวข้อง"
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Recently Updated"
 msgstr "อัปเดตล่าสุด"
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Most Users"
 msgstr "ผู้ใช้มากที่สุด"
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Top Rated"
 msgstr "อันดับสูงสุด"
 
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:130
 msgid "Trending"
 msgstr "กำลังนิยม"
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:140
 msgid "Filter results"
 msgstr "กรองผลลัพธ์"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Sort by"
 msgstr "เรียงตาม"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:169
 msgid "Add-on Type"
 msgstr "ชนิดส่วนเสริม"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:189
 msgid "Operating System"
 msgstr "ระบบปฏิบัติการ"
 
-#: src/amo/components/SearchFilters/index.js:211
+#: src/amo/components/SearchFilters/index.js:215
 msgid "Featured add-ons only"
 msgstr "ส่วนเสริมที่แนะนำเท่านั้น"
 
@@ -1524,7 +1636,9 @@ msgid "Explore"
 msgstr "สำรวจ"
 
 #: src/amo/components/StaticPages/About.js:110
-msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
+msgid ""
+"If you want to contribute but are not quite as technical, there are still "
+"ways to help:"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
@@ -1532,15 +1646,22 @@ msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:124
-msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
+msgid ""
+"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
+"improve their add-ons and create new ones when they know people appreciate "
+"their work."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:129
-msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
+msgid ""
+"Tell your friends and family that Firefox is a fast, secure browser that "
+"protects their privacy, and they can use add-ons to make it their own!"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:138
-msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
+msgid ""
+"To see more ways you can contribute to the add-on community, please visit "
+"our %(startLink)swiki%(endLink)s"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
@@ -1549,26 +1670,36 @@ msgstr "รับการสนับสนุน"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
-"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or "
+"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
+"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
+"%(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:169
-msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
+msgid ""
+"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
+"found here%(endLink)s."
 msgstr ""
 
-#: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
+#: src/amo/components/StaticPages/About.js:24
+#: src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
 msgstr "เกี่ยวกับส่วนเสริม Firefox"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
-"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
+"installing add-ons for the Firefox browser. Add-ons help you modify and "
+"personalize your browsing experience by adding new features to Firefox, "
+"enhancing your interactions with Web content, and changing the way your "
+"browser looks."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
-msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgid ""
+"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
+"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
@@ -1577,8 +1708,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
-"been automatically published and may be subject to review by a team of editors once publically listed."
+"The add-ons listed here are created by thousands of developers and theme "
+"designers from all over the world, ranging from individual hobbyists to "
+"large corporations. Some add-ons listed on AMO have been automatically "
+"published and may be subject to review by a team of editors once publically "
+"listed."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
@@ -1587,34 +1721,45 @@ msgstr "มีส่วนร่วม"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
-"the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
+"keep it healthy, open and accessible. Add-ons support user choice and "
+"customization in Firefox, and you can contribute in the following ways:"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
-msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
+msgid ""
+"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
+"update services and can help you reach a large audience of users."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
-"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
+"Help improve this website. It's open source, and you can file bugs and "
+"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
+"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
+"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
+"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
+"Github."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
-"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
-"valid due to a new release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines "
+"outlined above, you can click \"Report this review\" and have it moderated. "
+"If a review included a complaint that is no longer valid due to a new "
+"release of your add-on, we may consider deleting the review."
 msgstr ""
 
-#: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
+#: src/amo/components/StaticPages/ReviewGuide.js:24
+#: src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
-" with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons "
+"you’ve installed and used. Our review moderation team reserves the right to "
+"refuse or remove any review that does not comply with these guidelines."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
@@ -1626,7 +1771,8 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-msgid "Write like you are telling a friend about your experience with the add-on."
+msgid ""
+"Write like you are telling a friend about your experience with the add-on."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
@@ -1659,7 +1805,8 @@ msgid "Will you continue to use this add-on?"
 msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
-msgid "Take a moment to read your review before submitting it to minimize typos."
+msgid ""
+"Take a moment to read your review before submitting it to minimize typos."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
@@ -1672,8 +1819,10 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
-" on the add-on's detail page."
+"Post technical issues, support requests, or feature suggestions. Use the "
+"available support options for each add-on, if available. You can find them "
+"in the \"More information\" section in the sidebar on the add-on's detail "
+"page."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
@@ -1681,19 +1830,25 @@ msgid "Write reviews for add-ons which you have not personally used."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
-msgid "Use profanity, sexual language or language that can be construed as hateful."
+msgid ""
+"Use profanity, sexual language or language that can be construed as hateful."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
-msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
+msgid ""
+"Include HTML, links, source code or code snippets. Reviews are meant to be "
+"text only."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid "Make false statements, disparage add-on authors or personally insult them."
+msgid ""
+"Make false statements, disparage add-on authors or personally insult them."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
-msgid "Include your own or anyone else’s email, phone number, or other personal details."
+msgid ""
+"Include your own or anyone else’s email, phone number, or other personal "
+"details."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
@@ -1702,8 +1857,10 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:67
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
-"add-on, or the add-on requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving "
+"a negative review of an add-on for displaying ads or requiring data "
+"gathering, when that is the intended purpose of the add-on, or the add-on "
+"requires gathering data to function."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
@@ -1716,8 +1873,10 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:79
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
-"evaluate whether or not to delete the review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this "
+"review\" and it will be submitted to the site for moderation. Our moderation "
+"team will use the Review Guidelines to evaluate whether or not to delete the "
+"review or restore it back to the site."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:85
@@ -1725,7 +1884,10 @@ msgid "I'm an add-on author, can I respond to reviews?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:91
-msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
+msgid ""
+"Yes, add-on authors can provide a single response to a review. You can set "
+"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
+"additional discussion or follow-up."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
@@ -1771,10 +1933,13 @@ msgid "Register or Log in"
 msgstr "ลงทะเบียนหรือเข้าสู่ระบบ"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "รหัสข้อผิดพลาด: %(status)s"
 
@@ -1786,7 +1951,8 @@ msgstr ""
 msgid "Install Theme"
 msgstr "ติดตั้งชุดตกแต่ง"
 
-#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+#: src/core/components/InstallButton/index.js:261
+#: src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 
@@ -1871,8 +2037,14 @@ msgid "Toggle contents"
 msgstr "เปิด/ปิดเนื้อหา"
 
 #: src/ui/components/Rating/index.js:100
-msgid "No ratings"
-msgstr "ไม่มีการจัดอันดับ"
+#, fuzzy
+msgid "Click to rate this add-on"
+msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
+
+#: src/ui/components/Rating/index.js:95
+#, fuzzy
+msgid "This add-on has no ratings."
+msgstr "ส่วนเสริมนี้สามารถ:"
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
@@ -1881,6 +2053,15 @@ msgstr "ได้รับการจัดอันดับ %(rating)s จา
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ่านเพิ่มเติม"
+
+#~ msgid "Access your data in 1 other domain"
+#~ msgstr "เข้าถึงข้อมูลของคุณใน 1 โดเมนอื่น"
+
+#~ msgid "Access your data on 1 other site"
+#~ msgstr "เข้าถึงข้อมูลของคุณใน 1 ไซต์อื่น"
+
+#~ msgid "No ratings"
+#~ msgstr "ไม่มีการจัดอันดับ"
 
 #~ msgid "Saving collection"
 #~ msgstr "กำลังบันทึกชุดสะสม"
