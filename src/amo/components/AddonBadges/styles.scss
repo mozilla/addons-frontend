@@ -12,7 +12,6 @@
 }
 
 .AddonBadges .Badge {
-  @include margin-start(6px);
   @include text-align-start();
 
   @include respond-to(large) {

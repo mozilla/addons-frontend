@@ -8,7 +8,7 @@
   line-height: 1.2;
   margin: 0 0 6px;
 
-  @include respond-to(medium) {
+  @include respond-to(large) {
     display: flex;
     flex-direction: row-reverse;
     margin: 0 0 12px;
@@ -17,7 +17,7 @@
   .Icon {
     @include margin(0, 6px, 0, 0);
 
-    @include respond-to(medium) {
+    @include respond-to(large) {
       @include margin(0, 0, 0, 6px);
     }
 
