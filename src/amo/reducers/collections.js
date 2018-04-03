@@ -1,5 +1,6 @@
 /* @flow */
 import { oneLine } from 'common-tags';
+import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
@@ -32,6 +33,7 @@ export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
 export const UPDATE_COLLECTION: 'UPDATE_COLLECTION' = 'UPDATE_COLLECTION';
 export const DELETE_COLLECTION_BY_SLUG: 'DELETE_COLLECTION_BY_SLUG'
   = 'DELETE_COLLECTION_BY_SLUG';
+export const CREATE_COLLECTION: 'CREATE_COLLECTION' = 'CREATE_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -449,20 +451,66 @@ export const addAddonToCollection = ({
   };
 };
 
-type UpdateCollectionParams = {|
+export type RequiredModifyCollectionParams = {|
   errorHandlerId: string,
-  collectionSlug: string,
+  user: string,
+|};
+
+export type OptionalModifyCollectionParams = {|
   defaultLocale: ?string,
   description: ?LocalizedString,
+|};
+
+type CreateCollectionParams = {|
+  ...RequiredModifyCollectionParams,
+  ...OptionalModifyCollectionParams,
+  name: LocalizedString,
+  slug: string,
+|};
+
+type UpdateCollectionParams = {|
+  ...RequiredModifyCollectionParams,
+  ...OptionalModifyCollectionParams,
+  collectionSlug: string,
   name: ?LocalizedString,
   slug: ?string,
-  user: string,
+|};
+
+export type CreateCollectionAction = {|
+  type: typeof CREATE_COLLECTION,
+  payload: CreateCollectionParams,
 |};
 
 export type UpdateCollectionAction = {|
   type: typeof UPDATE_COLLECTION,
   payload: UpdateCollectionParams,
 |};
+
+export const createCollection = ({
+  errorHandlerId,
+  defaultLocale,
+  description,
+  name,
+  slug,
+  user,
+}: CreateCollectionParams = {}): CreateCollectionAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(user, 'user is required');
+  invariant(name, 'name is required when creating a collection');
+  invariant(slug, 'slug is required when creating a collection');
+
+  return {
+    type: CREATE_COLLECTION,
+    payload: {
+      errorHandlerId,
+      defaultLocale,
+      description,
+      name,
+      slug,
+      user,
+    },
+  };
+};
 
 export const updateCollection = ({
   errorHandlerId,
@@ -473,15 +521,9 @@ export const updateCollection = ({
   slug,
   user,
 }: UpdateCollectionParams = {}): UpdateCollectionAction => {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-  if (!collectionSlug) {
-    throw new Error('collectionSlug is required');
-  }
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(user, 'user is required');
+  invariant(collectionSlug, 'collectionSlug is required when updating');
 
   return {
     type: UPDATE_COLLECTION,
@@ -643,6 +685,7 @@ type Action =
   | AbortFetchUserCollectionsAction
   | AddAddonToCollectionAction
   | AddonAddedToCollectionAction
+  | CreateCollectionAction
   | DeleteCollectionBySlugAction
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction

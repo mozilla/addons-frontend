@@ -8,6 +8,7 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  createCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
@@ -324,140 +325,222 @@ describe(__filename, () => {
     });
   });
 
-  describe('updateCollection', () => {
-    const _updateCollection = (params = {}) => {
-      sagaTester.dispatch(updateCollection({
+  describe('modifyCollection', () => {
+    const _createCollection = (params = {}) => {
+      sagaTester.dispatch(createCollection({
         errorHandlerId: errorHandler.id,
-        collectionSlug: 'some-collection',
-        user: 'some-user',
+        name: 'some-collection-name',
+        slug,
+        user,
         ...params,
       }));
     };
 
-    it('sends a patch to the collection API', async () => {
-      const params = {
-        collectionSlug: 'a-collection',
-        description: { 'en-US': 'New collection description' },
-        name: { 'en-US': 'New collection name' },
-        slug: 'new-slug',
-        user: 543,
-      };
-      const state = sagaTester.getState();
+    const _updateCollection = (params = {}) => {
+      sagaTester.dispatch(updateCollection({
+        errorHandlerId: errorHandler.id,
+        collectionSlug: 'some-collection',
+        user,
+        ...params,
+      }));
+    };
 
-      mockApi
-        .expects('updateCollection')
-        .withArgs({
-          api: state.api,
-          collectionSlug: params.collectionSlug,
-          defaultLocale: undefined,
-          description: params.description,
-          name: params.name,
-          slug: params.slug,
-          user: params.user,
-        })
-        .once()
-        .returns(Promise.resolve());
+    describe('common logic', () => {
+      // The common logic can be tested either by dispatching updateCollection
+      // or createCollection, so we just use _updateCollection.
+      it('clears the error handler', async () => {
+        _updateCollection();
 
-      _updateCollection(params);
+        const expectedAction = errorHandler.createClearingAction();
 
-      const expectedAction = pushLocation('/example/collection/url/');
-      await sagaTester.waitFor(expectedAction.type);
-
-      mockApi.verify();
-    });
-
-    it('deletes collection object after successful update', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
-
-      const collectionSlug = 'some-collection';
-      // For this test, make sure the slug is not getting updated.
-      _updateCollection({ collectionSlug, slug: undefined });
-
-      const expectedAction = deleteCollectionBySlug(collectionSlug);
-
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-      mockApi.verify();
-    });
-
-    it('does not delete collection when slug is changed', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
-
-      const collectionSlug = 'some-collection';
-      _updateCollection({
-        collectionSlug, slug: 'new-slug',
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
       });
 
-      const expectedAction = pushLocation('/example/collection/url/');
-      await sagaTester.waitFor(expectedAction.type);
-      mockApi.verify();
+      it('handles errors', async () => {
+        const error = new Error('some API error maybe');
 
-      // Make sure the the collection is not deleted.
-      expect(
-        sagaTester.getCalledActions().map((action) => action.type)
-      ).not.toContain(deleteCollectionBySlug(collectionSlug).type);
+        mockApi
+          .expects('updateCollection')
+          .returns(Promise.reject(error));
+
+        _updateCollection();
+
+        const expectedAction = errorHandler.createErrorAction(error);
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+      });
     });
 
-    it('redirects to the existing slug after update', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
+    describe('update logic', () => {
+      it('sends a request to the collection API', async () => {
+        const params = {
+          collectionSlug: 'a-collection',
+          description: { 'en-US': 'New collection description' },
+          name: { 'en-US': 'New collection name' },
+          slug: 'new-slug',
+          user,
+        };
+        const state = sagaTester.getState();
 
-      const userName = 'collection-username';
-      const collectionSlug = 'some-collection';
-      // Update everything except the slug.
-      _updateCollection({
-        collectionSlug, user: userName, slug: undefined,
+        mockApi
+          .expects('updateCollection')
+          .withArgs({
+            api: state.api,
+            collectionSlug: params.collectionSlug,
+            defaultLocale: undefined,
+            description: params.description,
+            name: params.name,
+            slug: params.slug,
+            user,
+          })
+          .once()
+          .returns(Promise.resolve());
+
+        _updateCollection(params);
+
+        // TODO: Instead of this we should probably update the collectionUpdates state,
+        // and wait for that.
+        // See https://github.com/mozilla/addons-frontend/issues/4717
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${params.slug}/`
+        );
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
       });
 
-      const { lang, clientApp } = clientData.state.api;
-      const expectedAction = pushLocation(
-        `/${lang}/${clientApp}/collections/${userName}/${collectionSlug}/`
-      );
+      it('deletes collection object after successful update', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
 
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
+        const collectionSlug = 'some-collection';
+        // For this test, make sure the slug is not getting updated.
+        _updateCollection({ collectionSlug, slug: undefined });
 
-      mockApi.verify();
+        const expectedAction = deleteCollectionBySlug(collectionSlug);
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
+
+      it('does not delete collection when slug is changed', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        _updateCollection({
+          collectionSlug, slug: 'new-slug',
+        });
+
+        // TODO: Instead of this we should probably update the collectionUpdates state,
+        // and wait for that.
+        // See https://github.com/mozilla/addons-frontend/issues/4717
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
+        );
+
+        await sagaTester.waitFor(expectedAction.type);
+        mockApi.verify();
+
+        // Make sure the the collection is not deleted.
+        expect(
+          sagaTester.getCalledActions().map((action) => action.type)
+        ).not.toContain(deleteCollectionBySlug(collectionSlug).type);
+      });
+
+      it('redirects to the existing slug after update', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        // Update everything except the slug.
+        _updateCollection({
+          collectionSlug, user, slug: undefined,
+        });
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
+        );
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+
+        mockApi.verify();
+      });
+
+      it('redirects to the new slug after update', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const newSlug = 'new-slug';
+        _updateCollection({ user, slug: newSlug });
+
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${newSlug}/`
+        );
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
     });
 
-    it('redirects to the new slug after update', async () => {
-      mockApi.expects('updateCollection').returns(Promise.resolve());
+    describe('create logic', () => {
+      it('sends a request to the collections API', async () => {
+        const params = {
+          description: { 'en-US': 'Collection description' },
+          name: { 'en-US': 'Collection name' },
+          slug,
+          user,
+        };
+        const state = sagaTester.getState();
 
-      const userName = 'collection-username';
-      const newSlug = 'new-slug';
-      _updateCollection({ user: userName, slug: newSlug });
+        mockApi
+          .expects('createCollection')
+          .withArgs({
+            api: state.api,
+            defaultLocale: undefined,
+            description: params.description,
+            name: params.name,
+            slug,
+            user,
+          })
+          .once()
+          .returns(Promise.resolve());
 
-      const { lang, clientApp } = clientData.state.api;
-      const expectedAction = pushLocation(
-        `/${lang}/${clientApp}/collections/${userName}/${newSlug}/`
-      );
+        _createCollection(params);
 
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-      mockApi.verify();
-    });
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+        );
 
-    it('clears the error handler', async () => {
-      _updateCollection();
+        await sagaTester.waitFor(expectedAction.type);
+        mockApi.verify();
+      });
 
-      const expectedAction = errorHandler.createClearingAction();
+      it('redirects to the new collection after create', async () => {
+        const params = {
+          slug,
+          user,
+        };
 
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
-    });
+        mockApi.expects('createCollection').returns(Promise.resolve());
+        _createCollection(params);
 
-    it('handles errors', async () => {
-      const collectionSlug = 'a-collection';
-      const error = new Error('some API error maybe');
+        const { lang, clientApp } = clientData.state.api;
+        const expectedAction = pushLocation(
+          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+        );
 
-      mockApi
-        .expects('updateCollection')
-        .returns(Promise.reject(error));
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
 
-      _updateCollection({ collectionSlug });
-
-      const expectedAction = errorHandler.createErrorAction(error);
-      const action = await sagaTester.waitFor(expectedAction.type);
-      expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
     });
   });
 });

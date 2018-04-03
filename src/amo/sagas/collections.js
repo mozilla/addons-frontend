@@ -2,12 +2,14 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
+import invariant from 'invariant';
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { push as pushLocation } from 'react-router-redux';
 /* eslint-enable import/order */
 
 import {
   ADD_ADDON_TO_COLLECTION,
+  CREATE_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
@@ -26,6 +28,7 @@ import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CreateCollectionAddonParams,
+  CreateCollectionParams,
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
@@ -33,6 +36,7 @@ import type {
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
+  CreateCollectionAction,
   FetchCurrentCollectionAction,
   FetchCurrentCollectionPageAction,
   FetchUserCollectionsAction,
@@ -163,37 +167,64 @@ export function* addAddonToCollection({
   }
 }
 
-export function* updateCollection({
-  payload: {
-    errorHandlerId,
-    collectionSlug,
+export function* modifyCollection(
+  action: CreateCollectionAction | UpdateCollectionAction
+): Generator<any, any, any> {
+  const { type, payload } = action;
+  const creating = type === CREATE_COLLECTION;
+
+  const {
     defaultLocale,
     description,
+    errorHandlerId,
     name,
     slug,
     user,
-  },
-}: UpdateCollectionAction): Generator<any, any, any> {
+  } = payload;
+
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
+  let collectionSlug;
+  if (action.type === UPDATE_COLLECTION) {
+    collectionSlug = action.payload.collectionSlug;
+  }
+
   try {
     const state = yield select(getState);
-    const params: UpdateCollectionParams = {
+
+    const baseApiParams = {
       api: state.api,
-      collectionSlug,
       defaultLocale,
       description,
-      name,
-      slug,
       user,
     };
-    yield call(api.updateCollection, params);
 
-    const slugWasEdited = slug && slug !== collectionSlug;
-    const effectiveSlug = slug || collectionSlug;
+    if (creating) {
+      invariant(name, 'name cannot be empty when creating');
+      invariant(slug, 'slug cannot be empty when creating');
+      const apiParams: $Shape<CreateCollectionParams> = {
+        name,
+        slug,
+        ...baseApiParams,
+      };
+      yield call(api.createCollection, apiParams);
+    } else {
+      invariant(collectionSlug,
+        'collectionSlug cannot be empty when updating');
+      const apiParams: $Shape<UpdateCollectionParams> = {
+        collectionSlug,
+        name,
+        slug,
+        ...baseApiParams,
+      };
+      yield call(api.updateCollection, apiParams);
+    }
 
     const { lang, clientApp } = state.api;
+    const effectiveSlug = slug || collectionSlug;
+    invariant(effectiveSlug,
+      'Both slug and collectionSlug cannot be empty');
     // TODO: invalidate the stored collection instead of redirecting.
     // Ultimately, we just want to invalidate the old collection data.
     // This redirect is in place to handle slug changes but it causes
@@ -204,6 +235,7 @@ export function* updateCollection({
       `/${lang}/${clientApp}/collections/${user}/${effectiveSlug}/`
     ));
 
+    const slugWasEdited = !creating && slug && slug !== collectionSlug;
     if (!slugWasEdited) {
       // Invalidate the stored collection object. This will force each
       // component to re-fetch the collection. This is only necessary
@@ -211,7 +243,7 @@ export function* updateCollection({
       yield put(deleteCollectionBySlug(effectiveSlug));
     }
   } catch (error) {
-    log.warn(`Failed to update collection: ${error}`);
+    log.warn(`Failed to ${type}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }
@@ -223,5 +255,5 @@ export default function* collectionsSaga(): Generator<any, any, any> {
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
-  yield takeLatest(UPDATE_COLLECTION, updateCollection);
+  yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
 }
