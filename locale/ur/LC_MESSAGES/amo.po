@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"POT-Creation-Date: 2018-04-03 18:14+0000\n"
 "PO-Revision-Date: 2018-03-19 13:05+0000\n"
 "Last-Translator: um.qshi <um.qshi@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -42,118 +42,78 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:237
+#: src/amo/components/CollectionManager/index.js:239
 #, fuzzy
 msgid "Add to collection"
 msgstr "تمام توسیعات براؤز کریں"
 
-#: src/amo/components/Addon/index.js:189
-msgid "Cancel preview"
-msgstr "پیش منظر کو منسوخ کریں"
-
-#: src/amo/components/Addon/index.js:189
+#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 
-#: src/amo/components/Addon/index.js:240
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "پیش منظر کو منسوخ کریں"
+
+#: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 
-#: src/amo/components/Addon/index.js:249
+#: src/amo/components/Addon/index.js:230
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/amo/components/Addon/index.js:265
+#: src/amo/components/Addon/index.js:246
 msgid "No reviews yet"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:274
+#: src/amo/components/Addon/index.js:255
 msgid "Rate your experience"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:292
+#: src/amo/components/Addon/index.js:273
 #, fuzzy
 msgid "About this dictionary"
 msgstr "%(addonType)s کے بارے میں"
 
-#: src/amo/components/Addon/index.js:295
+#: src/amo/components/Addon/index.js:276
 #, fuzzy
 msgid "About this extension"
 msgstr "دنیا کو اس توسیع کے متعلق بتائیں۔"
 
-#: src/amo/components/Addon/index.js:298
+#: src/amo/components/Addon/index.js:279
 msgid "About this language pack"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:301
+#: src/amo/components/Addon/index.js:282
 msgid "About this search plugin"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:304
+#: src/amo/components/Addon/index.js:285
 #, fuzzy
 msgid "About this theme"
 msgstr "%(addonType)s کے بارے میں"
 
-#: src/amo/components/Addon/index.js:307
+#: src/amo/components/Addon/index.js:288
 #, fuzzy
 msgid "About this add-on"
 msgstr "%(addonType)s کے بارے میں"
 
-#: src/amo/components/Addon/index.js:346
+#: src/amo/components/Addon/index.js:327
 msgid "Release notes for %(addonVersion)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:375
-msgid "More dictionaries by %(author)s"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:378
-msgid "More dictionaries by these translators"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:385
-msgid "More extensions by %(author)s"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:388
-msgid "More extensions by these developers"
-msgstr "ان تخلیقار کی جانبسے مزید توسیعات"
-
-#: src/amo/components/Addon/index.js:395
-msgid "More language packs by %(author)s"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:398
-msgid "More language packs by these translators"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:405
-msgid "More themes by %(author)s"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:408
-msgid "More themes by these artists"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:415
-msgid "More add-ons by %(author)s"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:418
-msgid "More add-ons by these developers"
-msgstr ""
-
-#: src/amo/components/Addon/index.js:498
+#: src/amo/components/Addon/index.js:401
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:572
+#: src/amo/components/Addon/index.js:475
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:590
+#: src/amo/components/Addon/index.js:500
 msgid "Screenshots"
 msgstr "اسکرین شاٹ"
 
@@ -434,6 +394,46 @@ msgstr "ایک جائزہ لکھیں"
 msgid "Reply to this review"
 msgstr "پیش منظر کے ؛لیئے تھپتپائیں"
 
+#: src/amo/components/AddonsByAuthorsCard/index.js:117
+msgid "More dictionaries by %(author)s"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:120
+msgid "More dictionaries by these translators"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:127
+msgid "More extensions by %(author)s"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:130
+msgid "More extensions by these developers"
+msgstr "ان تخلیقار کی جانبسے مزید توسیعات"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:137
+msgid "More language packs by %(author)s"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:140
+msgid "More language packs by these translators"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:147
+msgid "More themes by %(author)s"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:150
+msgid "More themes by these artists"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:157
+msgid "More add-ons by %(author)s"
+msgstr ""
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:160
+msgid "More add-ons by these developers"
+msgstr ""
+
 #: src/amo/components/App/index.js:203
 #: src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -609,28 +609,28 @@ msgstr ""
 msgid "Collection name cannot be blank"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:186
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:196
+#: src/amo/components/CollectionManager/index.js:198
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:209
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:233
+#: src/amo/components/CollectionManager/index.js:235
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:252
+#: src/amo/components/CollectionManager/index.js:254
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "منسوخ کریں"
 
-#: src/amo/components/CollectionManager/index.js:261
+#: src/amo/components/CollectionManager/index.js:263
 #, fuzzy
 msgid "Save Collection"
 msgstr "تمام توسیعات براؤز کریں"
@@ -1340,25 +1340,21 @@ msgstr ""
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:58
-msgid "Access your data in 1 other domain"
-msgstr ""
+#: src/amo/components/PermissionsCard/permissions.js:57
+msgid "Access your data in %(count)s other domain"
+msgid_plural "Access your data in %(count)s other domains"
+msgstr[0] ""
+msgstr[1] ""
 
-#: src/amo/components/PermissionsCard/permissions.js:60
-msgid "Access your data in %(count)s other domains"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:68
+#: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:74
-msgid "Access your data on 1 other site"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:76
-msgid "Access your data on %(count)s other sites"
-msgstr ""
+#: src/amo/components/PermissionsCard/permissions.js:70
+msgid "Access your data on %(count)s other site"
+msgid_plural "Access your data on %(count)s other sites"
+msgstr[0] ""
+msgstr[1] ""
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1566,70 +1562,75 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "کوئی زمرہ جات نہیں ملے۔"
 msgstr[1] "کوئی زمرہ جات نہیں ملے۔"
 
-#: src/amo/components/SearchFilters/index.js:101
-#: src/amo/components/SearchFilters/index.js:111
+#: src/amo/components/SearchFilters/index.js:104
+#: src/amo/components/SearchFilters/index.js:115
 msgid "All"
 msgstr "تمام"
 
-#: src/amo/components/SearchFilters/index.js:102
+#: src/amo/components/SearchFilters/index.js:105
 msgid "Extension"
 msgstr "توسیعات"
 
-#: src/amo/components/SearchFilters/index.js:103
+#: src/amo/components/SearchFilters/index.js:106
+#, fuzzy
+msgid "Search Tool"
+msgstr "خیالہ تلاش کریں"
+
+#: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
 msgstr "خیالیے"
 
-#: src/amo/components/SearchFilters/index.js:112
+#: src/amo/components/SearchFilters/index.js:116
 msgid "Windows"
 msgstr "Windows"
 
-#: src/amo/components/SearchFilters/index.js:113
+#: src/amo/components/SearchFilters/index.js:117
 msgid "macOS"
 msgstr "macOS"
 
-#: src/amo/components/SearchFilters/index.js:114
+#: src/amo/components/SearchFilters/index.js:118
 msgid "Linux"
 msgstr "Linux"
 
-#: src/amo/components/SearchFilters/index.js:122
+#: src/amo/components/SearchFilters/index.js:126
 msgid "Relevance"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:123
+#: src/amo/components/SearchFilters/index.js:127
 msgid "Recently Updated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:124
+#: src/amo/components/SearchFilters/index.js:128
 msgid "Most Users"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:125
+#: src/amo/components/SearchFilters/index.js:129
 msgid "Top Rated"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:126
+#: src/amo/components/SearchFilters/index.js:130
 msgid "Trending"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:136
+#: src/amo/components/SearchFilters/index.js:140
 #, fuzzy
 msgid "Filter results"
 msgstr "خیالہ تلاش کریں"
 
-#: src/amo/components/SearchFilters/index.js:143
+#: src/amo/components/SearchFilters/index.js:147
 msgid "Sort by"
 msgstr "کے مطابق چھانٹیں"
 
-#: src/amo/components/SearchFilters/index.js:165
+#: src/amo/components/SearchFilters/index.js:169
 #, fuzzy
 msgid "Add-on Type"
 msgstr "ایڈ ان آئکن"
 
-#: src/amo/components/SearchFilters/index.js:185
+#: src/amo/components/SearchFilters/index.js:189
 msgid "Operating System"
 msgstr ""
 
-#: src/amo/components/SearchFilters/index.js:211
+#: src/amo/components/SearchFilters/index.js:215
 #, fuzzy
 msgid "Featured add-ons only"
 msgstr "نمایاں توسیعات"
@@ -2096,8 +2097,14 @@ msgid "Toggle contents"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:100
-msgid "No ratings"
-msgstr ""
+#, fuzzy
+msgid "Click to rate this add-on"
+msgstr "%(addonType)s کے بارے میں"
+
+#: src/ui/components/Rating/index.js:95
+#, fuzzy
+msgid "This add-on has no ratings."
+msgstr "%(addonType)s کے بارے میں"
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
