@@ -22,6 +22,8 @@ import {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  beginCollectionModification,
+  finishCollectionModification,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -182,6 +184,8 @@ export function* modifyCollection(
     user,
   } = payload;
 
+  yield put(beginCollectionModification());
+
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
 
@@ -220,6 +224,7 @@ export function* modifyCollection(
       };
       yield call(api.updateCollection, apiParams);
     }
+    yield put(finishCollectionModification());
 
     const { lang, clientApp } = state.api;
     const effectiveSlug = slug || collectionSlug;
@@ -244,6 +249,7 @@ export function* modifyCollection(
     }
   } catch (error) {
     log.warn(`Failed to ${type}: ${error}`);
+    yield put(finishCollectionModification());
     yield put(errorHandler.createErrorAction(error));
   }
 }

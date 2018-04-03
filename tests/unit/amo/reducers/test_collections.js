@@ -18,7 +18,8 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  updateCollection,
+  beginCollectionModification,
+  finishCollectionModification,
 } from 'amo/reducers/collections';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
@@ -829,18 +830,19 @@ describe(__filename, () => {
     });
   });
 
-  describe('updateCollection', () => {
-    it('changes update state', () => {
-      const collectionSlug = 'some-collection';
+  describe('beginCollectionModification', () => {
+    it('records the beginning of a modification', () => {
+      const state = reducer(initialState, beginCollectionModification());
 
-      const state = reducer(initialState, updateCollection({
-        errorHandlerId: 'error-handler-id',
-        collectionSlug,
-        user: 'some-user-name',
-      }));
+      expect(state.isCollectionBeingModified).toEqual(true);
+    });
+  });
 
-      expect(state.collectionUpdates[collectionSlug].updating)
-        .toEqual(true);
+  describe('finishCollectionModification', () => {
+    it('records the end of a modification', () => {
+      const state = reducer(initialState, finishCollectionModification());
+
+      expect(state.isCollectionBeingModified).toEqual(false);
     });
   });
 
