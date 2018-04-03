@@ -486,14 +486,6 @@ export type UpdateCollectionAction = {|
   payload: UpdateCollectionParams,
 |};
 
-export const validateRequiredCollectionParams = ({
-  errorHandlerId,
-  user,
-}: RequiredModifyCollectionParams) => {
-  invariant(errorHandlerId, 'errorHandlerId is required');
-  invariant(user, 'user is required');
-};
-
 export const createCollection = ({
   errorHandlerId,
   defaultLocale,
@@ -502,13 +494,10 @@ export const createCollection = ({
   slug,
   user,
 }: CreateCollectionParams = {}): CreateCollectionAction => {
-  validateRequiredCollectionParams({
-    errorHandlerId,
-    user,
-  });
-
-  invariant(name, 'name is required when creating');
-  invariant(slug, 'slug is required when creating');
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(user, 'user is required');
+  invariant(name, 'name is required when creating a collection');
+  invariant(slug, 'slug is required when creating a collection');
 
   return {
     type: CREATE_COLLECTION,
@@ -532,11 +521,8 @@ export const updateCollection = ({
   slug,
   user,
 }: UpdateCollectionParams = {}): UpdateCollectionAction => {
-  validateRequiredCollectionParams({
-    errorHandlerId,
-    user,
-  });
-
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(user, 'user is required');
   invariant(collectionSlug, 'collectionSlug is required when updating');
 
   return {

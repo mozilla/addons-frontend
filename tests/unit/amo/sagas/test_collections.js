@@ -401,6 +401,7 @@ describe(__filename, () => {
 
         // TODO: Instead of this we should probably update the collectionUpdates state,
         // and wait for that.
+        // See https://github.com/mozilla/addons-frontend/issues/4717
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
           `/${lang}/${clientApp}/collections/${user}/${params.slug}/`
@@ -435,6 +436,7 @@ describe(__filename, () => {
 
         // TODO: Instead of this we should probably update the collectionUpdates state,
         // and wait for that.
+        // See https://github.com/mozilla/addons-frontend/issues/4717
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
           `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
