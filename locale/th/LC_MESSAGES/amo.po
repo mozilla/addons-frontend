@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-31 05:56+0000\n"
+"PO-Revision-Date: 2018-04-02 18:31+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -550,7 +550,6 @@ msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: src/amo/components/CollectionManager/index.js:261
-#, fuzzy
 msgid "Save Collection"
 msgstr "บันทึกชุดสะสม"
 
@@ -1106,9 +1105,8 @@ msgid "Permissions"
 msgstr "รุ่น"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "เกี่ยวกับส่วนเสริมนี้"
+msgstr "ส่วนเสริมนี้สามารถ:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
@@ -1116,52 +1114,51 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "อ่านและเปลี่ยนแปลงที่คั่นหน้า"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "อ่านและเปลี่ยนแปลงการตั้งค่าเบราว์เซอร์"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "ล้างประวัติการท่องเว็บ, คุกกี้ และข้อมูลที่เกี่ยวข้องล่าสุด"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "รับข้อมูลจากคลิปบอร์ด"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "ป้อนข้อมูลไปยังคลิปบอร์ด"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "ขยายเครื่องมือนักพัฒนาเพื่อเข้าถึงข้อมูลของคุณในแท็บที่เปิดอยู่"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "ดาวน์โหลดไฟล์และอ่านและเปลี่ยนแปลงประวัติการดาวน์โหลดของเบราว์เซอร์"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "เปิดไฟล์ที่ดาวน์โหลดไปยังคอมพิวเตอร์ของคุณ"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "อ่านข้อความของแท็บที่เปิดอยู่ทั้งหมด"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "เข้าถึงตำแหน่งที่ตั้งของคุณ"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "ประวัติรุ่น"
+msgstr "เข้าถึงประวัติการท่องเว็บ"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "เฝ้าสังเกตการใช้ส่วนขยายและจัดการชุดตกแต่ง"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
@@ -1169,7 +1166,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "แสดงผลการแจ้งเตือนให้คุณ"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
@@ -1177,59 +1174,59 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "ควบคุมการตั้งค่าพร็อกซีของเบราว์เซอร์"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "อ่านและเปลี่ยนแปลงการตั้งค่าความเป็นส่วนตัว"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "เข้าถึงแท็บที่ปิดล่าสุด"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "เข้าถึงแท็บของเบราว์เซอร์"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "ซ่อนและแสดงแท็บของเบราว์เซอร์"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "จัดเก็บข้อมูลฝั่งลูกข่ายไม่จำกัดจำนวน"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "เข้าถึงกิจกรรมของเบราว์เซอร์ระหว่างการนำทาง"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณสำหรับเว็บไซต์ทั้งหมด"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณสำหรับไซต์ในโดเมน %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
 msgid "Access your data in 1 other domain"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน 1 โดเมนอื่น"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน %(count)s โดเมนอื่น ๆ"
 
 #: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
 msgid "Access your data on 1 other site"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน 1 ไซต์อื่น"
 
 #: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
-msgstr ""
+msgstr "เข้าถึงข้อมูลของคุณใน %(count)s ไซต์อื่น ๆ"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1757,9 +1754,8 @@ msgid "User since"
 msgstr "ผู้ใช้"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "ส่วนเสริมยอดนิยม"
+msgstr "จำนวนส่วนเสริม"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"

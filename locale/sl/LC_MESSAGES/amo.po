@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-31 11:03+0000\n"
+"PO-Revision-Date: 2018-04-02 12:24+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -209,7 +209,7 @@ msgstr "Vaš brskalnik ne podpira dodatkov. Za namestitev tega dodatka lahko <a 
 
 #: src/amo/components/AddonMeta/index.js:31
 msgid "Users"
-msgstr "Uporabniki"
+msgstr "uporabnikov"
 
 #: src/amo/components/AddonMeta/index.js:34
 msgid "User"
@@ -225,7 +225,7 @@ msgstr "Brez uporabnikov"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Ratings"
-msgstr "Ocene"
+msgstr "ocen"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Rating"
@@ -1295,7 +1295,7 @@ msgstr "Opišite, kako ta dodatek krši naše pravilnike."
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
-msgstr "Opusti"
+msgstr "Prekliči"
 
 #: src/amo/components/ReportAbuseButton/index.js:209 src/amo/components/ReportUserAbuse/index.js:135
 msgid "Sending abuse report"
