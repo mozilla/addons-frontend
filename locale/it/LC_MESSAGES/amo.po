@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-04-03 07:07+0000\n"
-"Last-Translator: Elio <elio.gi@gmail.com>\n"
+"PO-Revision-Date: 2018-04-03 09:12+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -874,12 +874,11 @@ msgstr "Modifica l’aspetto di Firefox con i temi."
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "Personalizzazione dei social media"
 
 #: src/amo/components/Home/index.js:201
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "Visualizza altre estensioni per personalizzare le schede"
+msgstr "Visualizza altre estensioni per la personalizzazione dei social media"
 
 #: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
