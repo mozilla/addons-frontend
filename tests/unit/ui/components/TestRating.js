@@ -188,7 +188,7 @@ describe(__filename, () => {
     expect(findDOMNode(root).textContent).toEqual('Click to rate this add-on');
   });
 
-  it('renders nothing if no rating and readOnly', () => {
+  it('renders "no ratings" if no rating and readOnly', () => {
     const root = render({ rating: null, readOnly: true });
     expect(findDOMNode(root).textContent).toEqual('This add-on has no ratings.');
   });
