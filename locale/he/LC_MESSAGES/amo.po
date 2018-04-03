@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 06:28+0000\n"
+"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"PO-Revision-Date: 2018-04-01 15:20+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -39,7 +39,7 @@ msgstr "נוסף אל %(collectionName)s"
 msgid "Add to…"
 msgstr "הוספה אל…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "הוספה לאוסף"
 
@@ -175,7 +175,7 @@ msgstr "אין תאימות ל־Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "חלק מהתכונות עשויות לדרוש תשלום"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -269,7 +269,7 @@ msgstr "קישורים לתוספת"
 msgid "Version"
 msgstr "גרסה"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:206
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "עדכון אחרון"
 
@@ -341,21 +341,21 @@ msgstr "מלל סקירה"
 msgid "Submit review"
 msgstr "שליחת סקירה"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "צלמית התוספת"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "סקירות עבור %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "סקירה אחת לתוספת זו"
 msgstr[1] "%(total)s סקירות לתוספת זו"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "מאת %(authorList)s"
 
@@ -419,15 +419,15 @@ msgstr "תוספות עבור אנדרואיד"
 msgid "%s – Add-ons for Android"
 msgstr "%s – תוספות עבור אנדרואיד"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "בטעינה"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "חיפוש תוספות"
 
-#: src/amo/components/AutoSearchInput/index.js:303 src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "חיפוש"
 
@@ -447,19 +447,19 @@ msgstr "טעינת קטגוריות."
 msgid "Extensions"
 msgstr "הרחבות"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:202 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "הרחבות מומלצות"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "הצגת הרחבות מומלצות נוספות"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "ההרחבות שמובילות לאחרונה"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "הצגת הרחבות נוספות שמובילות לאחרונה"
 
@@ -475,11 +475,11 @@ msgstr "הצגת הרחבות נוספות בדירוג גבוה"
 msgid "Themes"
 msgstr "ערכות נושא"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "ערכות נושא מומלצות"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "הצגת ערכות נושא מומלצות נוספות"
 
@@ -511,49 +511,49 @@ msgstr "עיון בכל ההרחבות שבקטגוריה זו."
 msgid "Browse all themes in this category."
 msgstr "עיון בכל ערכות הנושא שבקטגוריה זו."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "עריכת אוסף זה"
 
-#: src/amo/components/Collection/index.js:196 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:175
+msgid "Sign in to edit this collection"
+msgstr "יש להתחבר כדי לערוך אוסף זה"
+
+#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "תוספות"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "יוצר"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "שמירת אוסף"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "שם האוסף לא יכול להישאר ריק"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "אוסף נשמר"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "עריכת אוסף"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "שם האוסף"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "תיאור"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr "כתובת מותאמת אישית"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "שם האוסף לא יכול להישאר ריק"
+#: src/amo/components/CollectionManager/index.js:252 src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "ביטול"
+
+#: src/amo/components/CollectionManager/index.js:261
+msgid "Save Collection"
+msgstr "שמירת אוסף"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -835,83 +835,83 @@ msgstr "תוספות של Firefox"
 msgid "My Account"
 msgstr "החשבון שלי"
 
-#: src/amo/components/Home/index.js:113
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "מופשט"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "טבע"
 
-#: src/amo/components/Home/index.js:123
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "סרטים וטלוויזיה"
 
-#: src/amo/components/Home/index.js:128
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "נופי"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "מוזיקה"
 
-#: src/amo/components/Home/index.js:138
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "עונתי"
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "התאמת אופן הפעולה של Firefox עם הרחבות. האם מעניין אותך…"
 
-#: src/amo/components/Home/index.js:170
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
-#: src/amo/components/Home/index.js:217
-msgid "Good time tabs"
-msgstr ""
+#: src/amo/components/Home/index.js:199
+msgid "Social media customization"
+msgstr "התאמה אישית למדיה חברתית"
 
-#: src/amo/components/Home/index.js:218
-msgid "See more good time tabs extensions"
-msgstr ""
+#: src/amo/components/Home/index.js:201
+msgid "See more social media customization extensions"
+msgstr "הצגת הרחבות נוספות להתאמה אישית למדיה חברתית"
 
-#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-msgid "Popular themes"
-msgstr "ערכות נושא פופולריות"
-
-#: src/amo/components/Home/index.js:230
-msgid "See more popular themes"
-msgstr "הצגת ערכות נושא פופולריות נוספות"
-
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
 msgstr "מאיצי ויקיפדיה"
 
-#: src/amo/components/Home/index.js:245
+#: src/amo/components/Home/index.js:213
 msgid "See more Wikipedia boosters"
 msgstr "הצגת מאיצי ויקיפדיה נוספים"
 
-#: src/amo/components/Home/index.js:62
+#: src/amo/components/Home/index.js:239
+msgid "Good time tabs"
+msgstr ""
+
+#: src/amo/components/Home/index.js:240
+msgid "See more good time tabs extensions"
+msgstr ""
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "סימניות"
 
-#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "מנהלי ססמאות"
 
-#: src/amo/components/Home/index.js:70
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "חוסמי פרסומות"
 
-#: src/amo/components/Home/index.js:74
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "רכישה מקוונת חכמה יותר"
 
-#: src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "כלי עבודה"
 
-#: src/amo/components/Home/index.js:82
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "צפייה בווידאו"
 
@@ -956,28 +956,28 @@ msgid "Give Wikipedia a gorgeous makeover"
 msgstr "להעניק לוויקיפדיה שינוי מרהיב ומרענן"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
-msgid "OneTab"
-msgstr "OneTab"
+msgid "Black Menu for Google"
+msgstr "Black Menu for Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
-msgid "Convert your open tabs into a list and save precious memory"
-msgstr "המרת הלשוניות הפתוחות שלך לרשימה כדי לחסוך בזיכרון יקר"
+msgid "Easy drop-down menu access to Google services like Search and Translate"
+msgstr "גישה פשוטה באמצעות תפריט נפתח לשירותי Google כגון חיפוש ותרגום"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
+msgid "Honey"
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
-msgid "Send any Web page to your Kindle device"
-msgstr "שליחת כל דף אינטרנט להתקן ה־Kindle שלך"
+msgid "Automatically searches for coupon codes"
+msgstr "חיפוש אוטומטי אחר קודי קופון"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Search Site"
-msgstr "Search Site"
+msgid "SHINE for Reddit"
+msgstr "SHINE for Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
-msgid "Search within just the domain you’re visiting"
-msgstr "חיפוש רק בתוך גבולות שם המתחם הנוכחי"
+msgid "Experience Reddit with alternative designs"
+msgstr "לחוות את Reddit עם עיצובים חלופיים"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1208,15 +1208,23 @@ msgstr "גישה לכלל המידע שלך מכל האתרים"
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "גישה לכל המידע שלך עבור אתרים תחת שם המתחם %(domain)s"
 
+#: src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access your data in 1 other domain"
+msgstr "גישה לנתונים שלך בשם מתחם אחד נוסף"
+
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
 msgstr "גישה לכל המידע שלך ב־%(count)s שמות מתחם נוספים"
 
-#: src/amo/components/PermissionsCard/permissions.js:66
+#: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
 msgstr "גישה לכל המידע עבור %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on 1 other site"
+msgstr "גישה לנתונים שלך באתר אחד נוסף"
+
+#: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
 msgstr "גישה לכל המידע שלך ב־%(count)s אתרים נוספים"
 
@@ -1298,7 +1306,7 @@ msgstr "אם לדעתך משתמש זה מפר את %(linkTagStart)sמדיניו
 
 #: src/amo/components/ReportUserAbuse/index.js:121
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "נא לא להשתמש בטופס זה כדי לדווח על תקלות או כדי ליצור קשר עם משתמש זה; הדיווח שלך יישלח ל־Mozilla ולא למשתמש זה."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
@@ -1331,6 +1339,10 @@ msgstr "התוספות בדירוג הגבוה ביותר"
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
 msgstr "הרחבות פופולריות"
+
+#: src/amo/components/Search/index.js:150
+msgid "Popular themes"
+msgstr "ערכות נושא פופולריות"
 
 #: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
@@ -1842,19 +1854,15 @@ msgstr "כעת ניתן לגשת אל %(name)s מסרגל הכלים."
 msgid "OK!"
 msgstr "קיבלתי!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126 src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "ביטול"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "נא להקליד טקסט."
 
-#: src/ui/components/DismissibleTextForm/index.js:97 src/ui/components/FormOverlay/index.js:98
+#: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "שליחה"
 
-#: src/ui/components/DismissibleTextForm/index.js:99 src/ui/components/FormOverlay/index.js:96
+#: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
 msgstr "מתבצעת שליחה"
 
@@ -1874,10 +1882,6 @@ msgstr "טעינה מחדש להמשך"
 msgid "Toggle contents"
 msgstr "החלפת מצב תוכן"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr "יש ללחוץ כדי לסגור"
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "ללא דירוג"
@@ -1889,6 +1893,36 @@ msgstr "מדורג %(rating)s מתוך 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">יש להרחיב כדי</span> לקרוא עוד"
+
+#~ msgid "Saving collection"
+#~ msgstr "אוסף נשמר"
+
+#~ msgid "Edit collection"
+#~ msgstr "עריכת אוסף"
+
+#~ msgid "See more popular themes"
+#~ msgstr "הצגת ערכות נושא פופולריות נוספות"
+
+#~ msgid "OneTab"
+#~ msgstr "OneTab"
+
+#~ msgid "Convert your open tabs into a list and save precious memory"
+#~ msgstr "המרת הלשוניות הפתוחות שלך לרשימה כדי לחסוך בזיכרון יקר"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "שליחת כל דף אינטרנט להתקן ה־Kindle שלך"
+
+#~ msgid "Search Site"
+#~ msgstr "Search Site"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "חיפוש רק בתוך גבולות שם המתחם הנוכחי"
+
+#~ msgid "Click to close"
+#~ msgstr "יש ללחוץ כדי לסגור"
 
 #~ msgid "Reviews"
 #~ msgstr "סקירות"
@@ -1909,9 +1943,6 @@ msgstr "<span class=\"visually-hidden\">יש להרחיב כדי</span> לקרו
 
 #~ msgid "Re-imagine search"
 #~ msgstr "חוויית חיפוש שונה לגמרי"
-
-#~ msgid "See more search extensions"
-#~ msgstr "הצגת הרחבות חיפוש נוספות"
 
 #~ msgid "February’s new featured extensions"
 #~ msgstr "ההרחבות המומלצות החדשות לחודש פברואר"

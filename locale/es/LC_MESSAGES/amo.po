@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-24 12:17+0000\n"
+"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"PO-Revision-Date: 2018-04-02 19:15+0000\n"
 "Last-Translator: jlG <jlg.l10n.es@gmail.com>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -39,7 +39,7 @@ msgstr "Se añadió a %(collectionName)s"
 msgid "Add to…"
 msgstr "Añadir a…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Añadir a la colección"
 
@@ -269,7 +269,7 @@ msgstr "Enlaces del complemento"
 msgid "Version"
 msgstr "Versión"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:206
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Última actualización"
 
@@ -341,21 +341,21 @@ msgstr "Texto del comentario"
 msgid "Submit review"
 msgstr "Enviar comentario"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Icono del complemento"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Revisiones de %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s comentario para este complemento"
 msgstr[1] "%(total)s comentarios para este complemento"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "por %(authorList)s"
 
@@ -419,15 +419,15 @@ msgstr "Complementos para Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s - Complementos para Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Cargando"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Buscar complementos"
 
-#: src/amo/components/AutoSearchInput/index.js:303 src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Buscar"
 
@@ -447,19 +447,19 @@ msgstr "Cargando las categorías."
 msgid "Extensions"
 msgstr "Extensiones"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:202 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Extensiones promocionadas"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "Ver más extensiones destacadas"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "Extensiones más populares"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "Ver más extensiones de moda"
 
@@ -475,11 +475,11 @@ msgstr "Ver más extensiones más valoradas"
 msgid "Themes"
 msgstr "Temas"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Temas promocionados"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "Ver más temas destacados"
 
@@ -511,49 +511,49 @@ msgstr "Ver todas las extensiones en esta categoría."
 msgid "Browse all themes in this category."
 msgstr "Ver todos los temas en esta categoría."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "Editar esta colección"
 
-#: src/amo/components/Collection/index.js:196 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:175
+msgid "Sign in to edit this collection"
+msgstr "Inicia sesión para editar esta colección"
+
+#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Complementos"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Creador/a"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "Guardar colección"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "El nombre de la colección no se puede dejar en blanco"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "Guardando colección"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "Editar colección"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "Nombre de la colección"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "Decripción"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr "URL personalizada"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr "Encuentra un complemento para incluir en esta colección"
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "El nombre de la colección no se puede dejar en blanco"
+#: src/amo/components/CollectionManager/index.js:252 src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: src/amo/components/CollectionManager/index.js:261
+msgid "Save Collection"
+msgstr "Guardar colección"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -836,83 +836,83 @@ msgstr "Complementos de Firefox"
 msgid "My Account"
 msgstr "Mi cuenta"
 
-#: src/amo/components/Home/index.js:113
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Abstracto"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Naturaleza"
 
-#: src/amo/components/Home/index.js:123
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Películas y TV"
 
-#: src/amo/components/Home/index.js:128
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Vistas"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Música"
 
-#: src/amo/components/Home/index.js:138
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Estacional"
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Personaliza el funcionamiento de Firefox con extensiones. Te interesan…"
 
-#: src/amo/components/Home/index.js:170
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Cambia la apariencia de Firefox con los temas."
 
-#: src/amo/components/Home/index.js:217
-msgid "Good time tabs"
-msgstr "Pestañas para pasar un buen rato"
+#: src/amo/components/Home/index.js:199
+msgid "Social media customization"
+msgstr "Personalización de redes sociales"
 
-#: src/amo/components/Home/index.js:218
-msgid "See more good time tabs extensions"
-msgstr "Ver más extensiones para pestañas"
+#: src/amo/components/Home/index.js:201
+msgid "See more social media customization extensions"
+msgstr "Ver más extensiones para personalizar redes sociales"
 
-#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-msgid "Popular themes"
-msgstr "Temas populares"
-
-#: src/amo/components/Home/index.js:230
-msgid "See more popular themes"
-msgstr "Ver más temas populares"
-
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
 msgstr "Integraciones con Wikipedia"
 
-#: src/amo/components/Home/index.js:245
+#: src/amo/components/Home/index.js:213
 msgid "See more Wikipedia boosters"
 msgstr "Ver más integraciones con Wikipedia"
 
-#: src/amo/components/Home/index.js:62
+#: src/amo/components/Home/index.js:239
+msgid "Good time tabs"
+msgstr "Pestañas para pasar un buen rato"
+
+#: src/amo/components/Home/index.js:240
+msgid "See more good time tabs extensions"
+msgstr "Ver más extensiones para pestañas"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Marcadores"
 
-#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Administradores de contraseñas"
 
-#: src/amo/components/Home/index.js:70
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Bloqueadores de publicidad"
 
-#: src/amo/components/Home/index.js:74
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "Las compras inteligentes"
 
-#: src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Productividad"
 
-#: src/amo/components/Home/index.js:82
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Ver videos"
 
@@ -957,28 +957,28 @@ msgid "Give Wikipedia a gorgeous makeover"
 msgstr "Dale a Wikipedia un espléndido cambio de imagen"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
-msgid "OneTab"
-msgstr "OneTab"
+msgid "Black Menu for Google"
+msgstr "Black Menu para Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
-msgid "Convert your open tabs into a list and save precious memory"
-msgstr "Convierte tus pestañas abiertas en una lista y ahorra memoria"
+msgid "Easy drop-down menu access to Google services like Search and Translate"
+msgstr "Menú desplegable sencillo para acceder a los servicios de Google, como Buscar o Traducir"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
+msgid "Honey"
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
-msgid "Send any Web page to your Kindle device"
-msgstr "Envía cualquier página web a tu Kindle"
+msgid "Automatically searches for coupon codes"
+msgstr "Busca automáticamente códigos de descuento"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Search Site"
-msgstr "Buscar sitio"
+msgid "SHINE for Reddit"
+msgstr "SHINE para Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
-msgid "Search within just the domain you’re visiting"
-msgstr "Busca en el dominio que estás visitando"
+msgid "Experience Reddit with alternative designs"
+msgstr "Prueba Reddit con diseños alternativos"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1208,15 +1208,23 @@ msgstr "Acceder a tus datos para todos los sitios web"
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "Acceder a tus datos en los sitios del dominio %(domain)s"
 
+#: src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access your data in 1 other domain"
+msgstr "Acceder a tus datos en otro dominio"
+
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
 msgstr "Acceder a tus datos en otros %(count)s dominios"
 
-#: src/amo/components/PermissionsCard/permissions.js:66
+#: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
 msgstr "Acceder a tus datos para %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on 1 other site"
+msgstr "Acceder a tus datos en otro sitio"
+
+#: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
 msgstr "Acceder a tus datos en otros %(count)s sitios"
 
@@ -1333,6 +1341,10 @@ msgstr "Complementos más valorados"
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
 msgstr "Extensiones populares"
+
+#: src/amo/components/Search/index.js:150
+msgid "Popular themes"
+msgstr "Temas populares"
 
 #: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
@@ -1854,19 +1866,15 @@ msgstr "Ahora puedes acceder a %(name)s desde la barra de herramientas."
 msgid "OK!"
 msgstr "¡Vale!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126 src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "Cancelar"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "Escribe el texto."
 
-#: src/ui/components/DismissibleTextForm/index.js:97 src/ui/components/FormOverlay/index.js:98
+#: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Enviar"
 
-#: src/ui/components/DismissibleTextForm/index.js:99 src/ui/components/FormOverlay/index.js:96
+#: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
 msgstr "Enviando"
 
@@ -1886,10 +1894,6 @@ msgstr "Recarga la página para continuar"
 msgid "Toggle contents"
 msgstr "Activar contenidos"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr "Clic para cerrar"
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Sin valoraciones"
@@ -1901,6 +1905,36 @@ msgstr "Valoración %(rating)s de 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Expandir a </span> Leer más"
+
+#~ msgid "Saving collection"
+#~ msgstr "Guardando colección"
+
+#~ msgid "Edit collection"
+#~ msgstr "Editar colección"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Ver más temas populares"
+
+#~ msgid "OneTab"
+#~ msgstr "OneTab"
+
+#~ msgid "Convert your open tabs into a list and save precious memory"
+#~ msgstr "Convierte tus pestañas abiertas en una lista y ahorra memoria"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "Envía cualquier página web a tu Kindle"
+
+#~ msgid "Search Site"
+#~ msgstr "Buscar sitio"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "Busca en el dominio que estás visitando"
+
+#~ msgid "Click to close"
+#~ msgstr "Clic para cerrar"
 
 #~ msgid "Reviews"
 #~ msgstr "Comentarios"

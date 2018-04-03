@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 01:25+0000\n"
+"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"PO-Revision-Date: 2018-03-30 21:51+0000\n"
 "Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -39,7 +39,7 @@ msgstr "Lades till %(collectionName)s"
 msgid "Add to…"
 msgstr "Lades till…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Lägg till samling"
 
@@ -269,7 +269,7 @@ msgstr "Länkar för tillägg"
 msgid "Version"
 msgstr "Version"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:206
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Senast uppdaterad"
 
@@ -341,21 +341,21 @@ msgstr "Recensionstext"
 msgid "Submit review"
 msgstr "Skicka in recension"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Ikon för tillägg"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Recensioner för %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s recension för detta tillägg"
 msgstr[1] "%(total)s recensioner för detta tillägg"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "av %(authorList)s"
 
@@ -419,15 +419,15 @@ msgstr "Tillägg för Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Tillägg för Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Laddar"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Hitta tillägg"
 
-#: src/amo/components/AutoSearchInput/index.js:303 src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Sök"
 
@@ -447,19 +447,19 @@ msgstr "Laddar kategorier."
 msgid "Extensions"
 msgstr "Tillägg"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:202 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Utvalda tillägg"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "Se fler utvalda utökningar"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "Trendiga tillägg"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "Se fler trendiga utökningar"
 
@@ -475,11 +475,11 @@ msgstr "Se fler topprankade utökningar"
 msgid "Themes"
 msgstr "Teman"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Utvalda teman"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "Se fler utvalda teman"
 
@@ -511,49 +511,49 @@ msgstr "Bläddra bland alla tillägg i denna kategori."
 msgid "Browse all themes in this category."
 msgstr "Bläddra bland alla teman i denna kategori."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "Redigera denna samling"
 
-#: src/amo/components/Collection/index.js:196 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:175
+msgid "Sign in to edit this collection"
+msgstr "Logga in för att redigera denna samling"
+
+#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Tillägg"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Skapare"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "Spara samling"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "Samlingsnamn kan inte vara tomt"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "Sparar samling"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "Redigera samling"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "Samlingsnamn"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "Beskrivning"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr "Anpassad URL"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr "Hitta ett tillägg som ska inkluderas i den här samlingen"
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "Samlingsnamn kan inte vara tomt"
+#: src/amo/components/CollectionManager/index.js:252 src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: src/amo/components/CollectionManager/index.js:261
+msgid "Save Collection"
+msgstr "Spara samling"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -839,83 +839,83 @@ msgstr "Firefox tillägg"
 msgid "My Account"
 msgstr "Mitt konto"
 
-#: src/amo/components/Home/index.js:113
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Abstrakt"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Natur"
 
-#: src/amo/components/Home/index.js:123
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Film & TV"
 
-#: src/amo/components/Home/index.js:128
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Landskap"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Musik"
 
-#: src/amo/components/Home/index.js:138
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Säsongsbetonat"
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Anpassa hur Firefox fungerar med utökningar. Är du intresserad av…"
 
-#: src/amo/components/Home/index.js:170
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Ändra hur Firefox ser ut med teman."
 
-#: src/amo/components/Home/index.js:217
-msgid "Good time tabs"
-msgstr "Allt för den nya fliksidan"
+#: src/amo/components/Home/index.js:199
+msgid "Social media customization"
+msgstr "Anpassning av sociala medier"
 
-#: src/amo/components/Home/index.js:218
-msgid "See more good time tabs extensions"
-msgstr "Se fler tillägg för den nya fliksidan"
+#: src/amo/components/Home/index.js:201
+msgid "See more social media customization extensions"
+msgstr "Se fler anpassade tillägg för sociala medier"
 
-#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-msgid "Popular themes"
-msgstr "Populära teman"
-
-#: src/amo/components/Home/index.js:230
-msgid "See more popular themes"
-msgstr "Se fler populära teman"
-
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
 msgstr "Wikipedia boosters"
 
-#: src/amo/components/Home/index.js:245
+#: src/amo/components/Home/index.js:213
 msgid "See more Wikipedia boosters"
 msgstr "Se fler Wikipedia boosters"
 
-#: src/amo/components/Home/index.js:62
+#: src/amo/components/Home/index.js:239
+msgid "Good time tabs"
+msgstr "Allt för den nya fliksidan"
+
+#: src/amo/components/Home/index.js:240
+msgid "See more good time tabs extensions"
+msgstr "Se fler tillägg för den nya fliksidan"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Bokmärken"
 
-#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Lösenordshanterare"
 
-#: src/amo/components/Home/index.js:70
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Annonsblockerare"
 
-#: src/amo/components/Home/index.js:74
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "Smartare shopping"
 
-#: src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Produktivitet"
 
-#: src/amo/components/Home/index.js:82
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Tittar på videos"
 
@@ -960,28 +960,28 @@ msgid "Give Wikipedia a gorgeous makeover"
 msgstr "Ge Wikipedia en underbar makeover"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
-msgid "OneTab"
-msgstr "OneTab"
+msgid "Black Menu for Google"
+msgstr "Black Menu för Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
-msgid "Convert your open tabs into a list and save precious memory"
-msgstr "Konvertera dina öppna flikar till en lista och spara värdefullt minne"
+msgid "Easy drop-down menu access to Google services like Search and Translate"
+msgstr "Enkel menyåtkomst till Google-tjänster som Sök och Översätt"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
+msgid "Honey"
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
-msgid "Send any Web page to your Kindle device"
-msgstr "Skicka en webbsida till din Kindle-enhet"
+msgid "Automatically searches for coupon codes"
+msgstr "Letar automatiskt efter kupongkoder"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Search Site"
-msgstr "Search Site"
+msgid "SHINE for Reddit"
+msgstr "SHINE för Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
-msgid "Search within just the domain you’re visiting"
-msgstr "Sök inom bara domänen du besöker"
+msgid "Experience Reddit with alternative designs"
+msgstr "Upplev Reddit med alternativa utformningar"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1211,15 +1211,23 @@ msgstr "Åtkomst till dina data för alla webbplatser"
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "Åtkomst till dina data för platser i domänen %(domain)s"
 
+#: src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access your data in 1 other domain"
+msgstr "Åtkomst till data på 1 annan domän"
+
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
 msgstr "Åtkomst till data på %(count)s andra domäner"
 
-#: src/amo/components/PermissionsCard/permissions.js:66
+#: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
 msgstr "Åtkomst till dina data för %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on 1 other site"
+msgstr "Åtkomst till data på 1 annan webbplats"
+
+#: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
 msgstr "Åtkomst till data på %(count)s andra webbplatser"
 
@@ -1336,6 +1344,10 @@ msgstr "Högst rankade tillägg"
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
 msgstr "Populära utökningar"
+
+#: src/amo/components/Search/index.js:150
+msgid "Popular themes"
+msgstr "Populära teman"
 
 #: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
@@ -1856,19 +1868,15 @@ msgstr "Du kan nu komma åt %(name)s från verktygsfältet."
 msgid "OK!"
 msgstr "OK!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126 src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "Avbryt"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "Ange text."
 
-#: src/ui/components/DismissibleTextForm/index.js:97 src/ui/components/FormOverlay/index.js:98
+#: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Skicka in"
 
-#: src/ui/components/DismissibleTextForm/index.js:99 src/ui/components/FormOverlay/index.js:96
+#: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
 msgstr "Skickar in"
 
@@ -1888,10 +1896,6 @@ msgstr "Ladda om för att fortsätta"
 msgid "Toggle contents"
 msgstr "Växla innehåll"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr "Klicka för att stänga"
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Inga betyg"
@@ -1903,6 +1907,36 @@ msgstr "Betygsatt %(rating)s av 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Fäll ut för att</span> läsa mer"
+
+#~ msgid "Saving collection"
+#~ msgstr "Sparar samling"
+
+#~ msgid "Edit collection"
+#~ msgstr "Redigera samling"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Se fler populära teman"
+
+#~ msgid "OneTab"
+#~ msgstr "OneTab"
+
+#~ msgid "Convert your open tabs into a list and save precious memory"
+#~ msgstr "Konvertera dina öppna flikar till en lista och spara värdefullt minne"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "Skicka en webbsida till din Kindle-enhet"
+
+#~ msgid "Search Site"
+#~ msgstr "Search Site"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "Sök inom bara domänen du besöker"
+
+#~ msgid "Click to close"
+#~ msgstr "Klicka för att stänga"
 
 #~ msgid "Reviews"
 #~ msgstr "Recensioner"

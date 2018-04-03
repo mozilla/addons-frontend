@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-21 01:35+0000\n"
+"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"PO-Revision-Date: 2018-03-30 21:42+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -39,7 +39,7 @@ msgstr "%(collectionName)s へ追加"
 msgid "Add to…"
 msgstr "追加先:"
 
-#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "コレクションへ追加"
 
@@ -266,7 +266,7 @@ msgstr "アドオンリンク"
 msgid "Version"
 msgstr "バージョン"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:206
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "最終更新日"
 
@@ -338,20 +338,20 @@ msgstr "レビューテキスト"
 msgid "Submit review"
 msgstr "レビューを送信"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "アドオンアイコン"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "%(addonName)s のレビュー"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "このアドオンには %(total)s 件のレビューがあります"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "作者: %(authorList)s"
 
@@ -415,15 +415,15 @@ msgstr "Android 向けアドオン"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Android 向けアドオン"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "読み込み中"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "アドオンを見つけよう"
 
-#: src/amo/components/AutoSearchInput/index.js:303 src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "検索"
 
@@ -443,19 +443,19 @@ msgstr "カテゴリーを読み込んでいます。"
 msgid "Extensions"
 msgstr "拡張機能"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:202 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "おすすめ拡張機能"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "おすすめ拡張機能をもっと見る"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "流行の拡張機能"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "流行の拡張機能をもっと見る"
 
@@ -471,11 +471,11 @@ msgstr "評価の高い拡張機能をもっと見る"
 msgid "Themes"
 msgstr "テーマ"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "おすすめテーマ"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "おすすめテーマをもっと見る"
 
@@ -507,49 +507,49 @@ msgstr "このカテゴリーの拡張機能をすべて見る"
 msgid "Browse all themes in this category."
 msgstr "このカテゴリーのテーマをすべて見る"
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "このコレクションを編集"
 
-#: src/amo/components/Collection/index.js:196 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:175
+msgid "Sign in to edit this collection"
+msgstr "このコレクションを編集するにはログインしてください"
+
+#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "アドオン"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "作者"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "コレクションを保存"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "コレクション名は必須です"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "コレクションを保存中"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "コレクションを編集"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "コレクション名"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "説明"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr "カスタム URL"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr "このコレクションに含めるアドオンを検索"
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "コレクション名は必須です"
+#: src/amo/components/CollectionManager/index.js:252 src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "キャンセル"
+
+#: src/amo/components/CollectionManager/index.js:261
+msgid "Save Collection"
+msgstr "コレクションを保存"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -827,83 +827,83 @@ msgstr "Firefox Add-ons"
 msgid "My Account"
 msgstr "マイアカウント"
 
-#: src/amo/components/Home/index.js:113
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "抽象的"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "自然"
 
-#: src/amo/components/Home/index.js:123
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "映画とテレビ"
 
-#: src/amo/components/Home/index.js:128
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "風景"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "音楽"
 
-#: src/amo/components/Home/index.js:138
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "季節"
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "拡張機能で Firefox の挙動をカスタマイズしてみましょう。以下から興味があるものを選んでください。"
 
-#: src/amo/components/Home/index.js:170
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "テーマで Firefox の見た目を変えてみましょう。"
 
-#: src/amo/components/Home/index.js:217
-msgid "Good time tabs"
-msgstr "楽しい時間を提供するタブ"
+#: src/amo/components/Home/index.js:199
+msgid "Social media customization"
+msgstr "ソーシャルメディアのカスタマイズ"
 
-#: src/amo/components/Home/index.js:218
-msgid "See more good time tabs extensions"
-msgstr "楽しい時間を提供するタブ拡張機能をもっと見る"
+#: src/amo/components/Home/index.js:201
+msgid "See more social media customization extensions"
+msgstr "ソーシャルメディアをカスタマイズする拡張機能をもっと見る"
 
-#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-msgid "Popular themes"
-msgstr "人気のテーマ"
-
-#: src/amo/components/Home/index.js:230
-msgid "See more popular themes"
-msgstr "人気テーマをもっと見る"
-
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
 msgstr "Wikipedia を使いやすくするツール"
 
-#: src/amo/components/Home/index.js:245
+#: src/amo/components/Home/index.js:213
 msgid "See more Wikipedia boosters"
 msgstr "Wikipedia を使いやすくするツールをもっと見る"
 
-#: src/amo/components/Home/index.js:62
+#: src/amo/components/Home/index.js:239
+msgid "Good time tabs"
+msgstr "楽しい時間を提供するタブ"
+
+#: src/amo/components/Home/index.js:240
+msgid "See more good time tabs extensions"
+msgstr "楽しい時間を提供するタブ拡張機能をもっと見る"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "ブックマーク"
 
-#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "パスワードマネージャー"
 
-#: src/amo/components/Home/index.js:70
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "広告ブロッカー"
 
-#: src/amo/components/Home/index.js:74
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "より賢い買い物"
 
-#: src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "仕事効率化"
 
-#: src/amo/components/Home/index.js:82
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "動画の視聴"
 
@@ -948,28 +948,28 @@ msgid "Give Wikipedia a gorgeous makeover"
 msgstr "Wikipedia に素晴らしいイメージチェンジを"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
-msgid "OneTab"
-msgstr "OneTab"
+msgid "Black Menu for Google"
+msgstr "Black Menu for Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
-msgid "Convert your open tabs into a list and save precious memory"
-msgstr "開いているタブをリストに変換し貴重なメモリーを節約します"
+msgid "Easy drop-down menu access to Google services like Search and Translate"
+msgstr "ドロップダウンメニューから検索や翻訳など Google のサービスへ簡単アクセス"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
+msgid "Honey"
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
-msgid "Send any Web page to your Kindle device"
-msgstr "あらゆるウェブページを Kindle 端末へ送れます"
+msgid "Automatically searches for coupon codes"
+msgstr "クーポンコードを自動的に検索"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Search Site"
-msgstr "検索サイト"
+msgid "SHINE for Reddit"
+msgstr "SHINE for Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
-msgid "Search within just the domain you’re visiting"
-msgstr "訪れているサイトのドメインだけを対象に検索"
+msgid "Experience Reddit with alternative designs"
+msgstr "別のデザインで Reddit をブラウジング"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1199,15 +1199,23 @@ msgstr "全ウェブサイトのユーザーデータへのアクセス"
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "%(domain)s ドメインにあるサイトのユーザーデータへのアクセス"
 
+#: src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access your data in 1 other domain"
+msgstr "その他 1 ドメイン内のデータへのアクセス"
+
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
 msgstr "その他 %(count)s ドメイン内のデータへのアクセス"
 
-#: src/amo/components/PermissionsCard/permissions.js:66
+#: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
 msgstr "%(site)s のユーザーデータへのアクセス"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on 1 other site"
+msgstr "その他 1 サイト上のデータへのアクセス"
+
+#: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
 msgstr "その他 %(count)s サイト上のデータへのアクセス"
 
@@ -1322,6 +1330,10 @@ msgstr "最も評価の高い拡張機能"
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
 msgstr "人気の拡張機能"
+
+#: src/amo/components/Search/index.js:150
+msgid "Popular themes"
+msgstr "人気のテーマ"
 
 #: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
@@ -1817,19 +1829,15 @@ msgstr "今後はツールバーから %(name)s へアクセスできます。"
 msgid "OK!"
 msgstr "OK!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126 src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "キャンセル"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "テキストを入力"
 
-#: src/ui/components/DismissibleTextForm/index.js:97 src/ui/components/FormOverlay/index.js:98
+#: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "送信"
 
-#: src/ui/components/DismissibleTextForm/index.js:99 src/ui/components/FormOverlay/index.js:96
+#: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
 msgstr "送信中"
 
@@ -1849,10 +1857,6 @@ msgstr "再読み込みして続ける"
 msgid "Toggle contents"
 msgstr "コンテンツを表示・非表示"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr "クリックして閉じる"
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "評価がありません"
@@ -1864,6 +1868,36 @@ msgstr "5 段階中 %(rating)s の評価"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">広げて</span> 詳しく見る"
+
+#~ msgid "Saving collection"
+#~ msgstr "コレクションを保存中"
+
+#~ msgid "Edit collection"
+#~ msgstr "コレクションを編集"
+
+#~ msgid "See more popular themes"
+#~ msgstr "人気テーマをもっと見る"
+
+#~ msgid "OneTab"
+#~ msgstr "OneTab"
+
+#~ msgid "Convert your open tabs into a list and save precious memory"
+#~ msgstr "開いているタブをリストに変換し貴重なメモリーを節約します"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "あらゆるウェブページを Kindle 端末へ送れます"
+
+#~ msgid "Search Site"
+#~ msgstr "検索サイト"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "訪れているサイトのドメインだけを対象に検索"
+
+#~ msgid "Click to close"
+#~ msgstr "クリックして閉じる"
 
 #~ msgid "Reviews"
 #~ msgstr "レビュー"

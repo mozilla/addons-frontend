@@ -3,8 +3,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
-"PO-Revision-Date: 2018-03-20 22:25+0000\n"
+"POT-Creation-Date: 2018-03-30 19:49+0000\n"
+"PO-Revision-Date: 2018-04-02 20:39+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: cak\n"
@@ -39,7 +39,7 @@ msgstr "Tz'aqatisan pa %(collectionName)s"
 msgid "Add to…"
 msgstr "Titz'aqatisáx pa…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:237
 msgid "Add to collection"
 msgstr "Titz'aqatisäx pa mol"
 
@@ -271,7 +271,7 @@ msgstr "Kiximonel Tz'aqat"
 msgid "Version"
 msgstr "Ruwäch"
 
-#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:206
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Ruk'isib'äl k'exoj"
 
@@ -343,22 +343,22 @@ msgstr "Cholan rutzij tzijoxïk"
 msgid "Submit review"
 msgstr "Titaq tzijoxïk"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Ruwachib'al tz'aqat"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Kitzijoxikil %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s rutzijoxik re tz'aqat re'"
 msgstr[1] "%(total)s kitzijoxik re tz'aqat re'"
 
 # Example: by The Author, The Next Author
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
 msgstr "ruma %(authorList)s"
 
@@ -422,15 +422,15 @@ msgstr "Kitz'aqat Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Kitz'aqat Android"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Nisamajib'ëx"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 msgid "Find add-ons"
 msgstr "Ke'ilitäj taq tz'aqat"
 
-#: src/amo/components/AutoSearchInput/index.js:303 src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Tikanöx"
 
@@ -450,19 +450,19 @@ msgstr "Yesamajib'ëx taq ruwäch."
 msgid "Extensions"
 msgstr "Taq k'amal"
 
-#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:202 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Talun taq k'amal"
 
-#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:203 src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
 
-#: src/amo/components/Category/index.js:142 src/amo/components/Home/index.js:255 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
 msgstr "Taq k'amal k'ïy kiwinaq"
 
-#: src/amo/components/Category/index.js:151 src/amo/components/Home/index.js:256 src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
 msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
 
@@ -478,11 +478,11 @@ msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 msgid "Themes"
 msgstr "Taq wachinel"
 
-#: src/amo/components/Category/index.js:165 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Talun wachinel"
 
-#: src/amo/components/Category/index.js:174 src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
 
@@ -514,49 +514,49 @@ msgstr "Ketz'et ronojel ri taq k'amal pa re ruwäch re'."
 msgid "Browse all themes in this category."
 msgstr "Ketz'et ronojel ri taq wachinel pa re ruwäch re'."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 msgid "Edit this collection"
 msgstr "Tinuk' re mol re'"
 
-#: src/amo/components/Collection/index.js:196 src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:175
+msgid "Sign in to edit this collection"
+msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
+
+#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Taq tz'aqat"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr "Q'inonel"
 
-#: src/amo/components/CollectionManager/index.js:156
-msgid "Save collection"
-msgstr "Tiyak ri mol"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
+msgstr "Man tikirel ta nikowe' kan rub'i' mol"
 
-#: src/amo/components/CollectionManager/index.js:157
-msgid "Saving collection"
-msgstr "Niyak ri mol"
-
-#: src/amo/components/CollectionManager/index.js:158
-msgid "Edit collection"
-msgstr "Tinuk' ri mol"
-
-#: src/amo/components/CollectionManager/index.js:165
+#: src/amo/components/CollectionManager/index.js:184
 msgid "Collection name"
 msgstr "Rub'i' mol"
 
-#: src/amo/components/CollectionManager/index.js:175
+#: src/amo/components/CollectionManager/index.js:196
 msgid "Description"
 msgstr "Tzijoxkil"
 
-#: src/amo/components/CollectionManager/index.js:184
+#: src/amo/components/CollectionManager/index.js:207
 msgid "Custom URL"
 msgstr "Ichinan URL"
 
-#: src/amo/components/CollectionManager/index.js:207
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr "Tikanöx jun tz'aqat richin nitz'aqatisäx pa re mol re'"
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr "Man tikirel ta nikowe' kan rub'i' mol"
+#: src/amo/components/CollectionManager/index.js:252 src/ui/components/DismissibleTextForm/index.js:126
+msgid "Cancel"
+msgstr "Tiq'at"
+
+#: src/amo/components/CollectionManager/index.js:261
+msgid "Save Collection"
+msgstr "Tiyak ri Mol"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -841,84 +841,84 @@ msgstr "Taq Rutz'aqat Firefox"
 msgid "My Account"
 msgstr "Rub'i' Nutaqoya'l"
 
-#: src/amo/components/Home/index.js:113
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Ch'utinisan Na'oj"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Ruwach'ulew"
 
-#: src/amo/components/Home/index.js:123
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Silowachil & TV"
 
-#: src/amo/components/Home/index.js:128
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Wachaj"
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Q'ojom"
 
-#: src/amo/components/Home/index.js:138
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Kajtz'ukalil"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Tawichinaj rusamaj Firefox kik'in k'amal. La ütz natz'ët…"
 
-#: src/amo/components/Home/index.js:170
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Tijal ri ruwäch Firefox kik'in wachinel."
 
-#: src/amo/components/Home/index.js:217
-msgid "Good time tabs"
-msgstr "Utziläj taq ruwi'"
+#: src/amo/components/Home/index.js:199
+msgid "Social media customization"
+msgstr "Richinaxik k'amawinaqil"
 
-#: src/amo/components/Home/index.js:218
-msgid "See more good time tabs extensions"
-msgstr "Ketz'et ch'aqa' chik taq kik'amal jeb'ël kiq'ijul taq ruwi'"
+#: src/amo/components/Home/index.js:201
+msgid "See more social media customization extensions"
+msgstr "Ketz'et ch'aqa' chik taq k'amal yekichinaj taq k'amawinaqil"
 
-#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-msgid "Popular themes"
-msgstr "Taq wachinïk k'ïy kiwinaq"
-
-#: src/amo/components/Home/index.js:230
-msgid "See more popular themes"
-msgstr "Ketz'et ch'aqa' chik taq wachinïk k'ïy kiwinaq"
-
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
 msgstr "Rajtijonela' Wikipedia"
 
-#: src/amo/components/Home/index.js:245
+#: src/amo/components/Home/index.js:213
 msgid "See more Wikipedia boosters"
 msgstr "Ketz'et ch'aqa' chik kajtijonela' Wikipedia"
 
-#: src/amo/components/Home/index.js:62
+#: src/amo/components/Home/index.js:239
+msgid "Good time tabs"
+msgstr "Utziläj taq ruwi'"
+
+#: src/amo/components/Home/index.js:240
+msgid "See more good time tabs extensions"
+msgstr "Ketz'et ch'aqa' chik taq kik'amal jeb'ël kiq'ijul taq ruwi'"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Taq yaketal"
 
-#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Kinuk'samajel ewan tzij"
 
-#: src/amo/components/Home/index.js:70
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Kiq'atonela' eletzijob'äl"
 
-#: src/amo/components/Home/index.js:74
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "Na'owinäq taq loq'oj"
 
-#: src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Ruwa k'ay"
 
-#: src/amo/components/Home/index.js:82
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Ketz'et Silowäch"
 
@@ -963,28 +963,28 @@ msgid "Give Wikipedia a gorgeous makeover"
 msgstr "Taya' jun jeb'ël ruwachib'al ri Wikipedia"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
-msgid "OneTab"
-msgstr "OneTab"
+msgid "Black Menu for Google"
+msgstr "Black Menu richin Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
-msgid "Convert your open tabs into a list and save precious memory"
-msgstr "Ke'ajala' ri jaqäl taq ruwi' pa jun cholb'äl chuqa' tayaka' ri jeb'ël natanem"
+msgid "Easy drop-down menu access to Google services like Search and Translate"
+msgstr "Relik rik'el k'utsamaj richin yatok pa taq rusamaj Google achi'el Tikanöx chuqa' Titzalq'omïx"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
-msgid "Push to Kindle"
-msgstr "Push to Kindle"
+msgid "Honey"
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
-msgid "Send any Web page to your Kindle device"
-msgstr "Titaq xab'achike Ajk'amaya'l ruxaq pa ri Kindle awokisaxel"
+msgid "Automatically searches for coupon codes"
+msgstr "Pa ruyonil kekanöx taq rub'itz'ib' qasanïk rajil"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-msgid "Search Site"
-msgstr "Tikanöx Ruxaq"
+msgid "SHINE for Reddit"
+msgstr "SHINE richin Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
-msgid "Search within just the domain you’re visiting"
-msgstr "Takanoj pa ri ajk'amal natz'ët"
+msgid "Experience Reddit with alternative designs"
+msgstr "Titojtob'ëx Reddit kik'in jalel taq wachib'enïk"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1214,15 +1214,23 @@ msgstr "Nok pa ri taq atzij pa ronojel ri ajk'amaya'l ruxaq"
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr "Katok pa ri taq atzij richin ri taq ruxaq k'amaya'l pa %(domain)s ajk'amal"
 
+#: src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access your data in 1 other domain"
+msgstr "Katok pan atzij pa 1 chik ajk'amal"
+
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
 msgstr "Katok pa ri atzij pa %(count)s juley chik ajk'amal"
 
-#: src/amo/components/PermissionsCard/permissions.js:66
+#: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
 msgstr "Katok pa taq atzij richin %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on 1 other site"
+msgstr "Katok pan atzij pa 1chik ruxaq"
+
+#: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
 msgstr "Katok pa ri atzij pa %(count)s juley chik ruxaq"
 
@@ -1339,6 +1347,10 @@ msgstr "Taq tz'aqat ya'on kiq'ij"
 #: src/amo/components/Search/index.js:147
 msgid "Popular extensions"
 msgstr "K'ïy kiwinaq taq k'amal"
+
+#: src/amo/components/Search/index.js:150
+msgid "Popular themes"
+msgstr "Taq wachinïk k'ïy kiwinaq"
 
 #: src/amo/components/Search/index.js:153
 msgid "Popular add-ons"
@@ -1863,19 +1875,15 @@ msgstr "Wakami yatikïr yatok pa %(name)s rik'in ri kikajtz'ik samajib'äl."
 msgid "OK!"
 msgstr "ÜTZ!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126 src/ui/components/FormOverlay/index.js:139
-msgid "Cancel"
-msgstr "Tiq'at"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
 msgstr "Titz'ib'äx cholan tzij."
 
-#: src/ui/components/DismissibleTextForm/index.js:97 src/ui/components/FormOverlay/index.js:98
+#: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
 msgstr "Titaq"
 
-#: src/ui/components/DismissibleTextForm/index.js:99 src/ui/components/FormOverlay/index.js:96
+#: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
 msgstr "Nitaq"
 
@@ -1895,10 +1903,6 @@ msgstr "Tisamajib'ëx chik Richin Nisamäj chik"
 msgid "Toggle contents"
 msgstr "Kejal rupam"
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr "Tipitz' richin nitz'apïx"
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Majun rejqalem"
@@ -1910,6 +1914,36 @@ msgstr "Rejqalem %(rating)s richin 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Tinimirisäx richin </span> Tisik'ïx ch'aqa' chik"
+
+#~ msgid "Saving collection"
+#~ msgstr "Niyak ri mol"
+
+#~ msgid "Edit collection"
+#~ msgstr "Tinuk' ri mol"
+
+#~ msgid "See more popular themes"
+#~ msgstr "Ketz'et ch'aqa' chik taq wachinïk k'ïy kiwinaq"
+
+#~ msgid "OneTab"
+#~ msgstr "OneTab"
+
+#~ msgid "Convert your open tabs into a list and save precious memory"
+#~ msgstr "Ke'ajala' ri jaqäl taq ruwi' pa jun cholb'äl chuqa' tayaka' ri jeb'ël natanem"
+
+#~ msgid "Push to Kindle"
+#~ msgstr "Push to Kindle"
+
+#~ msgid "Send any Web page to your Kindle device"
+#~ msgstr "Titaq xab'achike Ajk'amaya'l ruxaq pa ri Kindle awokisaxel"
+
+#~ msgid "Search Site"
+#~ msgstr "Tikanöx Ruxaq"
+
+#~ msgid "Search within just the domain you’re visiting"
+#~ msgstr "Takanoj pa ri ajk'amal natz'ët"
+
+#~ msgid "Click to close"
+#~ msgstr "Tipitz' richin nitz'apïx"
 
 #~ msgid "Reviews"
 #~ msgstr "Taq tzijoxïk"

@@ -1,18 +1,19 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 import config from 'config';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
-import EditableCollectionAddon
-  from 'amo/components/EditableCollectionAddon';
 import { updateCollection } from 'amo/reducers/collections';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
-import FormOverlay from 'ui/components/FormOverlay';
+import Button from 'ui/components/Button';
+import LoadingText from 'ui/components/LoadingText';
 import type {
   SearchFilters, SuggestionType,
 } from 'amo/components/AutoSearchInput';
@@ -22,14 +23,17 @@ import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { DispatchFunc } from 'core/types/redux';
+import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
 type Props = {|
   collection: CollectionType | null,
+  clientApp: ?string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  router: ReactRouterType,
   siteLang: ?string,
 |};
 
@@ -38,8 +42,6 @@ type State = {|
   name?: string | null,
   slug?: string | null,
 |};
-
-export const COLLECTION_OVERLAY = 'COLLECTION_OVERLAY';
 
 export class CollectionManagerBase extends React.Component<Props, State> {
   constructor(props: Props) {
@@ -57,15 +59,30 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
   }
 
-  onCancel = () => {
-    const { errorHandler } = this.props;
+  onCancel = (event: SyntheticEvent<any>) => {
+    const {
+      collection, clientApp, errorHandler, router, siteLang,
+    } = this.props;
+    event.preventDefault();
+    event.stopPropagation();
+    invariant(collection,
+      'A collection must be loaded before you can cancel');
+    invariant(clientApp,
+      'A clientApp must be loaded before you can cancel');
+    invariant(siteLang,
+      'A siteLang must be loaded before you can cancel');
 
     // Reset form state to the original collection object.
     this.setState(this.propsToState(this.props));
     errorHandler.clear();
+
+    const { authorUsername, slug } = collection;
+    router.push(
+      `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`
+    );
   }
 
-  onSubmit = () => {
+  onSubmit = (event: SyntheticEvent<any>) => {
     const {
       collection,
       errorHandler,
@@ -73,6 +90,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       i18n,
       siteLang,
     } = this.props;
+    event.preventDefault();
+    event.stopPropagation();
 
     if (!collection) {
       // You'd have to click really fast to access a form without a
@@ -100,7 +119,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       defaultLocale: collection.defaultLocale,
       description: { [siteLang]: this.state.description },
       errorHandlerId: errorHandler.id,
-      formOverlayId: COLLECTION_OVERLAY,
       name: { [siteLang]: this.state.name },
       user: collection.authorUsername,
       slug: this.state.slug,
@@ -138,6 +156,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   render() {
     const { collection, errorHandler, i18n, siteLang } = this.props;
+    const { name } = this.state;
 
     let collectionUrlPrefix = '';
     if (collection && siteLang) {
@@ -147,15 +166,17 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         `${apiHost}/${siteLang}/firefox/collections/${authorUsername}/`;
     }
 
+    // TODO: also disable the form while submitting.
+    // https://github.com/mozilla/addons-frontend/issues/4635
+    // The collectionUpdates state will handle this but it needs
+    // to be hooked up the saga.
+    const formIsDisabled = !collection;
+    const isNameBlank = !(name && name.trim().length);
+
     return (
-      <FormOverlay
+      <form
         className="CollectionManager"
-        id={COLLECTION_OVERLAY}
-        onCancel={this.onCancel}
         onSubmit={this.onSubmit}
-        submitText={i18n.gettext('Save collection')}
-        submittingText={i18n.gettext('Saving collection')}
-        title={i18n.gettext('Edit collection')}
       >
         {errorHandler.renderErrorIfPresent()}
         <label
@@ -164,27 +185,34 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         >
           {i18n.gettext('Collection name')}
         </label>
-        <input
-          onChange={this.onTextInput}
-          id="collectionName"
-          name="name"
-          type="text"
-          value={this.state.name}
-        />
+        {collection ? (
+          <input
+            onChange={this.onTextInput}
+            id="collectionName"
+            name="name"
+            type="text"
+            value={this.state.name}
+          />
+        ) : <LoadingText minWidth={60} />}
         <label htmlFor="collectionDescription">
           {i18n.gettext('Description')}
         </label>
-        <textarea
-          defaultValue={this.state.description}
-          id="collectionDescription"
-          name="description"
-          onChange={this.onTextInput}
-        />
+        {collection ? (
+          <textarea
+            value={this.state.description}
+            id="collectionDescription"
+            name="description"
+            onChange={this.onTextInput}
+          />
+        ) : <LoadingText minWidth={60} />}
         <label htmlFor="collectionSlug">
           {i18n.gettext('Custom URL')}
         </label>
         <div className="CollectionManager-slug">
-          <div className="CollectionManager-slug-url-hint">
+          <div
+            title={collectionUrlPrefix}
+            className="CollectionManager-slug-url-hint"
+          >
             {/*
               &lrm; (left-to-right mark) is an invisible control
               character. It's added to prevent the bi-directional
@@ -210,16 +238,32 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           onSuggestionSelected={this.onAddonSelected}
           selectSuggestionText={i18n.gettext('Add to collection')}
         />
-        <div className="CollectionManager-addons">
-          {collection && collection.addons && collection.addons.map(
-            (addon) => {
-              return (
-                <EditableCollectionAddon key={addon.id} addon={addon} />
-              );
-            }
-          )}
-        </div>
-      </FormOverlay>
+        <footer className="CollectionManager-footer">
+          {/*
+            type=button is necessary to override the default
+            of type=submit
+          */}
+          <Button
+            buttonType="neutral"
+            disabled={formIsDisabled}
+            onClick={this.onCancel}
+            className="CollectionManager-cancel"
+            puffy
+            type="button"
+          >
+            {i18n.gettext('Cancel')}
+          </Button>
+          <Button
+            buttonType="action"
+            disabled={formIsDisabled || isNameBlank}
+            className="CollectionManager-submit"
+            type="submit"
+            puffy
+          >
+            {i18n.gettext('Save Collection')}
+          </Button>
+        </footer>
+      </form>
     );
   }
 }
@@ -231,11 +275,13 @@ export const extractId = (ownProps: Props) => {
 
 export const mapStateToProps = (state: {| api: ApiStateType |}) => {
   return {
+    clientApp: state.api.clientApp,
     siteLang: state.api.lang,
   };
 };
 
 export default compose(
+  withRouter,
   translate(),
   withFixedErrorHandler({ fileName: __filename, extractId }),
   connect(mapStateToProps),

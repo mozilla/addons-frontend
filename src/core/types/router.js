@@ -16,10 +16,12 @@ export type ReactRouterLocation = {|
 
 type pushParams = {|
   pathname: string,
-  query: { [param: string]: string },
+  query: { [param: string]: string | number },
 |};
 
 export type ReactRouterType = {|
   location: ReactRouterLocation,
+  // These are parameters derived from the <Route/> config.
+  params: { [param: string]: string },
   push: (pushURL: string | pushParams) => void,
 |};

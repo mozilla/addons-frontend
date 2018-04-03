@@ -8,15 +8,17 @@ import AddonReviewList from 'amo/components/AddonReviewList';
 import App from 'amo/components/App';
 import CategoriesPage from 'amo/components/CategoriesPage';
 import Category from 'amo/components/Category';
+import Collection from 'amo/components/Collection';
+import CollectionEdit from 'amo/components/CollectionEdit';
 import Home from 'amo/components/Home';
 import LandingPage from 'amo/components/LandingPage';
 import LanguageTools from 'amo/components/LanguageTools';
+import SearchTools from 'amo/components/SearchTools';
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReviewGuide from 'amo/components/StaticPages/ReviewGuide';
 import SearchPage from 'amo/components/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
-import Collection from 'amo/components/Collection';
 import UserProfile from 'amo/components/UserProfile';
 import SimulateAsyncError from
   'core/containers/error-simulation/SimulateAsyncError';
@@ -40,10 +42,15 @@ export default (
       <Route path="addon/:slug/" component={Addon} />
       <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
       <Route path="user/:username/" component={UserProfile} />
+      <Route
+        path="collections/:user/:slug/edit/"
+        component={CollectionEdit}
+      />
       <Route path="collections/:user/:slug/" component={Collection} />
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
       <Route path="language-tools/" component={LanguageTools} />
+      <Route path="search-tools/" component={SearchTools} />
       <Route path="search/" component={SearchPage} />
       <Route
         path="401/"

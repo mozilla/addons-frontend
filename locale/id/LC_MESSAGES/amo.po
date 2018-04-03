@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-20 20:23+0000\n"
+"POT-Creation-Date: 2018-03-30 19:49+0000\n"
 "PO-Revision-Date: 2017-03-18 02:37+0000\n"
 "Last-Translator: Firman <firmanwyd2000@gmail.com>\n"
 "Language-Team: none\n"
@@ -43,7 +43,7 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:211
+#: src/amo/components/CollectionManager/index.js:237
 #, fuzzy
 msgid "Add to collection"
 msgstr "Jelajahi semua ekstensi"
@@ -299,7 +299,7 @@ msgid "Version"
 msgstr "Versi"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:206
+#: src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "Terakhir dimutakhirkan"
 
@@ -380,21 +380,21 @@ msgstr "Teks ulasan"
 msgid "Submit review"
 msgstr "Kirim ulasan"
 
-#: src/amo/components/AddonReviewList/index.js:165
+#: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
 msgstr "Ikon pengaya"
 
-#: src/amo/components/AddonReviewList/index.js:171
+#: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
 msgstr "Ulasan untuk %(addonName)s"
 
-#: src/amo/components/AddonReviewList/index.js:183
+#: src/amo/components/AddonReviewList/index.js:185
 #, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan"
 
-#: src/amo/components/AddonReviewList/index.js:211
+#: src/amo/components/AddonReviewList/index.js:213
 #, fuzzy
 msgid "by %(authorList)s"
 msgstr "dari %(authorName)s, %(timestamp)s"
@@ -470,17 +470,17 @@ msgstr "Pengaya untuk Firefox"
 msgid "%s – Add-ons for Android"
 msgstr "Pengaya untuk Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:190
+#: src/amo/components/AutoSearchInput/index.js:196
 msgid "Loading"
 msgstr "Memuat"
 
-#: src/amo/components/AutoSearchInput/index.js:277
+#: src/amo/components/AutoSearchInput/index.js:284
 #, fuzzy
 msgid "Find add-ons"
 msgstr "Memuat pengaya"
 
-#: src/amo/components/AutoSearchInput/index.js:303
-#: src/amo/components/AutoSearchInput/index.js:336
+#: src/amo/components/AutoSearchInput/index.js:310
+#: src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "Cari"
 
@@ -503,21 +503,20 @@ msgid "Extensions"
 msgstr "Ekstensi"
 
 #: src/amo/components/Category/index.js:132
-#: src/amo/components/Home/index.js:202
+#: src/amo/components/Home/index.js:251
 #: src/amo/components/LandingPage/index.js:124
 #: src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Ekstensi pilihan"
 
 #: src/amo/components/Category/index.js:141
-#: src/amo/components/Home/index.js:203
+#: src/amo/components/Home/index.js:252
 #: src/amo/components/LandingPage/index.js:132
 #, fuzzy
 msgid "See more featured extensions"
 msgstr "Ekstensi pilihan lainnya"
 
 #: src/amo/components/Category/index.js:142
-#: src/amo/components/Home/index.js:255
 #: src/amo/components/LandingPage/index.js:133
 #: src/amo/components/Search/index.js:123
 #, fuzzy
@@ -525,7 +524,6 @@ msgid "Trending extensions"
 msgstr "Ekstensi peringkat teratas"
 
 #: src/amo/components/Category/index.js:151
-#: src/amo/components/Home/index.js:256
 #: src/amo/components/LandingPage/index.js:138
 #, fuzzy
 msgid "See more trending extensions"
@@ -550,12 +548,14 @@ msgid "Themes"
 msgstr "Tema"
 
 #: src/amo/components/Category/index.js:165
+#: src/amo/components/Home/index.js:224
 #: src/amo/components/LandingPage/index.js:150
 #: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Tema pilihan"
 
 #: src/amo/components/Category/index.js:174
+#: src/amo/components/Home/index.js:225
 #: src/amo/components/LandingPage/index.js:158
 #, fuzzy
 msgid "See more featured themes"
@@ -598,55 +598,56 @@ msgstr "Jelajahi semua ekstensi pada kategori ini."
 msgid "Browse all themes in this category."
 msgstr "Jelajahi semua tema pada kategori ini."
 
-#: src/amo/components/Collection/index.js:162
+#: src/amo/components/Collection/index.js:159
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Jelajahi semua ekstensi"
 
-#: src/amo/components/Collection/index.js:196
+#: src/amo/components/Collection/index.js:175
+#, fuzzy
+msgid "Sign in to edit this collection"
+msgstr "Jelajahi semua ekstensi"
+
+#: src/amo/components/Collection/index.js:199
 #: src/amo/components/Footer/index.js:43
 #, fuzzy
 msgid "Add-ons"
 msgstr "Tautan Pengaya"
 
-#: src/amo/components/Collection/index.js:200
+#: src/amo/components/Collection/index.js:203
 msgid "Creator"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:156
-#, fuzzy
-msgid "Save collection"
-msgstr "Jelajahi semua ekstensi"
-
-#: src/amo/components/CollectionManager/index.js:157
-#, fuzzy
-msgid "Saving collection"
-msgstr "Jelajahi semua ekstensi"
-
-#: src/amo/components/CollectionManager/index.js:158
-#, fuzzy
-msgid "Edit collection"
-msgstr "Jelajahi semua ekstensi"
-
-#: src/amo/components/CollectionManager/index.js:165
-msgid "Collection name"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:175
-msgid "Description"
+#: src/amo/components/CollectionManager/index.js:112
+msgid "Collection name cannot be blank"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:184
-msgid "Custom URL"
+msgid "Collection name"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:196
+msgid "Description"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:207
+msgid "Custom URL"
+msgstr ""
+
+#: src/amo/components/CollectionManager/index.js:233
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:93
-msgid "Collection name cannot be blank"
-msgstr ""
+#: src/amo/components/CollectionManager/index.js:252
+#: src/ui/components/DismissibleTextForm/index.js:126
+#, fuzzy
+msgid "Cancel"
+msgstr "Batalkan pratinjau"
+
+#: src/amo/components/CollectionManager/index.js:261
+#, fuzzy
+msgid "Save Collection"
+msgstr "Jelajahi semua ekstensi"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -967,87 +968,86 @@ msgstr "Pengaya Firefox"
 msgid "My Account"
 msgstr ""
 
-#: src/amo/components/Home/index.js:113
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Abstrak"
 
-#: src/amo/components/Home/index.js:118
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr ""
 
-#: src/amo/components/Home/index.js:123
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr ""
 
-#: src/amo/components/Home/index.js:128
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr ""
 
-#: src/amo/components/Home/index.js:133
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr ""
 
-#: src/amo/components/Home/index.js:138
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr ""
 
-#: src/amo/components/Home/index.js:168
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 
-#: src/amo/components/Home/index.js:170
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr ""
 
-#: src/amo/components/Home/index.js:217
-msgid "Good time tabs"
+#: src/amo/components/Home/index.js:199
+msgid "Social media customization"
 msgstr ""
 
-#: src/amo/components/Home/index.js:218
+#: src/amo/components/Home/index.js:201
 #, fuzzy
-msgid "See more good time tabs extensions"
+msgid "See more social media customization extensions"
 msgstr "Ekstensi peringkat teratas"
 
-#: src/amo/components/Home/index.js:229 src/amo/components/Search/index.js:150
-#, fuzzy
-msgid "Popular themes"
-msgstr "Tema terpopuler"
-
-#: src/amo/components/Home/index.js:230
-#, fuzzy
-msgid "See more popular themes"
-msgstr "Tema populer lainnya"
-
-#: src/amo/components/Home/index.js:244
+#: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
 msgstr ""
 
-#: src/amo/components/Home/index.js:245
+#: src/amo/components/Home/index.js:213
 #, fuzzy
 msgid "See more Wikipedia boosters"
 msgstr "Tema pilihan lainnya"
 
-#: src/amo/components/Home/index.js:62
+#: src/amo/components/Home/index.js:239
+msgid "Good time tabs"
+msgstr ""
+
+#: src/amo/components/Home/index.js:240
+#, fuzzy
+msgid "See more good time tabs extensions"
+msgstr "Ekstensi peringkat teratas"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr ""
 
-#: src/amo/components/Home/index.js:66
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr ""
 
-#: src/amo/components/Home/index.js:70
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr ""
 
-#: src/amo/components/Home/index.js:74
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr ""
 
-#: src/amo/components/Home/index.js:78
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr ""
 
-#: src/amo/components/Home/index.js:82
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr ""
 
@@ -1094,28 +1094,27 @@ msgid "Give Wikipedia a gorgeous makeover"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:167
-msgid "OneTab"
+msgid "Black Menu for Google"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:170
-msgid "Convert your open tabs into a list and save precious memory"
+msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:180
-msgid "Push to Kindle"
+msgid "Honey"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:182
-msgid "Send any Web page to your Kindle device"
+msgid "Automatically searches for coupon codes"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:190
-#, fuzzy
-msgid "Search Site"
-msgstr "Cari"
+msgid "SHINE for Reddit"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:193
-msgid "Search within just the domain you’re visiting"
+msgid "Experience Reddit with alternative designs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:202
@@ -1363,15 +1362,23 @@ msgstr ""
 msgid "Access your data for sites in the %(domain)s domain"
 msgstr ""
 
+#: src/amo/components/PermissionsCard/permissions.js:58
+msgid "Access your data in 1 other domain"
+msgstr ""
+
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:66
+#: src/amo/components/PermissionsCard/permissions.js:68
 msgid "Access your data for %(site)s"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:74
+msgid "Access your data on 1 other site"
+msgstr ""
+
+#: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
 msgstr ""
 
@@ -1512,6 +1519,11 @@ msgstr "Ekstensi peringkat teratas"
 #, fuzzy
 msgid "Popular extensions"
 msgstr "Ekstensi terpopuler"
+
+#: src/amo/components/Search/index.js:150
+#, fuzzy
+msgid "Popular themes"
+msgstr "Tema terpopuler"
 
 #: src/amo/components/Search/index.js:153
 #, fuzzy
@@ -2080,24 +2092,16 @@ msgstr ""
 msgid "OK!"
 msgstr "Oke!"
 
-#: src/ui/components/DismissibleTextForm/index.js:126
-#: src/ui/components/FormOverlay/index.js:139
-#, fuzzy
-msgid "Cancel"
-msgstr "Batalkan pratinjau"
-
 #: src/ui/components/DismissibleTextForm/index.js:96
 #, fuzzy
 msgid "Enter text."
 msgstr "Enter"
 
 #: src/ui/components/DismissibleTextForm/index.js:97
-#: src/ui/components/FormOverlay/index.js:98
 msgid "Submit"
 msgstr "Kirim"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
-#: src/ui/components/FormOverlay/index.js:96
 #, fuzzy
 msgid "Submitting"
 msgstr "Kirim"
@@ -2118,10 +2122,6 @@ msgstr ""
 msgid "Toggle contents"
 msgstr ""
 
-#: src/ui/components/FormOverlay/index.js:118
-msgid "Click to close"
-msgstr ""
-
 #: src/ui/components/Rating/index.js:100
 msgid "No ratings"
 msgstr "Tidak ada peringkat"
@@ -2133,6 +2133,22 @@ msgstr "Peringkat %(rating)s dari 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Saving collection"
+#~ msgstr "Jelajahi semua ekstensi"
+
+#, fuzzy
+#~ msgid "Edit collection"
+#~ msgstr "Jelajahi semua ekstensi"
+
+#, fuzzy
+#~ msgid "See more popular themes"
+#~ msgstr "Tema populer lainnya"
+
+#, fuzzy
+#~ msgid "Search Site"
+#~ msgstr "Cari"
 
 #, fuzzy
 #~ msgid "Reviews"
