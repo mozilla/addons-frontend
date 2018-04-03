@@ -188,6 +188,11 @@ describe(__filename, () => {
     expect(findDOMNode(root).textContent).toEqual('Click to rate this add-on');
   });
 
+  it('renders "no ratings" if no rating and readOnly', () => {
+    const root = render({ rating: null, readOnly: true });
+    expect(findDOMNode(root).textContent).toEqual('This add-on has no ratings.');
+  });
+
   it('renders an accessible description for ratings', () => {
     const root = render({ rating: 2 });
     expect(findDOMNode(root).textContent).toEqual('Rated 2 out of 5');
@@ -203,6 +208,7 @@ describe(__filename, () => {
     [4, 5].forEach((rating) => {
       expect(root.ratingElements[rating].className).toEqual('Rating-choice');
     });
+    expect(findDOMNode(root).textContent).toEqual('Rated 3 out of 5');
   });
 
   it('prevents form submission when selecting a rating', () => {
