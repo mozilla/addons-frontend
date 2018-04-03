@@ -10,20 +10,17 @@ import { withRouter } from 'react-router';
 import { setViewContext } from 'amo/actions/viewContext';
 import AddAddonToCollection from 'amo/components/AddAddonToCollection';
 import AddonBadges from 'amo/components/AddonBadges';
-import AddonsCard from 'amo/components/AddonsCard';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
+import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
-import {
-  fetchAddonsByAuthors,
-  getAddonsForSlug,
-} from 'amo/reducers/addonsByAuthors';
+import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
 import {
   fetchAddon,
   getAddonByID,
@@ -122,7 +119,6 @@ export class AddonBase extends React.Component {
         }
 
         dispatch(setViewContext(addon.type));
-        this.dispatchFetchAddonsByAuthors({ addon });
       } else {
         dispatch(fetchAddon({ slug: params.slug, errorHandler }));
       }
@@ -139,10 +135,6 @@ export class AddonBase extends React.Component {
 
     if (params.slug !== newParams.slug) {
       dispatch(fetchAddon({ slug: newParams.slug, errorHandler }));
-    }
-
-    if (newAddon && oldAddon !== newAddon) {
-      this.dispatchFetchAddonsByAuthors({ addon: newAddon });
     }
   }
 
@@ -162,18 +154,7 @@ export class AddonBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
-  dispatchFetchAddonsByAuthors({ addon }) {
-    const { dispatch, errorHandler } = this.props;
-
-    dispatch(fetchAddonsByAuthors({
-      addonType: addon.type,
-      authors: addon.authors.map((author) => author.username),
-      errorHandlerId: errorHandler.id,
-      forAddonSlug: addon.slug,
-    }));
-  }
-
-  headerImage({ compatible } = {}) {
+  headerImage({ compatible }) {
     const {
       addon,
       getBrowserThemeData,
@@ -357,84 +338,6 @@ export class AddonBase extends React.Component {
     /* eslint-enable react/no-danger */
   }
 
-  renderMoreAddonsByAuthors = () => {
-    const { addon, addonsByAuthors, i18n } = this.props;
-
-    if (!addon || !addonsByAuthors || addonsByAuthors.length === 0) {
-      return null;
-    }
-
-    const addonType = addon.type;
-    const authorNames = addon.authors.map((author) => author.name);
-
-    let header;
-    switch (addonType) {
-      case ADDON_TYPE_DICT:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More dictionaries by %(author)s'),
-            { author: authorNames[0] }
-          ),
-          i18n.gettext('More dictionaries by these translators'),
-          authorNames.length
-        );
-        break;
-      case ADDON_TYPE_EXTENSION:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More extensions by %(author)s'),
-            { author: authorNames[0] }
-          ),
-          i18n.gettext('More extensions by these developers'),
-          authorNames.length
-        );
-        break;
-      case ADDON_TYPE_LANG:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More language packs by %(author)s'),
-            { author: authorNames[0] }
-          ),
-          i18n.gettext('More language packs by these translators'),
-          authorNames.length
-        );
-        break;
-      case ADDON_TYPE_THEME:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More themes by %(author)s'),
-            { author: authorNames[0] }
-          ),
-          i18n.gettext('More themes by these artists'),
-          authorNames.length
-        );
-        break;
-      default:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More add-ons by %(author)s'),
-            { author: authorNames[0] }
-          ),
-          i18n.gettext('More add-ons by these developers'),
-          authorNames.length
-        );
-    }
-
-    const classnames = makeClassName('AddonDescription-more-addons', {
-      'AddonDescription-more-addons--theme': addonType === ADDON_TYPE_THEME,
-    });
-
-    return (
-      <AddonsCard
-        addons={addonsByAuthors}
-        className={classnames}
-        header={header}
-        showSummary={false}
-        type="horizontal"
-      />
-    );
-  }
-
   render() {
     const {
       addon,
@@ -581,8 +484,15 @@ export class AddonBase extends React.Component {
 
         <div className="Addon-details">
           <div className="Addon-main-content">
-            {addonType === ADDON_TYPE_THEME ?
-              this.renderMoreAddonsByAuthors() : null}
+            {addon && addonType === ADDON_TYPE_THEME && (
+              <AddonsByAuthorsCard
+                addonType={addonType}
+                authorNames={addon.authors.map((author) => author.username)}
+                className="Addon-MoreAddonsCard"
+                forAddonSlug={addon.slug}
+                numberOfAddons={3}
+              />
+            )}
 
             {addonPreviews.length > 0 ? (
               <Card
@@ -608,8 +518,15 @@ export class AddonBase extends React.Component {
 
           {this.renderVersionReleaseNotes()}
 
-          {addonType !== ADDON_TYPE_THEME ?
-            this.renderMoreAddonsByAuthors() : null}
+          {addon && addonType !== ADDON_TYPE_THEME && (
+            <AddonsByAuthorsCard
+              addonType={addonType}
+              authorNames={addon.authors.map((author) => author.username)}
+              className="Addon-MoreAddonsCard"
+              forAddonSlug={addon.slug}
+              numberOfAddons={4}
+            />
+          )}
         </div>
       </div>
     );

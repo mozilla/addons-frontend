@@ -32,7 +32,7 @@ describe(__filename, () => {
       initialState: dispatchClientMetadata().state,
       reducers: {
         api: apiReducer,
-        addonsByAuthors: addonsByAuthorsReducer,
+        addonsByAuthorNames: addonsByAuthorsReducer,
       },
     });
     sagaTester.start(addonsByAuthorsSaga);
@@ -41,14 +41,13 @@ describe(__filename, () => {
   function _fetchAddonsByAuthors(params) {
     sagaTester.dispatch(fetchAddonsByAuthors({
       errorHandlerId: errorHandler.id,
-      addonType: ADDON_TYPE_THEME,
       ...params,
     }));
   }
 
-  it('calls the API to retrieve other add-ons', async () => {
+  it('calls the API with addonType if set', async () => {
     const addons = [fakeAddon];
-    const authors = ['mozilla', 'johnedoe'];
+    const authorNames = ['mozilla'];
     const state = sagaTester.getState();
 
     mockApi
@@ -57,7 +56,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: ADDON_TYPE_THEME,
-          author: authors.join(','),
+          author: authorNames.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -66,10 +65,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authors });
+    _fetchAddonsByAuthors({ authorNames, addonType: ADDON_TYPE_THEME });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
+      addonType: ADDON_TYPE_THEME,
+      authorNames,
       forAddonSlug: undefined,
     });
 
@@ -81,7 +82,7 @@ describe(__filename, () => {
 
   it('sends `exclude_addons` param if `forAddonSlug` is set', async () => {
     const addons = [fakeAddon];
-    const authors = ['mozilla', 'johnedoe'];
+    const authorNames = ['mozilla', 'johnedoe'];
     const { slug } = fakeAddon;
     const state = sagaTester.getState();
 
@@ -90,8 +91,8 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
-          author: authors.join(','),
+          addonType: undefined,
+          author: authorNames.sort().join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -100,10 +101,11 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authors, forAddonSlug: slug });
+    _fetchAddonsByAuthors({ authorNames, forAddonSlug: slug });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
+      authorNames,
       forAddonSlug: slug,
     });
 
@@ -114,7 +116,7 @@ describe(__filename, () => {
   });
 
   it('clears the error handler', async () => {
-    _fetchAddonsByAuthors({ authors: [], forAddonSlug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authorNames: [], forAddonSlug: fakeAddon.slug });
 
     const expectedAction = errorHandler.createClearingAction();
 
@@ -130,7 +132,7 @@ describe(__filename, () => {
       .once()
       .returns(Promise.reject(error));
 
-    _fetchAddonsByAuthors({ authors: [], forAddonSlug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authorNames: [], forAddonSlug: fakeAddon.slug });
 
     const errorAction = errorHandler.createErrorAction(error);
     const calledErrorAction = await sagaTester.waitFor(errorAction.type);
@@ -140,7 +142,7 @@ describe(__filename, () => {
 
   it('handles no API results', async () => {
     const addons = [];
-    const authors = ['mozilla', 'johnedoe'];
+    const authorNames = ['mozilla', 'johnedoe'];
     const { slug } = fakeAddon;
     const state = sagaTester.getState();
 
@@ -149,8 +151,8 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEME,
-          author: authors.join(','),
+          addonType: undefined,
+          author: authorNames.sort().join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -159,10 +161,11 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authors, forAddonSlug: slug });
+    _fetchAddonsByAuthors({ authorNames, forAddonSlug: slug });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
+      authorNames,
       forAddonSlug: slug,
     });
 

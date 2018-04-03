@@ -19,6 +19,7 @@ import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
 import ContributeCard from 'amo/components/ContributeCard';
+import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
@@ -30,10 +31,7 @@ import createStore from 'amo/store';
 import {
   createInternalAddon, fetchAddon as fetchAddonAction, loadAddons,
 } from 'core/reducers/addons';
-import {
-  fetchAddonsByAuthors,
-  loadAddonsByAuthors,
-} from 'amo/reducers/addonsByAuthors';
+import { loadAddonsByAuthors } from 'amo/reducers/addonsByAuthors';
 import { setError } from 'core/actions/errors';
 import { setInstallState } from 'core/actions/installations';
 import { createApiError } from 'core/api/index';
@@ -143,6 +141,7 @@ describe(__filename, () => {
   const _loadAddonsByAuthors = ({ addon, addonsByAuthors }) => {
     return loadAddonsByAuthors({
       addons: addonsByAuthors,
+      authorNames: ['foo'],
       forAddonSlug: addon.slug,
     });
   };
@@ -1074,67 +1073,8 @@ describe(__filename, () => {
       const { store } = dispatchAddonData({ addon, addonsByAuthors });
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      return root.find('.AddonDescription-more-addons');
+      return root.find(AddonsByAuthorsCard);
     };
-
-    it('fetches the other add-ons by authors', () => {
-      const addon = fakeAddon;
-      const { store } = dispatchAddonData({ addon });
-      const fakeDispatch = sinon.spy(store, 'dispatch');
-
-      renderComponent({ params: { slug: addon.slug }, store });
-
-      sinon.assert.calledWith(fakeDispatch, fetchAddonsByAuthors({
-        addonType: addon.type,
-        authors: addon.authors.map((author) => author.username),
-        errorHandlerId: createStubErrorHandler().id,
-        forAddonSlug: addon.slug,
-      }));
-    });
-
-    it('does not fetch the other add-ons when add-on is the same', () => {
-      const addon = fakeAddon;
-      const ownProps = { params: { slug: addon.slug } };
-
-      const { store } = dispatchAddonData({ addon });
-      const fakeDispatch = sinon.spy(store, 'dispatch');
-
-      const root = renderComponent(store, ...ownProps);
-      // `fakeAddon` is the API representation of an add-on, which is slightly
-      // different than the representation of an add-on in the state. That is
-      // why we need to retrieve the add-on from the state.
-      const addonFromState = mapStateToProps(store.getState(), ownProps).addon;
-      fakeDispatch.reset();
-
-      root.setProps({ addon: addonFromState });
-
-      sinon.assert.notCalled(fakeDispatch);
-    });
-
-    it('fetches the other add-ons when a new add-on is loaded', () => {
-      const addon = fakeAddon;
-      const { store } = dispatchAddonData({ addon });
-      const fakeDispatch = sinon.spy(store, 'dispatch');
-
-      const root = renderComponent({ params: { slug: addon.slug }, store });
-      fakeDispatch.reset();
-
-      const newAddon = { ...fakeAddon, slug: 'new-addon-slug' };
-      store.dispatch(_loadAddons({ addon: newAddon }));
-
-      const addonFromState = mapStateToProps(
-        store.getState(),
-        { params: { slug: newAddon.slug } }
-      ).addon;
-      root.setProps({ addon: addonFromState });
-
-      sinon.assert.calledWith(fakeDispatch, fetchAddonsByAuthors({
-        addonType: newAddon.type,
-        authors: newAddon.authors.map((author) => author.username),
-        errorHandlerId: createStubErrorHandler().id,
-        forAddonSlug: newAddon.slug,
-      }));
-    });
 
     it('puts "add-ons by author" in main content if type is theme', () => {
       const addon = fakeTheme;
@@ -1145,7 +1085,7 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root.find('.Addon-main-content .AddonDescription-more-addons'))
+      expect(root.find('.Addon-main-content').find(AddonsByAuthorsCard))
         .toHaveLength(1);
     });
 
@@ -1158,9 +1098,9 @@ describe(__filename, () => {
 
       const root = renderComponent({ params: { slug: addon.slug }, store });
 
-      expect(root.find('.Addon-main-content .AddonDescription-more-addons'))
+      expect(root.find('.Addon-main-content').find(AddonsByAuthorsCard))
         .toHaveLength(0);
-      expect(root.find('.AddonDescription-more-addons')).toHaveLength(1);
+      expect(root.find(AddonsByAuthorsCard)).toHaveLength(1);
     });
 
     it('is hidden when an add-on has not loaded yet', () => {
@@ -1177,113 +1117,8 @@ describe(__filename, () => {
         .toHaveLength(0);
     });
 
-    it('is hidden when there are no other add-ons', () => {
-      const root = renderMoreAddons({ addon: fakeAddon, addonsByAuthors: [] });
-      expect(root).toHaveLength(0);
-    });
-
-    it('displays the developer name when add-on is an extension', () => {
-      const root = renderMoreAddons({
-        addon: fakeAddon,
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More extensions by Krupa');
-    });
-
-    it('displays the translator name when add-on is a dictionary', () => {
-      const root = renderMoreAddons({
-        addon: { ...fakeAddon, type: ADDON_TYPE_DICT },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More dictionaries by Krupa');
-    });
-
-    it('displays the translator name when add-on is a language pack', () => {
-      const root = renderMoreAddons({
-        addon: { ...fakeAddon, type: ADDON_TYPE_LANG },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More language packs by Krupa');
-    });
-
-    it('displays the artist name when add-on is a theme', () => {
-      const root = renderMoreAddons({
-        addon: fakeTheme,
-        addonsByAuthors: [{ ...fakeTheme, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More themes by MaDonna');
-    });
-
-    it('displays the author name in any other cases', () => {
-      const root = renderMoreAddons({
-        addon: { ...fakeAddon, type: ADDON_TYPE_OPENSEARCH },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More add-ons by Krupa');
-    });
-
-    it('displays a plural form when extension has multiple authors', () => {
-      const root = renderMoreAddons({
-        addon: {
-          ...fakeAddon,
-          authors: Array(2).fill(fakeAddon.authors[0]),
-        },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More extensions by these developers');
-    });
-
-    it('displays a plural form when theme has multiple authors', () => {
-      const root = renderMoreAddons({
-        addon: {
-          ...fakeTheme,
-          authors: Array(2).fill(fakeTheme.authors[0]),
-        },
-        addonsByAuthors: [{ ...fakeTheme, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More themes by these artists');
-    });
-
-    it('displays a plural form when language pack has multiple authors', () => {
-      const root = renderMoreAddons({
-        addon: {
-          ...fakeAddon,
-          authors: Array(2).fill(fakeAddon.authors[0]),
-          type: ADDON_TYPE_LANG,
-        },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root)
-        .toHaveProp('header', 'More language packs by these translators');
-    });
-
-    it('displays a plural form when dictionary has multiple authors', () => {
-      const root = renderMoreAddons({
-        addon: {
-          ...fakeAddon,
-          authors: Array(2).fill(fakeAddon.authors[0]),
-          type: ADDON_TYPE_DICT,
-        },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root)
-        .toHaveProp('header', 'More dictionaries by these translators');
-    });
-
-    it('displays a plural form when add-on has multiple authors', () => {
-      const root = renderMoreAddons({
-        addon: {
-          ...fakeAddon,
-          authors: Array(2).fill(fakeAddon.authors[0]),
-          type: ADDON_TYPE_OPENSEARCH,
-        },
-        addonsByAuthors: [{ ...fakeAddon, forAddonSlug: 'another-slug' }],
-      });
-      expect(root).toHaveProp('header', 'More add-ons by these developers');
-    });
-
     it('displays more add-ons by authors', () => {
-      const addon = fakeAddon;
+      const addon = createInternalAddon({ ...fakeAddon });
       const addonsByAuthors = [
         { ...fakeAddon, slug: 'addon-1', id: 1 },
         { ...fakeAddon, slug: 'addon-2', id: 2 },
@@ -1292,26 +1127,32 @@ describe(__filename, () => {
 
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
-      expect(root).not.toHaveClassName('.AddonDescription-more-addons--theme');
-      expect(root).toHaveProp('addons', addonsByAuthors.map((addonByAuthor) => (
-        createInternalAddon(addonByAuthor)
-      )));
+      expect(root).toHaveClassName('.Addon-MoreAddonsCard');
+      expect(root).toHaveProp('authorNames',
+        addon.authors.map((author) => (author.username))
+      );
+      expect(root).toHaveProp('addonType', addon.type);
+      expect(root).toHaveProp('forAddonSlug', addon.slug);
+      expect(root).toHaveProp('numberOfAddons', 4);
     });
 
-    it('indicates when other add-ons are themes', () => {
-      const addon = fakeTheme;
+    it('displays more add-ons by authors when add-on is a theme', () => {
+      const addon = createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME });
       const addonsByAuthors = [
-        { ...fakeTheme },
-        { ...fakeTheme },
-        { ...fakeTheme },
+        { ...fakeAddon, slug: 'addon-1', id: 1 },
+        { ...fakeAddon, slug: 'addon-2', id: 2 },
+        { ...fakeAddon, slug: 'addon-3', id: 3 },
       ];
 
       const root = renderMoreAddons({ addon, addonsByAuthors });
 
-      expect(root).toHaveClassName('.AddonDescription-more-addons--theme');
-      expect(root).toHaveProp('addons', addonsByAuthors.map((addonByAuthor) => (
-        createInternalAddon(addonByAuthor)
-      )));
+      expect(root).toHaveClassName('.Addon-MoreAddonsCard');
+      expect(root).toHaveProp('authorNames',
+        addon.authors.map((author) => (author.username))
+      );
+      expect(root).toHaveProp('addonType', addon.type);
+      expect(root).toHaveProp('forAddonSlug', addon.slug);
+      expect(root).toHaveProp('numberOfAddons', 3);
     });
 
     it('adds a CSS class to the main component when there are add-ons', () => {

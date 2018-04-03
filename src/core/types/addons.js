@@ -159,7 +159,7 @@ export type ExternalAddonType = {|
  * not currently possible because of:
  * https://github.com/facebook/flow/issues/4818
  */
-export type AddonType = {
+export type AddonType = {|
   ...ExternalAddonType,
   ...ThemeData,
   // Here are some custom properties for our internal representation.
@@ -178,7 +178,7 @@ export type AddonType = {
   isRestartRequired: boolean,
   isWebExtension: boolean,
   themeData?: ThemeData,
-};
+|};
 
 export type SearchResultAddonType = {|
   ...AddonType,

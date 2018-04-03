@@ -4,27 +4,34 @@ import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
 import type {
-  SearchResultAddonType, ExternalAddonType,
+  ExternalAddonType,
+  SearchResultAddonType,
 } from 'core/types/addons';
 
 
-type State = {
+type AddonId = number;
+
+export type AddonsByAuthorsState = {|
   // TODO: It might be nice to eventually stop storing add-ons in this
   // reducer at all and rely on the add-ons in the `addons` reducer.
   // That said, these are partial add-ons returned from the search
   // results and fetching all add-on data for each add-on might be too
   // expensive.
-  byAddonId: { [number]: Array<SearchResultAddonType> },
-  byAddonSlug: { [string]: Array<number> },
-  byUserId: { [number]: Array<number> },
-  byUsername: { [string]: Array<number> },
-};
+  byAddonId: { [AddonId]: SearchResultAddonType },
+  byAddonSlug: { [string]: Array<AddonId> },
+  byUserId: { [number]: Array<AddonId> },
+  byUsername: { [string]: Array<AddonId> },
+  byAuthorNamesAndAddonType: { [string]: Array<AddonId> | null },
+  loadingFor: { [string]: boolean },
+|};
 
-export const initialState: State = {
+export const initialState: AddonsByAuthorsState = {
   byAddonId: {},
   byAddonSlug: {},
   byUserId: {},
   byUsername: {},
+  byAuthorNamesAndAddonType: {},
+  loadingFor: {},
 };
 
 export const ADDONS_BY_AUTHORS_PAGE_SIZE = 6;
@@ -37,8 +44,8 @@ export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS'
   = 'LOAD_ADDONS_BY_AUTHORS';
 
 type FetchAddonsByAuthorsParams = {|
-  addonType: string,
-  authors: Array<string>,
+  addonType?: string,
+  authorNames: Array<string>,
   errorHandlerId: string,
   forAddonSlug?: string,
 |};
@@ -49,18 +56,18 @@ type FetchAddonsByAuthorsAction = {|
 |};
 
 export const fetchAddonsByAuthors = (
-  { addonType, authors, errorHandlerId, forAddonSlug }: FetchAddonsByAuthorsParams
+  { addonType, authorNames, errorHandlerId, forAddonSlug }: FetchAddonsByAuthorsParams
 ): FetchAddonsByAuthorsAction => {
   invariant(errorHandlerId, 'An errorHandlerId is required');
-  invariant(addonType, 'An add-on type is required.');
-  invariant(authors, 'Authors are required.');
-  invariant(Array.isArray(authors), 'The authors parameter must be an array.');
+  invariant(authorNames, 'authorNames are required.');
+  invariant(Array.isArray(authorNames),
+    'The authorNames parameter must be an array.');
 
   return {
     type: FETCH_ADDONS_BY_AUTHORS,
     payload: {
       addonType,
-      authors,
+      authorNames,
       errorHandlerId,
       forAddonSlug,
     },
@@ -69,6 +76,8 @@ export const fetchAddonsByAuthors = (
 
 type LoadAddonsByAuthorsParams = {|
   addons: Array<ExternalAddonType>,
+  addonType?: string,
+  authorNames: Array<string>,
   forAddonSlug?: string,
 |};
 
@@ -78,17 +87,36 @@ type LoadAddonsByAuthorsAction = {|
 |};
 
 export const loadAddonsByAuthors = (
-  { addons, forAddonSlug }: LoadAddonsByAuthorsParams
+  { addons, addonType, authorNames, forAddonSlug }: LoadAddonsByAuthorsParams
 ): LoadAddonsByAuthorsAction => {
   invariant(addons, 'A set of add-ons is required.');
+  invariant(authorNames, 'A list of authorNames is required.');
 
   return {
     type: LOAD_ADDONS_BY_AUTHORS,
-    payload: { addons, forAddonSlug },
+    payload: { addons, addonType, authorNames, forAddonSlug },
   };
 };
 
-export const getAddonsForSlug = (state: State, slug: string) => {
+export const joinAuthorNamesAndAddonType = (
+  authorNames: Array<string>, addonType?: string
+) => {
+  return authorNames.sort().join('-') + (addonType ? `-${addonType}` : '');
+};
+
+export const getLoadingForAuthorNames = (
+  state: AddonsByAuthorsState, authorNames: Array<string>, addonType?: string
+) => {
+  return (
+    state.loadingFor[joinAuthorNamesAndAddonType(authorNames, addonType)] ||
+    null
+  );
+};
+
+export const getAddonsForSlug = (
+  state: AddonsByAuthorsState,
+  slug: string,
+) => {
   const ids = state.byAddonSlug[slug];
 
   return ids ? ids.map((id) => {
@@ -96,14 +124,51 @@ export const getAddonsForSlug = (state: State, slug: string) => {
   }) : null;
 };
 
+export const getAddonsForUsernames = (
+  state: AddonsByAuthorsState,
+  usernames: Array<string>,
+  addonType?: string,
+  excludeSlug?: string,
+) => {
+  invariant(usernames && usernames.length, 'At least one username is required');
+
+  const ids = usernames.map((username) => {
+    return state.byUsername[username];
+  }).reduce((array, addonIds) => {
+    if (!addonIds || !array) {
+      return null;
+    }
+
+    for (const addonId of addonIds) {
+      if (!array.includes(addonId)) {
+        array.push(addonId);
+      }
+    }
+
+    return array;
+  }, []);
+
+  return ids ? (ids
+    .map((id) => {
+      return state.byAddonId[id];
+    })
+    .filter((addon) => {
+      return addonType ? addon.type === addonType : true;
+    })
+    .filter((addon) => {
+      return addon.slug !== excludeSlug;
+    })
+  ) : null;
+};
+
 type Action =
   | FetchAddonsByAuthorsAction
   | LoadAddonsByAuthorsAction;
 
 const reducer = (
-  state: State = initialState,
+  state: AddonsByAuthorsState = initialState,
   action: Action
-): State => {
+): AddonsByAuthorsState => {
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
@@ -115,12 +180,10 @@ const reducer = (
         };
       }
 
-      // Reset the data for each author requested.
-      for (const authorUsername of action.payload.authors) {
-        // TODO: Reset the userId here too.
-        // See: https://github.com/mozilla/addons-frontend/issues/4602
-        newState.byUsername[authorUsername] = undefined;
-      }
+      newState.loadingFor[joinAuthorNamesAndAddonType(
+        action.payload.authorNames, action.payload.addonType)] = true;
+      newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
+        action.payload.authorNames, action.payload.addonType)] = null;
 
       return newState;
     }
@@ -138,8 +201,16 @@ const reducer = (
       const addons = action.payload.addons
         .map((addon) => createInternalAddon(addon));
 
+      const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
+        action.payload.authorNames, action.payload.addonType);
+
+      newState.byAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
+      newState.loadingFor[authorNamesWithAddonType] = false;
+
       for (const addon of addons) {
         newState.byAddonId[addon.id] = addon;
+        newState.byAuthorNamesAndAddonType[authorNamesWithAddonType]
+          .push(addon.id);
 
         if (addon.authors) {
           for (const author of addon.authors) {
