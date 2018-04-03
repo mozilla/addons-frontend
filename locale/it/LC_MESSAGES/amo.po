@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-04-03 09:12+0000\n"
-"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
+"PO-Revision-Date: 2018-04-03 09:51+0000\n"
+"Last-Translator: Elio <elio.gi@gmail.com>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -962,11 +962,11 @@ msgstr "Rinnova e personalizza l'aspetto di Wikipedia"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Black Menu for Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Accesso agevolato ai servizi Google (Cerca, Traduci ecc.) tramite comodo menu a tendina"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
@@ -974,7 +974,7 @@ msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "Cerca automaticamente i codici coupon"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
@@ -982,7 +982,7 @@ msgstr "SHINE per Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "Prova Reddit con un'interfaccia alternativa"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1213,9 +1213,8 @@ msgid "Access your data for sites in the %(domain)s domain"
 msgstr "Accedere ai dati dei siti inclusi nel dominio %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:58
-#, fuzzy
 msgid "Access your data in 1 other domain"
-msgstr "Accedere ai dati di %(count)s altri domini"
+msgstr "Accedere ai dati utente su 1 altro dominio"
 
 #: src/amo/components/PermissionsCard/permissions.js:60
 msgid "Access your data in %(count)s other domains"
@@ -1226,9 +1225,8 @@ msgid "Access your data for %(site)s"
 msgstr "Accedere ai dati di %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:74
-#, fuzzy
 msgid "Access your data on 1 other site"
-msgstr "Accedere ai dati di %(count)s altri siti web"
+msgstr "Accedere ai dati utente su 1 altro sito"
 
 #: src/amo/components/PermissionsCard/permissions.js:76
 msgid "Access your data on %(count)s other sites"
