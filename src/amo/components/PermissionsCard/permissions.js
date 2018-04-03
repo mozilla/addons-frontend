@@ -54,13 +54,10 @@ export class PermissionUtils {
         );
       },
       tooManyWildcards: (count) => {
-        return i18n.ngettext(
-          i18n.gettext('Access your data in 1 other domain'),
-          i18n.sprintf(
-            i18n.gettext('Access your data in %(count)s other domains'),
-            { count: i18n.formatNumber(count) },
-          ),
-          count
+        return i18n.sprintf(i18n.ngettext(
+          'Access your data in %(count)s other domain',
+          'Access your data in %(count)s other domains',
+          count), { count: i18n.formatNumber(count) }
         );
       },
       oneSite: (site) => {
@@ -70,13 +67,10 @@ export class PermissionUtils {
         );
       },
       tooManySites: (count) => {
-        return i18n.ngettext(
-          i18n.gettext('Access your data on 1 other site'),
-          i18n.sprintf(
-            i18n.gettext('Access your data on %(count)s other sites'),
-            { count: i18n.formatNumber(count) },
-          ),
-          count
+        return i18n.sprintf(i18n.ngettext(
+          'Access your data on %(count)s other site',
+          'Access your data on %(count)s other sites',
+          count), { count: i18n.formatNumber(count) }
         );
       },
     };
