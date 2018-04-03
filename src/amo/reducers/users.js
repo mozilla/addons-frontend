@@ -66,6 +66,15 @@ export type UsersStateType = {
   },
 };
 
+export type UserEditableFieldsType = {|
+  biography?: string | null,
+  displayName?: string | null,
+  homepage?: string | null,
+  location?: string | null,
+  occupation?: string | null,
+  username?: string | null,
+|};
+
 export const initialState: UsersStateType = {
   currentUserID: null,
   byID: {},

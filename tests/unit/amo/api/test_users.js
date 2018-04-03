@@ -1,10 +1,18 @@
 import * as api from 'core/api';
-import { currentUserAccount, userAccount } from 'amo/api/users';
+import {
+  currentUserAccount,
+  editUserAccount,
+  userAccount,
+} from 'amo/api/users';
+import { getCurrentUser } from 'amo/reducers/users';
 import {
   createApiResponse,
   createUserAccountResponse,
 } from 'tests/unit/helpers';
-import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
+import {
+  dispatchSignInActions,
+  dispatchClientMetadata,
+} from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {
@@ -19,7 +27,7 @@ describe(__filename, () => {
       jsonData: createUserAccountResponse(),
     });
 
-    it('fetches the current user profile', () => {
+    it('fetches the current user profile', async () => {
       const state = dispatchClientMetadata().store.getState();
 
       mockApi.expects('callApi')
@@ -30,16 +38,46 @@ describe(__filename, () => {
         })
         .returns(mockResponse());
 
-      return currentUserAccount({ api: state.api })
-        .then(() => {
-          mockApi.verify();
-        });
+      await currentUserAccount({ api: state.api });
+      mockApi.verify();
+    });
+  });
+
+  describe('editUserAccount', () => {
+    const mockResponse = (newParams) => createApiResponse({
+      jsonData: createUserAccountResponse(newParams),
     });
 
-    it('throws an error if api state is missing', () => {
-      expect(() => {
-        currentUserAccount({});
-      }).toThrowError(/api state is required/);
+    const getParams = (params = {}) => {
+      const state = dispatchSignInActions().store.getState();
+      const userId = getCurrentUser(state.users).id;
+
+      return { api: state.api, userId, ...params };
+    };
+
+    it('edits a userProfile and returns the new profile', async () => {
+      const editableFields = {
+        biography: 'I am a cool tester.',
+        display_name: 'Super Krupa',
+        homepage: 'http://qa-is-awesome.net',
+        location: 'The Moon!',
+        occupation: 'QA Master',
+        username: 'krupa123',
+      };
+      const params = getParams(editableFields);
+
+      mockApi.expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `accounts/account/${params.userId}`,
+          method: 'PATCH',
+          params: editableFields,
+          state: params.api,
+        })
+        .returns(mockResponse(editableFields));
+
+      await editUserAccount(params);
+      mockApi.verify();
     });
   });
 
@@ -55,7 +93,7 @@ describe(__filename, () => {
       return { api: state.api, username, ...params };
     };
 
-    it('fetches a user profile based on username', () => {
+    it('fetches a user profile based on username', async () => {
       const params = getParams();
 
       mockApi.expects('callApi')
@@ -66,28 +104,8 @@ describe(__filename, () => {
         })
         .returns(mockResponse());
 
-      return userAccount(params)
-        .then(() => {
-          mockApi.verify();
-        });
-    });
-
-    it('throws an error if api state is missing', () => {
-      const params = getParams();
-      delete params.api;
-
-      expect(() => {
-        userAccount(params);
-      }).toThrowError(/api state is required/);
-    });
-
-    it('throws an error if username is missing', () => {
-      const params = getParams();
-      delete params.username;
-
-      expect(() => {
-        userAccount(params);
-      }).toThrowError(/username is required/);
+      await userAccount(params);
+      mockApi.verify();
     });
   });
 });
