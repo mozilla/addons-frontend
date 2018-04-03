@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-30 19:49+0000\n"
-"PO-Revision-Date: 2018-03-31 20:27+0000\n"
+"PO-Revision-Date: 2018-04-03 13:06+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -24,7 +24,7 @@ msgstr "Toevoegen…"
 
 #: src/amo/components/AddAddonToCollection/index.js:185
 msgid "Select a collection…"
-msgstr "Een selectie selecteren…"
+msgstr "Een collectie selecteren…"
 
 #: src/amo/components/AddAddonToCollection/index.js:190
 msgid "Create new collection"
