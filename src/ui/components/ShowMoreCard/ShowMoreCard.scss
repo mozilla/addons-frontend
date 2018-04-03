@@ -40,7 +40,7 @@
     }
   }
 
-  footer.Card-footer-link {
+  .Card-footer-link {
     @include respond-to(large) {
       display: none;
     }
