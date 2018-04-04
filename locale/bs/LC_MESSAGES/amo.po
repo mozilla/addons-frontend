@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-04 06:10+0000\n"
+"PO-Revision-Date: 2018-04-04 06:24+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -1220,21 +1220,20 @@ msgstr "Pristupi podacima za stranice u domeni %(domain)s"
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Access your data in %(count)s other domain"
 msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] "Pristupite vašim podacima u %(count)s drugoj domeni"
-msgstr[1] "Pristupite vašim podacima u %(count)s druge domene"
-msgstr[2] "Pristupite vašim podacima u %(count)s drugih domena"
+msgstr[0] "Pristupite vašim podacima na %(count)s drugoj domeni"
+msgstr[1] "Pristupite vašim podacima na %(count)s druge domene"
+msgstr[2] "Pristupite vašim podacima na %(count)s drugih domena"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
 msgstr "Pristupi vašim podacima za %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:70
-#, fuzzy
 msgid "Access your data on %(count)s other site"
 msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] "Pristupi vašim podacima na %(count)s drugih stranica"
-msgstr[1] "Pristupi vašim podacima na %(count)s drugih stranica"
-msgstr[2] "Pristupi vašim podacima na %(count)s drugih stranica"
+msgstr[0] "Pristupite vašim podacima na %(count)s drugoj stranici"
+msgstr[1] "Pristupite vašim podacima na %(count)s druge stranice"
+msgstr[2] "Pristupite vašim podacima na %(count)s drugih stranica"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
