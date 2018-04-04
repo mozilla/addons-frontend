@@ -32,6 +32,7 @@
     "max-nesting-depth": [3, {
       "ignore": ["blockless-at-rules"],
     }],
+    "no-descending-specificity": null,
     "rule-empty-line-before": ["always", {
       "except": [
         "first-nested"
