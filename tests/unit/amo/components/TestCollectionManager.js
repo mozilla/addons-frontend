@@ -268,11 +268,35 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('disables submit button when the name is spaces', () => {
+    const root = render();
+
+    // Enter in a space only collection name.
+    typeInput({ root, name: 'name', text: '   ' });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
   it('disables submit button when the slug is blank', () => {
     const root = render();
 
-    // Enter in a blank collection name.
+    // Enter in a blank collection slug.
     typeInput({ root, name: 'slug', text: '' });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('disables submit button when the slug is spaces', () => {
+    const root = render();
+
+    // Enter in a space only collection slug.
+    typeInput({ root, name: 'slug', text: '   ' });
 
     expect(root.find('.CollectionManager-cancel'))
       .toHaveProp('disabled', false);
