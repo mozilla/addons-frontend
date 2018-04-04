@@ -268,6 +268,18 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('disables submit button when the slug is blank', () => {
+    const root = render();
+
+    // Enter in a blank collection name.
+    typeInput({ root, name: 'slug', text: '' });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
   it('allows a blank description', () => {
     const authorUsername = 'collection-owner';
     const lang = 'en-US';
