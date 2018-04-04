@@ -156,7 +156,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   render() {
     const { collection, errorHandler, i18n, siteLang } = this.props;
-    const { name } = this.state;
+    const { name, slug } = this.state;
 
     let collectionUrlPrefix = '';
     if (collection && siteLang) {
@@ -172,6 +172,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     // to be hooked up the saga.
     const formIsDisabled = !collection;
     const isNameBlank = !(name && name.trim().length);
+    const isSlugBlank = !(slug && slug.trim().length);
+    const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
 
     return (
       <form
@@ -255,7 +257,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           </Button>
           <Button
             buttonType="action"
-            disabled={formIsDisabled || isNameBlank}
+            disabled={isSubmitDisabled}
             className="CollectionManager-submit"
             type="submit"
             puffy
