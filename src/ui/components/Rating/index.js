@@ -65,7 +65,6 @@ export class RatingBase extends React.Component {
           'Rating-half-star': (rating && thisRating > rating &&
             thisRating - 0.5 <= rating),
         }),
-        id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
       };
@@ -73,7 +72,7 @@ export class RatingBase extends React.Component {
       if (readOnly) {
         return <div {...props} />;
       }
-
+      props.id = `Rating-rating-${thisRating}`;
       return (
         // eslint-disable-next-line react/jsx-key
         <button
