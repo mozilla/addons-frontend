@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-03 09:51+0000\n"
-"Last-Translator: Elio <elio.gi@gmail.com>\n"
+"PO-Revision-Date: 2018-04-05 07:18+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -1215,8 +1215,8 @@ msgstr "Accedere ai dati dei siti inclusi nel dominio %(domain)s"
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Access your data in %(count)s other domain"
 msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Accedere ai dati utente in %(count)s altro dominio"
+msgstr[1] "Accedere ai dati utente in %(count)s altri domini"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
@@ -1225,8 +1225,8 @@ msgstr "Accedere ai dati di %(site)s"
 #: src/amo/components/PermissionsCard/permissions.js:70
 msgid "Access your data on %(count)s other site"
 msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Accedere ai dati utente in %(count)s altro sito web"
+msgstr[1] "Accedere ai dati utente in %(count)s altri siti web"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1417,9 +1417,8 @@ msgid "Extension"
 msgstr "Estensione"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Strumenti di ricerca"
+msgstr "Strumento di ricerca"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1906,14 +1905,12 @@ msgid "Toggle contents"
 msgstr "Attiva o disattiva i contenuti"
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Click to rate this add-on"
-msgstr "Effettua l’accesso per dare un voto a questo componente aggiuntivo"
+msgstr "Fare clic qui per valutare il componente aggiuntivo"
 
 #: src/ui/components/Rating/index.js:95
-#, fuzzy
 msgid "This add-on has no ratings."
-msgstr "Questo componente aggiuntivo può:"
+msgstr "Il componente aggiuntivo non ha ricevuto valutazioni."
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
