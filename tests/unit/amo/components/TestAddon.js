@@ -768,6 +768,18 @@ describe(__filename, () => {
     expect(root.find(InstallButton).prop('disabled')).toBe(true);
   });
 
+  it('passes the downloadUrl from getClientCompatibility', () => {
+    const root = shallowRender({
+      getClientCompatibility: () => ({
+        compatible: false,
+        downloadUrl: 'https://www.seamonkey-project.org',
+        reason: INCOMPATIBLE_NOT_FIREFOX,
+      }),
+    });
+    expect(root.find(AddonCompatibilityError).prop('downloadUrl'))
+      .toEqual('https://www.seamonkey-project.org');
+  });
+
   it('passes installStatus to installButton, not add-on status', () => {
     const root = shallowRender({
       addon: createInternalAddon(fakeAddon), installStatus: UNKNOWN,

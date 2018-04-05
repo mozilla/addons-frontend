@@ -21,6 +21,8 @@ import {
 } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
+  FACEBOOK_CONTAINER_ADDON_GUID,
+  FACEBOOK_CONTAINER_DOWNLOAD_URL,
   getCompatibleVersions,
   getClientCompatibility,
   isCompatibleWithUserAgent,
@@ -527,6 +529,28 @@ describe(__filename, () => {
         userAgentInfo,
       })).toEqual({
         compatible: false,
+        maxVersion: addon.current_version.compatibility[clientApp].max,
+        minVersion: addon.current_version.compatibility[clientApp].min,
+        reason: INCOMPATIBLE_NOT_FIREFOX,
+      });
+    });
+
+    it('returns a special-case downloadUrl for Facebook Container', () => {
+      const { browser, os } = UAParser(userAgentsByPlatform.mac.chrome41);
+      const userAgentInfo = { browser, os };
+      const clientApp = CLIENT_APP_FIREFOX;
+      const addon = createInternalAddon({
+        ...fakeAddon,
+        guid: FACEBOOK_CONTAINER_ADDON_GUID,
+      });
+
+      expect(getClientCompatibility({
+        addon,
+        clientApp,
+        userAgentInfo,
+      })).toEqual({
+        compatible: false,
+        downloadUrl: FACEBOOK_CONTAINER_DOWNLOAD_URL,
         maxVersion: addon.current_version.compatibility[clientApp].max,
         minVersion: addon.current_version.compatibility[clientApp].min,
         reason: INCOMPATIBLE_NOT_FIREFOX,
