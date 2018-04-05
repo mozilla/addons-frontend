@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-05 15:30+0000\n"
+"PO-Revision-Date: 2018-04-05 15:36+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -1207,12 +1207,12 @@ msgstr "თქვენს მონაცემებთან წვდომ�
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr "თქვენს მონაცემებთან წვდომა %(domain)s დომენზე"
+msgstr "თქვენს მონაცემებთან წვდომა %(domain)s მისამართის საიტებზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Access your data in %(count)s other domain"
 msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] "თქვენს მონაცემებთან წვდომა %(count)s სხვა დომენზე"
+msgstr[0] "თქვენს მონაცემებთან წვდომა %(count)s სხვა მისამართის საიტებზე"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
