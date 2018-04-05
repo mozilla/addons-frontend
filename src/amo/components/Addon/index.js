@@ -490,7 +490,7 @@ export class AddonBase extends React.Component {
                 authorNames={addon.authors.map((author) => author.username)}
                 className="Addon-MoreAddonsCard"
                 forAddonSlug={addon.slug}
-                numberOfAddons={3}
+                numberOfAddons={6}
               />
             )}
 
@@ -524,7 +524,7 @@ export class AddonBase extends React.Component {
               authorNames={addon.authors.map((author) => author.username)}
               className="Addon-MoreAddonsCard"
               forAddonSlug={addon.slug}
-              numberOfAddons={4}
+              numberOfAddons={6}
             />
           )}
         </div>
