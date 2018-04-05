@@ -304,6 +304,38 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('trims leading and trailing spaces from slug and name before submitting', () => {
+    const authorUsername = 'collection-owner';
+    const name = 'trishul';
+    const slug = 'trishul';
+    const lang = 'en-US';
+    dispatchSignInActions({ lang, store });
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ authorUsername, name, slug }),
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ collection });
+
+    // Enter in collection name and slug with trailing and leading spaces.
+    typeInput({ root, name: 'name', text: '  trishul   ' });
+    typeInput({ root, name: 'slug', text: '  trishul   ' });
+
+    dispatchSpy.reset();
+    simulateSubmit(root);
+
+    sinon.assert.calledWith(dispatchSpy, updateCollection({
+      collectionSlug: collection.slug,
+      defaultLocale: collection.defaultLocale,
+      description: { [lang]: collection.description },
+      errorHandlerId: root.instance().props.errorHandler.id,
+      name: { [lang]: collection.name },
+      slug: collection.slug,
+      user: authorUsername,
+    }));
+  });
+
   it('allows a blank description', () => {
     const authorUsername = 'collection-owner';
     const lang = 'en-US';
