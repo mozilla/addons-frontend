@@ -23,6 +23,7 @@ import './style.scss';
 
 export class AddonCompatibilityErrorBase extends React.Component {
   static propTypes = {
+    downloadUrl: PropTypes.string,
     i18n: PropTypes.object.isRequired,
     log: PropTypes.object,
     minVersion: PropTypes.string.isRequired,
@@ -31,6 +32,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
   }
 
   static defaultProps = {
+    downloadUrl: 'https://www.mozilla.org/firefox/new/',
     log: _log,
     userAgentInfo: {},
   }
@@ -44,10 +46,9 @@ export class AddonCompatibilityErrorBase extends React.Component {
       userAgentInfo,
     } = this.props;
 
-    const queryString = makeQueryStringWithUTM({
+    const downloadUrl = `${this.props.downloadUrl}${makeQueryStringWithUTM({
       utm_content: 'install-addon-button',
-    });
-    const downloadUrl = `https://www.mozilla.org/firefox/new/${queryString}`;
+    })}`;
 
     if (typeof reason === 'undefined') {
       throw new Error('AddonCompatibilityError requires a "reason" prop');
