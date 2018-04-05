@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-05 11:30+0000\n"
+"PO-Revision-Date: 2018-04-05 11:41+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -294,7 +294,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
-msgstr ""
+msgstr "Scrie o recenzie"
 
 #: src/amo/components/AddonReview/index.js:213
 msgid "Review text"
@@ -302,7 +302,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:228
 msgid "Submit review"
-msgstr ""
+msgstr "Trimite recenzia"
 
 #: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
@@ -434,7 +434,7 @@ msgstr "Găsește suplimente"
 
 #: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
-msgstr ""
+msgstr "Caută"
 
 #: src/amo/components/Categories/index.js:100
 msgid "No categories found."
@@ -930,9 +930,8 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Instrumente"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -956,7 +955,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
@@ -1012,7 +1011,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
-msgstr ""
+msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
@@ -1035,9 +1034,8 @@ msgid "Clip, save & organize your favorite stuff on the web"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Semnalează"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1045,15 +1043,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
-msgstr ""
+msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Efficient, powerful ad blocker"
-msgstr ""
+msgstr "Blocker de reclame eficient și puternic"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
-msgstr ""
+msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Popular anti-tracking extension now has ad blocking ability"
@@ -1108,9 +1106,8 @@ msgid "Dictionaries"
 msgstr "Dicționare"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "Versiune"
+msgstr "Permisiuni"
 
 #: src/amo/components/PermissionsCard/index.js:50
 msgid "This add-on can:"
@@ -1198,7 +1195,7 @@ msgstr "Să acceseze filele browserului"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr "Să ascundă şi să arate filele browserului"
+msgstr "Să ascundă şi să afișeze filele browserului"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
@@ -1219,20 +1216,20 @@ msgstr "Să îți acceseze datele pentru site-uri din domeniul %(domain)s"
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Access your data in %(count)s other domain"
 msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Să îți acceseze datele într-un alt domeniu"
+msgstr[1] "Să îți acceseze datele în alte %(count)s domenii"
+msgstr[2] "Să îți acceseze datele în alte %(count)s de domenii"
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "Să îți acceseze datele pentru %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:70
 msgid "Access your data on %(count)s other site"
 msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Să îți acceseze datele pe %(count)s alt site"
+msgstr[1] "Să îți acceseze datele pe alte %(count)s site-uri"
+msgstr[2] "Să îți acceseze datele pe alte %(count)s de site-uri"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1264,7 +1261,7 @@ msgstr "Cum ți se pare experiența cu %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:109
 msgid "You reported this add-on for abuse"
-msgstr ""
+msgstr "Ai raportat acest supliment pentru abuz"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1404,7 +1401,7 @@ msgstr[2] "%(count)s de rezultate pentru „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
-msgstr ""
+msgstr "Se caută „%(query)s”"
 
 #: src/amo/components/SearchContextCard/index.js:80
 msgid "Loading add-ons"
@@ -1430,9 +1427,8 @@ msgid "Extension"
 msgstr "Extensie"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Instrumente pentru căutare"
+msgstr "Instrument de căutare"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1492,7 +1488,7 @@ msgstr "Doar suplimente deosebite"
 
 #: src/amo/components/SearchForm/index.js:60
 msgid "Go to the add-on page"
-msgstr ""
+msgstr "Mergi pe pagina suplimentului"
 
 #: src/amo/components/SearchResult/index.js:122
 msgid "%(total)s user"
@@ -1802,7 +1798,7 @@ msgstr ""
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
-msgstr ""
+msgstr "Codul erorii: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
@@ -1818,7 +1814,7 @@ msgstr "Adaugă în Firefox"
 
 #: src/core/components/InstallSwitch/index.js:70
 msgid "Downloading %(name)s."
-msgstr ""
+msgstr "Se descarcă %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:73
 msgid "Installing %(name)s."
@@ -1859,7 +1855,7 @@ msgstr "Pagina %(currentPage)s din %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Suplimentul tău este pregătit"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
@@ -1867,19 +1863,19 @@ msgstr ""
 
 #: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
-msgstr ""
+msgstr "Ok!"
 
 #: src/ui/components/DismissibleTextForm/index.js:96
 msgid "Enter text."
-msgstr ""
+msgstr "Introdu text."
 
 #: src/ui/components/DismissibleTextForm/index.js:97
 msgid "Submit"
-msgstr ""
+msgstr "Trimite"
 
 #: src/ui/components/DismissibleTextForm/index.js:99
 msgid "Submitting"
-msgstr ""
+msgstr "Se trimite"
 
 #: src/ui/components/ErrorList/index.js:45
 msgid "Your session has expired"
