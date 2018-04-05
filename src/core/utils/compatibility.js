@@ -94,9 +94,10 @@ export function isCompatibleWithUserAgent({
     // first.
     if (minVersion && mozCompare(browser.version, minVersion) === -1) {
       if (minVersion === '*') {
-        _log.error(oneLine`minVersion of "*" was passed to
-          isCompatibleWithUserAgent(); bad add-on version data`,
-          { browserVersion: browser.version, minVersion }
+        _log.error(
+          oneLine`minVersion of "*" was passed to isCompatibleWithUserAgent();
+          bad add-on version data`,
+          { browserVersion: browser.version, minVersion },
         );
       }
 

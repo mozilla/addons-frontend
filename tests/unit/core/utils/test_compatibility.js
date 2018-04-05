@@ -1,4 +1,3 @@
-import { oneLine } from 'common-tags';
 import UAParser from 'ua-parser-js';
 
 import {
@@ -108,19 +107,17 @@ describe(__filename, () => {
       });
     });
 
-    it(oneLine`should use a Firefox for iOS reason code even if minVersion is
-      also not met`, () => {
-        const userAgentInfo = {
-          browser: { name: 'Firefox', version: '8.0' },
-          os: { name: 'iOS' },
-        };
-        expect(isCompatibleWithUserAgent({
-          addon: createInternalAddon(fakeAddon),
-          minVersion: '9.0',
-          userAgentInfo,
-        }))
-          .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
-      });
+    it('should use a Firefox for iOS reason code even if minVersion is also not met', () => {
+      const userAgentInfo = {
+        browser: { name: 'Firefox', version: '8.0' },
+        os: { name: 'iOS' },
+      };
+      expect(isCompatibleWithUserAgent({
+        addon: createInternalAddon(fakeAddon),
+        minVersion: '9.0',
+        userAgentInfo,
+      })).toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
+    });
 
     it('should mark Firefox without window.external as incompatible', () => {
       const userAgentInfo = {

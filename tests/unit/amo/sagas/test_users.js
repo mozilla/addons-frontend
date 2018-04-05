@@ -2,6 +2,8 @@ import SagaTester from 'redux-saga-tester';
 
 import usersSaga from 'amo/sagas/users';
 import usersReducer, {
+  finishEditUserAccount,
+  editUserAccount,
   fetchUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
@@ -37,78 +39,151 @@ describe(__filename, () => {
     rootTask = sagaTester.start(usersSaga);
   });
 
-  it('calls the API to fetch user profile after setAuthToken()', async () => {
-    const user = createUserAccountResponse();
+  describe('loadCurrentUserAccount', () => {
+    it('calls the API to fetch user profile after setAuthToken()', async () => {
+      const user = createUserAccountResponse();
 
-    mockApi
-      .expects('currentUserAccount')
-      .once()
-      .returns(Promise.resolve(user));
+      mockApi
+        .expects('currentUserAccount')
+        .once()
+        .returns(Promise.resolve(user));
 
-    sagaTester.dispatch(setAuthToken(userAuthToken()));
+      sagaTester.dispatch(setAuthToken(userAuthToken()));
 
-    const expectedCalledAction = loadCurrentUserAccount({ user });
+      const expectedCalledAction = loadCurrentUserAccount({ user });
 
-    await sagaTester.waitFor(expectedCalledAction.type);
-    mockApi.verify();
+      await sagaTester.waitFor(expectedCalledAction.type);
+      mockApi.verify();
 
-    const calledAction = sagaTester.getCalledActions()[1];
-    expect(calledAction).toEqual(expectedCalledAction);
+      const calledAction = sagaTester.getCalledActions()[1];
+      expect(calledAction).toEqual(expectedCalledAction);
+    });
+
+    it('allows exceptions to be thrown', () => {
+      const expectedError = new Error('this error should be thrown');
+      mockApi
+        .expects('currentUserAccount')
+        .returns(Promise.reject(expectedError));
+
+      sagaTester.dispatch(setAuthToken(userAuthToken()));
+
+      return rootTask.done
+        .then(() => {
+          throw new Error('unexpected success');
+        })
+        .catch((error) => {
+          mockApi.verify();
+          expect(error).toBe(expectedError);
+        });
+    });
   });
 
-  it('allows exceptions to be thrown', () => {
-    const expectedError = new Error('some API error maybe');
-    mockApi
-      .expects('currentUserAccount')
-      .returns(Promise.reject(expectedError));
+  describe('loadUserAccount', () => {
+    it('calls the API to fetch user after fetchUserAccount()', async () => {
+      const user = createUserAccountResponse();
 
-    sagaTester.dispatch(setAuthToken(userAuthToken()));
+      mockApi
+        .expects('userAccount')
+        .once()
+        .returns(Promise.resolve(user));
 
-    return rootTask.done
-      .then(() => {
-        throw new Error('unexpected success');
-      })
-      .catch((error) => {
-        mockApi.verify();
-        expect(error).toBe(expectedError);
+      sagaTester.dispatch(fetchUserAccount({
+        errorHandlerId: errorHandler.id,
+        username: 'tofumatt',
+      }));
+
+      const expectedCalledAction = loadUserAccount({ user });
+
+      await sagaTester.waitFor(expectedCalledAction.type);
+      mockApi.verify();
+
+      const calledAction = sagaTester.getCalledActions()[2];
+      expect(calledAction).toEqual(expectedCalledAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('a bad API error');
+      mockApi
+        .expects('userAccount')
+        .returns(Promise.reject(error));
+
+      sagaTester.dispatch(fetchUserAccount({
+        errorHandlerId: errorHandler.id,
+        username: 'tofumatt',
+      }));
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
+  });
+
+  describe('editUserAccount', () => {
+    it('calls the API to edit a user after editUserAccount()', async () => {
+      const user = createUserAccountResponse({ id: 5001 });
+      const userFields = {
+        biography: 'I fell into a burning ring of fire.',
+        location: 'Folsom Prison',
+      };
+
+      mockApi
+        .expects('editUserAccount')
+        .once()
+        .returns(Promise.resolve({ ...user, ...userFields }));
+
+      sagaTester.dispatch(editUserAccount({
+        errorHandlerId: errorHandler.id,
+        userFields,
+        userId: user.id,
+      }));
+
+      const expectedCalledAction = loadUserAccount({
+        user: { ...user, ...userFields },
       });
-  });
 
-  it('calls the API to fetch user after fetchUserAccount()', async () => {
-    const user = createUserAccountResponse();
+      const expectedErrorClearingAction = errorHandler.createClearingAction();
+      const errorClearingAction = await sagaTester.waitFor(
+        expectedErrorClearingAction.type);
+      expect(errorClearingAction).toEqual(expectedErrorClearingAction);
 
-    mockApi
-      .expects('userAccount')
-      .once()
-      .returns(Promise.resolve(user));
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
 
-    sagaTester.dispatch(fetchUserAccount({
-      errorHandlerId: errorHandler.id,
-      username: 'tofumatt',
-    }));
+      mockApi.verify();
+      expect(calledAction).toEqual(expectedCalledAction);
 
-    const expectedCalledAction = loadUserAccount({ user });
+      // Make sure the finish action is also called.
+      const finishAction = finishEditUserAccount();
 
-    await sagaTester.waitFor(expectedCalledAction.type);
-    mockApi.verify();
+      const calledFinishAction = await sagaTester.waitFor(finishAction.type);
+      expect(calledFinishAction.payload).toEqual({});
+    });
 
-    const calledAction = sagaTester.getCalledActions()[2];
-    expect(calledAction).toEqual(expectedCalledAction);
-  });
+    it('cancels the edit and dispatches an error when fails', async () => {
+      const user = createUserAccountResponse({ id: 5001 });
+      const userFields = {
+        biography: 'I fell into a burning ring of fire.',
+        location: 'Folsom Prison',
+      };
+      const error = new Error('a bad API error');
 
-  it('dispatches an error', async () => {
-    const error = new Error('a bad API error');
-    mockApi
-      .expects('userAccount')
-      .returns(Promise.reject(error));
+      mockApi
+        .expects('editUserAccount')
+        .returns(Promise.reject(error));
 
-    sagaTester.dispatch(fetchUserAccount({
-      errorHandlerId: errorHandler.id,
-      username: 'tofumatt',
-    }));
+      sagaTester.dispatch(editUserAccount({
+        errorHandlerId: errorHandler.id,
+        userFields,
+        userId: user.id,
+      }));
 
-    const errorAction = errorHandler.createErrorAction(error);
-    await sagaTester.waitFor(errorAction.type);
-    expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+      const finishAction = finishEditUserAccount();
+
+      const calledFinishAction = await sagaTester.waitFor(finishAction.type);
+      expect(calledFinishAction.payload).toEqual({});
+
+      const errorAction = errorHandler.createErrorAction(error);
+      const calledAction = await sagaTester.waitFor(errorAction.type);
+      expect(calledAction).toEqual(errorAction);
+    });
   });
 });
