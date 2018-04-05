@@ -1135,6 +1135,9 @@ describe(__filename, () => {
         { ...fakeAddon, slug: 'addon-1', id: 1 },
         { ...fakeAddon, slug: 'addon-2', id: 2 },
         { ...fakeAddon, slug: 'addon-3', id: 3 },
+        { ...fakeAddon, slug: 'addon-4', id: 4 },
+        { ...fakeAddon, slug: 'addon-5', id: 5 },
+        { ...fakeAddon, slug: 'addon-6', id: 6 },
       ];
 
       const root = renderMoreAddons({ addon, addonsByAuthors });
@@ -1145,15 +1148,18 @@ describe(__filename, () => {
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
-      expect(root).toHaveProp('numberOfAddons', 4);
+      expect(root).toHaveProp('numberOfAddons', 6);
     });
 
     it('displays more add-ons by authors when add-on is a theme', () => {
-      const addon = createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME });
+      const addon = createInternalAddon({ ...fakeTheme });
       const addonsByAuthors = [
-        { ...fakeAddon, slug: 'addon-1', id: 1 },
-        { ...fakeAddon, slug: 'addon-2', id: 2 },
-        { ...fakeAddon, slug: 'addon-3', id: 3 },
+        { ...fakeTheme, slug: 'theme-1', id: 1 },
+        { ...fakeTheme, slug: 'theme-2', id: 2 },
+        { ...fakeTheme, slug: 'theme-3', id: 3 },
+        { ...fakeTheme, slug: 'theme-4', id: 4 },
+        { ...fakeTheme, slug: 'theme-5', id: 5 },
+        { ...fakeTheme, slug: 'theme-6', id: 6 },
       ];
 
       const root = renderMoreAddons({ addon, addonsByAuthors });
@@ -1164,7 +1170,7 @@ describe(__filename, () => {
       );
       expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
-      expect(root).toHaveProp('numberOfAddons', 3);
+      expect(root).toHaveProp('numberOfAddons', 6);
     });
 
     it('adds a CSS class to the main component when there are add-ons', () => {
