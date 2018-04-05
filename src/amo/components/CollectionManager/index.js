@@ -93,6 +93,11 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     event.preventDefault();
     event.stopPropagation();
 
+    let { name, slug } = this.state;
+
+    name = name && name.trim();
+    slug = slug && slug.trim();
+
     if (!collection) {
       // You'd have to click really fast to access a form without a
       // collection so a user will not likely see this.
@@ -119,9 +124,9 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       defaultLocale: collection.defaultLocale,
       description: { [siteLang]: this.state.description },
       errorHandlerId: errorHandler.id,
-      name: { [siteLang]: this.state.name },
+      name: { [siteLang]: name },
       user: collection.authorUsername,
-      slug: this.state.slug,
+      slug,
     }));
   }
 
