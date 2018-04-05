@@ -1,3 +1,4 @@
+import { oneLineTrim } from 'common-tags';
 import * as React from 'react';
 
 import AddonCompatibilityError, {
@@ -57,13 +58,30 @@ describe(__filename, () => {
 
     expect(
       root.find('.AddonCompatibilityError').render().find('a').attr('href')
-    ).toEqual([
-      'https://www.mozilla.org/firefox/new/',
-      '?utm_source=addons.mozilla.org',
-      '&utm_medium=referral',
-      '&utm_campaign=non-fx-button',
-      '&utm_content=install-addon-button',
-    ].join(''));
+    ).toEqual(oneLineTrim`https://www.mozilla.org/firefox/new/
+      ?utm_source=addons.mozilla.org&utm_medium=referral
+      &utm_campaign=non-fx-button&utm_content=install-addon-button`
+    );
+    expect(
+      root.find('.AddonCompatibilityError').render().text()
+    ).toContain('You need to download Firefox to install this add-on.');
+  });
+
+  it('allows downloadUrl overrides', () => {
+    _dispatchClientMetadata({
+      userAgent: userAgentsByPlatform.mac.chrome41,
+    });
+    const root = render({
+      downloadUrl: 'http://waterfoxproject.org/',
+      reason: INCOMPATIBLE_NOT_FIREFOX,
+    });
+
+    expect(
+      root.find('.AddonCompatibilityError').render().find('a').attr('href')
+    ).toEqual(oneLineTrim`http://waterfoxproject.org/
+      ?utm_source=addons.mozilla.org&utm_medium=referral
+      &utm_campaign=non-fx-button&utm_content=install-addon-button`
+    );
     expect(
       root.find('.AddonCompatibilityError').render().text()
     ).toContain('You need to download Firefox to install this add-on.');

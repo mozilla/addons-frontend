@@ -443,6 +443,7 @@ export class AddonBase extends React.Component {
             {compatibility && !isCompatible ? (
               <AddonCompatibilityError
                 className="Addon-header-compatibility-error"
+                downloadUrl={compatibility.downloadUrl}
                 maxVersion={compatibility.maxVersion}
                 minVersion={compatibility.minVersion}
                 reason={compatibility.reason}

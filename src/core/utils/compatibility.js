@@ -16,6 +16,12 @@ import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
 
 
+// HACK: This is the GUID for the Facebook Container
+// add-on, which has a special-cased download URL supplied.
+// See: https://github.com/mozilla/addons-server/issues/7982
+export const FACEBOOK_CONTAINER_ADDON_GUID = '@contain-facebook';
+export const FACEBOOK_CONTAINER_DOWNLOAD_URL = 'https://www.mozilla.org/firefox/facebookcontainer/';
+
 export function getCompatibleVersions({ _log = log, addon, clientApp } = {}) {
   let maxVersion = null;
   let minVersion = null;
@@ -155,8 +161,14 @@ export function getClientCompatibility({
     reason = agent.reason;
   }
 
+  let downloadUrl;
+  if (addon && addon.guid === FACEBOOK_CONTAINER_ADDON_GUID) {
+    downloadUrl = FACEBOOK_CONTAINER_DOWNLOAD_URL;
+  }
+
   return {
     compatible: agent.compatible && supportsClientApp,
+    downloadUrl,
     maxVersion,
     minVersion,
     reason,
