@@ -319,19 +319,19 @@ describe(__filename, () => {
     const root = render({ collection });
 
     // Enter in collection name and slug with trailing and leading spaces.
-    typeInput({ root, name: 'name', text: '  trishul   ' });
-    typeInput({ root, name: 'slug', text: '  trishul   ' });
+    typeInput({ root, name: 'name', text: `  ${name}   ` });
+    typeInput({ root, name: 'slug', text: `  ${slug}   ` });
 
     dispatchSpy.reset();
     simulateSubmit(root);
 
     sinon.assert.calledWith(dispatchSpy, updateCollection({
-      collectionSlug: collection.slug,
+      collectionSlug: slug,
       defaultLocale: collection.defaultLocale,
       description: { [lang]: collection.description },
       errorHandlerId: root.instance().props.errorHandler.id,
-      name: { [lang]: collection.name },
-      slug: collection.slug,
+      name: { [lang]: name },
+      slug,
       user: authorUsername,
     }));
   });
