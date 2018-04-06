@@ -224,7 +224,6 @@ export function* modifyCollection(
       };
       yield call(api.updateCollection, apiParams);
     }
-    yield put(finishCollectionModification());
 
     const { lang, clientApp } = state.api;
     const effectiveSlug = slug || collectionSlug;
@@ -249,8 +248,9 @@ export function* modifyCollection(
     }
   } catch (error) {
     log.warn(`Failed to ${type}: ${error}`);
-    yield put(finishCollectionModification());
     yield put(errorHandler.createErrorAction(error));
+  } finally {
+    yield put(finishCollectionModification());
   }
 }
 
