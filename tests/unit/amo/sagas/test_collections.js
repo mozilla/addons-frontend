@@ -17,6 +17,8 @@ import collectionsReducer, {
   loadCurrentCollectionPage,
   loadUserCollections,
   updateCollection,
+  beginCollectionModification,
+  finishCollectionModification,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -340,6 +342,7 @@ describe(__filename, () => {
       sagaTester.dispatch(updateCollection({
         errorHandlerId: errorHandler.id,
         collectionSlug: 'some-collection',
+        slug,
         user,
         ...params,
       }));
@@ -370,6 +373,50 @@ describe(__filename, () => {
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
       });
+
+      it('records the beginning of a modification in state', async () => {
+        const collectionSlug = 'my-slug';
+
+        mockApi
+          .expects('updateCollection')
+          .returns(Promise.resolve());
+
+        _updateCollection({ collectionSlug });
+
+        const expectedAction = beginCollectionModification();
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+      });
+
+      it('records the end of a modification in state on error', async () => {
+        const collectionSlug = 'my-slug';
+        const error = new Error('some API error maybe');
+
+        mockApi
+          .expects('updateCollection')
+          .returns(Promise.reject(error));
+
+        _updateCollection({ collectionSlug });
+
+        const expectedAction = finishCollectionModification();
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+      });
+
+      it('records the end of a modification in state on success', async () => {
+        mockApi.expects('updateCollection').returns(Promise.resolve());
+
+        const collectionSlug = 'some-collection';
+        _updateCollection({ collectionSlug });
+
+        const expectedAction = finishCollectionModification();
+
+        const action = await sagaTester.waitFor(expectedAction.type);
+        expect(action).toEqual(expectedAction);
+        mockApi.verify();
+      });
     });
 
     describe('update logic', () => {
@@ -399,16 +446,9 @@ describe(__filename, () => {
 
         _updateCollection(params);
 
-        // TODO: Instead of this we should probably update the collectionUpdates state,
-        // and wait for that.
-        // See https://github.com/mozilla/addons-frontend/issues/4717
-        const { lang, clientApp } = clientData.state.api;
-        const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${params.slug}/`
-        );
+        const expectedAction = finishCollectionModification();
 
-        const action = await sagaTester.waitFor(expectedAction.type);
-        expect(action).toEqual(expectedAction);
+        await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
       });
 
@@ -434,13 +474,7 @@ describe(__filename, () => {
           collectionSlug, slug: 'new-slug',
         });
 
-        // TODO: Instead of this we should probably update the collectionUpdates state,
-        // and wait for that.
-        // See https://github.com/mozilla/addons-frontend/issues/4717
-        const { lang, clientApp } = clientData.state.api;
-        const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
-        );
+        const expectedAction = finishCollectionModification();
 
         await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();

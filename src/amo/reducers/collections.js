@@ -34,6 +34,10 @@ export const UPDATE_COLLECTION: 'UPDATE_COLLECTION' = 'UPDATE_COLLECTION';
 export const DELETE_COLLECTION_BY_SLUG: 'DELETE_COLLECTION_BY_SLUG'
   = 'DELETE_COLLECTION_BY_SLUG';
 export const CREATE_COLLECTION: 'CREATE_COLLECTION' = 'CREATE_COLLECTION';
+export const BEGIN_COLLECTION_MODIFICATION: 'BEGIN_COLLECTION_MODIFICATION'
+  = 'BEGIN_COLLECTION_MODIFICATION';
+export const FINISH_COLLECTION_MODIFICATION: 'FINISH_COLLECTION_MODIFICATION'
+  = 'FINISH_COLLECTION_MODIFICATION';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -80,9 +84,7 @@ export type CollectionsState = {
       |};
     },
   },
-  collectionUpdates: {
-    [collectionSlug: string]: {| updating: boolean, successful?: boolean |},
-  },
+  isCollectionBeingModified: boolean,
 };
 
 export const initialState: CollectionsState = {
@@ -91,7 +93,7 @@ export const initialState: CollectionsState = {
   current: { id: null, loading: false },
   userCollections: {},
   addonInCollections: {},
-  collectionUpdates: {},
+  isCollectionBeingModified: false,
 };
 
 type FetchCurrentCollectionParams = {|
@@ -539,6 +541,32 @@ export const updateCollection = ({
   };
 };
 
+type BeginCollectionModificationAction = {|
+  type: typeof BEGIN_COLLECTION_MODIFICATION,
+  payload: null,
+|};
+
+export const beginCollectionModification = ():
+  BeginCollectionModificationAction => {
+  return {
+    type: BEGIN_COLLECTION_MODIFICATION,
+    payload: null,
+  };
+};
+
+type FinishCollectionModificationAction = {|
+  type: typeof FINISH_COLLECTION_MODIFICATION,
+  payload: null,
+|};
+
+export const finishCollectionModification = ():
+  FinishCollectionModificationAction => {
+  return {
+    type: FINISH_COLLECTION_MODIFICATION,
+    payload: null,
+  };
+};
+
 type DeleteCollectionBySlugAction = {|
   type: typeof DELETE_COLLECTION_BY_SLUG,
   payload: {| slug: string |},
@@ -694,7 +722,8 @@ type Action =
   | LoadCurrentCollectionAction
   | LoadCurrentCollectionPageAction
   | LoadUserCollectionsAction
-  | UpdateCollectionAction
+  | BeginCollectionModificationAction
+  | FinishCollectionModificationAction
 ;
 
 const reducer = (
@@ -911,17 +940,17 @@ const reducer = (
       });
     }
 
-    case UPDATE_COLLECTION: {
-      const { collectionSlug } = action.payload;
-
+    case BEGIN_COLLECTION_MODIFICATION: {
       return {
         ...state,
-        collectionUpdates: {
-          [collectionSlug]: {
-            ...state.collectionUpdates[collectionSlug],
-            updating: true,
-          },
-        },
+        isCollectionBeingModified: true,
+      };
+    }
+
+    case FINISH_COLLECTION_MODIFICATION: {
+      return {
+        ...state,
+        isCollectionBeingModified: false,
       };
     }
 
