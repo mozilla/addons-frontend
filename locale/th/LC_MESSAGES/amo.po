@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-06 10:11+0000\n"
+"PO-Revision-Date: 2018-04-06 10:15+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -513,9 +513,8 @@ msgid "Edit this collection"
 msgstr "แก้ไขชุดสะสมนี้"
 
 #: src/amo/components/Collection/index.js:175
-#, fuzzy
 msgid "Sign in to edit this collection"
-msgstr "แก้ไขชุดสะสมนี้"
+msgstr "ลงชื่อเข้าเพื่อแก้ไขชุดสะสมนี้"
 
 #: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -957,7 +956,7 @@ msgstr "เปลี่ยนโฉม Wikipedia ให้งดงาม"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Black Menu for Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Easy drop-down menu access to Google services like Search and Translate"
@@ -965,19 +964,19 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
-msgstr ""
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "ค้นหารหัสคูปองโดยอัตโนมัติ"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
-msgstr ""
+msgstr "SHINE for Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "สัมผัสประสบการณ์ Reddit ด้วยการออกแบบทางเลือก"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
