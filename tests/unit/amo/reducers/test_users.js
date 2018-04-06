@@ -1,6 +1,6 @@
 import reducer, {
   LOAD_USER_ACCOUNT,
-  cancelEditUserAccount,
+  finishEditUserAccount,
   editUserAccount,
   getCurrentUser,
   getDisplayName,
@@ -12,8 +12,6 @@ import reducer, {
   loadCurrentUserAccount,
   loadUserAccount,
   logOutUser,
-  setUserAsEditing,
-  setUserAsNotEditing,
 } from 'amo/reducers/users';
 import {
   ADDONS_POSTREVIEW,
@@ -55,9 +53,7 @@ describe(__filename, () => {
 
       expect(action.type).toEqual(LOAD_USER_ACCOUNT);
       expect(action.payload).toEqual({ user });
-      expect(state.isEditingById).toMatchObject({
-        [user.id]: false,
-      });
+      expect(state.isEditing).toEqual(false);
     });
 
     it('handles LOG_OUT_USER', () => {
@@ -70,7 +66,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('cancelEditUserAccount', () => {
+  describe('finishEditUserAccount', () => {
     it('sets a user account to not editing', () => {
       const user = createUserAccountResponse();
       const userFields = { biography: 'Punk rock music fan' };
@@ -80,11 +76,9 @@ describe(__filename, () => {
         userFields,
         userId: user.id,
       }));
-      state = reducer(state, cancelEditUserAccount({ userId: user.id }));
+      state = reducer(state, finishEditUserAccount());
 
-      expect(state.isEditingById).toMatchObject({
-        [user.id]: false,
-      });
+      expect(state.isEditing).toEqual(false);
     });
   });
 
@@ -99,9 +93,7 @@ describe(__filename, () => {
         userId: user.id,
       }));
 
-      expect(state.isEditingById).toMatchObject({
-        [user.id]: true,
-      });
+      expect(state.isEditing).toEqual(true);
     });
   });
 
@@ -292,30 +284,6 @@ describe(__filename, () => {
       });
 
       expect(getUserByUsername(state.users, 'Biggie')).toBeUndefined();
-    });
-  });
-
-  describe('setUserAsEditing helper', () => {
-    it('sets a user as editing', () => {
-      const { state } = dispatchSignInActions({
-        userProps: { id: 500, username: 'Tupac' },
-      });
-
-      expect(setUserAsEditing({ state, userId: 500 })).toEqual({
-        isEditingById: { 500: true },
-      });
-    });
-  });
-
-  describe('setUserAsNotEditing helper', () => {
-    it('sets a user as not editing', () => {
-      const { state } = dispatchSignInActions({
-        userProps: { id: 500, username: 'Tupac' },
-      });
-
-      expect(setUserAsNotEditing({ state, userId: 500 })).toEqual({
-        isEditingById: { 500: false },
-      });
     });
   });
 });

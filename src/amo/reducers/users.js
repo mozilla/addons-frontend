@@ -13,7 +13,7 @@ import {
 } from 'core/constants';
 
 
-export const CANCEL_EDIT_USER_ACCOUNT: 'CANCEL_EDIT_USER_ACCOUNT' = 'CANCEL_EDIT_USER_ACCOUNT';
+export const FINISH_EDIT_USER_ACCOUNT: 'FINISH_EDIT_USER_ACCOUNT' = 'FINISH_EDIT_USER_ACCOUNT';
 export const EDIT_USER_ACCOUNT: 'EDIT_USER_ACCOUNT' = 'EDIT_USER_ACCOUNT';
 export const LOG_OUT_USER: 'LOG_OUT_USER' = 'LOG_OUT_USER';
 export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' = 'LOAD_CURRENT_USER_ACCOUNT';
@@ -62,7 +62,7 @@ export type UsersStateType = {
   currentUserID: UserId | null,
   byID: { [userId: UserId]: UserType },
   byUsername: { [username: string]: UserId },
-  isEditingById: { [userId: UserId]: boolean },
+  isEditing: boolean,
   userPageBeingViewed: {
     loading: boolean,
     userId: UserId | null,
@@ -82,7 +82,7 @@ export const initialState: UsersStateType = {
   currentUserID: null,
   byID: {},
   byUsername: {},
-  isEditingById: {},
+  isEditing: false,
   userPageBeingViewed: {
     loading: false,
     userId: null,
@@ -115,23 +115,17 @@ export const fetchUserAccount = ({
   };
 };
 
-type CancelEditUserAccountParams = {|
-  userId: UserId,
+type FinishEditUserAccountParams = {};
+
+type FinishEditUserAccountAction = {|
+  type: typeof FINISH_EDIT_USER_ACCOUNT,
+  payload: FinishEditUserAccountParams,
 |};
 
-type CancelEditUserAccountAction = {|
-  type: typeof CANCEL_EDIT_USER_ACCOUNT,
-  payload: CancelEditUserAccountParams,
-|};
-
-export const cancelEditUserAccount = (
-  { userId }: CancelEditUserAccountParams
-): CancelEditUserAccountAction => {
-  invariant(userId, 'userId is required');
-
+export const finishEditUserAccount = (): FinishEditUserAccountAction => {
   return {
-    type: CANCEL_EDIT_USER_ACCOUNT,
-    payload: { userId },
+    type: FINISH_EDIT_USER_ACCOUNT,
+    payload: {},
   };
 };
 
@@ -211,17 +205,6 @@ export function logOutUser(): LogOutUserAction {
   };
 }
 
-export const getCurrentUser = (users: UsersStateType) => {
-  if (!users.currentUserID) {
-    return null;
-  }
-
-  invariant(users.byID[users.currentUserID],
-    'currentUserID is defined but no matching user found in users state.');
-
-  return users.byID[users.currentUserID];
-};
-
 export const getUserById = (users: UsersStateType, userId: number) => {
   invariant(userId, 'userId is required');
   return users.byID[userId];
@@ -230,6 +213,19 @@ export const getUserById = (users: UsersStateType, userId: number) => {
 export const getUserByUsername = (users: UsersStateType, username: string) => {
   invariant(username, 'username is required');
   return users.byID[users.byUsername[username]];
+};
+
+export const getCurrentUser = (users: UsersStateType) => {
+  if (!users.currentUserID) {
+    return null;
+  }
+
+  const currentUser = getUserById(users, users.currentUserID);
+
+  invariant(currentUser,
+    'currentUserID is defined but no matching user found in users state.');
+
+  return currentUser;
 };
 
 export const getDisplayName = (user: ExternalUserType) => {
@@ -304,28 +300,9 @@ export const addUserToState = ({ state, user } : {
   return { byID, byUsername };
 };
 
-export const setUserAsEditing = ({ state, userId } : {
-  state: UsersStateType,
-  userId: UserId,
-}) : Object => {
-  invariant(state, 'state is required');
-  invariant(userId, 'userId is required');
-
-  return { isEditingById: { ...state.isEditingById, [userId]: true } };
-};
-
-export const setUserAsNotEditing = ({ state, userId } : {
-  state: UsersStateType,
-  userId: UserId,
-}) : Object => {
-  invariant(state, 'state is required');
-  invariant(userId, 'userId is required');
-
-  return { isEditingById: { ...state.isEditingById, [userId]: false } };
-};
-
 type Action =
   | FetchUserAccountAction
+  | FinishEditUserAccountAction
   | EditUserAccountAction
   | LoadCurrentUserAccountAction
   | LoadUserAccountAction
@@ -336,24 +313,16 @@ const reducer = (
   action: Action
 ): UsersStateType => {
   switch (action.type) {
-    case CANCEL_EDIT_USER_ACCOUNT: {
-      const { userId } = action.payload;
-
+    case EDIT_USER_ACCOUNT:
       return {
         ...state,
-        ...setUserAsNotEditing({ state, userId }),
+        isEditing: true,
       };
-    }
-
-    case EDIT_USER_ACCOUNT: {
-      const { userId } = action.payload;
-
+    case FINISH_EDIT_USER_ACCOUNT:
       return {
         ...state,
-        ...setUserAsEditing({ state, userId }),
+        isEditing: false,
       };
-    }
-
     case LOAD_CURRENT_USER_ACCOUNT: {
       const { user } = action.payload;
 
@@ -363,23 +332,19 @@ const reducer = (
         currentUserID: user.id,
       };
     }
-
     case LOAD_USER_ACCOUNT: {
       const { user } = action.payload;
 
       return {
         ...state,
         ...addUserToState({ state, user }),
-        ...setUserAsNotEditing({ state, userId: user.id }),
       };
     }
-
     case LOG_OUT_USER:
       return {
         ...state,
         currentUserID: null,
       };
-
     default:
       return state;
   }
