@@ -42,7 +42,7 @@ type Props = {|
 
   // AddonCards prop this component also accepts
   showSummary?: boolean,
-  type?: 'horizontal',
+  type?: 'horizontal' | 'vertical',
 |};
 
 export class AddonsByAuthorsCardBase extends React.Component<Props> {

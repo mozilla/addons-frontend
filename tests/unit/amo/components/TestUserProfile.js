@@ -1,11 +1,16 @@
 import * as React from 'react';
 import { shallow } from 'enzyme';
 
+import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import UserProfile, { UserProfileBase } from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import { fetchUserAccount, getCurrentUser } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
@@ -288,6 +293,32 @@ describe(__filename, () => {
     const root = renderUserProfile({ params: { username: 'not-loaded' } });
 
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
+  });
+
+  it('renders two AddonsByAuthorsCard', () => {
+    const root = renderUserProfile();
+
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
+  });
+
+  it('renders AddonsByAuthorsCard for extensions', () => {
+    const root = renderUserProfile();
+
+    expect(root.find(AddonsByAuthorsCard).at(0))
+      .toHaveProp('addonType', ADDON_TYPE_EXTENSION);
+  });
+
+  it('renders AddonsByAuthorsCard for themes', () => {
+    const root = renderUserProfile();
+
+    expect(root.find(AddonsByAuthorsCard).at(1))
+      .toHaveProp('addonType', ADDON_TYPE_THEME);
+  });
+
+  it('renders no AddonsByAuthorsCard if no user found', () => {
+    const root = renderUserProfile({ params: { username: 'not-loaded' } });
+
+    expect(root.find(AddonsByAuthorsCard)).toHaveLength(0);
   });
 
   it('renders a not found page if the API request is a 404', () => {

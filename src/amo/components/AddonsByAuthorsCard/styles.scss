@@ -6,16 +6,21 @@
   margin-top: 0;
 
   .Card-contents .AddonsCard-list {
-    background-color: $white;
-    display: grid;
-    grid-auto-flow: initial;
-    grid-gap: 6px;
-    grid-template-columns: repeat(2, 1fr);
     margin: 0;
     padding: 0;
 
     .SearchResult-metadata {
       display: none;
+    }
+  }
+
+  &.AddonsCard--horizontal {
+    .Card-contents .AddonsCard-list {
+      background-color: $white;
+      display: grid;
+      grid-auto-flow: initial;
+      grid-gap: 6px;
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }

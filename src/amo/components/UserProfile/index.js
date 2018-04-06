@@ -4,9 +4,14 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
+import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import { fetchUserAccount, getUserByUsername } from 'amo/reducers/users';
+import {
+  ADDON_TYPE_EXTENSION,
+  ADDON_TYPE_THEME,
+} from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -150,6 +155,24 @@ export class UserProfileBase extends React.Component<Props> {
 
             <ReportUserAbuse className="UserProfile-abuse-button" user={user} />
           </Card>
+
+          {user && user.username && (
+            <div className="UserProfile-addons-by-author">
+              <AddonsByAuthorsCard
+                addonType={ADDON_TYPE_EXTENSION}
+                authorNames={[user.username]}
+                numberOfAddons={3}
+                showSummary
+                type="vertical"
+              />
+
+              <AddonsByAuthorsCard
+                addonType={ADDON_TYPE_THEME}
+                authorNames={[user.username]}
+                numberOfAddons={6}
+              />
+            </div>
+          )}
         </div>
       </div>
     );

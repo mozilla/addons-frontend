@@ -15,6 +15,7 @@ $avatar-size: 64px;
 
 .UserProfile-wrapper {
   display: flex;
+  justify-content: flex-start;
 }
 
 .UserProfile-user-info {
@@ -53,6 +54,17 @@ $avatar-size: 64px;
   justify-content: start;
 }
 
-.UserProfile-abuse-button .ReportUserAbuse-show-more {
+.UserProfile-abuse-button {
+  margin-top: 24px;
+
+  .ReportUserAbuse-show-more {
+    width: 100%;
+  }
+}
+
+.UserProfile-addons-by-author {
+  @include margin(0, 0, 0, 12px);
+
+  max-width: 60%;
   width: 100%;
 }
