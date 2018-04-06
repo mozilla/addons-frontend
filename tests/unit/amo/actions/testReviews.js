@@ -1,17 +1,11 @@
 import {
-  clearAddonReviews,
   denormalizeReview,
   fetchReviews,
-  flagReview,
   reviewIdAction,
-  sendReplyToReview,
   setDenormalizedReview,
   setReview,
-  setReviewWasFlagged,
-  setReviewReply,
-  setAddonReviews,
 } from 'amo/actions/reviews';
-import { REVIEW_FLAG_REASON_SPAM, SET_REVIEW } from 'amo/constants';
+import { SET_REVIEW } from 'amo/constants';
 import { fakeAddon, fakeReview } from 'tests/unit/amo/helpers';
 
 // See reducer tests for more coverage of review actions.
@@ -21,20 +15,6 @@ describe(__filename, () => {
       addonSlug: fakeAddon.slug,
       errorHandlerId: 'some-error-handler-id',
       page: 1,
-    });
-
-    it('requires a truthy add-on slug', () => {
-      const params = { ...defaultParams };
-      delete params.addonSlug;
-      expect(() => fetchReviews(params))
-        .toThrowError(/addonSlug cannot be empty/);
-    });
-
-    it('requires a truthy error handler ID', () => {
-      const params = { ...defaultParams };
-      delete params.errorHandlerId;
-      expect(() => fetchReviews(params))
-        .toThrowError(/errorHandlerId cannot be empty/);
     });
 
     it('defaults to page 1', () => {
@@ -60,31 +40,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('setReviewReply', () => {
-    const defaultParams = () => {
-      return {
-        originalReviewId: fakeReview.id,
-        reply: { ...fakeReview, id: 321, body: 'Some reply' },
-      };
-    };
-
-    it('requires an originalReviewId', () => {
-      const params = defaultParams();
-      delete params.originalReviewId;
-
-      expect(() => setReviewReply(params))
-        .toThrow(/originalReviewId parameter is required/);
-    });
-
-    it('requires a reply', () => {
-      const params = defaultParams();
-      delete params.reply;
-
-      expect(() => setReviewReply(params))
-        .toThrow(/reply parameter is required/);
-    });
-  });
-
   describe('setDenormalizedReview', () => {
     it('requires a truthy review', () => {
       expect(() => setDenormalizedReview()).toThrowError(/review cannot be empty/);
@@ -102,65 +57,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('setAddonReviews', () => {
-    const defaultParams = {
-      reviews: [fakeReview],
-      reviewCount: 1,
-      addonSlug: fakeAddon.slug,
-    };
-
-    it('requires an addonSlug', () => {
-      const params = { ...defaultParams };
-      delete params.addonSlug;
-      expect(() => setAddonReviews(params)).toThrowError(/addonSlug cannot be empty/);
-    });
-
-    it('requires a list of reviews', () => {
-      const params = { ...defaultParams };
-      delete params.reviews;
-      expect(() => setAddonReviews(params)).toThrowError(/reviews must be an Array/);
-    });
-
-    it('requires a count of reviews', () => {
-      const params = { ...defaultParams };
-      delete params.reviewCount;
-      expect(() => setAddonReviews(params)).toThrowError(/reviewCount must be set/);
-    });
-  });
-
-  describe('sendReplyToReview', () => {
-    const defaultParams = () => ({
-      errorHandlerId: 'some-error-handler-id',
-      originalReviewId: fakeReview.id,
-      body: 'This is a review reply',
-      title: undefined,
-    });
-
-    it('requires an errorHandlerId', () => {
-      const params = defaultParams();
-      delete params.errorHandlerId;
-
-      expect(() => sendReplyToReview(params))
-        .toThrow(/errorHandlerId parameter is required/);
-    });
-
-    it('requires an originalReviewId', () => {
-      const params = defaultParams();
-      delete params.originalReviewId;
-
-      expect(() => sendReplyToReview(params))
-        .toThrow(/originalReviewId parameter is required/);
-    });
-
-    it('requires a body', () => {
-      const params = defaultParams();
-      delete params.body;
-
-      expect(() => sendReplyToReview(params))
-        .toThrow(/body parameter is required/);
-    });
-  });
-
   describe('reviewIdAction', () => {
     it('creates an action', () => {
       const type = 'SOME_TYPE';
@@ -169,86 +65,6 @@ describe(__filename, () => {
         type,
         payload: { reviewId },
       });
-    });
-
-    it('requires a reviewId', () => {
-      expect(() => reviewIdAction({ type: 'SOME_TYPE' }))
-        .toThrow(/reviewId parameter is required/);
-    });
-  });
-
-  describe('flagReview', () => {
-    const defaultParams = () => {
-      return {
-        errorHandlerId: 'some-id',
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: fakeReview.id,
-      };
-    };
-
-    it('requires an errorHandlerId', () => {
-      const params = defaultParams();
-      delete params.errorHandlerId;
-
-      expect(() => flagReview(params))
-        .toThrow(/errorHandlerId parameter is required/);
-    });
-
-    it('requires a reason', () => {
-      const params = defaultParams();
-      delete params.reason;
-
-      expect(() => flagReview(params))
-        .toThrow(/reason parameter is required/);
-    });
-
-    it('requires a reviewId', () => {
-      const params = defaultParams();
-      delete params.reviewId;
-
-      expect(() => flagReview(params))
-        .toThrow(/reviewId parameter is required/);
-    });
-  });
-
-  describe('setReviewWasFlagged', () => {
-    const defaultParams = () => {
-      return {
-        reason: REVIEW_FLAG_REASON_SPAM,
-        reviewId: fakeReview.id,
-      };
-    };
-
-    it('requires a reason', () => {
-      const params = defaultParams();
-      delete params.reason;
-
-      expect(() => setReviewWasFlagged(params))
-        .toThrow(/reason parameter is required/);
-    });
-
-    it('requires a reviewId', () => {
-      const params = defaultParams();
-      delete params.reviewId;
-
-      expect(() => setReviewWasFlagged(params))
-        .toThrow(/reviewId parameter is required/);
-    });
-  });
-
-  describe('clearAddonReviews', () => {
-    const defaultParams = () => {
-      return {
-        addonSlug: fakeAddon.slug,
-      };
-    };
-
-    it('requires addonSlug', () => {
-      const params = defaultParams();
-      delete params.addonSlug;
-
-      expect(() => clearAddonReviews(params))
-        .toThrow(/addonSlug parameter is required/);
     });
   });
 });
