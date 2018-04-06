@@ -93,10 +93,8 @@ export class RatingBase extends React.Component {
     }
 
     let description = null;
-    if (rating && readOnly) {
-      description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'), { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
-    } else {
-      description = i18n.gettext('This add-on has not been rated yet.');
+    if (readOnly) {
+      description = rating ? description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'), { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) }) : i18n.gettext('This add-on has not been rated yet.');
     }
 
     const allClassNames = makeClassName(

@@ -4,6 +4,7 @@ import {
   renderIntoDocument,
   Simulate,
 } from 'react-dom/test-utils';
+import { findDOMNode } from 'react-dom';
 
 import { fakeI18n } from 'tests/unit/helpers';
 import Rating, { RatingBase } from 'ui/components/Rating';
@@ -162,19 +163,15 @@ describe(__filename, () => {
     // This should be treated like a rating of 3.6 in text.
     const root = render({ rating: 3.60001, readOnly: true });
 
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual('Rated 3.6 out of 5.');
-    });
+    expect(findDOMNode(root).title).toContain('3.6 out of 5');
   });
 
   it('converts rating numbers to a float', () => {
-    const rootWithInteger = render({ rating: 3 });
-    const rootWithString = render({ rating: '3.60001' });
+    const rootWithInteger = render({ rating: 3, readOnly: true });
+    const rootWithString = render({ rating: '3.60001', readOnly: true });
 
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(rootWithInteger.ratingElements[rating].title).toContain(`${rating} out of 5.`);
-      expect(rootWithString.ratingElements[rating].title).toContain(`${rating} out of 5.`);
-    });
+    expect(findDOMNode(rootWithInteger).title).toContain('3 out of 5');
+    expect(findDOMNode(rootWithString).title).toContain('3.6 out of 5');
   });
 
   it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
@@ -229,12 +226,10 @@ describe(__filename, () => {
     });
   });
 
-  it('renders "no ratings" if no rating and readOnly', () => {
+  it('renders "This add-on has not been rated yet." if no rating and readOnly', () => {
     const root = render({ rating: null, readOnly: true });
 
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual('This add-on has not been rated yet.');
-    });
+    expect(findDOMNode(root).title).toContain('This add-on has not been rated yet.');
   });
 
   it('renders an accessible description for ratings', () => {
@@ -245,9 +240,7 @@ describe(__filename, () => {
     });
 
     const rootReadOnly = render({ rating: 2, readOnly: true });
-    [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(rootReadOnly.ratingElements[rating].title).toEqual(`Rated 2 out of 5.`);
-    });
+    expect(findDOMNode(rootReadOnly).title).toContain('Rated 2 out of 5');
   });
 
   it('renders read-only selected stars', () => {
@@ -314,30 +307,39 @@ describe(__filename, () => {
       expect(allDivs).toBeTruthy();
     });
 
-    it('renders no titles with an undefined rating when read-only', () => {
+    it('renders an appropriate title with an undefined rating when read-only', () => {
       const root = render({ readOnly: true });
 
-      [1, 2, 3, 4, 5].forEach((rating) => {
-        expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-        expect(root.ratingElements[rating].title).toEqual('This add-on has not been rated yet.');
-      });
+      expect(findDOMNode(root).title).toEqual('This add-on has not been rated yet.');
     });
 
-    it('renders no titles with a null rating when read-only', () => {
+    it('renders an appropriate title with a null rating when read-only', () => {
       const root = render({ rating: null, readOnly: true });
 
-      [1, 2, 3, 4, 5].forEach((rating) => {
-        expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-        expect(root.ratingElements[rating].title).toEqual('This add-on has not been rated yet.');
-      });
+      expect(findDOMNode(root).title).toEqual('This add-on has not been rated yet.');
     });
 
-    it('renders titles with a given rating when read-only', () => {
+    it('renders an appropriate title with a given rating when read-only', () => {
       const root = render({ rating: 3, readOnly: true });
 
-      [1, 2, 3, 4, 5].forEach((rating) => {
-        expect(root.ratingElements[rating].title).toEqual('Rated 3 out of 5.');
-      });
+      expect(findDOMNode(root).title).toEqual('Rated 3 out of 5.');
+    });
+  });
+
+  describe('rating counts', () => {
+    const getRating = (props = {}) => findDOMNode(render(props)).textContent;
+
+    it('renders the average rating', () => {
+      expect(getRating({ rating: 3.5, readOnly: true })).toEqual('Rated 3.5 out of 5.');
+    });
+
+    it('localizes average rating', () => {
+      const i18n = fakeI18n({ lang: 'de' });
+      expect(getRating({ rating: 3.5, i18n, readOnly: true })).toContain('3,5');
+    });
+
+    it('renders empty ratings', () => {
+      expect(getRating({ rating: null, readOnly: true })).toEqual('This add-on has not been rated yet.');
     });
   });
 });
