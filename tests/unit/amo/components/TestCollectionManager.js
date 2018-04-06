@@ -8,7 +8,6 @@ import {
   createInternalCollection, updateCollection,
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
-import { setErrorMessage } from 'core/actions/errors';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
@@ -237,23 +236,6 @@ describe(__filename, () => {
     const root = render({ errorHandler });
 
     expect(root.find(ErrorList)).toHaveLength(1);
-  });
-
-  it('reports an error when the name is blank', () => {
-    dispatchSignInActions({ store });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render();
-
-    // Enter in a blank collection name.
-    typeInput({ root, name: 'name', text: '' });
-
-    dispatchSpy.reset();
-    simulateSubmit(root);
-
-    sinon.assert.calledWith(dispatchSpy, setErrorMessage({
-      id: root.instance().props.errorHandler.id,
-      message: 'Collection name cannot be blank',
-    }));
   });
 
   it('disables submit button when the name is blank', () => {

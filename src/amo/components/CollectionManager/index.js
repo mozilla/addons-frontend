@@ -87,7 +87,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       collection,
       errorHandler,
       dispatch,
-      i18n,
       siteLang,
     } = this.props;
     event.preventDefault();
@@ -109,14 +108,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       // a user will not likely see this.
       throw new Error(
         'The form cannot be submitted without a site language');
-    }
-
-    // Do some form validation.
-    if (!this.state.name) {
-      errorHandler.addMessage(
-        i18n.gettext('Collection name cannot be blank')
-      );
-      return;
     }
 
     dispatch(updateCollection({
