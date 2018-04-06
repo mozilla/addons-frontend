@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-06 06:41+0000\n"
+"PO-Revision-Date: 2018-04-06 10:11+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1208,7 +1208,6 @@ msgid "Access your data for sites in the %(domain)s domain"
 msgstr "เข้าถึงข้อมูลของคุณสำหรับไซต์ในโดเมน %(domain)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
-#, fuzzy
 msgid "Access your data in %(count)s other domain"
 msgid_plural "Access your data in %(count)s other domains"
 msgstr[0] "เข้าถึงข้อมูลของคุณใน %(count)s โดเมนอื่น ๆ"
@@ -1218,7 +1217,6 @@ msgid "Access your data for %(site)s"
 msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(site)s"
 
 #: src/amo/components/PermissionsCard/permissions.js:70
-#, fuzzy
 msgid "Access your data on %(count)s other site"
 msgid_plural "Access your data on %(count)s other sites"
 msgstr[0] "เข้าถึงข้อมูลของคุณใน %(count)s ไซต์อื่น ๆ"
@@ -1870,14 +1868,12 @@ msgid "Toggle contents"
 msgstr "เปิด/ปิดเนื้อหา"
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Click to rate this add-on"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนเสริมนี้"
+msgstr "คลิกเพื่อให้คะแนนส่วนเสริมนี้"
 
 #: src/ui/components/Rating/index.js:95
-#, fuzzy
 msgid "This add-on has no ratings."
-msgstr "ส่วนเสริมนี้สามารถ:"
+msgstr "ส่วนเสริมนี้ไม่มีการจัดอันดับ"
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
