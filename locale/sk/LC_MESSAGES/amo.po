@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-06 20:07+0000\n"
+"PO-Revision-Date: 2018-04-06 20:20+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -283,7 +283,7 @@ msgstr "Povedzte svetu, prečo si myslíte, že je toto rozšírenie úžasné!"
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Povedzte nám, čo sa vám na tomto doplnku páči. Buďte, prosím, konkrétni."
+msgstr "Povedzte nám, čo sa vám na tomto rozšírení páči. Buďte, prosím, konkrétni."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -528,9 +528,8 @@ msgid "Edit this collection"
 msgstr "Upraviť túto kolekciu"
 
 #: src/amo/components/Collection/index.js:175
-#, fuzzy
 msgid "Sign in to edit this collection"
-msgstr "Upraviť túto kolekciu"
+msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
 
 #: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -558,7 +557,7 @@ msgstr "Vlastná URL adresa"
 
 #: src/amo/components/CollectionManager/index.js:235
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Nájdite doplnok, ktorý pridáte do tejto kolekcie"
 
 #: src/amo/components/CollectionManager/index.js:254 src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
@@ -954,7 +953,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
@@ -1456,9 +1455,8 @@ msgid "Extension"
 msgstr "Rozšírenie"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Vyhľadávacie nástroje"
+msgstr "Vyhľadávací nástroj"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1648,7 +1646,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
 msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
-msgstr ""
+msgstr "%(startLink)sVytvorte svoj vlastný doplnok%(endLink)s. Bezplatne vám preň poskytneme hosting a správu aktualizácií a môžeme vám pomôcť s oslovením veľkého množstva používateľov."
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
@@ -1807,9 +1805,8 @@ msgid "Add-ons Home Page"
 msgstr "Domovská stránka Doplnkov pre Firefox"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Počet používateľov"
+msgstr "Registrácia"
 
 #: src/amo/components/UserProfile/index.js:125
 msgid "Number of add-ons"
@@ -1817,12 +1814,11 @@ msgstr "Počet doplnkov"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
-msgstr ""
+msgstr "Priemerné hodnotenie doplnkov vývojára"
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Výsledky vyhľadávania pre \"%(query)s\""
+msgstr "Profil používateľa %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
