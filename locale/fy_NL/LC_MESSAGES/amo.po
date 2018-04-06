@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-04 07:26+0000\n"
+"PO-Revision-Date: 2018-04-06 07:57+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -809,7 +809,7 @@ msgstr "Profyl bewurkje"
 
 #: src/amo/components/Header/index.js:119
 msgid "Tools"
-msgstr "Helpmiddelen"
+msgstr "Ark"
 
 #: src/amo/components/Header/index.js:125
 msgid "Submit a New Add-on"
@@ -1133,7 +1133,7 @@ msgstr "Gegevens op it klamboerd pleatse"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr "Untwikkelershelpmiddelen útwreidzje om jo gegevens yn iepen ljepblêden te benaderjen"
+msgstr "Untwikkelersark útwreidzje om jo gegevens yn iepen ljepblêden te benaderjen"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
@@ -1413,7 +1413,7 @@ msgstr "Utwreiding"
 
 #: src/amo/components/SearchFilters/index.js:106
 msgid "Search Tool"
-msgstr "Sykhelpmiddel"
+msgstr "Sykark"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1511,7 +1511,7 @@ msgstr "Wurdboeken en taalpakketten"
 
 #: src/amo/components/SectionLinks/index.js:121
 msgid "Search Tools"
-msgstr "Sykhelpmiddelen"
+msgstr "Sykark"
 
 #: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
