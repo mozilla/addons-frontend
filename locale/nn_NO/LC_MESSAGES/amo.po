@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-06 09:57+0000\n"
+"PO-Revision-Date: 2018-04-09 13:09+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -180,19 +180,16 @@ msgid "No Users"
 msgstr "Ingen brukarar"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Ingen vurderingar"
+msgstr "Vurderingar"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Ingen vurderingar"
-msgstr[1] "Ingen vurderingar"
+msgstr[0] "Vurdering"
+msgstr[1] "Vurderingar"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
 msgstr "Ingen vurderingar"
 
@@ -519,9 +516,8 @@ msgid "Edit this collection"
 msgstr "Rediger denne samlinga"
 
 #: src/amo/components/Collection/index.js:175
-#, fuzzy
 msgid "Sign in to edit this collection"
-msgstr "Rediger denne samlinga"
+msgstr "Logg inn for å redigere denne samlinga"
 
 #: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -556,7 +552,6 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Save Collection"
 msgstr "Lagre samlinga"
 
@@ -887,9 +882,8 @@ msgid "Wikipedia boosters"
 msgstr ""
 
 #: src/amo/components/Home/index.js:213
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "Vis fleire media-nedlastarar"
+msgstr "Vis fleire Wikipedia-boosters"
 
 #: src/amo/components/Home/index.js:239
 msgid "Good time tabs"
@@ -933,9 +927,8 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "Verktøy"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
@@ -1006,9 +999,8 @@ msgid "Remove clutter and improve readability"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Video Downloader"
-msgstr "Video DownloadHelper"
+msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
@@ -1040,9 +1032,8 @@ msgid "Clip, save & organize your favorite stuff on the web"
 msgstr "Visuelle bokmerke for favorittplassane dine på nettet."
 
 #: src/amo/components/HomeHeroBanner/index.js:73
-#, fuzzy
 msgid "Flagfox"
-msgstr "Flagg"
+msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
@@ -1114,14 +1105,12 @@ msgid "Dictionaries"
 msgstr "Ordbøker"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "Versjon"
+msgstr "Løyve"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "Om denne utvidinga"
+msgstr "Denne utvidinga kan:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
@@ -1437,9 +1426,8 @@ msgid "Extension"
 msgstr "Utviding"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Søkjeverktøy"
+msgstr "Søkeverktøy"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1782,14 +1770,12 @@ msgid "Add-ons Home Page"
 msgstr "Heimeside for utvidingar"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "Brukarar"
+msgstr "Brukar sidan"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "Populære utvidingar"
+msgstr "Tal på utvidingar"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"

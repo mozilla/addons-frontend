@@ -1,9 +1,11 @@
 import reducer, {
   LOAD_USER_ACCOUNT,
+  finishEditUserAccount,
+  editUserAccount,
   getCurrentUser,
   getDisplayName,
+  getUserById,
   getUserByUsername,
-  fetchUserAccount,
   hasAnyReviewerRelatedPermission,
   hasPermission,
   initialState,
@@ -25,10 +27,7 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
-import {
-  createStubErrorHandler,
-  createUserAccountResponse,
-} from 'tests/unit/helpers';
+import { createUserAccountResponse } from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -47,37 +46,14 @@ describe(__filename, () => {
       expect(newState).toEqual(state);
     });
 
-    it('throws when no errorHandlerId is passed to fetchUserAccount', () => {
-      expect(() => {
-        fetchUserAccount({ username: 'Cool Kat' });
-      }).toThrowError('errorHandlerId is required');
-    });
-
-    it('throws when no username is passed to fetchUserAccount', () => {
-      const errorHandlerId = createStubErrorHandler().id;
-      expect(() => {
-        fetchUserAccount({ errorHandlerId });
-      }).toThrowError('username is required');
-    });
-
-    it('requires user for loadCurrentUserAccount', () => {
-      expect(() => {
-        loadCurrentUserAccount({});
-      }).toThrowError('user is required');
-    });
-
     it('loadUserAccount returns a user', () => {
-      const user = createUserAccountResponse();
+      const user = createUserAccountResponse({ id: 12345, username: 'john' });
       const action = loadUserAccount({ user });
+      const state = reducer(initialState, action);
 
       expect(action.type).toEqual(LOAD_USER_ACCOUNT);
       expect(action.payload).toEqual({ user });
-    });
-
-    it('throws when no username is passed to loadUserAccount', () => {
-      expect(() => {
-        loadUserAccount({});
-      }).toThrowError('user is required');
+      expect(state.isEditing).toEqual(false);
     });
 
     it('handles LOG_OUT_USER', () => {
@@ -87,6 +63,37 @@ describe(__filename, () => {
       const { currentUserID } = reducer(state, logOutUser());
 
       expect(currentUserID).toEqual(null);
+    });
+  });
+
+  describe('finishEditUserAccount', () => {
+    it('sets a user account to not editing', () => {
+      const user = createUserAccountResponse();
+      const userFields = { biography: 'Punk rock music fan' };
+
+      let state = reducer(initialState, editUserAccount({
+        errorHandlerId: 'fake-error-id',
+        userFields,
+        userId: user.id,
+      }));
+      state = reducer(state, finishEditUserAccount());
+
+      expect(state.isEditing).toEqual(false);
+    });
+  });
+
+  describe('editUserAccount', () => {
+    it('sets user account to editing', () => {
+      const user = createUserAccountResponse();
+      const userFields = { biography: 'Punk rock music fan' };
+
+      const state = reducer(initialState, editUserAccount({
+        errorHandlerId: 'fake-error-id',
+        userFields,
+        userId: user.id,
+      }));
+
+      expect(state.isEditing).toEqual(true);
     });
   });
 
@@ -102,20 +109,6 @@ describe(__filename, () => {
       const { state } = dispatchClientMetadata();
 
       expect(getCurrentUser(state.users)).toEqual(null);
-    });
-
-    it('throws if currentUserID exists but user does not', () => {
-      // This signifies a bug in our app:
-      // https://github.com/mozilla/addons-frontend/pull/4031#discussion_r155665367
-      const { state } = dispatchSignInActions();
-      const buggyUsersState = {
-        ...state,
-        users: { ...state.users, byID: {}, byUsername: {} },
-      };
-
-      expect(() => {
-        getCurrentUser(buggyUsersState.users);
-      }).toThrowError(/currentUserID is defined but no matching user found/);
     });
   });
 
@@ -151,7 +144,6 @@ describe(__filename, () => {
     it('returns `true` when user is admin', () => {
       const permissions = [ALL_SUPER_POWERS];
       const { state } = dispatchSignInActions({ userProps: { permissions } });
-
 
       expect(hasPermission(state, THEMES_REVIEW)).toEqual(true);
     });
@@ -258,6 +250,24 @@ describe(__filename, () => {
     });
   });
 
+  describe('getUserById selector', () => {
+    it('returns a user from state', () => {
+      const { state } = dispatchSignInActions({
+        userProps: { id: 500, username: 'Tupac' },
+      });
+
+      expect(getUserById(state.users, 500)).toEqual(state.users.byID[500]);
+    });
+
+    it('returns undefined if no user is found', () => {
+      const { state } = dispatchSignInActions({
+        userProps: { id: 500, username: 'Tupac' },
+      });
+
+      expect(getUserById(state.users, 441)).toBeUndefined();
+    });
+  });
+
   describe('getUserByUsername selector', () => {
     it('returns a user from state', () => {
       const { state } = dispatchSignInActions({
@@ -268,7 +278,7 @@ describe(__filename, () => {
         .toEqual(state.users.byID[500]);
     });
 
-    it('returns null if no user is found', () => {
+    it('returns undefined if no user is found', () => {
       const { state } = dispatchSignInActions({
         userProps: { id: 500, username: 'Tupac' },
       });
