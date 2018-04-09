@@ -5,7 +5,10 @@ import CollectionManager, {
   extractId, CollectionManagerBase,
 } from 'amo/components/CollectionManager';
 import {
-  createInternalCollection, updateCollection,
+  createInternalCollection,
+  beginCollectionModification,
+  finishCollectionModification,
+  updateCollection,
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
@@ -284,6 +287,24 @@ describe(__filename, () => {
       .toHaveProp('disabled', false);
     expect(root.find('.CollectionManager-submit'))
       .toHaveProp('disabled', true);
+  });
+
+  it('disables and enables form buttons when modification status changes', () => {
+    const renderAndCheckButtons = (shouldBeDisabled) => {
+      const root = render();
+
+      expect(root.find('.CollectionManager-cancel'))
+        .toHaveProp('disabled', shouldBeDisabled);
+      expect(root.find('.CollectionManager-submit'))
+        .toHaveProp('disabled', shouldBeDisabled);
+    };
+
+    // Buttons should be enabled by default.
+    renderAndCheckButtons(false);
+    store.dispatch(beginCollectionModification());
+    renderAndCheckButtons(true);
+    store.dispatch(finishCollectionModification());
+    renderAndCheckButtons(false);
   });
 
   it('trims leading and trailing spaces from slug and name before submitting', () => {

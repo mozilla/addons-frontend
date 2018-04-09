@@ -17,7 +17,10 @@ import LoadingText from 'ui/components/LoadingText';
 import type {
   SearchFilters, SuggestionType,
 } from 'amo/components/AutoSearchInput';
-import type { CollectionType } from 'amo/reducers/collections';
+import type {
+  CollectionsState,
+  CollectionType,
+} from 'amo/reducers/collections';
 import type { ApiStateType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
 import type { ElementEvent } from 'core/types/dom';
@@ -35,6 +38,7 @@ type Props = {|
   i18n: I18nType,
   router: ReactRouterType,
   siteLang: ?string,
+  isCollectionBeingModified: boolean,
 |};
 
 type State = {|
@@ -80,7 +84,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     router.push(
       `/${siteLang}/${clientApp}/collections/${authorUsername}/${slug}/`
     );
-  }
+  };
 
   onSubmit = (event: SyntheticEvent<any>) => {
     const {
@@ -119,26 +123,26 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       user: collection.authorUsername,
       slug,
     }));
-  }
+  };
 
   onTextInput = (
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     event.preventDefault();
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   onSearchAddon = (filters: SearchFilters) => {
     // TODO: implement onSearchAddon
     // https://github.com/mozilla/addons-frontend/issues/4590
     log.debug('TODO: handle seaching for add-on', filters);
-  }
+  };
 
   onAddonSelected = (suggestion: SuggestionType) => {
     // TODO: implement onAddonSelected
     // https://github.com/mozilla/addons-frontend/issues/4590
     log.debug('TODO: handle selecting an add-on', suggestion);
-  }
+  };
 
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
@@ -151,7 +155,9 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   }
 
   render() {
-    const { collection, errorHandler, i18n, siteLang } = this.props;
+    const {
+      collection, errorHandler, i18n, isCollectionBeingModified, siteLang,
+    } = this.props;
     const { name, slug } = this.state;
 
     let collectionUrlPrefix = '';
@@ -166,7 +172,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     // https://github.com/mozilla/addons-frontend/issues/4635
     // The collectionUpdates state will handle this but it needs
     // to be hooked up the saga.
-    const formIsDisabled = !collection;
+    const formIsDisabled = !collection || isCollectionBeingModified;
     const isNameBlank = !(name && name.trim().length);
     const isSlugBlank = !(slug && slug.trim().length);
     const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
@@ -271,10 +277,13 @@ export const extractId = (ownProps: Props) => {
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (state: {| api: ApiStateType |}) => {
+export const mapStateToProps = (
+  state: {| api: ApiStateType, collections: CollectionsState |},
+) => {
   return {
     clientApp: state.api.clientApp,
     siteLang: state.api.lang,
+    isCollectionBeingModified: state.collections.isCollectionBeingModified,
   };
 };
 
