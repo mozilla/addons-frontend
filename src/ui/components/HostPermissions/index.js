@@ -13,87 +13,98 @@ type Props = {|
   permissions: Array<string>,
 |};
 
+type HostPermissionMessageType = 'domain' | 'site';
+type PermissionMessageType = HostPermissionMessageType | 'allUrls';
+
+type GetPermissionStringParams = {|
+  messageType: PermissionMessageType,
+  param?: string | number,
+  tooMany?: boolean,
+|};
+
+type GenerateHostPermissionsParams = {|
+  permissions: Array<string>,
+  // eslint-disable-next-line react/no-unused-prop-types
+  messageType: HostPermissionMessageType,
+|};
+
 export class HostPermissionsBase extends React.Component<Props> {
   constructor(props: Props) {
-    const { i18n } = props;
     super(props);
+    this.i18n = props.i18n;
+  }
+
+  getPermissionString({ messageType, param, tooMany = false }: GetPermissionStringParams): string {
     // These should be kept in sync with Firefox's strings for webextention
     // host permissions which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
-    this.permissionStrings = {
-      allUrls: i18n.gettext('Access your data for all websites'),
-      wildcard: (domain) => {
-        return i18n.sprintf(
-          i18n.gettext('Access your data for sites in the %(domain)s domain'),
-          { domain }
+    switch (messageType) {
+      case 'allUrls':
+        return this.i18n.gettext('Access your data for all websites');
+      case 'domain':
+        if (tooMany) {
+          return this.i18n.sprintf(this.i18n.ngettext(
+            'Access your data in %(param)s other domain',
+            'Access your data in %(param)s other domains',
+            param), { param: this.i18n.formatNumber(param) }
+          );
+        }
+        return this.i18n.sprintf(
+          this.i18n.gettext('Access your data for sites in the %(param)s domain'),
+          { param }
         );
-      },
-      tooManyWildcards: (count) => {
-        return i18n.sprintf(i18n.ngettext(
-          'Access your data in %(count)s other domain',
-          'Access your data in %(count)s other domains',
-          count), { count: i18n.formatNumber(count) }
+      case 'site':
+        if (tooMany) {
+          return this.i18n.sprintf(this.i18n.ngettext(
+            'Access your data on %(param)s other site',
+            'Access your data on %(param)s other sites',
+            param), { param: this.i18n.formatNumber(param) }
+          );
+        }
+        return this.i18n.sprintf(
+          this.i18n.gettext('Access your data for %(param)s'),
+          { param }
         );
-      },
-      oneSite: (site) => {
-        return i18n.sprintf(
-          i18n.gettext('Access your data for %(site)s'),
-          { site }
-        );
-      },
-      tooManySites: (count) => {
-        return i18n.sprintf(i18n.ngettext(
-          'Access your data on %(count)s other site',
-          'Access your data on %(count)s other sites',
-          count), { count: i18n.formatNumber(count) }
-        );
-      },
-    };
-    this.hostPermissions = [];
+      default:
+        return '';
+    }
   }
 
-  permissionStrings: Object;
-  hostPermissions: Array<React.Element<typeof Permission>>;
+  i18n: I18nType;
 
-  // Add individual Permission components for individual site/domain permissions.
-  formatItems(items: Array<string>, messageType: string) {
-    for (const item of items) {
-      this.hostPermissions.push(
+  // Generates Permission components for a list of host permissions. If we have 4 or
+  // fewer, display them all, otherwise display the first 3 followed by an item
+  // that says "...plus N others".
+  generateHostPermissions({
+    permissions, messageType,
+  }: GenerateHostPermissionsParams): Array<React.Element<typeof Permission>> {
+    const hostPermissions = [];
+    for (const item of permissions.slice(0, 4)) {
+      // Add individual Permission components for the first 4 host permissions.
+      hostPermissions.push(
         <Permission
           type="hostPermission"
-          description={this.permissionStrings[messageType](item)}
+          description={this.getPermissionString({ messageType, param: item })}
           key={item}
         />
       );
     }
-  }
-
-  // Adds Permission components for a list of host permissions. If we have 4 or
-  // fewer, display them all, otherwise display the first 3 followed by an item
-  // that says "...plus N others".
-  addHostPermissions(
-    list: Array<string>,
-    singleMessageType:string,
-    moreMessageType:string
-  ) {
-    if (list.length < 5) {
-      this.formatItems(list, singleMessageType);
-    } else {
-      this.formatItems(list.slice(0, 3), singleMessageType);
-
-      const remaining = list.length - 3;
-      this.hostPermissions.push(
-        <Permission
-          type="hostPermission"
-          description={this.permissionStrings[moreMessageType](remaining)}
-          key={moreMessageType}
-        />
-      );
+    if (permissions.length > 4) {
+      // Replace the final individual permission with a "too many" permission.
+      hostPermissions[3] = (<Permission
+        type="hostPermission"
+        description={this.getPermissionString(
+          { messageType, param: permissions.length - 3, tooMany: true }
+        )}
+        key={messageType}
+      />);
     }
+    return hostPermissions;
   }
 
   render() {
     const { permissions } = this.props;
+    const hostPermissions = [];
 
     // Group permissions into "site" and "domain" permissions. If any
     // "all urls" permissions are found, break as we'll only need one
@@ -123,24 +134,28 @@ export class HostPermissionsBase extends React.Component<Props> {
       }
     }
 
-    // Format the host permissions.  If we have a wildcard for all urls,
+    // Format the host permissions. If we have a wildcard for all urls,
     // a single string will suffice.  Otherwise, show domain wildcards
     // first, then individual host permissions.
     if (allUrls) {
-      this.hostPermissions.push(
+      hostPermissions.push(
         <Permission
           type="hostPermission"
-          description={this.permissionStrings.allUrls}
+          description={this.getPermissionString({ messageType: 'allUrls' })}
           key="allUrls"
         />
       );
     } else {
-      this.addHostPermissions(wildcards, 'wildcard', 'tooManyWildcards');
-      this.addHostPermissions(sites, 'oneSite', 'tooManySites');
+      hostPermissions.push(...this.generateHostPermissions({
+        permissions: wildcards, messageType: 'domain',
+      }));
+      hostPermissions.push(...this.generateHostPermissions({
+        permissions: sites, messageType: 'site',
+      }));
     }
     return (
       <React.Fragment>
-        {this.hostPermissions}
+        {hostPermissions}
       </React.Fragment>
     );
   }
