@@ -57,4 +57,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'taarexp@mozilla.com', // TAARExperiment
   'tls13-middlebox-draft22@mozilla.org', // TLS 1.3 Compatibility Testing of Middleboxes
   'searchvolmodelextra@mozilla.com', // Search Volume Modeling Extra
+  'tls13-rollout-bug1442042@mozilla.org', // TLS 1.3 gradual roll-out
+  'tls13-version-fallback-rollout-bug1448176@mozilla.org', // TLS 1.3 gradual roll-out fallback-limit
 ];
