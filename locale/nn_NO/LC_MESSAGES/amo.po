@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-09 13:09+0000\n"
+"PO-Revision-Date: 2018-04-09 13:18+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -135,7 +135,7 @@ msgstr "Ikkje kompatibel med Firefox Quantum"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Nokre funskjonar kan krevje betaling"
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -890,9 +890,8 @@ msgid "Good time tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:240
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Vis fleire høgast vurderte uvidingar"
+msgstr "Vis fleire utvidingar for den nye fanesida"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1157,9 +1156,8 @@ msgid "Access your location"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
 msgid "Access browsing history"
-msgstr "Versjonshistorikk"
+msgstr "Tilgang til nettlesarhistorikken"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
@@ -1782,9 +1780,8 @@ msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "Søkjeresultat for \"%(query)s\""
+msgstr "Brukarprofil for %(user)s"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -1847,9 +1844,8 @@ msgid "Next"
 msgstr "Neste"
 
 #: src/core/components/Paginate/index.js:99
-#, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Side %(currentPage)s av %(totalPages)s"
+msgstr "Side %(pageNumber)s av %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -1892,14 +1888,12 @@ msgid "Toggle contents"
 msgstr "Veksle innhald"
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Click to rate this add-on"
-msgstr "Logg inn for å vurdere denne utvidinga"
+msgstr "Klikk for å vurdere denne utvidinga"
 
 #: src/ui/components/Rating/index.js:95
-#, fuzzy
 msgid "This add-on has no ratings."
-msgstr "Om denne utvidinga"
+msgstr "Denne utvidinga har ingen vurderingar."
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
