@@ -10,6 +10,7 @@ import CategoriesPage from 'amo/components/CategoriesPage';
 import Category from 'amo/components/Category';
 import Collection from 'amo/components/Collection';
 import CollectionEdit from 'amo/components/CollectionEdit';
+import CollectionList from 'amo/components/CollectionList';
 import Home from 'amo/components/Home';
 import LandingPage from 'amo/components/LandingPage';
 import LanguageTools from 'amo/components/LanguageTools';
@@ -50,7 +51,7 @@ export default (
       {config.get('enableCollectionEdit') ?
         <Route
           path="collections/add/"
-          component={(props) => <Collection {...props} creating />}
+          component={(props) => <CollectionList {...props} creating />}
         /> : null
       }
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />

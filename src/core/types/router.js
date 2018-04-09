@@ -24,4 +24,5 @@ export type ReactRouterType = {|
   // These are parameters derived from the <Route/> config.
   params: { [param: string]: string },
   push: (pushURL: string | pushParams) => void,
+  goBack: () => void,
 |};

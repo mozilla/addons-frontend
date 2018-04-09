@@ -1,3 +1,4 @@
+import config from 'config';
 import * as React from 'react';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
@@ -11,7 +12,6 @@ import {
   finishCollectionModification,
   updateCollection,
 } from 'amo/reducers/collections';
-import { setLang } from 'core/actions';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
@@ -41,6 +41,7 @@ const simulateAutoSearchCallback = (props = {}) => {
 describe(__filename, () => {
   let fakeRouter;
   let store;
+  const apiHost = config.get('apiHost');
   const signedInUsername = 'user123';
   const lang = 'en-US';
 
@@ -112,32 +113,64 @@ describe(__filename, () => {
   });
 
   it('can render an empty form for create', () => {
-    const root = render({ collection: null, creating: true });
+    const clientApp = CLIENT_APP_FIREFOX;
+    const newLang = 'de';
+    const username = 'testUser';
+    const localStore = dispatchClientMetadata(
+      { clientApp, lang: newLang }
+    ).store;
+    dispatchSignInActions({
+      lang: newLang,
+      store: localStore,
+      userProps: { username },
+    });
 
-    expect(root).toHaveProp('title', 'Create collection');
-    expect(root).toHaveProp('id', CREATE_COLLECTION_OVERLAY);
+    const root = render({ collection: null, creating: true, store: localStore });
+
+    const expectedUrlPrefix =
+      `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
     expect(root.find('#collectionName')).toHaveProp('value', null);
     expect(root.find('#collectionDescription'))
-      .toHaveProp('defaultValue', null);
+      .toHaveProp('value', null);
     expect(root.find('#collectionSlug')).toHaveProp('value', null);
+    expect(root.find('#collectionUrlPrefix'))
+      .toHaveProp('title', expectedUrlPrefix);
+    expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
   });
 
   it('populates the edit form with collection data', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const newLang = 'de';
+    const username = 'testUser';
+    const localStore = dispatchClientMetadata(
+      { clientApp, lang: newLang }
+    ).store;
+    dispatchSignInActions({
+      lang: newLang,
+      store: localStore,
+      userProps: { username },
+    });
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({
         name: 'OG name',
         description: 'OG description',
         slug: 'the-slug',
+        authorUsername: username,
       }),
     });
-    const root = render({ collection });
+    const root = render({ collection, store: localStore });
 
+    const expectedUrlPrefix =
+      `${apiHost}/${newLang}/${clientApp}/collections/${username}/`;
     expect(root.find('#collectionName'))
       .toHaveProp('value', collection.name);
     expect(root.find('#collectionDescription'))
       .toHaveProp('value', collection.description);
     expect(root.find('#collectionSlug'))
       .toHaveProp('value', collection.slug);
+    expect(root.find('#collectionUrlPrefix'))
+      .toHaveProp('title', expectedUrlPrefix);
+    expect(root.find('#collectionUrlPrefix')).toIncludeText(expectedUrlPrefix);
   });
 
   it('strips HTML entities from name and description', () => {
@@ -239,7 +272,6 @@ describe(__filename, () => {
       defaultLocale: lang,
       description: { [lang]: description },
       errorHandlerId: errorHandler.id,
-      formOverlayId: CREATE_COLLECTION_OVERLAY,
       name: { [lang]: name },
       slug,
       user: signedInUsername,
@@ -247,13 +279,10 @@ describe(__filename, () => {
   });
 
   it('updates the collection on submit', () => {
-    const authorUsername = 'some-user';
     const errorHandler = createStubErrorHandler();
-    const lang = 'en-US';
-    dispatchSignInActions({ lang, store });
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername }),
+      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const root = render({ collection, errorHandler });
@@ -276,7 +305,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: authorUsername,
+      user: signedInUsername,
     }));
   });
 
@@ -356,14 +385,13 @@ describe(__filename, () => {
   });
 
   it('trims leading and trailing spaces from slug and name before submitting', () => {
-    const authorUsername = 'collection-owner';
     const name = 'trishul';
     const slug = 'trishul';
-    const lang = 'en-US';
-    dispatchSignInActions({ lang, store });
 
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername, name, slug }),
+      detail: createFakeCollectionDetail(
+        { authorUsername: signedInUsername, name, slug }
+      ),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -383,17 +411,13 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: authorUsername,
+      user: signedInUsername,
     }));
   });
 
   it('allows a blank description', () => {
-    const authorUsername = 'collection-owner';
-    const lang = 'en-US';
-    dispatchSignInActions({ lang, store });
-
     const collection = createInternalCollection({
-      detail: createFakeCollectionDetail({ authorUsername }),
+      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -412,24 +436,8 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       name: { [lang]: collection.name },
       slug: collection.slug,
-      user: authorUsername,
+      user: signedInUsername,
     }));
-  });
-
-  it('requires a collection before submitting a form', () => {
-    const root = render({ collection: null });
-
-    expect(() => simulateSubmit(root))
-      .toThrow(/cannot be submitted without a collection/);
-  });
-
-  it('requires a language before submitting a form', () => {
-    dispatchSignInActions({ store });
-    store.dispatch(setLang(null));
-    const root = render();
-
-    expect(() => simulateSubmit(root))
-      .toThrow(/cannot be submitted without a site language/);
   });
 
   it('resets form state on cancel', () => {
@@ -458,10 +466,12 @@ describe(__filename, () => {
     sinon.assert.called(clearError);
   });
 
-  it('redirects to the detail view on cancel', () => {
+  it('redirects to the detail view on cancel when editing', () => {
     const clientApp = CLIENT_APP_FIREFOX;
-    const lang = 'de';
-    const localStore = dispatchClientMetadata({ clientApp, lang }).store;
+    const newLang = 'de';
+    const localStore = dispatchClientMetadata(
+      { clientApp, lang: newLang }
+    ).store;
 
     const slug = 'my-collection';
     const username = 'some-username';
@@ -476,8 +486,16 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(
       fakeRouter.push,
-      `/${lang}/${clientApp}/collections/${username}/${slug}/`
+      `/${newLang}/${clientApp}/collections/${username}/${slug}/`
     );
+  });
+
+  it('calls router.goBack() on cancel when creating', () => {
+    const root = render({ creating: true });
+
+    simulateCancel(root);
+
+    sinon.assert.called(fakeRouter.goBack);
   });
 
   it('populates form state when updating to a new collection', () => {

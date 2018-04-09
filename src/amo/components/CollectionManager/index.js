@@ -1,4 +1,5 @@
 /* @flow */
+import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
@@ -36,16 +37,16 @@ import type { ReactRouterType } from 'core/types/router';
 import './styles.scss';
 
 type Props = {|
-  creating: boolean,
   collection: CollectionType | null,
   clientApp: ?string,
+  creating: boolean,
+  currentUsername: string,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
+  isCollectionBeingModified: boolean,
   router: ReactRouterType,
   siteLang: ?string,
-  isCollectionBeingModified: boolean,
-  currentUsername: string,
 |};
 
 type State = {|
@@ -72,10 +73,15 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   onCancel = (event: SyntheticEvent<any>) => {
     const {
-      collection, clientApp, errorHandler, router, siteLang,
+      clientApp, collection, creating, errorHandler, router, siteLang,
     } = this.props;
     event.preventDefault();
     event.stopPropagation();
+
+    if (creating) {
+      router.goBack();
+    }
+
     invariant(collection,
       'A collection must be loaded before you can cancel');
     invariant(clientApp,
@@ -97,11 +103,10 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     const {
       creating,
       collection,
+      currentUsername,
       dispatch,
       errorHandler,
-      i18n,
       siteLang,
-      currentUsername,
     } = this.props;
     event.preventDefault();
     event.stopPropagation();
@@ -111,37 +116,37 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     name = name && name.trim();
     slug = slug && slug.trim();
 
-    if (!creating && !collection) {
-      // You'd have to click really fast to access an edit form without a
-      // collection so a user will not likely see this.
-      throw new Error(
-        'The form cannot be submitted without a collection');
-    }
-    if (!siteLang) {
-      // It is not possible to browse the site without a language so
-      // a user will not likely see this.
-      throw new Error(
-        'The form cannot be submitted without a site language');
-    }
+    invariant(siteLang,
+      'The form cannot be submitted without a site language');
+    invariant(name,
+      'The form cannot be submitted without a name');
+    invariant(slug,
+      'The form cannot be submitted without a slug');
 
-    const payload: Object = {
-      collectionSlug: (collection && collection.slug) || undefined,
-      defaultLocale: (collection && collection.defaultLocale) || siteLang,
+    const payload = {
       description: { [siteLang]: this.state.description },
       errorHandlerId: errorHandler.id,
-      formOverlayId:
-        creating ? CREATE_COLLECTION_OVERLAY : EDIT_COLLECTION_OVERLAY,
-      name: { [siteLang]: this.state.name },
-      user: (collection && collection.authorUsername) || currentUsername,
-      slug: this.state.slug,
+      name: { [siteLang]: name },
+      slug,
     };
 
     if (creating) {
-      dispatch(createCollection(payload));
+      dispatch(createCollection({
+        ...payload,
+        defaultLocale: siteLang,
+        user: currentUsername,
+      }));
     } else {
-      dispatch(updateCollection(payload));
+      invariant(collection,
+        'The form cannot be submitted without a collection');
+      dispatch(updateCollection({
+        ...payload,
+        collectionSlug: collection.slug,
+        defaultLocale: collection.defaultLocale,
+        user: collection.authorUsername,
+      }));
     }
-  }
+  };
 
   onTextInput = (
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -173,18 +178,23 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   }
 
   render() {
-    const { isCollectionBeingModified, collection, errorHandler, i18n, siteLang, currentUsername } = this.props;
+    const {
+      collection,
+      creating,
+      currentUsername,
+      errorHandler,
+      i18n,
+      isCollectionBeingModified,
+      siteLang,
+    } = this.props;
     const { name, slug } = this.state;
 
     const collectionUrlPrefix =
-      `${config.get('apiHost')}/${siteLang || ''}/firefox/collections/
+      oneLineTrim`${config.get('apiHost')}/${siteLang || ''}/firefox/collections/
        ${(collection && collection.authorUsername) || currentUsername}/`;
 
-    // TODO: also disable the form while submitting.
-    // https://github.com/mozilla/addons-frontend/issues/4635
-    // The collectionUpdates state will handle this but it needs
-    // to be hooked up the saga.
-    const formIsDisabled = !collection || isCollectionBeingModified;
+    const formIsDisabled = (!collection && !creating) ||
+                           isCollectionBeingModified;
     const isNameBlank = !(name && name.trim().length);
     const isSlugBlank = !(slug && slug.trim().length);
     const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
@@ -201,7 +211,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         >
           {i18n.gettext('Collection name')}
         </label>
-        {collection ? (
+        {collection || creating ? (
           <input
             onChange={this.onTextInput}
             id="collectionName"
@@ -213,7 +223,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         <label htmlFor="collectionDescription">
           {i18n.gettext('Description')}
         </label>
-        {collection ? (
+        {collection || creating ? (
           <textarea
             value={this.state.description}
             id="collectionDescription"
@@ -226,6 +236,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         </label>
         <div className="CollectionManager-slug">
           <div
+            id="collectionUrlPrefix"
             title={collectionUrlPrefix}
             className="CollectionManager-slug-url-hint"
           >
@@ -289,7 +300,13 @@ export const extractId = (ownProps: Props) => {
   return `collection-${collection ? collection.slug : ''}`;
 };
 
-export const mapStateToProps = (state: {| api: ApiStateType, collections: CollectionsState, users: UsersStateType, |}) => {
+export const mapStateToProps = (
+  state: {|
+    api: ApiStateType,
+    collections: CollectionsState,
+    users: UsersStateType,
+  |}
+) => {
   const currentUser = getCurrentUser(state.users);
   return {
     clientApp: state.api.clientApp,
