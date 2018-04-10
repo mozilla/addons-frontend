@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-03-01 15:42+0000\n"
-"Last-Translator: వీవెన్ <veeven@gmail.com>\n"
+"PO-Revision-Date: 2018-04-10 10:10+0000\n"
+"Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr "లోడుచేస్తోంది…"
 
 #: src/amo/components/AddAddonToCollection/index.js:169
 msgid "Adding…"
-msgstr ""
+msgstr "జోడిస్తున్నాము…"
 
 #: src/amo/components/AddAddonToCollection/index.js:185
 msgid "Select a collection…"
@@ -32,15 +32,14 @@ msgstr "క్రొత్త సేకరణను సృష్టించం�
 
 #: src/amo/components/AddAddonToCollection/index.js:231
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "%(collectionName)sకు జోడించబడింది"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:247
 msgid "Add to…"
-msgstr ""
+msgstr "…కు జోడించు"
 
-#: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/AddAddonToCollection/index.js:252 src/amo/components/CollectionManager/index.js:239
 msgid "Add to collection"
 msgstr "సేకరణకు జోడించు"
 
@@ -84,7 +83,7 @@ msgstr "ఈ భాషా ప్యాక్ గురించి"
 
 #: src/amo/components/Addon/index.js:282
 msgid "About this search plugin"
-msgstr ""
+msgstr "ఈ శోధన ప్లగ్ఇన్ గురించి"
 
 #: src/amo/components/Addon/index.js:285
 msgid "About this theme"
@@ -140,9 +139,7 @@ msgid "Some features may require payment"
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:61
-msgid ""
-"You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
-"add-on."
+msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:66
@@ -162,15 +159,11 @@ msgid "This add-on is not available on your platform."
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:78
-msgid ""
-"This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
-"a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
+msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
 #: src/amo/components/AddonCompatibilityError/index.js:92
-msgid ""
-"Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
-"\">download Firefox</a> to install this add-on."
+msgid "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
 msgstr ""
 
 #: src/amo/components/AddonMeta/index.js:31
@@ -198,7 +191,6 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
 msgstr "సమీక్షలు లేవు"
 
@@ -238,8 +230,7 @@ msgstr "పొడిగింత లంకెలు"
 msgid "Version"
 msgstr "వెర్షన్"
 
-#: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/AddonMoreInfo/index.js:197 src/amo/components/Collection/index.js:209
 msgid "Last updated"
 msgstr "చివరిగా నవీకరించినది"
 
@@ -267,8 +258,7 @@ msgstr "వాడుక గణాంకాలు"
 msgid "More information"
 msgstr "మరింత సమాచారం"
 
-#: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:109
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:109
 msgid "Homepage"
 msgstr "నివాసపేజీ"
 
@@ -286,26 +276,19 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:169
 #, fuzzy
-msgid ""
-"Tell the world why you think this extension is fantastic! Please follow our "
-"%(linkStart)sreview guidelines%(linkEnd)s."
+msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr "ఈ పొడిగింత అద్భుతమని ఎందుకు అనుకుంటున్నారో ప్రపంచానికి చెప్పండి!"
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
-"ఈ పొడిగింతను మీరు ఎందుకు ఇష్టపడుతున్నారో మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను "
-"చెప్పండి."
+msgstr "ఈ పొడిగింతను మీరు ఎందుకు ఇష్టపడుతున్నారో మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
 
 #: src/amo/components/AddonReview/index.js:177
-msgid ""
-"Tell the world about this extension. Please follow our %(linkStart)sreview "
-"guidelines%(linkEnd)s."
+msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
 msgstr ""
 
 #: src/amo/components/AddonReview/index.js:181
-msgid ""
-"Tell us about your experience with this extension. Be specific and concise."
+msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "ఈ పొడిగింతతో మీ అనుభవాన్ని మాకు తెలియజేయండి. ప్రత్యేకంగా మరియు సంక్షిప్తంగా వివరణను చెప్పండి."
 
 #: src/amo/components/AddonReview/index.js:197
@@ -425,8 +408,7 @@ msgstr ""
 msgid "More add-ons by these developers"
 msgstr ""
 
-#: src/amo/components/App/index.js:203
-#: src/amo/components/SectionLinks/index.js:150
+#: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
 msgstr "Firefox యొక్క పొడిగింతలు"
 
@@ -434,8 +416,7 @@ msgstr "Firefox యొక్క పొడిగింతలు"
 msgid "%s – Add-ons for Firefox"
 msgstr "%s – Firefox యొక్క పొడిగింతలు"
 
-#: src/amo/components/App/index.js:207
-#: src/amo/components/SectionLinks/index.js:137
+#: src/amo/components/App/index.js:207 src/amo/components/SectionLinks/index.js:137
 msgid "Add-ons for Android"
 msgstr "Android యొక్క పొడిగింతలు"
 
@@ -452,8 +433,7 @@ msgstr "లోడవుతున్నది"
 msgid "Find add-ons"
 msgstr "పొడిగింతలను కనుగొనండి"
 
-#: src/amo/components/AutoSearchInput/index.js:310
-#: src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:310 src/amo/components/AutoSearchInput/index.js:343
 msgid "Search"
 msgstr "వెతుకు"
 
@@ -469,90 +449,64 @@ msgstr "వర్గాలు"
 msgid "Loading categories."
 msgstr "వర్గాలను లోడ్ చేస్తోంది."
 
-#: src/amo/components/Category/index.js:131
-#: src/amo/components/LandingPage/index.js:205
-#: src/amo/components/SectionLinks/index.js:84
+#: src/amo/components/Category/index.js:131 src/amo/components/LandingPage/index.js:205 src/amo/components/SectionLinks/index.js:84
 msgid "Extensions"
 msgstr "పొడిగింతలు"
 
-#: src/amo/components/Category/index.js:132
-#: src/amo/components/Home/index.js:251
-#: src/amo/components/LandingPage/index.js:124
-#: src/amo/components/Search/index.js:110
+#: src/amo/components/Category/index.js:132 src/amo/components/Home/index.js:251 src/amo/components/LandingPage/index.js:124 src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:141
-#: src/amo/components/Home/index.js:252
-#: src/amo/components/LandingPage/index.js:132
+#: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:252 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "మరిన్ని విశేష పొడిగింతలను చూడండి"
 
-#: src/amo/components/Category/index.js:142
-#: src/amo/components/LandingPage/index.js:133
-#: src/amo/components/Search/index.js:123
+#: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 #, fuzzy
 msgid "Trending extensions"
 msgstr "పొడిగింతలను కనుగొనండి"
 
-#: src/amo/components/Category/index.js:151
-#: src/amo/components/LandingPage/index.js:138
+#: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 #, fuzzy
 msgid "See more trending extensions"
 msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
-#: src/amo/components/Category/index.js:152
-#: src/amo/components/LandingPage/index.js:139
-#: src/amo/components/Search/index.js:135
+#: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
 msgstr ""
 
-#: src/amo/components/Category/index.js:161
-#: src/amo/components/LandingPage/index.js:147
+#: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
 #, fuzzy
 msgid "See more top rated extensions"
 msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
-#: src/amo/components/Category/index.js:164
-#: src/amo/components/LandingPage/index.js:204
-#: src/amo/components/SectionLinks/index.js:94
+#: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
 msgstr "అలంకారాలు"
 
-#: src/amo/components/Category/index.js:165
-#: src/amo/components/Home/index.js:224
-#: src/amo/components/LandingPage/index.js:150
-#: src/amo/components/Search/index.js:113
+#: src/amo/components/Category/index.js:165 src/amo/components/Home/index.js:224 src/amo/components/LandingPage/index.js:150 src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "విశేష అలంకారాలు"
 
-#: src/amo/components/Category/index.js:174
-#: src/amo/components/Home/index.js:225
-#: src/amo/components/LandingPage/index.js:158
+#: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:225 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "మరిన్ని విశేష అలంకారాలను చూడండి"
 
-#: src/amo/components/Category/index.js:175
-#: src/amo/components/LandingPage/index.js:159
-#: src/amo/components/Search/index.js:126
+#: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
 #, fuzzy
 msgid "Trending themes"
 msgstr "అలంకారాలను కనుగొనండి"
 
-#: src/amo/components/Category/index.js:184
-#: src/amo/components/LandingPage/index.js:164
+#: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
 #, fuzzy
 msgid "See more trending themes"
 msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
 
-#: src/amo/components/Category/index.js:185
-#: src/amo/components/LandingPage/index.js:165
-#: src/amo/components/Search/index.js:138
+#: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
 msgid "Top rated themes"
 msgstr ""
 
-#: src/amo/components/Category/index.js:194
-#: src/amo/components/LandingPage/index.js:170
+#: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
 #, fuzzy
 msgid "See more top rated themes"
 msgstr "మరింత జనాదరణ పొందిన అలంకారాలు"
@@ -570,17 +524,15 @@ msgid "Browse all themes in this category."
 msgstr ""
 
 #: src/amo/components/Collection/index.js:159
-#, fuzzy
 msgid "Edit this collection"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "ఈ సేకరణను సవరించండి"
 
 #: src/amo/components/Collection/index.js:175
 #, fuzzy
 msgid "Sign in to edit this collection"
 msgstr "అన్ని పొడగింతలను అన్వేషించు"
 
-#: src/amo/components/Collection/index.js:199
-#: src/amo/components/Footer/index.js:43
+#: src/amo/components/Collection/index.js:199 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "పొడిగింతలు"
 
@@ -594,7 +546,7 @@ msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:186
 msgid "Collection name"
-msgstr ""
+msgstr "సేకరణ పేరు"
 
 #: src/amo/components/CollectionManager/index.js:198
 msgid "Description"
@@ -608,8 +560,7 @@ msgstr ""
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
-#: src/ui/components/DismissibleTextForm/index.js:126
+#: src/amo/components/CollectionManager/index.js:254 src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "రద్దుచేయి"
 
@@ -627,15 +578,11 @@ msgid "Support these developers"
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:41
-msgid ""
-"The developer of this extension asks that you help support its continued "
-"development by making a small contribution."
+msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:43
-msgid ""
-"The developers of this extension ask that you help support its continued "
-"development by making a small contribution."
+msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:50
@@ -647,15 +594,11 @@ msgid "Support these artists"
 msgstr "ఈ కళాకారులకు మద్దతు ఇవ్వండి"
 
 #: src/amo/components/ContributeCard/index.js:55
-msgid ""
-"The artist of this theme asks that you help support its continued creation "
-"by making a small contribution."
+msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:57
-msgid ""
-"The artists of this theme ask that you help support its continued creation "
-"by making a small contribution."
+msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:64
@@ -667,31 +610,23 @@ msgid "Support these authors"
 msgstr "ఈ రచయితలకు మద్దతు ఇవ్వండి"
 
 #: src/amo/components/ContributeCard/index.js:69
-msgid ""
-"The author of this add-on asks that you help support its continued work by "
-"making a small contribution."
+msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:71
-msgid ""
-"The authors of this add-on ask that you help support its continued work by "
-"making a small contribution."
+msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
 msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
 msgstr ""
 
-#: src/amo/components/DownloadFirefoxButton/index.js:39
-#: src/amo/components/Footer/index.js:97
+#: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Firefoxను దింపుకోండి"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
-msgid ""
-"If you are signed in and think this message is an error, please <a href="
-"\"%(url)s\">file an issue</a>. Tell us where you came from and what you were "
-"trying to access, and we'll fix the issue."
+msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
@@ -699,16 +634,11 @@ msgid "Not Authorized"
 msgstr "ప్రామాణీకరించబడలేదు"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:39
-msgid ""
-"Sorry, but you aren't authorized to access this page. If you aren't signed "
-"in, try signing in using the link at the top of the page."
+msgid "Sorry, but you aren't authorized to access this page. If you aren't signed in, try signing in using the link at the top of the page."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:26
-msgid ""
-"If you followed a link from somewhere, please <a href=\"%(url)s\">file an "
-"issue</a>. Tell us where you came from and what you were looking for, and "
-"we'll do our best to fix it."
+msgid "If you followed a link from somewhere, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were looking for, and we'll do our best to fix it."
 msgstr ""
 
 #: src/amo/components/ErrorPage/NotFound/index.js:34
@@ -723,28 +653,22 @@ msgstr ""
 msgid "Sorry, but we can't find anything at the address you entered."
 msgstr ""
 
-#: src/amo/components/ErrorPage/NotFound/index.js:49
-#: src/core/components/ErrorPage/NotFound/index.js:27
+#: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
 msgstr "పేజీ కనుగొనబడలేదు"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:22
 msgid ""
-"If you have additional information that would help us you can <a href="
-"\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</"
-"a>. Tell us what steps you took that lead to the error and we'll do our best "
-"to fix it."
+"If you have additional information that would help us you can <a href=\"https://github.com/mozilla/addons-frontend/issues/new/\">file an issue</a>. Tell us what steps you took that lead to the error"
+" and we'll do our best to fix it."
 msgstr ""
 
-#: src/amo/components/ErrorPage/ServerError/index.js:33
-#: src/core/components/ErrorPage/GenericError/index.js:25
+#: src/amo/components/ErrorPage/ServerError/index.js:33 src/core/components/ErrorPage/GenericError/index.js:25
 msgid "Server Error"
 msgstr "సర్వర్ దోషం"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
-msgid ""
-"Sorry, but there was an error with our server and we couldn't complete your "
-"request. We have logged this error and will investigate it."
+msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:111
@@ -844,9 +768,8 @@ msgstr "ట్రేడుమార్కు దుర్వినియోగ�
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
-"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on "
-"this site is licensed under the %(startLicenseLink)sCreative Commons "
-"Attribution Share-Alike License v3.0%(endLicenseLink)s or any later version."
+"Except where otherwise %(startNotedLink)snoted%(endNotedLink)s, content on this site is licensed under the %(startLicenseLink)sCreative Commons Attribution Share-Alike License v3.0%(endLicenseLink)s"
+" or any later version."
 msgstr ""
 
 #: src/amo/components/Footer/index.js:23
@@ -914,8 +837,7 @@ msgstr ""
 msgid "Reviewer Tools"
 msgstr "సమీక్షలు"
 
-#: src/amo/components/Header/index.js:153
-#: src/core/components/AuthenticateButton/index.js:76
+#: src/amo/components/Header/index.js:153 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "లాగ్ అవుట్"
 
@@ -1016,9 +938,7 @@ msgid "Multi-Account Containers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:111
-msgid ""
-"Keep different parts of your online life—work, personal, etc.—separated by "
-"color-coded tabs"
+msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
@@ -1152,15 +1072,11 @@ msgid "Popular anti-tracking extension now has ad blocking ability"
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:208
-msgid ""
-"Change your browser's appearance. Choose from thousands of themes to give "
-"Firefox the look you want."
+msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:210
-msgid ""
-"Explore powerful tools and features to customize Firefox and make the "
-"browser all your own."
+msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
 msgstr ""
 
 #: src/amo/components/LandingPage/index.js:238
@@ -1180,15 +1096,11 @@ msgid "Dictionaries and Language Packs"
 msgstr "నిఘంటువులు, భాషా ప్యాకులు"
 
 #: src/amo/components/LanguageTools/index.js:157
-msgid ""
-"Installing a dictionary add-on will add a new language option to your spell-"
-"checker, which checks your spelling as you type in Firefox."
+msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:162
-msgid ""
-"Language packs change your browser's interface language, including menu "
-"options and settings."
+msgid "Language packs change your browser's interface language, including menu options and settings."
 msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:168
@@ -1208,14 +1120,12 @@ msgid "Dictionaries"
 msgstr "నిఘంటువులు"
 
 #: src/amo/components/PermissionsCard/index.js:47
-#, fuzzy
 msgid "Permissions"
-msgstr "వెర్షన్"
+msgstr "అనుమతులు"
 
 #: src/amo/components/PermissionsCard/index.js:50
-#, fuzzy
 msgid "This add-on can:"
-msgstr "ఈ పొడిగింత గురించి"
+msgstr "ఈ పొడిగింతలు చేయగలిగినవి:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
@@ -1261,11 +1171,9 @@ msgstr ""
 msgid "Access your location"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
-#, fuzzy
+#: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access browsing history"
-msgstr "వెర్షన్ చరిత్ర"
+msgstr "విహరణ చరిత్రను పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
@@ -1368,21 +1276,15 @@ msgid "You reported this add-on for abuse"
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:113
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this add-on."
+msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:120
-#: src/amo/components/ReportUserAbuse/index.js:154
+#: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:154
 msgid "We can't respond to every abuse report but we'll look into this issue."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:131
-msgid ""
-"If you think this add-on violates %(linkTagStart)sMozilla's add-on policies"
-"%(linkTagEnd)s or has security or privacy issues, please report these issues "
-"to Mozilla using this form."
+msgid "If you think this add-on violates %(linkTagStart)sMozilla's add-on policies%(linkTagEnd)s or has security or privacy issues, please report these issues to Mozilla using this form."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:144
@@ -1390,9 +1292,7 @@ msgid "Report this add-on for abuse"
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:173
-msgid ""
-"Please don't use this form to report bugs or request add-on features; this "
-"report will be sent to Mozilla and not to the add-on developer."
+msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
 msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:186
@@ -1403,31 +1303,24 @@ msgstr ""
 msgid "Dismiss"
 msgstr "రద్దుచేయి"
 
-#: src/amo/components/ReportAbuseButton/index.js:209
-#: src/amo/components/ReportUserAbuse/index.js:135
+#: src/amo/components/ReportAbuseButton/index.js:209 src/amo/components/ReportUserAbuse/index.js:135
 msgid "Sending abuse report"
 msgstr ""
 
-#: src/amo/components/ReportAbuseButton/index.js:210
-#: src/amo/components/ReportUserAbuse/index.js:134
+#: src/amo/components/ReportAbuseButton/index.js:210 src/amo/components/ReportUserAbuse/index.js:134
 msgid "Send abuse report"
 msgstr ""
 
-#: src/amo/components/ReportUserAbuse/index.js:103
-#: src/amo/components/ReportUserAbuse/index.js:96
+#: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
 msgid "Report this user for abuse"
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:109
-msgid ""
-"If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies"
-"%(linkTagEnd)s, please report this user to Mozilla."
+msgid "If you think this user is violating %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s, please report this user to Mozilla."
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:121
-msgid ""
-"Please don't use this form to report bugs or contact this user; your report "
-"will only be sent to Mozilla and not to this user."
+msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:131
@@ -1439,13 +1332,10 @@ msgid "You reported this user for abuse"
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:147
-msgid ""
-"We have received your report. Thanks for letting us know about your concerns "
-"with this user."
+msgid "We have received your report. Thanks for letting us know about your concerns with this user."
 msgstr ""
 
-#: src/amo/components/Search/index.js:105
-#: src/amo/components/SearchResults.js:62
+#: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
 msgstr "వెతుకుడు ఫలితాలు"
 
@@ -1536,8 +1426,7 @@ msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s పొడిగింత దొరికింది"
 msgstr[1] "%(count)s పొడిగింతలు దొరికాయి"
 
-#: src/amo/components/SearchFilters/index.js:104
-#: src/amo/components/SearchFilters/index.js:115
+#: src/amo/components/SearchFilters/index.js:104 src/amo/components/SearchFilters/index.js:115
 msgid "All"
 msgstr "అన్నీ"
 
@@ -1546,7 +1435,6 @@ msgid "Extension"
 msgstr "పొడిగింత"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
 msgstr "శోధన సాధనాలు"
 
@@ -1666,9 +1554,7 @@ msgid "Explore"
 msgstr "అన్వేషణ"
 
 #: src/amo/components/StaticPages/About.js:110
-msgid ""
-"If you want to contribute but are not quite as technical, there are still "
-"ways to help:"
+msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
@@ -1676,22 +1562,15 @@ msgid "Participate in our %(startLink)sforum%(endLink)s."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:124
-msgid ""
-"Leave feedback for your favorite add-ons. Add-on authors are more likely to "
-"improve their add-ons and create new ones when they know people appreciate "
-"their work."
+msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:129
-msgid ""
-"Tell your friends and family that Firefox is a fast, secure browser that "
-"protects their privacy, and they can use add-ons to make it their own!"
+msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:138
-msgid ""
-"To see more ways you can contribute to the add-on community, please visit "
-"our %(startLink)swiki%(endLink)s"
+msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
@@ -1700,37 +1579,27 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
-"If you would like to learn more about how to manage add-ons in Firefox, or "
-"need to find general Firefox support, please visit %(startSUMOLink)sSupport"
-"%(endSUMOLink)s Mozilla. If you don't find an answer there, you can "
-"%(startForumLink)sask on our community forum%(endForumLink)s."
+"If you would like to learn more about how to manage add-ons in Firefox, or need to find general Firefox support, please visit %(startSUMOLink)sSupport%(endSUMOLink)s Mozilla. If you don't find an "
+"answer there, you can %(startForumLink)sask on our community forum%(endForumLink)s."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:169
-msgid ""
-"%(startLink)sInformation about how to contact Mozilla's add-ons team can be "
-"found here%(endLink)s."
+msgid "%(startLink)sInformation about how to contact Mozilla's add-ons team can be found here%(endLink)s."
 msgstr ""
 
 # "Firefox" should not be translated. :-)
-#: src/amo/components/StaticPages/About.js:24
-#: src/amo/components/StaticPages/About.js:27
+#: src/amo/components/StaticPages/About.js:24 src/amo/components/StaticPages/About.js:27
 msgid "About Firefox Add-ons"
 msgstr "Firefox పొడగింతల గురించి"
 
 #: src/amo/components/StaticPages/About.js:33
 msgid ""
-"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and "
-"installing add-ons for the Firefox browser. Add-ons help you modify and "
-"personalize your browsing experience by adding new features to Firefox, "
-"enhancing your interactions with Web content, and changing the way your "
-"browser looks."
+"Addons.mozilla.org (AMO), is Mozilla's official site for discovering and installing add-ons for the Firefox browser. Add-ons help you modify and personalize your browsing experience by adding new "
+"features to Firefox, enhancing your interactions with Web content, and changing the way your browser looks."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
-msgid ""
-"You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird"
-"%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
+msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:56
@@ -1739,11 +1608,8 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
-"The add-ons listed here are created by thousands of developers and theme "
-"designers from all over the world, ranging from individual hobbyists to "
-"large corporations. Some add-ons listed on AMO have been automatically "
-"published and may be subject to review by a team of editors once publically "
-"listed."
+"The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
+"been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
@@ -1752,45 +1618,34 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
-"Mozilla is a non-profit champion of the Internet, we build Firefox to help "
-"keep it healthy, open and accessible. Add-ons support user choice and "
-"customization in Firefox, and you can contribute in the following ways:"
+"Mozilla is a non-profit champion of the Internet, we build Firefox to help keep it healthy, open and accessible. Add-ons support user choice and customization in Firefox, and you can contribute in "
+"the following ways:"
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:80
-msgid ""
-"%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and "
-"update services and can help you reach a large audience of users."
+msgid "%(startLink)sMake your own add-on%(endLink)s. We provide free hosting and update services and can help you reach a large audience of users."
 msgstr ""
 
 #: src/amo/components/StaticPages/About.js:92
 msgid ""
-"Help improve this website. It's open source, and you can file bugs and "
-"submit patches. You can get started with a %(startGoodFirstBugLink)sgood "
-"first bug%(endGoodFirstBugLink)s or view all open issues for AMO’s "
-"%(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and "
-"%(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on "
-"Github."
+"Help improve this website. It's open source, and you can file bugs and submit patches. You can get started with a %(startGoodFirstBugLink)sgood first bug%(endGoodFirstBugLink)s or view all open "
+"issues for AMO’s %(startAddonsServerRepoLink)sserver%(endAddonsServerRepoLink)s and %(startAddonsFrontendRepoLink)sfrontend%(endAddonsFrontendRepoLink)s on Github."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:100
 msgid ""
-"In general, no. But if the review did not meet the review guidelines "
-"outlined above, you can click \"Report this review\" and have it moderated. "
-"If a review included a complaint that is no longer valid due to a new "
-"release of your add-on, we may consider deleting the review."
+"In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
+"valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
 
-#: src/amo/components/StaticPages/ReviewGuide.js:24
-#: src/amo/components/StaticPages/ReviewGuide.js:27
+#: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:33
 msgid ""
-"Add-on reviews are a way for you to share your opinions about the add-ons "
-"you’ve installed and used. Our review moderation team reserves the right to "
-"refuse or remove any review that does not comply with these guidelines."
+"Add-on reviews are a way for you to share your opinions about the add-ons you’ve installed and used. Our review moderation team reserves the right to refuse or remove any review that does not comply"
+" with these guidelines."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
@@ -1802,8 +1657,7 @@ msgid "Do:"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
-msgid ""
-"Write like you are telling a friend about your experience with the add-on."
+msgid "Write like you are telling a friend about your experience with the add-on."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
@@ -1835,8 +1689,7 @@ msgid "Will you continue to use this add-on?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
-msgid ""
-"Take a moment to read your review before submitting it to minimize typos."
+msgid "Take a moment to read your review before submitting it to minimize typos."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
@@ -1849,10 +1702,8 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
-"Post technical issues, support requests, or feature suggestions. Use the "
-"available support options for each add-on, if available. You can find them "
-"in the \"More information\" section in the sidebar on the add-on's detail "
-"page."
+"Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
+" on the add-on's detail page."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
@@ -1860,25 +1711,19 @@ msgid "Write reviews for add-ons which you have not personally used."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
-msgid ""
-"Use profanity, sexual language or language that can be construed as hateful."
+msgid "Use profanity, sexual language or language that can be construed as hateful."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
-msgid ""
-"Include HTML, links, source code or code snippets. Reviews are meant to be "
-"text only."
+msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
-msgid ""
-"Make false statements, disparage add-on authors or personally insult them."
+msgid "Make false statements, disparage add-on authors or personally insult them."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:65
-msgid ""
-"Include your own or anyone else’s email, phone number, or other personal "
-"details."
+msgid "Include your own or anyone else’s email, phone number, or other personal details."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:66
@@ -1887,10 +1732,8 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:67
 msgid ""
-"Criticize an add-on for something it’s intended to do. For example, leaving "
-"a negative review of an add-on for displaying ads or requiring data "
-"gathering, when that is the intended purpose of the add-on, or the add-on "
-"requires gathering data to function."
+"Criticize an add-on for something it’s intended to do. For example, leaving a negative review of an add-on for displaying ads or requiring data gathering, when that is the intended purpose of the "
+"add-on, or the add-on requires gathering data to function."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
@@ -1903,10 +1746,8 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:79
 msgid ""
-"Please report or flag any questionable reviews by clicking the \"Report this "
-"review\" and it will be submitted to the site for moderation. Our moderation "
-"team will use the Review Guidelines to evaluate whether or not to delete the "
-"review or restore it back to the site."
+"Please report or flag any questionable reviews by clicking the \"Report this review\" and it will be submitted to the site for moderation. Our moderation team will use the Review Guidelines to "
+"evaluate whether or not to delete the review or restore it back to the site."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:85
@@ -1914,10 +1755,7 @@ msgid "I'm an add-on author, can I respond to reviews?"
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:91
-msgid ""
-"Yes, add-on authors can provide a single response to a review. You can set "
-"up a discussion topic in our %(startLink)sforum%(endLink)s to engage in "
-"additional discussion or follow-up."
+msgid "Yes, add-on authors can provide a single response to a review. You can set up a discussion topic in our %(startLink)sforum%(endLink)s to engage in additional discussion or follow-up."
 msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
@@ -1941,36 +1779,30 @@ msgid "Add-ons Home Page"
 msgstr "పొడిగింతల హోమ్ పేజీ"
 
 #: src/amo/components/UserProfile/index.js:118
-#, fuzzy
 msgid "User since"
-msgstr "వాడురులు"
+msgstr "నుండి వాడుకరి"
 
 #: src/amo/components/UserProfile/index.js:125
-#, fuzzy
 msgid "Number of add-ons"
-msgstr "ప్రాచుర్య పొడగింతలు"
+msgstr "పొడగింతలు సంఖ్య"
 
 #: src/amo/components/UserProfile/index.js:131
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:87
-#, fuzzy
 msgid "User Profile for %(user)s"
-msgstr "\"%(query)s\"కి వెతుకుడు ఫలితాలు"
+msgstr "%(user)s కోసం వాడుకరి ప్రొఫైల్"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
 msgstr "నమోదు లేదా సైన్ ఇన్"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
 msgstr ""
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "కోడ్ లోపం: %(status)s."
 
@@ -1982,8 +1814,7 @@ msgstr ""
 msgid "Install Theme"
 msgstr "అలంకారాన్ని స్థాపించు"
 
-#: src/core/components/InstallButton/index.js:261
-#: src/core/components/InstallButton/index.js:284
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "Firefoxకు జోడించండి"
 
@@ -2086,19 +1917,15 @@ msgstr ""
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 
-#, fuzzy
 #~ msgid "Saving collection"
 #~ msgstr "అన్ని పొడగింతలను అన్వేషించు"
 
-#, fuzzy
 #~ msgid "Edit collection"
 #~ msgstr "అన్ని పొడగింతలను అన్వేషించు"
 
-#, fuzzy
 #~ msgid "See more popular themes"
 #~ msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
-#, fuzzy
 #~ msgid "Search Site"
 #~ msgstr "వెతుకు"
 
@@ -2110,31 +1937,24 @@ msgstr ""
 #~ msgstr[0] "సమీక్ష"
 #~ msgstr[1] "సమీక్షలు"
 
-#, fuzzy
 #~ msgid "Privacy tools"
 #~ msgstr "గోప్యతా విధానం"
 
-#, fuzzy
 #~ msgid "See more privacy tools"
 #~ msgstr "పొడిగింతలను శోధించు"
 
-#, fuzzy
 #~ msgid "See more search extensions"
 #~ msgstr "పొడిగింతలను శోధించు"
 
-#, fuzzy
 #~ msgid "February’s new featured extensions"
 #~ msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
-#, fuzzy
 #~ msgid "See all the new featured extensions"
 #~ msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
 
-#, fuzzy
 #~ msgid "SearchPreview"
 #~ msgstr "వెతుకు"
 
-#, fuzzy
 #~ msgid "Zoom for Firefox"
 #~ msgstr "Firefox కోసం"
 
