@@ -24,6 +24,8 @@ import type { ReactRouterLocation } from 'core/types/router';
 const API_BASE = `${config.get('apiHost')}${config.get('apiPath')}`;
 const { Entity } = normalizrSchema;
 
+export const DEFAULT_API_PAGE_SIZE = 25;
+
 export const addon = new Entity('addons', {}, { idAttribute: 'slug' });
 export const category = new Entity('categories', {}, { idAttribute: 'slug' });
 

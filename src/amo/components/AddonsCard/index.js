@@ -5,6 +5,7 @@ import * as React from 'react';
 
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import CardList from 'ui/components/CardList';
 import type { AddonType } from 'core/types/addons';
 
@@ -37,8 +38,7 @@ export default class AddonsCard extends React.Component<Props> {
   static defaultProps = {
     editing: false,
     loading: false,
-    // Set this to the default API page size.
-    placeholderCount: 25,
+    placeholderCount: DEFAULT_API_PAGE_SIZE,
   }
 
   render() {

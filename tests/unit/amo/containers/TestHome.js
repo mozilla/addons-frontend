@@ -24,7 +24,7 @@ import {
 } from 'tests/unit/helpers';
 import {
   createAddonsApiResult,
-  createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
@@ -205,9 +205,9 @@ describe(__filename, () => {
     const themes = [{ ...fakeTheme }];
 
     const collections = [
-      createFakeCollectionAddons({ addons }),
-      createFakeCollectionAddons({ addons }),
-      createFakeCollectionAddons({ addons }),
+      createFakeCollectionAddonsListResponse({ addons }),
+      createFakeCollectionAddonsListResponse({ addons }),
+      createFakeCollectionAddonsListResponse({ addons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult(themes);

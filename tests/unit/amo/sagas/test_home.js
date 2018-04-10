@@ -17,7 +17,7 @@ import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
   createAddonsApiResult,
-  createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
@@ -66,8 +66,8 @@ describe(__filename, () => {
         page_size: LANDING_PAGE_ADDON_COUNT,
       };
 
-      const firstCollection = createFakeCollectionAddons();
-      const secondCollection = createFakeCollectionAddons();
+      const firstCollection = createFakeCollectionAddonsListResponse();
+      const secondCollection = createFakeCollectionAddonsListResponse();
       mockCollectionsApi
         .expects('getCollectionAddons')
         .withArgs({

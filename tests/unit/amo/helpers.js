@@ -348,12 +348,16 @@ export const createFakeCollectionDetail = ({
 };
 
 export const createFakeCollectionAddons = ({ addons = [fakeAddon] } = {}) => {
+  return addons.map((addon) => ({
+    addon,
+    downloads: 0,
+    notes: null,
+  }));
+};
+
+export const createFakeCollectionAddonsListResponse = ({ addons = [fakeAddon] } = {}) => {
   return {
     count: addons.length,
-    results: addons.map((addon) => ({
-      addon,
-      downloads: 0,
-      notes: null,
-    })),
+    results: createFakeCollectionAddons({ addons }),
   };
 };

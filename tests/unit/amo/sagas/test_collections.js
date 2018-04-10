@@ -24,7 +24,7 @@ import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
-  createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
@@ -65,7 +65,7 @@ describe(__filename, () => {
     it('calls the API to fetch a collection', async () => {
       const state = sagaTester.getState();
 
-      const collectionAddons = createFakeCollectionAddons();
+      const collectionAddons = createFakeCollectionAddonsListResponse();
       const collectionDetail = createFakeCollectionDetail();
 
       mockApi
@@ -92,7 +92,7 @@ describe(__filename, () => {
       _fetchCurrentCollection({ page, slug, user });
 
       const expectedLoadAction = loadCurrentCollection({
-        addons: collectionAddons,
+        addons: collectionAddons.results,
         detail: collectionDetail,
       });
 
@@ -138,7 +138,7 @@ describe(__filename, () => {
     it('calls the API to fetch a collection page', async () => {
       const state = sagaTester.getState();
 
-      const collectionAddons = createFakeCollectionAddons();
+      const collectionAddons = createFakeCollectionAddonsListResponse();
       mockApi
         .expects('getCollectionAddons')
         .withArgs({
@@ -153,7 +153,7 @@ describe(__filename, () => {
       _fetchCurrentCollectionPage({ page, slug, user });
 
       const expectedLoadAction = loadCurrentCollectionPage({
-        addons: collectionAddons,
+        addons: collectionAddons.results,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

@@ -4,6 +4,7 @@ import { shallow } from 'enzyme';
 import AddonsCard from 'amo/components/AddonsCard';
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
 
@@ -62,7 +63,7 @@ describe(__filename, () => {
   it('renders placeholders when loading addons', () => {
     const root = render({ addons: null, loading: true });
     const results = root.find(SearchResult);
-    expect(results).toHaveLength(25);
+    expect(results).toHaveLength(DEFAULT_API_PAGE_SIZE);
     // Do a quick check to make sure these are rendered as placeholders.
     expect(results.at(0)).not.toHaveProp('addon');
   });

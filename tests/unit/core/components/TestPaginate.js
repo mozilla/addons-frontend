@@ -1,6 +1,7 @@
 /* global document */
 import * as React from 'react';
 
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import Paginate, { PaginateBase } from 'core/components/Paginate';
 import PaginatorLink from 'core/components/PaginatorLink';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
@@ -117,7 +118,7 @@ describe('<Paginate />', () => {
 
         it('will not offset near the end', () => {
           const pages = getVisiblePages({
-            count: 128, perPage: 25, showPages: 9, currentPage: 6,
+            count: 128, perPage: DEFAULT_API_PAGE_SIZE, showPages: 9, currentPage: 6,
           });
           expect(pages).toEqual([1, 2, 3, 4, 5, 6]);
         });

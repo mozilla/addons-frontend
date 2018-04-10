@@ -2,6 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import PaginatorLink from 'core/components/PaginatorLink';
 import translate from 'core/i18n/translate';
 
@@ -29,7 +30,7 @@ export class PaginateBase extends React.Component {
   }
 
   static defaultProps = {
-    perPage: 25, // The default number of results per page returned by the API.
+    perPage: DEFAULT_API_PAGE_SIZE,
     showPages: 0,
   }
 

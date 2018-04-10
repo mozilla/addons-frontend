@@ -24,6 +24,7 @@ import {
   loadUserCollections,
   beginCollectionModification,
   finishCollectionModification,
+  fetchCurrentCollection as fetchCurrentCollectionAction,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -47,6 +48,7 @@ import type {
 
 export function* fetchCurrentCollection({
   payload: {
+    allAddons,
     errorHandlerId,
     page,
     slug,
@@ -75,10 +77,13 @@ export function* fetchCurrentCollection({
     };
     const { detail, addons } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
-      addons: call(api.getCollectionAddons, addonsParams),
+      addons: allAddons ?
+        call(api.getAllCollectionAddons, addonsParams) :
+        call(api.getCollectionAddons, addonsParams),
     });
 
-    yield put(loadCurrentCollection({ addons, detail }));
+    const addonsToLoad = allAddons ? addons : addons.results;
+    yield put(loadCurrentCollection({ addons: addonsToLoad, detail }));
   } catch (error) {
     log.warn(`Collection failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -109,7 +114,7 @@ export function* fetchCurrentCollectionPage({
     };
     const addons = yield call(api.getCollectionAddons, params);
 
-    yield put(loadCurrentCollectionPage({ addons }));
+    yield put(loadCurrentCollectionPage({ addons: addons.results }));
   } catch (error) {
     log.warn(`Collection page failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -141,7 +146,7 @@ export function* fetchUserCollections({
 
 export function* addAddonToCollection({
   payload: {
-    addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
+    addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, userId,
   },
 }: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -162,6 +167,15 @@ export function* addAddonToCollection({
     yield put(addonAddedToCollection({
       addonId, userId, collectionId,
     }));
+
+    if (editing) {
+      yield put(fetchCurrentCollectionAction({
+        allAddons: true,
+        errorHandlerId: errorHandler.id,
+        slug: collectionSlug,
+        user: userId,
+      }));
+    }
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));

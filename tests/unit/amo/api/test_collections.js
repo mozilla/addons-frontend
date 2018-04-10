@@ -16,7 +16,7 @@ import {
 } from 'amo/api/collections';
 import { apiResponsePage, createApiResponse } from 'tests/unit/helpers';
 import {
-  createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   createFakeCollectionDetail,
   dispatchClientMetadata,
 } from 'tests/unit/amo/helpers';
@@ -123,7 +123,7 @@ describe(__filename, () => {
     it('gets all pages of the collection add-ons list API', async () => {
       const user = 'example-username';
       const slug = 'example-collection-slug';
-      const addonResults = createFakeCollectionAddons().results;
+      const addonResults = createFakeCollectionAddonsListResponse().results;
 
       const _getCollectionAddons = sinon.spy(
         () => Promise.resolve(apiResponsePage({ results: addonResults }))

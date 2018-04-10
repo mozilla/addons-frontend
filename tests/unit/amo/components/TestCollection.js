@@ -119,6 +119,27 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
+      allAddons: false,
+      errorHandlerId: errorHandler.id,
+      page: undefined,
+      slug,
+      user,
+    }));
+  });
+
+  it('dispatches fetchCurrentCollection with correct params for editing on mount', () => {
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const slug = 'collection-slug';
+    const user = 'some-user';
+
+    renderComponent({ editing: true, errorHandler, params: { slug, user }, store });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
+      allAddons: true,
       errorHandlerId: errorHandler.id,
       page: undefined,
       slug,
@@ -144,6 +165,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
+      allAddons: false,
       errorHandlerId: errorHandler.id,
       page,
       slug,
@@ -285,6 +307,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
+      allAddons: false,
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
@@ -349,6 +372,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
+      allAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       ...newParams,
@@ -400,6 +424,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
+      allAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       ...newParams,
