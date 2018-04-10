@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-10 10:10+0000\n"
+"PO-Revision-Date: 2018-04-10 10:17+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -1105,7 +1105,7 @@ msgstr ""
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
-msgstr ""
+msgstr "అన్ని స్థానికీకరణలు"
 
 #: src/amo/components/LanguageTools/index.js:174
 msgid "Locale Name"
@@ -1129,47 +1129,47 @@ msgstr "ఈ పొడిగింతలు చేయగలిగినవి:"
 
 #: src/amo/components/PermissionsCard/index.js:61
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "అనుమతుల గురించి మరింత తెలుసుకోండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:24
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "చదివి బుక్మార్క్లను సవరించండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "బ్రౌజర్ సెట్టింగ్లను చదవండి మరియు సవరించండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "ఇటీవలి విహరణ చరిత్ర, కుక్కీలు మరియు సంబంధిత డేటాను తుడిచేయండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "క్లిప్బోర్డ్ నుండి డేటాను పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "క్లిప్బోర్డ్కు డేటాను ఇన్పుట్ చేయండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "తెరిచిన ట్యాబ్ల్లో మీ డేటాను ప్రాప్యత చేయడానికి డెవలపర్ సాధనాలను విస్తరించండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "ఫైళ్లను దించుకోవడం, విహారిణి దింపుకోలు చరిత్రను చూడడం సవరించడం"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "మీ కంప్యూటరులోని దింపుకున్న దస్త్రాలను తెరవడం"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "అన్ని తెరిచిన ట్యాబ్ల టెక్స్ట్ ని చదవండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Access your location"
-msgstr ""
+msgstr "మీ స్థానాన్ని చూడండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:34 src/amo/components/PermissionsCard/permissions.js:46
 msgid "Access browsing history"
@@ -1177,15 +1177,15 @@ msgstr "విహరణ చరిత్రను పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:35
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "పొడిగింత వినియోగాన్ని పర్యవేక్షించండి మరియు థీమ్లను నిర్వహించండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:38
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "Firefox కంటే ఇతర ప్రోగ్రామ్లతో సందేశాలను మార్పిడి చేయండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Display notifications to you"
-msgstr ""
+msgstr "మీకు ప్రకటనలను ప్రదర్శించును"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Provide cryptographic authentication services"
@@ -1193,39 +1193,39 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Control browser proxy setting"
-msgstr ""
+msgstr "నియంత్రణ బ్రౌజర్ ప్రాక్సీ అమరికలు"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "గోప్యత అమరికలను చూడండి, మార్చండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "బ్రౌజర్ లో ఇటీవల మూసివేసిన టాబ్లను పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access browser tabs"
-msgstr ""
+msgstr "విహారిణి లోని ట్యాబులను పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "విహారిణి ట్యాబులను దాచడం చూపించడం"
 
 #: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "క్లయింట్ వైపు డేటా అపరిమిత మొత్తం నిల్వచేయును"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "నావిగేషన్ సమయంలో విహారిణి చర్యను యాక్సెస్ చేయండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "మీ డేటాను అన్ని వెబ్ సైట్లలో పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:52
 msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
+msgstr "%(domain)s డొమైన్ లో సైట్లు మీ డేటాను పొందబడును"
 
 #: src/amo/components/PermissionsCard/permissions.js:57
 msgid "Access your data in %(count)s other domain"
@@ -1235,7 +1235,7 @@ msgstr[1] ""
 
 #: src/amo/components/PermissionsCard/permissions.js:65
 msgid "Access your data for %(site)s"
-msgstr ""
+msgstr "%(site)s కోసం మీ డేటాను పొందండి"
 
 #: src/amo/components/PermissionsCard/permissions.js:70
 msgid "Access your data on %(count)s other site"
@@ -1472,7 +1472,7 @@ msgstr ""
 
 #: src/amo/components/SearchFilters/index.js:130
 msgid "Trending"
-msgstr ""
+msgstr "ట్రెండింగ్"
 
 #: src/amo/components/SearchFilters/index.js:140
 msgid "Filter results"
@@ -1531,7 +1531,7 @@ msgstr "మరిన్ని…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "నిఘంటువులు మరియు భాషా ప్యాక్లు"
 
 #: src/amo/components/SectionLinks/index.js:121
 msgid "Search Tools"
@@ -1547,7 +1547,7 @@ msgstr "Firefox కోసం"
 
 #: src/amo/components/SectionLinks/index.js:61
 msgid "for Android"
-msgstr ""
+msgstr "Android కోసం"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
@@ -1575,7 +1575,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "సహాయం పొందు"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1614,7 +1614,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "పాలుపంచుకోండి"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1650,7 +1650,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "గొప్ప సమీక్ష వ్రాయడం కోసం చిట్కాలు"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1666,7 +1666,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:43
 msgid "Give specific and helpful details. For example:"
-msgstr ""
+msgstr "నిర్దిష్ట మరియు ఉపయోగకరమైన వివరాలను అందించండి. ఉదాహరణకి:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
@@ -1738,11 +1738,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:76
 msgid "Frequently Asked Questions about Reviews"
-msgstr ""
+msgstr "సమీక్షల గురించి తరచుగా అడిగే ప్రశ్నలు"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:78
 msgid "How can I report a problematic review?"
-msgstr ""
+msgstr "నేను సమస్యాత్మక సమీక్షను ఎలా నివేదించగలను?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:79
 msgid ""
