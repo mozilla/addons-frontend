@@ -13,13 +13,17 @@ type Props = {|
   permissions: Array<string>,
 |};
 
-type HostPermissionMessageType = 'domain' | 'site';
-type PermissionMessageType = HostPermissionMessageType | 'allUrls';
+const domainMessageType: 'domainMessageType' = 'domainMessageType';
+const siteMessageType: 'siteMessageType' = 'siteMessageType';
+const allUrlsMessageType: 'allUrlsMessageType' = 'allUrlsMessageType';
+
+type HostPermissionMessageType = 'domainMessageType' | 'siteMessageType';
+type PermissionMessageType = HostPermissionMessageType | 'allUrlsMessageType';
 
 type GetPermissionStringParams = {|
   messageType: PermissionMessageType,
   param?: string | number,
-  tooMany?: boolean,
+  inOther?: boolean,
 |};
 
 type GenerateHostPermissionsParams = {|
@@ -29,44 +33,42 @@ type GenerateHostPermissionsParams = {|
 |};
 
 export class HostPermissionsBase extends React.Component<Props> {
-  constructor(props: Props) {
-    super(props);
-    this.i18n = props.i18n;
-  }
-
-  getPermissionString({ messageType, param, tooMany = false }: GetPermissionStringParams): string {
+  getPermissionString({ messageType, param, inOther = false }: GetPermissionStringParams): string {
+    const { i18n } = this.props;
     // These should be kept in sync with Firefox's strings for webextention
     // host permissions which can be found in
     // https://hg.mozilla.org/mozilla-central/raw-file/tip/browser/locales/en-US/chrome/browser/browser.properties
     switch (messageType) {
-      case 'allUrls':
-        return this.i18n.gettext('Access your data for all websites');
-      case 'domain':
-        if (tooMany) {
-          return this.i18n.sprintf(this.i18n.ngettext(
+      case allUrlsMessageType:
+        return i18n.gettext('Access your data for all websites');
+      case domainMessageType:
+        if (inOther) {
+          return i18n.sprintf(i18n.ngettext(
             'Access your data in %(param)s other domain',
             'Access your data in %(param)s other domains',
-            param), { param: this.i18n.formatNumber(param) }
+            param), { param: i18n.formatNumber(param) }
           );
         }
-        return this.i18n.sprintf(
-          this.i18n.gettext('Access your data for sites in the %(param)s domain'),
+        return i18n.sprintf(
+          i18n.gettext('Access your data for sites in the %(param)s domain'),
           { param }
         );
-      case 'site':
-        if (tooMany) {
-          return this.i18n.sprintf(this.i18n.ngettext(
+      case siteMessageType:
+        if (inOther) {
+          return i18n.sprintf(i18n.ngettext(
             'Access your data on %(param)s other site',
             'Access your data on %(param)s other sites',
-            param), { param: this.i18n.formatNumber(param) }
+            param), { param: i18n.formatNumber(param) }
           );
         }
-        return this.i18n.sprintf(
-          this.i18n.gettext('Access your data for %(param)s'),
+        return i18n.sprintf(
+          i18n.gettext('Access your data for %(param)s'),
           { param }
         );
       default:
-        return '';
+        throw new Error(
+          `No matching string found for messageType: ${messageType}`
+        );
     }
   }
 
@@ -91,13 +93,15 @@ export class HostPermissionsBase extends React.Component<Props> {
     }
     if (permissions.length > 4) {
       // Replace the final individual permission with a "too many" permission.
-      hostPermissions[3] = (<Permission
-        type="hostPermission"
-        description={this.getPermissionString(
-          { messageType, param: permissions.length - 3, tooMany: true }
-        )}
-        key={messageType}
-      />);
+      hostPermissions[3] = (
+        <Permission
+          type="hostPermission"
+          description={this.getPermissionString(
+            { messageType, param: permissions.length - 3, inOther: true }
+          )}
+          key={messageType}
+        />
+      );
     }
     return hostPermissions;
   }
@@ -141,16 +145,16 @@ export class HostPermissionsBase extends React.Component<Props> {
       hostPermissions.push(
         <Permission
           type="hostPermission"
-          description={this.getPermissionString({ messageType: 'allUrls' })}
+          description={this.getPermissionString({ messageType: allUrlsMessageType })}
           key="allUrls"
         />
       );
     } else {
       hostPermissions.push(...this.generateHostPermissions({
-        permissions: wildcards, messageType: 'domain',
+        permissions: wildcards, messageType: domainMessageType,
       }));
       hostPermissions.push(...this.generateHostPermissions({
-        permissions: sites, messageType: 'site',
+        permissions: sites, messageType: siteMessageType,
       }));
     }
     return (
