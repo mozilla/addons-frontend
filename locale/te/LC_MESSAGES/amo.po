@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-03 18:14+0000\n"
-"PO-Revision-Date: 2018-04-10 10:17+0000\n"
+"PO-Revision-Date: 2018-04-10 10:43+0000\n"
 "Last-Translator: Sahithi <sahithi.thinker@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -352,9 +352,8 @@ msgid "posted %(timestamp)s"
 msgstr "%(authorName)s నుండి, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:206
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
-msgstr "%(authorName)s నుండి, %(timestamp)s"
+msgstr "%(authorName)s ద్వారా, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:262
 msgid "Edit my reply"
@@ -942,9 +941,8 @@ msgid "Keep different parts of your online life—work, personal, etc.—separat
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:121
-#, fuzzy
 msgid "AliTools"
-msgstr "పనిముట్లు"
+msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
