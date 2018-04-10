@@ -38,7 +38,7 @@ export class PermissionUtils {
       nativeMessaging: i18n.gettext('Exchange messages with programs other than Firefox'),
       notifications: i18n.gettext('Display notifications to you'),
       pkcs11: i18n.gettext('Provide cryptographic authentication services'),
-      proxy: i18n.gettext('Control browser proxy setting'),
+      proxy: i18n.gettext('Control browser proxy settings'),
       privacy: i18n.gettext('Read and modify privacy settings'),
       sessions: i18n.gettext('Access recently closed tabs'),
       tabs: i18n.gettext('Access browser tabs'),
