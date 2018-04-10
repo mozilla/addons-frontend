@@ -42,6 +42,7 @@ export function autocompleteLoad({ results }) {
 
 export const createInternalSuggestion = (externalSuggestion) => {
   return {
+    addonId: externalSuggestion.id,
     iconUrl: getAddonIconUrl(externalSuggestion),
     name: externalSuggestion.name,
     url: externalSuggestion.url,

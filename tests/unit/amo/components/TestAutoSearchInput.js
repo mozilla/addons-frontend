@@ -540,21 +540,21 @@ describe(__filename, () => {
     };
 
     it('returns suggestion results', () => {
-      const firstResultName = 'uBlock Origin';
-      const secondResultName = 'AdBlockPlus';
-
+      const firstResult = createFakeAutocompleteResult({ name: 'Addon One' });
+      const secondResult = createFakeAutocompleteResult({ name: 'Addon Two' });
       const { store } = dispatchAutocompleteResults({
-        results: [
-          createFakeAutocompleteResult({ name: firstResultName }),
-          createFakeAutocompleteResult({ name: secondResultName }),
-        ],
+        results: [firstResult, secondResult],
       });
 
       const root = render({ store });
       const suggestions = getSuggestions(root);
 
-      expect(suggestions[0]).toMatchObject({ name: firstResultName });
-      expect(suggestions[1]).toMatchObject({ name: secondResultName });
+      expect(suggestions[0]).toMatchObject(
+        { name: firstResult.name, addonId: firstResult.id }
+      );
+      expect(suggestions[1]).toMatchObject(
+        { name: secondResult.name, addonId: secondResult.id }
+      );
 
       expect(suggestions)
         .toEqual(root.find(Autosuggest).prop('suggestions'));

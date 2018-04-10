@@ -36,6 +36,7 @@ export const SEARCH_TERM_MAX_LENGTH = 100;
 
 // TODO: port reducers/autocomplete.js to Flow and move this there.
 export type SuggestionType = {|
+  addonId: number,
   iconUrl: string,
   name: string,
   url: string,
@@ -192,6 +193,7 @@ export class AutoSearchInputBase extends React.Component<Props, State> {
       // Return 10 pseudo suggestion objects while loading.
       // 10 is the maximum number of results returned by the API.
       return Array(10).fill({
+        addonId: undefined,
         iconUrl: getAddonIconUrl(),
         name: this.props.i18n.gettext('Loading'),
         url: undefined,
