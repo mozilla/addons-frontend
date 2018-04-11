@@ -199,18 +199,20 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     }));
 
     if (userCollections && userCollections.length) {
-      userCollections.forEach((collection) => {
-        // Make an option for adding the add-on to this collection.
-        // If the user selects a collection that the add-on already
-        // belongs to, they will see an error.
-        collectionOptions.push(this.createOption({
-          text: collection.name,
-          key: `collection-${collection.id}`,
-          onSelect: () => {
-            this.addToCollection(collection);
-          },
-        }));
-      });
+      userCollections
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .forEach((collection) => {
+          // Make an option for adding the add-on to this collection.
+          // If the user selects a collection that the add-on already
+          // belongs to, they will see an error.
+          collectionOptions.push(this.createOption({
+            text: collection.name,
+            key: `collection-${collection.id}`,
+            onSelect: () => {
+              this.addToCollection(collection);
+            },
+          }));
+        });
     }
 
     return { actionOptions, collectionOptions, disabled: false };
