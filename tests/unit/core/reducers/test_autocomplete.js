@@ -59,7 +59,7 @@ describe(__filename, () => {
       expect(suggestions[2]).toHaveProperty('name', 'baz');
     });
 
-    it('sets the icon_url as iconUrl', () => {
+    it('sets the addonId and iconUrl', () => {
       const result = createFakeAutocompleteResult({ name: 'baz' });
       const results = [result];
 
@@ -67,6 +67,7 @@ describe(__filename, () => {
       expect(loading).toEqual(false);
       expect(suggestions).toEqual([
         {
+          addonId: result.id,
           name: result.name,
           url: result.url,
           iconUrl: result.icon_url,
