@@ -1,4 +1,3 @@
-import { oneLine } from 'common-tags';
 import UAParser from 'ua-parser-js';
 
 import {
@@ -108,19 +107,56 @@ describe(__filename, () => {
       });
     });
 
-    it(oneLine`should use a Firefox for iOS reason code even if minVersion is
-      also not met`, () => {
-        const userAgentInfo = {
-          browser: { name: 'Firefox', version: '8.0' },
-          os: { name: 'iOS' },
-        };
-        expect(isCompatibleWithUserAgent({
-          addon: createInternalAddon(fakeAddon),
-          minVersion: '9.0',
-          userAgentInfo,
-        }))
-          .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
+    it('should use a Firefox for iOS reason code even if minVersion is also not met', () => {
+      const userAgentInfo = {
+        browser: { name: 'Firefox', version: '8.0' },
+        os: { name: 'iOS' },
+      };
+      expect(isCompatibleWithUserAgent({
+        addon: createInternalAddon(fakeAddon),
+        minVersion: '9.0',
+        userAgentInfo,
+      }))
+        .toEqual({ compatible: false, reason: INCOMPATIBLE_FIREFOX_FOR_IOS });
+    });
+
+    it('should not mark a Firefox client without window as incompatible', () => {
+      // See: https://github.com/mozilla/addons-frontend/issues/4047
+      const userAgentInfo = {
+        browser: { name: 'Firefox' },
+        os: { name: 'Windows' },
+      };
+      const fakeOpenSearchAddon = createInternalAddon({
+        ...fakeAddon, type: ADDON_TYPE_OPENSEARCH,
       });
+      const fakeWindow = undefined;
+
+      expect(isCompatibleWithUserAgent({
+        _hasWindow: false,
+        _window: fakeWindow,
+        addon: fakeOpenSearchAddon,
+        userAgentInfo,
+      })).toEqual({ compatible: true, reason: null });
+    });
+
+    it('should mark a non-Firefox client without window as incompatible', () => {
+      // See: https://github.com/mozilla/addons-frontend/issues/4047
+      const userAgentInfo = {
+        browser: { name: 'Chrome' },
+        os: { name: 'Windows' },
+      };
+      const fakeOpenSearchAddon = createInternalAddon({
+        ...fakeAddon, type: ADDON_TYPE_OPENSEARCH,
+      });
+      const fakeWindow = undefined;
+
+      expect(isCompatibleWithUserAgent({
+        _hasWindow: false,
+        _window: fakeWindow,
+        addon: fakeOpenSearchAddon,
+        userAgentInfo,
+      })).toEqual({ compatible: false, reason: INCOMPATIBLE_NOT_FIREFOX });
+    });
 
     it('should mark Firefox without window.external as incompatible', () => {
       const userAgentInfo = {
