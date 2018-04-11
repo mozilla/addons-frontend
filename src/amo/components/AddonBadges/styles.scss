@@ -6,17 +6,15 @@
   width: 100%;
 
   @include respond-to(large) {
-    grid-column: 2;
-    grid-row: 1;
+    grid-column: 1;
+    grid-row: 3;
   }
 }
 
 .AddonBadges .Badge {
-  @include margin-start(6px);
   @include text-align-start();
 
   @include respond-to(large) {
-    @include margin-start(12px);
-    @include text-align-end();
+    @include text-align-start();
   }
 }
