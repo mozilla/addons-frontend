@@ -108,85 +108,30 @@ describe(__filename, () => {
       expect(permission.props.description).toEqual(description);
     };
 
-    const expectHostPermission = (permission, description) => {
-      expectPermission(permission, 'hostPermission', description);
-    };
-
-    it('formats domain permissions', () => {
-      const testPermissions = [
-        '*://*.mozilla.org/*',
-        '*://*.mozilla.com/*',
-        '*://*.mozilla.ca/*',
-        '*://*.mozilla.us/*',
-        '*://*.mozilla.co.nz/*',
-        '*://*.mozilla.co.uk/*',
-      ];
-      const result = permissionUtils.formatPermissions(testPermissions);
-      expect(result).toHaveLength(4);
-      expectHostPermission(result[0],
-        'Access your data for sites in the mozilla.org domain');
-      expectHostPermission(result[1],
-        'Access your data for sites in the mozilla.com domain');
-      expectHostPermission(result[2],
-        'Access your data for sites in the mozilla.ca domain');
-      expectHostPermission(result[3],
-        'Access your data in 3 other domains');
-    });
-
-    it('formats site permissions', () => {
-      const testPermissions = [
-        '*://developer.mozilla.org/*',
-        '*://addons.mozilla.org/*',
-        '*://www.mozilla.org/*',
-        '*://testing.mozilla.org/*',
-        '*://awesome.mozilla.org/*',
-      ];
-      const result = permissionUtils.formatPermissions(testPermissions);
-      expect(result).toHaveLength(4);
-      expectHostPermission(result[0],
-        'Access your data for developer.mozilla.org');
-      expectHostPermission(result[1],
-        'Access your data for addons.mozilla.org');
-      expectHostPermission(result[2], 'Access your data for www.mozilla.org');
-      expectHostPermission(result[3], 'Access your data on 2 other sites');
-    });
-
-    it('returns a single host permission for all urls', () => {
-      const testPermissions = [
-        '*://*.mozilla.com/*',
-        '*://developer.mozilla.org/*',
-        '<all_urls>',
-      ];
-      for (const allUrlsPermission of ['<all_urls>', '*']) {
-        const result = permissionUtils.formatPermissions([
-          ...testPermissions,
-          allUrlsPermission,
-        ]);
-        expect(result).toHaveLength(1);
-        expectHostPermission(result[0], 'Access your data for all websites');
-      }
-    });
-
     it('returns all permissions in the expected order', () => {
+      const hostPermissionA = '*://developer.mozilla.org/*';
+      const hostPermissionB = '*://*.mozilla.com/*';
       const testPermissions = [
-        'moz-extension://should/not/generate/a/permission/',
         'tabs',
-        '*://developer.mozilla.org/*',
+        hostPermissionA,
         'nativeMessaging',
-        '*://*.mozilla.com/*',
+        hostPermissionB,
         'bookmarks',
       ];
+
       const result = permissionUtils.formatPermissions(testPermissions);
-      expect(result).toHaveLength(5);
-      // Domains first.
-      expectHostPermission(result[0], 'Access your data for sites in the mozilla.com domain');
-      // Sites next.
-      expectHostPermission(result[1], 'Access your data for developer.mozilla.org');
+      expect(result).toHaveLength(4);
+
+      // HostPermissions component.
+      expect(result[0].props.permissions).toHaveLength(2);
+      expect(result[0].props.permissions).toEqual([
+        hostPermissionA, hostPermissionB,
+      ]);
       // Native messaging next.
-      expectPermission(result[2], 'nativeMessaging', 'Exchange messages with programs other than Firefox');
-      // Names permissions in alphabetical order.
-      expectPermission(result[3], 'bookmarks', 'Read and modify bookmarks');
-      expectPermission(result[4], 'tabs', 'Access browser tabs');
+      expectPermission(result[1], 'nativeMessaging', 'Exchange messages with programs other than Firefox');
+      // Named permissions in alphabetical order.
+      expectPermission(result[2], 'bookmarks', 'Read and modify bookmarks');
+      expectPermission(result[3], 'tabs', 'Access browser tabs');
     });
   });
 });

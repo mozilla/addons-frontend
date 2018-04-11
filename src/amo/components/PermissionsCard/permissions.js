@@ -8,6 +8,7 @@ import { userAgentOSToPlatform } from 'core/installAddon';
 import type { AddonType } from 'core/types/addons';
 import type { UserAgentInfoType } from 'core/reducers/api';
 import type { I18nType } from 'core/types/i18n';
+import HostPermissions from 'ui/components/HostPermissions';
 import Permission from 'ui/components/Permission';
 
 /* eslint-disable no-continue */
@@ -46,33 +47,6 @@ export class PermissionUtils {
       topSites: i18n.gettext('Access browsing history'),
       unlimitedStorage: i18n.gettext('Store unlimited amount of client-side data'),
       webNavigation: i18n.gettext('Access browser activity during navigation'),
-      allUrls: i18n.gettext('Access your data for all websites'),
-      wildcard: (domain) => {
-        return i18n.sprintf(
-          i18n.gettext('Access your data for sites in the %(domain)s domain'),
-          { domain }
-        );
-      },
-      tooManyWildcards: (count) => {
-        return i18n.sprintf(i18n.ngettext(
-          'Access your data in %(count)s other domain',
-          'Access your data in %(count)s other domains',
-          count), { count: i18n.formatNumber(count) }
-        );
-      },
-      oneSite: (site) => {
-        return i18n.sprintf(
-          i18n.gettext('Access your data for %(site)s'),
-          { site }
-        );
-      },
-      tooManySites: (count) => {
-        return i18n.sprintf(i18n.ngettext(
-          'Access your data on %(count)s other site',
-          'Access your data on %(count)s other sites',
-          count), { count: i18n.formatNumber(count) }
-        );
-      },
     };
   }
 
@@ -124,78 +98,11 @@ export class PermissionUtils {
       permissions[type].push(value);
     }
 
-    // Classify the host permissions.
-    let allUrls = false;
-    const wildcards = [];
-    const sites = [];
-    for (const permission of permissions.hosts) {
-      if (permission === '<all_urls>') {
-        allUrls = true;
-        break;
-      }
-      if (permission.startsWith('moz-extension:')) {
-        continue;
-      }
-      const match = /^[a-z*]+:\/\/([^/]+)\//.exec(permission);
-      if (!match) {
-        log.debug(`Host permission string "${permission}" appears to be invalid.`);
-        continue;
-      }
-      if (match[1] === '*') {
-        allUrls = true;
-      } else if (match[1].startsWith('*.')) {
-        wildcards.push(match[1].slice(2));
-      } else {
-        sites.push(match[1]);
-      }
-    }
-
-    // Format the host permissions.  If we have a wildcard for all urls,
-    // a single string will suffice.  Otherwise, show domain wildcards
-    // first, then individual host permissions.
-
-    if (allUrls) {
+    // Add the host permissions.
+    if (permissions.hosts.length) {
       permissionsToDisplay.push(
-        <Permission
-          type="hostPermission"
-          description={this.permissionStrings.allUrls}
-          key="allUrls"
-        />
+        <HostPermissions permissions={permissions.hosts} />
       );
-    } else {
-      // Formats a list of host permissions.  If we have 4 or fewer, display
-      // them all, otherwise display the first 3 followed by an item that
-      // says "...plus N others".
-      const formatHostPermissions = (list, itemKey, moreKey) => {
-        const formatItems = (items) => {
-          permissionsToDisplay.push(...items.map((item) => {
-            return (
-              <Permission
-                type="hostPermission"
-                description={this.permissionStrings[itemKey](item)}
-                key={item}
-              />
-            );
-          }));
-        };
-        if (list.length < 5) {
-          formatItems(list);
-        } else {
-          formatItems(list.slice(0, 3));
-
-          const remaining = list.length - 3;
-          permissionsToDisplay.push(
-            <Permission
-              type="hostPermission"
-              description={this.permissionStrings[moreKey](remaining)}
-              key={moreKey}
-            />
-          );
-        }
-      };
-
-      formatHostPermissions(wildcards, 'wildcard', 'tooManyWildcards');
-      formatHostPermissions(sites, 'oneSite', 'tooManySites');
     }
 
     // Next, show the native messaging permission if it is present.
