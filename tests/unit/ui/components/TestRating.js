@@ -160,7 +160,7 @@ describe(__filename, () => {
   });
 
   it('rounds ratings to nearest 0.5 multiple', () => {
-    // This should be treated like a rating of 3.6 in text.
+    // This should be treated like a rating of 3.5 in text.
     const root = render({ rating: 3.60001, readOnly: true });
 
     expect(findDOMNode(root).title).toContain('3.6 out of 5');
@@ -226,7 +226,7 @@ describe(__filename, () => {
     });
   });
 
-  it('renders "This add-on has not been rated yet." if no rating and readOnly', () => {
+  it('renders an accessible description for null ratings and readOnly', () => {
     const root = render({ rating: null, readOnly: true });
 
     expect(findDOMNode(root).title).toContain('This add-on has not been rated yet.');
@@ -238,9 +238,14 @@ describe(__filename, () => {
     [1, 2, 3, 4, 5].forEach((rating) => {
       expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
     });
+  });
 
-    const rootReadOnly = render({ rating: 2, readOnly: true });
-    expect(findDOMNode(rootReadOnly).title).toContain('Rated 2 out of 5');
+  it('renders an accessible description for read-only ratings', () => {
+    const root = render({ rating: 3, readOnly: true });
+
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      expect(root.ratingElements[rating].title).toEqual('');
+    });
   });
 
   it('renders read-only selected stars', () => {
@@ -320,9 +325,9 @@ describe(__filename, () => {
     });
 
     it('renders an appropriate title with a given rating when read-only', () => {
-      const root = render({ rating: 3, readOnly: true });
+      const root = render({ rating: 3.8, readOnly: true });
 
-      expect(findDOMNode(root).title).toEqual('Rated 3 out of 5.');
+      expect(findDOMNode(root).title).toEqual('Rated 3.8 out of 5.');
     });
   });
 
