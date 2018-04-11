@@ -230,6 +230,25 @@ describe(__filename, () => {
       }));
     });
 
+    it('sorts collection by name in select box', () => {
+      const addon = createInternalAddon({ ...fakeAddon, id: 234 });
+      const authorId = 1;
+
+      const { firstCollection, secondCollection } =
+        createSomeCollections({ authorId });
+
+      // inserting secondCollection first in array
+      signInAndDispatchCollections({
+        userId: authorId,
+        collections: [secondCollection, firstCollection],
+      });
+
+      const root = render({ addon });
+      const option = root.find('optgroup .AddAddonToCollection-option').at(0);
+
+      expect(option).toHaveText(firstCollection.name);
+    });
+
     it('shows a notice that you added to a collection', () => {
       const addon = createInternalAddon(fakeAddon);
       const authorId = 1;

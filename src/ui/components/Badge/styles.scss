@@ -8,7 +8,7 @@
   line-height: 1.2;
   margin: 0;
 
-  @include respond-to(medium) {
+  @include respond-to(large) {
     display: flex;
     margin: 0;
   }

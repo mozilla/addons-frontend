@@ -5,10 +5,12 @@ import CollectionManager, {
   extractId, CollectionManagerBase,
 } from 'amo/components/CollectionManager';
 import {
-  createInternalCollection, updateCollection,
+  createInternalCollection,
+  beginCollectionModification,
+  finishCollectionModification,
+  updateCollection,
 } from 'amo/reducers/collections';
 import { setLang } from 'core/actions';
-import { setErrorMessage } from 'core/actions/errors';
 import { CLIENT_APP_FIREFOX } from 'core/constants';
 import { createInternalSuggestion } from 'core/reducers/autocomplete';
 import { decodeHtmlEntities } from 'core/utils';
@@ -239,23 +241,6 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('reports an error when the name is blank', () => {
-    dispatchSignInActions({ store });
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const root = render();
-
-    // Enter in a blank collection name.
-    typeInput({ root, name: 'name', text: '' });
-
-    dispatchSpy.reset();
-    simulateSubmit(root);
-
-    sinon.assert.calledWith(dispatchSpy, setErrorMessage({
-      id: root.instance().props.errorHandler.id,
-      message: 'Collection name cannot be blank',
-    }));
-  });
-
   it('disables submit button when the name is blank', () => {
     const root = render();
 
@@ -266,6 +251,92 @@ describe(__filename, () => {
       .toHaveProp('disabled', false);
     expect(root.find('.CollectionManager-submit'))
       .toHaveProp('disabled', true);
+  });
+
+  it('disables submit button when the name is spaces', () => {
+    const root = render();
+
+    // Enter in a space only collection name.
+    typeInput({ root, name: 'name', text: '   ' });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('disables submit button when the slug is blank', () => {
+    const root = render();
+
+    // Enter in a blank collection slug.
+    typeInput({ root, name: 'slug', text: '' });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('disables submit button when the slug is spaces', () => {
+    const root = render();
+
+    // Enter in a space only collection slug.
+    typeInput({ root, name: 'slug', text: '   ' });
+
+    expect(root.find('.CollectionManager-cancel'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.CollectionManager-submit'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('disables and enables form buttons when modification status changes', () => {
+    const renderAndCheckButtons = (shouldBeDisabled) => {
+      const root = render();
+
+      expect(root.find('.CollectionManager-cancel'))
+        .toHaveProp('disabled', shouldBeDisabled);
+      expect(root.find('.CollectionManager-submit'))
+        .toHaveProp('disabled', shouldBeDisabled);
+    };
+
+    // Buttons should be enabled by default.
+    renderAndCheckButtons(false);
+    store.dispatch(beginCollectionModification());
+    renderAndCheckButtons(true);
+    store.dispatch(finishCollectionModification());
+    renderAndCheckButtons(false);
+  });
+
+  it('trims leading and trailing spaces from slug and name before submitting', () => {
+    const authorUsername = 'collection-owner';
+    const name = 'trishul';
+    const slug = 'trishul';
+    const lang = 'en-US';
+    dispatchSignInActions({ lang, store });
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ authorUsername, name, slug }),
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ collection });
+
+    // Enter in collection name and slug with trailing and leading spaces.
+    typeInput({ root, name: 'name', text: `  ${name}   ` });
+    typeInput({ root, name: 'slug', text: `  ${slug}   ` });
+
+    dispatchSpy.reset();
+    simulateSubmit(root);
+
+    sinon.assert.calledWith(dispatchSpy, updateCollection({
+      collectionSlug: slug,
+      defaultLocale: collection.defaultLocale,
+      description: { [lang]: collection.description },
+      errorHandlerId: root.instance().props.errorHandler.id,
+      name: { [lang]: name },
+      slug,
+      user: authorUsername,
+    }));
   });
 
   it('allows a blank description', () => {

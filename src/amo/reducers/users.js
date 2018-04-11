@@ -13,6 +13,8 @@ import {
 } from 'core/constants';
 
 
+export const FINISH_EDIT_USER_ACCOUNT: 'FINISH_EDIT_USER_ACCOUNT' = 'FINISH_EDIT_USER_ACCOUNT';
+export const EDIT_USER_ACCOUNT: 'EDIT_USER_ACCOUNT' = 'EDIT_USER_ACCOUNT';
 export const LOG_OUT_USER: 'LOG_OUT_USER' = 'LOG_OUT_USER';
 export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' = 'LOAD_CURRENT_USER_ACCOUNT';
 export const FETCH_USER_ACCOUNT: 'FETCH_USER_ACCOUNT' = 'FETCH_USER_ACCOUNT';
@@ -60,16 +62,27 @@ export type UsersStateType = {
   currentUserID: UserId | null,
   byID: { [userId: UserId]: UserType },
   byUsername: { [username: string]: UserId },
+  isEditing: boolean,
   userPageBeingViewed: {
     loading: boolean,
     userId: UserId | null,
   },
 };
 
+export type UserEditableFieldsType = {|
+  biography?: string | null,
+  displayName?: string | null,
+  homepage?: string | null,
+  location?: string | null,
+  occupation?: string | null,
+  username?: string | null,
+|};
+
 export const initialState: UsersStateType = {
   currentUserID: null,
   byID: {},
   byUsername: {},
+  isEditing: false,
   userPageBeingViewed: {
     loading: false,
     userId: null,
@@ -90,12 +103,8 @@ export const fetchUserAccount = ({
   errorHandlerId,
   username,
 }: FetchUserAccountParams): FetchUserAccountAction => {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-  if (!username) {
-    throw new Error('username is required');
-  }
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(username, 'username is required');
 
   return {
     type: FETCH_USER_ACCOUNT,
@@ -103,6 +112,44 @@ export const fetchUserAccount = ({
       errorHandlerId,
       username,
     },
+  };
+};
+
+type FinishEditUserAccountParams = {};
+
+type FinishEditUserAccountAction = {|
+  type: typeof FINISH_EDIT_USER_ACCOUNT,
+  payload: FinishEditUserAccountParams,
+|};
+
+export const finishEditUserAccount = (): FinishEditUserAccountAction => {
+  return {
+    type: FINISH_EDIT_USER_ACCOUNT,
+    payload: {},
+  };
+};
+
+type EditUserAccountParams = {|
+  errorHandlerId: string,
+  userFields: UserEditableFieldsType,
+  userId: UserId,
+|};
+
+type EditUserAccountAction = {|
+  type: typeof EDIT_USER_ACCOUNT,
+  payload: EditUserAccountParams,
+|};
+
+export const editUserAccount = ({
+  errorHandlerId, userFields, userId,
+}: EditUserAccountParams): EditUserAccountAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(userFields, 'userFields are required');
+  invariant(userId, 'userId is required');
+
+  return {
+    type: EDIT_USER_ACCOUNT,
+    payload: { errorHandlerId, userFields, userId },
   };
 };
 
@@ -118,9 +165,7 @@ type LoadCurrentUserAccountAction = {|
 export const loadCurrentUserAccount = ({
   user,
 }: LoadCurrentUserAccountParams): LoadCurrentUserAccountAction => {
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(user, 'user is required');
 
   return {
     type: LOAD_CURRENT_USER_ACCOUNT,
@@ -140,9 +185,7 @@ type LoadUserAccountAction = {|
 export const loadUserAccount = ({
   user,
 }: LoadUserAccountParams): LoadUserAccountAction => {
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(user, 'user is required');
 
   return {
     type: LOAD_USER_ACCOUNT,
@@ -162,22 +205,27 @@ export function logOutUser(): LogOutUserAction {
   };
 }
 
-export const getCurrentUser = (users: UsersStateType) => {
-  if (!users.currentUserID) {
-    return null;
-  }
-
-  if (!users.byID[users.currentUserID]) {
-    throw new Error(
-      'currentUserID is defined but no matching user found in users state.');
-  }
-
-  return users.byID[users.currentUserID];
+export const getUserById = (users: UsersStateType, userId: number) => {
+  invariant(userId, 'userId is required');
+  return users.byID[userId];
 };
 
 export const getUserByUsername = (users: UsersStateType, username: string) => {
   invariant(username, 'username is required');
   return users.byID[users.byUsername[username]];
+};
+
+export const getCurrentUser = (users: UsersStateType) => {
+  if (!users.currentUserID) {
+    return null;
+  }
+
+  const currentUser = getUserById(users, users.currentUserID);
+
+  invariant(currentUser,
+    'currentUserID is defined but no matching user found in users state.');
+
+  return currentUser;
 };
 
 export const getDisplayName = (user: ExternalUserType) => {
@@ -239,7 +287,7 @@ export const hasAnyReviewerRelatedPermission = (
     permissions.includes(ADDONS_EDIT));
 };
 
-export const addUserToState = ({ user, state } : {
+export const addUserToState = ({ state, user } : {
   user: ExternalUserType,
   state: UsersStateType,
 }): Object => {
@@ -254,6 +302,8 @@ export const addUserToState = ({ user, state } : {
 
 type Action =
   | FetchUserAccountAction
+  | FinishEditUserAccountAction
+  | EditUserAccountAction
   | LoadCurrentUserAccountAction
   | LoadUserAccountAction
   | LogOutUserAction;
@@ -263,6 +313,16 @@ const reducer = (
   action: Action
 ): UsersStateType => {
   switch (action.type) {
+    case EDIT_USER_ACCOUNT:
+      return {
+        ...state,
+        isEditing: true,
+      };
+    case FINISH_EDIT_USER_ACCOUNT:
+      return {
+        ...state,
+        isEditing: false,
+      };
     case LOAD_CURRENT_USER_ACCOUNT: {
       const { user } = action.payload;
 
@@ -272,7 +332,6 @@ const reducer = (
         currentUserID: user.id,
       };
     }
-
     case LOAD_USER_ACCOUNT: {
       const { user } = action.payload;
 
@@ -281,13 +340,11 @@ const reducer = (
         ...addUserToState({ state, user }),
       };
     }
-
     case LOG_OUT_USER:
       return {
         ...state,
         currentUserID: null,
       };
-
     default:
       return state;
   }

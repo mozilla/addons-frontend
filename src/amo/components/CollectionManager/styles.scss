@@ -43,7 +43,7 @@
   // it should always be displayed left-to-right.
   direction: ltr;
   display: grid;
-  grid-template-columns: auto 75px;
+  grid-template-columns: 40% 60%;
 
   input {
     // Disregarding text direction is intentional.

@@ -19,7 +19,7 @@ type Props = {|
   // When loading, this is the number of placeholders
   // that will be rendered.
   placeholderCount: number,
-  type?: 'horizontal',
+  type?: 'horizontal' | 'vertical',
   showMetadata?: boolean,
   showSummary?: boolean,
 
@@ -74,9 +74,8 @@ export default class AddonsCard extends React.Component<Props> {
       }
     }
 
-    const allClassNames = makeClassName('AddonsCard', className, {
-      'AddonsCard--horizontal': type === 'horizontal',
-    });
+    const allClassNames = makeClassName('AddonsCard', className,
+      type && `AddonsCard--${type}`);
     return (
       <CardList
         {...otherProps}

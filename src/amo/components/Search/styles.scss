@@ -22,6 +22,8 @@
     margin: $padding-page;
 
     @include respond-to(large) {
+      grid-column: 1 / 2;
+      grid-row: 2;
       margin: 0;
     }
   }
@@ -32,13 +34,6 @@
       grid-row: 1;
       // Allows the grid item to contain the content preventing overflow.
       min-width: 0;
-    }
-  }
-
-  .SearchSort {
-    @include respond-to(large) {
-      grid-column: 1 / 2;
-      grid-row: 2;
     }
   }
 

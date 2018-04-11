@@ -16,14 +16,6 @@ $cell-padding: 6px;
   width: 100%;
 }
 
-.LanguageTools-table-row {
-  border-bottom: 1px solid $grey-50;
-
-  &:nth-child(even) {
-    background: $grey-20;
-  }
-}
-
 .LanguageTools-header-row {
   background: $grey-30;
 }
@@ -40,13 +32,29 @@ $cell-padding: 6px;
   padding: 0;
 }
 
-.LanguageTools-table {
-  .responsiveTable tbody tr {
-    padding-top: 0;
+// We target tags and some very specific classNames (which we tend to avoid
+// doing in our styles) because this needs to override rules set by
+// `react-super-responsive-table`, which gives us the awesome responsive
+// table used on this page but sets some unfortunate default border/padding
+// values.
+.LanguageTools-table.responsiveTable {
+  tbody tr {
+    border: 1px solid $grey-30;
+    border-bottom: 0;
+    padding: 0;
+
+    &:nth-child(even) {
+      background: $grey-20;
+    }
+
+    &:last-child {
+      border-bottom: 1px solid $grey-30;
+    }
   }
 
   th,
   td {
+    border: 0;
     padding: $cell-padding;
   }
 
