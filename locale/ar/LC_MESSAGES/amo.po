@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-03 18:14+0000\n"
+"POT-Creation-Date: 2018-04-11 17:15+0000\n"
 "PO-Revision-Date: 2018-03-13 10:12+0000\n"
 "Last-Translator: صفا الفليج <safa1996alfulaij@gmail.com>\n"
 "Language-Team: none\n"
@@ -34,28 +34,28 @@ msgstr "لِج لتقييم الامتداد هذا"
 msgid "Create new collection"
 msgstr "لِج لتقييم الامتداد هذا"
 
-#: src/amo/components/AddAddonToCollection/index.js:231
+#: src/amo/components/AddAddonToCollection/index.js:233
 msgid "Added to %(collectionName)s"
 msgstr ""
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:247
+#: src/amo/components/AddAddonToCollection/index.js:249
 msgid "Add to…"
 msgstr "إضافة إلى…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/AddAddonToCollection/index.js:254
+#: src/amo/components/CollectionManager/index.js:243
 #, fuzzy
 msgid "Add to collection"
 msgstr "لِج لتقييم الامتداد هذا"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Tap to preview"
-msgstr "انقر للمعاينة"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Cancel preview"
 msgstr "ألغِ المعاينة"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Tap to preview"
+msgstr "انقر للمعاينة"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -117,11 +117,11 @@ msgstr "ملاحظات إصدار %(addonVersion)s"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sمن %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:475
+#: src/amo/components/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "بيانات الامتداد الوصفية"
 
-#: src/amo/components/Addon/index.js:500
+#: src/amo/components/Addon/index.js:501
 msgid "Screenshots"
 msgstr "لقطات الشاشة"
 
@@ -153,29 +153,29 @@ msgstr "ليس متوافقا مع فَيَرفُكس كوانتُم"
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:61
+#: src/amo/components/AddonCompatibilityError/index.js:62
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr "عليك <a href=\"%(downloadUrl)s\">تنزيل فَيَرفُكس</a> لتثبيت هذه الإضافة."
 
-#: src/amo/components/AddonCompatibilityError/index.js:66
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "هذه الإضافة غير متوافقة مع إصدارتك من فَيَرفُكس."
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support search plugins."
 msgstr "إصدارة فَيَرفُكس هذه لا تدعم ملحقات البحث."
 
-#: src/amo/components/AddonCompatibilityError/index.js:72
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "لا يدعم فَيَرفُكس لآي أو إس الإضافات حاليا."
 
-#: src/amo/components/AddonCompatibilityError/index.js:75
+#: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on is not available on your platform."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:78
+#: src/amo/components/AddonCompatibilityError/index.js:79
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -183,7 +183,7 @@ msgstr ""
 "تطلب هذه الإضافة <a href=\"%(downloadUrl)s\">إصدارة أحدث من فَيَرفُكس</a> (على "
 "الأقل %(minVersion)s). أنت تستخدم إصدارة %(yourVersion)s من فَيَرفُكس."
 
-#: src/amo/components/AddonCompatibilityError/index.js:92
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -298,7 +298,7 @@ msgid "More information"
 msgstr "معلومات أكثر"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:109
+#: src/amo/components/UserProfile/index.js:114
 msgid "Homepage"
 msgstr "صفحة البداية"
 
@@ -477,16 +477,16 @@ msgstr "إضافات إصدارة أندرويد"
 msgid "%s – Add-ons for Android"
 msgstr "%s - إضافات إصدارة أندرويد"
 
-#: src/amo/components/AutoSearchInput/index.js:196
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "يُحمّل"
 
-#: src/amo/components/AutoSearchInput/index.js:284
+#: src/amo/components/AutoSearchInput/index.js:286
 msgid "Find add-ons"
 msgstr "ابحث في الإضافات"
 
-#: src/amo/components/AutoSearchInput/index.js:310
-#: src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:345
 msgid "Search"
 msgstr ""
 
@@ -621,32 +621,28 @@ msgstr "الإضافات"
 msgid "Creator"
 msgstr "الصانع"
 
-#: src/amo/components/CollectionManager/index.js:112
-msgid "Collection name cannot be blank"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:186
+#: src/amo/components/CollectionManager/index.js:190
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:198
+#: src/amo/components/CollectionManager/index.js:202
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:209
+#: src/amo/components/CollectionManager/index.js:213
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:258
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "ألغِ"
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:267
 #, fuzzy
 msgid "Save Collection"
 msgstr "لِج لتقييم الامتداد هذا"
@@ -804,11 +800,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -1331,7 +1327,7 @@ msgid "Provide cryptographic authentication services"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
-msgid "Control browser proxy setting"
+msgid "Control browser proxy settings"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:42
@@ -2028,21 +2024,21 @@ msgstr "تصفّح كل السمات"
 msgid "Add-ons Home Page"
 msgstr "صفحة الإضافات الرئيسية"
 
-#: src/amo/components/UserProfile/index.js:118
+#: src/amo/components/UserProfile/index.js:123
 #, fuzzy
 msgid "User since"
 msgstr "عدد المستخدمين"
 
-#: src/amo/components/UserProfile/index.js:125
+#: src/amo/components/UserProfile/index.js:130
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "إضافات شعبية"
 
-#: src/amo/components/UserProfile/index.js:131
+#: src/amo/components/UserProfile/index.js:136
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:87
+#: src/amo/components/UserProfile/index.js:92
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "نتائج البحث عن ”%(query)s“"

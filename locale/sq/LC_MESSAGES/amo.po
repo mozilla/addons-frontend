@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-03 18:14+0000\n"
+"POT-Creation-Date: 2018-04-11 17:15+0000\n"
 "PO-Revision-Date: 2018-03-21 11:47+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -30,27 +30,27 @@ msgstr "Përzgjidhni një koleksion…"
 msgid "Create new collection"
 msgstr "Krijoni koleksion të ri"
 
-#: src/amo/components/AddAddonToCollection/index.js:231
+#: src/amo/components/AddAddonToCollection/index.js:233
 msgid "Added to %(collectionName)s"
 msgstr "U shtua te %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:247
+#: src/amo/components/AddAddonToCollection/index.js:249
 msgid "Add to…"
 msgstr "Shtojeni te…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/AddAddonToCollection/index.js:254
+#: src/amo/components/CollectionManager/index.js:243
 msgid "Add to collection"
 msgstr "Shtojeni në koleksion"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Tap to preview"
-msgstr "Prekeni për paraparje"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Cancel preview"
 msgstr "Anulojeni paraparjen"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Tap to preview"
+msgstr "Prekeni për paraparje"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -103,11 +103,11 @@ msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)snga %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:475
+#: src/amo/components/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/components/Addon/index.js:500
+#: src/amo/components/Addon/index.js:501
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
@@ -139,7 +139,7 @@ msgstr "E papërputhshme me Firefox Quantum"
 msgid "Some features may require payment"
 msgstr "Disa veçori mund të lypin pagesë"
 
-#: src/amo/components/AddonCompatibilityError/index.js:61
+#: src/amo/components/AddonCompatibilityError/index.js:62
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -147,23 +147,23 @@ msgstr ""
 "Lypset të <a href=\"%(downloadUrl)s\">shkarkoni Firefox-in</a> që të "
 "instaloni këtë shtesë."
 
-#: src/amo/components/AddonCompatibilityError/index.js:66
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Kjo shtesë s’është e përputhshme me versionin tuaj të Firefox-it."
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Versioni juaj i Firefox-it nuk mbulon shtojca kërkimesh."
 
-#: src/amo/components/AddonCompatibilityError/index.js:72
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox-i për iOS hëpërhë nuk i mbulon shtesat."
 
-#: src/amo/components/AddonCompatibilityError/index.js:75
+#: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on is not available on your platform."
 msgstr "Kjo shtesë s’është e passhme për platformën tuaj."
 
-#: src/amo/components/AddonCompatibilityError/index.js:78
+#: src/amo/components/AddonCompatibilityError/index.js:79
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -172,7 +172,7 @@ msgstr ""
 "it</a> (të paktën versionin %(minVersion)s). Po përdorni Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:92
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -274,7 +274,7 @@ msgid "More information"
 msgstr "Më tepër të dhëna"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:109
+#: src/amo/components/UserProfile/index.js:114
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
@@ -448,16 +448,16 @@ msgstr "Shtesa për Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Shtesa për Android"
 
-#: src/amo/components/AutoSearchInput/index.js:196
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Po ngarkohet"
 
-#: src/amo/components/AutoSearchInput/index.js:284
+#: src/amo/components/AutoSearchInput/index.js:286
 msgid "Find add-ons"
 msgstr "Gjeni shtesa"
 
-#: src/amo/components/AutoSearchInput/index.js:310
-#: src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:345
 msgid "Search"
 msgstr "Kërko"
 
@@ -585,32 +585,28 @@ msgstr "Shtesa"
 msgid "Creator"
 msgstr "Krijues"
 
-#: src/amo/components/CollectionManager/index.js:112
-msgid "Collection name cannot be blank"
-msgstr "Emri i koleksionit s’mund të lihet i zbrazët"
-
-#: src/amo/components/CollectionManager/index.js:186
+#: src/amo/components/CollectionManager/index.js:190
 msgid "Collection name"
 msgstr "Emër koleksioni"
 
-#: src/amo/components/CollectionManager/index.js:198
+#: src/amo/components/CollectionManager/index.js:202
 msgid "Description"
 msgstr "Përshkrim"
 
-#: src/amo/components/CollectionManager/index.js:209
+#: src/amo/components/CollectionManager/index.js:213
 msgid "Custom URL"
 msgstr "URL Vetjake"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Find an add-on to include in this collection"
 msgstr "Gjeni një shtesë që ta përfshini te ky koleksion"
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:258
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Anuloje"
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:267
 #, fuzzy
 msgid "Save Collection"
 msgstr "Ruaje koleksionin"
@@ -779,12 +775,12 @@ msgid "Flagged as a bug report or support request"
 msgstr "Iu vu shenjë si njoftim të metash ose kërkesë për asistencë"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Iu vu shenjë"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "I vini shenjë"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Iu vu shenjë"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -1317,7 +1313,8 @@ msgid "Provide cryptographic authentication services"
 msgstr "Të ofrojë shërbime mirëfilltësimi kriptografik"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
-msgid "Control browser proxy setting"
+#, fuzzy
+msgid "Control browser proxy settings"
 msgstr "Të kontrollojë rregullime ndërmjetësi shfletuesi"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
@@ -2070,19 +2067,19 @@ msgstr "Shfletoni krejt temat"
 msgid "Add-ons Home Page"
 msgstr "Faqe Hyrëse e Shtesës"
 
-#: src/amo/components/UserProfile/index.js:118
+#: src/amo/components/UserProfile/index.js:123
 msgid "User since"
 msgstr "Përdorues që prej"
 
-#: src/amo/components/UserProfile/index.js:125
+#: src/amo/components/UserProfile/index.js:130
 msgid "Number of add-ons"
 msgstr "Numër shtesash"
 
-#: src/amo/components/UserProfile/index.js:131
+#: src/amo/components/UserProfile/index.js:136
 msgid "Average rating of developer’s add-ons"
 msgstr "Vlerësim mesatar për shtesat e programuesit"
 
-#: src/amo/components/UserProfile/index.js:87
+#: src/amo/components/UserProfile/index.js:92
 msgid "User Profile for %(user)s"
 msgstr "Profil Përdoruesi për %(user)s"
 
@@ -2214,6 +2211,9 @@ msgstr "Vlerësuar me %(rating)s yje nga 5 të mundshëm"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Zgjeroje te</span> Lexoni më tepër"
+
+#~ msgid "Collection name cannot be blank"
+#~ msgstr "Emri i koleksionit s’mund të lihet i zbrazët"
 
 #, fuzzy
 #~ msgid "Access your data in 1 other domain"

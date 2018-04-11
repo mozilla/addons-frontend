@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-03 18:14+0000\n"
+"POT-Creation-Date: 2018-04-11 17:15+0000\n"
 "PO-Revision-Date: 2018-03-15 21:50+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -30,27 +30,27 @@ msgstr "Επιλογή συλλογής…"
 msgid "Create new collection"
 msgstr "Δημιουργία νέας συλλογής"
 
-#: src/amo/components/AddAddonToCollection/index.js:231
+#: src/amo/components/AddAddonToCollection/index.js:233
 msgid "Added to %(collectionName)s"
 msgstr "Προστέθηκε στο %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:247
+#: src/amo/components/AddAddonToCollection/index.js:249
 msgid "Add to…"
 msgstr "Προσθήκη σε…"
 
-#: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/AddAddonToCollection/index.js:254
+#: src/amo/components/CollectionManager/index.js:243
 msgid "Add to collection"
 msgstr "Προσθήκη σε συλλογή"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Tap to preview"
-msgstr "Πατήστε για προεπισκόπηση"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Cancel preview"
 msgstr "Ακύρωση προεπισκόπησης"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Tap to preview"
+msgstr "Πατήστε για προεπισκόπηση"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -102,11 +102,11 @@ msgstr "Σημειώσεις έκδοσης για το %(addonVersion)s"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s από %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:475
+#: src/amo/components/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/components/Addon/index.js:500
+#: src/amo/components/Addon/index.js:501
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 
@@ -138,7 +138,7 @@ msgstr "Μη συμβατό με το Firefox Quantum"
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:61
+#: src/amo/components/AddonCompatibilityError/index.js:62
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -146,24 +146,24 @@ msgstr ""
 "Πρέπει να κάνετε <a href=\"%(downloadUrl)s\">λήψη του Firefox</a> για να "
 "εγκαταστήσετε αυτό το πρόσθετο."
 
-#: src/amo/components/AddonCompatibilityError/index.js:66
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Αυτό το πρόσθετο δεν είναι συμβατό με την έκδοση του Firefox σας."
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support search plugins."
 msgstr ""
 "Η έκδοση του Firefox σας δεν υποστηρίζει πρόσθετες λειτουργίες αναζήτησης."
 
-#: src/amo/components/AddonCompatibilityError/index.js:72
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Ο Firefox για iOS προς το παρόν δεν υποστηρίζει πρόσθετα."
 
-#: src/amo/components/AddonCompatibilityError/index.js:75
+#: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on is not available on your platform."
 msgstr "Αυτό το πρόσθετο δεν είναι διαθέσιμο στην πλατφόρμα σας."
 
-#: src/amo/components/AddonCompatibilityError/index.js:78
+#: src/amo/components/AddonCompatibilityError/index.js:79
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -172,7 +172,7 @@ msgstr ""
 "έκδοση του Firefox</a> (τουλάχιστον %(minVersion)s). Η έκδοση του Firefox "
 "σας είναι η %(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:92
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -275,7 +275,7 @@ msgid "More information"
 msgstr "Περισσότερες πληροφορίες"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:109
+#: src/amo/components/UserProfile/index.js:114
 msgid "Homepage"
 msgstr "Αρχική σελίδα"
 
@@ -452,16 +452,16 @@ msgstr "Πρόσθετα για Android"
 msgid "%s – Add-ons for Android"
 msgstr "%s – Πρόσθετα για Android"
 
-#: src/amo/components/AutoSearchInput/index.js:196
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Φόρτωση"
 
-#: src/amo/components/AutoSearchInput/index.js:284
+#: src/amo/components/AutoSearchInput/index.js:286
 msgid "Find add-ons"
 msgstr "Εύρεση προσθέτων"
 
-#: src/amo/components/AutoSearchInput/index.js:310
-#: src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:345
 msgid "Search"
 msgstr "Αναζήτηση"
 
@@ -595,32 +595,28 @@ msgstr "Πρόσθετα"
 msgid "Creator"
 msgstr "Δημιουργός"
 
-#: src/amo/components/CollectionManager/index.js:112
-msgid "Collection name cannot be blank"
-msgstr "Το όνομα συλλογής δεν μπορεί να είναι κενό"
-
-#: src/amo/components/CollectionManager/index.js:186
+#: src/amo/components/CollectionManager/index.js:190
 msgid "Collection name"
 msgstr "Όνομα συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:198
+#: src/amo/components/CollectionManager/index.js:202
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/amo/components/CollectionManager/index.js:209
+#: src/amo/components/CollectionManager/index.js:213
 msgid "Custom URL"
 msgstr "Προσαρμοσμένο URL"
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:258
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:267
 #, fuzzy
 msgid "Save Collection"
 msgstr "Αποθήκευση συλλογής"
@@ -790,12 +786,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "Επισημάνθηκε"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Επισήμανση"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "Επισημάνθηκε"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 #, fuzzy
@@ -1320,7 +1316,7 @@ msgid "Provide cryptographic authentication services"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
-msgid "Control browser proxy setting"
+msgid "Control browser proxy settings"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:42
@@ -1980,21 +1976,21 @@ msgstr "Περιήγηση σε όλα τα θέματα"
 msgid "Add-ons Home Page"
 msgstr "Αρχική σελίδα προσθέτων"
 
-#: src/amo/components/UserProfile/index.js:118
+#: src/amo/components/UserProfile/index.js:123
 #, fuzzy
 msgid "User since"
 msgstr "Χρήστες"
 
-#: src/amo/components/UserProfile/index.js:125
+#: src/amo/components/UserProfile/index.js:130
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "Δημοφιλή πρόσθετα"
 
-#: src/amo/components/UserProfile/index.js:131
+#: src/amo/components/UserProfile/index.js:136
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:87
+#: src/amo/components/UserProfile/index.js:92
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "Αποτελέσματα αναζήτησης για \"%(query)s\""
@@ -2130,6 +2126,9 @@ msgstr "Βαθμολογία %(rating)s από 5"
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr ""
 "<span class=\"visually-hidden\">Επέκταση για</span> ανάγνωση περισσότερων"
+
+#~ msgid "Collection name cannot be blank"
+#~ msgstr "Το όνομα συλλογής δεν μπορεί να είναι κενό"
 
 #~ msgid "No ratings"
 #~ msgstr "Καμία κριτική"

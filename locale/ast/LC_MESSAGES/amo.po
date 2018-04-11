@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-03 18:14+0000\n"
+"POT-Creation-Date: 2018-04-11 17:15+0000\n"
 "PO-Revision-Date: 2016-11-10 12:48+0000\n"
 "Last-Translator: Enol <enolp@softastur.org>\n"
 "Language-Team: none\n"
@@ -34,29 +34,29 @@ msgstr "Restolar toles estensiones"
 msgid "Create new collection"
 msgstr "Restolar toles estensiones"
 
-#: src/amo/components/AddAddonToCollection/index.js:231
+#: src/amo/components/AddAddonToCollection/index.js:233
 msgid "Added to %(collectionName)s"
 msgstr ""
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:247
+#: src/amo/components/AddAddonToCollection/index.js:249
 msgid "Add to…"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/AddAddonToCollection/index.js:254
+#: src/amo/components/CollectionManager/index.js:243
 #, fuzzy
 msgid "Add to collection"
 msgstr "Restolar toles estensiones"
 
 #: src/amo/components/Addon/index.js:170
 #, fuzzy
-msgid "Tap to preview"
+msgid "Cancel preview"
 msgstr "Escribi una reseña"
 
 #: src/amo/components/Addon/index.js:170
 #, fuzzy
-msgid "Cancel preview"
+msgid "Tap to preview"
 msgstr "Escribi una reseña"
 
 #: src/amo/components/Addon/index.js:221
@@ -112,11 +112,11 @@ msgstr ""
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s%(startSpan)spor%(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:475
+#: src/amo/components/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Datos meta d'estensión"
 
-#: src/amo/components/Addon/index.js:500
+#: src/amo/components/Addon/index.js:501
 msgid "Screenshots"
 msgstr "Captures de pantalla"
 
@@ -151,35 +151,35 @@ msgstr ""
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:61
+#: src/amo/components/AddonCompatibilityError/index.js:62
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:66
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support search plugins."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:72
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:75
+#: src/amo/components/AddonCompatibilityError/index.js:76
 msgid "This add-on is not available on your platform."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:78
+#: src/amo/components/AddonCompatibilityError/index.js:79
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:92
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -286,7 +286,7 @@ msgid "More information"
 msgstr ""
 
 #: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:109
+#: src/amo/components/UserProfile/index.js:114
 msgid "Homepage"
 msgstr ""
 
@@ -467,18 +467,18 @@ msgstr "Add-ons pa Firefox"
 msgid "%s – Add-ons for Android"
 msgstr "Add-ons pa Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:196
+#: src/amo/components/AutoSearchInput/index.js:198
 #, fuzzy
 msgid "Loading"
 msgstr "Guetando..."
 
-#: src/amo/components/AutoSearchInput/index.js:284
+#: src/amo/components/AutoSearchInput/index.js:286
 #, fuzzy
 msgid "Find add-ons"
 msgstr "Add-ons de Firefox"
 
-#: src/amo/components/AutoSearchInput/index.js:310
-#: src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:345
 #, fuzzy
 msgid "Search"
 msgstr "Guetando..."
@@ -624,33 +624,29 @@ msgstr "Add-ons pa Firefox"
 msgid "Creator"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:112
-msgid "Collection name cannot be blank"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:186
+#: src/amo/components/CollectionManager/index.js:190
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:198
+#: src/amo/components/CollectionManager/index.js:202
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:209
+#: src/amo/components/CollectionManager/index.js:213
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:258
 #: src/ui/components/DismissibleTextForm/index.js:126
 #, fuzzy
 msgid "Cancel"
 msgstr "Escribi una reseña"
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:267
 #, fuzzy
 msgid "Save Collection"
 msgstr "Restolar toles estensiones"
@@ -794,11 +790,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -1320,7 +1316,7 @@ msgid "Provide cryptographic authentication services"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
-msgid "Control browser proxy setting"
+msgid "Control browser proxy settings"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:42
@@ -1996,20 +1992,20 @@ msgstr "Restolar tolos temes"
 msgid "Add-ons Home Page"
 msgstr "Add-ons pa Firefox"
 
-#: src/amo/components/UserProfile/index.js:118
+#: src/amo/components/UserProfile/index.js:123
 msgid "User since"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:125
+#: src/amo/components/UserProfile/index.js:130
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "Add-ons de Firefox"
 
-#: src/amo/components/UserProfile/index.js:131
+#: src/amo/components/UserProfile/index.js:136
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:87
+#: src/amo/components/UserProfile/index.js:92
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "Nun s'alcontraron resultaos pa «%(query)s»."

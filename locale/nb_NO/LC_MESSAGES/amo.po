@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-03 18:14+0000\n"
+"POT-Creation-Date: 2018-04-11 17:15+0000\n"
 "PO-Revision-Date: 2017-10-08 11:38+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,28 +33,28 @@ msgstr "Bla gjennom alle utvidelser"
 msgid "Create new collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/AddAddonToCollection/index.js:231
+#: src/amo/components/AddAddonToCollection/index.js:233
 msgid "Added to %(collectionName)s"
 msgstr ""
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:247
+#: src/amo/components/AddAddonToCollection/index.js:249
 msgid "Add to…"
 msgstr ""
 
-#: src/amo/components/AddAddonToCollection/index.js:252
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/AddAddonToCollection/index.js:254
+#: src/amo/components/CollectionManager/index.js:243
 #, fuzzy
 msgid "Add to collection"
 msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Tap to preview"
-msgstr "Trykk for en forhåndsvisning"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Cancel preview"
 msgstr "Avslutt forhåndsvisning"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Tap to preview"
+msgstr "Trykk for en forhåndsvisning"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -112,11 +112,11 @@ msgstr "Versjonsnotat for %(addonVersion)s"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sav %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:475
+#: src/amo/components/Addon/index.js:476
 msgid "Extension Metadata"
 msgstr "Metadata for utvidelser"
 
-#: src/amo/components/Addon/index.js:500
+#: src/amo/components/Addon/index.js:501
 msgid "Screenshots"
 msgstr "Skjermbilder"
 
@@ -148,7 +148,7 @@ msgstr ""
 msgid "Some features may require payment"
 msgstr ""
 
-#: src/amo/components/AddonCompatibilityError/index.js:61
+#: src/amo/components/AddonCompatibilityError/index.js:62
 msgid ""
 "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this "
 "add-on."
@@ -156,24 +156,24 @@ msgstr ""
 "Du må <a href=\"%(downloadUrl)s\">laste ned Firefox</a> for å installere "
 "denne utvidelsen."
 
-#: src/amo/components/AddonCompatibilityError/index.js:66
+#: src/amo/components/AddonCompatibilityError/index.js:67
 msgid "This add-on is not compatible with your version of Firefox."
 msgstr "Denne utvidelsen er ikke kompatibel med din versjon av Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:69
+#: src/amo/components/AddonCompatibilityError/index.js:70
 msgid "Your version of Firefox does not support search plugins."
 msgstr "Din versjon av Firefox støtter ikke programtillegg for søk."
 
-#: src/amo/components/AddonCompatibilityError/index.js:72
+#: src/amo/components/AddonCompatibilityError/index.js:73
 msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS støtter ikke utvidelser for øyeblikket."
 
-#: src/amo/components/AddonCompatibilityError/index.js:75
+#: src/amo/components/AddonCompatibilityError/index.js:76
 #, fuzzy
 msgid "This add-on is not available on your platform."
 msgstr "Denne utvidelsen er ikke kompatibel med din versjon av Firefox."
 
-#: src/amo/components/AddonCompatibilityError/index.js:78
+#: src/amo/components/AddonCompatibilityError/index.js:79
 msgid ""
 "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</"
 "a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -182,7 +182,7 @@ msgstr ""
 "Firefox</a> (minst versjon %(minVersion)s). Du bruker Firefox "
 "%(yourVersion)s."
 
-#: src/amo/components/AddonCompatibilityError/index.js:92
+#: src/amo/components/AddonCompatibilityError/index.js:93
 msgid ""
 "Your browser does not support add-ons. You can <a href=\"%(downloadUrl)s"
 "\">download Firefox</a> to install this add-on."
@@ -289,7 +289,7 @@ msgid "More information"
 msgstr "Mer informasjon"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:109
+#: src/amo/components/UserProfile/index.js:114
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -473,16 +473,16 @@ msgstr "Utvidelser for Android"
 msgid "%s – Add-ons for Android"
 msgstr "Utvidelser for Android"
 
-#: src/amo/components/AutoSearchInput/index.js:196
+#: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
 msgstr "Laster"
 
-#: src/amo/components/AutoSearchInput/index.js:284
+#: src/amo/components/AutoSearchInput/index.js:286
 msgid "Find add-ons"
 msgstr "Finn utvidelser"
 
-#: src/amo/components/AutoSearchInput/index.js:310
-#: src/amo/components/AutoSearchInput/index.js:343
+#: src/amo/components/AutoSearchInput/index.js:312
+#: src/amo/components/AutoSearchInput/index.js:345
 msgid "Search"
 msgstr "Søk"
 
@@ -619,33 +619,29 @@ msgstr "Utvidelser"
 msgid "Creator"
 msgstr "Laget av"
 
-#: src/amo/components/CollectionManager/index.js:112
-msgid "Collection name cannot be blank"
-msgstr ""
-
-#: src/amo/components/CollectionManager/index.js:186
+#: src/amo/components/CollectionManager/index.js:190
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:198
+#: src/amo/components/CollectionManager/index.js:202
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:209
+#: src/amo/components/CollectionManager/index.js:213
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:235
+#: src/amo/components/CollectionManager/index.js:239
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:254
+#: src/amo/components/CollectionManager/index.js:258
 #: src/ui/components/DismissibleTextForm/index.js:126
 #, fuzzy
 msgid "Cancel"
 msgstr "Avslutt forhåndsvisning"
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:267
 #, fuzzy
 msgid "Save Collection"
 msgstr "Bla gjennom alle utvidelser"
@@ -810,11 +806,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -1349,7 +1345,7 @@ msgid "Provide cryptographic authentication services"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
-msgid "Control browser proxy setting"
+msgid "Control browser proxy settings"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:42
@@ -2037,21 +2033,21 @@ msgstr "Bla gjennom alle tema"
 msgid "Add-ons Home Page"
 msgstr "Hjemmeside for utvidelser"
 
-#: src/amo/components/UserProfile/index.js:118
+#: src/amo/components/UserProfile/index.js:123
 #, fuzzy
 msgid "User since"
 msgstr "Flest brukere"
 
-#: src/amo/components/UserProfile/index.js:125
+#: src/amo/components/UserProfile/index.js:130
 #, fuzzy
 msgid "Number of add-ons"
 msgstr "Laster utvidelser"
 
-#: src/amo/components/UserProfile/index.js:131
+#: src/amo/components/UserProfile/index.js:136
 msgid "Average rating of developer’s add-ons"
 msgstr ""
 
-#: src/amo/components/UserProfile/index.js:87
+#: src/amo/components/UserProfile/index.js:92
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "Søker etter «%(query)s»"
