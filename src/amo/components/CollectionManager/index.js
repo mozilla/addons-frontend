@@ -190,7 +190,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     const { name, slug } = this.state;
 
     const collectionUrlPrefix =
-      oneLineTrim`${config.get('apiHost')}/${siteLang || ''}/firefox/collections/
+      oneLineTrim`${config.get('apiHost')}/${siteLang}/firefox/collections/
        ${(collection && collection.authorUsername) || currentUsername}/`;
 
     const formIsDisabled = (!collection && !creating) ||

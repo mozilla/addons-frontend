@@ -41,7 +41,7 @@ describe(__filename, () => {
     expect(root.find(AuthenticateButton))
       .toHaveProp('location', fakeRouterLocation());
     expect(root.find(AuthenticateButton))
-      .toHaveProp('logInText', 'Sign in to create a collection');
+      .toHaveProp('logInText', 'Log in to create a collection');
   });
 
   it('configures a CollectionManager with a logged in user', () => {

@@ -10,7 +10,7 @@ module.exports = {
   restrictSearchResultsToAppVersion: false,
   fxaConfig: 'local',
   trackingEnabled: false,
-  enableCollectionEdit: true,
+  enableNewCollectionsUI: true,
   betaVersions: true,
   enableUserProfile: true,
 };

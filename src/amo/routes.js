@@ -48,7 +48,7 @@ export default (
         component={CollectionEdit}
       />
       <Route path="collections/:user/:slug/" component={Collection} />
-      {config.get('enableCollectionEdit') ?
+      {config.get('enableNewCollectionsUI') ?
         <Route
           path="collections/add/"
           component={(props) => <CollectionList {...props} creating />}

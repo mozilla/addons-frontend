@@ -96,7 +96,7 @@ module.exports = {
     'cookieSecure',
     'defaultLang',
     'enableClientConsole',
-    'enableCollectionEdit',
+    'enableNewCollectionsUI',
     'enableUserProfile',
     'fxaConfig',
     'isDeployed',
@@ -285,7 +285,7 @@ module.exports = {
   // Feature flags.
 
   // Expose the new screen for editing a collection.
-  enableCollectionEdit: false,
+  enableNewCollectionsUI: false,
 
   // If true, show a link to the beta versions page on the listing page.
   betaVersions: true,

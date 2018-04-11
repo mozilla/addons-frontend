@@ -548,7 +548,7 @@ describe(__filename, () => {
 
   it('links to a Collection edit page', () => {
     // Turn off edit-overlay feature so that the component renders a link.
-    const fakeConfig = getFakeConfig({ enableCollectionEdit: false });
+    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
     });
@@ -568,7 +568,7 @@ describe(__filename, () => {
 
   it('links internally to a Collection edit page', () => {
     // Turn on the edit-collection feature.
-    const fakeConfig = getFakeConfig({ enableCollectionEdit: true });
+    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
     });

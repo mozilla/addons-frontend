@@ -35,11 +35,11 @@ export class CollectionListBase extends React.Component<Props> {
           <AuthenticateButton
             noIcon
             location={location}
-            logInText={i18n.gettext('Sign in to create a collection')}
+            logInText={i18n.gettext('Log in to create a collection')}
           />
         );
       }
-      return (<CollectionManager {...this.props} creating />);
+      return <CollectionManager {...this.props} creating />;
     }
     return null;
   }

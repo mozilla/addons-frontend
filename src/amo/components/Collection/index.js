@@ -146,7 +146,7 @@ export class CollectionBase extends React.Component<Props> {
     const { _config, i18n } = this.props;
     const props = {};
 
-    if (_config.get('enableCollectionEdit')) {
+    if (_config.get('enableNewCollectionsUI')) {
       // TODO: make this a real link when the form is ready for release.
       // https://github.com/mozilla/addons-frontend/issues/4293
       props.to = this.editUrl();
@@ -172,7 +172,7 @@ export class CollectionBase extends React.Component<Props> {
           <AuthenticateButton
             noIcon
             location={location}
-            logInText={i18n.gettext('Sign in to edit this collection')}
+            logInText={i18n.gettext('Log in to edit this collection')}
           />
         );
       }
