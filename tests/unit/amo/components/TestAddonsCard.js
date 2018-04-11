@@ -2,6 +2,7 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import AddonsCard from 'amo/components/AddonsCard';
+import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 
@@ -39,6 +40,16 @@ describe(__filename, () => {
     expect(list.type()).toEqual('ul');
     expect(list.children().map((c) => c.type()))
       .toEqual([SearchResult, SearchResult]);
+    expect(list.children().map((c) => c.prop('addon'))).toEqual(addons);
+  });
+
+  it('renders editable add-ons when supplied and requested', () => {
+    const root = render({ addons, forCollectionMaintenance: true });
+    const list = root.childAt(0);
+
+    expect(list.type()).toEqual('ul');
+    expect(list.children().map((c) => c.type()))
+      .toEqual([EditableCollectionAddon, EditableCollectionAddon]);
     expect(list.children().map((c) => c.prop('addon'))).toEqual(addons);
   });
 

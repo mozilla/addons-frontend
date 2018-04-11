@@ -219,6 +219,7 @@ export class CollectionBase extends React.Component<Props> {
   renderCollection() {
     const {
       collection,
+      editing,
       loading,
       location,
     } = this.props;
@@ -234,6 +235,7 @@ export class CollectionBase extends React.Component<Props> {
           <AddonsCard
             addonInstallSource={INSTALL_SOURCE_COLLECTION}
             addons={addons}
+            forCollectionMaintenance={editing}
             loading={!collection || loading}
           />
           {collection && collection.numberOfAddons > 0 && (

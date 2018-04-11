@@ -1,0 +1,37 @@
+@import "~photon-colors/photon-colors";
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~core/css/inc/vars";
+@import "~ui/css/vars";
+
+.EditableCollectionAddon {
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: 32px auto 32px 64px;
+  padding: 12px;
+}
+
+.EditableCollectionAddon-name {
+  @include font-medium();
+
+  align-items: center;
+  display: flex;
+  font-size: $font-size-m-smaller;
+  margin: 0;
+}
+
+.EditableCollectionAddon-icon {
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+}
+
+.EditableCollectionAddon-comments-icon {
+  align-items: center;
+  display: flex;
+}
+
+.EditableCollectionAddon-remove-button {
+  align-items: center;
+  display: flex;
+}

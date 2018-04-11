@@ -196,6 +196,10 @@
   @include icon($name: "requires-payment");
 }
 
+.Icon-comments {
+  @include icon($name: "comments");
+}
+
 .Icon-permission-bookmarks {
   @include permission-icon($name: "bookmarks");
 }
