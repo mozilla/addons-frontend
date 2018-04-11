@@ -23,7 +23,7 @@ type PermissionMessageType = HostPermissionMessageType | 'allUrlsMessageType';
 type GetPermissionStringParams = {|
   messageType: PermissionMessageType,
   param?: string | number,
-  inOther?: boolean,
+  multiple?: boolean,
 |};
 
 type GenerateHostPermissionsParams = {|
@@ -33,7 +33,7 @@ type GenerateHostPermissionsParams = {|
 |};
 
 export class HostPermissionsBase extends React.Component<Props> {
-  getPermissionString({ messageType, param, inOther = false }: GetPermissionStringParams): string {
+  getPermissionString({ messageType, param, multiple = false }: GetPermissionStringParams): string {
     const { i18n } = this.props;
     // These should be kept in sync with Firefox's strings for webextention
     // host permissions which can be found in
@@ -42,7 +42,7 @@ export class HostPermissionsBase extends React.Component<Props> {
       case allUrlsMessageType:
         return i18n.gettext('Access your data for all websites');
       case domainMessageType:
-        if (inOther) {
+        if (multiple) {
           return i18n.sprintf(i18n.ngettext(
             'Access your data in %(param)s other domain',
             'Access your data in %(param)s other domains',
@@ -54,7 +54,7 @@ export class HostPermissionsBase extends React.Component<Props> {
           { param }
         );
       case siteMessageType:
-        if (inOther) {
+        if (multiple) {
           return i18n.sprintf(i18n.ngettext(
             'Access your data on %(param)s other site',
             'Access your data on %(param)s other sites',
@@ -97,7 +97,7 @@ export class HostPermissionsBase extends React.Component<Props> {
         <Permission
           type="hostPermission"
           description={this.getPermissionString(
-            { messageType, param: permissions.length - 3, inOther: true }
+            { messageType, param: permissions.length - 3, multiple: true }
           )}
           key={messageType}
         />
