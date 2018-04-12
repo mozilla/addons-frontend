@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-11 17:15+0000\n"
-"PO-Revision-Date: 2018-04-11 18:19+0000\n"
+"PO-Revision-Date: 2018-04-12 20:03+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -318,7 +318,7 @@ msgstr "โดย %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
-msgstr "การตอบสนองของนักพัฒนา"
+msgstr "การตอบกลับของนักพัฒนา"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
 msgid "Write a reply to this review."
@@ -863,30 +863,27 @@ msgstr "เปลี่ยนรูปลักษณ์ของ Firefox ด้
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "การปรับแต่งสื่อสังคม"
 
 #: src/amo/components/Home/index.js:201
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ดูส่วนขยายการปรับแต่งสื่อสังคมเพิ่มเติม"
 
 #: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
-msgstr ""
+msgstr "ตัวเพิ่มประสิทธิภาพ Wikipedia"
 
 #: src/amo/components/Home/index.js:213
-#, fuzzy
 msgid "See more Wikipedia boosters"
-msgstr "เรียกดูชุดตกแต่งทั้งหมด"
+msgstr "ดูตัวเพิ่มประสิทธิภาพ Wikipedia เพิ่มเติม"
 
 #: src/amo/components/Home/index.js:239
 msgid "Good time tabs"
-msgstr ""
+msgstr "ช่วงเวลาที่ดีกับแท็บ"
 
 #: src/amo/components/Home/index.js:240
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ดูส่วนขยายช่วงเวลาที่ดีกับแท็บเพิ่มเติม"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
