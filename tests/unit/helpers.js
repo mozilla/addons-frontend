@@ -508,6 +508,7 @@ export const createFakeRouter = (
     location,
     params: {},
     push: sinon.spy(),
+    goBack: sinon.spy(),
   };
 };
 
