@@ -1,11 +1,14 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
+  EDIT_USER_ACCOUNT,
   FETCH_USER_ACCOUNT,
+  finishEditUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
 } from 'amo/reducers/users';
 import {
   currentUserAccount as currentUserAccountApi,
+  editUserAccount as editUserAccountApi,
   userAccount as userAccountApi,
 } from 'amo/api/users';
 import { SET_AUTH_TOKEN } from 'core/constants';
@@ -29,6 +32,35 @@ export function* fetchCurrentUserAccount({ payload }) {
   });
 
   yield put(loadCurrentUserAccount({ user: response }));
+}
+
+export function* editUserAccount({
+  payload: {
+    errorHandlerId,
+    userFields,
+    userId,
+  },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const user = yield call(editUserAccountApi, {
+      api: state.api,
+      userId,
+      ...userFields,
+    });
+
+    yield put(loadUserAccount({ user }));
+  } catch (error) {
+    log.warn(`Could not edit user account: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  } finally {
+    yield put(finishEditUserAccount());
+  }
 }
 
 export function* fetchUserAccount({
@@ -59,4 +91,5 @@ export function* fetchUserAccount({
 export default function* usersSaga() {
   yield takeLatest(SET_AUTH_TOKEN, fetchCurrentUserAccount);
   yield takeLatest(FETCH_USER_ACCOUNT, fetchUserAccount);
+  yield takeLatest(EDIT_USER_ACCOUNT, editUserAccount);
 }
