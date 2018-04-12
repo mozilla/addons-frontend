@@ -235,7 +235,7 @@ export class CollectionBase extends React.Component<Props> {
           <AddonsCard
             addonInstallSource={INSTALL_SOURCE_COLLECTION}
             addons={addons}
-            forCollectionMaintenance={editing}
+            editing={editing}
             loading={!collection || loading}
           />
           {collection && collection.numberOfAddons > 0 && (

@@ -44,7 +44,7 @@ describe(__filename, () => {
   });
 
   it('renders editable add-ons when supplied and requested', () => {
-    const root = render({ addons, forCollectionMaintenance: true });
+    const root = render({ addons, editing: true });
     const list = root.childAt(0);
 
     expect(list.type()).toEqual('ul');

@@ -16,7 +16,7 @@ type Props = {|
   addons?: Array<AddonType> | null,
   children?: React.Node,
   className?: string,
-  forCollectionMaintenance?: boolean,
+  editing?: boolean,
   loading?: boolean,
   // When loading, this is the number of placeholders
   // that will be rendered.
@@ -35,7 +35,7 @@ export default class AddonsCard extends React.Component<Props> {
   cardContainer: React.ElementRef<any> | null;
 
   static defaultProps = {
-    forCollectionMaintenance: false,
+    editing: false,
     loading: false,
     // Set this to the default API page size.
     placeholderCount: 25,
@@ -47,7 +47,7 @@ export default class AddonsCard extends React.Component<Props> {
       addons,
       children,
       className,
-      forCollectionMaintenance,
+      editing,
       loading,
       placeholderCount,
       showMetadata,
@@ -60,7 +60,7 @@ export default class AddonsCard extends React.Component<Props> {
 
     if (addons && addons.length) {
       addons.forEach((addon) => {
-        if (forCollectionMaintenance) {
+        if (editing) {
           addonElements.push(
             <EditableCollectionAddon
               addon={addon}

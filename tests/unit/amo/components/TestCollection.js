@@ -421,7 +421,7 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveLength(1);
     expect(wrapper.find(AddonsCard))
-      .toHaveProp('forCollectionMaintenance', false);
+      .toHaveProp('editing', false);
     expect(wrapper.find(Paginate)).toHaveLength(1);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
@@ -627,7 +627,7 @@ describe(__filename, () => {
     expect(root.find(MetadataCard)).toHaveLength(0);
   });
 
-  it('passes the correct forCollectionMaintenance flag to AddonsCard when editing', () => {
+  it('passes the correct editing flag to AddonsCard when editing', () => {
     const { store } = dispatchSignInActions({
       userProps: {
         permissions: [COLLECTIONS_EDIT],
@@ -641,7 +641,7 @@ describe(__filename, () => {
     }));
     const root = renderComponent({ store, editing: true });
 
-    expect(root.find(AddonsCard)).toHaveProp('forCollectionMaintenance', true);
+    expect(root.find(AddonsCard)).toHaveProp('editing', true);
   });
 
   it('passes a null collection to CollectionManager when editing', () => {
