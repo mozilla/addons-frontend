@@ -3,6 +3,7 @@
 import makeClassName from 'classnames';
 import * as React from 'react';
 
+import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import CardList from 'ui/components/CardList';
 import type { AddonType } from 'core/types/addons';
@@ -15,6 +16,7 @@ type Props = {|
   addons?: Array<AddonType> | null,
   children?: React.Node,
   className?: string,
+  editing?: boolean,
   loading?: boolean,
   // When loading, this is the number of placeholders
   // that will be rendered.
@@ -33,6 +35,7 @@ export default class AddonsCard extends React.Component<Props> {
   cardContainer: React.ElementRef<any> | null;
 
   static defaultProps = {
+    editing: false,
     loading: false,
     // Set this to the default API page size.
     placeholderCount: 25,
@@ -44,6 +47,7 @@ export default class AddonsCard extends React.Component<Props> {
       addons,
       children,
       className,
+      editing,
       loading,
       placeholderCount,
       showMetadata,
@@ -52,23 +56,32 @@ export default class AddonsCard extends React.Component<Props> {
       ...otherProps
     } = this.props;
 
-    const searchResults = [];
+    const addonElements = [];
 
     if (addons && addons.length) {
       addons.forEach((addon) => {
-        searchResults.push(
-          <SearchResult
-            addonInstallSource={addonInstallSource}
-            addon={addon}
-            key={addon.slug}
-            showMetadata={showMetadata}
-            showSummary={showSummary}
-          />
-        );
+        if (editing) {
+          addonElements.push(
+            <EditableCollectionAddon
+              addon={addon}
+              key={addon.slug}
+            />
+          );
+        } else {
+          addonElements.push(
+            <SearchResult
+              addonInstallSource={addonInstallSource}
+              addon={addon}
+              key={addon.slug}
+              showMetadata={showMetadata}
+              showSummary={showSummary}
+            />
+          );
+        }
       });
     } else if (loading) {
       for (let count = 0; count < placeholderCount; count++) {
-        searchResults.push(
+        addonElements.push(
           <SearchResult key={count} />
         );
       }
@@ -83,9 +96,9 @@ export default class AddonsCard extends React.Component<Props> {
         ref={(ref) => { this.cardContainer = ref; }}
       >
         {children}
-        {searchResults.length ? (
+        {addonElements.length ? (
           <ul className="AddonsCard-list">
-            {searchResults}
+            {addonElements}
           </ul>
         ) : null}
       </CardList>

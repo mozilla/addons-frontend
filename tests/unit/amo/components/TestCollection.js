@@ -420,6 +420,8 @@ describe(__filename, () => {
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
     expect(wrapper.find(AddonsCard)).toHaveLength(1);
+    expect(wrapper.find(AddonsCard))
+      .toHaveProp('editing', false);
     expect(wrapper.find(Paginate)).toHaveLength(1);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
@@ -623,6 +625,23 @@ describe(__filename, () => {
     expect(root.find('.Collection-title')).toHaveLength(0);
     expect(root.find('.Collection-description')).toHaveLength(0);
     expect(root.find(MetadataCard)).toHaveLength(0);
+  });
+
+  it('passes the correct editing flag to AddonsCard when editing', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const collectionDetail = createFakeCollectionDetail();
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({ store, editing: true });
+
+    expect(root.find(AddonsCard)).toHaveProp('editing', true);
   });
 
   it('passes a null collection to CollectionManager when editing', () => {
