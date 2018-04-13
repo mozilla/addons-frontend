@@ -26,9 +26,9 @@ export function editUserAccount({ api, userId, ...editableFields }: {|
 
   return callApi({
     auth: true,
+    body: editableFields,
     endpoint: `accounts/account/${userId}`,
     method: 'PATCH',
-    params: editableFields,
     state: api,
   });
 }
