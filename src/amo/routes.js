@@ -21,6 +21,7 @@ import ReviewGuide from 'amo/components/StaticPages/ReviewGuide';
 import SearchPage from 'amo/components/SearchPage';
 import ServerError from 'amo/components/ErrorPage/ServerError';
 import UserProfile from 'amo/components/UserProfile';
+import UserProfileEdit from 'amo/components/UserProfileEdit';
 import SimulateAsyncError from
   'core/containers/error-simulation/SimulateAsyncError';
 import SimulateClientError from
@@ -42,7 +43,13 @@ export default (
       <IndexRoute component={Home} />
       <Route path="addon/:slug/" component={Addon} />
       <Route path="addon/:addonSlug/reviews/" component={AddonReviewList} />
-      <Route path="user/:username/" component={UserProfile} />
+      {config.get('enableUserProfile') && (
+        <React.Fragment>
+          <Route path="users/edit" component={UserProfileEdit} />
+          <Route path="user/:username/edit" component={UserProfileEdit} />
+          <Route path="user/:username/" component={UserProfile} />
+        </React.Fragment>
+      )}
       <Route
         path="collections/:user/:slug/edit/"
         component={CollectionEdit}

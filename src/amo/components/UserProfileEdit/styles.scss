@@ -1,0 +1,81 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.UserProfileEdit {
+  margin: $padding-page;
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+
+.UserProfileEdit-user-links {
+  display: none;
+
+  @include respond-to(large) {
+    @include margin-end($padding-page);
+
+    display: block;
+    min-width: 300px;
+    width: 35%;
+  }
+}
+
+.UserProfileEdit--Card {
+  margin-bottom: $padding-page;
+}
+
+.UserProfileEdit-aside {
+  margin-top: 0;
+
+  @include respond-to(large) {
+    @include margin(0, 0, 0, $padding-page);
+
+    float: right;
+    min-width: 200px;
+    width: 35%;
+
+    [dir=rtl] & {
+      float: left;
+    }
+  }
+}
+
+.UserProfileEdit--label {
+  display: block;
+}
+
+.UserProfileEdit input,
+.UserProfileEdit textarea {
+  width: 60%;
+
+  &:disabled {
+    background: $grey-20;
+    cursor: not-allowed;
+  }
+}
+
+.UserProfileEdit-biography {
+  min-height: 3rem;
+}
+
+.UserProfileEdit-buttons-wrapper {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  @include respond-to(medium) {
+    flex-flow: row-reverse;
+  }
+}
+
+.UserProfileEdit-button {
+  margin-bottom: $padding-page;
+
+  @include respond-to(medium) {
+    margin-bottom: 0;
+  }
+}
