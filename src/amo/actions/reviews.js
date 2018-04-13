@@ -125,16 +125,18 @@ export const setDenormalizedReview = (
 export type SetAddonReviewsAction = {|
   type: typeof SET_ADDON_REVIEWS,
   payload: {|
-    addonSlug: string,
+    addonSlug?: string,
     reviewCount: number,
     reviews: Array<UserReviewType>,
+    userId?: number,
   |},
 |};
 
 type SetAddonReviewsParams = {|
-  addonSlug: string,
+  addonSlug?: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
+  userId?: number,
 |};
 
 export const setAddonReviews = (
