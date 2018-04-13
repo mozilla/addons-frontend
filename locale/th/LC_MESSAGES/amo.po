@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-11 17:15+0000\n"
-"PO-Revision-Date: 2018-04-12 20:03+0000\n"
+"PO-Revision-Date: 2018-04-13 11:47+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1047,11 +1047,11 @@ msgstr "ส่วนขยายป้องกันการติดตาม
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "เปลี่ยนลักษณะที่ปรากฏของเบราว์เซอร์ของคุณ เลือกจากชุดตกแต่งนับพันเพื่อให้ Firefox มีรูปลักษณ์ตามที่คุณต้องการ"
 
 #: src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "สำรวจเครื่องมือและคุณลักษณะที่ทรงพลังที่จะปรับแต่ง Firefox และทำให้เบราว์เซอร์เป็นของคุณเองทั้งหมด"
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -1166,7 +1166,6 @@ msgid "Provide cryptographic authentication services"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:41
-#, fuzzy
 msgid "Control browser proxy settings"
 msgstr "ควบคุมการตั้งค่าพร็อกซีของเบราว์เซอร์"
 
@@ -1741,9 +1740,8 @@ msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
 #: src/amo/components/UserProfile/index.js:123
-#, fuzzy
 msgid "User since"
-msgstr "ผู้ใช้"
+msgstr "ผู้ใช้ตั้งแต่"
 
 #: src/amo/components/UserProfile/index.js:130
 msgid "Number of add-ons"
