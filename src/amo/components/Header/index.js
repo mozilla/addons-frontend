@@ -67,6 +67,9 @@ export class HeaderBase extends React.Component {
     const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
     const viewProfileLinkProps = config.get('enableUserProfile') ?
       { to: viewProfileURL } : { href: viewProfileURL };
+    const editProfileURL = siteUser ? '/users/edit' : null;
+    const editProfileLinkProps = config.get('enableUserProfile') ?
+      { to: editProfileURL } : { href: editProfileURL };
 
     return (
       <header className="Header">
@@ -111,7 +114,7 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/users/edit">
+                <Link {...editProfileLinkProps}>
                   {i18n.gettext('Edit Profile')}
                 </Link>
               </DropdownMenuItem>
