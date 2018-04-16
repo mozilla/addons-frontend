@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-11 17:15+0000\n"
-"PO-Revision-Date: 2018-04-02 13:55+0000\n"
+"PO-Revision-Date: 2018-04-02 14:15+0000\n"
 "Last-Translator: aefgh39622 <aefgh39622@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -558,11 +558,11 @@ msgstr "สนับสนุนนักพัฒนาเหล่านี้
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "นักพัฒนาส่วนขยายนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "นักพัฒนาส่วนขยายนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
 #: src/amo/components/ContributeCard/index.js:50
 msgid "Support this artist"
@@ -574,11 +574,11 @@ msgstr "สนับสนุนศิลปินเหล่านี้"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "ศิลปินชุดตกแต่งนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "ศิลปินชุดตกแต่งนี้ใคร่ขอให้คุณช่วยสนับสนุนการพัฒนาอย่างต่อเนื่องโดยการสมทบทุนสักเล็กน้อย"
 
 #: src/amo/components/ContributeCard/index.js:64
 msgid "Support this author"
@@ -695,7 +695,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "นี่เป็นสแปม"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
