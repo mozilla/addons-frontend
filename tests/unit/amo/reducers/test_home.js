@@ -7,7 +7,7 @@ import homeReducer, {
 import { createInternalAddon } from 'core/reducers/addons';
 import {
   createAddonsApiResult,
-  createFakeCollectionAddons,
+  createFakeCollectionAddonsListResponse,
   dispatchClientMetadata,
   fakeAddon,
   fakeTheme,
@@ -30,7 +30,7 @@ describe(__filename, () => {
       const { store } = dispatchClientMetadata();
 
       store.dispatch(loadHomeAddons({
-        collections: [createFakeCollectionAddons({
+        collections: [createFakeCollectionAddonsListResponse({
           addons: Array(10).fill(fakeAddon),
         })],
         featuredExtensions: createAddonsApiResult([fakeAddon]),

@@ -9,6 +9,7 @@ import config from 'config';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import {
+  addAddonToCollection,
   createCollection,
   updateCollection,
 } from 'amo/reducers/collections';
@@ -47,6 +48,7 @@ type Props = {|
   isCollectionBeingModified: boolean,
   router: ReactRouterType,
   siteLang: ?string,
+  siteUserId: number | null,
 |};
 
 type State = {|
@@ -162,9 +164,23 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   };
 
   onAddonSelected = (suggestion: SuggestionType) => {
-    // TODO: implement onAddonSelected
-    // https://github.com/mozilla/addons-frontend/issues/4590
-    log.debug('TODO: handle selecting an add-on', suggestion);
+    const { collection, errorHandler, dispatch, siteUserId } = this.props;
+    const { addonId } = suggestion;
+
+    invariant(addonId, 'addonId cannot be empty');
+    invariant(collection,
+      'A collection must be loaded before you can add an add-on to it');
+    invariant(siteUserId,
+      'Cannot add to collection because you are not signed in');
+
+    dispatch(addAddonToCollection({
+      addonId,
+      collectionId: collection.id,
+      collectionSlug: collection.slug,
+      editing: true,
+      errorHandlerId: errorHandler.id,
+      userId: siteUserId,
+    }));
   };
 
   propsToState(props: Props) {
@@ -310,9 +326,10 @@ export const mapStateToProps = (
   const currentUser = getCurrentUser(state.users);
   return {
     clientApp: state.api.clientApp,
-    siteLang: state.api.lang,
-    isCollectionBeingModified: state.collections.isCollectionBeingModified,
     currentUsername: currentUser && currentUser.username,
+    isCollectionBeingModified: state.collections.isCollectionBeingModified,
+    siteLang: state.api.lang,
+    siteUserId: state.users.currentUserID,
   };
 };
 

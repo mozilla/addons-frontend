@@ -97,6 +97,7 @@ export const initialState: CollectionsState = {
 };
 
 type FetchCurrentCollectionParams = {|
+  fetchAllAddons?: boolean,
   errorHandlerId: string,
   page?: number,
   slug: string,
@@ -109,24 +110,19 @@ export type FetchCurrentCollectionAction = {|
 |};
 
 export const fetchCurrentCollection = ({
+  fetchAllAddons,
   errorHandlerId,
   page,
   slug,
   user,
 }: FetchCurrentCollectionParams = {}): FetchCurrentCollectionAction => {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-  if (!slug) {
-    throw new Error('slug is required');
-  }
-  if (!user) {
-    throw new Error('user is required');
-  }
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(slug, 'slug is required');
+  invariant(user, 'user is required');
 
   return {
     type: FETCH_CURRENT_COLLECTION,
-    payload: { errorHandlerId, page, slug, user },
+    payload: { fetchAllAddons, errorHandlerId, page, slug, user },
   };
 };
 
@@ -274,7 +270,7 @@ export type CollectionAddonsListResponse = {|
 |};
 
 type LoadCurrentCollectionParams = {|
-  addons: CollectionAddonsListResponse,
+  addons: ExternalCollectionAddons,
   detail: ExternalCollectionDetail,
 |};
 
@@ -301,7 +297,7 @@ export const loadCurrentCollection = ({
 };
 
 type LoadCurrentCollectionPageParams = {|
-  addons: CollectionAddonsListResponse,
+  addons: ExternalCollectionAddons,
 |};
 
 type LoadCurrentCollectionPageAction = {|
@@ -416,6 +412,7 @@ type AddAddonToCollectionParams = {|
   addonId: number,
   collectionId: CollectionId,
   collectionSlug: string,
+  editing?: boolean,
   errorHandlerId: string,
   notes?: string,
   userId: number,
@@ -427,7 +424,7 @@ export type AddAddonToCollectionAction = {|
 |};
 
 export const addAddonToCollection = ({
-  addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
+  addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, userId,
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
   if (!addonId) {
     throw new Error('The addonId parameter is required');
@@ -448,7 +445,7 @@ export const addAddonToCollection = ({
   return {
     type: ADD_ADDON_TO_COLLECTION,
     payload: {
-      addonId, collectionId, collectionSlug, errorHandlerId, notes, userId,
+      addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, userId,
     },
   };
 };
@@ -768,7 +765,7 @@ const reducer = (
       const { addons, detail } = action.payload;
 
       const newState = loadCollectionIntoState({
-        state, collection: detail, addons: addons.results,
+        state, collection: detail, addons,
       });
 
       return {
@@ -795,7 +792,7 @@ const reducer = (
           ...state.byId,
           [currentCollection.id]: {
             ...currentCollection,
-            addons: createInternalAddons(addons.results),
+            addons: createInternalAddons(addons),
           },
         },
         current: {
@@ -903,6 +900,7 @@ const reducer = (
           collections = existingCollections;
         }
       }
+
       return {
         ...state,
         addonInCollections: {

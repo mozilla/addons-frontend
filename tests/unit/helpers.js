@@ -234,7 +234,11 @@ export const userAgents = {
 };
 
 export function apiResponsePage({
-  count, next, previous, pageSize = 25, results = [],
+  count,
+  next,
+  previous,
+  pageSize = coreApi.DEFAULT_API_PAGE_SIZE,
+  results = [],
 } = {}) {
   return {
     count: typeof count !== 'undefined' ? count : results.length,

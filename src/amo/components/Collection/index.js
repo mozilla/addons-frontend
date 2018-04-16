@@ -14,6 +14,7 @@ import {
 } from 'amo/reducers/collections';
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
   COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION,
@@ -72,7 +73,7 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   loadDataIfNeeded(nextProps?: Props) {
-    const { collection, errorHandler, loading, params } = {
+    const { collection, editing, errorHandler, loading, params } = {
       ...this.props,
       ...nextProps,
     };
@@ -89,6 +90,15 @@ export class CollectionBase extends React.Component<Props> {
     let collectionChanged = false;
     let addonsPageChanged = false;
     let { location } = this.props;
+
+    // When editing we want to load all add-ons into the collection, so if
+    // we've switched into or out of editing we need to check the size of the
+    // collection.addons array and re-fetch the collection if necessary.
+    if (collection && collection.addons &&
+      ((editing && collection.addons.length !== collection.numberOfAddons) ||
+      (!editing && collection.addons.length > DEFAULT_API_PAGE_SIZE))) {
+      collectionChanged = true;
+    }
 
     if (nextProps && nextProps.location) {
       const nextLocation = nextProps.location;
@@ -113,6 +123,7 @@ export class CollectionBase extends React.Component<Props> {
 
     if (!collection || collectionChanged) {
       this.props.dispatch(fetchCurrentCollection({
+        fetchAllAddons: editing,
         errorHandlerId: errorHandler.id,
         page: location.query.page,
         slug: params.slug,
@@ -238,7 +249,7 @@ export class CollectionBase extends React.Component<Props> {
             editing={editing}
             loading={!collection || loading}
           />
-          {collection && collection.numberOfAddons > 0 && (
+          {collection && collection.numberOfAddons > 0 && !editing && (
             <Paginate
               LinkComponent={Link}
               count={collection.numberOfAddons}

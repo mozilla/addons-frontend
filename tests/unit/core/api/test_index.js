@@ -571,7 +571,7 @@ describe(__filename, () => {
     it('passes through response data', async () => {
       const proxiedResponse = apiResponsePage({
         count: 120,
-        page_size: 25,
+        page_size: api.DEFAULT_API_PAGE_SIZE,
       });
       const response = await api.allPages(
         () => Promise.resolve(proxiedResponse)

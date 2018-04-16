@@ -98,7 +98,7 @@ describe(__filename, () => {
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection).toEqual(createInternalCollection({
         detail: collectionDetail,
-        items: collectionAddons.results,
+        items: collectionAddons,
       }));
       expect(state.current.loading).toEqual(false);
     });
@@ -179,7 +179,7 @@ describe(__filename, () => {
 
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection.addons)
-        .toEqual(createInternalAddons(newAddons.results));
+        .toEqual(createInternalAddons(newAddons));
       expect(state.current.loading).toEqual(false);
     });
 
@@ -412,7 +412,7 @@ describe(__filename, () => {
       });
 
       let state = loadCollectionIntoState({
-        state: initialState, collection, addons: addons.results,
+        state: initialState, collection, addons,
       });
 
       // Simulate loading it a second time but without addons.
@@ -420,7 +420,7 @@ describe(__filename, () => {
 
       const collectionInState = state.byId[collection.id];
       expect(collectionInState.addons)
-        .toEqual(createInternalAddons(addons.results));
+        .toEqual(createInternalAddons(addons));
     });
   });
 
@@ -673,7 +673,7 @@ describe(__filename, () => {
       const addons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail({ id });
       const internalCollection = createInternalCollection({
-        items: addons.results, detail: collectionDetail,
+        items: addons, detail: collectionDetail,
       });
 
       const state = reducer(undefined, loadCurrentCollection({
@@ -705,7 +705,7 @@ describe(__filename, () => {
       const addons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail({ id });
       const internalCollection = createInternalCollection({
-        items: addons.results, detail: collectionDetail,
+        items: addons, detail: collectionDetail,
       });
 
       const state = reducer(undefined, loadCurrentCollection({
@@ -771,7 +771,7 @@ describe(__filename, () => {
   describe('loadCollectionAddons', () => {
     const getParams = (params = {}) => {
       return {
-        addons: createFakeCollectionAddons().results,
+        addons: createFakeCollectionAddons(),
         collectionSlug: 'my-collection',
         ...params,
       };
@@ -793,16 +793,16 @@ describe(__filename, () => {
         addons: [{ ...fakeAddon, id: 2 }],
       });
       state = reducer(state, loadCollectionAddons({
-        addons: newAddons.results,
+        addons: newAddons,
         collectionSlug: collectionDetail.slug,
       }));
 
       expect(state.byId[collectionDetail.id].addons)
-        .toEqual(createInternalAddons(newAddons.results));
+        .toEqual(createInternalAddons(newAddons));
     });
 
     it('requires a loaded collection first', () => {
-      const addons = createFakeCollectionAddons().results;
+      const addons = createFakeCollectionAddons();
       expect(() => {
         reducer(undefined, loadCollectionAddons({
           addons,
@@ -894,7 +894,7 @@ describe(__filename, () => {
       expect(state.byId[collection1Detail.id])
         .toEqual(createInternalCollection({
           detail: collection1Detail,
-          items: collection1Addons.results,
+          items: collection1Addons,
         }));
     });
   });
