@@ -53,7 +53,7 @@ describe(__filename, () => {
       // change it.
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: [fakeAddon],
-        authorNames: [fakeAddon.authors[0].username],
+        authorUsernames: [fakeAddon.authors[0].username],
         forAddonSlug: fakeAddon.slug,
       }));
       const newState = reducer(state, { type: 'UNRELATED' });
@@ -65,7 +65,7 @@ describe(__filename, () => {
       const state = reducer(undefined, loadAddonsByAuthors({
         forAddonSlug: 'addon-slug',
         addons: [],
-        authorNames: [fakeAddon.authors[0].username],
+        authorUsernames: [fakeAddon.authors[0].username],
       }));
 
       expect(state.byAddonSlug).toEqual({
@@ -77,7 +77,7 @@ describe(__filename, () => {
       const state = reducer(undefined, loadAddonsByAuthors({
         forAddonSlug: 'addon-slug',
         addons: [fakeAddon],
-        authorNames: [fakeAddon.authors[0].username],
+        authorUsernames: [fakeAddon.authors[0].username],
       }));
 
       expect(state.byAddonSlug).toEqual({
@@ -91,7 +91,7 @@ describe(__filename, () => {
         forAddonSlug,
         // This is the case where there are more add-ons loaded than needed.
         addons: Array(ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
-        authorNames: [fakeAddon.authors[0].username],
+        authorUsernames: [fakeAddon.authors[0].username],
       }));
       expect(state.byAddonSlug[forAddonSlug])
         .toHaveLength(ADDONS_BY_AUTHORS_PAGE_SIZE);
@@ -102,7 +102,7 @@ describe(__filename, () => {
 
       const previousState = reducer(undefined, loadAddonsByAuthors({
         addons: [fakeAddon],
-        authorNames: [fakeAddon.authors[0].username],
+        authorUsernames: [fakeAddon.authors[0].username],
         forAddonSlug,
       }));
 
@@ -110,7 +110,7 @@ describe(__filename, () => {
         .toEqual({ 'addon-slug': [fakeAddon.id] });
 
       const state = reducer(previousState, fetchAddonsByAuthors({
-        authorNames: ['author2'],
+        authorUsernames: ['author2'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
       }));
@@ -123,14 +123,14 @@ describe(__filename, () => {
 
       const firstState = reducer(undefined, loadAddonsByAuthors({
         addons: [fakeAddon],
-        authorNames: [fakeAddon.authors[0].username],
+        authorUsernames: [fakeAddon.authors[0].username],
         forAddonSlug,
       }));
 
       expect(firstState.byAddonSlug).toEqual({ 'addon-slug': [fakeAddon.id] });
 
       const state = reducer(firstState, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
         forAddonSlug,
@@ -142,9 +142,9 @@ describe(__filename, () => {
       expect(state.byUsername).toMatchObject(firstState.byUsername);
     });
 
-    it('sets the byAuthorNamesAndAddonType state for authorNames on fetch', () => {
+    it('sets the byAuthorNamesAndAddonType state for authorUsernames on fetch', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         errorHandlerId: 'error-handler-id',
       }));
 
@@ -153,9 +153,9 @@ describe(__filename, () => {
       });
     });
 
-    it('sets the byAuthorNamesAndAddonType state for authorNames + addonType on fetch', () => {
+    it('sets the byAuthorNamesAndAddonType state for authorUsernames + addonType on fetch', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
       }));
@@ -165,9 +165,9 @@ describe(__filename, () => {
       });
     });
 
-    it('sets the loading state for authorNames on fetch', () => {
+    it('sets the loading state for authorUsernames on fetch', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         errorHandlerId: 'error-handler-id',
       }));
 
@@ -176,9 +176,9 @@ describe(__filename, () => {
       });
     });
 
-    it('sets the loading state for authorNames + addonType on fetch', () => {
+    it('sets the loading state for authorUsernames + addonType on fetch', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
       }));
@@ -193,7 +193,7 @@ describe(__filename, () => {
     const getParams = (extra = {}) => {
       return {
         addons: [],
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
         forAddonSlug: fakeAddon.slug,
         ...extra,
       };
@@ -202,12 +202,12 @@ describe(__filename, () => {
     it('adds each add-on to each author array', () => {
       const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
       const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
-      const authorNames = [firstAuthor.username, secondAuthor.username];
+      const authorUsernames = [firstAuthor.username, secondAuthor.username];
       const multiAuthorAddon = {
         ...fakeAddon,
         authors: [firstAuthor, secondAuthor],
       };
-      const params = getParams({ addons: [multiAuthorAddon], authorNames });
+      const params = getParams({ addons: [multiAuthorAddon], authorUsernames });
 
       const newState = reducer(undefined, loadAddonsByAuthors(params));
 
@@ -220,27 +220,27 @@ describe(__filename, () => {
     it('sets the authorName request list when loaded', () => {
       const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
       const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
-      const authorNames = [firstAuthor.username, secondAuthor.username];
+      const authorUsernames = [firstAuthor.username, secondAuthor.username];
       const multiAuthorAddon = {
         ...fakeAddon,
         authors: [firstAuthor, secondAuthor],
       };
       const params = getParams({
         addons: [multiAuthorAddon],
-        authorNames,
+        authorUsernames,
       });
 
       const newState = reducer(undefined, loadAddonsByAuthors(params));
 
       expect(newState.byAuthorNamesAndAddonType).toEqual({
-        [joinAuthorNamesAndAddonType(authorNames)]: [multiAuthorAddon.id],
+        [joinAuthorNamesAndAddonType(authorUsernames)]: [multiAuthorAddon.id],
       });
     });
 
     it('sets the authorName + addonType request list when loaded', () => {
       const firstAuthor = { ...fakeAuthor, id: 50, username: 'first' };
       const secondAuthor = { ...fakeAuthor, id: 60, username: 'second' };
-      const authorNames = [firstAuthor.username, secondAuthor.username];
+      const authorUsernames = [firstAuthor.username, secondAuthor.username];
       const multiAuthorAddon = {
         ...fakeAddon,
         authors: [firstAuthor, secondAuthor],
@@ -248,13 +248,13 @@ describe(__filename, () => {
       const params = getParams({
         addons: [multiAuthorAddon],
         addonType: ADDON_TYPE_EXTENSION,
-        authorNames,
+        authorUsernames,
       });
 
       const newState = reducer(undefined, loadAddonsByAuthors(params));
 
       expect(newState.byAuthorNamesAndAddonType).toEqual({
-        [joinAuthorNamesAndAddonType(authorNames, ADDON_TYPE_EXTENSION)]: [multiAuthorAddon.id],
+        [joinAuthorNamesAndAddonType(authorUsernames, ADDON_TYPE_EXTENSION)]: [multiAuthorAddon.id],
       });
     });
 
@@ -262,7 +262,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const params = getParams({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
         forAddonSlug: undefined,
       });
 
@@ -283,7 +283,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const params = getParams({
         addons: Object.values(addons),
-        authorNames: ['test', 'test2', 'test3'],
+        authorUsernames: ['test', 'test2', 'test3'],
         forAddonSlug: undefined,
       });
 
@@ -365,9 +365,9 @@ describe(__filename, () => {
       });
     });
 
-    it('sets the loading state for authorNames once loaded', () => {
+    it('sets the loading state for authorUsernames once loaded', () => {
       let state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         errorHandlerId: 'error-handler-id',
       }));
 
@@ -377,7 +377,7 @@ describe(__filename, () => {
 
       state = reducer(state, loadAddonsByAuthors({
         addons: [fakeAddon],
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
       }));
 
       expect(state.loadingFor).toMatchObject({
@@ -385,9 +385,9 @@ describe(__filename, () => {
       });
     });
 
-    it('sets the loading state for authorNames + addonType once loaded', () => {
+    it('sets the loading state for authorUsernames + addonType once loaded', () => {
       let state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
       }));
@@ -395,7 +395,7 @@ describe(__filename, () => {
       state = reducer(state, loadAddonsByAuthors({
         addons: [fakeAddon],
         addonType: ADDON_TYPE_THEME,
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
       }));
 
       expect(state.loadingFor).toMatchObject({
@@ -409,7 +409,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
         forAddonSlug: 'test',
       }));
 
@@ -424,7 +424,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
         forAddonSlug: 'test',
       }));
 
@@ -437,7 +437,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
       }));
 
       expect(getAddonsForUsernames(state, ['test2'])).toEqual([
@@ -450,7 +450,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
       }));
 
       expect(getAddonsForUsernames(state, ['test2', 'no-addons-user'])).toEqual([
@@ -463,7 +463,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
       }));
 
       expect(getAddonsForUsernames(state, ['test', 'test3'])).toEqual([
@@ -476,7 +476,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['test', 'test2'],
+        authorUsernames: ['test', 'test2'],
       }));
 
       expect(getAddonsForUsernames(state, ['test', 'test2'])).toEqual([
@@ -494,15 +494,15 @@ describe(__filename, () => {
       // to prevent an add-on from appearing in its own "by this author"
       // list.
       const addons = fakeAddons();
-      const authorNames = ['test', 'test2', 'test3'];
+      const authorUsernames = ['test', 'test2', 'test3'];
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
         addonType: ADDON_TYPE_EXTENSION,
-        authorNames,
+        authorUsernames,
       }));
 
       expect(getAddonsForUsernames(
-        state, authorNames, ADDON_TYPE_EXTENSION, addons.firstAddon.slug
+        state, authorUsernames, ADDON_TYPE_EXTENSION, addons.firstAddon.slug
       )).toEqual([
         createInternalAddon(addons.secondAddon),
         createInternalAddon(addons.thirdAddon),
@@ -513,7 +513,7 @@ describe(__filename, () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
         addons: Object.values(addons),
-        authorNames: ['fakeUsername'],
+        authorUsernames: ['fakeUsername'],
       }));
 
       expect(getAddonsForUsernames(state, ['nobody'])).toBeNull();
@@ -521,18 +521,18 @@ describe(__filename, () => {
   });
 
   describe('getLoadingForAuthorNames', () => {
-    it('returns loading for just authorNames', () => {
+    it('returns loading for just authorUsernames', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         errorHandlerId: 'error-handler-id',
       }));
 
       expect(getLoadingForAuthorNames(state, ['author1'])).toEqual(true);
     });
 
-    it('returns loading for authorNames + addonType', () => {
+    it('returns loading for authorUsernames + addonType', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         addonType: ADDON_TYPE_THEME,
         errorHandlerId: 'error-handler-id',
       }));
@@ -543,16 +543,16 @@ describe(__filename, () => {
 
     it('returns null when there is no match', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         errorHandlerId: 'error-handler-id',
       }));
 
       expect(getLoadingForAuthorNames(state, ['author2'])).toEqual(null);
     });
 
-    it('returns null when no authorNames provided', () => {
+    it('returns null when no authorUsernames provided', () => {
       const state = reducer(undefined, fetchAddonsByAuthors({
-        authorNames: ['author1'],
+        authorUsernames: ['author1'],
         errorHandlerId: 'error-handler-id',
       }));
 
@@ -561,12 +561,12 @@ describe(__filename, () => {
   });
 
   describe('joinAuthorNamesAndAddonType', () => {
-    it('returns authorNames', () => {
+    it('returns authorUsernames', () => {
       expect(joinAuthorNamesAndAddonType(['author1', 'author2']))
         .toEqual('author1-author2');
     });
 
-    it('returns authorNames + addonType', () => {
+    it('returns authorUsernames + addonType', () => {
       expect(joinAuthorNamesAndAddonType(['author1', 'author2'], ADDON_TYPE_THEME))
         .toEqual(`author1-author2-${ADDON_TYPE_THEME}`);
     });

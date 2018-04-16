@@ -45,7 +45,7 @@ export const LOAD_ADDONS_BY_AUTHORS: 'LOAD_ADDONS_BY_AUTHORS'
 
 type FetchAddonsByAuthorsParams = {|
   addonType?: string,
-  authorNames: Array<string>,
+  authorUsernames: Array<string>,
   errorHandlerId: string,
   forAddonSlug?: string,
 |};
@@ -56,18 +56,18 @@ type FetchAddonsByAuthorsAction = {|
 |};
 
 export const fetchAddonsByAuthors = (
-  { addonType, authorNames, errorHandlerId, forAddonSlug }: FetchAddonsByAuthorsParams
+  { addonType, authorUsernames, errorHandlerId, forAddonSlug }: FetchAddonsByAuthorsParams
 ): FetchAddonsByAuthorsAction => {
   invariant(errorHandlerId, 'An errorHandlerId is required');
-  invariant(authorNames, 'authorNames are required.');
-  invariant(Array.isArray(authorNames),
-    'The authorNames parameter must be an array.');
+  invariant(authorUsernames, 'authorUsernames are required.');
+  invariant(Array.isArray(authorUsernames),
+    'The authorUsernames parameter must be an array.');
 
   return {
     type: FETCH_ADDONS_BY_AUTHORS,
     payload: {
       addonType,
-      authorNames,
+      authorUsernames,
       errorHandlerId,
       forAddonSlug,
     },
@@ -77,7 +77,7 @@ export const fetchAddonsByAuthors = (
 type LoadAddonsByAuthorsParams = {|
   addons: Array<ExternalAddonType>,
   addonType?: string,
-  authorNames: Array<string>,
+  authorUsernames: Array<string>,
   forAddonSlug?: string,
 |};
 
@@ -87,28 +87,28 @@ type LoadAddonsByAuthorsAction = {|
 |};
 
 export const loadAddonsByAuthors = (
-  { addons, addonType, authorNames, forAddonSlug }: LoadAddonsByAuthorsParams
+  { addons, addonType, authorUsernames, forAddonSlug }: LoadAddonsByAuthorsParams
 ): LoadAddonsByAuthorsAction => {
   invariant(addons, 'A set of add-ons is required.');
-  invariant(authorNames, 'A list of authorNames is required.');
+  invariant(authorUsernames, 'A list of authorUsernames is required.');
 
   return {
     type: LOAD_ADDONS_BY_AUTHORS,
-    payload: { addons, addonType, authorNames, forAddonSlug },
+    payload: { addons, addonType, authorUsernames, forAddonSlug },
   };
 };
 
 export const joinAuthorNamesAndAddonType = (
-  authorNames: Array<string>, addonType?: string
+  authorUsernames: Array<string>, addonType?: string
 ) => {
-  return authorNames.sort().join('-') + (addonType ? `-${addonType}` : '');
+  return authorUsernames.sort().join('-') + (addonType ? `-${addonType}` : '');
 };
 
 export const getLoadingForAuthorNames = (
-  state: AddonsByAuthorsState, authorNames: Array<string>, addonType?: string
+  state: AddonsByAuthorsState, authorUsernames: Array<string>, addonType?: string
 ) => {
   return (
-    state.loadingFor[joinAuthorNamesAndAddonType(authorNames, addonType)] ||
+    state.loadingFor[joinAuthorNamesAndAddonType(authorUsernames, addonType)] ||
     null
   );
 };
@@ -179,9 +179,9 @@ const reducer = (
       }
 
       newState.loadingFor[joinAuthorNamesAndAddonType(
-        action.payload.authorNames, action.payload.addonType)] = true;
+        action.payload.authorUsernames, action.payload.addonType)] = true;
       newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
-        action.payload.authorNames, action.payload.addonType)] = null;
+        action.payload.authorUsernames, action.payload.addonType)] = null;
 
       return newState;
     }
@@ -200,7 +200,7 @@ const reducer = (
         .map((addon) => createInternalAddon(addon));
 
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
-        action.payload.authorNames, action.payload.addonType);
+        action.payload.authorUsernames, action.payload.addonType);
 
       newState.byAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
       newState.loadingFor[authorNamesWithAddonType] = false;

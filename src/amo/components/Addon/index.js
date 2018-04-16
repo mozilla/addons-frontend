@@ -488,7 +488,8 @@ export class AddonBase extends React.Component {
             {addon && addonType === ADDON_TYPE_THEME && (
               <AddonsByAuthorsCard
                 addonType={addonType}
-                authorNames={addon.authors.map((author) => author.username)}
+                authorDisplayName={addon.authors[0].name}
+                authorUsernames={addon.authors.map((author) => author.username)}
                 className="Addon-MoreAddonsCard"
                 forAddonSlug={addon.slug}
                 numberOfAddons={6}
@@ -522,7 +523,8 @@ export class AddonBase extends React.Component {
           {addon && addonType !== ADDON_TYPE_THEME && (
             <AddonsByAuthorsCard
               addonType={addonType}
-              authorNames={addon.authors.map((author) => author.username)}
+              authorDisplayName={addon.authors[0].name}
+              authorUsernames={addon.authors.map((author) => author.username)}
               className="Addon-MoreAddonsCard"
               forAddonSlug={addon.slug}
               numberOfAddons={6}
