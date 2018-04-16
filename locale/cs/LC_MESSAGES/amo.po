@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-11 17:15+0000\n"
-"PO-Revision-Date: 2018-04-16 07:50+0000\n"
+"PO-Revision-Date: 2018-04-16 07:54+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -871,7 +871,7 @@ msgstr "Změňte vzhled svého Firefoxu s motivy."
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "Přizpůsobení sociálních sítí"
 
 #: src/amo/components/Home/index.js:201
 msgid "See more social media customization extensions"
@@ -959,19 +959,19 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Černé menu Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Snadný přístup k nabídce služeb od Googlu, jako je vyhledávání a překladač"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
-msgstr ""
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "Automatické vyhledávání slevových kódů"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
@@ -995,7 +995,7 @@ msgstr "Tranquility Reader"
 
 #: src/amo/components/HomeHeroBanner/index.js:217
 msgid "Remove clutter and improve readability"
-msgstr ""
+msgstr "Odstraní balast a zlepší čitelnost stránek"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Video Downloader"
@@ -1011,7 +1011,7 @@ msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Vyplňujete mnoho formulářů? Tento doplněk pomůže"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
@@ -1035,7 +1035,7 @@ msgstr "Flagfox"
 
 #: src/amo/components/HomeHeroBanner/index.js:75
 msgid "Displays a website’s server location by country flag"
-msgstr ""
+msgstr "Zobrazuje vlajku země, kde je server umístěn"
 
 #: src/amo/components/HomeHeroBanner/index.js:85
 msgid "uBlock Origin"
@@ -1043,7 +1043,7 @@ msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "Efficient, powerful ad blocker"
-msgstr ""
+msgstr "Efektivní a schopný blokovač reklam"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
@@ -1051,7 +1051,7 @@ msgstr "Ghostery"
 
 #: src/amo/components/HomeHeroBanner/index.js:98
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr ""
+msgstr "Oblíbené rozšíření proti sledování a s možností blokování reklam"
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
