@@ -5,8 +5,8 @@ import { compose } from 'redux';
 import translate from 'core/i18n/translate';
 import type { AddonType } from 'core/types/addons';
 import MetadataCard from 'ui/components/MetadataCard';
-import Rating from 'ui/components/Rating';
 import type { I18nType } from 'core/types/i18n';
+import Link from 'amo/components/Link';
 
 import './styles.scss';
 
@@ -47,6 +47,21 @@ export class AddonMetaBase extends React.Component<Props> {
     } else {
       reviewTitle = i18n.gettext('No Ratings');
     }
+    const overallRating = i18n.gettext('Overall Rating');
+
+    const makeLink = (content) => {
+      if (addon) {
+        return (
+          <Link
+            className="Addon-all-reviews-link"
+            to={`/addon/${addon.slug}/reviews/`}
+          >
+            {content}
+          </Link>
+        );
+      }
+      return content;
+    };
 
     return (
       <div className="AddonMeta">
@@ -58,19 +73,12 @@ export class AddonMetaBase extends React.Component<Props> {
               title: userTitle,
             },
             {
-              content: reviewCount,
-              title: reviewTitle,
+              content: makeLink(reviewCount),
+              title: makeLink(reviewTitle),
             },
             {
-              content: (
-                <Rating
-                  className="AddonMeta-item-header"
-                  rating={averageRating}
-                  readOnly
-                  styleSize="small"
-                />
-              ),
-              title: i18n.gettext('Overall Rating'),
+              content: makeLink(averageRating),
+              title: makeLink(overallRating),
             },
           ]}
         />

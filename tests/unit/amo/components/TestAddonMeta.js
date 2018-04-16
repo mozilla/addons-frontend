@@ -99,22 +99,22 @@ describe(__filename, () => {
     it('renders a count of multiple ratings', () => {
       const root = renderRatings({ count: 5 });
 
-      expect(getReviewCount(root).content).toEqual('5');
-      expect(getReviewCount(root).title).toEqual('Ratings');
+      expect(getReviewCount(root).content.props.children).toEqual('5');
+      expect(getReviewCount(root).title.props.children).toEqual('Ratings');
     });
 
     it('renders a count of one rating', () => {
       const root = renderRatings({ count: 1 });
 
-      expect(getReviewCount(root).content).toEqual('1');
-      expect(getReviewCount(root).title).toEqual('Rating');
+      expect(getReviewCount(root).content.props.children).toEqual('1');
+      expect(getReviewCount(root).title.props.children).toEqual('Rating');
     });
 
     it('localizes review count', () => {
       const i18n = fakeI18n({ lang: 'de' });
       const root = renderRatings({ count: 1000 }, { i18n });
 
-      expect(getReviewCount(root).content).toEqual('1.000');
+      expect(getReviewCount(root).content.props.children).toEqual('1.000');
     });
 
     it('handles zero ratings', () => {
@@ -122,7 +122,7 @@ describe(__filename, () => {
         addon: createInternalAddon({ ...fakeAddon, ratings: null }),
       });
 
-      expect(getReviewCount(root).title).toEqual('No Ratings');
+      expect(getReviewCount(root).title.props.children).toEqual('No Ratings');
     });
   });
 });
