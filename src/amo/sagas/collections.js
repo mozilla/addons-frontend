@@ -48,7 +48,7 @@ import type {
 
 export function* fetchCurrentCollection({
   payload: {
-    allAddons,
+    fetchAllAddons,
     errorHandlerId,
     page,
     slug,
@@ -77,12 +77,12 @@ export function* fetchCurrentCollection({
     };
     const { detail, addons } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
-      addons: allAddons ?
+      addons: fetchAllAddons ?
         call(api.getAllCollectionAddons, addonsParams) :
         call(api.getCollectionAddons, addonsParams),
     });
 
-    const addonsToLoad = allAddons ? addons : addons.results;
+    const addonsToLoad = fetchAllAddons ? addons : addons.results;
     yield put(loadCurrentCollection({ addons: addonsToLoad, detail }));
   } catch (error) {
     log.warn(`Collection failed to load: ${error}`);
@@ -170,7 +170,7 @@ export function* addAddonToCollection({
 
     if (editing) {
       yield put(fetchCurrentCollectionAction({
-        allAddons: true,
+        fetchAllAddons: true,
         errorHandlerId: errorHandler.id,
         slug: collectionSlug,
         user: userId,

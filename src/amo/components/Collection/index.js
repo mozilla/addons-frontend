@@ -123,7 +123,7 @@ export class CollectionBase extends React.Component<Props> {
 
     if (!collection || collectionChanged) {
       this.props.dispatch(fetchCurrentCollection({
-        allAddons: editing,
+        fetchAllAddons: editing,
         errorHandlerId: errorHandler.id,
         page: location.query.page,
         slug: params.slug,

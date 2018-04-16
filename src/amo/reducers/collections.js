@@ -97,7 +97,7 @@ export const initialState: CollectionsState = {
 };
 
 type FetchCurrentCollectionParams = {|
-  allAddons?: boolean,
+  fetchAllAddons?: boolean,
   errorHandlerId: string,
   page?: number,
   slug: string,
@@ -110,7 +110,7 @@ export type FetchCurrentCollectionAction = {|
 |};
 
 export const fetchCurrentCollection = ({
-  allAddons,
+  fetchAllAddons,
   errorHandlerId,
   page,
   slug,
@@ -122,7 +122,7 @@ export const fetchCurrentCollection = ({
 
   return {
     type: FETCH_CURRENT_COLLECTION,
-    payload: { allAddons, errorHandlerId, page, slug, user },
+    payload: { fetchAllAddons, errorHandlerId, page, slug, user },
   };
 };
 

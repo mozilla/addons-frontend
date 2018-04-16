@@ -164,7 +164,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   };
 
   onAddonSelected = (suggestion: SuggestionType) => {
-    // TODO: This works, but it doesn't update the list of addons on the right.
     const { collection, errorHandler, dispatch, siteUserId } = this.props;
     const { addonId } = suggestion;
 

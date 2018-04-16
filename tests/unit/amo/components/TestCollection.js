@@ -119,7 +119,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      allAddons: false,
+      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       slug,
@@ -139,7 +139,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      allAddons: true,
+      fetchAllAddons: true,
       errorHandlerId: errorHandler.id,
       page: undefined,
       slug,
@@ -165,7 +165,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      allAddons: false,
+      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page,
       slug,
@@ -307,7 +307,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      allAddons: false,
+      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
@@ -372,7 +372,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      allAddons: false,
+      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       ...newParams,
@@ -424,7 +424,7 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      allAddons: false,
+      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       ...newParams,
