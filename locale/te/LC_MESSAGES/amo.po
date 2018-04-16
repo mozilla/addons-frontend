@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-11 17:15+0000\n"
-"PO-Revision-Date: 2018-04-13 17:21+0000\n"
+"PO-Revision-Date: 2018-04-16 09:20+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -347,9 +347,8 @@ msgid "Publishing reply"
 msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:202
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "%(authorName)s నుండి, %(timestamp)s"
+msgstr "వ్రాసినది %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
@@ -828,9 +827,8 @@ msgid "Submit a New Theme"
 msgstr ""
 
 #: src/amo/components/Header/index.js:143
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "సమీక్షలు"
+msgstr "సమీక్షకుల పనిముట్లు"
 
 #: src/amo/components/Header/index.js:153 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
