@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-11 17:15+0000\n"
-"PO-Revision-Date: 2018-04-11 17:53+0000\n"
+"PO-Revision-Date: 2018-04-17 14:34+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -62,7 +62,7 @@ msgstr[0] "ყველა (%(count)s) მიმოხილვის ნახ�
 
 #: src/amo/components/Addon/index.js:246
 msgid "No reviews yet"
-msgstr "მიმოხილვები ჯერ არ გაკეთებულა"
+msgstr "მიმოხილვები არაა"
 
 #: src/amo/components/Addon/index.js:255
 msgid "Rate your experience"
