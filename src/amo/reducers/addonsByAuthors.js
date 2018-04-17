@@ -135,20 +135,18 @@ export const getAddonsForUsernames = (
   const ids = usernames.map((username) => {
     return state.byUsername[username];
   }).reduce((array, addonIds) => {
-    if (!addonIds || !array) {
-      return null;
-    }
-
-    for (const addonId of addonIds) {
-      if (!array.includes(addonId)) {
-        array.push(addonId);
+    if (addonIds) {
+      for (const addonId of addonIds) {
+        if (!array.includes(addonId)) {
+          array.push(addonId);
+        }
       }
     }
 
     return array;
   }, []);
 
-  return ids ? (ids
+  return ids.length ? (ids
     .map((id) => {
       return state.byAddonId[id];
     })

@@ -446,6 +446,19 @@ describe(__filename, () => {
       ]);
     });
 
+    it('returns addons for multiple authors when only one has a loaded add-on', () => {
+      const addons = fakeAddons();
+      const state = reducer(undefined, loadAddonsByAuthors({
+        addons: Object.values(addons),
+        authorNames: ['fakeUsername'],
+      }));
+
+      expect(getAddonsForUsernames(state, ['test2', 'no-addons-user'])).toEqual([
+        createInternalAddon(addons.firstAddon),
+        createInternalAddon(addons.secondAddon),
+      ]);
+    });
+
     it('returns addons for multiple authors of different add-ons', () => {
       const addons = fakeAddons();
       const state = reducer(undefined, loadAddonsByAuthors({
