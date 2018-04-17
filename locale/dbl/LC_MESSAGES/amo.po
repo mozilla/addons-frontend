@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-11 17:15+0000\n"
+"POT-Creation-Date: 2018-04-17 20:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: \n"
@@ -38,17 +38,17 @@ msgid "Add to…"
 msgstr "Aḓḓ ŧǿ…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:243
+#: src/amo/components/CollectionManager/index.js:282
 msgid "Add to collection"
 msgstr "Aḓḓ ŧǿ ƈǿŀŀḗƈŧīǿƞ"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Cancel preview"
-msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "Ŧȧƥ ŧǿ ƥřḗṽīḗẇ"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "Ƈȧƞƈḗŀ ƥřḗṽīḗẇ"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -105,7 +105,7 @@ msgstr "%(addonName)s %(startSpan)sƀẏ %(authorList)s%(endSpan)s"
 msgid "Extension Metadata"
 msgstr "Ḗẋŧḗƞşīǿƞ Ḿḗŧȧḓȧŧȧ"
 
-#: src/amo/components/Addon/index.js:501
+#: src/amo/components/Addon/index.js:502
 msgid "Screenshots"
 msgstr "Şƈřḗḗƞşħǿŧş"
 
@@ -231,7 +231,7 @@ msgid "Version"
 msgstr "Ṽḗřşīǿƞ"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:220
 msgid "Last updated"
 msgstr "Ŀȧşŧ ŭƥḓȧŧḗḓ"
 
@@ -367,43 +367,43 @@ msgstr "Ḗḓīŧ ḿẏ řḗṽīḗẇ"
 msgid "Reply to this review"
 msgstr "Řḗƥŀẏ ŧǿ ŧħīş řḗṽīḗẇ"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:117
+#: src/amo/components/AddonsByAuthorsCard/index.js:119
 msgid "More dictionaries by %(author)s"
 msgstr "Ḿǿřḗ ḓīƈŧīǿƞȧřīḗş ƀẏ %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by these translators"
 msgstr "Ḿǿřḗ ḓīƈŧīǿƞȧřīḗş ƀẏ ŧħḗşḗ ŧřȧƞşŀȧŧǿřş"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "More extensions by %(author)s"
 msgstr "Ḿǿřḗ ḗẋŧḗƞşīǿƞş ƀẏ %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "More extensions by these developers"
 msgstr "Ḿǿřḗ ḗẋŧḗƞşīǿƞş ƀẏ ŧħḗşḗ ḓḗṽḗŀǿƥḗřş"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More language packs by %(author)s"
 msgstr "Ḿǿřḗ ŀȧƞɠŭȧɠḗ ƥȧƈķş ƀẏ %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More language packs by these translators"
 msgstr "Ḿǿřḗ ŀȧƞɠŭȧɠḗ ƥȧƈķş ƀẏ ŧħḗşḗ ŧřȧƞşŀȧŧǿřş"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "More themes by %(author)s"
 msgstr "Ḿǿřḗ ŧħḗḿḗş ƀẏ %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:152
 msgid "More themes by these artists"
 msgstr "Ḿǿřḗ ŧħḗḿḗş ƀẏ ŧħḗşḗ ȧřŧīşŧş"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More add-ons by %(author)s"
 msgstr "Ḿǿřḗ ȧḓḓ-ǿƞş ƀẏ %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:160
+#: src/amo/components/AddonsByAuthorsCard/index.js:162
 msgid "More add-ons by these developers"
 msgstr "Ḿǿřḗ ȧḓḓ-ǿƞş ƀẏ ŧħḗşḗ ḓḗṽḗŀǿƥḗřş"
 
@@ -544,45 +544,49 @@ msgstr "Ɓřǿẇşḗ ȧŀŀ ḗẋŧḗƞşīǿƞş īƞ ŧħīş ƈȧŧḗɠ�
 msgid "Browse all themes in this category."
 msgstr "Ɓřǿẇşḗ ȧŀŀ ŧħḗḿḗş īƞ ŧħīş ƈȧŧḗɠǿřẏ."
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:170
 msgid "Edit this collection"
 msgstr "Ḗḓīŧ ŧħīş ƈǿŀŀḗƈŧīǿƞ"
 
-#: src/amo/components/Collection/index.js:175
-msgid "Sign in to edit this collection"
-msgstr "Şīɠƞ īƞ ŧǿ ḗḓīŧ ŧħīş ƈǿŀŀḗƈŧīǿƞ"
+#: src/amo/components/Collection/index.js:186
+msgid "Log in to edit this collection"
+msgstr "Ŀǿɠ īƞ ŧǿ ḗḓīŧ ŧħīş ƈǿŀŀḗƈŧīǿƞ"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:210
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Aḓḓ-ǿƞş"
 
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:214
 msgid "Creator"
 msgstr "Ƈřḗȧŧǿř"
 
-#: src/amo/components/CollectionManager/index.js:190
+#: src/amo/components/CollectionList/index.js:38
+msgid "Log in to create a collection"
+msgstr "Ŀǿɠ īƞ ŧǿ ƈřḗȧŧḗ ȧ ƈǿŀŀḗƈŧīǿƞ"
+
+#: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
 msgstr "Ƈǿŀŀḗƈŧīǿƞ ƞȧḿḗ"
 
-#: src/amo/components/CollectionManager/index.js:202
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Description"
 msgstr "Ḓḗşƈřīƥŧīǿƞ"
 
-#: src/amo/components/CollectionManager/index.js:213
+#: src/amo/components/CollectionManager/index.js:251
 msgid "Custom URL"
 msgstr "Ƈŭşŧǿḿ ŬŘĿ"
 
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/CollectionManager/index.js:278
 msgid "Find an add-on to include in this collection"
 msgstr "Ƒīƞḓ ȧƞ ȧḓḓ-ǿƞ ŧǿ īƞƈŀŭḓḗ īƞ ŧħīş ƈǿŀŀḗƈŧīǿƞ"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:297
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Ƈȧƞƈḗŀ"
 
-#: src/amo/components/CollectionManager/index.js:267
+#: src/amo/components/CollectionManager/index.js:306
 msgid "Save Collection"
 msgstr "Şȧṽḗ Ƈǿŀŀḗƈŧīǿƞ"
 
@@ -642,6 +646,10 @@ msgstr "Ƈǿƞŧřīƀŭŧḗ ƞǿẇ"
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Ḓǿẇƞŀǿȧḓ Ƒīřḗƒǿẋ"
+
+#: src/amo/components/EditableCollectionAddon/index.js:54
+msgid "Remove"
+msgstr "Řḗḿǿṽḗ"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1141,118 +1149,94 @@ msgstr "Ŧħīş ȧḓḓ-ǿƞ ƈȧƞ:"
 msgid "Learn more about permissions"
 msgstr "Ŀḗȧřƞ ḿǿřḗ ȧƀǿŭŧ ƥḗřḿīşşīǿƞş"
 
-#: src/amo/components/PermissionsCard/permissions.js:24
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
 msgstr "Řḗȧḓ ȧƞḓ ḿǿḓīƒẏ ƀǿǿķḿȧřķş"
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
 msgstr "Řḗȧḓ ȧƞḓ ḿǿḓīƒẏ ƀřǿẇşḗř şḗŧŧīƞɠş"
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "Ƈŀḗȧř řḗƈḗƞŧ ƀřǿẇşīƞɠ ħīşŧǿřẏ, ƈǿǿķīḗş, ȧƞḓ řḗŀȧŧḗḓ ḓȧŧȧ"
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
 msgstr "Ɠḗŧ ḓȧŧȧ ƒřǿḿ ŧħḗ ƈŀīƥƀǿȧřḓ"
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
 msgstr "Īƞƥŭŧ ḓȧŧȧ ŧǿ ŧħḗ ƈŀīƥƀǿȧřḓ"
 
-#: src/amo/components/PermissionsCard/permissions.js:29
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "Ḗẋŧḗƞḓ ḓḗṽḗŀǿƥḗř ŧǿǿŀş ŧǿ ȧƈƈḗşş ẏǿŭř ḓȧŧȧ īƞ ǿƥḗƞ ŧȧƀş"
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
 msgstr "Ḓǿẇƞŀǿȧḓ ƒīŀḗş ȧƞḓ řḗȧḓ ȧƞḓ ḿǿḓīƒẏ ŧħḗ ƀřǿẇşḗř’ş ḓǿẇƞŀǿȧḓ ħīşŧǿřẏ"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
 msgstr "Ǿƥḗƞ ƒīŀḗş ḓǿẇƞŀǿȧḓḗḓ ŧǿ ẏǿŭř ƈǿḿƥŭŧḗř"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
 msgstr "Řḗȧḓ ŧħḗ ŧḗẋŧ ǿƒ ȧŀŀ ǿƥḗƞ ŧȧƀş"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
 msgstr "Aƈƈḗşş ẏǿŭř ŀǿƈȧŧīǿƞ"
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
 msgstr "Aƈƈḗşş ƀřǿẇşīƞɠ ħīşŧǿřẏ"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
 msgstr "Ḿǿƞīŧǿř ḗẋŧḗƞşīǿƞ ŭşȧɠḗ ȧƞḓ ḿȧƞȧɠḗ ŧħḗḿḗş"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Ḗẋƈħȧƞɠḗ ḿḗşşȧɠḗş ẇīŧħ ƥřǿɠřȧḿş ǿŧħḗř ŧħȧƞ Ƒīřḗƒǿẋ"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
 msgstr "Ḓīşƥŀȧẏ ƞǿŧīƒīƈȧŧīǿƞş ŧǿ ẏǿŭ"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
 msgstr "Ƥřǿṽīḓḗ ƈřẏƥŧǿɠřȧƥħīƈ ȧŭŧħḗƞŧīƈȧŧīǿƞ şḗřṽīƈḗş"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
 msgstr "Ƈǿƞŧřǿŀ ƀřǿẇşḗř ƥřǿẋẏ şḗŧŧīƞɠş"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
 msgstr "Řḗȧḓ ȧƞḓ ḿǿḓīƒẏ ƥřīṽȧƈẏ şḗŧŧīƞɠş"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
 msgstr "Aƈƈḗşş řḗƈḗƞŧŀẏ ƈŀǿşḗḓ ŧȧƀş"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
 msgstr "Aƈƈḗşş ƀřǿẇşḗř ŧȧƀş"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
 msgstr "Ħīḓḗ ȧƞḓ şħǿẇ ƀřǿẇşḗř ŧȧƀş"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
 msgstr "Şŧǿřḗ ŭƞŀīḿīŧḗḓ ȧḿǿŭƞŧ ǿƒ ƈŀīḗƞŧ-şīḓḗ ḓȧŧȧ"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
 msgstr "Aƈƈḗşş ƀřǿẇşḗř ȧƈŧīṽīŧẏ ḓŭřīƞɠ ƞȧṽīɠȧŧīǿƞ"
-
-#: src/amo/components/PermissionsCard/permissions.js:49
-msgid "Access your data for all websites"
-msgstr "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ƒǿř ȧŀŀ ẇḗƀşīŧḗş"
-
-#: src/amo/components/PermissionsCard/permissions.js:52
-msgid "Access your data for sites in the %(domain)s domain"
-msgstr "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ƒǿř şīŧḗş īƞ ŧħḗ %(domain)s ḓǿḿȧīƞ"
-
-#: src/amo/components/PermissionsCard/permissions.js:57
-msgid "Access your data in %(count)s other domain"
-msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ īƞ %(count)s ǿŧħḗř ḓǿḿȧīƞ"
-msgstr[1] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ īƞ %(count)s ǿŧħḗř ḓǿḿȧīƞş"
-
-#: src/amo/components/PermissionsCard/permissions.js:65
-msgid "Access your data for %(site)s"
-msgstr "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ƒǿř %(site)s"
-
-#: src/amo/components/PermissionsCard/permissions.js:70
-msgid "Access your data on %(count)s other site"
-msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ǿƞ %(count)s ǿŧħḗř şīŧḗ"
-msgstr[1] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ǿƞ %(count)s ǿŧħḗř şīŧḗş"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1840,17 +1824,17 @@ msgstr "%(name)s īş ŭƞīƞşŧȧŀŀḗḓ. Ƈŀīƈķ ŧǿ īƞşŧȧŀŀ."
 msgid "Install state for %(name)s is unknown."
 msgstr "Īƞşŧȧŀŀ şŧȧŧḗ ƒǿř %(name)s īş ŭƞķƞǿẇƞ."
 
-#: src/core/components/Paginate/index.js:108
+#: src/core/components/Paginate/index.js:100
+msgid "Page %(pageNumber)s of %(totalPages)s"
+msgstr "Ƥȧɠḗ %(pageNumber)s ǿƒ %(totalPages)s"
+
+#: src/core/components/Paginate/index.js:109
 msgid "Previous"
 msgstr "Ƥřḗṽīǿŭş"
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:122
 msgid "Next"
 msgstr "Ƞḗẋŧ"
-
-#: src/core/components/Paginate/index.js:99
-msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Ƥȧɠḗ %(pageNumber)s ǿƒ %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -1891,6 +1875,30 @@ msgstr "Řḗŀǿȧḓ Ŧǿ Ƈǿƞŧīƞŭḗ"
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
 msgstr "Ŧǿɠɠŀḗ ƈǿƞŧḗƞŧş"
+
+#: src/ui/components/HostPermissions/index.js:43
+msgid "Access your data for all websites"
+msgstr "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ƒǿř ȧŀŀ ẇḗƀşīŧḗş"
+
+#: src/ui/components/HostPermissions/index.js:46
+msgid "Access your data in %(param)s other domain"
+msgid_plural "Access your data in %(param)s other domains"
+msgstr[0] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ īƞ %(param)s ǿŧħḗř ḓǿḿȧīƞ"
+msgstr[1] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ īƞ %(param)s ǿŧħḗř ḓǿḿȧīƞş"
+
+#: src/ui/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ƒǿř şīŧḗş īƞ ŧħḗ %(param)s ḓǿḿȧīƞ"
+
+#: src/ui/components/HostPermissions/index.js:58
+msgid "Access your data on %(param)s other site"
+msgid_plural "Access your data on %(param)s other sites"
+msgstr[0] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ǿƞ %(param)s ǿŧħḗř şīŧḗ"
+msgstr[1] "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ǿƞ %(param)s ǿŧħḗř şīŧḗş"
+
+#: src/ui/components/HostPermissions/index.js:65
+msgid "Access your data for %(param)s"
+msgstr "Aƈƈḗşş ẏǿŭř ḓȧŧȧ ƒǿř %(param)s"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"

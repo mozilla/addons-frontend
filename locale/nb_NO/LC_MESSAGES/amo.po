@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-11 17:15+0000\n"
+"POT-Creation-Date: 2018-04-17 20:36+0000\n"
 "PO-Revision-Date: 2017-10-08 11:38+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,18 +43,18 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:243
+#: src/amo/components/CollectionManager/index.js:282
 #, fuzzy
 msgid "Add to collection"
 msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Cancel preview"
-msgstr "Avslutt forhåndsvisning"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "Trykk for en forhåndsvisning"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "Avslutt forhåndsvisning"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -116,7 +116,7 @@ msgstr "%(addonName)s %(startSpan)sav %(authorList)s %(endSpan)s"
 msgid "Extension Metadata"
 msgstr "Metadata for utvidelser"
 
-#: src/amo/components/Addon/index.js:501
+#: src/amo/components/Addon/index.js:502
 msgid "Screenshots"
 msgstr "Skjermbilder"
 
@@ -260,7 +260,7 @@ msgid "Version"
 msgstr "Versjon"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:220
 msgid "Last updated"
 msgstr "Sist oppdatert"
 
@@ -413,43 +413,43 @@ msgstr "Rediger min omtale"
 msgid "Reply to this review"
 msgstr "Trykk for en forhåndsvisning"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:117
+#: src/amo/components/AddonsByAuthorsCard/index.js:119
 msgid "More dictionaries by %(author)s"
 msgstr "Flere ordbøker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by these translators"
 msgstr "Flere ordbøker av disse oversetterne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "More extensions by %(author)s"
 msgstr "Flere utvidelser av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "More extensions by these developers"
 msgstr "Flere utvidelser av disse utviklerne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More language packs by %(author)s"
 msgstr "Flere språkpakker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More language packs by these translators"
 msgstr "Flere språkpakker av disse oversetterne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "More themes by %(author)s"
 msgstr "Flere temaer av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:152
 msgid "More themes by these artists"
 msgstr "Flere temaer av disse artistene"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More add-ons by %(author)s"
 msgstr "Flere utvidelser %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:160
+#: src/amo/components/AddonsByAuthorsCard/index.js:162
 msgid "More add-ons by these developers"
 msgstr "Flere utvidelser fra disse utviklerne"
 
@@ -600,48 +600,53 @@ msgstr "Bla gjennom alle utvidelser i denne kategori."
 msgid "Browse all themes in this category."
 msgstr "Bla gjennom alle tema i denne kategori."
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:170
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/Collection/index.js:175
+#: src/amo/components/Collection/index.js:186
 #, fuzzy
-msgid "Sign in to edit this collection"
+msgid "Log in to edit this collection"
 msgstr "Bla gjennom alle utvidelser"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:210
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Utvidelser"
 
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:214
 msgid "Creator"
 msgstr "Laget av"
 
-#: src/amo/components/CollectionManager/index.js:190
+#: src/amo/components/CollectionList/index.js:38
+#, fuzzy
+msgid "Log in to create a collection"
+msgstr "Bla gjennom alle utvidelser"
+
+#: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:202
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:213
+#: src/amo/components/CollectionManager/index.js:251
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/CollectionManager/index.js:278
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:297
 #: src/ui/components/DismissibleTextForm/index.js:126
 #, fuzzy
 msgid "Cancel"
 msgstr "Avslutt forhåndsvisning"
 
-#: src/amo/components/CollectionManager/index.js:267
+#: src/amo/components/CollectionManager/index.js:306
 #, fuzzy
 msgid "Save Collection"
 msgstr "Bla gjennom alle utvidelser"
@@ -720,6 +725,10 @@ msgstr ""
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Last ned Firefox"
+
+#: src/amo/components/EditableCollectionAddon/index.js:54
+msgid "Remove"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
@@ -1282,119 +1291,95 @@ msgstr "Om denne %(addonType)s"
 msgid "Learn more about permissions"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:24
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:29
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 #, fuzzy
 msgid "Access browsing history"
 msgstr "Versjonshistorikk"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
 msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:49
-msgid "Access your data for all websites"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:52
-msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:57
-msgid "Access your data in %(count)s other domain"
-msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/amo/components/PermissionsCard/permissions.js:65
-msgid "Access your data for %(site)s"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:70
-msgid "Access your data on %(count)s other site"
-msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] ""
-msgstr[1] ""
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -2110,18 +2095,18 @@ msgstr "%(name)s er avinstallert. Klikk for å installere."
 msgid "Install state for %(name)s is unknown."
 msgstr "Installeringsstatus for %(name)s er ukjent."
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Forrige"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Neste"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 #, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
 msgstr "Side %(currentPage)s av %(totalPages)s"
+
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Forrige"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Neste"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2165,6 +2150,30 @@ msgstr "Oppdater for å fortsette"
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
 msgstr "Skift innhold"
+
+#: src/ui/components/HostPermissions/index.js:43
+msgid "Access your data for all websites"
+msgstr ""
+
+#: src/ui/components/HostPermissions/index.js:46
+msgid "Access your data in %(param)s other domain"
+msgid_plural "Access your data in %(param)s other domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr ""
+
+#: src/ui/components/HostPermissions/index.js:58
+msgid "Access your data on %(param)s other site"
+msgid_plural "Access your data on %(param)s other sites"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/components/HostPermissions/index.js:65
+msgid "Access your data for %(param)s"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:100
 #, fuzzy

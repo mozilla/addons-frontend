@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-11 17:15+0000\n"
+"POT-Creation-Date: 2018-04-17 20:36+0000\n"
 "PO-Revision-Date: 2018-04-10 08:20+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "添加到…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:243
+#: src/amo/components/CollectionManager/index.js:282
 msgid "Add to collection"
 msgstr "添加到收藏集"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Cancel preview"
-msgstr "取消预览"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "点按预览"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "取消预览"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -105,7 +105,7 @@ msgstr "%(addonName)s %(startSpan)s（作者：%(authorList)s）%(endSpan)s"
 msgid "Extension Metadata"
 msgstr "扩展元数据"
 
-#: src/amo/components/Addon/index.js:501
+#: src/amo/components/Addon/index.js:502
 msgid "Screenshots"
 msgstr "屏幕截图"
 
@@ -239,7 +239,7 @@ msgid "Version"
 msgstr "版本"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:220
 msgid "Last updated"
 msgstr "上次更新"
 
@@ -382,43 +382,43 @@ msgstr "编辑我的评价"
 msgid "Reply to this review"
 msgstr "回复此评价"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:117
+#: src/amo/components/AddonsByAuthorsCard/index.js:119
 msgid "More dictionaries by %(author)s"
 msgstr "%(author)s 制作的更多字典"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by these translators"
 msgstr "译者制作的更多字典"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "More extensions by %(author)s"
 msgstr "%(author)s 制作的更多扩展"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "More extensions by these developers"
 msgstr "开发者制作的更多扩展"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More language packs by %(author)s"
 msgstr "%(author)s 制作的更多语言包"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More language packs by these translators"
 msgstr "译者制作的更多语言包"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "More themes by %(author)s"
 msgstr "%(author)s 制作的更多主题"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:152
 msgid "More themes by these artists"
 msgstr "艺术家制作的更多主题"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More add-ons by %(author)s"
 msgstr "%(author)s 制作的更多附加组件"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:160
+#: src/amo/components/AddonsByAuthorsCard/index.js:162
 msgid "More add-ons by these developers"
 msgstr "开发者制作的更多附加组件"
 
@@ -559,45 +559,51 @@ msgstr "浏览此分类中的所有扩展。"
 msgid "Browse all themes in this category."
 msgstr "浏览此分类中的所有主题。"
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:170
 msgid "Edit this collection"
 msgstr "编辑此收藏集"
 
-#: src/amo/components/Collection/index.js:175
-msgid "Sign in to edit this collection"
+#: src/amo/components/Collection/index.js:186
+#, fuzzy
+msgid "Log in to edit this collection"
 msgstr "登录以编辑此收藏集"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:210
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "附加组件"
 
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:214
 msgid "Creator"
 msgstr "作者"
 
-#: src/amo/components/CollectionManager/index.js:190
+#: src/amo/components/CollectionList/index.js:38
+#, fuzzy
+msgid "Log in to create a collection"
+msgstr "登录以编辑此收藏集"
+
+#: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
 msgstr "收藏集名称"
 
-#: src/amo/components/CollectionManager/index.js:202
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Description"
 msgstr "描述"
 
-#: src/amo/components/CollectionManager/index.js:213
+#: src/amo/components/CollectionManager/index.js:251
 msgid "Custom URL"
 msgstr "自定义网址"
 
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/CollectionManager/index.js:278
 msgid "Find an add-on to include in this collection"
 msgstr "搜索附加组件并加入此收藏集"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:297
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "取消"
 
-#: src/amo/components/CollectionManager/index.js:267
+#: src/amo/components/CollectionManager/index.js:306
 msgid "Save Collection"
 msgstr "保存收藏集"
 
@@ -669,6 +675,10 @@ msgstr "我要捐款"
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "下载 Firefox"
+
+#: src/amo/components/EditableCollectionAddon/index.js:54
+msgid "Remove"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
@@ -1207,117 +1217,95 @@ msgstr "这个附加组件可以："
 msgid "Learn more about permissions"
 msgstr "详细了解权限"
 
-#: src/amo/components/PermissionsCard/permissions.js:24
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
 msgstr "读取和修改书签"
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
 msgstr "读取和修改浏览器设置"
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "清除最近的浏览记录、Cookie 及有关数据"
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
 msgstr "获取剪贴板数据"
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
 msgstr "输入数据到剪贴板"
 
-#: src/amo/components/PermissionsCard/permissions.js:29
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
 msgstr "让开发者工具可以存取您打开的标签页中的数据"
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
 msgstr "下载文件和读取与修改浏览器的下载历史"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
 msgstr "打开已下载至您的计算机的文件"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
 msgstr "读取所有打开的标签页中的文本"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
 msgstr "获知您的位置"
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
 msgstr "存取浏览历史"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
 msgstr "监控扩展使用情况和管理主题"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
 msgstr "与 Firefox 之外的其他程序交换信息"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
 msgstr "为您显示通知"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
 msgstr "提供密码认证服务"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:42
 #, fuzzy
 msgid "Control browser proxy settings"
 msgstr "控制浏览器的代理设置"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
 msgstr "读取和修改隐私设置"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
 msgstr "存取最近关闭的标签页"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
 msgstr "存取浏览器标签页"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
 msgstr "隐藏和显示浏览器标签页"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
 msgstr "无限量存储客户端数据"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
 msgstr "获知浏览器导航时的行为状态"
-
-#: src/amo/components/PermissionsCard/permissions.js:49
-msgid "Access your data for all websites"
-msgstr "存取您在所有网站的数据"
-
-#: src/amo/components/PermissionsCard/permissions.js:52
-msgid "Access your data for sites in the %(domain)s domain"
-msgstr "存取您在 %(domain)s 域名的数据"
-
-#: src/amo/components/PermissionsCard/permissions.js:57
-msgid "Access your data in %(count)s other domain"
-msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] "存取您在其他 %(count)s 个域名的数据"
-
-#: src/amo/components/PermissionsCard/permissions.js:65
-msgid "Access your data for %(site)s"
-msgstr "存取您在 %(site)s 的数据"
-
-#: src/amo/components/PermissionsCard/permissions.js:70
-msgid "Access your data on %(count)s other site"
-msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] "存取您在其他 %(count)s 个网站的数据"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -2029,17 +2017,17 @@ msgstr "%(name)s 已卸载。点击可再次安装。"
 msgid "Install state for %(name)s is unknown."
 msgstr "%(name)s 的安装状态未知。"
 
-#: src/core/components/Paginate/index.js:108
+#: src/core/components/Paginate/index.js:100
+msgid "Page %(pageNumber)s of %(totalPages)s"
+msgstr "第 %(pageNumber)s 页，共 %(totalPages)s 页"
+
+#: src/core/components/Paginate/index.js:109
 msgid "Previous"
 msgstr "上一页"
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:122
 msgid "Next"
 msgstr "下一页"
-
-#: src/core/components/Paginate/index.js:99
-msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "第 %(pageNumber)s 页，共 %(totalPages)s 页"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2080,6 +2068,32 @@ msgstr "重新载入以继续"
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
 msgstr "切换内容"
+
+#: src/ui/components/HostPermissions/index.js:43
+msgid "Access your data for all websites"
+msgstr "存取您在所有网站的数据"
+
+#: src/ui/components/HostPermissions/index.js:46
+#, fuzzy
+msgid "Access your data in %(param)s other domain"
+msgid_plural "Access your data in %(param)s other domains"
+msgstr[0] "存取您在其他 %(count)s 个域名的数据"
+
+#: src/ui/components/HostPermissions/index.js:53
+#, fuzzy
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "存取您在 %(domain)s 域名的数据"
+
+#: src/ui/components/HostPermissions/index.js:58
+#, fuzzy
+msgid "Access your data on %(param)s other site"
+msgid_plural "Access your data on %(param)s other sites"
+msgstr[0] "存取您在其他 %(count)s 个网站的数据"
+
+#: src/ui/components/HostPermissions/index.js:65
+#, fuzzy
+msgid "Access your data for %(param)s"
+msgstr "存取您在 %(site)s 的数据"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
