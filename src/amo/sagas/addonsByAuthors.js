@@ -11,7 +11,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 
 
 export function* fetchAddonsByAuthors({ payload }) {
-  const { errorHandlerId, authorNames, addonType, forAddonSlug } = payload;
+  const { errorHandlerId, authorUsernames, addonType, forAddonSlug } = payload;
   const errorHandler = createErrorHandler(errorHandlerId);
 
   yield put(errorHandler.createClearingAction());
@@ -23,7 +23,7 @@ export function* fetchAddonsByAuthors({ payload }) {
       api: state.api,
       filters: {
         addonType,
-        author: authorNames.sort().join(','),
+        author: authorUsernames.sort().join(','),
         exclude_addons: forAddonSlug,
         page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
         sort: SEARCH_SORT_TRENDING,
@@ -37,7 +37,7 @@ export function* fetchAddonsByAuthors({ payload }) {
     yield put(loadAddonsByAuthors({
       addons,
       addonType,
-      authorNames,
+      authorUsernames,
       forAddonSlug,
     }));
   } catch (error) {

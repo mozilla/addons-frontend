@@ -160,7 +160,8 @@ export class UserProfileBase extends React.Component<Props> {
             <div className="UserProfile-addons-by-author">
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_EXTENSION}
-                authorNames={[user.username]}
+                authorDisplayName={[user.displayName]}
+                authorUsernames={[user.username]}
                 numberOfAddons={3}
                 showSummary
                 type="vertical"
@@ -168,7 +169,8 @@ export class UserProfileBase extends React.Component<Props> {
 
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_THEME}
-                authorNames={[user.username]}
+                authorDisplayName={[user.displayName]}
+                authorUsernames={[user.username]}
                 numberOfAddons={6}
               />
             </div>

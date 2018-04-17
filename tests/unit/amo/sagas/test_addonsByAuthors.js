@@ -47,7 +47,7 @@ describe(__filename, () => {
 
   it('calls the API with addonType if set', async () => {
     const addons = [fakeAddon];
-    const authorNames = ['mozilla'];
+    const authorUsernames = ['mozilla'];
     const state = sagaTester.getState();
 
     mockApi
@@ -56,7 +56,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: ADDON_TYPE_THEME,
-          author: authorNames.sort().join(','),
+          author: authorUsernames.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -65,12 +65,12 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authorNames, addonType: ADDON_TYPE_THEME });
+    _fetchAddonsByAuthors({ authorUsernames, addonType: ADDON_TYPE_THEME });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
       addonType: ADDON_TYPE_THEME,
-      authorNames,
+      authorUsernames,
       forAddonSlug: undefined,
     });
 
@@ -82,7 +82,7 @@ describe(__filename, () => {
 
   it('sends `exclude_addons` param if `forAddonSlug` is set', async () => {
     const addons = [fakeAddon];
-    const authorNames = ['mozilla', 'johnedoe'];
+    const authorUsernames = ['mozilla', 'johnedoe'];
     const { slug } = fakeAddon;
     const state = sagaTester.getState();
 
@@ -92,7 +92,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: undefined,
-          author: authorNames.sort().join(','),
+          author: authorUsernames.sort().join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -101,11 +101,11 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authorNames, forAddonSlug: slug });
+    _fetchAddonsByAuthors({ authorUsernames, forAddonSlug: slug });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      authorNames,
+      authorUsernames,
       forAddonSlug: slug,
     });
 
@@ -116,7 +116,7 @@ describe(__filename, () => {
   });
 
   it('clears the error handler', async () => {
-    _fetchAddonsByAuthors({ authorNames: [], forAddonSlug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authorUsernames: [], forAddonSlug: fakeAddon.slug });
 
     const expectedAction = errorHandler.createClearingAction();
 
@@ -132,7 +132,7 @@ describe(__filename, () => {
       .once()
       .returns(Promise.reject(error));
 
-    _fetchAddonsByAuthors({ authorNames: [], forAddonSlug: fakeAddon.slug });
+    _fetchAddonsByAuthors({ authorUsernames: [], forAddonSlug: fakeAddon.slug });
 
     const errorAction = errorHandler.createErrorAction(error);
     const calledErrorAction = await sagaTester.waitFor(errorAction.type);
@@ -142,7 +142,7 @@ describe(__filename, () => {
 
   it('handles no API results', async () => {
     const addons = [];
-    const authorNames = ['mozilla', 'johnedoe'];
+    const authorUsernames = ['mozilla', 'johnedoe'];
     const { slug } = fakeAddon;
     const state = sagaTester.getState();
 
@@ -152,7 +152,7 @@ describe(__filename, () => {
         api: state.api,
         filters: {
           addonType: undefined,
-          author: authorNames.sort().join(','),
+          author: authorUsernames.sort().join(','),
           exclude_addons: slug,
           page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
@@ -161,11 +161,11 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authorNames, forAddonSlug: slug });
+    _fetchAddonsByAuthors({ authorUsernames, forAddonSlug: slug });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      authorNames,
+      authorUsernames,
       forAddonSlug: slug,
     });
 

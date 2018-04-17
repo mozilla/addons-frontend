@@ -56,7 +56,7 @@ describe(__filename, () => {
     return { firstAddon, secondAddon, thirdAddon };
   }
 
-  function fakeAuthorNames() {
+  function fakeAuthorUsernames() {
     return [
       fakeAuthorOne.username,
       fakeAuthorTwo.username,
@@ -85,13 +85,14 @@ describe(__filename, () => {
         },
       ],
       addonType,
-      authorNames: multipleAuthors ?
+      authorUsernames: multipleAuthors ?
         [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username],
     });
   }
 
   function render(customProps = {}) {
     const props = {
+      authorDisplayName: fakeAuthorOne.name,
       numberOfAddons: 4,
       i18n: fakeI18n(),
       store: dispatchClientMetadata().store,
@@ -105,24 +106,29 @@ describe(__filename, () => {
   }
 
   function renderAddonsWithType({ addonType, multipleAuthors = false } = {}) {
-    const authorNames = multipleAuthors ?
+    const authorUsernames = multipleAuthors ?
       [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username];
     const { store } = dispatchClientMetadata();
     const errorHandler = createStubErrorHandler();
     store.dispatch(addonsWithAuthorsOfType({ addonType, multipleAuthors }));
 
-    return render({ addonType, authorNames, errorHandler, store });
+    return render({
+      addonType,
+      authorUsernames,
+      errorHandler,
+      store,
+    });
   }
 
   it('should render a card', () => {
     const { store } = dispatchClientMetadata();
-    const authorNames = fakeAuthorNames();
+    const authorUsernames = fakeAuthorUsernames();
     const addons = Object.values(fakeAddons()).sort();
-    store.dispatch(loadAddonsByAuthors({ addons, authorNames }));
+    store.dispatch(loadAddonsByAuthors({ addons, authorUsernames }));
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames,
+      authorUsernames,
       numberOfAddons: 4,
       store,
     });
@@ -146,15 +152,15 @@ describe(__filename, () => {
 
   it('should render a className', () => {
     const { store } = dispatchClientMetadata();
-    const authorNames = fakeAuthorNames();
+    const authorUsernames = fakeAuthorUsernames();
     store.dispatch(loadAddonsByAuthors({
       addons: Object.values(fakeAddons()),
-      authorNames,
+      authorUsernames,
     }));
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames,
+      authorUsernames,
       className: 'foo',
       store,
     });
@@ -164,13 +170,13 @@ describe(__filename, () => {
 
   it('should render nothing if there are no add-ons', () => {
     const { store } = dispatchClientMetadata();
-    const authorNames = fakeAuthorNames();
+    const authorUsernames = fakeAuthorUsernames();
     store.dispatch(loadAddonsByAuthors({
       addons: [],
-      authorNames,
+      authorUsernames,
     }));
 
-    const root = render({ authorNames, store });
+    const root = render({ authorUsernames, store });
 
     expect(root).not.toHaveClassName('AddonsByAuthorsCard');
     expect(root.html()).toBeNull();
@@ -179,7 +185,7 @@ describe(__filename, () => {
   it('should render nothing if add-ons are null', () => {
     const root = render({
       addons: null,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
     });
 
     expect(root).not.toHaveClassName('AddonsByAuthorsCard');
@@ -191,13 +197,13 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
     store.dispatch(fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandler,
       store,
     });
@@ -213,26 +219,26 @@ describe(__filename, () => {
 
     render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandler,
       store,
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
   });
 
-  it('should dispatch a fetch action if authorNames are updated', () => {
+  it('should dispatch a fetch action if authorUsernames are updated', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandler,
       store,
     });
@@ -241,27 +247,27 @@ describe(__filename, () => {
 
     root.setProps({
       addonType: ADDON_TYPE_THEME,
-      authorNames: ['test1'],
+      authorUsernames: ['test1'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_THEME,
-      authorNames: ['test1'],
+      authorUsernames: ['test1'],
       errorHandlerId: errorHandler.id,
     }));
 
-    // Make sure an authorNames update even with the same addonType dispatches
+    // Make sure an authorUsernames update even with the same addonType dispatches
     // a fetch action.
     dispatchSpy.reset();
 
     root.setProps({
       addonType: ADDON_TYPE_THEME,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_THEME,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
   });
@@ -273,7 +279,7 @@ describe(__filename, () => {
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandler,
       store,
     });
@@ -282,12 +288,12 @@ describe(__filename, () => {
 
     root.setProps({
       addonType: ADDON_TYPE_OPENSEARCH,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_OPENSEARCH,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
   });
@@ -299,7 +305,7 @@ describe(__filename, () => {
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandler,
       store,
     });
@@ -312,7 +318,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
       forAddonSlug: 'testing',
     }));
@@ -325,7 +331,7 @@ describe(__filename, () => {
 
     const root = render({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
       errorHandler,
       store,
     });
@@ -334,7 +340,7 @@ describe(__filename, () => {
 
     root.setProps({
       addonType: ADDON_TYPE_EXTENSION,
-      authorNames: ['test2'],
+      authorUsernames: ['test2'],
     });
 
     sinon.assert.notCalled(dispatchSpy);
@@ -347,7 +353,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', `More dictionaries by ${fakeAuthor.username}`);
+      .toHaveProp('header', `More dictionaries by ${fakeAuthor.name}`);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT with multiple authors', () => {
@@ -367,7 +373,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', `More extensions by ${fakeAuthor.username}`);
+      .toHaveProp('header', `More extensions by ${fakeAuthor.name}`);
   });
 
   it('shows extensions in header for ADDON_TYPE_EXTENSION with multiple authors', () => {
@@ -387,7 +393,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', `More language packs by ${fakeAuthor.username}`);
+      .toHaveProp('header', `More language packs by ${fakeAuthor.name}`);
   });
 
   it('shows extensions in header for ADDON_TYPE_LANG with multiple authors', () => {
@@ -407,7 +413,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', `More themes by ${fakeAuthor.username}`);
+      .toHaveProp('header', `More themes by ${fakeAuthor.name}`);
   });
 
   it('shows extensions in header for ADDON_TYPE_THEME with multiple authors', () => {
@@ -427,7 +433,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', `More add-ons by ${fakeAuthor.username}`);
+      .toHaveProp('header', `More add-ons by ${fakeAuthor.name}`);
   });
 
   it('shows add-ons in header if no specific addonType found with multiple authors', () => {
