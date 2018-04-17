@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-11 17:15+0000\n"
+"POT-Creation-Date: 2018-04-17 20:36+0000\n"
 "PO-Revision-Date: 2018-03-31 11:01+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
@@ -41,17 +41,17 @@ msgid "Add to…"
 msgstr "Добавить в…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:243
+#: src/amo/components/CollectionManager/index.js:282
 msgid "Add to collection"
 msgstr "Добавить в подборку"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Cancel preview"
-msgstr "Отменить предпросмотр"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "Нажмите для предпросмотра"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "Отменить предпросмотр"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -109,7 +109,7 @@ msgstr "%(addonName)s %(startSpan)s от %(authorList)s %(endSpan)s"
 msgid "Extension Metadata"
 msgstr "Метаданные расширения"
 
-#: src/amo/components/Addon/index.js:501
+#: src/amo/components/Addon/index.js:502
 msgid "Screenshots"
 msgstr "Скриншоты"
 
@@ -249,7 +249,7 @@ msgid "Version"
 msgstr "Версия"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:220
 msgid "Last updated"
 msgstr "Последнее обновление"
 
@@ -399,43 +399,43 @@ msgstr "Редактировать мой отзыв"
 msgid "Reply to this review"
 msgstr "Ответить на отзыв"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:117
+#: src/amo/components/AddonsByAuthorsCard/index.js:119
 msgid "More dictionaries by %(author)s"
 msgstr "Другие словари от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by these translators"
 msgstr "Другие словари от этих переводчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "More extensions by %(author)s"
 msgstr "Другие расширения от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "More extensions by these developers"
 msgstr "Другие расширения от этих разработчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More language packs by %(author)s"
 msgstr "Другие локализации от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More language packs by these translators"
 msgstr "Другие локализации от этих переводчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "More themes by %(author)s"
 msgstr "Другие темы от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:152
 msgid "More themes by these artists"
 msgstr "Другие темы от этих художников"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More add-ons by %(author)s"
 msgstr "Другие дополнения от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:160
+#: src/amo/components/AddonsByAuthorsCard/index.js:162
 msgid "More add-ons by these developers"
 msgstr "Другие дополнения от этих разработчиков"
 
@@ -576,45 +576,51 @@ msgstr "Просмотреть все расширения в этой кате�
 msgid "Browse all themes in this category."
 msgstr "Просмотреть все темы в этой категории."
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:170
 msgid "Edit this collection"
 msgstr "Изменить эту подборку"
 
-#: src/amo/components/Collection/index.js:175
-msgid "Sign in to edit this collection"
+#: src/amo/components/Collection/index.js:186
+#, fuzzy
+msgid "Log in to edit this collection"
 msgstr "Войдите, чтобы изменить эту подборку"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:210
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Дополнения"
 
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:214
 msgid "Creator"
 msgstr "Создатель"
 
-#: src/amo/components/CollectionManager/index.js:190
+#: src/amo/components/CollectionList/index.js:38
+#, fuzzy
+msgid "Log in to create a collection"
+msgstr "Войдите, чтобы изменить эту подборку"
+
+#: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
 msgstr "Имя подборки"
 
-#: src/amo/components/CollectionManager/index.js:202
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Description"
 msgstr "Описание"
 
-#: src/amo/components/CollectionManager/index.js:213
+#: src/amo/components/CollectionManager/index.js:251
 msgid "Custom URL"
 msgstr "Пользовательский URL"
 
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/CollectionManager/index.js:278
 msgid "Find an add-on to include in this collection"
 msgstr "Найти дополнение для включения в эту подборку"
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:297
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Отмена"
 
-#: src/amo/components/CollectionManager/index.js:267
+#: src/amo/components/CollectionManager/index.js:306
 msgid "Save Collection"
 msgstr "Сохранить подборку"
 
@@ -698,6 +704,10 @@ msgstr "Пожертвовать сейчас"
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Загрузить Firefox"
+
+#: src/amo/components/EditableCollectionAddon/index.js:54
+msgid "Remove"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
@@ -1254,125 +1264,97 @@ msgstr "Это дополнение может:"
 msgid "Learn more about permissions"
 msgstr "Узнать больше о разрешениях"
 
-#: src/amo/components/PermissionsCard/permissions.js:24
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
 msgstr "Читать и изменять закладки"
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
 msgstr "Читать и изменять настройки браузера"
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "Удалять недавнюю историю просмотров, куки и связанные с ними данные"
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
 msgstr "Получать данные из буфера обмена"
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
 msgstr "Помещать данные в буфер обмена"
 
-#: src/amo/components/PermissionsCard/permissions.js:29
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "Разрешать инструментам разработчика получать доступ к вашим данным в "
 "открытых вкладках"
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
 msgstr "Загружать файлы, а также читать и изменять историю загрузок браузера"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
 msgstr "Открывать файлы, загруженные на ваш компьютер"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
 msgstr "Читать текст во всех открытых вкладках"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
 msgstr "Получать доступ к вашему местоположению"
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
 msgstr "Получать доступ к истории браузера"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
 msgstr "Мониторить использование расширений и управлять темами"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Обмениваться сообщениями с программами, помимо Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
 msgstr "Показывать вам уведомления"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
 msgstr "Предоставлять услуги криптографической аутентификации"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:42
 #, fuzzy
 msgid "Control browser proxy settings"
 msgstr "Контролировать настройки прокси в браузере"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
 msgstr "Читать и изменять параметры приватности"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
 msgstr "Получать доступ к недавно закрытым вкладкам"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
 msgstr "Получать доступ ко вкладкам браузера"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
 msgstr "Скрывать и отображать вкладки браузера"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
 msgstr "Хранить неограниченное количество данных на стороне клиента"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
 msgstr "Получать доступ к активности браузера при навигации"
-
-#: src/amo/components/PermissionsCard/permissions.js:49
-msgid "Access your data for all websites"
-msgstr "Получать доступ к вашим данных на всех сайтах"
-
-#: src/amo/components/PermissionsCard/permissions.js:52
-msgid "Access your data for sites in the %(domain)s domain"
-msgstr "Получать доступ к вашим данных на домене %(domain)s"
-
-#: src/amo/components/PermissionsCard/permissions.js:57
-#, fuzzy
-msgid "Access your data in %(count)s other domain"
-msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] "Получать доступ к вашим данных на %(count)s других доменах"
-msgstr[1] "Получать доступ к вашим данных на %(count)s других доменах"
-msgstr[2] "Получать доступ к вашим данных на %(count)s других доменах"
-
-#: src/amo/components/PermissionsCard/permissions.js:65
-msgid "Access your data for %(site)s"
-msgstr "Получать доступ к вашим данных на %(site)s"
-
-#: src/amo/components/PermissionsCard/permissions.js:70
-#, fuzzy
-msgid "Access your data on %(count)s other site"
-msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] "Получать доступ к вашим данных на %(count)s других сайтах"
-msgstr[1] "Получать доступ к вашим данных на %(count)s других сайтах"
-msgstr[2] "Получать доступ к вашим данных на %(count)s других сайтах"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -2158,17 +2140,17 @@ msgstr "%(name)s удалено. Щёлкните, чтобы установит
 msgid "Install state for %(name)s is unknown."
 msgstr "Состояние установки для %(name)s неизвестно."
 
-#: src/core/components/Paginate/index.js:108
+#: src/core/components/Paginate/index.js:100
+msgid "Page %(pageNumber)s of %(totalPages)s"
+msgstr "Страница %(pageNumber)s из %(totalPages)s"
+
+#: src/core/components/Paginate/index.js:109
 msgid "Previous"
 msgstr "Назад"
 
-#: src/core/components/Paginate/index.js:121
+#: src/core/components/Paginate/index.js:122
 msgid "Next"
 msgstr "Вперёд"
-
-#: src/core/components/Paginate/index.js:99
-msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Страница %(pageNumber)s из %(totalPages)s"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2209,6 +2191,36 @@ msgstr "Перезагрузите для продолжения"
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
 msgstr "Показать/скрыть содержимое"
+
+#: src/ui/components/HostPermissions/index.js:43
+msgid "Access your data for all websites"
+msgstr "Получать доступ к вашим данных на всех сайтах"
+
+#: src/ui/components/HostPermissions/index.js:46
+#, fuzzy
+msgid "Access your data in %(param)s other domain"
+msgid_plural "Access your data in %(param)s other domains"
+msgstr[0] "Получать доступ к вашим данных на %(count)s других доменах"
+msgstr[1] "Получать доступ к вашим данных на %(count)s других доменах"
+msgstr[2] "Получать доступ к вашим данных на %(count)s других доменах"
+
+#: src/ui/components/HostPermissions/index.js:53
+#, fuzzy
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "Получать доступ к вашим данных на домене %(domain)s"
+
+#: src/ui/components/HostPermissions/index.js:58
+#, fuzzy
+msgid "Access your data on %(param)s other site"
+msgid_plural "Access your data on %(param)s other sites"
+msgstr[0] "Получать доступ к вашим данных на %(count)s других сайтах"
+msgstr[1] "Получать доступ к вашим данных на %(count)s других сайтах"
+msgstr[2] "Получать доступ к вашим данных на %(count)s других сайтах"
+
+#: src/ui/components/HostPermissions/index.js:65
+#, fuzzy
+msgid "Access your data for %(param)s"
+msgstr "Получать доступ к вашим данных на %(site)s"
 
 #: src/ui/components/Rating/index.js:100
 #, fuzzy

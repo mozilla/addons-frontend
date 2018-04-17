@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-11 17:15+0000\n"
+"POT-Creation-Date: 2018-04-17 20:36+0000\n"
 "PO-Revision-Date: 2018-04-05 11:41+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
@@ -41,17 +41,17 @@ msgid "Add to…"
 msgstr "Adaugă în…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:243
+#: src/amo/components/CollectionManager/index.js:282
 msgid "Add to collection"
 msgstr "Adaugă în colecție"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Cancel preview"
-msgstr "Anulează previzualizarea"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "Atinge pentru previzualizare"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "Anulează previzualizarea"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -109,7 +109,7 @@ msgstr "%(addonName)s %(startSpan)sde %(authorList)s%(endSpan)s"
 msgid "Extension Metadata"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:501
+#: src/amo/components/Addon/index.js:502
 msgid "Screenshots"
 msgstr "Capturi de ecran"
 
@@ -246,7 +246,7 @@ msgid "Version"
 msgstr "Versiune"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:220
 msgid "Last updated"
 msgstr "Ultima actualizare"
 
@@ -388,43 +388,43 @@ msgstr "Editează-mi recenzia"
 msgid "Reply to this review"
 msgstr "Răspunde la această recenzie"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:117
+#: src/amo/components/AddonsByAuthorsCard/index.js:119
 msgid "More dictionaries by %(author)s"
 msgstr "Mai multe dicționare create de %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by these translators"
 msgstr "Mai multe dicționare create de acești traducători"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "More extensions by %(author)s"
 msgstr "Mai multe extensii create de %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "More extensions by these developers"
 msgstr "Mai multe extensii create de acești dezvoltatori"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More language packs by %(author)s"
 msgstr "Mai multe pachete lingvistice create de %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More language packs by these translators"
 msgstr "Mai multe pachete lingvistice create de acești traducători"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "More themes by %(author)s"
 msgstr "Mai multe teme create de %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:152
 msgid "More themes by these artists"
 msgstr "Mai multe teme create de acești artiști"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More add-ons by %(author)s"
 msgstr "Mai multe suplimente create de %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:160
+#: src/amo/components/AddonsByAuthorsCard/index.js:162
 msgid "More add-ons by these developers"
 msgstr "Mai multe suplimente create de acești dezvoltatori"
 
@@ -565,45 +565,51 @@ msgstr "Răsfoiește toate extensiile din această categorie."
 msgid "Browse all themes in this category."
 msgstr "Răsfoiește toate temele din această categorie."
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:170
 msgid "Edit this collection"
 msgstr "Editează această colecție"
 
-#: src/amo/components/Collection/index.js:175
-msgid "Sign in to edit this collection"
+#: src/amo/components/Collection/index.js:186
+#, fuzzy
+msgid "Log in to edit this collection"
 msgstr "Autentifică-te pentru a edita această colecție"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:210
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Suplimente"
 
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:214
 msgid "Creator"
 msgstr "Creator"
 
-#: src/amo/components/CollectionManager/index.js:190
+#: src/amo/components/CollectionList/index.js:38
+#, fuzzy
+msgid "Log in to create a collection"
+msgstr "Autentifică-te pentru a edita această colecție"
+
+#: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
 msgstr "Numele colecției"
 
-#: src/amo/components/CollectionManager/index.js:202
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Description"
 msgstr "Descriere"
 
-#: src/amo/components/CollectionManager/index.js:213
+#: src/amo/components/CollectionManager/index.js:251
 msgid "Custom URL"
 msgstr "URL personalizat"
 
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/CollectionManager/index.js:278
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:297
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Renunță"
 
-#: src/amo/components/CollectionManager/index.js:267
+#: src/amo/components/CollectionManager/index.js:306
 msgid "Save Collection"
 msgstr "Salvează colecția"
 
@@ -687,6 +693,10 @@ msgstr "Contribuie acum"
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Descarcă Firefox"
+
+#: src/amo/components/EditableCollectionAddon/index.js:54
+msgid "Remove"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
@@ -1228,125 +1238,99 @@ msgstr "Acest supliment poate:"
 msgid "Learn more about permissions"
 msgstr "Află mai multe despre permisiuni"
 
-#: src/amo/components/PermissionsCard/permissions.js:24
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
 msgstr "Să citească și să modifice marcajele"
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
 msgstr "Să citească și să modifice setările browserului"
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr "Să șteargă istoricul recent, cookie-urile și datele asociate"
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
 msgstr "Să obțină date din clipboard"
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
 msgstr "Să introducă date în clipbdoard"
 
-#: src/amo/components/PermissionsCard/permissions.js:29
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 "Să extindă uneltele de dezvoltare pentru a-ți accesa datele în filele "
 "deschise"
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 "Să descarce fișiere și să citească sau să modifice istoricul descărcărilor "
 "browserului"
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
 msgstr "Să deschidă fișierele descărcate pe calculator"
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
 msgstr "Să citească textul tuturor filelor deschise"
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
 msgstr "Să îți acceseze locația"
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
 msgstr "Să acceseze istoricul de navigare"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
 msgstr "Să monitorizeze utilizarea de extensii și să gestioneze temele"
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
 msgstr "Să facă schimb de mesaje cu alte programe în afară de Firefox"
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
 msgstr "Să îți afișeze notificări"
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
 msgstr "Să furnizeze servicii de autentificare criptografică"
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:42
 #, fuzzy
 msgid "Control browser proxy settings"
 msgstr "Să controleze setările proxy ale browserului"
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
 msgstr "Să citească și să modifice setările de confidențialitate"
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
 msgstr "Să acceseze filele închise recent"
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
 msgstr "Să acceseze filele browserului"
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
 msgstr "Să ascundă şi să afișeze filele browserului"
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
 msgstr "Să stocheze cantitate nelimitată de date pe partea de client"
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
 msgstr "Să acceseze activitatea browserului în timpul navigării"
-
-#: src/amo/components/PermissionsCard/permissions.js:49
-msgid "Access your data for all websites"
-msgstr "Să îți acceseze datele pentru toate site-urile web"
-
-#: src/amo/components/PermissionsCard/permissions.js:52
-msgid "Access your data for sites in the %(domain)s domain"
-msgstr "Să îți acceseze datele pentru site-uri din domeniul %(domain)s"
-
-#: src/amo/components/PermissionsCard/permissions.js:57
-msgid "Access your data in %(count)s other domain"
-msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] "Să îți acceseze datele într-un alt domeniu"
-msgstr[1] "Să îți acceseze datele în alte %(count)s domenii"
-msgstr[2] "Să îți acceseze datele în alte %(count)s de domenii"
-
-#: src/amo/components/PermissionsCard/permissions.js:65
-msgid "Access your data for %(site)s"
-msgstr "Să îți acceseze datele pentru %(site)s"
-
-#: src/amo/components/PermissionsCard/permissions.js:70
-msgid "Access your data on %(count)s other site"
-msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] "Să îți acceseze datele pe %(count)s alt site"
-msgstr[1] "Să îți acceseze datele pe alte %(count)s site-uri"
-msgstr[2] "Să îți acceseze datele pe alte %(count)s de site-uri"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -2032,18 +2016,18 @@ msgstr "%(name)s este dezinstalat. Clic pentru instalare."
 msgid "Install state for %(name)s is unknown."
 msgstr ""
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Precedenta"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Următoarea"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 #, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
 msgstr "Pagina %(currentPage)s din %(totalPages)s"
+
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Precedenta"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Următoarea"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2084,6 +2068,36 @@ msgstr ""
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
 msgstr ""
+
+#: src/ui/components/HostPermissions/index.js:43
+msgid "Access your data for all websites"
+msgstr "Să îți acceseze datele pentru toate site-urile web"
+
+#: src/ui/components/HostPermissions/index.js:46
+#, fuzzy
+msgid "Access your data in %(param)s other domain"
+msgid_plural "Access your data in %(param)s other domains"
+msgstr[0] "Să îți acceseze datele într-un alt domeniu"
+msgstr[1] "Să îți acceseze datele în alte %(count)s domenii"
+msgstr[2] "Să îți acceseze datele în alte %(count)s de domenii"
+
+#: src/ui/components/HostPermissions/index.js:53
+#, fuzzy
+msgid "Access your data for sites in the %(param)s domain"
+msgstr "Să îți acceseze datele pentru site-uri din domeniul %(domain)s"
+
+#: src/ui/components/HostPermissions/index.js:58
+#, fuzzy
+msgid "Access your data on %(param)s other site"
+msgid_plural "Access your data on %(param)s other sites"
+msgstr[0] "Să îți acceseze datele pe %(count)s alt site"
+msgstr[1] "Să îți acceseze datele pe alte %(count)s site-uri"
+msgstr[2] "Să îți acceseze datele pe alte %(count)s de site-uri"
+
+#: src/ui/components/HostPermissions/index.js:65
+#, fuzzy
+msgid "Access your data for %(param)s"
+msgstr "Să îți acceseze datele pentru %(site)s"
 
 #: src/ui/components/Rating/index.js:100
 #, fuzzy

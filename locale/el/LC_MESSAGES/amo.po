@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-04-11 17:15+0000\n"
+"POT-Creation-Date: 2018-04-17 20:36+0000\n"
 "PO-Revision-Date: 2018-03-15 21:50+0000\n"
 "Last-Translator: Jim Spentzos <jamesspentzos@hotmail.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "Προσθήκη σε…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:243
+#: src/amo/components/CollectionManager/index.js:282
 msgid "Add to collection"
 msgstr "Προσθήκη σε συλλογή"
 
 #: src/amo/components/Addon/index.js:170
-msgid "Cancel preview"
-msgstr "Ακύρωση προεπισκόπησης"
-
-#: src/amo/components/Addon/index.js:170
 msgid "Tap to preview"
 msgstr "Πατήστε για προεπισκόπηση"
+
+#: src/amo/components/Addon/index.js:170
+msgid "Cancel preview"
+msgstr "Ακύρωση προεπισκόπησης"
 
 #: src/amo/components/Addon/index.js:221
 msgid "This add-on cannot be rated because no versions have been published."
@@ -106,7 +106,7 @@ msgstr "%(addonName)s %(startSpan)s από %(authorList)s%(endSpan)s"
 msgid "Extension Metadata"
 msgstr "Μεταδεδομένα επέκτασης"
 
-#: src/amo/components/Addon/index.js:501
+#: src/amo/components/Addon/index.js:502
 msgid "Screenshots"
 msgstr "Στιγμιότυπα"
 
@@ -246,7 +246,7 @@ msgid "Version"
 msgstr "Έκδοση"
 
 #: src/amo/components/AddonMoreInfo/index.js:197
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:220
 msgid "Last updated"
 msgstr "Τελευταία ενημέρωση"
 
@@ -394,43 +394,43 @@ msgstr "Επεξεργασία κριτικής"
 msgid "Reply to this review"
 msgstr "Απάντηση στην κριτική"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:117
+#: src/amo/components/AddonsByAuthorsCard/index.js:119
 msgid "More dictionaries by %(author)s"
 msgstr "Περισσότερα λεξικά από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by these translators"
 msgstr "Περισσότερα λεξικά από αυτούς τους μεταφραστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "More extensions by %(author)s"
 msgstr "Περισσότερες επεκτάσεις από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "More extensions by these developers"
 msgstr "Περισσότερες επεκτάσεις από αυτούς τους προγραμματιστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More language packs by %(author)s"
 msgstr "Περισσότερα πακέτα γλωσσών από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More language packs by these translators"
 msgstr "Περισσότερα πακέτα γλωσσών από αυτούς τους μεταφραστές"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "More themes by %(author)s"
 msgstr "Περισσότερα θέματα από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:150
+#: src/amo/components/AddonsByAuthorsCard/index.js:152
 msgid "More themes by these artists"
 msgstr "Περισσότερα θέματα από αυτούς τους καλλιτέχνες"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More add-ons by %(author)s"
 msgstr "Περισσότερα πρόσθετα από %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:160
+#: src/amo/components/AddonsByAuthorsCard/index.js:162
 msgid "More add-ons by these developers"
 msgstr "Περισσότερα πρόσθετα από αυτούς τους προγραμματιστές"
 
@@ -576,47 +576,52 @@ msgstr "Περιήγηση σε όλες τις επεκτάσεις αυτής 
 msgid "Browse all themes in this category."
 msgstr "Περιήγηση σε όλα τα θέματα αυτής της κατηγορίας."
 
-#: src/amo/components/Collection/index.js:159
+#: src/amo/components/Collection/index.js:170
 #, fuzzy
 msgid "Edit this collection"
 msgstr "Περιήγηση σε όλες τις επεκτάσεις"
 
-#: src/amo/components/Collection/index.js:175
+#: src/amo/components/Collection/index.js:186
 #, fuzzy
-msgid "Sign in to edit this collection"
+msgid "Log in to edit this collection"
 msgstr "Περιήγηση σε όλες τις επεκτάσεις"
 
-#: src/amo/components/Collection/index.js:199
+#: src/amo/components/Collection/index.js:210
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Πρόσθετα"
 
-#: src/amo/components/Collection/index.js:203
+#: src/amo/components/Collection/index.js:214
 msgid "Creator"
 msgstr "Δημιουργός"
 
-#: src/amo/components/CollectionManager/index.js:190
+#: src/amo/components/CollectionList/index.js:38
+#, fuzzy
+msgid "Log in to create a collection"
+msgstr "Περιήγηση σε όλες τις επεκτάσεις"
+
+#: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
 msgstr "Όνομα συλλογής"
 
-#: src/amo/components/CollectionManager/index.js:202
+#: src/amo/components/CollectionManager/index.js:240
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: src/amo/components/CollectionManager/index.js:213
+#: src/amo/components/CollectionManager/index.js:251
 msgid "Custom URL"
 msgstr "Προσαρμοσμένο URL"
 
-#: src/amo/components/CollectionManager/index.js:239
+#: src/amo/components/CollectionManager/index.js:278
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:258
+#: src/amo/components/CollectionManager/index.js:297
 #: src/ui/components/DismissibleTextForm/index.js:126
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: src/amo/components/CollectionManager/index.js:267
+#: src/amo/components/CollectionManager/index.js:306
 #, fuzzy
 msgid "Save Collection"
 msgstr "Αποθήκευση συλλογής"
@@ -695,6 +700,10 @@ msgstr "Συνεισφορά τώρα"
 #: src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
 msgstr "Λήψη του Firefox"
+
+#: src/amo/components/EditableCollectionAddon/index.js:54
+msgid "Remove"
+msgstr ""
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid ""
@@ -1253,119 +1262,95 @@ msgstr "Σχετικά με το πρόσθετο"
 msgid "Learn more about permissions"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:24
+#: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:25
+#: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:26
+#: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:27
+#: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:28
+#: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:29
+#: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:30
+#: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:31
+#: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:32
+#: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:33
+#: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:34
-#: src/amo/components/PermissionsCard/permissions.js:46
+#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:47
 #, fuzzy
 msgid "Access browsing history"
 msgstr "Ιστορικό εκδόσεων"
 
-#: src/amo/components/PermissionsCard/permissions.js:35
+#: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:38
+#: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:39
+#: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:40
+#: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:41
+#: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:42
+#: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:43
+#: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:44
+#: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:45
+#: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:47
+#: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
 msgstr ""
 
-#: src/amo/components/PermissionsCard/permissions.js:48
+#: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
 msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:49
-msgid "Access your data for all websites"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:52
-msgid "Access your data for sites in the %(domain)s domain"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:57
-msgid "Access your data in %(count)s other domain"
-msgid_plural "Access your data in %(count)s other domains"
-msgstr[0] ""
-msgstr[1] ""
-
-#: src/amo/components/PermissionsCard/permissions.js:65
-msgid "Access your data for %(site)s"
-msgstr ""
-
-#: src/amo/components/PermissionsCard/permissions.js:70
-msgid "Access your data on %(count)s other site"
-msgid_plural "Access your data on %(count)s other sites"
-msgstr[0] ""
-msgstr[1] ""
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -2055,18 +2040,18 @@ msgstr "Το %(name)s έχει απεγκατασταθεί. Κάντε κλικ
 msgid "Install state for %(name)s is unknown."
 msgstr "Η κατάσταση εγκατάστασης για το %(name)s είναι άγνωστη."
 
-#: src/core/components/Paginate/index.js:108
-msgid "Previous"
-msgstr "Προηγούμενη"
-
-#: src/core/components/Paginate/index.js:121
-msgid "Next"
-msgstr "Επόμενη"
-
-#: src/core/components/Paginate/index.js:99
+#: src/core/components/Paginate/index.js:100
 #, fuzzy
 msgid "Page %(pageNumber)s of %(totalPages)s"
 msgstr "Σελίδα %(currentPage)s από %(totalPages)s"
+
+#: src/core/components/Paginate/index.js:109
+msgid "Previous"
+msgstr "Προηγούμενη"
+
+#: src/core/components/Paginate/index.js:122
+msgid "Next"
+msgstr "Επόμενη"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
@@ -2107,6 +2092,30 @@ msgstr "Επαναφορτώστε τη σελίδα για να συνεχίσ�
 #: src/ui/components/ExpandableCard/index.js:43
 msgid "Toggle contents"
 msgstr "Εναλλαγή περιεχομένων"
+
+#: src/ui/components/HostPermissions/index.js:43
+msgid "Access your data for all websites"
+msgstr ""
+
+#: src/ui/components/HostPermissions/index.js:46
+msgid "Access your data in %(param)s other domain"
+msgid_plural "Access your data in %(param)s other domains"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/components/HostPermissions/index.js:53
+msgid "Access your data for sites in the %(param)s domain"
+msgstr ""
+
+#: src/ui/components/HostPermissions/index.js:58
+msgid "Access your data on %(param)s other site"
+msgid_plural "Access your data on %(param)s other sites"
+msgstr[0] ""
+msgstr[1] ""
+
+#: src/ui/components/HostPermissions/index.js:65
+msgid "Access your data for %(param)s"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:100
 #, fuzzy
