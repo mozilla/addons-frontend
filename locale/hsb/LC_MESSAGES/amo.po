@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-18 05:10+0000\n"
+"PO-Revision-Date: 2018-04-18 05:16+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -536,9 +536,8 @@ msgid "Creator"
 msgstr "Wuwiwar"
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Přizjewće so, zo byšće tutu zběrku wobdźěłał"
+msgstr "Přizjewće so, zo byšće zběrku wutworił"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -1908,32 +1907,28 @@ msgid "Access your data for all websites"
 msgstr "Mějće přistup na swoje daty za wšě websydła"
 
 #: src/ui/components/HostPermissions/index.js:46
-#, fuzzy
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "Mějće přistup na swoje daty w %(count)s druhej domenje"
-msgstr[1] "Mějće přistup na swoje daty w %(count)s druhimaj domenomaj"
-msgstr[2] "Mějće přistup na swoje daty w %(count)s druhich domenach"
-msgstr[3] "Mějće přistup na swoje daty w %(count)s druhich domenach"
+msgstr[0] "Mějće přistup na swoje daty w %(param)s druhej domenje"
+msgstr[1] "Mějće přistup na swoje daty w %(param)s druhimaj domenomaj"
+msgstr[2] "Mějće přistup na swoje daty w %(param)s druhich domenach"
+msgstr[3] "Mějće přistup na swoje daty w %(param)s druhich domenach"
 
 #: src/ui/components/HostPermissions/index.js:53
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Mějće přistup na swoje daty za sydła w domenje %(domain)s"
+msgstr "Mějće přistup na swoje daty za sydła w domenje %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:58
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Mějće přistup na swoje daty na %(count)s druhim websydle"
-msgstr[1] "Mějće přistup na swoje daty na %(count)s druhimaj websydłomaj"
-msgstr[2] "Mějće přistup na swoje daty na %(count)s druhich websydłach"
-msgstr[3] "Mějće přistup na swoje daty na %(count)s druhich websydłach"
+msgstr[0] "Mějće přistup na swoje daty na %(param)s druhim websydle"
+msgstr[1] "Mějće přistup na swoje daty na %(param)s druhimaj websydłomaj"
+msgstr[2] "Mějće přistup na swoje daty na%(param)s druhich websydłach"
+msgstr[3] "Mějće přistup na swoje daty na %(param)s druhich websydłach"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "Mějće přistup na swoje daty za %(site)sS"
+msgstr "Mějće přistup na swoje daty za %(param)s"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
