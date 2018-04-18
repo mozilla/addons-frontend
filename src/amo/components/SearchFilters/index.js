@@ -200,20 +200,22 @@ export class SearchFiltersBase extends React.Component {
             })}
           </Select>
 
-          <input
-            className="SearchFilters-Featured"
-            checked={!!filters.featured}
-            id="SearchFilters-Featured"
-            name="featured"
-            onChange={this.onChangeCheckbox}
-            type="checkbox"
-          />
-          <label
-            className="SearchFilters-label SearchFilters-Featured-label"
-            htmlFor="SearchFilters-Featured"
-          >
-            {i18n.gettext('Featured add-ons only')}
-          </label>
+          <div id="SearchFilters-Checkbox">
+            <input
+              className="SearchFilters-Featured"
+              checked={!!filters.featured}
+              id="SearchFilters-Featured"
+              name="featured"
+              onChange={this.onChangeCheckbox}
+              type="checkbox"
+            />
+            <label
+              className="SearchFilters-label SearchFilters-Featured-label"
+              htmlFor="SearchFilters-Featured"
+            >
+              {i18n.gettext('Featured add-ons only')}
+            </label>
+          </div>
         </form>
       </ExpandableCard>
     );

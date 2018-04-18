@@ -17,4 +17,15 @@
   @include margin-start(5px);
 
   display: inline-block;
+  font-size: 14px;
+  width: 90%;
+}
+
+#SearchFilters-Checkbox {
+  margin: 20px 0 0 0;
+}
+
+#SearchFilters-Featured {
+  height: 17px;
+  width: 17px;
 }
