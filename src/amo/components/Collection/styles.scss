@@ -31,7 +31,8 @@
   word-wrap: break-word;
 }
 
-.Collection-detail {
+.Collection-detail,
+.CollectionList-create {
   .Card-contents {
     overflow: visible;
   }
