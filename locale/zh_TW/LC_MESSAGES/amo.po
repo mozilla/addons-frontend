@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-18 02:04+0000\n"
+"PO-Revision-Date: 2018-04-18 02:18+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -609,7 +609,7 @@ msgstr "下載 Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:54
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -1847,20 +1847,17 @@ msgid_plural "Access your data in %(param)s other domains"
 msgstr[0] "存取您在其他 %(param)s 個網域中的資料"
 
 #: src/ui/components/HostPermissions/index.js:53
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "存取您在 %(domain)s 網域中的資料"
+msgstr "存取您在 %(param)s 網域中的資料"
 
 #: src/ui/components/HostPermissions/index.js:58
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "存取您在其他 %(count)s 個網站中的資料"
+msgstr[0] "存取您在其他 %(param)s 個網站中的資料"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "存取您在 %(site)s 的資料"
+msgstr "存取您在 %(param)s 的資料"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
