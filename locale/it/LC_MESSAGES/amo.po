@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-18 09:49+0000\n"
-"Last-Translator: Elio <elio.gi@gmail.com>\n"
+"PO-Revision-Date: 2018-04-18 13:51+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -517,9 +517,8 @@ msgid "Edit this collection"
 msgstr "Modifica questa raccolta"
 
 #: src/amo/components/Collection/index.js:186
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "Accedere per modificare la raccolta"
+msgstr "Accedi per modificare la raccolta"
 
 #: src/amo/components/Collection/index.js:210 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -530,9 +529,8 @@ msgid "Creator"
 msgstr "Autore"
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Accedere per modificare la raccolta"
+msgstr "Accedi per creare la raccolta"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -1897,9 +1895,8 @@ msgstr[0] "Accedere ai dati utente in %(param)s altro dominio"
 msgstr[1] "Accedere ai dati utente in %(param)s altri domini"
 
 #: src/ui/components/HostPermissions/index.js:53
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Accedere ai dati dei siti inclusi nel dominio %(domain)s"
+msgstr "Accedere ai dati utente dei siti inclusi nel dominio %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data on %(param)s other site"
@@ -1908,9 +1905,8 @@ msgstr[0] "Accedere ai dati utente in %(param)s altro sito web"
 msgstr[1] "Accedere ai dati utente in %(param)s altri siti web"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "Accedere ai dati di %(site)s"
+msgstr "Accedere ai dati utente di %(param)s"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
