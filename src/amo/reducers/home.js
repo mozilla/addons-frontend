@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type { AddonType, ExternalAddonType } from 'core/types/addons';
@@ -9,15 +11,17 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 export type HomeState = {
   collections: Array<Object>,
   featuredExtensions: Array<AddonType>,
-  featuredThemes: Array<AddonType>,
+  popularExtensions: Array<AddonType>,
   resultsLoaded: boolean,
+  topRatedThemes: Array<AddonType>,
 };
 
 export const initialState: HomeState = {
   collections: [],
   featuredExtensions: [],
-  featuredThemes: [],
+  popularExtensions: [],
   resultsLoaded: false,
+  topRatedThemes: [],
 };
 
 type FetchHomeAddonsParams = {|
@@ -34,12 +38,8 @@ export const fetchHomeAddons = ({
   errorHandlerId,
   collectionsToFetch,
 }: FetchHomeAddonsParams): FetchHomeAddonsAction => {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId is required');
-  }
-  if (!collectionsToFetch) {
-    throw new Error('collectionsToFetch is required');
-  }
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(collectionsToFetch, 'collectionsToFetch is required');
 
   return {
     type: FETCH_HOME_ADDONS,
@@ -67,7 +67,8 @@ type ApiAddonsResponse = {|
 type LoadHomeAddonsParams = {|
   collections: Array<Object>,
   featuredExtensions: ApiAddonsResponse,
-  featuredThemes: ApiAddonsResponse,
+  popularExtensions: ApiAddonsResponse,
+  topRatedThemes: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -78,24 +79,21 @@ type LoadHomeAddonsAction = {|
 export const loadHomeAddons = ({
   collections,
   featuredExtensions,
-  featuredThemes,
+  popularExtensions,
+  topRatedThemes,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
-  if (!collections) {
-    throw new Error('collections is required');
-  }
-  if (!featuredExtensions) {
-    throw new Error('featuredExtensions are required');
-  }
-  if (!featuredThemes) {
-    throw new Error('featuredThemes are required');
-  }
+  invariant(collections, 'collections is required');
+  invariant(featuredExtensions, 'featuredExtensions is required');
+  invariant(popularExtensions, 'popularExtensions is required');
+  invariant(topRatedThemes, 'topRatedThemes is required');
 
   return {
     type: LOAD_HOME_ADDONS,
     payload: {
       collections,
       featuredExtensions,
-      featuredThemes,
+      popularExtensions,
+      topRatedThemes,
     },
   };
 };
@@ -127,7 +125,8 @@ const reducer = (
       const {
         collections,
         featuredExtensions,
-        featuredThemes,
+        popularExtensions,
+        topRatedThemes,
       } = action.payload;
 
       return {
@@ -140,7 +139,8 @@ const reducer = (
             });
         }),
         featuredExtensions: createInternalAddons(featuredExtensions),
-        featuredThemes: createInternalAddons(featuredThemes),
+        popularExtensions: createInternalAddons(popularExtensions),
+        topRatedThemes: createInternalAddons(topRatedThemes),
         resultsLoaded: true,
       };
     }
