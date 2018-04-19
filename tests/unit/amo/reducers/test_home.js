@@ -34,7 +34,8 @@ describe(__filename, () => {
           addons: Array(10).fill(fakeAddon),
         })],
         featuredExtensions: createAddonsApiResult([fakeAddon]),
-        featuredThemes: createAddonsApiResult([fakeTheme]),
+        popularExtensions: createAddonsApiResult([fakeAddon]),
+        topRatedThemes: createAddonsApiResult([fakeTheme]),
       }));
 
       const homeState = store.getState().home;
@@ -50,7 +51,10 @@ describe(__filename, () => {
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);
-      expect(homeState.featuredThemes).toEqual([
+      expect(homeState.popularExtensions).toEqual([
+        createInternalAddon(fakeAddon),
+      ]);
+      expect(homeState.topRatedThemes).toEqual([
         createInternalAddon(fakeTheme),
       ]);
     });
@@ -64,66 +68,6 @@ describe(__filename, () => {
       }));
 
       expect(state.resultsLoaded).toEqual(false);
-    });
-  });
-
-  describe('fetchHomeAddons()', () => {
-    const defaultParams = {
-      errorHandlerId: 'some-error-handler-id',
-      collectionsToFetch: [],
-    };
-
-    it('throws an error when errorHandlerId is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.errorHandlerId;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('errorHandlerId is required');
-    });
-
-    it('throws an error when collectionsToFetch is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.collectionsToFetch;
-
-      expect(() => {
-        fetchHomeAddons(partialParams);
-      }).toThrow('collectionsToFetch is required');
-    });
-  });
-
-  describe('loadHomeAddons()', () => {
-    const defaultParams = {
-      collections: [],
-      featuredExtensions: {},
-      featuredThemes: {},
-    };
-
-    it('throws an error when the collections array is missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.collections;
-
-      expect(() => {
-        loadHomeAddons(partialParams);
-      }).toThrow('collections is required');
-    });
-
-    it('throws an error when featured extensions are missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.featuredExtensions;
-
-      expect(() => {
-        loadHomeAddons(partialParams);
-      }).toThrow('featuredExtensions are required');
-    });
-
-    it('throws an error when popular themes are missing', () => {
-      const partialParams = { ...defaultParams };
-      delete partialParams.featuredThemes;
-
-      expect(() => {
-        loadHomeAddons(partialParams);
-      }).toThrow('featuredThemes are required');
     });
   });
 });

@@ -22,12 +22,12 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-1"
-          linkTo="/addon/facebook-video-downloader-hd/"
+          linkTo="/addon/facebook-container/"
         >
-          <h3>{i18n.gettext('Facebook Video Downloader')}</h3>
+          <h3>{i18n.gettext('Facebook Container')}</h3>
 
           <p>
-            {i18n.gettext('Download with a single click')}
+            {i18n.gettext('Prevent Facebook from tracking you around the web')}
           </p>
         </HeroSection>
       ),
@@ -128,35 +128,36 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-10"
-          linkTo="/addon/snake-game/"
+          linkTo="/addon/tab_search/"
         >
-          <h3>{i18n.gettext('Snake Game')}</h3>
+          <h3>{i18n.gettext('TabSearch')}</h3>
 
           <p>
-            {i18n.gettext('The classic game, always a click away')}
+            {i18n.gettext('Need a search function for just your open tabs?')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-11"
-          linkTo="/addon/tab-invaders/"
+          linkTo="/addon/the-laser-cat/"
         >
-          <h3>{i18n.gettext('Tab Invaders')}</h3>
+          <h3>{i18n.gettext('Laser Cat')}</h3>
 
           <p>
-            {i18n.gettext('Space Invaders meets smart tab management')}
+            {i18n.gettext(`For moments on the internet when you need to fire
+              lasers out of a cat`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-12"
-          linkTo="/addon/wikiwand-wikipedia-modernized/"
+          linkTo="/addon/s3download-statusbar/"
         >
-          <h3>{i18n.gettext('Wikiwand')}</h3>
+          <h3>{i18n.gettext('Download Manager (S3)')}</h3>
 
-          <p>{i18n.gettext('Give Wikipedia a gorgeous makeover')}</p>
+          <p>{i18n.gettext('Manage downloads from a tidy status bar')}</p>
         </HeroSection>
       ),
       (
@@ -215,6 +216,30 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext('Remove clutter and improve readability')}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-18"
+          linkTo="/addon/foxy-gestures/"
+        >
+          <h3>{i18n.gettext('FoxyGestures')}</h3>
+
+          <p>
+            {i18n.gettext('Customized mouse gestures')}
+          </p>
+        </HeroSection>
+      ),
+      (
+        <HeroSection
+          key="hero-19"
+          linkTo="/addon/privacy-badger17/"
+        >
+          <h3>{i18n.gettext('PrivacyBadger')}</h3>
+
+          <p>
+            {i18n.gettext('Block sneaky spying ads and trackers')}
           </p>
         </HeroSection>
       ),

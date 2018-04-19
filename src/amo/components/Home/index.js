@@ -13,6 +13,10 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
+  INSTALL_SOURCE_MOST_POPULAR,
+  INSTALL_SOURCE_TOP_RATED,
+  SEARCH_SORT_POPULAR,
+  SEARCH_SORT_TOP_RATED,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -24,9 +28,8 @@ import './styles.scss';
 
 
 export const COLLECTIONS_TO_FETCH = [
-  { slug: 'social-media-customization', user: 'mozilla' },
-  { slug: 'wikipedia-boosters', user: 'mozilla' },
-  { slug: 'good-time-tabs', user: 'mozilla' },
+  { slug: 'privacy-matters', user: 'mozilla' },
+  { slug: 'trending-add-ons', user: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -35,9 +38,10 @@ export class HomeBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
-    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
+    popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
+    topRatedThemes: PropTypes.array.isRequired,
   }
 
   componentWillMount() {
@@ -156,9 +160,10 @@ export class HomeBase extends React.Component {
       errorHandler,
       collections,
       featuredExtensions,
-      featuredThemes,
       i18n,
+      popularExtensions,
       resultsLoaded,
+      topRatedThemes,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -194,53 +199,18 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addons={collections[0]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Social media customization')}
-          footerText={
-            i18n.gettext('See more social media customization extensions')
-          }
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
-          }
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={collections[1]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Wikipedia boosters')}
-          footerText={i18n.gettext('See more Wikipedia boosters')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
-          }
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_FEATURED}
-          addons={featuredThemes}
-          className="Home-FeaturedThemes"
-          header={i18n.gettext('Featured themes')}
-          footerText={i18n.gettext('See more featured themes')}
+          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
+          addons={popularExtensions}
+          className="Home-PopularExtensions"
+          header={i18n.gettext('Popular extensions')}
+          footerText={i18n.gettext('See more popular extensions')}
           footerLink={{
             pathname: '/search/',
             query: {
-              addonType: ADDON_TYPE_THEME,
-              featured: true,
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_POPULAR,
             },
           }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
-          addons={collections[2]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Good time tabs')}
-          footerText={i18n.gettext('See more good time tabs extensions')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
-          }
           loading={resultsLoaded === false}
         />
 
@@ -257,6 +227,46 @@ export class HomeBase extends React.Component {
               featured: true,
             },
           }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addonInstallSource={INSTALL_SOURCE_TOP_RATED}
+          addons={topRatedThemes}
+          className="Home-TopRatedThemes"
+          header={i18n.gettext('Top-rated themes')}
+          footerText={i18n.gettext('See more highly rated themes')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_THEME,
+              sort: SEARCH_SORT_TOP_RATED,
+            },
+          }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[0]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Privacy tools')}
+          footerText={
+            i18n.gettext('See more privacy tools')
+          }
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+          }
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[1]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Trending extensions')}
+          footerText={i18n.gettext('See more trending extensions')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 
@@ -281,8 +291,9 @@ export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
-    featuredThemes: state.home.featuredThemes,
+    popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
+    topRatedThemes: state.home.topRatedThemes,
   };
 }
 
