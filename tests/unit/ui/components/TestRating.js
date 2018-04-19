@@ -99,32 +99,51 @@ describe(__filename, () => {
     expect(onSelectRating.firstCall.args[0]).toEqual(5);
   });
 
-  it('renders selected stars corresponding to rating number', () => {
-    const root = render({ rating: 3 });
+  it('renders correct full stars for a rating', () => {
+    const verifyRating = (root) => {
+      // Make sure only the first 3 stars are selected.
+      [1, 2, 3].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+      });
+      [4, 5].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual('Rating-choice');
+      });
+    };
 
-    // Make sure only the first 3 stars are selected.
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
-    });
-    [4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-    });
+    // Exact rating.
+    let root = render({ rating: 3 });
+    verifyRating(root);
+
+    // Should round down to full star.
+    root = render({ rating: 3.249 });
+    verifyRating(root);
+
+    // Should round up to full star.
+    root = render({ rating: 2.75 });
+    verifyRating(root);
   });
 
-  it('renders half stars in ratings', () => {
-    // This should be treated like a rating of 3.5 (three and a half stars).
-    const root = render({ rating: 3.60001 });
+  it('renders correct half stars for a rating', () => {
+    const verifyRating = (root) => {
+      // The first three stars are fully highlighted.
+      [1, 2, 3].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+      });
+      // The fourth star is a half-star.
+      [4].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
+      });
+      [5].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual('Rating-choice');
+      });
+    };
 
-    // The first three stars are fully highlighted
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
-    });
-    [4].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
-    });
-    [5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-    });
+    // Should round up to a half star.
+    let root = render({ rating: 3.25 });
+    verifyRating(root);
+    // Should round down to a half star.
+    root = render({ rating: 3.749 });
+    verifyRating(root);
   });
 
   it('rounds ratings to nearest 0.5 multiple', () => {
@@ -132,30 +151,6 @@ describe(__filename, () => {
     const root = render({ rating: 3.60001 });
 
     expect(findDOMNode(root).title).toContain('3.6 out of 5');
-  });
-
-  it('converts rating numbers to a float', () => {
-    const rootWithInteger = render({ rating: 3 });
-    const rootWithString = render({ rating: '3.60001' });
-
-    expect(findDOMNode(rootWithInteger).title).toContain('3 out of 5');
-    expect(findDOMNode(rootWithString).title).toContain('3.6 out of 5');
-  });
-
-  it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
-    // This should be treated like a rating of 3.5.
-    const root = render({ rating: 3.6, readOnly: true });
-
-    // The first three stars are fully highlighted
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
-    });
-    [4].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
-    });
-    [5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-    });
   });
 
   it('renders 0 selected stars for empty ratings', () => {
