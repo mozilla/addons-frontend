@@ -23,7 +23,7 @@ describe('amo/utils', () => {
     });
   });
 
-  describe('amo/utils/getDjangoBase62', () => {
+  describe('getDjangoBase62', () => {
     const base62 = getDjangoBase62();
 
     it('encodes a example number', () => {
@@ -32,6 +32,14 @@ describe('amo/utils', () => {
 
     it('decodes a example encoded number', () => {
       expect(base62.decode('9QVvGFw')).toEqual(535493287492);
+    });
+
+    it('returns NaN when decoding bogus input', () => {
+      expect(Number.isNaN(base62.decode('dfhhsk%%$#^@#$@'))).toBe(true);
+    });
+
+    it('returns "" when encoding bogus input', () => {
+      expect(base62.encode('a-string')).toEqual('');
     });
   });
 });
