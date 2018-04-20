@@ -99,7 +99,7 @@ export class AddonCompatibilityErrorBase extends React.Component {
     // Make the "you should download firefox" error message less scary than
     // the rest of them: https://github.com/mozilla/addons-frontend/issues/4547
     const noticeType = reason === INCOMPATIBLE_NOT_FIREFOX ?
-      'success' : 'error';
+      'firefox' : 'error';
 
     return (
       <Notice type={noticeType} className="AddonCompatibilityError">

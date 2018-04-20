@@ -9,7 +9,8 @@ import './styles.scss';
 const errorType: 'error' = 'error';
 const genericType: 'generic' = 'generic';
 const successType: 'success' = 'success';
-const validTypes = [errorType, genericType, successType];
+const firefoxRequiredType: 'firefox' = 'firefox';
+const validTypes = [errorType, genericType, successType, firefoxRequiredType];
 
 type Props = {
   action?: Function,
