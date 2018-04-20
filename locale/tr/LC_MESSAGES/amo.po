@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-19 19:25+0000\n"
+"PO-Revision-Date: 2018-04-20 14:59+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -609,7 +609,7 @@ msgstr "Firefox’u indir"
 
 #: src/amo/components/EditableCollectionAddon/index.js:54
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
