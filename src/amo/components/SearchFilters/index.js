@@ -200,7 +200,10 @@ export class SearchFiltersBase extends React.Component {
             })}
           </Select>
 
-          <div id="SearchFilters-Checkbox">
+          <label
+            className="SearchFilters-label SearchFilters-Featured-label"
+            htmlFor="SearchFilters-Featured"
+          >
             <input
               className="SearchFilters-Featured"
               checked={!!filters.featured}
@@ -209,13 +212,8 @@ export class SearchFiltersBase extends React.Component {
               onChange={this.onChangeCheckbox}
               type="checkbox"
             />
-            <label
-              className="SearchFilters-label SearchFilters-Featured-label"
-              htmlFor="SearchFilters-Featured"
-            >
-              {i18n.gettext('Featured add-ons only')}
-            </label>
-          </div>
+            {i18n.gettext('Featured add-ons only')}
+          </label>
         </form>
       </ExpandableCard>
     );
