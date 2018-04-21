@@ -49,9 +49,9 @@ $avatar-size: 64px;
 }
 
 .UserProfile-homepage {
-  text-overflow: ellipsis;
   display: block;
   overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .UserProfile-rating-average .Rating {
