@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-22 14:17+0000\n"
+"PO-Revision-Date: 2018-04-22 18:22+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1904,26 +1904,26 @@ msgstr "dostopa do vaših podatkov za vse spletne strani"
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "dostopa do vaših podatkov za %(param)s drugo domeno"
+msgstr[1] "dostopa do vaših podatkov za %(param)s drugi domeni"
+msgstr[2] "dostopa do vaših podatkov za %(param)s druge domene"
+msgstr[3] "dostopa do vaših podatkov za %(param)s drugih domen"
 
 #: src/ui/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "dostopa do vaših podatkov za strani na domeni %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "dostopa do vaših podatkov za %(param)s drugo spletno mesto"
+msgstr[1] "dostopa do vaših podatkov za %(param)s drugi spletni mesti"
+msgstr[2] "dostopa do vaših podatkov za %(param)s druga spletna mesta"
+msgstr[3] "dostopa do vaših podatkov za %(param)s drugih spletnih mest"
 
 #: src/ui/components/HostPermissions/index.js:65
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "dostopa do vaših podatkov za %(param)s"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
