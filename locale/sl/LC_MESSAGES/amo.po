@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-19 19:24+0000\n"
+"PO-Revision-Date: 2018-04-22 14:17+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1127,91 +1127,91 @@ msgstr "Več o dovoljenjih"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
-msgstr ""
+msgstr "bere in spreminja zaznamke"
 
 #: src/amo/components/PermissionsCard/permissions.js:26
 msgid "Read and modify browser settings"
-msgstr ""
+msgstr "bere in spreminja nastavitve brskalnika"
 
 #: src/amo/components/PermissionsCard/permissions.js:27
 msgid "Clear recent browsing history, cookies, and related data"
-msgstr ""
+msgstr "briše nedavno zgodovino, piškotke in povezane podatke"
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "dostopa do podatkov z odložišča"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "shranjuje podatke na odložišče"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
-msgstr ""
+msgstr "razširi razvojna orodja za dostop do vaših podatkov v odprtih zavihkih"
 
 #: src/amo/components/PermissionsCard/permissions.js:31
 msgid "Download files and read and modify the browser’s download history"
-msgstr ""
+msgstr "prenaša datoteke ter bere in spreminja zgodovino prenosov"
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "odpira datoteke, prenesene na vaš računalnik"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
-msgstr ""
+msgstr "bere besedilo vseh odprtih zavihkov"
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
-msgstr ""
+msgstr "pridobi vašo lokacijo"
 
 #: src/amo/components/PermissionsCard/permissions.js:35 src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
-msgstr "Dostop do zgodovine brskanja"
+msgstr "dostopa do zgodovine brskanja"
 
 #: src/amo/components/PermissionsCard/permissions.js:36
 msgid "Monitor extension usage and manage themes"
-msgstr ""
+msgstr "spremlja rabo razširitev in upravlja teme"
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "izmenjuje sporočila z drugimi programi poleg Firefoxa"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
-msgstr ""
+msgstr "prikazuje obvestila"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "zagotovi kriptografske storitve overjanja"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "nadzira nastavitve posrednika"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "bere in spreminja nastavitve zasebnosti"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "dostopa do nedavno zaprtih zavihkov"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
-msgstr ""
+msgstr "dostopa do zavihkov brskalnika"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "skrije in prikaže zavihke brskalnika"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "shranjuje neomejeno količino podatkov odjemalca"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "dostopa do dejavnosti brskalnika med brskanjem"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
@@ -1899,7 +1899,7 @@ msgstr "Preklopi vsebine"
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "dostopa do vaših podatkov za vse spletne strani"
 
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
