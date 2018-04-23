@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-23 10:08+0000\n"
+"PO-Revision-Date: 2018-04-23 10:18+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -182,13 +182,13 @@ msgstr "వాడుకరులు లేరు"
 
 #: src/amo/components/AddonMeta/index.js:43
 msgid "Ratings"
-msgstr ""
+msgstr "రేటింగులు"
 
 #: src/amo/components/AddonMeta/index.js:46
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "రేటింగు"
+msgstr[1] "రేటింగులు"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
@@ -617,7 +617,7 @@ msgstr ""
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
-msgstr ""
+msgstr "ఇప్పుడే తోడ్పడండి"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -625,7 +625,7 @@ msgstr "Firefoxను దింపుకోండి"
 
 #: src/amo/components/EditableCollectionAddon/index.js:54
 msgid "Remove"
-msgstr ""
+msgstr "తొలగించు"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -812,7 +812,7 @@ msgstr "క్లాసిక్ డెస్క్టాప్ సైట్�
 
 #: src/amo/components/Header/index.js:105
 msgid "View My Collections"
-msgstr ""
+msgstr "నా సేకరణలను చూడు"
 
 #: src/amo/components/Header/index.js:110
 msgid "View Profile"
@@ -916,7 +916,7 @@ msgstr "ఇష్టాంశాలు"
 
 #: src/amo/components/Home/index.js:64
 msgid "Password managers"
-msgstr ""
+msgstr "సంకేతపదాల నిర్వాహణ"
 
 #: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
@@ -928,7 +928,7 @@ msgstr "తెలివైన షాపింగ్"
 
 #: src/amo/components/Home/index.js:76
 msgid "Productivity"
-msgstr ""
+msgstr "ఉత్పాదకత"
 
 #: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
@@ -952,7 +952,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
-msgstr ""
+msgstr "పాము ఆట"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
@@ -968,7 +968,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
-msgstr ""
+msgstr "వికీవాండ్"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
@@ -984,7 +984,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
-msgstr ""
+msgstr "తేనె"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
@@ -1631,7 +1631,7 @@ msgstr "గొప్ప సమీక్ష వ్రాయడం కోసం �
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
-msgstr ""
+msgstr "చేయతగ్గవి:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
