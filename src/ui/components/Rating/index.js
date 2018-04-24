@@ -57,13 +57,9 @@ export class RatingBase extends React.Component {
     return [1, 2, 3, 4, 5].map((thisRating) => {
       const props = {
         className: makeClassName('Rating-choice', {
-          'Rating-selected-star': rating && thisRating <= rating,
-          // Half stars are the result of averages rounded to the nearest
-          // 0.5 place. The API should not return floats for your own review
-          // so effectively this only appears in readOnly for now, but there's
-          // nothing stopping the API from supporting half-stars later.
-          'Rating-half-star': (rating && thisRating > rating &&
-            thisRating - 0.5 <= rating),
+          'Rating-selected-star': thisRating - rating <= 0.25,
+          'Rating-half-star': thisRating - rating > 0.25 &&
+            thisRating - rating <= 0.75,
         }),
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
