@@ -215,10 +215,6 @@ export function createInternalAddon(
     isMozillaSignedExtension: false,
   };
 
-  if (_config.get('betaVersions')) {
-    addon.current_beta_version = apiAddon.current_beta_version;
-  }
-
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
     const themeData = createInternalThemeData(apiAddon);
 

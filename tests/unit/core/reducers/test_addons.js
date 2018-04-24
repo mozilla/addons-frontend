@@ -398,20 +398,6 @@ describe(__filename, () => {
     expect(state.byID[addon.id].isMozillaSignedExtension).toBe(true);
   });
 
-  it('does not expose beta version properties if disabled', () => {
-    const addon = createInternalAddon(
-      {
-        ...fakeAddon,
-        slug: 'some-slug',
-        current_beta_version: {
-          ...fakeAddon.current_version,
-          version: '3.0.0-beta',
-        },
-      },
-      { _config: getFakeConfig({ betaVersions: false }) });
-    expect(addon.current_beta_version).toBeUndefined();
-  });
-
   describe('fetchAddon', () => {
     const defaultParams = Object.freeze({
       slug: 'addon-slug',

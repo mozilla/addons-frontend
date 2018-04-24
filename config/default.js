@@ -89,7 +89,6 @@ module.exports = {
     'apiHost',
     'apiPath',
     'appName',
-    'betaVersions',
     'restrictSearchResultsToAppVersion',
     'cookieMaxAge',
     'cookieName',
@@ -286,9 +285,6 @@ module.exports = {
 
   // Expose the new screen for editing a collection.
   enableNewCollectionsUI: false,
-
-  // If true, show a link to the beta versions page on the listing page.
-  betaVersions: true,
 
   // Show and link to User Profiles using the front-end. These pages
   // are still in development so this should only be enabled locally and
