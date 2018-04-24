@@ -1,6 +1,5 @@
 /* @flow */
 import { oneLine } from 'common-tags';
-import config from 'config';
 
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -149,13 +148,8 @@ export function createInternalThemeData(
   };
 }
 
-type CreateInternalAddonOptions = {|
-  _config: typeof config,
-|};
-
 export function createInternalAddon(
-  apiAddon: ExternalAddonType,
-  { _config = config }: CreateInternalAddonOptions = {}
+  apiAddon: ExternalAddonType
 ): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,

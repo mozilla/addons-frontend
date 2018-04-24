@@ -17,7 +17,6 @@ import {
   createFetchAddonResult,
   createFetchAllAddonsResult,
   createStubErrorHandler,
-  getFakeConfig,
 } from 'tests/unit/helpers';
 import {
   createFakeAddon,
