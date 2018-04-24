@@ -1816,7 +1816,7 @@ msgstr ""
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(pageNumber)s of %(totalPages)s"
-msgstr "Sivu %(currentPage)s/%(totalPages)s"
+msgstr "Sivu %(pageNumber)s/%(totalPages)s"
 
 #: src/core/components/Paginate/index.js:109
 msgid "Previous"
