@@ -49,6 +49,24 @@ export class RatingBase extends React.Component {
     this.props.onSelectRating(rating);
   }
 
+  // Helper function used to render title attributes
+  // for each individual star, as well as the wrapper
+  // that surrounds the read-only set of stars
+  renderTitle = (i18n, rating, readOnly, starRating) => {
+    if (!readOnly && !rating) {
+      return i18n.sprintf(i18n.gettext(
+        `Rate this add-on %(starRating)s out of 5.`), { starRating });
+    } else if (!readOnly && rating) {
+      return i18n.sprintf(i18n.gettext(
+        `Update your rating to %(starRating)s out of 5.`), { starRating });
+    } else if (readOnly && rating) {
+      return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
+        { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
+    }
+    // If it's read only with no rating present
+    return i18n.gettext('This add-on has not been rated yet.');
+  }
+
   renderRatings() {
     const { i18n, readOnly } = this.props;
     // Accept falsey values as if they are zeroes.
@@ -64,12 +82,8 @@ export class RatingBase extends React.Component {
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
-        title: !readOnly ? i18n.sprintf(i18n.gettext(`Rate this add-on %(thisRating)s out of 5.`), { thisRating }) : null,
+        title: this.renderTitle(i18n, rating, readOnly, thisRating),
       };
-
-      if (rating && !readOnly) {
-        props.title = i18n.sprintf(i18n.gettext(`Update your rating to %(thisRating)s out of 5.`), { thisRating });
-      }
 
       if (readOnly) {
         return <div {...props} />;
@@ -98,9 +112,7 @@ export class RatingBase extends React.Component {
     // Wrap readOnly ratings with a description to maintain functionality
     // for the "Average rating of developer’s add-ons" tooltip
     if (readOnly) {
-      description = rating ? i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
-        { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) }) :
-        i18n.gettext('This add-on has not been rated yet.');
+      description = this.renderTitle(i18n, rating, readOnly, null);
     }
 
     const allClassNames = makeClassName(

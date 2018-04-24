@@ -109,23 +109,6 @@ describe(__filename, () => {
         expect(root.ratingElements[rating].className).toEqual('Rating-choice');
       });
     };
-  });
-  
-  it('renders an appropriate title when updating a rating', () => {
-    const root = render({ rating: 3 });
-
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
-      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
-    });
-    [4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
-    });
-  });
-
-  it('renders selected stars corresponding to rating number', () => {
-    const root = render({ rating: 3 });
 
     // Exact rating.
     let root = render({ rating: 3 });
@@ -157,6 +140,19 @@ describe(__filename, () => {
     // Should round down to a half star.
     root = render({ rating: 3.749 });
     verifyRating(root);
+  });
+
+  it('renders an appropriate title when updating a rating', () => {
+    const root = render({ rating: 3 });
+
+    [1, 2, 3].forEach((rating) => {
+      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
+    });
+    [4, 5].forEach((rating) => {
+      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
+      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
+    });
   });
 
   it('rounds ratings to nearest 0.5 multiple', () => {
@@ -244,7 +240,7 @@ describe(__filename, () => {
     const root = render({ rating: 3, readOnly: true });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual('');
+      expect(root.ratingElements[rating].title).toEqual('Rated 3 out of 5.');
     });
   });
 
