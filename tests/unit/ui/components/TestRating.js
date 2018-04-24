@@ -130,12 +130,8 @@ describe(__filename, () => {
         expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
       });
       // The fourth star is a half-star.
-      [4].forEach((rating) => {
-        expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
-      });
-      [5].forEach((rating) => {
-        expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-      });
+      expect(root.ratingElements[4].className).toEqual('Rating-choice Rating-half-star');
+      expect(root.ratingElements[5].className).toEqual('Rating-choice');
     };
 
     // Should round up to a half star.
