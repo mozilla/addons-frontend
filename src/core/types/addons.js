@@ -5,7 +5,6 @@ import { validAddonTypes } from 'core/constants';
 type AddonTypeType = validAddonTypes;
 
 type AddonStatus =
-  | 'beta'
   | 'lite'
   | 'public'
   | 'deleted'
@@ -108,7 +107,6 @@ export type ExternalAddonType = {|
   average_daily_users?: number,
   categories?: Object,
   contributions_url?: string,
-  current_beta_version?: AddonVersionType,
   // If you make an API request as an admin for an incomplete
   // add-on (status=0) then the current_version could be null.
   current_version?: AddonVersionType,

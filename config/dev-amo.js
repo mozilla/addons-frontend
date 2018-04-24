@@ -25,8 +25,6 @@ module.exports = {
     },
   },
 
-  betaVersions: true,
-
   enableNewCollectionsUI: true,
   enableUserProfile: true,
 };

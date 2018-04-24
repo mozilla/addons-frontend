@@ -141,18 +141,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
           </Link>
         </li>
       ) : null,
-      // Since current_beta_version is just an alias to the latest beta,
-      // we can assume that no betas exist at all if it is null.
-      betaVersionsLink: addon.current_beta_version ? (
-        <li>
-          <Link
-            className="AddonMoreInfo-beta-versions-link"
-            href={`/addon/${addon.slug}/versions/beta`}
-          >
-            {i18n.gettext('See all beta versions')}
-          </Link>
-        </li>
-      ) : null,
     });
   }
 
@@ -167,7 +155,6 @@ export class AddonMoreInfoBase extends React.Component<Props> {
     versionLastUpdated,
     versionLicenseLink = null,
     versionHistoryLink = null,
-    betaVersionsLink = null,
   }: Object) {
     const { i18n } = this.props;
     return (
@@ -222,14 +209,13 @@ export class AddonMoreInfoBase extends React.Component<Props> {
             {eulaLink}
           </Definition>
         )}
-        {(versionHistoryLink || betaVersionsLink) && (
+        {(versionHistoryLink) && (
           <Definition
             className="AddonMoreInfo-version-history"
             term={i18n.gettext('Version History')}
           >
             <ul className="AddonMoreInfo-links-contents-list">
               {versionHistoryLink}
-              {betaVersionsLink}
             </ul>
           </Definition>
         )}

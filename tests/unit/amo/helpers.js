@@ -58,7 +58,6 @@ export const fakeAddon = Object.freeze({
   authors: [fakeAuthor],
   average_daily_users: 100,
   categories: { firefox: ['other'] },
-  current_beta_version: null,
   current_version: {
     compatibility: {
       [CLIENT_APP_ANDROID]: {

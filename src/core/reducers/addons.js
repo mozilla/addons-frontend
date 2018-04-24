@@ -1,6 +1,5 @@
 /* @flow */
 import { oneLine } from 'common-tags';
-import config from 'config';
 
 import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -149,13 +148,8 @@ export function createInternalThemeData(
   };
 }
 
-type CreateInternalAddonOptions = {|
-  _config: typeof config,
-|};
-
 export function createInternalAddon(
-  apiAddon: ExternalAddonType,
-  { _config = config }: CreateInternalAddonOptions = {}
+  apiAddon: ExternalAddonType
 ): AddonType {
   let addon: AddonType = {
     authors: apiAddon.authors,
@@ -214,10 +208,6 @@ export function createInternalAddon(
     isWebExtension: false,
     isMozillaSignedExtension: false,
   };
-
-  if (_config.get('betaVersions')) {
-    addon.current_beta_version = apiAddon.current_beta_version;
-  }
 
   if (addon.type === ADDON_TYPE_THEME && apiAddon.theme_data) {
     const themeData = createInternalThemeData(apiAddon);
