@@ -69,9 +69,9 @@ describe(__filename, () => {
       mockApi.expects('callApi')
         .withArgs({
           auth: true,
+          body: editableFields,
           endpoint: `accounts/account/${params.userId}`,
           method: 'PATCH',
-          params: editableFields,
           state: params.api,
         })
         .returns(mockResponse(editableFields));
