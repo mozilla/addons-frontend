@@ -78,9 +78,9 @@ export const fetchRecommendations = ({
 
 export type LoadRecommendationsParams = {|
   addons: Array<ExternalAddonType>,
-  fallbackReason: string,
+  fallbackReason?: FallbackReasonType,
   guid: string,
-  outcome: string,
+  outcome: OutcomeType,
 |};
 
 type LoadRecommendationsAction = {|

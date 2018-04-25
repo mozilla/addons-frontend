@@ -18,6 +18,7 @@ import Addon, {
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
@@ -65,6 +66,7 @@ import {
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
+  getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -915,6 +917,26 @@ describe(__filename, () => {
   it('renders permissions with no add-on', () => {
     const root = shallowRender({ addon: null });
     expect(root.find(PermissionsCard)).toHaveProp('addon', null);
+  });
+
+  it('renders recommendations for the add-on', () => {
+    const fakeConfig = getFakeConfig({ enableAddonRecommendations: true });
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveProp('addon', addon);
+  });
+
+  it('renders recommendations with no add-on', () => {
+    const fakeConfig = getFakeConfig({ enableAddonRecommendations: true });
+    const root = shallowRender({ addon: null, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveProp('addon', null);
+  });
+
+  it('does not render recommendations if the config flag is false', () => {
+    const fakeConfig = getFakeConfig({ enableAddonRecommendations: false });
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveLength(0);
   });
 
   describe('read reviews footer', () => {

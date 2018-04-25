@@ -97,6 +97,7 @@ module.exports = {
     'enableClientConsole',
     'enableNewCollectionsUI',
     'enableUserProfile',
+    'enableAddonRecommendations',
     'fxaConfig',
     'isDeployed',
     'isDevelopment',
@@ -290,4 +291,7 @@ module.exports = {
   // are still in development so this should only be enabled locally and
   // on `-dev`.
   enableUserProfile: false,
+
+  // Enable the TAAR Lite A/B test.
+  enableAddonRecommendations: false,
 };
