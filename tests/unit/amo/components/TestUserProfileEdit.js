@@ -1,11 +1,17 @@
 import * as React from 'react';
-import { shallow } from 'enzyme';
+import { Provider } from 'react-redux';
+import { mount } from 'enzyme';
 
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import UserProfileEdit, { UserProfileEditBase } from 'amo/components/UserProfileEdit';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
-import { fetchUserAccount, getCurrentUser } from 'amo/reducers/users';
+import {
+  editUserAccount,
+  fetchUserAccount,
+  getCurrentUser,
+  getUserByUsername,
+} from 'amo/reducers/users';
 import { createApiError } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
@@ -17,7 +23,12 @@ import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  createFakeEvent,
+  createStubErrorHandler,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -52,6 +63,30 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <UserProfileEdit i18n={i18n} params={params} store={store} {...props} />,
       UserProfileEditBase
+    );
+  }
+
+  function mountUserProfileEdit({
+    errorHandler = createStubErrorHandler(),
+    i18n = fakeI18n(),
+    params = { username: 'tofumatt' },
+    store = dispatchSignInActions({
+      userProps: defaultUserProps(),
+    }).store,
+    ...props
+  // eslint-disable-next-line padded-blocks
+  } = {}) {
+
+    return mount(
+      <Provider store={store}>
+        <UserProfileEdit
+          errorHandler={errorHandler}
+          i18n={i18n}
+          params={params}
+          store={store}
+          {...props}
+        />
+      </Provider>
     );
   }
 
@@ -126,195 +161,125 @@ describe(__filename, () => {
   //   expect(header.find('.UserProfile-name')).toHaveText('Matt MacTofu');
   // });
 
-  // it('renders LoadingText when user name is not ready', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-ready' } });
-  //   const header = getHeaderPropComponent(root);
+  // it('renders LoadingText instead of inputs when no user is ready', () => {
+  //   const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(header.find('.UserProfile-name').find(LoadingText))
-  //     .toHaveLength(1);
+  //   expect(root.find('.UserProfileEdit-username')).toHaveLength(0);
+  //   expect(root.find('.UserProfileEdit-email')).toHaveLength(0);
+  //   expect(root.find('.UserProfileEdit-displayName')).toHaveLength(0);
+  //   expect(root.find('.UserProfileEdit-homepage')).toHaveLength(0);
+  //   expect(root.find('.UserProfileEdit-location')).toHaveLength(0);
+  //   expect(root.find('.UserProfileEdit-occupation')).toHaveLength(0);
+  //   expect(root.find(LoadingText)).toHaveLength(6);
   // });
 
-  // it("renders the user's username if no display name exists", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       display_name: null,
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
-  //   const header = getHeaderPropComponent(root);
+  it('renders a username input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(header.find('.UserProfile-name')).toHaveText('tofumatt');
-  // });
+    expect(root.find('.UserProfileEdit-username')).toHaveLength(1);
+  });
 
-  // it("renders the user's homepage", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       homepage: 'http://hamsterdance.com/',
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a disabled username input field when not ready', () => {
+    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(root.find('.UserProfile-homepage')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-homepage').children())
-  //     .toHaveText('hamsterdance.com/');
-  // });
+    expect(root.find('.UserProfileEdit-username')).toHaveProp('disabled', true);
+  });
 
-  // it("omits homepage if the user doesn't have one set", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       homepage: null,
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a disabled "email" input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(root.find('.UserProfile-homepage')).toHaveLength(0);
-  // });
+    expect(root.find('.UserProfileEdit-email')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-email')).toHaveProp('disabled', true);
+  });
 
-  // it("renders the user's account creation date", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       created: '2000-08-15T12:01:13Z',
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a displayName input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(root.find('.UserProfile-user-since')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-user-since').children())
-  //     .toHaveText('Aug 15, 2000');
-  // });
+    expect(root.find('.UserProfileEdit-displayName')).toHaveLength(1);
+  });
 
-  // it('renders LoadingText for account creation date while loading', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-tofu' } });
+  it('renders a disabled displayName input field when not ready', () => {
+    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(root.find('.UserProfile-user-since')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-user-since').find(LoadingText))
-  //     .toHaveLength(1);
-  // });
+    expect(root.find('.UserProfileEdit-displayName'))
+      .toHaveProp('disabled', true);
+  });
 
-  // it("renders the user's number of add-ons", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       num_addons_listed: 70,
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a homepage input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(root.find('.UserProfile-number-of-addons')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-number-of-addons').children())
-  //     .toHaveText('70');
-  // });
+    expect(root.find('.UserProfileEdit-homepage')).toHaveLength(1);
+  });
 
-  // it('renders LoadingText for number of add-ons while loading', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-tofu' } });
+  it('renders a disabled homepage input field when not ready', () => {
+    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(root.find('.UserProfile-number-of-addons')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-number-of-addons').find(LoadingText))
-  //     .toHaveLength(1);
-  // });
+    expect(root.find('.UserProfileEdit-homepage')).toHaveProp('disabled', true);
+  });
 
-  // it("renders the user's average add-on rating", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       average_addon_rating: 4.1,
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a location input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(root.find('.UserProfile-rating-average')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-rating-average').find(Rating))
-  //     .toHaveProp('rating', 4.1);
-  // });
+    expect(root.find('.UserProfileEdit-location')).toHaveLength(1);
+  });
 
-  // it('renders LoadingText for average add-on rating while loading', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-tofu' } });
+  it('renders a disabled location input field when not ready', () => {
+    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(root.find('.UserProfile-rating-average')).toHaveLength(1);
-  //   expect(root.find('.UserProfile-rating-average').find(LoadingText))
-  //     .toHaveLength(1);
-  // });
+    expect(root.find('.UserProfileEdit-location')).toHaveProp('disabled', true);
+  });
 
-  // it("renders the user's biography", () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       biography: 'Not even vegan!',
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a occupation input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(root.find('.UserProfile-biography').render().html())
-  //     .toContain('Not even vegan!');
-  // });
+    expect(root.find('.UserProfileEdit-occupation')).toHaveLength(1);
+  });
 
-  // it('omits a null biography', () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       biography: null,
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a disabled occupation input field when not ready', () => {
+    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(root.find('.UserProfile-biography')).toHaveLength(0);
-  // });
+    expect(root.find('.UserProfileEdit-occupation')).toHaveProp('disabled', true);
+  });
 
-  // it('omits an empty biography', () => {
-  //   const { store } = dispatchSignInActions({
-  //     userProps: {
-  //       biography: '',
-  //       username: 'tofumatt',
-  //     },
-  //   });
-  //   const root = renderUserProfile({ store });
+  it('renders a biography input field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-  //   expect(root.find('.UserProfile-biography')).toHaveLength(0);
-  // });
+    expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
+  });
 
-  // it('renders a report abuse button if user is loaded', () => {
-  //   const root = renderUserProfile();
+  it('renders a disabled biography input field when not ready', () => {
+    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-  //   expect(root.find(ReportUserAbuse)).toHaveLength(1);
-  // });
+    expect(root.find('.UserProfileEdit-biography')).toHaveProp('disabled', true);
+  });
 
-  // it('still renders a report abuse component if user is not loaded', () => {
-  //   // The ReportUserAbuse handles an empty `user` object so we should
-  //   // always pass the `user` prop to it.
-  //   const root = renderUserProfile({ params: { username: 'not-loaded' } });
+  it('dispatches editUserAccount action with all fields', () => {
+    const { store } = syncPropsAndParamsUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
 
-  //   expect(root.find(ReportUserAbuse)).toHaveLength(1);
-  // });
+    const root = mountUserProfileEdit({ errorHandler, store });
 
-  // it('renders two AddonsByAuthorsCard', () => {
-  //   const root = renderUserProfile();
+    const user = getCurrentUser(store.getState().users);
 
-  //   expect(root.find(AddonsByAuthorsCard)).toHaveLength(2);
-  // });
+    const textEvent = createFakeEvent();
+    const clickEvent = createFakeEvent();
+    // root.find('.UserProfileEdit-biography').simulate('change', textEvent);
+    root.find('.UserProfileEdit-form').simulate('submit', clickEvent);
 
-  // it('renders AddonsByAuthorsCard for extensions', () => {
-  //   const root = renderUserProfile();
-
-  //   expect(root.find(AddonsByAuthorsCard).at(0))
-  //     .toHaveProp('addonType', ADDON_TYPE_EXTENSION);
-  // });
-
-  // it('renders AddonsByAuthorsCard for themes', () => {
-  //   const root = renderUserProfile();
-
-  //   expect(root.find(AddonsByAuthorsCard).at(1))
-  //     .toHaveProp('addonType', ADDON_TYPE_THEME);
-  // });
-
-  // it('renders no AddonsByAuthorsCard if no user found', () => {
-  //   const root = renderUserProfile({ params: { username: 'not-loaded' } });
-
-  //   expect(root.find(AddonsByAuthorsCard)).toHaveLength(0);
-  // });
+    sinon.assert.calledWith(dispatchSpy, editUserAccount({
+      errorHandlerId: errorHandler.id,
+      userFields: {
+        biography: undefined,
+        display_name: user.displayName,
+        homepage: '',
+        location: '',
+        occupation: '',
+        username: user.username,
+      },
+      userId: user.id,
+    }));
+  });
 
   // it('renders a not found page if the API request is a 404', () => {
   //   const { store } = dispatchSignInActions();
@@ -333,16 +298,16 @@ describe(__filename, () => {
   //   expect(root.find(NotFound)).toHaveLength(1);
   // });
 
-  // it('renders errors', () => {
-  //   const { store } = dispatchSignInActions();
-  //   const errorHandler = new ErrorHandler({
-  //     id: 'some-id',
-  //     dispatch: store.dispatch,
-  //   });
-  //   errorHandler.handle(new Error('unexpected error'));
+  it('renders errors', () => {
+    const { store } = dispatchSignInActions();
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(new Error('unexpected error'));
 
-  //   const root = renderUserProfile({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, store });
 
-  //   expect(root.find(ErrorList)).toHaveLength(1);
-  // });
+    expect(root.find(ErrorList)).toHaveLength(1);
+  });
 });
