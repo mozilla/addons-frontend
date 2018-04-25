@@ -9,7 +9,12 @@ import { compose } from 'redux';
 // import HomeHeroBanner from 'amo/components/HomeHeroBanner';
 // import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
-import { editUserAccount, getCurrentUser } from 'amo/reducers/users';
+import {
+  editUserAccount,
+  fetchUserAccount,
+  getCurrentUser,
+  getUserByUsername,
+} from 'amo/reducers/users';
 // import {
 //   ADDON_TYPE_EXTENSION,
 //   ADDON_TYPE_THEME,
@@ -21,25 +26,32 @@ import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Icon from 'ui/components/Icon';
+import LoadingText from 'ui/components/LoadingText';
 
 import './styles.scss';
 
 
 export class UserProfileEditBase extends React.Component {
   componentWillMount() {
-    // const { dispatch, errorHandler, resultsLoaded } = this.props;
+    const { dispatch, errorHandler, params, user } = this.props;
 
-    // dispatch(setViewContext(VIEW_CONTEXT_HOME));
+    if (!user) {
+      dispatch(fetchUserAccount({
+        errorHandlerId: errorHandler.id,
+        username: params.username,
+      }));
+    }
+  }
 
-    // if (!resultsLoaded) {
-    //   dispatch(fetchHomeAddons({
-    //     errorHandlerId: errorHandler.id,
-    //     firstCollectionSlug: FIRST_COLLECTION_SLUG,
-    //     firstCollectionUser: FIRST_COLLECTION_USER,
-    //     secondCollectionSlug: SECOND_COLLECTION_SLUG,
-    //     secondCollectionUser: SECOND_COLLECTION_USER,
-    //   }));
-    // }
+  componentWillReceiveProps({ params: newParams }: Props) {
+    const { dispatch, errorHandler, params: oldParams } = this.props;
+
+    if (oldParams.username !== newParams.username) {
+      dispatch(fetchUserAccount({
+        errorHandlerId: errorHandler.id,
+        username: newParams.username,
+      }));
+    }
   }
 
   onSubmit = (event) => {
@@ -62,26 +74,37 @@ export class UserProfileEditBase extends React.Component {
   }
 
   render() {
-    const { currentUser, errorHandler, i18n, user } = this.props;
-
-    const title = i18n.sprintf(
-      i18n.gettext('User Profile for %(user)s'), { user: user.displayName }
-    );
+    const { errorHandler, i18n, isEditingCurrentUser, user, username } = this.props;
 
     return (
       <div className="UserProfileEdit">
-        <Helmet>
-          <title>{title}</title>
-        </Helmet>
+        {user && (
+          <Helmet>
+            <title>
+              {i18n.sprintf(
+                i18n.gettext('User Profile for %(user)s'),
+                { user: user.displayName }
+              )}
+            </title>
+          </Helmet>
+        )}
 
         <Card className="UserProfileEdit-user-links">
           <ul>
             <li>
-              <Link to={`/user/${currentUser.username}/`}>
-                {i18n.gettext('View my profile')}
+              <Link to={`/user/${username}/`}>
+                {isEditingCurrentUser ?
+                  i18n.gettext('View my profile') :
+                  i18n.gettext("View user's profile")
+                }
               </Link>
             </li>
-            <li>{i18n.gettext('Edit my profile')}</li>
+            <li>
+              {isEditingCurrentUser ?
+                i18n.gettext('Edit my profile') :
+                i18n.gettext("Edit user's profile")
+              }
+            </li>
             {/*
             <li>
               <Link to={`/collections/${currentUser.username}/`}>
@@ -102,7 +125,11 @@ export class UserProfileEditBase extends React.Component {
 
             <Card
               className="UserProfileEdit--Card"
-              header={i18n.gettext('Your Account')}
+              header={isEditingCurrentUser ? i18n.gettext('Your Account') : (
+                i18n.sprintf(i18n.gettext('User Account for %(username)s'), {
+                  username: username,
+                })
+              )}
             >
               <p className="UserProfileEdit-aside">
                 {i18n.gettext(`Manage basic account information, such as your
@@ -113,19 +140,23 @@ export class UserProfileEditBase extends React.Component {
                 <label className="UserProfileEdit--label" htmlFor="username">
                   {i18n.gettext('Username')}
                 </label>
-                <input
-                  id="username"
-                  name="username"
-                  ref={(ref) => { this.username = ref; }}
-                  defaultValue={user.username}
-                />
+                {user ? (
+                  <input
+                    id="username"
+                    name="username"
+                    ref={(ref) => { this.username = ref; }}
+                    defaultValue={user.username}
+                  />
+                ) : <LoadingText maxWidth={60} />}
               </div>
 
               <div title={i18n.gettext('Email address cannot be changed')}>
                 <label className="UserProfileEdit--label" htmlFor="email">
                   {i18n.gettext('Email address')}
                 </label>
-                <input disabled defaultValue={user.email} type="email" />
+                {user ? (
+                  <input disabled defaultValue={user.email} type="email" />
+                ) : <LoadingText maxWidth={60} />}
               </div>
             </Card>
 
@@ -143,11 +174,13 @@ export class UserProfileEditBase extends React.Component {
                 <label className="UserProfileEdit--label" htmlFor="displayName">
                   {i18n.gettext('Display Name')}
                 </label>
-                <input
-                  name="displayName"
-                  ref={(ref) => { this.displayName = ref; }}
-                  defaultValue={user.displayName}
-                />
+                {user ? (
+                  <input
+                    name="displayName"
+                    ref={(ref) => { this.displayName = ref; }}
+                    defaultValue={user.displayName}
+                  />
+                ) : <LoadingText maxWidth={60} />}
               </div>
 
               {/*
@@ -161,35 +194,41 @@ export class UserProfileEditBase extends React.Component {
                 <label className="UserProfileEdit--label" htmlFor="homepage">
                   {i18n.gettext('Homepage')}
                 </label>
-                <input
-                  id="homepage"
-                  name="homepage"
-                  ref={(ref) => { this.homepage = ref; }}
-                  defaultValue={user.homepage}
-                />
+                {user ? (
+                  <input
+                    id="homepage"
+                    name="homepage"
+                    ref={(ref) => { this.homepage = ref; }}
+                    defaultValue={user.homepage}
+                  />
+                ) : <LoadingText maxWidth={60} />}
               </div>
 
               <div>
                 <label className="UserProfileEdit--label" htmlFor="location">
                   {i18n.gettext('Location')}
                 </label>
-                <input
-                  name="location"
-                  ref={(ref) => { this.location = ref; }}
-                  defaultValue={user.location}
-                />
+                {user ? (
+                  <input
+                    name="location"
+                    ref={(ref) => { this.location = ref; }}
+                    defaultValue={user.location}
+                  />
+                ) : <LoadingText maxWidth={60} />}
               </div>
 
               <div>
                 <label className="UserProfileEdit--label" htmlFor="occupation">
                   {i18n.gettext('Occupation')}
                 </label>
-                <input
-                  className="UserProfileEdit-occupation"
-                  name="occupation"
-                  ref={(ref) => { this.occupation = ref; }}
-                  defaultValue={user.occupation}
-                />
+                {user ? (
+                  <input
+                    className="UserProfileEdit-occupation"
+                    name="occupation"
+                    ref={(ref) => { this.occupation = ref; }}
+                    defaultValue={user.occupation}
+                  />
+                ) : <LoadingText maxWidth={60} />}
               </div>
             </Card>
 
@@ -203,12 +242,14 @@ export class UserProfileEditBase extends React.Component {
                     will appear on your user profile page.
                     (Some HTML supported)`)}
                 </label>
-                <Textarea
-                  className="UserProfileEdit-biography"
-                  name="biography"
-                  ref={(ref) => { this.biography = ref; }}
-                  defaultValue={user.biography}
-                />
+                {user ? (
+                  <Textarea
+                    className="UserProfileEdit-biography"
+                    name="biography"
+                    ref={(ref) => { this.biography = ref; }}
+                    defaultValue={user.biography}
+                  />
+                ) : <Textarea className="UserProfileEdit-biography" disabled />}
               </div>
             </Card>
 
@@ -235,6 +276,7 @@ export class UserProfileEditBase extends React.Component {
               <Button
                 buttonType="action"
                 className="UserProfileEdit-submit-button UserProfileEdit-button"
+                disabled={!user}
                 puffy
                 type="submit"
               >
@@ -244,6 +286,7 @@ export class UserProfileEditBase extends React.Component {
               <Button
                 buttonType="neutral"
                 className="UserProfileEdit-delete-button UserProfileEdit-button"
+                disabled={!user}
                 type="button"
               >
                 {i18n.gettext('Delete my account')}
@@ -256,10 +299,17 @@ export class UserProfileEditBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state) {
+export function mapStateToProps(state, ownProps) {
+  const currentUser = getCurrentUser(state.users);
+  // const user = null;
+  const user = ownProps.params.username ?
+    getUserByUsername(state.users, ownProps.params.username) : currentUser;
+
   return {
-    currentUser: getCurrentUser(state.users),
-    user: getCurrentUser(state.users),
+    currentUser,
+    isEditingCurrentUser: currentUser && user && currentUser.id === user.id,
+    user,
+    username: user ? user.username : ownProps.params.username,
   };
 }
 
