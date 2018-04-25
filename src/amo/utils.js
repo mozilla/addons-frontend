@@ -36,8 +36,8 @@ export function getDjangoBase62() {
     },
     decode: (str) => {
       return base62Custom.decode(str, charset);
-    }
-  }
+    },
+  };
 }
 
 export const makeQueryStringWithUTM = ({
