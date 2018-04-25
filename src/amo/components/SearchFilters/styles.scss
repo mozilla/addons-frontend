@@ -20,5 +20,5 @@
 }
 
 #SearchFilters-Featured {
-  margin: 0 10px 0 0;
+  @include margin-end(10px);
 }
