@@ -35,15 +35,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     _tracking: tracking,
   }
 
-  constructor(props: Props) {
-    super(props);
-    // This will prevent the component from rendering on the server, by only
-    // setting this to true in componentDidMount, which is only run on the
-    // client.
-    this.shouldRender = false;
-  }
-
-  componentDidMount() {
+  componentWillMount() {
     const { _cookie, _randomizer } = this.props;
 
     // Set a cohort for the experiment.
@@ -53,7 +45,6 @@ export class AddonRecommendationsBase extends React.Component<Props> {
         TAAR_COHORT_INCLUDED : TAAR_COHORT_EXCLUDED;
       _cookie.save(TAAR_COHORT_COOKIE_NAME, this.cohort, { path: '/' });
     }
-    this.shouldRender = true;
   }
 
   onChoice = (experiment: string, variant: cohortName) => {
@@ -73,12 +64,11 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   };
 
   cohort: cohortName;
-  shouldRender: boolean;
 
   render() {
     const { i18n, addon } = this.props;
 
-    if (!this.shouldRender || !addon) {
+    if (!addon) {
       return null;
     }
 

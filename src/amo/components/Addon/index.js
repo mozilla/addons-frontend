@@ -541,7 +541,7 @@ export class AddonBase extends React.Component {
 
           {this.renderAddonsByAuthorsCard({ isForTheme: false })}
 
-          { _config.get('enableAddonRecommendations') && (
+          {_config.get('enableAddonRecommendations') && (
             <AddonRecommendations addon={addon} />
           )}
         </div>
