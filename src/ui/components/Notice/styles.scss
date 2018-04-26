@@ -101,8 +101,8 @@
   }
 }
 
-
-.Notice-success, .Notice-firefox {
+.Notice-success,
+.Notice-firefox {
   .Notice-button {
     @include button(
       $background: $green-60,
