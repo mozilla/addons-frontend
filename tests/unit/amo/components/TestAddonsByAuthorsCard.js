@@ -4,8 +4,10 @@ import AddonsByAuthorsCard, {
   AddonsByAuthorsCardBase,
 } from 'amo/components/AddonsByAuthorsCard';
 import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -66,24 +68,19 @@ describe(__filename, () => {
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
     return loadAddonsByAuthors({
-      addons: [
-        {
+      addons: Array(
+        addonType === ADDON_TYPE_THEME ?
+          THEMES_BY_AUTHORS_PAGE_SIZE :
+          EXTENSIONS_BY_AUTHORS_PAGE_SIZE
+      )
+        .fill('')
+        .map((x, i) => ({
           ...fakeAddon,
-          id: 5,
-          slug: 'foo',
+          id: i + 1,
+          slug: `foo${i}`,
           type: addonType,
           authors: [fakeAuthorOne],
-        },
-        {
-          ...fakeAddon,
-          id: 6,
-          slug: 'bar',
-          type: addonType,
-          authors: multipleAuthors ?
-            [fakeAuthorTwo] :
-            [fakeAuthorOne],
-        },
-      ],
+        })),
       addonType,
       authorUsernames: multipleAuthors ?
         [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username],
@@ -105,7 +102,7 @@ describe(__filename, () => {
     );
   }
 
-  function renderAddonsWithType({ addonType, multipleAuthors = false } = {}) {
+  function renderAddonsWithType({ addonType, multipleAuthors = false, numberOfAddons = 6 } = {}) {
     const authorUsernames = multipleAuthors ?
       [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username];
     const { store } = dispatchClientMetadata();
@@ -116,6 +113,7 @@ describe(__filename, () => {
       addonType,
       authorUsernames,
       errorHandler,
+      numberOfAddons,
       store,
     });
   }
@@ -344,6 +342,26 @@ describe(__filename, () => {
     });
 
     sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('should have extensions length equal to numberOfAddons props', () => {
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_EXTENSION,
+      multipleAuthors: false,
+      numberOfAddons: 10,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(10);
+  });
+
+  it('should have themes length equal to numberOfAddons props', () => {
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_THEME,
+      multipleAuthors: false,
+      numberOfAddons: 12,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(12);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {
