@@ -7,6 +7,7 @@ import addonsByAuthors from 'amo/reducers/addonsByAuthors';
 import collections from 'amo/reducers/collections';
 import home from 'amo/reducers/home';
 import landing from 'amo/reducers/landing';
+import recommendations from 'amo/reducers/recommendations';
 import reviews from 'amo/reducers/reviews';
 import userAbuseReports from 'amo/reducers/userAbuseReports';
 import users from 'amo/reducers/users';
@@ -51,6 +52,7 @@ export default function createStore({
       landing,
       languageTools,
       redirectTo,
+      recommendations,
       reviews,
       routing,
       search,
