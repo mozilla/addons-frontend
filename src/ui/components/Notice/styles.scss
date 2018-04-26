@@ -101,39 +101,8 @@
   }
 }
 
-.Notice-firefox {
-  .Notice-button {
-    @include button(
-      $background: $green-60,
-      $background-active: $green-80,
-      $background-hover: $green-70,
-      $color: $green-90
-    );
 
-    &:active,
-    &:hover,
-    &:focus {
-      color: $white;
-    }
-
-    @include notice_button();
-  }
-
-  .Notice-icon {
-    background-image: url("./media/firefox.svg");
-  }
-
-  background-color: $green-50;
-
-  &,
-  :link,
-  :hover,
-  :active {
-    color: $green-90;
-  }
-}
-
-.Notice-success {
+.Notice-success, .Notice-firefox {
   .Notice-button {
     @include button(
       $background: $green-60,
@@ -163,4 +132,8 @@
   :active {
     color: $green-90;
   }
+}
+
+.Notice-firefox .Notice-icon {
+  background-image: url("./media/firefox.svg");
 }
