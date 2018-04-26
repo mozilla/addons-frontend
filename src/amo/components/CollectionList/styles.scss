@@ -20,3 +20,13 @@
     margin: 10px 0 0;
   }
 }
+
+.CollectionList-placeholder {
+  margin: 50px auto;
+  opacity: 0.75;
+  text-align: center;
+
+  @include respond-to(large) {
+    margin: auto;
+  }
+}
