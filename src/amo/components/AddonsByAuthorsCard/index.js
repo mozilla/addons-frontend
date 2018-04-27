@@ -31,6 +31,7 @@ import './styles.scss';
 type Props = {|
   addons?: Array<AddonType>,
   addonType?: string,
+  header?: string,
   authorDisplayName: string,
   authorUsernames: Array<string>,
   className?: string,
@@ -105,63 +106,67 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
       numberOfAddons,
       showSummary,
       type,
+      header,
     } = this.props;
 
     if (!loading && (!addons || !addons.length)) {
       return null;
     }
 
-    let header;
-    switch (addonType) {
-      case ADDON_TYPE_DICT:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More dictionaries by %(author)s'),
-            { author: authorDisplayName }
-          ),
-          i18n.gettext('More dictionaries by these translators'),
-          authorUsernames.length
-        );
-        break;
-      case ADDON_TYPE_EXTENSION:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More extensions by %(author)s'),
-            { author: authorDisplayName }
-          ),
-          i18n.gettext('More extensions by these developers'),
-          authorUsernames.length
-        );
-        break;
-      case ADDON_TYPE_LANG:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More language packs by %(author)s'),
-            { author: authorDisplayName }
-          ),
-          i18n.gettext('More language packs by these translators'),
-          authorUsernames.length
-        );
-        break;
-      case ADDON_TYPE_THEME:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More themes by %(author)s'),
-            { author: authorDisplayName }
-          ),
-          i18n.gettext('More themes by these artists'),
-          authorUsernames.length
-        );
-        break;
-      default:
-        header = i18n.ngettext(
-          i18n.sprintf(
-            i18n.gettext('More add-ons by %(author)s'),
-            { author: authorDisplayName }
-          ),
-          i18n.gettext('More add-ons by these developers'),
-          authorUsernames.length
-        );
+    let title = header;
+
+    if (!title) {
+      switch (addonType) {
+        case ADDON_TYPE_DICT:
+          title = i18n.ngettext(
+            i18n.sprintf(
+              i18n.gettext('More dictionaries by %(author)s'),
+              { author: authorDisplayName }
+            ),
+            i18n.gettext('More dictionaries by these translators'),
+            authorUsernames.length
+          );
+          break;
+        case ADDON_TYPE_EXTENSION:
+          title = i18n.ngettext(
+            i18n.sprintf(
+              i18n.gettext('More extensions by %(author)s'),
+              { author: authorDisplayName }
+            ),
+            i18n.gettext('More extensions by these developers'),
+            authorUsernames.length
+          );
+          break;
+        case ADDON_TYPE_LANG:
+          title = i18n.ngettext(
+            i18n.sprintf(
+              i18n.gettext('More language packs by %(author)s'),
+              { author: authorDisplayName }
+            ),
+            i18n.gettext('More language packs by these translators'),
+            authorUsernames.length
+          );
+          break;
+        case ADDON_TYPE_THEME:
+          title = i18n.ngettext(
+            i18n.sprintf(
+              i18n.gettext('More themes by %(author)s'),
+              { author: authorDisplayName }
+            ),
+            i18n.gettext('More themes by these artists'),
+            authorUsernames.length
+          );
+          break;
+        default:
+          title = i18n.ngettext(
+            i18n.sprintf(
+              i18n.gettext('More add-ons by %(author)s'),
+              { author: authorDisplayName }
+            ),
+            i18n.gettext('More add-ons by these developers'),
+            authorUsernames.length
+          );
+      }
     }
 
     const classnames = makeClassName('AddonsByAuthorsCard', className, {
@@ -172,7 +177,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
       <AddonsCard
         addons={addons}
         className={classnames}
-        header={header}
+        header={title}
         loading={loading}
         placeholderCount={numberOfAddons}
         showMetadata
