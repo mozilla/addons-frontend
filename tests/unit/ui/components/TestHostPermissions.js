@@ -91,4 +91,17 @@ describe(__filename, () => {
     const root = render({ permissions: ['*'] });
     expect(root.find(Permission)).toHaveLength(0);
   });
+
+  it('formats and clubs site permissions with wildcards', () => {
+    const permissions = [
+      'https://*.okta.com/',
+      'https://*.okta.com/login/login.htm*',
+      'https://*.okta.com/signin/verify/okta/push',
+      'https://*.okta.com/signin/verify/okta/sms',
+    ];
+    const root = render({ permissions });
+    expect(root.find(Permission)).toHaveLength(1);
+    expectPermission(root.childAt(0),
+      'Access your data for sites in the okta.com domain');
+  });
 });

@@ -138,6 +138,9 @@ export class HostPermissionsBase extends React.Component<Props> {
       }
     }
 
+    const uniqueWildcards = [...new Set(wildcards)];
+    const uniqueSites = [...new Set(sites)];
+
     // Format the host permissions. If we have a wildcard for all urls,
     // a single string will suffice.  Otherwise, show domain wildcards
     // first, then individual host permissions.
@@ -151,10 +154,10 @@ export class HostPermissionsBase extends React.Component<Props> {
       );
     } else {
       hostPermissions.push(...this.generateHostPermissions({
-        permissions: wildcards, messageType: domainMessageType,
+        permissions: uniqueWildcards, messageType: domainMessageType,
       }));
       hostPermissions.push(...this.generateHostPermissions({
-        permissions: sites, messageType: siteMessageType,
+        permissions: uniqueSites, messageType: siteMessageType,
       }));
     }
     return (
