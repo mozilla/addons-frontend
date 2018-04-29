@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-18 05:43+0000\n"
+"PO-Revision-Date: 2018-04-29 11:04+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -210,7 +210,7 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
-msgstr "Přečtěte si zásady ochrany soukromí tohoto doplňku"
+msgstr "Přečtěte si zásady ochrany osobních údajů pro tento doplněk"
 
 #: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
@@ -242,7 +242,7 @@ msgstr "Licence"
 
 #: src/amo/components/AddonMoreInfo/index.js:212
 msgid "Privacy Policy"
-msgstr "Zásady ochrany soukromí"
+msgstr "Zásady ochrany osobních údajů"
 
 #: src/amo/components/AddonMoreInfo/index.js:220
 msgid "End-User License Agreement"
