@@ -45,6 +45,8 @@ export class CollectionListBase extends React.Component<Props> {
   }
 
   render() {
+    const { i18n } = this.props;
+
     return (
       <div className="CollectionList">
         <div className="CollectionList-wrapper">
@@ -52,7 +54,7 @@ export class CollectionListBase extends React.Component<Props> {
             {this.renderManager()}
           </Card>
           <p className="CollectionList-placeholder">
-            Please save your collection and then you can add add-ons to it
+            {i18n.gettext('Please save your collection and then you can add add-ons to it')}
           </p>
         </div>
       </div>
