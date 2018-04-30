@@ -54,7 +54,9 @@ export class CollectionListBase extends React.Component<Props> {
             {this.renderManager()}
           </Card>
           <p className="CollectionList-placeholder">
-            {i18n.gettext('Please save your collection and then you can add add-ons to it')}
+            {i18n.gettext(
+              'Please save your collection and then you can add add-ons to it')
+            }
           </p>
         </div>
       </div>
