@@ -14,8 +14,11 @@ $avatar-size: 64px;
 }
 
 .UserProfile-wrapper {
-  display: flex;
-  justify-content: flex-start;
+
+  @include respond-to(large) {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
 .UserProfile-user-info {
@@ -63,8 +66,17 @@ $avatar-size: 64px;
 }
 
 .UserProfile-addons-by-author {
-  @include margin(0, 0, 0, 12px);
+  @include margin(12px, 0, 0, 0);
 
-  max-width: 60%;
   width: 100%;
+
+  @include respond-to(large) {
+    @include margin(0, 0, 0, 12px);
+
+    max-width: calc(100% - 300px - 12px);
+  }
+
+  @include respond-to(extraLarge) {
+    max-width: calc(65% - 12px);
+  }
 }
