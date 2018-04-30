@@ -101,7 +101,8 @@
   }
 }
 
-.Notice-success {
+.Notice-success,
+.Notice-firefox {
   .Notice-button {
     @include button(
       $background: $green-60,
@@ -131,4 +132,8 @@
   :active {
     color: $green-90;
   }
+}
+
+.Notice-firefox .Notice-icon {
+  background-image: url("./media/firefox.svg");
 }
