@@ -624,6 +624,13 @@ describe(__filename, () => {
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
     });
 
+    it('hides the reply-to-review link on the developer reply', () => {
+      const developerUserId = 3321;
+      const { addon } = signInAsAddonDeveloper({ developerUserId });
+      const root = renderReply({ addon });
+      expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
+    });
+
     it('hides a nested reply when editing it', () => {
       const { review } = _setReviewReply();
       store.dispatch(showReplyToReviewForm({ reviewId: review.id }));
