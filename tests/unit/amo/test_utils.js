@@ -25,17 +25,23 @@ describe('amo/utils', () => {
 
   describe('getDjangoBase62', () => {
     const base62 = getDjangoBase62();
+    const exampleBase62 = '9QVvGFw';
+    const exampleTimeStamp = 535493287492;
 
     it('encodes a example number', () => {
-      expect(base62.encode(535493287492)).toEqual('9QVvGFw');
+      expect(base62.encode(exampleTimeStamp)).toEqual(exampleBase62);
     });
 
     it('decodes a example encoded number', () => {
-      expect(base62.decode('9QVvGFw')).toEqual(535493287492);
+      expect(base62.decode(exampleBase62)).toEqual(exampleTimeStamp);
     });
 
     it('returns NaN when decoding bogus input', () => {
       expect(Number.isNaN(base62.decode('dfhhsk%%$#^@#$@'))).toBe(true);
+    });
+
+    it('returns 0 when decoding empty string', () => {
+      expect(base62.decode('')).toBe(0);
     });
 
     it('returns "" when encoding bogus input', () => {
