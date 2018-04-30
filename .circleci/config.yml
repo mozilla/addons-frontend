@@ -123,7 +123,7 @@ workflows:
   scheduled-workflow:
     triggers:
       - schedule:
-          cron: "0 0,2 * * *"
+          cron: "0 0,12,15,18,21 * * *"
           filters:
             branches:
               only:
