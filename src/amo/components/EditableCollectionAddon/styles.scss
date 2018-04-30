@@ -7,17 +7,22 @@
 .EditableCollectionAddon {
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: 32px auto 32px 64px;
+  grid-template-columns: 32px minmax(80px, auto) 32px 64px;
   padding: 12px;
 }
 
 .EditableCollectionAddon-name {
   @include font-medium();
 
-  align-items: center;
-  display: flex;
   font-size: $font-size-m-smaller;
+  hyphens: auto;
   margin: 0;
+  word-wrap: break-word;
+
+  @include respond-to(extraLarge) {
+    align-items: center;
+    display: flex;
+  }
 }
 
 .EditableCollectionAddon-icon {
