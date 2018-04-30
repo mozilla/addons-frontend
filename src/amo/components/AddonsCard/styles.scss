@@ -78,6 +78,12 @@
         grid-row: 2 / 2;
       }
 
+      .SearchResult-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
       .SearchResult-users,
       .SearchResult-metadata {
         height: 24px;
