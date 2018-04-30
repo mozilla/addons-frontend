@@ -526,14 +526,6 @@ describe(__filename, () => {
     expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
   });
 
-  it('hides the reply-to-review link on the developer reply', () => {
-    const developerUserId = 3321;
-    const { addon } = signInAsAddonDeveloper({ developerUserId });
-    const { reply } = _setReviewReply();
-    const root = renderReply({ reply, addon });
-    expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
-  });
-
   it('ignores other review related view actions', () => {
     const thisReview = _setReview({ ...fakeReview, id: 1 });
     const anotherReview = _setReview({ ...fakeReview, id: 2 });
@@ -630,6 +622,13 @@ describe(__filename, () => {
       expect(replyComponent).toHaveProp('addon', addon);
       expect(replyComponent).toHaveProp('review', reply);
       expect(replyComponent).toHaveProp('isReplyToReviewId', review.id);
+    });
+
+    it('hides the reply-to-review link on the developer reply', () => {
+      const developerUserId = 3321;
+      const { addon } = signInAsAddonDeveloper({ developerUserId });
+      const root = renderReply({ addon });
+      expect(root.find('.AddonReviewListItem-begin-reply')).toHaveLength(0);
     });
 
     it('hides a nested reply when editing it', () => {
