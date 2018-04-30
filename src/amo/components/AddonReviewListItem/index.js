@@ -268,7 +268,7 @@ export class AddonReviewListItemBase extends React.Component<Props> {
           }
           {
             review && addon && siteUser &&
-            !replyingToReview && !review.reply &&
+            !replyingToReview && !review.reply && !isReply &&
             (isAddonAuthor({ addon, userId: siteUser.id }) || siteUserHasReplyPerm) &&
             review.userId !== siteUser.id ?
               (
