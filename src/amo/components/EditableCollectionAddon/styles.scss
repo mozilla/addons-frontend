@@ -7,22 +7,8 @@
 .EditableCollectionAddon {
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: 32px repeat(auto-fill, minmax(80px, 90px)) 32px 64px;
+  grid-template-columns: 32px minmax(80px, auto) 32px 64px;
   padding: 12px;
-
-  // TODO: look into adding orientation: portrait, landscape breakpt
-  // might help with extra breakpts
-  @include respond-to(medium) {
-    grid-template-columns: 32px repeat(auto-fill, minmax(260px, 260px)) 32px 64px;
-  }
-
-  @include respond-to(large) {
-    grid-template-columns: 32px repeat(auto-fill, minmax(120px, 120px)) 32px 64px;
-  }
-
-  @include respond-to(extraLarge) {
-    grid-template-columns: 32px auto 32px 64px;
-  }
 }
 
 .EditableCollectionAddon-name {
