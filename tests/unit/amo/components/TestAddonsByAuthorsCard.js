@@ -105,7 +105,7 @@ describe(__filename, () => {
     );
   }
 
-  function renderAddonsWithType({ addonType, header, multipleAuthors = false } = {}) {
+  function renderAddonsWithType({ addonType, showMore, multipleAuthors = false } = {}) {
     const authorUsernames = multipleAuthors ?
       [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username];
     const { store } = dispatchClientMetadata();
@@ -114,7 +114,7 @@ describe(__filename, () => {
 
     return render({
       addonType,
-      header,
+      showMore,
       authorUsernames,
       errorHandler,
       store,
@@ -447,13 +447,25 @@ describe(__filename, () => {
       .toHaveProp('header', 'More add-ons by these developers');
   });
 
-  it('shows custom text in header if provided in place of addonType text', () => {
+  it('shows header text without More text', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
-      header: 'this will be my header text',
+      showMore: false,
+      multipleAuthors: false,
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', 'this will be my header text');
+      .toHaveProp('header', `themes by ${fakeAuthor.name}`);
+  });
+
+
+  it('shows header text starting with More text as default', () => {
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_THEME,
+      multipleAuthors: false,
+    });
+
+    expect(root.find(AddonsCard))
+      .toHaveProp('header', `More themes by ${fakeAuthor.name}`);
   });
 });

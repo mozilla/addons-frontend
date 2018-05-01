@@ -31,7 +31,6 @@ import './styles.scss';
 type Props = {|
   addons?: Array<AddonType>,
   addonType?: string,
-  header?: string,
   authorDisplayName: string,
   authorUsernames: Array<string>,
   className?: string,
@@ -41,6 +40,7 @@ type Props = {|
   i18n: I18nType,
   loading?: boolean,
   numberOfAddons: number,
+  showMore?: boolean,
 
   // AddonCards prop this component also accepts
   showSummary?: boolean,
@@ -51,6 +51,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
   static defaultProps = {
     showSummary: false,
     type: 'horizontal',
+    showMore: true,
   }
 
   componentWillMount() {
@@ -106,78 +107,95 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
       numberOfAddons,
       showSummary,
       type,
-      header,
+      showMore,
     } = this.props;
 
     if (!loading && (!addons || !addons.length)) {
       return null;
     }
 
-    let title = header;
-
-    if (!title) {
-      switch (addonType) {
-        case ADDON_TYPE_DICT:
-          title = i18n.ngettext(
-            i18n.sprintf(
-              i18n.gettext('More dictionaries by %(author)s'),
-              { author: authorDisplayName }
-            ),
-            i18n.gettext('More dictionaries by these translators'),
-            authorUsernames.length
-          );
-          break;
-        case ADDON_TYPE_EXTENSION:
-          title = i18n.ngettext(
-            i18n.sprintf(
-              i18n.gettext('More extensions by %(author)s'),
-              { author: authorDisplayName }
-            ),
-            i18n.gettext('More extensions by these developers'),
-            authorUsernames.length
-          );
-          break;
-        case ADDON_TYPE_LANG:
-          title = i18n.ngettext(
-            i18n.sprintf(
-              i18n.gettext('More language packs by %(author)s'),
-              { author: authorDisplayName }
-            ),
-            i18n.gettext('More language packs by these translators'),
-            authorUsernames.length
-          );
-          break;
-        case ADDON_TYPE_THEME:
-          title = i18n.ngettext(
-            i18n.sprintf(
-              i18n.gettext('More themes by %(author)s'),
-              { author: authorDisplayName }
-            ),
-            i18n.gettext('More themes by these artists'),
-            authorUsernames.length
-          );
-          break;
-        default:
-          title = i18n.ngettext(
-            i18n.sprintf(
-              i18n.gettext('More add-ons by %(author)s'),
-              { author: authorDisplayName }
-            ),
-            i18n.gettext('More add-ons by these developers'),
-            authorUsernames.length
-          );
-      }
+    let header;
+    const headerModifier = showMore ? 'More' : '';
+    switch (addonType) {
+      case ADDON_TYPE_DICT:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s dictionaries by %(author)s'),
+            { headerModifier, author: authorDisplayName }
+          ),
+          i18n.sprintf(
+            i18n.gettext(
+              '%(headerModifier)s dictionaries by these translators'),
+            { headerModifier }
+          ),
+          authorUsernames.length
+        );
+        break;
+      case ADDON_TYPE_EXTENSION:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s extensions by %(author)s'),
+            { headerModifier, author: authorDisplayName }
+          ),
+          i18n.sprintf(
+            i18n.gettext(
+              '%(headerModifier)s extensions by these developers'),
+            { headerModifier }
+          ),
+          authorUsernames.length
+        );
+        break;
+      case ADDON_TYPE_LANG:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s language packs by %(author)s'),
+            { headerModifier, author: authorDisplayName }
+          ),
+          i18n.sprintf(
+            i18n.gettext(
+              '%(headerModifier)s language packs by these translators'),
+            { headerModifier }
+          ),
+          authorUsernames.length
+        );
+        break;
+      case ADDON_TYPE_THEME:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s themes by %(author)s'),
+            { headerModifier, author: authorDisplayName }
+          ),
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s themes by these artists'),
+            { headerModifier }
+          ),
+          authorUsernames.length
+        );
+        break;
+      default:
+        header = i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s add-ons by %(author)s'),
+            { headerModifier, author: authorDisplayName }
+          ),
+          i18n.sprintf(
+            i18n.gettext('%(headerModifier)s add-ons by these developers'),
+            { headerModifier }
+          ),
+          authorUsernames.length
+        );
     }
 
     const classnames = makeClassName('AddonsByAuthorsCard', className, {
       'AddonsByAuthorsCard--theme': addonType === ADDON_TYPE_THEME,
     });
 
+
     return (
       <AddonsCard
         addons={addons}
         className={classnames}
-        header={title}
+        header={header}
         loading={loading}
         placeholderCount={numberOfAddons}
         showMetadata
