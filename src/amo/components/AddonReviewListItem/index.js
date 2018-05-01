@@ -225,9 +225,6 @@ export class AddonReviewListItemBase extends React.Component<Props> {
 
     return (
       <div className="AddonReviewListItem">
-        <h3 className="AddonReviewListItem-review-header">
-          {review ? review.title : <LoadingText />}
-        </h3>
         {reviewBody}
         <div className="AddonReviewListItem-byline">
           {review && !isReply ?

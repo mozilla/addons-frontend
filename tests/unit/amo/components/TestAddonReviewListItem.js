@@ -133,9 +133,6 @@ describe(__filename, () => {
     });
     const root = render({ review });
 
-    expect(root.find('h3'))
-      .toHaveText(fakeReview.title);
-
     expect(root.find('.AddonReviewListItem-body').html())
       .toContain(fakeReview.body);
 
@@ -164,8 +161,6 @@ describe(__filename, () => {
   it('renders loading text for falsy reviews', () => {
     const root = render({ review: null });
 
-    expect(root.find('h3').at(0).find(LoadingText))
-      .toHaveLength(1);
     expect(root.find('p').at(0).find(LoadingText))
       .toHaveLength(1);
     expect(root.find('.AddonReviewListItem-byline').at(0)
