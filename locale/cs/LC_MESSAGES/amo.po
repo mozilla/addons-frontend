@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-29 11:04+0000\n"
+"PO-Revision-Date: 2018-05-01 09:37+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1215,11 +1215,11 @@ msgstr "Pro hodnocení tohoto slovníku se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:141
 msgid "Log in to rate this language pack"
-msgstr "Pro hodnocení tohoto jazykového balíčku se přihlaste"
+msgstr "Pro hodnocení tohoto balíčku se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:143
 msgid "Log in to rate this search plugin"
-msgstr "Pro hodnocení tohoto vyhledávacího modulu se přihlaste"
+msgstr "Pro hodnocení tohoto modulu se přihlaste"
 
 #: src/amo/components/RatingManager/index.js:145
 msgid "Log in to rate this theme"
