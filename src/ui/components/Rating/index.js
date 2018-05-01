@@ -52,7 +52,9 @@ export class RatingBase extends React.Component {
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
   // that surrounds the read-only set of stars
-  renderTitle = (i18n, rating, readOnly, starRating) => {
+  renderTitle = (rating, readOnly, starRating) => {
+    const { i18n } = this.props;
+
     if (readOnly) {
       if (rating) {
         return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
@@ -69,7 +71,7 @@ export class RatingBase extends React.Component {
   }
 
   renderRatings() {
-    const { i18n, readOnly } = this.props;
+    const { readOnly } = this.props;
     // Accept falsey values as if they are zeroes.
     const rating = this.props.rating || 0;
 
@@ -83,7 +85,7 @@ export class RatingBase extends React.Component {
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
-        title: this.renderTitle(i18n, rating, readOnly, thisRating),
+        title: this.renderTitle(rating, readOnly, thisRating),
       };
 
       if (readOnly) {
@@ -102,7 +104,7 @@ export class RatingBase extends React.Component {
   }
 
   render() {
-    const { className, i18n, isOwner, rating, readOnly, styleSize } = this.props;
+    const { className, isOwner, rating, readOnly, styleSize } = this.props;
     if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         `styleSize=${styleSize} is not a valid value; ` +
@@ -111,7 +113,7 @@ export class RatingBase extends React.Component {
 
     // Wrap read only ratings with a description to maintain functionality
     // for the "Average rating of developer’s add-ons" tooltip
-    const description = readOnly ? this.renderTitle(i18n, rating, readOnly, null) : null;
+    const description = readOnly ? this.renderTitle(rating, readOnly, null) : null;
 
     const allClassNames = makeClassName(
       'Rating', `Rating--${styleSize}`, className, {
