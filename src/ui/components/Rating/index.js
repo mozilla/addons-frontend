@@ -108,12 +108,9 @@ export class RatingBase extends React.Component {
         `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
     }
 
-    let description = null;
-    // Wrap readOnly ratings with a description to maintain functionality
+    // Wrap read only ratings with a description to maintain functionality
     // for the "Average rating of developer’s add-ons" tooltip
-    if (readOnly) {
-      description = this.renderTitle(i18n, rating, readOnly, null);
-    }
+    const description = readOnly ? this.renderTitle(i18n, rating, readOnly, null) : null;
 
     const allClassNames = makeClassName(
       'Rating', `Rating--${styleSize}`, className, {
