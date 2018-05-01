@@ -8,6 +8,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 import MetadataCard from 'ui/components/MetadataCard';
+import Link from 'amo/components/Link';
 
 
 describe(__filename, () => {
@@ -123,6 +124,19 @@ describe(__filename, () => {
       });
 
       expect(getReviewCount(root).title.props.children).toEqual('No Ratings');
+    });
+
+    it('renders links for each rating item', () => {
+      const root = renderRatings({ count: 5 });
+      const links = root.find(MetadataCard).dive().find(Link);
+
+      expect(links.at(0)).toHaveProp('to', `/addon/${fakeAddon.slug}/reviews/`);
+      expect(links.at(0).children()).toHaveText('5');
+      expect(links.at(1)).toHaveProp('to', `/addon/${fakeAddon.slug}/reviews/`);
+      expect(links.at(1).children()).toHaveText('Ratings');
+      expect(links.at(2)).toHaveProp('to', `/addon/${fakeAddon.slug}/reviews/`);
+      expect(links.at(3)).toHaveProp('to', `/addon/${fakeAddon.slug}/reviews/`);
+      expect(links.at(3).children()).toHaveText('Overall Rating');
     });
   });
 });
