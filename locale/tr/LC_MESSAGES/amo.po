@@ -173,7 +173,7 @@ msgstr "Kullanıcılar"
 msgid "User"
 msgid_plural "Users"
 msgstr[0] "Kullanıcı"
-msgstr[1] ""
+msgstr[1] "Kullanıcı"
 
 #: src/amo/components/AddonMeta/index.js:36
 msgid "No Users"
@@ -187,7 +187,7 @@ msgstr "Puan"
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "Puan"
-msgstr[1] ""
+msgstr[1] "Puan"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
@@ -313,7 +313,7 @@ msgstr "%(addonName)s incelemeleri"
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "Bu eklentinin %(total)s incelemesi var"
-msgstr[1] ""
+msgstr[1] "Bu eklentinin %(total)s incelemesi var"
 
 #: src/amo/components/AddonReviewList/index.js:213
 msgid "by %(authorList)s"
@@ -1459,7 +1459,7 @@ msgstr "Eklentinin sayfasına git"
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s kullanıcı"
-msgstr[1] ""
+msgstr[1] "%(total)s kullanıcı"
 
 #: src/amo/components/SearchResult/index.js:94
 msgid "No theme preview available"
@@ -1882,7 +1882,7 @@ msgstr "Tüm web sitelerine ait verilerinize erişme"
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
 msgstr[0] "%(param)s diğer alan adındaki verilerinize erişme"
-msgstr[1] ""
+msgstr[1] "%(param)s diğer alan adındaki verilerinize erişme"
 
 #: src/ui/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
@@ -1892,7 +1892,7 @@ msgstr "%(param)s alan adındaki sitelere ait verilerinize erişme"
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
 msgstr[0] "Diğer %(param)s sitedeki verilerinize erişme"
-msgstr[1] ""
+msgstr[1] "Diğer %(param)s sitedeki verilerinize erişme"
 
 #: src/ui/components/HostPermissions/index.js:65
 msgid "Access your data for %(param)s"
