@@ -146,11 +146,9 @@ describe(__filename, () => {
     const root = render({ rating: 3 });
 
     [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
       expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
     });
     [4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
       expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
     });
   });
@@ -160,30 +158,6 @@ describe(__filename, () => {
     const root = render({ rating: 3.60001, readOnly: true });
 
     expect(findDOMNode(root).title).toContain('3.6 out of 5');
-  });
-
-  it('converts rating numbers to a float', () => {
-    const rootWithInteger = render({ rating: 3, readOnly: true });
-    const rootWithString = render({ rating: '3.60001', readOnly: true });
-
-    expect(findDOMNode(rootWithInteger).title).toContain('3 out of 5');
-    expect(findDOMNode(rootWithString).title).toContain('3.6 out of 5');
-  });
-
-  it('rounds readOnly average ratings to nearest 0.5 multiple', () => {
-    // This should be treated like a rating of 3.5.
-    const root = render({ rating: 3.6, readOnly: true });
-
-    // The first three stars are fully highlighted
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
-    });
-    [4].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-half-star');
-    });
-    [5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
-    });
   });
 
   it('renders 0 selected stars for empty ratings', () => {
