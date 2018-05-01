@@ -53,18 +53,19 @@ export class RatingBase extends React.Component {
   // for each individual star, as well as the wrapper
   // that surrounds the read-only set of stars
   renderTitle = (i18n, rating, readOnly, starRating) => {
-    if (!readOnly && !rating) {
-      return i18n.sprintf(i18n.gettext(
-        `Rate this add-on %(starRating)s out of 5.`), { starRating });
-    } else if (!readOnly && rating) {
+    if (readOnly) {
+      if (rating) {
+        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
+          { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
+      }
+      return i18n.gettext('This add-on has not been rated yet.');
+    }
+    if (rating) {
       return i18n.sprintf(i18n.gettext(
         `Update your rating to %(starRating)s out of 5.`), { starRating });
-    } else if (readOnly && rating) {
-      return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
-        { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
     }
-    // If it's read only with no rating present
-    return i18n.gettext('This add-on has not been rated yet.');
+    return i18n.sprintf(i18n.gettext(
+      `Rate this add-on %(starRating)s out of 5.`), { starRating });
   }
 
   renderRatings() {
