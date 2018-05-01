@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-24 21:50+0000\n"
+"PO-Revision-Date: 2018-05-01 15:21+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -516,9 +516,8 @@ msgid "Edit this collection"
 msgstr "Modifier cette collection"
 
 #: src/amo/components/Collection/index.js:186
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "Modifier cette collection"
+msgstr "Se connecter pour modifier cette collection"
 
 #: src/amo/components/Collection/index.js:210 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -529,9 +528,8 @@ msgid "Creator"
 msgstr "Créateur"
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Modifier cette collection"
+msgstr "Se connecter pour créer une collection"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -898,9 +896,8 @@ msgid "Good time tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:240
-#, fuzzy
 msgid "See more good time tabs extensions"
-msgstr "Voir plus d’extensions parmi les mieux notées"
+msgstr "Voir plus d’extensions pour les onglets"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -972,23 +969,23 @@ msgstr "Black Menu for Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Accédez facilement à certains services Google (recherche, traduction) grâce à un menu déroulant"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
-msgstr ""
+msgstr "Honey"
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "Recherchez automatiquement des codes promo"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
-msgstr ""
+msgstr "SHINE pour Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "Essayez Reddit avec un thème alternatif"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1400,9 +1397,8 @@ msgid "Extension"
 msgstr "Extension"
 
 #: src/amo/components/SearchFilters/index.js:106
-#, fuzzy
 msgid "Search Tool"
-msgstr "Outils de recherche"
+msgstr "Outil de recherche"
 
 #: src/amo/components/SearchFilters/index.js:107
 msgid "Theme"
@@ -1891,28 +1887,24 @@ msgid "Access your data for all websites"
 msgstr "Accéder à vos données pour tous les sites web"
 
 #: src/ui/components/HostPermissions/index.js:46
-#, fuzzy
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "Accéder aux données de %(count)s autres domaines"
-msgstr[1] "Accéder aux données de %(count)s autres domaines"
+msgstr[0] "Accéder aux données d’un autre domaine"
+msgstr[1] "Accéder aux données de %(param)s autres domaines"
 
 #: src/ui/components/HostPermissions/index.js:53
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Accéder à vos données pour les sites du domaine %(domain)s"
+msgstr "Accéder à vos données pour les sites du domaine %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:58
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Accéder à vos données pour %(count)s autres sites"
-msgstr[1] "Accéder à vos données pour %(count)s autres sites"
+msgstr[0] "Accéder à vos données pour un autre site"
+msgstr[1] "Accéder à vos données pour %(param)s autres sites"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "Accéder à vos données pour %(site)s"
+msgstr "Accéder à vos données pour %(param)s"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
