@@ -92,16 +92,32 @@ describe(__filename, () => {
     expect(root.find(Permission)).toHaveLength(0);
   });
 
-  it('formats and clubs site permissions with wildcards', () => {
+  it('deduplicates domain and site permissions', () => {
     const permissions = [
       'https://*.okta.com/',
       'https://*.okta.com/login/login.htm*',
       'https://*.okta.com/signin/verify/okta/push',
       'https://*.okta.com/signin/verify/okta/sms',
+      'https://trishulgoel.com/about',
+      'https://trishulgoel.com/speaker',
+      '*://*.mozilla.org/*',
+      '*://*.mozilla.com/*',
+      '*://*.mozilla.ca/*',
+      '*://*.mozilla.us/*',
+      '*://*.mozilla.co.nz/*',
+      '*://*.mozilla.co.uk/*',
     ];
     const root = render({ permissions });
-    expect(root.find(Permission)).toHaveLength(1);
+    expect(root.find(Permission)).toHaveLength(5);
     expectPermission(root.childAt(0),
       'Access your data for sites in the okta.com domain');
+    expectPermission(root.childAt(1),
+      'Access your data for sites in the mozilla.org domain');
+    expectPermission(root.childAt(2),
+      'Access your data for sites in the mozilla.com domain');
+    expectPermission(root.childAt(3),
+      'Access your data in 4 other domains');
+    expectPermission(root.childAt(4),
+      'Access your data for trishulgoel.com');
   });
 });
