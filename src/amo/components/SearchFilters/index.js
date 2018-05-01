@@ -200,18 +200,18 @@ export class SearchFiltersBase extends React.Component {
             })}
           </Select>
 
-          <input
-            className="SearchFilters-Featured"
-            checked={!!filters.featured}
-            id="SearchFilters-Featured"
-            name="featured"
-            onChange={this.onChangeCheckbox}
-            type="checkbox"
-          />
           <label
             className="SearchFilters-label SearchFilters-Featured-label"
             htmlFor="SearchFilters-Featured"
           >
+            <input
+              className="SearchFilters-Featured"
+              checked={!!filters.featured}
+              id="SearchFilters-Featured"
+              name="featured"
+              onChange={this.onChangeCheckbox}
+              type="checkbox"
+            />
             {i18n.gettext('Featured add-ons only')}
           </label>
         </form>

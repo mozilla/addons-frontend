@@ -10,11 +10,14 @@
 
 .SearchFilters-select {
   margin: 0 0 5px;
-  width: 100%;
 }
 
 .SearchFilters-Featured-label {
-  @include margin-start(5px);
-
   display: inline-block;
+  padding: 20px 0 0 0;
+  width: 100%;
+}
+
+#SearchFilters-Featured {
+  @include margin-end(10px);
 }
