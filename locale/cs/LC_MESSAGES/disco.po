@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:45+0000\n"
-"PO-Revision-Date: 2018-04-29 11:04+0000\n"
+"PO-Revision-Date: 2018-05-01 15:08+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -88,7 +88,7 @@ msgstr "Najeďte myší pro náhled nebo klepněte pro instalaci doplňku %(name
 
 #: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
-msgstr "Pro náhled přejeďte nad obrázkem myší"
+msgstr "Pro náhled najeďte myší nad obrázek"
 
 #: src/disco/components/Addon.js:176
 msgid "Installation failed. Please try again."
