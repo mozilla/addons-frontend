@@ -6,6 +6,7 @@ until docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-comp
 done
 echo
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml ps
+./addons-server/scripts/ui-test-hostname-setup.sh
 # Make sure dependencies get updated in worker and web container
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml exec worker make -f Makefile-docker update_deps
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml restart worker
