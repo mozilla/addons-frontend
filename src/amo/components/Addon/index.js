@@ -338,6 +338,29 @@ export class AddonBase extends React.Component {
     /* eslint-enable react/no-danger */
   }
 
+  renderAddonsByAuthorsCard(isForTheme) {
+    const { addon } = this.props;
+    if (
+      !addon ||
+      !addon.authors.length ||
+      (isForTheme && addon.type !== ADDON_TYPE_THEME) ||
+      (!isForTheme && addon.type === ADDON_TYPE_THEME)
+    ) {
+      return null;
+    }
+
+    return (
+      <AddonsByAuthorsCard
+        addonType={addon.type}
+        authorDisplayName={addon.authors[0].name}
+        authorUsernames={addon.authors.map((author) => author.username)}
+        className="Addon-MoreAddonsCard"
+        forAddonSlug={addon.slug}
+        numberOfAddons={6}
+      />
+    );
+  }
+
   render() {
     const {
       addon,
@@ -485,18 +508,7 @@ export class AddonBase extends React.Component {
 
         <div className="Addon-details">
           <div className="Addon-main-content">
-            {addon &&
-             addon.authors.length &&
-             addonType === ADDON_TYPE_THEME && (
-             <AddonsByAuthorsCard
-               addonType={addonType}
-               authorDisplayName={addon.authors[0].name}
-               authorUsernames={addon.authors.map((author) => author.username)}
-               className="Addon-MoreAddonsCard"
-               forAddonSlug={addon.slug}
-               numberOfAddons={6}
-             />
-            )}
+            {this.renderAddonsByAuthorsCard(true)}
 
             {addonPreviews.length > 0 ? (
               <Card
@@ -522,16 +534,7 @@ export class AddonBase extends React.Component {
 
           {this.renderVersionReleaseNotes()}
 
-          {addon && addon.authors.length && addonType !== ADDON_TYPE_THEME && (
-            <AddonsByAuthorsCard
-              addonType={addonType}
-              authorDisplayName={addon.authors[0].name}
-              authorUsernames={addon.authors.map((author) => author.username)}
-              className="Addon-MoreAddonsCard"
-              forAddonSlug={addon.slug}
-              numberOfAddons={6}
-            />
-          )}
+          {this.renderAddonsByAuthorsCard(false)}
         </div>
       </div>
     );
