@@ -455,7 +455,7 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard))
-      .toHaveProp('header', `themes by ${fakeAuthor.name}`);
+      .toHaveProp('header', `Themes by ${fakeAuthor.name}`);
   });
 
 

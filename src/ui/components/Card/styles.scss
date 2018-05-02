@@ -15,10 +15,6 @@ $footer-padding: 10px;
   margin-bottom: 1px;
   margin-top: 0;
   word-wrap: break-word;
-
-  &::first-letter {
-    text-transform: capitalize;
-  }
 }
 
 .Card-contents {
