@@ -4,9 +4,11 @@ import { validAddonTypes } from 'core/constants';
 // You have to just laugh at this line!
 type AddonTypeType = validAddonTypes;
 
+export const STATUS_PUBLIC: 'public' = 'public';
+
 type AddonStatus =
   | 'lite'
-  | 'public'
+  | typeof STATUS_PUBLIC
   | 'deleted'
   | 'pending'
   | 'disabled'
