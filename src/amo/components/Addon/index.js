@@ -338,7 +338,7 @@ export class AddonBase extends React.Component {
     /* eslint-enable react/no-danger */
   }
 
-  renderAddonsByAuthorsCard(isForTheme) {
+  renderAddonsByAuthorsCard({ isForTheme }) {
     const { addon } = this.props;
     if (
       !addon ||
@@ -508,7 +508,7 @@ export class AddonBase extends React.Component {
 
         <div className="Addon-details">
           <div className="Addon-main-content">
-            {this.renderAddonsByAuthorsCard(true)}
+            {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
             {addonPreviews.length > 0 ? (
               <Card
@@ -534,7 +534,7 @@ export class AddonBase extends React.Component {
 
           {this.renderVersionReleaseNotes()}
 
-          {this.renderAddonsByAuthorsCard(false)}
+          {this.renderAddonsByAuthorsCard({ isForTheme: false })}
         </div>
       </div>
     );
