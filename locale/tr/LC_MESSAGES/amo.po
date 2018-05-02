@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-19 19:24+0000\n"
+"PO-Revision-Date: 2017-09-23 13:33+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -59,7 +59,7 @@ msgstr "Bu eklentinin hiçbir sürümü yayımlanmadığı için ona puan vereme
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "%(count)s incelemenin hepsini oku"
-msgstr[1] ""
+msgstr[1] "%(count)s incelemenin hepsini oku"
 
 #: src/amo/components/Addon/index.js:246
 msgid "No reviews yet"
@@ -1333,37 +1333,37 @@ msgstr "\"%(query)s\" arama sonuçları"
 msgid "%(count)s extension found for \"%(query)s\""
 msgid_plural "%(count)s extensions found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s eklenti bulundu"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" için %(count)s eklenti bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:46
 msgid "%(count)s dictionary found for \"%(query)s\""
 msgid_plural "%(count)s dictionaries found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s sözlük bulundu"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" için %(count)s sözlük bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:52
 msgid "%(count)s language pack found for \"%(query)s\""
 msgid_plural "%(count)s language packs found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s dil paketi bulundu"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" için %(count)s dil paketi bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:58
 msgid "%(count)s theme found for \"%(query)s\""
 msgid_plural "%(count)s themes found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s tema bulundu"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" için %(count)s tema bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:64
 msgid "%(count)s result found for \"%(query)s\""
 msgid_plural "%(count)s results found for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s sonuç bulundu"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" için %(count)s sonuç bulundu"
 
 #: src/amo/components/SearchContextCard/index.js:71
 msgid "%(count)s result for \"%(query)s\""
 msgid_plural "%(count)s results for \"%(query)s\""
 msgstr[0] "\"%(query)s\" için %(count)s sonuç"
-msgstr[1] ""
+msgstr[1] "\"%(query)s\" için %(count)s sonuç"
 
 #: src/amo/components/SearchContextCard/index.js:77
 msgid "Searching for \"%(query)s\""
@@ -1381,7 +1381,7 @@ msgstr "Eklenti bulunamadı"
 msgid "%(count)s add-on found"
 msgid_plural "%(count)s add-ons found"
 msgstr[0] "%(count)s eklenti bulundu"
-msgstr[1] ""
+msgstr[1] "%(count)s eklenti bulundu"
 
 #: src/amo/components/SearchFilters/index.js:104 src/amo/components/SearchFilters/index.js:115
 msgid "All"
