@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+import config from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -13,6 +14,7 @@ import AddonBadges from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -62,6 +64,7 @@ import './styles.scss';
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    _config: PropTypes.object,
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
@@ -88,6 +91,7 @@ export class AddonBase extends React.Component {
   }
 
   static defaultProps = {
+    _config: config,
     RatingManager: DefaultRatingManager,
     platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
@@ -363,6 +367,7 @@ export class AddonBase extends React.Component {
 
   render() {
     const {
+      _config,
       addon,
       addonsByAuthors,
       clientApp,
@@ -535,6 +540,10 @@ export class AddonBase extends React.Component {
           {this.renderVersionReleaseNotes()}
 
           {this.renderAddonsByAuthorsCard({ isForTheme: false })}
+
+          {_config.get('enableAddonRecommendations') && (
+            <AddonRecommendations addon={addon} />
+          )}
         </div>
       </div>
     );

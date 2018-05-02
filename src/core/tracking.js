@@ -41,12 +41,13 @@ export class Tracking {
   constructor({
     _config = config,
     _isDoNotTrackEnabled = isDoNotTrackEnabled,
+    _log = log,
   } = {}) {
     if (typeof window === 'undefined') {
       /* istanbul ignore next */
       return;
     }
-    this._log = log;
+    this._log = _log;
     this.logPrefix = '[GA]'; // this gets updated below
     this.id = _config.get('trackingId');
 
@@ -83,7 +84,9 @@ export class Tracking {
   }
 
   log(...args) {
-    this._log.info(this.logPrefix, ...args);
+    if (this._log) {
+      this._log.info(this.logPrefix, ...args);
+    }
   }
 
   _ga(...args) {
