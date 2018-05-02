@@ -47,9 +47,7 @@ import { getClientCompatibility as _getClientCompatibility } from 'core/utils/co
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
-import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import ShowMoreCard from 'ui/components/ShowMoreCard';
 
@@ -167,14 +165,8 @@ export class AddonBase extends React.Component {
     return addon && ADDON_TYPE_THEMES.includes(addon.type);
   }
 
-  headerImage({ compatible }) {
-    const {
-      addon,
-      getBrowserThemeData,
-      i18n,
-      isPreviewingTheme,
-      installStatus,
-    } = this.props;
+  headerImage() {
+    const { addon, getBrowserThemeData } = this.props;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     if (this.addonIsTheme()) {

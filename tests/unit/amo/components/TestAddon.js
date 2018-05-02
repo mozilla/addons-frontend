@@ -50,7 +50,6 @@ import {
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
-  ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALL_SOURCE_DETAIL_PAGE,
@@ -865,7 +864,6 @@ describe(__filename, () => {
     expect(image.type()).toEqual('img');
     expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual('https://amo/preview.png');
-    expect(image.prop('alt')).toEqual('Tap to preview');
   });
 
   it('renders a static theme preview as an image', () => {
@@ -1027,58 +1025,6 @@ describe(__filename, () => {
       'defaultInstallSource',
       INSTALL_SOURCE_DETAIL_PAGE,
     );
-  });
-
-  it('enables a theme preview for non-enabled add-ons', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      installStatus: UNKNOWN,
-    });
-    expect(root.find('.Addon-theme-header-label')).toHaveLength(1);
-  });
-
-  it('disables theme preview for enabled add-ons', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      installStatus: ENABLED,
-    });
-    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
-  });
-
-  it('disables a theme preview for unsupported clients', () => {
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeAddon,
-        type: ADDON_TYPE_THEME,
-      }),
-      getClientCompatibility: getClientCompatibilityFalse,
-    });
-    const button = root.find('.Addon-theme-header-label');
-    expect(button.prop('disabled')).toEqual(true);
-  });
-
-  it('unsets the theme preview on component unmount', () => {
-    const resetThemePreview = sinon.spy();
-    const root = shallowRender({
-      addon: createInternalAddon({
-        ...fakeTheme,
-        theme_data: {
-          ...fakeTheme.theme_data,
-          previewURL: 'https://amo/preview.png',
-        },
-      }),
-      isPreviewingTheme: true,
-      themePreviewNode: 'theme-preview-node',
-      resetThemePreview,
-    });
-    root.unmount();
-    expect(resetThemePreview.calledWith('theme-preview-node')).toBeTruthy();
   });
 
   it('sets the browsertheme data on the header', () => {
