@@ -51,6 +51,12 @@ $avatar-size: 64px;
   }
 }
 
+.UserProfile-homepage {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .UserProfile-rating-average .Rating {
   @include margin(0, 0, 0, -3px);
 
