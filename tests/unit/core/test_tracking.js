@@ -30,6 +30,14 @@ describe('Tracking', () => {
     window.ga = sinon.stub();
   });
 
+  it('should be able to call log when uninitialized without an error', () => {
+    const tracking = createTracking({
+      _log: null,
+    });
+    // This should not throw an error.
+    tracking.log('A message that will never be sent');
+  });
+
   it('should not enable GA when configured off', () => {
     createTracking({
       _config: stubConfig({ trackingEnabled: false }),
