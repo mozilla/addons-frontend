@@ -1129,6 +1129,17 @@ describe(__filename, () => {
         .toHaveLength(0);
     });
 
+    it('is hidden when add-on has no authors', () => {
+      const root = shallowRender({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          authors: [],
+        }),
+      });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
     it('displays more add-ons by authors', () => {
       const addon = createInternalAddon({ ...fakeAddon });
       const addonsByAuthors = [
