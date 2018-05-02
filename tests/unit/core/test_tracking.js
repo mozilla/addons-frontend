@@ -34,8 +34,9 @@ describe('Tracking', () => {
     const tracking = createTracking({
       _log: null,
     });
-    // This should not throw an error.
-    tracking.log('A message that will never be sent');
+    expect(() => {
+      tracking.log('A message that will never be sent');
+    }).not.toThrow();
   });
 
   it('should not enable GA when configured off', () => {
