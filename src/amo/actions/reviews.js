@@ -1,4 +1,6 @@
 /* @flow */
+import invariant from 'invariant';
+
 import {
   CLEAR_ADDON_REVIEWS,
   FETCH_REVIEWS,
@@ -60,9 +62,7 @@ export type SetReviewAction = {|
 |};
 
 export const setReview = (review: ExternalReviewType): SetReviewAction => {
-  if (!review) {
-    throw new Error('review cannot be empty');
-  }
+  invariant(review, 'review cannot be empty');
   // TODO: move denormalizeReview() to the reducer.
   // https://github.com/mozilla/addons-frontend/issues/3342
   return { type: SET_REVIEW, payload: denormalizeReview(review) };
@@ -81,12 +81,9 @@ export type SetReviewReplyAction = {|
 export const setReviewReply = (
   { originalReviewId, reply }: SetReviewReplyParams = {}
 ): SetReviewReplyAction => {
-  if (!originalReviewId) {
-    throw new Error('The originalReviewId parameter is required');
-  }
-  if (!reply) {
-    throw new Error('The reply parameter is required');
-  }
+  invariant(originalReviewId, 'originalReviewId parameter is required');
+  invariant(reply, 'reply parameter is required');
+
   return {
     type: SET_REVIEW_REPLY,
     payload: { originalReviewId, reply },
@@ -94,77 +91,68 @@ export const setReviewReply = (
 };
 
 type FetchReviewsParams = {|
-  addonSlug: string,
+  addonSlug?: string,
   errorHandlerId: string,
   page?: number,
+  userId?: number,
 |};
 
 export type FetchReviewsAction = {|
   type: typeof FETCH_REVIEWS,
-  payload: {|
-    addonSlug: string,
-    errorHandlerId: string,
-    page: number,
-  |},
+  payload: FetchReviewsParams,
 |};
 
 export function fetchReviews(
-  { addonSlug, errorHandlerId, page = 1 }: FetchReviewsParams
+  { addonSlug, errorHandlerId, page = 1, userId }: FetchReviewsParams
 ): FetchReviewsAction {
-  if (!errorHandlerId) {
-    throw new Error('errorHandlerId cannot be empty');
-  }
-  if (!addonSlug) {
-    throw new Error('addonSlug cannot be empty');
-  }
+  invariant(errorHandlerId, 'errorHandlerId cannot be empty');
+  invariant(addonSlug || userId, 'addonSlug and userId cannot both be empty');
+
   return {
     type: FETCH_REVIEWS,
-    payload: { addonSlug, errorHandlerId, page },
+    payload: { addonSlug, errorHandlerId, page, userId },
   };
 }
 
 export const setDenormalizedReview = (
   review: UserReviewType
 ): SetReviewAction => {
-  if (!review) {
-    throw new Error('review cannot be empty');
-  }
+  invariant(review, 'review cannot be empty');
+
   return { type: SET_REVIEW, payload: review };
 };
 
 export type SetAddonReviewsAction = {|
   type: typeof SET_ADDON_REVIEWS,
   payload: {|
-    addonSlug: string,
+    addonSlug?: string,
     reviewCount: number,
     reviews: Array<UserReviewType>,
+    userId?: number,
   |},
 |};
 
 type SetAddonReviewsParams = {|
-  addonSlug: string,
+  addonSlug?: string,
   reviewCount: number,
   reviews: Array<ExternalReviewType>,
+  userId?: number,
 |};
 
 export const setAddonReviews = (
-  { addonSlug, reviewCount, reviews }: SetAddonReviewsParams
+  { addonSlug, reviewCount, reviews, userId }: SetAddonReviewsParams
 ): SetAddonReviewsAction => {
-  if (!addonSlug) {
-    throw new Error('addonSlug cannot be empty');
-  }
-  if (!Array.isArray(reviews)) {
-    throw new Error('reviews must be an Array');
-  }
-  if (typeof reviewCount === 'undefined') {
-    throw new Error('reviewCount must be set');
-  }
+  invariant(addonSlug || userId, 'addonSlug and userId cannot both be empty');
+  invariant(Array.isArray(reviews), 'reviews must be an Array');
+  invariant(typeof reviewCount !== 'undefined', 'reviewCount must be set');
+
   return {
     type: SET_ADDON_REVIEWS,
     payload: {
       addonSlug,
       reviewCount,
       reviews: reviews.map((review) => denormalizeReview(review)),
+      userId,
     },
   };
 };
@@ -184,15 +172,10 @@ export type SendReplyToReviewAction = {|
 export const sendReplyToReview = ({
   errorHandlerId, originalReviewId, body, title,
 }: SendReplyToReviewParams = {}): SendReplyToReviewAction => {
-  if (!errorHandlerId) {
-    throw new Error('The errorHandlerId parameter is required');
-  }
-  if (!originalReviewId) {
-    throw new Error('The originalReviewId parameter is required');
-  }
-  if (!body) {
-    throw new Error('The body parameter is required');
-  }
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(originalReviewId, 'The originalReviewId parameter is required');
+  invariant(body, 'The body parameter is required');
+
   return {
     type: SEND_REPLY_TO_REVIEW,
     payload: { errorHandlerId, originalReviewId, body, title },
@@ -207,9 +190,8 @@ type ReviewIdActionParams = {|
 export const reviewIdAction = (
   { reviewId, type }: ReviewIdActionParams = {}
 ): any => {
-  if (!reviewId) {
-    throw new Error('The reviewId parameter is required');
-  }
+  invariant(reviewId, 'The reviewId parameter is required');
+
   return { type, payload: { reviewId } };
 };
 
@@ -288,15 +270,10 @@ export type FlagReviewAction = {|
 export const flagReview = (
   { errorHandlerId, note, reason, reviewId }: FlagReviewParams = {}
 ): FlagReviewAction => {
-  if (!errorHandlerId) {
-    throw new Error('The errorHandlerId parameter is required');
-  }
-  if (!reason) {
-    throw new Error('The reason parameter is required');
-  }
-  if (!reviewId) {
-    throw new Error('The reviewId parameter is required');
-  }
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(reason, 'The reason parameter is required');
+  invariant(reviewId, 'The reviewId parameter is required');
+
   return {
     type: SEND_REVIEW_FLAG,
     payload: { errorHandlerId, note, reason, reviewId },
@@ -316,12 +293,9 @@ export type ReviewWasFlaggedAction = {|
 export const setReviewWasFlagged = (
   { reason, reviewId }: ReviewWasFlaggedParams = {}
 ): ReviewWasFlaggedAction => {
-  if (!reason) {
-    throw new Error('The reason parameter is required');
-  }
-  if (!reviewId) {
-    throw new Error('The reviewId parameter is required');
-  }
+  invariant(reason, 'The reason parameter is required');
+  invariant(reviewId, 'The reviewId parameter is required');
+
   return {
     type: SET_REVIEW_WAS_FLAGGED,
     payload: { reason, reviewId },
@@ -340,9 +314,8 @@ export type ClearAddonReviewsAction = {|
 export const clearAddonReviews = (
   { addonSlug }: ClearAddonReviewsParams
 ): ClearAddonReviewsAction => {
-  if (!addonSlug) {
-    throw new Error('the addonSlug parameter is required');
-  }
+  invariant(addonSlug, 'the addonSlug parameter is required');
+
   return {
     type: CLEAR_ADDON_REVIEWS,
     payload: { addonSlug },

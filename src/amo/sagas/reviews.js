@@ -2,6 +2,7 @@
 // Disabled because of
 // https://github.com/benmosher/eslint-plugin-import/issues/793
 /* eslint-disable import/order */
+import { oneLine } from 'common-tags';
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 /* eslint-enable import/order */
 
@@ -24,7 +25,7 @@ import type {
 
 function* fetchReviews(
   {
-    payload: { errorHandlerId, addonSlug, page },
+    payload: { errorHandlerId, addonSlug, page, userId },
   }: FetchReviewsAction
 ): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -36,13 +37,17 @@ function* fetchReviews(
       // Hide star-only ratings (reviews that do not have a body).
       filter: 'without_empty_body',
       page,
+      user: userId,
     });
     yield put(setAddonReviews({
-      addonSlug, reviews: response.results, reviewCount: response.count,
+      addonSlug,
+      reviews: response.results,
+      reviewCount: response.count,
+      userId,
     }));
   } catch (error) {
-    log.warn(
-      `Failed to load reviews for add-on slug ${addonSlug}: ${error}`);
+    log.warn(oneLine`Failed to load reviews for
+      add-on slug ${addonSlug}/userId ${userId}: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
 }

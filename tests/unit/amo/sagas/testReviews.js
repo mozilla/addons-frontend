@@ -48,12 +48,11 @@ describe(__filename, () => {
     function _fetchReviews(params = {}) {
       sagaTester.dispatch(fetchReviews({
         errorHandlerId: errorHandler.id,
-        addonSlug: fakeAddon.slug,
         ...params,
       }));
     }
 
-    it('fetches reviews from the API', async () => {
+    it('fetches reviews from the API for an add-on', async () => {
       const reviews = [fakeReview];
       mockApi
         .expects('getReviews')
@@ -63,17 +62,41 @@ describe(__filename, () => {
           page: 1,
           api: apiState,
           filter: 'without_empty_body',
+          user: undefined,
         })
         .returns(Promise.resolve(apiResponsePage({ results: reviews })));
 
-      _fetchReviews();
+      _fetchReviews({ addonSlug: fakeAddon.slug });
 
-      await sagaTester.waitFor(SET_ADDON_REVIEWS);
+      const calledAction = await sagaTester.waitFor(SET_ADDON_REVIEWS);
       mockApi.verify();
 
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions[1]).toEqual(setAddonReviews({
-        addonSlug: fakeAddon.slug, reviews, reviewCount: 1,
+      expect(calledAction).toEqual(setAddonReviews({
+        addonSlug: fakeAddon.slug, reviews, reviewCount: 1, user: undefined,
+      }));
+    });
+
+    it('fetches reviews from the API for a user', async () => {
+      const reviews = [fakeReview];
+      mockApi
+        .expects('getReviews')
+        .once()
+        .withArgs({
+          addon: undefined,
+          page: 1,
+          api: apiState,
+          filter: 'without_empty_body',
+          user: 500,
+        })
+        .returns(Promise.resolve(apiResponsePage({ results: reviews })));
+
+      _fetchReviews({ userId: 500 });
+
+      const calledAction = await sagaTester.waitFor(SET_ADDON_REVIEWS);
+      mockApi.verify();
+
+      expect(calledAction).toEqual(setAddonReviews({
+        addonSlug: undefined, reviews, reviewCount: 1, userId: 500,
       }));
     });
 
@@ -81,12 +104,11 @@ describe(__filename, () => {
       const error = new Error('some API error maybe');
       mockApi.expects('getReviews').returns(Promise.reject(error));
 
-      _fetchReviews();
+      _fetchReviews({ addonSlug: fakeAddon.slug });
 
       const errorAction = errorHandler.createErrorAction(error);
-      await sagaTester.waitFor(errorAction.type);
-      const calledActions = sagaTester.getCalledActions();
-      expect(calledActions.slice(-1).pop()).toEqual(errorAction);
+      const calledErrorAction = await sagaTester.waitFor(errorAction.type);
+      expect(calledErrorAction).toEqual(errorAction);
     });
   });
 

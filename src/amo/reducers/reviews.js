@@ -32,6 +32,8 @@ import type {
 import type { FlagReviewReasonType } from 'amo/constants';
 
 
+const SET_USER_REVIEWS: 'SET_USER_REVIEWS' = 'SET_USER_REVIEWS';
+
 type ReviewsById = {
   [id: number]: UserReviewType,
 }
@@ -303,6 +305,20 @@ export default function reviewsReducer(
         byAddon: {
           ...state.byAddon,
           [payload.addonSlug]: {
+            reviewCount: payload.reviewCount,
+            reviews: payload.reviews.map((review) => review.id),
+          },
+        },
+      };
+    }
+    case SET_USER_REVIEWS: {
+      const { payload } = action;
+      return {
+        ...state,
+        byId: storeReviewObjects({ state, reviews: payload.reviews }),
+        byUserId: {
+          ...state.byUserId,
+          [payload.userId]: {
             reviewCount: payload.reviewCount,
             reviews: payload.reviews.map((review) => review.id),
           },
