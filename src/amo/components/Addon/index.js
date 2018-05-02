@@ -485,15 +485,17 @@ export class AddonBase extends React.Component {
 
         <div className="Addon-details">
           <div className="Addon-main-content">
-            {addon && addonType === ADDON_TYPE_THEME && (
-              <AddonsByAuthorsCard
-                addonType={addonType}
-                authorDisplayName={addon.authors[0].name}
-                authorUsernames={addon.authors.map((author) => author.username)}
-                className="Addon-MoreAddonsCard"
-                forAddonSlug={addon.slug}
-                numberOfAddons={6}
-              />
+            {addon &&
+             addon.authors.length &&
+             addonType === ADDON_TYPE_THEME && (
+             <AddonsByAuthorsCard
+               addonType={addonType}
+               authorDisplayName={addon.authors[0].name}
+               authorUsernames={addon.authors.map((author) => author.username)}
+               className="Addon-MoreAddonsCard"
+               forAddonSlug={addon.slug}
+               numberOfAddons={6}
+             />
             )}
 
             {addonPreviews.length > 0 ? (
@@ -520,7 +522,7 @@ export class AddonBase extends React.Component {
 
           {this.renderVersionReleaseNotes()}
 
-          {addon && addonType !== ADDON_TYPE_THEME && (
+          {addon && addon.authors.length && addonType !== ADDON_TYPE_THEME && (
             <AddonsByAuthorsCard
               addonType={addonType}
               authorDisplayName={addon.authors[0].name}
