@@ -71,7 +71,7 @@ export type UsersStateType = {
 
 export type UserEditableFieldsType = {|
   biography?: string | null,
-  displayName?: string | null,
+  display_name?: string | null,
   homepage?: string | null,
   location?: string | null,
   occupation?: string | null,

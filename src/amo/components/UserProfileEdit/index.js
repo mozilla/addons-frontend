@@ -1,3 +1,4 @@
+/* @flow */
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
 import Helmet from 'react-helmet';
@@ -13,15 +14,39 @@ import {
 } from 'amo/reducers/users';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
+import log from 'core/logger';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
-import Icon from 'ui/components/Icon';
-import LoadingText from 'ui/components/LoadingText';
+import type { UsersStateType, UserType } from 'amo/reducers/users';
+import type { DispatchFunc } from 'core/types/redux';
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 
-export class UserProfileEditBase extends React.Component {
+type Props = {|
+  dispatch: DispatchFunc,
+  errorHandler: ErrorHandlerType,
+  i18n: I18nType,
+  isEditing: boolean,
+  isEditingCurrentUser: boolean,
+  params: {| username: string |},
+  user?: UserType,
+  username: string,
+|};
+
+const getValueOrEmpty = (input) => {
+  if (input && input.value) {
+    return input.value;
+  }
+
+  return '';
+};
+
+export class UserProfileEditBase extends React.Component<Props> {
+  displayName: HTMLInputElement | null;
+
   componentWillMount() {
     const { dispatch, errorHandler, params, user } = this.props;
 
@@ -44,24 +69,35 @@ export class UserProfileEditBase extends React.Component {
     }
   }
 
-  onSubmit = (event) => {
+  onSubmit = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, user } = this.props;
 
+    if (!user) {
+      log.debug('Form has been submitted but no user passed as prop.');
+      return;
+    }
+
     dispatch(editUserAccount({
       errorHandlerId: errorHandler.id,
       userFields: {
-        biography: this.biography.value,
-        display_name: this.displayName.value,
-        homepage: this.homepage.value,
-        location: this.location.value,
-        occupation: this.occupation.value,
-        username: this.username.value,
+        biography: getValueOrEmpty(this.biography),
+        display_name: getValueOrEmpty(this.displayName),
+        homepage: getValueOrEmpty(this.homepage),
+        location: getValueOrEmpty(this.location),
+        occupation: getValueOrEmpty(this.occupation),
+        username: getValueOrEmpty(this.username),
       },
       userId: user.id,
     }));
   }
+
+  biography: HTMLInputElement | null;
+  homepage: HTMLInputElement | null;
+  location: HTMLInputElement | null;
+  occupation: HTMLInputElement | null;
+  username: HTMLInputElement | null;
 
   render() {
     const {
@@ -117,7 +153,7 @@ export class UserProfileEditBase extends React.Component {
               className="UserProfileEdit--Card"
               header={isEditingCurrentUser ? i18n.gettext('Your Account') : (
                 i18n.sprintf(i18n.gettext('User Account for %(username)s'), {
-                  username: username,
+                  username,
                 })
               )}
             >
@@ -290,7 +326,10 @@ export class UserProfileEditBase extends React.Component {
   }
 }
 
-export function mapStateToProps(state, ownProps) {
+export function mapStateToProps(
+  state: { users: UsersStateType },
+  ownProps: Props,
+) {
   const currentUser = getCurrentUser(state.users);
   const user = ownProps.params.username ?
     getUserByUsername(state.users, ownProps.params.username) : currentUser;
