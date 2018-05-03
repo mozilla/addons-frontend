@@ -21,6 +21,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fetchAddon,
   getAddonByID,
@@ -38,6 +39,7 @@ import {
   ENABLED,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
+  INCOMPATIBLE_NOT_FIREFOX,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
@@ -446,6 +448,10 @@ export class AddonBase extends React.Component {
 
     const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
 
+    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
+      utm_content: 'install-addon-button',
+    })}`;
+
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
@@ -463,14 +469,15 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
-            {compatibility && !isCompatible ? (
-              <AddonCompatibilityError
-                className="Addon-header-compatibility-error"
-                downloadUrl={compatibility.downloadUrl}
-                maxVersion={compatibility.maxVersion}
-                minVersion={compatibility.minVersion}
-                reason={compatibility.reason}
-              />
+            {compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX
+              && !isCompatible ? (
+                <AddonCompatibilityError
+                  className="Addon-header-compatibility-error"
+                  downloadUrl={compatibility.downloadUrl}
+                  maxVersion={compatibility.maxVersion}
+                  minVersion={compatibility.minVersion}
+                  reason={compatibility.reason}
+                />
             ) : null}
             <header className="Addon-header">
               {this.headerImage({ compatible: isCompatible })}
@@ -483,15 +490,26 @@ export class AddonBase extends React.Component {
                 {showSummary ?
                   <p className="Addon-summary" {...summaryProps} /> : null}
 
-                {addon ?
-                  <InstallButton
-                    {...this.props}
-                    disabled={!isCompatible}
-                    ref={(ref) => { this.installButton = ref; }}
-                    defaultInstallSource={defaultInstallSource}
-                    status={installStatus}
-                    useButton
-                  /> : null
+                {addon && compatibility
+                  && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX &&
+                    <InstallButton
+                      {...this.props}
+                      disabled={!isCompatible}
+                      ref={(ref) => { this.installButton = ref; }}
+                      defaultInstallSource={defaultInstallSource}
+                      status={installStatus}
+                      useButton
+                    />
+                }
+                {addon && compatibility
+                  && compatibility.reason === INCOMPATIBLE_NOT_FIREFOX &&
+                    <Button
+                      buttonType="confirm"
+                      href={downloadUrl}
+                      puffy
+                    >
+                      {i18n.gettext('Only with Firefox - Get Firefox Now!')}
+                    </Button>
                 }
               </div>
 

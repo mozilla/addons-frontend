@@ -133,7 +133,11 @@
   grid-column: 1 / span 2;
   width: 100%;
 
-  @include respond-to(medium) {
+  .Button {
+    white-space: nowrap;
+  }
+
+  @include respond-to(extraExtraLarge) {
     display: flex;
     justify-content: space-between;
   }

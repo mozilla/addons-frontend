@@ -44,6 +44,7 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
   UNKNOWN,
@@ -69,6 +70,7 @@ import {
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import Button from 'ui/components/Button';
 
 
 function renderProps({
@@ -761,23 +763,26 @@ describe(__filename, () => {
     expect(button.prop('disabled')).toEqual(false);
   });
 
-  it('disables install switch for unsupported clients', () => {
-    const root = shallowRender({
-      getClientCompatibility: getClientCompatibilityFalse,
-    });
-    expect(root.find(InstallButton).prop('disabled')).toBe(true);
-  });
-
-  it('passes the downloadUrl from getClientCompatibility', () => {
+  it('disables install btn for incompatibility with firefox version', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
         compatible: false,
         downloadUrl: 'https://www.seamonkey-project.org',
+        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
+      }),
+    });
+    expect(root.find(InstallButton).prop('disabled')).toBe(true);
+  });
+
+  it('hides banner on non firefox clients and displays firefox download btn', () => {
+    const root = shallowRender({
+      getClientCompatibility: () => ({
+        compatible: false,
         reason: INCOMPATIBLE_NOT_FIREFOX,
       }),
     });
-    expect(root.find(AddonCompatibilityError).prop('downloadUrl'))
-      .toEqual('https://www.seamonkey-project.org');
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+    expect(root.find(Button)).toHaveLength(1);
   });
 
   it('passes installStatus to installButton, not add-on status', () => {
