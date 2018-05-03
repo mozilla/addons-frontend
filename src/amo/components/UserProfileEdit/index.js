@@ -15,6 +15,7 @@ import {
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
+import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import type { UsersStateType, UserType } from 'amo/reducers/users';
@@ -174,7 +175,7 @@ export class UserProfileEditBase extends React.Component<Props> {
                 defaultValue={user && user.username}
               />
 
-              <div title={i18n.gettext('Email address cannot be changed')}>
+              <div title={i18n.gettext('Email address cannot be changed here')}>
                 <label className="UserProfileEdit--label" htmlFor="email">
                   {i18n.gettext('Email address')}
                 </label>
@@ -183,6 +184,22 @@ export class UserProfileEditBase extends React.Component<Props> {
                   disabled
                   defaultValue={user && user.email}
                   type="email"
+                />
+                <p
+                  className="UserProfileEdit--help"
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={
+                    sanitizeHTML(
+                      i18n.sprintf(
+                        i18n.gettext(`You can change your email address on
+                          Firefox Accounts. %(startLink)sLearn how%(endLink)s.`
+                        ),
+                        {
+                          startLink: '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
+                          endLink: '</a>',
+                        }
+                      ), ['a'])
+                  }
                 />
               </div>
             </Card>

@@ -47,6 +47,12 @@
   display: block;
 }
 
+.UserProfileEdit--help {
+  color: $grey-50;
+  display: block;
+  font-size: 11px;
+}
+
 .UserProfileEdit input,
 .UserProfileEdit textarea {
   width: 60%;
