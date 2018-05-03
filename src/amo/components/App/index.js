@@ -137,8 +137,8 @@ export class AppBase extends React.Component<Props> {
         `Auth token "${encodedTimestamp}" triggered this base62 error: "${base62Error}"`);
       return;
     }
-    // If the encoded timestamp was malformed it will be 0 or negative or NaN
-    if (createdAt <= 0 || Number.isNaN(createdAt)) {
+    // If the encoded timestamp was malformed it will be 0 or negative.
+    if (createdAt <= 0) {
       log.error(oneLine`Got an invalid timestamp from auth token;
         encoded value: ${encodedTimestamp}; decoded value: ${createdAt}`);
       return;
