@@ -273,25 +273,6 @@ export class UserProfileEditBase extends React.Component<Props> {
               />
             </Card>
 
-            {/*
-            <Card
-              className="UserProfileEdit--Card"
-              header={i18n.gettext('Notification Settings')}
-            >
-              <p>
-                {i18n.gettext(`From time to time, Mozilla may send you email about
-                  upcoming releases and add-on events. Please select the topics
-                  you are interested in.`)}
-              </p>
-
-              <div>
-                <label className="UserProfileEdit--label" htmlFor="notify">
-                  {i18n.gettext('… when an add-on author responds to my review')}
-                </label>
-                <input selece={!!user.notifyReview} value="1" type="checkbox" />
-              </div>
-            </Card>
-            */}
             <div className="UserProfileEdit-buttons-wrapper">
               <Button
                 buttonType="action"
@@ -308,15 +289,6 @@ export class UserProfileEditBase extends React.Component<Props> {
                   isEditing ? i18n.gettext("Updating user's profile…") :
                     i18n.gettext("Update user's profile")
                 )}
-              </Button>
-
-              <Button
-                buttonType="neutral"
-                className="UserProfileEdit-delete-button UserProfileEdit-button"
-                disabled={!user}
-                type="button"
-              >
-                {i18n.gettext('Delete my account')}
               </Button>
             </div>
           </div>
