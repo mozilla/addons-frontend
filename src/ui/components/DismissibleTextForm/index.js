@@ -1,6 +1,5 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-/* global $PropertyType */
 import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';

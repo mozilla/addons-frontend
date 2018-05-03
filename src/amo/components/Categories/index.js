@@ -1,5 +1,4 @@
 /* @flow */
-/* global $PropertyType */
 import classnames from 'classnames';
 import * as React from 'react';
 import { connect } from 'react-redux';

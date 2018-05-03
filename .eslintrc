@@ -7,11 +7,15 @@
     "ga": true,
     // https://flow.org/en/docs/types/utilities/#toc-propertytype
     "$PropertyType": true,
-    // This is an undocumented utility that ships with Flow
+    // These ar undocumented utilities that ship with Flow
     // https://github.com/facebook/flow/issues/875
     "$Shape": true,
+    "$Keys": true,
     // See: https://github.com/facebook/flow/issues/1609
     "SyntheticEvent": true,
+    "SyntheticInputEvent": true,
+    // See: https://github.com/facebook/flow/issues/5627
+    "TimeoutID": true,
     // Standard DOM globals:
     "Generator": true,
     "HTMLElement": true,

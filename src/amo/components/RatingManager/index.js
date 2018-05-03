@@ -1,5 +1,5 @@
 /* @flow */
-/* global $PropertyType, Node */
+/* global Node */
 /* eslint-disable react/sort-comp, react/no-unused-prop-types */
 import * as React from 'react';
 import { connect } from 'react-redux';

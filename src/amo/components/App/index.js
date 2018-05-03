@@ -1,6 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-/* global $PropertyType, Event, Navigator, Node, navigator, window */
+/* global Event, Navigator, Node, navigator, window */
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
