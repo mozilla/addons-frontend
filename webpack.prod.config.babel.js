@@ -4,7 +4,7 @@ import path from 'path';
 import config from 'config';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 import SriPlugin from 'webpack-subresource-integrity';
-import UglifyJSPlugin from 'uglifyjs-webpack-plugin';
+import webpack from 'webpack';
 import WebpackIsomorphicToolsPlugin from 'webpack-isomorphic-tools/plugin';
 
 import SriDataPlugin from './src/core/server/sriDataPlugin';
@@ -46,15 +46,11 @@ export default {
       allChunks: true,
     }),
     // optimizations
-    new UglifyJSPlugin({
+    new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
-      uglifyOptions: {
-        output: {
-          comments: false,
-        },
-        compress: {
-          drop_console: true,
-        },
+      comments: false,
+      compress: {
+        drop_console: true,
       },
     }),
     new WebpackIsomorphicToolsPlugin(webpackIsomorphicToolsConfig),
