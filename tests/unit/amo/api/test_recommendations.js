@@ -1,9 +1,7 @@
 import * as api from 'core/api';
 import { getRecommendations } from 'amo/api/recommendations';
 import { createApiResponse } from 'tests/unit/helpers';
-import {
-  dispatchClientMetadata,
-} from 'tests/unit/amo/helpers';
+import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 
 
 describe(__filename, () => {

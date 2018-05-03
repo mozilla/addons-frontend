@@ -16,15 +16,14 @@ import {
 
 
 describe(__filename, () => {
-  let clientData;
   let errorHandler;
   let mockApi;
   let sagaTester;
 
   beforeEach(() => {
+    const clientData = dispatchClientMetadata();
     errorHandler = createStubErrorHandler();
     mockApi = sinon.mock(recommendationsApi);
-    clientData = dispatchClientMetadata();
     sagaTester = new SagaTester({
       initialState: clientData.state,
       reducers: {

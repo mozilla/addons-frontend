@@ -27,11 +27,12 @@ export function* fetchRecommendations({
       api: state.api, guid, recommended,
     };
     const recommendations = yield call(api.getRecommendations, params);
-    const { outcome } = recommendations;
+    const { fallback_reason: fallbackReason, outcome, results: addons }
+      = recommendations;
 
     yield put(loadRecommendations({
-      addons: recommendations.results,
-      fallbackReason: recommendations.fallback_reason,
+      addons,
+      fallbackReason,
       guid,
       outcome,
     }));

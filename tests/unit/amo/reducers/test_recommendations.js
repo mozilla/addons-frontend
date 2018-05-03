@@ -30,9 +30,8 @@ describe(__filename, () => {
     }));
 
     expect(state.byGuid[guid].loading).toEqual(true);
-    expect(state.byGuid[guid].addons).toEqual(undefined);
+    expect(state.byGuid[guid].addons).toEqual(null);
   });
-
 
   it('loads recommendations', () => {
     const addons = [fakeAddon, fakeAddon];
@@ -50,7 +49,6 @@ describe(__filename, () => {
 
     const loadedRecommendations = getRecommendationsByGuid({ guid, state });
 
-    expect(loadedRecommendations).not.toEqual(null);
     expect(loadedRecommendations).toEqual({
       addons: expectedAddons,
       fallbackReason,

@@ -12,17 +12,17 @@ export const LOAD_RECOMMENDATIONS: 'LOAD_RECOMMENDATIONS'
   = 'LOAD_RECOMMENDATIONS';
 
 export type Recommendations = {|
-  addons: Array<ExternalAddonType>,
-  fallbackReason: string,
+  addons: Array<ExternalAddonType> | null,
+  fallbackReason: string | null,
   loading: boolean,
-  outcome: string,
+  outcome: string | null,
 |};
 
-export type RecommendationsState = {
+export type RecommendationsState = {|
   byGuid: {
     [guid: string]: Recommendations,
   },
-};
+|};
 
 export const initialState: RecommendationsState = {
   byGuid: {},
@@ -40,6 +40,7 @@ type AbortFetchRecommendationsAction = {|
 export const abortFetchRecommendations = ({
   guid,
 }: AbortFetchRecommendationsParams = {}): AbortFetchRecommendationsAction => {
+  invariant(guid, 'guid is required');
   return {
     type: ABORT_FETCH_RECOMMENDATIONS,
     payload: { guid },
@@ -110,6 +111,7 @@ export const getRecommendationsByGuid = (
   { guid, state }: GetRecommendationsByGuidParams
 ): Recommendations | null => {
   invariant(guid, 'guid is required');
+  invariant(state, 'state is required');
 
   return state.byGuid[guid] || null;
 };
@@ -117,8 +119,7 @@ export const getRecommendationsByGuid = (
 type Action =
   | AbortFetchRecommendationsAction
   | FetchRecommendationsAction
-  | LoadRecommendationsAction
-  ;
+  | LoadRecommendationsAction;
 
 const reducer = (
   state: RecommendationsState = initialState,
@@ -131,7 +132,10 @@ const reducer = (
         byGuid: {
           ...state.byGuid,
           [action.payload.guid]: {
+            addons: null,
+            fallbackReason: null,
             loading: false,
+            outcome: null,
           },
         },
       };
@@ -142,7 +146,10 @@ const reducer = (
         byGuid: {
           ...state.byGuid,
           [action.payload.guid]: {
+            addons: null,
+            fallbackReason: null,
             loading: true,
+            outcome: null,
           },
         },
       };
