@@ -4,10 +4,6 @@ import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
-// import { setViewContext } from 'amo/actions/viewContext';
-// import CategoryIcon from 'amo/components/CategoryIcon';
-// import HomeHeroBanner from 'amo/components/HomeHeroBanner';
-// import LandingAddonsCard from 'amo/components/LandingAddonsCard';
 import Link from 'amo/components/Link';
 import {
   editUserAccount,
@@ -15,12 +11,6 @@ import {
   getCurrentUser,
   getUserByUsername,
 } from 'amo/reducers/users';
-// import {
-//   ADDON_TYPE_EXTENSION,
-//   ADDON_TYPE_THEME,
-//   SEARCH_SORT_TRENDING,
-//   VIEW_CONTEXT_HOME,
-// } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
@@ -35,7 +25,7 @@ export class UserProfileEditBase extends React.Component {
   componentWillMount() {
     const { dispatch, errorHandler, params, user } = this.props;
 
-    if (!user) {
+    if (!user && params.username) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
         username: params.username,
@@ -112,13 +102,6 @@ export class UserProfileEditBase extends React.Component {
                 i18n.gettext("Edit user's profile")
               }
             </li>
-            {/*
-            <li>
-              <Link to={`/collections/${currentUser.username}/`}>
-                {i18n.gettext('View my collections')}
-              </Link>
-            </li>
-            */}
           </ul>
         </Card>
 
@@ -207,6 +190,7 @@ export class UserProfileEditBase extends React.Component {
                 name="homepage"
                 ref={(ref) => { this.homepage = ref; }}
                 defaultValue={user && user.homepage}
+                type="url"
               />
 
               <label className="UserProfileEdit--label" htmlFor="location">
