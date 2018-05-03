@@ -116,7 +116,7 @@ export const getLoadingForAuthorNames = (
 export const getAddonsForSlug = (
   state: AddonsByAuthorsState,
   slug: string,
-) => {
+): Array<SearchResultAddonType> | null => {
   const ids = state.byAddonSlug[slug];
 
   return ids ? ids.map((id) => {
@@ -129,7 +129,7 @@ export const getAddonsForUsernames = (
   usernames: Array<string>,
   addonType?: string,
   excludeSlug?: string,
-) => {
+): Array<SearchResultAddonType> | null => {
   invariant(usernames && usernames.length, 'At least one username is required');
 
   const ids = usernames.map((username) => {

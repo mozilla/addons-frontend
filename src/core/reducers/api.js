@@ -79,13 +79,16 @@ export const initialApiState: ApiStateType = {
   userAgentInfo: { browser: {}, os: {} },
 };
 
+type Action =
+  | SetAuthTokenAction
+  | SetLangAction
+  | SetClientAppAction
+  | SetUserAgentAction
+  | LogOutUserAction;
+
 export default function api(
   state: Exact<ApiStateType> = initialApiState,
-  action: SetAuthTokenAction
-    & SetLangAction
-    & SetClientAppAction
-    & SetUserAgentAction
-    & LogOutUserAction
+  action: Action
 ): Exact<ApiStateType> {
   switch (action.type) {
     case SET_AUTH_TOKEN:

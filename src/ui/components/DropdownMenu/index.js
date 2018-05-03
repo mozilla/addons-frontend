@@ -42,7 +42,7 @@ export class DropdownMenuBase extends React.Component<Props, State> {
     }));
   }
 
-  handleOnClickForLinks = (event: SyntheticEvent<any>) => {
+  handleOnClickForLinks = (event: SyntheticInputEvent<any>) => {
     // If a link inside the menu is clicked, we should close the dropdown.
     // See: https://github.com/mozilla/addons-frontend/issues/3452
     if (event.target && event.target.tagName === 'A') {

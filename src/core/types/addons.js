@@ -1,8 +1,5 @@
 /* @flow */
-import { validAddonTypes } from 'core/constants';
-
-// You have to just laugh at this line!
-type AddonTypeType = validAddonTypes;
+import type { AddonTypeType } from 'core/constants';
 
 type AddonStatus =
   | 'lite'

@@ -120,7 +120,9 @@ function qualityCmp(a, b) {
  * sorted array of objects. Example object:
  * { lang: 'pl', quality: 0.7 }
  */
-export function parseAcceptLanguage(header: string) {
+export function parseAcceptLanguage(
+  header: string
+): Array<{| lang: string, quality: number |}> {
   // pl,fr-FR;q=0.3,en-US;q=0.1
   if (!header || !header.split) {
     return [];

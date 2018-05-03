@@ -66,7 +66,7 @@ type Props = {|
 
 export class AppBase extends React.Component<Props> {
   header: React.ElementRef<typeof Header>;
-  scheduledLogout: number;
+  scheduledLogout: TimeoutID;
 
   static defaultProps = {
     ErrorPage: DefaultErrorPage,
