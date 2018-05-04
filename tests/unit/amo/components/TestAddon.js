@@ -1042,18 +1042,6 @@ describe(__filename, () => {
     expect(header.prop('data-browsertheme')).toEqual('{"the":"themedata"}');
   });
 
-  it('toggles a theme on click', () => {
-    const toggleThemePreview = sinon.spy();
-    const root = shallowRender({
-      addon: createInternalAddon(fakeTheme),
-      toggleThemePreview,
-    });
-    const header = root.find('.Addon-theme-header');
-    const currentTarget = sinon.stub();
-    header.simulate('click', { currentTarget });
-    sinon.assert.calledWith(toggleThemePreview, currentTarget);
-  });
-
   it('renders an AddonMoreInfo component when there is an add-on', () => {
     const root = shallowRender({ addon: createInternalAddon(fakeAddon) });
     expect(root.find(AddonMoreInfo)).toHaveLength(1);

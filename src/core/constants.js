@@ -169,14 +169,10 @@ export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 export const CLOSE_INFO = 'CLOSE_INFO';
 export const SHOW_INFO = 'SHOW_INFO';
 
-// Theme preview actions.
+// Theme actions.
 export const THEME_INSTALL = 'InstallBrowserTheme';
-export const THEME_PREVIEW = 'PreviewBrowserTheme';
-export const THEME_RESET_PREVIEW = 'ResetBrowserThemePreview';
 export const validThemeActions = [
   THEME_INSTALL,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
 ];
 
 export const INSTALL_EVENT_LIST = [

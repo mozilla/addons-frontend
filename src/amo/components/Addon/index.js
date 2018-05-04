@@ -73,16 +73,12 @@ export class AddonBase extends React.Component {
     getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     platformFiles: PropTypes.object,
-    isPreviewingTheme: PropTypes.bool.isRequired,
     lang: PropTypes.string.isRequired,
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
-    resetThemePreview: PropTypes.func.isRequired,
     // eslint-disable-next-line react/require-default-props
-    themePreviewNode: PropTypes.element,
     installStatus: PropTypes.string.isRequired,
-    toggleThemePreview: PropTypes.func.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
   };
@@ -144,29 +140,15 @@ export class AddonBase extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    const {
-      isPreviewingTheme,
-      resetThemePreview,
-      themePreviewNode,
-    } = this.props;
-
-    if (isPreviewingTheme && themePreviewNode) {
-      resetThemePreview(themePreviewNode);
-    }
-  }
-
-  onClick = (event) => {
-    this.props.toggleThemePreview(event.currentTarget);
-  };
-
   addonIsTheme() {
     const { addon } = this.props;
     return addon && ADDON_TYPE_THEMES.includes(addon.type);
   }
 
   headerImage() {
-    const { addon, getBrowserThemeData } = this.props;
+    const { addon, getBrowserThemeData, i18n } = this.props;
+
+    const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     if (this.addonIsTheme()) {
@@ -187,6 +169,7 @@ export class AddonBase extends React.Component {
       }
 
       const imageClassName = 'Addon-theme-header-image';
+
       const headerImage = (
         <img alt={label} className={imageClassName} src={previewURL} />
       );
@@ -199,7 +182,6 @@ export class AddonBase extends React.Component {
           className="Addon-theme-header"
           id="Addon-theme-header"
           data-browsertheme={getBrowserThemeData()}
-          onClick={this.onClick}
           role="presentation"
         >
           {unInstalledTheme ? (
@@ -536,7 +518,7 @@ export class AddonBase extends React.Component {
               />
             ) : null}
             <header className="Addon-header">
-              {this.headerImage({ compatible: isCompatible })}
+              {this.headerImage()}
 
               <h1 className="Addon-title" {...titleProps} />
 

@@ -36,8 +36,6 @@ import {
   SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   TRACKING_TYPE_THEME,
   TRACKING_TYPE_INVALID,
   UNINSTALL_ACTION,
@@ -1497,45 +1495,6 @@ describe(`${__filename}: withInstallHelpers`, () => {
         makeMapDispatchToProps({})(fakeDispatch, props);
       }).not.toThrowError();
     });
-
-    describe('previewTheme', () => {
-      it('calls theme action with THEME_PREVIEW', () => {
-        const addon = createInternalAddon(fakeTheme);
-        const { root, dispatch } = renderWithInstallHelpers(addon);
-        const { previewTheme } = root.instance().props;
-
-        const themeAction = sinon.spy();
-        const node = sinon.stub();
-        previewTheme(node, themeAction);
-        sinon.assert.calledWith(themeAction, node, THEME_PREVIEW);
-        sinon.assert.calledWith(dispatch, {
-          type: THEME_PREVIEW,
-          payload: {
-            guid: addon.guid,
-            themePreviewNode: node,
-          },
-        });
-      });
-    });
-
-    describe('resetThemePreview', () => {
-      it('calls theme action with THEME_RESET_PREVIEW', () => {
-        const addon = createInternalAddon(fakeAddon);
-        const { root, dispatch } = renderWithInstallHelpers(addon);
-        const { resetThemePreview } = root.instance().props;
-
-        const themeAction = sinon.spy();
-        const node = sinon.stub();
-        resetThemePreview(node, themeAction);
-        sinon.assert.calledWith(themeAction, node, THEME_RESET_PREVIEW);
-        sinon.assert.calledWith(dispatch, {
-          type: THEME_RESET_PREVIEW,
-          payload: {
-            guid: addon.guid,
-          },
-        });
-      });
-    });
   });
 
   describe('installTheme', () => {
@@ -1605,118 +1564,6 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const { getBrowserThemeData } = getMapStateToProps();
       sinon.stub(themePreview, 'getThemeData').returns({ foo: 'wat' });
       expect(getBrowserThemeData({ some: 'data' })).toEqual('{"foo":"wat"}');
-    });
-  });
-
-  describe('toggleThemePreview', () => {
-    it('calls previewTheme if theme is not enabled', () => {
-      const fakeLog = {
-        info: sinon.spy(),
-      };
-      const themeAction = sinon.spy();
-      const node = 'fake-node';
-      const guid = 'foo@bar.com';
-      const props = mapStateToProps(
-        {
-          installations: {
-            [guid]: {
-              status: UNINSTALLED,
-              guid,
-            },
-          },
-        },
-        {
-          guid,
-        },
-      );
-      props.previewTheme = sinon.spy();
-      props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(props.previewTheme.calledWith(node, themeAction)).toBeTruthy();
-    });
-
-    it('calls resetPreviewTheme', () => {
-      const fakeLog = {
-        info: sinon.spy(),
-      };
-      const themeAction = sinon.spy();
-      const node = 'fake-node';
-      const guid = 'foo@bar.com';
-      const props = mapStateToProps(
-        {
-          installations: {
-            [guid]: {
-              status: UNINSTALLED,
-              isPreviewingTheme: true,
-              guid,
-            },
-          },
-        },
-        {
-          guid,
-        },
-      );
-      props.resetThemePreview = sinon.spy();
-      props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(
-        props.resetThemePreview.calledWith(node, themeAction),
-      ).toBeTruthy();
-    });
-
-    it('logs if theme is not available', () => {
-      const fakeLog = {
-        info: sinon.spy(),
-      };
-      const themeAction = sinon.spy();
-      const node = 'fake-node';
-      const guid = 'foo@bar.com';
-      const props = mapStateToProps(
-        {
-          installations: {
-            [guid]: {
-              status: UNINSTALLED,
-              isPreviewingTheme: true,
-            },
-          },
-        },
-        {
-          guid,
-        },
-      );
-      props.resetThemePreview = sinon.spy();
-      props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(
-        fakeLog.info.calledWith('Theme foo@bar.com could not be found'),
-      ).toBeTruthy();
-    });
-
-    it('logs if theme is already enabled', () => {
-      const fakeLog = {
-        info: sinon.spy(),
-      };
-      const themeAction = sinon.spy();
-      const node = 'fake-node';
-      const guid = 'foo@bar.com';
-      const props = mapStateToProps(
-        {
-          installations: {
-            [guid]: {
-              status: ENABLED,
-              isPreviewingTheme: true,
-              guid,
-            },
-          },
-        },
-        {
-          guid,
-        },
-      );
-      props.resetThemePreview = sinon.spy();
-      props.toggleThemePreview(node, themeAction, fakeLog);
-      expect(
-        fakeLog.info.calledWith(
-          sinon.match('Theme foo@bar.com is already enabled'),
-        ),
-      ).toBeTruthy();
     });
   });
 });

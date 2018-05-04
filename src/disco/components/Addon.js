@@ -10,7 +10,6 @@ import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
-import HoverIntent from 'core/components/HoverIntent';
 import InstallButton from 'core/components/InstallButton';
 import {
   ADDON_TYPE_EXTENSION,
@@ -47,7 +46,6 @@ export class AddonBase extends React.Component {
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
-    getBrowserThemeData: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
@@ -59,7 +57,6 @@ export class AddonBase extends React.Component {
     previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
-    resetThemePreview: PropTypes.func.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
     status: PropTypes.oneOf(validInstallStates).isRequired,
     themeAction: PropTypes.func,
@@ -113,31 +110,18 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
+    const { i18n, name, previewURL } = this.props;
     if (this.props.type === ADDON_TYPE_THEME) {
       /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
       return (
-        <HoverIntent
-          onHoverIntent={this.previewTheme}
-          onHoverIntentEnd={this.resetThemePreview}
-        >
-          <a
-            href="#"
-            className="theme-image"
-            data-browsertheme={getBrowserThemeData()}
-            onBlur={this.resetThemePreview}
-            onClick={this.installTheme}
-            onFocus={this.previewTheme}
-          >
+        <div>
+          <a href="#" className="theme-image">
             <img
               src={previewURL}
-              alt={sprintf(
-                i18n.gettext('Hover to preview or click to install %(name)s'),
-                { name },
-              )}
+              alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
             />
           </a>
-        </HoverIntent>
+        </div>
       );
       /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
@@ -145,14 +129,7 @@ export class AddonBase extends React.Component {
   }
 
   getDescription() {
-    const { i18n, description, type } = this.props;
-    if (type === ADDON_TYPE_THEME) {
-      return (
-        <p className="editorial-description">
-          {i18n.gettext('Hover over the image to preview')}
-        </p>
-      );
-    }
+    const { description } = this.props;
     return (
       <div
         className="editorial-description"
@@ -219,14 +196,6 @@ export class AddonBase extends React.Component {
         label: name,
       });
     }
-  };
-
-  previewTheme = (e) => {
-    this.props.previewTheme(e.currentTarget);
-  };
-
-  resetThemePreview = (e) => {
-    this.props.resetThemePreview(e.currentTarget);
   };
 
   render() {

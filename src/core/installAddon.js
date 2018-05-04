@@ -42,8 +42,6 @@ import {
   SHOW_INFO,
   START_DOWNLOAD,
   THEME_INSTALL,
-  THEME_PREVIEW,
-  THEME_RESET_PREVIEW,
   TRACKING_TYPE_THEME,
   UNINSTALL_ACTION,
   UNINSTALLED,
@@ -142,36 +140,9 @@ export function getGuid(ownProps) {
 }
 
 export function mapStateToProps(state, ownProps) {
-  const guid = getGuid(ownProps);
-  const addon = state.installations[guid] || {};
-
   return {
-    isPreviewingTheme: addon.isPreviewingTheme,
-    themePreviewNode: addon.isPreviewingTheme ? addon.themePreviewNode : null,
     getBrowserThemeData() {
       return JSON.stringify(getThemeData(ownProps));
-    },
-    toggleThemePreview(node, _themeAction = themeAction, _log = log) {
-      const theme = addon && addon.guid ? addon : null;
-      if (theme && theme.status !== ENABLED) {
-        if (!theme.isPreviewingTheme) {
-          _log.info(`Previewing theme: ${guid}`);
-          // Call WithInstallHelpers.previewTheme().
-          this.previewTheme(node, _themeAction);
-        } else {
-          _log.info(`Resetting theme preview: ${guid}`);
-          // Call WithInstallHelpers.resetThemePreview().
-          this.resetThemePreview(node, _themeAction);
-        }
-      }
-      if (!theme) {
-        _log.info(`Theme ${guid} could not be found`);
-      }
-      if (theme && theme.status === ENABLED) {
-        _log.info(
-          `Theme ${guid} is already enabled! Previewing is not necessary.`,
-        );
-      }
     },
   };
 }
@@ -519,29 +490,6 @@ export class WithInstallHelpers extends React.Component {
     });
   }
 
-  previewTheme(node, _themeAction = themeAction) {
-    const guid = getGuid(this.props);
-    _themeAction(node, THEME_PREVIEW);
-    this.props.dispatch({
-      type: THEME_PREVIEW,
-      payload: {
-        guid,
-        themePreviewNode: node,
-      },
-    });
-  }
-
-  resetThemePreview(node, _themeAction = themeAction) {
-    const guid = getGuid(this.props);
-    _themeAction(node, THEME_RESET_PREVIEW);
-    this.props.dispatch({
-      type: THEME_RESET_PREVIEW,
-      payload: {
-        guid,
-      },
-    });
-  }
-
   uninstall({ guid, name, type }) {
     const { _addonManager, _tracking, dispatch } = this.props;
     dispatch(setInstallState({ guid, status: UNINSTALLING }));
@@ -576,7 +524,6 @@ export class WithInstallHelpers extends React.Component {
       enable: (...args) => this.enable(...args),
       install: (...args) => this.install(...args),
       previewTheme: (...args) => this.previewTheme(...args),
-      resetThemePreview: (...args) => this.resetThemePreview(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
       uninstall: (...args) => this.uninstall(...args),
     };

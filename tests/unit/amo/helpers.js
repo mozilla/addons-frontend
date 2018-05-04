@@ -162,10 +162,8 @@ export const fakeInstalledAddon = Object.freeze({
   downloadProgress: 0,
   error: undefined,
   guid: 'installed-addon@company',
-  isPreviewingTheme: false,
   needsRestart: false,
   status: ENABLED,
-  themePreviewNode: undefined,
   url: 'https://a.m.o/addon/detail/view',
 });
 
