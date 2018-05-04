@@ -28,7 +28,7 @@ export class HeaderBase extends React.Component {
     isHomePage: PropTypes.bool,
     location: PropTypes.object.isRequired,
     query: PropTypes.string,
-    siteUser: PropTypes.object.isRequired,
+    siteUser: PropTypes.object,
     isReviewer: PropTypes.bool.isRequired,
   }
 
@@ -109,12 +109,18 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link {...viewProfileLinkProps}>
+                <Link
+                  className="Header-user-menu-view-profile-link"
+                  {...viewProfileLinkProps}
+                >
                   {i18n.gettext('View Profile')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link {...editProfileLinkProps}>
+                <Link
+                  className="Header-user-menu-edit-profile-link"
+                  {...editProfileLinkProps}
+                >
                   {i18n.gettext('Edit Profile')}
                 </Link>
               </DropdownMenuItem>
