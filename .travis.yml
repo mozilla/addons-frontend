@@ -22,30 +22,32 @@ cache:
   yarn: true
   directories:
   - node_modules
+
+# Allow to display job names on Travis-CI, see:
+# https://github.com/travis-ci/travis-ci/issues/5898#issuecomment-362490313
+script: yarn $COMMAND
 jobs:
   include:
     # Test the build process.
     - stage:
       <<: *node-prod
-      env: ADDONS_FRONTEND_BUILD_ALL=1
-      script: yarn build
+      env: ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=build
     - stage:
       <<: *node-next
-      env: ADDONS_FRONTEND_BUILD_ALL=1
-      script: yarn build
+      env: ADDONS_FRONTEND_BUILD_ALL=1 COMMAND=build
     # Run the unit/integration tests.
     - stage:
       <<: *node-prod
-      script: yarn test-ci
+      env: COMMAND=test-ci
     - stage:
       <<: *node-next
-      script: yarn test-ci
+      env: COMMAND=test-ci
     - stage:
       <<: *node-prod
-      script: yarn lint
+      env: COMMAND=lint
     - stage:
       <<: *node-prod
-      script: yarn nsp-check
+      env: COMMAND=nsp-check
     # Run the functional tests.
     - stage:
       <<: *tox
