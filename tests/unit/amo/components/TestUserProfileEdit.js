@@ -95,6 +95,17 @@ describe(__filename, () => {
     }));
   });
 
+  it('does not dispatch fetchUserAccount action if there is no username', () => {
+    const { store } = syncPropsAndParamsUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    // This happens when loading the user edit profile page of the current
+    // logged user (e.g., page refresh).
+    const root = renderUserProfileEdit({ params: {}, store });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
   it('dispatches fetchUserAccount action if username param changes', () => {
     const { params, store } = syncPropsAndParamsUsername('black-panther');
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -141,6 +152,12 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-email')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-email')).toHaveProp('disabled', true);
+  });
+
+  it('renders a help text for the email field', () => {
+    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
+
+    expect(root.find('.UserProfileEdit--help')).toHaveLength(1);
   });
 
   it('renders a displayName input field', () => {
