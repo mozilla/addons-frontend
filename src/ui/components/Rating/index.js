@@ -51,7 +51,7 @@ export class RatingBase extends React.Component {
 
   // Helper function used to render title attributes
   // for each individual star, as well as the wrapper
-  // that surrounds the read-only set of stars
+  // that surrounds the read-only set of stars.
   renderTitle = (rating, readOnly, starRating) => {
     const { i18n } = this.props;
 
@@ -62,10 +62,12 @@ export class RatingBase extends React.Component {
       }
       return i18n.gettext('This add-on has not been rated yet.');
     }
+
     if (rating) {
       return i18n.sprintf(i18n.gettext(
         `Update your rating to %(starRating)s out of 5.`), { starRating });
     }
+
     return i18n.sprintf(i18n.gettext(
       `Rate this add-on %(starRating)s out of 5.`), { starRating });
   }
@@ -112,7 +114,7 @@ export class RatingBase extends React.Component {
     }
 
     // Wrap read only ratings with a description to maintain functionality
-    // for the "Average rating of developer’s add-ons" tooltip
+    // for the "Average rating of developer’s add-ons" tooltip.
     const description = readOnly ? this.renderTitle(rating, readOnly, null) : null;
 
     const allClassNames = makeClassName(
