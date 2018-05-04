@@ -60,6 +60,14 @@ import ShowMoreCard from 'ui/components/ShowMoreCard';
 import './styles.scss';
 
 
+// Find out if slug is invalid.
+const isInvalidSlugID = (slug) => {
+  // eslint-disable-next-line no-restricted-globals
+  return slug && !isNaN(slug)
+    && ((typeof slug === 'string' && slug.charAt(0) !== '-')
+    || (typeof slug === 'number'));
+};
+
 export class AddonBase extends React.Component {
   static propTypes = {
     RatingManager: PropTypes.element,
@@ -109,13 +117,9 @@ export class AddonBase extends React.Component {
       if (addon) {
         const { slug } = params;
 
-        // make sure slug is number or string without leading -
-        // before redirecting
-
-        // eslint-disable-next-line no-restricted-globals
-        if (slug && !isNaN(slug)
-          && ((typeof slug === 'string' && slug.charAt(0) !== '-')
-          || (typeof slug === 'number'))) {
+        // We want to make sure the slug is invalid before
+        // before we try redirecting.
+        if (isInvalidSlugID(slug)) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(sendServerRedirect({
@@ -553,13 +557,9 @@ export function mapStateToProps(state, ownProps) {
   const { slug } = ownProps.params;
   let addon = getAddonBySlug(state, slug);
 
-  // make sure slug is number or string without leading -
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.
-  // eslint-disable-next-line no-restricted-globals
-  if (slug && !isNaN(slug)
-    && ((typeof slug === 'string' && slug.charAt(0) !== '-')
-    || (typeof slug === 'number'))) {
+  if (isInvalidSlugID(slug)) {
     addon = getAddonByID(state, slug);
   }
 

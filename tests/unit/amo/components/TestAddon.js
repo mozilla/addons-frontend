@@ -461,6 +461,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  // The reason for this test case came from https://github.com/mozilla/addons-frontend/issues/4541.
   it('does not dispatch a server redirect when slug is a stringified integer that starts with -', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
@@ -473,7 +474,7 @@ describe(__filename, () => {
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
-      params: { slug: `-${addon.id}` }, store,
+      params: { slug: `${addon.slug}` }, store,
     });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
