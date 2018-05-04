@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 git clone --depth 1 https://github.com/mozilla/addons-server.git
 docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml up -d --build
-until docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml images | grep "addonsserver_addons-frontend_1" ;
+until docker-compose -f addons-server/docker-compose.yml -f tests/ui/docker-compose.functional-tests.yml images | grep "addons-server_addons-frontend_1" ;
     do printf "."; sleep 1
 done
 echo
