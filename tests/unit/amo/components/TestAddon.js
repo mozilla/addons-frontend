@@ -763,7 +763,16 @@ describe(__filename, () => {
     expect(button.prop('disabled')).toEqual(false);
   });
 
-  it('disables install btn for incompatibility with firefox version', () => {
+  it('disables install button for incompatibility with firefox version', () => {
+    const root = shallowRender({
+      getClientCompatibility: () => ({
+        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
+      }),
+    });
+    expect(root.find(InstallButton).prop('disabled')).toBe(true);
+  });
+
+  it('passes the downloadUrl from getClientCompatibility', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
         compatible: false,
@@ -771,10 +780,11 @@ describe(__filename, () => {
         reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       }),
     });
-    expect(root.find(InstallButton).prop('disabled')).toBe(true);
+    expect(root.find(AddonCompatibilityError).prop('downloadUrl'))
+      .toEqual('https://www.seamonkey-project.org');
   });
 
-  it('hides banner on non firefox clients and displays firefox download btn', () => {
+  it('hides banner on non firefox clients and displays firefox download button', () => {
     const root = shallowRender({
       getClientCompatibility: () => ({
         compatible: false,

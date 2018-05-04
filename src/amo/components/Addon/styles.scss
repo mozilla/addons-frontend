@@ -137,7 +137,7 @@
     white-space: nowrap;
   }
 
-  @include respond-to(extraExtraLarge) {
+  @include respond-to(extraLarge) {
     display: flex;
     justify-content: space-between;
   }

@@ -37,9 +37,9 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
-  INCOMPATIBLE_NOT_FIREFOX,
 } from 'core/constants';
 import { withInstallHelpers } from 'core/installAddon';
 import {
@@ -452,6 +452,8 @@ export class AddonBase extends React.Component {
       utm_content: 'install-addon-button',
     })}`;
 
+    const isFF = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
+
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
@@ -469,15 +471,14 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
-            {compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX
-              && !isCompatible ? (
-                <AddonCompatibilityError
-                  className="Addon-header-compatibility-error"
-                  downloadUrl={compatibility.downloadUrl}
-                  maxVersion={compatibility.maxVersion}
-                  minVersion={compatibility.minVersion}
-                  reason={compatibility.reason}
-                />
+            {isFF && !isCompatible ? (
+              <AddonCompatibilityError
+                className="Addon-header-compatibility-error"
+                downloadUrl={compatibility.downloadUrl}
+                maxVersion={compatibility.maxVersion}
+                minVersion={compatibility.minVersion}
+                reason={compatibility.reason}
+              />
             ) : null}
             <header className="Addon-header">
               {this.headerImage({ compatible: isCompatible })}
@@ -490,26 +491,24 @@ export class AddonBase extends React.Component {
                 {showSummary ?
                   <p className="Addon-summary" {...summaryProps} /> : null}
 
-                {addon && compatibility
-                  && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX &&
-                    <InstallButton
-                      {...this.props}
-                      disabled={!isCompatible}
-                      ref={(ref) => { this.installButton = ref; }}
-                      defaultInstallSource={defaultInstallSource}
-                      status={installStatus}
-                      useButton
-                    />
+                {addon && isFF &&
+                  <InstallButton
+                    {...this.props}
+                    disabled={!isCompatible}
+                    ref={(ref) => { this.installButton = ref; }}
+                    defaultInstallSource={defaultInstallSource}
+                    status={installStatus}
+                    useButton
+                  />
                 }
-                {addon && compatibility
-                  && compatibility.reason === INCOMPATIBLE_NOT_FIREFOX &&
-                    <Button
-                      buttonType="confirm"
-                      href={downloadUrl}
-                      puffy
-                    >
-                      {i18n.gettext('Only with Firefox - Get Firefox Now!')}
-                    </Button>
+                {addon && !isFF &&
+                  <Button
+                    buttonType="confirm"
+                    href={downloadUrl}
+                    puffy
+                  >
+                    {i18n.gettext('Only with Firefox - Get Firefox Now!')}
+                  </Button>
                 }
               </div>
 
