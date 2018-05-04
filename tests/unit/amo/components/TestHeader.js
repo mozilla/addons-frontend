@@ -108,7 +108,7 @@ describe(__filename, () => {
     const link = wrapper.find('.Header-user-menu-view-profile-link');
 
     expect(link).toHaveLength(1);
-    expect(link.prop('children')).toEqual('View Profile');
+    expect(link.prop('children')).toEqual('View My Profile');
   });
 
   it('displays an edit profile link when user is signed in', () => {
@@ -119,7 +119,7 @@ describe(__filename, () => {
     const link = wrapper.find('.Header-user-menu-edit-profile-link');
 
     expect(link).toHaveLength(1);
-    expect(link.prop('children')).toEqual('Edit Profile');
+    expect(link.prop('children')).toEqual('Edit My Profile');
   });
 
   it('allows a signed-in user to log out', () => {

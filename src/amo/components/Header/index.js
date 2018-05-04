@@ -113,7 +113,7 @@ export class HeaderBase extends React.Component {
                   className="Header-user-menu-view-profile-link"
                   {...viewProfileLinkProps}
                 >
-                  {i18n.gettext('View Profile')}
+                  {i18n.gettext('View My Profile')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
@@ -121,7 +121,7 @@ export class HeaderBase extends React.Component {
                   className="Header-user-menu-edit-profile-link"
                   {...editProfileLinkProps}
                 >
-                  {i18n.gettext('Edit Profile')}
+                  {i18n.gettext('Edit My Profile')}
                 </Link>
               </DropdownMenuItem>
 

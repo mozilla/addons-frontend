@@ -130,14 +130,14 @@ export class UserProfileEditBase extends React.Component<Props> {
             <li>
               <Link to={`/user/${username}/`}>
                 {isEditingCurrentUser ?
-                  i18n.gettext('View my profile') :
+                  i18n.gettext('View My Profile') :
                   i18n.gettext("View user's profile")
                 }
               </Link>
             </li>
             <li>
               {isEditingCurrentUser ?
-                i18n.gettext('Edit my profile') :
+                i18n.gettext('Edit My Profile') :
                 i18n.gettext("Edit user's profile")
               }
             </li>
@@ -179,7 +179,7 @@ export class UserProfileEditBase extends React.Component<Props> {
 
               <div title={i18n.gettext('Email address cannot be changed here')}>
                 <label className="UserProfileEdit--label" htmlFor="email">
-                  {i18n.gettext('Email address')}
+                  {i18n.gettext('Email Address')}
                 </label>
                 <input
                   className="UserProfileEdit-email"
@@ -194,7 +194,7 @@ export class UserProfileEditBase extends React.Component<Props> {
                     sanitizeHTML(
                       i18n.sprintf(
                         i18n.gettext(`You can change your email address on
-                          Firefox Accounts. %(startLink)sLearn how%(endLink)s.`
+                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`
                         ),
                         {
                           startLink: '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
@@ -247,6 +247,10 @@ export class UserProfileEditBase extends React.Component<Props> {
                 defaultValue={user && user.homepage}
                 type="url"
               />
+              <p className="UserProfileEdit--help">
+                {i18n.gettext(`This URL will only be visible if you are a
+                  developer.`)}
+              </p>
 
               <label className="UserProfileEdit--label" htmlFor="location">
                 {i18n.gettext('Location')}

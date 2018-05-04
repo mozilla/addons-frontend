@@ -2,6 +2,8 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
+$font-size-aside: 10px;
+
 .UserProfileEdit {
   margin: $padding-page;
 
@@ -20,6 +22,18 @@
     display: block;
     min-width: 300px;
     width: 35%;
+
+    ul {
+      padding: 0;
+    }
+
+    li {
+      @include font-bold();
+
+      font-size: $font-size-default;
+      line-height: 2;
+      list-style-type: none;
+    }
   }
 }
 
@@ -28,13 +42,14 @@
 }
 
 .UserProfileEdit-aside {
+  color: $grey-50;
+  font-size: $font-size-aside;
   margin-top: 0;
 
   @include respond-to(large) {
     @include margin(0, 0, 0, $padding-page);
 
     float: right;
-    min-width: 200px;
     width: 35%;
 
     [dir=rtl] & {
@@ -50,7 +65,8 @@
 .UserProfileEdit--help {
   color: $grey-50;
   display: block;
-  font-size: 11px;
+  font-size: $font-size-aside;
+  margin-top: 4px;
 }
 
 .UserProfileEdit input,
@@ -61,6 +77,13 @@
     background: $grey-20;
     cursor: not-allowed;
   }
+}
+
+.UserProfileEdit-username,
+.UserProfileEdit-displayName,
+.UserProfileEdit-location,
+.UserProfileEdit-occupation {
+  margin-bottom: 16px;
 }
 
 .UserProfileEdit-biography {

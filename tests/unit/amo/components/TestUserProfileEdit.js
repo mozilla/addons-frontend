@@ -154,10 +154,10 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-email')).toHaveProp('disabled', true);
   });
 
-  it('renders a help text for the email field', () => {
+  it('renders a help text for the email and homepage fields', () => {
     const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-    expect(root.find('.UserProfileEdit--help')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit--help')).toHaveLength(2);
   });
 
   it('renders a displayName input field', () => {
