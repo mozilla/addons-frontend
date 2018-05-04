@@ -101,7 +101,7 @@ describe(__filename, () => {
 
     // This happens when loading the user edit profile page of the current
     // logged user (e.g., page refresh).
-    const root = renderUserProfileEdit({ params: {}, store });
+    renderUserProfileEdit({ params: {}, store });
 
     sinon.assert.notCalled(dispatchSpy);
   });
@@ -243,6 +243,20 @@ describe(__filename, () => {
       },
       userId: user.id,
     }));
+  });
+
+  it('does not dispatch editUserAccount action when there is no current user', () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = mountUserProfileEdit({ errorHandler, store });
+
+    dispatchSpy.reset();
+
+    root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('renders errors', () => {

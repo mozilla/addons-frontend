@@ -100,7 +100,7 @@ describe(__filename, () => {
     expect(link.prop('children')).toEqual('View My Collections');
   });
 
-  it("displays a view profile link when user is signed in", () => {
+  it('displays a view profile link when user is signed in', () => {
     const { store } = dispatchSignInActions({
       userProps: { username: 'babar' },
     });
@@ -111,7 +111,7 @@ describe(__filename, () => {
     expect(link.prop('children')).toEqual('View Profile');
   });
 
-  it("displays an edit profile link when user is signed in", () => {
+  it('displays an edit profile link when user is signed in', () => {
     const { store } = dispatchSignInActions({
       userProps: { username: 'babar' },
     });

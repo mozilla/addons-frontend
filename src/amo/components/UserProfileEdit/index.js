@@ -75,6 +75,8 @@ export class UserProfileEditBase extends React.Component<Props> {
 
     const { dispatch, errorHandler, user } = this.props;
 
+    // This should never happen in real life, but Flow complains without this
+    // check...
     if (!user) {
       log.debug('Form has been submitted but no user passed as prop.');
       return;
