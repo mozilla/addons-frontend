@@ -21,6 +21,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fetchAddon,
   getAddonByID,
@@ -36,6 +37,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
@@ -446,6 +448,12 @@ export class AddonBase extends React.Component {
 
     const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
 
+    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
+      utm_content: 'install-addon-button',
+    })}`;
+
+    const isFireFox = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
+
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
@@ -463,7 +471,7 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
-            {compatibility && !isCompatible ? (
+            {isFireFox && !isCompatible ? (
               <AddonCompatibilityError
                 className="Addon-header-compatibility-error"
                 downloadUrl={compatibility.downloadUrl}
@@ -483,7 +491,7 @@ export class AddonBase extends React.Component {
                 {showSummary ?
                   <p className="Addon-summary" {...summaryProps} /> : null}
 
-                {addon ?
+                {addon && isFireFox &&
                   <InstallButton
                     {...this.props}
                     disabled={!isCompatible}
@@ -491,7 +499,16 @@ export class AddonBase extends React.Component {
                     defaultInstallSource={defaultInstallSource}
                     status={installStatus}
                     useButton
-                  /> : null
+                  />
+                }
+                {addon && !isFireFox &&
+                  <Button
+                    buttonType="confirm"
+                    href={downloadUrl}
+                    puffy
+                  >
+                    {i18n.gettext('Only with Firefox - Get Firefox Now!')}
+                  </Button>
                 }
               </div>
 
