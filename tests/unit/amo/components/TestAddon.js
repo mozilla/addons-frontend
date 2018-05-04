@@ -786,10 +786,7 @@ describe(__filename, () => {
 
   it('hides banner on non firefox clients and displays firefox download button', () => {
     const root = shallowRender({
-      getClientCompatibility: () => ({
-        compatible: false,
-        reason: INCOMPATIBLE_NOT_FIREFOX,
-      }),
+      getClientCompatibility: getClientCompatibilityFalse,
     });
     expect(root.find(AddonCompatibilityError)).toHaveLength(0);
     expect(root.find(Button)).toHaveLength(1);

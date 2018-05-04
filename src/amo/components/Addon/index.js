@@ -452,7 +452,7 @@ export class AddonBase extends React.Component {
       utm_content: 'install-addon-button',
     })}`;
 
-    const isFF = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
+    const isFireFox = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
 
     return (
       <div
@@ -471,7 +471,7 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
-            {isFF && !isCompatible ? (
+            {isFireFox && !isCompatible ? (
               <AddonCompatibilityError
                 className="Addon-header-compatibility-error"
                 downloadUrl={compatibility.downloadUrl}
@@ -491,7 +491,7 @@ export class AddonBase extends React.Component {
                 {showSummary ?
                   <p className="Addon-summary" {...summaryProps} /> : null}
 
-                {addon && isFF &&
+                {addon && isFireFox &&
                   <InstallButton
                     {...this.props}
                     disabled={!isCompatible}
@@ -501,7 +501,7 @@ export class AddonBase extends React.Component {
                     useButton
                   />
                 }
-                {addon && !isFF &&
+                {addon && !isFireFox &&
                   <Button
                     buttonType="confirm"
                     href={downloadUrl}
