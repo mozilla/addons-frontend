@@ -461,6 +461,25 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
+  it('does not dispatch a server redirect when slug is a stringified integer that starts with -', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: '-1234',
+    });
+
+    store.dispatch(_loadAddons({ addon }));
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    renderComponent({
+      params: { slug: `-${addon.id}` }, store,
+    });
+
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
   it('sanitizes a title', () => {
     const root = shallowRender({
       addon: createInternalAddon({
