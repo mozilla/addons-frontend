@@ -415,6 +415,20 @@ describe(__filename, () => {
     }));
   });
 
+  it('autofills slug when name is entered while creating collection', () => {
+    const name = "trishul's collection";
+    const localStore = dispatchClientMetadata().store;
+    dispatchSignInActions({
+      store: localStore,
+    });
+
+    const root = render({ collection: null, creating: true, store: localStore });
+
+    typeInput({ root, name: 'name', text: name });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
   it('allows a blank description', () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
