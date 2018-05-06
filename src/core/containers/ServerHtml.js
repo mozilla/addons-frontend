@@ -99,6 +99,7 @@ export default class ServerHtml extends Component {
         <head>
           <meta charSet="utf-8" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="twitter:card" content="summary" />
           <link rel="shortcut icon" href={this.getFaviconLink()} />
           {head.title.toComponent()}
           {head.meta.toComponent()}
