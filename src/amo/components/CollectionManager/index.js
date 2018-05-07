@@ -55,7 +55,7 @@ type State = {|
   description?: string | null,
   name?: string | null,
   slug?: string | null,
-  userEnterSlug?: boolean | false,
+  customSlug?: boolean | false,
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
@@ -155,8 +155,22 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     event.preventDefault();
-    this.handleSlug(event.target);
-    this.setState({ [event.target.name]: event.target.value });
+    const { name = '', value = '' } = event.target;
+    const { creating } = this.props;
+
+    if (creating && name === 'name' && !this.state.customSlug) {
+      this.setState({
+        slug: value.trim().replace(/[^A-Za-z0-9]/g, '-'),
+        [event.target.name]: event.target.value,
+      });
+    } else if (creating && name === 'slug' && value.trim() !== '') {
+      this.setState({
+        customSlug: true,
+        [event.target.name]: event.target.value,
+      });
+    } else {
+      this.setState({ [event.target.name]: event.target.value });
+    }
   };
 
   onSearchAddon = (filters: SearchFilters) => {
@@ -184,21 +198,6 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       userId: siteUserId,
     }));
   };
-
-
-  handleSlug = (targetElement: Object) => {
-    const { name = '', value = '' } = targetElement;
-    const { creating } = this.props;
-    // only for add collection
-    if (!creating) return true;
-
-    if (name === 'name' && !this.state.userEnterSlug) {
-      this.setState({ slug: value.replace(/[^A-Za-z0-9]/g, '-') });
-    } else if (name === 'slug' && value.trim() !== '') {
-      this.setState({ userEnterSlug: true });
-    }
-    return true;
-  }
 
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
