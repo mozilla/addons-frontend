@@ -56,7 +56,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     tracking: defaultTracking,
   };
 
-  componentWillMount() {
+  componentDidMount() {
     const { cookie, randomizer, addon, recommendations } = this.props;
 
     // Set a cohort for the experiment.
