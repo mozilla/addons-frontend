@@ -69,13 +69,9 @@ if (global.Intl) {
 // eslint-disable-next-line no-console
 console.debug = console.log;
 
-// Setup sinon global to be a sandbox which is restored
-// after each test.
-const realSinon = sinon;
-global.sinon = realSinon.sandbox.create();
-global.sinon.createStubInstance = realSinon.createStubInstance;
-global.sinon.format = realSinon.format;
-global.sinon.assert = realSinon.assert;
+// Setup sinon global to be a sandbox which is restored after each test.
+global.sinon = sinon.createSandbox();
+
 // Stub the magic constant webpack normally supplies.
 global.CLIENT_CONFIG = require('core/utils').getClientConfig(config);
 
