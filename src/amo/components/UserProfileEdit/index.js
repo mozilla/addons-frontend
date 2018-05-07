@@ -6,12 +6,15 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
+import NotFound from 'amo/components/ErrorPage/NotFound';
 import {
   editUserAccount,
   fetchUserAccount,
   getCurrentUser,
   getUserByUsername,
+  hasPermission,
 } from 'amo/reducers/users';
+import { USERS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -27,13 +30,15 @@ import './styles.scss';
 
 
 type Props = {|
+  currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  hasEditPermission: boolean,
   i18n: I18nType,
   isEditing: boolean,
   isEditingCurrentUser: boolean,
   params: {| username: string |},
-  user?: UserType,
+  user: UserType | null,
   username: string,
 |};
 
@@ -104,13 +109,19 @@ export class UserProfileEditBase extends React.Component<Props> {
 
   render() {
     const {
+      currentUser,
       errorHandler,
+      hasEditPermission,
       i18n,
       isEditing,
       isEditingCurrentUser,
       user,
       username,
     } = this.props;
+
+    if (currentUser && user && !hasEditPermission) {
+      return <NotFound />;
+    }
 
     return (
       <div className="UserProfileEdit">
@@ -328,11 +339,19 @@ export function mapStateToProps(
   const currentUser = getCurrentUser(state.users);
   const user = ownProps.params.username ?
     getUserByUsername(state.users, ownProps.params.username) : currentUser;
+  const isEditingCurrentUser = currentUser && user ? currentUser.id ===
+    user.id : false;
+
+  let hasEditPermission = isEditingCurrentUser;
+  if (currentUser && hasPermission(state, USERS_EDIT)) {
+    hasEditPermission = true;
+  }
 
   return {
     currentUser,
+    hasEditPermission,
     isEditing: state.users.isEditing,
-    isEditingCurrentUser: currentUser && user && currentUser.id === user.id,
+    isEditingCurrentUser,
     user,
     username: user ? user.username : ownProps.params.username,
   };

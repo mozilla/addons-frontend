@@ -2,6 +2,8 @@ import * as React from 'react';
 import { Provider } from 'react-redux';
 import { mount } from 'enzyme';
 
+import NotFound from 'amo/components/ErrorPage/NotFound';
+import Link from 'amo/components/Link';
 import UserProfileEdit, {
   UserProfileEditBase,
 } from 'amo/components/UserProfileEdit';
@@ -9,13 +11,16 @@ import {
   editUserAccount,
   fetchUserAccount,
   getCurrentUser,
+  loadUserAccount,
 } from 'amo/reducers/users';
+import { USERS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import { dispatchSignInActions } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createStubErrorHandler,
+  createUserAccountResponse,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -50,7 +55,8 @@ describe(__filename, () => {
   } = {}) {
     return shallowUntilTarget(
       <UserProfileEdit i18n={i18n} params={params} store={store} {...props} />,
-      UserProfileEditBase
+      UserProfileEditBase,
+      { shallowOptions: { context: { i18n } } }
     );
   }
 
@@ -72,7 +78,8 @@ describe(__filename, () => {
           store={store}
           {...props}
         />
-      </Provider>
+      </Provider>,
+      { context: { i18n } }
     );
   }
 
@@ -243,6 +250,54 @@ describe(__filename, () => {
       },
       userId: user.id,
     }));
+  });
+
+  it('renders a Not Found page when logged user cannot edit another user', () => {
+    const username = 'current-logged-user';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        username,
+        permissions: [],
+      }),
+    });
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    // Try to edit this user with another username.
+    const params = { username: user.username };
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('allows to edit another user if logged user has USERS_EDIT permission', () => {
+    const username = 'current-logged-user';
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        username,
+        permissions: [USERS_EDIT],
+      }),
+    });
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    // Try to edit this user with another username.
+    const params = { username: user.username };
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find(NotFound)).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-username'))
+      .toHaveProp('defaultValue', user.username);
+
+    const linkItems = root.find('.UserProfileEdit-user-links li');
+    expect(linkItems.at(0).find(Link))
+      .toHaveProp('children', "View user's profile");
+    // We are on the edit page, so we do not use a link for this item.
+    expect(linkItems.at(1).children()).toHaveText("Edit user's profile");
   });
 
   it('does not dispatch editUserAccount action when there is no current user', () => {
