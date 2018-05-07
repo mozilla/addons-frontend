@@ -40,6 +40,7 @@ type Props = {|
   i18n: I18nType,
   loading?: boolean,
   numberOfAddons: number,
+  showMore?: boolean,
 
   // AddonCards prop this component also accepts
   showSummary?: boolean,
@@ -50,6 +51,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
   static defaultProps = {
     showSummary: false,
     type: 'horizontal',
+    showMore: true,
   }
 
   componentWillMount() {
@@ -105,6 +107,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
       numberOfAddons,
       showSummary,
       type,
+      showMore,
     } = this.props;
 
     if (!loading && (!addons || !addons.length)) {
@@ -114,52 +117,87 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
     let header;
     switch (addonType) {
       case ADDON_TYPE_DICT:
-        header = i18n.ngettext(
+        header = showMore ? i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More dictionaries by %(author)s'),
             { author: authorDisplayName }
           ),
           i18n.gettext('More dictionaries by these translators'),
           authorUsernames.length
+        ) : i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('Dictionaries by %(author)s'),
+            { author: authorDisplayName }
+          ),
+          i18n.gettext('Dictionaries by these translators'),
+          authorUsernames.length
         );
         break;
       case ADDON_TYPE_EXTENSION:
-        header = i18n.ngettext(
+        header = showMore ? i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More extensions by %(author)s'),
             { author: authorDisplayName }
           ),
           i18n.gettext('More extensions by these developers'),
           authorUsernames.length
+        ) : i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('Extensions by %(author)s'),
+            { author: authorDisplayName }
+          ),
+          i18n.gettext('Extensions by these developers'),
+          authorUsernames.length
         );
         break;
       case ADDON_TYPE_LANG:
-        header = i18n.ngettext(
+        header = showMore ? i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More language packs by %(author)s'),
             { author: authorDisplayName }
           ),
           i18n.gettext('More language packs by these translators'),
           authorUsernames.length
+        ) : i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('Language packs by %(author)s'),
+            { author: authorDisplayName }
+          ),
+          i18n.gettext('Language packs by these translators'),
+          authorUsernames.length
         );
         break;
       case ADDON_TYPE_THEME:
-        header = i18n.ngettext(
+        header = showMore ? i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More themes by %(author)s'),
             { author: authorDisplayName }
           ),
           i18n.gettext('More themes by these artists'),
           authorUsernames.length
+        ) : i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('Themes by %(author)s'),
+            { author: authorDisplayName }
+          ),
+          i18n.gettext('Themes by these artists'),
+          authorUsernames.length
         );
         break;
       default:
-        header = i18n.ngettext(
+        header = showMore ? i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More add-ons by %(author)s'),
             { author: authorDisplayName }
           ),
           i18n.gettext('More add-ons by these developers'),
+          authorUsernames.length
+        ) : i18n.ngettext(
+          i18n.sprintf(
+            i18n.gettext('Add-ons by %(author)s'),
+            { author: authorDisplayName }
+          ),
+          i18n.gettext('Add-ons by these developers'),
           authorUsernames.length
         );
     }
