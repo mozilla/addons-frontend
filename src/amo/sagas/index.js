@@ -9,6 +9,7 @@ import categories from 'amo/sagas/categories';
 import collections from 'amo/sagas/collections';
 import home from 'amo/sagas/home';
 import landing from 'amo/sagas/landing';
+import recommendations from 'amo/sagas/recommendations';
 import reviews from 'amo/sagas/reviews';
 import abuse from 'core/sagas/abuse';
 import addons from 'core/sagas/addons';
@@ -31,6 +32,7 @@ export default function* rootSaga() {
     fork(home),
     fork(landing),
     fork(languageTools),
+    fork(recommendations),
     fork(reviews),
     fork(search),
     fork(userAbuseReports),

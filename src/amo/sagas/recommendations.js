@@ -37,7 +37,7 @@ export function* fetchRecommendations({
       outcome,
     }));
   } catch (error) {
-    log.warn(`Failed to fetch user collections: ${error}`);
+    log.warn(`Failed to recommendations: ${error}`);
     yield put(errorHandler.createErrorAction(error));
     yield put(abortFetchRecommendations({ guid }));
   }

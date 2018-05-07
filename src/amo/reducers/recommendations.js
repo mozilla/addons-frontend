@@ -2,7 +2,7 @@
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type { ExternalAddonType } from 'core/types/addons';
+import type { AddonType, ExternalAddonType } from 'core/types/addons';
 
 export const ABORT_FETCH_RECOMMENDATIONS: 'ABORT_FETCH_RECOMMENDATIONS'
   = 'ABORT_FETCH_RECOMMENDATIONS';
@@ -11,11 +11,14 @@ export const FETCH_RECOMMENDATIONS: 'FETCH_RECOMMENDATIONS'
 export const LOAD_RECOMMENDATIONS: 'LOAD_RECOMMENDATIONS'
   = 'LOAD_RECOMMENDATIONS';
 
+export type FallbackReasonType = 'no_results' | 'timeout';
+export type OutcomeType = 'curated' | 'recommended' | 'recommended_fallback';
+
 export type Recommendations = {|
-  addons: Array<ExternalAddonType> | null,
-  fallbackReason: string | null,
+  addons: Array<AddonType> | null,
+  fallbackReason: FallbackReasonType | null,
   loading: boolean,
-  outcome: string | null,
+  outcome: OutcomeType | null,
 |};
 
 export type RecommendationsState = {|
@@ -39,7 +42,7 @@ type AbortFetchRecommendationsAction = {|
 
 export const abortFetchRecommendations = ({
   guid,
-}: AbortFetchRecommendationsParams = {}): AbortFetchRecommendationsAction => {
+}: AbortFetchRecommendationsParams): AbortFetchRecommendationsAction => {
   invariant(guid, 'guid is required');
   return {
     type: ABORT_FETCH_RECOMMENDATIONS,
@@ -62,7 +65,7 @@ export const fetchRecommendations = ({
   errorHandlerId,
   guid,
   recommended,
-}: FetchRecommendationsParams = {}): FetchRecommendationsAction => {
+}: FetchRecommendationsParams): FetchRecommendationsAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(guid, 'guid is required');
   invariant(typeof recommended === 'boolean', 'recommended is required');
@@ -90,9 +93,8 @@ export const loadRecommendations = ({
   fallbackReason,
   guid,
   outcome,
-}: LoadRecommendationsParams = {}): LoadRecommendationsAction => {
+}: LoadRecommendationsParams): LoadRecommendationsAction => {
   invariant(addons, 'addons is required');
-  invariant(fallbackReason, 'fallbackReason is required');
   invariant(guid, 'guid is required');
   invariant(outcome, 'outcome is required');
 
