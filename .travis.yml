@@ -1,4 +1,3 @@
-sudo: required
 _aliases:
   - &tox
     language: python
