@@ -10,9 +10,14 @@ export const FETCH_RECOMMENDATIONS: 'FETCH_RECOMMENDATIONS'
   = 'FETCH_RECOMMENDATIONS';
 export const LOAD_RECOMMENDATIONS: 'LOAD_RECOMMENDATIONS'
   = 'LOAD_RECOMMENDATIONS';
+export const OUTCOME_CURATED: 'curated' = 'curated';
+export const OUTCOME_RECOMMENDED: 'recommended' = 'recommended';
+export const OUTCOME_RECOMMENDED_FALLBACK: 'recommended_fallback' = 'recommended_fallback';
 
 export type FallbackReasonType = 'no_results' | 'timeout';
-export type OutcomeType = 'curated' | 'recommended' | 'recommended_fallback';
+export type OutcomeType = typeof OUTCOME_CURATED |
+  typeof OUTCOME_RECOMMENDED |
+  typeof OUTCOME_RECOMMENDED_FALLBACK;
 
 export type Recommendations = {|
   addons: Array<AddonType> | null,

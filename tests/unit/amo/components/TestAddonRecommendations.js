@@ -10,6 +10,9 @@ import AddonRecommendations, {
 import {
   fetchRecommendations,
   loadRecommendations,
+  OUTCOME_CURATED,
+  OUTCOME_RECOMMENDED,
+  OUTCOME_RECOMMENDED_FALLBACK,
 } from 'amo/reducers/recommendations';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -22,6 +25,7 @@ import {
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
+import LoadingText from 'ui/components/LoadingText';
 
 
 const fakeCookie = (returnValue) => {
@@ -98,13 +102,20 @@ describe(__filename, () => {
   });
 
   it('renders an AddonCard when recommendations are loaded', () => {
+    const apiAddons = [fakeAddon];
     const addons = [createInternalAddon(fakeAddon)];
-    store.dispatch(doLoadRecommendations({ addons }));
+    const outcome = OUTCOME_RECOMMENDED;
+    store.dispatch(doLoadRecommendations({
+      addons: apiAddons,
+      outcome,
+    }));
 
     const root = render({});
     expect(root).toHaveClassName('AddonRecommendations');
+    expect(root).toHaveProp('addonInstallSource', outcome);
     expect(root).toHaveProp('addons', addons);
-    expect(root).toHaveProp('header', 'You might also like...');
+    expect(root).toHaveProp('header',
+      'Other users with this extension also installed');
     expect(root).toHaveProp('loading', false);
     expect(root).toHaveProp('placeholderCount', 4);
     expect(root).toHaveProp('showMetadata', true);
@@ -118,7 +129,30 @@ describe(__filename, () => {
     const root = render({});
     expect(root).toHaveClassName('AddonRecommendations');
     expect(root).toHaveProp('addons', null);
+    expect(root).toHaveProp('header', <LoadingText width={100} />);
     expect(root).toHaveProp('loading', true);
+  });
+
+  it('renders the expected header and source for the curated outcome', () => {
+    const outcome = OUTCOME_CURATED;
+    store.dispatch(doLoadRecommendations({
+      outcome,
+    }));
+
+    const root = render({});
+    expect(root).toHaveProp('addonInstallSource', outcome);
+    expect(root).toHaveProp('header', 'Other popular extensions');
+  });
+
+  it('renders the expected header and source for the recommended_fallback outcome', () => {
+    const outcome = OUTCOME_RECOMMENDED_FALLBACK;
+    store.dispatch(doLoadRecommendations({
+      outcome,
+    }));
+
+    const root = render({});
+    expect(root).toHaveProp('addonInstallSource', outcome);
+    expect(root).toHaveProp('header', 'Other popular extensions');
   });
 
   it('uses the randomizer to set the cohort and cookie when a cookie does not exist', () => {
@@ -209,16 +243,57 @@ describe(__filename, () => {
   });
 
   it('should send a GA ping when recommendations are loaded', () => {
-    const { fallbackReason, outcome } = fakeRecommendations;
+    const fallbackReason = 'timeout';
+    const outcome = OUTCOME_RECOMMENDED_FALLBACK;
     const root = render({ tracking: fakeTracking });
 
-    root.setProps({ recommendations: fakeRecommendations });
+    root.setProps({
+      recommendations: {
+        ...fakeRecommendations,
+        outcome,
+        fallbackReason,
+      },
+    });
 
     sinon.assert.calledOnce(fakeTracking.sendEvent);
     sinon.assert.calledWith(fakeTracking.sendEvent, {
-      action: `outcome: ${outcome} | fallbackReason: ${fallbackReason}`,
+      action: `${outcome}-${fallbackReason}`,
       category: TAAR_IMPRESSION_CATEGORY,
       label: fakeAddon.name,
     });
+  });
+
+  it('should send a GA ping without a fallback', () => {
+    const fallbackReason = null;
+    const outcome = OUTCOME_RECOMMENDED;
+    const root = render({ tracking: fakeTracking });
+
+    root.setProps({
+      recommendations: {
+        ...fakeRecommendations,
+        outcome,
+        fallbackReason,
+      },
+    });
+
+    sinon.assert.calledOnce(fakeTracking.sendEvent);
+    sinon.assert.calledWith(fakeTracking.sendEvent, {
+      action: outcome,
+      category: TAAR_IMPRESSION_CATEGORY,
+      label: fakeAddon.name,
+    });
+  });
+
+  it('should not send a GA ping when recommendations are loading', () => {
+    const root = render({ tracking: fakeTracking });
+
+    root.setProps({
+      recommendations: {
+        ...fakeRecommendations,
+        loading: true,
+      },
+    });
+
+    sinon.assert.notCalled(fakeTracking.sendEvent);
   });
 });
