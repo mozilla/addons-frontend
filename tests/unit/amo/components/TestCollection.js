@@ -348,6 +348,43 @@ describe(__filename, () => {
     }));
   });
 
+  it('defaults to first page when there is no page and collection is loaded', () => {
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+      page: 2,
+    }));
+
+    // This happens when a user clicks the "back" button in the browser, after
+    // having browsed a collection and navigated to the second page.
+    // See: https://github.com/mozilla/addons-frontend/issues/4933
+    const page = null;
+    const location = fakeRouterLocation();
+    const newLocation = fakeRouterLocation({ query: { page } });
+    const errorHandler = createStubErrorHandler();
+
+    const wrapper = renderComponent({
+      errorHandler,
+      location,
+      store,
+    });
+    fakeDispatch.reset();
+
+    // This will trigger the componentWillReceiveProps() method.
+    wrapper.setProps({ location: newLocation });
+
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      user: defaultUser,
+      slug: defaultSlug,
+    }));
+  });
+
   it('dispatches fetchCurrentCollection when user param has changed', () => {
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
