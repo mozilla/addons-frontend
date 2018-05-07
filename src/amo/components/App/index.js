@@ -212,6 +212,7 @@ export class AppBase extends React.Component<Props> {
       <NestedStatus code={200}>
         <div className="amo">
           <Helmet
+            <meta name="twitter:card" content="summary" data-react-helmet="true">
             defaultTitle={defaultTitle}
             titleTemplate={titleTemplate}
           />
