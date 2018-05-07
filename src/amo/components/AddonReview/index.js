@@ -100,7 +100,10 @@ export class AddonReviewBase extends React.Component<Props, State> {
     event.preventDefault();
     event.stopPropagation();
 
-    const newReviewParams = { body: reviewBody || undefined };
+    // If reviewBody text is null, we'll assign it as &nbsp;
+    // which will show as hidden in html and api will follow thru
+    // with the update since there is a value
+    const newReviewParams = { body: reviewBody || '&nbsp;' };
     const updatedReview = { ...review, ...newReviewParams };
 
     const params = {
@@ -218,7 +221,7 @@ export class AddonReviewBase extends React.Component<Props, State> {
               className="AddonReview-textarea"
               onInput={this.onBodyInput}
               name="review"
-              value={reviewBody}
+              value={reviewBody === '&nbsp;' ? '' : reviewBody}
               placeholder={placeholder}
             />
           </div>

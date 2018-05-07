@@ -126,6 +126,29 @@ describe(__filename, () => {
       });
   });
 
+  it('a review without text feedback will show as no text in textarea and &nbsp; in review list display', () => {
+    const fakeDispatch = sinon.stub(store, 'dispatch');
+    const updateReviewText = sinon.spy(() => Promise.resolve());
+    const root = render({ updateReviewText });
+
+    root.find('.AddonReview-textarea').simulate('input', createFakeEvent({
+      target: { value: '' },
+    }));
+
+    const event = createFakeEvent();
+    return root.instance().onSubmit(event)
+      .then(() => {
+        sinon.assert.called(event.preventDefault);
+
+        sinon.assert.calledWith(fakeDispatch, setDenormalizedReview({
+          ...defaultReview, body: '&nbsp;',
+        }));
+
+        const params = updateReviewText.firstCall.args[0];
+        expect(params.body).toEqual('&nbsp;');
+      });
+  });
+
   it('focuses the review text on mount', () => {
     const root = mountRender();
     // This checks that reviewTextarea.focus() was called.
