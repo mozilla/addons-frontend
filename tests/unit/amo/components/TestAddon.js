@@ -442,7 +442,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
-  it('dispatches a server redirect when slug is a stringified integer', () => {
+  it('dispatches a server redirect when slug is a stringified integer greater than 0', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon(fakeAddon);
@@ -462,7 +462,7 @@ describe(__filename, () => {
   });
 
   // The reason for this test case came from https://github.com/mozilla/addons-frontend/issues/4541.
-  it('does not dispatch a server redirect when slug is a stringified integer that starts with -', () => {
+  it('does not dispatch a server redirect when slug is a stringified integer less than 0', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon({
@@ -474,7 +474,7 @@ describe(__filename, () => {
 
     const fakeDispatch = sinon.spy(store, 'dispatch');
     renderComponent({
-      params: { slug: `${addon.slug}` }, store,
+      params: { slug: addon.slug }, store,
     });
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));

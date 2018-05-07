@@ -60,12 +60,10 @@ import ShowMoreCard from 'ui/components/ShowMoreCard';
 import './styles.scss';
 
 
-// Find out if slug is invalid.
-const isInvalidSlugID = (slug) => {
+// Find out if slug converts to a positive number/ID.
+const slugIsPositiveID = (slug) => {
   // eslint-disable-next-line no-restricted-globals
-  return slug && !isNaN(slug)
-    && ((typeof slug === 'string' && slug.charAt(0) !== '-')
-    || (typeof slug === 'number'));
+  return !isNaN(slug) && parseInt(slug, 10) > 0;
 };
 
 export class AddonBase extends React.Component {
@@ -117,9 +115,9 @@ export class AddonBase extends React.Component {
       if (addon) {
         const { slug } = params;
 
-        // We want to make sure the slug is invalid before
-        // before we try redirecting.
-        if (isInvalidSlugID(slug)) {
+        // We want to make sure the slug converts to a positive
+        // number/ID before we try redirecting.
+        if (slugIsPositiveID(slug)) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(sendServerRedirect({
@@ -559,7 +557,7 @@ export function mapStateToProps(state, ownProps) {
 
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.
-  if (isInvalidSlugID(slug)) {
+  if (slugIsPositiveID(slug)) {
     addon = getAddonByID(state, slug);
   }
 
