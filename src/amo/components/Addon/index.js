@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+import defaultConfig from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -13,6 +14,7 @@ import AddonBadges from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -70,6 +72,7 @@ const slugIsPositiveID = (slug) => {
 
 export class AddonBase extends React.Component {
   static propTypes = {
+    config: PropTypes.object,
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
@@ -96,6 +99,7 @@ export class AddonBase extends React.Component {
   }
 
   static defaultProps = {
+    config: defaultConfig,
     RatingManager: DefaultRatingManager,
     platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
@@ -377,6 +381,7 @@ export class AddonBase extends React.Component {
       addon,
       addonsByAuthors,
       clientApp,
+      config,
       defaultInstallSource,
       errorHandler,
       getClientCompatibility,
@@ -546,6 +551,10 @@ export class AddonBase extends React.Component {
             ) : null}
 
             {this.renderShowMoreCard()}
+
+            {config.get('enableAddonRecommendations') && (
+              <AddonRecommendations addon={addon} />
+            )}
           </div>
 
           {this.renderRatingsCard()}

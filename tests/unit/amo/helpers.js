@@ -195,6 +195,13 @@ export const fakeCategory = Object.freeze({
   weight: 1,
 });
 
+export const fakeRecommendations = Object.freeze({
+  addons: Array(4).fill(fakeAddon),
+  fallbackReason: 'timeout',
+  loading: false,
+  outcome: 'recommended_fallback',
+});
+
 /*
  * Redux store state for when a user has signed in.
  */
