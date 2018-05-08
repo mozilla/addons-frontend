@@ -21,6 +21,7 @@ describe(__filename, () => {
       'installations',
       'landing',
       'languageTools',
+      'recommendations',
       'redirectTo',
       'reviews',
       'routing',

@@ -8,7 +8,7 @@ import {
 
 export type SetAuthTokenAction = {|
   payload: {| token: string |},
-  type: string,
+  type: typeof SET_AUTH_TOKEN,
 |};
 
 export function setAuthToken(token: string): SetAuthTokenAction {
@@ -23,7 +23,7 @@ export function setAuthToken(token: string): SetAuthTokenAction {
 
 export type SetClientAppAction = {|
   payload: {| clientApp: string |},
-  type: string,
+  type: typeof SET_CLIENT_APP,
 |};
 
 export function setClientApp(clientApp: string): SetClientAppAction {
@@ -38,7 +38,7 @@ export function setClientApp(clientApp: string): SetClientAppAction {
 
 export type SetLangAction = {|
   payload: {| lang: string |},
-  type: string,
+  type: typeof SET_LANG,
 |};
 
 export function setLang(lang: string): SetLangAction {
@@ -50,7 +50,7 @@ export function setLang(lang: string): SetLangAction {
 
 export type SetUserAgentAction = {|
   payload: {| userAgent: string |},
-  type: string,
+  type: typeof SET_USER_AGENT,
 |};
 
 export function setUserAgent(userAgent: string): SetUserAgentAction {

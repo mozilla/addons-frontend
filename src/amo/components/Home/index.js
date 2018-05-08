@@ -29,7 +29,7 @@ import './styles.scss';
 
 export const COLLECTIONS_TO_FETCH = [
   { slug: 'privacy-matters', user: 'mozilla' },
-  { slug: 'trending-add-ons', user: 'mozilla' },
+  { slug: 'extensions-challenge-honorees', user: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -199,22 +199,6 @@ export class HomeBase extends React.Component {
         </Card>
 
         <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
-          addons={popularExtensions}
-          className="Home-PopularExtensions"
-          header={i18n.gettext('Popular extensions')}
-          footerText={i18n.gettext('See more popular extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
-          loading={resultsLoaded === false}
-        />
-
-        <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
           addons={featuredExtensions}
           className="Home-FeaturedExtensions"
@@ -227,6 +211,19 @@ export class HomeBase extends React.Component {
               featured: true,
             },
           }}
+          loading={resultsLoaded === false}
+        />
+
+        <LandingAddonsCard
+          addons={collections[0]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Privacy tools')}
+          footerText={
+            i18n.gettext('See more privacy tools')
+          }
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 
@@ -247,26 +244,29 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
-          addons={collections[0]}
+          addons={collections[1]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Privacy tools')}
-          footerText={
-            i18n.gettext('See more privacy tools')
-          }
+          header={i18n.gettext('“Extensions Challenge” honorees')}
+          footerText={i18n.gettext('See more “Extensions Challenge” honorees')}
           footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
           }
           loading={resultsLoaded === false}
         />
 
         <LandingAddonsCard
-          addons={collections[1]}
-          className="Home-FeaturedCollection"
-          header={i18n.gettext('Trending extensions')}
-          footerText={i18n.gettext('See more trending extensions')}
-          footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
-          }
+          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
+          addons={popularExtensions}
+          className="Home-PopularExtensions"
+          header={i18n.gettext('Popular extensions')}
+          footerText={i18n.gettext('See more popular extensions')}
+          footerLink={{
+            pathname: '/search/',
+            query: {
+              addonType: ADDON_TYPE_EXTENSION,
+              sort: SEARCH_SORT_POPULAR,
+            },
+          }}
           loading={resultsLoaded === false}
         />
 

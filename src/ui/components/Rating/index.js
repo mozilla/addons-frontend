@@ -49,6 +49,29 @@ export class RatingBase extends React.Component {
     this.props.onSelectRating(rating);
   }
 
+  // Helper function used to render title attributes
+  // for each individual star, as well as the wrapper
+  // that surrounds the read-only set of stars.
+  renderTitle = (rating, readOnly, starRating) => {
+    const { i18n } = this.props;
+
+    if (readOnly) {
+      if (rating) {
+        return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
+          { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
+      }
+      return i18n.gettext('This add-on has not been rated yet.');
+    }
+
+    if (rating) {
+      return i18n.sprintf(i18n.gettext(
+        `Update your rating to %(starRating)s out of 5.`), { starRating });
+    }
+
+    return i18n.sprintf(i18n.gettext(
+      `Rate this add-on %(starRating)s out of 5.`), { starRating });
+  }
+
   renderRatings() {
     const { readOnly } = this.props;
     // Accept falsey values as if they are zeroes.
@@ -64,6 +87,7 @@ export class RatingBase extends React.Component {
         id: `Rating-rating-${thisRating}`,
         key: `rating-${thisRating}`,
         ref: (ref) => { this.ratingElements[thisRating] = ref; },
+        title: this.renderTitle(rating, readOnly, thisRating),
       };
 
       if (readOnly) {
@@ -82,19 +106,16 @@ export class RatingBase extends React.Component {
   }
 
   render() {
-    const { className, i18n, rating, readOnly, styleSize, isOwner } = this.props;
+    const { className, isOwner, rating, readOnly, styleSize } = this.props;
     if (!RATING_STYLE_SIZES.includes(styleSize)) {
       throw new Error(
         `styleSize=${styleSize} is not a valid value; ` +
         `possible values: ${RATING_STYLE_SIZES.join(', ')}`);
     }
-    let description = i18n.gettext('This add-on has no ratings.');
-    if (rating) {
-      description = i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5'),
-        { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
-    } else if (!readOnly) {
-      description = i18n.gettext('Click to rate this add-on');
-    }
+
+    // Wrap read only ratings with a description to maintain functionality
+    // for the "Average rating of developer’s add-ons" tooltip.
+    const description = readOnly ? this.renderTitle(rating, readOnly, null) : null;
 
     const allClassNames = makeClassName(
       'Rating', `Rating--${styleSize}`, className, {

@@ -83,7 +83,9 @@ export class Tracking {
   }
 
   log(...args) {
-    this._log.info(this.logPrefix, ...args);
+    if (this._log) {
+      this._log.info(this.logPrefix, ...args);
+    }
   }
 
   _ga(...args) {

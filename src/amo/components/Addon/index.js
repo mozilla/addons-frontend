@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/heading-has-content */
+import defaultConfig from 'config';
 import makeClassName from 'classnames';
 import * as React from 'react';
 import PropTypes from 'prop-types';
@@ -13,6 +14,7 @@ import AddonBadges from 'amo/components/AddonBadges';
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -21,6 +23,7 @@ import DefaultRatingManager from 'amo/components/RatingManager';
 import ScreenShots from 'amo/components/ScreenShots';
 import Link from 'amo/components/Link';
 import { getAddonsForSlug } from 'amo/reducers/addonsByAuthors';
+import { makeQueryStringWithUTM } from 'amo/utils';
 import {
   fetchAddon,
   getAddonByID,
@@ -36,6 +39,7 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
   ENABLED,
+  INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
   UNKNOWN,
 } from 'core/constants';
@@ -60,8 +64,15 @@ import ShowMoreCard from 'ui/components/ShowMoreCard';
 import './styles.scss';
 
 
+// Find out if slug converts to a positive number/ID.
+const slugIsPositiveID = (slug) => {
+  // eslint-disable-next-line no-restricted-globals
+  return !isNaN(slug) && parseInt(slug, 10) > 0;
+};
+
 export class AddonBase extends React.Component {
   static propTypes = {
+    config: PropTypes.object,
     RatingManager: PropTypes.element,
     addon: PropTypes.object.isRequired,
     clientApp: PropTypes.string.isRequired,
@@ -88,6 +99,7 @@ export class AddonBase extends React.Component {
   }
 
   static defaultProps = {
+    config: defaultConfig,
     RatingManager: DefaultRatingManager,
     platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
@@ -107,8 +119,11 @@ export class AddonBase extends React.Component {
     // of an error.
     if (!errorHandler.hasError()) {
       if (addon) {
-        // eslint-disable-next-line no-restricted-globals
-        if (!isNaN(params.slug)) {
+        const { slug } = params;
+
+        // We want to make sure the slug converts to a positive
+        // number/ID before we try redirecting.
+        if (slugIsPositiveID(slug)) {
           // We only load add-ons by slug, but ID must be supported too because
           // it is a legacy behavior.
           dispatch(sendServerRedirect({
@@ -338,11 +353,35 @@ export class AddonBase extends React.Component {
     /* eslint-enable react/no-danger */
   }
 
+  renderAddonsByAuthorsCard({ isForTheme }) {
+    const { addon } = this.props;
+    if (
+      !addon ||
+      !addon.authors.length ||
+      (isForTheme && addon.type !== ADDON_TYPE_THEME) ||
+      (!isForTheme && addon.type === ADDON_TYPE_THEME)
+    ) {
+      return null;
+    }
+
+    return (
+      <AddonsByAuthorsCard
+        addonType={addon.type}
+        authorDisplayName={addon.authors[0].name}
+        authorUsernames={addon.authors.map((author) => author.username)}
+        className="Addon-MoreAddonsCard"
+        forAddonSlug={addon.slug}
+        numberOfAddons={6}
+      />
+    );
+  }
+
   render() {
     const {
       addon,
       addonsByAuthors,
       clientApp,
+      config,
       defaultInstallSource,
       errorHandler,
       getClientCompatibility,
@@ -423,6 +462,12 @@ export class AddonBase extends React.Component {
 
     const numberOfAddonsByAuthors = addonsByAuthors ? addonsByAuthors.length : 0;
 
+    const downloadUrl = `https://www.mozilla.org/firefox/new/${makeQueryStringWithUTM({
+      utm_content: 'install-addon-button',
+    })}`;
+
+    const isFireFox = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
+
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
@@ -440,7 +485,7 @@ export class AddonBase extends React.Component {
         {errorBanner}
         <div className="Addon-header-wrapper">
           <Card className="Addon-header-info-card" photonStyle>
-            {compatibility && !isCompatible ? (
+            {isFireFox && !isCompatible ? (
               <AddonCompatibilityError
                 className="Addon-header-compatibility-error"
                 downloadUrl={compatibility.downloadUrl}
@@ -460,7 +505,7 @@ export class AddonBase extends React.Component {
                 {showSummary ?
                   <p className="Addon-summary" {...summaryProps} /> : null}
 
-                {addon ?
+                {addon && isFireFox &&
                   <InstallButton
                     {...this.props}
                     disabled={!isCompatible}
@@ -468,7 +513,16 @@ export class AddonBase extends React.Component {
                     defaultInstallSource={defaultInstallSource}
                     status={installStatus}
                     useButton
-                  /> : null
+                  />
+                }
+                {addon && !isFireFox &&
+                  <Button
+                    buttonType="confirm"
+                    href={downloadUrl}
+                    puffy
+                  >
+                    {i18n.gettext('Only with Firefox - Get Firefox Now!')}
+                  </Button>
                 }
               </div>
 
@@ -485,16 +539,7 @@ export class AddonBase extends React.Component {
 
         <div className="Addon-details">
           <div className="Addon-main-content">
-            {addon && addonType === ADDON_TYPE_THEME && (
-              <AddonsByAuthorsCard
-                addonType={addonType}
-                authorDisplayName={addon.authors[0].name}
-                authorUsernames={addon.authors.map((author) => author.username)}
-                className="Addon-MoreAddonsCard"
-                forAddonSlug={addon.slug}
-                numberOfAddons={6}
-              />
-            )}
+            {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
             {addonPreviews.length > 0 ? (
               <Card
@@ -506,6 +551,10 @@ export class AddonBase extends React.Component {
             ) : null}
 
             {this.renderShowMoreCard()}
+
+            {config.get('enableAddonRecommendations') && (
+              <AddonRecommendations addon={addon} />
+            )}
           </div>
 
           {this.renderRatingsCard()}
@@ -520,16 +569,7 @@ export class AddonBase extends React.Component {
 
           {this.renderVersionReleaseNotes()}
 
-          {addon && addonType !== ADDON_TYPE_THEME && (
-            <AddonsByAuthorsCard
-              addonType={addonType}
-              authorDisplayName={addon.authors[0].name}
-              authorUsernames={addon.authors.map((author) => author.username)}
-              className="Addon-MoreAddonsCard"
-              forAddonSlug={addon.slug}
-              numberOfAddons={6}
-            />
-          )}
+          {this.renderAddonsByAuthorsCard({ isForTheme: false })}
         </div>
       </div>
     );
@@ -543,8 +583,7 @@ export function mapStateToProps(state, ownProps) {
 
   // It is possible to load an add-on by its ID but in the routing parameters,
   // the parameter is always named `slug`.
-  // eslint-disable-next-line no-restricted-globals
-  if (slug && !isNaN(slug)) {
+  if (slugIsPositiveID(slug)) {
     addon = getAddonByID(state, slug);
   }
 

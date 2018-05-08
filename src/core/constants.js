@@ -1,3 +1,5 @@
+/* @flow */
+
 // Addon States.
 export const DISABLED = 'DISABLED';
 export const DISABLING = 'DISABLING';
@@ -48,6 +50,15 @@ export const ADDON_TYPE_THEME = 'persona';
 // TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
 // themes.
 export const ADDON_TYPE_COMPLETE_THEME = 'theme';
+
+export type AddonTypeType =
+  | typeof ADDON_TYPE_COMPLETE_THEME
+  | typeof ADDON_TYPE_DICT
+  | typeof ADDON_TYPE_EXTENSION
+  | typeof ADDON_TYPE_LANG
+  | typeof ADDON_TYPE_OPENSEARCH
+  | typeof ADDON_TYPE_THEME;
+
 export const validAddonTypes = [
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
@@ -197,7 +208,8 @@ export const GLOBAL_EVENT_STATUS_MAP = {
 
 // The events here are set directly on mozAddonManager
 // they will be fired by addons and themes.
-export const GLOBAL_EVENTS = Object.keys(GLOBAL_EVENT_STATUS_MAP);
+export const GLOBAL_EVENTS: Array<$Keys<typeof GLOBAL_EVENT_STATUS_MAP>>
+  = Object.keys(GLOBAL_EVENT_STATUS_MAP);
 
 // Generic error codes.
 export const ERROR_UNKNOWN = 'ERROR_UNKNOWN';

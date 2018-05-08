@@ -1,6 +1,6 @@
 /* @flow */
 /* eslint-disable react/sort-comp */
-/* global $PropertyType, Event, Navigator, Node, navigator, window */
+/* global Event, Navigator, Node, navigator, window */
 import config from 'config';
 import { oneLine } from 'common-tags';
 import * as React from 'react';
@@ -66,7 +66,7 @@ type Props = {|
 
 export class AppBase extends React.Component<Props> {
   header: React.ElementRef<typeof Header>;
-  scheduledLogout: number;
+  scheduledLogout: TimeoutID;
 
   static defaultProps = {
     ErrorPage: DefaultErrorPage,
@@ -137,8 +137,8 @@ export class AppBase extends React.Component<Props> {
         `Auth token "${encodedTimestamp}" triggered this base62 error: "${base62Error}"`);
       return;
     }
-    // If the encoded timestamp was malformed it will be 0 or negative or NaN
-    if (createdAt <= 0 || Number.isNaN(createdAt)) {
+    // If the encoded timestamp was malformed it will be 0 or negative.
+    if (createdAt <= 0) {
       log.error(oneLine`Got an invalid timestamp from auth token;
         encoded value: ${encodedTimestamp}; decoded value: ${createdAt}`);
       return;

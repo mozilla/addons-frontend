@@ -1,5 +1,5 @@
 /* eslint camelcase: 0 */
-import base62Custom from 'base62/lib/custom';
+import base62 from 'base62';
 
 import NotAuthorized from 'amo/components/ErrorPage/NotAuthorized';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -28,16 +28,9 @@ export function getErrorComponent(status) {
  */
 export function getDjangoBase62() {
   // This is the alphabet used by Django.
-  const charset = base62Custom.indexCharset(
+  base62.setCharacterSet(
     '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz');
-  return {
-    encode: (int) => {
-      return base62Custom.encode(int, charset);
-    },
-    decode: (str) => {
-      return base62Custom.decode(str, charset);
-    },
-  };
+  return base62;
 }
 
 export const makeQueryStringWithUTM = ({

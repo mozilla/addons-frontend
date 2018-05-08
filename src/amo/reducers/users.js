@@ -291,8 +291,10 @@ export const addUserToState = ({ state, user } : {
   user: ExternalUserType,
   state: UsersStateType,
 }): Object => {
-  const newUser = { ...user };
-  newUser.displayName = getDisplayName(user);
+  const newUser: UserType = {
+    ...user,
+    displayName: getDisplayName(user),
+  };
 
   const byID = { ...state.byID, [newUser.id]: newUser };
   const byUsername = { ...state.byUsername, [newUser.username]: newUser.id };

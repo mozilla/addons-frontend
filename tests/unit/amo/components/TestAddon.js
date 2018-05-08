@@ -18,6 +18,7 @@ import Addon, {
 import AddonCompatibilityError from 'amo/components/AddonCompatibilityError';
 import AddonMeta from 'amo/components/AddonMeta';
 import AddonMoreInfo from 'amo/components/AddonMoreInfo';
+import AddonRecommendations from 'amo/components/AddonRecommendations';
 import ContributeCard from 'amo/components/ContributeCard';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import PermissionsCard from 'amo/components/PermissionsCard';
@@ -44,6 +45,7 @@ import {
   CLIENT_APP_FIREFOX,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
+  INCOMPATIBLE_UNDER_MIN_VERSION,
   INSTALL_SOURCE_DETAIL_PAGE,
   INSTALLED,
   UNKNOWN,
@@ -64,11 +66,13 @@ import {
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
+  getFakeConfig,
   sampleUserAgentParsed,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import Button from 'ui/components/Button';
 
 
 function renderProps({
@@ -442,7 +446,7 @@ describe(__filename, () => {
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
-  it('dispatches a server redirect when slug is a stringified integer', () => {
+  it('dispatches a server redirect when slug is a stringified integer greater than 0', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const { store } = dispatchClientMetadata({ clientApp });
     const addon = createInternalAddon(fakeAddon);
@@ -458,6 +462,26 @@ describe(__filename, () => {
       status: 301,
       url: `/en-US/${clientApp}/addon/${addon.slug}/`,
     }));
+    sinon.assert.callCount(fakeDispatch, 1);
+  });
+
+  // The reason for this test case came from https://github.com/mozilla/addons-frontend/issues/4541.
+  it('does not dispatch a server redirect when slug is a stringified integer less than 0', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const { store } = dispatchClientMetadata({ clientApp });
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      slug: '-1234',
+    });
+
+    store.dispatch(_loadAddons({ addon }));
+
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    renderComponent({
+      params: { slug: addon.slug }, store,
+    });
+
+    sinon.assert.calledWith(fakeDispatch, setViewContext(fakeAddon.type));
     sinon.assert.callCount(fakeDispatch, 1);
   });
 
@@ -761,9 +785,11 @@ describe(__filename, () => {
     expect(button.prop('disabled')).toEqual(false);
   });
 
-  it('disables install switch for unsupported clients', () => {
+  it('disables install button for incompatibility with firefox version', () => {
     const root = shallowRender({
-      getClientCompatibility: getClientCompatibilityFalse,
+      getClientCompatibility: () => ({
+        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
+      }),
     });
     expect(root.find(InstallButton).prop('disabled')).toBe(true);
   });
@@ -773,11 +799,19 @@ describe(__filename, () => {
       getClientCompatibility: () => ({
         compatible: false,
         downloadUrl: 'https://www.seamonkey-project.org',
-        reason: INCOMPATIBLE_NOT_FIREFOX,
+        reason: INCOMPATIBLE_UNDER_MIN_VERSION,
       }),
     });
     expect(root.find(AddonCompatibilityError).prop('downloadUrl'))
       .toEqual('https://www.seamonkey-project.org');
+  });
+
+  it('hides banner on non firefox clients and displays firefox download button', () => {
+    const root = shallowRender({
+      getClientCompatibility: getClientCompatibilityFalse,
+    });
+    expect(root.find(AddonCompatibilityError)).toHaveLength(0);
+    expect(root.find(Button)).toHaveLength(1);
   });
 
   it('passes installStatus to installButton, not add-on status', () => {
@@ -903,6 +937,28 @@ describe(__filename, () => {
   it('renders permissions with no add-on', () => {
     const root = shallowRender({ addon: null });
     expect(root.find(PermissionsCard)).toHaveProp('addon', null);
+  });
+
+  it('renders recommendations for the add-on', () => {
+    const fakeConfig = getFakeConfig({ enableAddonRecommendations: true });
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveLength(1);
+    expect(root.find(AddonRecommendations)).toHaveProp('addon', addon);
+  });
+
+  it('renders recommendations with no add-on', () => {
+    const fakeConfig = getFakeConfig({ enableAddonRecommendations: true });
+    const root = shallowRender({ addon: null, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveLength(1);
+    expect(root.find(AddonRecommendations)).toHaveProp('addon', null);
+  });
+
+  it('does not render recommendations if the config flag is false', () => {
+    const fakeConfig = getFakeConfig({ enableAddonRecommendations: false });
+    const addon = createInternalAddon(fakeAddon);
+    const root = shallowRender({ addon, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveLength(0);
   });
 
   describe('read reviews footer', () => {
@@ -1125,6 +1181,17 @@ describe(__filename, () => {
     it('is hidden when other addons are not loaded yet', () => {
       // We use shallowRender because we cannot dispatch a `undefined` add-on.
       const root = shallowRender({ addonsByAuthors: undefined });
+      expect(root.find('.AddonDescription-more-addons'))
+        .toHaveLength(0);
+    });
+
+    it('is hidden when add-on has no authors', () => {
+      const root = shallowRender({
+        addon: createInternalAddon({
+          ...fakeAddon,
+          authors: [],
+        }),
+      });
       expect(root.find('.AddonDescription-more-addons'))
         .toHaveLength(0);
     });

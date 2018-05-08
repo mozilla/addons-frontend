@@ -144,7 +144,7 @@ describe(__filename, () => {
 
   it('rounds ratings to nearest 0.5 multiple', () => {
     // This should be treated like a rating of 3.5 in text.
-    const root = render({ rating: 3.60001 });
+    const root = render({ rating: 3.60001, readOnly: true });
 
     expect(findDOMNode(root).title).toContain('3.6 out of 5');
   });
@@ -171,35 +171,26 @@ describe(__filename, () => {
 
   it('renders an accessible description for null stars', () => {
     const root = render({ rating: null });
-    expect(findDOMNode(root).textContent).toEqual('Click to rate this add-on');
+
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5.`);
+    });
   });
 
   it('renders an accessible description for 0 stars', () => {
     const root = render({ rating: 0 });
-    expect(findDOMNode(root).textContent).toEqual('Click to rate this add-on');
-  });
 
-  it('renders "no ratings" if no rating and readOnly', () => {
-    const root = render({ rating: null, readOnly: true });
-    expect(findDOMNode(root).textContent).toEqual('This add-on has no ratings.');
-  });
-
-  it('renders an accessible description for ratings', () => {
-    const root = render({ rating: 2 });
-    expect(findDOMNode(root).textContent).toEqual('Rated 2 out of 5');
-  });
-
-  it('renders read-only selected stars', () => {
-    const root = render({ rating: 3, readOnly: true });
-
-    // Make sure only the first 3 stars are selected.
-    [1, 2, 3].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice Rating-selected-star');
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5.`);
     });
-    [4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].className).toEqual('Rating-choice');
+  });
+
+  it('renders an appropriate title when updating a rating', () => {
+    const root = render({ rating: 3 });
+
+    [1, 2, 3, 4, 5].forEach((rating) => {
+      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
     });
-    expect(findDOMNode(root).textContent).toEqual('Rated 3 out of 5');
   });
 
   it('prevents form submission when selecting a rating', () => {
@@ -253,22 +244,68 @@ describe(__filename, () => {
       });
       expect(allDivs).toBeTruthy();
     });
+
+    it('renders an appropriate title with an undefined rating when read-only', () => {
+      const root = render({ readOnly: true });
+
+      expect(findDOMNode(root).title).toEqual('This add-on has not been rated yet.');
+    });
+
+    it('renders an appropriate title with a null rating when read-only', () => {
+      const root = render({ rating: null, readOnly: true });
+
+      expect(findDOMNode(root).title).toEqual('This add-on has not been rated yet.');
+    });
+
+    it('renders an appropriate title with a given rating when read-only', () => {
+      const root = render({ rating: 3.8, readOnly: true });
+
+      expect(findDOMNode(root).title).toEqual('Rated 3.8 out of 5.');
+    });
+
+    it('renders an accessible description for null ratings and read-only', () => {
+      const root = render({ rating: null, readOnly: true });
+
+      expect(findDOMNode(root).title).toContain('This add-on has not been rated yet.');
+    });
+
+    it('renders read-only selected stars', () => {
+      const root = render({ rating: 3, readOnly: true });
+
+      // Make sure only the first 3 stars are selected.
+      [1, 2, 3].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual(
+          'Rating-choice Rating-selected-star');
+      });
+      [4, 5].forEach((rating) => {
+        expect(root.ratingElements[rating].className).toEqual('Rating-choice');
+      });
+    });
+
+    it('renders an accessible description for read-only ratings', () => {
+      const root = render({ rating: 3, readOnly: true });
+
+      [1, 2, 3, 4, 5].forEach((rating) => {
+        expect(root.ratingElements[rating].title).toEqual('Rated 3 out of 5.');
+      });
+    });
   });
 
   describe('rating counts', () => {
     const getRating = (props = {}) => findDOMNode(render(props)).textContent;
 
     it('renders the average rating', () => {
-      expect(getRating({ rating: 3.5 })).toEqual('Rated 3.5 out of 5');
+      expect(getRating({ rating: 3.5, readOnly: true })).toEqual('Rated 3.5 out of 5.');
     });
 
     it('localizes average rating', () => {
       const i18n = fakeI18n({ lang: 'de' });
-      expect(getRating({ rating: 3.5, i18n })).toContain('3,5');
+      expect(getRating({ rating: 3.5, i18n, readOnly: true })).toContain('3,5');
     });
 
     it('renders empty ratings', () => {
-      expect(getRating({ rating: null })).toEqual('Click to rate this add-on');
+      expect(getRating({ rating: null, readOnly: true })).toEqual(
+        'This add-on has not been rated yet.');
     });
   });
 });

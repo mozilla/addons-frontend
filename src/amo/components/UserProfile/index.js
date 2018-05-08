@@ -165,6 +165,7 @@ export class UserProfileBase extends React.Component<Props> {
                 numberOfAddons={10}
                 showSummary
                 type="vertical"
+                showMore={false}
               />
 
               <AddonsByAuthorsCard
@@ -172,6 +173,7 @@ export class UserProfileBase extends React.Component<Props> {
                 authorDisplayName={[user.displayName]}
                 authorUsernames={[user.username]}
                 numberOfAddons={12}
+                showMore={false}
               />
             </div>
           )}

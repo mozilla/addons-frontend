@@ -10,12 +10,16 @@ import {
 
 
 export type ViewContextType = {|
-  context: ADDON_TYPE_EXTENSION | ADDON_TYPE_THEME | VIEW_CONTEXT_EXPLORE |
-    VIEW_CONTEXT_HOME | VIEW_CONTEXT_LANGUAGE_TOOLS,
+  context:
+    | typeof ADDON_TYPE_EXTENSION
+    | typeof ADDON_TYPE_THEME
+    | typeof VIEW_CONTEXT_EXPLORE
+    | typeof VIEW_CONTEXT_HOME
+    | typeof VIEW_CONTEXT_LANGUAGE_TOOLS,
 |}
 
 export type ViewContextActionType = {|
-  type: string,
+  type: typeof SET_VIEW_CONTEXT,
   payload: ViewContextType,
 |}
 
