@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
 import Helmet from 'react-helmet';
@@ -17,7 +18,6 @@ import {
 import { USERS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
-import log from 'core/logger';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
@@ -36,7 +36,6 @@ type Props = {|
   hasEditPermission: boolean,
   i18n: I18nType,
   isEditing: boolean,
-  isEditingCurrentUser: boolean,
   params: {| username: string |},
   user: UserType | null,
   username: string,
@@ -80,12 +79,7 @@ export class UserProfileEditBase extends React.Component<Props> {
 
     const { dispatch, errorHandler, user } = this.props;
 
-    // This should never happen in real life, but Flow complains without this
-    // check...
-    if (!user) {
-      log.debug('Form has been submitted but no user passed as prop.');
-      return;
-    }
+    invariant(user, 'user is required');
 
     dispatch(editUserAccount({
       errorHandlerId: errorHandler.id,
@@ -114,7 +108,6 @@ export class UserProfileEditBase extends React.Component<Props> {
       hasEditPermission,
       i18n,
       isEditing,
-      isEditingCurrentUser,
       user,
       username,
     } = this.props;
@@ -122,6 +115,9 @@ export class UserProfileEditBase extends React.Component<Props> {
     if (currentUser && user && !hasEditPermission) {
       return <NotFound />;
     }
+
+    const isEditingCurrentUser = currentUser && user ? currentUser.id ===
+      user.id : false;
 
     return (
       <div className="UserProfileEdit">
@@ -142,14 +138,14 @@ export class UserProfileEditBase extends React.Component<Props> {
               <Link to={`/user/${username}/`}>
                 {isEditingCurrentUser ?
                   i18n.gettext('View My Profile') :
-                  i18n.gettext("View user's profile")
+                  i18n.gettext(`View user's profile`)
                 }
               </Link>
             </li>
             <li>
               {isEditingCurrentUser ?
                 i18n.gettext('Edit My Profile') :
-                i18n.gettext("Edit user's profile")
+                i18n.gettext(`Edit user's profile`)
               }
             </li>
           </ul>
@@ -165,17 +161,12 @@ export class UserProfileEditBase extends React.Component<Props> {
 
             <Card
               className="UserProfileEdit--Card"
-              header={isEditingCurrentUser ? i18n.gettext('Your Account') : (
+              header={isEditingCurrentUser ? i18n.gettext('Account') : (
                 i18n.sprintf(i18n.gettext('User Account for %(username)s'), {
                   username,
                 })
               )}
             >
-              <p className="UserProfileEdit-aside">
-                {i18n.gettext(`Manage basic account information, such as your
-                  username and Firefox Accounts settings.`)}
-              </p>
-
               <label className="UserProfileEdit--label" htmlFor="username">
                 {i18n.gettext('Username')}
               </label>
@@ -198,33 +189,43 @@ export class UserProfileEditBase extends React.Component<Props> {
                   defaultValue={user && user.email}
                   type="email"
                 />
-                <p
-                  className="UserProfileEdit--help"
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={
-                    sanitizeHTML(
-                      i18n.sprintf(
-                        i18n.gettext(`You can change your email address on
-                          Firefox Accounts. %(startLink)sNeed help?%(endLink)s`
-                        ),
-                        {
-                          startLink: '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
-                          endLink: '</a>',
-                        }
-                      ), ['a'])
-                  }
-                />
+                {isEditingCurrentUser && (
+                  <p
+                    className="UserProfileEdit--help"
+                    // eslint-disable-next-line react/no-danger
+                    dangerouslySetInnerHTML={
+                      sanitizeHTML(
+                        i18n.sprintf(
+                          i18n.gettext(`You can change your email address on
+                            Firefox Accounts. %(startLink)sNeed help?%(endLink)s`
+                          ),
+                          {
+                            startLink: '<a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">',
+                            endLink: '</a>',
+                          }
+                        ), ['a'])
+                    }
+                  />
+                )}
               </div>
             </Card>
 
             <Card
               className="UserProfileEdit--Card"
-              header={i18n.gettext('Your Profile')}
+              header={i18n.gettext('Profile')}
             >
               <p className="UserProfileEdit-aside">
-                {i18n.gettext(`Tell users a bit more information about yourself.
-                  These fields are optional, but they'll help other users get to
-                  know you better.`)}
+                {isEditingCurrentUser ? i18n.gettext(
+                  `Tell users a bit more information about yourself. These
+                  fields are optional, but they'll help other users get to know
+                  you better.`
+                ) : i18n.sprintf(
+                  i18n.gettext(
+                    `Tell users a bit more information about this user. These
+                    fields are optional, but they'll help other users get to
+                    know %(username)s better.`
+                  ), { username }
+                )}
               </p>
 
               <label className="UserProfileEdit--label" htmlFor="displayName">
@@ -259,8 +260,8 @@ export class UserProfileEditBase extends React.Component<Props> {
                 type="url"
               />
               <p className="UserProfileEdit--help">
-                {i18n.gettext(`This URL will only be visible if you are a
-                  developer.`)}
+                {i18n.gettext(`This URL will only be visible for users who are
+                  developers.`)}
               </p>
 
               <label className="UserProfileEdit--label" htmlFor="location">
@@ -290,12 +291,15 @@ export class UserProfileEditBase extends React.Component<Props> {
 
             <Card
               className="UserProfileEdit--Card"
-              header={i18n.gettext('Your Biography')}
+              header={i18n.gettext('Biography')}
             >
               <label className="UserProfileEdit--label" htmlFor="biography">
-                {i18n.gettext(`Introduce yourself to the community. This text
-                  will appear on your user profile page.
-                  (Some HTML supported)`)}
+                {isEditingCurrentUser ? i18n.gettext(
+                  `Introduce yourself to the community if you like`
+                ) : i18n.sprintf(
+                  i18n.gettext(`Introduce %(username)s to the community`),
+                  { username }
+                )}
               </label>
               <Textarea
                 className="UserProfileEdit-biography"
@@ -305,6 +309,25 @@ export class UserProfileEditBase extends React.Component<Props> {
                 ref={(ref) => { this.biography = ref; }}
                 defaultValue={user && user.biography}
               />
+              <p className="UserProfileEdit--help">
+                {i18n.sprintf(i18n.gettext(
+                  `Some HTML supported: %(htmlTags)s. Links are forbidden.`
+                ), {
+                  htmlTags: [
+                    '<abbr title>',
+                    '<acronym title>',
+                    '<b>',
+                    '<blockquote>',
+                    '<code>',
+                    '<em>',
+                    '<i>',
+                    '<li>',
+                    '<ol>',
+                    '<strong>',
+                    '<ul>',
+                  ].join(' '),
+                })}
+              </p>
             </Card>
 
             <div className="UserProfileEdit-buttons-wrapper">
@@ -339,10 +362,8 @@ export function mapStateToProps(
   const currentUser = getCurrentUser(state.users);
   const user = ownProps.params.username ?
     getUserByUsername(state.users, ownProps.params.username) : currentUser;
-  const isEditingCurrentUser = currentUser && user ? currentUser.id ===
-    user.id : false;
 
-  let hasEditPermission = isEditingCurrentUser;
+  let hasEditPermission = currentUser && user && currentUser.id === user.id;
   if (currentUser && hasPermission(state, USERS_EDIT)) {
     hasEditPermission = true;
   }
@@ -351,7 +372,6 @@ export function mapStateToProps(
     currentUser,
     hasEditPermission,
     isEditing: state.users.isEditing,
-    isEditingCurrentUser,
     user,
     username: user ? user.username : ownProps.params.username,
   };
