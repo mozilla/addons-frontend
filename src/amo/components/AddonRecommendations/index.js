@@ -62,7 +62,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     // Set a cohort for the experiment.
     this.cohort = cookie.load(TAAR_COHORT_COOKIE_NAME);
     if (this.cohort === undefined) {
-      this.cohort = randomizer() > 0.5 ?
+      this.cohort = randomizer() >= 0.5 ?
         TAAR_COHORT_INCLUDED : TAAR_COHORT_EXCLUDED;
       cookie.save(TAAR_COHORT_COOKIE_NAME, this.cohort, { path: '/' });
     }
@@ -140,8 +140,8 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     const { addons, loading, outcome } = recommendations;
     const classnames = makeClassName('AddonRecommendations', className);
 
-    let header = loading ? <LoadingText width={100} /> : null;
-    if (!header) {
+    let header = <LoadingText width={100} />;
+    if (!loading) {
       header = outcome === OUTCOME_RECOMMENDED ?
         i18n.gettext('Other users with this extension also installed') :
         i18n.gettext('Other popular extensions');
@@ -168,12 +168,12 @@ const mapStateToProps = (
   ownProps: Props,
 ) => {
   const { addon } = ownProps;
-  const recommendations = !addon ?
-    null :
+  const recommendations = addon ?
     getRecommendationsByGuid({
       guid: addon.guid,
       state: state.recommendations,
-    });
+    }) :
+    null;
   return { recommendations };
 };
 

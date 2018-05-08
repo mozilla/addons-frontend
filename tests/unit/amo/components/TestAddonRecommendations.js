@@ -1,18 +1,19 @@
 import * as React from 'react';
 
 import AddonRecommendations, {
-  AddonRecommendationsBase,
   TAAR_IMPRESSION_CATEGORY,
   TAAR_COHORT_COOKIE_NAME,
   TAAR_COHORT_INCLUDED,
   TAAR_COHORT_EXCLUDED,
+  AddonRecommendationsBase,
 } from 'amo/components/AddonRecommendations';
+import AddonsCard from 'amo/components/AddonsCard';
 import {
-  fetchRecommendations,
-  loadRecommendations,
   OUTCOME_CURATED,
   OUTCOME_RECOMMENDED,
   OUTCOME_RECOMMENDED_FALLBACK,
+  fetchRecommendations,
+  loadRecommendations,
 } from 'amo/reducers/recommendations';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -35,8 +36,8 @@ const fakeCookie = (returnValue) => {
   };
 };
 
-const fakeRandomizer = (expectedRecommendedValue) => {
-  return sinon.stub().returns(expectedRecommendedValue ? 0.51 : 0.5);
+const fakeRandomizer = (recommended) => {
+  return sinon.stub().returns(recommended ? 0.5 : 0.4);
 };
 
 describe(__filename, () => {
@@ -110,7 +111,7 @@ describe(__filename, () => {
       outcome,
     }));
 
-    const root = render({});
+    const root = render({}).find(AddonsCard);
     expect(root).toHaveClassName('AddonRecommendations');
     expect(root).toHaveProp('addonInstallSource', outcome);
     expect(root).toHaveProp('addons', addons);
@@ -126,7 +127,7 @@ describe(__filename, () => {
   it('renders an AddonCard when recommendations are loading', () => {
     store.dispatch(doFetchRecommendations({}));
 
-    const root = render({});
+    const root = render({}).find(AddonsCard);
     expect(root).toHaveClassName('AddonRecommendations');
     expect(root).toHaveProp('addons', null);
     expect(root).toHaveProp('header', <LoadingText width={100} />);
@@ -155,18 +156,24 @@ describe(__filename, () => {
     expect(root).toHaveProp('header', 'Other popular extensions');
   });
 
-  it('uses the randomizer to set the cohort and cookie when a cookie does not exist', () => {
-    const checkWithRandomizerValue =
-      (expectedRecommendedValue, expectedCohort) => {
-        const cookie = fakeCookie(undefined);
-        const randomizer = fakeRandomizer(expectedRecommendedValue);
-        render({ cookie, randomizer });
-        sinon.assert.calledWith(cookie.save,
-          TAAR_COHORT_COOKIE_NAME, expectedCohort, { path: '/' });
-      };
+  it('uses the randomizer to set the cohort cookie to included', () => {
+    const cookie = fakeCookie(undefined);
+    const randomizer = fakeRandomizer(true);
 
-    checkWithRandomizerValue(true, TAAR_COHORT_INCLUDED);
-    checkWithRandomizerValue(false, TAAR_COHORT_EXCLUDED);
+    render({ cookie, randomizer });
+
+    sinon.assert.calledWith(cookie.save,
+      TAAR_COHORT_COOKIE_NAME, TAAR_COHORT_INCLUDED, { path: '/' });
+  });
+
+  it('uses the randomizer to set the cohort cookie to excluded', () => {
+    const cookie = fakeCookie(undefined);
+    const randomizer = fakeRandomizer(false);
+
+    render({ cookie, randomizer });
+
+    sinon.assert.calledWith(cookie.save,
+      TAAR_COHORT_COOKIE_NAME, TAAR_COHORT_EXCLUDED, { path: '/' });
   });
 
   it('should dispatch a fetch action if no recommendations exist', () => {

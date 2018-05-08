@@ -923,12 +923,14 @@ describe(__filename, () => {
     const fakeConfig = getFakeConfig({ enableAddonRecommendations: true });
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', addon);
   });
 
   it('renders recommendations with no add-on', () => {
     const fakeConfig = getFakeConfig({ enableAddonRecommendations: true });
     const root = shallowRender({ addon: null, config: fakeConfig });
+    expect(root.find(AddonRecommendations)).toHaveLength(1);
     expect(root.find(AddonRecommendations)).toHaveProp('addon', null);
   });
 

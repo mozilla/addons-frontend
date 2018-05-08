@@ -196,7 +196,7 @@ export const fakeCategory = Object.freeze({
 });
 
 export const fakeRecommendations = Object.freeze({
-  addons: [fakeAddon, fakeAddon, fakeAddon, fakeAddon],
+  addons: Array(4).fill(fakeAddon),
   fallbackReason: 'timeout',
   loading: false,
   outcome: 'recommended_fallback',
