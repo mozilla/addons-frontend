@@ -16,9 +16,9 @@ export const OUTCOME_RECOMMENDED_FALLBACK: 'recommended_fallback' = 'recommended
 
 export type FallbackReasonType = 'no_results' | 'timeout';
 export type OutcomeType =
-  typeof OUTCOME_CURATED |
-  typeof OUTCOME_RECOMMENDED |
-  typeof OUTCOME_RECOMMENDED_FALLBACK;
+  | typeof OUTCOME_CURATED
+  | typeof OUTCOME_RECOMMENDED
+  | typeof OUTCOME_RECOMMENDED_FALLBACK;
 
 export type Recommendations = {|
   addons: Array<AddonType> | null,
