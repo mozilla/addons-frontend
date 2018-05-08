@@ -138,7 +138,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
 
           <p>
             {i18n.gettext(`Quantum Extensions Challenge winner!
-              Different tab colors for different dev environment`)}
+              Different tab colors for different dev environments`)}
           </p>
         </HeroSection>
       ),
