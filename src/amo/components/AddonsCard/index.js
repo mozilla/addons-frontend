@@ -19,6 +19,7 @@ type Props = {|
   className?: string,
   editing?: boolean,
   loading?: boolean,
+  placeholderText: string | null,
   // When loading, this is the number of placeholders
   // that will be rendered.
   placeholderCount: number,
@@ -39,6 +40,7 @@ export default class AddonsCard extends React.Component<Props> {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
+    placeholderText: null,
   }
 
   render() {
@@ -53,6 +55,7 @@ export default class AddonsCard extends React.Component<Props> {
       showMetadata,
       showSummary,
       type,
+      placeholderText,
       ...otherProps
     } = this.props;
 
@@ -87,8 +90,13 @@ export default class AddonsCard extends React.Component<Props> {
       }
     }
 
+    const placeholder = placeholderText ?
+      <p className="AddonsCard-placeholder-text">{placeholderText}</p> : null;
+
     const allClassNames = makeClassName('AddonsCard', className,
-      type && `AddonsCard--${type}`);
+      type && `AddonsCard--${type}`,
+      placeholderText && !addonElements.length && 'AddonCard--placeholder');
+
     return (
       <CardList
         {...otherProps}
@@ -100,7 +108,8 @@ export default class AddonsCard extends React.Component<Props> {
           <ul className="AddonsCard-list">
             {addonElements}
           </ul>
-        ) : null}
+        ) : <React.Fragment>{placeholder}</React.Fragment>
+      }
       </CardList>
     );
   }

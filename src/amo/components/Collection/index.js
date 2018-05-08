@@ -233,9 +233,16 @@ export class CollectionBase extends React.Component<Props> {
       editing,
       loading,
       location,
+      i18n,
     } = this.props;
 
     const addons = collection ? collection.addons : [];
+
+    const placeholderText = editing ?
+      i18n.gettext(
+        'Add extensions and themes to your collection') :
+      i18n.gettext(
+        'Please save your collection and then you can add add-ons to it');
 
     return (
       <div className="Collection-wrapper">
@@ -248,6 +255,7 @@ export class CollectionBase extends React.Component<Props> {
             addons={addons}
             editing={editing}
             loading={!collection || loading}
+            placeholderText={placeholderText}
           />
           {collection && collection.numberOfAddons > 0 && !editing && (
             <Paginate
