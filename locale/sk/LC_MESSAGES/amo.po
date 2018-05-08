@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-05-08 16:51+0000\n"
+"PO-Revision-Date: 2018-05-08 17:08+0000\n"
 "Last-Translator: Juraj Cigáň <kusavica@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sk\n"
@@ -528,7 +528,6 @@ msgid "Edit this collection"
 msgstr "Upraviť túto kolekciu"
 
 #: src/amo/components/Collection/index.js:186
-#, fuzzy
 msgid "Log in to edit this collection"
 msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
 
@@ -541,9 +540,8 @@ msgid "Creator"
 msgstr "Autor:"
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Ak chcete upravovať túto kolekciu, musíte sa prihlásiť"
+msgstr "Ak chcete vytvoriť kolekciu, musíte sa prihlásiť"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -955,7 +953,7 @@ msgstr "AliTools"
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Online shopping assistance"
-msgstr ""
+msgstr "Pomocník pri nakupovaní na internete"
 
 #: src/amo/components/HomeHeroBanner/index.js:133
 msgid "Snake Game"
@@ -963,7 +961,7 @@ msgstr "Snake Game"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "The classic game, always a click away"
-msgstr ""
+msgstr "Klasická hra vždy po ruke"
 
 #: src/amo/components/HomeHeroBanner/index.js:145
 msgid "Tab Invaders"
@@ -971,7 +969,7 @@ msgstr "Tab Invaders"
 
 #: src/amo/components/HomeHeroBanner/index.js:148
 msgid "Space Invaders meets smart tab management"
-msgstr ""
+msgstr "Space Invaders a chytrá správa kariet"
 
 #: src/amo/components/HomeHeroBanner/index.js:157
 msgid "Wikiwand"
@@ -979,7 +977,7 @@ msgstr "Wikiwand"
 
 #: src/amo/components/HomeHeroBanner/index.js:159
 msgid "Give Wikipedia a gorgeous makeover"
-msgstr ""
+msgstr "Dajte Wikipédii nový, nádherný vzhľad"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Black Menu for Google"
@@ -1003,7 +1001,7 @@ msgstr "SHINE for Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "Vyskúšajte Reddit s alternatívnym vzhľadom"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1027,7 +1025,7 @@ msgstr "Facebook Video Downloader"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Download with a single click"
-msgstr ""
+msgstr "Preberanie jedným klikom"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1035,7 +1033,7 @@ msgstr "AutoFormer+"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Fill out a lot of forms? This might help"
-msgstr ""
+msgstr "Vypĺňate množstvo formulárov? Tento doplnok vám pomôže"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Myki Password Manager & Authenticator"
@@ -1043,7 +1041,7 @@ msgstr "Myki Password Manager & Authenticator"
 
 #: src/amo/components/HomeHeroBanner/index.js:53
 msgid "Cutting edge security"
-msgstr ""
+msgstr "Najmodernejšie zabezpečenie"
 
 #: src/amo/components/HomeHeroBanner/index.js:61
 msgid "Notebook Web Clipper"
@@ -1067,9 +1065,8 @@ msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
-#, fuzzy
 msgid "Efficient, powerful ad blocker"
-msgstr "Efektívny a výkonný blokovač reklám."
+msgstr "Efektívny a výkonný blokovač reklám"
 
 #: src/amo/components/HomeHeroBanner/index.js:95
 msgid "Ghostery"
@@ -1929,9 +1926,8 @@ msgid "Access your data for %(param)s"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Click to rate this add-on"
-msgstr "Ak chcete ohodnotiť tento doplnok, musíte sa prihlásiť"
+msgstr "Ak chcete ohodnotiť tento doplnok, kliknite sem"
 
 #: src/ui/components/Rating/index.js:95
 #, fuzzy
