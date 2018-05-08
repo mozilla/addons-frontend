@@ -155,15 +155,18 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     event.preventDefault();
-    const { name, value = '' } = event.target;
+    const { name, value } = event.target;
     const { creating } = this.props;
+
+    if (value === null || typeof value === 'undefined') return;
+    const trimmedValue = value.trim();
 
     if (creating && name === 'name' && !this.state.customSlug) {
       this.setState({
-        slug: value.trim().replace(/[^A-Za-z0-9]/g, '-'),
+        slug: trimmedValue.replace(/[^A-Za-z0-9]/g, '-'),
         [name]: value,
       });
-    } else if (creating && name === 'slug' && value.trim() !== '') {
+    } else if (creating && name === 'slug' && trimmedValue !== '') {
       this.setState({
         customSlug: true,
         [name]: value,
@@ -202,6 +205,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
+      customSlug: false,
       description: props.collection &&
         decodeHtmlEntities(props.collection.description),
       name: props.collection && decodeHtmlEntities(props.collection.name),

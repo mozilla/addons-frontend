@@ -424,14 +424,15 @@ describe(__filename, () => {
     expect(root).toHaveState('slug', 'trishul-s-collection');
   });
 
-  it('stops autofill slug when custom slug is entered while creating collection', () => {
+  it('does not autofill slug when custom slug is entered while creating collection', () => {
     const name = "trishul's collection";
+    const slug = 'trishul';
     const root = render({ collection: null, creating: true });
 
-    typeInput({ root, name: 'slug', text: 'trishul' });
+    typeInput({ root, name: 'slug', text: slug });
     typeInput({ root, name: 'name', text: name });
 
-    expect(root).toHaveState('slug', 'trishul');
+    expect(root).toHaveState('slug', slug);
   });
 
   it('allows a blank description', () => {
