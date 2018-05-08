@@ -42,36 +42,68 @@ type Props = {|
   username: string,
 |};
 
+type FormValues = {|
+  biography: string | null,
+  displayName: string | null,
+  homepage: string | null,
+  location: string | null,
+  occupation: string | null,
+  username: string | null,
+|};
+
 type State = {|
+  ...FormValues,
   displaySuccessMessage: boolean,
 |};
 
-const getValueOrEmpty = (input) => {
-  if (input && input.value) {
-    return input.value;
-  }
-
-  return '';
-};
-
 export class UserProfileEditBase extends React.Component<Props, State> {
-  displayName: HTMLInputElement | null;
-
   constructor(props: Props) {
     super(props);
 
     this.state = {
       displaySuccessMessage: false,
+      ...this.getFormValues(props.user),
+    };
+  }
+
+  getFormValues(user: UserType | null): FormValues {
+    if (!user) {
+      return {
+        biography: '',
+        displayName: '',
+        homepage: '',
+        location: '',
+        occupation: '',
+        username: '',
+      };
+    }
+
+    const {
+      biography,
+      display_name: displayName,
+      homepage,
+      location,
+      occupation,
+      username,
+    } = user;
+
+    return {
+      biography,
+      displayName,
+      homepage,
+      location,
+      occupation,
+      username,
     };
   }
 
   componentWillMount() {
-    const { dispatch, errorHandler, params, user } = this.props;
+    const { dispatch, errorHandler, username, user } = this.props;
 
-    if (!user && params.username) {
+    if (!user && username) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
-        username: params.username,
+        username,
       }));
     }
   }
@@ -79,53 +111,82 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   componentWillReceiveProps(props: Props) {
     const {
       isEditing: wasEditing,
-      params: newParams,
-    } = props;
+      user: oldUser,
+      username: oldUsername,
+    } = this.props;
     const {
       dispatch,
       errorHandler,
       isEditing,
-      params: oldParams,
-    } = this.props;
+      user: newUser,
+      username: newUsername,
+    } = props;
 
-    if (oldParams.username !== newParams.username) {
+    if (oldUsername !== newUsername) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
-        username: newParams.username,
+        username: newUsername,
       }));
+
+      this.setState({ displaySuccessMessage: false });
     }
 
     if (wasEditing && !isEditing && !errorHandler.hasError()) {
       this.setState({ displaySuccessMessage: true });
     }
+
+    if (!newUser || (!oldUser || oldUser.id !== newUser.id)) {
+      this.setState(this.getFormValues(newUser));
+    }
+  }
+
+  onFieldChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    const { name, value } = event.currentTarget;
+
+    event.preventDefault();
+
+    this.setState({
+      [name]: value,
+      displaySuccessMessage: false,
+    });
   }
 
   onSubmit = (event: SyntheticEvent<any>) => {
     event.preventDefault();
 
     const { dispatch, errorHandler, user } = this.props;
+    const {
+      biography,
+      displayName,
+      homepage,
+      location,
+      occupation,
+      username,
+    } = this.state;
 
     invariant(user, 'user is required');
 
     dispatch(editUserAccount({
       errorHandlerId: errorHandler.id,
       userFields: {
-        biography: getValueOrEmpty(this.biography),
-        display_name: getValueOrEmpty(this.displayName),
-        homepage: getValueOrEmpty(this.homepage),
-        location: getValueOrEmpty(this.location),
-        occupation: getValueOrEmpty(this.occupation),
-        username: getValueOrEmpty(this.username),
+        biography,
+        display_name: displayName,
+        homepage,
+        location,
+        occupation,
+        username,
       },
       userId: user.id,
     }));
   }
 
-  biography: HTMLInputElement | null;
-  homepage: HTMLInputElement | null;
-  location: HTMLInputElement | null;
-  occupation: HTMLInputElement | null;
-  username: HTMLInputElement | null;
+  preventSubmit() {
+    const { user, isEditing } = this.props;
+    const { username } = this.state;
+
+    return !user || isEditing || !username || (username &&
+      username.trim() === '');
+  }
 
   render() {
     const {
@@ -138,7 +199,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       username,
     } = this.props;
 
-    if (currentUser && user && !hasEditPermission) {
+    if (!currentUser || (currentUser && user && !hasEditPermission)) {
       return <NotFound />;
     }
 
@@ -204,8 +265,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="username"
                 name="username"
-                ref={(ref) => { this.username = ref; }}
-                defaultValue={user && user.username}
+                onChange={this.onFieldChange}
+                value={this.state.username}
               />
 
               <div title={i18n.gettext('Email address cannot be changed here')}>
@@ -216,6 +277,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                   className="UserProfileEdit-email"
                   disabled
                   defaultValue={user && user.email}
+                  onChange={this.onFieldChange}
                   type="email"
                 />
                 {isEditingCurrentUser && (
@@ -265,8 +327,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="displayName"
                 name="displayName"
-                ref={(ref) => { this.displayName = ref; }}
-                defaultValue={user && user.displayName}
+                onChange={this.onFieldChange}
+                value={this.state.displayName}
               />
 
               {/*
@@ -284,9 +346,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="homepage"
                 name="homepage"
-                ref={(ref) => { this.homepage = ref; }}
-                defaultValue={user && user.homepage}
+                onChange={this.onFieldChange}
                 type="url"
+                value={this.state.homepage}
               />
               <p className="UserProfileEdit--help">
                 {i18n.gettext(`This URL will only be visible for users who are
@@ -301,8 +363,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="location"
                 name="location"
-                ref={(ref) => { this.location = ref; }}
-                defaultValue={user && user.location}
+                onChange={this.onFieldChange}
+                value={this.state.location}
               />
 
               <label className="UserProfileEdit--label" htmlFor="occupation">
@@ -313,8 +375,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="occupation"
                 name="occupation"
-                ref={(ref) => { this.occupation = ref; }}
-                defaultValue={user && user.occupation}
+                onChange={this.onFieldChange}
+                value={this.state.occupation}
               />
             </Card>
 
@@ -335,8 +397,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="biography"
                 name="biography"
-                ref={(ref) => { this.biography = ref; }}
-                defaultValue={user && user.biography}
+                value={this.state.biography}
               />
               <p className="UserProfileEdit--help">
                 {i18n.sprintf(i18n.gettext(
@@ -363,7 +424,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               <Button
                 buttonType="action"
                 className="UserProfileEdit-submit-button UserProfileEdit-button"
-                disabled={!user || isEditing}
+                disabled={this.preventSubmit()}
                 puffy
                 type="submit"
               >

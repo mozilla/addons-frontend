@@ -16,7 +16,10 @@ import {
 import { USERS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
   createStubErrorHandler,
@@ -113,7 +116,7 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('dispatches fetchUserAccount action if username param changes', () => {
+  it('dispatches fetchUserAccount action if username changes', () => {
     const { params, store } = syncPropsAndParamsUsername('black-panther');
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
@@ -121,7 +124,8 @@ describe(__filename, () => {
 
     dispatchSpy.reset();
 
-    root.setProps({ params: { username: 'killmonger' } });
+    // FIXME: make sure this works with react-router + mapStateToProps
+    root.setProps({ username: 'killmonger' });
 
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
       errorHandlerId: root.instance().props.errorHandler.id,
@@ -164,7 +168,7 @@ describe(__filename, () => {
   it('renders a help text for the email and homepage fields', () => {
     const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
 
-    expect(root.find('.UserProfileEdit--help')).toHaveLength(2);
+    expect(root.find('.UserProfileEdit--help')).toHaveLength(3);
   });
 
   it('renders a displayName input field', () => {
@@ -225,7 +229,8 @@ describe(__filename, () => {
   it('renders a disabled biography input field when not ready', () => {
     const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
 
-    expect(root.find('.UserProfileEdit-biography')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-biography'))
+      .toHaveProp('disabled', true);
   });
 
   it('dispatches editUserAccount action with all fields', () => {
@@ -291,27 +296,13 @@ describe(__filename, () => {
 
     expect(root.find(NotFound)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-username'))
-      .toHaveProp('defaultValue', user.username);
+      .toHaveProp('value', user.username);
 
     const linkItems = root.find('.UserProfileEdit-user-links li');
     expect(linkItems.at(0).find(Link))
       .toHaveProp('children', "View user's profile");
     // We are on the edit page, so we do not use a link for this item.
     expect(linkItems.at(1).children()).toHaveText("Edit user's profile");
-  });
-
-  it('does not dispatch editUserAccount action when there is no current user', () => {
-    const { store } = dispatchSignInActions();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-
-    const root = mountUserProfileEdit({ errorHandler, store });
-
-    dispatchSpy.reset();
-
-    root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
-
-    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('renders errors', () => {
@@ -325,5 +316,13 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('returns a 404 if current user is not logged in', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 });
