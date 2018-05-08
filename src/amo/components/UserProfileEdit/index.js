@@ -21,6 +21,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import Notice from 'ui/components/Notice';
 import type { UsersStateType, UserType } from 'amo/reducers/users';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -41,6 +42,10 @@ type Props = {|
   username: string,
 |};
 
+type State = {|
+  displaySuccessMessage: boolean,
+|};
+
 const getValueOrEmpty = (input) => {
   if (input && input.value) {
     return input.value;
@@ -49,8 +54,16 @@ const getValueOrEmpty = (input) => {
   return '';
 };
 
-export class UserProfileEditBase extends React.Component<Props> {
+export class UserProfileEditBase extends React.Component<Props, State> {
   displayName: HTMLInputElement | null;
+
+  constructor(props: Props) {
+    super(props);
+
+    this.state = {
+      displaySuccessMessage: false,
+    };
+  }
 
   componentWillMount() {
     const { dispatch, errorHandler, params, user } = this.props;
@@ -63,14 +76,27 @@ export class UserProfileEditBase extends React.Component<Props> {
     }
   }
 
-  componentWillReceiveProps({ params: newParams }: Props) {
-    const { dispatch, errorHandler, params: oldParams } = this.props;
+  componentWillReceiveProps(props: Props) {
+    const {
+      isEditing: wasEditing,
+      params: newParams,
+    } = props;
+    const {
+      dispatch,
+      errorHandler,
+      isEditing,
+      params: oldParams,
+    } = this.props;
 
     if (oldParams.username !== newParams.username) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
         username: newParams.username,
       }));
+    }
+
+    if (wasEditing && !isEditing && !errorHandler.hasError()) {
+      this.setState({ displaySuccessMessage: true });
     }
   }
 
@@ -151,14 +177,17 @@ export class UserProfileEditBase extends React.Component<Props> {
           </ul>
         </Card>
 
-        <form
-          action=""
-          className="UserProfileEdit-form"
-          onSubmit={this.onSubmit}
-        >
-          <div>
+        <form className="UserProfileEdit-form" onSubmit={this.onSubmit}>
+          <div className="UserProfileEdit-form-messages">
             {errorHandler.renderErrorIfPresent()}
 
+            {this.state.displaySuccessMessage && (
+              <Notice type="success">
+                {i18n.gettext('Profile successfully updated.')}
+              </Notice>
+            )}
+          </div>
+          <div>
             <Card
               className="UserProfileEdit--Card"
               header={isEditingCurrentUser ? i18n.gettext('Account') : (
