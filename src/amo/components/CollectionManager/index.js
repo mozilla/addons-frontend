@@ -55,7 +55,7 @@ type State = {|
   description?: string | null,
   name?: string | null,
   slug?: string | null,
-  customSlug?: boolean | false,
+  customSlug?: boolean,
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
@@ -155,21 +155,21 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     event.preventDefault();
-    const { name = '', value = '' } = event.target;
+    const { name, value = '' } = event.target;
     const { creating } = this.props;
 
     if (creating && name === 'name' && !this.state.customSlug) {
       this.setState({
         slug: value.trim().replace(/[^A-Za-z0-9]/g, '-'),
-        [event.target.name]: event.target.value,
+        [name]: value,
       });
     } else if (creating && name === 'slug' && value.trim() !== '') {
       this.setState({
         customSlug: true,
-        [event.target.name]: event.target.value,
+        [name]: value,
       });
     } else {
-      this.setState({ [event.target.name]: event.target.value });
+      this.setState({ [name]: value });
     }
   };
 
