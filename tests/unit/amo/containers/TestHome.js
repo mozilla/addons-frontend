@@ -80,8 +80,9 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(1);
 
-    expect(shelf).toHaveProp('header', 'Trending extensions');
-    expect(shelf).toHaveProp('footerText', 'See more trending extensions');
+    expect(shelf).toHaveProp('header', '“Extensions Challenge” honorees');
+    expect(shelf).toHaveProp('footerText',
+      'See more “Extensions Challenge” honorees');
     expect(shelf).toHaveProp('footerLink',
       `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
     );

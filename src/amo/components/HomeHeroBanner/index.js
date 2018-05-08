@@ -46,11 +46,14 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-3"
-          linkTo="/addon/myki-password-manager/"
+          linkTo="/addon/session-sync/"
         >
-          <h3>{i18n.gettext('Myki Password Manager & Authenticator')}</h3>
+          <h3>{i18n.gettext('Session Sync')}</h3>
 
-          <p>{i18n.gettext('Cutting edge security')}</p>
+          <p>
+            {i18n.gettext(`Quantum Extensions Challenge winner!
+               Save sessions as bookmarks and access them across devices`)}
+          </p>
         </HeroSection>
       ),
       (
@@ -116,24 +119,26 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-9"
-          linkTo="/addon/ali-tools/"
+          linkTo="/addon/worldwide-radio/"
         >
-          <h3>{i18n.gettext('AliTools')}</h3>
+          <h3>{i18n.gettext('Worldwide Radio')}</h3>
 
           <p>
-            {i18n.gettext('Online shopping assistance')}
+            {i18n.gettext(`Quantum Extensions Challenge winner!
+              Listen to live radio from around the world`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-10"
-          linkTo="/addon/tab_search/"
+          linkTo="/addon/envify/"
         >
-          <h3>{i18n.gettext('TabSearch')}</h3>
+          <h3>{i18n.gettext('Envify')}</h3>
 
           <p>
-            {i18n.gettext('Need a search function for just your open tabs?')}
+            {i18n.gettext(`Quantum Extensions Challenge winner!
+              Different tab colors for different dev environment`)}
           </p>
         </HeroSection>
       ),
@@ -176,16 +181,6 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-14"
-          linkTo="/addon/honey/"
-        >
-          <h3>{i18n.gettext('Honey')}</h3>
-
-          <p>{i18n.gettext('Automatically searches for coupon codes')}</p>
-        </HeroSection>
-      ),
-      (
-        <HeroSection
-          key="hero-15"
           linkTo="/addon/shine-reddit/"
         >
           <h3>{i18n.gettext('SHINE for Reddit')}</h3>
@@ -197,7 +192,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="hero-16"
+          key="hero-15"
           linkTo="/addon/leechblock-ng/"
         >
           <h3>{i18n.gettext('LeechBlock NG')}</h3>
@@ -209,7 +204,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="hero-17"
+          key="hero-16"
           linkTo="/addon/tranquility-1/"
         >
           <h3>{i18n.gettext('Tranquility Reader')}</h3>
@@ -221,7 +216,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="hero-18"
+          key="hero-17"
           linkTo="/addon/foxy-gestures/"
         >
           <h3>{i18n.gettext('FoxyGestures')}</h3>
@@ -233,7 +228,7 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       ),
       (
         <HeroSection
-          key="hero-19"
+          key="hero-18"
           linkTo="/addon/privacy-badger17/"
         >
           <h3>{i18n.gettext('PrivacyBadger')}</h3>
