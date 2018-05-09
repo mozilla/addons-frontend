@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-09 16:37+0000\n"
+"PO-Revision-Date: 2018-05-09 17:25+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -950,13 +950,12 @@ msgid "See more highly rated themes"
 msgstr "Več visoko ocenjenih tem"
 
 #: src/amo/components/Home/index.js:249
-#, fuzzy
 msgid "“Extensions Challenge” honorees"
-msgstr "Razširitve spremenijo delovanje Firefoxa"
+msgstr "Nagrajenci “Razširitvenega izziva”"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "Več nagrajencev “Razširitvenega izziva”"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -1004,7 +1003,7 @@ msgstr "Ohranite svoja spletna življenja – službeno, osebno ... – ločena 
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
