@@ -252,7 +252,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             <Card
               className="UserProfileEdit--Card"
               header={isEditingCurrentUser ? i18n.gettext('Account') : (
-                i18n.sprintf(i18n.gettext('User Account for %(username)s'), {
+                i18n.sprintf(i18n.gettext('Account for %(username)s'), {
                   username,
                 })
               )}
@@ -282,7 +282,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 />
                 {isEditingCurrentUser && (
                   <p
-                    className="UserProfileEdit--help"
+                    className="UserProfileEdit-email--help"
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={
                       sanitizeHTML(
@@ -350,7 +350,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 type="url"
                 value={this.state.homepage}
               />
-              <p className="UserProfileEdit--help">
+              <p className="UserProfileEdit-homepage--help">
                 {i18n.gettext(`This URL will only be visible for users who are
                   developers.`)}
               </p>
@@ -400,7 +400,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 onChange={this.onFieldChange}
                 value={this.state.biography}
               />
-              <p className="UserProfileEdit--help">
+              <p className="UserProfileEdit-biography--help">
                 {i18n.sprintf(i18n.gettext(
                   `Some HTML supported: %(htmlTags)s. Links are forbidden.`
                 ), {

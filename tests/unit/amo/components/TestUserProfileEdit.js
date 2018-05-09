@@ -72,8 +72,8 @@ describe(__filename, () => {
 
   function _editUserAccount({
     store,
-    userFields,
-    userId,
+    userFields = {},
+    userId = 'user-id',
     errorHandlerId = createStubErrorHandler().id,
   }) {
     store.dispatch(editUserAccount({
@@ -88,6 +88,16 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit')).toHaveLength(1);
     expect(root.find(Notice)).toHaveLength(0);
+
+    expect(root.find('.UserProfileEdit--Card').first())
+      .toHaveProp('header', 'Account');
+    expect(root.find('.UserProfileEdit-email--help')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-aside')).toHaveText(oneLine`Tell users a
+      bit more information about yourself. These fields are optional, but
+      they'll help other users get to know you better.`
+    );
+    expect(root.find({ htmlFor: 'biography' }))
+      .toHaveText('Introduce yourself to the community if you like');
   });
 
   it('dispatches fetchUserAccount action if username is not found', () => {
@@ -189,23 +199,25 @@ describe(__filename, () => {
 
   it('renders help sections for some fields', () => {
     const root = renderUserProfileEdit();
-    const helpSections = root.find('.UserProfileEdit--help');
 
-    expect(helpSections).toHaveLength(3);
     // Enzyme does not extract "text" from `dangerouslySetInnerHTML` prop,
     // which is needed to escape the link in this help section.That is why we
     // need the `toHaveHTML()` matcher below.
-    expect(helpSections.at(0)).toHaveHTML(
-      oneLine`<p class="UserProfileEdit--help">You can change your email
+    expect(root.find('.UserProfileEdit-email--help')).toHaveHTML(
+      oneLine`<p class="UserProfileEdit-email--help">You can change your email
       address on Firefox Accounts.
       <a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">Need help?</a></p>`
     );
-    expect(helpSections.at(1).shallow()).toHaveText(
+
+    expect(root.find('.UserProfileEdit-homepage--help')).toHaveText(
       `This URL will only be visible for users who are developers.`
     );
-    expect(helpSections.at(2).shallow()).toHaveText(oneLine`Some HTML
-      supported: <abbr title> <acronym title> <b> <blockquote> <code> <em> <i>
-      <li> <ol> <strong> <ul>. Links are forbidden.`);
+
+    expect(root.find('.UserProfileEdit-biography--help')).toHaveText(
+      oneLine`Some HTML supported: <abbr title> <acronym title> <b>
+      <blockquote> <code> <em> <i> <li> <ol> <strong> <ul>. Links are
+      forbidden.`
+    );
   });
 
   it('renders a displayName input field', () => {
@@ -302,6 +314,39 @@ describe(__filename, () => {
     expect(button).toHaveLength(1);
     expect(button.dive()).toHaveText('Update my profile');
     expect(button).toHaveProp('disabled', false);
+  });
+
+  it('renders a submit button with a different text when user is not the logged user', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const params = { username: 'another-user' };
+
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find('.UserProfileEdit-submit-button').dive())
+      .toHaveText(`Update user's profile`);
+  });
+
+  it('renders a submit button with a different text when editing', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+
+    _editUserAccount({ store });
+
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find('.UserProfileEdit-submit-button').dive())
+      .toHaveText('Updating your profile…');
+  });
+
+  it('renders a submit button with a different text when user is not the logged user and editing', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const params = { username: 'another-user' };
+
+    _editUserAccount({ store });
+
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find('.UserProfileEdit-submit-button').dive())
+      .toHaveText(`Updating user's profile…`);
   });
 
   it('disables the submit button when username is empty', () => {
@@ -471,6 +516,19 @@ describe(__filename, () => {
       .toHaveProp('children', "View user's profile");
     // We are on the edit page, so we do not use a link for this item.
     expect(linkItems.at(1).children()).toHaveText("Edit user's profile");
+
+    expect(root.find('.UserProfileEdit--Card').first())
+      .toHaveProp('header', 'Account for willdurand');
+
+    expect(root.find('.UserProfileEdit--help-email')).toHaveLength(0);
+
+    expect(root.find('.UserProfileEdit-aside')).toHaveText(oneLine`Tell users a
+      bit more information about this user. These fields are optional, but
+      they'll help other users get to know willdurand better.`
+    );
+
+    expect(root.find({ htmlFor: 'biography' }))
+      .toHaveText('Introduce willdurand to the community');
   });
 
   it('renders errors', () => {

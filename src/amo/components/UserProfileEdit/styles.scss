@@ -63,7 +63,9 @@ $font-size-aside: 10px;
   display: block;
 }
 
-.UserProfileEdit--help {
+.UserProfileEdit-biography--help,
+.UserProfileEdit-email--help,
+.UserProfileEdit-homepage--help {
   color: $grey-50;
   display: block;
   font-size: $font-size-aside;
