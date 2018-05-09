@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-09 17:25+0000\n"
+"PO-Revision-Date: 2018-05-09 21:05+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -589,7 +589,7 @@ msgstr "Prijavite se za ustvaritev zbirke"
 
 #: src/amo/components/CollectionList/index.js:57
 msgid "Please save your collection and then you can add add-ons to it"
-msgstr ""
+msgstr "Shranite svojo zbirko, preden vanjo začnete dodajati dodatke"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -1099,7 +1099,7 @@ msgstr "Izpolnjujete množico različnih obrazcev? Ta dodatek vam lahko pomaga"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
