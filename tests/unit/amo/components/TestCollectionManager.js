@@ -443,12 +443,11 @@ describe(__filename, () => {
     expect(root).toHaveState('slug', 'trishul-s-collection');
   });
 
-
-  it('doesnt update slug if event value is null', () => {
+  it('does not update slug if event value is null', () => {
     const name = "trishul's collection";
     const root = render({ collection: null, creating: true });
     typeInput({ root, name: 'name', text: name });
-    typeInput({ root, name: 'slug' });
+    typeInput({ root, name: 'slug', text: null });
 
     expect(root).toHaveState('slug', 'trishul-s-collection');
   });
