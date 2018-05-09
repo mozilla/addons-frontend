@@ -262,7 +262,9 @@ export class AddonBase extends React.Component {
                 'span',
               ])}
             />
-            {this.getDescription()}
+            {type !== ADDON_TYPE_THEME &&
+              this.getDescription()
+            }
           </div>
           {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton
