@@ -1,6 +1,5 @@
+import { oneLine } from 'common-tags';
 import * as React from 'react';
-import { Provider } from 'react-redux';
-import { mount } from 'enzyme';
 
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
@@ -30,59 +29,42 @@ import {
 
 
 describe(__filename, () => {
-  function defaultUserProps(props = {}) {
-    return {
-      display_name: 'Matt MacTofu',
-      userId: 500,
-      username: 'tofumatt',
-      ...props,
-    };
+  const defaultUserProps = {
+    biography: 'Saved the world, too many times.',
+    display_name: 'Matt MacTofu',
+    homepage: 'https://example.org',
+    location: 'Earth',
+    occupation: 'Superman',
+    userId: 500,
+    username: 'tofumatt',
+  };
+
+  function createFakeEventChange({ name, value }) {
+    return createFakeEvent({
+      currentTarget: {
+        name,
+        value,
+      },
+    });
   }
 
-  function syncPropsAndParamsUsername(username) {
-    return {
-      params: { username },
-      store: dispatchSignInActions({
-        userProps: defaultUserProps({ username }),
-      }).store,
-    };
+  function signInUserWithUsername(username) {
+    return dispatchSignInActions({
+      userProps: { ...defaultUserProps, username },
+    });
   }
 
   function renderUserProfileEdit({
     i18n = fakeI18n(),
     params = { username: 'tofumatt' },
     store = dispatchSignInActions({
-      userProps: defaultUserProps(),
+      userProps: { ...defaultUserProps },
     }).store,
     ...props
   } = {}) {
     return shallowUntilTarget(
       <UserProfileEdit i18n={i18n} params={params} store={store} {...props} />,
-      UserProfileEditBase,
-      { shallowOptions: { context: { i18n } } }
-    );
-  }
-
-  function mountUserProfileEdit({
-    errorHandler = createStubErrorHandler(),
-    i18n = fakeI18n(),
-    params = { username: 'tofumatt' },
-    store = dispatchSignInActions({
-      userProps: defaultUserProps(),
-    }).store,
-    ...props
-  } = {}) {
-    return mount(
-      <Provider store={store}>
-        <UserProfileEdit
-          errorHandler={errorHandler}
-          i18n={i18n}
-          params={params}
-          store={store}
-          {...props}
-        />
-      </Provider>,
-      { context: { i18n } }
+      UserProfileEditBase
     );
   }
 
@@ -93,10 +75,10 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchUserAccount action if username is not found', () => {
-    const { store } = syncPropsAndParamsUsername('tofumatt');
+    const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const username = 'i-am-not-tofumatt';
 
+    const username = 'i-am-not-tofumatt';
     const root = renderUserProfileEdit({ params: { username }, store });
 
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
@@ -106,7 +88,7 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserAccount action if there is no username', () => {
-    const { store } = syncPropsAndParamsUsername('tofumatt');
+    const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     // This happens when loading the user edit profile page of the current
@@ -117,14 +99,16 @@ describe(__filename, () => {
   });
 
   it('dispatches fetchUserAccount action if username changes', () => {
-    const { params, store } = syncPropsAndParamsUsername('black-panther');
+    const username = 'black-panther';
+    const params = { username };
+
+    const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = renderUserProfileEdit({ params, store });
 
     dispatchSpy.reset();
 
-    // FIXME: make sure this works with react-router + mapStateToProps
     root.setProps({ username: 'killmonger' });
 
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
@@ -134,7 +118,10 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
-    const { params, store } = syncPropsAndParamsUsername('black-panther');
+    const username = 'black-panther';
+    const params = { username };
+
+    const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const root = renderUserProfileEdit({ params, store });
@@ -147,98 +134,129 @@ describe(__filename, () => {
   });
 
   it('renders a username input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
-
+    const root = renderUserProfileEdit();
     expect(root.find('.UserProfileEdit-username')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-username'))
+      .toHaveProp('value', defaultUserProps.username);
   });
 
-  it('renders a disabled username input field when not ready', () => {
-    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
+  it('renders disabled input fields when user to edit is not loaded', () => {
+    const { store } = signInUserWithUsername('current-logged-user');
+    const username = 'user-not-in-users-state';
 
-    expect(root.find('.UserProfileEdit-username')).toHaveProp('disabled', true);
+    const root = renderUserProfileEdit({ store, params: { username } });
+
+    expect(root.find('.UserProfileEdit-username'))
+      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-displayName'))
+      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-homepage'))
+      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-location'))
+      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-occupation'))
+      .toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-biography'))
+      .toHaveProp('disabled', true);
   });
 
-  it('renders a disabled "email" input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
+  it('always renders a disabled "email" input field', () => {
+    const root = renderUserProfileEdit();
 
     expect(root.find('.UserProfileEdit-email')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-email')).toHaveProp('disabled', true);
   });
 
-  it('renders a help text for the email and homepage fields', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
+  it('renders help sections for some fields', () => {
+    const root = renderUserProfileEdit();
+    const helpSections = root.find('.UserProfileEdit--help');
 
-    expect(root.find('.UserProfileEdit--help')).toHaveLength(3);
+    expect(helpSections).toHaveLength(3);
+    // Enzyme does not extract "text" from `dangerouslySetInnerHTML` prop,
+    // which is needed to escape the link in this help section.That is why we
+    // need the `toHaveHTML()` matcher below.
+    expect(helpSections.at(0)).toHaveHTML(
+      oneLine`<p class="UserProfileEdit--help">You can change your email
+      address on Firefox Accounts.
+      <a href="https://support.mozilla.org/kb/change-primary-email-address-firefox-accounts">Need help?</a></p>`
+    );
+    expect(helpSections.at(1).shallow()).toHaveText(
+      `This URL will only be visible for users who are developers.`
+    );
+    expect(helpSections.at(2).shallow()).toHaveText(oneLine`Some HTML
+      supported: <abbr title> <acronym title> <b> <blockquote> <code> <em> <i>
+      <li> <ol> <strong> <ul>. Links are forbidden.`);
   });
 
   it('renders a displayName input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
-
+    const root = renderUserProfileEdit();
     expect(root.find('.UserProfileEdit-displayName')).toHaveLength(1);
-  });
-
-  it('renders a disabled displayName input field when not ready', () => {
-    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
-
     expect(root.find('.UserProfileEdit-displayName'))
-      .toHaveProp('disabled', true);
+      .toHaveProp('value', defaultUserProps.display_name);
   });
 
   it('renders a homepage input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
-
+    const root = renderUserProfileEdit();
     expect(root.find('.UserProfileEdit-homepage')).toHaveLength(1);
-  });
-
-  it('renders a disabled homepage input field when not ready', () => {
-    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
-
-    expect(root.find('.UserProfileEdit-homepage')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-homepage'))
+      .toHaveProp('value', defaultUserProps.homepage);
   });
 
   it('renders a location input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
-
+    const root = renderUserProfileEdit();
     expect(root.find('.UserProfileEdit-location')).toHaveLength(1);
-  });
-
-  it('renders a disabled location input field when not ready', () => {
-    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
-
-    expect(root.find('.UserProfileEdit-location')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-location'))
+      .toHaveProp('value', defaultUserProps.location);
   });
 
   it('renders a occupation input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
-
+    const root = renderUserProfileEdit();
     expect(root.find('.UserProfileEdit-occupation')).toHaveLength(1);
-  });
-
-  it('renders a disabled occupation input field when not ready', () => {
-    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
-
-    expect(root.find('.UserProfileEdit-occupation')).toHaveProp('disabled', true);
+    expect(root.find('.UserProfileEdit-occupation'))
+      .toHaveProp('value', defaultUserProps.occupation);
   });
 
   it('renders a biography input field', () => {
-    const root = renderUserProfileEdit({ params: { username: 'tofumatt' } });
-
+    const root = renderUserProfileEdit();
     expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
-  });
-
-  it('renders a disabled biography input field when not ready', () => {
-    const root = renderUserProfileEdit({ params: { username: 'not-ready' } });
-
     expect(root.find('.UserProfileEdit-biography'))
-      .toHaveProp('disabled', true);
+      .toHaveProp('value', defaultUserProps.biography);
   });
 
-  it('dispatches editUserAccount action with all fields', () => {
-    const { store } = syncPropsAndParamsUsername('tofumatt');
+  it('captures input field changes ', () => {
+    const fields = [
+      'biography',
+      'displayName',
+      'homepage',
+      'location',
+      'occupation',
+      'username',
+    ];
+
+    const root = renderUserProfileEdit();
+
+    expect.assertions(fields.length);
+    fields.forEach((field) => {
+      const newValue = `new-value-for-${field}`;
+
+      root.find(`.UserProfileEdit-${field}`).simulate(
+        'change',
+        createFakeEventChange({
+          name: field,
+          value: newValue,
+        })
+      );
+      expect(root.find(`.UserProfileEdit-${field}`))
+        .toHaveProp('value', newValue);
+    });
+  });
+
+  it('dispatches editUserAccount action with all fields on submit', () => {
+    const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
-    const root = mountUserProfileEdit({ errorHandler, store });
+    const root = renderUserProfileEdit({ errorHandler, store });
     const user = getCurrentUser(store.getState().users);
 
     root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
@@ -246,11 +264,68 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, editUserAccount({
       errorHandlerId: errorHandler.id,
       userFields: {
-        biography: '',
+        biography: user.biography,
         display_name: user.displayName,
-        homepage: '',
-        location: '',
-        occupation: '',
+        homepage: user.homepage,
+        location: user.location,
+        occupation: user.occupation,
+        username: user.username,
+      },
+      userId: user.id,
+    }));
+  });
+
+  it('renders a submit button', () => {
+    const root = renderUserProfileEdit();
+    const button = root.find('.UserProfileEdit-submit-button');
+
+    expect(button).toHaveLength(1);
+    expect(button.dive()).toHaveText('Update my profile');
+    expect(button).toHaveProp('disabled', false);
+  });
+
+  it('disables the submit button when username is empty', () => {
+    const root = renderUserProfileEdit();
+
+    root.find(`.UserProfileEdit-username`).simulate(
+      'change',
+      createFakeEventChange({
+        name: 'username',
+        value: '',
+      })
+    );
+
+    expect(root.find('.UserProfileEdit-submit-button'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('dispatches editUserAccount action with new field values on submit', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const user = getCurrentUser(store.getState().users);
+
+    // We want to make sure dispatched action uses the values updated by the user.
+    const location = 'new location';
+    root.find(`.UserProfileEdit-location`).simulate(
+      'change',
+      createFakeEventChange({
+        name: 'location',
+        value: location,
+      })
+    );
+    root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
+
+    sinon.assert.calledWith(dispatchSpy, editUserAccount({
+      errorHandlerId: errorHandler.id,
+      userFields: {
+        biography: user.biography,
+        display_name: user.displayName,
+        homepage: user.homepage,
+        location,
+        occupation: user.occupation,
         username: user.username,
       },
       userId: user.id,
@@ -260,10 +335,11 @@ describe(__filename, () => {
   it('renders a Not Found page when logged user cannot edit another user', () => {
     const username = 'current-logged-user';
     const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
+      userProps: {
+        ...defaultUserProps,
         username,
         permissions: [],
-      }),
+      },
     });
 
     // Create a user with another username.
@@ -280,10 +356,11 @@ describe(__filename, () => {
   it('allows to edit another user if logged user has USERS_EDIT permission', () => {
     const username = 'current-logged-user';
     const { store } = dispatchSignInActions({
-      userProps: defaultUserProps({
+      userProps: {
+        ...defaultUserProps,
         username,
         permissions: [USERS_EDIT],
-      }),
+      },
     });
 
     // Create a user with another username.

@@ -37,6 +37,8 @@ type Props = {|
   hasEditPermission: boolean,
   i18n: I18nType,
   isEditing: boolean,
+  // The routing `params` prop is used in `mapStateToProps()`.
+  // eslint-disable-next-line react/no-unused-prop-types
   params: {| username: string |},
   user: UserType | null,
   username: string,
@@ -66,37 +68,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     };
   }
 
-  getFormValues(user: UserType | null): FormValues {
-    if (!user) {
-      return {
-        biography: '',
-        displayName: '',
-        homepage: '',
-        location: '',
-        occupation: '',
-        username: '',
-      };
-    }
-
-    const {
-      biography,
-      display_name: displayName,
-      homepage,
-      location,
-      occupation,
-      username,
-    } = user;
-
-    return {
-      biography,
-      displayName,
-      homepage,
-      location,
-      occupation,
-      username,
-    };
-  }
-
   componentWillMount() {
     const { dispatch, errorHandler, username, user } = this.props;
 
@@ -122,7 +93,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       username: newUsername,
     } = props;
 
-    if (oldUsername !== newUsername) {
+    if (!newUser || (!oldUser || oldUser.id !== newUser.id)) {
+      this.setState(this.getFormValues(newUser));
+    } else if (oldUsername !== newUsername) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
         username: newUsername,
@@ -133,10 +106,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (wasEditing && !isEditing && !errorHandler.hasError()) {
       this.setState({ displaySuccessMessage: true });
-    }
-
-    if (!newUser || (!oldUser || oldUser.id !== newUser.id)) {
-      this.setState(this.getFormValues(newUser));
     }
   }
 
@@ -178,6 +147,40 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       },
       userId: user.id,
     }));
+  }
+
+  getFormValues(user: UserType | null): FormValues {
+    const defaultFormValues = {
+      biography: '',
+      displayName: '',
+      homepage: '',
+      location: '',
+      occupation: '',
+      username: this.props.username,
+    };
+
+    if (!user) {
+      return defaultFormValues;
+    }
+
+    const {
+      biography,
+      display_name: displayName,
+      homepage,
+      location,
+      occupation,
+      username,
+    } = user;
+
+    return {
+      ...defaultFormValues,
+      biography,
+      displayName,
+      homepage,
+      location,
+      occupation,
+      username,
+    };
   }
 
   preventSubmit() {
@@ -397,6 +400,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 disabled={!user}
                 id="biography"
                 name="biography"
+                onChange={this.onFieldChange}
                 value={this.state.biography}
               />
               <p className="UserProfileEdit--help">
