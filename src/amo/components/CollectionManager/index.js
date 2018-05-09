@@ -272,15 +272,17 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             value={this.state.slug}
           />
         </div>
-        <AutoSearchInput
-          inputName="collection-addon-query"
-          inputPlaceholder={
-            i18n.gettext('Find an add-on to include in this collection')
-          }
-          onSearch={this.onSearchAddon}
-          onSuggestionSelected={this.onAddonSelected}
-          selectSuggestionText={i18n.gettext('Add to collection')}
-        />
+        {!creating &&
+          <AutoSearchInput
+            inputName="collection-addon-query"
+            inputPlaceholder={
+              i18n.gettext('Find an add-on to include in this collection')
+            }
+            onSearch={this.onSearchAddon}
+            onSuggestionSelected={this.onAddonSelected}
+            selectSuggestionText={i18n.gettext('Add to collection')}
+          />
+        }
         <footer className="CollectionManager-footer">
           {/*
             type=button is necessary to override the default
