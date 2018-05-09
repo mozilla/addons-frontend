@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-09 14:54+0000\n"
+"PO-Revision-Date: 2018-05-09 16:31+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1012,7 +1012,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1020,20 +1020,19 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:163
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "Prenašanje %(name)s."
+msgstr "Upravitelj prenosov (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Upravljajte prenose iz pregledne vrstice stanja"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
@@ -1068,32 +1067,28 @@ msgid "Remove clutter and improve readability"
 msgstr "Odstranite navlako in izboljšajte berljivost"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
-#, fuzzy
 msgid "FoxyGestures"
-msgstr "Gesturefy"
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
-#, fuzzy
 msgid "Customized mouse gestures"
-msgstr "Preko 40 prilagodljivih potez z miško."
+msgstr "Prilagodljive poteze z miško"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
-#, fuzzy
 msgid "PrivacyBadger"
-msgstr "Zasebnost"
+msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Blokirajte zahrbtne oglase in sledilce"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Container"
-msgstr "Facebook Filter"
+msgstr "Vsebnik za Facebook"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Preprečite Facebooku, da bi vam sledil po spletu"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1996,24 +1991,20 @@ msgid "Access your data for %(param)s"
 msgstr "dostopa do vaših podatkov za %(param)s"
 
 #: src/ui/components/Rating/index.js:60
-#, fuzzy
 msgid "Rated %(rating)s out of 5."
-msgstr "Ocenjeno z %(rating)s od 5"
+msgstr "Ocenjeno z %(rating)s od 5."
 
 #: src/ui/components/Rating/index.js:63
-#, fuzzy
 msgid "This add-on has not been rated yet."
-msgstr "Ta dodatek nima ocen."
+msgstr "Ta dodatek še ni bil ocenjen."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr "Ocenjeno z %(rating)s od 5"
+msgstr "Posodobite svojo oceno na %(starRating)s od 5."
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "Ocenjeno z %(rating)s od 5"
+msgstr "Ocenite ta dodatek z %(starRating)s od 5."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
