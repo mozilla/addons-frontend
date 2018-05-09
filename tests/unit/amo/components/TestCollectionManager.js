@@ -452,6 +452,16 @@ describe(__filename, () => {
     expect(root).toHaveState('slug', 'trishul-s-collection');
   });
 
+  it('does not update slug if event value is undefined', () => {
+    const name = "trishul's collection";
+    let slug;
+    const root = render({ collection: null, creating: true });
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'slug', text: slug });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
   it('allows a blank description', () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
