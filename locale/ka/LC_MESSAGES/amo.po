@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-09 17:52+0000\n"
+"PO-Revision-Date: 2018-05-09 18:09+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -103,7 +103,7 @@ msgstr "%(addonName)s %(startSpan)sავტორი: %(authorList)s %(endSpan)
 
 #: src/amo/components/Addon/index.js:524
 msgid "Only with Firefox - Get Firefox Now!"
-msgstr ""
+msgstr "მხოლოდ Firefox-თან ერთად - გადმოწერეთ Firefox ახლავე!"
 
 #: src/amo/components/Addon/index.js:530
 msgid "Extension Metadata"
@@ -276,12 +276,11 @@ msgstr "სტატისტიკური მონაცემების �
 
 #: src/amo/components/AddonRecommendations/index.js:146
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "ამ გაფართოების მომხმარებლები, ასევე იყენებენ"
 
 #: src/amo/components/AddonRecommendations/index.js:147
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "მეტად სასურველი გაფართოებები"
+msgstr "სხვა სასურველი გაფართოებები"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -595,7 +594,7 @@ msgstr "შედით ანგარიშზე კრებულის შ
 
 #: src/amo/components/CollectionList/index.js:57
 msgid "Please save your collection and then you can add add-ons to it"
-msgstr ""
+msgstr "გთხოვთ, ჯერ შეინახოთ თქვენი კრებული და შემდეგ შეგეძლებათ დამატებების შეტანა"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -965,7 +964,7 @@ msgstr "გაფართოებებს შეუძლია შეცვ�
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "“გაფართოებების შეჯიბრების” სხვა გამარჯვებულები"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -1093,7 +1092,7 @@ msgstr "პირადულობის დაცვის დებულე�
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "გაიძვერა, მოთვალთვალე რეკლამებისა და მეთვალყურეების შეზღუდვა"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 #, fuzzy
@@ -1102,7 +1101,7 @@ msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Facebook-ის თვალთვალის შეზღუდვა, მთელ ინტერნეტში"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1114,11 +1113,11 @@ msgstr "ბევრი ველების შევსება გიწე
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Quantum-გაფართოებების შეჯიბრების გამარჯვებული! შეინახეთ გახსნილი გვერდები სანიშნების სახით და გააზიარეთ სხვადასხვა მოწყობილობაზე"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
