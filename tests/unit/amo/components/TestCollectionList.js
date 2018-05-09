@@ -58,4 +58,15 @@ describe(__filename, () => {
 
     expect(root.find(CollectionManager)).toHaveProp('anyProp', anyProp);
   });
+
+  it('shows placeholder text only if user is logged in', () => {
+    const { store } = dispatchSignInActions();
+    const root = renderComponent({ store });
+    expect(root.find('.CollectionList-placeholder')).toHaveLength(1);
+  });
+
+  it('hides placeholder text if user is logged out', () => {
+    const root = renderComponent();
+    expect(root.find('.CollectionList-placeholder')).toHaveLength(0);
+  });
 });

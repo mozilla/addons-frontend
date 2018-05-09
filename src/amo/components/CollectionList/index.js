@@ -45,7 +45,7 @@ export class CollectionListBase extends React.Component<Props> {
   }
 
   render() {
-    const { i18n } = this.props;
+    const { i18n, isLoggedIn } = this.props;
 
     return (
       <div className="CollectionList">
@@ -53,11 +53,13 @@ export class CollectionListBase extends React.Component<Props> {
           <Card className="CollectionList-create">
             {this.renderManager()}
           </Card>
-          <p className="CollectionList-placeholder">
-            {i18n.gettext(
-              'Please save your collection and then you can add add-ons to it')
-            }
-          </p>
+          {isLoggedIn &&
+            <p className="CollectionList-placeholder">
+              {i18n.gettext(
+                'Please save your collection and then you can add add-ons to it')
+              }
+            </p>
+          }
         </div>
       </div>
     );
