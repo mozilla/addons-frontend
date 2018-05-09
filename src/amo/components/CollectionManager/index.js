@@ -158,7 +158,10 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     const { name, value } = event.target;
     const { creating } = this.props;
 
-    if (value === null || typeof value === 'undefined') return;
+    if (value === null || typeof value === 'undefined') {
+      return;
+    }
+
     const trimmedValue = value.trim();
 
     if (creating && name === 'name' && !this.state.customSlug) {
