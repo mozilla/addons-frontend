@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-04-18 05:45+0000\n"
+"PO-Revision-Date: 2018-05-09 09:27+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -190,8 +190,8 @@ msgstr "Ocjene"
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "Ocjena"
-msgstr[1] ""
-msgstr[2] ""
+msgstr[1] "Ocjene"
+msgstr[2] "Ocjene"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
@@ -1907,17 +1907,15 @@ msgid "Access your data for sites in the %(param)s domain"
 msgstr "Pristup vašim podacima za stranice u %(param)s domenu"
 
 #: src/ui/components/HostPermissions/index.js:58
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Pristupite vašim podacima na %(count)s drugoj stranici"
-msgstr[1] "Pristupite vašim podacima na %(count)s druge stranice"
-msgstr[2] "Pristupite vašim podacima na %(count)s drugih stranica"
+msgstr[0] "Pristupite vašim podacima na %(param)s drugoj stranici"
+msgstr[1] "Pristupite vašim podacima na %(param)s druge stranice"
+msgstr[2] "Pristupite vašim podacima na %(param)s drugih stranica"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "Pristupi vašim podacima za %(site)s"
+msgstr "Pristupite vašim podacima za %(param)s"
 
 #: src/ui/components/Rating/index.js:100
 msgid "Click to rate this add-on"
