@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-09 18:09+0000\n"
+"PO-Revision-Date: 2018-05-09 18:33+0000\n"
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -381,14 +381,12 @@ msgid "More dictionaries by these translators"
 msgstr "ამ მთარგმნელების სხვა ლექსიკონები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "%(author)s ავტორის სხვა ლექსიკონები"
+msgstr "%(author)s ავტორის ლექსიკონები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "ამ მთარგმნელების სხვა ლექსიკონები"
+msgstr "ამ მთარგმნელების ლექსიკონები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
@@ -399,14 +397,12 @@ msgid "More extensions by these developers"
 msgstr "ამ შემმუშავებლების სხვა გაფართოებები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "%(author)s ავტორის სხვა გაფართოებები"
+msgstr "%(author)s ავტორის გაფართოებები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "ამ შემმუშავებლების სხვა გაფართოებები"
+msgstr "ამ შემმუშავებლების გაფართოებები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -417,14 +413,12 @@ msgid "More language packs by these translators"
 msgstr "ამ მთარგმნელების სხვა პაკეტები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "%(author)s ავტორის სხვა პაკეტები"
+msgstr "%(author)s ავტორის ენის პაკეტები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "ამ მთარგმნელების სხვა პაკეტები"
+msgstr "ამ მთარგმნელების ენის პაკეტები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:173
 msgid "More themes by %(author)s"
@@ -435,14 +429,12 @@ msgid "More themes by these artists"
 msgstr "ამ მხატვრების სხვა თემები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:180
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "%(author)s ავტორის სხვა თემები"
+msgstr "%(author)s ავტორის თემები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:183
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "ამ მხატვრების სხვა თემები"
+msgstr "ამ მხატვრების თემები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:190
 msgid "More add-ons by %(author)s"
@@ -453,14 +445,12 @@ msgid "More add-ons by these developers"
 msgstr "ამ შემმუშავებლების სხვა დამატებები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:197
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "%(author)s ავტორის სხვა დამატებები"
+msgstr "%(author)s ავტორის დამატებები"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:200
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "ამ შემმუშავებლების სხვა დამატებები"
+msgstr "ამ შემმუშავებლების დამატებები"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -948,7 +938,6 @@ msgid "See more privacy tools"
 msgstr "სხვა ხელსაწყოები"
 
 #: src/amo/components/Home/index.js:234
-#, fuzzy
 msgid "Top-rated themes"
 msgstr "საუკეთესოდ შეფასებული თემები"
 
