@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-05-08 11:14+0000\n"
+"PO-Revision-Date: 2018-05-09 10:52+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -516,9 +516,8 @@ msgid "Edit this collection"
 msgstr "Përpunojeni këtë koleksion"
 
 #: src/amo/components/Collection/index.js:186
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "Përpunojeni këtë koleksion"
+msgstr "Bëni hyrjen, që të përpunoni këtë koleksion"
 
 #: src/amo/components/Collection/index.js:210 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -529,9 +528,8 @@ msgid "Creator"
 msgstr "Krijues"
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Përpunojeni këtë koleksion"
+msgstr "Bëni hyrjen, që të krijoni një koleksion"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -615,7 +613,7 @@ msgstr "Shkarkoni Firefox-in"
 
 #: src/amo/components/EditableCollectionAddon/index.js:54
 msgid "Remove"
-msgstr ""
+msgstr "Hiqe"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -881,9 +879,8 @@ msgid "Social media customization"
 msgstr ""
 
 #: src/amo/components/Home/index.js:201
-#, fuzzy
 msgid "See more social media customization extensions"
-msgstr "Shihni më tepër zgjerime skedash"
+msgstr "Shihni më tepër zgjerime përshtatjesh mediesh shoqërore"
 
 #: src/amo/components/Home/index.js:212
 msgid "Wikipedia boosters"
@@ -979,11 +976,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:182
 msgid "Automatically searches for coupon codes"
-msgstr ""
+msgstr "Kërkim automatik për kode kuponësh"
 
 #: src/amo/components/HomeHeroBanner/index.js:190
 msgid "SHINE for Reddit"
-msgstr ""
+msgstr "SHINE për Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
