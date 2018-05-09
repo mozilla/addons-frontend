@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-04-18 04:46+0000\n"
+"PO-Revision-Date: 2018-05-09 19:28+0000\n"
 "Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
@@ -103,7 +103,7 @@ msgstr "%(addonName)s %(startSpan)sמאת %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:524
 msgid "Only with Firefox - Get Firefox Now!"
-msgstr ""
+msgstr "רק עם Firefox - קבלו את Firefox כעת!"
 
 #: src/amo/components/Addon/index.js:530
 msgid "Extension Metadata"
@@ -275,11 +275,11 @@ msgstr "ביקור בלוח בקרת הסטטיסטיקה"
 
 #: src/amo/components/AddonRecommendations/index.js:146
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "משתמשים אחרים עם ההרחבה הזאת התקינו גם את"
 
 #: src/amo/components/AddonRecommendations/index.js:147
 msgid "Other popular extensions"
-msgstr ""
+msgstr "הרחבות פופולריות נוספות"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -381,12 +381,11 @@ msgstr "עוד מילונים מאת המתרגמים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "Dictionaries by %(author)s"
-msgstr ""
+msgstr "מילונים מאת %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "עוד מילונים מאת המתרגמים האלה"
+msgstr "מילונים מאת המתרגמים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
@@ -398,11 +397,11 @@ msgstr "הרחבות נוספות מאת המפתחים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
 msgid "Extensions by %(author)s"
-msgstr ""
+msgstr "הרחבות מאת %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "Extensions by these developers"
-msgstr ""
+msgstr "הרחבות מאת המפתחים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -414,11 +413,11 @@ msgstr "עוד חבילות שפה מאת המתרגמים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
 msgid "Language packs by %(author)s"
-msgstr ""
+msgstr "חבילות שפה מאת %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "חבילות שפה מאת המתרגמים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:173
 msgid "More themes by %(author)s"
@@ -430,11 +429,11 @@ msgstr "עוד ערכות נושא מאת האמנים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:180
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "ערכות נושא מאת %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:183
 msgid "Themes by these artists"
-msgstr ""
+msgstr "ערכות נושא מאת האמנים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:190
 msgid "More add-ons by %(author)s"
@@ -445,13 +444,12 @@ msgid "More add-ons by these developers"
 msgstr "עוד תוספות מאת המפתחים האלה"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:197
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "עוד תוספות מאת %(author)s"
+msgstr "תוספות מאת %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:200
 msgid "Add-ons by these developers"
-msgstr ""
+msgstr "תוספות מאת המפתחים האלה"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -583,7 +581,7 @@ msgstr "יש להתחבר כדי ליצור אוסף"
 
 #: src/amo/components/CollectionList/index.js:57
 msgid "Please save your collection and then you can add add-ons to it"
-msgstr ""
+msgstr "נא לשמור את האוסף שלך ולאחר מכן יתאפשר לך להוסיף אליו תוספות"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -935,20 +933,19 @@ msgstr "הצגת כלי פרטיות נוספים"
 
 #: src/amo/components/Home/index.js:234
 msgid "Top-rated themes"
-msgstr ""
+msgstr "ערכות נושא בדירוג הגבוה ביותר"
 
 #: src/amo/components/Home/index.js:235
 msgid "See more highly rated themes"
-msgstr ""
+msgstr "הצגת ערכות נושא נוספות בדירוג גבוה"
 
 #: src/amo/components/Home/index.js:249
-#, fuzzy
 msgid "“Extensions Challenge” honorees"
-msgstr "הרחבות משנות את אופן הפעולה של Firefox"
+msgstr "מכובדי „אתגר ההרחבות”"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "הצגת מכובדים נוספים מ„אתגר ההרחבות”"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -996,35 +993,35 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "זוכה אתגר הרחבות Quantum! האזנה לרדיו בשידור חי מכל רחבי העולם"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr ""
+msgstr "זוכה אתגר הרחבות Quantum! צבעים שונים ללשוניות עבור סביבות פיתוח שונות"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "לאותם הרגעים באינטרנט שעליך לירות בלייזר מתוך חתול"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
 msgid "Download Manager (S3)"
-msgstr ""
+msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "ניהול הורדות מסרגל מצב נקי ומסודר"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
@@ -1059,30 +1056,28 @@ msgid "Remove clutter and improve readability"
 msgstr "הסרת עומס מיותר ושיפור התאמה לקריאה שוטפת"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
-#, fuzzy
 msgid "FoxyGestures"
-msgstr "Gesturefy"
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Customized mouse gestures"
-msgstr ""
+msgstr "מחוות עכבר בהתאמה אישית"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
-#, fuzzy
 msgid "PrivacyBadger"
-msgstr "פרטיות"
+msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "חסימת פרסומות ריגול ורכיבי מעקב חמקמקים"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
-msgstr ""
+msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "למנוע מפייסבוק לעקוב אחריך ברחבי הרשת"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1094,11 +1089,11 @@ msgstr "עליך למלא טפסים רבים? יתכן שזה הפתרון"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "זוכה אתגר הרחבות Quantum! שמירת הפעלות כסימניות כדי לאפשר גישה אליהן מהתקנים אחרים"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
@@ -1960,16 +1955,15 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:63
 msgid "This add-on has not been rated yet."
-msgstr ""
+msgstr "לתוספת זו אין דירוגים עדיין."
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr ""
+msgstr "עדכון הדירוג שלך ל־%(starRating)s מתוך 5."
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "מדורג %(rating)s מתוך 5"
+msgstr "דירוג התוספת הזו ב־%(starRating)s מתוך 5."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
