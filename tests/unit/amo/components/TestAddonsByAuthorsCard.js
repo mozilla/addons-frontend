@@ -364,10 +364,10 @@ describe(__filename, () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
       multipleAuthors: false,
-      numberOfAddons: 6,
+      numberOfAddons: 3,
     });
 
-    expect(root.find(AddonsCard).props().addons).toHaveLength(6);
+    expect(root.find(AddonsCard).props().addons).toHaveLength(3);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {
