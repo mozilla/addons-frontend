@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-04-17 20:36+0000\n"
-"PO-Revision-Date: 2018-05-09 10:52+0000\n"
+"PO-Revision-Date: 2018-05-09 10:59+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
 "Language: sq\n"
@@ -876,7 +876,7 @@ msgstr "Ndryshoni përmes temash mënyrën se si duket Firefox-i."
 
 #: src/amo/components/Home/index.js:199
 msgid "Social media customization"
-msgstr ""
+msgstr "Përshtatje mediash shoqërore"
 
 #: src/amo/components/Home/index.js:201
 msgid "See more social media customization extensions"
@@ -964,11 +964,11 @@ msgstr "Bëjini Wikipedia-s një retush të mrekullueshëm"
 
 #: src/amo/components/HomeHeroBanner/index.js:167
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Menu e Zezë për Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:170
 msgid "Easy drop-down menu access to Google services like Search and Translate"
-msgstr ""
+msgstr "Hyrje e lehtë menush hapmbyll në shërbime Google të tillë si Kërkim dhe Përkthim"
 
 #: src/amo/components/HomeHeroBanner/index.js:180
 msgid "Honey"
@@ -984,7 +984,7 @@ msgstr "SHINE për Reddit"
 
 #: src/amo/components/HomeHeroBanner/index.js:193
 msgid "Experience Reddit with alternative designs"
-msgstr ""
+msgstr "Shijojeni Reddit-in me skema grafike alternative"
 
 #: src/amo/components/HomeHeroBanner/index.js:202
 msgid "LeechBlock NG"
@@ -1179,7 +1179,6 @@ msgid "Provide cryptographic authentication services"
 msgstr "Të ofrojë shërbime mirëfilltësimi kriptografik"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
-#, fuzzy
 msgid "Control browser proxy settings"
 msgstr "Të kontrollojë rregullime ndërmjetësi shfletuesi"
 
@@ -1883,38 +1882,32 @@ msgid "Access your data for all websites"
 msgstr "Të hyjë në të dhënat tuaja për krejt sajtet"
 
 #: src/ui/components/HostPermissions/index.js:46
-#, fuzzy
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "Të hyjë në të dhënat tuaja për %(count)s përkatësi të tjera"
-msgstr[1] "Të hyjë në të dhënat tuaja për %(count)s përkatësi të tjera"
+msgstr[0] "Të hyjë në të dhënat tuaja në %(param)s përkatësi të tjera"
+msgstr[1] "Të hyjë në të dhënat tuaja për %(param)s përkatësi të tjera"
 
 #: src/ui/components/HostPermissions/index.js:53
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "Të hyjë në të dhënat tuaja për përkatësinë %(domain)s"
+msgstr "Të hyjë në të dhënat tuaja për sajte në %(param)s përkatësi"
 
 #: src/ui/components/HostPermissions/index.js:58
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "Të hyjë në të dhënat tuaja për %(count)s sajte të tjerë"
-msgstr[1] "Të hyjë në të dhënat tuaja për %(count)s sajte të tjerë"
+msgstr[0] "Të hyjë në të dhënat tuaja te %(param)s sajt tjetër"
+msgstr[1] "Të hyjë në të dhënat tuaja te %(param)s sajte të tjerë"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "Të hyjë në të dhënat tuaja për %(site)s"
+msgstr "Të hyjë në të dhënat tuaja për %(param)s"
 
 #: src/ui/components/Rating/index.js:100
-#, fuzzy
 msgid "Click to rate this add-on"
-msgstr "Që të vlerësoni këtë shtesë, bëni hyrjen"
+msgstr "Që të vlerësoni këtë shtesë, klikoni"
 
 #: src/ui/components/Rating/index.js:95
-#, fuzzy
 msgid "This add-on has no ratings."
-msgstr "Kjo shtesë mund të:"
+msgstr "Kjo shtesë s’ka vlerësime."
 
 #: src/ui/components/Rating/index.js:97
 msgid "Rated %(rating)s out of 5"
