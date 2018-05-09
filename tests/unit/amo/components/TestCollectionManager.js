@@ -435,6 +435,24 @@ describe(__filename, () => {
     expect(root).toHaveState('slug', slug);
   });
 
+  it('autofills slug with trimmed collection name', () => {
+    const name = "trishul's collection";
+    const root = render({ collection: null, creating: true });
+    typeInput({ root, name: 'name', text: `  ${name}  ` });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
+
+  it('doesnt update slug if event value is null', () => {
+    const name = "trishul's collection";
+    const root = render({ collection: null, creating: true });
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'slug' });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
   it('allows a blank description', () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
