@@ -9,12 +9,14 @@ import UserProfileEdit, {
 import {
   editUserAccount,
   fetchUserAccount,
+  finishEditUserAccount,
   getCurrentUser,
   loadUserAccount,
 } from 'amo/reducers/users';
 import { USERS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
+import Notice from 'ui/components/Notice';
 import {
   dispatchClientMetadata,
   dispatchSignInActions,
@@ -68,10 +70,24 @@ describe(__filename, () => {
     );
   }
 
+  function _editUserAccount({
+    store,
+    userFields,
+    userId,
+    errorHandlerId = createStubErrorHandler().id,
+  }) {
+    store.dispatch(editUserAccount({
+      errorHandlerId,
+      userFields,
+      userId,
+    }));
+  }
+
   it('renders user profile page', () => {
     const root = renderUserProfileEdit();
 
     expect(root.find('.UserProfileEdit')).toHaveLength(1);
+    expect(root.find(Notice)).toHaveLength(0);
   });
 
   it('dispatches fetchUserAccount action if username is not found', () => {
@@ -109,12 +125,16 @@ describe(__filename, () => {
 
     dispatchSpy.reset();
 
-    root.setProps({ username: 'killmonger' });
+    // We set `user` to `null` because that's what `mapStateToProps()` would do
+    // because the user is not loaded yet.
+    root.setProps({ username: 'killmonger', user: null });
 
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
       errorHandlerId: root.instance().props.errorHandler.id,
       username: 'killmonger',
     }));
+
+    expect(root.find('.UserProfileEdit-location')).toHaveProp('value', '');
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
@@ -330,6 +350,77 @@ describe(__filename, () => {
       },
       userId: user.id,
     }));
+  });
+
+  it('renders a success message when user profile has been updated', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const user = getCurrentUser(store.getState().users);
+
+    const occupation = 'new occupation';
+
+    _editUserAccount({
+      store,
+      userFields: {
+        occupation,
+      },
+      userId: user.id,
+    });
+
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find(Notice)).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-submit-button'))
+      .toHaveProp('disabled', true);
+
+    // The user profile has been updated.
+    store.dispatch(finishEditUserAccount());
+
+    const { isEditing } = store.getState().users;
+    root.setProps({ isEditing });
+
+    expect(root.find(Notice)).toHaveLength(1);
+
+    expect(root.find('.UserProfileEdit-submit-button'))
+      .toHaveProp('disabled', false);
+  });
+
+  it('does not render a success message when an error occured', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const user = getCurrentUser(store.getState().users);
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: store.dispatch,
+    });
+
+    const username = '';
+
+    _editUserAccount({
+      errorHandlerId: errorHandler.id,
+      store,
+      userFields: {
+        username,
+      },
+      userId: user.id,
+    });
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+
+    expect(root.find(Notice)).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-submit-button'))
+      .toHaveProp('disabled', true);
+
+    // An error occured while updating the user profile.
+    errorHandler.handle(new Error('unexpected error'));
+    store.dispatch(finishEditUserAccount());
+
+    const { isEditing } = store.getState().users;
+    root.setProps({ isEditing });
+
+    expect(root.find(Notice)).toHaveLength(0);
+
+    expect(root.find('.UserProfileEdit-submit-button'))
+      .toHaveProp('disabled', false);
   });
 
   it('renders a Not Found page when logged user cannot edit another user', () => {

@@ -80,11 +80,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 
   componentWillReceiveProps(props: Props) {
-    const {
-      isEditing: wasEditing,
-      user: oldUser,
-      username: oldUsername,
-    } = this.props;
+    const { isEditing: wasEditing, username: oldUsername } = this.props;
     const {
       dispatch,
       errorHandler,
@@ -93,15 +89,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       username: newUsername,
     } = props;
 
-    if (!newUser || (!oldUser || oldUser.id !== newUser.id)) {
-      this.setState(this.getFormValues(newUser));
-    } else if (oldUsername !== newUsername) {
+    if (oldUsername !== newUsername) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
         username: newUsername,
       }));
 
-      this.setState({ displaySuccessMessage: false });
+      this.setState({
+        ...this.getFormValues(newUser),
+        displaySuccessMessage: false,
+      });
     }
 
     if (wasEditing && !isEditing && !errorHandler.hasError()) {
