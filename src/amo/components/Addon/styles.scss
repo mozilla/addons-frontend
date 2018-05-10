@@ -68,12 +68,11 @@
   color: $black;
   font-size: $font-size-l;
   grid-column: 1 / span 2;
+  line-height: 1.5;
   margin: 0 0 $padding-page-l;
   width: 100%;
-  line-height: normal;
   word-wrap: break-word;
   
-
   .Addon-persona & {
     margin: $padding-page-l 0;
   }
@@ -89,7 +88,6 @@
   display: block;
   line-height: 1.5;
   word-wrap: break-word;
-  
 
   &,
   a,
