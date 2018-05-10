@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-10 09:18+0000\n"
+"PO-Revision-Date: 2018-05-10 09:41+0000\n"
 "Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
@@ -964,11 +964,11 @@ msgstr "Vidi više visoko ocjenjenih tema"
 
 #: src/amo/components/Home/index.js:249
 msgid "“Extensions Challenge” honorees"
-msgstr ""
+msgstr "Pobjednici “Izazovi proširenja”"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "Pogledajte više pobjednika “Izazovi proširenja”"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -1017,23 +1017,23 @@ msgstr "Zadržite različite dijelove vašeg života na mreži—službeno, priv
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "Quantum Extensions Challenge pobjednik! Slušajte radio uživo iz cijelog svijeta"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr ""
+msgstr "Quantum Extensions Challenge pobjednik! Različite boje taba za različita razvojna okruženja"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
@@ -1046,7 +1046,7 @@ msgstr "Preuzimanje %(name)s."
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Upravljajte preuzimanjima sa uredne statusne trake"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
