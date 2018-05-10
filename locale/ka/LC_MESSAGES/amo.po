@@ -1989,11 +1989,11 @@ msgstr "დამატება ჯერ არაა შეფასებუ
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr "შეფასების შეცვლა %(rating)s-ით 5-დან."
+msgstr "შეფასების შეცვლა %(starRating)s-ით 5-დან."
 
 #: src/ui/components/Rating/index.js:71
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "%(rating)s შეფასება 5-დან."
+msgstr "%(starRating)s შეფასება 5-დან."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
