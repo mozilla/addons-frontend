@@ -3,6 +3,7 @@ import * as React from 'react';
 import AddonRecommendations, {
   TAAR_IMPRESSION_CATEGORY,
   TAAR_COHORT_COOKIE_NAME,
+  TAAR_COHORT_DIMENSION,
   TAAR_COHORT_INCLUDED,
   TAAR_COHORT_EXCLUDED,
   AddonRecommendationsBase,
@@ -47,6 +48,7 @@ describe(__filename, () => {
   beforeEach(() => {
     fakeTracking = {
       sendEvent: sinon.spy(),
+      setDimension: sinon.spy(),
     };
     store = dispatchClientMetadata().store;
   });
@@ -267,6 +269,19 @@ describe(__filename, () => {
       action: `${outcome}-${fallbackReason}`,
       category: TAAR_IMPRESSION_CATEGORY,
       label: fakeAddon.name,
+    });
+  });
+
+  it('should set a GA dimension when the cohort is determined', () => {
+    const cookie = fakeCookie(undefined);
+    const randomizer = fakeRandomizer(true);
+
+    render({ cookie, randomizer, tracking: fakeTracking });
+
+    sinon.assert.calledOnce(fakeTracking.setDimension);
+    sinon.assert.calledWith(fakeTracking.setDimension, {
+      dimension: TAAR_COHORT_DIMENSION,
+      value: TAAR_COHORT_INCLUDED,
     });
   });
 
