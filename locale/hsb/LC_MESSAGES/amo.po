@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-10 10:13+0000\n"
+"PO-Revision-Date: 2018-05-10 13:38+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1996,7 +1996,7 @@ msgstr "Mějće přistup na swoje daty za %(param)s"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5."
-msgstr "Z %(rating)s 5 hwěžkow pohódnoćeny."
+msgstr "Z %(rating)s z 5 hwěžkow pohódnoćeny."
 
 #: src/ui/components/Rating/index.js:63
 msgid "This add-on has not been rated yet."
@@ -2004,11 +2004,11 @@ msgstr "Tutón přidatk hišće pohódnoćenja nima."
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr "Aktualizujće swoje pohódnoćenje na %(starRating)s 5 hwěžkow."
+msgstr "Aktualizujće swoje pohódnoćenje na %(starRating)s z 5 hwěžkow."
 
 #: src/ui/components/Rating/index.js:71
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "Pohódnoćće tutón přidatk z %(starRating)s 5 hwěžkow."
+msgstr "Pohódnoćće tutón přidatk z %(starRating)s z 5 hwěžkow."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
