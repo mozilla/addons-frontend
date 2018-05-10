@@ -30,6 +30,10 @@ Go to `about:config` in Firefox and set this property to `true`:
 xpinstall.signatures.dev-root
 ```
 
+If you do not see an entry for `xpinstall.signatures.dev-root` in `about:config` you will need to add one by doing the following: 
+
+Right click in `about:config`, select `new` and then add `xpinstall.signatures.dev-root` as `Boolean`.
+
 Restart Firefox to put it into effect. This pref allows
 you to fully install add-on and theme files.
 
