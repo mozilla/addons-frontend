@@ -70,8 +70,9 @@
   grid-column: 1 / span 2;
   margin: 0 0 $padding-page-l;
   width: 100%;
-  word-wrap: break-word;
   line-height: normal;
+  word-wrap: break-word;
+  
 
   .Addon-persona & {
     margin: $padding-page-l 0;
@@ -86,8 +87,9 @@
   @include font-light();
 
   display: block;
-  word-wrap: break-word;
   line-height: 1.5;
+  word-wrap: break-word;
+  
 
   &,
   a,
