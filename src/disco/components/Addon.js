@@ -29,7 +29,7 @@ import {
 import translate from 'core/i18n/translate';
 import { withInstallHelpers } from 'core/installAddon';
 import { getAddonByGUID } from 'core/reducers/addons';
-import themeAction from 'core/themePreview';
+import themeAction from 'core/themeInstall';
 import tracking, { getAddonTypeForTracking } from 'core/tracking';
 import { sanitizeHTMLWithExternalLinks } from 'disco/utils';
 import { getClientCompatibility as _getClientCompatibility } from 'core/utils/compatibility';
@@ -262,9 +262,7 @@ export class AddonBase extends React.Component {
                 'span',
               ])}
             />
-            {type !== ADDON_TYPE_THEME &&
-              this.getDescription()
-            }
+            {type !== ADDON_TYPE_THEME && this.getDescription()}
           </div>
           {/* TODO: find the courage to remove {...this.props} */}
           <InstallButton

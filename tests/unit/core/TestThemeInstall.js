@@ -1,5 +1,5 @@
 import { createInternalAddon } from 'core/reducers/addons';
-import themeAction, { getThemeData } from 'core/themePreview';
+import themeAction, { getThemeData } from 'core/themeInstall';
 import { fakeTheme } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {

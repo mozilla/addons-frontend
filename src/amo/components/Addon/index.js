@@ -70,7 +70,6 @@ export class AddonBase extends React.Component {
     dispatch: PropTypes.func.isRequired,
     errorHandler: PropTypes.object.isRequired,
     getClientCompatibility: PropTypes.func,
-    getBrowserThemeData: PropTypes.func.isRequired,
     i18n: PropTypes.object.isRequired,
     platformFiles: PropTypes.object,
     lang: PropTypes.string.isRequired,
@@ -146,8 +145,7 @@ export class AddonBase extends React.Component {
   }
 
   headerImage() {
-    const { addon, getBrowserThemeData, i18n } = this.props;
-
+    const { addon, i18n } = this.props;
     const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
@@ -157,9 +155,11 @@ export class AddonBase extends React.Component {
           ? addon.previews[0].image_url
           : null;
 
-      let label = i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
-        title: addon.name,
-      });
+      const label = addon
+        ? i18n.sprintf(i18n.gettext('Preview of %(title)s'), {
+            title: addon.name,
+          })
+        : '';
 
       if (!previewURL && type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
@@ -181,7 +181,6 @@ export class AddonBase extends React.Component {
         <div
           className="Addon-theme-header"
           id="Addon-theme-header"
-          data-browsertheme={getBrowserThemeData()}
           role="presentation"
         >
           {unInstalledTheme ? (

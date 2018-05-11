@@ -21,7 +21,7 @@ import {
 import translate from 'core/i18n/translate';
 import { findInstallURL } from 'core/installAddon';
 import log from 'core/logger';
-import { getThemeData } from 'core/themePreview';
+import { getThemeData } from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,

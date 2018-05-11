@@ -9,7 +9,7 @@ import config from 'config';
 
 import { setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
-import themeAction, { getThemeData } from 'core/themePreview';
+import themeAction, { getThemeData } from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,

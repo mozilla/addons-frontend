@@ -52,7 +52,7 @@ import {
   userAgentsByPlatform,
 } from 'tests/unit/helpers';
 import * as installAddon from 'core/installAddon';
-import * as themePreview from 'core/themePreview';
+import * as themeInstall from 'core/themeInstall';
 import { getAddonTypeForTracking, getAddonEventCategory } from 'core/tracking';
 
 const {
@@ -1562,7 +1562,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
   describe('getBrowserThemeData', () => {
     it('formats the browser theme data', () => {
       const { getBrowserThemeData } = getMapStateToProps();
-      sinon.stub(themePreview, 'getThemeData').returns({ foo: 'wat' });
+      sinon.stub(themeInstall, 'getThemeData').returns({ foo: 'wat' });
       expect(getBrowserThemeData({ some: 'data' })).toEqual('{"foo":"wat"}');
     });
   });

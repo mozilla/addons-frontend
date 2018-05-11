@@ -1027,7 +1027,7 @@ describe(__filename, () => {
     );
   });
 
-  it('sets the browsertheme data on the header', () => {
+  it('sets the preview image in the header', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -1036,10 +1036,8 @@ describe(__filename, () => {
           previewURL: 'https://amo/preview.png',
         },
       }),
-      getBrowserThemeData: () => '{"the":"themedata"}',
     });
-    const header = root.find('.Addon-theme-header');
-    expect(header.prop('data-browsertheme')).toEqual('{"the":"themedata"}');
+    expect(root.find('.Addon-theme-header-image')).toHaveLength(1);
   });
 
   it('renders an AddonMoreInfo component when there is an add-on', () => {
