@@ -55,6 +55,9 @@ export class CollectionListBase extends React.Component<Props> {
           </Card>
           {isLoggedIn &&
             <p className="CollectionList-placeholder">
+              {/* TODO: The collections flow is changing a bit (soon), so this
+              needs to be rechecked once that issue is complete.
+              This placeholder text might be unnessary once that update happens. */}
               {i18n.gettext(
                 'Please save your collection and then you can add add-ons to it')
               }

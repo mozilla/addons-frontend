@@ -240,9 +240,9 @@ export class CollectionBase extends React.Component<Props> {
 
     const placeholderText = editing ?
       i18n.gettext(
-        'Add extensions and themes to your collection') :
+        'Search for extensions and themes to add to your collection.') :
       i18n.gettext(
-        'Please save your collection and then you can add add-ons to it');
+        'First, create your collection. Then you can add extensions and themes.');
 
     return (
       <div className="Collection-wrapper">
