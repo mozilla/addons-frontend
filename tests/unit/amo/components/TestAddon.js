@@ -1027,7 +1027,7 @@ describe(__filename, () => {
     );
   });
 
-  it('sets the preview image in the header', () => {
+  it('shows the preview image in the header', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
