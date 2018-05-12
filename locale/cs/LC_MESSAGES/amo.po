@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-12 07:06+0000\n"
+"PO-Revision-Date: 2018-05-12 07:16+0000\n"
 "Last-Translator: Michal Stanke <mstanke@mozilla.cz>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1004,7 +1004,7 @@ msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr "Vítězné rozšíření výzvy Quantum. Polsouchejte rádia z celého světa"
+msgstr "Vítězné rozšíření výzvy Quantum. Poslouchejte rádia z celého světa"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
@@ -1012,15 +1012,15 @@ msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr "Vítezné rozšíření výzdy Quantum. Barevně odlišené panely pro různá vývojářská prostředí"
+msgstr "Vítězné rozšíření výzvy Quantum. Barevně odlišené panely pro různá vývojářská prostředí"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "Někdy na internetu prostě potřebujete kočky, co metají lasery"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
 msgid "Download Manager (S3)"
@@ -1028,7 +1028,7 @@ msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Správa stahování z úhledného stavového panelu"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
@@ -1076,7 +1076,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Zablokujte záludné sledující reklamy a webové prvky"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
@@ -1084,7 +1084,7 @@ msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Nenechte se Facebookem sledovat, kamkoliv na webu jdete"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1096,11 +1096,11 @@ msgstr "Vyplňujete mnoho formulářů? Tento doplněk pomůže"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Vítězné rozšíření výzvy Quantum. Ukládejte relace do záložek po otevření na dalších zařízeních"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
@@ -1984,7 +1984,6 @@ msgid "Rated %(rating)s out of 5."
 msgstr "Ohodnoceno %(rating)s z 5."
 
 #: src/ui/components/Rating/index.js:63
-#, fuzzy
 msgid "This add-on has not been rated yet."
 msgstr "Tento doplněk nemá žádná hodnocení."
 
