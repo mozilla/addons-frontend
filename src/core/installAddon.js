@@ -523,7 +523,6 @@ export class WithInstallHelpers extends React.Component {
     const exposedPropHelpers = {
       enable: (...args) => this.enable(...args),
       install: (...args) => this.install(...args),
-      previewTheme: (...args) => this.previewTheme(...args),
       setCurrentStatus: (...args) => this.setCurrentStatus(...args),
       uninstall: (...args) => this.uninstall(...args),
     };

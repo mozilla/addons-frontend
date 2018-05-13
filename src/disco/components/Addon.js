@@ -54,7 +54,6 @@ export class AddonBase extends React.Component {
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     needsRestart: PropTypes.bool,
-    previewTheme: PropTypes.func.isRequired,
     previewURL: PropTypes.string,
     name: PropTypes.string.isRequired,
     setCurrentStatus: PropTypes.func.isRequired,
