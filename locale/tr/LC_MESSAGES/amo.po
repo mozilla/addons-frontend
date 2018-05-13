@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-12 11:48+0000\n"
+"PO-Revision-Date: 2018-05-13 17:58+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -103,7 +103,7 @@ msgstr "%(addonName)s %(startSpan)sgeliştiren: %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:524
 msgid "Only with Firefox - Get Firefox Now!"
-msgstr ""
+msgstr "Yalnızca Firefox’ta: Firefox’u hemen indirin!"
 
 #: src/amo/components/Addon/index.js:530
 msgid "Extension Metadata"
@@ -380,9 +380,8 @@ msgid "More dictionaries by these translators"
 msgstr "Bu çevirmenlerin diğer sözlükleri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "%(author)s tarafından diğer sözlükler"
+msgstr "%(author)s sözlükleri"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "Dictionaries by these translators"
@@ -429,9 +428,8 @@ msgid "More themes by these artists"
 msgstr "Bu sanatçıların diğer temaları"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:180
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "%(author)s tarafından diğer temalar"
+msgstr "%(author)s temaları"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:183
 msgid "Themes by these artists"
@@ -583,7 +581,7 @@ msgstr "Koleksiyon oluşturmak için giriş yapın"
 
 #: src/amo/components/CollectionList/index.js:57
 msgid "Please save your collection and then you can add add-ons to it"
-msgstr ""
+msgstr "Koleksiyonunuza eklenti ekleyebilmek için lütfen önce koleksiyonu kaydedin"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -942,13 +940,12 @@ msgid "See more highly rated themes"
 msgstr "Yüksek puanlı diğer temalara bakın"
 
 #: src/amo/components/Home/index.js:249
-#, fuzzy
 msgid "“Extensions Challenge” honorees"
-msgstr "Firefox’un çalışma şeklini…"
+msgstr "“Eklentiler Mücadelesi” ödüllüleri"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "“Eklentiler Mücadelesi” ödüllü diğer eklentilere bakın"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -996,36 +993,35 @@ msgstr "Çevrimiçi hayatınızın farklı bölümlerini (iş, kişisel vb.) ren
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "Quantum Eklenti Mücadelesi kazananı! Dünyanın dört bir yanından canlı radyoları dinleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr ""
+msgstr "Quantum Eklentiler Mücadelesi kazananı! Farklı geliştirme ortamları için farklı sekme renkleri"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "Olur da bir kediden lazer ateşlemeniz gerekirse"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "%(name)s indiriliyor."
+msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "İndirmeleri düzenli bir durum çubuğundan yönetin"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
@@ -1073,7 +1069,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Casus reklamları ve izleyicileri engelleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
@@ -1081,7 +1077,7 @@ msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Facebook’un sizi web’de izlemesini engelleyin"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1093,11 +1089,11 @@ msgstr "Çok fazla form mu dolduruyorsunuz? Bu işinize yarayabilir"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Quantum Eklentiler Mücadelesi kazananı! Oturumları yer imi olarak kaydedip onlara farklı cihazlarda erişin"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
@@ -1975,14 +1971,12 @@ msgid "This add-on has not been rated yet."
 msgstr "Bu eklentiye henüz puan verilmemiş."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr "5 üzerinden %(rating)s puan"
+msgstr "Puanınızı 5 üzerinden %(starRating)s olarak güncelleyin."
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "5 üzerinden %(rating)s puan"
+msgstr "Bu eklentiyi 5 üzerinden %(starRating)s olarak puanlayın."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
