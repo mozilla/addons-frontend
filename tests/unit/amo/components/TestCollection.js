@@ -107,6 +107,12 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
   });
 
+  it('renders placeholder text if there are no add-ons', () => {
+    const wrapper = renderComponent({ collection: null });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
+  });
+
   it('dispatches fetchCurrentCollection on mount', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');

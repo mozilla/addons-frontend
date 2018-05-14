@@ -238,12 +238,6 @@ export class CollectionBase extends React.Component<Props> {
 
     const addons = collection ? collection.addons : [];
 
-    const placeholderText = editing ?
-      i18n.gettext(
-        'Search for extensions and themes to add to your collection.') :
-      i18n.gettext(
-        'First, create your collection. Then you can add extensions and themes.');
-
     return (
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
@@ -255,8 +249,12 @@ export class CollectionBase extends React.Component<Props> {
             addons={addons}
             editing={editing}
             loading={!collection || loading}
-            placeholderText={placeholderText}
           />
+          {!loading && addons.length === 0 &&
+            <p className="Collection-placeholder">{ i18n.gettext(
+              'Search for extensions and themes to add to your collection.')}
+            </p>
+          }
           {collection && collection.numberOfAddons > 0 && !editing && (
             <Paginate
               LinkComponent={Link}

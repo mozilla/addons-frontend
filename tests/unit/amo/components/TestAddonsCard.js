@@ -80,27 +80,6 @@ describe(__filename, () => {
     expect(root.find(SearchResult)).toHaveLength(2);
   });
 
-  it('renders placeholder text if supplied and there are no add-ons', () => {
-    const root = render({
-      addons: null,
-      placeholderText: 'Add some fun extensions and themes',
-    });
-
-    expect(root.find('.AddonsCard-placeholder-text')).toHaveLength(1);
-    expect(root.find('.AddonsCard-placeholder-text')
-      .text()).toEqual('Add some fun extensions and themes');
-  });
-
-  it('hides placeholder text if loading and the card has addons', () => {
-    const root = render({
-      addons,
-      loading: true,
-      placeholderText: 'Add some fun extensions and themes',
-    });
-
-    expect(root.find('.AddonsCard-placeholder-text')).toHaveLength(0);
-  });
-
   it('renders addons even when loading', () => {
     const root = render({ addons: [fakeAddon], loading: true });
     const results = root.find(SearchResult);
