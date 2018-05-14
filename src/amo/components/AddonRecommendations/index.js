@@ -68,7 +68,6 @@ export class AddonRecommendationsBase extends React.Component<Props> {
       cookie.save(TAAR_COHORT_COOKIE_NAME, this.cohort, { path: '/' });
     }
 
-    // Set a custom dimension for the cohort.
     tracking.setDimension({
       dimension: TAAR_COHORT_DIMENSION,
       value: this.cohort,
