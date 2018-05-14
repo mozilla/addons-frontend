@@ -233,6 +233,7 @@ export class CollectionBase extends React.Component<Props> {
       editing,
       loading,
       location,
+      i18n,
     } = this.props;
 
     const addons = collection ? collection.addons : [];
@@ -249,6 +250,11 @@ export class CollectionBase extends React.Component<Props> {
             editing={editing}
             loading={!collection || loading}
           />
+          {!loading && addons && addons.length === 0 &&
+            <p className="Collection-placeholder">{ i18n.gettext(
+              'Search for extensions and themes to add to your collection.')}
+            </p>
+          }
           {collection && collection.numberOfAddons > 0 && !editing && (
             <Paginate
               LinkComponent={Link}

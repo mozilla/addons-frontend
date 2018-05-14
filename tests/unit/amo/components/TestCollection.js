@@ -107,6 +107,38 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
   });
 
+  it('renders placeholder text if there are no add-ons', () => {
+    const { store } = dispatchClientMetadata();
+    const collectionDetail = createFakeCollectionDetail();
+
+    store.dispatch(loadCurrentCollection({
+      addons: [],
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
+    expect(wrapper.find('.Collection-placeholder')
+      .text()).toEqual('Search for extensions and themes to add to your collection.');
+  });
+
+  it('hides placeholder text if there are add-ons', () => {
+    const { store } = dispatchClientMetadata();
+
+    const collectionAddons = createFakeCollectionAddons();
+    const collectionDetail = createFakeCollectionDetail();
+
+    store.dispatch(loadCurrentCollection({
+      addons: collectionAddons,
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+  });
+
   it('dispatches fetchCurrentCollection on mount', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');

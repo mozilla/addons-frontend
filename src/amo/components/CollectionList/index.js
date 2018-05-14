@@ -56,7 +56,7 @@ export class CollectionListBase extends React.Component<Props> {
           {isLoggedIn &&
             <p className="CollectionList-placeholder">
               {i18n.gettext(
-                'Please save your collection and then you can add add-ons to it')
+                'First, create your collection. Then you can add extensions and themes.')
               }
             </p>
           }
