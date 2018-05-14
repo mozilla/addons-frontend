@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-14 15:01+0000\n"
+"PO-Revision-Date: 2018-05-13 16:49+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -279,9 +279,8 @@ msgid "Other users with this extension also installed"
 msgstr "Chi utilizza questa estensione ha installato anche"
 
 #: src/amo/components/AddonRecommendations/index.js:147
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "Estensioni più popolari"
+msgstr "Altre estensioni popolari"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -382,14 +381,12 @@ msgid "More dictionaries by these translators"
 msgstr "Altri dizionari degli stessi traduttori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Altri dizionari di %(author)s"
+msgstr "Dizionari di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Altri dizionari degli stessi traduttori"
+msgstr "Dizionari degli stessi traduttori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
@@ -400,14 +397,12 @@ msgid "More extensions by these developers"
 msgstr "Altre estensioni degli stessi sviluppatori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Altre estensioni di %(author)s"
+msgstr "Estensioni di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Altre estensioni degli stessi sviluppatori"
+msgstr "Estensioni degli stessi sviluppatori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -418,14 +413,12 @@ msgid "More language packs by these translators"
 msgstr "Altri language pack degli stessi traduttori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Altri language pack di %(author)s"
+msgstr "Language pack di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Altri language pack degli stessi traduttori"
+msgstr "Language pack degli stessi traduttori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:173
 msgid "More themes by %(author)s"
@@ -436,14 +429,12 @@ msgid "More themes by these artists"
 msgstr "Altri temi degli stessi artisti"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:180
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Altri temi di %(author)s"
+msgstr "Temi di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:183
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Altri temi degli stessi artisti"
+msgstr "Temi degli stessi artisti"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:190
 msgid "More add-ons by %(author)s"
@@ -454,14 +445,12 @@ msgid "More add-ons by these developers"
 msgstr "Altri componenti aggiuntivi degli stessi sviluppatori"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:197
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Altri componenti aggiuntivi di %(author)s"
+msgstr "Componenti aggiuntivi di %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:200
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Altri componenti aggiuntivi degli stessi sviluppatori"
+msgstr "Componenti aggiuntivi degli stessi sviluppatori"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -956,9 +945,8 @@ msgid "See more highly rated themes"
 msgstr "Visualizza altri temi con ottime valutazioni"
 
 #: src/amo/components/Home/index.js:249
-#, fuzzy
 msgid "“Extensions Challenge” honorees"
-msgstr "Le estensioni modificano il funzionamento di Firefox"
+msgstr "Vincitori del “Concorso Estensioni“"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
@@ -1074,28 +1062,24 @@ msgid "Remove clutter and improve readability"
 msgstr "Rimuovi il disordine e migliora la leggibilità"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
-#, fuzzy
 msgid "FoxyGestures"
-msgstr "Gesturefy"
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
-#, fuzzy
 msgid "Customized mouse gestures"
-msgstr "Più di 40 azioni del mouse personalizzabili."
+msgstr "Azioni del mouse personalizzabili"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
-#, fuzzy
 msgid "PrivacyBadger"
-msgstr "Informativa sulla privacy"
+msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
 msgstr "Blocca gli insidiosi annunci ed elementi tracciati che ti spiano"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Container"
-msgstr "Facebook Filter"
+msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
@@ -2003,9 +1987,8 @@ msgid "Update your rating to %(starRating)s out of 5."
 msgstr "Media valutazioni: %(rating)s su 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "Media valutazioni: %(rating)s su 5"
+msgstr "Valuta questo componente aggiuntivo %(starRating)s su 5."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
