@@ -250,7 +250,7 @@ export class CollectionBase extends React.Component<Props> {
             editing={editing}
             loading={!collection || loading}
           />
-          {!loading && addons.length === 0 &&
+          {!loading && addons && addons.length === 0 &&
             <p className="Collection-placeholder">{ i18n.gettext(
               'Search for extensions and themes to add to your collection.')}
             </p>
