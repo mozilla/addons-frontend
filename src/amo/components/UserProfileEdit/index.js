@@ -85,7 +85,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       dispatch,
       errorHandler,
       isEditing,
-      user: newUser,
       username: newUsername,
     } = props;
 
@@ -95,8 +94,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         username: newUsername,
       }));
 
+      // We reset the state for the new user data.
       this.setState({
-        ...this.getFormValues(newUser),
+        ...this.getFormValues(null),
         displaySuccessMessage: false,
       });
     }
@@ -170,7 +170,6 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     } = user;
 
     return {
-      ...defaultFormValues,
       biography,
       displayName,
       homepage,
@@ -337,6 +336,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 encourage them to enter a lot of text (especially the bio) which
                 no one will see. It also gets in the way of settings,
                 like notifications, below.
+                See: https://github.com/mozilla/addons-frontend/issues/4964
               */}
               <label className="UserProfileEdit--label" htmlFor="homepage">
                 {i18n.gettext('Homepage')}

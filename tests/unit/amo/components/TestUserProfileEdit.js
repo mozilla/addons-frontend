@@ -59,11 +59,15 @@ describe(__filename, () => {
   function renderUserProfileEdit({
     i18n = fakeI18n(),
     params = { username: 'tofumatt' },
-    store = dispatchSignInActions({
-      userProps: { ...defaultUserProps },
-    }).store,
+    userProps = { ...defaultUserProps },
+    store = null,
     ...props
   } = {}) {
+    if (!store) {
+      // eslint-disable-next-line no-param-reassign
+      store = dispatchSignInActions({ userProps }).store;
+    }
+
     return shallowUntilTarget(
       <UserProfileEdit i18n={i18n} params={params} store={store} {...props} />,
       UserProfileEditBase
@@ -83,7 +87,7 @@ describe(__filename, () => {
     }));
   }
 
-  it('renders user profile page', () => {
+  it('renders user profile page for current logged user', () => {
     const root = renderUserProfileEdit();
 
     expect(root.find('.UserProfileEdit')).toHaveLength(1);
@@ -135,9 +139,7 @@ describe(__filename, () => {
 
     dispatchSpy.reset();
 
-    // We set `user` to `null` because that's what `mapStateToProps()` would do
-    // because the user is not loaded yet.
-    root.setProps({ username: 'killmonger', user: null });
+    root.setProps({ username: 'killmonger' });
 
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
       errorHandlerId: root.instance().props.errorHandler.id,
@@ -164,10 +166,18 @@ describe(__filename, () => {
   });
 
   it('renders a username input field', () => {
-    const root = renderUserProfileEdit();
+    const username = 'some username';
+    const root = renderUserProfileEdit({
+      params: { username },
+      userProps: {
+        ...defaultUserProps,
+        username,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-username')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-username'))
-      .toHaveProp('value', defaultUserProps.username);
+      .toHaveProp('value', username);
   });
 
   it('renders disabled input fields when user to edit is not loaded', () => {
@@ -221,38 +231,73 @@ describe(__filename, () => {
   });
 
   it('renders a displayName input field', () => {
-    const root = renderUserProfileEdit();
+    const displayName = 'the display name';
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        display_name: displayName,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-displayName')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-displayName'))
-      .toHaveProp('value', defaultUserProps.display_name);
+      .toHaveProp('value', displayName);
   });
 
   it('renders a homepage input field', () => {
-    const root = renderUserProfileEdit();
+    const homepage = 'https://example.org';
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        homepage,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-homepage')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-homepage'))
-      .toHaveProp('value', defaultUserProps.homepage);
+      .toHaveProp('value', homepage);
   });
 
   it('renders a location input field', () => {
-    const root = renderUserProfileEdit();
+    const location = 'Freiburg, Germany';
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        location,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-location')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-location'))
-      .toHaveProp('value', defaultUserProps.location);
+      .toHaveProp('value', location);
   });
 
   it('renders a occupation input field', () => {
-    const root = renderUserProfileEdit();
+    const occupation = 'Bilboquet.';
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        occupation,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-occupation')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-occupation'))
-      .toHaveProp('value', defaultUserProps.occupation);
+      .toHaveProp('value', occupation);
   });
 
   it('renders a biography input field', () => {
-    const root = renderUserProfileEdit();
+    const biography = 'This is a biography.';
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        biography,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-biography'))
-      .toHaveProp('value', defaultUserProps.biography);
+      .toHaveProp('value', biography);
   });
 
   it('captures input field changes ', () => {
@@ -424,6 +469,9 @@ describe(__filename, () => {
     root.setProps({ isEditing });
 
     expect(root.find(Notice)).toHaveLength(1);
+    expect(root.find(Notice)).toHaveProp('type', 'success');
+    expect(root.find(Notice))
+      .toHaveProp('children', 'Profile successfully updated.');
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
@@ -514,7 +562,6 @@ describe(__filename, () => {
     const linkItems = root.find('.UserProfileEdit-user-links li');
     expect(linkItems.at(0).find(Link))
       .toHaveProp('children', "View user's profile");
-    // We are on the edit page, so we do not use a link for this item.
     expect(linkItems.at(1).children()).toHaveText("Edit user's profile");
 
     expect(root.find('.UserProfileEdit--Card').first())
