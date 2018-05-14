@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-09 14:33+0000\n"
+"PO-Revision-Date: 2018-05-13 16:48+0000\n"
 "Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
@@ -593,7 +593,7 @@ msgstr "Accedi per creare la raccolta"
 
 #: src/amo/components/CollectionList/index.js:57
 msgid "Please save your collection and then you can add add-ons to it"
-msgstr ""
+msgstr "Prima di aggiugere componenti aggiuntivi devi salvare la raccolta"
 
 #: src/amo/components/CollectionManager/index.js:228
 msgid "Collection name"
@@ -962,7 +962,7 @@ msgstr "Le estensioni modificano il funzionamento di Firefox"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "Vedi altri vincitori del “Concorso Estensioni”"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -1010,7 +1010,7 @@ msgstr "Mantieni i diversi aspetti della tua vita online, come lavoro, personale
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
@@ -1018,7 +1018,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1026,11 +1026,11 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "Per quei momenti durante la navigazione in cui hai bisogno di un gatto spara-laser"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
 #, fuzzy
@@ -1090,7 +1090,7 @@ msgstr "Informativa sulla privacy"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Blocca gli insidiosi annunci ed elementi tracciati che ti spiano"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 #, fuzzy
@@ -1111,7 +1111,7 @@ msgstr "Compili tanti moduli online? Questo componente potrebbe fare al caso tuo
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
@@ -1991,7 +1991,7 @@ msgstr "Accedere ai dati utente di %(param)s"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5."
-msgstr ""
+msgstr "Valutazione: %(rating)s su 5."
 
 #: src/ui/components/Rating/index.js:63
 msgid "This add-on has not been rated yet."
