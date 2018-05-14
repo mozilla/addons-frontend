@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-09 11:50+0000\n"
-"PO-Revision-Date: 2018-05-14 07:11+0000\n"
+"PO-Revision-Date: 2018-05-14 07:20+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -278,9 +278,8 @@ msgid "Other users with this extension also installed"
 msgstr "Oare brûkers mei dizze útwreiding brûke ek"
 
 #: src/amo/components/AddonRecommendations/index.js:147
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "Meast populêre útwreidingen"
+msgstr "Oare populêre útwreidingen"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -381,14 +380,12 @@ msgid "More dictionaries by these translators"
 msgstr "Mear wurdboeken fan dizze oersetters"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Mear wurdboeken fan %(author)s"
+msgstr "Wurdboeken fan %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Mear wurdboeken fan dizze oersetters"
+msgstr "Wurdboeken fan dizze oersetters"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
@@ -399,14 +396,12 @@ msgid "More extensions by these developers"
 msgstr "Mear útwreidingen fan dizze ûntwikkelers"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Mear útwreidingen fan %(author)s"
+msgstr "Utwreidingen fan %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Mear útwreidingen fan dizze ûntwikkelers"
+msgstr "Utwreidingen fan dizze ûntwikkelers"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -417,14 +412,12 @@ msgid "More language packs by these translators"
 msgstr "Mear taalpakketten fan dizze oersetters"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Mear taalpakketten fan %(author)s"
+msgstr "Taalpakketten fan %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Mear taalpakketten fan dizze oersetters"
+msgstr "Taalpakketten fan dizze oersetters"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:173
 msgid "More themes by %(author)s"
@@ -435,14 +428,12 @@ msgid "More themes by these artists"
 msgstr "Mear tema’s fan dizze kuenstners"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:180
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Mear tema’s fan %(author)s"
+msgstr "Tema’s fan %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:183
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Mear tema’s fan dizze kuenstners"
+msgstr "Tema’s fan dizze kuenstners"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:190
 msgid "More add-ons by %(author)s"
@@ -453,14 +444,12 @@ msgid "More add-ons by these developers"
 msgstr "Mear add-ons fan dizze ûntwikkelers"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:197
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Mear add-ons fan %(author)s"
+msgstr "Add-ons fan %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:200
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Mear add-ons fan dizze ûntwikkelers"
+msgstr "Add-ons fan dizze ûntwikkelers"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -943,19 +932,16 @@ msgid "See more privacy tools"
 msgstr "Mear privacyark besjen"
 
 #: src/amo/components/Home/index.js:234
-#, fuzzy
 msgid "Top-rated themes"
 msgstr "Heechst wurdearre tema's"
 
 #: src/amo/components/Home/index.js:235
-#, fuzzy
 msgid "See more highly rated themes"
 msgstr "Mear heechst wurdearre tema's besjen"
 
 #: src/amo/components/Home/index.js:249
-#, fuzzy
 msgid "“Extensions Challenge” honorees"
-msgstr "Utwreidingen wizigje hoe Firefox wurket"
+msgstr "‘Extensions Challenge’-earden"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
@@ -1019,24 +1005,23 @@ msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr ""
+msgstr "Quantum Extensions Challenge-winner! Ferskate ljepblêdkleuren foar ferskate ûntwikkelomjouwingen"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "Foar mominten op it ynternet wêrop jo lasers fan in kat út sjitte moatte"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "%(name)s wurdt download."
+msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Behear downloads fan in lytse steatbalke út"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
@@ -1071,32 +1056,28 @@ msgid "Remove clutter and improve readability"
 msgstr "Smyt rommel fuort en ferbetterje de lêsberheid"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
-#, fuzzy
 msgid "FoxyGestures"
-msgstr "Gesturefy"
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
-#, fuzzy
 msgid "Customized mouse gestures"
-msgstr "Mear as 40 oanpasbere mûsbewegingen."
+msgstr "Oanpaste mûsbewegingen"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
-#, fuzzy
 msgid "PrivacyBadger"
-msgstr "Privacy"
+msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Blokkearje stikeme bespionearjende advertinsjes en trackers"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Container"
-msgstr "Facebook Filter"
+msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Foarkom dat Facebook jo folget op it web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1108,11 +1089,11 @@ msgstr "Folje jo faaks formulieren yn? Dit kin helpe"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Quantum Extensions Challenge-winner! Bewarje sesjes en blêdwizers en diel se mei oare apparaten"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
@@ -1981,24 +1962,20 @@ msgid "Access your data for %(param)s"
 msgstr "Jo gegevens foar %(param)s benaderje"
 
 #: src/ui/components/Rating/index.js:60
-#, fuzzy
 msgid "Rated %(rating)s out of 5."
-msgstr "Wurdearring %(rating)s fan 5"
+msgstr "Wurdearring: %(rating)s fan 5."
 
 #: src/ui/components/Rating/index.js:63
-#, fuzzy
 msgid "This add-on has not been rated yet."
-msgstr "Dizze add-on hat gjin wurdearringen."
+msgstr "Dizze add-on is noch net wurdearre."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr "Wurdearring %(rating)s fan 5"
+msgstr "Wurkje jo wurdearring by nei %(starRating)s fan 5."
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5."
-msgstr "Wurdearring %(rating)s fan 5"
+msgstr "Dizze add-on mei %(starRating)s fan 5 wurdearje."
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
