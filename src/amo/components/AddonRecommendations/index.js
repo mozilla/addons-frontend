@@ -26,6 +26,8 @@ import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 
+import './styles.scss';
+
 export const TAAR_IMPRESSION_CATEGORY = 'AMO Addon / Recommendations Shown';
 export const TAAR_COHORT_COOKIE_NAME = 'taar_cohort';
 export const TAAR_COHORT_INCLUDED: 'TAAR_COHORT_INCLUDED'
