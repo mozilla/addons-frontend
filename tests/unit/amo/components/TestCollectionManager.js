@@ -438,6 +438,7 @@ describe(__filename, () => {
   it('autofills slug with trimmed collection name', () => {
     const name = "trishul's collection";
     const root = render({ collection: null, creating: true });
+
     typeInput({ root, name: 'name', text: `  ${name}  ` });
 
     expect(root).toHaveState('slug', 'trishul-s-collection');
@@ -446,6 +447,7 @@ describe(__filename, () => {
   it('does not update slug if event value is null', () => {
     const name = "trishul's collection";
     const root = render({ collection: null, creating: true });
+
     typeInput({ root, name: 'name', text: name });
     typeInput({ root, name: 'slug', text: null });
 
@@ -454,10 +456,10 @@ describe(__filename, () => {
 
   it('does not update slug if event value is undefined', () => {
     const name = "trishul's collection";
-    let slug;
     const root = render({ collection: null, creating: true });
+
     typeInput({ root, name: 'name', text: name });
-    typeInput({ root, name: 'slug', text: slug });
+    typeInput({ root, name: 'slug', text: undefined });
 
     expect(root).toHaveState('slug', 'trishul-s-collection');
   });
