@@ -219,7 +219,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
-  it('should dispatch a fetch action if no add-ons found', () => {
+  it('dispatches fetchAddonsByAuthors on mount', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -231,103 +231,11 @@ describe(__filename, () => {
       store,
     });
 
+    sinon.assert.callCount(dispatchSpy, 1);
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
       authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
-    }));
-  });
-
-  it('should dispatch a fetch action if authorUsernames are updated', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorUsernames: ['test2'],
-      errorHandler,
-      store,
-    });
-
-    dispatchSpy.reset();
-
-    root.setProps({
-      addonType: ADDON_TYPE_THEME,
-      authorUsernames: ['test1'],
-    });
-
-    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_THEME,
-      authorUsernames: ['test1'],
-      errorHandlerId: errorHandler.id,
-    }));
-
-    // Make sure an authorUsernames update even with the same addonType dispatches
-    // a fetch action.
-    dispatchSpy.reset();
-
-    root.setProps({
-      addonType: ADDON_TYPE_THEME,
-      authorUsernames: ['test2'],
-    });
-
-    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_THEME,
-      authorUsernames: ['test2'],
-      errorHandlerId: errorHandler.id,
-    }));
-  });
-
-  it('should dispatch a fetch action if addonType is updated', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorUsernames: ['test2'],
-      errorHandler,
-      store,
-    });
-
-    dispatchSpy.reset();
-
-    root.setProps({
-      addonType: ADDON_TYPE_OPENSEARCH,
-      authorUsernames: ['test2'],
-    });
-
-    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_OPENSEARCH,
-      authorUsernames: ['test2'],
-      errorHandlerId: errorHandler.id,
-    }));
-  });
-
-  it('should dispatch a fetch action if forAddonSlug is updated', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-
-    const root = render({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorUsernames: ['test2'],
-      errorHandler,
-      store,
-    });
-
-    dispatchSpy.reset();
-
-    root.setProps({
-      forAddonSlug: 'testing',
-    });
-
-    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorUsernames: ['test2'],
-      errorHandlerId: errorHandler.id,
-      forAddonSlug: 'testing',
     }));
   });
 

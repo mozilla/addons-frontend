@@ -1,6 +1,5 @@
 /* @flow */
 import makeClassName from 'classnames';
-import deepEqual from 'deep-eql';
 import * as React from 'react';
 import { compose } from 'redux';
 import { connect } from 'react-redux';
@@ -55,43 +54,13 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
   }
 
   componentWillMount() {
-    const { addons, addonType, authorUsernames, forAddonSlug } = this.props;
+    const { addonType, authorUsernames, dispatch, errorHandler, forAddonSlug } = this.props;
 
-    if (!addons) {
-      this.dispatchFetchAddonsByAuthors({ addonType, authorUsernames, forAddonSlug });
-    }
-  }
-
-  componentWillReceiveProps({
-    addonType: newAddonType,
-    authorUsernames: newAuthorNames,
-    forAddonSlug: newForAddonSlug,
-  }: Props) {
-    const {
-      addonType: oldAddonType,
-      authorUsernames: oldAuthorNames,
-      forAddonSlug: oldForAddonSlug,
-    } = this.props;
-
-    if (
-      oldAddonType !== newAddonType ||
-      oldForAddonSlug !== newForAddonSlug ||
-      !deepEqual(oldAuthorNames, newAuthorNames)
-    ) {
-      this.dispatchFetchAddonsByAuthors({
-        addonType: newAddonType,
-        authorUsernames: newAuthorNames,
-        forAddonSlug: newForAddonSlug,
-      });
-    }
-  }
-
-  dispatchFetchAddonsByAuthors({ addonType, authorUsernames, forAddonSlug }: Object) {
-    this.props.dispatch(fetchAddonsByAuthors({
+    dispatch(fetchAddonsByAuthors({
       addonType,
       authorUsernames,
       forAddonSlug,
-      errorHandlerId: this.props.errorHandler.id,
+      errorHandlerId: errorHandler.id,
     }));
   }
 
