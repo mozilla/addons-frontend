@@ -2,6 +2,7 @@
 /* eslint-disable no-underscore-dangle */
 import { oneLine } from 'common-tags';
 import config from 'config';
+import invariant from 'invariant';
 
 import { convertBoolean } from 'core/utils';
 import log from 'core/logger';
@@ -136,6 +137,17 @@ export class Tracking {
   pageView(data = {}) {
     this._ga('send', 'pageview', data);
     this.log('pageView', JSON.stringify(data));
+  }
+
+  /*
+  * Can be called to set a dimension which will be sent with all
+  * subsequent calls to GA.
+  */
+  setDimension({ dimension, value }) {
+    invariant(dimension, 'A dimension is required');
+    invariant(value, 'A value is required');
+    this._ga('set', dimension, value);
+    this.log('set', { dimension, value });
   }
 }
 
