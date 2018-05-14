@@ -77,7 +77,6 @@ export class AddonBase extends React.Component {
     // See ReactRouterLocation in 'core/types/router'
     location: PropTypes.object.isRequired,
     params: PropTypes.object.isRequired,
-    // eslint-disable-next-line react/require-default-props
     installStatus: PropTypes.string.isRequired,
     userAgentInfo: PropTypes.object.isRequired,
     addonsByAuthors: PropTypes.array.isRequired,
@@ -147,8 +146,8 @@ export class AddonBase extends React.Component {
 
   headerImage() {
     const { addon, i18n } = this.props;
+
     const previewURL = addon ? addon.previewURL : null;
-    const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
     if (this.addonIsTheme()) {
       let previewURL =
@@ -164,16 +163,17 @@ export class AddonBase extends React.Component {
 
       if (!previewURL && type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
-        label = isPreviewingTheme
-          ? i18n.gettext('Cancel preview')
-          : i18n.gettext('Tap to preview');
       }
 
-      const imageClassName = 'Addon-theme-header-image';
-
       const headerImage = (
-        <img alt={label} className={imageClassName} src={previewURL} />
+        <img
+          alt={label}
+          className="Addon-theme-header-image"
+          src={previewURL}
+        />
       );
+
+      const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
       const unInstalledTheme =
         installStatus !== ENABLED && type === ADDON_TYPE_THEME;
@@ -201,6 +201,7 @@ export class AddonBase extends React.Component {
     }
 
     const iconUrl = getAddonIconUrl(addon);
+
     return (
       <div className="Addon-icon">
         <img className="Addon-icon-image" alt="" src={iconUrl} />

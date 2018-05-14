@@ -1,11 +1,8 @@
-import { validThemeActions } from 'core/constants';
+import { THEME_INSTALL } from 'core/constants';
 
-export default function themeAction(node, action, _doc = document) {
-  if (!validThemeActions.includes(action)) {
-    throw new Error('Invalid theme action requested');
-  }
+export default function themeInstall(node, _doc = document) {
   const event = _doc.createEvent('Events');
-  event.initEvent(action, true, false);
+  event.initEvent(THEME_INSTALL, true, false);
   node.dispatchEvent(event);
 }
 
@@ -31,3 +28,4 @@ export function getThemeData(themeData) {
     version: themeData.version,
   };
 }
+

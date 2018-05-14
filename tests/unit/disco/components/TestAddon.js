@@ -41,7 +41,6 @@ import LoadingText from 'ui/components/LoadingText';
 function renderAddon(customProps = {}) {
   const props = {
     setCurrentStatus: sinon.stub(),
-    getBrowserThemeData: () => '{"theme":"data"}',
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     hasAddonManager: true,
     i18n: fakeI18n(),

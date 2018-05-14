@@ -60,7 +60,6 @@ const {
   installTheme,
   makeProgressHandler,
   makeMapDispatchToProps,
-  mapStateToProps,
   withInstallHelpers,
 } = installAddon;
 
@@ -1507,7 +1506,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
 
     function installThemeStubs() {
       return {
-        _themeAction: sinon.spy(),
+        _themeInstall: sinon.spy(),
         _tracking: {
           sendEvent: sinon.spy(),
         },
@@ -1519,7 +1518,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const node = sinon.stub();
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
-      expect(stubs._themeAction.calledWith(node, THEME_INSTALL)).toBeTruthy();
+      expect(stubs._themeInstall.calledWith(node)).toBeTruthy();
     });
 
     it('tracks a theme install', () => {
@@ -1546,7 +1545,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
       expect(stubs._tracking.sendEvent.called).toBeFalsy();
-      expect(stubs._themeAction.called).toBeFalsy();
+      expect(stubs._themeInstall.called).toBeFalsy();
     });
 
     it('does not try to install theme if it is an extension', () => {
@@ -1555,15 +1554,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       const stubs = installThemeStubs();
       installTheme(node, addon, stubs);
       expect(stubs._tracking.sendEvent.called).toBeFalsy();
-      expect(stubs._themeAction.called).toBeFalsy();
-    });
-  });
-
-  describe('getBrowserThemeData', () => {
-    it('formats the browser theme data', () => {
-      const { getBrowserThemeData } = getMapStateToProps();
-      sinon.stub(themeInstall, 'getThemeData').returns({ foo: 'wat' });
-      expect(getBrowserThemeData({ some: 'data' })).toEqual('{"foo":"wat"}');
+      expect(stubs._themeInstall.called).toBeFalsy();
     });
   });
 });

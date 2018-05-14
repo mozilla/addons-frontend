@@ -94,7 +94,6 @@ function renderProps({
     dispatch: sinon.stub(),
     errorHandler: createStubErrorHandler(),
     getClientCompatibility: () => ({ compatible: true, reason: null }),
-    getBrowserThemeData: () => '{}',
     i18n,
     location: fakeRouterLocation(),
     params: params || { slug: addon ? addon.slug : fakeAddon.slug },

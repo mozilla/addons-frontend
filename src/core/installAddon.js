@@ -9,7 +9,7 @@ import config from 'config';
 
 import { setInstallState } from 'core/actions/installations';
 import log from 'core/logger';
-import themeAction, { getThemeData } from 'core/themeInstall';
+import themeInstall, { getThemeData } from 'core/themeInstall';
 import tracking, {
   getAddonTypeForTracking,
   getAddonEventCategory,
@@ -79,14 +79,14 @@ import {
 export function installTheme(
   node,
   addon,
-  { _themeAction = themeAction, _tracking = tracking } = {},
+  { _themeInstall = themeInstall, _tracking = tracking } = {},
 ) {
   const { name, status, type } = addon;
   if (
     type === ADDON_TYPE_THEME &&
     [DISABLED, UNINSTALLED, UNKNOWN].includes(status)
   ) {
-    _themeAction(node, THEME_INSTALL);
+    _themeInstall(node);
     // For consistency, track both a start-install and an install event.
     _tracking.sendEvent({
       action: TRACKING_TYPE_THEME,
@@ -137,14 +137,6 @@ export function getGuid(ownProps) {
   // Returns guid directly on ownProps or if ownProps
   // has an addons object return the guid from there.
   return ownProps.guid || (ownProps.addon && ownProps.addon.guid);
-}
-
-export function mapStateToProps(state, ownProps) {
-  return {
-    getBrowserThemeData() {
-      return JSON.stringify(getThemeData(ownProps));
-    },
-  };
 }
 
 export function makeMapDispatchToProps({
@@ -541,7 +533,6 @@ export function withInstallHelpers({
   return (WrappedComponent) =>
     compose(
       connect(
-        mapStateToProps,
         _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
       ),
     )(WithInstallHelpers);

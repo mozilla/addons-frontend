@@ -1,14 +1,8 @@
 import { createInternalAddon } from 'core/reducers/addons';
-import themeAction, { getThemeData } from 'core/themeInstall';
+import { getThemeData } from 'core/themeInstall';
 import { fakeTheme } from 'tests/unit/amo/helpers';
 
 describe(__filename, () => {
-  it('throws for invalid action', () => {
-    expect(() => {
-      themeAction(null, 'whatever');
-    }).toThrowError('Invalid theme action requested');
-  });
-
   it('returns themeData from getThemeData', () => {
     const themeData = {
       accentcolor: '#000',

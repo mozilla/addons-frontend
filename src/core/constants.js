@@ -169,11 +169,8 @@ export const SET_VIEW_CONTEXT = 'SET_VIEW_CONTEXT';
 export const CLOSE_INFO = 'CLOSE_INFO';
 export const SHOW_INFO = 'SHOW_INFO';
 
-// Theme actions.
+// Theme action.
 export const THEME_INSTALL = 'InstallBrowserTheme';
-export const validThemeActions = [
-  THEME_INSTALL,
-];
 
 export const INSTALL_EVENT_LIST = [
   'onDownloadStarted',
