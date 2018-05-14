@@ -143,6 +143,12 @@
   }
 }
 
+.Button--get-firefox {
+  @include respond-to(extraLarge) {
+    margin-top: 14px;
+  }
+}
+
 .Addon-summary {
   font-size: $font-size-m-smaller;
   overflow-x: auto;

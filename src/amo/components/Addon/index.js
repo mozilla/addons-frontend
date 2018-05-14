@@ -520,8 +520,9 @@ export class AddonBase extends React.Component {
                     buttonType="confirm"
                     href={downloadUrl}
                     puffy
+                    className="Button--get-firefox"
                   >
-                    {i18n.gettext('Only with Firefox - Get Firefox Now!')}
+                    {i18n.gettext('Only with Firefox — Get Firefox Now!')}
                   </Button>
                 }
               </div>
