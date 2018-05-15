@@ -18,6 +18,7 @@ import {
   FATAL_UNINSTALL_ERROR,
   INSTALL_FAILED,
   TRACKING_TYPE_EXTENSION,
+  UNINSTALLED,
   UNINSTALLING,
 } from 'core/constants';
 import AddonCompatibilityError from 'disco/components/AddonCompatibilityError';
@@ -41,6 +42,7 @@ import LoadingText from 'ui/components/LoadingText';
 function renderAddon(customProps = {}) {
   const props = {
     setCurrentStatus: sinon.stub(),
+    getBrowserThemeData: () => '{"theme":"data"}',
     getClientCompatibility: () => ({ compatible: true, reason: null }),
     hasAddonManager: true,
     i18n: fakeI18n(),
@@ -398,6 +400,28 @@ describe(__filename, () => {
 
     it("doesn't render the logo for a theme", () => {
       expect(root.find('.logo')).toHaveLength(0);
+    });
+
+    it('calls installTheme on click', () => {
+      const installTheme = sinon.stub();
+      const addon = result;
+      const shallowRoot = renderAddon({
+        addon,
+        clientApp: signedInApiState.clientApp,
+        installTheme,
+        status: UNINSTALLED,
+        type: ADDON_TYPE_THEME,
+        userAgentInfo: signedInApiState.userAgentInfo,
+      });
+      const themeImage = shallowRoot.find('.theme-image');
+
+      themeImage.simulate('click', {
+        ...fakeEvent,
+        currentTarget: themeImage,
+      });
+
+      sinon.assert.called(fakeEvent.preventDefault);
+      sinon.assert.calledWith(installTheme, themeImage, addon);
     });
   });
 

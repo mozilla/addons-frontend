@@ -45,6 +45,7 @@ export class AddonBase extends React.Component {
     description: PropTypes.string,
     error: PropTypes.string,
     heading: PropTypes.string.isRequired,
+    getBrowserThemeData: PropTypes.func.isRequired,
     getClientCompatibility: PropTypes.func,
     i18n: PropTypes.object.isRequired,
     iconUrl: PropTypes.string,
@@ -105,16 +106,23 @@ export class AddonBase extends React.Component {
   }
 
   getThemeImage() {
-    const { i18n, name, previewURL } = this.props;
+    const { getBrowserThemeData, i18n, name, previewURL } = this.props;
     if (this.props.type === ADDON_TYPE_THEME) {
+      /* eslint-disable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
       return (
-        <span className="theme-image">
+        <a
+          href="#"
+          className="theme-image"
+          data-browsertheme={getBrowserThemeData()}
+          onClick={this.installTheme}
+        >
           <img
             src={previewURL}
             alt={sprintf(i18n.gettext('Preview of %(name)s'), { name })}
           />
-        </span>
+        </a>
       );
+      /* eslint-enable jsx-a11y/href-no-hash, jsx-a11y/anchor-is-valid */
     }
     return null;
   }

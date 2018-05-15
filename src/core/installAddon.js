@@ -139,6 +139,14 @@ export function getGuid(ownProps) {
   return ownProps.guid || (ownProps.addon && ownProps.addon.guid);
 }
 
+export function mapStateToProps(state, ownProps) {
+  return {
+    getBrowserThemeData() {
+      return JSON.stringify(getThemeData(ownProps));
+    },
+  };
+}
+
 export function makeMapDispatchToProps({
   WrappedComponent,
   defaultInstallSource,
@@ -533,6 +541,7 @@ export function withInstallHelpers({
   return (WrappedComponent) =>
     compose(
       connect(
+        mapStateToProps,
         _makeMapDispatchToProps({ WrappedComponent, defaultInstallSource }),
       ),
     )(WithInstallHelpers);
