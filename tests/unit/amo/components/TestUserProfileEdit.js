@@ -374,7 +374,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       userFields: {
         biography: user.biography,
-        display_name: user.displayName,
+        display_name: user.display_name,
         homepage: user.homepage,
         location: user.location,
         occupation: user.occupation,
@@ -465,7 +465,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       userFields: {
         biography: user.biography,
-        display_name: user.displayName,
+        display_name: user.display_name,
         homepage: user.homepage,
         location,
         occupation: user.occupation,

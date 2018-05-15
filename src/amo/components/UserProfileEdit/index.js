@@ -228,7 +228,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             <title>
               {i18n.sprintf(
                 i18n.gettext('User Profile for %(user)s'),
-                { user: user.displayName }
+                { user: user.name }
               )}
             </title>
           </Helmet>

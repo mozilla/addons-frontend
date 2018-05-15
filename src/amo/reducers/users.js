@@ -54,8 +54,6 @@ export type ExternalUserType = {|
 
 export type UserType = {|
   ...ExternalUserType,
-  // Properties we add to each object.
-  displayName: string | null,
 |};
 
 export type UsersStateType = {
@@ -228,13 +226,6 @@ export const getCurrentUser = (users: UsersStateType) => {
   return currentUser;
 };
 
-export const getDisplayName = (user: ExternalUserType) => {
-  // We fallback to the username if no display name has been defined by the
-  // user.
-  return user.display_name && user.display_name.length ?
-    user.display_name : user.username;
-};
-
 export const hasPermission = (
   state: { users: UsersStateType }, permission: string,
 ): boolean => {
@@ -291,13 +282,8 @@ export const addUserToState = ({ state, user } : {
   user: ExternalUserType,
   state: UsersStateType,
 }): Object => {
-  const newUser: UserType = {
-    ...user,
-    displayName: getDisplayName(user),
-  };
-
-  const byID = { ...state.byID, [newUser.id]: newUser };
-  const byUsername = { ...state.byUsername, [newUser.username]: newUser.id };
+  const byID = { ...state.byID, [user.id]: user };
+  const byUsername = { ...state.byUsername, [user.username]: user.id };
 
   return { byID, byUsername };
 };

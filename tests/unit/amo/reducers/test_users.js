@@ -3,7 +3,6 @@ import reducer, {
   finishEditUserAccount,
   editUserAccount,
   getCurrentUser,
-  getDisplayName,
   getUserById,
   getUserByUsername,
   hasAnyReviewerRelatedPermission,
@@ -197,56 +196,6 @@ describe(__filename, () => {
       const { state } = dispatchSignInActions({ userProps: { permissions } });
 
       expect(hasAnyReviewerRelatedPermission(state)).toEqual(true);
-    });
-  });
-
-  describe('getDisplayName selector', () => {
-    it('sets the display name when user has a display name', () => {
-      const displayName = 'King of the Elephants';
-      const { state } = dispatchSignInActions({
-        userProps: { display_name: displayName },
-      });
-
-      expect(getDisplayName(getCurrentUser(state.users))).toEqual(displayName);
-    });
-
-    it('returns the username when display name is null', () => {
-      const username = 'babar';
-      const displayName = null;
-      const { state } = dispatchSignInActions({
-        userProps: { display_name: displayName, username },
-      });
-
-      expect(getDisplayName(getCurrentUser(state.users))).toEqual(username);
-    });
-
-    it('returns the username when display name is undefined', () => {
-      const username = 'babar';
-      const displayName = undefined;
-      const { state } = dispatchSignInActions({
-        userProps: { display_name: displayName, username },
-      });
-
-      expect(getDisplayName(getCurrentUser(state.users))).toEqual(username);
-    });
-
-    it('returns the username when display name is an empty string', () => {
-      const username = 'babar';
-      const displayName = '';
-      const { state } = dispatchSignInActions({
-        userProps: { display_name: displayName, username },
-      });
-
-      expect(getDisplayName(getCurrentUser(state.users))).toEqual(username);
-    });
-
-    it('returns the username when user did not define a display name', () => {
-      const username = 'babar';
-      const { state } = dispatchSignInActions({
-        userProps: { display_name: undefined, username },
-      });
-
-      expect(getDisplayName(getCurrentUser(state.users))).toEqual(username);
     });
   });
 

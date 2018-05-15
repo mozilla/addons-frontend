@@ -96,7 +96,7 @@ export class HeaderBase extends React.Component {
 
           {siteUser ? (
             <DropdownMenu
-              text={siteUser.displayName}
+              text={siteUser.name}
               className="Header-authenticate-button Header-button"
             >
               <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>

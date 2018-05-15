@@ -84,13 +84,13 @@ export class UserProfileBase extends React.Component<Props> {
         <UserAvatar className="UserProfile-avatar" user={user} />
 
         <h1 className="UserProfile-name">
-          {user ? user.displayName : <LoadingText />}
+          {user ? user.name : <LoadingText />}
         </h1>
       </React.Fragment>
     );
     const userProfileTitle = i18n.sprintf(
       i18n.gettext('User Profile for %(user)s'), {
-        user: user ? user.displayName : params.username,
+        user: user ? user.name : params.username,
       }
     );
 
@@ -160,7 +160,7 @@ export class UserProfileBase extends React.Component<Props> {
             <div className="UserProfile-addons-by-author">
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={[user.displayName]}
+                authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
                 numberOfAddons={3}
                 showSummary
@@ -170,7 +170,7 @@ export class UserProfileBase extends React.Component<Props> {
 
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_THEME}
-                authorDisplayName={[user.displayName]}
+                authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
                 numberOfAddons={6}
                 showMore={false}
