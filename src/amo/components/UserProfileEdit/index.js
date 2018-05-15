@@ -4,6 +4,7 @@ import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
 import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
@@ -23,14 +24,17 @@ import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
 import type { UsersStateType, UserType } from 'amo/reducers/users';
+import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import type { I18nType } from 'core/types/i18n';
+import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
 
 type Props = {|
+  clientApp: string,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
@@ -39,9 +43,11 @@ type Props = {|
   // TODO: change the name of this prop everywhere, see:
   // https://github.com/mozilla/addons-frontend/issues/4993
   isEditing: boolean,
+  lang: string,
   // The routing `params` prop is used in `mapStateToProps()`.
   // eslint-disable-next-line react/no-unused-prop-types
   params: {| username: string |},
+  router: ReactRouterType,
   user: UserType | null,
   username: string,
 |};
@@ -84,20 +90,25 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   componentWillReceiveProps(props: Props) {
     const { isEditing: wasEditing, username: oldUsername } = this.props;
     const {
+      clientApp,
       dispatch,
       errorHandler,
       isEditing,
+      lang,
+      params,
+      router,
       user: newUser,
       username: newUsername,
     } = props;
 
-    if (oldUsername !== newUsername && !newUser) {
-      dispatch(fetchUserAccount({
-        errorHandlerId: errorHandler.id,
-        username: newUsername,
-      }));
+    if (oldUsername !== newUsername) {
+      if (!newUser) {
+        dispatch(fetchUserAccount({
+          errorHandlerId: errorHandler.id,
+          username: newUsername,
+        }));
+      }
 
-      // We reset the state with the new user data (possibly `null`).
       this.setState({
         ...this.getFormValues(newUser),
         displaySuccessMessage: false,
@@ -106,6 +117,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (wasEditing && !isEditing && !errorHandler.hasError()) {
       this.setState({ displaySuccessMessage: true });
+    }
+
+    if (params.username && oldUsername !== newUsername) {
+      router.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
     }
   }
 
@@ -450,9 +465,14 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 }
 
 export function mapStateToProps(
-  state: { users: UsersStateType },
+  state: {
+    api: ApiStateType,
+    users: UsersStateType,
+  },
   ownProps: Props,
 ) {
+  const { clientApp, lang } = state.api;
+
   const currentUser = getCurrentUser(state.users);
   const user = ownProps.params.username ?
     getUserByUsername(state.users, ownProps.params.username) : currentUser;
@@ -463,15 +483,18 @@ export function mapStateToProps(
   }
 
   return {
+    clientApp,
     currentUser,
     hasEditPermission,
     isEditing: state.users.isEditing,
+    lang,
     user,
     username: user ? user.username : ownProps.params.username,
   };
 }
 
 export default compose(
+  withRouter,
   connect(mapStateToProps),
   translate(),
   withErrorHandler({ name: 'UserProfileEdit' }),

@@ -13,7 +13,10 @@ import {
   getCurrentUser,
   loadUserAccount,
 } from 'amo/reducers/users';
-import { USERS_EDIT } from 'core/constants';
+import {
+  CLIENT_APP_FIREFOX,
+  USERS_EDIT,
+} from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
@@ -23,6 +26,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import {
   createFakeEvent,
+  createFakeRouter,
   createStubErrorHandler,
   createUserAccountResponse,
   fakeI18n,
@@ -31,6 +35,8 @@ import {
 
 
 describe(__filename, () => {
+  let fakeRouter;
+
   const defaultUserProps = {
     biography: 'Saved the world, too many times.',
     display_name: 'Matt MacTofu',
@@ -68,8 +74,15 @@ describe(__filename, () => {
       store = dispatchSignInActions({ userProps }).store;
     }
 
+    fakeRouter = createFakeRouter({ params });
+
     return shallowUntilTarget(
-      <UserProfileEdit i18n={i18n} params={params} store={store} {...props} />,
+      <UserProfileEdit
+        i18n={i18n}
+        router={fakeRouter}
+        store={store}
+        {...props}
+      />,
       UserProfileEditBase
     );
   }
@@ -495,6 +508,72 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
+  });
+
+  it('does not change the URL when username has not changed', () => {
+    const oldUsername = 'tofumatt';
+    const newUsername = oldUsername;
+
+    const { store } = signInUserWithUsername(oldUsername);
+
+    const root = renderUserProfileEdit({
+      params: { username: oldUsername },
+      store,
+    });
+
+    root.setProps({
+      params: { username: newUsername },
+      username: newUsername,
+    });
+
+    sinon.assert.notCalled(fakeRouter.push);
+  });
+
+  it('changes the URL when username has changed', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr-FR';
+
+    const oldUsername = 'tofumatt';
+    const newUsername = 'tofumatt-123';
+
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userProps: {
+        ...defaultUserProps,
+        username: oldUsername,
+      },
+    });
+
+    const root = renderUserProfileEdit({
+      params: { username: oldUsername },
+      store,
+    });
+
+    root.setProps({
+      params: { username: newUsername },
+      username: newUsername,
+    });
+
+    sinon.assert.calledWith(
+      fakeRouter.push,
+      `/${lang}/${clientApp}/user/${newUsername}/edit/`
+    );
+  });
+
+  it('does not change the URL when username has changed but no username param found in URL', () => {
+    // This is the case when the current logged-in user changes their username
+    // on `/en-US/firefox/users/edit` (the URL of the edit page for a logged-in
+    // user).
+    const oldUsername = 'tofumatt';
+    const newUsername = 'tofumatt-123';
+
+    const { store } = signInUserWithUsername(oldUsername);
+    const root = renderUserProfileEdit({ store, params: {} });
+
+    root.setProps({ username: newUsername, params: {} });
+
+    sinon.assert.notCalled(fakeRouter.push);
   });
 
   it('does not render a success message when an error occured', () => {

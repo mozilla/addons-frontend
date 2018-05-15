@@ -508,11 +508,11 @@ export const fakeRouterLocation = (props = {}) => {
  * See ReactRouterType in 'core/types/router';
  */
 export const createFakeRouter = (
-  { location = fakeRouterLocation() } = {}
+  { location = fakeRouterLocation(), params = {} } = {}
 ) => {
   return {
     location,
-    params: {},
+    params,
     push: sinon.spy(),
     goBack: sinon.spy(),
   };
