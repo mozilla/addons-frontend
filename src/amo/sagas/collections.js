@@ -24,7 +24,7 @@ import {
   loadUserCollections,
   beginCollectionModification,
   finishCollectionModification,
-  fetchCurrentCollection as fetchCurrentCollectionAction,
+  fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -48,7 +48,6 @@ import type {
 
 export function* fetchCurrentCollection({
   payload: {
-    fetchAllAddons,
     errorHandlerId,
     page,
     slug,
@@ -77,12 +76,10 @@ export function* fetchCurrentCollection({
     };
     const { detail, addons } = yield all({
       detail: call(api.getCollectionDetail, detailParams),
-      addons: fetchAllAddons ?
-        call(api.getAllCollectionAddons, addonsParams) :
-        call(api.getCollectionAddons, addonsParams),
+      addons: call(api.getCollectionAddons, addonsParams),
     });
 
-    const addonsToLoad = fetchAllAddons ? addons : addons.results;
+    const addonsToLoad = addons.results;
     yield put(loadCurrentCollection({ addons: addonsToLoad, detail }));
   } catch (error) {
     log.warn(`Collection failed to load: ${error}`);
@@ -146,7 +143,7 @@ export function* fetchUserCollections({
 
 export function* addAddonToCollection({
   payload: {
-    addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, userId,
+    addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, page, userId,
   },
 }: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -164,16 +161,18 @@ export function* addAddonToCollection({
     };
     yield call(api.createCollectionAddon, params);
 
-    yield put(addonAddedToCollection({
-      addonId, userId, collectionId,
-    }));
-
     if (editing) {
-      yield put(fetchCurrentCollectionAction({
-        fetchAllAddons: true,
+      invariant(page, 'A page parameter is required when editing');
+
+      yield put(fetchCurrentCollectionPageAction({
+        page,
         errorHandlerId: errorHandler.id,
         slug: collectionSlug,
         user: userId,
+      }));
+    } else {
+      yield put(addonAddedToCollection({
+        addonId, userId, collectionId,
       }));
     }
   } catch (error) {

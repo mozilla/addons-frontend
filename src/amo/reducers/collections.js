@@ -97,7 +97,6 @@ export const initialState: CollectionsState = {
 };
 
 type FetchCurrentCollectionParams = {|
-  fetchAllAddons?: boolean,
   errorHandlerId: string,
   page?: number,
   slug: string,
@@ -110,7 +109,6 @@ export type FetchCurrentCollectionAction = {|
 |};
 
 export const fetchCurrentCollection = ({
-  fetchAllAddons,
   errorHandlerId,
   page,
   slug,
@@ -122,7 +120,7 @@ export const fetchCurrentCollection = ({
 
   return {
     type: FETCH_CURRENT_COLLECTION,
-    payload: { fetchAllAddons, errorHandlerId, page, slug, user },
+    payload: { errorHandlerId, page, slug, user },
   };
 };
 
@@ -415,6 +413,7 @@ type AddAddonToCollectionParams = {|
   editing?: boolean,
   errorHandlerId: string,
   notes?: string,
+  page?: number,
   userId: number,
 |};
 
@@ -424,28 +423,22 @@ export type AddAddonToCollectionAction = {|
 |};
 
 export const addAddonToCollection = ({
-  addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, userId,
+  addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, page, userId,
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
-  if (!addonId) {
-    throw new Error('The addonId parameter is required');
-  }
-  if (!collectionId) {
-    throw new Error('The collectionId parameter is required');
-  }
-  if (!collectionSlug) {
-    throw new Error('The collectionSlug parameter is required');
-  }
-  if (!errorHandlerId) {
-    throw new Error('The errorHandlerId parameter is required');
-  }
-  if (!userId) {
-    throw new Error('The userId parameter is required');
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(collectionId, 'The collectionId parameter is required');
+  invariant(collectionSlug, 'The collectionSlug parameter is required');
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(userId, 'The userId parameter is required');
+
+  if (editing) {
+    invariant(page, 'The page parameter is required when editing');
   }
 
   return {
     type: ADD_ADDON_TO_COLLECTION,
     payload: {
-      addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, userId,
+      addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, page, userId,
     },
   };
 };
