@@ -400,7 +400,9 @@ export function createUserAccountResponse({
     is_addon_developer: false,
     is_artist: false,
     location,
-    name: '',
+    // This is the API behavior.
+    // eslint-disable-next-line camelcase
+    name: display_name || username,
     num_addons_listed,
     occupation,
     picture_type,
