@@ -1,0 +1,47 @@
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+$picture-size: 128px;
+
+.UserProfileEdit-picture {
+  .UserAvatar {
+    @include margin-end(24px);
+
+    display: inline-block;
+    width: $picture-size;
+
+    .Icon {
+      height: $picture-size;
+      width: $picture-size;
+    }
+  }
+
+  .FileInput {
+    align-items: stretch;
+    cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .FileInput-input {
+    border: none;
+    height: 0.01em !important;
+    left: 0;
+    margin: 0;
+    outline: 0;
+    overflow: inherit;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 0.01em !important;
+
+    .Button {
+      display: flex;
+      justify-content: flex-start;
+      overflow: hidden;
+      position: relative;
+    }
+  }
+}

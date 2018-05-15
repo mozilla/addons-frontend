@@ -7,20 +7,33 @@ import type { UserType } from 'amo/reducers/users';
 
 
 type Props = {|
+  altText?: string | null,
   className?: string,
-  user?: UserType,
+  preview?: string | null,
+  user: UserType | null,
 |};
 
-const UserAvatar = ({ className, user }: Props) => {
+const UserAvatar = ({ altText, className, preview, user }: Props) => {
   const _className = makeClassName('UserAvatar', className);
+
+  let image = preview && preview.length ? preview : null;
+
+  if (user && !image) {
+    image = user.picture_type && user.picture_type.length && user.picture_url
+      && user.picture_url.length ? user.picture_url : null;
+  }
 
   return (
     <div className={_className}>
-      {
-        (user && user.picture_type && user.picture_type.length) ?
-          <img className="UserAvatar-image" alt="" src={user.picture_url} /> :
-          <Icon name="anonymous-user" />
-      }
+      {image ? (
+        <img
+          alt={altText}
+          className="UserAvatar-image"
+          src={image}
+        />
+      ) : (
+        <Icon name="anonymous-user" />
+      ) }
     </div>
   );
 };

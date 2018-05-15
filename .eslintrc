@@ -18,6 +18,7 @@
     "TimeoutID": true,
     // Standard DOM globals:
     "Generator": true,
+    "HTMLButtonElement": true,
     "HTMLElement": true,
     "HTMLInputElement": true,
     "HTMLSelectElement": true,
@@ -26,7 +27,8 @@
     // This is used to send form data to the API.
     "FormData": true,
     // This is used to upload files in the browser.
-    "File": true
+    "File": true,
+    "FileReader": true
   },
   "parser": "babel-eslint",
   "plugins": [
