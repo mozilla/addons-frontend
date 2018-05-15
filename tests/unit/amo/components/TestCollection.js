@@ -737,7 +737,6 @@ describe(__filename, () => {
 
     const manager = root.find(CollectionManager);
     expect(manager).toHaveProp('collection');
-    expect(manager).toHaveProp('page', 1);
     expect(manager.prop('collection').id).toEqual(collectionDetail.id);
   });
 

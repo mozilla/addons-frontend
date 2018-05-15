@@ -111,11 +111,9 @@ export class CollectionBase extends React.Component<Props> {
       collectionChanged = true;
     }
 
-    // When switching into edit mode, refresh the collection add-ons and
-    // show page 1.
+    // When switching into edit mode, refresh the collection add-ons.
     if (this.props.editing && !nextProps) {
       addonsPageChanged = true;
-      location.query.page = 1;
     }
 
     if (!collection || collectionChanged) {
