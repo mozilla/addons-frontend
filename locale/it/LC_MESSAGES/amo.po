@@ -1021,9 +1021,8 @@ msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr "Per quei momenti durante la navigazione in cui hai bisogno di un gatto spara-laser"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "Download di %(name)s in corso…"
+msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
@@ -1982,9 +1981,8 @@ msgid "This add-on has not been rated yet."
 msgstr "Il componente aggiuntivo non ha ricevuto valutazioni."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5."
-msgstr "Media valutazioni: %(rating)s su 5"
+msgstr "Cambia la tua valutazione in %(starRating)s su 5."
 
 #: src/ui/components/Rating/index.js:71
 msgid "Rate this add-on %(starRating)s out of 5."
