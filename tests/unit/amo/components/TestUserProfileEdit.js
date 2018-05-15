@@ -498,8 +498,8 @@ describe(__filename, () => {
     // The user profile has been updated.
     store.dispatch(finishEditUserAccount());
 
-    const { isEditing } = store.getState().users;
-    root.setProps({ isEditing });
+    const { isUpdating } = store.getState().users;
+    root.setProps({ isUpdating });
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice)).toHaveProp('type', 'success');
@@ -606,8 +606,8 @@ describe(__filename, () => {
     errorHandler.handle(new Error('unexpected error'));
     store.dispatch(finishEditUserAccount());
 
-    const { isEditing } = store.getState().users;
-    root.setProps({ isEditing });
+    const { isUpdating } = store.getState().users;
+    root.setProps({ isUpdating });
 
     expect(root.find(Notice)).toHaveLength(0);
 

@@ -62,7 +62,7 @@ export type UsersStateType = {
   currentUserID: UserId | null,
   byID: { [userId: UserId]: UserType },
   byUsername: { [username: string]: UserId },
-  isEditing: boolean,
+  isUpdating: boolean,
   userPageBeingViewed: {
     loading: boolean,
     userId: UserId | null,
@@ -82,7 +82,7 @@ export const initialState: UsersStateType = {
   currentUserID: null,
   byID: {},
   byUsername: {},
-  isEditing: false,
+  isUpdating: false,
   userPageBeingViewed: {
     loading: false,
     userId: null,
@@ -318,12 +318,12 @@ const reducer = (
     case EDIT_USER_ACCOUNT:
       return {
         ...state,
-        isEditing: true,
+        isUpdating: true,
       };
     case FINISH_EDIT_USER_ACCOUNT:
       return {
         ...state,
-        isEditing: false,
+        isUpdating: false,
       };
     case LOAD_CURRENT_USER_ACCOUNT: {
       const { user } = action.payload;
