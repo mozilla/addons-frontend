@@ -40,9 +40,7 @@ type Props = {|
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
-  // TODO: change the name of this prop everywhere, see:
-  // https://github.com/mozilla/addons-frontend/issues/4993
-  isEditing: boolean,
+  isUpdating: boolean,
   lang: string,
   // The routing `params` prop is used in `mapStateToProps()`.
   // eslint-disable-next-line react/no-unused-prop-types
@@ -88,12 +86,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 
   componentWillReceiveProps(props: Props) {
-    const { isEditing: wasEditing, username: oldUsername } = this.props;
+    const { isUpdating: wasUpdating, username: oldUsername } = this.props;
     const {
       clientApp,
       dispatch,
       errorHandler,
-      isEditing,
+      isUpdating,
       lang,
       params,
       router,
@@ -115,7 +113,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       });
     }
 
-    if (wasEditing && !isEditing && !errorHandler.hasError()) {
+    if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       this.setState({ displaySuccessMessage: true });
     }
 
@@ -198,10 +196,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 
   preventSubmit() {
-    const { user, isEditing } = this.props;
+    const { user, isUpdating } = this.props;
     const { username } = this.state;
 
-    return !user || isEditing || !username || (username &&
+    return !user || isUpdating || !username || (username &&
       username.trim() === '');
   }
 
@@ -211,7 +209,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       errorHandler,
       hasEditPermission,
       i18n,
-      isEditing,
+      isUpdating,
       user,
       username,
     } = this.props;
@@ -449,10 +447,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               >
                 {/* eslint-disable-next-line no-nested-ternary */}
                 {isEditingCurrentUser ? (
-                  isEditing ? i18n.gettext('Updating your profile…') :
+                  isUpdating ? i18n.gettext('Updating your profile…') :
                     i18n.gettext('Update my profile')
                 ) : (
-                  isEditing ? i18n.gettext("Updating user's profile…") :
+                  isUpdating ? i18n.gettext("Updating user's profile…") :
                     i18n.gettext("Update user's profile")
                 )}
               </Button>
@@ -486,7 +484,7 @@ export function mapStateToProps(
     clientApp,
     currentUser,
     hasEditPermission,
-    isEditing: state.users.isEditing,
+    isUpdating: state.users.isUpdating,
     lang,
     user,
     username: user ? user.username : ownProps.params.username,

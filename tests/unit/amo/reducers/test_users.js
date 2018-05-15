@@ -53,7 +53,7 @@ describe(__filename, () => {
 
       expect(action.type).toEqual(LOAD_USER_ACCOUNT);
       expect(action.payload).toEqual({ user });
-      expect(state.isEditing).toEqual(false);
+      expect(state.isUpdating).toEqual(false);
     });
 
     it('handles LOG_OUT_USER', () => {
@@ -78,7 +78,7 @@ describe(__filename, () => {
       }));
       state = reducer(state, finishEditUserAccount());
 
-      expect(state.isEditing).toEqual(false);
+      expect(state.isUpdating).toEqual(false);
     });
   });
 
@@ -93,7 +93,7 @@ describe(__filename, () => {
         userId: user.id,
       }));
 
-      expect(state.isEditing).toEqual(true);
+      expect(state.isUpdating).toEqual(true);
     });
   });
 
