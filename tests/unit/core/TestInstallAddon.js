@@ -60,6 +60,7 @@ const {
   installTheme,
   makeProgressHandler,
   makeMapDispatchToProps,
+  mapStateToProps,
   withInstallHelpers,
 } = installAddon;
 
@@ -1555,6 +1556,14 @@ describe(`${__filename}: withInstallHelpers`, () => {
       installTheme(node, addon, stubs);
       expect(stubs._tracking.sendEvent.called).toBeFalsy();
       expect(stubs._themeInstall.called).toBeFalsy();
+    });
+
+    describe('getBrowserThemeData', () => {
+      it('formats the browser theme data', () => {
+        const { getBrowserThemeData } = getMapStateToProps();
+        sinon.stub(themeInstall, 'getThemeData').returns({ foo: 'wat' });
+        expect(getBrowserThemeData({ some: 'data' })).toEqual('{"foo":"wat"}');
+      });
     });
   });
 });
