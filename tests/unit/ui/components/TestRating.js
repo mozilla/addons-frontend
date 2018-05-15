@@ -173,7 +173,7 @@ describe(__filename, () => {
     const root = render({ rating: null });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5.`);
+      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5`);
     });
   });
 
@@ -181,7 +181,7 @@ describe(__filename, () => {
     const root = render({ rating: 0 });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5.`);
+      expect(root.ratingElements[rating].title).toEqual(`Rate this add-on ${rating} out of 5`);
     });
   });
 
@@ -189,7 +189,7 @@ describe(__filename, () => {
     const root = render({ rating: 3 });
 
     [1, 2, 3, 4, 5].forEach((rating) => {
-      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5.`);
+      expect(root.ratingElements[rating].title).toEqual(`Update your rating to ${rating} out of 5`);
     });
   });
 

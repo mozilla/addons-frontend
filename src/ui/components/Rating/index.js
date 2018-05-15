@@ -65,11 +65,11 @@ export class RatingBase extends React.Component {
 
     if (rating) {
       return i18n.sprintf(i18n.gettext(
-        `Update your rating to %(starRating)s out of 5.`), { starRating });
+        `Update your rating to %(starRating)s out of 5`), { starRating });
     }
 
     return i18n.sprintf(i18n.gettext(
-      `Rate this add-on %(starRating)s out of 5.`), { starRating });
+      `Rate this add-on %(starRating)s out of 5`), { starRating });
   }
 
   renderRatings() {
