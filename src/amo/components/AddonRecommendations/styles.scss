@@ -5,13 +5,25 @@
 .AddonRecommendations {
 
   // stylelint-disable max-nesting-depth
-  @include respond-to(large) {
-    &.AddonsCard--horizontal {
-      ul.AddonsCard-list {
 
-        // overriding default Search Results styles
-        .SearchResult {
-          padding: 12px 34px 12px 14px;
+  &.AddonsCard--horizontal {
+    ul.AddonsCard-list {
+
+      // overriding default Search Results styles
+      @include respond-to(large) {
+        grid-auto-flow: initial;
+        grid-template-columns: repeat(2, 50%);
+      }
+
+      @include respond-to(extraLarge) {
+        margin: 0 auto;
+        max-width: 80%;
+      }
+
+      .SearchResult {
+
+        @include respond-to(large) {
+          padding: 12px 24px;
 
           &:hover {
             background-color: $grey-10;
@@ -31,8 +43,12 @@
             }
           }
         }
+      }
 
-        .SearchResult-link {
+      .SearchResult-link {
+
+        @include respond-to(large) {
+          display: block;
           padding: 0;
 
           &:hover,
@@ -40,9 +56,11 @@
             background-color: transparent;
           }
         }
+      }
 
-        .SearchResult-users,
-        .SearchResult-metadata {
+      .SearchResult-users,
+      .SearchResult-metadata {
+        @include respond-to(large) {
           height: auto;
           min-height: 24px;
         }
