@@ -3,9 +3,12 @@ import * as React from 'react';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
-  extractId, CollectionManagerBase,
+  ADDON_ADDED_STATE_PENDING,
+  extractId,
+  CollectionManagerBase,
 } from 'amo/components/CollectionManager';
 import {
+  addAddonToCollection,
   createCollection,
   createInternalCollection,
   beginCollectionModification,
@@ -42,6 +45,7 @@ describe(__filename, () => {
   let fakeRouter;
   let store;
   const apiHost = config.get('apiHost');
+  const signedInUserId = 123;
   const signedInUsername = 'user123';
   const lang = 'en-US';
 
@@ -51,6 +55,7 @@ describe(__filename, () => {
     dispatchSignInActions({
       lang,
       store,
+      userId: signedInUserId,
       userProps: { username: signedInUsername },
     });
   });
@@ -615,8 +620,15 @@ describe(__filename, () => {
     // https://github.com/mozilla/addons-frontend/issues/4590
   });
 
-  it('handles selecting an add-on', () => {
-    const root = render();
+  it('dispatches addAddonToCollection when selecting an add-on', () => {
+    const page = 2;
+    const errorHandler = createStubErrorHandler();
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
+    });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ collection, errorHandler, page });
 
     const suggestion = createInternalSuggestion(
       createFakeAutocompleteResult({ name: 'uBlock Origin' })
@@ -625,8 +637,62 @@ describe(__filename, () => {
       root, propName: 'onSuggestionSelected',
     });
     selectSuggestion(suggestion);
-    // TODO: test onSuggestionSelected
-    // https://github.com/mozilla/addons-frontend/issues/4590
+
+    sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
+      addonId: suggestion.addonId,
+      collectionId: collection.id,
+      collectionSlug: collection.slug,
+      editing: true,
+      errorHandlerId: errorHandler.id,
+      page,
+      userId: signedInUserId,
+    }));
+  });
+
+  it('dispatches addAddonToCollection with a default page of 1 when selecting an add-on', () => {
+    const errorHandler = createStubErrorHandler();
+
+    const collection = createInternalCollection({
+      detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
+    });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const root = render({ collection, errorHandler, page: undefined });
+
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+    );
+    const selectSuggestion = simulateAutoSearchCallback({
+      root, propName: 'onSuggestionSelected',
+    });
+    selectSuggestion(suggestion);
+
+    sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
+      addonId: suggestion.addonId,
+      collectionId: collection.id,
+      collectionSlug: collection.slug,
+      editing: true,
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      userId: signedInUserId,
+    }));
+  });
+
+  it('sets the addAddonStatus state to pending when selecting an add-on', () => {
+    const root = render({});
+
+    const state = root.state();
+    expect(state.addAddonStatus).toEqual(null);
+
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+    );
+    const selectSuggestion = simulateAutoSearchCallback({
+      root, propName: 'onSuggestionSelected',
+    });
+    selectSuggestion(suggestion);
+
+    const newState = root.state();
+    expect(newState.addAddonStatus).toEqual(ADDON_ADDED_STATE_PENDING);
   });
 
   describe('extractId', () => {

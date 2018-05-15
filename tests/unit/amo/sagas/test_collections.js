@@ -288,14 +288,71 @@ describe(__filename, () => {
 
       _addAddonToCollection(params);
 
-      const expectedLoadAction = addonAddedToCollection({
+      const expectedAddedAction = addonAddedToCollection({
         addonId: params.addonId,
         collectionId: params.collectionId,
         userId: params.userId,
       });
 
-      const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
-      expect(loadAction).toEqual(expectedLoadAction);
+      const addedAction = await sagaTester.waitFor(expectedAddedAction.type);
+      expect(addedAction).toEqual(expectedAddedAction);
+
+      const unexpectedFetchAction = fetchCurrentCollectionPage({
+        page: 1,
+        errorHandlerId: errorHandler.id,
+        slug: collectionSlug,
+        user: params.userId,
+      });
+
+      expect(sagaTester.wasCalled(unexpectedFetchAction.type)).toEqual(false);
+      mockApi.verify();
+    });
+
+    it('posts an add-on to a collection in edit mode', async () => {
+      const collectionSlug = 'a-collection';
+      const params = {
+        addonId: 123,
+        collectionId: 5432,
+        collectionSlug,
+        editing: true,
+        page: 1,
+        userId: 543,
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('createCollectionAddon')
+        .withArgs({
+          addonId: params.addonId,
+          api: state.api,
+          collectionSlug,
+          notes: undefined,
+          user: params.userId,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _addAddonToCollection(params);
+
+      const expectedFetchAction = fetchCurrentCollectionPage({
+        page: params.page,
+        errorHandlerId: errorHandler.id,
+        slug: collectionSlug,
+        user: params.userId,
+      });
+
+      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
+      expect(fetchAction).toEqual(expectedFetchAction);
+
+      const expectedAddedAction = addonAddedToCollection({
+        addonId: params.addonId,
+        collectionId: params.collectionId,
+        userId: params.userId,
+      });
+
+      const addedAction = await sagaTester.waitFor(expectedAddedAction.type);
+      expect(addedAction).toEqual(expectedAddedAction);
+
       mockApi.verify();
     });
 
