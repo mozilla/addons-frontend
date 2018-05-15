@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-09 11:50+0000\n"
+"POT-Creation-Date: 2018-05-15 20:40+0000\n"
 "PO-Revision-Date: 2017-12-05 16:38+0000\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: none\n"
@@ -43,18 +43,18 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:282
+#: src/amo/components/CollectionManager/index.js:285
 #, fuzzy
 msgid "Add to collection"
 msgstr "ویرایش این مجموعه"
 
 #: src/amo/components/Addon/index.js:185
-msgid "Tap to preview"
-msgstr "انتخاب برای پیش‌نمایش"
-
-#: src/amo/components/Addon/index.js:185
 msgid "Cancel preview"
 msgstr "لغو پیش‌نمایش"
+
+#: src/amo/components/Addon/index.js:185
+msgid "Tap to preview"
+msgstr "انتخاب برای پیش‌نمایش"
 
 #: src/amo/components/Addon/index.js:236
 msgid "This add-on cannot be rated because no versions have been published."
@@ -106,15 +106,15 @@ msgstr "یادداشت‌های انتشار برای %(addonVersion)s"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s از %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:524
-msgid "Only with Firefox - Get Firefox Now!"
+#: src/amo/components/Addon/index.js:528
+msgid "Only with Firefox — Get Firefox Now!"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:530
+#: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
 msgstr "فرادادهٔ ضمیمه"
 
-#: src/amo/components/Addon/index.js:547
+#: src/amo/components/Addon/index.js:551
 msgid "Screenshots"
 msgstr "تصاویر صفحه"
 
@@ -251,7 +251,7 @@ msgid "Version"
 msgstr "نسخه"
 
 #: src/amo/components/AddonMoreInfo/index.js:184
-#: src/amo/components/Collection/index.js:220
+#: src/amo/components/Collection/index.js:219
 msgid "Last updated"
 msgstr "آخرین بروزرسانی"
 
@@ -281,6 +281,7 @@ msgstr "اطلاعات بیشتر"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 #: src/amo/components/UserProfile/index.js:114
+#: src/amo/components/UserProfileEdit/index.js:358
 msgid "Homepage"
 msgstr "صفحه نخست"
 
@@ -296,11 +297,11 @@ msgstr "رایانامهٔ پشتیبانی"
 msgid "Visit stats dashboard"
 msgstr "مشاهدهٔ داشبورد آمارها"
 
-#: src/amo/components/AddonRecommendations/index.js:146
+#: src/amo/components/AddonRecommendations/index.js:154
 msgid "Other users with this extension also installed"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:147
+#: src/amo/components/AddonRecommendations/index.js:155
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "افزونه‌های محبوب بیشتر"
@@ -627,55 +628,59 @@ msgstr "تمام ضمیمه‌های این دسته را مرور کنید."
 msgid "Browse all themes in this category."
 msgstr "تمام زمینه‌های این دسته را مرور کنید."
 
-#: src/amo/components/Collection/index.js:170
+#: src/amo/components/Collection/index.js:164
 msgid "Edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:186
+#: src/amo/components/Collection/index.js:180
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/Collection/index.js:210
+#: src/amo/components/Collection/index.js:209
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "افزونه‌ها"
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:213
 msgid "Creator"
 msgstr "سازنده"
+
+#: src/amo/components/Collection/index.js:253
+msgid "Search for extensions and themes to add to your collection."
+msgstr ""
 
 #: src/amo/components/CollectionList/index.js:38
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "ویرایش این مجموعه"
 
-#: src/amo/components/CollectionList/index.js:57
-msgid "Please save your collection and then you can add add-ons to it"
+#: src/amo/components/CollectionList/index.js:58
+msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:228
+#: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:242
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:251
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:278
+#: src/amo/components/CollectionManager/index.js:281
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:297
+#: src/amo/components/CollectionManager/index.js:301
 #: src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/amo/components/CollectionManager/index.js:306
+#: src/amo/components/CollectionManager/index.js:310
 #, fuzzy
 msgid "Save Collection"
 msgstr "ویرایش این مجموعه"
@@ -848,12 +853,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "گزارش شد"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "گزارش"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "گزارش شد"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -953,7 +958,7 @@ msgstr "درباره"
 msgid "Blog"
 msgstr "بلاگ"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:88
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:91
 msgid "Developer Hub"
 msgstr "مرکز توسعه‌دهندگان"
 
@@ -977,36 +982,44 @@ msgstr "وضعیت سایت"
 msgid "View classic desktop site"
 msgstr "نمایش سایت رومیزیِ قبلی"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:102
+msgid "My Account"
+msgstr "حساب من"
+
+#: src/amo/components/Header/index.js:108
 msgid "View My Collections"
 msgstr "نمایش مجموعهٔ من"
 
-#: src/amo/components/Header/index.js:110
-msgid "View Profile"
+#: src/amo/components/Header/index.js:116
+#: src/amo/components/UserProfileEdit/index.js:242
+#, fuzzy
+msgid "View My Profile"
 msgstr "نمایش نمایه"
 
-#: src/amo/components/Header/index.js:115
-msgid "Edit Profile"
+#: src/amo/components/Header/index.js:124
+#: src/amo/components/UserProfileEdit/index.js:249
+#, fuzzy
+msgid "Edit My Profile"
 msgstr "ویرایش نمایه"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:128
 msgid "Tools"
 msgstr "ابزارها"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:134
 msgid "Submit a New Add-on"
 msgstr "ارسال یک افزونه جدید"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
 msgstr "ارسال یک تم جدید"
 
-#: src/amo/components/Header/index.js:143
+#: src/amo/components/Header/index.js:152
 #, fuzzy
 msgid "Reviewer Tools"
 msgstr "بازخوردها"
 
-#: src/amo/components/Header/index.js:153
+#: src/amo/components/Header/index.js:162
 #: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "خروج"
@@ -1014,10 +1027,6 @@ msgstr "خروج"
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "افزونه‌های فایرفاکس"
-
-#: src/amo/components/Header/index.js:99
-msgid "My Account"
-msgstr "حساب من"
 
 #: src/amo/components/Home/index.js:115
 msgid "Abstract"
@@ -2062,9 +2071,122 @@ msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:92
+#: src/amo/components/UserProfileEdit/index.js:230
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "نتایج جست‌وجو برای «%(query)s»"
+
+#: src/amo/components/UserProfileEdit/index.js:243
+#, fuzzy
+msgid "View user's profile"
+msgstr "نمایش نمایه"
+
+#: src/amo/components/UserProfileEdit/index.js:250
+#, fuzzy
+msgid "Edit user's profile"
+msgstr "ویرایش نمایه"
+
+#: src/amo/components/UserProfileEdit/index.js:262
+msgid "Profile successfully updated"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:269
+#, fuzzy
+msgid "Account"
+msgstr "حساب من"
+
+#: src/amo/components/UserProfileEdit/index.js:270
+msgid "Account for %(username)s"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:276
+#, fuzzy
+msgid "Username"
+msgstr "کاربرها"
+
+#: src/amo/components/UserProfileEdit/index.js:287
+msgid "Email address cannot be changed here"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:289
+msgid "Email Address"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:305
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:321
+#, fuzzy
+msgid "Profile"
+msgstr "نمایش نمایه"
+
+#: src/amo/components/UserProfileEdit/index.js:324
+msgid ""
+"Tell users a bit more information about yourself. These fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:329
+msgid ""
+"Tell users a bit more information about this user. These fields are "
+"optional, but they'll help other users get to know %(username)s better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:338
+#, fuzzy
+msgid "Display Name"
+msgstr "بازی کردن"
+
+#: src/amo/components/UserProfileEdit/index.js:370
+msgid "This URL will only be visible for users who are developers."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:375
+msgid "Location"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:387
+msgid "Occupation"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:401
+msgid "Biography"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:404
+msgid "Introduce yourself to the community if you like"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:407
+msgid "Introduce %(username)s to the community"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:420
+msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+#, fuzzy
+msgid "Updating your profile…"
+msgstr "در حال به‌روز رسانی پاسخ"
+
+#: src/amo/components/UserProfileEdit/index.js:451
+#, fuzzy
+msgid "Update my profile"
+msgstr "به‌روز رسانی پاسخ"
+
+#: src/amo/components/UserProfileEdit/index.js:453
+#, fuzzy
+msgid "Updating user's profile…"
+msgstr "در حال به‌روز رسانی پاسخ"
+
+#: src/amo/components/UserProfileEdit/index.js:454
+#, fuzzy
+msgid "Update user's profile"
+msgstr "به‌روز رسانی پاسخ"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2213,12 +2335,12 @@ msgstr "دربارهٔ این افزونه"
 
 #: src/ui/components/Rating/index.js:67
 #, fuzzy
-msgid "Update your rating to %(starRating)s out of 5."
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr "دارای رتبه %(rating)s از ۵"
 
 #: src/ui/components/Rating/index.js:71
 #, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5."
+msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "دارای رتبه %(rating)s از ۵"
 
 #: src/ui/components/ShowMoreCard/index.js:60
@@ -2388,9 +2510,6 @@ msgstr "<span class=\"visually-hidden\"> باز کردن </span> برای خوا
 
 #~ msgid "Be social"
 #~ msgstr "اجتماعی بودن"
-
-#~ msgid "Play games"
-#~ msgstr "بازی کردن"
 
 #~ msgid "Screenshot"
 #~ msgstr "گرفتن عکس از صفحه"

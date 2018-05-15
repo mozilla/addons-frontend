@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-09 11:50+0000\n"
+"POT-Creation-Date: 2018-05-15 20:40+0000\n"
 "PO-Revision-Date: 2018-05-04 18:26+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "เพิ่มไปยัง…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:282
+#: src/amo/components/CollectionManager/index.js:285
 msgid "Add to collection"
 msgstr "เพิ่มไปยังชุดสะสม"
 
 #: src/amo/components/Addon/index.js:185
-msgid "Tap to preview"
-msgstr "แตะเพื่อแสดงตัวอย่าง"
-
-#: src/amo/components/Addon/index.js:185
 msgid "Cancel preview"
 msgstr "ยกเลิกการแสดงตัวอย่าง"
+
+#: src/amo/components/Addon/index.js:185
+msgid "Tap to preview"
+msgstr "แตะเพื่อแสดงตัวอย่าง"
 
 #: src/amo/components/Addon/index.js:236
 msgid "This add-on cannot be rated because no versions have been published."
@@ -101,15 +101,15 @@ msgstr "บันทึกประจำรุ่นสำหรับ %(addonV
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sโดย %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:524
-msgid "Only with Firefox - Get Firefox Now!"
+#: src/amo/components/Addon/index.js:528
+msgid "Only with Firefox — Get Firefox Now!"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:530
+#: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
 msgstr "Metadata ส่วนขยาย"
 
-#: src/amo/components/Addon/index.js:547
+#: src/amo/components/Addon/index.js:551
 msgid "Screenshots"
 msgstr "ภาพหน้าจอ"
 
@@ -239,7 +239,7 @@ msgid "Version"
 msgstr "รุ่น"
 
 #: src/amo/components/AddonMoreInfo/index.js:184
-#: src/amo/components/Collection/index.js:220
+#: src/amo/components/Collection/index.js:219
 msgid "Last updated"
 msgstr "อัปเดตล่าสุด"
 
@@ -269,6 +269,7 @@ msgstr "ข้อมูลเพิ่มเติม"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 #: src/amo/components/UserProfile/index.js:114
+#: src/amo/components/UserProfileEdit/index.js:358
 msgid "Homepage"
 msgstr "หน้าแรก"
 
@@ -284,11 +285,11 @@ msgstr "อีเมลสนับสนุน"
 msgid "Visit stats dashboard"
 msgstr "เยี่ยมชมแดชบอร์ดสถิติ"
 
-#: src/amo/components/AddonRecommendations/index.js:146
+#: src/amo/components/AddonRecommendations/index.js:154
 msgid "Other users with this extension also installed"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:147
+#: src/amo/components/AddonRecommendations/index.js:155
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "เรียกดูส่วนขยายทั้งหมด"
@@ -614,55 +615,59 @@ msgstr "เรียกดูส่วนขยายทั้งหมดใน
 msgid "Browse all themes in this category."
 msgstr "เรียกดูชุดตกแต่งทั้งหมดในหมวดหมู่นี้"
 
-#: src/amo/components/Collection/index.js:170
+#: src/amo/components/Collection/index.js:164
 msgid "Edit this collection"
 msgstr "แก้ไขชุดสะสมนี้"
 
-#: src/amo/components/Collection/index.js:186
+#: src/amo/components/Collection/index.js:180
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "ลงชื่อเข้าเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/Collection/index.js:210
+#: src/amo/components/Collection/index.js:209
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "ส่วนเสริม"
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:213
 msgid "Creator"
 msgstr "ผู้สร้าง"
+
+#: src/amo/components/Collection/index.js:253
+msgid "Search for extensions and themes to add to your collection."
+msgstr ""
 
 #: src/amo/components/CollectionList/index.js:38
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "ลงชื่อเข้าเพื่อแก้ไขชุดสะสมนี้"
 
-#: src/amo/components/CollectionList/index.js:57
-msgid "Please save your collection and then you can add add-ons to it"
+#: src/amo/components/CollectionList/index.js:58
+msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:228
+#: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
 msgstr "ชื่อชุดสะสม"
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:242
 msgid "Description"
 msgstr "คำอธิบาย"
 
-#: src/amo/components/CollectionManager/index.js:251
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Custom URL"
 msgstr "URL ที่กำหนดเอง"
 
-#: src/amo/components/CollectionManager/index.js:278
+#: src/amo/components/CollectionManager/index.js:281
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:297
+#: src/amo/components/CollectionManager/index.js:301
 #: src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
 msgstr "ยกเลิก"
 
-#: src/amo/components/CollectionManager/index.js:306
+#: src/amo/components/CollectionManager/index.js:310
 msgid "Save Collection"
 msgstr "บันทึกชุดสะสม"
 
@@ -808,11 +813,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -916,7 +921,7 @@ msgstr "เกี่ยวกับ"
 msgid "Blog"
 msgstr "บล็อก"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:88
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:91
 msgid "Developer Hub"
 msgstr "ศูนย์กลางนักพัฒนา"
 
@@ -940,35 +945,43 @@ msgstr "สถานะไซต์"
 msgid "View classic desktop site"
 msgstr "ดูไซต์สำหรับเดสก์ท็อปแบบคลาสสิก"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:102
+msgid "My Account"
+msgstr "บัญชีของฉัน"
+
+#: src/amo/components/Header/index.js:108
 msgid "View My Collections"
 msgstr "ดูชุดสะสมของฉัน"
 
-#: src/amo/components/Header/index.js:110
-msgid "View Profile"
+#: src/amo/components/Header/index.js:116
+#: src/amo/components/UserProfileEdit/index.js:242
+#, fuzzy
+msgid "View My Profile"
 msgstr "ดูข้อมูลส่วนตัว"
 
-#: src/amo/components/Header/index.js:115
-msgid "Edit Profile"
+#: src/amo/components/Header/index.js:124
+#: src/amo/components/UserProfileEdit/index.js:249
+#, fuzzy
+msgid "Edit My Profile"
 msgstr "แก้ไขข้อมูลส่วนตัว"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:128
 msgid "Tools"
 msgstr "เครื่องมือ"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:134
 msgid "Submit a New Add-on"
 msgstr "ส่งส่วนเสริมใหม่"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
 msgstr "ส่งชุดตกแต่งใหม่"
 
-#: src/amo/components/Header/index.js:143
+#: src/amo/components/Header/index.js:152
 msgid "Reviewer Tools"
 msgstr "เครื่องมือผู้วิจารณ์"
 
-#: src/amo/components/Header/index.js:153
+#: src/amo/components/Header/index.js:162
 #: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "ออกจากระบบ"
@@ -976,10 +989,6 @@ msgstr "ออกจากระบบ"
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "ส่วนเสริม Firefox"
-
-#: src/amo/components/Header/index.js:99
-msgid "My Account"
-msgstr "บัญชีของฉัน"
 
 #: src/amo/components/Home/index.js:115
 msgid "Abstract"
@@ -1991,9 +2000,123 @@ msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:92
+#: src/amo/components/UserProfileEdit/index.js:230
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "ผลการค้นหา \"%(query)s\""
+
+#: src/amo/components/UserProfileEdit/index.js:243
+#, fuzzy
+msgid "View user's profile"
+msgstr "ดูข้อมูลส่วนตัว"
+
+#: src/amo/components/UserProfileEdit/index.js:250
+#, fuzzy
+msgid "Edit user's profile"
+msgstr "แก้ไขข้อมูลส่วนตัว"
+
+#: src/amo/components/UserProfileEdit/index.js:262
+msgid "Profile successfully updated"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:269
+#, fuzzy
+msgid "Account"
+msgstr "บัญชีของฉัน"
+
+#: src/amo/components/UserProfileEdit/index.js:270
+#, fuzzy
+msgid "Account for %(username)s"
+msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(site)s"
+
+#: src/amo/components/UserProfileEdit/index.js:276
+#, fuzzy
+msgid "Username"
+msgstr "ผู้ใช้"
+
+#: src/amo/components/UserProfileEdit/index.js:287
+msgid "Email address cannot be changed here"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:289
+msgid "Email Address"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:305
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:321
+#, fuzzy
+msgid "Profile"
+msgstr "ดูข้อมูลส่วนตัว"
+
+#: src/amo/components/UserProfileEdit/index.js:324
+msgid ""
+"Tell users a bit more information about yourself. These fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:329
+msgid ""
+"Tell users a bit more information about this user. These fields are "
+"optional, but they'll help other users get to know %(username)s better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:338
+#, fuzzy
+msgid "Display Name"
+msgstr "เล่นเกม"
+
+#: src/amo/components/UserProfileEdit/index.js:370
+msgid "This URL will only be visible for users who are developers."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:375
+msgid "Location"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:387
+msgid "Occupation"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:401
+msgid "Biography"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:404
+msgid "Introduce yourself to the community if you like"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:407
+msgid "Introduce %(username)s to the community"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:420
+msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+#, fuzzy
+msgid "Updating your profile…"
+msgstr "กำลังอัปเดตการตอบกลับ"
+
+#: src/amo/components/UserProfileEdit/index.js:451
+#, fuzzy
+msgid "Update my profile"
+msgstr "อัปเดตการตอบกลับ"
+
+#: src/amo/components/UserProfileEdit/index.js:453
+#, fuzzy
+msgid "Updating user's profile…"
+msgstr "กำลังอัปเดตการตอบกลับ"
+
+#: src/amo/components/UserProfileEdit/index.js:454
+#, fuzzy
+msgid "Update user's profile"
+msgstr "อัปเดตการตอบกลับ"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2141,12 +2264,12 @@ msgstr "ส่วนเสริมนี้ไม่มีการจัดอ
 
 #: src/ui/components/Rating/index.js:67
 #, fuzzy
-msgid "Update your rating to %(starRating)s out of 5."
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr "ได้รับการจัดอันดับ %(rating)s จาก 5"
 
 #: src/ui/components/Rating/index.js:71
 #, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5."
+msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "ได้รับการจัดอันดับ %(rating)s จาก 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
@@ -2343,9 +2466,6 @@ msgstr "<span class=\"visually-hidden\">ขยายเพื่อ</span> อ�
 
 #~ msgid "Be social"
 #~ msgstr "เชื่อมต่อทางสังคม"
-
-#~ msgid "Play games"
-#~ msgstr "เล่นเกม"
 
 #~ msgid "Screenshot"
 #~ msgstr "จับภาพหน้าจอ"
