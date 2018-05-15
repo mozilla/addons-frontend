@@ -387,6 +387,8 @@ export function createUserAccountResponse({
   /* eslint-enable camelcase */
   homepage = null,
   permissions = [],
+  occupation = null,
+  location = null,
 } = {}) {
   return {
     average_addon_rating,
@@ -397,10 +399,10 @@ export function createUserAccountResponse({
     id,
     is_addon_developer: false,
     is_artist: false,
-    location: '',
+    location,
     name: '',
     num_addons_listed,
-    occupation: '',
+    occupation,
     picture_type,
     picture_url,
     url: null,
@@ -506,11 +508,11 @@ export const fakeRouterLocation = (props = {}) => {
  * See ReactRouterType in 'core/types/router';
  */
 export const createFakeRouter = (
-  { location = fakeRouterLocation() } = {}
+  { location = fakeRouterLocation(), params = {} } = {}
 ) => {
   return {
     location,
-    params: {},
+    params,
     push: sinon.spy(),
     goBack: sinon.spy(),
   };

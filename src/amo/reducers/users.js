@@ -25,7 +25,7 @@ export type UserId = number;
 // Basic user account object fields, returned by the API.
 export type ExternalUserType = {|
   average_addon_rating: number,
-  biography: ?string,
+  biography: string | null,
   created: string,
   has_anonymous_display_name: boolean,
   has_anonymous_username: boolean,
@@ -43,7 +43,7 @@ export type ExternalUserType = {|
   // Properties returned if we are accessing our own profile or the current user
   // has the `Users:Edit` permission.
   deleted?: boolean,
-  display_name?: string | null,
+  display_name: string | null,
   email?: string,
   last_login?: string,
   last_login_ip?: string,
@@ -55,7 +55,7 @@ export type ExternalUserType = {|
 export type UserType = {|
   ...ExternalUserType,
   // Properties we add to each object.
-  displayName: ?string,
+  displayName: string | null,
 |};
 
 export type UsersStateType = {
@@ -71,7 +71,7 @@ export type UsersStateType = {
 
 export type UserEditableFieldsType = {|
   biography?: string | null,
-  displayName?: string | null,
+  display_name?: string | null,
   homepage?: string | null,
   location?: string | null,
   occupation?: string | null,

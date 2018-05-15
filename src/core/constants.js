@@ -264,5 +264,7 @@ export const ADDONS_CONTENTREVIEW = 'Addons:ContentReview';
 export const ADDONS_REVIEWUNLISTED = 'Addons:ReviewUnlisted';
 // Can moderate user ratings on add-ons.
 export const RATINGS_MODERATE = 'Ratings:Moderate';
+// Can edit user accounts.
+export const USERS_EDIT = 'Users:Edit';
 // Super powers. It means absolutely all permissions.
 export const ALL_SUPER_POWERS = '*:*';
