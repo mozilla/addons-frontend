@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-09 11:50+0000\n"
+"POT-Creation-Date: 2018-05-15 20:40+0000\n"
 "PO-Revision-Date: 2018-02-01 18:44+0000\n"
 "Last-Translator: S M Sarwar Nobin <smsarwar1996@gmail.com>\n"
 "Language-Team: none\n"
@@ -40,17 +40,17 @@ msgid "Add to…"
 msgstr "যোগ করতে…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:282
+#: src/amo/components/CollectionManager/index.js:285
 msgid "Add to collection"
 msgstr "সংগ্রহতে যোগ করুন"
 
 #: src/amo/components/Addon/index.js:185
-msgid "Tap to preview"
-msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
-
-#: src/amo/components/Addon/index.js:185
 msgid "Cancel preview"
 msgstr "পর্যালোচনা বাতিল করুন"
+
+#: src/amo/components/Addon/index.js:185
+msgid "Tap to preview"
+msgstr "প্রাকদর্শন করতে ট্যাপ করুন"
 
 #: src/amo/components/Addon/index.js:236
 msgid "This add-on cannot be rated because no versions have been published."
@@ -102,15 +102,15 @@ msgstr "%(addonVersion)s এর জন্য রিলিজ নোট"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s দ্বারা %(authorList)s %(endSpan)s"
 
-#: src/amo/components/Addon/index.js:524
-msgid "Only with Firefox - Get Firefox Now!"
+#: src/amo/components/Addon/index.js:528
+msgid "Only with Firefox — Get Firefox Now!"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:530
+#: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
 msgstr "এক্সটেনশন মেটাডাটা"
 
-#: src/amo/components/Addon/index.js:547
+#: src/amo/components/Addon/index.js:551
 msgid "Screenshots"
 msgstr "স্ক্রীনশট"
 
@@ -247,7 +247,7 @@ msgid "Version"
 msgstr "সংস্করণ"
 
 #: src/amo/components/AddonMoreInfo/index.js:184
-#: src/amo/components/Collection/index.js:220
+#: src/amo/components/Collection/index.js:219
 msgid "Last updated"
 msgstr "শেষ আপডেট"
 
@@ -277,6 +277,7 @@ msgstr "আরও তথ্য"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 #: src/amo/components/UserProfile/index.js:114
+#: src/amo/components/UserProfileEdit/index.js:358
 msgid "Homepage"
 msgstr "হোমপেজ"
 
@@ -292,11 +293,11 @@ msgstr "সহায়তাকারী ইমেইল"
 msgid "Visit stats dashboard"
 msgstr "পরিসংখ্যান ড্যাশবোর্ডে পরিদর্শন করুন"
 
-#: src/amo/components/AddonRecommendations/index.js:146
+#: src/amo/components/AddonRecommendations/index.js:154
 msgid "Other users with this extension also installed"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:147
+#: src/amo/components/AddonRecommendations/index.js:155
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "জনপ্রিয় এক্সটেনসমূহ"
@@ -621,55 +622,59 @@ msgstr "এই বিষয়শ্রেণীর সব এক্সটেনশ
 msgid "Browse all themes in this category."
 msgstr "এই বিষয়শ্রেণীর সব থিম ব্রাউজ করুন।"
 
-#: src/amo/components/Collection/index.js:170
+#: src/amo/components/Collection/index.js:164
 msgid "Edit this collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/Collection/index.js:186
+#: src/amo/components/Collection/index.js:180
 #, fuzzy
 msgid "Log in to edit this collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/Collection/index.js:210
+#: src/amo/components/Collection/index.js:209
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "অ্যাড-অন"
 
-#: src/amo/components/Collection/index.js:214
+#: src/amo/components/Collection/index.js:213
 msgid "Creator"
 msgstr "রচয়িতা"
+
+#: src/amo/components/Collection/index.js:253
+msgid "Search for extensions and themes to add to your collection."
+msgstr ""
 
 #: src/amo/components/CollectionList/index.js:38
 #, fuzzy
 msgid "Log in to create a collection"
 msgstr "সংগ্রহটি সম্পাদনা করুন"
 
-#: src/amo/components/CollectionList/index.js:57
-msgid "Please save your collection and then you can add add-ons to it"
+#: src/amo/components/CollectionList/index.js:58
+msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:228
+#: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:240
+#: src/amo/components/CollectionManager/index.js:242
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:251
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:278
+#: src/amo/components/CollectionManager/index.js:281
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:297
+#: src/amo/components/CollectionManager/index.js:301
 #: src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
 msgstr "বাতিল করুন"
 
-#: src/amo/components/CollectionManager/index.js:306
+#: src/amo/components/CollectionManager/index.js:310
 #, fuzzy
 msgid "Save Collection"
 msgstr "নতুন সংগ্রহ তৈরি করুন"
@@ -830,12 +835,12 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
-msgstr "ফ্ল্যাগকৃত"
-
-#: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "ফ্লাগ"
+
+#: src/amo/components/FlagReviewMenu/index.js:129
+msgid "Flagged"
+msgstr "ফ্ল্যাগকৃত"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -932,7 +937,7 @@ msgstr "সম্বন্ধে"
 msgid "Blog"
 msgstr "ব্লগ"
 
-#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:88
+#: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:91
 msgid "Developer Hub"
 msgstr "ডেভেলপার হাব"
 
@@ -956,35 +961,43 @@ msgstr ""
 msgid "View classic desktop site"
 msgstr "ক্লাসিক ডেক্সটপ সাইট দেখুন"
 
-#: src/amo/components/Header/index.js:105
+#: src/amo/components/Header/index.js:102
+msgid "My Account"
+msgstr "আমার অ্যাকাউন্ট"
+
+#: src/amo/components/Header/index.js:108
 msgid "View My Collections"
 msgstr "আমার সংগ্রহ দেখুন"
 
-#: src/amo/components/Header/index.js:110
-msgid "View Profile"
+#: src/amo/components/Header/index.js:116
+#: src/amo/components/UserProfileEdit/index.js:242
+#, fuzzy
+msgid "View My Profile"
 msgstr "প্রোফাইল দেখুন"
 
-#: src/amo/components/Header/index.js:115
-msgid "Edit Profile"
+#: src/amo/components/Header/index.js:124
+#: src/amo/components/UserProfileEdit/index.js:249
+#, fuzzy
+msgid "Edit My Profile"
 msgstr "প্রোফাইল সম্পাদনা করুন"
 
-#: src/amo/components/Header/index.js:119
+#: src/amo/components/Header/index.js:128
 msgid "Tools"
 msgstr "টুল"
 
-#: src/amo/components/Header/index.js:125
+#: src/amo/components/Header/index.js:134
 msgid "Submit a New Add-on"
 msgstr "নতুন অ্যাড-অন জমা দিন"
 
-#: src/amo/components/Header/index.js:133
+#: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
 msgstr "নতুন থিম জমা দিন"
 
-#: src/amo/components/Header/index.js:143
+#: src/amo/components/Header/index.js:152
 msgid "Reviewer Tools"
 msgstr "পর্যালোচনার টুলগুলো"
 
-#: src/amo/components/Header/index.js:153
+#: src/amo/components/Header/index.js:162
 #: src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
 msgstr "লগ আউট"
@@ -992,10 +1005,6 @@ msgstr "লগ আউট"
 #: src/amo/components/Header/index.js:61
 msgid "Firefox Add-ons"
 msgstr "Firefox অ্যাড-অনস"
-
-#: src/amo/components/Header/index.js:99
-msgid "My Account"
-msgstr "আমার অ্যাকাউন্ট"
 
 #: src/amo/components/Home/index.js:115
 msgid "Abstract"
@@ -2019,9 +2028,123 @@ msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:92
+#: src/amo/components/UserProfileEdit/index.js:230
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "\"%(query)s\" এর জন্য অনুসন্ধান ফলাফল"
+
+#: src/amo/components/UserProfileEdit/index.js:243
+#, fuzzy
+msgid "View user's profile"
+msgstr "প্রোফাইল দেখুন"
+
+#: src/amo/components/UserProfileEdit/index.js:250
+#, fuzzy
+msgid "Edit user's profile"
+msgstr "প্রোফাইল সম্পাদনা করুন"
+
+#: src/amo/components/UserProfileEdit/index.js:262
+msgid "Profile successfully updated"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:269
+#, fuzzy
+msgid "Account"
+msgstr "আমার অ্যাকাউন্ট"
+
+#: src/amo/components/UserProfileEdit/index.js:270
+#, fuzzy
+msgid "Account for %(username)s"
+msgstr "\"%(query)s\" এর ফলাফল %(count)s"
+
+#: src/amo/components/UserProfileEdit/index.js:276
+#, fuzzy
+msgid "Username"
+msgstr "ব্যবহারকারী"
+
+#: src/amo/components/UserProfileEdit/index.js:287
+msgid "Email address cannot be changed here"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:289
+msgid "Email Address"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:305
+msgid ""
+"You can change your email address on Firefox Accounts. %(startLink)sNeed "
+"help?%(endLink)s"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:321
+#, fuzzy
+msgid "Profile"
+msgstr "প্রোফাইল দেখুন"
+
+#: src/amo/components/UserProfileEdit/index.js:324
+msgid ""
+"Tell users a bit more information about yourself. These fields are optional, "
+"but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:329
+msgid ""
+"Tell users a bit more information about this user. These fields are "
+"optional, but they'll help other users get to know %(username)s better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:338
+#, fuzzy
+msgid "Display Name"
+msgstr "গেমস খেলুন"
+
+#: src/amo/components/UserProfileEdit/index.js:370
+msgid "This URL will only be visible for users who are developers."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:375
+msgid "Location"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:387
+msgid "Occupation"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:401
+msgid "Biography"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:404
+msgid "Introduce yourself to the community if you like"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:407
+msgid "Introduce %(username)s to the community"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:420
+msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+#, fuzzy
+msgid "Updating your profile…"
+msgstr "উত্তর হালনাগাদ করা হচ্ছে"
+
+#: src/amo/components/UserProfileEdit/index.js:451
+#, fuzzy
+msgid "Update my profile"
+msgstr "উত্তর হালনাগাদ করুন"
+
+#: src/amo/components/UserProfileEdit/index.js:453
+#, fuzzy
+msgid "Updating user's profile…"
+msgstr "উত্তর হালনাগাদ করা হচ্ছে"
+
+#: src/amo/components/UserProfileEdit/index.js:454
+#, fuzzy
+msgid "Update user's profile"
+msgstr "উত্তর হালনাগাদ করুন"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2170,12 +2293,12 @@ msgstr "অ্যাড-অন সম্বন্ধে"
 
 #: src/ui/components/Rating/index.js:67
 #, fuzzy
-msgid "Update your rating to %(starRating)s out of 5."
+msgid "Update your rating to %(starRating)s out of 5"
 msgstr "5 এর মধ্যে %(rating)s রেটিং দেওয়া হয়েছে"
 
 #: src/ui/components/Rating/index.js:71
 #, fuzzy
-msgid "Rate this add-on %(starRating)s out of 5."
+msgid "Rate this add-on %(starRating)s out of 5"
 msgstr "5 এর মধ্যে %(rating)s রেটিং দেওয়া হয়েছে"
 
 #: src/ui/components/ShowMoreCard/index.js:60
@@ -2328,9 +2451,6 @@ msgstr "পড়তে হলে <span class=\"visually-hidden\">সম্প্�
 
 #~ msgid "Be social"
 #~ msgstr "সামাজিক হন"
-
-#~ msgid "Play games"
-#~ msgstr "গেমস খেলুন"
 
 #~ msgid "Screenshot"
 #~ msgstr "স্ক্রিনসট"
