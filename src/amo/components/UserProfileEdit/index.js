@@ -36,6 +36,8 @@ type Props = {|
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
+  // TODO: change the name of this prop everywhere, see:
+  // https://github.com/mozilla/addons-frontend/issues/4993
   isEditing: boolean,
   // The routing `params` prop is used in `mapStateToProps()`.
   // eslint-disable-next-line react/no-unused-prop-types
@@ -50,7 +52,7 @@ type FormValues = {|
   homepage: string | null,
   location: string | null,
   occupation: string | null,
-  username: string | null,
+  username: string,
 |};
 
 type State = {|
@@ -85,18 +87,19 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       dispatch,
       errorHandler,
       isEditing,
+      user: newUser,
       username: newUsername,
     } = props;
 
-    if (oldUsername !== newUsername) {
+    if (oldUsername !== newUsername && !newUser) {
       dispatch(fetchUserAccount({
         errorHandlerId: errorHandler.id,
         username: newUsername,
       }));
 
-      // We reset the state for the new user data.
+      // We reset the state with the new user data (possibly `null`).
       this.setState({
-        ...this.getFormValues(null),
+        ...this.getFormValues(newUser),
         displaySuccessMessage: false,
       });
     }
@@ -243,7 +246,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
             {this.state.displaySuccessMessage && (
               <Notice type="success">
-                {i18n.gettext('Profile successfully updated.')}
+                {i18n.gettext('Profile successfully updated')}
               </Notice>
             )}
           </div>

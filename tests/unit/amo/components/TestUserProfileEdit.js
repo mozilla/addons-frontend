@@ -87,7 +87,7 @@ describe(__filename, () => {
     }));
   }
 
-  it('renders user profile page for current logged user', () => {
+  it('renders user profile page for current logged-in user', () => {
     const root = renderUserProfileEdit();
 
     expect(root.find('.UserProfileEdit')).toHaveLength(1);
@@ -122,7 +122,7 @@ describe(__filename, () => {
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     // This happens when loading the user edit profile page of the current
-    // logged user (e.g., page refresh).
+    // logged-in user (e.g., page refresh).
     renderUserProfileEdit({ params: {}, store });
 
     sinon.assert.notCalled(dispatchSpy);
@@ -139,7 +139,9 @@ describe(__filename, () => {
 
     dispatchSpy.reset();
 
-    root.setProps({ username: 'killmonger' });
+    // We set `user` to `null` because that's what `mapStateToProps()` would do
+    // because the user is not loaded yet.
+    root.setProps({ username: 'killmonger', user: null });
 
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
       errorHandlerId: root.instance().props.errorHandler.id,
@@ -147,6 +149,23 @@ describe(__filename, () => {
     }));
 
     expect(root.find('.UserProfileEdit-location')).toHaveProp('value', '');
+  });
+
+  it('does not fetchUserAccount action if user data are available', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const user = getCurrentUser(store.getState().users);
+
+    dispatchSpy.reset();
+
+    // We pass the `user` to simulate the case where the user data are already
+    // present in the store.
+    root.setProps({ username: 'killmonger', user });
+
+    sinon.assert.notCalled(dispatchSpy);
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
@@ -181,7 +200,7 @@ describe(__filename, () => {
   });
 
   it('renders disabled input fields when user to edit is not loaded', () => {
-    const { store } = signInUserWithUsername('current-logged-user');
+    const { store } = signInUserWithUsername('current-logged-in-user');
     const username = 'user-not-in-users-state';
 
     const root = renderUserProfileEdit({ store, params: { username } });
@@ -361,7 +380,7 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', false);
   });
 
-  it('renders a submit button with a different text when user is not the logged user', () => {
+  it('renders a submit button with a different text when user is not the logged-in user', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const params = { username: 'another-user' };
 
@@ -382,7 +401,7 @@ describe(__filename, () => {
       .toHaveText('Updating your profile…');
   });
 
-  it('renders a submit button with a different text when user is not the logged user and editing', () => {
+  it('renders a submit button with a different text when user is not the logged-in user and editing', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const params = { username: 'another-user' };
 
@@ -417,7 +436,8 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store });
     const user = getCurrentUser(store.getState().users);
 
-    // We want to make sure dispatched action uses the values updated by the user.
+    // We want to make sure dispatched action uses the values updated by the
+    // user.
     const location = 'new location';
     root.find(`.UserProfileEdit-location`).simulate(
       'change',
@@ -471,7 +491,7 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice)).toHaveProp('type', 'success');
     expect(root.find(Notice))
-      .toHaveProp('children', 'Profile successfully updated.');
+      .toHaveProp('children', 'Profile successfully updated');
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
@@ -516,8 +536,8 @@ describe(__filename, () => {
       .toHaveProp('disabled', false);
   });
 
-  it('renders a Not Found page when logged user cannot edit another user', () => {
-    const username = 'current-logged-user';
+  it('renders a Not Found page when logged-in user cannot edit another user', () => {
+    const username = 'current-logged-in-user';
     const { store } = dispatchSignInActions({
       userProps: {
         ...defaultUserProps,
@@ -537,8 +557,8 @@ describe(__filename, () => {
     expect(root.find(NotFound)).toHaveLength(1);
   });
 
-  it('allows to edit another user if logged user has USERS_EDIT permission', () => {
-    const username = 'current-logged-user';
+  it('allows to edit another user if logged-in user has USERS_EDIT permission', () => {
+    const username = 'current-logged-in-user';
     const { store } = dispatchSignInActions({
       userProps: {
         ...defaultUserProps,
@@ -591,7 +611,7 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('returns a 404 if current user is not logged in', () => {
+  it('returns a 404 if current user is not logged-in', () => {
     const { store } = dispatchClientMetadata();
 
     const root = renderUserProfileEdit({ store });
