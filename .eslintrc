@@ -23,7 +23,7 @@
     "HTMLSelectElement": true,
     "HTMLTextAreaElement": true,
     "Node": true,
-    // Used for uploading profile pictures.
+    // This is used to send form data to the API.
     "FormData": true
   },
   "parser": "babel-eslint",
