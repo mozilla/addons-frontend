@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-15 21:11+0000\n"
+"PO-Revision-Date: 2018-05-16 13:18+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -580,9 +580,8 @@ msgid "Log in to create a collection"
 msgstr "登入後即可建立此收藏集"
 
 #: src/amo/components/CollectionList/index.js:58
-#, fuzzy
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "請儲存您的收藏集，就可以新增附加元件到收藏集當中"
+msgstr "首先，請建立您的收藏集，然後就可以新增擴充套件與佈景主題。"
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
@@ -857,9 +856,8 @@ msgid "View My Collections"
 msgstr "檢視我的收藏集"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:242
-#, fuzzy
 msgid "View My Profile"
-msgstr "檢視個人資料"
+msgstr "檢視我的個人資料"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:249
 #, fuzzy
