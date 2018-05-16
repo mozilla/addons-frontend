@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 17:47+0000\n"
+"PO-Revision-Date: 2018-05-16 18:09+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -104,7 +104,6 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)swot %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox — Get Firefox Now!"
 msgstr "Jenož z Firefox – Wobstarajće sej nětko Firefox!"
 
@@ -593,9 +592,8 @@ msgid "Log in to create a collection"
 msgstr "Přizjewće so, zo byšće zběrku wutworił"
 
 #: src/amo/components/CollectionList/index.js:58
-#, fuzzy
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Prošu składujće swoju zběrku a potom móžeće jej přidatki přidać"
+msgstr "Wutworće najprjedy swoju zběrku. Potom móžeće rozšěrjenja a drasty přidać."
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
@@ -878,14 +876,12 @@ msgid "View My Collections"
 msgstr "Moje zběrki pokazać"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:242
-#, fuzzy
 msgid "View My Profile"
-msgstr "Profil pokazać"
+msgstr "Mój profil pokazać"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:249
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Profil wobdźěłać"
+msgstr "Mój profil wobdźěłać"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -1871,33 +1867,28 @@ msgid "User Profile for %(user)s"
 msgstr "Wužiwarski profil za %(user)s"
 
 #: src/amo/components/UserProfileEdit/index.js:243
-#, fuzzy
 msgid "View user's profile"
-msgstr "Profil pokazać"
+msgstr "Profil wužiwarja pokazać"
 
 #: src/amo/components/UserProfileEdit/index.js:250
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Profil wobdźěłać"
+msgstr "Profil wužiwarja wobdźěłać"
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
 msgstr "Profil je so wuspěšnje zaktualizował"
 
 #: src/amo/components/UserProfileEdit/index.js:269
-#, fuzzy
 msgid "Account"
-msgstr "Moje konto"
+msgstr "Konto"
 
 #: src/amo/components/UserProfileEdit/index.js:270
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "Mějće přistup na swoje daty za %(param)s"
+msgstr "Konto za %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:276
-#, fuzzy
 msgid "Username"
-msgstr "wužiwar"
+msgstr "Wužiwarske mjeno"
 
 #: src/amo/components/UserProfileEdit/index.js:287
 msgid "Email address cannot be changed here"
@@ -1912,70 +1903,64 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Móžeće swoju e-mejlowu adresu na Firefox Accounts změnić. %(startLink)sTrjebaće pomoc?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:321
-#, fuzzy
 msgid "Profile"
-msgstr "Profil pokazać"
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Dajće wužiwarjam někotre informacije wo sebi. Tute pola su opcionalne, ale budu druhim wužiwarjam pomhać, was lěpje zeznać."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Dajće wužiwarjam někotre informacije wo tutym wužiwarju. Tute pola su opcionalne, ale budu druhim wužiwarjam pomhać, %(username)s lěpje zeznać."
 
 #: src/amo/components/UserProfileEdit/index.js:338
-#, fuzzy
 msgid "Display Name"
-msgstr "Hry hrać"
+msgstr "Mjeno zwobraznić"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Tutón URL budźeće jenož widźomny za wužiwarjow, kotřiž su wuwiwarjo."
 
 #: src/amo/components/UserProfileEdit/index.js:375
 msgid "Location"
-msgstr ""
+msgstr "Městno"
 
 #: src/amo/components/UserProfileEdit/index.js:387
 msgid "Occupation"
-msgstr ""
+msgstr "Powołanje"
 
 #: src/amo/components/UserProfileEdit/index.js:401
 msgid "Biography"
-msgstr ""
+msgstr "Biografija"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Předstajće so zhromadźenstwu, jeli chceće"
 
 #: src/amo/components/UserProfileEdit/index.js:407
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Předstajće %(username)s zhromadźenstwu"
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Dźěl HTML so podpěruje: %(htmlTags)s. Wotkazy su zakazane."
 
 #: src/amo/components/UserProfileEdit/index.js:450
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Wotmołwa so aktualizuje"
+msgstr "Waš profil so aktualizuje…"
 
 #: src/amo/components/UserProfileEdit/index.js:451
-#, fuzzy
 msgid "Update my profile"
-msgstr "Wotmołwu aktualizować"
+msgstr "Mój profil aktualizować"
 
 #: src/amo/components/UserProfileEdit/index.js:453
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Wotmołwa so aktualizuje"
+msgstr "Profil wužiwarja so aktualizuje…"
 
 #: src/amo/components/UserProfileEdit/index.js:454
-#, fuzzy
 msgid "Update user's profile"
-msgstr "Wotmołwu aktualizować"
+msgstr "Profil wužiwarja aktualizować"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2118,14 +2103,12 @@ msgid "This add-on has not been rated yet."
 msgstr "Tutón přidatk hišće pohódnoćenja nima."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Aktualizujće swoje pohódnoćenje na %(starRating)s z 5 hwěžkow."
+msgstr "Aktualizujće swoje pohódnoćenje na %(starRating)s z 5 hwěžkow"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Pohódnoćće tutón přidatk z %(starRating)s z 5 hwěžkow."
+msgstr "Pohódnoćće tutón přidatk z %(starRating)s z 5 hwěžkow"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
