@@ -7,7 +7,9 @@ import UserProfileEdit, {
   extractId,
   UserProfileEditBase,
 } from 'amo/components/UserProfileEdit';
+import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
+  deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
   finishEditUserAccount,
@@ -120,6 +122,7 @@ describe(__filename, () => {
     );
     expect(root.find({ htmlFor: 'biography' }))
       .toHaveText('Introduce yourself to the community if you like');
+    expect(root.find(UserProfileEditPicture)).toHaveLength(1);
   });
 
   it('dispatches fetchUserAccount action if username is not found', () => {
@@ -805,6 +808,92 @@ describe(__filename, () => {
     renderUserProfileEdit({ errorHandler, store });
 
     sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('dispatches a deleteUserPicture action when user deletes their profile picture', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const user = getCurrentUser(store.getState().users);
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const onDelete = root.find(UserProfileEditPicture).prop('onDelete');
+
+    sinon.assert.notCalled(dispatchSpy);
+
+    onDelete(createFakeEvent());
+
+    sinon.assert.calledWith(dispatchSpy, deleteUserPicture({
+      errorHandlerId: errorHandler.id,
+      userId: user.id,
+    }));
+  });
+
+  it('stores the picture file selected by the user', () => {
+    const selectedFile = new File([], 'image.png');
+
+    const { store } = signInUserWithUsername('tofumatt');
+    const root = renderUserProfileEdit({ store });
+
+    expect(root).toHaveState('picture', null);
+
+    const onSelect = root.find(UserProfileEditPicture).prop('onSelect');
+    const loadPictureSpy = sinon.spy(root.instance(), 'loadPicture');
+
+    sinon.assert.notCalled(loadPictureSpy);
+
+    onSelect(createFakeEvent({
+      currentTarget: {
+        files: [selectedFile],
+      },
+    }));
+
+    expect(root).toHaveState('picture', selectedFile);
+
+    sinon.assert.calledWith(loadPictureSpy, selectedFile);
+  });
+
+  it('loads a picture file', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const root = renderUserProfileEdit({ store });
+
+    const result = 'some-data-uri-content';
+
+    root.instance().onPictureLoaded(createFakeEvent({
+      target: {
+        result,
+      },
+    }));
+
+    expect(root).toHaveState('pictureData', result);
+  });
+
+  it('displays a message when user has deleted their profile picture', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        picture_url: 'https://example.org/pp.png',
+      },
+    });
+
+    const root = renderUserProfileEdit({ store });
+    const user = getCurrentUser(store.getState().users);
+
+    expect(root.find(Notice)).toHaveLength(0);
+
+    // The user profile picture has been successfully deleted.
+    root.setProps({
+      user: {
+        ...user,
+        picture_url: null,
+      },
+    });
+
+    expect(root.find(Notice)).toHaveLength(1);
+    expect(root.find(Notice)).toHaveProp('type', 'success');
+    expect(root.find(Notice))
+      .toHaveProp('children', 'Picture successfully deleted');
   });
 
   describe('errorHandler - extractId', () => {
