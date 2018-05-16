@@ -15,11 +15,6 @@
         grid-template-columns: repeat(2, 50%);
       }
 
-      @include respond-to(extraLarge) {
-        margin: 0 auto;
-        max-width: 80%;
-      }
-
       .SearchResult {
 
         @include respond-to(large) {
