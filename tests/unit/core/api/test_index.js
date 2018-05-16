@@ -277,6 +277,56 @@ describe(__filename, () => {
           expect(error.message).toMatch(/endpoint URL cannot be falsy/);
         });
     });
+
+    it('sends a JSON request when body is an object', async () => {
+      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      const body = {
+        some: 'value',
+        another: 'attribute',
+      };
+
+      mockWindow.expects('fetch')
+        .withArgs(sinon.match.any, sinon.match({
+          body: JSON.stringify(body),
+          headers: {
+            'Content-type': 'application/json',
+          },
+        }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, body });
+      mockWindow.verify();
+    });
+
+    it('does not set any "content-type" header when body is null', async () => {
+      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+
+      mockWindow.expects('fetch')
+        .withArgs(sinon.match.any, sinon.match({
+          headers: {},
+        }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, body: null });
+      mockWindow.verify();
+    });
+
+    it('does not send a JSON request when body is an instance of FormData', async () => {
+      const endpoint = 'https://elsewhere.org/api/v3/some-endpoint/';
+      const body = new FormData();
+      body.append('some', 'value');
+
+      mockWindow.expects('fetch')
+        .withArgs(sinon.match.any, sinon.match({
+          body,
+          // We expect no `content-type` header.
+          headers: {},
+        }))
+        .returns(createApiResponse());
+
+      await api.callApi({ endpoint, body });
+      mockWindow.verify();
+    });
   });
 
   describe('makeQueryString', () => {

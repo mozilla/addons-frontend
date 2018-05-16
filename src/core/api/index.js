@@ -72,7 +72,7 @@ export function createApiError(
 
 type CallApiParams = {|
   auth?: boolean,
-  body?: Object,
+  body?: Object | FormData,
   credentials?: boolean,
   endpoint: string,
   errorHandler?: ErrorHandlerType,
@@ -141,8 +141,14 @@ export function callApi({
     options.credentials = 'include';
   }
   if (body) {
-    options.body = JSON.stringify(body);
-    options.headers['Content-type'] = 'application/json';
+    if (body instanceof FormData) {
+      options.body = body;
+      // Let the browser sets this header, including the boundary value.
+      delete options.headers['Content-type'];
+    } else {
+      options.body = JSON.stringify(body);
+      options.headers['Content-type'] = 'application/json';
+    }
   }
   if (auth) {
     if (state.token) {
