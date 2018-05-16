@@ -1,4 +1,5 @@
 /* @flow */
+import makeClassName from 'classnames';
 import * as React from 'react';
 import { compose } from 'redux';
 
@@ -32,8 +33,16 @@ export const UserProfileEditPictureBase = ({
     i18n.gettext('Profile picture for %(name)s'), { name: user.name }
   ) : null;
 
+  const buttonClass = makeClassName(
+    'UserProfileEditPicture-select-button',
+    'Button Button--action Button--puffy',
+    {
+      'Button--disabled': !user,
+    }
+  );
+
   return (
-    <section className="UserProfileEdit-picture">
+    <section className="UserProfileEditPicture">
       <label className="UserProfileEdit--label" htmlFor={name}>
         {i18n.gettext('Profile photo')}
       </label>
@@ -45,21 +54,24 @@ export const UserProfileEditPictureBase = ({
       />
 
       {/* eslint-disable-next-line jsx-a11y/label-has-for */}
-      <label className="FileInput">
+      <label className="UserProfileEditPicture-file">
         <input
-          className="FileInput-input"
+          className="UserProfileEditPicture-file-input"
           disabled={!user}
           name={name}
           onChange={onSelect}
           type="file"
         />
-        <span className="Button Button--action Button--puffy">
+        <span className={buttonClass}>
           {i18n.gettext('Choose photo...')}
         </span>
       </label>
 
       {(user && user.picture_url) && (
-        <Button onClick={onDelete}>
+        <Button
+          className="UserProfileEditPicture-delete-button"
+          onClick={onDelete}
+        >
           {i18n.gettext('Delete this picture')}
         </Button>
       )}

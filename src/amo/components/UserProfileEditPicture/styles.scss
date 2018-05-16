@@ -4,7 +4,7 @@
 
 $picture-size: 128px;
 
-.UserProfileEdit-picture {
+.UserProfileEditPicture {
   .UserAvatar {
     @include margin-end(24px);
 
@@ -17,7 +17,7 @@ $picture-size: 128px;
     }
   }
 
-  .FileInput {
+  .UserProfileEditPicture-file {
     align-items: stretch;
     cursor: pointer;
     display: inline-block;
@@ -25,7 +25,7 @@ $picture-size: 128px;
     position: relative;
   }
 
-  .FileInput-input {
+  .UserProfileEditPicture-file-input {
     border: none;
     height: 0.01em !important;
     left: 0;
