@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 18:11+0000\n"
+"PO-Revision-Date: 2018-05-16 18:15+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -1869,11 +1869,11 @@ msgstr "Aquí no se puede cambiar la dirección de correo electrónico"
 
 #: src/amo/components/UserProfileEdit/index.js:289
 msgid "Email Address"
-msgstr ""
+msgstr "Dirección de correo electrónico"
 
 #: src/amo/components/UserProfileEdit/index.js:305
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Puedes cambiar la dirección de correo en tu cuenta de Firefox. %(startLink)s¿Necesitas ayuda?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:321
 msgid "Profile"
@@ -1881,11 +1881,11 @@ msgstr "Perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Cuéntale a los usuarios algo más sobre ti. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocerte mejor."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Cuéntale a los usuarios algo más sobre este usuario. Estos campos no son obligatorios, pero ayudarán a los demás usuarios a conocer mejor a %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:338
 msgid "Display Name"
@@ -1893,27 +1893,27 @@ msgstr "Mostrar nombre"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Esta URL solo será visible para los usuarios que sean desarrolladores."
 
 #: src/amo/components/UserProfileEdit/index.js:375
 msgid "Location"
-msgstr ""
+msgstr "Ubicación"
 
 #: src/amo/components/UserProfileEdit/index.js:387
 msgid "Occupation"
-msgstr ""
+msgstr "Profesión"
 
 #: src/amo/components/UserProfileEdit/index.js:401
 msgid "Biography"
-msgstr ""
+msgstr "Biografía"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Si quieres, preséntate en la comunidad"
 
 #: src/amo/components/UserProfileEdit/index.js:407
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Introduce a %(username)s en la comunidad"
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
