@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 11:51+0000\n"
+"PO-Revision-Date: 2018-05-16 11:52+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -2070,14 +2070,12 @@ msgid "This add-on has not been rated yet."
 msgstr "Dizze add-on is noch net wurdearre."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Wurkje jo wurdearring by nei %(starRating)s fan 5."
+msgstr "Jo wurdearring bywurkje nei %(starRating)s fan 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Dizze add-on mei %(starRating)s fan 5 wurdearje."
+msgstr "Dizze add-on mei %(starRating)s fan 5 wurdearje"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
