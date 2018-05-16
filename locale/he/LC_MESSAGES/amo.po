@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 04:26+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2018-05-16 09:29+0000\n"
+"Last-Translator: ItielMaN <itiel_yn8@walla.com>\n"
 "Language-Team: none\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
@@ -103,7 +103,7 @@ msgstr "%(addonName)s %(startSpan)sמאת %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
 msgid "Only with Firefox — Get Firefox Now!"
-msgstr ""
+msgstr "רק עם Firefox — קבלו את Firefox כעת!"
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -577,7 +577,7 @@ msgstr "יוצר"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "חיפוש אחר הרחבות וערכות נושא להוספה לאוסף שלך."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -585,7 +585,7 @@ msgstr "יש להתחבר כדי ליצור אוסף"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "תחילה, עליך ליצור את האוסף שלך. לאחר מכן ניתן להוסיף אליו הרחבות וערכות נושא."
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
@@ -865,11 +865,11 @@ msgstr "צפייה באוספים שלי"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:242
 msgid "View My Profile"
-msgstr ""
+msgstr "הצגת הפרופיל שלי"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:249
 msgid "Edit My Profile"
-msgstr ""
+msgstr "עריכת הפרופיל שלי"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -1827,35 +1827,35 @@ msgstr "פרופיל משתמש עבור %(user)s"
 
 #: src/amo/components/UserProfileEdit/index.js:243
 msgid "View user's profile"
-msgstr ""
+msgstr "הצגת פרופיל המשתמש"
 
 #: src/amo/components/UserProfileEdit/index.js:250
 msgid "Edit user's profile"
-msgstr ""
+msgstr "עריכת פרופיל המשתמש"
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "הפרופיל עודכן בהצלחה"
 
 #: src/amo/components/UserProfileEdit/index.js:269
 msgid "Account"
-msgstr ""
+msgstr "חשבון"
 
 #: src/amo/components/UserProfileEdit/index.js:270
 msgid "Account for %(username)s"
-msgstr ""
+msgstr "חשבון עבור %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:276
 msgid "Username"
-msgstr ""
+msgstr "שם משתמש"
 
 #: src/amo/components/UserProfileEdit/index.js:287
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "לא ניתן לשנות מכאן את כתובת הדוא״ל"
 
 #: src/amo/components/UserProfileEdit/index.js:289
 msgid "Email Address"
-msgstr ""
+msgstr "כתובת דוא״ל"
 
 #: src/amo/components/UserProfileEdit/index.js:305
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -1863,39 +1863,39 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:321
 msgid "Profile"
-msgstr ""
+msgstr "פרופיל"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "ניתן לספר למשתמשים קצת יותר על עצמך. שדות אלו הם בגדר רשות, אך הם יסייעו למשתמשים אחרים להכיר אותך טוב יותר."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "ניתן לספר למשתמשים קצת יותר על משתמש זה. שדות אלו הם בגדר רשות, אך הם יסייעו לאחרים להכיר את %(username)s טוב יותר."
 
 #: src/amo/components/UserProfileEdit/index.js:338
 msgid "Display Name"
-msgstr ""
+msgstr "שם תצוגה"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "כתובת זו תהיה גלויה אך ורק למשתמשים שהם מפתחים."
 
 #: src/amo/components/UserProfileEdit/index.js:375
 msgid "Location"
-msgstr ""
+msgstr "מיקום"
 
 #: src/amo/components/UserProfileEdit/index.js:387
 msgid "Occupation"
-msgstr ""
+msgstr "עיסוק"
 
 #: src/amo/components/UserProfileEdit/index.js:401
 msgid "Biography"
-msgstr ""
+msgstr "קורות חיים"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "יש לך אפשרות להציג את עצמך בפני הקהילה אם מתחשק לך"
 
 #: src/amo/components/UserProfileEdit/index.js:407
 msgid "Introduce %(username)s to the community"
@@ -1903,23 +1903,23 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "ישנה תמיכה חלקית ב־HTML:‏ %(htmlTags)s. אסור להשתמש בקישורים."
 
 #: src/amo/components/UserProfileEdit/index.js:450
 msgid "Updating your profile…"
-msgstr ""
+msgstr "הפרופיל שלך מתעדכן…"
 
 #: src/amo/components/UserProfileEdit/index.js:451
 msgid "Update my profile"
-msgstr ""
+msgstr "עדכון הפרופיל שלי"
 
 #: src/amo/components/UserProfileEdit/index.js:453
 msgid "Updating user's profile…"
-msgstr ""
+msgstr "פרופיל המשתמש מתעדכן…"
 
 #: src/amo/components/UserProfileEdit/index.js:454
 msgid "Update user's profile"
-msgstr ""
+msgstr "עדכון פרופיל המשתמש"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2059,7 +2059,7 @@ msgstr "לתוספת זו אין דירוגים עדיין."
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr ""
+msgstr "עדכון הדירוג שלך ל־%(starRating)s מתוך 5"
 
 #: src/ui/components/Rating/index.js:71
 msgid "Rate this add-on %(starRating)s out of 5"
