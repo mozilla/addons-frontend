@@ -1,8 +1,29 @@
 import { createInternalAddon } from 'core/reducers/addons';
-import { getThemeData } from 'core/themeInstall';
+import themeInstall, { getThemeData } from 'core/themeInstall';
+import { THEME_INSTALL } from 'core/constants';
 import { fakeTheme } from 'tests/unit/amo/helpers';
+import { createFakeEvent } from 'tests/unit/helpers';
 
 describe(__filename, () => {
+  it('sets-up the event for install', () => {
+    const fakeNode = {
+      dispatchEvent: sinon.stub(),
+    };
+    const fakeEvent = createFakeEvent({
+      initEvent: sinon.stub(),
+    });
+    const fakeDoc = {
+      createEvent: sinon.stub(),
+    };
+    fakeDoc.createEvent.returns(fakeEvent);
+
+    themeInstall(fakeNode, fakeDoc);
+
+    expect(fakeDoc.createEvent.calledWith('Events')).toBeTruthy();
+    expect(fakeEvent.initEvent.calledWith(THEME_INSTALL, true, false)).toBeTruthy();
+    expect(fakeNode.dispatchEvent.calledWith(fakeEvent)).toBeTruthy();
+  });
+
   it('returns themeData from getThemeData', () => {
     const themeData = {
       accentcolor: '#000',
