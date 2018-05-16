@@ -37,6 +37,7 @@ export function* fetchCurrentUserAccount({ payload }) {
 export function* editUserAccount({
   payload: {
     errorHandlerId,
+    picture,
     userFields,
     userId,
   },
@@ -50,6 +51,7 @@ export function* editUserAccount({
 
     const user = yield call(editUserAccountApi, {
       api: state.api,
+      picture,
       userId,
       ...userFields,
     });

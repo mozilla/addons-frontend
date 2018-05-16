@@ -16,17 +16,32 @@ export function currentUserAccount({ api }: {| api: ApiStateType |}) {
   });
 }
 
-export function editUserAccount({ api, userId, ...editableFields }: {|
+export function editUserAccount({ api, userId, picture, ...editableFields }: {|
   api: ApiStateType,
   editableFields: UserEditableFieldsType,
+  picture?: File | null,
   userId: number,
 |}) {
   invariant(api, 'api state is required.');
   invariant(userId, 'userId is required.');
 
+  let body = editableFields;
+
+  if (picture) {
+    const form = new FormData();
+    // Add all the editable fields, one by one.
+    Object.keys(editableFields).forEach((key: string) => {
+      form.set(key, editableFields[key]);
+    });
+    // Add the picture file.
+    form.set('picture_upload', picture);
+    // Set the API body to be the form.
+    body = form;
+  }
+
   return callApi({
     auth: true,
-    body: editableFields,
+    body,
     endpoint: `accounts/account/${userId}`,
     method: 'PATCH',
     state: api,

@@ -129,6 +129,7 @@ export const finishEditUserAccount = (): FinishEditUserAccountAction => {
 
 type EditUserAccountParams = {|
   errorHandlerId: string,
+  picture?: File | null,
   userFields: UserEditableFieldsType,
   userId: UserId,
 |};
@@ -139,7 +140,7 @@ type EditUserAccountAction = {|
 |};
 
 export const editUserAccount = ({
-  errorHandlerId, userFields, userId,
+  errorHandlerId, picture, userFields, userId,
 }: EditUserAccountParams): EditUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userFields, 'userFields are required');
@@ -147,7 +148,7 @@ export const editUserAccount = ({
 
   return {
     type: EDIT_USER_ACCOUNT,
-    payload: { errorHandlerId, userFields, userId },
+    payload: { errorHandlerId, userFields, picture, userId },
   };
 };
 
