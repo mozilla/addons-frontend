@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 14:29+0000\n"
+"PO-Revision-Date: 2018-05-16 18:13+0000\n"
 "Last-Translator: Balázs Meskó <meskobalazs@gmail.com>\n"
 "Language-Team: none\n"
 "Language: hu\n"
@@ -1880,11 +1880,11 @@ msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Adjon meg némi információt saját magáról. Ezek a mezők nem kötelezőek, de segítenek más felhasználóknak jobban megismerni Önt."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Adjon meg némi információt erről a felhasználóról. Ezek a mezők nem kötelezőek, de segítenek más felhasználóknak jobban megismerni %(username)s felhasználót."
 
 #: src/amo/components/UserProfileEdit/index.js:338
 msgid "Display Name"
