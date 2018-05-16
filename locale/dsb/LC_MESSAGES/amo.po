@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 18:44+0000\n"
+"PO-Revision-Date: 2018-05-16 19:41+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1903,9 +1903,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr "Móžośo swóju e-mailowu adresu na Firefox Accounts změniś. %(startLink)sTrjebaśo pomoc?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:321
-#, fuzzy
 msgid "Profile"
-msgstr "Profil pokazaś"
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -1916,9 +1915,8 @@ msgid "Tell users a bit more information about this user. These fields are optio
 msgstr "Dajśo wužywarjam někotare informacije wó toś tom wužywarju. Toś te póla su opcionalne, ale budu drugim wužywarjam pomagaś, %(username)s lěpjej póznaś."
 
 #: src/amo/components/UserProfileEdit/index.js:338
-#, fuzzy
 msgid "Display Name"
-msgstr "Graśa graś"
+msgstr "Mě zwobrazniś"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
@@ -1949,24 +1947,20 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Źěl HTML se pódpěra: %(htmlTags)s. Wótkaze su zakazane."
 
 #: src/amo/components/UserProfileEdit/index.js:450
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Wótegrono se aktualizěrujo"
+msgstr "Waš profil se aktualizěrujo…"
 
 #: src/amo/components/UserProfileEdit/index.js:451
-#, fuzzy
 msgid "Update my profile"
-msgstr "Wótegrono se aktualizěrujo"
+msgstr "Mój profil aktualizěrowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:453
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Wótegrono se aktualizěrujo"
+msgstr "Profil wužywarja se aktualizěrujo…"
 
 #: src/amo/components/UserProfileEdit/index.js:454
-#, fuzzy
 msgid "Update user's profile"
-msgstr "Wótegrono se aktualizěrujo"
+msgstr "Profil wužywarja aktualizěrowaś"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2109,14 +2103,12 @@ msgid "This add-on has not been rated yet."
 msgstr "Toś ten dodank hyšći njama pógódnośenja."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Aktualizěrujśo swójo pógódnośenje na %(starRating)s z 5 gwězdkow."
+msgstr "Aktualizěrujśo swójo pógódnośenje na %(starRating)s z 5 gwězdkow"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Pógódnośćo toś ten dodank z %(starRating)s z 5 gwězdkow."
+msgstr "Pógódnośćo toś ten dodank z %(starRating)s z 5 gwězdkow"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
