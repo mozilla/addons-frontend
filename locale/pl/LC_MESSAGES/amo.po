@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 15:31+0000\n"
+"PO-Revision-Date: 2018-05-16 15:34+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1888,11 +1888,11 @@ msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Powiedz użytkownikom coś o sobie. Te pola są opcjonalne, ale pomogą innym użytkownikom poznać Cię lepiej."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Powiedz innym coś o tym użytkowniku. Te pola są opcjonalne, ale pomogą innym lepiej poznać użytkownika %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:338
 msgid "Display Name"
@@ -1916,11 +1916,11 @@ msgstr "Notka biograficzna"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Przedstaw się społeczności, jeśli chcesz"
 
 #: src/amo/components/UserProfileEdit/index.js:407
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Przedstaw użytkownika %(username)s społeczności"
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
