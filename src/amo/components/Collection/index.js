@@ -127,7 +127,7 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
-    if (collection && addonsPageChanged) {
+    if (collection && addonsPageChanged && collection.numberOfAddons) {
       this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         page: location.query.page || 1,

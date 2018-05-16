@@ -523,13 +523,19 @@ describe(__filename, () => {
     });
 
     describe('create logic', () => {
+      const params = {
+        description: { 'en-US': 'Collection description' },
+        name: { 'en-US': 'Collection name' },
+        slug,
+        user,
+      };
+      const collectionDetail = createFakeCollectionDetail();
+      const collectionDetailResponse = {
+        ...collectionDetail,
+        ...params,
+      };
+
       it('sends a request to the collections API', async () => {
-        const params = {
-          description: { 'en-US': 'Collection description' },
-          name: { 'en-US': 'Collection name' },
-          slug,
-          user,
-        };
         const state = sagaTester.getState();
 
         mockApi
@@ -543,31 +549,34 @@ describe(__filename, () => {
             user,
           })
           .once()
-          .returns(Promise.resolve());
+          .returns(Promise.resolve(collectionDetailResponse));
 
         _createCollection(params);
 
+        const expectedLoadAction = loadCurrentCollection({
+          addons: [],
+          detail: collectionDetailResponse,
+        });
+
+        const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
+        expect(loadAction).toEqual(expectedLoadAction);
+
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+          `/${lang}/${clientApp}/collections/${user}/${slug}/edit/`
         );
 
         await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
       });
 
-      it('redirects to the new collection after create', async () => {
-        const params = {
-          slug,
-          user,
-        };
-
-        mockApi.expects('createCollection').returns(Promise.resolve());
+      it('redirects to the collection edit screen after create', async () => {
+        mockApi.expects('createCollection').returns(Promise.resolve(collectionDetailResponse));
         _createCollection(params);
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+          `/${lang}/${clientApp}/collections/${user}/${slug}/edit/`
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);
