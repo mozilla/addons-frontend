@@ -866,14 +866,12 @@ msgid "View My Collections"
 msgstr "צפייה באוספים שלי"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:242
-#, fuzzy
 msgid "View My Profile"
-msgstr "צפייה בפרופיל"
+msgstr ""
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:249
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "עריכת פרופיל"
+msgstr ""
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -1830,23 +1828,20 @@ msgid "User Profile for %(user)s"
 msgstr "פרופיל משתמש עבור %(user)s"
 
 #: src/amo/components/UserProfileEdit/index.js:243
-#, fuzzy
 msgid "View user's profile"
-msgstr "צפייה בפרופיל"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:250
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "עריכת פרופיל"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:269
-#, fuzzy
 msgid "Account"
-msgstr "החשבון שלי"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:270
 #, fuzzy
@@ -1854,9 +1849,8 @@ msgid "Account for %(username)s"
 msgstr "גישה לנתונים שלך עבור %(param)s"
 
 #: src/amo/components/UserProfileEdit/index.js:276
-#, fuzzy
 msgid "Username"
-msgstr "משתמש"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:287
 msgid "Email address cannot be changed here"
@@ -1871,9 +1865,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:321
-#, fuzzy
 msgid "Profile"
-msgstr "צפייה בפרופיל"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -1884,9 +1877,8 @@ msgid "Tell users a bit more information about this user. These fields are optio
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:338
-#, fuzzy
 msgid "Display Name"
-msgstr "משחקים"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
@@ -1917,24 +1909,20 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:450
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "התגובה מתעדכנת"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:451
-#, fuzzy
 msgid "Update my profile"
-msgstr "עדכון התגובה"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:453
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "התגובה מתעדכנת"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:454
-#, fuzzy
 msgid "Update user's profile"
-msgstr "עדכון התגובה"
+msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
