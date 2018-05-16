@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 12:23+0000\n"
+"PO-Revision-Date: 2018-05-16 12:40+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -865,14 +865,12 @@ msgid "View My Collections"
 msgstr "Koleksiyonlarımı göster"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:242
-#, fuzzy
 msgid "View My Profile"
-msgstr "Profili göster"
+msgstr "Profilimi göster"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:249
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Profili düzenle"
+msgstr "Profilimi düzenle"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -1842,33 +1840,28 @@ msgid "User Profile for %(user)s"
 msgstr "%(user)s kullanıcı profili"
 
 #: src/amo/components/UserProfileEdit/index.js:243
-#, fuzzy
 msgid "View user's profile"
-msgstr "Profili göster"
+msgstr "Kullanıcının profilini göster"
 
 #: src/amo/components/UserProfileEdit/index.js:250
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Profili düzenle"
+msgstr "Kullanıcının profilini düzenle"
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:269
-#, fuzzy
 msgid "Account"
-msgstr "Hesabım"
+msgstr "Hesap"
 
 #: src/amo/components/UserProfileEdit/index.js:270
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "%(param)s verilerinize erişme"
+msgstr "%(username)s hesabı"
 
 #: src/amo/components/UserProfileEdit/index.js:276
-#, fuzzy
 msgid "Username"
-msgstr "Kullanıcı"
+msgstr "Kullanıcı adı"
 
 #: src/amo/components/UserProfileEdit/index.js:287
 msgid "Email address cannot be changed here"
@@ -1883,9 +1876,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:321
-#, fuzzy
 msgid "Profile"
-msgstr "Profili göster"
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -1896,9 +1888,8 @@ msgid "Tell users a bit more information about this user. These fields are optio
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:338
-#, fuzzy
 msgid "Display Name"
-msgstr "Oyun oynayın"
+msgstr "Görünen ad"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
@@ -1906,15 +1897,15 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:375
 msgid "Location"
-msgstr ""
+msgstr "Konum"
 
 #: src/amo/components/UserProfileEdit/index.js:387
 msgid "Occupation"
-msgstr ""
+msgstr "Meslek"
 
 #: src/amo/components/UserProfileEdit/index.js:401
 msgid "Biography"
-msgstr ""
+msgstr "Biyografi"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
@@ -1929,14 +1920,12 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:450
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Yanıt güncelleniyor"
+msgstr "Profiliniz güncelleniyor…"
 
 #: src/amo/components/UserProfileEdit/index.js:451
-#, fuzzy
 msgid "Update my profile"
-msgstr "Yanıtı güncelle"
+msgstr "Profilimi güncelle"
 
 #: src/amo/components/UserProfileEdit/index.js:453
 #, fuzzy
