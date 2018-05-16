@@ -102,9 +102,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sמאת %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox — Get Firefox Now!"
-msgstr "רק עם Firefox - קבלו את Firefox כעת!"
+msgstr ""
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -585,9 +584,8 @@ msgid "Log in to create a collection"
 msgstr "יש להתחבר כדי ליצור אוסף"
 
 #: src/amo/components/CollectionList/index.js:58
-#, fuzzy
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "נא לשמור את האוסף שלך ולאחר מכן יתאפשר לך להוסיף אליו תוספות"
+msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
@@ -1844,9 +1842,8 @@ msgid "Account"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:270
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "גישה לנתונים שלך עבור %(param)s"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:276
 msgid "Username"
