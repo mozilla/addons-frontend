@@ -444,6 +444,15 @@ describe(__filename, () => {
     expect(root).toHaveState('slug', 'trishul-s-collection');
   });
 
+  it('does not allow consecutive hyphen while autofilling slug', () => {
+    const name = "trishul's   collection";
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'name', text: `  ${name}  ` });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
   it('does not update slug if event value is null', () => {
     const name = "trishul's collection";
     const root = render({ collection: null, creating: true });

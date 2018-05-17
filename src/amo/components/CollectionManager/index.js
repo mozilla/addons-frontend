@@ -166,7 +166,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
     if (creating && name === 'name' && !this.state.customSlug) {
       this.setState({
-        slug: trimmedValue.replace(/[^A-Za-z0-9]/g, '-'),
+        slug: trimmedValue.split(/[^A-Za-z0-9]/).filter((s) => s !== '').join('-'),
         [name]: value,
       });
     } else if (creating && name === 'slug' && trimmedValue !== '') {
