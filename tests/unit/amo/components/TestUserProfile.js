@@ -178,6 +178,61 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-homepage')).toHaveLength(0);
   });
 
+  it("renders the user's occupation", () => {
+    const occupation = 'some occupation';
+
+    const { store } = dispatchSignInActions({
+      userProps: {
+        occupation,
+        username: 'tofumatt',
+      },
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('.UserProfile-occupation')).toHaveLength(1);
+    expect(root.find('.UserProfile-occupation').children())
+      .toHaveText(occupation);
+  });
+
+  it("omits occupation if the user doesn't have one set", () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        occupation: null,
+        username: 'tofumatt',
+      },
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('.UserProfile-occupation')).toHaveLength(0);
+  });
+
+  it("renders the user's location", () => {
+    const location = 'some location';
+
+    const { store } = dispatchSignInActions({
+      userProps: {
+        location,
+        username: 'tofumatt',
+      },
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('.UserProfile-location')).toHaveLength(1);
+    expect(root.find('.UserProfile-location').children()).toHaveText(location);
+  });
+
+  it("omits location if the user doesn't have one set", () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        location: null,
+        username: 'tofumatt',
+      },
+    });
+    const root = renderUserProfile({ store });
+
+    expect(root.find('.UserProfile-location')).toHaveLength(0);
+  });
+
   it("renders the user's account creation date", () => {
     const { store } = dispatchSignInActions({
       userProps: {

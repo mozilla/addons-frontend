@@ -118,6 +118,22 @@ export class UserProfileBase extends React.Component<Props> {
                   </a>
                 </Definition>
               ) : null}
+              {user && user.location ? (
+                <Definition
+                  className="UserProfile-location"
+                  term={i18n.gettext('Location')}
+                >
+                  {user.location}
+                </Definition>
+              ) : null}
+              {user && user.occupation ? (
+                <Definition
+                  className="UserProfile-occupation"
+                  term={i18n.gettext('Occupation')}
+                >
+                  {user.occupation}
+                </Definition>
+              ) : null}
               <Definition
                 className="UserProfile-user-since"
                 term={i18n.gettext('User since')}
