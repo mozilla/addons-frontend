@@ -24,6 +24,7 @@ import {
   loadUserCollections,
   beginCollectionModification,
   finishCollectionModification,
+  localizeCollectionDetail,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
@@ -250,11 +251,8 @@ export function* modifyCollection(
       invariant(response, 'response is required when creating');
       // If a new collection was just created, load it so that it will
       // be available when the user arrives at the collection edit screen.
-      yield put(loadCurrentCollection({ addons: [], detail: response }));
-      // TODO: There's a problem however that the collection isn't being recognized
-      // when we get to the edit page. If we let the edit page call fetchCurrentCollection
-      // it works, but then we get the flash of content. Ideally we can find a way to tell
-      // the Collection component that this collection is there for it.
+      const localizedDetail = localizeCollectionDetail({ detail: response, lang });
+      yield put(loadCurrentCollection({ addons: [], detail: localizedDetail }));
       yield put(pushLocation(`${newLocation}edit/`));
     } else {
       // TODO: invalidate the stored collection instead of redirecting.

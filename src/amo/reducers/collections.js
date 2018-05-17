@@ -260,6 +260,12 @@ export type ExternalCollectionDetail = {|
   uuid: string,
 |};
 
+export type ExternalCollectionDetailWithLocalizedStrings = {|
+  description: {[lang: string]: string} | null,
+  name: {[lang: string]: string},
+  ...ExternalCollectionDetail
+|};
+
 export type CollectionAddonsListResponse = {|
   count: number,
   next: string,
@@ -694,6 +700,24 @@ export const changeAddonCollectionsLoadingFlag = ({
         },
       },
     },
+  };
+};
+
+type LocalizeCollectionDetailParams = {|
+  detail: ExternalCollectionDetailWithLocalizedStrings,
+  lang: string,
+|};
+
+export const localizeCollectionDetail = (
+  { detail, lang }: LocalizeCollectionDetailParams
+): ExternalCollectionDetail => {
+  invariant(detail, 'detail is required for localizeCollectionDetail');
+  invariant(lang, 'lang is required for localizeCollectionDetail');
+
+  return {
+    ...detail,
+    description: detail.description && detail.description[lang],
+    name: detail.name[lang],
   };
 };
 
