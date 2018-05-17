@@ -261,9 +261,9 @@ export type ExternalCollectionDetail = {|
 |};
 
 export type ExternalCollectionDetailWithLocalizedStrings = {|
+  ...ExternalCollectionDetail,
   description: {[lang: string]: string} | null,
   name: {[lang: string]: string},
-  ...ExternalCollectionDetail
 |};
 
 export type CollectionAddonsListResponse = {|
@@ -715,9 +715,17 @@ export const localizeCollectionDetail = (
   invariant(lang, 'lang is required for localizeCollectionDetail');
 
   return {
-    ...detail,
+    addon_count: detail.addon_count,
+    author: detail.author,
+    default_locale: detail.default_locale,
     description: detail.description && detail.description[lang],
+    id: detail.id,
+    modified: detail.modified,
     name: detail.name[lang],
+    public: detail.public,
+    slug: detail.slug,
+    url: detail.url,
+    uuid: detail.uuid,
   };
 };
 
