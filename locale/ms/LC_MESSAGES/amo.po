@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-16 05:10+0000\n"
+"PO-Revision-Date: 2018-05-17 04:51+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -101,7 +101,6 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)soleh %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox — Get Firefox Now!"
 msgstr "Hanya dengan Firefox — Dapatkan Firefox Sekarang!"
 
@@ -277,9 +276,8 @@ msgid "Other users with this extension also installed"
 msgstr "Pengguna lain dengan ekstensi ini juga memasang"
 
 #: src/amo/components/AddonRecommendations/index.js:155
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "Ekstensi paling popular"
+msgstr "Ekstensi popular lain"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -379,14 +377,12 @@ msgid "More dictionaries by these translators"
 msgstr "Kamus yang lain oleh para penterjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Kamus yang lain oleh %(author)s"
+msgstr "Kamus oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Kamus yang lain oleh para penterjemah ini"
+msgstr "Kamus oleh para penterjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
