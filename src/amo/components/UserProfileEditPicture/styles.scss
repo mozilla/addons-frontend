@@ -44,4 +44,9 @@ $picture-size: 128px;
       position: relative;
     }
   }
+
+  .UserProfileEditPicture-delete-button {
+    cursor: pointer;
+    width: $picture-size;
+  }
 }

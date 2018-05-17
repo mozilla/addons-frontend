@@ -68,12 +68,14 @@ export const UserProfileEditPictureBase = ({
       </label>
 
       {(user && user.picture_url) && (
-        <Button
-          className="UserProfileEditPicture-delete-button"
-          onClick={onDelete}
-        >
-          {i18n.gettext('Delete this picture')}
-        </Button>
+        <p>
+          <Button
+            className="UserProfileEditPicture-delete-button"
+            onClick={onDelete}
+          >
+            {i18n.gettext('Delete this picture')}
+          </Button>
+        </p>
       )}
     </section>
   );
