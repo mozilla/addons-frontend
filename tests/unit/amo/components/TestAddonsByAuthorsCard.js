@@ -67,20 +67,23 @@ describe(__filename, () => {
   }
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
+    const addonsLength = addonType === ADDON_TYPE_THEME ?
+      THEMES_BY_AUTHORS_PAGE_SIZE :
+      EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+    const addons = [];
+
+    for (let i = 0; i < addonsLength; i++) {
+      addons.push({
+        ...fakeAddon,
+        id: i + 1,
+        slug: `foo${i}`,
+        type: addonType,
+        authors: [fakeAuthorOne],
+      });
+    }
+
     return loadAddonsByAuthors({
-      addons: Array(
-        addonType === ADDON_TYPE_THEME ?
-          THEMES_BY_AUTHORS_PAGE_SIZE :
-          EXTENSIONS_BY_AUTHORS_PAGE_SIZE
-      )
-        .fill('')
-        .map((x, i) => ({
-          ...fakeAddon,
-          id: i + 1,
-          slug: `foo${i}`,
-          type: addonType,
-          authors: [fakeAuthorOne],
-        })),
+      addons,
       addonType,
       authorUsernames: multipleAuthors ?
         [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username],
@@ -350,24 +353,26 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('should have extensions length equal to numberOfAddons props', () => {
+  it('should display at most numberOfAddons extensions', () => {
+    const numberOfAddons = 4;
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_EXTENSION,
       multipleAuthors: false,
-      numberOfAddons: 4,
+      numberOfAddons,
     });
 
-    expect(root.find(AddonsCard).props().addons).toHaveLength(4);
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
-  it('should have themes length equal to numberOfAddons props', () => {
+  it('should display at most numberOfAddons themes', () => {
+    const numberOfAddons = 3;
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
       multipleAuthors: false,
-      numberOfAddons: 3,
+      numberOfAddons,
     });
 
-    expect(root.find(AddonsCard).props().addons).toHaveLength(3);
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {
