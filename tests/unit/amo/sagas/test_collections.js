@@ -8,17 +8,18 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  beginCollectionModification,
   createCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  finishCollectionModification,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  localizeCollectionDetail,
   updateCollection,
-  beginCollectionModification,
-  finishCollectionModification,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -555,7 +556,9 @@ describe(__filename, () => {
 
         const expectedLoadAction = loadCurrentCollection({
           addons: [],
-          detail: collectionDetailResponse,
+          detail: localizeCollectionDetail({
+            detail: collectionDetailResponse, lang: state.api.lang,
+          }),
         });
 
         const loadAction = await sagaTester.waitFor(expectedLoadAction.type);

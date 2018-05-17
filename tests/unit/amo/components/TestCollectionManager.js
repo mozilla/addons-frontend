@@ -112,6 +112,20 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('displays the correct button for create', () => {
+    const root = render({ collection: null, creating: true });
+
+    expect(root.find('.CollectionManager-submit').children())
+      .toHaveText('Create collection');
+  });
+
+  it('displays the correct button for edit', () => {
+    const root = render({ collection: null, creating: false });
+
+    expect(root.find('.CollectionManager-submit').children())
+      .toHaveText('Save collection');
+  });
+
   it('can render an empty form for create', () => {
     const clientApp = CLIENT_APP_FIREFOX;
     const newLang = 'de';

@@ -7,10 +7,10 @@ import Collection, {
 } from 'amo/components/Collection';
 import AddonsCard from 'amo/components/AddonsCard';
 import CollectionManager from 'amo/components/CollectionManager';
-import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
+import Button from 'ui/components/Button';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -680,7 +680,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
-    const editLink = wrapper.find('.Collection-edit-link').find(Link);
+    const editLink = wrapper.find('.Collection-edit-link').find(Button);
     expect(editLink).toHaveLength(1);
     expect(editLink).toHaveProp('href',
       `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
@@ -700,7 +700,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
-    const editLink = wrapper.find('.Collection-edit-link').find(Link);
+    const editLink = wrapper.find('.Collection-edit-link').find(Button);
     expect(editLink).toHaveLength(1);
     expect(editLink).toHaveProp('to',
       `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);

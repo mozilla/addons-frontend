@@ -18,14 +18,14 @@ import {
   abortFetchCurrentCollection,
   abortFetchUserCollections,
   addonAddedToCollection,
+  beginCollectionModification,
   deleteCollectionBySlug,
+  finishCollectionModification,
+  fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  beginCollectionModification,
-  finishCollectionModification,
   localizeCollectionDetail,
-  fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
