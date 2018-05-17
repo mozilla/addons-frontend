@@ -158,6 +158,44 @@ describe(__filename, () => {
       expect(calledFinishAction.payload).toEqual({});
     });
 
+    it('optionally takes a picture file', async () => {
+      const state = sagaTester.getState();
+      const user = createUserAccountResponse({ id: 5001 });
+
+      const picture = new File([], 'some-image.png');
+      const userFields = {
+        biography: 'I fell into a burning ring of fire.',
+        location: 'Folsom Prison',
+      };
+
+      mockApi
+        .expects('editUserAccount')
+        .withArgs({
+          api: state.api,
+          userId: user.id,
+          picture,
+          ...userFields,
+        })
+        .once()
+        .returns(Promise.resolve({ ...user, ...userFields }));
+
+      sagaTester.dispatch(editUserAccount({
+        errorHandlerId: errorHandler.id,
+        picture,
+        userFields,
+        userId: user.id,
+      }));
+
+      const expectedCalledAction = loadUserAccount({
+        user: { ...user, ...userFields },
+      });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      mockApi.verify();
+      expect(calledAction).toEqual(expectedCalledAction);
+    });
+
     it('cancels the edit and dispatches an error when fails', async () => {
       const user = createUserAccountResponse({ id: 5001 });
       const userFields = {

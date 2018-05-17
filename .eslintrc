@@ -24,7 +24,9 @@
     "HTMLTextAreaElement": true,
     "Node": true,
     // This is used to send form data to the API.
-    "FormData": true
+    "FormData": true,
+    // This is used to upload files in the browser.
+    "File": true
   },
   "parser": "babel-eslint",
   "plugins": [

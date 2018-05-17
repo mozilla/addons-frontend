@@ -1,3 +1,5 @@
+import deepEqual from 'deep-eql';
+
 import * as api from 'core/api';
 import {
   currentUserAccount,
@@ -75,6 +77,30 @@ describe(__filename, () => {
           state: params.api,
         })
         .returns(mockResponse(editableFields));
+
+      await editUserAccount(params);
+      mockApi.verify();
+    });
+
+    it('sends a FormData body when a picture file is supplied', async () => {
+      const editableFields = {
+        biography: 'I am a cool tester.',
+      };
+      const picture = new File([], 'image.png');
+      const params = getParams({ picture, ...editableFields });
+
+      const expectedBody = new FormData();
+      expectedBody.set('biography', editableFields.biography);
+      expectedBody.set('picture_upload', picture);
+
+      mockApi.expects('callApi')
+        .withArgs(sinon.match(({ body }) => {
+          return deepEqual(
+            Array.from(body.entries()),
+            Array.from(expectedBody.entries())
+          );
+        }))
+        .returns(mockResponse());
 
       await editUserAccount(params);
       mockApi.verify();
