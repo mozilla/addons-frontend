@@ -21,7 +21,10 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
 import {
   createUserAccountResponse,
   fakeI18n,
@@ -290,13 +293,20 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-biography')).toHaveLength(0);
   });
 
-  it('does not render a report abuse button if user is not the current logged-in user', () => {
+  it('does not render a report abuse button if user is the current logged-in user', () => {
     const root = renderUserProfile();
 
     expect(root.find(ReportUserAbuse)).toHaveLength(0);
   });
 
-  it('renders a report abuse button if user is loaded', () => {
+  it('renders a report abuse button if user is not logged-in', () => {
+    const { store } = dispatchClientMetadata();
+    const root = renderUserProfile({ store });
+
+    expect(root.find(ReportUserAbuse)).toHaveLength(1);
+  });
+
+  it('renders a report abuse button if user is not the current logged-in user', () => {
     const username = 'current-logged-in-user';
     const { store } = dispatchSignInActions({
       userProps: {
