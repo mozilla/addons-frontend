@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -7,15 +8,22 @@ import { compose } from 'redux';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
-import { fetchUserAccount, getUserByUsername } from 'amo/reducers/users';
+import {
+  fetchUserAccount,
+  getCurrentUser,
+  getUserByUsername,
+  hasPermission,
+} from 'amo/reducers/users';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  USERS_EDIT,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
@@ -30,8 +38,10 @@ import './styles.scss';
 
 
 type Props = {|
+  currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  hasEditPermission: boolean,
   i18n: I18nType,
   params: {| username: string |},
   user?: UserType,
@@ -60,9 +70,23 @@ export class UserProfileBase extends React.Component<Props> {
     }
   }
 
+  getEditURL() {
+    const { currentUser, user } = this.props;
+
+    invariant(user, 'user is required');
+    invariant(currentUser, 'currentUser is required');
+
+    if (currentUser.id === user.id) {
+      return `/users/edit`;
+    }
+
+    return `/user/${user.username}/edit`;
+  }
+
   render() {
     const {
       errorHandler,
+      hasEditPermission,
       i18n,
       params,
       user,
@@ -154,6 +178,17 @@ export class UserProfileBase extends React.Component<Props> {
             ) : null}
 
             <ReportUserAbuse className="UserProfile-abuse-button" user={user} />
+
+            {hasEditPermission ? (
+              <Button
+                className="UserProfile-edit-link"
+                buttonType="neutral"
+                to={this.getEditURL()}
+                puffy
+              >
+                {i18n.gettext('Edit this profile')}
+              </Button>
+            ) : null}
           </Card>
 
           {user && user.username && (
@@ -187,8 +222,18 @@ export function mapStateToProps(
   state: {| users: UsersStateType |},
   ownProps: Props,
 ) {
+  const currentUser = getCurrentUser(state.users);
+  const user = getUserByUsername(state.users, ownProps.params.username);
+
+  let hasEditPermission = currentUser && user && currentUser.id === user.id;
+  if (currentUser && hasPermission(state, USERS_EDIT)) {
+    hasEditPermission = true;
+  }
+
   return {
-    user: getUserByUsername(state.users, ownProps.params.username),
+    currentUser,
+    hasEditPermission,
+    user,
   };
 }
 
