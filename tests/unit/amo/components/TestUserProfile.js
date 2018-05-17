@@ -318,7 +318,7 @@ describe(__filename, () => {
     const user = createUserAccountResponse({ username: 'willdurand' });
     store.dispatch(loadUserAccount({ user }));
 
-    // Try to edit this user with another username.
+    // See this other user profile page.
     const params = { username: user.username };
     const root = renderUserProfile({ params, store });
 
@@ -418,7 +418,7 @@ describe(__filename, () => {
     const user = createUserAccountResponse({ username: 'willdurand' });
     store.dispatch(loadUserAccount({ user }));
 
-    // Try to edit this user with another username.
+    // See this other user profile page.
     const params = { username: user.username };
     const root = renderUserProfile({ params, store });
 
@@ -440,7 +440,7 @@ describe(__filename, () => {
     const user = createUserAccountResponse({ username: 'willdurand' });
     store.dispatch(loadUserAccount({ user }));
 
-    // Try to edit this user with another username.
+    // See this other user profile page.
     const params = { username: user.username };
     const root = renderUserProfile({ params, store });
 
