@@ -43,6 +43,7 @@ type Props = {|
   errorHandler: ErrorHandlerType,
   hasEditPermission: boolean,
   i18n: I18nType,
+  isOwner: boolean,
   params: {| username: string |},
   user?: UserType,
 |};
@@ -88,6 +89,7 @@ export class UserProfileBase extends React.Component<Props> {
       errorHandler,
       hasEditPermission,
       i18n,
+      isOwner,
       params,
       user,
     } = this.props;
@@ -177,7 +179,12 @@ export class UserProfileBase extends React.Component<Props> {
               />
             ) : null}
 
-            <ReportUserAbuse className="UserProfile-abuse-button" user={user} />
+            {!isOwner && (
+              <ReportUserAbuse
+                className="UserProfile-abuse-button"
+                user={user}
+              />
+            )}
 
             {hasEditPermission ? (
               <Button
@@ -186,7 +193,7 @@ export class UserProfileBase extends React.Component<Props> {
                 to={this.getEditURL()}
                 puffy
               >
-                {i18n.gettext('Edit this profile')}
+                {i18n.gettext('Edit profile')}
               </Button>
             ) : null}
           </Card>
@@ -224,8 +231,9 @@ export function mapStateToProps(
 ) {
   const currentUser = getCurrentUser(state.users);
   const user = getUserByUsername(state.users, ownProps.params.username);
+  const isOwner = currentUser && user && currentUser.id === user.id;
 
-  let hasEditPermission = currentUser && user && currentUser.id === user.id;
+  let hasEditPermission = isOwner;
   if (currentUser && hasPermission(state, USERS_EDIT)) {
     hasEditPermission = true;
   }
@@ -233,6 +241,7 @@ export function mapStateToProps(
   return {
     currentUser,
     hasEditPermission,
+    isOwner,
     user,
   };
 }

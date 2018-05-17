@@ -290,8 +290,27 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-biography')).toHaveLength(0);
   });
 
-  it('renders a report abuse button if user is loaded', () => {
+  it('does not render a report abuse button if user is not the current logged-in user', () => {
     const root = renderUserProfile();
+
+    expect(root.find(ReportUserAbuse)).toHaveLength(0);
+  });
+
+  it('renders a report abuse button if user is loaded', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+      },
+    });
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    // Try to edit this user with another username.
+    const params = { username: user.username };
+    const root = renderUserProfile({ params, store });
 
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
   });
@@ -366,6 +385,8 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
     expect(root.find('.UserProfile-edit-link'))
       .toHaveProp('to', `/users/edit`);
+    expect(root.find('.UserProfile-edit-link').children())
+      .toHaveText('Edit profile');
   });
 
   it('does not render an edit link if no user found', () => {
