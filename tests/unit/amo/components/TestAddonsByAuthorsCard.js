@@ -119,7 +119,6 @@ describe(__filename, () => {
 
     return render({
       addonType,
-      showMore,
       authorUsernames,
       errorHandler,
       numberOfAddons,
@@ -219,6 +218,25 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
+  it('should dispatch a fetch action if no add-ons found', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames: ['test2'],
+      errorHandler,
+      store,
+    });
+
+    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames: ['test2'],
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
   it('dispatches fetchAddonsByAuthors on mount', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -236,6 +254,121 @@ describe(__filename, () => {
       addonType: ADDON_TYPE_EXTENSION,
       authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('should dispatch a fetch action if authorUsernames are updated', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames: ['test2'],
+      errorHandler,
+      store,
+    });
+
+    dispatchSpy.reset();
+
+    root.setProps({
+      addonType: ADDON_TYPE_THEME,
+      authorUsernames: ['test1'],
+    });
+
+    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
+      addonType: ADDON_TYPE_THEME,
+      authorUsernames: ['test1'],
+      errorHandlerId: errorHandler.id,
+    }));
+
+    // Make sure an authorUsernames update even with the same addonType dispatches
+    // a fetch action.
+    dispatchSpy.reset();
+
+    root.setProps({
+      addonType: ADDON_TYPE_THEME,
+      authorUsernames: ['test2'],
+    });
+
+    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
+      addonType: ADDON_TYPE_THEME,
+      authorUsernames: ['test2'],
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('should display at most numberOfAddons extensions', () => {
+    const numberOfAddons = 4;
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_EXTENSION,
+      multipleAuthors: false,
+      numberOfAddons,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
+  });
+
+  it('should display at most numberOfAddons themes', () => {
+    const numberOfAddons = 3;
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_THEME,
+      multipleAuthors: false,
+      numberOfAddons,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
+  });
+
+  it('should dispatch a fetch action if addonType is updated', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames: ['test2'],
+      errorHandler,
+      store,
+    });
+
+    dispatchSpy.reset();
+
+    root.setProps({
+      addonType: ADDON_TYPE_OPENSEARCH,
+      authorUsernames: ['test2'],
+    });
+
+    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
+      addonType: ADDON_TYPE_OPENSEARCH,
+      authorUsernames: ['test2'],
+      errorHandlerId: errorHandler.id,
+    }));
+  });
+
+  it('should dispatch a fetch action if forAddonSlug is updated', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = render({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames: ['test2'],
+      errorHandler,
+      store,
+    });
+
+    dispatchSpy.reset();
+
+    root.setProps({
+      forAddonSlug: 'testing',
+    });
+
+    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
+      addonType: ADDON_TYPE_EXTENSION,
+      authorUsernames: ['test2'],
+      errorHandlerId: errorHandler.id,
+      forAddonSlug: 'testing',
     }));
   });
 
@@ -261,28 +394,6 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('should display at most numberOfAddons extensions', () => {
-    const numberOfAddons = 4;
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_EXTENSION,
-      multipleAuthors: false,
-      numberOfAddons,
-    });
-
-    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
-  });
-
-  it('should display at most numberOfAddons themes', () => {
-    const numberOfAddons = 3;
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      multipleAuthors: false,
-      numberOfAddons,
-    });
-
-    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
-  });
-
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_DICT,
@@ -291,17 +402,6 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard))
       .toHaveProp('header', `More dictionaries by ${fakeAuthor.name}`);
-  });
-
-  it('shows dictionaries in header for ADDON_TYPE_DICT without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_DICT,
-      showMore: false,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', `Dictionaries by ${fakeAuthor.name}`);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT with multiple authors', () => {
@@ -314,17 +414,6 @@ describe(__filename, () => {
       .toHaveProp('header', 'More dictionaries by these translators');
   });
 
-  it('shows dictionaries in header for ADDON_TYPE_DICT with multiple authors and without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_DICT,
-      showMore: false,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', `Dictionaries by these translators`);
-  });
-
   it('shows extensions in header for ADDON_TYPE_EXTENSION', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_EXTENSION,
@@ -333,17 +422,6 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard))
       .toHaveProp('header', `More extensions by ${fakeAuthor.name}`);
-  });
-
-  it('shows extensions in header for ADDON_TYPE_EXTENSION without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_EXTENSION,
-      showMore: false,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', `Extensions by ${fakeAuthor.name}`);
   });
 
   it('shows extensions in header for ADDON_TYPE_EXTENSION with multiple authors', () => {
@@ -356,17 +434,6 @@ describe(__filename, () => {
       .toHaveProp('header', 'More extensions by these developers');
   });
 
-  it('shows extensions in header for ADDON_TYPE_EXTENSION with multiple authors and without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_EXTENSION,
-      showMore: false,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', 'Extensions by these developers');
-  });
-
   it('shows extensions in header for ADDON_TYPE_LANG', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_LANG,
@@ -375,17 +442,6 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard))
       .toHaveProp('header', `More language packs by ${fakeAuthor.name}`);
-  });
-
-  it('shows extensions in header for ADDON_TYPE_LANG without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_LANG,
-      showMore: false,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', `Language packs by ${fakeAuthor.name}`);
   });
 
   it('shows extensions in header for ADDON_TYPE_LANG with multiple authors', () => {
@@ -398,17 +454,6 @@ describe(__filename, () => {
       .toHaveProp('header', 'More language packs by these translators');
   });
 
-  it('shows extensions in header for ADDON_TYPE_LANG with multiple authors and without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_LANG,
-      showMore: false,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', 'Language packs by these translators');
-  });
-
   it('shows extensions in header for ADDON_TYPE_THEME', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
@@ -417,17 +462,6 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard))
       .toHaveProp('header', `More themes by ${fakeAuthor.name}`);
-  });
-
-  it('shows extensions in header for ADDON_TYPE_THEME without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      showMore: false,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', `Themes by ${fakeAuthor.name}`);
   });
 
   it('shows extensions in header for ADDON_TYPE_THEME with multiple authors', () => {
@@ -440,17 +474,6 @@ describe(__filename, () => {
       .toHaveProp('header', 'More themes by these artists');
   });
 
-  it('shows extensions in header for ADDON_TYPE_THEME with multiple authors and without More text ', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      showMore: false,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', 'Themes by these artists');
-  });
-
   it('shows add-ons in header if no specific addonType translation found', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_OPENSEARCH,
@@ -461,17 +484,6 @@ describe(__filename, () => {
       .toHaveProp('header', `More add-ons by ${fakeAuthor.name}`);
   });
 
-  it('shows add-ons in header if no specific addonType translation found without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_OPENSEARCH,
-      showMore: false,
-      multipleAuthors: false,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', `Add-ons by ${fakeAuthor.name}`);
-  });
-
   it('shows add-ons in header if no specific addonType found with multiple authors', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_OPENSEARCH,
@@ -480,16 +492,5 @@ describe(__filename, () => {
 
     expect(root.find(AddonsCard))
       .toHaveProp('header', 'More add-ons by these developers');
-  });
-
-  it('shows add-ons in header if no specific addonType found with multiple authors and without More text', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_OPENSEARCH,
-      showMore: false,
-      multipleAuthors: true,
-    });
-
-    expect(root.find(AddonsCard))
-      .toHaveProp('header', 'Add-ons by these developers');
   });
 });
