@@ -10,6 +10,7 @@ import { push as pushLocation } from 'react-router-redux';
 import {
   ADD_ADDON_TO_COLLECTION,
   CREATE_COLLECTION,
+  REMOVE_ADDON_FROM_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
@@ -33,6 +34,7 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CreateCollectionAddonParams,
   CreateCollectionParams,
+  RemoveAddonFromCollectionParams,
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
@@ -41,6 +43,7 @@ import type {
 import type {
   AddAddonToCollectionAction,
   CreateCollectionAction,
+  RemoveAddonFromCollectionAction,
   FetchCurrentCollectionAction,
   FetchCurrentCollectionPageAction,
   FetchUserCollectionsAction,
@@ -278,6 +281,37 @@ export function* modifyCollection(
   }
 }
 
+export function* removeAddonFromCollection({
+  payload: {
+    addonId, errorHandlerId, page, slug, user,
+  },
+}: RemoveAddonFromCollectionAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const params: RemoveAddonFromCollectionParams = {
+      addonId,
+      api: state.api,
+      slug,
+      user,
+    };
+    yield call(api.removeAddonFromCollection, params);
+
+    yield put(fetchCurrentCollectionPageAction({
+      page,
+      errorHandlerId: errorHandler.id,
+      slug,
+      user,
+    }));
+  } catch (error) {
+    log.warn(`Failed to remove add-on from collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* collectionsSaga(): Generator<any, any, any> {
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
@@ -285,5 +319,6 @@ export default function* collectionsSaga(): Generator<any, any, any> {
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
+  yield takeLatest(REMOVE_ADDON_FROM_COLLECTION, removeAddonFromCollection);
   yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
 }

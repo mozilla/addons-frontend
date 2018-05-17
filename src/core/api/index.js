@@ -168,7 +168,9 @@ export function callApi({
 
   return fetch(apiURL, options)
     .then((response) => {
-      const contentType = response.headers.get('Content-Type').toLowerCase();
+      // There isn't always a 'Content-Type' in headers, e.g., with a DELETE method.
+      let contentType = response.headers.get('Content-Type');
+      contentType = contentType && contentType.toLowerCase();
 
       // This is a bit paranoid, but we ensure the API returns a JSON response
       // (see https://github.com/mozilla/addons-frontend/issues/1701).

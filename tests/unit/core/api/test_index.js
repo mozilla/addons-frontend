@@ -159,6 +159,19 @@ describe(__filename, () => {
       expect(responseData).toEqual({});
     });
 
+    it('handles responses without a Content-Type', async () => {
+      mockWindow.expects('fetch').returns(createApiResponse({
+        headers: generateHeaders({}),
+        text() {
+          return Promise.resolve();
+        },
+      }));
+
+      const responseData = await api.callApi({ endpoint: 'resource' });
+      mockWindow.verify();
+      expect(responseData).toEqual({});
+    });
+
     it('handles any fetch error', async () => {
       mockWindow.expects('fetch').returns(Promise.reject(new Error(
         'this could be any error'

@@ -10,6 +10,7 @@ import collectionsReducer, {
   addonAddedToCollection,
   beginCollectionModification,
   createCollection,
+  removeAddonFromCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
@@ -654,6 +655,76 @@ describe(__filename, () => {
 
         mockApi.verify();
       });
+    });
+  });
+
+  describe('removeAddonFromCollection', () => {
+    const _removeAddonFromCollection = (params = {}) => {
+      sagaTester.dispatch(removeAddonFromCollection({
+        addonId: 543,
+        errorHandlerId: errorHandler.id,
+        page: 1,
+        slug: 'some-collection',
+        user: 'some-user',
+        ...params,
+      }));
+    };
+
+    it('deletes an add-on from a collection', async () => {
+      const params = {
+        addonId: 123,
+        page: 2,
+        slug: 'some-other-slug',
+        user: 'some-other-user',
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('removeAddonFromCollection')
+        .withArgs({
+          addonId: params.addonId,
+          api: state.api,
+          slug: params.slug,
+          user: params.user,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _removeAddonFromCollection(params);
+
+      const expectedFetchAction = fetchCurrentCollectionPage({
+        page: params.page,
+        errorHandlerId: errorHandler.id,
+        slug: params.slug,
+        user: params.user,
+      });
+
+      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
+      expect(fetchAction).toEqual(expectedFetchAction);
+      mockApi.verify();
+    });
+
+    it('clears the error handler', async () => {
+      _removeAddonFromCollection();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('removeAddonFromCollection')
+        .returns(Promise.reject(error));
+
+      _removeAddonFromCollection();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
     });
   });
 });

@@ -15,6 +15,7 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
+  removeAddonFromCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCurrentCollection,
@@ -804,6 +805,85 @@ describe(__filename, () => {
     expect(root.find('.Collection-title')).toHaveLength(0);
     expect(root.find('.Collection-description')).toHaveLength(0);
     expect(root.find(MetadataCard)).toHaveLength(0);
+  });
+
+  it('dispatches removeAddonFromCollection when removeAddon is called', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const collectionDetail = createFakeCollectionDetail();
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+
+    store.dispatch(loadCurrentCollection({
+      addons,
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: fakeRouterLocation({ query: { page } }),
+      store,
+    });
+
+    fakeDispatch.reset();
+
+    // This simulates the user clicking the "Remove" button on the
+    // EditableCollectionAddon component.
+    root.instance().removeAddon(addonId);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, removeAddonFromCollection({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      page,
+      slug: collectionDetail.slug,
+      user: collectionDetail.author.username,
+    }));
+  });
+
+  it('dispatches removeAddonFromCollection when removeAddon is called without a page defined', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const collectionDetail = createFakeCollectionDetail();
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    store.dispatch(loadCurrentCollection({
+      addons,
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: fakeRouterLocation({ query: { } }),
+      store,
+    });
+
+    fakeDispatch.reset();
+
+    // This simulates the user clicking the "Remove" button on the
+    // EditableCollectionAddon component.
+    root.instance().removeAddon(addonId);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, removeAddonFromCollection({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      slug: collectionDetail.slug,
+      user: collectionDetail.author.username,
+    }));
   });
 
   describe('errorHandler - extractId', () => {

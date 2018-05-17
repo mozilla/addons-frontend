@@ -1,13 +1,14 @@
 /* @flow */
 import makeClassName from 'classnames';
+import invariant from 'invariant';
 import * as React from 'react';
 import { compose } from 'redux';
 
-import log from 'core/logger';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
 import Button from 'ui/components/Button';
 import Icon from 'ui/components/Icon';
+import type { RemoveCollectionAddonFunc } from 'amo/components/Collection';
 import type { AddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
@@ -17,18 +18,19 @@ type Props = {|
   addon: AddonType,
   className?: string,
   i18n: I18nType,
+  removeAddon: RemoveCollectionAddonFunc,
 |};
 
 export class EditableCollectionAddonBase extends React.Component<Props> {
   onRemoveAddon = (event: SyntheticEvent<any>) => {
-    const { addon } = this.props;
+    const { addon: { id: addonId }, removeAddon } = this.props;
 
     event.preventDefault();
     event.stopPropagation();
 
-    // TODO: implement onRemoveAddon
-    // https://github.com/mozilla/addons-frontend/issues/4577
-    log.debug('TODO: handle removing an add-on', addon.id);
+    invariant(addonId, 'addonId is required');
+
+    removeAddon(addonId);
   };
 
   render() {
