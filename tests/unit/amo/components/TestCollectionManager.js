@@ -34,6 +34,7 @@ import {
 } from 'tests/unit/amo/helpers';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
+import Notice from 'ui/components/Notice';
 
 const simulateAutoSearchCallback = (props = {}) => {
   return simulateComponentCallback({
@@ -693,6 +694,17 @@ describe(__filename, () => {
 
     const newState = root.state();
     expect(newState.addAddonStatus).toEqual(ADDON_ADDED_STATE_PENDING);
+  });
+
+  it('displays a notification after an add-on has been added', () => {
+    const root = render({});
+
+    expect(root.find(Notice)).toHaveLength(0);
+
+    root.setProps({ hasAddonBeenAdded: true });
+
+    expect(root.find(Notice)).toHaveLength(1);
+    expect(root.find(Notice).children()).toHaveText('Added to collection');
   });
 
   describe('extractId', () => {

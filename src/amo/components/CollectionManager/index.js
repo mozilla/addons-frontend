@@ -323,7 +323,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         </div>
         {this.state.addAddonStatus === ADDON_ADDED_STATE_SUCCESS && (
           <Notice type="success">
-            {i18n.gettext('Add-on added')}
+            {i18n.gettext('Added to collection')}
           </Notice>
         )}
         {!creating &&
