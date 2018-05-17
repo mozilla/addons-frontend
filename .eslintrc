@@ -23,6 +23,8 @@
     "HTMLSelectElement": true,
     "HTMLTextAreaElement": true,
     "Node": true,
+    // This is used to send form data to the API.
+    "FormData": true
   },
   "parser": "babel-eslint",
   "plugins": [
