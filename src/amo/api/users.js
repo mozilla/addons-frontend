@@ -16,7 +16,7 @@ export function currentUserAccount({ api }: {| api: ApiStateType |}) {
   });
 }
 
-export function editUserAccount({ api, userId, picture, ...editableFields }: {|
+export function editUserAccount({ api, picture, userId, ...editableFields }: {|
   api: ApiStateType,
   editableFields: UserEditableFieldsType,
   picture?: File | null,

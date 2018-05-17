@@ -148,7 +148,7 @@ export const editUserAccount = ({
 
   return {
     type: EDIT_USER_ACCOUNT,
-    payload: { errorHandlerId, userFields, picture, userId },
+    payload: { errorHandlerId, picture, userFields, userId },
   };
 };
 
