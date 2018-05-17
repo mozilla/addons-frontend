@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-17 14:48+0000\n"
+"PO-Revision-Date: 2018-05-17 14:51+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -585,7 +585,7 @@ msgstr "Avtor"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Poiščite razširitve in teme za svojo zbirko."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -1939,7 +1939,7 @@ msgstr "Predstavite uporabnika %(username)s skupnosti"
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "HTML je delno podprt: %(htmlTags)s. Povezave niso dovoljene."
 
 #: src/amo/components/UserProfileEdit/index.js:450
 msgid "Updating your profile…"
