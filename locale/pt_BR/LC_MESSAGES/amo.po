@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-18 10:31+0000\n"
+"PO-Revision-Date: 2018-05-18 10:42+0000\n"
 "Last-Translator: Luiz Carlos de Morais <lcom_flip@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -577,7 +577,7 @@ msgstr "Criador"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Busque por extensões e temas para adicioná-los em sua coleção."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -1084,7 +1084,7 @@ msgstr "Facebook Filter"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Previna que o Facebook rastreie você pela web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1843,14 +1843,12 @@ msgid "User Profile for %(user)s"
 msgstr "Perfil de usuário de %(user)s"
 
 #: src/amo/components/UserProfileEdit/index.js:243
-#, fuzzy
 msgid "View user's profile"
-msgstr "Ver perfil"
+msgstr "Ver perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:250
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Editar perfil"
+msgstr "Editar perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
@@ -1886,11 +1884,11 @@ msgstr "Perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Nos fale um pouco mais sobre você. Estes campos são opcionais, mas ajudarão outros usuários a conhecê-lo melhor."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Nos fale um pouco mais sobre este usuário. Estes campos são opcionais, mas ajudarão outros usuários a conhecer %(username)s melhor."
 
 #: src/amo/components/UserProfileEdit/index.js:338
 msgid "Display Name"
@@ -1898,27 +1896,27 @@ msgstr "Nome de exibição"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Este URL será visível apenas para usuários que são desenvolvedores."
 
 #: src/amo/components/UserProfileEdit/index.js:375
 msgid "Location"
-msgstr ""
+msgstr "Localização"
 
 #: src/amo/components/UserProfileEdit/index.js:387
 msgid "Occupation"
-msgstr ""
+msgstr "Profissão"
 
 #: src/amo/components/UserProfileEdit/index.js:401
 msgid "Biography"
-msgstr ""
+msgstr "Biografia"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Apresente-se para a comunidade seu quiser"
 
 #: src/amo/components/UserProfileEdit/index.js:407
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Apresente %(username)s para a comunidade"
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
