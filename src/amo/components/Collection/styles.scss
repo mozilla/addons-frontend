@@ -65,3 +65,19 @@
     }
   }
 }
+
+.Collection-placeholder {
+  margin: 50px auto;
+  opacity: 0.75;
+  padding: 0 12px;
+  text-align: center;
+
+  @include respond-to(large) {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+}

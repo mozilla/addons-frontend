@@ -716,58 +716,6 @@ describe(__filename, () => {
     });
   });
 
-  describe('addAddonToCollection', () => {
-    const getParams = () => {
-      return {
-        addonId: 123,
-        collectionId: 5432,
-        collectionSlug: 'my-collection',
-        errorHandlerId: 'some-error-handler',
-        userId: 654,
-      };
-    };
-
-    it('requires an addonId', () => {
-      const params = getParams();
-      delete params.addonId;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/addonId parameter is required/);
-    });
-
-    it('requires a collectionId', () => {
-      const params = getParams();
-      delete params.collectionId;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/collectionId parameter is required/);
-    });
-
-    it('requires a collectionSlug', () => {
-      const params = getParams();
-      delete params.collectionSlug;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/collectionSlug parameter is required/);
-    });
-
-    it('requires an errorHandlerId', () => {
-      const params = getParams();
-      delete params.errorHandlerId;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/errorHandlerId parameter is required/);
-    });
-
-    it('requires a userId', () => {
-      const params = getParams();
-      delete params.userId;
-
-      expect(() => addAddonToCollection(params))
-        .toThrow(/userId parameter is required/);
-    });
-  });
-
   describe('loadCollectionAddons', () => {
     const getParams = (params = {}) => {
       return {

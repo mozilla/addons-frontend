@@ -26,8 +26,11 @@ import type { I18nType } from 'core/types/i18n';
 import type { AddonType } from 'core/types/addons';
 import type { DispatchFunc } from 'core/types/redux';
 
+import './styles.scss';
+
 export const TAAR_IMPRESSION_CATEGORY = 'AMO Addon / Recommendations Shown';
 export const TAAR_COHORT_COOKIE_NAME = 'taar_cohort';
+export const TAAR_COHORT_DIMENSION = 'dimension4';
 export const TAAR_COHORT_INCLUDED: 'TAAR_COHORT_INCLUDED'
   = 'TAAR_COHORT_INCLUDED';
 export const TAAR_COHORT_EXCLUDED: 'TAAR_COHORT_EXCLUDED'
@@ -57,7 +60,7 @@ export class AddonRecommendationsBase extends React.Component<Props> {
   };
 
   componentDidMount() {
-    const { cookie, randomizer, addon, recommendations } = this.props;
+    const { addon, cookie, randomizer, recommendations, tracking } = this.props;
 
     // Set a cohort for the experiment.
     this.cohort = cookie.load(TAAR_COHORT_COOKIE_NAME);
@@ -66,6 +69,11 @@ export class AddonRecommendationsBase extends React.Component<Props> {
         TAAR_COHORT_INCLUDED : TAAR_COHORT_EXCLUDED;
       cookie.save(TAAR_COHORT_COOKIE_NAME, this.cohort, { path: '/' });
     }
+
+    tracking.setDimension({
+      dimension: TAAR_COHORT_DIMENSION,
+      value: this.cohort,
+    });
 
     if (addon && !recommendations) {
       this.dispatchFetchRecommendations({

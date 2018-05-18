@@ -28,7 +28,7 @@ export class HeaderBase extends React.Component {
     isHomePage: PropTypes.bool,
     location: PropTypes.object.isRequired,
     query: PropTypes.string,
-    siteUser: PropTypes.object.isRequired,
+    siteUser: PropTypes.object,
     isReviewer: PropTypes.bool.isRequired,
   }
 
@@ -67,6 +67,9 @@ export class HeaderBase extends React.Component {
     const viewProfileURL = siteUser ? `/user/${siteUser.username}/` : null;
     const viewProfileLinkProps = config.get('enableUserProfile') ?
       { to: viewProfileURL } : { href: viewProfileURL };
+    const editProfileURL = siteUser ? '/users/edit' : null;
+    const editProfileLinkProps = config.get('enableUserProfile') ?
+      { to: editProfileURL } : { href: editProfileURL };
 
     return (
       <header className="Header">
@@ -93,7 +96,7 @@ export class HeaderBase extends React.Component {
 
           {siteUser ? (
             <DropdownMenu
-              text={siteUser.displayName}
+              text={siteUser.name}
               className="Header-authenticate-button Header-button"
             >
               <DropdownMenuItem>{i18n.gettext('My Account')}</DropdownMenuItem>
@@ -106,13 +109,19 @@ export class HeaderBase extends React.Component {
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link {...viewProfileLinkProps}>
-                  {i18n.gettext('View Profile')}
+                <Link
+                  className="Header-user-menu-view-profile-link"
+                  {...viewProfileLinkProps}
+                >
+                  {i18n.gettext('View My Profile')}
                 </Link>
               </DropdownMenuItem>
               <DropdownMenuItem>
-                <Link href="/users/edit">
-                  {i18n.gettext('Edit Profile')}
+                <Link
+                  className="Header-user-menu-edit-profile-link"
+                  {...editProfileLinkProps}
+                >
+                  {i18n.gettext('Edit My Profile')}
                 </Link>
               </DropdownMenuItem>
 

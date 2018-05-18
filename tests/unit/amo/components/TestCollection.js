@@ -107,6 +107,38 @@ describe(__filename, () => {
     expect(wrapper.find(AddonsCard)).toHaveProp('loading', true);
   });
 
+  it('renders placeholder text if there are no add-ons', () => {
+    const { store } = dispatchClientMetadata();
+    const collectionDetail = createFakeCollectionDetail();
+
+    store.dispatch(loadCurrentCollection({
+      addons: [],
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
+    expect(wrapper.find('.Collection-placeholder')
+      .text()).toEqual('Search for extensions and themes to add to your collection.');
+  });
+
+  it('hides placeholder text if there are add-ons', () => {
+    const { store } = dispatchClientMetadata();
+
+    const collectionAddons = createFakeCollectionAddons();
+    const collectionDetail = createFakeCollectionDetail();
+
+    store.dispatch(loadCurrentCollection({
+      addons: collectionAddons,
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+  });
+
   it('dispatches fetchCurrentCollection on mount', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
@@ -119,7 +151,6 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       slug,
@@ -127,23 +158,26 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches fetchCurrentCollection with correct params for editing on mount', () => {
+  it('dispatches fetchCurrentCollectionPage with correct params for editing on mount', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
-
     const errorHandler = createStubErrorHandler();
-    const slug = 'collection-slug';
-    const user = 'some-user';
 
-    renderComponent({ editing: true, errorHandler, params: { slug, user }, store });
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    fakeDispatch.reset();
+
+    renderComponent({ editing: true, errorHandler, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      fetchAllAddons: true,
+    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
-      page: undefined,
-      slug,
-      user,
+      page: 1,
+      slug: defaultSlug,
+      user: defaultUser,
     }));
   });
 
@@ -165,7 +199,6 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page,
       slug,
@@ -307,7 +340,6 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
@@ -409,7 +441,6 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       ...newParams,
@@ -461,7 +492,6 @@ describe(__filename, () => {
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
-      fetchAllAddons: false,
       errorHandlerId: errorHandler.id,
       page: undefined,
       ...newParams,
@@ -471,21 +501,47 @@ describe(__filename, () => {
   it('renders a collection', () => {
     const { store } = dispatchClientMetadata();
 
-    const collectionAddons = createFakeCollectionAddons();
-    const collectionDetail = createFakeCollectionDetail();
+    const pathname = `/collections/${defaultUser}/${defaultSlug}/`;
 
     store.dispatch(loadCurrentCollection({
-      addons: collectionAddons,
-      detail: collectionDetail,
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
     }));
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-    expect(wrapper.find(AddonsCard)).toHaveLength(1);
     expect(wrapper.find(AddonsCard))
       .toHaveProp('editing', false);
-    expect(wrapper.find(Paginate)).toHaveLength(1);
+    expect(wrapper.find(Paginate)).toHaveProp('pathname', pathname);
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
+  });
+
+  it('renders a collection for editing', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const pathname = `/collections/${defaultUser}/${defaultSlug}/edit/`;
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({ editing: true, store });
+
+    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
+    expect(wrapper.find(AddonsCard))
+      .toHaveProp('editing', true);
+    expect(wrapper.find(Paginate)).toHaveProp('pathname', pathname);
+    expect(wrapper.find(CollectionManager)).toHaveLength(1);
+
+    // Make sure these were not rendered.
+    expect(wrapper.find('.Collection-title')).toHaveLength(0);
+    expect(wrapper.find('.Collection-description')).toHaveLength(0);
+    expect(wrapper.find(MetadataCard)).toHaveLength(0);
   });
 
   it('does not render the pagination when no add-ons in the collection', () => {
@@ -682,11 +738,6 @@ describe(__filename, () => {
     const manager = root.find(CollectionManager);
     expect(manager).toHaveProp('collection');
     expect(manager.prop('collection').id).toEqual(collectionDetail.id);
-
-    // Make sure these were not rendered.
-    expect(root.find('.Collection-title')).toHaveLength(0);
-    expect(root.find('.Collection-description')).toHaveLength(0);
-    expect(root.find(MetadataCard)).toHaveLength(0);
   });
 
   it('passes the correct editing flag to AddonsCard when editing', () => {

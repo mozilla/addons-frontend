@@ -8,6 +8,14 @@
   @include respond-to(large) {
     padding: $padding-page-l;
   }
+
+  .Addon-summary-and-install-button-wrapper {
+    .InstallButton {
+      @include respond-to(medium) {
+        align-self: stretch;
+      }
+    }
+  }
 }
 
 .Addon .Card {
@@ -140,6 +148,13 @@
   @include respond-to(extraLarge) {
     display: flex;
     justify-content: space-between;
+  }
+
+  .InstallButton,
+  .Button--get-firefox {
+    @include respond-to(extraLarge) {
+      margin-top: 14px;
+    }
   }
 }
 

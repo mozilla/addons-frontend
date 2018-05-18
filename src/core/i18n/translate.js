@@ -41,10 +41,6 @@ export default function translate(options = {}) {
       i18n: PropTypes.object.isRequired,
     };
 
-    Translate.childContextTypes = {
-      i18n: PropTypes.object.isRequired,
-    };
-
     Translate.displayName = `Translate[${getDisplayName(WrappedComponent)}]`;
 
     return Translate;

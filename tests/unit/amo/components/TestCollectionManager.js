@@ -251,6 +251,12 @@ describe(__filename, () => {
     expect(root.find('#collectionSlug')).toHaveProp('value', 'new-slug');
   });
 
+  it('hides search add-on select when creating a collection', () => {
+    const root = render({ collection: null, creating: true });
+
+    expect(root.find(AutoSearchInput)).toHaveLength(0);
+  });
+
   it('creates a collection on submit', () => {
     const errorHandler = createStubErrorHandler();
 

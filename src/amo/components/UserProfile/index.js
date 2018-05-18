@@ -1,4 +1,5 @@
 /* @flow */
+import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -11,15 +12,22 @@ import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
-import { fetchUserAccount, getUserByUsername } from 'amo/reducers/users';
+import {
+  fetchUserAccount,
+  getCurrentUser,
+  getUserByUsername,
+  hasPermission,
+} from 'amo/reducers/users';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  USERS_EDIT,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
 import LoadingText from 'ui/components/LoadingText';
@@ -34,9 +42,12 @@ import './styles.scss';
 
 
 type Props = {|
+  currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
+  hasEditPermission: boolean,
   i18n: I18nType,
+  isOwner: boolean,
   params: {| username: string |},
   user?: UserType,
 |};
@@ -64,10 +75,25 @@ export class UserProfileBase extends React.Component<Props> {
     }
   }
 
+  getEditURL() {
+    const { currentUser, user } = this.props;
+
+    invariant(user, 'user is required');
+    invariant(currentUser, 'currentUser is required');
+
+    if (currentUser.id === user.id) {
+      return `/users/edit`;
+    }
+
+    return `/user/${user.username}/edit`;
+  }
+
   render() {
     const {
       errorHandler,
+      hasEditPermission,
       i18n,
+      isOwner,
       params,
       user,
     } = this.props;
@@ -88,13 +114,13 @@ export class UserProfileBase extends React.Component<Props> {
         <UserAvatar className="UserProfile-avatar" user={user} />
 
         <h1 className="UserProfile-name">
-          {user ? user.displayName : <LoadingText />}
+          {user ? user.name : <LoadingText />}
         </h1>
       </React.Fragment>
     );
     const userProfileTitle = i18n.sprintf(
       i18n.gettext('User Profile for %(user)s'), {
-        user: user ? user.displayName : params.username,
+        user: user ? user.name : params.username,
       }
     );
 
@@ -157,14 +183,30 @@ export class UserProfileBase extends React.Component<Props> {
               />
             ) : null}
 
-            <ReportUserAbuse className="UserProfile-abuse-button" user={user} />
+            {!isOwner && (
+              <ReportUserAbuse
+                className="UserProfile-abuse-button"
+                user={user}
+              />
+            )}
+
+            {hasEditPermission ? (
+              <Button
+                className="UserProfile-edit-link"
+                buttonType="neutral"
+                to={this.getEditURL()}
+                puffy
+              >
+                {i18n.gettext('Edit profile')}
+              </Button>
+            ) : null}
           </Card>
 
           {user && user.username && (
             <div className="UserProfile-addons-by-author">
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_EXTENSION}
-                authorDisplayName={[user.displayName]}
+                authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
                 numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
                 showSummary
@@ -174,7 +216,7 @@ export class UserProfileBase extends React.Component<Props> {
 
               <AddonsByAuthorsCard
                 addonType={ADDON_TYPE_THEME}
-                authorDisplayName={[user.displayName]}
+                authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
                 numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                 showMore={false}
@@ -191,8 +233,20 @@ export function mapStateToProps(
   state: {| users: UsersStateType |},
   ownProps: Props,
 ) {
+  const currentUser = getCurrentUser(state.users);
+  const user = getUserByUsername(state.users, ownProps.params.username);
+  const isOwner = currentUser && user && currentUser.id === user.id;
+
+  let hasEditPermission = isOwner;
+  if (currentUser && hasPermission(state, USERS_EDIT)) {
+    hasEditPermission = true;
+  }
+
   return {
-    user: getUserByUsername(state.users, ownProps.params.username),
+    currentUser,
+    hasEditPermission,
+    isOwner,
+    user,
   };
 }
 

@@ -5,19 +5,31 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import UserProfile, { UserProfileBase } from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
-import { fetchUserAccount, getCurrentUser } from 'amo/reducers/users';
+import {
+  fetchUserAccount,
+  getCurrentUser,
+  loadUserAccount,
+} from 'amo/reducers/users';
 import { createApiError } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  USERS_EDIT,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
-import { dispatchSignInActions } from 'tests/unit/amo/helpers';
-import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
+import {
+  dispatchClientMetadata,
+  dispatchSignInActions,
+} from 'tests/unit/amo/helpers';
+import {
+  createUserAccountResponse,
+  fakeI18n,
+  shallowUntilTarget,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -281,8 +293,34 @@ describe(__filename, () => {
     expect(root.find('.UserProfile-biography')).toHaveLength(0);
   });
 
-  it('renders a report abuse button if user is loaded', () => {
+  it('does not render a report abuse button if user is the current logged-in user', () => {
     const root = renderUserProfile();
+
+    expect(root.find(ReportUserAbuse)).toHaveLength(0);
+  });
+
+  it('renders a report abuse button if user is not logged-in', () => {
+    const { store } = dispatchClientMetadata();
+    const root = renderUserProfile({ store });
+
+    expect(root.find(ReportUserAbuse)).toHaveLength(1);
+  });
+
+  it('renders a report abuse button if user is not the current logged-in user', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+      },
+    });
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    // See this other user profile page.
+    const params = { username: user.username };
+    const root = renderUserProfile({ params, store });
 
     expect(root.find(ReportUserAbuse)).toHaveLength(1);
   });
@@ -349,5 +387,63 @@ describe(__filename, () => {
     const root = renderUserProfile({ errorHandler, store });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+  });
+
+  it('renders an edit link', () => {
+    const root = renderUserProfile();
+
+    expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
+    expect(root.find('.UserProfile-edit-link'))
+      .toHaveProp('to', `/users/edit`);
+    expect(root.find('.UserProfile-edit-link').children())
+      .toHaveText('Edit profile');
+  });
+
+  it('does not render an edit link if no user found', () => {
+    const root = renderUserProfile({ params: { username: 'not-loaded' } });
+
+    expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
+  });
+
+  it('renders an edit link if user has sufficient permission', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [USERS_EDIT],
+      },
+    });
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    // See this other user profile page.
+    const params = { username: user.username };
+    const root = renderUserProfile({ params, store });
+
+    expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
+    expect(root.find('.UserProfile-edit-link'))
+      .toHaveProp('to', `/user/${user.username}/edit`);
+  });
+
+  it('does not render an edit link if user is not allowed to edit other users', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [],
+      },
+    });
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    // See this other user profile page.
+    const params = { username: user.username };
+    const root = renderUserProfile({ params, store });
+
+    expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
   });
 });

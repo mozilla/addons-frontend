@@ -65,6 +65,11 @@ $avatar-size: 64px;
   }
 }
 
+.UserProfile-edit-link {
+  margin-top: $padding-page;
+  width: 100%;
+}
+
 .UserProfile-addons-by-author {
   @include margin(12px, 0, 0, 0);
 

@@ -141,6 +141,14 @@ describe('Tracking', () => {
     tracking.pageView(data);
     sinon.assert.calledWith(window.ga, 'send', 'pageview', data);
   });
+
+  it('should set a custom dimension when requested', () => {
+    const tracking = createTracking();
+    const dimension = 'dimension1';
+    const value = 'a value';
+    tracking.setDimension({ dimension, value });
+    sinon.assert.calledWith(window.ga, 'set', dimension, value);
+  });
 });
 
 describe('getAction', () => {

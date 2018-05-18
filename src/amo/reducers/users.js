@@ -25,7 +25,7 @@ export type UserId = number;
 // Basic user account object fields, returned by the API.
 export type ExternalUserType = {|
   average_addon_rating: number,
-  biography: ?string,
+  biography: string | null,
   created: string,
   has_anonymous_display_name: boolean,
   has_anonymous_username: boolean,
@@ -43,7 +43,7 @@ export type ExternalUserType = {|
   // Properties returned if we are accessing our own profile or the current user
   // has the `Users:Edit` permission.
   deleted?: boolean,
-  display_name?: string | null,
+  display_name: string | null,
   email?: string,
   last_login?: string,
   last_login_ip?: string,
@@ -54,15 +54,13 @@ export type ExternalUserType = {|
 
 export type UserType = {|
   ...ExternalUserType,
-  // Properties we add to each object.
-  displayName: ?string,
 |};
 
 export type UsersStateType = {
   currentUserID: UserId | null,
   byID: { [userId: UserId]: UserType },
   byUsername: { [username: string]: UserId },
-  isEditing: boolean,
+  isUpdating: boolean,
   userPageBeingViewed: {
     loading: boolean,
     userId: UserId | null,
@@ -71,7 +69,7 @@ export type UsersStateType = {
 
 export type UserEditableFieldsType = {|
   biography?: string | null,
-  displayName?: string | null,
+  display_name?: string | null,
   homepage?: string | null,
   location?: string | null,
   occupation?: string | null,
@@ -82,7 +80,7 @@ export const initialState: UsersStateType = {
   currentUserID: null,
   byID: {},
   byUsername: {},
-  isEditing: false,
+  isUpdating: false,
   userPageBeingViewed: {
     loading: false,
     userId: null,
@@ -131,6 +129,7 @@ export const finishEditUserAccount = (): FinishEditUserAccountAction => {
 
 type EditUserAccountParams = {|
   errorHandlerId: string,
+  picture?: File | null,
   userFields: UserEditableFieldsType,
   userId: UserId,
 |};
@@ -141,7 +140,7 @@ type EditUserAccountAction = {|
 |};
 
 export const editUserAccount = ({
-  errorHandlerId, userFields, userId,
+  errorHandlerId, picture, userFields, userId,
 }: EditUserAccountParams): EditUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userFields, 'userFields are required');
@@ -149,7 +148,7 @@ export const editUserAccount = ({
 
   return {
     type: EDIT_USER_ACCOUNT,
-    payload: { errorHandlerId, userFields, userId },
+    payload: { errorHandlerId, picture, userFields, userId },
   };
 };
 
@@ -228,13 +227,6 @@ export const getCurrentUser = (users: UsersStateType) => {
   return currentUser;
 };
 
-export const getDisplayName = (user: ExternalUserType) => {
-  // We fallback to the username if no display name has been defined by the
-  // user.
-  return user.display_name && user.display_name.length ?
-    user.display_name : user.username;
-};
-
 export const hasPermission = (
   state: { users: UsersStateType }, permission: string,
 ): boolean => {
@@ -291,13 +283,8 @@ export const addUserToState = ({ state, user } : {
   user: ExternalUserType,
   state: UsersStateType,
 }): Object => {
-  const newUser: UserType = {
-    ...user,
-    displayName: getDisplayName(user),
-  };
-
-  const byID = { ...state.byID, [newUser.id]: newUser };
-  const byUsername = { ...state.byUsername, [newUser.username]: newUser.id };
+  const byID = { ...state.byID, [user.id]: user };
+  const byUsername = { ...state.byUsername, [user.username]: user.id };
 
   return { byID, byUsername };
 };
@@ -318,12 +305,12 @@ const reducer = (
     case EDIT_USER_ACCOUNT:
       return {
         ...state,
-        isEditing: true,
+        isUpdating: true,
       };
     case FINISH_EDIT_USER_ACCOUNT:
       return {
         ...state,
-        isEditing: false,
+        isUpdating: false,
       };
     case LOAD_CURRENT_USER_ACCOUNT: {
       const { user } = action.payload;

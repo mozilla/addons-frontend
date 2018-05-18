@@ -46,6 +46,7 @@ type Props = {|
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   isCollectionBeingModified: boolean,
+  page: number | null,
   router: ReactRouterType,
   siteLang: ?string,
   siteUserId: number | null,
@@ -164,7 +165,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   };
 
   onAddonSelected = (suggestion: SuggestionType) => {
-    const { collection, errorHandler, dispatch, siteUserId } = this.props;
+    const { collection, errorHandler, dispatch, page, siteUserId } = this.props;
     const { addonId } = suggestion;
 
     invariant(addonId, 'addonId cannot be empty');
@@ -179,6 +180,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       collectionSlug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
+      page: page || 1,
       userId: siteUserId,
     }));
   };
@@ -272,15 +274,17 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             value={this.state.slug}
           />
         </div>
-        <AutoSearchInput
-          inputName="collection-addon-query"
-          inputPlaceholder={
-            i18n.gettext('Find an add-on to include in this collection')
-          }
-          onSearch={this.onSearchAddon}
-          onSuggestionSelected={this.onAddonSelected}
-          selectSuggestionText={i18n.gettext('Add to collection')}
-        />
+        {!creating &&
+          <AutoSearchInput
+            inputName="collection-addon-query"
+            inputPlaceholder={
+              i18n.gettext('Find an add-on to include in this collection')
+            }
+            onSearch={this.onSearchAddon}
+            onSuggestionSelected={this.onAddonSelected}
+            selectSuggestionText={i18n.gettext('Add to collection')}
+          />
+        }
         <footer className="CollectionManager-footer">
           {/*
             type=button is necessary to override the default
