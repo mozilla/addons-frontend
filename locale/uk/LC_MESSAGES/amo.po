@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-17 10:01+0000\n"
+"PO-Revision-Date: 2018-05-18 13:46+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -104,7 +104,7 @@ msgstr "%(addonName)s %(startSpan)s від %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
 msgid "Only with Firefox — Get Firefox Now!"
-msgstr ""
+msgstr "Лише з Firefox — Отримайте Firefox зараз!"
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -278,7 +278,7 @@ msgstr "Відвідати панель статистики"
 
 #: src/amo/components/AddonRecommendations/index.js:154
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Інші користувачі цього розширення також встановили"
 
 #: src/amo/components/AddonRecommendations/index.js:155
 msgid "Other popular extensions"
@@ -581,7 +581,7 @@ msgstr "Створив"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Шукайте розширення і теми, щоб додати до своєї збірки."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -589,7 +589,7 @@ msgstr "Увійдіть, щоб створити збірку"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Спочатку створіть свою збірку. Потім ви зможете додавати розширення і теми."
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
@@ -1004,23 +1004,23 @@ msgstr "Розмежуйте різні частини вашої онлайн �
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "Переможець змагання розширень для Quantum! Слухайте живе радіо з усього світу"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr ""
+msgstr "Переможець змагання розширень для Quantum! Різні кольори вкладок для різних середовищ розробки"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
@@ -1032,7 +1032,7 @@ msgstr "Менеджер завантажень (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Керуйте завантаженнями з чистої панелі стану"
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
@@ -1080,7 +1080,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Блокуйте набридливу рекламу й стеження"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
@@ -1088,7 +1088,7 @@ msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
-msgstr ""
+msgstr "Не дозволяйте Facebook стежити за вами в інтернеті"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "AutoFormer+"
@@ -1100,11 +1100,11 @@ msgstr "Заповнюєте багато форм? Це може допомог
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Переможець змагання розширень для Quantum! Зберігайте сеансу у вигляді закладок та отримуйте до них доступ на різних пристроях"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
@@ -1863,7 +1863,7 @@ msgstr "Редагувати профіль користувача"
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "Профіль успішно оновлено"
 
 #: src/amo/components/UserProfileEdit/index.js:269
 msgid "Account"
@@ -1879,15 +1879,15 @@ msgstr "Користувач"
 
 #: src/amo/components/UserProfileEdit/index.js:287
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Тут неможливо змінити адресу е-пошти"
 
 #: src/amo/components/UserProfileEdit/index.js:289
 msgid "Email Address"
-msgstr ""
+msgstr "Адреса е-пошти"
 
 #: src/amo/components/UserProfileEdit/index.js:305
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Ви можете змінити свою адресу е-пошти в обліковому записі Firefox. %(startLink)sПотрібна допомога?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:321
 msgid "Profile"
