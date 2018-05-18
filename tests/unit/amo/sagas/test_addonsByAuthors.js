@@ -1,7 +1,8 @@
 import SagaTester from 'redux-saga-tester';
 
 import addonsByAuthorsReducer, {
-  ADDONS_BY_AUTHORS_PAGE_SIZE,
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
@@ -58,7 +59,7 @@ describe(__filename, () => {
           addonType: ADDON_TYPE_THEME,
           author: authorUsernames.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
-          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          page_size: THEMES_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })
@@ -94,7 +95,7 @@ describe(__filename, () => {
           addonType: undefined,
           author: authorUsernames.sort().join(','),
           exclude_addons: slug,
-          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          page_size: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })
@@ -154,7 +155,7 @@ describe(__filename, () => {
           addonType: undefined,
           author: authorUsernames.sort().join(','),
           exclude_addons: slug,
-          page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+          page_size: EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
           sort: SEARCH_SORT_TRENDING,
         },
       })

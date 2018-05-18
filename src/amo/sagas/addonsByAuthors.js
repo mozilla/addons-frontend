@@ -1,8 +1,9 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
-import { SEARCH_SORT_TRENDING } from 'core/constants';
+import { ADDON_TYPE_THEME, SEARCH_SORT_TRENDING } from 'core/constants';
 import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   FETCH_ADDONS_BY_AUTHORS,
-  ADDONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { search as searchApi } from 'core/api/search';
@@ -18,14 +19,15 @@ export function* fetchAddonsByAuthors({ payload }) {
 
   try {
     const state = yield select(getState);
-
+    const pageSize = addonType === ADDON_TYPE_THEME ?
+      THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const response = yield call(searchApi, {
       api: state.api,
       filters: {
         addonType,
         author: authorUsernames.sort().join(','),
         exclude_addons: forAddonSlug,
-        page_size: ADDONS_BY_AUTHORS_PAGE_SIZE,
+        page_size: pageSize,
         sort: SEARCH_SORT_TRENDING,
       },
     });

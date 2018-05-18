@@ -9,6 +9,10 @@ import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
+} from 'amo/reducers/addonsByAuthors';
+import {
   fetchUserAccount,
   getCurrentUser,
   getUserByUsername,
@@ -204,7 +208,7 @@ export class UserProfileBase extends React.Component<Props> {
                 addonType={ADDON_TYPE_EXTENSION}
                 authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
-                numberOfAddons={3}
+                numberOfAddons={EXTENSIONS_BY_AUTHORS_PAGE_SIZE}
                 showSummary
                 type="vertical"
                 showMore={false}
@@ -214,7 +218,7 @@ export class UserProfileBase extends React.Component<Props> {
                 addonType={ADDON_TYPE_THEME}
                 authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
-                numberOfAddons={6}
+                numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}
                 showMore={false}
               />
             </div>

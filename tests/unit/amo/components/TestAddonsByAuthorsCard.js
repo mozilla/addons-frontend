@@ -4,6 +4,8 @@ import AddonsByAuthorsCard, {
   AddonsByAuthorsCardBase,
 } from 'amo/components/AddonsByAuthorsCard';
 import {
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
@@ -65,25 +67,23 @@ describe(__filename, () => {
   }
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
+    const addonsLength = addonType === ADDON_TYPE_THEME ?
+      THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+
+    const addons = [];
+
+    for (let i = 0; i < addonsLength; i++) {
+      addons.push({
+        ...fakeAddon,
+        id: i + 1,
+        slug: `foo${i}`,
+        type: addonType,
+        authors: [fakeAuthorOne],
+      });
+    }
+
     return loadAddonsByAuthors({
-      addons: [
-        {
-          ...fakeAddon,
-          id: 5,
-          slug: 'foo',
-          type: addonType,
-          authors: [fakeAuthorOne],
-        },
-        {
-          ...fakeAddon,
-          id: 6,
-          slug: 'bar',
-          type: addonType,
-          authors: multipleAuthors ?
-            [fakeAuthorTwo] :
-            [fakeAuthorOne],
-        },
-      ],
+      addons,
       addonType,
       authorUsernames: multipleAuthors ?
         [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username],
@@ -105,7 +105,12 @@ describe(__filename, () => {
     );
   }
 
-  function renderAddonsWithType({ addonType, showMore, multipleAuthors = false } = {}) {
+  function renderAddonsWithType({
+    addonType,
+    showMore,
+    multipleAuthors = false,
+    numberOfAddons = 6,
+  } = {}) {
     const authorUsernames = multipleAuthors ?
       [fakeAuthorOne.username, fakeAuthorTwo.username] : [fakeAuthorOne.username];
     const { store } = dispatchClientMetadata();
@@ -117,6 +122,7 @@ describe(__filename, () => {
       showMore,
       authorUsernames,
       errorHandler,
+      numberOfAddons,
       store,
     });
   }
@@ -345,6 +351,28 @@ describe(__filename, () => {
     });
 
     sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('should display at most numberOfAddons extensions', () => {
+    const numberOfAddons = 4;
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_EXTENSION,
+      multipleAuthors: false,
+      numberOfAddons,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
+  });
+
+  it('should display at most numberOfAddons themes', () => {
+    const numberOfAddons = 3;
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_THEME,
+      multipleAuthors: false,
+      numberOfAddons,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {

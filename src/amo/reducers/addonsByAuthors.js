@@ -2,6 +2,7 @@
 import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
+import { ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import type {
   ExternalAddonType,
@@ -34,7 +35,8 @@ export const initialState: AddonsByAuthorsState = {
   loadingFor: {},
 };
 
-export const ADDONS_BY_AUTHORS_PAGE_SIZE = 6;
+export const EXTENSIONS_BY_AUTHORS_PAGE_SIZE = 10;
+export const THEMES_BY_AUTHORS_PAGE_SIZE = 12;
 
 // For further information about this notation, see:
 // https://github.com/mozilla/addons-frontend/pull/3027#discussion_r137661289
@@ -187,11 +189,13 @@ const reducer = (
     }
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
+      const pageSize = action.payload.addonType === ADDON_TYPE_THEME ?
+        THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
       if (action.payload.forAddonSlug) {
         newState.byAddonSlug = {
           [action.payload.forAddonSlug]: action.payload.addons
-            .slice(0, ADDONS_BY_AUTHORS_PAGE_SIZE)
+            .slice(0, pageSize)
             .map((addon) => addon.id),
         };
       }

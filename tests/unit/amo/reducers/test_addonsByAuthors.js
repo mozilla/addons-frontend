@@ -1,6 +1,6 @@
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import reducer, {
-  ADDONS_BY_AUTHORS_PAGE_SIZE,
+  EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   getAddonsForSlug,
   getAddonsForUsernames,
@@ -90,11 +90,11 @@ describe(__filename, () => {
       const state = reducer(undefined, loadAddonsByAuthors({
         forAddonSlug,
         // This is the case where there are more add-ons loaded than needed.
-        addons: Array(ADDONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
+        addons: Array(EXTENSIONS_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
         authorUsernames: [fakeAddon.authors[0].username],
       }));
       expect(state.byAddonSlug[forAddonSlug])
-        .toHaveLength(ADDONS_BY_AUTHORS_PAGE_SIZE);
+        .toHaveLength(EXTENSIONS_BY_AUTHORS_PAGE_SIZE);
     });
 
     it('returns state if no excluded slug is specified', () => {
