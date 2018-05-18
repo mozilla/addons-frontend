@@ -74,11 +74,15 @@ $font-size-aside: 10px;
 
 .UserProfileEdit input,
 .UserProfileEdit textarea {
-  width: 60%;
+  width: 100%;
 
   &:disabled {
     background: $grey-20;
     cursor: not-allowed;
+  }
+
+  @include respond-to(large) {
+    width: 60%;
   }
 }
 
