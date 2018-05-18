@@ -248,25 +248,25 @@ describe(__filename, () => {
     it('renders an appropriate title with an undefined rating when read-only', () => {
       const root = render({ readOnly: true });
 
-      expect(findDOMNode(root).title).toEqual('There are no ratings yet.');
+      expect(findDOMNode(root).title).toEqual('There are no ratings yet');
     });
 
     it('renders an appropriate title with a null rating when read-only', () => {
       const root = render({ rating: null, readOnly: true });
 
-      expect(findDOMNode(root).title).toEqual('There are no ratings yet.');
+      expect(findDOMNode(root).title).toEqual('There are no ratings yet');
     });
 
     it('renders an appropriate title with a given rating when read-only', () => {
       const root = render({ rating: 3.8, readOnly: true });
 
-      expect(findDOMNode(root).title).toEqual('Rated 3.8 out of 5.');
+      expect(findDOMNode(root).title).toEqual('Rated 3.8 out of 5');
     });
 
     it('renders an accessible description for null ratings and read-only', () => {
       const root = render({ rating: null, readOnly: true });
 
-      expect(findDOMNode(root).title).toContain('There are no ratings yet.');
+      expect(findDOMNode(root).title).toContain('There are no ratings yet');
     });
 
     it('renders read-only selected stars', () => {
@@ -286,7 +286,7 @@ describe(__filename, () => {
       const root = render({ rating: 3, readOnly: true });
 
       [1, 2, 3, 4, 5].forEach((rating) => {
-        expect(root.ratingElements[rating].title).toEqual('Rated 3 out of 5.');
+        expect(root.ratingElements[rating].title).toEqual('Rated 3 out of 5');
       });
     });
   });
@@ -295,7 +295,7 @@ describe(__filename, () => {
     const getRating = (props = {}) => findDOMNode(render(props)).textContent;
 
     it('renders the average rating', () => {
-      expect(getRating({ rating: 3.5, readOnly: true })).toEqual('Rated 3.5 out of 5.');
+      expect(getRating({ rating: 3.5, readOnly: true })).toEqual('Rated 3.5 out of 5');
     });
 
     it('localizes average rating', () => {
@@ -305,7 +305,7 @@ describe(__filename, () => {
 
     it('renders empty ratings', () => {
       expect(getRating({ rating: null, readOnly: true })).toEqual(
-        'There are no ratings yet.');
+        'There are no ratings yet');
     });
   });
 });
