@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-18 08:07+0000\n"
+"PO-Revision-Date: 2018-05-18 08:16+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1930,14 +1930,12 @@ msgid "Update my profile"
 msgstr "Uppdatera din profil"
 
 #: src/amo/components/UserProfileEdit/index.js:453
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Uppdaterar svar"
+msgstr "Uppdaterar användarprofil…"
 
 #: src/amo/components/UserProfileEdit/index.js:454
-#, fuzzy
 msgid "Update user's profile"
-msgstr "Uppdatera svar"
+msgstr "Uppdatera användarprofil"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
