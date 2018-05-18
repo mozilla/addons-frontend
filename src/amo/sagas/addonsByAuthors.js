@@ -3,8 +3,8 @@ import { ADDON_TYPE_THEME, SEARCH_SORT_TRENDING } from 'core/constants';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   FETCH_ADDONS_BY_AUTHORS,
-  loadAddonsByAuthors,
   THEMES_BY_AUTHORS_PAGE_SIZE,
+  loadAddonsByAuthors,
 } from 'amo/reducers/addonsByAuthors';
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
@@ -20,8 +20,7 @@ export function* fetchAddonsByAuthors({ payload }) {
   try {
     const state = yield select(getState);
     const pageSize = addonType === ADDON_TYPE_THEME ?
-      THEMES_BY_AUTHORS_PAGE_SIZE :
-      EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+      THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const response = yield call(searchApi, {
       api: state.api,
       filters: {

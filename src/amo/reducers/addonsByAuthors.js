@@ -2,8 +2,8 @@
 import deepcopy from 'deepcopy';
 import invariant from 'invariant';
 
-import { createInternalAddon } from 'core/reducers/addons';
 import { ADDON_TYPE_THEME } from 'core/constants';
+import { createInternalAddon } from 'core/reducers/addons';
 import type {
   ExternalAddonType,
   SearchResultAddonType,
@@ -190,8 +190,7 @@ const reducer = (
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
       const pageSize = action.payload.addonType === ADDON_TYPE_THEME ?
-        THEMES_BY_AUTHORS_PAGE_SIZE :
-        EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+        THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
       if (action.payload.forAddonSlug) {
         newState.byAddonSlug = {

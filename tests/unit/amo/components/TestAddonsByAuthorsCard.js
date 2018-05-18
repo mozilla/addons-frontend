@@ -5,9 +5,9 @@ import AddonsByAuthorsCard, {
 } from 'amo/components/AddonsByAuthorsCard';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
-  THEMES_BY_AUTHORS_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
 import { createInternalAddon } from 'core/reducers/addons';
 import {
@@ -68,8 +68,8 @@ describe(__filename, () => {
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
     const addonsLength = addonType === ADDON_TYPE_THEME ?
-      THEMES_BY_AUTHORS_PAGE_SIZE :
-      EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+      THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
+
     const addons = [];
 
     for (let i = 0; i < addonsLength; i++) {

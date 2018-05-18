@@ -7,11 +7,11 @@ import { compose } from 'redux';
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
-import { fetchUserAccount, getUserByUsername } from 'amo/reducers/users';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   THEMES_BY_AUTHORS_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
+import { fetchUserAccount, getUserByUsername } from 'amo/reducers/users';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,

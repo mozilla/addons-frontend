@@ -2,9 +2,9 @@ import SagaTester from 'redux-saga-tester';
 
 import addonsByAuthorsReducer, {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   loadAddonsByAuthors,
-  THEMES_BY_AUTHORS_PAGE_SIZE,
 } from 'amo/reducers/addonsByAuthors';
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
