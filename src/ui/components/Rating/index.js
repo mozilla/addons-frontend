@@ -60,7 +60,7 @@ export class RatingBase extends React.Component {
         return i18n.sprintf(i18n.gettext('Rated %(rating)s out of 5.'),
           { rating: i18n.formatNumber(parseFloat(rating).toFixed(1)) });
       }
-      return i18n.gettext('There are no ratings yet');
+      return i18n.gettext('There are no ratings yet.');
     }
 
     if (rating) {

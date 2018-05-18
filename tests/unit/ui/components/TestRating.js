@@ -248,13 +248,13 @@ describe(__filename, () => {
     it('renders an appropriate title with an undefined rating when read-only', () => {
       const root = render({ readOnly: true });
 
-      expect(findDOMNode(root).title).toEqual('This add-on has not been rated yet.');
+      expect(findDOMNode(root).title).toEqual('There are no ratings yet.');
     });
 
     it('renders an appropriate title with a null rating when read-only', () => {
       const root = render({ rating: null, readOnly: true });
 
-      expect(findDOMNode(root).title).toEqual('This add-on has not been rated yet.');
+      expect(findDOMNode(root).title).toEqual('There are no ratings yet.');
     });
 
     it('renders an appropriate title with a given rating when read-only', () => {
@@ -266,7 +266,7 @@ describe(__filename, () => {
     it('renders an accessible description for null ratings and read-only', () => {
       const root = render({ rating: null, readOnly: true });
 
-      expect(findDOMNode(root).title).toContain('This add-on has not been rated yet.');
+      expect(findDOMNode(root).title).toContain('There are no ratings yet.');
     });
 
     it('renders read-only selected stars', () => {
@@ -305,7 +305,7 @@ describe(__filename, () => {
 
     it('renders empty ratings', () => {
       expect(getRating({ rating: null, readOnly: true })).toEqual(
-        'This add-on has not been rated yet.');
+        'There are no ratings yet.');
     });
   });
 });
