@@ -56,6 +56,7 @@ type State = {|
   description?: string | null,
   name?: string | null,
   slug?: string | null,
+  customSlug?: boolean,
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
@@ -155,7 +156,28 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     event: ElementEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     event.preventDefault();
-    this.setState({ [event.target.name]: event.target.value });
+    const { name, value } = event.target;
+    const { creating } = this.props;
+
+    if (value === null || typeof value === 'undefined') {
+      return;
+    }
+
+    const trimmedValue = value.trim();
+
+    if (creating && name === 'name' && !this.state.customSlug) {
+      this.setState({
+        slug: trimmedValue.split(/[^A-Za-z0-9]/).filter((s) => s !== '').join('-'),
+        [name]: value,
+      });
+    } else if (creating && name === 'slug' && trimmedValue !== '') {
+      this.setState({
+        customSlug: true,
+        [name]: value,
+      });
+    } else {
+      this.setState({ [name]: value });
+    }
   };
 
   onSearchAddon = (filters: SearchFilters) => {
@@ -188,6 +210,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
+      customSlug: false,
       description: props.collection &&
         decodeHtmlEntities(props.collection.description),
       name: props.collection && decodeHtmlEntities(props.collection.name),

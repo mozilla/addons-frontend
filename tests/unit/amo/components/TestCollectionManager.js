@@ -421,6 +421,64 @@ describe(__filename, () => {
     }));
   });
 
+  it('autofills slug when name is entered while creating collection', () => {
+    const name = "trishul's collection";
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'name', text: name });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
+  it('does not autofill slug when custom slug is entered while creating collection', () => {
+    const name = "trishul's collection";
+    const slug = 'trishul';
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'slug', text: slug });
+    typeInput({ root, name: 'name', text: name });
+
+    expect(root).toHaveState('slug', slug);
+  });
+
+  it('autofills slug with trimmed collection name', () => {
+    const name = "trishul's collection";
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'name', text: `  ${name}  ` });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
+  it('does not allow consecutive hyphen while autofilling slug', () => {
+    const name = "trishul's   collection";
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'name', text: `  ${name}  ` });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
+  it('does not update slug if event value is null', () => {
+    const name = "trishul's collection";
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'slug', text: null });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
+  it('does not update slug if event value is undefined', () => {
+    const name = "trishul's collection";
+    const root = render({ collection: null, creating: true });
+
+    typeInput({ root, name: 'name', text: name });
+    typeInput({ root, name: 'slug', text: undefined });
+
+    expect(root).toHaveState('slug', 'trishul-s-collection');
+  });
+
   it('allows a blank description', () => {
     const collection = createInternalCollection({
       detail: createFakeCollectionDetail({ authorUsername: signedInUsername }),
