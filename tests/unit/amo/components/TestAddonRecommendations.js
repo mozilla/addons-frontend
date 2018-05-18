@@ -6,6 +6,8 @@ import AddonRecommendations, {
   TAAR_COHORT_DIMENSION,
   TAAR_COHORT_INCLUDED,
   TAAR_COHORT_EXCLUDED,
+  TAAR_EXPERIMENT_PARTICIPANT,
+  TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
   AddonRecommendationsBase,
 } from 'amo/components/AddonRecommendations';
 import AddonsCard from 'amo/components/AddonsCard';
@@ -272,16 +274,20 @@ describe(__filename, () => {
     });
   });
 
-  it('should set a GA dimension when the cohort is determined', () => {
+  it('should set GA custom dimensions', () => {
     const cookie = fakeCookie(undefined);
     const randomizer = fakeRandomizer(true);
 
     render({ cookie, randomizer, tracking: fakeTracking });
 
-    sinon.assert.calledOnce(fakeTracking.setDimension);
+    sinon.assert.calledTwice(fakeTracking.setDimension);
     sinon.assert.calledWith(fakeTracking.setDimension, {
       dimension: TAAR_COHORT_DIMENSION,
       value: TAAR_COHORT_INCLUDED,
+    });
+    sinon.assert.calledWith(fakeTracking.setDimension, {
+      dimension: TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
+      value: TAAR_EXPERIMENT_PARTICIPANT,
     });
   });
 
