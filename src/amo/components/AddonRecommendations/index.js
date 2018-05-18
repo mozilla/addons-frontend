@@ -35,6 +35,8 @@ export const TAAR_COHORT_INCLUDED: 'TAAR_COHORT_INCLUDED'
   = 'TAAR_COHORT_INCLUDED';
 export const TAAR_COHORT_EXCLUDED: 'TAAR_COHORT_EXCLUDED'
   = 'TAAR_COHORT_EXCLUDED';
+export const TAAR_EXPERIMENT_PARTICIPANT = 'TAAR-LITE-AB';
+export const TAAR_EXPERIMENT_PARTICIPANT_DIMENSION = 'dimension5';
 
 export type CohortName = typeof TAAR_COHORT_INCLUDED | typeof TAAR_COHORT_EXCLUDED;
 
@@ -73,6 +75,11 @@ export class AddonRecommendationsBase extends React.Component<Props> {
     tracking.setDimension({
       dimension: TAAR_COHORT_DIMENSION,
       value: this.cohort,
+    });
+
+    tracking.setDimension({
+      dimension: TAAR_EXPERIMENT_PARTICIPANT_DIMENSION,
+      value: TAAR_EXPERIMENT_PARTICIPANT,
     });
 
     if (addon && !recommendations) {
