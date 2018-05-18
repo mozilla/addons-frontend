@@ -13,6 +13,7 @@ import {
   getCurrentUser,
   loadUserAccount,
 } from 'amo/reducers/users';
+import { createApiError } from 'core/api';
 import {
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
@@ -767,5 +768,22 @@ describe(__filename, () => {
     sinon.assert.notCalled(dispatchSpy);
     // We should also see an AuthenticateButton when this use case happens.
     expect(root.find(AuthenticateButton)).toHaveLength(1);
+  });
+
+  it('renders a not found page if the API request is a 404', () => {
+    const { store } = dispatchSignInActions();
+    const errorHandler = new ErrorHandler({
+      id: 'some-error-handler-id',
+      dispatch: store.dispatch,
+    });
+    errorHandler.handle(createApiError({
+      response: { status: 404 },
+      apiURL: 'https://some/api/endpoint',
+      jsonResponse: { message: 'not found' },
+    }));
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+
+    expect(root.find(NotFound)).toHaveLength(1);
   });
 });

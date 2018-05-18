@@ -19,6 +19,7 @@ import {
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { USERS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
@@ -234,6 +235,17 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       );
     }
 
+    let errorMessage;
+    if (errorHandler.hasError()) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
+
+      errorMessage = errorHandler.renderError();
+    }
+
     if (user && !hasEditPermission) {
       return <NotFound />;
     }
@@ -275,7 +287,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
         <form className="UserProfileEdit-form" onSubmit={this.onSubmit}>
           <div className="UserProfileEdit-form-messages">
-            {errorHandler.renderErrorIfPresent()}
+            {errorMessage}
 
             {this.state.displaySuccessMessage && (
               <Notice type="success">
