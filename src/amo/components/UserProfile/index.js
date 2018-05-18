@@ -45,7 +45,7 @@ type Props = {|
   currentUser: UserType | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
-  hasEditPermission: boolean,
+  canEditProfile: boolean,
   i18n: I18nType,
   isOwner: boolean,
   params: {| username: string |},
@@ -91,7 +91,7 @@ export class UserProfileBase extends React.Component<Props> {
   render() {
     const {
       errorHandler,
-      hasEditPermission,
+      canEditProfile,
       i18n,
       isOwner,
       params,
@@ -206,7 +206,7 @@ export class UserProfileBase extends React.Component<Props> {
               />
             )}
 
-            {hasEditPermission ? (
+            {canEditProfile ? (
               <Button
                 className="UserProfile-edit-link"
                 buttonType="neutral"
@@ -253,14 +253,12 @@ export function mapStateToProps(
   const user = getUserByUsername(state.users, ownProps.params.username);
   const isOwner = currentUser && user && currentUser.id === user.id;
 
-  let hasEditPermission = isOwner;
-  if (currentUser && hasPermission(state, USERS_EDIT)) {
-    hasEditPermission = true;
-  }
+  const canEditProfile = currentUser && user &&
+    (currentUser.id === user.id || hasPermission(state, USERS_EDIT));
 
   return {
     currentUser,
-    hasEditPermission,
+    canEditProfile,
     isOwner,
     user,
   };
