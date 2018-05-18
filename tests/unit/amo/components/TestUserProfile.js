@@ -456,7 +456,8 @@ describe(__filename, () => {
       },
     });
 
-    // Navigate to another user profile page, not loaded.
+    // We browse another user profile page for a user that is not loaded in the
+    // state.
     const params = { username: 'another-user' };
     const root = renderUserProfile({ params, store });
 
