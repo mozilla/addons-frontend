@@ -446,4 +446,20 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
   });
+
+  it('does not render an edit link if user is not found', () => {
+    const username = 'current-logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        username,
+        permissions: [USERS_EDIT],
+      },
+    });
+
+    // Navigate to another user profile page, not loaded.
+    const params = { username: 'another-user' };
+    const root = renderUserProfile({ params, store });
+
+    expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
+  });
 });
