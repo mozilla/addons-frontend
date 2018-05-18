@@ -17,6 +17,7 @@ import {
   CLIENT_APP_FIREFOX,
   USERS_EDIT,
 } from 'core/constants';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
 import Notice from 'ui/components/Notice';
@@ -690,11 +691,81 @@ describe(__filename, () => {
     expect(root.find(ErrorList)).toHaveLength(1);
   });
 
-  it('returns a 404 if current user is not logged-in', () => {
+  it('displays an AuthenticateButton if current user is not logged-in', () => {
     const { store } = dispatchClientMetadata();
 
-    const root = renderUserProfileEdit({ store });
+    const root = renderUserProfileEdit({
+      store,
+      params: {},
+    });
 
-    expect(root.find(NotFound)).toHaveLength(1);
+    expect(root.find(AuthenticateButton)).toHaveLength(1);
+    expect(root.find(AuthenticateButton))
+      .toHaveProp('logInText', 'Log in to continue');
+  });
+
+  it('displays an AuthenticateButton if current user is not logged-in and loads a user edit page', () => {
+    const { store } = dispatchClientMetadata();
+
+    const root = renderUserProfileEdit({
+      store,
+      params: { username: 'someone-else' },
+    });
+
+    expect(root.find(AuthenticateButton)).toHaveLength(1);
+  });
+
+  // See: https://github.com/mozilla/addons-frontend/issues/5034
+  it('does not dispatch fetchUserAccount() when user logs out', () => {
+    const { store } = dispatchSignInActions();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    // The user edits their profile.
+    const root = renderUserProfileEdit({ params: {}, store });
+
+    // The user logs out.
+    root.setProps({
+      currentUser: null,
+      // When the user browses their profile, `user` is the `currentUser` and
+      // there is no `username` that is why we reset these values here.
+      user: null,
+      username: null,
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
+    // We should also see an AuthenticateButton when this use case happens.
+    expect(root.find(AuthenticateButton)).toHaveLength(1);
+  });
+
+  it('does not dispatch fetchUserAccount() when current user is not logged-in and loads a user edit page', () => {
+    const { store } = dispatchClientMetadata();
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    renderUserProfileEdit({
+      store,
+      params: { username: 'willdurand' },
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('does not dispatch fetchUserAccount() when user logs out on a user edit page', () => {
+    const username = 'some-user';
+
+    const { store } = signInUserWithUsername(username);
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    // The user edits their profile.
+    const root = renderUserProfileEdit({ params: { username }, store });
+
+    // The user logs out.
+    root.setProps({
+      currentUser: null,
+      params: { username },
+    });
+
+    sinon.assert.notCalled(dispatchSpy);
+    // We should also see an AuthenticateButton when this use case happens.
+    expect(root.find(AuthenticateButton)).toHaveLength(1);
   });
 });
