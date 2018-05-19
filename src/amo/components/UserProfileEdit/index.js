@@ -115,6 +115,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       this.setState({ displaySuccessMessage: true });
+      window.scroll(0,0);
     }
 
     if (params.username && oldUsername !== newUsername) {
