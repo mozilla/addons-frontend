@@ -86,6 +86,13 @@ $font-size-aside: 10px;
   }
 }
 
+.UserProfileEdit textarea {
+  @include respond-to(large) {
+    resize: vertical;
+    width: 100%;
+  }
+}
+
 .UserProfileEdit-username,
 .UserProfileEdit-displayName,
 .UserProfileEdit-location,
