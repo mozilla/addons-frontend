@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
 import { addQueryParams, isAllowedOrigin, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
@@ -35,7 +35,7 @@ export class SearchResultBase extends React.Component<Props> {
 
   addonIsTheme() {
     const { addon } = this.props;
-    return addon && addon.type === ADDON_TYPE_THEME;
+    return addon && ADDON_TYPE_THEMES.includes(addon.type);
   }
 
   renderResult() {
@@ -46,10 +46,24 @@ export class SearchResultBase extends React.Component<Props> {
 
     // Fall-back to default icon if invalid icon url.
     const iconURL = getAddonIconUrl(addon);
-    const themeURL = (addon && addon.themeData &&
-      isAllowedOrigin(addon.themeData.previewURL)) ?
-      addon.themeData.previewURL : null;
-    const imageURL = isTheme ? themeURL : iconURL;
+
+    // TODO: find out if should be using thumb or image_url here
+    // since sometimes it's full view and sometimes its in columns
+
+    let imageURL = iconURL;
+
+    if (isTheme) {
+      let themeURL = addon ? addon.previews
+      && addon.previews.length > 0
+      && addon.previews[0].thumbnail_url : null;
+
+      if (addon && addon.type === ADDON_TYPE_THEME) {
+        themeURL = (addon && addon.themeData &&
+        isAllowedOrigin(addon.themeData.previewURL)) ? addon.themeData.previewURL : null
+      }
+
+      imageURL = themeURL;
+    }
 
     // Sets classes to handle fallback if theme preview is not available.
     const iconWrapperClassnames = makeClassName('SearchResult-icon-wrapper', {
@@ -73,7 +87,10 @@ export class SearchResultBase extends React.Component<Props> {
     }
 
     let summary = null;
-    if (showSummary) {
+    // Because static themes are technically an extension type is has a summary
+    // field, but we want it to look like a theme which does not display this
+    // or description field here
+    if (showSummary && !isTheme) {
       const summaryProps = {};
       if (addon) {
         summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary);
@@ -136,6 +153,7 @@ export class SearchResultBase extends React.Component<Props> {
     const isTheme = this.addonIsTheme();
     const resultClassnames = makeClassName('SearchResult', {
       'SearchResult--theme': isTheme,
+      'SearchResult--persona':  addon && addon.type === ADDON_TYPE_THEME
     });
 
     let item = result;

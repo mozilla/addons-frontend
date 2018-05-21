@@ -37,7 +37,9 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES,
   ENABLED,
   INCOMPATIBLE_NOT_FIREFOX,
   INSTALL_SOURCE_DETAIL_PAGE,
@@ -103,6 +105,11 @@ export class AddonBase extends React.Component {
     RatingManager: DefaultRatingManager,
     platformFiles: {},
     getClientCompatibility: _getClientCompatibility,
+  }
+
+  addonIsTheme() {
+    const { addon } = this.props;
+    return addon && ADDON_TYPE_THEMES.includes(addon.type);
   }
 
   componentWillMount() {
@@ -177,12 +184,24 @@ export class AddonBase extends React.Component {
       isPreviewingTheme,
       installStatus,
     } = this.props;
-    const previewURL = addon ? addon.previewURL : null;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
-    const iconUrl = getAddonIconUrl(addon);
 
-    if (type === ADDON_TYPE_THEME) {
-      const label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
+    // TODO: 'tap to preview' button will be fully removed here:
+    // https://github.com/mozilla/addons-frontend/pull/4914
+    if (this.addonIsTheme()) {
+
+      let previewURL = addon ? addon.previews.length > 0 && addon.previews[0].image_url : null;
+
+      let label = addon ? i18n.sprintf(
+        i18n.gettext('Preview of %(title)s'),
+        { title: addon.name }
+      ) : '';
+
+      if (type === ADDON_TYPE_THEME) {
+        previewURL = previewURL || addon && addon.previewURL || null;
+        label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
+      }
+
       const imageClassName = 'Addon-theme-header-image';
       const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
 
@@ -194,7 +213,7 @@ export class AddonBase extends React.Component {
           onClick={this.onClick}
           role="presentation"
         >
-          {installStatus !== ENABLED ? (
+          {installStatus !== ENABLED && type === ADDON_TYPE_THEME ? (
             <Button
               buttonType="action"
               className="Addon-theme-header-label"
@@ -209,6 +228,8 @@ export class AddonBase extends React.Component {
         </div>
       );
     }
+
+    const iconUrl = getAddonIconUrl(addon);
     return (
       <div className="Addon-icon">
         <img className="Addon-icon-image" alt="" src={iconUrl} />
@@ -296,6 +317,7 @@ export class AddonBase extends React.Component {
         case ADDON_TYPE_OPENSEARCH:
           title = i18n.gettext('About this search plugin');
           break;
+        case ADDON_TYPE_STATIC_THEME:
         case ADDON_TYPE_THEME:
           title = i18n.gettext('About this theme');
           break;
@@ -355,11 +377,12 @@ export class AddonBase extends React.Component {
 
   renderAddonsByAuthorsCard({ isForTheme }) {
     const { addon } = this.props;
+    const isTheme = this.addonIsTheme();
     if (
       !addon ||
       !addon.authors.length ||
-      (isForTheme && addon.type !== ADDON_TYPE_THEME) ||
-      (!isForTheme && addon.type === ADDON_TYPE_THEME)
+      (isForTheme && !isTheme) ||
+      (!isForTheme && isTheme)
     ) {
       return null;
     }
@@ -474,6 +497,7 @@ export class AddonBase extends React.Component {
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
+          'Addon-theme': this.addonIsTheme(),
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
@@ -545,7 +569,7 @@ export class AddonBase extends React.Component {
           <div className="Addon-main-content">
             {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
-            {addonPreviews.length > 0 ? (
+            {addonPreviews.length > 0 && !(this.addonIsTheme()) ? (
               <Card
                 className="Addon-screenshots"
                 header={i18n.gettext('Screenshots')}

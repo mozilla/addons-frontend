@@ -46,7 +46,9 @@ export const ADDON_TYPE_DICT = 'dictionary';
 export const ADDON_TYPE_EXTENSION = 'extension';
 export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
+export const ADDON_TYPE_STATIC_THEME = 'statictheme';
 export const ADDON_TYPE_THEME = 'persona';
+export const ADDON_TYPE_THEMES = [ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME];
 // TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
 // themes.
 export const ADDON_TYPE_COMPLETE_THEME = 'theme';
@@ -57,6 +59,7 @@ export type AddonTypeType =
   | typeof ADDON_TYPE_EXTENSION
   | typeof ADDON_TYPE_LANG
   | typeof ADDON_TYPE_OPENSEARCH
+  | typeof ADDON_TYPE_STATIC_THEME
   | typeof ADDON_TYPE_THEME;
 
 export const validAddonTypes = [
@@ -65,6 +68,7 @@ export const validAddonTypes = [
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 ];
 // Mapping of the add-on types we show in URLs, etc. and what they map
@@ -75,7 +79,7 @@ export const validAddonTypes = [
 // * '/themes/' -> 'persona'
 export const API_ADDON_TYPES_MAPPING = {
   extensions: ADDON_TYPE_EXTENSION,
-  themes: ADDON_TYPE_THEME,
+  themes: ADDON_TYPE_THEME || ADDON_TYPE_STATIC_THEME,
 };
 export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
   .reduce((object, key) => ({
@@ -240,6 +244,7 @@ export const CATEGORY_COLORS = {
   [ADDON_TYPE_EXTENSION]: 10,
   [ADDON_TYPE_LANG]: 12,
   [ADDON_TYPE_OPENSEARCH]: 12,
+  [ADDON_TYPE_STATIC_THEME]: 12, // TODO: verify this is 12
   [ADDON_TYPE_THEME]: 12,
 };
 

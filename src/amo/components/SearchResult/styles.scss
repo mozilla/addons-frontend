@@ -2,6 +2,8 @@
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
+$theme-height-default: 64px;
+
 .SearchResult {
   list-style-type: none;
   margin: 0 0 1px;
@@ -26,7 +28,7 @@
   .SearchResult--theme & {
     flex-grow: 1;
     margin-bottom: 10px;
-    min-height: 64px;
+    min-height: $theme-height-default;
     overflow: hidden;
     width: calc(100% + 20px);
   }
@@ -54,11 +56,24 @@
   width: 32px;
 
   .SearchResult--theme & {
+    border-radius: $border-radius-default;
     display: block;
-    height: 64px;
+    height: $theme-height-default;
     object-fit: cover;
-    object-position: top right;
+    object-position: top left;
     width: 100%;
+
+     @include respond-to(extraExtraLarge) {
+      width: auto;
+    }
+  }
+
+  .SearchResult--persona & {
+    height: 100px;
+  }
+
+  .AddonsCard--horizontal .SearchResult--persona & {
+    height: $theme-height-default;
   }
 }
 
