@@ -11,6 +11,7 @@ import I18nProvider from 'core/i18n/Provider';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   INCOMPATIBLE_NO_OPENSEARCH,
   INCOMPATIBLE_NOT_FIREFOX,
@@ -125,6 +126,23 @@ describe(__filename, () => {
     expect(button).toHaveProp(
       'data-browsertheme', JSON.stringify(themePreview.getThemeData(addon))
     );
+  });
+
+  it('renders Install Theme text on button when type is statictheme', () => {
+    const addon = createInternalAddon({
+      ...fakeTheme,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const root = render({ hasAddonManager: false, addon });
+
+    expect(root.type()).toEqual('div');
+    expect(root).toHaveClassName('InstallButton');
+    expect(root).toHaveClassName('InstallButton--use-button');
+
+    const button = root.childAt(1);
+
+    expect(button.type()).toEqual(Button);
+    expect(button.children().at(1)).toHaveText('Install Theme');
   });
 
   it('calls installTheme when clicked', () => {

@@ -16,6 +16,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CATEGORY_COLORS,
   CLIENT_APP_ANDROID,
@@ -108,6 +109,12 @@ describe(__filename, () => {
 
     it('returns false for theme', () => {
       const addon = createAddonWithType(ADDON_TYPE_THEME);
+
+      expect(addonHasVersionHistory(addon)).toEqual(false);
+    });
+
+    it('returns false for theme', () => {
+      const addon = createAddonWithType(ADDON_TYPE_STATIC_THEME);
 
       expect(addonHasVersionHistory(addon)).toEqual(false);
     });
@@ -612,6 +619,7 @@ describe(__filename, () => {
         'addonType "NOT_A_REAL_TYPE" not found in CATEGORY_COLORS');
     });
 
+    // TODO: look into what this does for static theme purposes.
     it('deals with high category IDs', () => {
       for (let i = 750; i < 800; i++) {
         const category = { id: i, type: ADDON_TYPE_THEME };

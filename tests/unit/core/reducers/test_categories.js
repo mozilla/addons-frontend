@@ -4,6 +4,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -79,6 +80,20 @@ describe('categories reducer', () => {
           name: 'Anime',
           slug: 'anime',
           type: ADDON_TYPE_THEME,
+        },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
+          name: 'Naturé',
+          slug: 'naturé',
+          type: ADDON_TYPE_STATIC_THEME,
+        },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
+          name: 'Anime',
+          slug: 'anime',
+          type: ADDON_TYPE_STATIC_THEME,
         },
         {
           ...fakeCategory,
@@ -170,6 +185,20 @@ describe('categories reducer', () => {
           slug: 'painting',
           type: ADDON_TYPE_THEME,
         },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
+          name: 'Anime',
+          slug: 'anime',
+          type: ADDON_TYPE_STATIC_THEME,
+        },
+        {
+          ...fakeCategory,
+          application: CLIENT_APP_FIREFOX,
+          name: 'Naturé',
+          slug: 'naturé',
+          type: ADDON_TYPE_STATIC_THEME,
+        },
       ];
       state = categories(initialState, categoriesLoad({ result }));
 
@@ -202,6 +231,22 @@ describe('categories reducer', () => {
           },
           [ADDON_TYPE_LANG]: {},
           [ADDON_TYPE_OPENSEARCH]: {},
+          [ADDON_TYPE_STATIC_THEME]: {
+            anime: {
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
+              name: 'Anime',
+              slug: 'anime',
+              type: ADDON_TYPE_STATIC_THEME,
+            },
+            naturé: {
+              ...fakeCategory,
+              application: CLIENT_APP_FIREFOX,
+              name: 'Naturé',
+              slug: 'naturé',
+              type: ADDON_TYPE_STATIC_THEME,
+            },
+          },
           [ADDON_TYPE_THEME]: {
             anime: {
               ...fakeCategory,
@@ -254,6 +299,7 @@ describe('categories reducer', () => {
           },
           [ADDON_TYPE_LANG]: {},
           [ADDON_TYPE_OPENSEARCH]: {},
+          [ADDON_TYPE_STATIC_THEME]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
               ...fakeCategory,

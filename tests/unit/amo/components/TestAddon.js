@@ -41,6 +41,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   ENABLED,
@@ -757,10 +758,11 @@ describe(__filename, () => {
     expect(src).toEqual('default-64.png');
   });
 
-  it('renders a theme preview as an img', () => {
+  it('renders a lightweight theme preview as an image', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
+        previews: [],
         theme_data: {
           ...fakeTheme.theme_data,
           previewURL: 'https://amo/preview.png',
@@ -772,6 +774,36 @@ describe(__filename, () => {
     expect(image).toHaveClassName('Addon-theme-header-image');
     expect(image.prop('src')).toEqual('https://amo/preview.png');
     expect(image.prop('alt')).toEqual('Tap to preview');
+  });
+
+  it('renders a static theme preview as an image', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.type()).toEqual('img');
+    expect(image).toHaveClassName('Addon-theme-header-image');
+    expect(image.prop('src')).toEqual('https://addons.cdn.mozilla.net/123/image.png');
+    expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
+  });
+
+  it('renders screenshots for type extension', () => {
+    const root = shallowRender();
+    expect(root.find('.Addon-screenshots')).toHaveLength(1);
+  });
+
+
+  it('hides screenshots for any theme type', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    expect(root.find('.Addon-screenshots')).toHaveLength(0);
   });
 
   it('enables a theme preview for supported clients', () => {
