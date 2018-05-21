@@ -86,13 +86,6 @@ $font-size-aside: 10px;
   }
 }
 
-.UserProfileEdit textarea {
-  @include respond-to(large) {
-    resize: vertical;
-    width: 100%;
-  }
-}
-
 .UserProfileEdit-username,
 .UserProfileEdit-displayName,
 .UserProfileEdit-location,
@@ -102,6 +95,11 @@ $font-size-aside: 10px;
 
 .UserProfileEdit-biography {
   min-height: 3rem;
+
+  @include respond-to(large) {
+    resize: vertical;
+    width: 100%;
+  }
 }
 
 .UserProfileEdit-buttons-wrapper {
