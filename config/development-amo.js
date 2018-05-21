@@ -12,5 +12,4 @@ module.exports = {
   trackingEnabled: false,
   enableNewCollectionsUI: true,
   enableUserProfile: true,
-  enableAddonRecommendations: true,
 };

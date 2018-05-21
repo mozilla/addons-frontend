@@ -27,5 +27,4 @@ module.exports = {
 
   enableNewCollectionsUI: true,
   enableUserProfile: true,
-  enableAddonRecommendations: true,
 };
