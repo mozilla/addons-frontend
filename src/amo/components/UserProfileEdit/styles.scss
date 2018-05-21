@@ -80,7 +80,9 @@ $font-size-aside: 10px;
     background: $grey-20;
     cursor: not-allowed;
   }
+}
 
+.UserProfileEdit input {
   @include respond-to(large) {
     width: 60%;
   }
@@ -95,6 +97,7 @@ $font-size-aside: 10px;
 
 .UserProfileEdit-biography {
   min-height: 3rem;
+  resize: vertical;
 }
 
 .UserProfileEdit-buttons-wrapper {
