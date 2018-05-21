@@ -15,8 +15,8 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_THEME,
   ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';

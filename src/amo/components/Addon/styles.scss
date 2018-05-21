@@ -137,12 +137,12 @@
 }
 
 .Addon-theme-header-image {
+  border-radius: $border-radius-default;
   display: block;
   height: 92px;
   object-fit: cover;
   object-position: top left;
   width: 100%;
-  border-radius: $border-radius-default;
 
   .Addon-persona & {
     height: 100px;

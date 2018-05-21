@@ -107,13 +107,13 @@ describe(__filename, () => {
       expect(addonHasVersionHistory(addon)).toEqual(false);
     });
 
-    it('returns false for theme', () => {
+    it('returns false for lightweight theme', () => {
       const addon = createAddonWithType(ADDON_TYPE_THEME);
 
       expect(addonHasVersionHistory(addon)).toEqual(false);
     });
 
-    it('returns false for theme', () => {
+    it('returns false for static theme', () => {
       const addon = createAddonWithType(ADDON_TYPE_STATIC_THEME);
 
       expect(addonHasVersionHistory(addon)).toEqual(false);

@@ -63,7 +63,7 @@ $theme-height-default: 64px;
     object-position: top left;
     width: 100%;
 
-     @include respond-to(extraExtraLarge) {
+    @include respond-to(extraExtraLarge) {
       width: auto;
     }
   }

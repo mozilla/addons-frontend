@@ -107,11 +107,6 @@ export class AddonBase extends React.Component {
     getClientCompatibility: _getClientCompatibility,
   }
 
-  addonIsTheme() {
-    const { addon } = this.props;
-    return addon && ADDON_TYPE_THEMES.includes(addon.type);
-  }
-
   componentWillMount() {
     const {
       addon,
@@ -176,6 +171,11 @@ export class AddonBase extends React.Component {
     this.props.toggleThemePreview(event.currentTarget);
   }
 
+  addonIsTheme() {
+    const { addon } = this.props;
+    return addon && ADDON_TYPE_THEMES.includes(addon.type);
+  }
+
   headerImage({ compatible }) {
     const {
       addon,
@@ -189,7 +189,6 @@ export class AddonBase extends React.Component {
     // TODO: 'tap to preview' button will be fully removed here:
     // https://github.com/mozilla/addons-frontend/pull/4914
     if (this.addonIsTheme()) {
-
       let previewURL = addon ? addon.previews.length > 0 && addon.previews[0].image_url : null;
 
       let label = addon ? i18n.sprintf(
@@ -198,7 +197,7 @@ export class AddonBase extends React.Component {
       ) : '';
 
       if (type === ADDON_TYPE_THEME) {
-        previewURL = previewURL || addon && addon.previewURL || null;
+        previewURL = previewURL || (addon && addon.previewURL) || null;
         label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
       }
 

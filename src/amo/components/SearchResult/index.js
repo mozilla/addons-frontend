@@ -58,8 +58,9 @@ export class SearchResultBase extends React.Component<Props> {
       && addon.previews[0].thumbnail_url : null;
 
       if (addon && addon.type === ADDON_TYPE_THEME) {
-        themeURL = (addon && addon.themeData &&
-        isAllowedOrigin(addon.themeData.previewURL)) ? addon.themeData.previewURL : null
+        themeURL = (addon && addon.themeData
+          && isAllowedOrigin(addon.themeData.previewURL))
+          ? addon.themeData.previewURL : null;
       }
 
       imageURL = themeURL;
@@ -153,7 +154,7 @@ export class SearchResultBase extends React.Component<Props> {
     const isTheme = this.addonIsTheme();
     const resultClassnames = makeClassName('SearchResult', {
       'SearchResult--theme': isTheme,
-      'SearchResult--persona':  addon && addon.type === ADDON_TYPE_THEME
+      'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 
     let item = result;
