@@ -2,7 +2,10 @@ import * as React from 'react';
 import { shallow } from 'enzyme';
 
 import AddonsByAuthorsCard from 'amo/components/AddonsByAuthorsCard';
-import UserProfile, { UserProfileBase } from 'amo/components/UserProfile';
+import UserProfile, {
+  extractId,
+  UserProfileBase,
+} from 'amo/components/UserProfile';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import ReportUserAbuse from 'amo/components/ReportUserAbuse';
 import {
@@ -517,5 +520,31 @@ describe(__filename, () => {
     const root = renderUserProfile({ params, store });
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(0);
+  });
+
+  it('does not dispatch any action when there is an error', () => {
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: fakeDispatch,
+    });
+    errorHandler.handle(new Error('unexpected error'));
+
+    fakeDispatch.reset();
+
+    renderUserProfile({ errorHandler, store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('returns a unique ID based on params', () => {
+      const username = 'foo';
+      const params = { username };
+
+      expect(extractId({ params })).toEqual(username);
+    });
   });
 });

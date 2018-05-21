@@ -23,7 +23,7 @@ import {
   ADDON_TYPE_THEME,
   USERS_EDIT,
 } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
 import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
@@ -55,6 +55,11 @@ type Props = {|
 export class UserProfileBase extends React.Component<Props> {
   componentWillMount() {
     const { dispatch, errorHandler, params, user } = this.props;
+
+    if (errorHandler.hasError()) {
+      log.warn('Not loading data because of an error.');
+      return;
+    }
 
     if (!user) {
       dispatch(fetchUserAccount({
@@ -264,8 +269,12 @@ export function mapStateToProps(
   };
 }
 
+export const extractId = (ownProps: Props) => {
+  return ownProps.params.username;
+};
+
 export default compose(
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'UserProfile' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(UserProfileBase);
