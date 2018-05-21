@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
@@ -115,6 +116,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
       this.setState({ displaySuccessMessage: true });
+      window.scroll(0, 0);
     }
 
     if (params.username && oldUsername !== newUsername) {
