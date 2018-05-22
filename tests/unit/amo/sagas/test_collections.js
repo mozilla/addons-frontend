@@ -308,7 +308,7 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it('posts an add-on to a collection in edit mode', async () => {
+    it('posts an add-on to a collection while the collection is being edited', async () => {
       const collectionSlug = 'a-collection';
       const params = {
         addonId: 123,

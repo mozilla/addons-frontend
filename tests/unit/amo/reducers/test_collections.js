@@ -300,7 +300,7 @@ describe(__filename, () => {
       expect(savedState.collections).toEqual(null);
     });
 
-    it('sets a hasAddonBeenAdded flag when begining to add add-on to collection', () => {
+    it('sets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
       const state = reducer(undefined, addAddonToCollection({
         addonId: 1,
         userId: 2,

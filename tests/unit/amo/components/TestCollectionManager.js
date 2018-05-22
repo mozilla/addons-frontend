@@ -719,7 +719,13 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
 
-    root.setProps({ hasAddonBeenAdded: false });
+    const suggestion = createInternalSuggestion(
+      createFakeAutocompleteResult({ name: 'uBlock Origin' })
+    );
+    const selectSuggestion = simulateAutoSearchCallback({
+      root, propName: 'onSuggestionSelected',
+    });
+    selectSuggestion(suggestion);
 
     expect(root.find(Notice)).toHaveLength(0);
   });
