@@ -13,6 +13,7 @@ export class LinkBase extends React.Component {
     className: PropTypes.string,
     clientApp: PropTypes.string.isRequired,
     children: PropTypes.node,
+    dispatch: PropTypes.func.isRequired,
     external: PropTypes.bool,
     externalDark: PropTypes.bool,
     href: PropTypes.string,
@@ -50,6 +51,7 @@ export class LinkBase extends React.Component {
     const {
       clientApp,
       children,
+      dispatch,
       external,
       externalDark,
       href,
