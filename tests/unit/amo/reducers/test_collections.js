@@ -4,12 +4,14 @@ import reducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  beginCollectionModification,
   createInternalAddons,
   createInternalCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  finishCollectionModification,
   getCollectionById,
   getCurrentCollection,
   initialState,
@@ -18,8 +20,7 @@ import reducer, {
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  beginCollectionModification,
-  finishCollectionModification,
+  localizeCollectionDetail,
 } from 'amo/reducers/collections';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
@@ -844,6 +845,24 @@ describe(__filename, () => {
           detail: collection1Detail,
           items: collection1Addons,
         }));
+    });
+  });
+
+  describe('localizeCollectionDetail', () => {
+    it('localizes collection detail', () => {
+      const lang = 'en-US';
+      const collectionDetail = createFakeCollectionDetail();
+      const collectionDetailWithLocalizedStrings = {
+        ...collectionDetail,
+        description: { [lang]: collectionDetail.description },
+        name: { [lang]: collectionDetail.name },
+      };
+      const localizedDetail = localizeCollectionDetail({
+        detail: collectionDetailWithLocalizedStrings,
+        lang,
+      });
+
+      expect(localizedDetail).toEqual(collectionDetail);
     });
   });
 });
