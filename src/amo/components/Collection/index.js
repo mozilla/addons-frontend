@@ -82,10 +82,6 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
-    if (loading) {
-      return;
-    }
-
     let collectionChanged = false;
     let addonsPageChanged = false;
     let { location } = this.props;
@@ -114,6 +110,10 @@ export class CollectionBase extends React.Component<Props> {
     // When switching into edit mode, refresh the collection add-ons.
     if (this.props.editing && !nextProps) {
       addonsPageChanged = true;
+    } else if (loading && !this.props.editing) {
+      // Since we are refreshing the collection addon-ons in edit-mode
+      // we only want to stop if we are outside of this.
+      return;
     }
 
     if (!collection || collectionChanged) {
