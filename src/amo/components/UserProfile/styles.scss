@@ -85,3 +85,7 @@ $avatar-size: 64px;
     max-width: calc(65% - 12px);
   }
 }
+
+.UserProfile-biography {
+  word-break: break-all;
+}
