@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-18 14:23+0000\n"
+"PO-Revision-Date: 2018-05-22 06:03+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -214,11 +214,11 @@ msgstr "%(timeFromNow)s (%(date)s)"
 
 #: src/amo/components/AddonMoreInfo/index.js:123
 msgid "Read the privacy policy for this add-on"
-msgstr "Ознайомитись з політикою приватності для цього додатку"
+msgstr "Ознайомитись з політикою приватності для цього додатка"
 
 #: src/amo/components/AddonMoreInfo/index.js:131
 msgid "Read the license agreement for this add-on"
-msgstr "Ознайомитись з ліцензійною угодою для цього додатку"
+msgstr "Ознайомитись з ліцензійною угодою для цього додатка"
 
 #: src/amo/components/AddonMoreInfo/index.js:140
 msgid "See all versions"
@@ -226,7 +226,7 @@ msgstr "Переглянути всі версії"
 
 #: src/amo/components/AddonMoreInfo/index.js:165
 msgid "Add-on Links"
-msgstr "Посилання додатку"
+msgstr "Посилання додатка"
 
 #: src/amo/components/AddonMoreInfo/index.js:177
 msgid "Version"
@@ -314,7 +314,7 @@ msgstr "Відправити відгук"
 
 #: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
-msgstr "Піктограма додатку"
+msgstr "Піктограма додатка"
 
 #: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
@@ -657,11 +657,11 @@ msgstr "Підтримати цих авторів"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
-msgstr "Автор цього додатку просить вас посприяти його подальшому розвитку, зробивши невеликий внесок."
+msgstr "Автор цього додатка просить вас посприяти його подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr "Автори цього додатку просять вас посприяти його подальшому розвитку, зробивши невеликий внесок."
+msgstr "Автори цього додатка просять вас посприяти його подальшому розвитку, зробивши невеликий внесок."
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
@@ -1311,7 +1311,7 @@ msgstr "Які ваші враження від роботи з %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:109
 msgid "You reported this add-on for abuse"
-msgstr "Ви повідомили про порушення цього додатку"
+msgstr "Ви повідомили про порушення цього додатка"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
@@ -1329,11 +1329,11 @@ msgstr ""
 
 #: src/amo/components/ReportAbuseButton/index.js:144
 msgid "Report this add-on for abuse"
-msgstr "Повідомити про порушення цього додатку"
+msgstr "Повідомити про порушення цього додатка"
 
 #: src/amo/components/ReportAbuseButton/index.js:173
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr "Не використовуйте цю форму, щоб повідомляти про помилки або запитувати нові функції в додатку; це повідомлення буде надіслано в Mozilla, а не розробникові додатку."
+msgstr "Не використовуйте цю форму, щоб повідомляти про помилки або запитувати нові функції в додатку; це повідомлення буде надіслано в Mozilla, а не розробникові додатка."
 
 #: src/amo/components/ReportAbuseButton/index.js:186
 msgid "Explain how this add-on is violating our policies."
@@ -1522,7 +1522,7 @@ msgstr "Сортувати за"
 
 #: src/amo/components/SearchFilters/index.js:169
 msgid "Add-on Type"
-msgstr "Тип додатку"
+msgstr "Тип додатка"
 
 #: src/amo/components/SearchFilters/index.js:189
 msgid "Operating System"
@@ -1601,7 +1601,7 @@ msgstr "Візьміть участь в роботі нашого %(startLink)s
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
-msgstr "Залишайте відгуки додаткам на цьому сайті. Автори додатку більш схильні до вдосконалення своїх додатків та написання нових, якщо вони знають, що люди цінять їх роботу."
+msgstr "Залишайте відгуки додаткам на цьому сайті. Автори додатка більш схильні до вдосконалення своїх додатків та написання нових, якщо вони знають, що люди цінять їх роботу."
 
 #: src/amo/components/StaticPages/About.js:129
 msgid "Tell your friends and family that Firefox is a fast, secure browser that protects their privacy, and they can use add-ons to make it their own!"
@@ -1686,7 +1686,7 @@ msgid ""
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
 "Взагалі, ні. Але якщо відгук не відповідав наведеним вище інструкціям, ви можете натиснути кнопку \"Повідомити про цей відгук\" і залишити його модераторам. Якщо в огляді було включено скаргу, яка "
-"більше не дійсна через нову версію вашого додатку, ми можемо розглянути питання про видалення цього відгуку."
+"більше не дійсна через нову версію вашого додатка, ми можемо розглянути питання про видалення цього відгуку."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
@@ -1710,7 +1710,7 @@ msgstr "Вам слід:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:41
 msgid "Write like you are telling a friend about your experience with the add-on."
-msgstr "Писати про свій досвід використання додатку."
+msgstr "Писати про свій досвід використання додатка."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:42
 msgid "Keep reviews concise and easy to understand."
@@ -1757,8 +1757,8 @@ msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
-"Задавати технічні питання, запити про підтримку, або пропонувати нові функції. Використовуйте доступні варіанти для кожного додатку. Ви можете знайти їх в розділі \"Більше інформації\" на бічній "
-"панелі сторінки додатку."
+"Задавати технічні питання, запити про підтримку, або пропонувати нові функції. Використовуйте доступні варіанти для кожного додатка. Ви можете знайти їх в розділі \"Більше інформації\" на бічній "
+"панелі сторінки додатка."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."

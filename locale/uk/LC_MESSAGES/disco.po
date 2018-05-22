@@ -1,18 +1,17 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-03-08 22:45+0000\n"
-"PO-Revision-Date: 2017-09-03 14:18+0000\n"
-"Last-Translator: Artem Polivanchuk <a.polivanchuk@outlook.com>\n"
+"PO-Revision-Date: 2018-05-22 06:04+0000\n"
+"Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
 #: src/core/components/ErrorPage/GenericError/index.js:25
@@ -20,15 +19,10 @@ msgid "Server Error"
 msgstr "Помилка сервера"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Вибачте, але сталася помилка, і ми не змогли виконати ваш запит. Ми записали "
-"цю помилку і будемо розслідувати її."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Вибачте, але сталася помилка, і ми не змогли виконати ваш запит. Ми записали цю помилку і будемо розслідувати її."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Код помилки: %(status)s."
 
@@ -44,8 +38,7 @@ msgstr "Вибачте, але ми не можемо нічого знайти 
 msgid "Install Theme"
 msgstr "Встановити тему"
 
-#: src/core/components/InstallButton/index.js:261
-#: src/core/components/InstallButton/index.js:284
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
 msgid "Add to Firefox"
 msgstr "Додати до Firefox"
 
@@ -123,7 +116,7 @@ msgstr "Цей додаток буде видалений після перез�
 
 #: src/disco/components/Addon.js:195
 msgid "Please restart Firefox to use this add-on."
-msgstr "Перезапустіть Firefox для використання цього додатку."
+msgstr "Перезапустіть Firefox для використання цього додатка."
 
 #: src/disco/components/Addon.js:95
 msgid "Close"
@@ -155,18 +148,11 @@ msgstr "Персоналізуйте ваш Firefox"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
-"Існують тисячі додатків, створені розробниками з усього світу, які ви можете "
-"встановити для персоналізації Firefox. Починаючи від візуальних тем до "
-"потужних інструментів, які роблять перегляд швидшим і безпечнішим; додатки "
-"роблять ваш браузер вашим.\n"
-"Щоб допомогти вам розпочати, ось декілька додатків, рекомендованих нами за "
-"незрівнянну продуктивність та функціональність."
+"Існують тисячі додатків, створені розробниками з усього світу, які ви можете встановити для персоналізації Firefox. Починаючи від візуальних тем до потужних інструментів, які роблять перегляд швидшим і безпечнішим; додатки роблять ваш браузер вашим.\n"
+"Щоб допомогти вам розпочати, ось декілька додатків, рекомендованих нами за незрівнянну продуктивність та функціональність."
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"
