@@ -219,6 +219,12 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
+  // Since it doesn't go through the logic in componentWillReceiveProps
+  // (of comparing changing props values) when it's remounted  - which is
+  // what happens when it doesn't go back to server in some scenarios - we
+  // we want to always make sure to do a fetch on mount to make sure
+  // we have the latest addons list.
+  // REF: https://github.com/mozilla/addons-frontend/issues/4852
   it('should always fetch addons by authors', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -231,7 +237,6 @@ describe(__filename, () => {
       store,
     });
 
-    sinon.assert.callCount(dispatchSpy, 1);
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
       authorUsernames: ['test2'],
