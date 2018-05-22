@@ -219,7 +219,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
-  it('should dispatch a fetch action if no add-ons found', () => {
+  it('should always fetch addons by authors', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -227,26 +227,6 @@ describe(__filename, () => {
     render({
       addonType: ADDON_TYPE_EXTENSION,
       authorUsernames: ['test2'],
-      errorHandler,
-      store,
-    });
-
-    sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorUsernames: ['test2'],
-      errorHandlerId: errorHandler.id,
-    }));
-  });
-
-  it('dispatches fetchAddonsByAuthors on mount', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
-
-    render({
-      addonType: ADDON_TYPE_EXTENSION,
-      authorUsernames: ['test2'],
-      forAddonSlug: 'testing123',
       errorHandler,
       store,
     });
@@ -255,7 +235,6 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
       addonType: ADDON_TYPE_EXTENSION,
       authorUsernames: ['test2'],
-      forAddonSlug: 'testing123',
       errorHandlerId: errorHandler.id,
     }));
   });
