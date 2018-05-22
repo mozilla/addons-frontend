@@ -38,15 +38,14 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
-export const ADDON_ADDED_STATE_PENDING: 'ADDON_ADDED_STATE_PENDING'
-  = 'ADDON_ADDED_STATE_PENDING';
-export const ADDON_ADDED_STATE_SUCCESS: 'ADDON_ADDED_STATE_SUCCESS'
-  = 'ADDON_ADDED_STATE_SUCCESS';
+export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
+  = 'ADDON_ADDED_STATUS_PENDING';
+export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS'
+  = 'ADDON_ADDED_STATUS_SUCCESS';
 
-export type AddonAddedStatusType = |
-  typeof ADDON_ADDED_STATE_PENDING |
-  typeof ADDON_ADDED_STATE_SUCCESS |
-  null;
+export type AddonAddedStatusType =
+  | typeof ADDON_ADDED_STATUS_PENDING
+  | typeof ADDON_ADDED_STATUS_SUCCESS;
 
 type Props = {|
   hasAddonBeenAdded: boolean,
@@ -65,7 +64,7 @@ type Props = {|
 |};
 
 type State = {|
-  addAddonStatus: AddonAddedStatusType,
+  addonAddedStatus: AddonAddedStatusType | null,
   customSlug?: boolean,
   description?: string | null,
   name?: string | null,
@@ -75,11 +74,7 @@ type State = {|
 export class CollectionManagerBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    const state = this.propsToState(props);
-    this.state = {
-      ...state,
-      addAddonStatus: null,
-    };
+    this.state = this.propsToState(props);
   }
 
   componentWillReceiveProps(props: Props) {
@@ -92,8 +87,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
     if (this.props.hasAddonBeenAdded !== props.hasAddonBeenAdded) {
       this.setState({
-        addAddonStatus: props.hasAddonBeenAdded ?
-          ADDON_ADDED_STATE_SUCCESS : null,
+        addonAddedStatus: props.hasAddonBeenAdded ?
+          ADDON_ADDED_STATUS_SUCCESS : null,
       });
     }
   }
@@ -228,12 +223,13 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       page: page || 1,
       userId: siteUserId,
     }));
-    this.setState({ addAddonStatus: ADDON_ADDED_STATE_PENDING });
+    this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
 
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
+      addonAddedStatus: null,
       customSlug: false,
       description: props.collection &&
         decodeHtmlEntities(props.collection.description),
@@ -321,7 +317,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             value={this.state.slug}
           />
         </div>
-        {this.state.addAddonStatus === ADDON_ADDED_STATE_SUCCESS && (
+        {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
           <Notice type="success">
             {i18n.gettext('Added to collection')}
           </Notice>

@@ -3,7 +3,7 @@ import * as React from 'react';
 
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
-  ADDON_ADDED_STATE_PENDING,
+  ADDON_ADDED_STATUS_PENDING,
   extractId,
   CollectionManagerBase,
 } from 'amo/components/CollectionManager';
@@ -522,6 +522,7 @@ describe(__filename, () => {
     simulateCancel(root);
 
     const state = root.state();
+    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(collection.name);
     expect(state.description).toEqual(collection.description);
   });
@@ -580,6 +581,7 @@ describe(__filename, () => {
     root.setProps({ collection });
 
     const state = root.state();
+    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(collection.name);
     expect(state.description).toEqual(collection.description);
   });
@@ -606,6 +608,7 @@ describe(__filename, () => {
     root.setProps({ collection: secondCollection });
 
     const state = root.state();
+    expect(state.addonAddedStatus).toEqual(null);
     expect(state.name).toEqual(secondCollection.name);
     expect(state.description).toEqual(secondCollection.description);
   });
@@ -678,11 +681,11 @@ describe(__filename, () => {
     }));
   });
 
-  it('sets the addAddonStatus state to pending when selecting an add-on', () => {
+  it('sets the addonAddedStatus state to pending when selecting an add-on', () => {
     const root = render({});
 
     const state = root.state();
-    expect(state.addAddonStatus).toEqual(null);
+    expect(state.addonAddedStatus).toEqual(null);
 
     const suggestion = createInternalSuggestion(
       createFakeAutocompleteResult({ name: 'uBlock Origin' })
@@ -693,7 +696,7 @@ describe(__filename, () => {
     selectSuggestion(suggestion);
 
     const newState = root.state();
-    expect(newState.addAddonStatus).toEqual(ADDON_ADDED_STATE_PENDING);
+    expect(newState.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_PENDING);
   });
 
   it('displays a notification after an add-on has been added', () => {
@@ -705,6 +708,20 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
+  });
+
+  it('removes the notification after a new add-on has been selected', () => {
+    const root = render({});
+
+    expect(root.find(Notice)).toHaveLength(0);
+
+    root.setProps({ hasAddonBeenAdded: true });
+
+    expect(root.find(Notice)).toHaveLength(1);
+
+    root.setProps({ hasAddonBeenAdded: false });
+
+    expect(root.find(Notice)).toHaveLength(0);
   });
 
   describe('extractId', () => {
