@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-15 20:40+0000\n"
-"PO-Revision-Date: 2018-05-21 07:50+0000\n"
-"Last-Translator: Adnan Kičin <adnankicin92@gmail.com>\n"
+"PO-Revision-Date: 2018-05-22 07:23+0000\n"
+"Last-Translator: Nihad Suljić <nihad.suljic92@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
@@ -104,9 +104,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox — Get Firefox Now!"
-msgstr "Samo uz Firefox - Preuzmite Firefox sada!"
+msgstr "Samo uz Firefox — Preuzmite Firefox sada!"
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -585,16 +584,15 @@ msgstr "Tvorac"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Tražite proširenja i teme koje možete dodati u svoju kolekciju."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
 msgstr "Prijavite se da napravite kolekciju"
 
 #: src/amo/components/CollectionList/index.js:58
-#, fuzzy
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr "Molimo sačuvajte vašu kolekciju i onda možete dodati dodatke u nju"
+msgstr "Prvo, sačuvajte svoju kolekciju. Zatim možete dodati proširenja i teme."
 
 #: src/amo/components/CollectionManager/index.js:230
 msgid "Collection name"
@@ -874,12 +872,10 @@ msgid "View My Collections"
 msgstr "Prikaži moje kolekcije"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:242
-#, fuzzy
 msgid "View My Profile"
 msgstr "Prikaži profil"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:249
-#, fuzzy
 msgid "Edit My Profile"
 msgstr "Uredi profil"
 
@@ -1860,110 +1856,100 @@ msgid "User Profile for %(user)s"
 msgstr "Korisnički profil za %(user)s"
 
 #: src/amo/components/UserProfileEdit/index.js:243
-#, fuzzy
 msgid "View user's profile"
-msgstr "Prikaži profil"
+msgstr "Prikaži korisnički profil"
 
 #: src/amo/components/UserProfileEdit/index.js:250
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Uredi profil"
+msgstr "Uredi korisnički profil"
 
 #: src/amo/components/UserProfileEdit/index.js:262
 msgid "Profile successfully updated"
 msgstr "Profil uspješno ažuriran"
 
 #: src/amo/components/UserProfileEdit/index.js:269
-#, fuzzy
 msgid "Account"
-msgstr "Moj račun"
+msgstr "Račun"
 
 #: src/amo/components/UserProfileEdit/index.js:270
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "Pristupite vašim podacima za %(param)s"
+msgstr "Račun za %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:276
-#, fuzzy
 msgid "Username"
-msgstr "Korisnik"
+msgstr "Korisničko ime"
 
 #: src/amo/components/UserProfileEdit/index.js:287
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Email adresa ne može biti promijenjena"
 
 #: src/amo/components/UserProfileEdit/index.js:289
 msgid "Email Address"
-msgstr ""
+msgstr "Email adresa"
 
 #: src/amo/components/UserProfileEdit/index.js:305
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Možete promijeniti email adresu na vašim Firefox računima. %(startLink)sTrebate pomoć?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:321
-#, fuzzy
 msgid "Profile"
-msgstr "Prikaži profil"
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:324
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Recite korisnicima nešto više informacija o sebi. Ova polja su opcionalna, ali će pomoći drugim korisnicima da vas bolje upoznaju."
 
 #: src/amo/components/UserProfileEdit/index.js:329
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Recite korisnicima nešto više informacija o ovom korisniku. Ova polja su opcionalna, ali će pomoći drugim korisnicima da bolje upoznaju %(username)s."
 
 #: src/amo/components/UserProfileEdit/index.js:338
 msgid "Display Name"
-msgstr ""
+msgstr "Ime za prikaz"
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Ovaj URL će biti vidljiv samo za korisnike koji su programeri."
 
 #: src/amo/components/UserProfileEdit/index.js:375
 msgid "Location"
-msgstr ""
+msgstr "Lokacija"
 
 #: src/amo/components/UserProfileEdit/index.js:387
 msgid "Occupation"
-msgstr ""
+msgstr "Zanimanje"
 
 #: src/amo/components/UserProfileEdit/index.js:401
 msgid "Biography"
-msgstr ""
+msgstr "Biografija"
 
 #: src/amo/components/UserProfileEdit/index.js:404
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Predstavite se zajednici ako to želite"
 
 #: src/amo/components/UserProfileEdit/index.js:407
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Predstavite %(username)s zajednici"
 
 #: src/amo/components/UserProfileEdit/index.js:420
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Neki HTML-ovi podržavaju: %(htmlTags)s. Linkovi su zabranjeni."
 
 #: src/amo/components/UserProfileEdit/index.js:450
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Ažuriranje odgovora"
+msgstr "Ažuriranje vašeg profila…"
 
 #: src/amo/components/UserProfileEdit/index.js:451
-#, fuzzy
 msgid "Update my profile"
-msgstr "Ažuriraj odgovor"
+msgstr "Ažuriraj moj profil"
 
 #: src/amo/components/UserProfileEdit/index.js:453
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Ažuriranje odgovora"
+msgstr "Ažuriranje korisničkog profila…"
 
 #: src/amo/components/UserProfileEdit/index.js:454
-#, fuzzy
 msgid "Update user's profile"
-msgstr "Ažuriraj odgovor"
+msgstr "Ažuriraj korisnički profil"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2104,14 +2090,12 @@ msgid "This add-on has not been rated yet."
 msgstr "Ovaj dodatak još nije ocijenjen."
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Ažurirajte vašu ocjenu za %(starRating)s od 5."
+msgstr "Ažurirajte vašu ocjenu za %(starRating)s od 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Ocjenite ovaj dodatak %(starRating)s od 5."
+msgstr "Ocjenite ovaj dodatak %(starRating)s od 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
