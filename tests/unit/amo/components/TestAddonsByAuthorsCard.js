@@ -219,7 +219,10 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AddonsByAuthorsCard');
   });
 
-  it('should dispatch a fetch action if no add-ons found', () => {
+  // We want to always make sure to do a fetch to make sure
+  // we have the latest addons list.
+  // See: https://github.com/mozilla/addons-frontend/issues/4852
+  it('should always fetch addons by authors', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();

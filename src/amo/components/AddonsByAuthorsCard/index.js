@@ -55,11 +55,9 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
   }
 
   componentWillMount() {
-    const { addons, addonType, authorUsernames, forAddonSlug } = this.props;
+    const { addonType, authorUsernames, forAddonSlug } = this.props;
 
-    if (!addons) {
-      this.dispatchFetchAddonsByAuthors({ addonType, authorUsernames, forAddonSlug });
-    }
+    this.dispatchFetchAddonsByAuthors({ addonType, authorUsernames, forAddonSlug });
   }
 
   componentWillReceiveProps({
