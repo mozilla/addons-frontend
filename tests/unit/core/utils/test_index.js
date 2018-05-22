@@ -619,7 +619,6 @@ describe(__filename, () => {
         'addonType "NOT_A_REAL_TYPE" not found in CATEGORY_COLORS');
     });
 
-    // TODO: look into what this does for static theme purposes.
     it('deals with high category IDs', () => {
       for (let i = 750; i < 800; i++) {
         const category = { id: i, type: ADDON_TYPE_THEME };

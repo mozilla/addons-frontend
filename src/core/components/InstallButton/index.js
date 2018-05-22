@@ -222,7 +222,6 @@ export class InstallButtonBase extends React.Component {
       userAgentInfo,
     });
 
-    // TODO: find out if this will work with static themes
     if (addon.type === ADDON_TYPE_THEME) {
       button = (
         <Button

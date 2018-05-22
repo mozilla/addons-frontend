@@ -47,9 +47,6 @@ export class SearchResultBase extends React.Component<Props> {
     // Fall-back to default icon if invalid icon url.
     const iconURL = getAddonIconUrl(addon);
 
-    // TODO: find out if should be using thumb or image_url here
-    // since sometimes it's full view and sometimes its in columns
-
     let imageURL = iconURL;
 
     if (isTheme) {
@@ -63,7 +60,7 @@ export class SearchResultBase extends React.Component<Props> {
           ? addon.themeData.previewURL : null;
       }
 
-      imageURL = themeURL;
+      imageURL = themeURL || iconURL;
     }
 
     // Sets classes to handle fallback if theme preview is not available.

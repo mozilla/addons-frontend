@@ -186,8 +186,9 @@ export class AddonBase extends React.Component {
     } = this.props;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
-    // TODO: 'tap to preview' button will be fully removed here:
+    // The 'tap to preview' button will be fully removed in the following PR:
     // https://github.com/mozilla/addons-frontend/pull/4914
+    // for now this is only displayed over lightweight preview images
     if (this.addonIsTheme()) {
       let previewURL = addon ? addon.previews.length > 0 && addon.previews[0].image_url : null;
 
