@@ -285,28 +285,6 @@ describe(__filename, () => {
     }));
   });
 
-  it('should display at most numberOfAddons extensions', () => {
-    const numberOfAddons = 4;
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_EXTENSION,
-      multipleAuthors: false,
-      numberOfAddons,
-    });
-
-    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
-  });
-
-  it('should display at most numberOfAddons themes', () => {
-    const numberOfAddons = 3;
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEME,
-      multipleAuthors: false,
-      numberOfAddons,
-    });
-
-    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
-  });
-
   it('should dispatch a fetch action if addonType is updated', () => {
     const { store } = dispatchClientMetadata();
     const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -379,6 +357,28 @@ describe(__filename, () => {
     });
 
     sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('should display at most numberOfAddons extensions', () => {
+    const numberOfAddons = 4;
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_EXTENSION,
+      multipleAuthors: false,
+      numberOfAddons,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
+  });
+
+  it('should display at most numberOfAddons themes', () => {
+    const numberOfAddons = 3;
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_THEME,
+      multipleAuthors: false,
+      numberOfAddons,
+    });
+
+    expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {
