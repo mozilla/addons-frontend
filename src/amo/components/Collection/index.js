@@ -82,13 +82,11 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
-
-
     const newCollection = collection && collection.numberOfAddons === 0;
 
     // If its loading and we don't have all our addon items
     // OR if its an empty collection, we can stop here.
-    if (loading && !newCollection || newCollection) {
+    if ((loading && !newCollection) || newCollection) {
       return;
     }
 
