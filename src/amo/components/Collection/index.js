@@ -82,6 +82,16 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
+
+
+    const newCollection = collection && collection.numberOfAddons === 0;
+
+    // If its loading and we don't have all our addon items
+    // OR if its an empty collection, we can stop here.
+    if (loading && !newCollection || newCollection) {
+      return;
+    }
+
     let collectionChanged = false;
     let addonsPageChanged = false;
     let { location } = this.props;
@@ -107,16 +117,11 @@ export class CollectionBase extends React.Component<Props> {
       collectionChanged = true;
     }
 
-    // When switching into edit mode, refresh the collection add-ons.
-    if (this.props.editing && !nextProps) {
-      addonsPageChanged = true;
-    } else if (loading && !this.props.editing) {
-      // Since we are refreshing the collection addon-ons in edit-mode
-      // we only want to stop if we are outside of this.
-      return;
-    }
+    const collectionHasAddons = (collection
+      && collection.addons
+      && collection.addons.length > 0);
 
-    if (!collection || collectionChanged) {
+    if (!collection || !collectionHasAddons || collectionChanged) {
       this.props.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
         page: location.query.page,
@@ -127,7 +132,7 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
-    if (collection && addonsPageChanged) {
+    if (collectionHasAddons && addonsPageChanged) {
       this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         page: location.query.page || 1,
@@ -308,10 +313,16 @@ export const mapStateToProps = (
       hasPermission(state, COLLECTIONS_EDIT);
   }
 
+  let collectionToLoad = loading;
+
+  if (collection && collection.numberOfAddons === 0) {
+    collectionToLoad = false;
+  }
+
   return {
     collection,
     isLoggedIn: !!currentUser,
-    loading,
+    loading: collectionToLoad,
     hasEditPermission,
   };
 };
