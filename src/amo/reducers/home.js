@@ -11,17 +11,15 @@ export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 export type HomeState = {
   collections: Array<Object>,
   featuredExtensions: Array<AddonType>,
-  popularExtensions: Array<AddonType>,
   resultsLoaded: boolean,
-  topRatedThemes: Array<AddonType>,
+  featuredThemes: Array<AddonType>,
 };
 
 export const initialState: HomeState = {
   collections: [],
   featuredExtensions: [],
-  popularExtensions: [],
   resultsLoaded: false,
-  topRatedThemes: [],
+  featuredThemes: [],
 };
 
 type FetchHomeAddonsParams = {|
@@ -67,8 +65,7 @@ type ApiAddonsResponse = {|
 type LoadHomeAddonsParams = {|
   collections: Array<Object>,
   featuredExtensions: ApiAddonsResponse,
-  popularExtensions: ApiAddonsResponse,
-  topRatedThemes: ApiAddonsResponse,
+  featuredThemes: ApiAddonsResponse,
 |};
 
 type LoadHomeAddonsAction = {|
@@ -79,21 +76,18 @@ type LoadHomeAddonsAction = {|
 export const loadHomeAddons = ({
   collections,
   featuredExtensions,
-  popularExtensions,
-  topRatedThemes,
+  featuredThemes,
 }: LoadHomeAddonsParams): LoadHomeAddonsAction => {
   invariant(collections, 'collections is required');
   invariant(featuredExtensions, 'featuredExtensions is required');
-  invariant(popularExtensions, 'popularExtensions is required');
-  invariant(topRatedThemes, 'topRatedThemes is required');
+  invariant(featuredThemes, 'featuredThemes is required');
 
   return {
     type: LOAD_HOME_ADDONS,
     payload: {
       collections,
       featuredExtensions,
-      popularExtensions,
-      topRatedThemes,
+      featuredThemes,
     },
   };
 };
@@ -125,8 +119,7 @@ const reducer = (
       const {
         collections,
         featuredExtensions,
-        popularExtensions,
-        topRatedThemes,
+        featuredThemes,
       } = action.payload;
 
       return {
@@ -139,8 +132,7 @@ const reducer = (
             });
         }),
         featuredExtensions: createInternalAddons(featuredExtensions),
-        popularExtensions: createInternalAddons(popularExtensions),
-        topRatedThemes: createInternalAddons(topRatedThemes),
+        featuredThemes: createInternalAddons(featuredThemes),
         resultsLoaded: true,
       };
     }

@@ -34,12 +34,13 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-2"
-          linkTo="/addon/autoformer/"
+          linkTo="/addon/swift-selection-search/"
         >
-          <h3>{i18n.gettext('AutoFormer+')}</h3>
+          <h3>{i18n.gettext('Swift Selection Search')}</h3>
 
           <p>
-            {i18n.gettext('Fill out a lot of forms? This might help')}
+            {i18n.gettext(`Highlight text on any web page to pull up a
+              handy search menu`)}
           </p>
         </HeroSection>
       ),
@@ -59,24 +60,22 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-4"
-          linkTo="/addon/notebook_web_clipper/"
+          linkTo="/addon/web-security/"
         >
-          <h3>{i18n.gettext('Notebook Web Clipper')}</h3>
+          <h3>{i18n.gettext('Web Security')}</h3>
           <p>
-            {i18n.gettext(`Clip, save & organize your favorite stuff
-              on the web`)}
+            {i18n.gettext('Protection against malware and data phishing scams')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-5"
-          linkTo="/addon/flagfox/"
+          linkTo="/addon/vertical-tabs-reloaded/"
         >
-          <h3>{i18n.gettext('Flagfox')}</h3>
+          <h3>{i18n.gettext('Vertical Tabs Reloaded')}</h3>
           <p>
-            {i18n.gettext(`Displays a website’s server location by country
-              flag`)}
+            {i18n.gettext('Arrange tabs in a vertical fashion')}
           </p>
         </HeroSection>
       ),
@@ -181,36 +180,37 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-14"
-          linkTo="/addon/shine-reddit/"
+          linkTo="/addon/page-translate/"
         >
-          <h3>{i18n.gettext('SHINE for Reddit')}</h3>
+          <h3>{i18n.gettext('Page Translate')}</h3>
 
           <p>
-            {i18n.gettext('Experience Reddit with alternative designs')}
+            {i18n.gettext('Translate an entire web page with a couple clicks')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-15"
-          linkTo="/addon/leechblock-ng/"
+          linkTo="/addon/image-search-options/"
         >
-          <h3>{i18n.gettext('LeechBlock NG')}</h3>
+          <h3>{i18n.gettext('Image Search Options')}</h3>
 
           <p>
-            {i18n.gettext('Block time-wasting sites')}
+            {i18n.gettext('Access reverse image search options in a context menu')}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-16"
-          linkTo="/addon/tranquility-1/"
+          linkTo="/addon/forget_me_not/"
         >
-          <h3>{i18n.gettext('Tranquility Reader')}</h3>
+          <h3>{i18n.gettext('Forget Me Not')}</h3>
 
           <p>
-            {i18n.gettext('Remove clutter and improve readability')}
+            {i18n.gettext(`Make Firefox forget website data like cookies
+              & local storage`)}
           </p>
         </HeroSection>
       ),

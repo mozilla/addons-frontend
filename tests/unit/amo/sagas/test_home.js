@@ -11,9 +11,7 @@ import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  SEARCH_SORT_POPULAR,
   SEARCH_SORT_RANDOM,
-  SEARCH_SORT_TOP_RATED,
 } from 'core/constants';
 import apiReducer from 'core/reducers/api';
 import { createStubErrorHandler } from 'tests/unit/helpers';
@@ -105,21 +103,7 @@ describe(__filename, () => {
         })
         .returns(Promise.resolve(featuredExtensions));
 
-      const popularExtensions = createAddonsApiResult([fakeAddon]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            addonType: ADDON_TYPE_EXTENSION,
-            sort: SEARCH_SORT_POPULAR,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(popularExtensions));
-
-      const topRatedThemes = createAddonsApiResult([fakeTheme]);
+      const featuredThemes = createAddonsApiResult([fakeTheme]);
       mockSearchApi
         .expects('search')
         .withArgs({
@@ -127,11 +111,12 @@ describe(__filename, () => {
           filters: {
             ...baseFilters,
             addonType: ADDON_TYPE_THEME,
-            sort: SEARCH_SORT_TOP_RATED,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
           },
           page: 1,
         })
-        .returns(Promise.resolve(topRatedThemes));
+        .returns(Promise.resolve(featuredThemes));
 
       _fetchHomeAddons({
         collectionsToFetch: [
@@ -143,8 +128,7 @@ describe(__filename, () => {
       const expectedLoadAction = loadHomeAddons({
         collections,
         featuredExtensions,
-        popularExtensions,
-        topRatedThemes,
+        featuredThemes,
       });
 
       await sagaTester.waitFor(expectedLoadAction.type);
