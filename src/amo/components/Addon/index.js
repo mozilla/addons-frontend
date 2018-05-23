@@ -525,7 +525,7 @@ export class AddonBase extends React.Component {
                     puffy
                     className="Button--get-firefox"
                   >
-                    {i18n.gettext('Only with Firefox—Get Firefox Now')}
+                    {i18n.gettext('Only with Firefox——Get Firefox Now')}
                   </Button>
                 }
               </div>
