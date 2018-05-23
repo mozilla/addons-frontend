@@ -467,9 +467,6 @@ export class AddonBase extends React.Component {
     })}`;
 
     const isFireFox = compatibility && compatibility.reason !== INCOMPATIBLE_NOT_FIREFOX;
-    const enableAddonRecommendations =
-      config.get('enableAddonRecommendations') &&
-      addonType === ADDON_TYPE_EXTENSION;
 
     return (
       <div
@@ -523,9 +520,8 @@ export class AddonBase extends React.Component {
                     buttonType="confirm"
                     href={downloadUrl}
                     puffy
-                    className="Button--get-firefox"
                   >
-                    {i18n.gettext('Only with Firefox — Get Firefox Now!')}
+                    {i18n.gettext('Only with Firefox—Get Firefox Now')}
                   </Button>
                 }
               </div>
@@ -556,7 +552,7 @@ export class AddonBase extends React.Component {
 
             {this.renderShowMoreCard()}
 
-            {enableAddonRecommendations && (
+            {config.get('enableAddonRecommendations') && (
               <AddonRecommendations addon={addon} />
             )}
           </div>
