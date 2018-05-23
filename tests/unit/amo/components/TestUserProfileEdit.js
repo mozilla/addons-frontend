@@ -4,6 +4,7 @@ import * as React from 'react';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import Link from 'amo/components/Link';
 import UserProfileEdit, {
+  extractId,
   UserProfileEditBase,
 } from 'amo/components/UserProfileEdit';
 import {
@@ -738,18 +739,6 @@ describe(__filename, () => {
     expect(root.find(AuthenticateButton)).toHaveLength(1);
   });
 
-  it('does not dispatch fetchUserAccount() when current user is not logged-in and loads a user edit page', () => {
-    const { store } = dispatchClientMetadata();
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    renderUserProfileEdit({
-      store,
-      params: { username: 'willdurand' },
-    });
-
-    sinon.assert.notCalled(dispatchSpy);
-  });
-
   it('does not dispatch fetchUserAccount() when user logs out on a user edit page', () => {
     const username = 'logged-in-user';
     const { store } = dispatchSignInActions({
@@ -795,5 +784,31 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store });
 
     expect(root.find(NotFound)).toHaveLength(1);
+  });
+
+  it('does not dispatch any action when there is an error', () => {
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    const errorHandler = new ErrorHandler({
+      id: 'some-id',
+      dispatch: fakeDispatch,
+    });
+    errorHandler.handle(new Error('unexpected error'));
+
+    fakeDispatch.reset();
+
+    renderUserProfileEdit({ errorHandler, store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  describe('errorHandler - extractId', () => {
+    it('returns a unique ID based on params', () => {
+      const username = 'foo';
+      const params = { username };
+
+      expect(extractId({ params })).toEqual(username);
+    });
   });
 });
