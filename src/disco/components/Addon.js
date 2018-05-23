@@ -165,8 +165,8 @@ export class AddonBase extends React.Component {
 
   installTheme = (event) => {
     event.preventDefault();
-    const { addon, installTheme } = this.props;
-    installTheme(event.currentTarget, addon);
+    const { addon, installTheme, status } = this.props;
+    installTheme(event.currentTarget, { ...addon, status });
   }
 
   errorMessage() {
