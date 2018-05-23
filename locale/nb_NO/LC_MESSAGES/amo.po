@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-15 20:40+0000\n"
+"POT-Creation-Date: 2018-05-23 19:11+0000\n"
 "PO-Revision-Date: 2017-10-08 11:38+0000\n"
 "Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgid "Add to…"
 msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:285
+#: src/amo/components/CollectionManager/index.js:308
 #, fuzzy
 msgid "Add to collection"
 msgstr "Bla gjennom alle utvidelser"
@@ -289,8 +289,8 @@ msgid "More information"
 msgstr "Mer informasjon"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
-#: src/amo/components/UserProfile/index.js:114
-#: src/amo/components/UserProfileEdit/index.js:358
+#: src/amo/components/UserProfile/index.js:149
+#: src/amo/components/UserProfileEdit/index.js:390
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -307,11 +307,11 @@ msgstr "Brukerstøtteside"
 msgid "Visit stats dashboard"
 msgstr "Gå til statistikkoversikten"
 
-#: src/amo/components/AddonRecommendations/index.js:154
+#: src/amo/components/AddonRecommendations/index.js:161
 msgid "Other users with this extension also installed"
 msgstr ""
 
-#: src/amo/components/AddonRecommendations/index.js:155
+#: src/amo/components/AddonRecommendations/index.js:162
 #, fuzzy
 msgid "Other popular extensions"
 msgstr "Flere populære utvidelser"
@@ -423,92 +423,92 @@ msgstr "Rediger min omtale"
 msgid "Reply to this review"
 msgstr "Trykk for en forhåndsvisning"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:122
+#: src/amo/components/AddonsByAuthorsCard/index.js:120
 msgid "More dictionaries by %(author)s"
 msgstr "Flere ordbøker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:125
+#: src/amo/components/AddonsByAuthorsCard/index.js:123
 msgid "More dictionaries by these translators"
 msgstr "Flere ordbøker av disse oversetterne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:129
+#: src/amo/components/AddonsByAuthorsCard/index.js:127
 #, fuzzy
 msgid "Dictionaries by %(author)s"
 msgstr "Flere ordbøker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:132
+#: src/amo/components/AddonsByAuthorsCard/index.js:130
 #, fuzzy
 msgid "Dictionaries by these translators"
 msgstr "Flere ordbøker av disse oversetterne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:139
+#: src/amo/components/AddonsByAuthorsCard/index.js:137
 msgid "More extensions by %(author)s"
 msgstr "Flere utvidelser av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:142
+#: src/amo/components/AddonsByAuthorsCard/index.js:140
 msgid "More extensions by these developers"
 msgstr "Flere utvidelser av disse utviklerne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:146
+#: src/amo/components/AddonsByAuthorsCard/index.js:144
 #, fuzzy
 msgid "Extensions by %(author)s"
 msgstr "Flere utvidelser av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:149
+#: src/amo/components/AddonsByAuthorsCard/index.js:147
 #, fuzzy
 msgid "Extensions by these developers"
 msgstr "Flere utvidelser av disse utviklerne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:156
+#: src/amo/components/AddonsByAuthorsCard/index.js:154
 msgid "More language packs by %(author)s"
 msgstr "Flere språkpakker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:159
+#: src/amo/components/AddonsByAuthorsCard/index.js:157
 msgid "More language packs by these translators"
 msgstr "Flere språkpakker av disse oversetterne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:163
+#: src/amo/components/AddonsByAuthorsCard/index.js:161
 #, fuzzy
 msgid "Language packs by %(author)s"
 msgstr "Flere språkpakker av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:166
+#: src/amo/components/AddonsByAuthorsCard/index.js:164
 #, fuzzy
 msgid "Language packs by these translators"
 msgstr "Flere språkpakker av disse oversetterne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:173
+#: src/amo/components/AddonsByAuthorsCard/index.js:171
 msgid "More themes by %(author)s"
 msgstr "Flere temaer av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:176
+#: src/amo/components/AddonsByAuthorsCard/index.js:174
 msgid "More themes by these artists"
 msgstr "Flere temaer av disse artistene"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:180
+#: src/amo/components/AddonsByAuthorsCard/index.js:178
 #, fuzzy
 msgid "Themes by %(author)s"
 msgstr "Flere temaer av %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:183
+#: src/amo/components/AddonsByAuthorsCard/index.js:181
 #, fuzzy
 msgid "Themes by these artists"
 msgstr "Flere temaer av disse artistene"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:190
+#: src/amo/components/AddonsByAuthorsCard/index.js:188
 msgid "More add-ons by %(author)s"
 msgstr "Flere utvidelser %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:193
+#: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by these developers"
 msgstr "Flere utvidelser fra disse utviklerne"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:197
+#: src/amo/components/AddonsByAuthorsCard/index.js:195
 #, fuzzy
 msgid "Add-ons by %(author)s"
 msgstr "Flere utvidelser %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:200
+#: src/amo/components/AddonsByAuthorsCard/index.js:198
 #, fuzzy
 msgid "Add-ons by these developers"
 msgstr "Flere utvidelser fra disse utviklerne"
@@ -690,29 +690,29 @@ msgstr "Bla gjennom alle utvidelser"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:230
+#: src/amo/components/CollectionManager/index.js:253
 msgid "Collection name"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:242
+#: src/amo/components/CollectionManager/index.js:265
 msgid "Description"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:253
+#: src/amo/components/CollectionManager/index.js:276
 msgid "Custom URL"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:281
+#: src/amo/components/CollectionManager/index.js:304
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:301
+#: src/amo/components/CollectionManager/index.js:324
 #: src/ui/components/DismissibleTextForm/index.js:125
 #, fuzzy
 msgid "Cancel"
 msgstr "Avslutt forhåndsvisning"
 
-#: src/amo/components/CollectionManager/index.js:310
+#: src/amo/components/CollectionManager/index.js:333
 #, fuzzy
 msgid "Save Collection"
 msgstr "Bla gjennom alle utvidelser"
@@ -881,11 +881,11 @@ msgid "Flagged as a bug report or support request"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flag"
+msgid "Flagged"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-msgid "Flagged"
+msgid "Flag"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:132
@@ -1025,13 +1025,13 @@ msgid "View My Collections"
 msgstr ""
 
 #: src/amo/components/Header/index.js:116
-#: src/amo/components/UserProfileEdit/index.js:242
+#: src/amo/components/UserProfileEdit/index.js:274
 #, fuzzy
 msgid "View My Profile"
 msgstr "Vis profil"
 
 #: src/amo/components/Header/index.js:124
-#: src/amo/components/UserProfileEdit/index.js:249
+#: src/amo/components/UserProfileEdit/index.js:281
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "Rediger profil"
@@ -2111,133 +2111,145 @@ msgstr "Bla gjennom alle tema"
 msgid "Add-ons Home Page"
 msgstr "Hjemmeside for utvidelser"
 
-#: src/amo/components/UserProfile/index.js:123
-#, fuzzy
-msgid "User since"
-msgstr "Flest brukere"
-
-#: src/amo/components/UserProfile/index.js:130
-#, fuzzy
-msgid "Number of add-ons"
-msgstr "Laster utvidelser"
-
-#: src/amo/components/UserProfile/index.js:136
-msgid "Average rating of developer’s add-ons"
-msgstr ""
-
-#: src/amo/components/UserProfile/index.js:92
-#: src/amo/components/UserProfileEdit/index.js:230
+#: src/amo/components/UserProfile/index.js:127
+#: src/amo/components/UserProfileEdit/index.js:262
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "Søker etter «%(query)s»"
 
-#: src/amo/components/UserProfileEdit/index.js:243
+#: src/amo/components/UserProfile/index.js:159
+#: src/amo/components/UserProfileEdit/index.js:407
+msgid "Location"
+msgstr ""
+
+#: src/amo/components/UserProfile/index.js:167
+#: src/amo/components/UserProfileEdit/index.js:419
+msgid "Occupation"
+msgstr ""
+
+#: src/amo/components/UserProfile/index.js:174
+#, fuzzy
+msgid "User since"
+msgstr "Flest brukere"
+
+#: src/amo/components/UserProfile/index.js:181
+#, fuzzy
+msgid "Number of add-ons"
+msgstr "Laster utvidelser"
+
+#: src/amo/components/UserProfile/index.js:187
+msgid "Average rating of developer’s add-ons"
+msgstr ""
+
+#: src/amo/components/UserProfile/index.js:221
+#, fuzzy
+msgid "Edit profile"
+msgstr "Rediger profil"
+
+#: src/amo/components/UserProfileEdit/index.js:231
+#, fuzzy
+msgid "Log in to edit the profile"
+msgstr "Bla gjennom alle utvidelser"
+
+#: src/amo/components/UserProfileEdit/index.js:275
 #, fuzzy
 msgid "View user's profile"
 msgstr "Vis profil"
 
-#: src/amo/components/UserProfileEdit/index.js:250
+#: src/amo/components/UserProfileEdit/index.js:282
 #, fuzzy
 msgid "Edit user's profile"
 msgstr "Rediger profil"
 
-#: src/amo/components/UserProfileEdit/index.js:262
+#: src/amo/components/UserProfileEdit/index.js:294
 msgid "Profile successfully updated"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:269
+#: src/amo/components/UserProfileEdit/index.js:301
 #, fuzzy
 msgid "Account"
 msgstr "Min konto"
 
-#: src/amo/components/UserProfileEdit/index.js:270
+#: src/amo/components/UserProfileEdit/index.js:302
 #, fuzzy
 msgid "Account for %(username)s"
 msgstr "%(count)s resultat for \"%(query)s\""
 
-#: src/amo/components/UserProfileEdit/index.js:276
+#: src/amo/components/UserProfileEdit/index.js:308
 #, fuzzy
 msgid "Username"
 msgstr "Flest brukere"
 
-#: src/amo/components/UserProfileEdit/index.js:287
+#: src/amo/components/UserProfileEdit/index.js:319
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:289
+#: src/amo/components/UserProfileEdit/index.js:321
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:305
+#: src/amo/components/UserProfileEdit/index.js:337
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:321
+#: src/amo/components/UserProfileEdit/index.js:353
 #, fuzzy
 msgid "Profile"
 msgstr "Vis profil"
 
-#: src/amo/components/UserProfileEdit/index.js:324
+#: src/amo/components/UserProfileEdit/index.js:356
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:329
+#: src/amo/components/UserProfileEdit/index.js:361
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:338
+#: src/amo/components/UserProfileEdit/index.js:370
 #, fuzzy
 msgid "Display Name"
 msgstr "Spill spill"
 
-#: src/amo/components/UserProfileEdit/index.js:370
+#: src/amo/components/UserProfileEdit/index.js:402
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:375
-msgid "Location"
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:387
-msgid "Occupation"
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:401
+#: src/amo/components/UserProfileEdit/index.js:433
 msgid "Biography"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:404
+#: src/amo/components/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:407
+#: src/amo/components/UserProfileEdit/index.js:439
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:420
+#: src/amo/components/UserProfileEdit/index.js:452
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:450
+#: src/amo/components/UserProfileEdit/index.js:482
 msgid "Updating your profile…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:451
+#: src/amo/components/UserProfileEdit/index.js:483
 #, fuzzy
 msgid "Update my profile"
 msgstr "Rediger profil"
 
-#: src/amo/components/UserProfileEdit/index.js:453
+#: src/amo/components/UserProfileEdit/index.js:485
 msgid "Updating user's profile…"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:454
+#: src/amo/components/UserProfileEdit/index.js:486
 msgid "Update user's profile"
 msgstr ""
 
@@ -2381,13 +2393,12 @@ msgstr ""
 
 #: src/ui/components/Rating/index.js:60
 #, fuzzy
-msgid "Rated %(rating)s out of 5."
+msgid "Rated %(rating)s out of 5"
 msgstr "Vurdert %(rating)s ut av 5"
 
 #: src/ui/components/Rating/index.js:63
-#, fuzzy
-msgid "This add-on has not been rated yet."
-msgstr "Om denne %(addonType)s"
+msgid "There are no ratings yet"
+msgstr ""
 
 #: src/ui/components/Rating/index.js:67
 #, fuzzy
@@ -2402,6 +2413,10 @@ msgstr "Vurdert %(rating)s ut av 5"
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
 msgstr "<span class=\"visually-hidden\">Utvid for å</span> lese mer"
+
+#, fuzzy
+#~ msgid "This add-on has not been rated yet."
+#~ msgstr "Om denne %(addonType)s"
 
 #~ msgid "See all beta versions"
 #~ msgstr "Se alle beta-versjoner"
