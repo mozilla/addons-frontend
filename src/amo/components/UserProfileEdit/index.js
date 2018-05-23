@@ -16,8 +16,10 @@ import {
   getUserByUsername,
   hasPermission,
 } from 'amo/reducers/users';
+import AuthenticateButton from 'core/components/AuthenticateButton';
 import { USERS_EDIT } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
@@ -75,7 +77,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    const { dispatch, errorHandler, username, user } = this.props;
+    const { currentUser, dispatch, errorHandler, username, user } = this.props;
+
+    if (!currentUser) {
+      return;
+    }
 
     if (!user && username) {
       dispatch(fetchUserAccount({
@@ -100,7 +106,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     } = props;
 
     if (oldUsername !== newUsername) {
-      if (!newUser) {
+      if (!newUser && newUsername) {
         dispatch(fetchUserAccount({
           errorHandlerId: errorHandler.id,
           username: newUsername,
@@ -210,11 +216,37 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       hasEditPermission,
       i18n,
       isUpdating,
+      router,
       user,
       username,
     } = this.props;
 
-    if (!currentUser || (currentUser && user && !hasEditPermission)) {
+    if (!currentUser) {
+      return (
+        <div className="UserProfileEdit">
+          <Card className="UserProfileEdit-user-links">
+            <AuthenticateButton
+              noIcon
+              location={router.location}
+              logInText={i18n.gettext('Log in to edit the profile')}
+            />
+          </Card>
+        </div>
+      );
+    }
+
+    let errorMessage;
+    if (errorHandler.hasError()) {
+      log.warn('Captured API Error:', errorHandler.capturedError);
+
+      if (errorHandler.capturedError.responseStatusCode === 404) {
+        return <NotFound errorCode={errorHandler.capturedError.code} />;
+      }
+
+      errorMessage = errorHandler.renderError();
+    }
+
+    if (user && !hasEditPermission) {
       return <NotFound />;
     }
 
@@ -255,7 +287,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
         <form className="UserProfileEdit-form" onSubmit={this.onSubmit}>
           <div className="UserProfileEdit-form-messages">
-            {errorHandler.renderErrorIfPresent()}
+            {errorMessage}
 
             {this.state.displaySuccessMessage && (
               <Notice type="success">
