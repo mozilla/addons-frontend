@@ -702,7 +702,7 @@ describe(__filename, () => {
 
     expect(root.find(AuthenticateButton)).toHaveLength(1);
     expect(root.find(AuthenticateButton))
-      .toHaveProp('logInText', 'Log in to continue');
+      .toHaveProp('logInText', 'Log in to edit the profile');
   });
 
   it('displays an AuthenticateButton if current user is not logged-in and loads a user edit page', () => {
@@ -751,19 +751,29 @@ describe(__filename, () => {
   });
 
   it('does not dispatch fetchUserAccount() when user logs out on a user edit page', () => {
-    const username = 'some-user';
+    const username = 'logged-in-user';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        username,
+        permissions: [USERS_EDIT],
+      },
+    });
 
-    const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
-    // The user edits their profile.
-    const root = renderUserProfileEdit({ params: { username }, store });
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    dispatchSpy.reset();
+
+    // The current logged-in user edits the profile of the other `user`.
+    const params = { username: user.username };
+    const root = renderUserProfileEdit({ params, store });
 
     // The user logs out.
-    root.setProps({
-      currentUser: null,
-      params: { username },
-    });
+    root.setProps({ currentUser: null, params });
 
     sinon.assert.notCalled(dispatchSpy);
     // We should also see an AuthenticateButton when this use case happens.

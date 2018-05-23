@@ -228,7 +228,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
             <AuthenticateButton
               noIcon
               location={router.location}
-              logInText={i18n.gettext('Log in to continue')}
+              logInText={i18n.gettext('Log in to edit the profile')}
             />
           </Card>
         </div>
