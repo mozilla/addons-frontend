@@ -170,11 +170,10 @@ export function* addAddonToCollection({
         slug: collectionSlug,
         user: userId,
       }));
-    } else {
-      yield put(addonAddedToCollection({
-        addonId, userId, collectionId,
-      }));
     }
+    yield put(addonAddedToCollection({
+      addonId, userId, collectionId,
+    }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));

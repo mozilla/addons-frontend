@@ -20,6 +20,7 @@ import translate from 'core/i18n/translate';
 import { decodeHtmlEntities } from 'core/utils';
 import Button from 'ui/components/Button';
 import LoadingText from 'ui/components/LoadingText';
+import Notice from 'ui/components/Notice';
 import type {
   SearchFilters, SuggestionType,
 } from 'amo/components/AutoSearchInput';
@@ -37,7 +38,17 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
+export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
+  = 'ADDON_ADDED_STATUS_PENDING';
+export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS'
+  = 'ADDON_ADDED_STATUS_SUCCESS';
+
+export type AddonAddedStatusType =
+  | typeof ADDON_ADDED_STATUS_PENDING
+  | typeof ADDON_ADDED_STATUS_SUCCESS;
+
 type Props = {|
+  hasAddonBeenAdded: boolean,
   collection: CollectionType | null,
   clientApp: ?string,
   creating: boolean,
@@ -53,10 +64,11 @@ type Props = {|
 |};
 
 type State = {|
+  addonAddedStatus: AddonAddedStatusType | null,
+  customSlug?: boolean,
   description?: string | null,
   name?: string | null,
   slug?: string | null,
-  customSlug?: boolean,
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
@@ -72,6 +84,12 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       // user is not already editing. This prevents clearing the form
       // in a few scenarios such as pressing the submit button.
       this.setState(this.propsToState(props));
+    }
+    if (this.props.hasAddonBeenAdded !== props.hasAddonBeenAdded) {
+      this.setState({
+        addonAddedStatus: props.hasAddonBeenAdded ?
+          ADDON_ADDED_STATUS_SUCCESS : null,
+      });
     }
   }
 
@@ -205,11 +223,13 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       page: page || 1,
       userId: siteUserId,
     }));
+    this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
 
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
+      addonAddedStatus: null,
       customSlug: false,
       description: props.collection &&
         decodeHtmlEntities(props.collection.description),
@@ -297,6 +317,11 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             value={this.state.slug}
           />
         </div>
+        {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
+          <Notice type="success">
+            {i18n.gettext('Added to collection')}
+          </Notice>
+        )}
         {!creating &&
           <AutoSearchInput
             inputName="collection-addon-query"
@@ -352,6 +377,7 @@ export const mapStateToProps = (
 ) => {
   const currentUser = getCurrentUser(state.users);
   return {
+    hasAddonBeenAdded: state.collections.hasAddonBeenAdded,
     clientApp: state.api.clientApp,
     currentUsername: currentUser && currentUser.username,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,

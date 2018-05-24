@@ -300,6 +300,18 @@ describe(__filename, () => {
       expect(savedState.collections).toEqual(null);
     });
 
+    it('sets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
+      const state = reducer(undefined, addAddonToCollection({
+        addonId: 1,
+        userId: 2,
+        collectionId: 3,
+        collectionSlug: 'some-collection',
+        errorHandlerId: 'error-handler',
+      }));
+
+      expect(state.hasAddonBeenAdded).toEqual(false);
+    });
+
     it('preserves existing collections when adding new ones', () => {
       const addonId = 871;
       const userId = 321;
@@ -341,6 +353,7 @@ describe(__filename, () => {
       const savedState = state.addonInCollections[userId][addonId];
       expect(savedState.collections).toEqual(null);
       expect(savedState.loading).toEqual(false);
+      expect(state.hasAddonBeenAdded).toEqual(false);
     });
 
     it('preserves collection data when aborting new additions', () => {
@@ -381,6 +394,14 @@ describe(__filename, () => {
       const savedState = state.addonInCollections[userId][addonId];
       expect(savedState.loading).toEqual(false);
       expect(savedState.collections).toEqual([collection.id]);
+    });
+
+    it('sets a hasAddonBeenAdded flag after an add-on has been added', () => {
+      const state = reducer(undefined, addonAddedToCollection({
+        userId: 1, addonId: 2, collectionId: 3,
+      }));
+
+      expect(state.hasAddonBeenAdded).toEqual(true);
     });
 
     it('appends a new add-on to the list of its collections', () => {

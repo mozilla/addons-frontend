@@ -85,6 +85,7 @@ export type CollectionsState = {
     },
   },
   isCollectionBeingModified: boolean,
+  hasAddonBeenAdded: boolean,
 };
 
 export const initialState: CollectionsState = {
@@ -94,6 +95,7 @@ export const initialState: CollectionsState = {
   userCollections: {},
   addonInCollections: {},
   isCollectionBeingModified: false,
+  hasAddonBeenAdded: false,
 };
 
 type FetchCurrentCollectionParams = {|
@@ -906,29 +908,38 @@ const reducer = (
             },
           },
         },
+        hasAddonBeenAdded: true,
       };
     }
 
     case ADD_ADDON_TO_COLLECTION: {
       const { addonId, userId } = action.payload;
 
-      return changeAddonCollectionsLoadingFlag({
+      const newState = changeAddonCollectionsLoadingFlag({
         addonId,
         userId,
         state,
         loading: true,
       });
+      return {
+        ...newState,
+        hasAddonBeenAdded: false,
+      };
     }
 
     case ABORT_ADD_ADDON_TO_COLLECTION: {
       const { addonId, userId } = action.payload;
 
-      return changeAddonCollectionsLoadingFlag({
+      const newState = changeAddonCollectionsLoadingFlag({
         addonId,
         userId,
         state,
         loading: false,
       });
+      return {
+        ...newState,
+        hasAddonBeenAdded: false,
+      };
     }
 
     case BEGIN_COLLECTION_MODIFICATION: {
