@@ -113,7 +113,12 @@ export default class AddonsCard extends React.Component<Props> {
       type && `AddonsCard--${type}`,
     );
     return (
-      <CardList {...otherProps} className={allClassNames}>
+      <CardList
+        key={`cardList-${addonElements.length}`}
+        {...otherProps}
+        className={allClassNames}
+        ref={(ref) => { this.cardContainer = ref; }}
+      >
         {children}
         {addonElements.length ? (
           <ul className="AddonsCard-list">{addonElements}</ul>
