@@ -19,8 +19,7 @@ const UserAvatar = ({ altText, className, preview, user }: Props) => {
   let image = preview && preview.length ? preview : null;
 
   if (user && !image) {
-    image = user.picture_type && user.picture_type.length && user.picture_url
-      && user.picture_url.length ? user.picture_url : null;
+    image = user.picture_url ? user.picture_url : null;
   }
 
   return (

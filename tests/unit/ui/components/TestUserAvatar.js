@@ -43,10 +43,9 @@ describe(__filename, () => {
   it('renders an anonymous icon if the user has no photo', () => {
     const { state } = dispatchSignInActions({
       userProps: {
-        picture_url: 'anonymous.jpg',
-        // An empty picture type means no avatar.
-        // See: https://github.com/mozilla/addons-server/issues/7679
-        picture_type: '',
+        // Since https://github.com/mozilla/addons-server/issues/7679, the API
+        // returns `null` when the user does not have a profile picture.
+        picture_url: null,
       },
     });
     const user = getCurrentUser(state.users);
