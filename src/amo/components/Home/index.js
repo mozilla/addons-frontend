@@ -35,10 +35,10 @@ export class HomeBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
+    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-    featuredThemes: PropTypes.array.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { dispatch, errorHandler, resultsLoaded } = this.props;
@@ -156,9 +156,9 @@ export class HomeBase extends React.Component {
       errorHandler,
       collections,
       featuredExtensions,
+      featuredThemes,
       i18n,
       resultsLoaded,
-      featuredThemes,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
