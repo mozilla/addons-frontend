@@ -17,14 +17,24 @@ import {
 describe(__filename, () => {
   const render = ({ i18n = fakeI18n(), ...props } = {}) => {
     return shallowUntilTarget(
-      <UserProfileEditPicture i18n={i18n} name="input-name" {...props} />,
+      <UserProfileEditPicture
+        i18n={i18n}
+        name="input-name"
+        onDelete={sinon.stub()}
+        onSelect={sinon.stub()}
+        preview={null}
+        user={null}
+        {...props}
+      />,
       UserProfileEditPictureBase,
     );
   };
 
-  it('renders itself', () => {
+  it('renders without a user', () => {
     const name = 'some-input-name';
-    const root = render({ name });
+    const user = null;
+
+    const root = render({ name, user });
 
     expect(root.find('.UserProfileEditPicture')).toHaveLength(1);
     expect(root.find('.UserProfileEdit--label'))
@@ -35,8 +45,8 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEditPicture-delete-button')).toHaveLength(0);
   });
 
-  it('renders a UserAvatar component', () => {
-    const root = render();
+  it('renders a UserAvatar component without a user', () => {
+    const root = render({ user: null });
 
     expect(root.find(UserAvatar)).toHaveLength(1);
     expect(root.find(UserAvatar)).toHaveProp('altText', null);
@@ -45,11 +55,17 @@ describe(__filename, () => {
   it('specifies the alt text of the UserAvatar component when a user is passed', () => {
     const { state } = dispatchSignInActions();
     const user = getCurrentUser(state.users);
+    const preview = 'a-preview-image';
 
-    const root = render({ user });
+    const root = render({ preview, user });
 
-    expect(root.find(UserAvatar))
+    const userAvatar = root.find(UserAvatar);
+
+    expect(userAvatar).toHaveLength(1);
+    expect(userAvatar)
       .toHaveProp('altText', `Profile picture for ${user.name}`);
+    expect(userAvatar).toHaveProp('preview', preview);
+    expect(userAvatar).toHaveProp('user', user);
   });
 
   it('disables the input file and select button when there is no user', () => {
@@ -98,6 +114,8 @@ describe(__filename, () => {
     const root = render({ user });
 
     expect(root.find('.UserProfileEditPicture-delete-button')).toHaveLength(1);
+    expect(root.find('.UserProfileEditPicture-delete-button').children())
+      .toHaveText('Delete this picture');
   });
 
   it('does not render a "delete" button when user has no picture URL', () => {

@@ -64,9 +64,36 @@ describe(__filename, () => {
 
   it('renders a preview image when supplied', () => {
     const preview = 'https://example.org/image.jpg';
+
     const root = renderUserAvatar({ preview });
 
     expect(root.find('.UserAvatar-image')).toHaveLength(1);
     expect(root.find('.UserAvatar-image')).toHaveProp('src', preview);
+  });
+
+  it('sets the altText prop to the preview image if provided', () => {
+    const altText = 'some alt text';
+    const preview = 'https://example.org/image.jpg';
+
+    const root = renderUserAvatar({ altText, preview });
+
+    expect(root.find('.UserAvatar-image')).toHaveLength(1);
+    expect(root.find('.UserAvatar-image')).toHaveProp('alt', altText);
+  });
+
+  it('sets the altText prop to the user profile picture', () => {
+    const { state } = dispatchSignInActions({
+      userProps: {
+        picture_url: 'http://tofumatt.com/photo.jpg',
+        picture_type: 'jpg',
+      },
+    });
+    const user = getCurrentUser(state.users);
+    const altText = `Profile picture for ${user.display_name}`;
+
+    const root = renderUserAvatar({ altText, user });
+
+    expect(root.find('.UserAvatar-image')).toHaveLength(1);
+    expect(root.find('.UserAvatar-image')).toHaveProp('alt', altText);
   });
 });

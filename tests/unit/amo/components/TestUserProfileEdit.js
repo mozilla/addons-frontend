@@ -850,6 +850,7 @@ describe(__filename, () => {
     }));
 
     expect(root).toHaveState('picture', selectedFile);
+    expect(root).toHaveState('successMessage', null);
 
     sinon.assert.calledWith(loadPictureSpy, selectedFile);
   });
@@ -894,6 +895,8 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveProp('type', 'success');
     expect(root.find(Notice))
       .toHaveProp('children', 'Picture successfully deleted');
+
+    expect(root).toHaveState('pictureData', null);
   });
 
   describe('errorHandler - extractId', () => {
