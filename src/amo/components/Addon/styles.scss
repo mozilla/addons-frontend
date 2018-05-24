@@ -10,9 +10,11 @@
   }
 
   .Addon-summary-and-install-button-wrapper {
-    .InstallButton {
+    .InstallButton,
+    .Button--get-firefox {
       @include respond-to(medium) {
-        align-self: stretch;
+        align-self: flex-end;
+        margin-bottom: 12px;
       }
     }
   }
@@ -148,13 +150,6 @@
   @include respond-to(extraLarge) {
     display: flex;
     justify-content: space-between;
-  }
-
-  .InstallButton,
-  .Button--get-firefox {
-    @include respond-to(extraLarge) {
-      margin-top: 14px;
-    }
   }
 }
 
