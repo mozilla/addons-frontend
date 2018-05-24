@@ -2,9 +2,10 @@ import SagaTester from 'redux-saga-tester';
 
 import usersSaga from 'amo/sagas/users';
 import usersReducer, {
-  finishEditUserAccount,
+  deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
+  finishEditUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
 } from 'amo/reducers/users';
@@ -222,6 +223,51 @@ describe(__filename, () => {
       const errorAction = errorHandler.createErrorAction(error);
       const calledAction = await sagaTester.waitFor(errorAction.type);
       expect(calledAction).toEqual(errorAction);
+    });
+  });
+
+  describe('deleteUserPicture', () => {
+    it('calls the API to delete a profile picture', async () => {
+      const state = sagaTester.getState();
+      const user = createUserAccountResponse({ id: 5001 });
+
+      mockApi
+        .expects('deleteUserPicture')
+        .once()
+        .withArgs({
+          api: state.api,
+          userId: user.id,
+        })
+        .returns(Promise.resolve(user));
+
+      sagaTester.dispatch(deleteUserPicture({
+        errorHandlerId: errorHandler.id,
+        userId: user.id,
+      }));
+
+      const expectedCalledAction = loadUserAccount({ user });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      mockApi.verify();
+      expect(calledAction).toEqual(expectedCalledAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('a bad API error');
+
+      mockApi
+        .expects('deleteUserPicture')
+        .returns(Promise.reject(error));
+
+      sagaTester.dispatch(deleteUserPicture({
+        errorHandlerId: errorHandler.id,
+        userId: 123,
+      }));
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
     });
   });
 });

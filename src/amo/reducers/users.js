@@ -19,6 +19,7 @@ export const LOG_OUT_USER: 'LOG_OUT_USER' = 'LOG_OUT_USER';
 export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' = 'LOAD_CURRENT_USER_ACCOUNT';
 export const FETCH_USER_ACCOUNT: 'FETCH_USER_ACCOUNT' = 'FETCH_USER_ACCOUNT';
 export const LOAD_USER_ACCOUNT: 'LOAD_USER_ACCOUNT' = 'LOAD_USER_ACCOUNT';
+export const DELETE_USER_PICTURE: 'DELETE_USER_PICTURE' = 'DELETE_USER_PICTURE';
 
 export type UserId = number;
 
@@ -203,6 +204,28 @@ export function logOutUser(): LogOutUserAction {
     payload: {},
   };
 }
+
+export type DeleteUserPictureParams = {|
+  errorHandlerId: string,
+  userId: UserId,
+|};
+
+type DeleteUserPictureAction = {|
+  type: typeof DELETE_USER_PICTURE,
+  payload: DeleteUserPictureParams,
+|};
+
+export const deleteUserPicture = (
+  { errorHandlerId, userId }: DeleteUserPictureParams
+): DeleteUserPictureAction => {
+  return {
+    type: DELETE_USER_PICTURE,
+    payload: {
+      errorHandlerId,
+      userId,
+    },
+  };
+};
 
 export const getUserById = (users: UsersStateType, userId: number) => {
   invariant(userId, 'userId is required');

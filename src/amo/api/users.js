@@ -2,7 +2,7 @@
 import invariant from 'invariant';
 
 import { callApi } from 'core/api';
-import type { UserEditableFieldsType } from 'amo/reducers/users';
+import type { UserEditableFieldsType, UserId } from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 
 
@@ -20,7 +20,7 @@ export function editUserAccount({ api, picture, userId, ...editableFields }: {|
   api: ApiStateType,
   editableFields: UserEditableFieldsType,
   picture?: File | null,
-  userId: number,
+  userId: UserId,
 |}) {
   invariant(api, 'api state is required.');
   invariant(userId, 'userId is required.');
@@ -58,6 +58,21 @@ export function userAccount({ api, username }: {|
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}`,
+    state: api,
+  });
+}
+
+export function deleteUserPicture({ api, userId }: {|
+  api: ApiStateType,
+  userId: UserId,
+|}) {
+  invariant(api, 'api state is required.');
+  invariant(userId, 'userId is required.');
+
+  return callApi({
+    auth: true,
+    endpoint: `accounts/account/${userId}/picture`,
+    method: 'DELETE',
     state: api,
   });
 }

@@ -43,10 +43,9 @@ describe(__filename, () => {
   it('renders an anonymous icon if the user has no photo', () => {
     const { state } = dispatchSignInActions({
       userProps: {
-        picture_url: 'anonymous.jpg',
-        // An empty picture type means no avatar.
-        // See: https://github.com/mozilla/addons-server/issues/7679
-        picture_type: '',
+        // Since https://github.com/mozilla/addons-server/issues/7679, the API
+        // returns `null` when the user does not have a profile picture.
+        picture_url: null,
       },
     });
     const user = getCurrentUser(state.users);
@@ -61,5 +60,24 @@ describe(__filename, () => {
 
     expect(root.find('.UserAvatar').find(Icon))
       .toHaveProp('name', 'anonymous-user');
+  });
+
+  it('renders a preview image when supplied', () => {
+    const preview = 'https://example.org/image.jpg';
+
+    const root = renderUserAvatar({ preview });
+
+    expect(root.find('.UserAvatar-image')).toHaveLength(1);
+    expect(root.find('.UserAvatar-image')).toHaveProp('src', preview);
+  });
+
+  it('passes the given altText prop to the user picture or preview image', () => {
+    const altText = 'some alt text';
+    const preview = 'https://example.org/image.jpg';
+
+    const root = renderUserAvatar({ altText, preview });
+
+    expect(root.find('.UserAvatar-image')).toHaveLength(1);
+    expect(root.find('.UserAvatar-image')).toHaveProp('alt', altText);
   });
 });
