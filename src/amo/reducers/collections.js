@@ -262,8 +262,8 @@ export type ExternalCollectionDetail = {|
 
 export type ExternalCollectionDetailWithLocalizedStrings = {|
   ...ExternalCollectionDetail,
-  description: {[lang: string]: string} | null,
-  name: {[lang: string]: string},
+  description: LocalizedString | null,
+  name: LocalizedString,
 |};
 
 export type CollectionAddonsListResponse = {|
@@ -714,11 +714,13 @@ export const localizeCollectionDetail = (
   invariant(detail, 'detail is required for localizeCollectionDetail');
   invariant(lang, 'lang is required for localizeCollectionDetail');
 
+  // Flow will not allow us to use the spread operator here, so we have
+  // to repeat all the fields.
   return {
     addon_count: detail.addon_count,
     author: detail.author,
     default_locale: detail.default_locale,
-    description: detail.description && detail.description[lang],
+    description: detail.description ? detail.description[lang] : null,
     id: detail.id,
     modified: detail.modified,
     name: detail.name[lang],

@@ -524,20 +524,20 @@ describe(__filename, () => {
     });
 
     describe('create logic', () => {
-      const params = {
-        description: { 'en-US': 'Collection description' },
-        name: { 'en-US': 'Collection name' },
-        slug,
-        user,
-      };
-      const collectionDetail = createFakeCollectionDetail();
-      const collectionDetailResponse = {
-        ...collectionDetail,
-        ...params,
+      const getParams = ({ lang }) => {
+        return {
+          description: { [lang]: 'Collection description' },
+          name: { [lang]: 'Collection name' },
+          slug,
+          user,
+        };
       };
 
       it('sends a request to the collections API', async () => {
         const state = sagaTester.getState();
+        const params = getParams({ lang: state.api.lang });
+
+        const collectionDetailResponse = createFakeCollectionDetail(params);
 
         mockApi
           .expects('createCollection')
@@ -557,7 +557,8 @@ describe(__filename, () => {
         const expectedLoadAction = loadCurrentCollection({
           addons: [],
           detail: localizeCollectionDetail({
-            detail: collectionDetailResponse, lang: state.api.lang,
+            detail: collectionDetailResponse,
+            lang: state.api.lang,
           }),
         });
 
@@ -574,7 +575,16 @@ describe(__filename, () => {
       });
 
       it('redirects to the collection edit screen after create', async () => {
-        mockApi.expects('createCollection').returns(Promise.resolve(collectionDetailResponse));
+        const state = sagaTester.getState();
+        const params = getParams({ lang: state.api.lang });
+
+        const collectionDetailResponse = createFakeCollectionDetail(params);
+
+        mockApi
+          .expects('createCollection')
+          .once()
+          .returns(Promise.resolve(collectionDetailResponse));
+
         _createCollection(params);
 
         const { lang, clientApp } = clientData.state.api;
