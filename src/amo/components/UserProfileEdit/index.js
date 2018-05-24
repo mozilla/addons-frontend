@@ -18,7 +18,7 @@ import {
 } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { USERS_EDIT } from 'core/constants';
-import { withErrorHandler } from 'core/errorHandler';
+import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
@@ -77,9 +77,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
   }
 
   componentWillMount() {
-    const { currentUser, dispatch, errorHandler, username, user } = this.props;
+    const { dispatch, errorHandler, username, user } = this.props;
 
-    if (!currentUser) {
+    if (errorHandler.hasError()) {
+      log.warn('Not loading data because of an error.');
       return;
     }
 
@@ -523,9 +524,13 @@ export function mapStateToProps(
   };
 }
 
+export const extractId = (ownProps: Props) => {
+  return ownProps.params.username;
+};
+
 export default compose(
   withRouter,
   connect(mapStateToProps),
   translate(),
-  withErrorHandler({ name: 'UserProfileEdit' }),
+  withFixedErrorHandler({ fileName: __filename, extractId }),
 )(UserProfileEditBase);
