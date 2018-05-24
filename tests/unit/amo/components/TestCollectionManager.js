@@ -715,6 +715,8 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(0);
 
+    // Setting this simulates an add-on having been added previously, which
+    // will cause the notification to appear.
     root.setProps({ hasAddonBeenAdded: true });
 
     expect(root.find(Notice)).toHaveLength(1);
