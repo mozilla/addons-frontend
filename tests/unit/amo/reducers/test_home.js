@@ -34,8 +34,7 @@ describe(__filename, () => {
           addons: Array(10).fill(fakeAddon),
         })],
         featuredExtensions: createAddonsApiResult([fakeAddon]),
-        popularExtensions: createAddonsApiResult([fakeAddon]),
-        topRatedThemes: createAddonsApiResult([fakeTheme]),
+        featuredThemes: createAddonsApiResult([fakeTheme]),
       }));
 
       const homeState = store.getState().home;
@@ -51,10 +50,7 @@ describe(__filename, () => {
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);
-      expect(homeState.popularExtensions).toEqual([
-        createInternalAddon(fakeAddon),
-      ]);
-      expect(homeState.topRatedThemes).toEqual([
+      expect(homeState.featuredThemes).toEqual([
         createInternalAddon(fakeTheme),
       ]);
     });

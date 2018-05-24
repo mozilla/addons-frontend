@@ -13,10 +13,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
   INSTALL_SOURCE_FEATURED,
-  INSTALL_SOURCE_MOST_POPULAR,
-  INSTALL_SOURCE_TOP_RATED,
-  SEARCH_SORT_POPULAR,
-  SEARCH_SORT_TOP_RATED,
   VIEW_CONTEXT_HOME,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
@@ -28,8 +24,9 @@ import './styles.scss';
 
 
 export const COLLECTIONS_TO_FETCH = [
-  { slug: 'privacy-matters', user: 'mozilla' },
-  { slug: 'extensions-challenge-honorees', user: 'mozilla' },
+  { slug: 'change-up-your-tabs', user: 'mozilla' },
+  { slug: 'essential-extensions', user: 'mozilla' },
+  { slug: 'translation-tools', user: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -38,11 +35,10 @@ export class HomeBase extends React.Component {
     errorHandler: PropTypes.object.isRequired,
     collections: PropTypes.array.isRequired,
     featuredExtensions: PropTypes.array.isRequired,
+    featuredThemes: PropTypes.array.isRequired,
     i18n: PropTypes.object.isRequired,
-    popularExtensions: PropTypes.array.isRequired,
     resultsLoaded: PropTypes.bool.isRequired,
-    topRatedThemes: PropTypes.array.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { dispatch, errorHandler, resultsLoaded } = this.props;
@@ -160,10 +156,9 @@ export class HomeBase extends React.Component {
       errorHandler,
       collections,
       featuredExtensions,
+      featuredThemes,
       i18n,
-      popularExtensions,
       resultsLoaded,
-      topRatedThemes,
     } = this.props;
 
     // translators: The ending ellipsis alludes to a row of icons for each type
@@ -217,9 +212,9 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[0]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Privacy tools')}
+          header={i18n.gettext('Tame your tabs')}
           footerText={
-            i18n.gettext('See more privacy tools')
+            i18n.gettext('See more tab extensions')
           }
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
@@ -228,16 +223,16 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_TOP_RATED}
-          addons={topRatedThemes}
-          className="Home-TopRatedThemes"
-          header={i18n.gettext('Top-rated themes')}
-          footerText={i18n.gettext('See more highly rated themes')}
+          addonInstallSource={INSTALL_SOURCE_FEATURED}
+          addons={featuredThemes}
+          className="Home-FeaturedThemes"
+          header={i18n.gettext('Featured themes')}
+          footerText={i18n.gettext('See more featured themes')}
           footerLink={{
             pathname: '/search/',
             query: {
               addonType: ADDON_TYPE_THEME,
-              sort: SEARCH_SORT_TOP_RATED,
+              featured: true,
             },
           }}
           loading={resultsLoaded === false}
@@ -246,8 +241,8 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[1]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('“Extensions Challenge” honorees')}
-          footerText={i18n.gettext('See more “Extensions Challenge” honorees')}
+          header={i18n.gettext('Essential extensions')}
+          footerText={i18n.gettext('See more essential extensions')}
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
           }
@@ -255,18 +250,13 @@ export class HomeBase extends React.Component {
         />
 
         <LandingAddonsCard
-          addonInstallSource={INSTALL_SOURCE_MOST_POPULAR}
-          addons={popularExtensions}
-          className="Home-PopularExtensions"
-          header={i18n.gettext('Popular extensions')}
-          footerText={i18n.gettext('See more popular extensions')}
-          footerLink={{
-            pathname: '/search/',
-            query: {
-              addonType: ADDON_TYPE_EXTENSION,
-              sort: SEARCH_SORT_POPULAR,
-            },
-          }}
+          addons={collections[2]}
+          className="Home-FeaturedCollection"
+          header={i18n.gettext('Translation tools')}
+          footerText={i18n.gettext('See more translation tools')}
+          footerLink={
+            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+          }
           loading={resultsLoaded === false}
         />
 
@@ -291,9 +281,8 @@ export function mapStateToProps(state) {
   return {
     collections: state.home.collections,
     featuredExtensions: state.home.featuredExtensions,
-    popularExtensions: state.home.popularExtensions,
     resultsLoaded: state.home.resultsLoaded,
-    topRatedThemes: state.home.topRatedThemes,
+    featuredThemes: state.home.featuredThemes,
   };
 }
 
