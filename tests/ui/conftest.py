@@ -38,7 +38,7 @@ def open_discopane(my_base_url, selenium):
 @pytest.fixture
 def discovery_pane(selenium, my_base_url):
     """Open the discovery pane via the URL."""
-    return DiscoveryPane(selenium, my_base_url).open()
+    return DiscoveryPane(selenium, my_base_url, timeout=30).open()
 
 
 @pytest.fixture
