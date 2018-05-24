@@ -32,9 +32,7 @@ describe(__filename, () => {
 
   it('renders without a user', () => {
     const name = 'some-input-name';
-    const user = null;
-
-    const root = render({ name, user });
+    const root = render({ name, user: null });
 
     expect(root.find('.UserProfileEditPicture')).toHaveLength(1);
     expect(root.find('.UserProfileEdit--label'))
