@@ -149,6 +149,10 @@ describe(__filename, () => {
   it('displays a message if the theme preview image is unavailable', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
+      previews: [],
+      theme_data: {
+        previewURL: null,
+      },
       type: ADDON_TYPE_THEME,
     });
     const root = render({ addon });

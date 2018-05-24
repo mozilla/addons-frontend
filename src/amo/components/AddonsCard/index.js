@@ -6,6 +6,7 @@ import * as React from 'react';
 import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
+import { ADDON_TYPE_THEMES } from 'core/constants';
 import CardList from 'ui/components/CardList';
 import type { RemoveCollectionAddonFunc } from 'amo/components/Collection';
 import type { AddonType } from 'core/types/addons';
@@ -64,6 +65,10 @@ export default class AddonsCard extends React.Component<Props> {
 
     if (addons && addons.length) {
       addons.forEach((addon) => {
+        // Because static themes are technically an extension type is has a summary
+        // field, but we want it to look like a theme which does not display this
+        // or description field here
+        const isThemeType = ADDON_TYPE_THEMES.includes(addon.type);
         if (editing) {
           addonElements.push(
             <EditableCollectionAddon
@@ -79,7 +84,7 @@ export default class AddonsCard extends React.Component<Props> {
               addon={addon}
               key={addon.slug}
               showMetadata={showMetadata}
-              showSummary={showSummary}
+              showSummary={!isThemeType ? showSummary : false}
             />
           );
         }

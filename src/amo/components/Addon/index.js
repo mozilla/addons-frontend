@@ -190,20 +190,22 @@ export class AddonBase extends React.Component {
     // https://github.com/mozilla/addons-frontend/pull/4914
     // for now this is only displayed over lightweight preview images
     if (this.addonIsTheme()) {
-      let previewURL = addon ? addon.previews.length > 0 && addon.previews[0].image_url : null;
+      let previewURL = addon.previews.length > 0 && addon.previews[0].image_url;
 
       let label = addon ? i18n.sprintf(
         i18n.gettext('Preview of %(title)s'),
         { title: addon.name }
       ) : '';
 
-      if (type === ADDON_TYPE_THEME) {
-        previewURL = previewURL || (addon && addon.previewURL) || null;
+      if (!previewURL && type === ADDON_TYPE_THEME) {
+        previewURL = addon.previewURL;
         label = isPreviewingTheme ? i18n.gettext('Cancel preview') : i18n.gettext('Tap to preview');
       }
 
       const imageClassName = 'Addon-theme-header-image';
       const headerImage = <img alt={label} className={imageClassName} src={previewURL} />;
+
+      const unInstalledTheme = installStatus !== ENABLED && type === ADDON_TYPE_THEME;
 
       return (
         <div
@@ -213,7 +215,7 @@ export class AddonBase extends React.Component {
           onClick={this.onClick}
           role="presentation"
         >
-          {installStatus !== ENABLED && type === ADDON_TYPE_THEME ? (
+          {unInstalledTheme ? (
             <Button
               buttonType="action"
               className="Addon-theme-header-label"
@@ -569,7 +571,7 @@ export class AddonBase extends React.Component {
           <div className="Addon-main-content">
             {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
-            {addonPreviews.length > 0 && !(this.addonIsTheme()) ? (
+            {addonPreviews.length > 0 && !this.addonIsTheme() ? (
               <Card
                 className="Addon-screenshots"
                 header={i18n.gettext('Screenshots')}

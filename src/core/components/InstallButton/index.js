@@ -272,7 +272,7 @@ export class InstallButtonBase extends React.Component {
       };
 
       const buttonText = ADDON_TYPE_THEMES.includes(addon.type)
-        ? 'Install Theme' : 'Add to Firefox';
+        ? i18n.gettext('Install Theme') : i18n.gettext('Add to Firefox');
 
       button = (
         <Button
@@ -286,7 +286,7 @@ export class InstallButtonBase extends React.Component {
           puffy
         >
           <Icon name="plus" />
-          {i18n.gettext(buttonText)}
+          {buttonText}
         </Button>
       );
     }

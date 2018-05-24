@@ -50,17 +50,19 @@ export class SearchResultBase extends React.Component<Props> {
     let imageURL = iconURL;
 
     if (isTheme) {
-      let themeURL = addon ? addon.previews
-      && addon.previews.length > 0
-      && addon.previews[0].thumbnail_url : null;
+      let themeURL = addon.previews &&
+        addon.previews.length > 0 &&
+        isAllowedOrigin(addon.previews[0].thumbnail_url) ?
+        addon.previews[0].thumbnail_url : null;
 
-      if (addon && addon.type === ADDON_TYPE_THEME) {
-        themeURL = (addon && addon.themeData
+
+      if (!themeURL && addon.type === ADDON_TYPE_THEME) {
+        themeURL = (addon.themeData
           && isAllowedOrigin(addon.themeData.previewURL))
           ? addon.themeData.previewURL : null;
       }
 
-      imageURL = themeURL || iconURL;
+      imageURL = themeURL;
     }
 
     // Sets classes to handle fallback if theme preview is not available.
@@ -85,10 +87,7 @@ export class SearchResultBase extends React.Component<Props> {
     }
 
     let summary = null;
-    // Because static themes are technically an extension type is has a summary
-    // field, but we want it to look like a theme which does not display this
-    // or description field here
-    if (showSummary && !isTheme) {
+    if (showSummary) {
       const summaryProps = {};
       if (addon) {
         summaryProps.dangerouslySetInnerHTML = sanitizeHTML(addon.summary);

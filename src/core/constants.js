@@ -79,7 +79,7 @@ export const validAddonTypes = [
 // * '/themes/' -> 'persona'
 export const API_ADDON_TYPES_MAPPING = {
   extensions: ADDON_TYPE_EXTENSION,
-  themes: ADDON_TYPE_THEME || ADDON_TYPE_STATIC_THEME,
+  themes: ADDON_TYPE_THEME,
 };
 export const VISIBLE_ADDON_TYPES_MAPPING = Object.keys(API_ADDON_TYPES_MAPPING)
   .reduce((object, key) => ({
@@ -244,7 +244,7 @@ export const CATEGORY_COLORS = {
   [ADDON_TYPE_EXTENSION]: 10,
   [ADDON_TYPE_LANG]: 12,
   [ADDON_TYPE_OPENSEARCH]: 12,
-  [ADDON_TYPE_STATIC_THEME]: 12, // TODO: verify this is 12
+  [ADDON_TYPE_STATIC_THEME]: 12,
   [ADDON_TYPE_THEME]: 12,
 };
 
