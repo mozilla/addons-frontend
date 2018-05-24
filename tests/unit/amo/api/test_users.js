@@ -25,11 +25,11 @@ describe(__filename, () => {
     mockApi = sinon.mock(api);
   });
 
-  describe('currentUserAccount', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: createUserAccountResponse(),
-    });
+  const mockResponse = (userParams = {}) => createApiResponse({
+    jsonData: createUserAccountResponse(userParams),
+  });
 
+  describe('currentUserAccount', () => {
     it('fetches the current user profile', async () => {
       const state = dispatchClientMetadata().store.getState();
 
@@ -47,10 +47,6 @@ describe(__filename, () => {
   });
 
   describe('editUserAccount', () => {
-    const mockResponse = (newParams) => createApiResponse({
-      jsonData: createUserAccountResponse(newParams),
-    });
-
     const getParams = (params = {}) => {
       const state = dispatchSignInActions().store.getState();
       const userId = getCurrentUser(state.users).id;
@@ -109,19 +105,10 @@ describe(__filename, () => {
   });
 
   describe('userAccount', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: createUserAccountResponse(),
-    });
-
-    const getParams = (params = {}) => {
-      const state = dispatchClientMetadata().store.getState();
-      const username = 'tofumatt';
-
-      return { api: state.api, username, ...params };
-    };
-
     it('fetches a user profile based on username', async () => {
-      const params = getParams();
+      const state = dispatchSignInActions().store.getState();
+      const username = 'tofumatt';
+      const params = { api: state.api, username };
 
       mockApi.expects('callApi')
         .withArgs({
@@ -137,19 +124,10 @@ describe(__filename, () => {
   });
 
   describe('deleteUserPicture', () => {
-    const mockResponse = () => createApiResponse({
-      jsonData: createUserAccountResponse(),
-    });
-
-    const getParams = (params = {}) => {
+    it('deletes a user profile picture for a given user', async () => {
       const state = dispatchSignInActions().store.getState();
       const userId = getCurrentUser(state.users).id;
-
-      return { api: state.api, userId, ...params };
-    };
-
-    it('deletes a user profile picture for a given user', async () => {
-      const params = getParams();
+      const params = { api: state.api, userId };
 
       mockApi.expects('callApi')
         .withArgs({
