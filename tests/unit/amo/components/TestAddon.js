@@ -1044,7 +1044,7 @@ describe(__filename, () => {
       const allLinks = scryRenderedComponentsWithType(root, Link)
         .filter((component) =>
           component.props.className === 'Addon-all-reviews-link');
-      expect(allLinks.length).toEqual(1);
+      expect(allLinks.length).toEqual(5);
 
       const link = allLinks[0];
       const path = link.props.to;
