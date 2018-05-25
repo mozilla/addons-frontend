@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-25 13:49+0000\n"
+"PO-Revision-Date: 2018-05-25 14:10+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -581,7 +581,7 @@ msgstr "Autor"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Vyhledávejte doplňky a rozšíření, které můžete přidat do sbírky."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -1842,11 +1842,11 @@ msgstr "Profil uživatele %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:407
 msgid "Location"
-msgstr ""
+msgstr "Umístění"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:419
 msgid "Occupation"
-msgstr ""
+msgstr "Povolání"
 
 #: src/amo/components/UserProfile/index.js:174
 msgid "User since"
@@ -1861,85 +1861,76 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Průměrné hodnocení doplňků vývojáře"
 
 #: src/amo/components/UserProfile/index.js:221
-#, fuzzy
 msgid "Edit profile"
 msgstr "Upravit profil"
 
 #: src/amo/components/UserProfileEdit/index.js:231
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Pro změnu této sbírky se musíte přihlásit"
+msgstr "Pro úpravu svého profilu se musíte přihlásit"
 
 #: src/amo/components/UserProfileEdit/index.js:275
-#, fuzzy
 msgid "View user's profile"
-msgstr "Zobrazit profil"
+msgstr "Zobrazit profil uživatele"
 
 #: src/amo/components/UserProfileEdit/index.js:282
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Upravit profil"
+msgstr "Upravit profil uživatele"
 
 #: src/amo/components/UserProfileEdit/index.js:294
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "Profil byl úspěšně aktualizován"
 
 #: src/amo/components/UserProfileEdit/index.js:301
-#, fuzzy
 msgid "Account"
-msgstr "Můj účet"
+msgstr "Účet"
 
 #: src/amo/components/UserProfileEdit/index.js:302
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "Přistupovat k vašim datům stránky %(param)s"
+msgstr "Účet uživatele %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:308
-#, fuzzy
 msgid "Username"
-msgstr "Uživatel"
+msgstr "Uživatelské jméno"
 
 #: src/amo/components/UserProfileEdit/index.js:319
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "E-mailová adresa nemůže být změněna na této stránce"
 
 #: src/amo/components/UserProfileEdit/index.js:321
 msgid "Email Address"
-msgstr ""
+msgstr "E-mailová adresa"
 
 #: src/amo/components/UserProfileEdit/index.js:337
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Svůj e-mail můžete změnit ve svém účtu Firefoxu. %(startLink)sPotřebujete pomoc?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:353
-#, fuzzy
 msgid "Profile"
-msgstr "Zobrazit profil"
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:356
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Řekněte svým uživatelům něco o sobě. Tato pole nemusíte vyplňovat, ale uživatelé vás díky nim mohou lépe poznat."
 
 #: src/amo/components/UserProfileEdit/index.js:361
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:370
-#, fuzzy
 msgid "Display Name"
-msgstr "Hrajte hry"
+msgstr "Zobrazované jméno"
 
 #: src/amo/components/UserProfileEdit/index.js:402
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Tato URL bude viditelná pouze pro uživatele, kteří jsou vývojáři."
 
 #: src/amo/components/UserProfileEdit/index.js:433
 msgid "Biography"
-msgstr ""
+msgstr "Biografie"
 
 #: src/amo/components/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
-msgstr ""
+msgstr "Pokud chcete, představte se komunitě"
 
 #: src/amo/components/UserProfileEdit/index.js:439
 msgid "Introduce %(username)s to the community"
@@ -1950,24 +1941,20 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:482
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Aktualizace odpovědi"
+msgstr "Aktualizace profilu…"
 
 #: src/amo/components/UserProfileEdit/index.js:483
-#, fuzzy
 msgid "Update my profile"
-msgstr "Aktualizovat odpověď"
+msgstr "Aktualizovat profil"
 
 #: src/amo/components/UserProfileEdit/index.js:485
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Aktualizace odpovědi"
+msgstr "Aktualizace profilu uživatele…"
 
 #: src/amo/components/UserProfileEdit/index.js:486
-#, fuzzy
 msgid "Update user's profile"
-msgstr "Aktualizovat odpověď"
+msgstr "Aktualizovat profil uživatele"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2100,18 +2087,16 @@ msgid "Access your data for %(param)s"
 msgstr "Přistupovat k vašim datům stránky %(param)s"
 
 #: src/ui/components/Rating/index.js:60
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
-msgstr "Ohodnoceno %(rating)s z 5."
+msgstr "Hodnocení: %(rating)s z 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Zatím nehodnoceno"
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Změnit vaše hodnocení na %(starRating)s z 5."
+msgstr "Změnit hodnocení na %(starRating)s z 5"
 
 #: src/ui/components/Rating/index.js:71
 #, fuzzy
