@@ -38,6 +38,8 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
+const MESSAGE_FADEOUT_TIME = 5000;
+
 export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
   = 'ADDON_ADDED_STATUS_PENDING';
 export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS'
@@ -89,6 +91,14 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       this.setState({
         addonAddedStatus: props.hasAddonBeenAdded ?
           ADDON_ADDED_STATUS_SUCCESS : null,
+      }, () => {
+        if (props.hasAddonBeenAdded) {
+          setTimeout(() => {
+            this.setState({
+              addonAddedStatus: null,
+            });
+          }, MESSAGE_FADEOUT_TIME);
+        }
       });
     }
   }

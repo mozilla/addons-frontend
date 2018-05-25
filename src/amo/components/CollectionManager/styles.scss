@@ -21,6 +21,12 @@
 
   .Notice {
     margin-top: 24px;
+
+    + .AutoSearchInput {
+      .AutoSearchInput-label {
+        padding-top: 14px;
+      }
+    }
   }
 
   .CollectionManager-collectionName {

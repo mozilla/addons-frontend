@@ -4,6 +4,7 @@ import * as React from 'react';
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
   ADDON_ADDED_STATUS_PENDING,
+  ADDON_ADDED_STATUS_SUCCESS,
   extractId,
   CollectionManagerBase,
 } from 'amo/components/CollectionManager';
@@ -43,6 +44,7 @@ const simulateAutoSearchCallback = (props = {}) => {
 };
 
 describe(__filename, () => {
+  let clock;
   let fakeRouter;
   let store;
   const apiHost = config.get('apiHost');
@@ -53,12 +55,17 @@ describe(__filename, () => {
   beforeEach(() => {
     fakeRouter = createFakeRouter();
     store = dispatchClientMetadata().store;
+    clock = sinon.useFakeTimers();
     dispatchSignInActions({
       lang,
       store,
       userId: signedInUserId,
       userProps: { username: signedInUsername },
     });
+  });
+
+  afterEach(() => {
+    clock.restore();
   });
 
   const getProps = ({
@@ -699,7 +706,7 @@ describe(__filename, () => {
     expect(newState.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_PENDING);
   });
 
-  it('displays a notification after an add-on has been added', () => {
+  it('displays a notification for 5 seconds after an add-on has been added', () => {
     const root = render({});
 
     expect(root.find(Notice)).toHaveLength(0);
@@ -708,6 +715,17 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
+
+    let state = root.state();
+    expect(state.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_SUCCESS);
+
+    // After 5 seconds the Notice will go away.
+    clock.tick(5010);
+
+    state = root.state();
+    expect(state.addonAddedStatus).toEqual(null);
+    root.setProps({ hasAddonBeenAdded: true });
+    expect(root.find(Notice)).toHaveLength(0);
   });
 
   it('removes the notification after a new add-on has been selected', () => {
