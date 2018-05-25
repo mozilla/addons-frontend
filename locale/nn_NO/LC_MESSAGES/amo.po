@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-25 08:31+0000\n"
+"PO-Revision-Date: 2018-05-25 08:50+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -275,12 +275,11 @@ msgstr "Gå til statistikkoversikta"
 
 #: src/amo/components/AddonRecommendations/index.js:161
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Andre brukarar med denne utvidinga har òg installert"
 
 #: src/amo/components/AddonRecommendations/index.js:162
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "Mest populære utvidingar"
+msgstr "Andre populære utvidingar"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -381,14 +380,12 @@ msgid "More dictionaries by these translators"
 msgstr "Fleire ordbøker av desse omsettarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:127
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Fleire ordbøker av %(author)s"
+msgstr "Ordbøker av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:130
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Fleire ordbøker av desse omsettarane"
+msgstr "Ordbøker av desse omsettarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:137
 msgid "More extensions by %(author)s"
@@ -399,14 +396,12 @@ msgid "More extensions by these developers"
 msgstr "Fleire utvidingar av desse utviklarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:144
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Fleire utvidingar av %(author)s"
+msgstr "Utvidingar av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:147
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Fleire utvidingar av desse utviklarane"
+msgstr "Utvidingar av desse utviklarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:154
 msgid "More language packs by %(author)s"
@@ -417,14 +412,12 @@ msgid "More language packs by these translators"
 msgstr "Fleire språkpakkar av desse omsettarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:161
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Fleire språkpakkar av %(author)s"
+msgstr "Språkpakke av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:164
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Fleire språkpakkar av desse omsettarane"
+msgstr "Språkpakkar av desse omsettarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:171
 msgid "More themes by %(author)s"
@@ -435,14 +428,12 @@ msgid "More themes by these artists"
 msgstr "Fleire tema av desse artistane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:178
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Fleire tema av %(author)s"
+msgstr "Tema av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Fleire tema av desse artistane"
+msgstr "Tema av desse kunstnarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:188
 msgid "More add-ons by %(author)s"
@@ -453,14 +444,12 @@ msgid "More add-ons by these developers"
 msgstr "Fleire utvidingar av desse utviklarane"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:195
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Fleire utvidingar av %(author)s"
+msgstr "Utvidingar av %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Fleire utvidingar av desse utviklarane"
+msgstr "Utvidingar av desse utviklarane"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -575,7 +564,6 @@ msgid "Edit this collection"
 msgstr "Rediger denne samlinga"
 
 #: src/amo/components/Collection/index.js:180
-#, fuzzy
 msgid "Log in to edit this collection"
 msgstr "Logg inn for å redigere denne samlinga"
 
@@ -589,12 +577,11 @@ msgstr "Laga av"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Søk etter utvidingar og tema som skal leggast til i samlinga di."
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Logg inn for å redigere denne samlinga"
+msgstr "Logg inn for å lage ei samling"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -879,14 +866,12 @@ msgid "View My Collections"
 msgstr "Vis samlingane mine"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:274
-#, fuzzy
 msgid "View My Profile"
-msgstr "Vis profil"
+msgstr "Vis profilen min"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:281
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Rediger profil"
+msgstr "Rediger profilen min"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -953,19 +938,16 @@ msgid "See more privacy tools"
 msgstr "Vis fleire personvernverktøy"
 
 #: src/amo/components/Home/index.js:234
-#, fuzzy
 msgid "Top-rated themes"
 msgstr "Høgst vurderte tema"
 
 #: src/amo/components/Home/index.js:235
-#, fuzzy
 msgid "See more highly rated themes"
 msgstr "Vis fleire høgt vurderte tema"
 
 #: src/amo/components/Home/index.js:249
-#, fuzzy
 msgid "“Extensions Challenge” honorees"
-msgstr "Du kan endre korleis Firefox fungerer…"
+msgstr "Vinnarar av «Extensions Challenge»"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
@@ -1017,7 +999,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:124
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Worldwide Radio"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
@@ -1025,7 +1007,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1033,7 +1015,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
@@ -1050,7 +1032,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:173
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Black Menu for Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:176
 msgid "Easy drop-down menu access to Google services like Search and Translate"
@@ -1086,7 +1068,7 @@ msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Customized mouse gestures"
-msgstr ""
+msgstr "Tilpassa muserørsler"
 
 #: src/amo/components/HomeHeroBanner/index.js:234
 #, fuzzy
@@ -1250,7 +1232,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:34
 msgid "Access your location"
-msgstr ""
+msgstr "Få tilgang til plasseringa di"
 
 #: src/amo/components/PermissionsCard/permissions.js:35 src/amo/components/PermissionsCard/permissions.js:47
 msgid "Access browsing history"
@@ -1282,11 +1264,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Få tilgang til nyleg attlatne faner"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Få tilgang til nettlesarfaner"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
@@ -1912,9 +1894,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:353
-#, fuzzy
 msgid "Profile"
-msgstr "Vis profil"
+msgstr "Profil"
 
 #: src/amo/components/UserProfileEdit/index.js:356
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -1925,9 +1906,8 @@ msgid "Tell users a bit more information about this user. These fields are optio
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:370
-#, fuzzy
 msgid "Display Name"
-msgstr "Spel spel"
+msgstr "Visingsnamn"
 
 #: src/amo/components/UserProfileEdit/index.js:402
 msgid "This URL will only be visible for users who are developers."
@@ -1935,7 +1915,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:433
 msgid "Biography"
-msgstr ""
+msgstr "Biografi"
 
 #: src/amo/components/UserProfileEdit/index.js:436
 msgid "Introduce yourself to the community if you like"
@@ -2104,7 +2084,7 @@ msgstr "Vurdert som %(rating)s av 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Ingen vurderingar enno"
 
 #: src/ui/components/Rating/index.js:67
 #, fuzzy
