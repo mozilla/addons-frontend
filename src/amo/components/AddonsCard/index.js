@@ -50,6 +50,16 @@ export default class AddonsCard extends React.Component<Props> {
     placeholderCount: DEFAULT_API_PAGE_SIZE,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.keyCount = 0;
+  }
+
+  getKey = () => {
+    return this.keyCount++;
+  }
+
   render() {
     const {
       addonInstallSource,
@@ -114,7 +124,7 @@ export default class AddonsCard extends React.Component<Props> {
     );
     return (
       <CardList
-        key={`cardList-${addonElements.length}`}
+        key={`AddonsCard${this.getKey()}`}
         {...otherProps}
         className={allClassNames}
         ref={(ref) => { this.cardContainer = ref; }}
