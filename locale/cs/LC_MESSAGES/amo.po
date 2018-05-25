@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-25 14:11+0000\n"
+"PO-Revision-Date: 2018-05-25 15:04+0000\n"
 "Last-Translator: Tomáš Zelina <zelitomas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: cs\n"
@@ -1914,7 +1914,7 @@ msgstr "Řekněte svým uživatelům něco o sobě. Tato pole nemusíte vyplňov
 
 #: src/amo/components/UserProfileEdit/index.js:361
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
-msgstr ""
+msgstr "Řekněte uživatelům něco o tomto uživateli. Tato pole nemusíte vyplňovat, ale uživatelé díky nim mohou uživatele %(username)s lépe poznat."
 
 #: src/amo/components/UserProfileEdit/index.js:370
 msgid "Display Name"
@@ -1934,7 +1934,7 @@ msgstr "Pokud chcete, představte se komunitě"
 
 #: src/amo/components/UserProfileEdit/index.js:439
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Představte uživatele %(username)s komunitě"
 
 #: src/amo/components/UserProfileEdit/index.js:452
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
@@ -2099,9 +2099,8 @@ msgid "Update your rating to %(starRating)s out of 5"
 msgstr "Změnit hodnocení na %(starRating)s z 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Ohodnotit tento doplněk %(starRating)s z 5."
+msgstr "Ohodnotit tento doplněk %(starRating)s z 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
