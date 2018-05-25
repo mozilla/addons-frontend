@@ -44,13 +44,19 @@ type Props = {|
 |};
 
 export default class AddonsCard extends React.Component<Props> {
+<<<<<<< HEAD
+=======
+  cardContainer: React.ElementRef<any> | null;
+  keyCount: number;
+
+>>>>>>> fixing flow stuff
   static defaultProps = {
     editing: false,
     loading: false,
     placeholderCount: DEFAULT_API_PAGE_SIZE,
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     this.keyCount = 0;
