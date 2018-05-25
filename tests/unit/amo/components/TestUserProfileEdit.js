@@ -12,9 +12,11 @@ import {
   deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
+  fetchUserNotifications,
   finishEditUserAccount,
   getCurrentUser,
   loadUserAccount,
+  loadUserNotifications,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
 import {
@@ -34,6 +36,7 @@ import {
   createFakeRouter,
   createStubErrorHandler,
   createUserAccountResponse,
+  createUserNotificationsResponse,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -125,38 +128,76 @@ describe(__filename, () => {
     expect(root.find(UserProfileEditPicture)).toHaveLength(1);
   });
 
-  it('dispatches fetchUserAccount action if username is not found', () => {
+  it('dispatches fetchUserAccount and fetchUserNotifications actions if username is not found', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const dispatchSpy = sinon.spy(store, 'dispatch');
 
     const username = 'i-am-not-tofumatt';
     const root = renderUserProfileEdit({ params: { username }, store });
 
+    sinon.assert.callCount(dispatchSpy, 2);
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
+      errorHandlerId: root.instance().props.errorHandler.id,
+      username,
+    }));
+    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
       errorHandlerId: root.instance().props.errorHandler.id,
       username,
     }));
   });
 
-  it('does not dispatch fetchUserAccount action if there is no username', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+  it('only dispatches fetchUserNotifications action when the current logged-in user is being edited', () => {
+    // We do not have access to the user notifications for the current
+    // logged-in user because this user is loaded in Redux when authenticated,
+    // and we do not automatically load the notifications.
+
+    const username = 'tofumatt';
+
+    const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
 
     // This happens when loading the user edit profile page of the current
     // logged-in user (e.g., page refresh).
-    renderUserProfileEdit({ params: {}, store });
+    renderUserProfileEdit({ errorHandler, params: {}, store });
+
+    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
+      errorHandlerId: errorHandler.id,
+      username,
+    }));
+  });
+
+  it('does not dispatch any actions if the current logged-in user is being edited and the notifications are loaded', () => {
+    const username = 'tofumatt';
+
+    const { store } = signInUserWithUsername(username);
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    store.dispatch(loadUserNotifications({
+      username,
+      notifications: createUserNotificationsResponse(),
+    }));
+
+    dispatchSpy.reset();
+
+    // This happens when loading the user edit profile page of the current
+    // logged-in user (e.g., page refresh).
+    renderUserProfileEdit({ errorHandler, params: {}, store });
 
     sinon.assert.notCalled(dispatchSpy);
   });
 
-  it('dispatches fetchUserAccount action if username changes', () => {
+  it('dispatches fetchUserAccount and fetchUserNotifications actions if username changes', () => {
     const username = 'black-panther';
     const params = { username };
 
     const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
 
-    const root = renderUserProfileEdit({ params, store });
+    const root = renderUserProfileEdit({ errorHandler, params, store });
 
     dispatchSpy.reset();
 
@@ -164,8 +205,13 @@ describe(__filename, () => {
     // because the user is not loaded yet.
     root.setProps({ username: 'killmonger', user: null });
 
+    sinon.assert.callCount(dispatchSpy, 2);
     sinon.assert.calledWith(dispatchSpy, fetchUserAccount({
-      errorHandlerId: root.instance().props.errorHandler.id,
+      errorHandlerId: errorHandler.id,
+      username: 'killmonger',
+    }));
+    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
+      errorHandlerId: errorHandler.id,
       username: 'killmonger',
     }));
 
@@ -173,7 +219,38 @@ describe(__filename, () => {
   });
 
   it('does not fetchUserAccount action if user data are available', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+    const username = 'tofumatt';
+
+    const { store } = signInUserWithUsername(username);
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    // We load user notifications here because the purpose of this test case is
+    // not to check that part but to make sure `fetchUserAccount()` is not
+    // called.
+    store.dispatch(loadUserNotifications({
+      username,
+      notifications: createUserNotificationsResponse(),
+    }));
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const user = getCurrentUser(store.getState().users);
+
+    dispatchSpy.reset();
+
+    // We pass the `user` to simulate the case where the user data are already
+    // present in the store.
+    root.setProps({ username: 'killmonger', user });
+
+    sinon.assert.notCalled(dispatchSpy);
+  });
+
+  it('fetches user notifications when not loaded yet', () => {
+    const username = 'tofumatt';
+
+    // When loading the current user, their notifications are not loaded yet
+    // and we should dispatch `fetchUserNotifications`.
+    const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
 
@@ -186,7 +263,10 @@ describe(__filename, () => {
     // present in the store.
     root.setProps({ username: 'killmonger', user });
 
-    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
+      errorHandlerId: errorHandler.id,
+      username,
+    }));
   });
 
   it('does not dispatch fetchUserAccount if username does not change', () => {
@@ -732,6 +812,8 @@ describe(__filename, () => {
     // The user edits their profile.
     const root = renderUserProfileEdit({ params: {}, store });
 
+    dispatchSpy.reset();
+
     // The user logs out.
     root.setProps({
       currentUser: null,
@@ -762,11 +844,11 @@ describe(__filename, () => {
     const user = createUserAccountResponse({ username: 'willdurand' });
     store.dispatch(loadUserAccount({ user }));
 
-    dispatchSpy.reset();
-
     // The current logged-in user edits the profile of the other `user`.
     const params = { username: user.username };
     const root = renderUserProfileEdit({ params, store });
+
+    dispatchSpy.reset();
 
     // The user logs out.
     root.setProps({ currentUser: null, params });
@@ -818,6 +900,9 @@ describe(__filename, () => {
     const errorHandler = createStubErrorHandler();
 
     const root = renderUserProfileEdit({ errorHandler, store });
+
+    dispatchSpy.reset();
+
     const onDelete = root.find(UserProfileEditPicture).prop('onDelete');
 
     sinon.assert.notCalled(dispatchSpy);

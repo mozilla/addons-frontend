@@ -14,6 +14,7 @@ import {
   editUserAccount,
   deleteUserPicture,
   fetchUserAccount,
+  fetchUserNotifications,
   getCurrentUser,
   getUserByUsername,
   hasPermission,
@@ -101,6 +102,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         username,
       }));
     }
+
+    if ((!user && username) || (user && !user.notifications)) {
+      dispatch(fetchUserNotifications({
+        errorHandlerId: errorHandler.id,
+        username,
+      }));
+    }
   }
 
   componentWillReceiveProps(props: Props) {
@@ -128,6 +136,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         dispatch(fetchUserAccount({
           errorHandlerId: errorHandler.id,
           username: newUsername,
+        }));
+      }
+
+      if ((!newUser && newUsername) || (newUser && !newUser.notifications)) {
+        dispatch(fetchUserNotifications({
+          errorHandlerId: errorHandler.id,
+          username: newUser ? newUser.username : newUsername,
         }));
       }
 
