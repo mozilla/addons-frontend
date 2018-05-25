@@ -96,54 +96,36 @@ at a URL like `localhost:3000`.
 diff --git a/browser/base/content/browser-addons.js b/browser/base/content/browser-addons.js
 --- a/browser/base/content/browser-addons.js
 +++ b/browser/base/content/browser-addons.js
-@@ -711,16 +711,11 @@ var LightWeightThemeWebInstaller = {
-     let uri;
-     try {
-       uri = makeURI(srcURIString);
-     } catch (e) {
-       // makeURI fails if srcURIString is a nonsense URI
+@@ -664,12 +664,11 @@ var LightWeightThemeWebInstaller = {
+   },
+ 
+   _isAllowed(principal) {
+-    if (!principal || !principal.URI || !principal.URI.schemeIs("https")) {
++    if (!principal || !principal.URI) {
        return false;
      }
-
--    if (!uri.schemeIs("https")) {
--      return false;
--    }
--
+ 
 -    let pm = Services.perms;
--    return pm.testPermission(uri, "install") == pm.ALLOW_ACTION;
+-    return pm.testPermission(principal.URI, "install") == pm.ALLOW_ACTION;
 +    return true;
-   }
- };
+   },
+ 
+   _shouldShowUndoPrompt(principal) {
 diff --git a/toolkit/mozapps/extensions/AddonManager.jsm b/toolkit/mozapps/extensions/AddonManager.jsm
 --- a/toolkit/mozapps/extensions/AddonManager.jsm
 +++ b/toolkit/mozapps/extensions/AddonManager.jsm
-@@ -64,16 +64,17 @@ var PREF_EM_CHECK_COMPATIBILITY = MOZ_CO
-
- const VALID_TYPES_REGEXP = /^[\w\-]+$/;
-
- const WEBAPI_INSTALL_HOSTS = ["addons.mozilla.org", "testpilot.firefox.com"];
- const WEBAPI_TEST_INSTALL_HOSTS = [
+@@ -58,6 +58,7 @@ const WEBAPI_TEST_INSTALL_HOSTS = [
    "addons.allizom.org", "addons-dev.allizom.org",
    "testpilot.stage.mozaws.net", "testpilot.dev.mozaws.net",
    "example.com",
 +  "localhost",
  ];
-
+ 
  const URI_XPINSTALL_DIALOG = "chrome://mozapps/content/xpinstall/xpinstallConfirm.xul";
-
- Cu.import("resource://gre/modules/Services.jsm");
- Cu.import("resource://gre/modules/XPCOMUtils.jsm");
- Cu.import("resource://gre/modules/AsyncShutdown.jsm");
-
 diff --git a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp b/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp
 --- a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp
 +++ b/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp
-@@ -45,16 +45,17 @@ IsValidHost(const nsACString& host) {
-   // When testing allow access to the developer sites.
-   if (Preferences::GetBool("extensions.webapi.testing", false)) {
-     if (host.LowerCaseEqualsLiteral("addons.allizom.org") ||
-         host.LowerCaseEqualsLiteral("discovery.addons.allizom.org") ||
-         host.LowerCaseEqualsLiteral("addons-dev.allizom.org") ||
+@@ -57,6 +57,7 @@ IsValidHost(const nsACString& host) {
          host.LowerCaseEqualsLiteral("discovery.addons-dev.allizom.org") ||
          host.LowerCaseEqualsLiteral("testpilot.stage.mozaws.net") ||
          host.LowerCaseEqualsLiteral("testpilot.dev.mozaws.net") ||
@@ -151,31 +133,18 @@ diff --git a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp b/toolkit/mozapps
          host.LowerCaseEqualsLiteral("example.com")) {
        return true;
      }
-   }
-
-   return false;
- }
-
-@@ -64,19 +65,16 @@ bool
- AddonManagerWebAPI::IsValidSite(nsIURI* uri)
- {
-   if (!uri) {
-     return false;
-   }
-
+@@ -76,11 +77,6 @@ AddonManagerWebAPI::IsValidSite(nsIURI* 
+ 
    bool isSecure;
    nsresult rv = uri->SchemeIs("https", &isSecure);
 -  if (NS_FAILED(rv) || !isSecure) {
--    return false;
+-    if (!(xpc::IsInAutomation() && Preferences::GetBool("extensions.webapi.testing.http", false))) {
+-      return false;
+-    }
 -  }
-
+ 
    nsAutoCString host;
    rv = uri->GetHost(host);
-   if (NS_FAILED(rv)) {
-     return false;
-   }
-
-   return IsValidHost(host);
 
 ```
 
@@ -183,6 +152,12 @@ This patch will:
 1. allow you to use an HTTP connection
 2. allow any page at `localhost` (on any port) to access `mozAddonManager` and
    perform some theme actions.
+
+You can use `patch` to apply this patch:
+
+```
+patch -p1 < /path/to/patch-file.diff
+```
 
 With this patch applied, you are ready to build Firefox. Once again, make sure
 you aren't configured for an artifact build since that won't work
