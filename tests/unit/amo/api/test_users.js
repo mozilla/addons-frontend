@@ -6,11 +6,13 @@ import {
   deleteUserPicture,
   editUserAccount,
   userAccount,
+  userNotifications,
 } from 'amo/api/users';
 import { getCurrentUser } from 'amo/reducers/users';
 import {
   createApiResponse,
   createUserAccountResponse,
+  createUserNotificationsResponse,
 } from 'tests/unit/helpers';
 import {
   dispatchSignInActions,
@@ -123,6 +125,28 @@ describe(__filename, () => {
     });
   });
 
+  describe('userNotifications', () => {
+    it('fetches user notifications based on username', async () => {
+      const state = dispatchClientMetadata().store.getState();
+      const params = { api: state.api, username: 'tofumatt' };
+
+      const notificationsResponse = createApiResponse({
+        jsonData: createUserNotificationsResponse(),
+      });
+
+      mockApi.expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `accounts/account/${params.username}/notifications`,
+          state: params.api,
+        })
+        .returns(notificationsResponse);
+
+      await userNotifications(params);
+      mockApi.verify();
+    });
+  });
+
   describe('deleteUserPicture', () => {
     it('deletes a user profile picture for a given user', async () => {
       const state = dispatchSignInActions().store.getState();
@@ -136,7 +160,7 @@ describe(__filename, () => {
           method: 'DELETE',
           state: params.api,
         })
-        .returns(mockResponse());
+        .returns(createApiResponse());
 
       await deleteUserPicture(params);
       mockApi.verify();

@@ -20,8 +20,18 @@ export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' = 'LOAD_CURR
 export const FETCH_USER_ACCOUNT: 'FETCH_USER_ACCOUNT' = 'FETCH_USER_ACCOUNT';
 export const LOAD_USER_ACCOUNT: 'LOAD_USER_ACCOUNT' = 'LOAD_USER_ACCOUNT';
 export const DELETE_USER_PICTURE: 'DELETE_USER_PICTURE' = 'DELETE_USER_PICTURE';
+export const FETCH_USER_NOTIFICATIONS: 'FETCH_USER_NOTIFICATIONS' = 'FETCH_USER_NOTIFICATIONS';
+export const LOAD_USER_NOTIFICATIONS: 'LOAD_USER_NOTIFICATIONS' = 'LOAD_USER_NOTIFICATIONS';
 
 export type UserId = number;
+
+export type NotificationType = {|
+  enabled: boolean,
+  mandatory: boolean,
+  name: string,
+|};
+
+export type NotificationsType = Array<NotificationType>;
 
 // Basic user account object fields, returned by the API.
 export type ExternalUserType = {|
@@ -55,6 +65,7 @@ export type ExternalUserType = {|
 
 export type UserType = {|
   ...ExternalUserType,
+  notifications: NotificationsType | null,
 |};
 
 export type UsersStateType = {
@@ -227,6 +238,52 @@ export const deleteUserPicture = (
   };
 };
 
+type FetchUserNotificationsParams = {|
+  errorHandlerId: string,
+  username: string,
+|};
+
+type FetchUserNotificationsAction = {|
+  type: typeof FETCH_USER_NOTIFICATIONS,
+  payload: FetchUserNotificationsParams,
+|};
+
+export const fetchUserNotifications = ({
+  errorHandlerId,
+  username,
+}: FetchUserNotificationsParams): FetchUserNotificationsAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(username, 'username is required');
+
+  return {
+    type: FETCH_USER_NOTIFICATIONS,
+    payload: { errorHandlerId, username },
+  };
+};
+
+type LoadUserNotificationsParams = {|
+  notifications: NotificationsType,
+  username: string,
+|};
+
+type LoadUserNotificationsAction = {|
+  type: typeof LOAD_USER_NOTIFICATIONS,
+  payload: LoadUserNotificationsParams,
+|};
+
+export const loadUserNotifications = ({
+  notifications,
+  username,
+}: LoadUserNotificationsParams): LoadUserNotificationsAction => {
+  invariant(notifications, 'notifications is required');
+  invariant(username, 'username is required');
+
+  return {
+    type: LOAD_USER_NOTIFICATIONS,
+    payload: { notifications, username },
+  };
+};
+
 export const getUserById = (users: UsersStateType, userId: number) => {
   invariant(userId, 'userId is required');
   return users.byID[userId];
@@ -305,8 +362,19 @@ export const hasAnyReviewerRelatedPermission = (
 export const addUserToState = ({ state, user } : {
   user: ExternalUserType,
   state: UsersStateType,
-}): Object => {
-  const byID = { ...state.byID, [user.id]: user };
+}): {|
+  byID: { [userId: UserId]: UserType },
+  byUsername: { [username: string]: UserId },
+|} => {
+  invariant(user, 'user is required');
+
+  const byID = {
+    ...state.byID,
+    [user.id]: {
+      ...user,
+      notifications: null,
+    },
+  };
   const byUsername = {
     ...state.byUsername,
     [user.username.toLowerCase()]: user.id,
@@ -317,10 +385,12 @@ export const addUserToState = ({ state, user } : {
 
 type Action =
   | FetchUserAccountAction
+  | FetchUserNotificationsAction
   | FinishEditUserAccountAction
   | EditUserAccountAction
   | LoadCurrentUserAccountAction
   | LoadUserAccountAction
+  | LoadUserNotificationsAction
   | LogOutUserAction;
 
 const reducer = (
@@ -353,6 +423,24 @@ const reducer = (
       return {
         ...state,
         ...addUserToState({ state, user }),
+      };
+    }
+    case LOAD_USER_NOTIFICATIONS: {
+      const { notifications, username } = action.payload;
+
+      const user = getUserByUsername(state, username);
+
+      invariant(user, 'user is required');
+
+      return {
+        ...state,
+        byID: {
+          ...state.byID,
+          [user.id]: {
+            ...user,
+            notifications,
+          },
+        },
       };
     }
     case LOG_OUT_USER:

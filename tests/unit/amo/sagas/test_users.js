@@ -5,9 +5,11 @@ import usersReducer, {
   deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
+  fetchUserNotifications,
   finishEditUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
+  loadUserNotifications,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
 import { setAuthToken } from 'core/actions';
@@ -16,6 +18,7 @@ import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
   createStubErrorHandler,
   createUserAccountResponse,
+  createUserNotificationsResponse,
   userAuthToken,
 } from 'tests/unit/helpers';
 
@@ -79,8 +82,8 @@ describe(__filename, () => {
     });
   });
 
-  describe('loadUserAccount', () => {
-    it('calls the API to fetch user after fetchUserAccount()', async () => {
+  describe('fetchUserAccount', () => {
+    it('calls the API to fetch user', async () => {
       const user = createUserAccountResponse();
 
       mockApi
@@ -249,13 +252,12 @@ describe(__filename, () => {
 
       const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
 
-      mockApi.verify();
       expect(calledAction).toEqual(expectedCalledAction);
+      mockApi.verify();
     });
 
     it('dispatches an error', async () => {
       const error = new Error('a bad API error');
-
       mockApi
         .expects('deleteUserPicture')
         .returns(Promise.reject(error));
@@ -263,6 +265,49 @@ describe(__filename, () => {
       sagaTester.dispatch(deleteUserPicture({
         errorHandlerId: errorHandler.id,
         userId: 123,
+      }));
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
+  });
+
+  describe('fetchUserNotifications', () => {
+    it('calls the API to fetch the notifications of a user', async () => {
+      const username = 'tofumatt';
+      const notifications = createUserNotificationsResponse();
+
+      mockApi
+        .expects('userNotifications')
+        .once()
+        .returns(Promise.resolve(notifications));
+
+      sagaTester.dispatch(fetchUserNotifications({
+        errorHandlerId: errorHandler.id,
+        username,
+      }));
+
+      const expectedCalledAction = loadUserNotifications({
+        notifications,
+        username,
+      });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      expect(calledAction).toEqual(expectedCalledAction);
+      mockApi.verify();
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('a bad API error');
+      mockApi
+        .expects('userNotifications')
+        .returns(Promise.reject(error));
+
+      sagaTester.dispatch(fetchUserNotifications({
+        errorHandlerId: errorHandler.id,
+        username: 'tofumatt',
       }));
 
       const errorAction = errorHandler.createErrorAction(error);

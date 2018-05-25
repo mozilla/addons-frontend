@@ -3,15 +3,18 @@ import {
   DELETE_USER_PICTURE,
   EDIT_USER_ACCOUNT,
   FETCH_USER_ACCOUNT,
+  FETCH_USER_NOTIFICATIONS,
   finishEditUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
+  loadUserNotifications,
 } from 'amo/reducers/users';
 import {
   currentUserAccount as currentUserAccountApi,
   deleteUserPicture as deleteUserPictureApi,
   editUserAccount as editUserAccountApi,
   userAccount as userAccountApi,
+  userNotifications as userNotificationsApi,
 } from 'amo/api/users';
 import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
@@ -92,6 +95,31 @@ export function* fetchUserAccount({
   }
 }
 
+export function* fetchUserNotifications({
+  payload: {
+    errorHandlerId,
+    username,
+  },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const notifications = yield call(userNotificationsApi, {
+      api: state.api,
+      username,
+    });
+
+    yield put(loadUserNotifications({ notifications, username }));
+  } catch (error) {
+    log.warn(`User notifications failed to load: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export function* deleteUserPicture({
   payload: {
     errorHandlerId,
@@ -118,8 +146,9 @@ export function* deleteUserPicture({
 }
 
 export default function* usersSaga() {
-  yield takeLatest(SET_AUTH_TOKEN, fetchCurrentUserAccount);
-  yield takeLatest(FETCH_USER_ACCOUNT, fetchUserAccount);
-  yield takeLatest(EDIT_USER_ACCOUNT, editUserAccount);
   yield takeLatest(DELETE_USER_PICTURE, deleteUserPicture);
+  yield takeLatest(EDIT_USER_ACCOUNT, editUserAccount);
+  yield takeLatest(FETCH_USER_ACCOUNT, fetchUserAccount);
+  yield takeLatest(FETCH_USER_NOTIFICATIONS, fetchUserNotifications);
+  yield takeLatest(SET_AUTH_TOKEN, fetchCurrentUserAccount);
 }

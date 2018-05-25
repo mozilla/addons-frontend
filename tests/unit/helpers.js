@@ -552,3 +552,63 @@ export const simulateComponentCallback = ({ Component, root, propName }) => {
     return result;
   };
 };
+
+export const createUserNotificationsResponse = () => {
+  return [
+    {
+      name: 'reply',
+      enabled: true,
+      mandatory: false,
+    },
+    {
+      name: 'new_features',
+      enabled: true,
+      mandatory: false,
+    },
+    {
+      name: 'upgrade_success',
+      enabled: true,
+      mandatory: false,
+    },
+    {
+      name: 'sdk_upgrade_success',
+      enabled: true,
+      mandatory: false,
+    },
+    {
+      name: 'new_review',
+      enabled: true,
+      mandatory: false,
+    },
+    {
+      name: 'upgrade_fail',
+      enabled: true,
+      mandatory: true,
+    },
+    {
+      name: 'sdk_upgrade_fail',
+      enabled: true,
+      mandatory: true,
+    },
+    {
+      name: 'reviewer_reviewed',
+      enabled: true,
+      mandatory: true,
+    },
+    {
+      name: 'individual_contact',
+      enabled: true,
+      mandatory: true,
+    },
+    {
+      name: 'announcements',
+      enabled: false,
+      mandatory: false,
+    },
+    {
+      name: 'announcements',
+      enabled: false,
+      mandatory: false,
+    },
+  ];
+};

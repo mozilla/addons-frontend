@@ -10,6 +10,7 @@ import reducer, {
   initialState,
   loadCurrentUserAccount,
   loadUserAccount,
+  loadUserNotifications,
   logOutUser,
 } from 'amo/reducers/users';
 import {
@@ -26,7 +27,10 @@ import {
   dispatchClientMetadata,
   dispatchSignInActions,
 } from 'tests/unit/amo/helpers';
-import { createUserAccountResponse } from 'tests/unit/helpers';
+import {
+  createUserAccountResponse,
+  createUserNotificationsResponse,
+} from 'tests/unit/helpers';
 
 
 describe(__filename, () => {
@@ -43,16 +47,6 @@ describe(__filename, () => {
       }));
       const newState = reducer(state, { type: 'UNRELATED' });
       expect(newState).toEqual(state);
-    });
-
-    it('loadUserAccount returns a user', () => {
-      const user = createUserAccountResponse({ id: 12345, username: 'john' });
-      const action = loadUserAccount({ user });
-      const state = reducer(initialState, action);
-
-      expect(action.type).toEqual(LOAD_USER_ACCOUNT);
-      expect(action.payload).toEqual({ user });
-      expect(state.isUpdating).toEqual(false);
     });
 
     it('handles LOG_OUT_USER', () => {
@@ -109,6 +103,63 @@ describe(__filename, () => {
       }));
 
       expect(state.isUpdating).toEqual(true);
+    });
+  });
+
+  describe('loadUserAccount', () => {
+    it('sets notifications to `null` when loading a user', () => {
+      const user = createUserAccountResponse({ id: 12345, username: 'john' });
+      const action = loadUserAccount({ user });
+
+      const state = reducer(initialState, action);
+
+      expect(action.type).toEqual(LOAD_USER_ACCOUNT);
+      expect(action.payload).toEqual({ user });
+      expect(state.isUpdating).toEqual(false);
+      expect(state.byID[user.id]).toEqual({
+        ...user,
+        notifications: null,
+      });
+    });
+  });
+
+  describe('loadCurrentUserAccount', () => {
+    it('sets notifications to `null` when loading the current user', () => {
+      const userId = 12345;
+      const user = createUserAccountResponse({ id: userId, username: 'john' });
+
+      const state = reducer(initialState, loadCurrentUserAccount({ user }));
+
+      expect(state.byID[userId]).toEqual({
+        ...user,
+        notifications: null,
+      });
+      expect(state.currentUserID).toEqual(userId);
+    });
+  });
+
+  describe('loadUserNotifications', () => {
+    it('loads notifications for a user', () => {
+      const userId = 12345;
+      const user = createUserAccountResponse({ id: userId, username: 'john' });
+      const notifications = createUserNotificationsResponse();
+
+      const prevState = reducer(initialState, loadCurrentUserAccount({ user }));
+
+      expect(prevState.byID[userId]).toEqual({
+        ...user,
+        notifications: null,
+      });
+
+      const state = reducer(prevState, loadUserNotifications({
+        notifications,
+        username: user.username,
+      }));
+
+      expect(state.byID[userId]).toEqual({
+        ...user,
+        notifications,
+      });
     });
   });
 
