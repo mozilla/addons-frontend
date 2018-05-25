@@ -439,6 +439,9 @@ describe(__filename, () => {
       });
 
       sinon.assert.called(fakeEvent.preventDefault);
+      // without status informataion, install doesn't
+      // work property.
+      // See: https://github.com/mozilla/addons-frontend/issues/4999
       sinon.assert.calledWith(installTheme,
         themeImage, { ...addon, status: UNINSTALLED });
     });
