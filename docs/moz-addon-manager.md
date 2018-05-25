@@ -134,6 +134,16 @@ diff --git a/toolkit/mozapps/extensions/AddonManagerWebAPI.cpp b/toolkit/mozapps
          host.LowerCaseEqualsLiteral("example.com")) {
        return true;
      }
+@@ -77,7 +78,7 @@ AddonManagerWebAPI::IsValidSite(nsIURI* 
+   bool isSecure;
+   nsresult rv = uri->SchemeIs("https", &isSecure);
+   if (NS_FAILED(rv) || !isSecure) {
+-    if (!(xpc::IsInAutomation() && Preferences::GetBool("extensions.webapi.testing.http", false))) {
++    if (!Preferences::GetBool("extensions.webapi.testing.http", false)) {
+       return false;
+     }
+   }
+
 ```
 
 This patch will:
