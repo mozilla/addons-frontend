@@ -114,12 +114,11 @@ diff --git a/browser/base/content/browser-addons.js b/browser/base/content/brows
 diff --git a/toolkit/mozapps/extensions/AddonManager.jsm b/toolkit/mozapps/extensions/AddonManager.jsm
 --- a/toolkit/mozapps/extensions/AddonManager.jsm
 +++ b/toolkit/mozapps/extensions/AddonManager.jsm
-@@ -57,7 +57,7 @@ const WEBAPI_INSTALL_HOSTS = ["addons.mo
- const WEBAPI_TEST_INSTALL_HOSTS = [
+@@ -58,6 +58,7 @@ const WEBAPI_TEST_INSTALL_HOSTS = [
    "addons.allizom.org", "addons-dev.allizom.org",
    "testpilot.stage.mozaws.net", "testpilot.dev.mozaws.net",
--  "example.com",
-+  "example.com", "localhost",
+   "example.com",
++  "localhost",
  ];
  
  const URI_XPINSTALL_DIALOG = "chrome://mozapps/content/xpinstall/xpinstallConfirm.xul";
