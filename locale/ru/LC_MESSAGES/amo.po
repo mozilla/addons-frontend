@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-26 14:51+0000\n"
+"PO-Revision-Date: 2018-05-26 14:53+0000\n"
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -1102,7 +1102,7 @@ msgstr "Заполняете много форм? Это может помочь
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Синхронизация Сессии"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
@@ -1943,7 +1943,7 @@ msgstr "Представьте %(username)s сообществу"
 
 #: src/amo/components/UserProfileEdit/index.js:452
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Поддерживаются некоторые теги HTML: %(htmlTags)s. Ссылки запрещены."
 
 #: src/amo/components/UserProfileEdit/index.js:482
 msgid "Updating your profile…"
@@ -2097,7 +2097,7 @@ msgstr "Оценено на %(rating)s из 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Оценок пока нет"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
