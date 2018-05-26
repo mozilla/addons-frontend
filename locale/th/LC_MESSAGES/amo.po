@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-26 06:49+0000\n"
+"PO-Revision-Date: 2018-05-26 07:06+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -275,9 +275,8 @@ msgid "Other users with this extension also installed"
 msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:162
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ส่วนขยายยอดนิยมอื่น ๆ"
 
 #: src/amo/components/AddonReview/index.js:169
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -574,7 +573,7 @@ msgstr "ผู้สร้าง"
 
 #: src/amo/components/Collection/index.js:253
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "ค้นหาส่วนขยายและชุดตกแต่งที่จะเพิ่มไปยังชุดสะสมของคุณ"
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -735,19 +734,16 @@ msgid "Flag this developer response"
 msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:133
-#, fuzzy
 msgid "Flag this review"
-msgstr "แตะเพื่อแสดงตัวอย่าง"
+msgstr "ตั้งค่าสถานะบทวิจารณ์นี้"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนส่วนขยายนี้"
+msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะการตอบกลับนี้"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "เข้าสู่ระบบเพื่อให้คะแนนชุดตกแต่งนี้"
+msgstr "เข้าสู่ระบบเพื่อตั้งค่าสถานะบทวิจารณ์นี้"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -938,9 +934,8 @@ msgid "Top-rated themes"
 msgstr "ชุดตกแต่งที่ได้รับการจัดอันดับสูงสุด"
 
 #: src/amo/components/Home/index.js:235
-#, fuzzy
 msgid "See more highly rated themes"
-msgstr "เรียกดูชุดตกแต่งทั้งหมด"
+msgstr "ดูชุดตกแต่งที่ได้รับการจัดอันดับสูงเพิ่มเติม"
 
 #: src/amo/components/Home/index.js:249
 #, fuzzy
@@ -956,9 +951,8 @@ msgid "Popular extensions"
 msgstr "ส่วนขยายยอดนิยม"
 
 #: src/amo/components/Home/index.js:262
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "เรียกดูส่วนขยายทั้งหมด"
+msgstr "ดูส่วนขยายยอดนิยมเพิ่มเติม"
 
 #: src/amo/components/Home/index.js:64
 msgid "Bookmarks"
@@ -1021,9 +1015,8 @@ msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:163
-#, fuzzy
 msgid "Download Manager (S3)"
-msgstr "กำลังดาวน์โหลด %(name)s"
+msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:165
 msgid "Manage downloads from a tidy status bar"
@@ -1070,18 +1063,16 @@ msgid "Customized mouse gestures"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:234
-#, fuzzy
 msgid "PrivacyBadger"
-msgstr "ความเป็นส่วนตัว"
+msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:27
-#, fuzzy
 msgid "Facebook Container"
-msgstr "Facebook Video Downloader"
+msgstr "Facebook Container"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
@@ -1841,7 +1832,7 @@ msgstr "แก้ไขโปรไฟล์ของผู้ใช้"
 
 #: src/amo/components/UserProfileEdit/index.js:294
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "อัปเดตโปรไฟล์สำเร็จ"
 
 #: src/amo/components/UserProfileEdit/index.js:301
 msgid "Account"
@@ -2028,29 +2019,24 @@ msgid "Access your data for all websites"
 msgstr "เข้าถึงข้อมูลของคุณสำหรับเว็บไซต์ทั้งหมด"
 
 #: src/ui/components/HostPermissions/index.js:46
-#, fuzzy
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] "เข้าถึงข้อมูลของคุณใน %(count)s โดเมนอื่น ๆ"
+msgstr[0] "เข้าถึงข้อมูลของคุณใน %(param)s โดเมนอื่น ๆ"
 
 #: src/ui/components/HostPermissions/index.js:53
-#, fuzzy
 msgid "Access your data for sites in the %(param)s domain"
-msgstr "เข้าถึงข้อมูลของคุณสำหรับไซต์ในโดเมน %(domain)s"
+msgstr "เข้าถึงข้อมูลของคุณสำหรับไซต์ในโดเมน %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:58
-#, fuzzy
 msgid "Access your data on %(param)s other site"
 msgid_plural "Access your data on %(param)s other sites"
-msgstr[0] "เข้าถึงข้อมูลของคุณใน %(count)s ไซต์อื่น ๆ"
+msgstr[0] "เข้าถึงข้อมูลของคุณใน %(param)s ไซต์อื่น ๆ"
 
 #: src/ui/components/HostPermissions/index.js:65
-#, fuzzy
 msgid "Access your data for %(param)s"
-msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(site)s"
+msgstr "เข้าถึงข้อมูลของคุณสำหรับ %(param)s"
 
 #: src/ui/components/Rating/index.js:60
-#, fuzzy
 msgid "Rated %(rating)s out of 5"
 msgstr "ได้รับการจัดอันดับ %(rating)s จาก 5"
 
@@ -2059,14 +2045,12 @@ msgid "There are no ratings yet"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "ได้รับการจัดอันดับ %(rating)s จาก 5"
+msgstr "อัปเดตการจัดอันดับของคุณเป็น %(starRating)s จาก 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "ได้รับการจัดอันดับ %(rating)s จาก 5"
+msgstr "จัดอันดับส่วนเสริมนี้ %(starRating)s จาก 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
