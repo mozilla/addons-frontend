@@ -1375,12 +1375,12 @@ describe('mapStateToProps', () => {
     expect(addon).toEqual(null);
   });
 
-  // Test case for twitter card 
+  // Test case for twitter card
   it('adds twitter card information', () => {
     const helmet = Helmet.peek();
     const allMetaTags = helmet.metaTags;
     let twitterMetaTitle;
-    for (let metaTag of allMetaTags) {
+    for (const metaTag of allMetaTags) {
       if (metaTag.name === 'twitter:title') {
         twitterMetaTitle = metaTag;
       }
