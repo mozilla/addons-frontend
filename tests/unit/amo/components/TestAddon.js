@@ -8,6 +8,7 @@ import {
 } from 'react-dom/test-utils';
 import { Provider } from 'react-redux';
 import { match } from 'react-router';
+import Helmet from 'react-helmet';
 
 import { setViewContext } from 'amo/actions/viewContext';
 import Addon, {
@@ -71,7 +72,6 @@ import {
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import Button from 'ui/components/Button';
-
 
 function renderProps({
   addon = createInternalAddon(fakeAddon),
@@ -1373,5 +1373,19 @@ describe('mapStateToProps', () => {
     const { addon } = _mapStateToProps();
 
     expect(addon).toEqual(null);
+  });
+
+  // Test case for twitter card 
+  it('adds twitter card information', () => {
+    const helmet = Helmet.peek();
+    const allMetaTags = helmet.metaTags;
+    let twitterMetaTitle;
+    for (let metaTag of allMetaTags) {
+      if (metaTag.name === 'twitter:title') {
+        twitterMetaTitle = metaTag;
+      }
+    }
+    const addon = createInternalAddon(fakeAddon);
+    expect(twitterMetaTitle.content).toBe(addon.name);
   });
 });
