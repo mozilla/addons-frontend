@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-26 07:06+0000\n"
+"PO-Revision-Date: 2018-05-26 07:19+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -597,7 +597,7 @@ msgstr "URL ที่กำหนดเอง"
 
 #: src/amo/components/CollectionManager/index.js:304
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "ค้นหาส่วนเสริมที่จะรวมไว้ในชุดสะสมนี้"
 
 #: src/amo/components/CollectionManager/index.js:324 src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
@@ -693,7 +693,7 @@ msgstr "ส่วนเสริมนี้ถูกปิดใช้งาน
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr ""
+msgstr "ขออภัย แต่เราไม่พบสิ่งใดที่ที่อยู่ที่คุณป้อน"
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -723,11 +723,11 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "ตั้งค่าสถานะแล้ว"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "ตั้งค่าสถานะ"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
@@ -759,7 +759,7 @@ msgstr "นี่เป็นสแปม"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "ตั้งค่าสถานะเป็นสแปมแล้ว"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
@@ -1232,7 +1232,7 @@ msgstr "เฝ้าสังเกตการใช้ส่วนขยาย
 
 #: src/amo/components/PermissionsCard/permissions.js:39
 msgid "Exchange messages with programs other than Firefox"
-msgstr ""
+msgstr "แลกเปลี่ยนข้อความกับโปรแกรมอื่นนอกเหนือจาก Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
@@ -1796,11 +1796,11 @@ msgstr "โปรไฟล์ผู้ใช้สำหรับ %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:407
 msgid "Location"
-msgstr ""
+msgstr "ตำแหน่งที่ตั้ง"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:419
 msgid "Occupation"
-msgstr ""
+msgstr "อาชีพ"
 
 #: src/amo/components/UserProfile/index.js:174
 msgid "User since"
@@ -1852,7 +1852,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:321
 msgid "Email Address"
-msgstr ""
+msgstr "ที่อยู่อีเมล"
 
 #: src/amo/components/UserProfileEdit/index.js:337
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
@@ -2042,7 +2042,7 @@ msgstr "ได้รับการจัดอันดับ %(rating)s จา
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "ยังไม่มีการจัดอันดับ"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
