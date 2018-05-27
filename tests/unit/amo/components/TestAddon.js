@@ -1388,4 +1388,30 @@ describe('mapStateToProps', () => {
     const addon = createInternalAddon(fakeAddon);
     expect(twitterMetaTitle.content).toBe(addon.name);
   });
+
+  it('verify twitter card description', () => {
+    const helmet = Helmet.peek();
+    const allMetaTags = helmet.metaTags;
+    let twitterMet;
+    for (let metaTag of allMetaTags) {
+      if (metaTag.name === 'twitter:description') {
+        twitterMet = metaTag;
+      }
+    }
+    const addon = createInternalAddon(fakeAddon);
+    expect(twitterMet.content).toBe(addon.summary);
+  });
+
+  it('verify twitter card icon', () => {
+    const helmet = Helmet.peek();
+    const allMetaTags = helmet.metaTags;
+    let twitterMeta;
+    for (let metaTag of allMetaTags) {
+      if (metaTag.name === 'twitter:image') {
+        twitterMeta = metaTag;
+      }
+    }
+    const addon = createInternalAddon(fakeAddon);
+    expect(twitterMeta.content).toBe(addon.icon_url);
+  });
 });
