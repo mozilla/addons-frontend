@@ -1393,7 +1393,7 @@ describe('mapStateToProps', () => {
     const helmet = Helmet.peek();
     const allMetaTags = helmet.metaTags;
     let twitterMet;
-    for (let metaTag of allMetaTags) {
+    for (const metaTag of allMetaTags) {
       if (metaTag.name === 'twitter:description') {
         twitterMet = metaTag;
       }
@@ -1406,7 +1406,7 @@ describe('mapStateToProps', () => {
     const helmet = Helmet.peek();
     const allMetaTags = helmet.metaTags;
     let twitterMeta;
-    for (let metaTag of allMetaTags) {
+    for (const metaTag of allMetaTags) {
       if (metaTag.name === 'twitter:image') {
         twitterMeta = metaTag;
       }
