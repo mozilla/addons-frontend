@@ -63,6 +63,22 @@ describe(__filename, () => {
 
       expect(currentUserID).toEqual(null);
     });
+
+    it('indexes a loaded user ID by username', () => {
+      const state = reducer(initialState, loadUserAccount({
+        user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
+      }));
+
+      expect(state.byUsername).toHaveProperty('john', 12345);
+    });
+
+    it('indexes the current user ID by username', () => {
+      const state = reducer(initialState, loadCurrentUserAccount({
+        user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
+      }));
+
+      expect(state.byUsername).toHaveProperty('john', 12345);
+    });
   });
 
   describe('finishEditUserAccount', () => {
@@ -233,6 +249,15 @@ describe(__filename, () => {
       });
 
       expect(getUserByUsername(state.users, 'Biggie')).toBeUndefined();
+    });
+
+    it('is case insensitive', () => {
+      const { state } = dispatchSignInActions({
+        userProps: { id: 500, username: 'Tupac' },
+      });
+
+      expect(getUserByUsername(state.users, 'tupac'))
+        .toEqual(state.users.byID[500]);
     });
   });
 });
