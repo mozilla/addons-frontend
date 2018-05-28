@@ -158,7 +158,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('dispatches fetchCurrentCollectionPage with correct params for editing on mount', () => {
+  it('does not dispatch any fetches when switching to edit mode', () => {
     const { store } = dispatchClientMetadata();
     const fakeDispatch = sinon.spy(store, 'dispatch');
     const errorHandler = createStubErrorHandler();
@@ -172,13 +172,7 @@ describe(__filename, () => {
 
     renderComponent({ editing: true, errorHandler, store });
 
-    sinon.assert.callCount(fakeDispatch, 1);
-    sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
-      errorHandlerId: errorHandler.id,
-      page: 1,
-      slug: defaultSlug,
-      user: defaultUser,
-    }));
+    sinon.assert.notCalled(fakeDispatch);
   });
 
   it('passes the page from query string to fetchCurrentCollection', () => {
@@ -667,7 +661,7 @@ describe(__filename, () => {
   });
 
   it('links to a Collection edit page', () => {
-    // Turn off edit-overlay feature so that the component renders a link.
+    // Turn off enableNewCollectionsUI feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
@@ -687,7 +681,7 @@ describe(__filename, () => {
   });
 
   it('links internally to a Collection edit page', () => {
-    // Turn on the edit-collection feature.
+    // Turn on theenableNewCollectionsUI feature.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
@@ -704,6 +698,31 @@ describe(__filename, () => {
     expect(editLink).toHaveLength(1);
     expect(editLink).toHaveProp('to',
       `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
+  });
+
+  it('includes the page number in the edit link', () => {
+    // Turn on theenableNewCollectionsUI feature.
+    const page = 123;
+    const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
+    const { store } = dispatchSignInActions({
+      userProps: { permissions: [COLLECTIONS_EDIT] },
+    });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({
+      _config: fakeConfig,
+      location: fakeRouterLocation({ query: { page } }),
+      store,
+    });
+
+    const editLink = wrapper.find('.Collection-edit-link').find(Button);
+    expect(editLink).toHaveLength(1);
+    expect(editLink).toHaveProp('to',
+      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/?page=${page}`);
   });
 
   it('renders an edit link when user is the collection owner', () => {

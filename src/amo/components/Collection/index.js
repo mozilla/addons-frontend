@@ -112,11 +112,6 @@ export class CollectionBase extends React.Component<Props> {
       collectionChanged = true;
     }
 
-    // When switching into edit mode, refresh the collection add-ons.
-    if (this.props.editing && !nextProps) {
-      addonsPageChanged = true;
-    }
-
     if (!collection || collectionChanged) {
       this.props.dispatch(fetchCurrentCollection({
         errorHandlerId: errorHandler.id,
@@ -149,15 +144,19 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   editCollectionLink() {
-    const { _config, i18n } = this.props;
+    const { _config, i18n, location } = this.props;
     const props = {};
+
+    const pageQueryParam =
+      location.query.page ? `?page=${location.query.page}` : '';
+    const editUrl = `${this.editUrl()}${pageQueryParam}`;
 
     if (_config.get('enableNewCollectionsUI')) {
       // TODO: make this a real link when the form is ready for release.
       // https://github.com/mozilla/addons-frontend/issues/4293
-      props.to = this.editUrl();
+      props.to = editUrl;
     } else {
-      props.href = this.editUrl();
+      props.href = editUrl;
     }
 
     return (
