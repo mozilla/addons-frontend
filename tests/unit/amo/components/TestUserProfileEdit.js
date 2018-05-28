@@ -146,7 +146,7 @@ describe(__filename, () => {
     }));
   });
 
-  it('only dispatches fetchUserNotifications action when the current logged-in user is being edited', () => {
+  it('dispatches fetchUserNotifications and not fetchUserAccount when the current logged-in user is being edited', () => {
     // We do not have access to the user notifications for the current
     // logged-in user because this user is loaded in Redux when authenticated,
     // and we do not automatically load the notifications.
@@ -173,7 +173,6 @@ describe(__filename, () => {
 
     const { store } = signInUserWithUsername(username);
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const errorHandler = createStubErrorHandler();
 
     store.dispatch(loadUserNotifications({
       username,
@@ -184,7 +183,7 @@ describe(__filename, () => {
 
     // This happens when loading the user edit profile page of the current
     // logged-in user (e.g., page refresh).
-    renderUserProfileEdit({ errorHandler, params: {}, store });
+    renderUserProfileEdit({ params: {}, store });
 
     sinon.assert.notCalled(dispatchSpy);
   });

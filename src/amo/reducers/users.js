@@ -431,6 +431,7 @@ const reducer = (
       const user = getUserByUsername(state, username);
 
       invariant(user, 'user is required');
+      invariant(notifications, 'notifications are required');
 
       return {
         ...state,
