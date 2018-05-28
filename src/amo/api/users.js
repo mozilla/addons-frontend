@@ -48,16 +48,29 @@ export function editUserAccount({ api, picture, userId, ...editableFields }: {|
   });
 }
 
-export function userAccount({ api, username }: {|
+type UserApiParams = {|
   api: ApiStateType,
   username: string,
-|}) {
+|};
+
+export function userAccount({ api, username }: UserApiParams) {
   invariant(api, 'api state is required.');
   invariant(username, 'username is required.');
 
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}`,
+    state: api,
+  });
+}
+
+export function userNotifications({ api, username }: UserApiParams) {
+  invariant(api, 'api state is required.');
+  invariant(username, 'username is required.');
+
+  return callApi({
+    auth: true,
+    endpoint: `accounts/account/${username}/notifications`,
     state: api,
   });
 }
