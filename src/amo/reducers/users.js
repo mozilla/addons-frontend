@@ -234,7 +234,7 @@ export const getUserById = (users: UsersStateType, userId: number) => {
 
 export const getUserByUsername = (users: UsersStateType, username: string) => {
   invariant(username, 'username is required');
-  return users.byID[users.byUsername[username]];
+  return users.byID[users.byUsername[username.toLowerCase()]];
 };
 
 export const getCurrentUser = (users: UsersStateType) => {
@@ -307,7 +307,10 @@ export const addUserToState = ({ state, user } : {
   state: UsersStateType,
 }): Object => {
   const byID = { ...state.byID, [user.id]: user };
-  const byUsername = { ...state.byUsername, [user.username]: user.id };
+  const byUsername = {
+    ...state.byUsername,
+    [user.username.toLowerCase()]: user.id,
+  };
 
   return { byID, byUsername };
 };
