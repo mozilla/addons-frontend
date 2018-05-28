@@ -64,7 +64,7 @@ describe(__filename, () => {
       expect(currentUserID).toEqual(null);
     });
 
-    it('indexes a loaded user ID by username', () => {
+    it('stores a loaded user ID by username in lowercase', () => {
       const state = reducer(initialState, loadUserAccount({
         user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
       }));
@@ -72,7 +72,7 @@ describe(__filename, () => {
       expect(state.byUsername).toHaveProperty('john', 12345);
     });
 
-    it('indexes the current user ID by username', () => {
+    it('stores the current user ID by username in lowercase', () => {
       const state = reducer(initialState, loadCurrentUserAccount({
         user: createUserAccountResponse({ id: 12345, username: 'JohN' }),
       }));
