@@ -367,7 +367,23 @@ be sure to clear your cookies.
 
 ### Working with UX Mocks
 
-When implementing user interfaces you will need to refer to the [Sketch](https://www.sketchapp.com/) mocks that are located in the [assets](https://github.com/mozilla/addons-frontend/tree/master/assets) directory. You will need a license to run Sketch and you also need to install some fonts (which are free). Install [Fira Sans](https://www.fontsquirrel.com/fonts/fira-sans), [Open Sans](https://www.fontsquirrel.com/fonts/open-sans) and [Chivo](https://www.fontsquirrel.com/fonts/chivo).
+When implementing user interfaces you will need to refer to the
+[Sketch](https://www.sketchapp.com/) mocks that are located in the
+[assets](https://github.com/mozilla/addons-frontend/tree/master/assets)
+directory. You will need a license to run Sketch and you also need to install
+some fonts (which are free). Install [Fira
+Sans](https://www.fontsquirrel.com/fonts/fira-sans), [Open
+Sans](https://www.fontsquirrel.com/fonts/open-sans), [Fira
+Mono](https://www.fontsquirrel.com/fonts/fira-mono) and
+[Chivo](https://www.fontsquirrel.com/fonts/chivo).
+
+On MacOS, you can use the Homebrew tap
+[Caskroom-fonts](https://github.com/Homebrew/homebrew-cask-fonts):
+
+```
+brew tap homebrew/cask-fonts
+brew cask install font-fira-sans font-open-sans font-chivo font-fira-mono
+```
 
 ## What version is deployed?
 
