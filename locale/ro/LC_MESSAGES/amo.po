@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-28 11:25+0000\n"
+"PO-Revision-Date: 2018-05-28 11:52+0000\n"
 "Last-Translator: Cristian Silaghi <cristian.silaghi@mozilla.ro>\n"
 "Language-Team: none\n"
 "Language: ro\n"
@@ -953,12 +953,10 @@ msgid "See more privacy tools"
 msgstr "Vezi mai multe instrumente de productivitate"
 
 #: src/amo/components/Home/index.js:234
-#, fuzzy
 msgid "Top-rated themes"
 msgstr "Teme în topul evaluărilor"
 
 #: src/amo/components/Home/index.js:235
-#, fuzzy
 msgid "See more highly rated themes"
 msgstr "Vezi mai multe teme în topul evaluărilor"
 
@@ -976,9 +974,8 @@ msgid "Popular extensions"
 msgstr "Extensii populare"
 
 #: src/amo/components/Home/index.js:262
-#, fuzzy
 msgid "See more popular extensions"
-msgstr "Extensii deosebite"
+msgstr "Vezi mai multe extensii populare"
 
 #: src/amo/components/Home/index.js:64
 msgid "Bookmarks"
