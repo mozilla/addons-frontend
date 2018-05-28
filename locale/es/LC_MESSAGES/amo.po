@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-24 16:54+0000\n"
+"PO-Revision-Date: 2018-05-28 17:34+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -950,7 +950,7 @@ msgstr "Galardonados de “Extensions Challenge”"
 
 #: src/amo/components/Home/index.js:250
 msgid "See more “Extensions Challenge” honorees"
-msgstr ""
+msgstr "Ver más galardonados de “Extensions Challenge”"
 
 #: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
 msgid "Popular extensions"
@@ -1014,11 +1014,11 @@ msgstr "¡Ganador del Reto de extensiones Quantum! Diferentes colores de pestañ
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:153
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "Para esos momentos en Internet cuando necesitas un gato disparando rayos láser"
 
 #: src/amo/components/HomeHeroBanner/index.js:163
 msgid "Download Manager (S3)"
@@ -1074,7 +1074,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Bloquea rastreadores y anuncios que te espían furtivamente"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
@@ -2076,7 +2076,7 @@ msgstr "Se valoró con %(rating)s de 5"
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Todavía no hay valoraciones"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
