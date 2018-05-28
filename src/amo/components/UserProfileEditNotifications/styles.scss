@@ -1,0 +1,80 @@
+@import "~photon-colors/photon-colors";
+
+@import "~amo/css/inc/vars";
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+$input-height: 16px;
+
+.UserProfileEditNotifications {
+  .UserProfileEditNotification {
+    line-height: $input-height;
+
+    label {
+      @include padding-start(12px);
+
+      cursor: pointer;
+      position: relative;
+      user-select: none;
+    }
+  }
+
+  .UserProfileEditNotification--disabled label {
+    cursor: not-allowed;
+  }
+
+  .UserProfileEditNotification-input {
+    opacity: 0;
+    width: initial;
+    z-index: -1;
+
+    &:checked ~ .UserProfileEditNotification-checkbox {
+      background-color: $blue-50;
+
+      &::before {
+        opacity: 1;
+        transform: translateX(-50%) rotate(45deg) scale(1);
+      }
+    }
+  }
+
+  .UserProfileEditNotification-checkbox {
+    background-color: $grey-30;
+    border: 0;
+    border-radius: 4px;
+    display: inline-block;
+    height: $input-height;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: all $transition-short cubic-bezier(0.77, 0, 0.175, 1);
+    width: $input-height;
+
+    [dir=rtl] & {
+      right: 0;
+    }
+
+    // This creates a white tick.
+    &::before {
+      background-color: transparent;
+      border-bottom: 2px solid $white;
+      border-right: 2px solid $white;
+      content: "";
+      display: block;
+      height: 55%;
+      left: 50%;
+      opacity: 0;
+      position: absolute;
+      top: 15%;
+      transform: translateX(-50%) rotate(45deg) scale(0);
+      transition: all $transition-short ease-in-out;
+      width: 40%;
+    }
+  }
+
+  .LoadingText {
+    @include respond-to(large) {
+      max-width: 50%;
+    }
+  }
+}

@@ -7,6 +7,7 @@ import UserProfileEdit, {
   extractId,
   UserProfileEditBase,
 } from 'amo/components/UserProfileEdit';
+import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
   deleteUserPicture,
@@ -118,14 +119,19 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit--Card').first())
       .toHaveProp('header', 'Account');
-    expect(root.find('.UserProfileEdit-email--help')).toHaveLength(1);
-    expect(root.find('.UserProfileEdit-aside')).toHaveText(oneLine`Tell users a
-      bit more information about yourself. These fields are optional, but
-      they'll help other users get to know you better.`
+    expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
+      users a bit more information about yourself. These fields are optional,
+      but they'll help other users get to know you better.`
     );
     expect(root.find({ htmlFor: 'biography' }))
       .toHaveText('Introduce yourself to the community if you like');
     expect(root.find(UserProfileEditPicture)).toHaveLength(1);
+
+    expect(root.find('.UserProfileEdit-notifications-aside'))
+      .toHaveText(oneLine`From time to time, Mozilla may send you email about
+        upcoming releases and add-on events. Please select the topics you are
+        interested in.`);
+    expect(root.find(UserProfileEditNotifications)).toHaveLength(1);
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if username is not found', () => {
@@ -346,6 +352,11 @@ describe(__filename, () => {
       oneLine`Some HTML supported: <abbr title> <acronym title> <b>
       <blockquote> <code> <em> <i> <li> <ol> <strong> <ul>. Links are
       forbidden.`
+    );
+
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
+      oneLine`Mozilla reserves the right to contact you individually about
+      specific concerns with your hosted add-ons.`
     );
   });
 
@@ -755,15 +766,23 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit--Card').first())
       .toHaveProp('header', 'Account for willdurand');
 
-    expect(root.find('.UserProfileEdit--help-email')).toHaveLength(0);
+    // We do not display these help messages when current logged-in user edits
+    // another user.
+    expect(root.find('.UserProfileEdit-email--help')).toHaveLength(0);
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
 
-    expect(root.find('.UserProfileEdit-aside')).toHaveText(oneLine`Tell users a
-      bit more information about this user. These fields are optional, but
-      they'll help other users get to know willdurand better.`
+    expect(root.find('.UserProfileEdit-profile-aside')).toHaveText(oneLine`Tell
+      users a bit more information about this user. These fields are optional,
+      but they'll help other users get to know willdurand better.`
     );
 
     expect(root.find({ htmlFor: 'biography' }))
       .toHaveText('Introduce willdurand to the community');
+
+    expect(root.find('.UserProfileEdit-notifications-aside'))
+      .toHaveText(oneLine`From time to time, Mozilla may send this user email
+        about upcoming releases and add-on events. Please select the topics
+        this user may be interested in.`);
   });
 
   it('renders errors', () => {

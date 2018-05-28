@@ -605,10 +605,5 @@ export const createUserNotificationsResponse = () => {
       enabled: false,
       mandatory: false,
     },
-    {
-      name: 'announcements',
-      enabled: false,
-      mandatory: false,
-    },
   ];
 };
