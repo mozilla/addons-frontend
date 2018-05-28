@@ -18,13 +18,14 @@ import {
   abortFetchCurrentCollection,
   abortFetchUserCollections,
   addonAddedToCollection,
+  beginCollectionModification,
   deleteCollectionBySlug,
+  finishCollectionModification,
+  fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
-  beginCollectionModification,
-  finishCollectionModification,
-  fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
+  localizeCollectionDetail,
 } from 'amo/reducers/collections';
 import * as api from 'amo/api/collections';
 import log from 'core/logger';
@@ -208,6 +209,7 @@ export function* modifyCollection(
 
   try {
     const state = yield select(getState);
+    let response;
 
     const baseApiParams = {
       api: state.api,
@@ -224,7 +226,7 @@ export function* modifyCollection(
         slug,
         ...baseApiParams,
       };
-      yield call(api.createCollection, apiParams);
+      response = yield call(api.createCollection, apiParams);
     } else {
       invariant(collectionSlug,
         'collectionSlug cannot be empty when updating');
@@ -241,22 +243,32 @@ export function* modifyCollection(
     const effectiveSlug = slug || collectionSlug;
     invariant(effectiveSlug,
       'Both slug and collectionSlug cannot be empty');
-    // TODO: invalidate the stored collection instead of redirecting.
-    // Ultimately, we just want to invalidate the old collection data.
-    // This redirect is in place to handle slug changes but it causes
-    // a race condition if we mix it with deleting old collection data.
-    // If we could move to an ID based URL then we won't have to redirect.
-    // See https://github.com/mozilla/addons-server/issues/7529
-    yield put(pushLocation(
-      `/${lang}/${clientApp}/collections/${user}/${effectiveSlug}/`
-    ));
+    const newLocation =
+      `/${lang}/${clientApp}/collections/${user}/${effectiveSlug}/`;
 
-    const slugWasEdited = !creating && slug && slug !== collectionSlug;
-    if (!slugWasEdited) {
-      // Invalidate the stored collection object. This will force each
-      // component to re-fetch the collection. This is only necessary
-      // when the slug hasn't changed.
-      yield put(deleteCollectionBySlug(effectiveSlug));
+    if (creating) {
+      invariant(response, 'response is required when creating');
+      // If a new collection was just created, load it so that it will
+      // be available when the user arrives at the collection edit screen.
+      const localizedDetail = localizeCollectionDetail({ detail: response, lang });
+      yield put(loadCurrentCollection({ addons: [], detail: localizedDetail }));
+      yield put(pushLocation(`${newLocation}edit/`));
+    } else {
+      // TODO: invalidate the stored collection instead of redirecting.
+      // Ultimately, we just want to invalidate the old collection data.
+      // This redirect is in place to handle slug changes but it causes
+      // a race condition if we mix it with deleting old collection data.
+      // If we could move to an ID based URL then we won't have to redirect.
+      // See https://github.com/mozilla/addons-server/issues/7529
+      yield put(pushLocation(newLocation));
+
+      const slugWasEdited = slug && slug !== collectionSlug;
+      if (!slugWasEdited) {
+        // Invalidate the stored collection object. This will force each
+        // component to re-fetch the collection. This is only necessary
+        // when the slug hasn't changed.
+        yield put(deleteCollectionBySlug(effectiveSlug));
+      }
     }
   } catch (error) {
     log.warn(`Failed to ${type}: ${error}`);

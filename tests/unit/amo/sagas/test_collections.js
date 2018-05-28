@@ -8,17 +8,18 @@ import collectionsReducer, {
   abortFetchUserCollections,
   addAddonToCollection,
   addonAddedToCollection,
+  beginCollectionModification,
   createCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
+  finishCollectionModification,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
+  localizeCollectionDetail,
   updateCollection,
-  beginCollectionModification,
-  finishCollectionModification,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -580,14 +581,20 @@ describe(__filename, () => {
     });
 
     describe('create logic', () => {
-      it('sends a request to the collections API', async () => {
-        const params = {
-          description: { 'en-US': 'Collection description' },
-          name: { 'en-US': 'Collection name' },
+      const getParams = ({ lang }) => {
+        return {
+          description: { [lang]: 'Collection description' },
+          name: { [lang]: 'Collection name' },
           slug,
           user,
         };
+      };
+
+      it('sends a request to the collections API', async () => {
         const state = sagaTester.getState();
+        const params = getParams({ lang: state.api.lang });
+
+        const collectionDetailResponse = createFakeCollectionDetail(params);
 
         mockApi
           .expects('createCollection')
@@ -600,31 +607,46 @@ describe(__filename, () => {
             user,
           })
           .once()
-          .returns(Promise.resolve());
+          .returns(Promise.resolve(collectionDetailResponse));
 
         _createCollection(params);
 
+        const expectedLoadAction = loadCurrentCollection({
+          addons: [],
+          detail: localizeCollectionDetail({
+            detail: collectionDetailResponse,
+            lang: state.api.lang,
+          }),
+        });
+
+        const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
+        expect(loadAction).toEqual(expectedLoadAction);
+
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+          `/${lang}/${clientApp}/collections/${user}/${slug}/edit/`
         );
 
         await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
       });
 
-      it('redirects to the new collection after create', async () => {
-        const params = {
-          slug,
-          user,
-        };
+      it('redirects to the collection edit screen after create', async () => {
+        const state = sagaTester.getState();
+        const params = getParams({ lang: state.api.lang });
 
-        mockApi.expects('createCollection').returns(Promise.resolve());
+        const collectionDetailResponse = createFakeCollectionDetail(params);
+
+        mockApi
+          .expects('createCollection')
+          .once()
+          .returns(Promise.resolve(collectionDetailResponse));
+
         _createCollection(params);
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${slug}/`
+          `/${lang}/${clientApp}/collections/${user}/${slug}/edit/`
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);

@@ -259,6 +259,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     const isNameBlank = !(name && name.trim().length);
     const isSlugBlank = !(slug && slug.trim().length);
     const isSubmitDisabled = formIsDisabled || isNameBlank || isSlugBlank;
+    const buttonText = creating ?
+      i18n.gettext('Create collection') : i18n.gettext('Save collection');
 
     return (
       <form
@@ -355,7 +357,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             type="submit"
             puffy
           >
-            {i18n.gettext('Save Collection')}
+            {buttonText}
           </Button>
         </footer>
       </form>

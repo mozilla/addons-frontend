@@ -24,6 +24,7 @@ import log from 'core/logger';
 import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
+import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
@@ -127,7 +128,7 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
-    if (collection && addonsPageChanged) {
+    if (collection && addonsPageChanged && collection.numberOfAddons) {
       this.props.dispatch(fetchCurrentCollectionPage({
         errorHandlerId: errorHandler.id,
         page: location.query.page || 1,
@@ -160,9 +161,14 @@ export class CollectionBase extends React.Component<Props> {
     }
 
     return (
-      <p className="Collection-edit-link">
-        <Link {...props}>{i18n.gettext('Edit this collection')}</Link>
-      </p>
+      <Button
+        className="Collection-edit-link"
+        buttonType="neutral"
+        puffy
+        {...props}
+      >
+        {i18n.gettext('Edit this collection')}
+      </Button>
     );
   }
 

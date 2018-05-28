@@ -262,6 +262,12 @@ export type ExternalCollectionDetail = {|
   uuid: string,
 |};
 
+export type ExternalCollectionDetailWithLocalizedStrings = {|
+  ...ExternalCollectionDetail,
+  description: LocalizedString | null,
+  name: LocalizedString,
+|};
+
 export type CollectionAddonsListResponse = {|
   count: number,
   next: string,
@@ -696,6 +702,34 @@ export const changeAddonCollectionsLoadingFlag = ({
         },
       },
     },
+  };
+};
+
+type LocalizeCollectionDetailParams = {|
+  detail: ExternalCollectionDetailWithLocalizedStrings,
+  lang: string,
+|};
+
+export const localizeCollectionDetail = (
+  { detail, lang }: LocalizeCollectionDetailParams
+): ExternalCollectionDetail => {
+  invariant(detail, 'detail is required for localizeCollectionDetail');
+  invariant(lang, 'lang is required for localizeCollectionDetail');
+
+  // Flow will not allow us to use the spread operator here, so we have
+  // to repeat all the fields.
+  return {
+    addon_count: detail.addon_count,
+    author: detail.author,
+    default_locale: detail.default_locale,
+    description: detail.description ? detail.description[lang] : null,
+    id: detail.id,
+    modified: detail.modified,
+    name: detail.name[lang],
+    public: detail.public,
+    slug: detail.slug,
+    url: detail.url,
+    uuid: detail.uuid,
   };
 };
 
