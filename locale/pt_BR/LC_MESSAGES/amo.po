@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-23 19:11+0000\n"
-"PO-Revision-Date: 2018-05-28 23:09+0000\n"
+"PO-Revision-Date: 2018-05-28 23:18+0000\n"
 "Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1002,15 +1002,15 @@ msgstr "Rádios do mundo"
 
 #: src/amo/components/HomeHeroBanner/index.js:127
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr "O vencedor do concurso de extensões do Quantum! Ouça as rádios ao vivo ao redor do mundo"
+msgstr "Vencedor do concurso de extensões do Quantum! Ouça as rádios ao vivo ao redor do mundo"
 
 #: src/amo/components/HomeHeroBanner/index.js:137
 msgid "Envify"
-msgstr ""
+msgstr "Invejados"
 
 #: src/amo/components/HomeHeroBanner/index.js:140
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
-msgstr "O vencedor do concurso de extensões do Quantum! Diferentes cores de abas para diferentes ambientes de desenvolvimento"
+msgstr "Vencedor do concurso de extensões do Quantum! Diferentes cores de abas para diferentes ambientes de desenvolvimento"
 
 #: src/amo/components/HomeHeroBanner/index.js:150
 msgid "Laser Cat"
@@ -1063,7 +1063,7 @@ msgstr "Remove a bagunça e melhora a legibilidade"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
-msgstr ""
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Customized mouse gestures"
@@ -1075,7 +1075,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Bloqueie os anúncios espiões e rastreadores sorrateiros"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 #, fuzzy
@@ -1096,11 +1096,11 @@ msgstr "Preenche muitos formulários? Isso pode ajudar"
 
 #: src/amo/components/HomeHeroBanner/index.js:51
 msgid "Session Sync"
-msgstr ""
+msgstr "Sessão do Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:54
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Vencedor do concurso de extensões do Quantum! Salve as sessões como favoritos e acesse através de outros dispositivos"
 
 #: src/amo/components/HomeHeroBanner/index.js:64
 msgid "Notebook Web Clipper"
@@ -1930,7 +1930,7 @@ msgstr "Apresente %(username)s para a comunidade"
 
 #: src/amo/components/UserProfileEdit/index.js:452
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Algumas tags HTML suportados: %(htmlTags)s. Links são proibidos."
 
 #: src/amo/components/UserProfileEdit/index.js:482
 msgid "Updating your profile…"
@@ -2083,7 +2083,7 @@ msgstr "Avaliado em %(rating)s de 5."
 
 #: src/ui/components/Rating/index.js:63
 msgid "There are no ratings yet"
-msgstr ""
+msgstr "Ainda não existem avaliações"
 
 #: src/ui/components/Rating/index.js:67
 msgid "Update your rating to %(starRating)s out of 5"
