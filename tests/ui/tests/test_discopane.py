@@ -1,6 +1,7 @@
 """Discovery pane tests."""
 
 import pytest
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 @pytest.fixture
@@ -48,9 +49,8 @@ def test_addon_installs(discovery_pane, firefox, notifications):
     addon.install()
     firefox.browser.wait_for_notification(
         notifications.AddOnInstallConfirmation).install()
-    firefox.browser.wait_for_notification(
-        notifications.AddOnInstallComplete)
-    assert addon.is_installed
+    WebDriverWait(firefox.selenium, timeout=5).until(
+        lambda _: addon.is_installed)
 
 
 @pytest.mark.nondestructive
