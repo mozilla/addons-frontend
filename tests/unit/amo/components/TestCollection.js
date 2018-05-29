@@ -661,7 +661,7 @@ describe(__filename, () => {
   });
 
   it('links to a Collection edit page', () => {
-    // Turn off enableNewCollectionsUI feature so that the component renders a link.
+    // Turn off the enableNewCollectionsUI feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
@@ -681,7 +681,7 @@ describe(__filename, () => {
   });
 
   it('links internally to a Collection edit page', () => {
-    // Turn on theenableNewCollectionsUI feature.
+    // Turn on the enableNewCollectionsUI feature.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
     const { store } = dispatchSignInActions({
       userProps: { permissions: [COLLECTIONS_EDIT] },
@@ -701,7 +701,7 @@ describe(__filename, () => {
   });
 
   it('includes the page number in the edit link', () => {
-    // Turn on theenableNewCollectionsUI feature.
+    // Turn on the enableNewCollectionsUI feature.
     const page = 123;
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: true });
     const { store } = dispatchSignInActions({
