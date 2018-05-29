@@ -49,7 +49,7 @@ def test_addon_installs(discovery_pane, firefox, notifications):
     firefox.browser.wait_for_notification(
         notifications.AddOnInstallConfirmation).install()
     firefox.browser.wait_for_notification(
-        notifications.AddOnInstallComplete).close()
+        notifications.AddOnInstallComplete)
     assert addon.is_installed
 
 
@@ -61,5 +61,5 @@ def test_theme_installs(discovery_pane, firefox, notifications):
     firefox.browser.wait_for_notification(
         notifications.AddOnInstallConfirmation).install()
     firefox.browser.wait_for_notification(
-        notifications.AddOnInstallComplete).close()
+        notifications.AddOnInstallComplete)
     assert theme.is_installed
