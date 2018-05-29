@@ -30,8 +30,7 @@ describe(__filename, () => {
   };
 
   it('renders loading notifications without a user', () => {
-    const name = 'some-input-name';
-    const root = render({ name, user: null });
+    const root = render({ user: null });
 
     expect(root.find('.UserProfileEditNotifications')).toHaveLength(1);
 
@@ -96,5 +95,22 @@ describe(__filename, () => {
       expect(p.hasClass('UserProfileEditNotification--disabled'))
         .toEqual(notification.mandatory);
     });
+  });
+
+  it('does not render a notification if there is no corresponding label', () => {
+    const username = 'johnedoe';
+    const notifications = [
+      { name: 'invalid-notification-name', enabled: true, mandatory: false },
+    ];
+
+    const { store } = dispatchSignInActions({ userProps: { username } });
+    store.dispatch(loadUserNotifications({ username, notifications }));
+
+    const { users } = store.getState();
+    const user = getCurrentUser(users);
+
+    const root = render({ user });
+
+    expect(root.find('.UserProfileEditNotification')).toHaveLength(0);
   });
 });

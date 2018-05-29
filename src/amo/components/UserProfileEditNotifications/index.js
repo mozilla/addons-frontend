@@ -1,9 +1,10 @@
 /* @flow */
 import makeClassName from 'classnames';
+import { oneLine } from 'common-tags';
 import * as React from 'react';
 import { compose } from 'redux';
-import invariant from 'invariant';
 
+import log from 'core/logger';
 import translate from 'core/i18n/translate';
 import LoadingText from 'ui/components/LoadingText';
 import type { UserType } from 'amo/reducers/users';
@@ -12,10 +13,7 @@ import type { I18nType } from 'core/types/i18n';
 import './styles.scss';
 
 
-// We disable the eslint rule below because Flow complains about unreachable
-// code if we add a `return` statement in the `default` case.
-// eslint-disable-next-line consistent-return
-export const getLabelText = (i18n: I18nType, name: string): string => {
+export const getLabelText = (i18n: I18nType, name: string): string | null => {
   switch (name) {
     case 'announcements':
       return i18n.gettext(`stay up-to-date with news and events relevant to
@@ -40,13 +38,14 @@ export const getLabelText = (i18n: I18nType, name: string): string => {
     case 'upgrade_success':
       return i18n.gettext(`my add-on's compatibility is upgraded successfully`);
     default:
-      invariant(false, `No corresponding label for notification "${name}"`);
   }
+
+  return null;
 };
 
 type CreateNotificationParams = {|
   enabled: boolean,
-  label: React.Element<typeof LoadingText> | string,
+  label: React.Element<typeof LoadingText> | string | null,
   mandatory: boolean,
   name: string,
 |};
@@ -56,27 +55,35 @@ const createNotification = ({
   label,
   mandatory,
   name,
-}: CreateNotificationParams) => (
-  <p
-    className={makeClassName('UserProfileEditNotification', {
-      'UserProfileEditNotification--disabled': mandatory,
-    })}
-    key={name}
-  >
-    <label htmlFor={name}>
-      <input
-        className="UserProfileEditNotification-input"
-        defaultChecked={enabled}
-        disabled={mandatory}
-        id={name}
-        name={name}
-        type="checkbox"
-      />
-      <span className="UserProfileEditNotification-checkbox" />
-      {label}
-    </label>
-  </p>
-);
+}: CreateNotificationParams): React.Element<any> | null => {
+  if (!label) {
+    log.warn(oneLine`Not rendering notification "${name}" because there is no
+      corresponding label.`);
+    return null;
+  }
+
+  return (
+    <p
+      className={makeClassName('UserProfileEditNotification', {
+        'UserProfileEditNotification--disabled': mandatory,
+      })}
+      key={name}
+    >
+      <label htmlFor={name}>
+        <input
+          className="UserProfileEditNotification-input"
+          defaultChecked={enabled}
+          disabled={mandatory}
+          id={name}
+          name={name}
+          type="checkbox"
+        />
+        <span className="UserProfileEditNotification-checkbox" />
+        {label}
+      </label>
+    </p>
+  );
+};
 
 type Props = {|
   i18n: I18nType,
