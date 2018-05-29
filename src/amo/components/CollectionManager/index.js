@@ -4,6 +4,7 @@ import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { compose } from 'redux';
 import config from 'config';
 
@@ -38,7 +39,8 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
-const MESSAGE_FADEOUT_TIME = 5000;
+const MESSAGE_RESET_TIME = 5000;
+const MESSAGE_FADEOUT_TIME = 450;
 
 export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
   = 'ADDON_ADDED_STATUS_PENDING';
@@ -97,7 +99,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             this.setState({
               addonAddedStatus: null,
             });
-          }, MESSAGE_FADEOUT_TIME);
+          }, MESSAGE_RESET_TIME);
         }
       });
     }
@@ -327,11 +329,21 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             value={this.state.slug}
           />
         </div>
-        {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
-          <Notice type="success">
-            {i18n.gettext('Added to collection')}
-          </Notice>
-        )}
+
+        <ReactCSSTransitionGroup
+          className="NoticePlaceholder"
+          component="div"
+          transitionName="overlay"
+          transitionEnterTimeout={MESSAGE_FADEOUT_TIME}
+          transitionLeaveTimeout={MESSAGE_FADEOUT_TIME}
+        >
+          {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
+            <Notice type="success">
+              {i18n.gettext('Added to collection')}
+            </Notice>
+          )}
+        </ReactCSSTransitionGroup>
+
         {!creating &&
           <AutoSearchInput
             inputName="collection-addon-query"
