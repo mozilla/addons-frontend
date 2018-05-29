@@ -10,6 +10,7 @@ import UserProfileEdit, {
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
+  deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
@@ -18,6 +19,7 @@ import {
   getCurrentUser,
   loadUserAccount,
   loadUserNotifications,
+  logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
 import {
@@ -132,6 +134,8 @@ describe(__filename, () => {
         upcoming releases and add-on events. Please select the topics you are
         interested in.`);
     expect(root.find(UserProfileEditNotifications)).toHaveLength(1);
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if username is not found', () => {
@@ -492,6 +496,15 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', false);
   });
 
+  it('renders a delete profile button', () => {
+    const root = renderUserProfileEdit();
+    const button = root.find('.UserProfileEdit-delete-button');
+
+    expect(button).toHaveLength(1);
+    expect(button.dive()).toHaveText('Delete my profile');
+    expect(button).toHaveProp('disabled', false);
+  });
+
   it('renders a submit button with a different text when user is not the logged-in user', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const params = { username: 'another-user' };
@@ -500,6 +513,16 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button').dive())
       .toHaveText(`Update user's profile`);
+  });
+
+  it('renders a delete button with a different text when user is not the logged-in user', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const params = { username: 'another-user' };
+
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find('.UserProfileEdit-delete-button').dive())
+      .toHaveText(`Delete user's profile`);
   });
 
   it('renders a submit button with a different text when editing', () => {
@@ -1000,6 +1023,184 @@ describe(__filename, () => {
       .toHaveProp('children', 'Picture successfully deleted');
 
     expect(root).toHaveState('pictureData', null);
+  });
+
+  it('displays a modal when user clicks the delete profile button', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const preventDefaultSpy = sinon.spy();
+
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent({ preventDefault: preventDefaultSpy })
+    );
+
+    sinon.assert.called(preventDefaultSpy);
+
+    const modal = root.find('.UserProfileEdit-deletion-modal');
+
+    expect(modal).toHaveLength(1);
+    expect(modal).toHaveProp(
+      'header',
+      'Attention: you are about to delete your profile. Are you sure?'
+    );
+    expect(modal).toHaveProp('visibleOnLoad', true);
+
+    expect(modal.find('p').at(0)).toHaveProp('dangerouslySetInnerHTML', {
+      __html: oneLine`If you confirm this <strong>irreversible action</strong>,
+        the following data will be removed: profile picture, profile details
+        (including username, email, display name, location, home page,
+        biography, occupation) and notification preferences. Other data such as
+        ratings and reviews will be anonymized.`,
+    });
+
+    expect(modal.find('p').at(1)).toHaveText(oneLine`Important: if you own
+      add-ons, you have to transfer them to other users or to delete them
+      before you can delete your profile.`);
+
+    expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-confirm-button').children())
+      .toHaveText('Yes, delete my profile');
+    expect(root.find('.UserProfileEdit-cancel-button')).toHaveLength(1);
+  });
+
+  it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const params = { username: 'another-user' };
+
+    const root = renderUserProfileEdit({ params, store });
+
+    root.find('.UserProfileEdit-delete-button')
+      .simulate('click', createFakeEvent());
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveProp(
+      'header',
+      'Attention: you are about to delete a profile. Are you sure?'
+    );
+
+    expect(root.find('.UserProfileEdit-deletion-modal').find('p'))
+      .toHaveLength(1);
+
+    expect(root.find('.UserProfileEdit-confirm-button').children())
+      .toHaveText('Yes, delete this profile');
+  });
+
+  it('closes the modal when user clicks the cancel button', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(1);
+
+    root.find('.UserProfileEdit-cancel-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+  });
+
+  it('dispatches deleteUserAccount and logOutUser when current logged-in user confirms account deletion', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr-FR';
+
+    const userId = 456;
+    const username = 'tofumatt';
+    const params = { username };
+
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userProps: {
+        ...defaultUserProps,
+        id: userId,
+        username,
+      },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, params, store });
+
+    dispatchSpy.reset();
+
+    // User opens the modal.
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.notCalled(dispatchSpy);
+
+    // User confirms account deletion.
+    root.find('.UserProfileEdit-confirm-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.callCount(dispatchSpy, 2);
+    sinon.assert.calledWith(dispatchSpy, deleteUserAccount({
+      errorHandlerId: errorHandler.id,
+      userId,
+    }));
+    sinon.assert.calledWith(dispatchSpy, logOutUser());
+
+    sinon.assert.calledWith(fakeRouter.push, `/${lang}/${clientApp}`);
+  });
+
+  it('does not dispatch logOutUser when current logged-in user confirms deletion of another user account', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        username: 'an-admin-user',
+        permissions: [USERS_EDIT],
+      },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfileEdit({
+      errorHandler,
+      params: { username: user.username },
+      store,
+    });
+
+    dispatchSpy.reset();
+
+    // User opens the modal.
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.notCalled(dispatchSpy);
+
+    // User confirms account deletion.
+    root.find('.UserProfileEdit-confirm-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.callCount(dispatchSpy, 1);
+    sinon.assert.calledWith(dispatchSpy, deleteUserAccount({
+      errorHandlerId: errorHandler.id,
+      userId: user.id,
+    }));
   });
 
   describe('errorHandler - extractId', () => {

@@ -170,3 +170,12 @@ $puffy-font-size: 15px;
     $background-hover: $red-70
   );
 }
+
+.Button--cancel {
+  @include button(
+    $background: transparent,
+    $background-active: transparent,
+    $background-hover: transparent,
+    $color: $black
+  );
+}
