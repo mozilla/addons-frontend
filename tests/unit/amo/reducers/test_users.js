@@ -12,6 +12,7 @@ import reducer, {
   loadUserAccount,
   loadUserNotifications,
   logOutUser,
+  unloadUserAccount,
 } from 'amo/reducers/users';
 import {
   ADDONS_POSTREVIEW,
@@ -160,6 +161,28 @@ describe(__filename, () => {
         ...user,
         notifications,
       });
+    });
+  });
+
+  describe('unloadUserAccount', () => {
+    it('unloads a user from the state given a user ID', () => {
+      const userId = 12345;
+      const username = 'john';
+
+      const user = createUserAccountResponse({ id: userId, username });
+      const prevState = reducer(initialState, loadUserAccount({ user }));
+
+      const state = reducer(prevState, unloadUserAccount({ userId }));
+
+      expect(state.byID[userId]).toBeUndefined();
+      expect(state.byUsername[username]).toBeUndefined();
+    });
+
+    it('does not do anything if user ID is not found', () => {
+      const userId = 12345;
+
+      const state = reducer(initialState, unloadUserAccount({ userId }));
+      expect(state.byID[userId]).toBeUndefined();
     });
   });
 
