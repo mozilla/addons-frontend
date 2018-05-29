@@ -7,6 +7,7 @@ import EditableCollectionAddon from 'amo/components/EditableCollectionAddon';
 import SearchResult from 'amo/components/SearchResult';
 import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import CardList from 'ui/components/CardList';
+import type { RemoveCollectionAddonFunc } from 'amo/components/Collection';
 import type { AddonType } from 'core/types/addons';
 
 import './styles.scss';
@@ -19,6 +20,8 @@ type Props = {|
   className?: string,
   editing?: boolean,
   loading?: boolean,
+  // This is passed through to EditableCollectionAddon.
+  removeAddon?: RemoveCollectionAddonFunc,
   // When loading, this is the number of placeholders
   // that will be rendered.
   placeholderCount: number,
@@ -49,6 +52,7 @@ export default class AddonsCard extends React.Component<Props> {
       className,
       editing,
       loading,
+      removeAddon,
       placeholderCount,
       showMetadata,
       showSummary,
@@ -65,6 +69,7 @@ export default class AddonsCard extends React.Component<Props> {
             <EditableCollectionAddon
               addon={addon}
               key={addon.slug}
+              removeAddon={removeAddon}
             />
           );
         } else {

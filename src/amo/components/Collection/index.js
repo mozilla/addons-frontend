@@ -1,5 +1,6 @@
 /* @flow */
 import config from 'config';
+import invariant from 'invariant';
 import * as React from 'react';
 import Helmet from 'react-helmet';
 import { connect } from 'react-redux';
@@ -8,6 +9,7 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
+  removeAddonFromCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   getCurrentCollection,
@@ -57,6 +59,8 @@ export type Props = {|
     user: string,
   |},
 |};
+
+export type RemoveCollectionAddonFunc = (addonId: number) => void;
 
 export class CollectionBase extends React.Component<Props> {
   static defaultProps = {
@@ -171,6 +175,34 @@ export class CollectionBase extends React.Component<Props> {
     );
   }
 
+  removeAddon: RemoveCollectionAddonFunc = (addonId: number) => {
+    const {
+      collection,
+      dispatch,
+      errorHandler,
+      location: { query },
+    } = this.props;
+
+    invariant(collection, 'collection is required');
+
+    const {
+      slug,
+      authorUsername: user,
+    } = collection;
+
+    invariant(query, 'query is required');
+    invariant(slug, 'slug is required');
+    invariant(user, 'page is required');
+
+    dispatch(removeAddonFromCollection({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      page: query.page || 1,
+      slug,
+      user,
+    }));
+  };
+
   renderCardContents() {
     const {
       collection, editing, hasEditPermission, i18n, isLoggedIn, location,
@@ -253,6 +285,7 @@ export class CollectionBase extends React.Component<Props> {
             addons={addons}
             editing={editing}
             loading={!collection || loading}
+            removeAddon={this.removeAddon}
           />
           {!loading && addons && addons.length === 0 &&
             <p className="Collection-placeholder">{ i18n.gettext(

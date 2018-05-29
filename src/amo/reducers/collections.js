@@ -38,6 +38,8 @@ export const BEGIN_COLLECTION_MODIFICATION: 'BEGIN_COLLECTION_MODIFICATION'
   = 'BEGIN_COLLECTION_MODIFICATION';
 export const FINISH_COLLECTION_MODIFICATION: 'FINISH_COLLECTION_MODIFICATION'
   = 'FINISH_COLLECTION_MODIFICATION';
+export const REMOVE_ADDON_FROM_COLLECTION: 'REMOVE_ADDON_FROM_COLLECTION'
+  = 'REMOVE_ADDON_FROM_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -580,6 +582,36 @@ export const deleteCollectionBySlug = (
   return {
     type: DELETE_COLLECTION_BY_SLUG,
     payload: { slug },
+  };
+};
+
+type RemoveAddonFromCollectionParams = {|
+  addonId: number,
+  errorHandlerId: string,
+  page: number,
+  slug: string,
+  user: string,
+|};
+
+export type RemoveAddonFromCollectionAction = {|
+  type: typeof REMOVE_ADDON_FROM_COLLECTION,
+  payload: RemoveAddonFromCollectionParams,
+|};
+
+export const removeAddonFromCollection = ({
+  addonId, errorHandlerId, page, slug, user,
+}: RemoveAddonFromCollectionParams = {}): RemoveAddonFromCollectionAction => {
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(page, 'The page parameter is required');
+  invariant(slug, 'The slug parameter is required');
+  invariant(user, 'The user parameter is required');
+
+  return {
+    type: REMOVE_ADDON_FROM_COLLECTION,
+    payload: {
+      addonId, errorHandlerId, page, slug, user,
+    },
   };
 };
 

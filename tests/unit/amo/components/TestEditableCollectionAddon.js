@@ -7,6 +7,7 @@ import fallbackIcon from 'amo/img/icons/default-64.png';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon } from 'tests/unit/amo/helpers';
 import {
+  createFakeEvent,
   fakeI18n,
   shallowUntilTarget,
 } from 'tests/unit/helpers';
@@ -19,6 +20,7 @@ describe(__filename, () => {
       <EditableCollectionAddon
         addon={props.addon || createInternalAddon(fakeAddon)}
         i18n={fakeI18n()}
+        removeAddon={sinon.stub()}
         {...props}
       />,
       EditableCollectionAddonBase
@@ -59,5 +61,19 @@ describe(__filename, () => {
     const button = root.find(Button);
     expect(button).toHaveProp('name', addon.id);
     expect(button.prop('children')).toEqual('Remove');
+  });
+
+  it('calls the removeAddon function when the remove button is clicked', () => {
+    const addon = createInternalAddon(fakeAddon);
+    const removeAddon = sinon.spy();
+    const root = render({ addon, removeAddon });
+
+    const removeButton = root.find(Button);
+    const clickEvent = createFakeEvent();
+    removeButton.simulate('click', clickEvent);
+
+    sinon.assert.called(clickEvent.preventDefault);
+    sinon.assert.called(clickEvent.stopPropagation);
+    sinon.assert.calledWith(removeAddon, addon.id);
   });
 });

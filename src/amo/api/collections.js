@@ -333,3 +333,27 @@ export const updateCollectionAddon = ({
     action: 'update', addonId, api, collectionSlug, notes, user,
   });
 };
+export type RemoveAddonFromCollectionParams = {|
+  addonId: number,
+  api: ApiStateType,
+  slug: string,
+  user: string | number,
+|};
+
+export const removeAddonFromCollection = (
+  { addonId, api, slug, user }: RemoveAddonFromCollectionParams
+): Promise<void> => {
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(api, 'The api parameter is required');
+  invariant(slug, 'The slug parameter is required');
+  invariant(user, 'The user parameter is required');
+
+  return callApi({
+    auth: true,
+    endpoint:
+      `accounts/account/${user}/collections/${slug}/addons/${addonId}`,
+    method: 'DELETE',
+    state: api,
+  });
+};
+

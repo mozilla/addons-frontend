@@ -4,6 +4,7 @@ import * as api from 'core/api';
 import {
   createCollection,
   createCollectionAddon,
+  removeAddonFromCollection,
   getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
@@ -514,6 +515,36 @@ describe(__filename, () => {
       });
 
       sinon.assert.calledWith(modifier, { action: 'update', ...params });
+    });
+  });
+
+  describe('removeAddonFromCollection', () => {
+    it('sends a request to remove an add-on from a collection', async () => {
+      const addonId = 123;
+      const slug = 'my-collection';
+      const user = 'my-user';
+
+      const endpoint = `accounts/account/${user}/collections/${slug}/addons/${addonId}`;
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint,
+          method: 'DELETE',
+          state: api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await removeAddonFromCollection({
+        addonId,
+        api,
+        slug,
+        user,
+      });
+
+      mockApi.verify();
     });
   });
 });
