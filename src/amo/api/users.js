@@ -2,7 +2,11 @@
 import invariant from 'invariant';
 
 import { callApi } from 'core/api';
-import type { UserEditableFieldsType, UserId } from 'amo/reducers/users';
+import type {
+  NotificationsUpdateType,
+  UserEditableFieldsType,
+  UserId,
+} from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 
 
@@ -71,6 +75,24 @@ export function userNotifications({ api, username }: UserApiParams) {
   return callApi({
     auth: true,
     endpoint: `accounts/account/${username}/notifications`,
+    state: api,
+  });
+}
+
+export function updateUserNotifications({ api, notifications, userId }: {|
+  api: ApiStateType,
+  notifications: NotificationsUpdateType,
+  userId: UserId,
+|}) {
+  invariant(api, 'api state is required.');
+  invariant(userId, 'userId is required.');
+  invariant(notifications, 'notifications are required.');
+
+  return callApi({
+    auth: true,
+    body: notifications,
+    endpoint: `accounts/account/${userId}/notifications`,
+    method: 'POST',
     state: api,
   });
 }

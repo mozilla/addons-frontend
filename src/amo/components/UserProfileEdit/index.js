@@ -32,7 +32,11 @@ import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
 import OverlayCard from 'ui/components/OverlayCard';
-import type { UsersStateType, UserType } from 'amo/reducers/users';
+import type {
+  NotificationsUpdateType,
+  UsersStateType,
+  UserType,
+} from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -64,6 +68,7 @@ type FormValues = {|
   displayName: string | null,
   homepage: string | null,
   location: string | null,
+  notifications: NotificationsUpdateType,
   occupation: string | null,
   picture: File | null,
   username: string,
@@ -239,6 +244,20 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
   }
 
+  onNotificationChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+
+    const { name, checked } = event.currentTarget;
+
+    this.setState((prevState) => ({
+      notifications: {
+        ...prevState.notifications,
+        [name]: checked,
+      },
+      successMessage: null,
+    }));
+  }
+
   onPictureDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
@@ -272,6 +291,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       displayName,
       homepage,
       location,
+      notifications,
       occupation,
       picture,
       username,
@@ -281,6 +301,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     dispatch(editUserAccount({
       errorHandlerId: errorHandler.id,
+      notifications,
       picture,
       userFields: {
         biography,
@@ -300,6 +321,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       displayName: '',
       homepage: '',
       location: '',
+      notifications: {},
       occupation: '',
       picture: null,
       username: this.props.username,
@@ -627,7 +649,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 )}
               </p>
 
-              <UserProfileEditNotifications user={user} />
+              <UserProfileEditNotifications
+                onChange={this.onNotificationChange}
+                user={user}
+              />
 
               {isEditingCurrentUser && (
                 <p className="UserProfileEdit-notifications--help">
