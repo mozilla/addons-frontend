@@ -1,6 +1,7 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
-
+// screenshot-height value was increased to handle issue #4887
+// image-height is used to ensure that the image's height is always 20px less than screenshot-height for #4887 fix.
 $screenshot-height: 220px;
 $image-height: $screenshot-height - 20px;
 $screenshot-width: 320px;
