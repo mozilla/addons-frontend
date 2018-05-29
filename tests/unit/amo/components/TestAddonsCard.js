@@ -59,7 +59,6 @@ describe(__filename, () => {
     const root = render({ addons, editing: true, removeAddon });
     const list = root.childAt(0);
 
-
     expect.assertions(list.children().length);
     list.children().forEach((editableCollectionAddon) => {
       expect(editableCollectionAddon).toHaveProp('removeAddon', removeAddon);
