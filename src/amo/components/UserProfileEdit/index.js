@@ -9,6 +9,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import NotFound from 'amo/components/ErrorPage/NotFound';
+import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
   editUserAccount,
@@ -440,7 +441,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
               className="UserProfileEdit--Card"
               header={i18n.gettext('Profile')}
             >
-              <p className="UserProfileEdit-aside">
+              <p className="UserProfileEdit-profile-aside">
                 {isEditingCurrentUser ? i18n.gettext(
                   `Tell users a bit more information about yourself. These
                   fields are optional, but they'll help other users get to know
@@ -563,6 +564,33 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                   ].join(' '),
                 })}
               </p>
+            </Card>
+
+            <Card
+              className="UserProfileEdit--Card"
+              header={i18n.gettext('Notifications')}
+            >
+              <p className="UserProfileEdit-notifications-aside">
+                {isEditingCurrentUser ? i18n.gettext(
+                  `From time to time, Mozilla may send you email about upcoming
+                  releases and add-on events. Please select the topics you are
+                  interested in.`
+                ) : i18n.gettext(
+                  `From time to time, Mozilla may send this user email about
+                  upcoming releases and add-on events. Please select the
+                  topics this user may be interested in.`
+                )}
+              </p>
+
+              <UserProfileEditNotifications user={user} />
+
+              {isEditingCurrentUser && (
+                <p className="UserProfileEdit-notifications--help">
+                  {i18n.gettext(`Mozilla reserves the right to contact you
+                    individually about specific concerns with your hosted
+                    add-ons.`)}
+                </p>
+              )}
             </Card>
 
             <div className="UserProfileEdit-buttons-wrapper">

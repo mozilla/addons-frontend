@@ -42,7 +42,8 @@ $font-size-aside: 10px;
   margin-bottom: $padding-page;
 }
 
-.UserProfileEdit-aside {
+.UserProfileEdit-notifications-aside,
+.UserProfileEdit-profile-aside {
   color: $grey-50;
   font-size: $font-size-aside;
   margin-top: 0;
@@ -65,11 +66,18 @@ $font-size-aside: 10px;
 
 .UserProfileEdit-biography--help,
 .UserProfileEdit-email--help,
-.UserProfileEdit-homepage--help {
+.UserProfileEdit-homepage--help,
+.UserProfileEdit-notifications--help {
   color: $grey-50;
   display: block;
   font-size: $font-size-aside;
   margin-top: 4px;
+}
+
+.UserProfileEdit-notifications--help {
+  @include respond-to(large) {
+    width: 60%;
+  }
 }
 
 .UserProfileEdit input,
