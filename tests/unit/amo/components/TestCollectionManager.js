@@ -44,7 +44,6 @@ const simulateAutoSearchCallback = (props = {}) => {
 };
 
 describe(__filename, () => {
-  let clock;
   let fakeRouter;
   let store;
   const apiHost = config.get('apiHost');
@@ -55,17 +54,12 @@ describe(__filename, () => {
   beforeEach(() => {
     fakeRouter = createFakeRouter();
     store = dispatchClientMetadata().store;
-    clock = sinon.useFakeTimers();
     dispatchSignInActions({
       lang,
       store,
       userId: signedInUserId,
       userProps: { username: signedInUsername },
     });
-  });
-
-  afterEach(() => {
-    clock.restore();
   });
 
   const getProps = ({
