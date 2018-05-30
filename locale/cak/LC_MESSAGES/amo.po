@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-23 19:11+0000\n"
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
 "PO-Revision-Date: 2018-04-21 23:53+0000\n"
 "Last-Translator: Juan Esteban Ajsivinac Sián <ajtzibsyan@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -40,7 +40,7 @@ msgid "Add to…"
 msgstr "Titz'aqatisáx pa…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:308
+#: src/amo/components/CollectionManager/index.js:335
 msgid "Add to collection"
 msgstr "Titz'aqatisäx pa mol"
 
@@ -104,7 +104,7 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sruma %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-msgid "Only with Firefox — Get Firefox Now!"
+msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
 #: src/amo/components/Addon/index.js:534
@@ -246,7 +246,7 @@ msgid "Version"
 msgstr "Ruwäch"
 
 #: src/amo/components/AddonMoreInfo/index.js:184
-#: src/amo/components/Collection/index.js:219
+#: src/amo/components/Collection/index.js:256
 msgid "Last updated"
 msgstr "Ruk'isib'äl k'exoj"
 
@@ -276,7 +276,7 @@ msgstr "Ch'aqa' chik etamab'äl"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 #: src/amo/components/UserProfile/index.js:149
-#: src/amo/components/UserProfileEdit/index.js:390
+#: src/amo/components/UserProfileEdit/index.js:479
 msgid "Homepage"
 msgstr "Tikirib'äl ruxaq"
 
@@ -545,14 +545,14 @@ msgid "Extensions"
 msgstr "Taq k'amal"
 
 #: src/amo/components/Category/index.js:132
-#: src/amo/components/Home/index.js:205
+#: src/amo/components/Home/index.js:200
 #: src/amo/components/LandingPage/index.js:124
 #: src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Talun taq k'amal"
 
 #: src/amo/components/Category/index.js:141
-#: src/amo/components/Home/index.js:206
+#: src/amo/components/Home/index.js:201
 #: src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "Ketz'et ch'aqa' chik talun taq k'amal"
@@ -586,12 +586,14 @@ msgid "Themes"
 msgstr "Taq wachinel"
 
 #: src/amo/components/Category/index.js:165
+#: src/amo/components/Home/index.js:229
 #: src/amo/components/LandingPage/index.js:150
 #: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Talun wachinel"
 
 #: src/amo/components/Category/index.js:174
+#: src/amo/components/Home/index.js:230
 #: src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "Ketz'et ch'aqa' chik talun taq wachinel"
@@ -630,24 +632,24 @@ msgstr "Ketz'et ronojel ri taq k'amal pa re ruwäch re'."
 msgid "Browse all themes in this category."
 msgstr "Ketz'et ronojel ri taq wachinel pa re ruwäch re'."
 
-#: src/amo/components/Collection/index.js:164
+#: src/amo/components/Collection/index.js:173
 msgid "Edit this collection"
 msgstr "Tinuk' re mol re'"
 
-#: src/amo/components/Collection/index.js:180
+#: src/amo/components/Collection/index.js:217
 msgid "Log in to edit this collection"
 msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
 
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:246
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Taq tz'aqat"
 
-#: src/amo/components/Collection/index.js:213
+#: src/amo/components/Collection/index.js:250
 msgid "Creator"
 msgstr "Q'inonel"
 
-#: src/amo/components/Collection/index.js:253
+#: src/amo/components/Collection/index.js:291
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
@@ -659,30 +661,41 @@ msgstr "Titikirisäx molojri'ïl richin nitz'uk re mol re'"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:253
+#: src/amo/components/CollectionManager/index.js:263
+#, fuzzy
+msgid "Save collection"
+msgstr "Tiyak ri Mol"
+
+#: src/amo/components/CollectionManager/index.js:263
+#, fuzzy
+msgid "Create collection"
+msgstr "Titz'uk k'ak'a' mol"
+
+#: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
 msgstr "Rub'i' mol"
 
-#: src/amo/components/CollectionManager/index.js:265
+#: src/amo/components/CollectionManager/index.js:287
 msgid "Description"
 msgstr "Tzijoxkil"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:298
 msgid "Custom URL"
 msgstr "Ichinan URL"
 
-#: src/amo/components/CollectionManager/index.js:304
+#: src/amo/components/CollectionManager/index.js:324
+#, fuzzy
+msgid "Added to collection"
+msgstr "Titz'aqatisäx pa mol"
+
+#: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
 msgstr "Tikanöx jun tz'aqat richin nitz'aqatisäx pa re mol re'"
 
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:351
 #: src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
 msgstr "Tiq'at"
-
-#: src/amo/components/CollectionManager/index.js:333
-msgid "Save Collection"
-msgstr "Tiyak ri Mol"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -765,7 +778,7 @@ msgstr "Kato'on wakami"
 msgid "Download Firefox"
 msgstr "Taqasaj Firefox"
 
-#: src/amo/components/EditableCollectionAddon/index.js:54
+#: src/amo/components/EditableCollectionAddon/index.js:56
 msgid "Remove"
 msgstr "Tiyuj"
 
@@ -994,13 +1007,13 @@ msgid "View My Collections"
 msgstr "Ketz'et taq Numol"
 
 #: src/amo/components/Header/index.js:116
-#: src/amo/components/UserProfileEdit/index.js:274
+#: src/amo/components/UserProfileEdit/index.js:363
 #, fuzzy
 msgid "View My Profile"
 msgstr "Titz'et Ruwäch B'i'aj"
 
 #: src/amo/components/Header/index.js:124
-#: src/amo/components/UserProfileEdit/index.js:281
+#: src/amo/components/UserProfileEdit/index.js:370
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "Tinuk' Ruwäch B'i'aj"
@@ -1031,108 +1044,101 @@ msgstr "Titz'apïx molojri'ïl"
 msgid "Firefox Add-ons"
 msgstr "Taq Rutz'aqat Firefox"
 
-#: src/amo/components/Home/index.js:115
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Ch'utinisan Na'oj"
 
-#: src/amo/components/Home/index.js:120
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Ruwach'ulew"
 
-#: src/amo/components/Home/index.js:125
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Silowachil & TV"
 
-#: src/amo/components/Home/index.js:130
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Wachaj"
 
-#: src/amo/components/Home/index.js:135
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Q'ojom"
 
-#: src/amo/components/Home/index.js:140
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Kajtz'ukalil"
 
 # The ending ellipsis alludes to a row of icons for each type
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr "Tawichinaj rusamaj Firefox kik'in k'amal. La ütz natz'ët…"
 
-#: src/amo/components/Home/index.js:173
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Tijal ri ruwäch Firefox kik'in wachinel."
 
-#: src/amo/components/Home/index.js:220
-msgid "Privacy tools"
-msgstr "Kisamajib'al ichinanem"
-
-#: src/amo/components/Home/index.js:222
-#, fuzzy
-msgid "See more privacy tools"
-msgstr "Kisamajib'al ichinanem"
-
-#: src/amo/components/Home/index.js:234
-#, fuzzy
-msgid "Top-rated themes"
-msgstr "Taq wachinel k'ïy kejqalem"
-
-#: src/amo/components/Home/index.js:235
-#, fuzzy
-msgid "See more highly rated themes"
-msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kejqalem"
-
-#: src/amo/components/Home/index.js:249
-msgid "“Extensions Challenge” honorees"
+#: src/amo/components/Home/index.js:215
+msgid "Tame your tabs"
 msgstr ""
 
-#: src/amo/components/Home/index.js:250
-msgid "See more “Extensions Challenge” honorees"
-msgstr ""
-
-#: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
-msgid "Popular extensions"
-msgstr "K'ïy kiwinaq taq k'amal"
-
-#: src/amo/components/Home/index.js:262
+#: src/amo/components/Home/index.js:217
 #, fuzzy
-msgid "See more popular extensions"
-msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+msgid "See more tab extensions"
+msgstr "Ketz'et ch'aqa' chik taq k'amal k'ïy kejqalem"
 
-#: src/amo/components/Home/index.js:64
+#: src/amo/components/Home/index.js:244
+#, fuzzy
+msgid "Essential extensions"
+msgstr "Ketz'et ronojel ri taq k'amal"
+
+#: src/amo/components/Home/index.js:245
+#, fuzzy
+msgid "See more essential extensions"
+msgstr "Ketz'et ch'aqa' chik k'ïy kiwinaq taq k'amal"
+
+#: src/amo/components/Home/index.js:255
+#, fuzzy
+msgid "Translation tools"
+msgstr "Translate Man"
+
+#: src/amo/components/Home/index.js:256
+#, fuzzy
+msgid "See more translation tools"
+msgstr "Kisamajib'al ichinanem"
+
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Taq yaketal"
 
-#: src/amo/components/Home/index.js:68
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Kinuk'samajel ewan tzij"
 
-#: src/amo/components/Home/index.js:72
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Kiq'atonela' eletzijob'äl"
 
-#: src/amo/components/Home/index.js:76
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "Na'owinäq taq loq'oj"
 
-#: src/amo/components/Home/index.js:80
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Ruwa k'ay"
 
-#: src/amo/components/Home/index.js:84
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Ketz'et Silowäch"
 
-#: src/amo/components/HomeHeroBanner/index.js:101
+#: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Popular anti-tracking extension now has ad blocking ability"
 msgstr "K'ïy ruwinaq chuwa-ojqanïk k'amal kik'wan q'atonela' eltzijob'äl"
 
-#: src/amo/components/HomeHeroBanner/index.js:111
+#: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
 msgstr "Kik'wayöl K'ïy-Rub'i'-Taqoya'l"
 
-#: src/amo/components/HomeHeroBanner/index.js:114
+#: src/amo/components/HomeHeroBanner/index.js:113
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
 "color-coded tabs"
@@ -1140,76 +1146,77 @@ msgstr ""
 "Kek'oje' ri jalajöj taq peraj ak'aslem pa k'amab'ey—samaj, awichin, ch'aqa' "
 "chik—jachon kik'in k'ïy kib'onil taq ruwi'"
 
-#: src/amo/components/HomeHeroBanner/index.js:124
+#: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:127
+#: src/amo/components/HomeHeroBanner/index.js:126
 msgid ""
 "Quantum Extensions Challenge winner! Listen to live radio from around the "
 "world"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:137
+#: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:140
+#: src/amo/components/HomeHeroBanner/index.js:139
 msgid ""
 "Quantum Extensions Challenge winner! Different tab colors for different dev "
 "environments"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:150
+#: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Laser Cat"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:153
+#: src/amo/components/HomeHeroBanner/index.js:152
 msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:163
+#: src/amo/components/HomeHeroBanner/index.js:162
 #, fuzzy
 msgid "Download Manager (S3)"
 msgstr "Niqasäx %(name)s."
 
-#: src/amo/components/HomeHeroBanner/index.js:165
+#: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:173
+#: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
 msgstr "Black Menu richin Google"
 
-#: src/amo/components/HomeHeroBanner/index.js:176
+#: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr ""
 "Relik rik'el k'utsamaj richin yatok pa taq rusamaj Google achi'el Tikanöx "
 "chuqa' Titzalq'omïx"
 
-#: src/amo/components/HomeHeroBanner/index.js:186
-msgid "SHINE for Reddit"
-msgstr "SHINE richin Reddit"
+#: src/amo/components/HomeHeroBanner/index.js:185
+#, fuzzy
+msgid "Page Translate"
+msgstr "Translate Man"
 
-#: src/amo/components/HomeHeroBanner/index.js:189
-msgid "Experience Reddit with alternative designs"
-msgstr "Titojtob'ëx Reddit kik'in jalel taq wachib'enïk"
+#: src/amo/components/HomeHeroBanner/index.js:188
+msgid "Translate an entire web page with a couple clicks"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:198
-msgid "LeechBlock NG"
-msgstr "LeechBlock NG"
+#: src/amo/components/HomeHeroBanner/index.js:197
+msgid "Image Search Options"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:201
-msgid "Block time-wasting sites"
-msgstr "Keq'at taq ruxaq nikisäx-ramaj"
+#: src/amo/components/HomeHeroBanner/index.js:200
+msgid "Access reverse image search options in a context menu"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:210
-msgid "Tranquility Reader"
-msgstr "Tranquility Reader"
+#: src/amo/components/HomeHeroBanner/index.js:209
+msgid "Forget Me Not"
+msgstr "Man kinamestaj"
 
-#: src/amo/components/HomeHeroBanner/index.js:213
-msgid "Remove clutter and improve readability"
-msgstr "Tayuju' ri kichikïk samaj richin nawutzilaj rusik'ixik"
+#: src/amo/components/HomeHeroBanner/index.js:212
+msgid "Make Firefox forget website data like cookies & local storage"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
@@ -1238,48 +1245,48 @@ msgid "Prevent Facebook from tracking you around the web"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:39
-msgid "AutoFormer+"
-msgstr "AutoFormer+"
+msgid "Swift Selection Search"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
-msgid "Fill out a lot of forms? This might help"
-msgstr "¿La yetz'aqatisäx k'ïy taq nojwuj? Re re' tikirel nito'on"
+msgid "Highlight text on any web page to pull up a handy search menu"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:51
+#: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:54
+#: src/amo/components/HomeHeroBanner/index.js:55
 msgid ""
 "Quantum Extensions Challenge winner! Save sessions as bookmarks and access "
 "them across devices"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Notebook Web Clipper"
-msgstr "Notebook Web Clipper"
+#: src/amo/components/HomeHeroBanner/index.js:65
+msgid "Web Security"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:66
-msgid "Clip, save & organize your favorite stuff on the web"
-msgstr "Klip, yeruyäk & nub'än kik'ojlem jeb'ël taq awachinaq pan ajk'amaya'l"
+#: src/amo/components/HomeHeroBanner/index.js:67
+msgid "Protection against malware and data phishing scams"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:76
-msgid "Flagfox"
-msgstr "Flagfox"
+msgid "Vertical Tabs Reloaded"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:78
-msgid "Displays a website’s server location by country flag"
-msgstr "Nuk'üt ruk'ojlemal ruk'uxasamaj ajk'amaya'l ruxaq chi amaq'"
+msgid "Arrange tabs in a vertical fashion"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:88
+#: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
-#: src/amo/components/HomeHeroBanner/index.js:90
+#: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Efficient, powerful ad blocker"
 msgstr "Utziläj chuqa' uchuq'ab'il q'atonel eltzijob'äl"
 
-#: src/amo/components/HomeHeroBanner/index.js:98
+#: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Ghostery"
 msgstr "Ghostery"
 
@@ -1597,6 +1604,10 @@ msgstr "K'ïy kiwinaq taq tz'aqat"
 #: src/amo/components/Search/index.js:141
 msgid "Top rated add-ons"
 msgstr "Taq tz'aqat ya'on kiq'ij"
+
+#: src/amo/components/Search/index.js:147
+msgid "Popular extensions"
+msgstr "K'ïy kiwinaq taq k'amal"
 
 #: src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -2149,17 +2160,17 @@ msgid "Add-ons Home Page"
 msgstr "Kitikirib'al Ruxaq Tz'aqat"
 
 #: src/amo/components/UserProfile/index.js:127
-#: src/amo/components/UserProfileEdit/index.js:262
+#: src/amo/components/UserProfileEdit/index.js:351
 msgid "User Profile for %(user)s"
 msgstr "Ruwäch Rub'i' Okisanel richin %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159
-#: src/amo/components/UserProfileEdit/index.js:407
+#: src/amo/components/UserProfileEdit/index.js:496
 msgid "Location"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:167
-#: src/amo/components/UserProfileEdit/index.js:419
+#: src/amo/components/UserProfileEdit/index.js:508
 msgid "Occupation"
 msgstr ""
 
@@ -2180,114 +2191,200 @@ msgstr "Nik'aj kejqalem taq rutz'aqat b'anonel"
 msgid "Edit profile"
 msgstr "Tinuk' Ruwäch B'i'aj"
 
-#: src/amo/components/UserProfileEdit/index.js:231
+#: src/amo/components/UserProfileEdit/index.js:160
+msgid "Profile successfully updated"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:167
+msgid "Picture successfully deleted"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:320
 #, fuzzy
 msgid "Log in to edit the profile"
 msgstr "Titikirisäx molojri'ïl richin ninuk' re mol re'"
 
-#: src/amo/components/UserProfileEdit/index.js:275
+#: src/amo/components/UserProfileEdit/index.js:364
 #, fuzzy
 msgid "View user's profile"
 msgstr "Titz'et Ruwäch B'i'aj"
 
-#: src/amo/components/UserProfileEdit/index.js:282
+#: src/amo/components/UserProfileEdit/index.js:371
 #, fuzzy
 msgid "Edit user's profile"
 msgstr "Tinuk' Ruwäch B'i'aj"
 
-#: src/amo/components/UserProfileEdit/index.js:294
-msgid "Profile successfully updated"
-msgstr ""
-
-#: src/amo/components/UserProfileEdit/index.js:301
+#: src/amo/components/UserProfileEdit/index.js:390
 #, fuzzy
 msgid "Account"
 msgstr "Rub'i' Nutaqoya'l"
 
-#: src/amo/components/UserProfileEdit/index.js:302
+#: src/amo/components/UserProfileEdit/index.js:391
 #, fuzzy
 msgid "Account for %(username)s"
 msgstr "Katok pa taq atzij richin %(param)s"
 
-#: src/amo/components/UserProfileEdit/index.js:308
+#: src/amo/components/UserProfileEdit/index.js:397
 #, fuzzy
 msgid "Username"
 msgstr "Okisanel"
 
-#: src/amo/components/UserProfileEdit/index.js:319
+#: src/amo/components/UserProfileEdit/index.js:408
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:321
+#: src/amo/components/UserProfileEdit/index.js:410
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:337
+#: src/amo/components/UserProfileEdit/index.js:426
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:353
+#: src/amo/components/UserProfileEdit/index.js:442
 #, fuzzy
 msgid "Profile"
 msgstr "Titz'et Ruwäch B'i'aj"
 
-#: src/amo/components/UserProfileEdit/index.js:356
+#: src/amo/components/UserProfileEdit/index.js:445
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:361
+#: src/amo/components/UserProfileEdit/index.js:450
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:370
+#: src/amo/components/UserProfileEdit/index.js:459
 msgid "Display Name"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:402
+#: src/amo/components/UserProfileEdit/index.js:491
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:433
+#: src/amo/components/UserProfileEdit/index.js:530
 msgid "Biography"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:436
+#: src/amo/components/UserProfileEdit/index.js:533
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:439
+#: src/amo/components/UserProfileEdit/index.js:536
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:452
+#: src/amo/components/UserProfileEdit/index.js:549
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:482
+#: src/amo/components/UserProfileEdit/index.js:571
+msgid "Notifications"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid ""
+"From time to time, Mozilla may send you email about upcoming releases and "
+"add-on events. Please select the topics you are interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid ""
+"From time to time, Mozilla may send this user email about upcoming releases "
+"and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:589
+msgid ""
+"Mozilla reserves the right to contact you individually about specific "
+"concerns with your hosted add-ons."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:606
 #, fuzzy
 msgid "Updating your profile…"
 msgstr "Nik'ex ri tzolin tzij"
 
-#: src/amo/components/UserProfileEdit/index.js:483
+#: src/amo/components/UserProfileEdit/index.js:607
 #, fuzzy
 msgid "Update my profile"
 msgstr "Tik'ex ri tzolin tzij"
 
-#: src/amo/components/UserProfileEdit/index.js:485
+#: src/amo/components/UserProfileEdit/index.js:609
 #, fuzzy
 msgid "Updating user's profile…"
 msgstr "Nik'ex ri tzolin tzij"
 
-#: src/amo/components/UserProfileEdit/index.js:486
+#: src/amo/components/UserProfileEdit/index.js:610
 #, fuzzy
 msgid "Update user's profile"
 msgstr "Tik'ex ri tzolin tzij"
+
+#: src/amo/components/UserProfileEditNotifications/index.js:19
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:22
+msgid "Mozilla needs to contact me about my individual add-on"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:25
+msgid "new add-ons or Firefox features are available"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:27
+msgid "someone writes a review of my add-on"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:29
+msgid "an add-on developer replies to my review"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:31
+msgid "my add-on is reviewed by a reviewer"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:33
+msgid "my sdk-based add-on cannot be upgraded"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:35
+msgid "my sdk-based add-on is upgraded successfully"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:37
+msgid "my add-on's compatibility cannot be upgraded"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:39
+msgid "my add-on's compatibility is upgraded successfully"
+msgstr ""
+
+#: src/amo/components/UserProfileEditPicture/index.js:33
+#, fuzzy
+msgid "Profile picture for %(name)s"
+msgstr "Ruwäch Rub'i' Okisanel richin %(user)s"
+
+#: src/amo/components/UserProfileEditPicture/index.js:47
+#, fuzzy
+msgid "Profile photo"
+msgstr "Titz'et Ruwäch B'i'aj"
+
+#: src/amo/components/UserProfileEditPicture/index.js:66
+msgid "Choose photo..."
+msgstr ""
+
+#: src/amo/components/UserProfileEditPicture/index.js:76
+msgid "Delete this picture"
+msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2449,6 +2546,58 @@ msgstr ""
 "<span class=\"visually-hidden\">Tinimirisäx richin </span> Tisik'ïx ch'aqa' "
 "chik"
 
+#~ msgid "Privacy tools"
+#~ msgstr "Kisamajib'al ichinanem"
+
+#, fuzzy
+#~ msgid "Top-rated themes"
+#~ msgstr "Taq wachinel k'ïy kejqalem"
+
+#, fuzzy
+#~ msgid "See more highly rated themes"
+#~ msgstr "Ketz'et ch'aqa' chik taq wachinel k'ïy kejqalem"
+
+#, fuzzy
+#~ msgid "See more popular extensions"
+#~ msgstr "Ketz'et ch'aqa' chik kik'amal kanoxïk"
+
+#~ msgid "SHINE for Reddit"
+#~ msgstr "SHINE richin Reddit"
+
+#~ msgid "Experience Reddit with alternative designs"
+#~ msgstr "Titojtob'ëx Reddit kik'in jalel taq wachib'enïk"
+
+#~ msgid "LeechBlock NG"
+#~ msgstr "LeechBlock NG"
+
+#~ msgid "Block time-wasting sites"
+#~ msgstr "Keq'at taq ruxaq nikisäx-ramaj"
+
+#~ msgid "Tranquility Reader"
+#~ msgstr "Tranquility Reader"
+
+#~ msgid "Remove clutter and improve readability"
+#~ msgstr "Tayuju' ri kichikïk samaj richin nawutzilaj rusik'ixik"
+
+#~ msgid "AutoFormer+"
+#~ msgstr "AutoFormer+"
+
+#~ msgid "Fill out a lot of forms? This might help"
+#~ msgstr "¿La yetz'aqatisäx k'ïy taq nojwuj? Re re' tikirel nito'on"
+
+#~ msgid "Notebook Web Clipper"
+#~ msgstr "Notebook Web Clipper"
+
+#~ msgid "Clip, save & organize your favorite stuff on the web"
+#~ msgstr ""
+#~ "Klip, yeruyäk & nub'än kik'ojlem jeb'ël taq awachinaq pan ajk'amaya'l"
+
+#~ msgid "Flagfox"
+#~ msgstr "Flagfox"
+
+#~ msgid "Displays a website’s server location by country flag"
+#~ msgstr "Nuk'üt ruk'ojlemal ruk'uxasamaj ajk'amaya'l ruxaq chi amaq'"
+
 #, fuzzy
 #~ msgid "This add-on has not been rated yet."
 #~ msgstr "Majun rejqalem ya'on re tz'aqat re'."
@@ -2589,9 +2738,6 @@ msgstr ""
 #~ "Ke'awutzilaj ri taq ruq'i'oj kanoxïk kik'in nab'ey taq tz'etoj pa "
 #~ "ch'utinem, kicholajem k'ïy kiwinaq & ch'aqa' chik."
 
-#~ msgid "Forget Me Not"
-#~ msgstr "Man kinamestaj"
-
 #~ msgid ""
 #~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
 #~ "visit except those on your whitelist."
@@ -2633,9 +2779,6 @@ msgstr ""
 
 #~ msgid "Secure encryption for webmail."
 #~ msgstr "Ütz ewan tzij rrichin ajk'amaya'l taqoya'l."
-
-#~ msgid "Translate Man"
-#~ msgstr "Translate Man"
 
 #~ msgid "Point-and-click instant translations."
 #~ msgstr "Anin tzalq'omanïk rik'in jun pitz'oj."

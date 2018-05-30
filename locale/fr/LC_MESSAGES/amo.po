@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-23 19:11+0000\n"
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
 "PO-Revision-Date: 2018-05-15 21:28+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
@@ -40,7 +40,7 @@ msgid "Add to…"
 msgstr "Ajouter à…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:308
+#: src/amo/components/CollectionManager/index.js:335
 msgid "Add to collection"
 msgstr "Ajouter à la collection"
 
@@ -103,7 +103,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)spar %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-msgid "Only with Firefox — Get Firefox Now!"
+#, fuzzy
+msgid "Only with Firefox—Get Firefox Now"
 msgstr "Uniquement disponible sur Firefox — Installez Firefox !"
 
 #: src/amo/components/Addon/index.js:534
@@ -245,7 +246,7 @@ msgid "Version"
 msgstr "Version"
 
 #: src/amo/components/AddonMoreInfo/index.js:184
-#: src/amo/components/Collection/index.js:219
+#: src/amo/components/Collection/index.js:256
 msgid "Last updated"
 msgstr "Dernière mise à jour"
 
@@ -275,7 +276,7 @@ msgstr "Plus d’informations"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 #: src/amo/components/UserProfile/index.js:149
-#: src/amo/components/UserProfileEdit/index.js:390
+#: src/amo/components/UserProfileEdit/index.js:479
 msgid "Homepage"
 msgstr "Page d’accueil"
 
@@ -530,14 +531,14 @@ msgid "Extensions"
 msgstr "Extensions"
 
 #: src/amo/components/Category/index.js:132
-#: src/amo/components/Home/index.js:205
+#: src/amo/components/Home/index.js:200
 #: src/amo/components/LandingPage/index.js:124
 #: src/amo/components/Search/index.js:110
 msgid "Featured extensions"
 msgstr "Extensions mises en avant"
 
 #: src/amo/components/Category/index.js:141
-#: src/amo/components/Home/index.js:206
+#: src/amo/components/Home/index.js:201
 #: src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
 msgstr "Voir plus d’extensions mises en avant"
@@ -571,12 +572,14 @@ msgid "Themes"
 msgstr "Thèmes"
 
 #: src/amo/components/Category/index.js:165
+#: src/amo/components/Home/index.js:229
 #: src/amo/components/LandingPage/index.js:150
 #: src/amo/components/Search/index.js:113
 msgid "Featured themes"
 msgstr "Thèmes mis en avant"
 
 #: src/amo/components/Category/index.js:174
+#: src/amo/components/Home/index.js:230
 #: src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
 msgstr "Voir plus de thèmes mis en avant"
@@ -615,24 +618,24 @@ msgstr "Parcourir toutes les extensions dans cette catégorie."
 msgid "Browse all themes in this category."
 msgstr "Parcourir tous les thèmes dans cette catégorie."
 
-#: src/amo/components/Collection/index.js:164
+#: src/amo/components/Collection/index.js:173
 msgid "Edit this collection"
 msgstr "Modifier cette collection"
 
-#: src/amo/components/Collection/index.js:180
+#: src/amo/components/Collection/index.js:217
 msgid "Log in to edit this collection"
 msgstr "Se connecter pour modifier cette collection"
 
-#: src/amo/components/Collection/index.js:209
+#: src/amo/components/Collection/index.js:246
 #: src/amo/components/Footer/index.js:43
 msgid "Add-ons"
 msgstr "Modules complémentaires"
 
-#: src/amo/components/Collection/index.js:213
+#: src/amo/components/Collection/index.js:250
 msgid "Creator"
 msgstr "Créateur"
 
-#: src/amo/components/Collection/index.js:253
+#: src/amo/components/Collection/index.js:291
 msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
@@ -644,30 +647,41 @@ msgstr "Se connecter pour créer une collection"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:253
+#: src/amo/components/CollectionManager/index.js:263
+#, fuzzy
+msgid "Save collection"
+msgstr "Enregistrer la collection"
+
+#: src/amo/components/CollectionManager/index.js:263
+#, fuzzy
+msgid "Create collection"
+msgstr "Créer une nouvelle collection"
+
+#: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
 msgstr "Nom de la collection"
 
-#: src/amo/components/CollectionManager/index.js:265
+#: src/amo/components/CollectionManager/index.js:287
 msgid "Description"
 msgstr "Description"
 
-#: src/amo/components/CollectionManager/index.js:276
+#: src/amo/components/CollectionManager/index.js:298
 msgid "Custom URL"
 msgstr "Adresse web personnalisée"
 
-#: src/amo/components/CollectionManager/index.js:304
+#: src/amo/components/CollectionManager/index.js:324
+#, fuzzy
+msgid "Added to collection"
+msgstr "Ajouter à la collection"
+
+#: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
 msgstr "Rechercher un module à inclure dans cette collection"
 
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:351
 #: src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
 msgstr "Annuler"
-
-#: src/amo/components/CollectionManager/index.js:333
-msgid "Save Collection"
-msgstr "Enregistrer la collection"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -750,7 +764,7 @@ msgstr "Contribuer"
 msgid "Download Firefox"
 msgstr "Télécharger Firefox"
 
-#: src/amo/components/EditableCollectionAddon/index.js:54
+#: src/amo/components/EditableCollectionAddon/index.js:56
 msgid "Remove"
 msgstr "Retirer"
 
@@ -977,12 +991,12 @@ msgid "View My Collections"
 msgstr "Afficher mes collections"
 
 #: src/amo/components/Header/index.js:116
-#: src/amo/components/UserProfileEdit/index.js:274
+#: src/amo/components/UserProfileEdit/index.js:363
 msgid "View My Profile"
 msgstr "Afficher mon profil"
 
 #: src/amo/components/Header/index.js:124
-#: src/amo/components/UserProfileEdit/index.js:281
+#: src/amo/components/UserProfileEdit/index.js:370
 msgid "Edit My Profile"
 msgstr "Modifier mon profil"
 
@@ -1011,107 +1025,105 @@ msgstr "Se déconnecter"
 msgid "Firefox Add-ons"
 msgstr "Modules Firefox"
 
-#: src/amo/components/Home/index.js:115
+#: src/amo/components/Home/index.js:111
 msgid "Abstract"
 msgstr "Abstrait"
 
-#: src/amo/components/Home/index.js:120
+#: src/amo/components/Home/index.js:116
 msgid "Nature"
 msgstr "Nature"
 
-#: src/amo/components/Home/index.js:125
+#: src/amo/components/Home/index.js:121
 msgid "Film & TV"
 msgstr "Films et TV"
 
-#: src/amo/components/Home/index.js:130
+#: src/amo/components/Home/index.js:126
 msgid "Scenery"
 msgstr "Paysages"
 
-#: src/amo/components/Home/index.js:135
+#: src/amo/components/Home/index.js:131
 msgid "Music"
 msgstr "Musique"
 
-#: src/amo/components/Home/index.js:140
+#: src/amo/components/Home/index.js:136
 msgid "Seasonal"
 msgstr "Saisonnier"
 
-#: src/amo/components/Home/index.js:171
+#: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
 msgstr ""
 "Personnalisez le fonctionnement de Firefox à l’aide de modules. Vous êtes "
 "plutôt…"
 
-#: src/amo/components/Home/index.js:173
+#: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
 msgstr "Changez le style de Firefox à l’aide de thèmes."
 
-#: src/amo/components/Home/index.js:220
-msgid "Privacy tools"
-msgstr "Outils de confidentialité"
+#: src/amo/components/Home/index.js:215
+#, fuzzy
+msgid "Tame your tabs"
+msgstr "Personnalisation des onglets"
 
-#: src/amo/components/Home/index.js:222
-msgid "See more privacy tools"
+#: src/amo/components/Home/index.js:217
+#, fuzzy
+msgid "See more tab extensions"
+msgstr "Voir plus d’extensions de recherche"
+
+#: src/amo/components/Home/index.js:244
+#, fuzzy
+msgid "Essential extensions"
+msgstr "Parcourir toutes les extensions"
+
+#: src/amo/components/Home/index.js:245
+#, fuzzy
+msgid "See more essential extensions"
+msgstr "Voir plus d’extensions de recherche"
+
+#: src/amo/components/Home/index.js:255
+#, fuzzy
+msgid "Translation tools"
+msgstr "Translate Man"
+
+#: src/amo/components/Home/index.js:256
+#, fuzzy
+msgid "See more translation tools"
 msgstr "Voir plus d’outils de confidentialité"
 
-#: src/amo/components/Home/index.js:234
-msgid "Top-rated themes"
-msgstr "Thèmes les mieux notés"
-
-#: src/amo/components/Home/index.js:235
-msgid "See more highly rated themes"
-msgstr "Afficher plus de thèmes bien notés"
-
-#: src/amo/components/Home/index.js:249
-msgid "“Extensions Challenge” honorees"
-msgstr "Lauréats des « Extensions Challenge »"
-
-#: src/amo/components/Home/index.js:250
-msgid "See more “Extensions Challenge” honorees"
-msgstr "Afficher plus de lauréats des « Extensions Challenge »"
-
-#: src/amo/components/Home/index.js:261 src/amo/components/Search/index.js:147
-msgid "Popular extensions"
-msgstr "Extensions populaires"
-
-#: src/amo/components/Home/index.js:262
-msgid "See more popular extensions"
-msgstr "Voir plus d’extensions populaires"
-
-#: src/amo/components/Home/index.js:64
+#: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
 msgstr "Marque-pages"
 
-#: src/amo/components/Home/index.js:68
+#: src/amo/components/Home/index.js:64
 msgid "Password managers"
 msgstr "Gestionnaires de mots de passe"
 
-#: src/amo/components/Home/index.js:72
+#: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
 msgstr "Bloqueurs de publicités"
 
-#: src/amo/components/Home/index.js:76
+#: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
 msgstr "Achats en ligne"
 
-#: src/amo/components/Home/index.js:80
+#: src/amo/components/Home/index.js:76
 msgid "Productivity"
 msgstr "Productivité"
 
-#: src/amo/components/Home/index.js:84
+#: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
 msgstr "Regarder des vidéos"
 
-#: src/amo/components/HomeHeroBanner/index.js:101
+#: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Popular anti-tracking extension now has ad blocking ability"
 msgstr ""
 "L’extension populaire de blocage des traqueurs permet désormais de bloquer "
 "les publicités"
 
-#: src/amo/components/HomeHeroBanner/index.js:111
+#: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
 msgstr "Multi-Account Containers"
 
-#: src/amo/components/HomeHeroBanner/index.js:114
+#: src/amo/components/HomeHeroBanner/index.js:113
 msgid ""
 "Keep different parts of your online life—work, personal, etc.—separated by "
 "color-coded tabs"
@@ -1119,75 +1131,77 @@ msgstr ""
 "Séparez vos identités sur le Web (travail, personnel, etc.) à l’aide "
 "d’onglets contextuels colorés"
 
-#: src/amo/components/HomeHeroBanner/index.js:124
+#: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
 msgstr "Worldwide Radio"
 
-#: src/amo/components/HomeHeroBanner/index.js:127
+#: src/amo/components/HomeHeroBanner/index.js:126
 msgid ""
 "Quantum Extensions Challenge winner! Listen to live radio from around the "
 "world"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:137
+#: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
 msgstr "Envify"
 
-#: src/amo/components/HomeHeroBanner/index.js:140
+#: src/amo/components/HomeHeroBanner/index.js:139
 msgid ""
 "Quantum Extensions Challenge winner! Different tab colors for different dev "
 "environments"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:150
+#: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Laser Cat"
 msgstr "Laser Cat"
 
-#: src/amo/components/HomeHeroBanner/index.js:153
+#: src/amo/components/HomeHeroBanner/index.js:152
 msgid "For moments on the internet when you need to fire lasers out of a cat"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:163
+#: src/amo/components/HomeHeroBanner/index.js:162
 msgid "Download Manager (S3)"
 msgstr "Download Manager (S3)"
 
-#: src/amo/components/HomeHeroBanner/index.js:165
+#: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:173
+#: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
 msgstr "Black Menu for Google"
 
-#: src/amo/components/HomeHeroBanner/index.js:176
+#: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr ""
 "Accédez facilement à certains services Google (recherche, traduction) grâce "
 "à un menu déroulant"
 
-#: src/amo/components/HomeHeroBanner/index.js:186
-msgid "SHINE for Reddit"
-msgstr "SHINE pour Reddit"
+#: src/amo/components/HomeHeroBanner/index.js:185
+#, fuzzy
+msgid "Page Translate"
+msgstr "Translate Man"
 
-#: src/amo/components/HomeHeroBanner/index.js:189
-msgid "Experience Reddit with alternative designs"
-msgstr "Essayez Reddit avec un thème alternatif"
+#: src/amo/components/HomeHeroBanner/index.js:188
+msgid "Translate an entire web page with a couple clicks"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:198
-msgid "LeechBlock NG"
-msgstr "LeechBlock NG"
+#: src/amo/components/HomeHeroBanner/index.js:197
+#, fuzzy
+msgid "Image Search Options"
+msgstr "Voir plus d’extensions de recherche"
 
-#: src/amo/components/HomeHeroBanner/index.js:201
-msgid "Block time-wasting sites"
-msgstr "Bloquez les sites qui vous font perdre du temps"
+#: src/amo/components/HomeHeroBanner/index.js:200
+msgid "Access reverse image search options in a context menu"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:210
-msgid "Tranquility Reader"
-msgstr "Tranquility Reader"
+#: src/amo/components/HomeHeroBanner/index.js:209
+msgid "Forget Me Not"
+msgstr "Forget Me Not"
 
-#: src/amo/components/HomeHeroBanner/index.js:213
-msgid "Remove clutter and improve readability"
-msgstr "Supprimez les éléments inutiles et améliorez la lisibilité"
+#: src/amo/components/HomeHeroBanner/index.js:212
+msgid "Make Firefox forget website data like cookies & local storage"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
@@ -1214,49 +1228,48 @@ msgid "Prevent Facebook from tracking you around the web"
 msgstr "Empêche Facebook de vous pister sur le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
-msgid "AutoFormer+"
-msgstr "AutoFormer+"
+msgid "Swift Selection Search"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
-msgid "Fill out a lot of forms? This might help"
-msgstr "Vous remplissez énormément de formulaires ? Ceci devrait vous aider"
+msgid "Highlight text on any web page to pull up a handy search menu"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:51
+#: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:54
+#: src/amo/components/HomeHeroBanner/index.js:55
 msgid ""
 "Quantum Extensions Challenge winner! Save sessions as bookmarks and access "
 "them across devices"
 msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:64
-msgid "Notebook Web Clipper"
-msgstr "Notebook Web Clipper"
-
-#: src/amo/components/HomeHeroBanner/index.js:66
-msgid "Clip, save & organize your favorite stuff on the web"
+#: src/amo/components/HomeHeroBanner/index.js:65
+msgid "Web Security"
 msgstr ""
-"Capturez et enregistrez les éléments intéressants que vous trouvez sur le Web"
+
+#: src/amo/components/HomeHeroBanner/index.js:67
+msgid "Protection against malware and data phishing scams"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:76
-msgid "Flagfox"
-msgstr "Flagfox"
+msgid "Vertical Tabs Reloaded"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:78
-msgid "Displays a website’s server location by country flag"
-msgstr "Affichez le drapeau du pays où est situé le serveur du site visité"
+msgid "Arrange tabs in a vertical fashion"
+msgstr ""
 
-#: src/amo/components/HomeHeroBanner/index.js:88
+#: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
 msgstr "uBlock Origin"
 
-#: src/amo/components/HomeHeroBanner/index.js:90
+#: src/amo/components/HomeHeroBanner/index.js:89
 msgid "Efficient, powerful ad blocker"
 msgstr "Un bloqueur de publicités efficace et puissant"
 
-#: src/amo/components/HomeHeroBanner/index.js:98
+#: src/amo/components/HomeHeroBanner/index.js:97
 msgid "Ghostery"
 msgstr "Ghostery"
 
@@ -1577,6 +1590,10 @@ msgstr "Modules populaires"
 #: src/amo/components/Search/index.js:141
 msgid "Top rated add-ons"
 msgstr "Modules les mieux notés"
+
+#: src/amo/components/Search/index.js:147
+msgid "Popular extensions"
+msgstr "Extensions populaires"
 
 #: src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -2137,17 +2154,17 @@ msgid "Add-ons Home Page"
 msgstr "Page d’accueil des modules"
 
 #: src/amo/components/UserProfile/index.js:127
-#: src/amo/components/UserProfileEdit/index.js:262
+#: src/amo/components/UserProfileEdit/index.js:351
 msgid "User Profile for %(user)s"
 msgstr "Profil utilisateur de %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159
-#: src/amo/components/UserProfileEdit/index.js:407
+#: src/amo/components/UserProfileEdit/index.js:496
 msgid "Location"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:167
-#: src/amo/components/UserProfileEdit/index.js:419
+#: src/amo/components/UserProfileEdit/index.js:508
 msgid "Occupation"
 msgstr "Profession"
 
@@ -2168,44 +2185,49 @@ msgstr "Moyenne des notes des modules du développeur"
 msgid "Edit profile"
 msgstr "Modifier mon profil"
 
-#: src/amo/components/UserProfileEdit/index.js:231
+#: src/amo/components/UserProfileEdit/index.js:160
+msgid "Profile successfully updated"
+msgstr "Profil mis à jour"
+
+#: src/amo/components/UserProfileEdit/index.js:167
+#, fuzzy
+msgid "Picture successfully deleted"
+msgstr "Profil mis à jour"
+
+#: src/amo/components/UserProfileEdit/index.js:320
 #, fuzzy
 msgid "Log in to edit the profile"
 msgstr "Se connecter pour modifier cette collection"
 
-#: src/amo/components/UserProfileEdit/index.js:275
+#: src/amo/components/UserProfileEdit/index.js:364
 msgid "View user's profile"
 msgstr "Afficher le profil de l’utilisateur"
 
-#: src/amo/components/UserProfileEdit/index.js:282
+#: src/amo/components/UserProfileEdit/index.js:371
 msgid "Edit user's profile"
 msgstr "Modifier le profil de l’utilisateur"
 
-#: src/amo/components/UserProfileEdit/index.js:294
-msgid "Profile successfully updated"
-msgstr "Profil mis à jour"
-
-#: src/amo/components/UserProfileEdit/index.js:301
+#: src/amo/components/UserProfileEdit/index.js:390
 msgid "Account"
 msgstr "Compte"
 
-#: src/amo/components/UserProfileEdit/index.js:302
+#: src/amo/components/UserProfileEdit/index.js:391
 msgid "Account for %(username)s"
 msgstr "Compte de %(username)s"
 
-#: src/amo/components/UserProfileEdit/index.js:308
+#: src/amo/components/UserProfileEdit/index.js:397
 msgid "Username"
 msgstr "Nom d’utilisateur"
 
-#: src/amo/components/UserProfileEdit/index.js:319
+#: src/amo/components/UserProfileEdit/index.js:408
 msgid "Email address cannot be changed here"
 msgstr "L’adresse électronique ne peut pas être changée depuis cet endroit"
 
-#: src/amo/components/UserProfileEdit/index.js:321
+#: src/amo/components/UserProfileEdit/index.js:410
 msgid "Email Address"
 msgstr "Adresse électronique"
 
-#: src/amo/components/UserProfileEdit/index.js:337
+#: src/amo/components/UserProfileEdit/index.js:426
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
@@ -2213,63 +2235,145 @@ msgstr ""
 "Vous pouvez modifier votre adresse électronique depuis votre compte Firefox. "
 "%(startLink)sBesoin d’aide ?%(endLink)s"
 
-#: src/amo/components/UserProfileEdit/index.js:353
+#: src/amo/components/UserProfileEdit/index.js:442
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:356
+#: src/amo/components/UserProfileEdit/index.js:445
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:361
+#: src/amo/components/UserProfileEdit/index.js:450
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:370
+#: src/amo/components/UserProfileEdit/index.js:459
 msgid "Display Name"
 msgstr "Nom à afficher"
 
-#: src/amo/components/UserProfileEdit/index.js:402
+#: src/amo/components/UserProfileEdit/index.js:491
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:433
+#: src/amo/components/UserProfileEdit/index.js:530
 msgid "Biography"
 msgstr "Biographie"
 
-#: src/amo/components/UserProfileEdit/index.js:436
+#: src/amo/components/UserProfileEdit/index.js:533
 msgid "Introduce yourself to the community if you like"
 msgstr "Présentez-vous à la communauté si vous le souhaitez"
 
-#: src/amo/components/UserProfileEdit/index.js:439
+#: src/amo/components/UserProfileEdit/index.js:536
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:452
+#: src/amo/components/UserProfileEdit/index.js:549
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:482
+#: src/amo/components/UserProfileEdit/index.js:571
+msgid "Notifications"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid ""
+"From time to time, Mozilla may send you email about upcoming releases and "
+"add-on events. Please select the topics you are interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid ""
+"From time to time, Mozilla may send this user email about upcoming releases "
+"and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:589
+msgid ""
+"Mozilla reserves the right to contact you individually about specific "
+"concerns with your hosted add-ons."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:606
 #, fuzzy
 msgid "Updating your profile…"
 msgstr "Modifier la réponse"
 
-#: src/amo/components/UserProfileEdit/index.js:483
+#: src/amo/components/UserProfileEdit/index.js:607
 msgid "Update my profile"
 msgstr "Mettre à jour mon profil"
 
-#: src/amo/components/UserProfileEdit/index.js:485
+#: src/amo/components/UserProfileEdit/index.js:609
 #, fuzzy
 msgid "Updating user's profile…"
 msgstr "Modifier la réponse"
 
-#: src/amo/components/UserProfileEdit/index.js:486
+#: src/amo/components/UserProfileEdit/index.js:610
 msgid "Update user's profile"
 msgstr "Mettre à jour le profil de l’utilisateur"
+
+#: src/amo/components/UserProfileEditNotifications/index.js:19
+msgid ""
+"stay up-to-date with news and events relevant to add-on developers "
+"(including the about:addons newsletter)"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:22
+msgid "Mozilla needs to contact me about my individual add-on"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:25
+msgid "new add-ons or Firefox features are available"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:27
+msgid "someone writes a review of my add-on"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:29
+msgid "an add-on developer replies to my review"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:31
+msgid "my add-on is reviewed by a reviewer"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:33
+msgid "my sdk-based add-on cannot be upgraded"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:35
+msgid "my sdk-based add-on is upgraded successfully"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:37
+msgid "my add-on's compatibility cannot be upgraded"
+msgstr ""
+
+#: src/amo/components/UserProfileEditNotifications/index.js:39
+msgid "my add-on's compatibility is upgraded successfully"
+msgstr ""
+
+#: src/amo/components/UserProfileEditPicture/index.js:33
+#, fuzzy
+msgid "Profile picture for %(name)s"
+msgstr "Profil utilisateur de %(user)s"
+
+#: src/amo/components/UserProfileEditPicture/index.js:47
+#, fuzzy
+msgid "Profile photo"
+msgstr "Profil"
+
+#: src/amo/components/UserProfileEditPicture/index.js:66
+msgid "Choose photo..."
+msgstr ""
+
+#: src/amo/components/UserProfileEditPicture/index.js:76
+msgid "Delete this picture"
+msgstr ""
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2428,6 +2532,62 @@ msgstr ""
 "<span class=\"visually-hidden\">Développer pour afficher</span> Plus "
 "d’informations"
 
+#~ msgid "Privacy tools"
+#~ msgstr "Outils de confidentialité"
+
+#~ msgid "Top-rated themes"
+#~ msgstr "Thèmes les mieux notés"
+
+#~ msgid "See more highly rated themes"
+#~ msgstr "Afficher plus de thèmes bien notés"
+
+#~ msgid "“Extensions Challenge” honorees"
+#~ msgstr "Lauréats des « Extensions Challenge »"
+
+#~ msgid "See more “Extensions Challenge” honorees"
+#~ msgstr "Afficher plus de lauréats des « Extensions Challenge »"
+
+#~ msgid "See more popular extensions"
+#~ msgstr "Voir plus d’extensions populaires"
+
+#~ msgid "SHINE for Reddit"
+#~ msgstr "SHINE pour Reddit"
+
+#~ msgid "Experience Reddit with alternative designs"
+#~ msgstr "Essayez Reddit avec un thème alternatif"
+
+#~ msgid "LeechBlock NG"
+#~ msgstr "LeechBlock NG"
+
+#~ msgid "Block time-wasting sites"
+#~ msgstr "Bloquez les sites qui vous font perdre du temps"
+
+#~ msgid "Tranquility Reader"
+#~ msgstr "Tranquility Reader"
+
+#~ msgid "Remove clutter and improve readability"
+#~ msgstr "Supprimez les éléments inutiles et améliorez la lisibilité"
+
+#~ msgid "AutoFormer+"
+#~ msgstr "AutoFormer+"
+
+#~ msgid "Fill out a lot of forms? This might help"
+#~ msgstr "Vous remplissez énormément de formulaires ? Ceci devrait vous aider"
+
+#~ msgid "Notebook Web Clipper"
+#~ msgstr "Notebook Web Clipper"
+
+#~ msgid "Clip, save & organize your favorite stuff on the web"
+#~ msgstr ""
+#~ "Capturez et enregistrez les éléments intéressants que vous trouvez sur le "
+#~ "Web"
+
+#~ msgid "Flagfox"
+#~ msgstr "Flagfox"
+
+#~ msgid "Displays a website’s server location by country flag"
+#~ msgstr "Affichez le drapeau du pays où est situé le serveur du site visité"
+
 #~ msgid "This add-on has not been rated yet."
 #~ msgstr "Ce module n’a pas encore été noté."
 
@@ -2550,9 +2710,6 @@ msgstr ""
 #~ msgid "Re-imagine search"
 #~ msgstr "La recherche, repensée"
 
-#~ msgid "See more search extensions"
-#~ msgstr "Voir plus d’extensions de recherche"
-
 #~ msgid "February’s new featured extensions"
 #~ msgstr "Nouvelles extensions mises en avant de février"
 
@@ -2567,9 +2724,6 @@ msgstr ""
 #~ msgstr ""
 #~ "Ajoutez aux résultats de recherche des prévisualisations, des classements "
 #~ "par popularité et bien plus."
-
-#~ msgid "Forget Me Not"
-#~ msgstr "Forget Me Not"
 
 #~ msgid ""
 #~ "Automatically delete data (cookies, local storage, etc.) on all sites you "
@@ -2611,9 +2765,6 @@ msgstr ""
 
 #~ msgid "Secure encryption for webmail."
 #~ msgstr "Chiffrement sécurisé pour les messageries en ligne."
-
-#~ msgid "Translate Man"
-#~ msgstr "Translate Man"
 
 #~ msgid "Point-and-click instant translations."
 #~ msgstr "Traductions instantanées en un clic."
@@ -2719,9 +2870,6 @@ msgstr ""
 
 #~ msgid "Top privacy extensions"
 #~ msgstr "Extensions les plus populaires pour la vie privée"
-
-#~ msgid "Change up your tabs"
-#~ msgstr "Personnalisation des onglets"
 
 #~ msgid "Excellent extensions for all situations"
 #~ msgstr "D’excellentes extensions pour toutes les situations"
