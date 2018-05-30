@@ -1,7 +1,9 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
-// screenshot-height value was increased to handle issue #4887
+// screenshot-height value was increased for 
+// https://github.com/mozilla/addons-frontend/issues/4887
 // image-height ensures the image is always 20px less than screenshot-height
+// 20px accounts for the approx size of the horizontal scrollbar
 $screenshot-height: 220px;
 $image-height: $screenshot-height - 20px;
 $screenshot-width: 320px;
