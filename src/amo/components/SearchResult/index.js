@@ -52,8 +52,8 @@ export class SearchResultBase extends React.Component<Props> {
     if (isTheme) {
       let themeURL = addon.previews &&
         addon.previews.length > 0 &&
-        isAllowedOrigin(addon.previews[0].thumbnail_url) ?
-        addon.previews[0].thumbnail_url : null;
+        isAllowedOrigin(addon.previews[0].image_url) ?
+        addon.previews[0].image_url : null;
 
 
       if (!themeURL && addon.type === ADDON_TYPE_THEME) {
