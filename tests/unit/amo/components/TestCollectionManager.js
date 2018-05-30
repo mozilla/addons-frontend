@@ -716,15 +716,17 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
 
-    let state = root.state();
+    const state = root.state();
     expect(state.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_SUCCESS);
 
-    // After 5 seconds the Notice will go away.
-    clock.tick(5010);
+    const reset = () => {
+      root.setState({ addonAddedStatus: null });
+    };
 
-    state = root.state();
-    expect(state.addonAddedStatus).toEqual(null);
-    root.setProps({ hasAddonBeenAdded: true });
+    // After 5 seconds the Notice will go away.
+    root.setProps(setTimeout(reset));
+
+    clock.tick(6000);
     expect(root.find(Notice)).toHaveLength(0);
   });
 

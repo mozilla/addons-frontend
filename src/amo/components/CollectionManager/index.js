@@ -63,6 +63,7 @@ type Props = {|
   isCollectionBeingModified: boolean,
   page: number | null,
   router: ReactRouterType,
+  setTimeout: Function,
   siteLang: ?string,
   siteUserId: number | null,
 |};
@@ -76,6 +77,10 @@ type State = {|
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
+  static defaultProps = {
+    setTimeout: (fn) => setTimeout(fn, MESSAGE_RESET_TIME),
+  };
+
   constructor(props: Props) {
     super(props);
     this.state = this.propsToState(props);
@@ -83,25 +88,23 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   componentWillReceiveProps(props: Props) {
     const existingId = this.props.collection && this.props.collection.id;
+    const { hasAddonBeenAdded: hasAddonBeenAddedNew } = props;
+    const { hasAddonBeenAdded } = this.props;
     if (props.collection && props.collection.id !== existingId) {
       // Only reset the form when receiving a collection that the
       // user is not already editing. This prevents clearing the form
       // in a few scenarios such as pressing the submit button.
       this.setState(this.propsToState(props));
     }
-    if (this.props.hasAddonBeenAdded !== props.hasAddonBeenAdded) {
+    if (hasAddonBeenAdded !== hasAddonBeenAddedNew) {
       this.setState({
         addonAddedStatus: props.hasAddonBeenAdded ?
           ADDON_ADDED_STATUS_SUCCESS : null,
-      }, () => {
-        if (props.hasAddonBeenAdded) {
-          setTimeout(() => {
-            this.setState({
-              addonAddedStatus: null,
-            });
-          }, MESSAGE_RESET_TIME);
-        }
       });
+    }
+
+    if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
+      this.props.setTimeout(this.resetMessageStatus);
     }
   }
 
@@ -236,6 +239,12 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       userId: siteUserId,
     }));
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
+  };
+
+  resetMessageStatus = () => {
+    this.setState({
+      addonAddedStatus: null,
+    });
   };
 
   propsToState(props: Props) {
