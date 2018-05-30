@@ -9,6 +9,7 @@ import { compose } from 'redux';
 import {
   addAddonToCollection, fetchUserCollections,
 } from 'amo/reducers/collections';
+import { getCurrentUser } from 'amo/reducers/users';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
 import log from 'core/logger';
@@ -29,19 +30,19 @@ import './styles.scss';
 
 
 type Props = {|
+  _window: typeof window | Object,
   addon: AddonType | null,
+  // These are all user collections that the current add-on is a part of.
+  addonInCollections: Array<CollectionType> | null,
   className?: string,
+  currentUsername: string | null,
   dispatch: DispatchFunc,
   errorHandler: ErrorHandlerType,
   i18n: I18nType,
   loadingAddonsInCollections: boolean,
   loadingUserCollections: boolean,
-  siteUserId: number | null,
-  // These are all user collections that the current add-on is a part of.
-  addonInCollections: Array<CollectionType> | null,
   // These are all collections belonging to the user.
   userCollections: Array<CollectionType> | null,
-  _window: typeof window | Object,
 |};
 
 type OnSelectOptionType = () => void;
@@ -78,11 +79,11 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   loadDataIfNeeded(nextProps?: Props) {
     const combinedProps = { ...this.props, ...nextProps };
     const {
+      currentUsername,
       dispatch,
       errorHandler,
       loadingUserCollections,
       userCollections,
-      siteUserId,
     } = combinedProps;
 
     if (errorHandler.hasError()) {
@@ -90,9 +91,9 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       return;
     }
 
-    if (siteUserId && !loadingUserCollections && !userCollections) {
+    if (currentUsername && !loadingUserCollections && !userCollections) {
       dispatch(fetchUserCollections({
-        errorHandlerId: errorHandler.id, userId: siteUserId,
+        errorHandlerId: errorHandler.id, user: currentUsername,
       }));
     }
   }
@@ -109,12 +110,12 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
   }
 
   addToCollection(collection: CollectionType) {
-    const { addon, errorHandler, dispatch, siteUserId } = this.props;
+    const { addon, currentUsername, dispatch, errorHandler } = this.props;
     if (!addon) {
       throw new Error(
         'Cannot add to collection because no add-on has been loaded');
     }
-    if (!siteUserId) {
+    if (!currentUsername) {
       throw new Error(
         'Cannot add to collection because you are not signed in');
     }
@@ -124,7 +125,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       collectionId: collection.id,
       slug: collection.slug,
       errorHandlerId: errorHandler.id,
-      userId: siteUserId,
+      user: currentUsername,
     }));
   }
 
@@ -285,37 +286,38 @@ export const mapStateToProps = (
   state: {| collections: CollectionsState, users: UsersStateType |},
   ownProps: Props
 ) => {
-  const { collections } = state;
-  const siteUserId = state.users.currentUserID;
+  const { collections, users } = state;
+  const currentUser = getCurrentUser(users);
+  const currentUsername = currentUser && currentUser.username;
 
   let userCollections;
   let addonInCollections;
 
-  if (siteUserId) {
-    userCollections = collections.userCollections[siteUserId];
+  if (currentUsername) {
+    userCollections = collections.userCollections[currentUsername];
     const { addon } = ownProps;
     if (addon) {
       addonInCollections =
-        collections.addonInCollections[siteUserId] &&
-        collections.addonInCollections[siteUserId][addon.id];
+        collections.addonInCollections[currentUsername] &&
+        collections.addonInCollections[currentUsername][addon.id];
     }
   }
   return {
+    addonInCollections:
+      expandCollections(collections, addonInCollections),
+    currentUsername,
     loadingAddonsInCollections:
       addonInCollections ? addonInCollections.loading : false,
     loadingUserCollections:
       userCollections ? userCollections.loading : false,
-    siteUserId,
-    addonInCollections:
-      expandCollections(collections, addonInCollections),
     userCollections:
       expandCollections(collections, userCollections),
   };
 };
 
 export const extractId = (ownProps: Props) => {
-  const { addon, siteUserId } = ownProps;
-  return `${addon ? addon.id : ''}-${siteUserId || ''}`;
+  const { addon, currentUsername } = ownProps;
+  return `${addon ? addon.id : ''}-${currentUsername || ''}`;
 };
 
 export default compose(

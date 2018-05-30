@@ -15,7 +15,7 @@ import type {
 export type GetCollectionParams = {|
   api: ApiStateType,
   slug: string,
-  user: string | number,
+  user: string,
 |};
 
 export const getCollectionDetail = (
@@ -92,7 +92,7 @@ export const getAllCollectionAddons = async (
 type ListCollectionsParams = {|
   api: ApiStateType,
   nextURL?: string,
-  user: string | number,
+  user: string,
 |};
 
 export const listCollections = (
@@ -260,7 +260,7 @@ type ModifyCollectionAddonBaseParams = {|
   addonId: number,
   api: ApiStateType,
   slug: string,
-  user: string | number,
+  user: string,
   _modifyCollectionAddon?: (any) => Promise<void>,
 |};
 
@@ -337,7 +337,7 @@ export type RemoveAddonFromCollectionParams = {|
   addonId: number,
   api: ApiStateType,
   slug: string,
-  user: string | number,
+  user: string,
 |};
 
 export const removeAddonFromCollection = (

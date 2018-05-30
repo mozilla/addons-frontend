@@ -66,7 +66,6 @@ type Props = {|
   router: ReactRouterType,
   setTimeout: Function,
   siteLang: ?string,
-  siteUserId: number | null,
 |};
 
 type State = {|
@@ -224,13 +223,15 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   };
 
   onAddonSelected = (suggestion: SuggestionType) => {
-    const { collection, errorHandler, dispatch, page, siteUserId } = this.props;
+    const {
+      collection, currentUsername, dispatch, errorHandler, page,
+    } = this.props;
     const { addonId } = suggestion;
 
     invariant(addonId, 'addonId cannot be empty');
     invariant(collection,
       'A collection must be loaded before you can add an add-on to it');
-    invariant(siteUserId,
+    invariant(currentUsername,
       'Cannot add to collection because you are not signed in');
 
     dispatch(addAddonToCollection({
@@ -240,7 +241,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       editing: true,
       errorHandlerId: errorHandler.id,
       page: page || 1,
-      userId: siteUserId,
+      user: currentUsername,
     }));
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
@@ -419,7 +420,6 @@ export const mapStateToProps = (
     currentUsername: currentUser && currentUser.username,
     isCollectionBeingModified: state.collections.isCollectionBeingModified,
     siteLang: state.api.lang,
-    siteUserId: state.users.currentUserID,
   };
 };
 

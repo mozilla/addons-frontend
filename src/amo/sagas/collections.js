@@ -124,7 +124,7 @@ export function* fetchCurrentCollectionPage({
 }
 
 export function* fetchUserCollections({
-  payload: { errorHandlerId, userId },
+  payload: { errorHandlerId, user },
 }: FetchUserCollectionsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -133,21 +133,21 @@ export function* fetchUserCollections({
     const state = yield select(getState);
 
     const params: GetAllUserCollectionsParams = {
-      api: state.api, user: userId,
+      api: state.api, user,
     };
     const collections = yield call(api.getAllUserCollections, params);
 
-    yield put(loadUserCollections({ userId, collections }));
+    yield put(loadUserCollections({ user, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortFetchUserCollections({ userId }));
+    yield put(abortFetchUserCollections({ user }));
   }
 }
 
 export function* addAddonToCollection({
   payload: {
-    addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
+    addonId, collectionId, editing, errorHandlerId, notes, page, slug, user,
   },
 }: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -161,7 +161,7 @@ export function* addAddonToCollection({
       api: state.api,
       slug,
       notes,
-      user: userId,
+      user,
     };
     yield call(api.createCollectionAddon, params);
 
@@ -172,16 +172,16 @@ export function* addAddonToCollection({
         page,
         errorHandlerId: errorHandler.id,
         slug,
-        user: userId,
+        user,
       }));
     }
     yield put(addonAddedToCollection({
-      addonId, userId, collectionId,
+      addonId, user, collectionId,
     }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortAddAddonToCollection({ addonId, userId }));
+    yield put(abortAddAddonToCollection({ addonId, user }));
   }
 }
 

@@ -70,14 +70,14 @@ export type CollectionsState = {
     loading: boolean,
   |},
   userCollections: {
-    [userId: number]: {|
+    [user: string]: {|
       // This is a list of all collections belonging to the user.
       collections: Array<CollectionId> | null,
       loading: boolean,
     |};
   },
   addonInCollections: {
-    [userId: number]: {
+    [user: string]: {
       [addonId: number]: {|
         // This is a list of all user collections that the add-on
         // is a part of.
@@ -104,7 +104,7 @@ type FetchCurrentCollectionParams = {|
   errorHandlerId: string,
   page?: number,
   slug: string,
-  user: number | string,
+  user: string,
 |};
 
 export type FetchCurrentCollectionAction = {|
@@ -130,7 +130,7 @@ export const fetchCurrentCollection = ({
 
 type FetchUserCollectionsParams = {|
   errorHandlerId: string,
-  userId: number,
+  user: string,
 |};
 
 export type FetchUserCollectionsAction = {|
@@ -139,23 +139,23 @@ export type FetchUserCollectionsAction = {|
 |};
 
 export const fetchUserCollections = ({
-  errorHandlerId, userId,
+  errorHandlerId, user,
 }: FetchUserCollectionsParams = {}): FetchUserCollectionsAction => {
   if (!errorHandlerId) {
     throw new Error('errorHandlerId is required');
   }
-  if (!userId) {
-    throw new Error('userId is required');
+  if (!user) {
+    throw new Error('user is required');
   }
 
   return {
     type: FETCH_USER_COLLECTIONS,
-    payload: { errorHandlerId, userId },
+    payload: { errorHandlerId, user },
   };
 };
 
 type AbortFetchUserCollectionsParams = {|
-  userId: number,
+  user: string,
 |};
 
 type AbortFetchUserCollectionsAction = {|
@@ -164,21 +164,21 @@ type AbortFetchUserCollectionsAction = {|
 |};
 
 export const abortFetchUserCollections = (
-  { userId }: AbortFetchUserCollectionsParams = {}
+  { user }: AbortFetchUserCollectionsParams = {}
 ): AbortFetchUserCollectionsAction => {
-  if (!userId) {
-    throw new Error('userId is required');
+  if (!user) {
+    throw new Error('user is required');
   }
 
   return {
     type: ABORT_FETCH_USER_COLLECTIONS,
-    payload: { userId },
+    payload: { user },
   };
 };
 
 type AbortAddAddonToCollectionParams = {|
-  userId: number,
   addonId: number,
+  user: string,
 |};
 
 type AbortAddAddonToCollectionAction = {|
@@ -187,10 +187,10 @@ type AbortAddAddonToCollectionAction = {|
 |};
 
 export const abortAddAddonToCollection = (
-  { userId, addonId }: AbortAddAddonToCollectionParams = {}
+  { addonId, user }: AbortAddAddonToCollectionParams = {}
 ): AbortAddAddonToCollectionAction => {
-  if (!userId) {
-    throw new Error('userId is required');
+  if (!user) {
+    throw new Error('user is required');
   }
   if (!addonId) {
     throw new Error('addonId is required');
@@ -198,7 +198,7 @@ export const abortAddAddonToCollection = (
 
   return {
     type: ABORT_ADD_ADDON_TO_COLLECTION,
-    payload: { userId, addonId },
+    payload: { user, addonId },
   };
 };
 
@@ -353,8 +353,8 @@ export const loadCollectionAddons = ({
 };
 
 type LoadUserCollectionsParams = {|
-  userId: number,
   collections: Array<ExternalCollectionDetail>,
+  user: string,
 |};
 
 type LoadUserCollectionsAction = {|
@@ -363,10 +363,10 @@ type LoadUserCollectionsAction = {|
 |};
 
 export const loadUserCollections = (
-  { userId, collections }: LoadUserCollectionsParams = {}
+  { collections, user }: LoadUserCollectionsParams = {}
 ): LoadUserCollectionsAction => {
-  if (!userId) {
-    throw new Error('The userId parameter is required');
+  if (!user) {
+    throw new Error('The user parameter is required');
   }
   if (!collections) {
     throw new Error('The collections parameter is required');
@@ -374,14 +374,14 @@ export const loadUserCollections = (
 
   return {
     type: LOAD_USER_COLLECTIONS,
-    payload: { userId, collections },
+    payload: { user, collections },
   };
 };
 
 type AddonAddedToCollectionParams = {|
   addonId: number,
-  userId: number,
   collectionId: CollectionId,
+  user: string,
 |};
 
 type AddonAddedToCollectionAction = {|
@@ -390,13 +390,13 @@ type AddonAddedToCollectionAction = {|
 |};
 
 export const addonAddedToCollection = (
-  { addonId, userId, collectionId }: AddonAddedToCollectionParams = {}
+  { addonId, collectionId, user }: AddonAddedToCollectionParams = {}
 ): AddonAddedToCollectionAction => {
   if (!addonId) {
     throw new Error('The addonId parameter is required');
   }
-  if (!userId) {
-    throw new Error('The userId parameter is required');
+  if (!user) {
+    throw new Error('The user parameter is required');
   }
   if (!collectionId) {
     throw new Error('The collectionId parameter is required');
@@ -404,7 +404,7 @@ export const addonAddedToCollection = (
 
   return {
     type: ADDON_ADDED_TO_COLLECTION,
-    payload: { addonId, userId, collectionId },
+    payload: { addonId, collectionId, user },
   };
 };
 
@@ -424,7 +424,7 @@ type AddAddonToCollectionParams = {|
   errorHandlerId: string,
   notes?: string,
   page?: number,
-  userId: number,
+  user: string,
 |};
 
 export type AddAddonToCollectionAction = {|
@@ -433,13 +433,13 @@ export type AddAddonToCollectionAction = {|
 |};
 
 export const addAddonToCollection = ({
-  addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
+  addonId, collectionId, editing, errorHandlerId, notes, page, slug, user,
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(collectionId, 'The collectionId parameter is required');
   invariant(slug, 'The slug parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
-  invariant(userId, 'The userId parameter is required');
+  invariant(user, 'The user parameter is required');
 
   if (editing) {
     invariant(page, 'The page parameter is required when editing');
@@ -448,7 +448,7 @@ export const addAddonToCollection = ({
   return {
     type: ADD_ADDON_TO_COLLECTION,
     payload: {
-      addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
+      addonId, collectionId, editing, errorHandlerId, notes, page, slug, user,
     },
   };
 };
@@ -711,22 +711,22 @@ export const loadCollectionIntoState = (
 
 type ChangeAddonCollectionsLoadingFlagParams = {|
   addonId: number,
-  userId: number,
-  state: CollectionsState,
   loading: boolean,
+  state: CollectionsState,
+  user: string,
 |};
 
 export const changeAddonCollectionsLoadingFlag = ({
-  addonId, userId, state, loading,
+  addonId, loading, state, user,
 }: ChangeAddonCollectionsLoadingFlagParams = {}): CollectionsState => {
-  const userState = state.addonInCollections[userId];
+  const userState = state.addonInCollections[user];
   const addonState = userState && userState[addonId];
 
   return {
     ...state,
     addonInCollections: {
       ...state.addonInCollections,
-      [userId]: {
+      [user]: {
         ...userState,
         [addonId]: {
           collections: addonState ? addonState.collections : null,
@@ -896,13 +896,13 @@ const reducer = (
       };
 
     case FETCH_USER_COLLECTIONS: {
-      const { userId } = action.payload;
+      const { user } = action.payload;
 
       return {
         ...state,
         userCollections: {
           ...state.userCollections,
-          [userId]: {
+          [user]: {
             collections: null,
             loading: true,
           },
@@ -911,13 +911,13 @@ const reducer = (
     }
 
     case ABORT_FETCH_USER_COLLECTIONS: {
-      const { userId } = action.payload;
+      const { user } = action.payload;
 
       return {
         ...state,
         userCollections: {
           ...state.userCollections,
-          [userId]: {
+          [user]: {
             collections: null,
             loading: false,
           },
@@ -926,7 +926,7 @@ const reducer = (
     }
 
     case LOAD_USER_COLLECTIONS: {
-      const { collections, userId } = action.payload;
+      const { collections, user } = action.payload;
 
       let newState = { ...state };
       collections.forEach((collection) => {
@@ -939,7 +939,7 @@ const reducer = (
         ...newState,
         userCollections: {
           ...state.userCollections,
-          [userId]: {
+          [user]: {
             collections: collections.map((collection) => collection.id),
             loading: false,
           },
@@ -948,15 +948,15 @@ const reducer = (
     }
 
     case ADDON_ADDED_TO_COLLECTION: {
-      const { addonId, collectionId, userId } = action.payload;
+      const { addonId, collectionId, user } = action.payload;
       const { addonInCollections } = state;
       let collections = [];
       if (
-        addonInCollections[userId] &&
-        addonInCollections[userId][addonId]
+        addonInCollections[user] &&
+        addonInCollections[user][addonId]
       ) {
         const existingCollections =
-          addonInCollections[userId][addonId].collections;
+          addonInCollections[user][addonId].collections;
         if (existingCollections) {
           collections = existingCollections;
         }
@@ -966,8 +966,8 @@ const reducer = (
         ...state,
         addonInCollections: {
           ...state.addonInCollections,
-          [userId]: {
-            ...state.addonInCollections[userId],
+          [user]: {
+            ...state.addonInCollections[user],
             [addonId]: {
               collections: collections.concat([collectionId]),
               loading: false,
@@ -979,11 +979,11 @@ const reducer = (
     }
 
     case ADD_ADDON_TO_COLLECTION: {
-      const { addonId, userId } = action.payload;
+      const { addonId, user } = action.payload;
 
       const newState = changeAddonCollectionsLoadingFlag({
         addonId,
-        userId,
+        user,
         state,
         loading: true,
       });
@@ -994,11 +994,11 @@ const reducer = (
     }
 
     case ABORT_ADD_ADDON_TO_COLLECTION: {
-      const { addonId, userId } = action.payload;
+      const { addonId, user } = action.payload;
 
       const newState = changeAddonCollectionsLoadingFlag({
         addonId,
-        userId,
+        user,
         state,
         loading: false,
       });

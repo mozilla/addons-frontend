@@ -665,7 +665,7 @@ describe(__filename, () => {
       editing: true,
       errorHandlerId: errorHandler.id,
       page,
-      userId: signedInUserId,
+      user: signedInUsername,
     }));
   });
 
@@ -693,7 +693,7 @@ describe(__filename, () => {
       editing: true,
       errorHandlerId: errorHandler.id,
       page: 1,
-      userId: signedInUserId,
+      user: signedInUsername,
     }));
   });
 
