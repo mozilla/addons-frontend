@@ -588,14 +588,12 @@ msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "תחילה, עליך ליצור את האוסף שלך. לאחר מכן ניתן להוסיף אליו הרחבות וערכות נושא."
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Save collection"
-msgstr "שמירת אוסף"
+msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Create collection"
-msgstr "יצירת אוסף חדש"
+msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
@@ -610,9 +608,8 @@ msgid "Custom URL"
 msgstr "כתובת מותאמת אישית"
 
 #: src/amo/components/CollectionManager/index.js:324
-#, fuzzy
 msgid "Added to collection"
-msgstr "הוספה לאוסף"
+msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
@@ -939,34 +936,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "שינוי המראה של Firefox עם ערכות נושא."
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Tame your tabs"
-msgstr "שינוי הלשוניות שלך"
+msgstr ""
 
 #: src/amo/components/Home/index.js:217
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "הצגת הרחבות נוספות בדירוג גבוה"
+msgstr ""
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "עיון בכל ההרחבות"
+msgstr ""
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "הצגת הרחבות נוספות שמובילות לאחרונה"
+msgstr ""
 
 #: src/amo/components/Home/index.js:255
-#, fuzzy
 msgid "Translation tools"
-msgstr "Translate Man"
+msgstr ""
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "הצגת כלי פרטיות נוספים"
+msgstr ""
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1045,9 +1036,8 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "גישה פשוטה באמצעות תפריט נפתח לשירותי Google כגון חיפוש ותרגום"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
@@ -1856,9 +1846,8 @@ msgid "Profile successfully updated"
 msgstr "הפרופיל עודכן בהצלחה"
 
 #: src/amo/components/UserProfileEdit/index.js:167
-#, fuzzy
 msgid "Picture successfully deleted"
-msgstr "הפרופיל עודכן בהצלחה"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:320
 msgid "Log in to edit the profile"
@@ -2006,14 +1995,12 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "פרופיל משתמש עבור %(user)s"
+msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "פרופיל"
+msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
