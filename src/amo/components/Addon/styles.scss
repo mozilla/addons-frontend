@@ -2,6 +2,8 @@
 @import "~amo/css/inc/vars";
 @import "~ui/css/vars";
 
+$theme-height-default: 92px;
+
 .Addon {
   padding: $padding-page;
 
@@ -119,7 +121,7 @@
 
 .Addon-theme-header {
   border-radius: $border-radius-default;
-  height: 92px;
+  height: $theme-height-default;
   order: -1;
   overflow-y: hidden;
   position: relative;
@@ -139,7 +141,7 @@
 .Addon-theme-header-image {
   border-radius: $border-radius-default;
   display: block;
-  height: 92px;
+  height: $theme-height-default;
   object-fit: cover;
   object-position: top left;
   width: 100%;
