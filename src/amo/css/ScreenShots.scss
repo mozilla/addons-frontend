@@ -1,11 +1,9 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
-// screenshot-height value was increased for 
-// https://github.com/mozilla/addons-frontend/issues/4887
-// image-height ensures the image is always 20px less than screenshot-height
-// 20px accounts for the approx size of the horizontal scrollbar
-$screenshot-height: 220px;
+
+// See: https://github.com/mozilla/addons-frontend/issues/4887
 $image-height: $screenshot-height - 20px;
+$screenshot-height: 220px;
 $screenshot-width: 320px;
 
 .ScreenShots .pswp-thumbnails {
