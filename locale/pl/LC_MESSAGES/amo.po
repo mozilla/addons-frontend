@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-30 16:11+0000\n"
+"PO-Revision-Date: 2018-05-30 16:23+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -1948,15 +1948,17 @@ msgstr "Powiadomienia"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Od czasu do czasu Mozilla może wysyłać wiadomości e-mail o nadchodzących wydaniach i wydarzeniach związanych z dodatkami. Proszę wybrać tematy, które Cię interesują."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Od czasu do czasu Mozilla może wysyłać temu użytkownikowi wiadomości e-mail o nadchodzących wydaniach i wydarzeniach związanych z dodatkami. Proszę wybrać tematy, które mogą zainteresować tego "
+"użytkownika."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla zastrzega sobie prawo indywidualnego kontaktu w konkretnych sprawach związanych z udostępnianymi dodatkami."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -1976,43 +1978,43 @@ msgstr "Aktualizuj profil użytkownika"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "bądź na bieżąco z aktualnościami i wydarzeniami ważnymi dla autorów dodatków (w tym biuletyn about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla musi skontaktować się ze mną w sprawie konkretnego dodatku mojego autorstwa"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "dostępne są nowe funkcje dodatków lub Firefoksa"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "ktoś napisał recenzję mojego dodatku"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "autor dodatku odpowiedział na moją recenzję"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "mój dodatek został zrecenzowany przez recenzenta"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "mój dodatek używający SDK nie może zostać zaktualizowany"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "mój dodatek używający SDK został pomyślnie zaktualizowany"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "zgodność mojego dodatku nie może zostać zaktualizowana"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "zgodność mojego dodatku została pomyślnie zaktualizowana"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
