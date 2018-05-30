@@ -10,7 +10,7 @@ import collectionsReducer, {
   addonAddedToCollection,
   beginCollectionModification,
   createCollection,
-  removeAddonFromCollection,
+  deleteCollection,
   deleteCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
@@ -20,6 +20,7 @@ import collectionsReducer, {
   loadCurrentCollectionPage,
   loadUserCollections,
   localizeCollectionDetail,
+  removeAddonFromCollection,
   updateCollection,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
@@ -716,6 +717,69 @@ describe(__filename, () => {
         .returns(Promise.reject(error));
 
       _removeAddonFromCollection();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('deleteCollection', () => {
+    const _deleteCollection = (params = {}) => {
+      sagaTester.dispatch(deleteCollection({
+        errorHandlerId: errorHandler.id,
+        slug: 'some-collection',
+        username: 'some-user',
+        ...params,
+      }));
+    };
+
+    it('deletes a collection', async () => {
+      const params = {
+        slug: 'some-other-slug',
+        username: 'some-other-user',
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('deleteCollection')
+        .withArgs({
+          api: state.api,
+          slug: params.slug,
+          username: params.username,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _deleteCollection(params);
+
+      const expectedFetchAction = fetchUserCollections({
+        errorHandlerId: errorHandler.id,
+        username: params.username,
+      });
+
+      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
+      expect(fetchAction).toEqual(expectedFetchAction);
+      mockApi.verify();
+    });
+
+    it('clears the error handler', async () => {
+      _deleteCollection();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('deleteCollection')
+        .returns(Promise.reject(error));
+
+      _deleteCollection();
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);

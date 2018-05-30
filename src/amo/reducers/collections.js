@@ -40,6 +40,7 @@ export const FINISH_COLLECTION_MODIFICATION: 'FINISH_COLLECTION_MODIFICATION'
   = 'FINISH_COLLECTION_MODIFICATION';
 export const REMOVE_ADDON_FROM_COLLECTION: 'REMOVE_ADDON_FROM_COLLECTION'
   = 'REMOVE_ADDON_FROM_COLLECTION';
+export const DELETE_COLLECTION: 'DELETE_COLLECTION' = 'DELETE_COLLECTION';
 
 export type CollectionType = {
   addons: Array<AddonType> | null,
@@ -611,6 +612,32 @@ export const removeAddonFromCollection = ({
     type: REMOVE_ADDON_FROM_COLLECTION,
     payload: {
       addonId, errorHandlerId, page, slug, username,
+    },
+  };
+};
+
+type DeleteCollectionParams = {|
+  errorHandlerId: string,
+  slug: string,
+  username: string,
+|};
+
+export type DeleteCollectionAction = {|
+  type: typeof DELETE_COLLECTION,
+  payload: DeleteCollectionParams,
+|};
+
+export const deleteCollection = ({
+  errorHandlerId, slug, username,
+}: DeleteCollectionParams = {}): DeleteCollectionAction => {
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(slug, 'The slug parameter is required');
+  invariant(username, 'The username parameter is required');
+
+  return {
+    type: DELETE_COLLECTION,
+    payload: {
+      errorHandlerId, slug, username,
     },
   };
 };
