@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-30 18:51+0000\n"
+"PO-Revision-Date: 2018-05-30 18:55+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1941,15 +1941,17 @@ msgstr "Notificações"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "De tempo a tempo, a Mozilla poderá enviar-lhe um email acerca dos próximos lançamentos e eventos de extras. Por favor, selecione os tópicos em que está interessado(a)."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"De tempo a tempo, a Mozilla poderá enviar a este utilizador um email acerca dos próximos lançamentos e eventos de extras. Por favor, selecione os tópicos em que este utilizador pode estar "
+"interessado."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "A Mozilla reserva o direito de lhe contactar individualmente acerca de preocupações específicas com os seus extras alojados."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -1969,7 +1971,7 @@ msgstr "Atualizar perfil do utilizador"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "fique atualizado(a) com notícias e eventos relevantes a programadores de extras (incluindo a newsletter about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -1985,7 +1987,7 @@ msgstr "alguém escreve uma análise do meu extra"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr "um programador de extra responde à minha análise"
+msgstr "um programador de extras responde à minha análise"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
