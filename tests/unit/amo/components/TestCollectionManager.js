@@ -707,7 +707,8 @@ describe(__filename, () => {
   });
 
   it('displays a notification for 5 seconds after an add-on has been added', () => {
-    const root = render({});
+    const setTimeoutSpy = sinon.spy();
+    const root = render({ setTimeout: setTimeoutSpy });
 
     expect(root.find(Notice)).toHaveLength(0);
 
@@ -716,17 +717,15 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
 
-    const state = root.state();
-    expect(state.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_SUCCESS);
+    expect(root).toHaveState('addonAddedStatus', ADDON_ADDED_STATUS_SUCCESS);
+    sinon.assert.calledWith(setTimeoutSpy, root.instance().resetMessageStatus, 5000);
 
-    const reset = () => {
-      root.setState({ addonAddedStatus: null });
-    };
+    // Simulate the setTimeout behavior.
+    root.instance().resetMessageStatus();
+    // See: https://github.com/airbnb/enzyme/blob/master/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
+    root.update();
 
-    // After 5 seconds the Notice will go away.
-    root.setProps(setTimeout(reset));
-
-    clock.tick(6000);
+    expect(root).toHaveState('addonAddedStatus', null);
     expect(root.find(Notice)).toHaveLength(0);
   });
 

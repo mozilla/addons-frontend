@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -66,6 +67,7 @@ type Props = {|
   setTimeout: Function,
   siteLang: ?string,
   siteUserId: number | null,
+   _window: typeof window | Object,
 |};
 
 type State = {|
@@ -78,7 +80,8 @@ type State = {|
 
 export class CollectionManagerBase extends React.Component<Props, State> {
   static defaultProps = {
-    setTimeout: (fn) => setTimeout(fn, MESSAGE_RESET_TIME),
+    setTimeout,
+    _window: typeof window !== 'undefined' ? window : {},
   };
 
   constructor(props: Props) {
@@ -104,7 +107,11 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      this.props.setTimeout(this.resetMessageStatus);
+      this.props.setTimeout.call(
+        this.props._window,
+        this.resetMessageStatus,
+        MESSAGE_RESET_TIME
+      );
     }
   }
 
