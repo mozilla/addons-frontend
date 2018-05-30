@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-30 17:51+0000\n"
+"PO-Revision-Date: 2018-05-30 17:53+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -968,9 +968,8 @@ msgid "Translation tools"
 msgstr "Orodja za prevajanje"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Več orodij za zasebnost"
+msgstr "Več orodij za prevajanje"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1049,13 +1048,12 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "Spustni meni za preprost dostop do Googlovih storitev: iskanje, prevajalnik ..."
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Prevedite celotno spletno stran z nekaj kliki"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 #, fuzzy
@@ -1887,9 +1885,8 @@ msgid "Profile successfully updated"
 msgstr "Profil uspešno posodobljen"
 
 #: src/amo/components/UserProfileEdit/index.js:167
-#, fuzzy
 msgid "Picture successfully deleted"
-msgstr "Profil uspešno posodobljen"
+msgstr "Slika uspešno izbrisana"
 
 #: src/amo/components/UserProfileEdit/index.js:320
 msgid "Log in to edit the profile"
@@ -1964,9 +1961,8 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "HTML je delno podprt: %(htmlTags)s. Povezave niso dovoljene."
 
 #: src/amo/components/UserProfileEdit/index.js:571
-#, fuzzy
 msgid "Notifications"
-msgstr "Lokacija"
+msgstr "Obvestila"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2037,18 +2033,16 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Uporabniški profil: %(user)s"
+msgstr "Slika profila %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "Profil"
+msgstr "Slika profila"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Izberi sliko ..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:76
 msgid "Delete this picture"
