@@ -805,6 +805,20 @@ describe(__filename, () => {
     expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
   });
 
+  it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.type()).toEqual('img');
+    expect(image).toHaveClassName('Addon-theme-header-image');
+    expect(image.prop('src')).toEqual('https://addons.cdn.mozilla.net/123/image.png');
+    expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
+  });
+
   it('renders screenshots for type extension', () => {
     const root = shallowRender({
       addon: createInternalAddon({
