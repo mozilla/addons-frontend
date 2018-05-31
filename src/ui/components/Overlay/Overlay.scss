@@ -1,4 +1,4 @@
-@import "~core/css/inc/vars";
+@import "~photon-colors/photon-colors";
 
 .Overlay {
   display: none;
@@ -13,7 +13,7 @@
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1178765
   // http://caniuse.com/#feat=css-backdrop-filter
   backdrop-filter: blur(2px);
-  background: transparentize($link-color, 0.1);
+  background: transparentize($grey-90, 0.4);
   height: 100%;
   left: 0;
   position: fixed;
