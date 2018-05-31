@@ -1,9 +1,11 @@
 /* @flow */
+/* global window */
 import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import { compose } from 'redux';
 import config from 'config';
 
@@ -38,6 +40,9 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
+export const MESSAGE_RESET_TIME = 5000;
+const MESSAGE_FADEOUT_TIME = 450;
+
 export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
   = 'ADDON_ADDED_STATUS_PENDING';
 export const ADDON_ADDED_STATUS_SUCCESS: 'ADDON_ADDED_STATUS_SUCCESS'
@@ -59,6 +64,7 @@ type Props = {|
   isCollectionBeingModified: boolean,
   page: number | null,
   router: ReactRouterType,
+  setTimeout: Function,
   siteLang: ?string,
   siteUserId: number | null,
 |};
@@ -72,6 +78,10 @@ type State = {|
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
+  static defaultProps = {
+    setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
+  };
+
   constructor(props: Props) {
     super(props);
     this.state = this.propsToState(props);
@@ -79,17 +89,26 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   componentWillReceiveProps(props: Props) {
     const existingId = this.props.collection && this.props.collection.id;
+    const { hasAddonBeenAdded: hasAddonBeenAddedNew } = props;
+    const { hasAddonBeenAdded } = this.props;
     if (props.collection && props.collection.id !== existingId) {
       // Only reset the form when receiving a collection that the
       // user is not already editing. This prevents clearing the form
       // in a few scenarios such as pressing the submit button.
       this.setState(this.propsToState(props));
     }
-    if (this.props.hasAddonBeenAdded !== props.hasAddonBeenAdded) {
+    if (hasAddonBeenAdded !== hasAddonBeenAddedNew) {
       this.setState({
         addonAddedStatus: props.hasAddonBeenAdded ?
           ADDON_ADDED_STATUS_SUCCESS : null,
       });
+    }
+
+    if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
+      this.props.setTimeout(
+        this.resetMessageStatus,
+        MESSAGE_RESET_TIME
+      );
     }
   }
 
@@ -226,6 +245,12 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
 
+  resetMessageStatus = () => {
+    this.setState({
+      addonAddedStatus: null,
+    });
+  };
+
   propsToState(props: Props) {
     // Decode HTML entities so the user sees real symbols in the form.
     return {
@@ -319,11 +344,21 @@ export class CollectionManagerBase extends React.Component<Props, State> {
             value={this.state.slug}
           />
         </div>
-        {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
-          <Notice type="success">
-            {i18n.gettext('Added to collection')}
-          </Notice>
-        )}
+
+        <ReactCSSTransitionGroup
+          className="NoticePlaceholder"
+          component="div"
+          transitionName="NoticePlaceholder-transition"
+          transitionEnterTimeout={MESSAGE_FADEOUT_TIME}
+          transitionLeaveTimeout={MESSAGE_FADEOUT_TIME}
+        >
+          {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
+            <Notice type="success">
+              {i18n.gettext('Added to collection')}
+            </Notice>
+          )}
+        </ReactCSSTransitionGroup>
+
         {!creating &&
           <AutoSearchInput
             inputName="collection-addon-query"
