@@ -199,6 +199,7 @@ export class UserProfileBase extends React.Component<Props> {
             {user && user.biography && user.biography.length ? (
               <div
                 className="UserProfile-biography"
+                term={i18n.gettext('About Me')}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={sanitizeUserHTML(user.biography)}
               />
