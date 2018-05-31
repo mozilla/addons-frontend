@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 12:15+0000\n"
+"PO-Revision-Date: 2018-05-31 13:49+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1122,7 +1122,7 @@ msgstr "Zaščita pred zlonamernimi programi in prevarantskimi stranmi"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
@@ -1966,11 +1966,11 @@ msgstr "Obvestila"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Od časa do časa vam bo Mozilla morda poslala e-pošto o prihajajočih izdajah in dogodkih glede dodatkov. Izberite teme, ki bi vas zanimale."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Od časa do časa bo Mozilla temu uporabniku morda poslala e-pošto o prihajajočih izdajah in dogodkih glede dodatkov. Izberite teme, ki bi ga morda zanimale."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
