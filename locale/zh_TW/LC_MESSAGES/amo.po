@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 12:43+0000\n"
+"PO-Revision-Date: 2018-05-31 13:22+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1041,7 +1041,7 @@ msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "在右鍵選單中進行以圖找圖"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Forget Me Not"
@@ -1081,7 +1081,7 @@ msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "反白網頁中的任何文字，就可以帶出方便的搜尋選單"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
