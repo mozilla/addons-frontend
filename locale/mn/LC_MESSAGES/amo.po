@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 23:29+0000\n"
+"PO-Revision-Date: 2018-05-31 23:50+0000\n"
 "Last-Translator: pchew <pchew@change.org>\n"
 "Language-Team: none\n"
 "Language: mn\n"
@@ -16,7 +16,7 @@ msgstr ""
 
 #: src/amo/components/AddAddonToCollection/index.js:167
 msgid "Loading…"
-msgstr ""
+msgstr "Ачаалж байна…"
 
 #: src/amo/components/AddAddonToCollection/index.js:169
 msgid "Adding…"
@@ -470,7 +470,7 @@ msgstr ""
 
 #: src/amo/components/AutoSearchInput/index.js:198
 msgid "Loading"
-msgstr ""
+msgstr "Ачаалж байна"
 
 #: src/amo/components/AutoSearchInput/index.js:286
 msgid "Find add-ons"
@@ -618,7 +618,7 @@ msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
-msgstr "Болих"
+msgstr "Цуцлах"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
@@ -1182,7 +1182,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/index.js:63
 msgid "Learn more about permissions"
-msgstr ""
+msgstr "Зөвшөөрлүүдийн тухай нэмэлт мэдээлэл"
 
 #: src/amo/components/PermissionsCard/permissions.js:25
 msgid "Read and modify bookmarks"
