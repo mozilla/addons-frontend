@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 13:49+0000\n"
+"PO-Revision-Date: 2018-05-31 14:13+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1126,7 +1126,7 @@ msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Razporedite zavihke navpično"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
@@ -1974,7 +1974,7 @@ msgstr "Od časa do časa bo Mozilla temu uporabniku morda poslala e-pošto o pr
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla si pridržuje pravico, da se obrne na vas osebno z vprašanji glede vaših gostujočih dodatkov."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -2002,19 +2002,19 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "na razpolago so novi dodatki ali funkcije Firefoxa"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "nekdo oceni moj dodatek"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "razvijalec dodatka odgovori na mojo oceno"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "pregledovalec pregleduje moj dodatek"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
@@ -2026,11 +2026,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "združljivosti mojega dodatka ni mogoče nadgraditi"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "združljivost mojega dodatka je uspešno nadgrajena"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
@@ -2046,7 +2046,7 @@ msgstr "Izberi sliko ..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:76
 msgid "Delete this picture"
-msgstr ""
+msgstr "Izbriši to sliko"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
