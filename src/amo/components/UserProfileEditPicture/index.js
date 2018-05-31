@@ -4,7 +4,7 @@ import * as React from 'react';
 import { compose } from 'redux';
 
 import translate from 'core/i18n/translate';
-import Button from 'ui/components/Button';
+import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
 import type { UserType } from 'amo/reducers/users';
 import type { I18nType } from 'core/types/i18n';
@@ -68,14 +68,14 @@ export const UserProfileEditPictureBase = ({
       </label>
 
       {(user && user.picture_url) && (
-        <p>
-          <Button
-            className="UserProfileEditPicture-delete-button"
-            onClick={onDelete}
-          >
-            {i18n.gettext('Delete this picture')}
-          </Button>
-        </p>
+        <ConfirmButton
+          buttonType="cancel"
+          className="UserProfileEditPicture-delete-button"
+          message={i18n.gettext('Do you really want to delete this picture?')}
+          onConfirm={onDelete}
+        >
+          {i18n.gettext('Delete this picture')}
+        </ConfirmButton>
       )}
     </section>
   );
