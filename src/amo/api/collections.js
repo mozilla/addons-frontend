@@ -15,22 +15,22 @@ import type {
 export type GetCollectionParams = {|
   api: ApiStateType,
   slug: string,
-  user: string,
+  username: string,
 |};
 
 export const getCollectionDetail = (
-  { api, slug, user }: GetCollectionParams
+  { api, slug, username }: GetCollectionParams
 ): Promise<ExternalCollectionDetail> => {
   if (!slug) {
     throw new Error('slug is required');
   }
-  if (!user) {
-    throw new Error('user is required');
+  if (!username) {
+    throw new Error('username is required');
   }
 
   return callApi({
     auth: true,
-    endpoint: `accounts/account/${user}/collections/${slug}`,
+    endpoint: `accounts/account/${username}/collections/${slug}`,
     state: api,
   });
 };
@@ -42,19 +42,19 @@ export type GetCollectionAddonsParams = {|
 |};
 
 export const getCollectionAddons = (
-  { api, nextURL, page, slug, user }: GetCollectionAddonsParams
+  { api, nextURL, page, slug, username }: GetCollectionAddonsParams
 ): Promise<PaginatedApiResponse<ExternalCollectionAddon>> => {
   if (!slug) {
     throw new Error('slug is required');
   }
-  if (!user) {
-    throw new Error('user is required');
+  if (!username) {
+    throw new Error('username is required');
   }
 
   const request = {
     auth: true,
     endpoint:
-      nextURL || `accounts/account/${user}/collections/${slug}/addons`,
+      nextURL || `accounts/account/${username}/collections/${slug}/addons`,
     params: undefined,
     state: api,
   };
@@ -78,13 +78,13 @@ export const getAllCollectionAddons = async (
   {
     api,
     slug,
-    user,
+    username,
     _allPages = allPages,
     _getCollectionAddons = getCollectionAddons,
   }: GetAllCollectionAddonsParams
 ): Promise<Array<ExternalCollectionAddon>> => {
   const { results } = await _allPages(
-    (nextURL) => _getCollectionAddons({ api, nextURL, slug, user })
+    (nextURL) => _getCollectionAddons({ api, nextURL, slug, username })
   );
   return results;
 };
@@ -92,16 +92,16 @@ export const getAllCollectionAddons = async (
 type ListCollectionsParams = {|
   api: ApiStateType,
   nextURL?: string,
-  user: string,
+  username: string,
 |};
 
 export const listCollections = (
-  { api, nextURL, user }: ListCollectionsParams
+  { api, nextURL, username }: ListCollectionsParams
 ): Promise<PaginatedApiResponse<ExternalCollectionDetail>> => {
-  if (!user) {
-    throw new Error('The user parameter is required');
+  if (!username) {
+    throw new Error('The username parameter is required');
   }
-  const endpoint = nextURL || `accounts/account/${user}/collections`;
+  const endpoint = nextURL || `accounts/account/${username}/collections`;
 
   return callApi({ auth: true, endpoint, state: api });
 };
@@ -115,13 +115,13 @@ export type GetAllUserCollectionsParams = {|
 export const getAllUserCollections = async (
   {
     api,
-    user,
+    username,
     _allPages = allPages,
     _listCollections = listCollections,
   }: GetAllUserCollectionsParams
 ): Promise<Array<ExternalCollectionDetail>> => {
   const { results } = await _allPages(
-    (nextURL) => _listCollections({ api, nextURL, user })
+    (nextURL) => _listCollections({ api, nextURL, username })
   );
   return results;
 };
@@ -132,7 +132,7 @@ type ModifyCollectionParams = {|
   description: ?LocalizedString,
   // Even though the API accepts string|number, we need to always use
   // string usernames. This helps keep public-facing URLs consistent.
-  user: string,
+  username: string,
   // eslint-disable-next-line no-use-before-define
   _modifyCollection?: typeof modifyCollection,
   _validateLocalizedString?: typeof validateLocalizedString,
@@ -172,14 +172,14 @@ export const modifyCollection = (
     description,
     name,
     slug,
-    user,
+    username,
     _validateLocalizedString = validateLocalizedString,
   } = params;
 
   const creating = action === 'create';
 
   invariant(api, 'The api parameter is required');
-  invariant(user, 'The user parameter is required');
+  invariant(username, 'The username parameter is required');
   if (creating) {
     invariant(slug, 'The slug parameter is required when creating');
   } else {
@@ -206,7 +206,7 @@ export const modifyCollection = (
       // should cut down on unexpected bugs.
     },
     endpoint:
-      `accounts/account/${user}/collections/${creating ? '' : collectionSlug}`,
+      `accounts/account/${username}/collections/${creating ? '' : collectionSlug}`,
     method: creating ? 'POST' : 'PATCH',
     state: api,
   });
@@ -219,7 +219,7 @@ export const updateCollection = ({
   description,
   name,
   slug,
-  user,
+  username,
   _modifyCollection = modifyCollection,
   _validateLocalizedString = validateLocalizedString,
 }: UpdateCollectionParams): Promise<void> => {
@@ -230,7 +230,7 @@ export const updateCollection = ({
     description,
     name,
     slug,
-    user,
+    username,
     _validateLocalizedString,
   });
 };
@@ -241,7 +241,7 @@ export const createCollection = ({
   description,
   name,
   slug,
-  user,
+  username,
   _modifyCollection = modifyCollection,
   _validateLocalizedString = validateLocalizedString,
 }: CreateCollectionParams): Promise<void> => {
@@ -251,7 +251,7 @@ export const createCollection = ({
     description,
     name,
     slug,
-    user,
+    username,
     _validateLocalizedString,
   });
 };
@@ -260,7 +260,7 @@ type ModifyCollectionAddonBaseParams = {|
   addonId: number,
   api: ApiStateType,
   slug: string,
-  user: string,
+  username: string,
   _modifyCollectionAddon?: (any) => Promise<void>,
 |};
 
@@ -283,18 +283,18 @@ type ModifyCollectionAddonParams =
 export const modifyCollectionAddon = (
   params: ModifyCollectionAddonParams,
 ): Promise<void> => {
-  const { action, addonId, api, slug, user } = params;
+  const { action, addonId, api, slug, username } = params;
 
   invariant(action, 'The action parameter is required');
   invariant(addonId, 'The addonId parameter is required');
   invariant(api, 'The api parameter is required');
   invariant(slug, 'The slug parameter is required');
-  invariant(user, 'The user parameter is required');
+  invariant(username, 'The username parameter is required');
 
   let method = 'POST';
   const body = { addon: addonId, notes: params.notes };
   let endpoint =
-    `accounts/account/${user}/collections/${slug}/addons`;
+    `accounts/account/${username}/collections/${slug}/addons`;
 
   if (action === 'update') {
     // TODO: once `notes` can be null, we can check for `undefined` values
@@ -313,11 +313,11 @@ export const createCollectionAddon = ({
   api,
   slug,
   notes,
-  user,
+  username,
   _modifyCollectionAddon = modifyCollectionAddon,
 }: CreateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
-    action: 'create', addonId, api, slug, notes, user,
+    action: 'create', addonId, api, notes, slug, username,
   });
 };
 
@@ -326,32 +326,32 @@ export const updateCollectionAddon = ({
   api,
   slug,
   notes,
-  user,
+  username,
   _modifyCollectionAddon = modifyCollectionAddon,
 }: UpdateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
-    action: 'update', addonId, api, slug, notes, user,
+    action: 'update', addonId, api, notes, slug, username,
   });
 };
 export type RemoveAddonFromCollectionParams = {|
   addonId: number,
   api: ApiStateType,
   slug: string,
-  user: string,
+  username: string,
 |};
 
 export const removeAddonFromCollection = (
-  { addonId, api, slug, user }: RemoveAddonFromCollectionParams
+  { addonId, api, slug, username }: RemoveAddonFromCollectionParams
 ): Promise<void> => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(api, 'The api parameter is required');
   invariant(slug, 'The slug parameter is required');
-  invariant(user, 'The user parameter is required');
+  invariant(username, 'The username parameter is required');
 
   return callApi({
     auth: true,
     endpoint:
-      `accounts/account/${user}/collections/${slug}/addons/${addonId}`,
+      `accounts/account/${username}/collections/${slug}/addons/${addonId}`,
     method: 'DELETE',
     state: api,
   });

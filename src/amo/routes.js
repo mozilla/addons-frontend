@@ -51,10 +51,10 @@ export default (
         </React.Fragment>
       )}
       <Route
-        path="collections/:user/:slug/edit/"
+        path="collections/:username/:slug/edit/"
         component={CollectionEdit}
       />
-      <Route path="collections/:user/:slug/" component={Collection} />
+      <Route path="collections/:username/:slug/" component={Collection} />
       {config.get('enableNewCollectionsUI') ?
         <Route
           path="collections/add/"

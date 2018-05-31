@@ -52,25 +52,25 @@ describe(__filename, () => {
 
   const signInAndDispatchCollections = ({
     userId = 1,
-    user = 'some-user',
+    username = 'some-user',
     collections = [
-      createFakeCollectionDetail({ authorUsername: user }),
+      createFakeCollectionDetail({ authorUsername: username }),
     ],
   } = {}) => {
     dispatchSignInActions({
       store,
       userId,
-      userProps: { username: user },
+      userProps: { username },
     });
-    store.dispatch(loadUserCollections({ user, collections }));
+    store.dispatch(loadUserCollections({ username, collections }));
   };
 
-  const createSomeCollections = ({ user = 'some-user' } = {}) => {
+  const createSomeCollections = ({ username = 'some-user' } = {}) => {
     const firstCollection = createFakeCollectionDetail({
-      authorUsername: user, name: 'first',
+      authorUsername: username, name: 'first',
     });
     const secondCollection = createFakeCollectionDetail({
-      authorUsername: user, name: 'second',
+      authorUsername: username, name: 'second',
     });
 
     return { firstCollection, secondCollection };
@@ -85,13 +85,13 @@ describe(__filename, () => {
 
   describe('fetching user collections', () => {
     it('fetches user collections on first render', () => {
-      const user = 'some-user';
-      dispatchSignInActions({ store, userProps: { username: user } });
+      const username = 'some-user';
+      dispatchSignInActions({ store, userProps: { username } });
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const root = render();
 
       sinon.assert.calledWith(dispatchSpy, fetchUserCollections({
-        errorHandlerId: root.instance().props.errorHandler.id, user,
+        errorHandlerId: root.instance().props.errorHandler.id, username,
       }));
     });
 
@@ -101,12 +101,12 @@ describe(__filename, () => {
       const root = render();
       dispatchSpy.reset();
 
-      const user = 'user-two';
-      dispatchSignInActions({ store, userProps: { username: user } });
+      const username = 'user-two';
+      dispatchSignInActions({ store, userProps: { username } });
       root.setProps(mapStateToProps(store.getState(), {}));
 
       sinon.assert.calledWith(dispatchSpy, fetchUserCollections({
-        errorHandlerId: root.instance().props.errorHandler.id, user,
+        errorHandlerId: root.instance().props.errorHandler.id, username,
       }));
     });
 
@@ -141,10 +141,10 @@ describe(__filename, () => {
 
     it('does not fetch user collections while loading', () => {
       const addon = createInternalAddon(fakeAddon);
-      const user = 'some-user';
-      dispatchSignInActions({ store, userProps: { username: user } });
+      const username = 'some-user';
+      dispatchSignInActions({ store, userProps: { username } });
       store.dispatch(fetchUserCollections({
-        errorHandlerId: 'some-id', user,
+        errorHandlerId: 'some-id', username,
       }));
 
       const dispatchSpy = sinon.spy(store, 'dispatch');
@@ -163,10 +163,10 @@ describe(__filename, () => {
     };
 
     it('renders a disabled select when loading user collections', () => {
-      const user = 'some-user';
-      dispatchSignInActions({ store, userProps: { username: user } });
+      const username = 'some-user';
+      dispatchSignInActions({ store, userProps: { username } });
       store.dispatch(fetchUserCollections({
-        errorHandlerId: 'some-id', user,
+        errorHandlerId: 'some-id', username,
       }));
 
       const root = render();
@@ -178,11 +178,11 @@ describe(__filename, () => {
 
     it('renders a disabled select when adding add-on to collection', () => {
       const addon = createInternalAddon(fakeAddon);
-      const user = 'some-user';
-      dispatchSignInActions({ store, userProps: { username: user } });
+      const username = 'some-user';
+      dispatchSignInActions({ store, userProps: { username } });
       store.dispatch(addAddonToCollection({
         addonId: addon.id,
-        user,
+        username,
         collectionId: 321,
         slug: 'some-collection',
         errorHandlerId: 'error-handler',
@@ -204,13 +204,13 @@ describe(__filename, () => {
 
     it('lets you select a collection', () => {
       const addon = createInternalAddon({ ...fakeAddon, id: 234 });
-      const user = 'some-user';
+      const username = 'some-user';
 
       const { firstCollection, secondCollection } =
-        createSomeCollections({ user });
+        createSomeCollections({ username });
 
       signInAndDispatchCollections({
-        user,
+        username,
         collections: [firstCollection, secondCollection],
       });
       const dispatchStub = sinon.stub(store, 'dispatch');
@@ -231,20 +231,20 @@ describe(__filename, () => {
         addonId: addon.id,
         collectionId: secondCollection.id,
         slug: secondCollection.slug,
-        user,
+        username,
       }));
     });
 
     it('sorts collection by name in select box', () => {
       const addon = createInternalAddon({ ...fakeAddon, id: 234 });
-      const user = 'some-user';
+      const username = 'some-user';
 
       const { firstCollection, secondCollection } =
-        createSomeCollections({ user });
+        createSomeCollections({ username });
 
       // inserting secondCollection first in array
       signInAndDispatchCollections({
-        user,
+        username,
         collections: [secondCollection, firstCollection],
       });
 
@@ -256,16 +256,16 @@ describe(__filename, () => {
 
     it('shows a notice that you added to a collection', () => {
       const addon = createInternalAddon(fakeAddon);
-      const user = 'some-user';
+      const username = 'some-user';
 
-      const { firstCollection } = createSomeCollections({ user });
+      const { firstCollection } = createSomeCollections({ username });
 
       signInAndDispatchCollections({
-        user, collections: [firstCollection],
+        username, collections: [firstCollection],
       });
       store.dispatch(addonAddedToCollection({
         addonId: addon.id,
-        user,
+        username,
         collectionId: firstCollection.id,
       }));
 
@@ -278,17 +278,17 @@ describe(__filename, () => {
 
     it('shows notices for each target collection', () => {
       const addon = createInternalAddon(fakeAddon);
-      const user = 'some-user';
+      const username = 'some-user';
 
       const { firstCollection, secondCollection } =
-        createSomeCollections({ user });
+        createSomeCollections({ username });
 
       signInAndDispatchCollections({
-        user,
+        username,
         collections: [firstCollection, secondCollection],
       });
 
-      const addParams = { addonId: addon.id, user };
+      const addParams = { addonId: addon.id, username };
 
       // Add the add-on to both collections.
       store.dispatch(addonAddedToCollection({
@@ -410,10 +410,10 @@ describe(__filename, () => {
 
     it('renders an ID with an add-on ID and user', () => {
       const addon = createInternalAddon({ ...fakeAddon, id: 5432 });
-      const user = 'some-user';
-      dispatchSignInActions({ store, userProps: { username: user } });
+      const username = 'some-user';
+      dispatchSignInActions({ store, userProps: { username } });
       expect(extractId(_props({ addon })))
-        .toEqual(`${addon.id}-${user}`);
+        .toEqual(`${addon.id}-${username}`);
     });
   });
 });

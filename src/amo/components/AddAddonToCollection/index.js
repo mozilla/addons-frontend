@@ -93,7 +93,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
 
     if (currentUsername && !loadingUserCollections && !userCollections) {
       dispatch(fetchUserCollections({
-        errorHandlerId: errorHandler.id, user: currentUsername,
+        errorHandlerId: errorHandler.id, username: currentUsername,
       }));
     }
   }
@@ -125,7 +125,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
       collectionId: collection.id,
       slug: collection.slug,
       errorHandlerId: errorHandler.id,
-      user: currentUsername,
+      username: currentUsername,
     }));
   }
 

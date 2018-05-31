@@ -174,7 +174,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       dispatch(createCollection({
         ...payload,
         defaultLocale: siteLang,
-        user: currentUsername,
+        username: currentUsername,
       }));
     } else {
       invariant(collection,
@@ -183,7 +183,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         ...payload,
         collectionSlug: collection.slug,
         defaultLocale: collection.defaultLocale,
-        user: collection.authorUsername,
+        username: collection.authorUsername,
       }));
     }
   };
@@ -241,7 +241,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
       editing: true,
       errorHandlerId: errorHandler.id,
       page: page || 1,
-      user: currentUsername,
+      username: currentUsername,
     }));
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };

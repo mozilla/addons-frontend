@@ -56,7 +56,7 @@ export type Props = {|
   location: ReactRouterLocation,
   params: {|
     slug: string,
-    user: string,
+    username: string,
   |},
 |};
 
@@ -111,7 +111,7 @@ export class CollectionBase extends React.Component<Props> {
 
     if (collection && (
       collection.slug !== params.slug ||
-      collection.authorUsername.toLowerCase() !== params.user.toLowerCase()
+      collection.authorUsername.toLowerCase() !== params.username.toLowerCase()
     )) {
       collectionChanged = true;
     }
@@ -121,7 +121,7 @@ export class CollectionBase extends React.Component<Props> {
         errorHandlerId: errorHandler.id,
         page: location.query.page,
         slug: params.slug,
-        user: params.user,
+        username: params.username,
       }));
 
       return;
@@ -132,7 +132,7 @@ export class CollectionBase extends React.Component<Props> {
         errorHandlerId: errorHandler.id,
         page: location.query.page || 1,
         slug: params.slug,
-        user: params.user,
+        username: params.username,
       }));
     }
   }
@@ -140,7 +140,7 @@ export class CollectionBase extends React.Component<Props> {
   url() {
     const { params } = this.props;
 
-    return `/collections/${params.user}/${params.slug}/`;
+    return `/collections/${params.username}/${params.slug}/`;
   }
 
   editUrl() {
@@ -187,19 +187,19 @@ export class CollectionBase extends React.Component<Props> {
 
     const {
       slug,
-      authorUsername: user,
+      authorUsername: username,
     } = collection;
 
     invariant(query, 'query is required');
     invariant(slug, 'slug is required');
-    invariant(user, 'page is required');
+    invariant(username, 'page is required');
 
     dispatch(removeAddonFromCollection({
       addonId,
       errorHandlerId: errorHandler.id,
       page: query.page || 1,
       slug,
-      user,
+      username,
     }));
   };
 
@@ -356,7 +356,7 @@ export const mapStateToProps = (
 
 export const extractId = (ownProps: Props) => {
   return [
-    ownProps.params.user,
+    ownProps.params.username,
     ownProps.params.slug,
     ownProps.location.query.page,
   ].join('/');
