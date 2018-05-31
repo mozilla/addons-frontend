@@ -88,4 +88,8 @@ $avatar-size: 64px;
 
 .UserProfile-biography {
   word-wrap: break-word;
+
+  & > p {
+    margin-top: 0;
+  }
 }

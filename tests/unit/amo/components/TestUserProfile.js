@@ -323,7 +323,10 @@ describe(__filename, () => {
     });
     const root = renderUserProfile({ store });
 
-    expect(root.find('.UserProfile-biography').render().html())
+    expect(root.find('.UserProfile-biography')).toHaveLength(1);
+    expect(root.find('.UserProfile-biography'))
+      .toHaveProp('term', 'Biography');
+    expect(root.find('.UserProfile-biography').find('p').html())
       .toContain('Not even vegan!');
   });
 
