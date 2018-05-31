@@ -643,8 +643,18 @@ describe(__filename, () => {
     }));
   });
 
-  it('renders a success message when user profile has been updated', () => {
-    const { store } = signInUserWithUsername('tofumatt');
+  it('redirects to user profile page when user profile has been updated', () => {
+    const username = 'tofumatt';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userProps: {
+        ...defaultUserProps,
+        username,
+      },
+    });
     const user = getCurrentUser(store.getState().users);
 
     const occupation = 'new occupation';
@@ -669,48 +679,13 @@ describe(__filename, () => {
     const { isUpdating } = store.getState().users;
     root.setProps({ isUpdating });
 
-    expect(root.find(Notice)).toHaveLength(1);
-    expect(root.find(Notice)).toHaveProp('type', 'success');
-    expect(root.find(Notice))
-      .toHaveProp('children', 'Profile successfully updated');
-
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
-  });
 
-  it('fetches the user notifications when user profile has been updated without notification changes', () => {
-    const { store } = signInUserWithUsername('tofumatt');
-    const dispatchSpy = sinon.spy(store, 'dispatch');
-
-    const errorHandler = createStubErrorHandler();
-    const user = getCurrentUser(store.getState().users);
-
-    // We do not change anything here, especially not the notifications. When a
-    // notification has changed, the saga will load the updated notifications
-    // but it won't be the case when no notification has been changed.
-    _editUserAccount({
-      store,
-      notifications: {},
-      userFields: {},
-      userId: user.id,
-    });
-
-    const root = renderUserProfileEdit({ errorHandler, store });
-
-    // The user profile has been updated.
-    store.dispatch(finishEditUserAccount());
-
-    dispatchSpy.reset();
-
-    sinon.assert.notCalled(dispatchSpy);
-
-    const { isUpdating } = store.getState().users;
-    root.setProps({ isUpdating });
-
-    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
-      errorHandlerId: errorHandler.id,
-      username: user.username,
-    }));
+    sinon.assert.calledWith(
+      fakeRouter.push,
+      `/${lang}/${clientApp}/user/${username}/`
+    );
   });
 
   it('does not change the URL when username has not changed', () => {

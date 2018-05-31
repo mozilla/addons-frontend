@@ -165,17 +165,8 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      if (newUser && !newUser.notifications) {
-        dispatch(fetchUserNotifications({
-          errorHandlerId: errorHandler.id,
-          username: newUser.username,
-        }));
-      }
-
-      this.setState({
-        pictureData: null,
-        successMessage: i18n.gettext('Profile successfully updated'),
-      });
+      router.push(`/${lang}/${clientApp}/user/${newUsername}/`);
+      return;
     }
 
     if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
