@@ -1,6 +1,7 @@
 @import "~core/css/inc/mixins";
 @import "~amo/css/inc/vars";
 
+//image-height has to be 20px smaller to ensure it doesn't overflow in the screenshots section.
 // See: https://github.com/mozilla/addons-frontend/issues/4887
 $image-height: $screenshot-height - 20px;
 $screenshot-height: 220px;
