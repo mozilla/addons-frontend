@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 18:10+0000\n"
+"PO-Revision-Date: 2018-05-31 18:18+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -278,14 +278,12 @@ msgid "Other users with this extension also installed"
 msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:162
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "Isiɣzaf yettwasnen aṭas"
+msgstr "Isiɣzaf-nniḍen iɣerfanen"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz!"
+msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz. Ma ulac aɣilif, qaddeṛ %(linkStart)silugan n teẓrigt%(linkEnd)s."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -382,14 +380,12 @@ msgid "More dictionaries by these translators"
 msgstr "Ugar n imawalen sɣur imsuqal-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:127
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Ugar n imawalen sɣur %(author)s"
+msgstr "Imawalen sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:130
-#, fuzzy
 msgid "Dictionaries by these translators"
-msgstr "Ugar n imawalen sɣur imsuqal-agi"
+msgstr "Imawalen sɣur imsuqal-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:137
 msgid "More extensions by %(author)s"
@@ -400,14 +396,12 @@ msgid "More extensions by these developers"
 msgstr "Nadi isiɣzaf sɣur ineflayen-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:144
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Ugar n isiɣzaf sɣur %(author)s"
+msgstr "Isiɣzaf sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:147
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Nadi isiɣzaf sɣur ineflayen-agi"
+msgstr "Isiɣzaf sɣur ineflayen-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:154
 msgid "More language packs by %(author)s"
@@ -418,14 +412,12 @@ msgid "More language packs by these translators"
 msgstr "Ugar n ikemmusen utlayanen sɣur imsuqal-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:161
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Ugar n ikemmusen utlayanen sɣur %(author)s"
+msgstr "Ikemmusen utlayanen sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:164
-#, fuzzy
 msgid "Language packs by these translators"
-msgstr "Ugar n ikemmusen utlayanen sɣur imsuqal-agi"
+msgstr "Ikemmusen utlayanen sɣur imsuqal-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:171
 msgid "More themes by %(author)s"
@@ -436,14 +428,12 @@ msgid "More themes by these artists"
 msgstr "Ugar n isental sɣur inaẓuren-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:178
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "Ugar n isental sɣur %(author)s"
+msgstr "Isental sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Ugar n isental sɣur inaẓuren-agi"
+msgstr "Isental sɣur inaẓuren-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:188
 msgid "More add-ons by %(author)s"
@@ -454,14 +444,12 @@ msgid "More add-ons by these developers"
 msgstr "Nadi n iszegrar squr ineflayen-agi"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:195
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "Ugar n izegrar sɣur %(author)s"
+msgstr "Izegrar sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Nadi n iszegrar squr ineflayen-agi"
+msgstr "Izegrar squr ineflayen-agi"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -512,28 +500,24 @@ msgid "Featured extensions"
 msgstr "Isiɣzaf yettwaszemlen"
 
 #: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:201 src/amo/components/LandingPage/index.js:132
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Ugar n yisiɣzaf yettwasersen d imezwura"
 
 #: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Isiɣzaf itran"
 
 #: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Ugar n yisiɣzaf itran"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Isiɣzaf yettwaszemlen aṭas"
+msgstr "Wali isiɣzaft gar wid yettwaszemlen aṭas"
 
 #: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -544,14 +528,12 @@ msgid "Featured themes"
 msgstr "Isental itran"
 
 #: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:230 src/amo/components/LandingPage/index.js:158
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Isental yettwasnen aṭas"
+msgstr "Ugar n yisental yettwasersen d imezwura"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
-#, fuzzy
 msgid "Trending themes"
-msgstr "Isental yettwaszemlen aṭas"
+msgstr "Isental itran"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
 #, fuzzy
