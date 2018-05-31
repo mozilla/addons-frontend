@@ -108,7 +108,7 @@ describe(__filename, () => {
       .toHaveProp('addonInstallSource', addonInstallSource);
   });
 
-  it('hides summary for static theme', () => {
+  it('hides summary for a static theme', () => {
     const newFakeAddon = {
       ...fakeAddon,
       type: ADDON_TYPE_STATIC_THEME,
@@ -119,7 +119,7 @@ describe(__filename, () => {
     expect(results.at(0)).toHaveProp('showSummary', false);
   });
 
-  it('hides summary for lightweight theme', () => {
+  it('hides summary for a lightweight theme', () => {
     const newFakeAddon = {
       ...fakeAddon,
       type: ADDON_TYPE_THEME,

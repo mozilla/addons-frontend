@@ -65,9 +65,9 @@ export default class AddonsCard extends React.Component<Props> {
 
     if (addons && addons.length) {
       addons.forEach((addon) => {
-        // Because static themes are technically an extension type it has a summary
-        // field, but we want it to look like a theme which does not display this
-        // or description field here
+        // Because a static theme is technically an extension, it has a summary
+        // field, but we want it to look like a theme, which does not display
+        // any summary or description.
         const isTheme = ADDON_TYPE_THEMES.includes(addon.type);
         if (editing) {
           addonElements.push(

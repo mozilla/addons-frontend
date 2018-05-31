@@ -866,7 +866,7 @@ describe(__filename, () => {
     expect(button.prop('disabled')).toEqual(false);
   });
 
-  it('hides a theme preview for static theme', () => {
+  it("hides 'Tap to preview' button for a static theme", () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
