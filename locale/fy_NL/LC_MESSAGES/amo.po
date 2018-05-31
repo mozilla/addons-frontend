@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 09:09+0000\n"
+"PO-Revision-Date: 2018-05-31 09:56+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fy_NL\n"
@@ -1939,15 +1939,15 @@ msgstr "Meldingen"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Mozilla kin jo sa no en dan in e-mailberjocht stjoere oer oankommende útjeften en add-on-barrens. Selektearje de foar jo ynteressante ûnderwerpen."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Mozilla kin jo sa no en dan in e-mailberjocht stjoere oer oankommende útjeften en add-on-barrens. Selektearje de foar jo ynteressante ûnderwerpen."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla behâldt harren it rjocht foar om yndividueel kontakt mei jo op te nimmen oer spesifike oangelegenheden mei jo add-ons dy't host wurde."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -1967,15 +1967,15 @@ msgstr "Brûkersprofyl bywurkje"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "bliuw by-de-tiid mei foar add-on-ûntwikkelers relevant nijs en eveneminten (wêrûnder de about:addons-nijsbrief)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla moat kontakt mei my opnimme oer myn yndividuele add-on"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "der binne nije add-ons of Firefox-funksjes beskikber"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
@@ -1991,19 +1991,19 @@ msgstr "myn add-on wurd troch in redakteur beoardield"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "myn sdk-basearre add-on kin net fernijd wurde"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "myn sdk-basearre add-on is mei sukses fernijd"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "de komptabiliteit fan myn add-on kin net fernijd wurde"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "de komptabiliteit fan myn add-on is mei sukses fernijd"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
