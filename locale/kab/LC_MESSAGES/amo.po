@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 18:51+0000\n"
+"PO-Revision-Date: 2018-05-31 18:56+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -53,7 +53,7 @@ msgstr "Senned akken ad tsekned"
 
 #: src/amo/components/Addon/index.js:236
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Azegrir-agi ur yezmir ara ad yettwasezmel acku ulac lqem i d-yeffɣen."
 
 #: src/amo/components/Addon/index.js:245
 msgid "Read %(count)s review"
@@ -103,7 +103,7 @@ msgstr "%(addonName)s %(startSpan)ssɣuṛ %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Ala s Firefox — Awi Firefox tura"
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -700,14 +700,12 @@ msgid "This add-on has been removed by its author."
 msgstr "Azegrir-agi yekkes-it umeskar-is."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Azegrir-agi ur yelli ara i telɣubliṭ inek."
+msgstr "Azegrir-agi yessens-it unedbal."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
-#, fuzzy
 msgid "Sorry, but we can't find anything at the address you entered."
-msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa URL i d-mudded."
+msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa i d-mudded."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:49 src/core/components/ErrorPage/NotFound/index.js:27
 msgid "Page not found"
@@ -738,33 +736,28 @@ msgid "Flagged as a bug report or support request"
 msgstr "Yettwacreḍ d tuzna n ubug neɣ asuter n tallelt"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
-#, fuzzy
 msgid "Flagged"
-msgstr "Creḍ"
+msgstr "Yettwammel"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
 msgstr "Creḍ"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
-#, fuzzy
 msgid "Flag this developer response"
-msgstr "Tiririt n ineflayen"
+msgstr "Mmel-d tiririt-agi n uneflay"
 
 #: src/amo/components/FlagReviewMenu/index.js:133
-#, fuzzy
 msgid "Flag this review"
-msgstr "Err i ucegger-agi"
+msgstr "Mmel-d aceggir-agi"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Qqen akken ad ternud tazmilt i usiɣzef-agi"
+msgstr "Qqen akken ad temmleḍ tiririt-agi"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Qqen akken ad ternud tazmilt i usentel-agi"
+msgstr "Qqen akken ad temmleḍ aceggir-agi"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -877,14 +870,12 @@ msgid "View My Collections"
 msgstr "Wali Tilkensiyin-iw"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
-#, fuzzy
 msgid "View My Profile"
-msgstr "Sken amaɣnu"
+msgstr "Sken amaɣnu-iw"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Ẓreg amaɣnu"
+msgstr "Ẓreg amaɣnu-iw"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -899,9 +890,8 @@ msgid "Submit a New Theme"
 msgstr "Azen asentel amaynut"
 
 #: src/amo/components/Header/index.js:152
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Iceggiren"
+msgstr "Ifecka n umcegger"
 
 #: src/amo/components/Header/index.js:162 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
@@ -924,9 +914,8 @@ msgid "Film & TV"
 msgstr "Asaru d TV"
 
 #: src/amo/components/Home/index.js:126
-#, fuzzy
 msgid "Scenery"
-msgstr "Scenic"
+msgstr "Imeẓri"
 
 #: src/amo/components/Home/index.js:131
 msgid "Music"
@@ -945,7 +934,6 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Snifel amek id-ittban Firefox s isental."
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Tame your tabs"
 msgstr "Snifel iccaren-ik"
 
