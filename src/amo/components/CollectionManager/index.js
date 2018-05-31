@@ -40,7 +40,7 @@ import type { ReactRouterType } from 'core/types/router';
 
 import './styles.scss';
 
-const MESSAGE_RESET_TIME = 5000;
+export const MESSAGE_RESET_TIME = 5000;
 const MESSAGE_FADEOUT_TIME = 450;
 
 export const ADDON_ADDED_STATUS_PENDING: 'ADDON_ADDED_STATUS_PENDING'
@@ -67,7 +67,6 @@ type Props = {|
   setTimeout: Function,
   siteLang: ?string,
   siteUserId: number | null,
-   _window: typeof window | Object,
 |};
 
 type State = {|
@@ -80,8 +79,7 @@ type State = {|
 
 export class CollectionManagerBase extends React.Component<Props, State> {
   static defaultProps = {
-    setTimeout,
-    _window: typeof window !== 'undefined' ? window : {},
+    setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
   };
 
   constructor(props: Props) {
@@ -107,8 +105,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      this.props.setTimeout.call(
-        this.props._window,
+      this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME
       );
@@ -349,7 +346,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
         <ReactCSSTransitionGroup
           className="NoticePlaceholder"
           component="div"
-          transitionName="overlay"
+          transitionName="NoticePlaceholder-transition"
           transitionEnterTimeout={MESSAGE_FADEOUT_TIME}
           transitionLeaveTimeout={MESSAGE_FADEOUT_TIME}
         >

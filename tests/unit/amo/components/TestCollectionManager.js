@@ -5,8 +5,9 @@ import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
   ADDON_ADDED_STATUS_PENDING,
   ADDON_ADDED_STATUS_SUCCESS,
-  extractId,
   CollectionManagerBase,
+  extractId,
+  MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionManager';
 import {
   addAddonToCollection,
@@ -712,11 +713,11 @@ describe(__filename, () => {
     expect(root.find(Notice).children()).toHaveText('Added to collection');
 
     expect(root).toHaveState('addonAddedStatus', ADDON_ADDED_STATUS_SUCCESS);
-    sinon.assert.calledWith(setTimeoutSpy, root.instance().resetMessageStatus, 5000);
+    sinon.assert.calledWith(setTimeoutSpy, root.instance().resetMessageStatus, MESSAGE_RESET_TIME);
 
     // Simulate the setTimeout behavior.
     root.instance().resetMessageStatus();
-    // See: https://github.com/airbnb/enzyme/blob/master/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
+    // See: https://github.com/airbnb/enzyme/blob/enzyme%403.3.0/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
     root.update();
 
     expect(root).toHaveState('addonAddedStatus', null);

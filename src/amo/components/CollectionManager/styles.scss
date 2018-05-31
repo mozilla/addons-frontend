@@ -31,11 +31,11 @@
   }
 
   .Notice {
-    &.overlay-appear {
+    &.NoticePlaceholder-transition-appear {
       opacity: 1;
     }
 
-    &.overlay-leave-active {
+    &.NoticePlaceholder-transition-leave-active {
       opacity: 0;
       transition: opacity $transition-medium ease-in-out;
     }
