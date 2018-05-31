@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 18:56+0000\n"
+"PO-Revision-Date: 2018-05-31 19:27+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -287,7 +287,7 @@ msgstr "Ini-d i medden ayɣer asiɣzef-agi ifaz. Ma ulac aɣilif, qaddeṛ %(lin
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr "Mmel-aɣ-d ayen tḥemleḍ deg uzegrir-agi. Ilik d ufri, frez awal-ik."
+msgstr "Mmel-aɣ-d ayen i tḥemleḍ deg uzegrir-agi. Frez awal-ik."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -295,7 +295,7 @@ msgstr "Mmeslay i yimdanen ɣef uzegrir-agi. Ma ulac aɣilif, qadeṛ %(linkStar
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr "Mmel-aɣ-d ɣef termit-ik akked usiɣzef-agi. Ilik d ufrin, frez awal-ik."
+msgstr "Mmel-aɣ-d ɣef termit-ik akked usiɣzef-agi. Frez awal-ik."
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
@@ -597,7 +597,7 @@ msgstr "Rnu tagrumma"
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
-msgstr ""
+msgstr "Isem n tegrumma"
 
 #: src/amo/components/CollectionManager/index.js:287
 msgid "Description"
@@ -605,7 +605,7 @@ msgstr "Asbadu"
 
 #: src/amo/components/CollectionManager/index.js:298
 msgid "Custom URL"
-msgstr ""
+msgstr "Tansa URL tudmawant"
 
 #: src/amo/components/CollectionManager/index.js:324
 msgid "Added to collection"
