@@ -65,10 +65,10 @@ export default class AddonsCard extends React.Component<Props> {
 
     if (addons && addons.length) {
       addons.forEach((addon) => {
-        // Because static themes are technically an extension type is has a summary
+        // Because static themes are technically an extension type it has a summary
         // field, but we want it to look like a theme which does not display this
         // or description field here
-        const isThemeType = ADDON_TYPE_THEMES.includes(addon.type);
+        const isTheme = ADDON_TYPE_THEMES.includes(addon.type);
         if (editing) {
           addonElements.push(
             <EditableCollectionAddon
@@ -84,7 +84,7 @@ export default class AddonsCard extends React.Component<Props> {
               addon={addon}
               key={addon.slug}
               showMetadata={showMetadata}
-              showSummary={!isThemeType ? showSummary : false}
+              showSummary={!isTheme ? showSummary : false}
             />
           );
         }

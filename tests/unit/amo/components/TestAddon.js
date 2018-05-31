@@ -39,6 +39,7 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
@@ -573,11 +574,22 @@ describe(__filename, () => {
       .toContain('About this extension');
   });
 
-  it('sets a title for the description of a theme', () => {
+  it('sets a title for the description of a lightweight theme', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this theme');
+  });
+
+  it('sets a title for the description of a static theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
       }),
     });
     expect(root.find('.AddonDescription').prop('header'))
@@ -762,6 +774,9 @@ describe(__filename, () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
+        // The 'previews' field is not currently being used by lightweight themes
+        // So here we are just overridding the fakeAddon values to mimic the API
+        // response.
         previews: [],
         theme_data: {
           ...fakeTheme.theme_data,
@@ -791,12 +806,26 @@ describe(__filename, () => {
   });
 
   it('renders screenshots for type extension', () => {
-    const root = shallowRender();
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
     expect(root.find('.Addon-screenshots')).toHaveLength(1);
   });
 
+  it('hides screenshots for lightweight theme type', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.Addon-screenshots')).toHaveLength(0);
+  });
 
-  it('hides screenshots for any theme type', () => {
+  it('hides screenshots for static theme type', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
@@ -806,7 +835,27 @@ describe(__filename, () => {
     expect(root.find('.Addon-screenshots')).toHaveLength(0);
   });
 
-  it('enables a theme preview for supported clients', () => {
+  it('uses Addon-theme class if it is a lightweight theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.Addon-theme')).toHaveLength(1);
+  });
+
+  it('uses Addon-theme class if it is a static theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    expect(root.find('.Addon-theme')).toHaveLength(1);
+  });
+
+  it('enables a theme preview for supported clients if it is a lightweight theme', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -815,6 +864,16 @@ describe(__filename, () => {
     });
     const button = root.find('.Addon-theme-header-label');
     expect(button.prop('disabled')).toEqual(false);
+  });
+
+  it('hides a theme preview for static theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
   });
 
   it('disables install button for incompatibility with firefox version', () => {

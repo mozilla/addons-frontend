@@ -186,16 +186,14 @@ export class AddonBase extends React.Component {
     } = this.props;
     const type = addon ? addon.type : ADDON_TYPE_EXTENSION;
 
-    // The 'tap to preview' button will be fully removed in the following PR:
-    // https://github.com/mozilla/addons-frontend/pull/4914
-    // for now this is only displayed over lightweight preview images
     if (this.addonIsTheme()) {
-      let previewURL = addon.previews.length > 0 && addon.previews[0].image_url;
+      let previewURL = addon.previews.length > 0 &&
+        addon.previews[0].image_url ? addon.previews[0].image_url : null;
 
-      let label = addon ? i18n.sprintf(
+      let label = i18n.sprintf(
         i18n.gettext('Preview of %(title)s'),
         { title: addon.name }
-      ) : '';
+      );
 
       if (!previewURL && type === ADDON_TYPE_THEME) {
         previewURL = addon.previewURL;
@@ -415,6 +413,7 @@ export class AddonBase extends React.Component {
       userAgentInfo,
     } = this.props;
 
+    const isTheme = this.addonIsTheme();
     let errorBanner = null;
     if (errorHandler.hasError()) {
       log.warn('Captured API Error:', errorHandler.capturedError);
@@ -499,7 +498,7 @@ export class AddonBase extends React.Component {
     return (
       <div
         className={makeClassName('Addon', `Addon-${addonType}`, {
-          'Addon-theme': this.addonIsTheme(),
+          'Addon-theme': isTheme,
           'Addon--has-more-than-0-addons': numberOfAddonsByAuthors > 0,
           'Addon--has-more-than-3-addons': numberOfAddonsByAuthors > 3,
         })}
@@ -571,7 +570,7 @@ export class AddonBase extends React.Component {
           <div className="Addon-main-content">
             {this.renderAddonsByAuthorsCard({ isForTheme: true })}
 
-            {addonPreviews.length > 0 && !this.addonIsTheme() ? (
+            {addonPreviews.length > 0 && !isTheme ? (
               <Card
                 className="Addon-screenshots"
                 header={i18n.gettext('Screenshots')}

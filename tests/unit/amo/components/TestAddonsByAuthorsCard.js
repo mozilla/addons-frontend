@@ -379,7 +379,7 @@ describe(__filename, () => {
     expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
-  it('should add a theme class if lightweight theme', () => {
+  it('should add a theme class if it is a lightweight theme', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_THEME,
     });

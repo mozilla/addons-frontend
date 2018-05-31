@@ -128,7 +128,7 @@ describe(__filename, () => {
     );
   });
 
-  it('renders Install Theme text on button when type is statictheme', () => {
+  it('renders Install Theme text on button when it is a static theme', () => {
     const addon = createInternalAddon({
       ...fakeTheme,
       type: ADDON_TYPE_STATIC_THEME,
