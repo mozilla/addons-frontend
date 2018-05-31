@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 18:18+0000\n"
+"PO-Revision-Date: 2018-05-31 18:51+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -536,18 +536,16 @@ msgid "Trending themes"
 msgstr "Isental itran"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Isental yettwasnen aṭas"
+msgstr "Ugar n yisental itran"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
 msgid "Top rated themes"
 msgstr "Isental yettwaszemlen aṭas"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Isental yettwaszemlen aṭas"
+msgstr "Ugar n yisental yettwaszemlen aṭas"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -562,14 +560,12 @@ msgid "Browse all themes in this category."
 msgstr "Inig ɣer akk isental di teggayt-a."
 
 #: src/amo/components/Collection/index.js:173
-#, fuzzy
 msgid "Edit this collection"
-msgstr "Inig akk taggayt"
+msgstr "Ẓreg tagrumma-agi"
 
 #: src/amo/components/Collection/index.js:217
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "Inig akk taggayt"
+msgstr "Qqen akken ad tbeddleḍ tagrumma-agi"
 
 #: src/amo/components/Collection/index.js:246 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -584,23 +580,20 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Inig akk taggayt"
+msgstr "Qqen akken ad terniḍ tagrumma"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Save collection"
-msgstr "Inig akk taggayt"
+msgstr "Sekles tagrumma"
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Create collection"
-msgstr "Rnu tagrumma tamaynut"
+msgstr "Rnu tagrumma"
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
@@ -615,9 +608,8 @@ msgid "Custom URL"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:324
-#, fuzzy
 msgid "Added to collection"
-msgstr "Rnu ar tegrumma"
+msgstr "Yerna ar tegrumma"
 
 #: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
@@ -628,14 +620,12 @@ msgid "Cancel"
 msgstr "Sefsex"
 
 #: src/amo/components/ContributeCard/index.js:36
-#, fuzzy
 msgid "Support this developer"
-msgstr "Tiririt n ineflayen"
+msgstr "Mudd afus i uneflay-agi"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Nadi n iszegrar squr ineflayen-agi"
+msgstr "Mudd afus i yineflayen-agi"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -646,14 +636,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "Ineflayen n usiɣzef-agi suturen-ak-d tallelt akken ad seddun taneflit-nse ticki tmuddeḍ-asen cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Asmel n tallelt"
+msgstr "Mudd afis i unaẓur-agi"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Ugar n isental sɣur inaẓuren-agi"
+msgstr "Mudd afis i yinaẓuren-agi"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -664,14 +652,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "Inazuṛen n usentel-agi suturen-ak-d tallelt akken ad seddun asnulfu-nsen ticki tmuddeḍ-asen cwiṭ n tewsa."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Asmel n tallelt"
+msgstr "Mudd afis i umeskar-agi"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Ugar n isental sɣur %(author)s"
+msgstr "Mudd afis i yimeskaren-agi"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
