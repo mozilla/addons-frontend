@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 05:40+0000\n"
+"PO-Revision-Date: 2018-05-31 12:29+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -101,9 +101,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)soleh %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Hanya dengan Firefox — Dapatkan Firefox Sekarang!"
+msgstr "Hanya dengan Firefox—Dapatkan Firefox Sekarang"
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -586,14 +585,12 @@ msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Pertama sekali, cipta koleksi. Kemudian anda boleh tambah ekstensi dan tema."
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Save collection"
-msgstr "Simpan Koleksi"
+msgstr "Simpan koleksi"
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Create collection"
-msgstr "Cipta koleksi baru"
+msgstr "Cipta koleksi"
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
@@ -608,9 +605,8 @@ msgid "Custom URL"
 msgstr "URL Penyesuaian"
 
 #: src/amo/components/CollectionManager/index.js:324
-#, fuzzy
 msgid "Added to collection"
-msgstr "Tambah ke koleksi"
+msgstr "Ditambah ke koleksi"
 
 #: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
@@ -942,34 +938,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Mengubah penampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Tame your tabs"
-msgstr "Mengubah tab anda"
+msgstr "Kawal tab anda"
 
 #: src/amo/components/Home/index.js:217
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Lihat ekstensi carian selanjutnya"
+msgstr "Lihat selanjutnya ekstensi tab"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Lihat semua ekstensi"
+msgstr "Ekstensi penting"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Lihat ekstensi carian selanjutnya"
+msgstr "Lihat selanjutnya ekstensi penting"
 
 #: src/amo/components/Home/index.js:255
-#, fuzzy
 msgid "Translation tools"
-msgstr "Translate Man"
+msgstr "Alatan penterjemahan"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Lihat ekstensi privasi selanjutnya"
+msgstr "Lihat selanjutnya ekstensi penterjemahan"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1048,18 +1038,16 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "Akses mudah menu juntai bawah ke perkhidmatan Google seperti Carian dan Terjemahan"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
 msgstr "Terjemah seluruh halaman web dengan beberapa klik"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Lihat ekstensi carian selanjutnya"
+msgstr "Pilihan Carian Imej"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1123,11 +1111,11 @@ msgstr "Perlindungan daripada perisian hasad dan penipuan data"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Susun tab secara menegak"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
@@ -1872,9 +1860,8 @@ msgid "Profile successfully updated"
 msgstr "Profil berjaya dikemas kini"
 
 #: src/amo/components/UserProfileEdit/index.js:167
-#, fuzzy
 msgid "Picture successfully deleted"
-msgstr "Profil berjaya dikemas kini"
+msgstr "Gambar berjaya dibuang"
 
 #: src/amo/components/UserProfileEdit/index.js:320
 msgid "Log in to edit the profile"
@@ -1949,21 +1936,20 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Beberapa HTML yang disokong: %(htmlTags)s. Pautan dilarang."
 
 #: src/amo/components/UserProfileEdit/index.js:571
-#, fuzzy
 msgid "Notifications"
-msgstr "Lokasi"
+msgstr "Notifikasi"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Dari masa ke semasa, Mozilla akan menghantar e-mel kepada anda perihal keluaran dan acara add-on akan datang. Sila pilih topik yang anda minati."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
-msgstr ""
+msgstr "Dari masa ke semasa, Mozilla akan menghantar e-mel kepada pengguna ini perihal keluaran dan acara add-on akan datang. Sila pilih topik yang pengguna ini minati."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla ada hak untuk menghubungi anda secara individu perihal keprihatinan tertentu terhadap pengehosan add-on anda."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -1983,61 +1969,59 @@ msgstr "Kemaskini profil pengguna"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "sentiasa dimaklumkan dengan berita dan acara berkaitan pembangun add-on (termasuk surat berita about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla perlu menghubungi saya perihal add-on individu saya"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "add-ons atau ciri baru Firefox sudah tersedia"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "seseorang menulis ulasan untuk add-on saya"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "pembangun add-on membalas ulasan saya"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "add-on saya diulas oleh penyemak"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "add-on berasaskan-sdk saya tidak boleh dipertingkatkan"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "add-on berasaskan-sdk saya berjaya dipertingkatkan"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "keserasian add-on saya tidak boleh dipertingkatkan"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "keserasian add-on saya berjaya dipertingkatkan"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Profil Pengguna untuk %(user)s"
+msgstr "Gambar profil untuk %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "Profil"
+msgstr "Foto profil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Pilih foto..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:76
 msgid "Delete this picture"
-msgstr ""
+msgstr "Buang gambar ini"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
