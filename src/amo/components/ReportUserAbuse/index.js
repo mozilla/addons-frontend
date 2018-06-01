@@ -111,11 +111,11 @@ export class ReportUserAbuseBase extends React.Component<Props> {
                   %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s,
                   please report this user to Mozilla.`
                 ), {
-                    linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
-                    linkTagEnd: '</a>',
-                  })
+                  linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
+                  linkTagEnd: '</a>',
+                })
               )}
-            /* eslint-enable react/no-danger */
+              /* eslint-enable react/no-danger */
             />
             <p>
               {i18n.gettext(
@@ -165,7 +165,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
 
 export const mapStateToProps = (
   state: {| userAbuseReports: UserAbuseReportsState |},
-ownProps: Props,
+  ownProps: Props,
 ) => {
   const abuseReport = (
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
