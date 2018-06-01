@@ -11,11 +11,13 @@ import {
   ADD_ADDON_TO_COLLECTION,
   CREATE_COLLECTION,
   DELETE_COLLECTION,
+  DELETE_COLLECTION_ADDON_NOTES,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
   REMOVE_ADDON_FROM_COLLECTION,
   UPDATE_COLLECTION,
+  UPDATE_COLLECTION_ADDON,
   abortAddAddonToCollection,
   abortFetchCurrentCollection,
   abortFetchUserCollections,
@@ -42,6 +44,7 @@ import type {
   GetCollectionParams,
   RemoveAddonFromCollectionParams,
   UpdateCollectionParams,
+  UpdateCollectionAddonParams,
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
@@ -52,6 +55,7 @@ import type {
   FetchUserCollectionsAction,
   RemoveAddonFromCollectionAction,
   UpdateCollectionAction,
+  UpdateCollectionAddonAction,
 } from 'amo/reducers/collections';
 
 export function* fetchCurrentCollection({
@@ -333,6 +337,7 @@ export function* deleteCollection({
       slug,
       username,
     };
+
     yield call(api.deleteCollection, params);
 
     // Unload the collection from state.
@@ -352,6 +357,38 @@ export function* deleteCollection({
   }
 }
 
+export function* updateCollectionAddon({
+  payload: {
+    addonId, errorHandlerId, notes, page, slug, username,
+  },
+}: UpdateCollectionAddonAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const params: UpdateCollectionAddonParams = {
+      addonId,
+      api: state.api,
+      notes,
+      slug,
+      username,
+    };
+    yield call(api.updateCollectionAddon, params);
+
+    yield put(fetchCurrentCollectionPageAction({
+      page,
+      errorHandlerId: errorHandler.id,
+      slug,
+      username,
+    }));
+  } catch (error) {
+    log.warn(`Failed to update add-on in collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* collectionsSaga(): Generator<any, any, any> {
   yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
   yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
@@ -362,4 +399,8 @@ export default function* collectionsSaga(): Generator<any, any, any> {
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
   yield takeLatest(REMOVE_ADDON_FROM_COLLECTION, removeAddonFromCollection);
+  yield takeLatest(
+    [DELETE_COLLECTION_ADDON_NOTES, UPDATE_COLLECTION_ADDON],
+    updateCollectionAddon,
+  );
 }

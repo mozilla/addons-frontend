@@ -24,6 +24,7 @@ import {
 } from 'tests/unit/helpers';
 import {
   createAddonsApiResult,
+  createFakeCollectionAddons,
   createFakeCollectionAddonsListResponse,
   dispatchClientMetadata,
   fakeAddon,
@@ -204,11 +205,12 @@ describe(__filename, () => {
     const { store } = dispatchClientMetadata();
 
     const addons = [{ ...fakeAddon, slug: 'addon' }];
+    const collectionAddons = createFakeCollectionAddons();
     const themes = [{ ...fakeTheme }];
 
     const collections = [
-      createFakeCollectionAddonsListResponse({ addons }),
-      createFakeCollectionAddonsListResponse({ addons }),
+      createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
+      createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult(themes);
@@ -232,13 +234,19 @@ describe(__filename, () => {
       .at(0);
     expect(firstCollectionShelf).toHaveProp('loading', false);
     expect(firstCollectionShelf)
-      .toHaveProp('addons', addons.map((addon) => createInternalAddon(addon)));
+      .toHaveProp(
+        'addons',
+        collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+      );
 
     const secondCollectionShelf = shelves.find('.Home-FeaturedCollection')
       .at(1);
     expect(secondCollectionShelf).toHaveProp('loading', false);
     expect(secondCollectionShelf)
-      .toHaveProp('addons', addons.map((addon) => createInternalAddon(addon)));
+      .toHaveProp(
+        'addons',
+        collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+      );
 
     const featuredExtensionsShelf = shelves.find('.Home-FeaturedExtensions');
     expect(featuredExtensionsShelf).toHaveProp('loading', false);

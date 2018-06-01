@@ -11,7 +11,7 @@ import collectionsReducer, {
   beginCollectionModification,
   createCollection,
   deleteCollection,
-  unloadCollectionBySlug,
+  deleteCollectionAddonNotes,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
@@ -21,7 +21,9 @@ import collectionsReducer, {
   loadUserCollections,
   localizeCollectionDetail,
   removeAddonFromCollection,
+  unloadCollectionBySlug,
   updateCollection,
+  updateCollectionAddon,
 } from 'amo/reducers/collections';
 import collectionsSaga from 'amo/sagas/collections';
 import apiReducer from 'core/reducers/api';
@@ -795,6 +797,119 @@ describe(__filename, () => {
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('updateCollectionAddon', () => {
+    const _updateCollectionAddon = (params = {}) => {
+      sagaTester.dispatch(updateCollectionAddon({
+        addonId: 543,
+        errorHandlerId: errorHandler.id,
+        notes: '',
+        page: 1,
+        slug: 'some-collection',
+        username: 'some-user',
+        ...params,
+      }));
+    };
+
+    it('updates notes for a collection add-on', async () => {
+      const params = {
+        addonId: 123,
+        notes: 'Here are some notes',
+        page: 2,
+        slug: 'some-other-slug',
+        username: 'some-other-user',
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('updateCollectionAddon')
+        .withArgs({
+          addonId: params.addonId,
+          api: state.api,
+          notes: params.notes,
+          slug: params.slug,
+          username: params.username,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      _updateCollectionAddon(params);
+
+      const expectedFetchAction = fetchCurrentCollectionPage({
+        page: params.page,
+        errorHandlerId: errorHandler.id,
+        slug: params.slug,
+        username: params.username,
+      });
+
+      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
+      expect(fetchAction).toEqual(expectedFetchAction);
+      mockApi.verify();
+    });
+
+    it('clears the error handler', async () => {
+      _updateCollectionAddon();
+
+      const expectedAction = errorHandler.createClearingAction();
+
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('some API error maybe');
+
+      mockApi
+        .expects('updateCollectionAddon')
+        .returns(Promise.reject(error));
+
+      _updateCollectionAddon();
+
+      const expectedAction = errorHandler.createErrorAction(error);
+      const action = await sagaTester.waitFor(expectedAction.type);
+      expect(action).toEqual(expectedAction);
+    });
+  });
+
+  describe('deleteCollectionAddonNotes', () => {
+    it('deletes notes for a collection add-on by updating the notes to an empty string', async () => {
+      const params = {
+        addonId: 123,
+        page: 2,
+        slug: 'some-other-slug',
+        username: 'some-other-user',
+      };
+      const state = sagaTester.getState();
+
+      mockApi
+        .expects('updateCollectionAddon')
+        .withArgs({
+          addonId: params.addonId,
+          api: state.api,
+          notes: '',
+          slug: params.slug,
+          username: params.username,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      sagaTester.dispatch(deleteCollectionAddonNotes({
+        errorHandlerId: errorHandler.id,
+        ...params,
+      }));
+
+      const expectedFetchAction = fetchCurrentCollectionPage({
+        page: params.page,
+        errorHandlerId: errorHandler.id,
+        slug: params.slug,
+        username: params.username,
+      });
+
+      const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
+      expect(fetchAction).toEqual(expectedFetchAction);
+      mockApi.verify();
     });
   });
 });
