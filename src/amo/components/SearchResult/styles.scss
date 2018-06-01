@@ -60,10 +60,6 @@
     object-fit: cover;
     object-position: top left;
     width: 100%;
-
-    @include respond-to(extraExtraLarge) {
-      width: auto;
-    }
   }
 
   .SearchResult--persona & {
