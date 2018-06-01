@@ -15,6 +15,25 @@
   }
 
   &.AddonsCard--horizontal {
+    // overriding default list styles for theme
+    // stylelint-disable max-nesting-depth
+    &.AddonsByAuthorsCard--theme {
+      .Card-contents .AddonsCard-list {
+        display: block;
+        @include respond-to(medium) {
+          display: grid;
+        }
+
+        @include respond-to(large) {
+          display: block;
+        }
+
+        @include respond-to(extraLarge) {
+          display: grid;
+        }
+      }
+    }
+
     .Card-contents .AddonsCard-list {
       background-color: $white;
       display: grid;

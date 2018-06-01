@@ -15,6 +15,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import AddonsCard from 'amo/components/AddonsCard';
@@ -376,6 +377,22 @@ describe(__filename, () => {
     });
 
     expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
+  });
+
+  it('should add a theme class if it is a lightweight theme', () => {
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_THEME,
+    });
+
+    expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
+  });
+
+  it('should add a theme class if it is a static theme', () => {
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_STATIC_THEME,
+    });
+
+    expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
   });
 
   it('shows dictionaries in header for ADDON_TYPE_DICT', () => {

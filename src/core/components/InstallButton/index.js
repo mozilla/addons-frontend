@@ -12,6 +12,7 @@ import InstallSwitch from 'core/components/InstallSwitch';
 import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES,
   INSTALL_CATEGORY,
   INSTALL_STARTED_CATEGORY,
   TRACKING_TYPE_EXTENSION,
@@ -269,6 +270,10 @@ export class InstallButtonBase extends React.Component {
       } : (event) => {
         this.installExtension({ event, installURL });
       };
+
+      const buttonText = ADDON_TYPE_THEMES.includes(addon.type)
+        ? i18n.gettext('Install Theme') : i18n.gettext('Add to Firefox');
+
       button = (
         <Button
           buttonType="action"
@@ -281,7 +286,7 @@ export class InstallButtonBase extends React.Component {
           puffy
         >
           <Icon name="plus" />
-          {i18n.gettext('Add to Firefox')}
+          {buttonText}
         </Button>
       );
     }

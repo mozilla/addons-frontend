@@ -39,8 +39,10 @@ import { createApiError } from 'core/api/index';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_DICT,
+  ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_FIREFOX,
   ENABLED,
@@ -572,11 +574,22 @@ describe(__filename, () => {
       .toContain('About this extension');
   });
 
-  it('sets a title for the description of a theme', () => {
+  it('sets a title for the description of a lightweight theme', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
         type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.AddonDescription').prop('header'))
+      .toContain('About this theme');
+  });
+
+  it('sets a title for the description of a static theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
       }),
     });
     expect(root.find('.AddonDescription').prop('header'))
@@ -757,10 +770,14 @@ describe(__filename, () => {
     expect(src).toEqual('default-64.png');
   });
 
-  it('renders a theme preview as an img', () => {
+  it('renders a lightweight theme preview as an image', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeTheme,
+        // The 'previews' field is not currently being used by lightweight themes
+        // So here we are just overridding the fakeAddon values to mimic the API
+        // response.
+        previews: [],
         theme_data: {
           ...fakeTheme.theme_data,
           previewURL: 'https://amo/preview.png',
@@ -774,7 +791,85 @@ describe(__filename, () => {
     expect(image.prop('alt')).toEqual('Tap to preview');
   });
 
-  it('enables a theme preview for supported clients', () => {
+  it('renders a static theme preview as an image', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.type()).toEqual('img');
+    expect(image).toHaveClassName('Addon-theme-header-image');
+    expect(image.prop('src')).toEqual('https://addons.cdn.mozilla.net/123/image.png');
+    expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
+  });
+
+  it('renders the preview image from the previews array if it exists for the lightweight theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    const image = root.find('.Addon-theme-header-image');
+    expect(image.type()).toEqual('img');
+    expect(image).toHaveClassName('Addon-theme-header-image');
+    expect(image.prop('src')).toEqual('https://addons.cdn.mozilla.net/123/image.png');
+    expect(image.prop('alt')).toEqual('Preview of Dancing Daisies by MaDonna');
+  });
+
+  it('renders screenshots for type extension', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_EXTENSION,
+      }),
+    });
+    expect(root.find('.Addon-screenshots')).toHaveLength(1);
+  });
+
+  it('hides screenshots for lightweight theme type', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.Addon-screenshots')).toHaveLength(0);
+  });
+
+  it('hides screenshots for static theme type', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    expect(root.find('.Addon-screenshots')).toHaveLength(0);
+  });
+
+  it('uses Addon-theme class if it is a lightweight theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_THEME,
+      }),
+    });
+    expect(root.find('.Addon-theme')).toHaveLength(1);
+  });
+
+  it('uses Addon-theme class if it is a static theme', () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeTheme,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    expect(root.find('.Addon-theme')).toHaveLength(1);
+  });
+
+  it('enables a theme preview for supported clients if it is a lightweight theme', () => {
     const root = shallowRender({
       addon: createInternalAddon({
         ...fakeAddon,
@@ -783,6 +878,16 @@ describe(__filename, () => {
     });
     const button = root.find('.Addon-theme-header-label');
     expect(button.prop('disabled')).toEqual(false);
+  });
+
+  it("hides 'Tap to preview' button for a static theme", () => {
+    const root = shallowRender({
+      addon: createInternalAddon({
+        ...fakeAddon,
+        type: ADDON_TYPE_STATIC_THEME,
+      }),
+    });
+    expect(root.find('.Addon-theme-header-label')).toHaveLength(0);
   });
 
   it('disables install button for incompatibility with firefox version', () => {
