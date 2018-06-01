@@ -32,7 +32,7 @@ type Props = {|
   i18n: I18nType,
   isSubmitting: bool,
   uiVisible: bool,
-  user ?: UserType,
+  user?: UserType,
 |};
 
 export class ReportUserAbuseBase extends React.Component<Props> {
