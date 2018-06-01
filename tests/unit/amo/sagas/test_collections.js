@@ -740,6 +740,7 @@ describe(__filename, () => {
         username: 'some-other-user',
       };
       const state = sagaTester.getState();
+      const { lang, clientApp } = state.api;
 
       mockApi
         .expects('deleteCollection')
@@ -760,6 +761,11 @@ describe(__filename, () => {
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
       expect(fetchAction).toEqual(expectedFetchAction);
+
+      const expectedPushAction = pushLocation(`/${lang}/${clientApp}`);
+
+      const pushAction = await sagaTester.waitFor(expectedPushAction.type);
+      expect(pushAction).toEqual(expectedPushAction);
       mockApi.verify();
     });
 

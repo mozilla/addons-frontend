@@ -86,3 +86,11 @@
   margin-top: $padding-page;
   width: 100%;
 }
+
+.Collection-delete-button {
+  margin: 12px 0;
+
+  .ConfirmButton-default-button {
+    width: 100%;
+  }
+}
