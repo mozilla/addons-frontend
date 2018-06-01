@@ -328,7 +328,7 @@ export const loadCurrentCollectionPage = ({
 
 type LoadCollectionAddonsParams = {|
   addons: ExternalCollectionAddons,
-  collectionSlug: string,
+  slug: string,
 |};
 
 type LoadCollectionAddonsAction = {|
@@ -337,18 +337,18 @@ type LoadCollectionAddonsAction = {|
 |};
 
 export const loadCollectionAddons = ({
-  addons, collectionSlug,
+  addons, slug,
 }: LoadCollectionAddonsParams = {}): LoadCollectionAddonsAction => {
   if (!addons) {
     throw new Error('The addons parameter is required');
   }
-  if (!collectionSlug) {
-    throw new Error('The collectionSlug parameter is required');
+  if (!slug) {
+    throw new Error('The slug parameter is required');
   }
 
   return {
     type: LOAD_COLLECTION_ADDONS,
-    payload: { addons, collectionSlug },
+    payload: { addons, slug },
   };
 };
 
@@ -419,7 +419,7 @@ export const abortFetchCurrentCollection = (): AbortFetchCurrentCollection => {
 type AddAddonToCollectionParams = {|
   addonId: number,
   collectionId: CollectionId,
-  collectionSlug: string,
+  slug: string,
   editing?: boolean,
   errorHandlerId: string,
   notes?: string,
@@ -433,11 +433,11 @@ export type AddAddonToCollectionAction = {|
 |};
 
 export const addAddonToCollection = ({
-  addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, page, userId,
+  addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(collectionId, 'The collectionId parameter is required');
-  invariant(collectionSlug, 'The collectionSlug parameter is required');
+  invariant(slug, 'The slug parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(userId, 'The userId parameter is required');
 
@@ -448,7 +448,7 @@ export const addAddonToCollection = ({
   return {
     type: ADD_ADDON_TO_COLLECTION,
     payload: {
-      addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, page, userId,
+      addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
     },
   };
 };
@@ -864,13 +864,13 @@ const reducer = (
     }
 
     case LOAD_COLLECTION_ADDONS: {
-      const { addons, collectionSlug } = action.payload;
+      const { addons, slug } = action.payload;
 
-      const collectionId = state.bySlug[collectionSlug];
+      const collectionId = state.bySlug[slug];
       if (!collectionId) {
         throw new Error(
           oneLine`Cannot load add-ons for collection
-          "${collectionSlug}" because the collection has not
+          "${slug}" because the collection has not
           been loaded yet`);
       }
       const collection = state.byId[collectionId];

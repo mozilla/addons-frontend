@@ -661,7 +661,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
       addonId: suggestion.addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page,
@@ -689,7 +689,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
       addonId: suggestion.addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page: 1,

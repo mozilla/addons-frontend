@@ -147,7 +147,7 @@ export function* fetchUserCollections({
 
 export function* addAddonToCollection({
   payload: {
-    addonId, collectionId, collectionSlug, editing, errorHandlerId, notes, page, userId,
+    addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
   },
 }: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -159,7 +159,7 @@ export function* addAddonToCollection({
     const params: CreateCollectionAddonParams = {
       addonId,
       api: state.api,
-      collectionSlug,
+      slug,
       notes,
       user: userId,
     };
@@ -171,7 +171,7 @@ export function* addAddonToCollection({
       yield put(fetchCurrentCollectionPageAction({
         page,
         errorHandlerId: errorHandler.id,
-        slug: collectionSlug,
+        slug,
         user: userId,
       }));
     }

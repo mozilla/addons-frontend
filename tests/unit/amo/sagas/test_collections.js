@@ -259,7 +259,7 @@ describe(__filename, () => {
       sagaTester.dispatch(addAddonToCollection({
         addonId: 543,
         collectionId: 321,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: errorHandler.id,
         userId: 321,
         ...params,
@@ -267,11 +267,10 @@ describe(__filename, () => {
     };
 
     it('posts an add-on to a collection', async () => {
-      const collectionSlug = 'a-collection';
       const params = {
         addonId: 123,
         collectionId: 5432,
-        collectionSlug,
+        slug: 'a-collection',
         userId: 543,
       };
       const state = sagaTester.getState();
@@ -281,7 +280,7 @@ describe(__filename, () => {
         .withArgs({
           addonId: params.addonId,
           api: state.api,
-          collectionSlug,
+          slug: params.slug,
           notes: undefined,
           user: params.userId,
         })
@@ -302,7 +301,7 @@ describe(__filename, () => {
       const unexpectedFetchAction = fetchCurrentCollectionPage({
         page: 1,
         errorHandlerId: errorHandler.id,
-        slug: collectionSlug,
+        slug: params.slug,
         user: params.userId,
       });
 
@@ -311,11 +310,10 @@ describe(__filename, () => {
     });
 
     it('posts an add-on to a collection while the collection is being edited', async () => {
-      const collectionSlug = 'a-collection';
       const params = {
         addonId: 123,
         collectionId: 5432,
-        collectionSlug,
+        slug: 'a-collection',
         editing: true,
         page: 1,
         userId: 543,
@@ -327,7 +325,7 @@ describe(__filename, () => {
         .withArgs({
           addonId: params.addonId,
           api: state.api,
-          collectionSlug,
+          slug: params.slug,
           notes: undefined,
           user: params.userId,
         })
@@ -339,7 +337,7 @@ describe(__filename, () => {
       const expectedFetchAction = fetchCurrentCollectionPage({
         page: params.page,
         errorHandlerId: errorHandler.id,
-        slug: collectionSlug,
+        slug: params.slug,
         user: params.userId,
       });
 

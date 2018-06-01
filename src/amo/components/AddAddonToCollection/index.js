@@ -122,7 +122,7 @@ export class AddAddonToCollectionBase extends React.Component<Props> {
     dispatch(addAddonToCollection({
       addonId: addon.id,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       errorHandlerId: errorHandler.id,
       userId: siteUserId,
     }));
