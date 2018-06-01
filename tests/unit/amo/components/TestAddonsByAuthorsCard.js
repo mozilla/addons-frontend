@@ -387,7 +387,7 @@ describe(__filename, () => {
     expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
   });
 
-  it('should add a theme class if static theme', () => {
+  it('should add a theme class if it is a static theme', () => {
     const root = renderAddonsWithType({
       addonType: ADDON_TYPE_STATIC_THEME,
     });

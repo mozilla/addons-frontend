@@ -171,7 +171,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.SearchResult-icon')).toHaveLength(1);
+    expect(root.find('.SearchResult-result')).not.toIncludeText('No theme preview available');
   });
 
   it('displays a message if the static theme preview image is unavailable', () => {
@@ -193,7 +193,7 @@ describe(__filename, () => {
     });
     const root = render({ addon });
 
-    expect(root.find('.SearchResult-icon')).toHaveLength(1);
+    expect(root.find('.SearchResult-result')).not.toIncludeText('No theme preview available');
   });
 
   it('renders placeholders without an addon', () => {
