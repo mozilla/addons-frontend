@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 23:50+0000\n"
+"PO-Revision-Date: 2018-06-01 00:06+0000\n"
 "Last-Translator: pchew <pchew@change.org>\n"
 "Language-Team: none\n"
 "Language: mn\n"
@@ -362,11 +362,11 @@ msgstr ""
 
 #: src/amo/components/AddonReviewListItem/index.js:259
 msgid "Edit my reply"
-msgstr ""
+msgstr "Миний хариулыг засварлах"
 
 #: src/amo/components/AddonReviewListItem/index.js:260
 msgid "Edit my review"
-msgstr ""
+msgstr "Миний тоймыг засварлах"
 
 #: src/amo/components/AddonReviewListItem/index.js:278
 msgid "Reply to this review"
@@ -874,7 +874,7 @@ msgstr ""
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
 msgid "Edit My Profile"
-msgstr ""
+msgstr "Миний профайлыг засварлах"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -1826,7 +1826,7 @@ msgstr ""
 
 #: src/amo/components/UserProfile/index.js:221
 msgid "Edit profile"
-msgstr ""
+msgstr "Профайлыг засварлах"
 
 #: src/amo/components/UserProfileEdit/index.js:160
 msgid "Profile successfully updated"
