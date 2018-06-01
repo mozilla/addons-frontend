@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-01 00:06+0000\n"
+"PO-Revision-Date: 2018-06-01 00:27+0000\n"
 "Last-Translator: pchew <pchew@change.org>\n"
 "Language-Team: none\n"
 "Language: mn\n"
@@ -678,7 +678,7 @@ msgstr ""
 
 #: src/amo/components/EditableCollectionAddon/index.js:56
 msgid "Remove"
-msgstr ""
+msgstr "Арилгах"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
