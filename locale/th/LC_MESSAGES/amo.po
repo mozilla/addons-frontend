@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-02 09:44+0000\n"
+"PO-Revision-Date: 2018-06-02 09:55+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1905,9 +1905,8 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:571
-#, fuzzy
 msgid "Notifications"
-msgstr "ตำแหน่งที่ตั้ง"
+msgstr "การแจ้งเตือน"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
