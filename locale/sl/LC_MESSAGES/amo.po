@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-05-31 14:13+0000\n"
+"PO-Revision-Date: 2018-06-02 09:13+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1056,13 +1056,12 @@ msgid "Translate an entire web page with a couple clicks"
 msgstr "Prevedite celotno spletno stran z nekaj kliki"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Več razširitev za iskanje"
+msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Možnosti za obrnjeno slikovno iskanje v priročnem meniju"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Forget Me Not"
@@ -1070,7 +1069,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Naj Firefox pozabi podatke strani, kot so piškotki in krajevna shramba"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
@@ -1098,7 +1097,7 @@ msgstr "Preprečite Facebooku, da bi vam sledil po spletu"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
