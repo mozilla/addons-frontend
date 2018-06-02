@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-02 09:50+0000\n"
+"PO-Revision-Date: 2018-06-02 09:56+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -1997,7 +1997,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla se mora obrniti name glede določenega dodatka"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
@@ -2017,11 +2017,11 @@ msgstr "pregledovalec pregleduje moj dodatek"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "mojega dodatka na osnovi sdk ni mogoče nadgraditi"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "moj na osnovi sdk ustvarjen dodatek je uspešno nadgrajen"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
