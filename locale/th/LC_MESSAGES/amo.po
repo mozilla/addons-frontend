@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-02 11:03+0000\n"
+"PO-Revision-Date: 2018-06-02 11:46+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -584,14 +584,12 @@ msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Save collection"
 msgstr "บันทึกชุดสะสม"
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Create collection"
-msgstr "สร้างชุดสะสมใหม่"
+msgstr "สร้างชุดสะสม"
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
