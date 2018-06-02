@@ -681,18 +681,23 @@ export const updateCollectionAddon = ({
   };
 };
 
-// The DeleteCollectionAddonNotesAction is identical to the
-// UpdateCollectionAddonAction, with the only difference being that
-// we pass '' into the notes field. Therefore we can reuse the
-// UpdateCollectionAddonParams type to describe the payload.
+type DeleteCollectionAddonNotesParams = {|
+  addonId: number,
+  errorHandlerId: string,
+  notes?: string,
+  page: number,
+  slug: string,
+  username: string,
+|};
+
 export type DeleteCollectionAddonNotesAction = {|
   type: typeof DELETE_COLLECTION_ADDON_NOTES,
-  payload: UpdateCollectionAddonParams,
+  payload: DeleteCollectionAddonNotesParams,
 |};
 
 export const deleteCollectionAddonNotes = ({
   addonId, errorHandlerId, page, slug, username,
-}: UpdateCollectionAddonParams = {}): DeleteCollectionAddonNotesAction => {
+}: DeleteCollectionAddonNotesParams = {}): DeleteCollectionAddonNotesAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(page, 'The page parameter is required');

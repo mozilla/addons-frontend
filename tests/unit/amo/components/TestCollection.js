@@ -17,10 +17,12 @@ import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
   deleteCollection,
+  deleteCollectionAddonNotes,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCurrentCollection,
   removeAddonFromCollection,
+  updateCollectionAddon,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
@@ -535,6 +537,12 @@ describe(__filename, () => {
       .toHaveProp('editing', true);
     expect(wrapper.find(Paginate)).toHaveProp('pathname', pathname);
     expect(wrapper.find(CollectionManager)).toHaveLength(1);
+    expect(wrapper.find(AddonsCard))
+      .toHaveProp('deleteNote', wrapper.instance().deleteNote);
+    expect(wrapper.find(AddonsCard))
+      .toHaveProp('removeAddon', wrapper.instance().removeAddon);
+    expect(wrapper.find(AddonsCard))
+      .toHaveProp('saveNote', wrapper.instance().saveNote);
 
     // Make sure these were not rendered.
     expect(wrapper.find('.Collection-title')).toHaveLength(0);
@@ -978,6 +986,168 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       slug,
       username,
+    }));
+  });
+
+  it('dispatches deleteCollectionAddonNotes when deleteNote is called', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const collectionDetail = createFakeCollectionDetail();
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+
+    store.dispatch(loadCurrentCollection({
+      addons,
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: fakeRouterLocation({ query: { page } }),
+      store,
+    });
+
+    fakeDispatch.reset();
+
+    // This simulates the user clicking the "Delete" button on the
+    // EditableCollectionAddon component's comment form.
+    root.instance().deleteNote(addonId, errorHandler);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, deleteCollectionAddonNotes({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      page,
+      slug: collectionDetail.slug,
+      username: collectionDetail.author.username,
+    }));
+  });
+
+  it('dispatches deleteCollectionAddonNotes when deleteNote is called without a page defined', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const collectionDetail = createFakeCollectionDetail();
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    store.dispatch(loadCurrentCollection({
+      addons,
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: fakeRouterLocation({ query: { } }),
+      store,
+    });
+
+    fakeDispatch.reset();
+
+    // This simulates the user clicking the "Delete" button on the
+    // EditableCollectionAddon component's comment form.
+    root.instance().deleteNote(addonId, errorHandler);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, deleteCollectionAddonNotes({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      page: 1,
+      slug: collectionDetail.slug,
+      username: collectionDetail.author.username,
+    }));
+  });
+
+  it('dispatches updateCollectionAddon when saveNote is called', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const collectionDetail = createFakeCollectionDetail();
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const page = 123;
+    const notes = 'These are some notes.';
+
+    store.dispatch(loadCurrentCollection({
+      addons,
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: fakeRouterLocation({ query: { page } }),
+      store,
+    });
+
+    fakeDispatch.reset();
+
+    // This simulates the user clicking the "Save" button on the
+    // EditableCollectionAddon component's comment form.
+    root.instance().saveNote(addonId, errorHandler, notes);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, updateCollectionAddon({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      notes,
+      page,
+      slug: collectionDetail.slug,
+      username: collectionDetail.author.username,
+    }));
+  });
+
+  it('dispatches updateCollectionAddon when saveNote is called without a page defined', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const addons = createFakeCollectionAddons();
+    const addonId = addons[0].addon.id;
+    const collectionDetail = createFakeCollectionDetail();
+    const errorHandler = createStubErrorHandler();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+    const notes = 'These are some notes.';
+
+    store.dispatch(loadCurrentCollection({
+      addons,
+      detail: collectionDetail,
+    }));
+    const root = renderComponent({
+      editing: true,
+      errorHandler,
+      location: fakeRouterLocation({ query: { } }),
+      store,
+    });
+
+    fakeDispatch.reset();
+
+    // This simulates the user clicking the "Save" button on the
+    // EditableCollectionAddon component's comment form.
+    root.instance().saveNote(addonId, errorHandler, notes);
+    sinon.assert.callCount(fakeDispatch, 1);
+    sinon.assert.calledWith(fakeDispatch, updateCollectionAddon({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      notes,
+      page: 1,
+      slug: collectionDetail.slug,
+      username: collectionDetail.author.username,
     }));
   });
 
