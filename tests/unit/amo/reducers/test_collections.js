@@ -174,6 +174,7 @@ describe(__filename, () => {
       });
       state = reducer(state, loadCurrentCollectionPage({
         addons: newAddons,
+        numberOfAddons: 5,
       }));
 
       const loadedCollection = getCurrentCollection(state);
@@ -181,6 +182,7 @@ describe(__filename, () => {
       expect(loadedCollection).not.toEqual(null);
       expect(loadedCollection.addons)
         .toEqual(createInternalAddons(newAddons));
+      expect(loadedCollection.numberOfAddons).toEqual(5);
       expect(state.current.loading).toEqual(false);
     });
 
