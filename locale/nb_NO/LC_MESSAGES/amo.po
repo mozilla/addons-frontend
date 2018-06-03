@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-04-05 13:34+0000\n"
-"Last-Translator: Imre Kristoffer Eilertsen <imreeil42@gmail.com>\n"
+"PO-Revision-Date: 2018-06-03 10:50+0000\n"
+"Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
@@ -35,12 +35,12 @@ msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/AddAddonToCollection/index.js:233
 msgid "Added to %(collectionName)s"
-msgstr ""
+msgstr "Lagt til %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
 #: src/amo/components/AddAddonToCollection/index.js:249
 msgid "Add to…"
-msgstr ""
+msgstr "Legg til i…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
 #, fuzzy
@@ -360,19 +360,19 @@ msgstr "Skriv en omtale"
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
-msgstr ""
+msgstr "Oppdater svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
-msgstr ""
+msgstr "Publiser svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
-msgstr ""
+msgstr "Oppdaterer svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
-msgstr ""
+msgstr "Publiserer svar"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 #, fuzzy
@@ -649,7 +649,7 @@ msgstr "Bla gjennom alle utvidelser"
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
-msgstr ""
+msgstr "Samlingsnavn"
 
 #: src/amo/components/CollectionManager/index.js:287
 msgid "Description"
