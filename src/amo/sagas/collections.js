@@ -115,7 +115,10 @@ export function* fetchCurrentCollectionPage({
     };
     const addons = yield call(api.getCollectionAddons, params);
 
-    yield put(loadCurrentCollectionPage({ addons: addons.results }));
+    yield put(loadCurrentCollectionPage({
+      addons: addons.results,
+      numberOfAddons: addons.count,
+    }));
   } catch (error) {
     log.warn(`Collection page failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));

@@ -306,6 +306,7 @@ export const loadCurrentCollection = ({
 
 type LoadCurrentCollectionPageParams = {|
   addons: ExternalCollectionAddons,
+  numberOfAddons: number,
 |};
 
 type LoadCurrentCollectionPageAction = {|
@@ -315,6 +316,7 @@ type LoadCurrentCollectionPageAction = {|
 
 export const loadCurrentCollectionPage = ({
   addons,
+  numberOfAddons,
 }: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
   if (!addons) {
     throw new Error('addons are required');
@@ -322,7 +324,7 @@ export const loadCurrentCollectionPage = ({
 
   return {
     type: LOAD_CURRENT_COLLECTION_PAGE,
-    payload: { addons },
+    payload: { addons, numberOfAddons },
   };
 };
 
@@ -839,7 +841,7 @@ const reducer = (
     }
 
     case LOAD_CURRENT_COLLECTION_PAGE: {
-      const { addons } = action.payload;
+      const { addons, numberOfAddons } = action.payload;
 
       const currentCollection = getCurrentCollection(state);
       if (!currentCollection) {
@@ -854,6 +856,7 @@ const reducer = (
           [currentCollection.id]: {
             ...currentCollection,
             addons: createInternalAddons(addons),
+            numberOfAddons,
           },
         },
         current: {
