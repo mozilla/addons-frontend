@@ -10,10 +10,11 @@ import { push as pushLocation } from 'react-router-redux';
 import {
   ADD_ADDON_TO_COLLECTION,
   CREATE_COLLECTION,
-  REMOVE_ADDON_FROM_COLLECTION,
+  DELETE_COLLECTION,
   FETCH_CURRENT_COLLECTION,
   FETCH_CURRENT_COLLECTION_PAGE,
   FETCH_USER_COLLECTIONS,
+  REMOVE_ADDON_FROM_COLLECTION,
   UPDATE_COLLECTION,
   abortAddAddonToCollection,
   abortFetchCurrentCollection,
@@ -23,6 +24,7 @@ import {
   deleteCollectionBySlug,
   finishCollectionModification,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
+  fetchUserCollections as fetchUserCollectionsAction,
   loadCurrentCollection,
   loadCurrentCollectionPage,
   loadUserCollections,
@@ -34,19 +36,21 @@ import { createErrorHandler, getState } from 'core/sagas/utils';
 import type {
   CreateCollectionAddonParams,
   CreateCollectionParams,
-  RemoveAddonFromCollectionParams,
+  DeleteCollectionParams,
   GetAllUserCollectionsParams,
   GetCollectionAddonsParams,
   GetCollectionParams,
+  RemoveAddonFromCollectionParams,
   UpdateCollectionParams,
 } from 'amo/api/collections';
 import type {
   AddAddonToCollectionAction,
   CreateCollectionAction,
-  RemoveAddonFromCollectionAction,
+  DeleteCollectionAction,
   FetchCurrentCollectionAction,
   FetchCurrentCollectionPageAction,
   FetchUserCollectionsAction,
+  RemoveAddonFromCollectionAction,
   UpdateCollectionAction,
 } from 'amo/reducers/collections';
 
@@ -312,13 +316,42 @@ export function* removeAddonFromCollection({
   }
 }
 
+export function* deleteCollection({
+  payload: {
+    errorHandlerId, slug, username,
+  },
+}: DeleteCollectionAction): Generator<any, any, any> {
+  const errorHandler = createErrorHandler(errorHandlerId);
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    const params: DeleteCollectionParams = {
+      api: state.api,
+      slug,
+      username,
+    };
+    yield call(api.deleteCollection, params);
+
+    yield put(fetchUserCollectionsAction({
+      errorHandlerId: errorHandler.id,
+      username,
+    }));
+  } catch (error) {
+    log.warn(`Failed to delete collection: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* collectionsSaga(): Generator<any, any, any> {
+  yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
+  yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
+  yield takeLatest(DELETE_COLLECTION, deleteCollection);
   yield takeLatest(FETCH_CURRENT_COLLECTION, fetchCurrentCollection);
   yield takeLatest(
     FETCH_CURRENT_COLLECTION_PAGE, fetchCurrentCollectionPage
   );
   yield takeLatest(FETCH_USER_COLLECTIONS, fetchUserCollections);
-  yield takeLatest(ADD_ADDON_TO_COLLECTION, addAddonToCollection);
   yield takeLatest(REMOVE_ADDON_FROM_COLLECTION, removeAddonFromCollection);
-  yield takeLatest([CREATE_COLLECTION, UPDATE_COLLECTION], modifyCollection);
 }

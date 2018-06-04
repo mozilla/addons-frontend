@@ -4,7 +4,7 @@ import * as api from 'core/api';
 import {
   createCollection,
   createCollectionAddon,
-  removeAddonFromCollection,
+  deleteCollection,
   getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
@@ -12,6 +12,7 @@ import {
   listCollections,
   modifyCollection,
   modifyCollectionAddon,
+  removeAddonFromCollection,
   updateCollection,
   updateCollectionAddon,
 } from 'amo/api/collections';
@@ -539,6 +540,34 @@ describe(__filename, () => {
 
       await removeAddonFromCollection({
         addonId,
+        api,
+        slug,
+        username,
+      });
+
+      mockApi.verify();
+    });
+  });
+
+  describe('deleteCollection', () => {
+    it('sends a request to delete a collection', async () => {
+      const slug = 'my-collection';
+      const username = 'my-user';
+
+      const endpoint = `accounts/account/${username}/collections/${slug}`;
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint,
+          method: 'DELETE',
+          state: api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await deleteCollection({
         api,
         slug,
         username,
