@@ -6,7 +6,7 @@ import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import PaginatorLink from 'core/components/PaginatorLink';
 import translate from 'core/i18n/translate';
 
-import './Paginate.scss';
+import './styles.scss';
 
 
 function makePageNumbers({ start, end }) {
