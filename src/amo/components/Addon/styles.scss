@@ -140,6 +140,7 @@
   border-radius: $border-radius-default;
   display: block;
   height: $theme-height-default;
+  max-width: $theme-width-default;
   object-fit: cover;
   object-position: top left;
   width: 100%;
@@ -147,10 +148,6 @@
   .Addon-persona & {
     height: 100px;
     object-position: top right;
-  }
-
-  @include respond-to(extraExtraLarge) {
-    width: auto;
   }
 }
 
