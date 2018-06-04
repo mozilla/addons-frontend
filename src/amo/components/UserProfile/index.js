@@ -90,7 +90,7 @@ export class UserProfileBase extends React.Component<Props> {
       return `/users/edit`;
     }
 
-    return `/user/${user.username}/edit`;
+    return `/user/${user.username}/edit/`;
   }
 
   render() {
