@@ -134,7 +134,7 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
       security or privacy issues, please report these issues to Mozilla using
       this form.`
     ), {
-      linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy">',
+      linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
       linkTagEnd: '</a>',
     });
 

@@ -111,7 +111,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
                   %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s,
                   please report this user to Mozilla.`
                 ), {
-                  linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy">',
+                  linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
                   linkTagEnd: '</a>',
                 })
               )}
