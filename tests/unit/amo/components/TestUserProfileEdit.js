@@ -1081,8 +1081,9 @@ describe(__filename, () => {
       'Attention: You are about to delete a profile. Are you sure?'
     );
 
-    expect(root.find('.UserProfileEdit-deletion-modal').find('p'))
-      .toHaveLength(1);
+    expect(root.find('.UserProfileEdit-deletion-modal').find('p').at(1))
+      .toHaveText(oneLine`Important: a user profile can only be deleted if the
+        user does not own any add-ons.`);
 
     expect(root.find('.UserProfileEdit-confirm-button').children())
       .toHaveText('Yes, delete this profile');

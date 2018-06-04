@@ -700,13 +700,16 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 ), ['strong'])
               }
             />
-            {isEditingCurrentUser && (
-              <p>
-                {i18n.gettext(`Important: if you own add-ons, you have to
+            <p>
+              {isEditingCurrentUser ? (
+                i18n.gettext(`Important: if you own add-ons, you have to
                   transfer them to other users or to delete them before you
-                  can delete your profile.`)}
-              </p>
-            )}
+                  can delete your profile.`)
+              ) : (
+                i18n.gettext(`Important: a user profile can only be deleted if
+                  the user does not own any add-ons.`)
+              )}
+            </p>
             <div className="UserProfileEdit-buttons-wrapper">
               <Button
                 buttonType="alert"
