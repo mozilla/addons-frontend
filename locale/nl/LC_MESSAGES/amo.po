@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-03 10:03+0000\n"
+"PO-Revision-Date: 2018-06-04 18:55+0000\n"
 "Last-Translator: Ton <tonnes.mb@gmail.com>\n"
 "Language-Team: none\n"
 "Language: nl\n"
@@ -945,24 +945,20 @@ msgid "See more tab extensions"
 msgstr "Meer tabbladextensies bekijken"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Door alle extensies bladeren"
+msgstr "Essentiële extensies"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Meer zoekextensies bekijken"
+msgstr "Meer essentiële extensies bekijken"
 
 #: src/amo/components/Home/index.js:255
-#, fuzzy
 msgid "Translation tools"
-msgstr "Translate Man"
+msgstr "Vertaalhulpmiddelen"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Meer privacyhulpmiddelen bekijken"
+msgstr "Meer vertaalhulpmiddelen bekijken"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1041,18 +1037,16 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "Eenvoudige toegang via vervolgkeuzemenu naar Google-services zoals Zoeken en Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
 msgstr "Vertaal een volledige webpagina in een paar muisklikken"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Meer zoekextensies bekijken"
+msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1941,9 +1935,8 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Enige HTML ondersteund: %(htmlTags)s. Koppelingen zijn verboden."
 
 #: src/amo/components/UserProfileEdit/index.js:571
-#, fuzzy
 msgid "Notifications"
-msgstr "Locatie"
+msgstr "Notificaties"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -1995,7 +1988,7 @@ msgstr "een add-on-ontwikkelaar beantwoordt mijn beoordeling"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr "mijn add-on wordt door een editor beoordeeld"
+msgstr "mijn add-on wordt door een beoordelaar beoordeeld"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
@@ -2014,14 +2007,12 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr "de compatibiliteit van mijn add-on is met succes bijgewerkt"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Gebruikersprofiel voor %(user)s"
+msgstr "Profielafbeelding voor %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "Profiel"
+msgstr "Profielfoto"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
