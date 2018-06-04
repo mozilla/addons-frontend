@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-01 23:12+0000\n"
-"Last-Translator: Giorgio Romano <ascotwork@gmail.com>\n"
+"PO-Revision-Date: 2018-06-03 19:00+0000\n"
+"Last-Translator: Sara Todaro <sara.todaro@mozillaitalia.org>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
@@ -609,9 +609,8 @@ msgid "Custom URL"
 msgstr "URL personalizzato"
 
 #: src/amo/components/CollectionManager/index.js:324
-#, fuzzy
 msgid "Added to collection"
-msgstr "Aggiungi alla raccolta"
+msgstr "Aggiunto alla raccolta"
 
 #: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
@@ -942,24 +941,20 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Modifica l’aspetto di Firefox con i temi."
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Tame your tabs"
-msgstr "Rinnova le schede"
+msgstr "Doma le tue schede"
 
 #: src/amo/components/Home/index.js:217
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Visualizza altre estensioni di ricerca"
+msgstr "Visualizza altre estensioni per le schede"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Esplora tutte le estensioni"
+msgstr "Estensioni indispensabili"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Visualizza altre estensioni di ricerca"
+msgstr "Visualizza altre estensioni indispensabili"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
@@ -1046,22 +1041,20 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "Accesso agevolato ai servizi Google (Cerca, Traduci ecc.) tramite comodo menu a tendina"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
 msgstr "Traduci tutta la pagina con un paio di clic"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Visualizza altre estensioni di ricerca"
+msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Accedi all’opzione della ricerca inversa per immagine dal menu contestuale"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Forget Me Not"
@@ -1069,7 +1062,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Elimina da Firefox i dati dei siti web come cookie e archiviazione locale"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
@@ -1097,11 +1090,11 @@ msgstr "Impedisci a Facebook di tracciare i tuoi movimenti in giro per il Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Evidenzia il testo di qualsiasi pagina web per aprire un menu di ricerca rapido"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
@@ -1113,7 +1106,7 @@ msgstr "Vincitore del Concorso Estensioni Quantum! Salva sessioni di navigazione
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Web Security"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
@@ -1121,7 +1114,7 @@ msgstr "Protezione contro i malware e i tentativi di phishing"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
@@ -1957,15 +1950,17 @@ msgstr "Notifiche"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Di tanto in tanto, Mozilla potrebbe inviarti un'email per aggiornarti sulle nuove versioni ed eventi riguardo ai componenti aggiuntivi. Seleziona gli argomenti di tuo interesse."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Di tanto in tanto, Mozilla potrebbe inviare a questo utente un'email per aggiornarlo sulle nuove versioni ed eventi riguardo ai componenti aggiuntivi. Seleziona gli argomenti che potrebbero "
+"interessare all’utente."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla si riserva il diritto di contattarti in caso di problemi con i componenti aggiuntivi che gestisci."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -1985,56 +1980,55 @@ msgstr "Aggiorna il profilo utente"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "per tenermi aggiornato sulle novità e gli eventi per gli sviluppatori di componenti aggiuntivi (include la newsletter about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "quando Mozilla ha bisogno di contattarmi personalmente in merito ai miei componenti aggiuntivi"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "per inviarmi notifiche di nuovi componenti aggiuntivi o nuove funzionalità per Firefox"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "quando qualcuno scrive una recensione del mio componente aggiuntivo"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "quando lo sviluppatore di un componente aggiuntivo risponde alla mia recensione"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "quando il mio componente viene revisionato"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "quando il mio componente aggiuntivo sdk non può essere aggiornato"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "quando il mio componente aggiuntivo sdk viene aggiornato"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "quando i miei componenti aggiuntivi non possono essere aggiornati a una versione compatibile"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "quando i miei componenti aggiuntivi vengono aggiornati a una versione compatibile"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Profilo utente di %(user)s"
+msgstr "Immagine di profilo di %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
 msgid "Profile photo"
-msgstr ""
+msgstr "Immagine profilo"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Seleziona un’immagine..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:76
 msgid "Delete this picture"
