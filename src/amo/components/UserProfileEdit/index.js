@@ -675,9 +675,9 @@ export class UserProfileEditBase extends React.Component<Props, State> {
           <OverlayCard
             className="UserProfileEdit-deletion-modal"
             header={isEditingCurrentUser ? i18n.gettext(
-              `Attention: you are about to delete your profile. Are you sure?`
+              `Attention: You are about to delete your profile. Are you sure?`
             ) : i18n.gettext(
-              `Attention: you are about to delete a profile. Are you sure?`
+              `Attention: You are about to delete a profile. Are you sure?`
             )}
             onEscapeOverlay={this.onCancelProfileDeletion}
             visibleOnLoad

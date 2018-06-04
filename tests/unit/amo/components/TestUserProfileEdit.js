@@ -1045,7 +1045,7 @@ describe(__filename, () => {
     expect(modal).toHaveLength(1);
     expect(modal).toHaveProp(
       'header',
-      'Attention: you are about to delete your profile. Are you sure?'
+      'Attention: You are about to delete your profile. Are you sure?'
     );
     expect(modal).toHaveProp('visibleOnLoad', true);
 
@@ -1078,7 +1078,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveProp(
       'header',
-      'Attention: you are about to delete a profile. Are you sure?'
+      'Attention: You are about to delete a profile. Are you sure?'
     );
 
     expect(root.find('.UserProfileEdit-deletion-modal').find('p'))
@@ -1089,6 +1089,8 @@ describe(__filename, () => {
   });
 
   it('closes the modal when user clicks the cancel button', () => {
+    const preventDefaultSpy = sinon.spy();
+
     const { store } = signInUserWithUsername('tofumatt');
     const root = renderUserProfileEdit({ store });
 
@@ -1101,12 +1103,16 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(1);
 
+    sinon.assert.notCalled(preventDefaultSpy);
+
     root.find('.UserProfileEdit-cancel-button').simulate(
       'click',
-      createFakeEvent()
+      createFakeEvent({ preventDefault: preventDefaultSpy })
     );
 
     expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+
+    sinon.assert.calledOnce(preventDefaultSpy);
   });
 
   it('dispatches deleteUserAccount and logOutUser when current logged-in user confirms account deletion', () => {
@@ -1128,6 +1134,7 @@ describe(__filename, () => {
     });
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
+    const preventDefaultSpy = sinon.spy();
     const errorHandler = createStubErrorHandler();
 
     const root = renderUserProfileEdit({ errorHandler, params, store });
@@ -1141,11 +1148,12 @@ describe(__filename, () => {
     );
 
     sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.notCalled(preventDefaultSpy);
 
     // User confirms account deletion.
     root.find('.UserProfileEdit-confirm-button').simulate(
       'click',
-      createFakeEvent()
+      createFakeEvent({ preventDefault: preventDefaultSpy })
     );
 
     sinon.assert.callCount(dispatchSpy, 2);
@@ -1156,6 +1164,8 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, logOutUser());
 
     sinon.assert.calledWith(fakeRouter.push, `/${lang}/${clientApp}`);
+
+    sinon.assert.calledOnce(preventDefaultSpy);
   });
 
   it('does not dispatch logOutUser when current logged-in user confirms deletion of another user account', () => {
