@@ -373,8 +373,7 @@ export const deleteCollection = (
 
   return callApi({
     auth: true,
-    endpoint:
-      `accounts/account/${username}/collections/${slug}`,
+    endpoint: `accounts/account/${username}/collections/${slug}`,
     method: 'DELETE',
     state: api,
   });
