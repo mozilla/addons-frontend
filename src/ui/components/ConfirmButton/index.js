@@ -11,13 +11,13 @@ import './styles.scss';
 
 
 type Props = {|
-  buttonType?: string,
-  cancelButtonText?: string,
-  cancelButtonType?: string,
+  buttonType: string,
+  cancelButtonText: string,
+  cancelButtonType: string,
   children: React.Element<any>,
   className?: string,
-  confirmButtonText?: string,
-  confirmButtonType?: string,
+  confirmButtonText: string,
+  confirmButtonType: string,
   i18n: I18nType,
   message: string,
   onConfirm: Function,

@@ -102,7 +102,8 @@ describe(__filename, () => {
   });
 
   it('closes the confirmation panel on cancel ', () => {
-    const root = render();
+    const onConfirmSpy = sinon.spy();
+    const root = render({ onConfirm: onConfirmSpy });
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
 
@@ -110,6 +111,7 @@ describe(__filename, () => {
     root.find(Button).simulate('click', createFakeEvent());
 
     expect(root).toHaveClassName('ConfirmButton--show-confirmation');
+    sinon.assert.notCalled(onConfirmSpy);
 
     root.find('.ConfirmButton-cancel-button').simulate(
       'click',
@@ -117,6 +119,7 @@ describe(__filename, () => {
     );
 
     expect(root).not.toHaveClassName('ConfirmButton--show-confirmation');
+    sinon.assert.notCalled(onConfirmSpy);
   });
 
   it('calls the onConfirm prop when user clicks the "confirm" button', () => {
