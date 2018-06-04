@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=6 <=9"
+    "node": ">=6 <=8"
   },
   "scripts": {
     "build": "bin/build-checks.js && better-npm-run build",
