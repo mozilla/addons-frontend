@@ -22,6 +22,8 @@ export const LOAD_USER_ACCOUNT: 'LOAD_USER_ACCOUNT' = 'LOAD_USER_ACCOUNT';
 export const DELETE_USER_PICTURE: 'DELETE_USER_PICTURE' = 'DELETE_USER_PICTURE';
 export const FETCH_USER_NOTIFICATIONS: 'FETCH_USER_NOTIFICATIONS' = 'FETCH_USER_NOTIFICATIONS';
 export const LOAD_USER_NOTIFICATIONS: 'LOAD_USER_NOTIFICATIONS' = 'LOAD_USER_NOTIFICATIONS';
+export const DELETE_USER_ACCOUNT: 'DELETE_USER_ACCOUNT' = 'DELETE_USER_ACCOUNT';
+export const UNLOAD_USER_ACCOUNT: 'UNLOAD_USER_ACCOUNT' = 'UNLOAD_USER_ACCOUNT';
 
 export type UserId = number;
 
@@ -201,6 +203,51 @@ export const loadUserAccount = ({
   return {
     type: LOAD_USER_ACCOUNT,
     payload: { user },
+  };
+};
+
+export type DeleteUserAccountParams = {|
+  errorHandlerId: string,
+  userId: UserId,
+|};
+
+type DeleteUserAccountAction = {|
+  type: typeof DELETE_USER_ACCOUNT,
+  payload: DeleteUserAccountParams,
+|};
+
+export const deleteUserAccount = (
+  { errorHandlerId, userId }: DeleteUserAccountParams
+): DeleteUserAccountAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(userId, 'userId is required');
+
+  return {
+    type: DELETE_USER_ACCOUNT,
+    payload: {
+      errorHandlerId,
+      userId,
+    },
+  };
+};
+
+type UnloadUserAccountParams = {|
+  userId: UserId,
+|};
+
+type UnloadUserAccountAction = {|
+  type: typeof UNLOAD_USER_ACCOUNT,
+  payload: UnloadUserAccountParams,
+|};
+
+export const unloadUserAccount = (
+  { userId }: UnloadUserAccountParams
+): UnloadUserAccountAction => {
+  invariant(userId, 'userId is required');
+
+  return {
+    type: UNLOAD_USER_ACCOUNT,
+    payload: { userId },
   };
 };
 
@@ -449,6 +496,20 @@ const reducer = (
         ...state,
         currentUserID: null,
       };
+    case UNLOAD_USER_ACCOUNT: {
+      const { userId } = action.payload;
+
+      const newState = { ...state };
+
+      if (newState.byID[userId]) {
+        const { username } = newState.byID[userId];
+
+        delete newState.byID[userId];
+        delete newState.byUsername[username];
+      }
+
+      return newState;
+    }
     default:
       return state;
   }

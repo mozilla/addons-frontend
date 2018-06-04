@@ -3,6 +3,7 @@ import deepEqual from 'deep-eql';
 import * as api from 'core/api';
 import {
   currentUserAccount,
+  deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
   userAccount,
@@ -163,6 +164,26 @@ describe(__filename, () => {
         .returns(createApiResponse());
 
       await deleteUserPicture(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('deleteUserAccount', () => {
+    it('deletes a user profile', async () => {
+      const state = dispatchSignInActions().store.getState();
+      const userId = getCurrentUser(state.users).id;
+      const params = { api: state.api, userId };
+
+      mockApi.expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint: `accounts/account/${params.userId}`,
+          method: 'DELETE',
+          state: params.api,
+        })
+        .returns(createApiResponse());
+
+      await deleteUserAccount(params);
       mockApi.verify();
     });
   });

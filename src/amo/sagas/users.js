@@ -1,5 +1,6 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
 import {
+  DELETE_USER_ACCOUNT,
   DELETE_USER_PICTURE,
   EDIT_USER_ACCOUNT,
   FETCH_USER_ACCOUNT,
@@ -8,9 +9,11 @@ import {
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
+  unloadUserAccount,
 } from 'amo/reducers/users';
 import {
   currentUserAccount as currentUserAccountApi,
+  deleteUserAccount as deleteUserAccountApi,
   deleteUserPicture as deleteUserPictureApi,
   editUserAccount as editUserAccountApi,
   userAccount as userAccountApi,
@@ -145,7 +148,33 @@ export function* deleteUserPicture({
   }
 }
 
+export function* deleteUserAccount({
+  payload: {
+    errorHandlerId,
+    userId,
+  },
+}) {
+  const errorHandler = createErrorHandler(errorHandlerId);
+
+  yield put(errorHandler.createClearingAction());
+
+  try {
+    const state = yield select(getState);
+
+    yield call(deleteUserAccountApi, {
+      api: state.api,
+      userId,
+    });
+
+    yield put(unloadUserAccount({ userId }));
+  } catch (error) {
+    log.warn(`Could not delete user account: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+}
+
 export default function* usersSaga() {
+  yield takeLatest(DELETE_USER_ACCOUNT, deleteUserAccount);
   yield takeLatest(DELETE_USER_PICTURE, deleteUserPicture);
   yield takeLatest(EDIT_USER_ACCOUNT, editUserAccount);
   yield takeLatest(FETCH_USER_ACCOUNT, fetchUserAccount);
