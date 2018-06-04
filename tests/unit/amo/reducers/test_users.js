@@ -172,6 +172,12 @@ describe(__filename, () => {
       const user = createUserAccountResponse({ id: userId, username });
       const prevState = reducer(initialState, loadUserAccount({ user }));
 
+      expect(prevState.byID[userId]).toEqual({
+        ...user,
+        notifications: null,
+      });
+      expect(prevState.byUsername[username]).toEqual(userId);
+
       const state = reducer(prevState, unloadUserAccount({ userId }));
 
       expect(state.byID[userId]).toBeUndefined();

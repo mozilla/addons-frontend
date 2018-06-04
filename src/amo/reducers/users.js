@@ -219,6 +219,7 @@ type DeleteUserAccountAction = {|
 export const deleteUserAccount = (
   { errorHandlerId, userId }: DeleteUserAccountParams
 ): DeleteUserAccountAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(userId, 'userId is required');
 
   return {
