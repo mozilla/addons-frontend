@@ -74,7 +74,7 @@ describe(__filename, () => {
           ...baseArgs,
           page: 1,
           slug: firstCollectionSlug,
-          user: firstCollectionUser,
+          username: firstCollectionUser,
         })
         .returns(Promise.resolve(firstCollection));
       mockCollectionsApi
@@ -83,7 +83,7 @@ describe(__filename, () => {
           ...baseArgs,
           page: 1,
           slug: secondCollectionSlug,
-          user: secondCollectionUser,
+          username: secondCollectionUser,
         })
         .returns(Promise.resolve(secondCollection));
       const collections = [firstCollection, secondCollection];
@@ -120,8 +120,8 @@ describe(__filename, () => {
 
       _fetchHomeAddons({
         collectionsToFetch: [
-          { slug: firstCollectionSlug, user: firstCollectionUser },
-          { slug: secondCollectionSlug, user: secondCollectionUser },
+          { slug: firstCollectionSlug, username: firstCollectionUser },
+          { slug: secondCollectionSlug, username: secondCollectionUser },
         ],
       });
 

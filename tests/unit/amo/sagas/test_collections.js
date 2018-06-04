@@ -33,7 +33,7 @@ import {
 
 
 describe(__filename, () => {
-  const user = 'user-id-or-name';
+  const username = 'some-user';
   const slug = 'collection-slug';
   const page = 1;
 
@@ -75,7 +75,7 @@ describe(__filename, () => {
         .withArgs({
           api: state.api,
           slug,
-          user,
+          username,
         })
         .once()
         .returns(Promise.resolve(collectionDetail));
@@ -86,12 +86,12 @@ describe(__filename, () => {
           api: state.api,
           page,
           slug,
-          user,
+          username,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollection({ page, slug, user });
+      _fetchCurrentCollection({ page, slug, username });
 
       const expectedLoadAction = loadCurrentCollection({
         addons: collectionAddons.results,
@@ -104,7 +104,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollection({ slug, user });
+      _fetchCurrentCollection({ slug, username });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -120,7 +120,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollection({ slug, user });
+      _fetchCurrentCollection({ slug, username });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -147,12 +147,12 @@ describe(__filename, () => {
           api: state.api,
           page,
           slug,
-          user,
+          username,
         })
         .once()
         .returns(Promise.resolve(collectionAddons));
 
-      _fetchCurrentCollectionPage({ page, slug, user });
+      _fetchCurrentCollectionPage({ page, slug, username });
 
       const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons.results,
@@ -164,7 +164,7 @@ describe(__filename, () => {
     });
 
     it('clears the error handler', async () => {
-      _fetchCurrentCollectionPage({ page, slug, user });
+      _fetchCurrentCollectionPage({ page, slug, username });
 
       const expectedAction = errorHandler.createClearingAction();
 
@@ -180,7 +180,7 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchCurrentCollectionPage({ page, slug, user });
+      _fetchCurrentCollectionPage({ page, slug, username });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
@@ -193,13 +193,12 @@ describe(__filename, () => {
     const _fetchUserCollections = (params) => {
       sagaTester.dispatch(fetchUserCollections({
         errorHandlerId: errorHandler.id,
-        userId: 321,
+        username: 'some-user',
         ...params,
       }));
     };
 
     it('calls the API to fetch user collections', async () => {
-      const userId = 43321;
       const state = sagaTester.getState();
 
       const firstCollection = createFakeCollectionDetail({ id: 1 });
@@ -210,15 +209,15 @@ describe(__filename, () => {
         .expects('getAllUserCollections')
         .withArgs({
           api: state.api,
-          user: userId,
+          username,
         })
         .once()
         .returns(Promise.resolve(externalCollections));
 
-      _fetchUserCollections({ userId });
+      _fetchUserCollections({ username });
 
       const expectedLoadAction = loadUserCollections({
-        userId, collections: externalCollections,
+        username, collections: externalCollections,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
@@ -236,7 +235,6 @@ describe(__filename, () => {
     });
 
     it('dispatches an error', async () => {
-      const userId = 55432;
       const error = new Error('some API error maybe');
 
       mockApi
@@ -244,13 +242,13 @@ describe(__filename, () => {
         .once()
         .returns(Promise.reject(error));
 
-      _fetchUserCollections({ userId });
+      _fetchUserCollections({ username });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
       expect(sagaTester.getCalledActions()[3])
-        .toEqual(abortFetchUserCollections({ userId }));
+        .toEqual(abortFetchUserCollections({ username }));
     });
   });
 
@@ -261,7 +259,7 @@ describe(__filename, () => {
         collectionId: 321,
         slug: 'some-collection',
         errorHandlerId: errorHandler.id,
-        userId: 321,
+        username: 'some-user',
         ...params,
       }));
     };
@@ -271,7 +269,7 @@ describe(__filename, () => {
         addonId: 123,
         collectionId: 5432,
         slug: 'a-collection',
-        userId: 543,
+        username: 'some-user',
       };
       const state = sagaTester.getState();
 
@@ -282,7 +280,7 @@ describe(__filename, () => {
           api: state.api,
           slug: params.slug,
           notes: undefined,
-          user: params.userId,
+          username: params.username,
         })
         .once()
         .returns(Promise.resolve());
@@ -292,7 +290,7 @@ describe(__filename, () => {
       const expectedAddedAction = addonAddedToCollection({
         addonId: params.addonId,
         collectionId: params.collectionId,
-        userId: params.userId,
+        username: params.username,
       });
 
       const addedAction = await sagaTester.waitFor(expectedAddedAction.type);
@@ -302,7 +300,7 @@ describe(__filename, () => {
         page: 1,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        user: params.userId,
+        username: params.username,
       });
 
       expect(sagaTester.wasCalled(unexpectedFetchAction.type)).toEqual(false);
@@ -316,7 +314,7 @@ describe(__filename, () => {
         slug: 'a-collection',
         editing: true,
         page: 1,
-        userId: 543,
+        username: 'some-user',
       };
       const state = sagaTester.getState();
 
@@ -327,7 +325,7 @@ describe(__filename, () => {
           api: state.api,
           slug: params.slug,
           notes: undefined,
-          user: params.userId,
+          username: params.username,
         })
         .once()
         .returns(Promise.resolve());
@@ -338,7 +336,7 @@ describe(__filename, () => {
         page: params.page,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        user: params.userId,
+        username: params.username,
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);
@@ -347,7 +345,7 @@ describe(__filename, () => {
       const expectedAddedAction = addonAddedToCollection({
         addonId: params.addonId,
         collectionId: params.collectionId,
-        userId: params.userId,
+        username: params.username,
       });
 
       const addedAction = await sagaTester.waitFor(expectedAddedAction.type);
@@ -367,20 +365,19 @@ describe(__filename, () => {
 
     it('dispatches an error', async () => {
       const addonId = 8876;
-      const userId = 12334;
       const error = new Error('some API error maybe');
 
       mockApi
         .expects('createCollectionAddon')
         .returns(Promise.reject(error));
 
-      _addAddonToCollection({ addonId, userId });
+      _addAddonToCollection({ addonId, username });
 
       const expectedAction = errorHandler.createErrorAction(error);
       const action = await sagaTester.waitFor(expectedAction.type);
       expect(action).toEqual(expectedAction);
       expect(sagaTester.getCalledActions()[3])
-        .toEqual(abortAddAddonToCollection({ addonId, userId }));
+        .toEqual(abortAddAddonToCollection({ addonId, username }));
     });
   });
 
@@ -390,7 +387,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         name: 'some-collection-name',
         slug,
-        user,
+        username,
         ...params,
       }));
     };
@@ -400,7 +397,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         collectionSlug: 'some-collection',
         slug,
-        user,
+        username,
         ...params,
       }));
     };
@@ -483,7 +480,7 @@ describe(__filename, () => {
           description: { 'en-US': 'New collection description' },
           name: { 'en-US': 'New collection name' },
           slug: 'new-slug',
-          user,
+          username,
         };
         const state = sagaTester.getState();
 
@@ -496,7 +493,7 @@ describe(__filename, () => {
             description: params.description,
             name: params.name,
             slug: params.slug,
-            user,
+            username,
           })
           .once()
           .returns(Promise.resolve());
@@ -548,12 +545,12 @@ describe(__filename, () => {
         const collectionSlug = 'some-collection';
         // Update everything except the slug.
         _updateCollection({
-          collectionSlug, user, slug: undefined,
+          collectionSlug, username, slug: undefined,
         });
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${collectionSlug}/`
+          `/${lang}/${clientApp}/collections/${username}/${collectionSlug}/`
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);
@@ -566,11 +563,11 @@ describe(__filename, () => {
         mockApi.expects('updateCollection').returns(Promise.resolve());
 
         const newSlug = 'new-slug';
-        _updateCollection({ user, slug: newSlug });
+        _updateCollection({ username, slug: newSlug });
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${newSlug}/`
+          `/${lang}/${clientApp}/collections/${username}/${newSlug}/`
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);
@@ -585,7 +582,7 @@ describe(__filename, () => {
           description: { [lang]: 'Collection description' },
           name: { [lang]: 'Collection name' },
           slug,
-          user,
+          username,
         };
       };
 
@@ -603,7 +600,7 @@ describe(__filename, () => {
             description: params.description,
             name: params.name,
             slug,
-            user,
+            username,
           })
           .once()
           .returns(Promise.resolve(collectionDetailResponse));
@@ -623,7 +620,7 @@ describe(__filename, () => {
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${slug}/edit/`
+          `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`
         );
 
         await sagaTester.waitFor(expectedAction.type);
@@ -645,7 +642,7 @@ describe(__filename, () => {
 
         const { lang, clientApp } = clientData.state.api;
         const expectedAction = pushLocation(
-          `/${lang}/${clientApp}/collections/${user}/${slug}/edit/`
+          `/${lang}/${clientApp}/collections/${username}/${slug}/edit/`
         );
 
         const action = await sagaTester.waitFor(expectedAction.type);
@@ -663,7 +660,7 @@ describe(__filename, () => {
         errorHandlerId: errorHandler.id,
         page: 1,
         slug: 'some-collection',
-        user: 'some-user',
+        username: 'some-user',
         ...params,
       }));
     };
@@ -673,7 +670,7 @@ describe(__filename, () => {
         addonId: 123,
         page: 2,
         slug: 'some-other-slug',
-        user: 'some-other-user',
+        username: 'some-other-user',
       };
       const state = sagaTester.getState();
 
@@ -683,7 +680,7 @@ describe(__filename, () => {
           addonId: params.addonId,
           api: state.api,
           slug: params.slug,
-          user: params.user,
+          username: params.username,
         })
         .once()
         .returns(Promise.resolve());
@@ -694,7 +691,7 @@ describe(__filename, () => {
         page: params.page,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
-        user: params.user,
+        username: params.username,
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);

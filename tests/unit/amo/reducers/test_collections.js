@@ -48,7 +48,7 @@ describe(__filename, () => {
       const state = reducer(undefined, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
-        user: 'some-user-id-or-name',
+        username: 'some-user',
       }));
 
       expect(state.current.loading).toEqual(true);
@@ -60,7 +60,7 @@ describe(__filename, () => {
         errorHandlerId: createStubErrorHandler().id,
         page: pageToFetch,
         slug: 'some-collection-slug',
-        user: 'some-user-id-or-name',
+        username: 'some-user',
       }));
 
       expect(state.current.loading).toEqual(true);
@@ -79,7 +79,7 @@ describe(__filename, () => {
         errorHandlerId: createStubErrorHandler().id,
         page: pageToFetch,
         slug: collectionDetail.slug,
-        user: 'some-user-id-or-name',
+        username: 'some-user',
       }));
 
       expect(getCurrentCollection(state).addons).toEqual([]);
@@ -118,7 +118,7 @@ describe(__filename, () => {
       state = reducer(state, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
-        user: 'some-user-id-or-name',
+        username: 'some-user',
       }));
 
       expect(state.current.loading).toEqual(true);
@@ -140,7 +140,7 @@ describe(__filename, () => {
         errorHandlerId: createStubErrorHandler().id,
         page: pageToFetch,
         slug: 'some-collection-slug',
-        user: 'some-user-id-or-name',
+        username: 'some-user',
       }));
 
       expect(state.current.loading).toEqual(true);
@@ -188,7 +188,7 @@ describe(__filename, () => {
       const state = reducer(undefined, fetchCurrentCollection({
         errorHandlerId: createStubErrorHandler().id,
         slug: 'some-collection-slug',
-        user: 'some-user-id-or-name',
+        username: 'some-user',
       }));
 
       expect(state.current.loading).toEqual(true);
@@ -222,44 +222,44 @@ describe(__filename, () => {
     });
 
     it('sets a loading flag when fetching user collections', () => {
-      const userId = 321;
+      const username = 'some-user';
 
       const state = reducer(undefined, fetchUserCollections({
         errorHandlerId: 'some-error-id',
-        userId,
+        username,
       }));
 
-      const userState = state.userCollections[userId];
+      const userState = state.userCollections[username];
       expect(userState).toBeDefined();
       expect(userState.loading).toEqual(true);
       expect(userState.collections).toEqual(null);
     });
 
     it('aborts fetching a user collection', () => {
-      const userId = 321;
+      const username = 'some-user';
 
       let state = reducer(undefined, fetchUserCollections({
         errorHandlerId: 'some-error-id',
-        userId,
+        username,
       }));
 
-      state = reducer(state, abortFetchUserCollections({ userId }));
+      state = reducer(state, abortFetchUserCollections({ username }));
 
-      const userState = state.userCollections[userId];
+      const userState = state.userCollections[username];
       expect(userState.loading).toEqual(false);
       expect(userState.collections).toEqual(null);
     });
 
     it('loads user collections by ID', () => {
-      const userId = 321;
+      const username = 'some-user';
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
 
       const state = reducer(undefined, loadUserCollections({
-        userId, collections: [firstCollection, secondCollection],
+        username, collections: [firstCollection, secondCollection],
       }));
 
-      const userState = state.userCollections[userId];
+      const userState = state.userCollections[username];
       expect(userState.loading).toEqual(false);
       expect(userState.collections).toEqual([1, 2]);
 
@@ -270,14 +270,14 @@ describe(__filename, () => {
     });
 
     it('loads user collections by slug', () => {
-      const userId = 321;
+      const username = 'some-user';
       const collection = createFakeCollectionDetail({ id: 1 });
 
       const state = reducer(undefined, loadUserCollections({
-        userId, collections: [collection],
+        username, collections: [collection],
       }));
 
-      const userState = state.userCollections[userId];
+      const userState = state.userCollections[username];
       expect(userState.collections).toEqual([1]);
 
       expect(state.bySlug[collection.slug]).toEqual(collection.id);
@@ -285,17 +285,17 @@ describe(__filename, () => {
 
     it('sets a loading flag when begining to add add-on to collection', () => {
       const addonId = 871;
-      const userId = 321;
+      const username = 'some-user';
 
       const state = reducer(undefined, addAddonToCollection({
         addonId,
-        userId,
+        username,
         collectionId: 321,
         slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
-      const savedState = state.addonInCollections[userId][addonId];
+      const savedState = state.addonInCollections[username][addonId];
       expect(savedState).toBeDefined();
       expect(savedState.loading).toEqual(true);
       expect(savedState.collections).toEqual(null);
@@ -304,7 +304,7 @@ describe(__filename, () => {
     it('sets a hasAddonBeenAdded flag when beginning to add add-on to collection', () => {
       const state = reducer(undefined, addAddonToCollection({
         addonId: 1,
-        userId: 2,
+        username: 'some-user',
         collectionId: 3,
         slug: 'some-collection',
         errorHandlerId: 'error-handler',
@@ -315,43 +315,43 @@ describe(__filename, () => {
 
     it('preserves existing collections when adding new ones', () => {
       const addonId = 871;
-      const userId = 321;
+      const username = 'some-user';
       const collection = createFakeCollectionDetail({ id: 1 });
 
       // Add an add-on to a collection
       let state = reducer(undefined, addonAddedToCollection({
-        userId, addonId, collectionId: collection.id,
+        username, addonId, collectionId: collection.id,
       }));
 
       state = reducer(state, addAddonToCollection({
         addonId,
-        userId,
+        username,
         collectionId: 321,
         slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
-      const savedState = state.addonInCollections[userId][addonId];
+      const savedState = state.addonInCollections[username][addonId];
       // The old collections should be preserved.
       expect(savedState.collections).toEqual([collection.id]);
     });
 
     it('aborts adding an add-on to a collection', () => {
       const addonId = 721;
-      const userId = 321;
+      const username = 'some-user';
 
       // Begin adding the add-on to a new collection.
       let state = reducer(undefined, addAddonToCollection({
         addonId,
-        userId,
+        username,
         collectionId: 321,
         slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
-      state = reducer(state, abortAddAddonToCollection({ addonId, userId }));
+      state = reducer(state, abortAddAddonToCollection({ addonId, username }));
 
-      const savedState = state.addonInCollections[userId][addonId];
+      const savedState = state.addonInCollections[username][addonId];
       expect(savedState.collections).toEqual(null);
       expect(savedState.loading).toEqual(false);
       expect(state.hasAddonBeenAdded).toEqual(false);
@@ -359,47 +359,47 @@ describe(__filename, () => {
 
     it('preserves collection data when aborting new additions', () => {
       const addonId = 721;
-      const userId = 321;
+      const username = 'some-user';
       const collection = createFakeCollectionDetail({ id: 1 });
 
       // Add an add-on to a collection
       let state = reducer(undefined, addonAddedToCollection({
-        userId, addonId, collectionId: collection.id,
+        username, addonId, collectionId: collection.id,
       }));
 
       // Begin adding the add-on to a new collection.
       state = reducer(state, addAddonToCollection({
         addonId,
-        userId,
+        username,
         collectionId: 321,
         slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
-      state = reducer(state, abortAddAddonToCollection({ addonId, userId }));
+      state = reducer(state, abortAddAddonToCollection({ addonId, username }));
 
-      const savedState = state.addonInCollections[userId][addonId];
+      const savedState = state.addonInCollections[username][addonId];
       // The old collections should be preserved.
       expect(savedState.collections).toEqual([collection.id]);
     });
 
     it('adds an add-on to a collection', () => {
       const addonId = 611;
-      const userId = 321;
+      const username = 'some-user';
       const collection = createFakeCollectionDetail({ id: 1 });
 
       const state = reducer(undefined, addonAddedToCollection({
-        userId, addonId, collectionId: collection.id,
+        username, addonId, collectionId: collection.id,
       }));
 
-      const savedState = state.addonInCollections[userId][addonId];
+      const savedState = state.addonInCollections[username][addonId];
       expect(savedState.loading).toEqual(false);
       expect(savedState.collections).toEqual([collection.id]);
     });
 
     it('sets a hasAddonBeenAdded flag after an add-on has been added', () => {
       const state = reducer(undefined, addonAddedToCollection({
-        userId: 1, addonId: 2, collectionId: 3,
+        username: 'some-user', addonId: 2, collectionId: 3,
       }));
 
       expect(state.hasAddonBeenAdded).toEqual(true);
@@ -407,18 +407,18 @@ describe(__filename, () => {
 
     it('appends a new add-on to the list of its collections', () => {
       const addonId = 611;
-      const userId = 321;
+      const username = 'some-user';
       const firstCollection = createFakeCollectionDetail({ id: 1 });
       const secondCollection = createFakeCollectionDetail({ id: 2 });
 
       let state = reducer(undefined, addonAddedToCollection({
-        userId, addonId, collectionId: firstCollection.id,
+        username, addonId, collectionId: firstCollection.id,
       }));
       state = reducer(state, addonAddedToCollection({
-        userId, addonId, collectionId: secondCollection.id,
+        username, addonId, collectionId: secondCollection.id,
       }));
 
-      const savedState = state.addonInCollections[userId][addonId];
+      const savedState = state.addonInCollections[username][addonId];
       expect(savedState.collections)
         .toEqual([firstCollection.id, secondCollection.id]);
     });
@@ -450,7 +450,7 @@ describe(__filename, () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
       slug: 'some-collection-slug',
-      user: 'some-user-id-or-name',
+      username: 'some-user',
     };
 
     it('throws an error when errorHandlerId is missing', () => {
@@ -471,28 +471,28 @@ describe(__filename, () => {
       }).toThrow('slug is required');
     });
 
-    it('throws an error when user is missing', () => {
+    it('throws an error when username is missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.user;
+      delete partialParams.username;
 
       expect(() => {
         fetchCurrentCollection(partialParams);
-      }).toThrow('user is required');
+      }).toThrow('username is required');
     });
   });
 
   describe('fetchUserCollections', () => {
     const defaultParams = {
       errorHandlerId: 'some-error-handler-id',
-      userId: 1,
+      username: 'some-user',
     };
 
-    it('throws an error when userId is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = { ...defaultParams };
-      delete params.userId;
+      delete params.username;
 
       expect(() => fetchUserCollections(params))
-        .toThrow(/userId is required/);
+        .toThrow(/username is required/);
     });
 
     it('throws an error when errorHandlerId is missing', () => {
@@ -505,26 +505,26 @@ describe(__filename, () => {
   });
 
   describe('abortFetchUserCollections', () => {
-    const defaultParams = { userId: 1 };
+    const defaultParams = { username: 'some-user' };
 
-    it('throws an error when userId is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = { ...defaultParams };
-      delete params.userId;
+      delete params.username;
 
       expect(() => abortFetchUserCollections(params))
-        .toThrow(/userId is required/);
+        .toThrow(/username is required/);
     });
   });
 
   describe('abortAddAddonToCollection', () => {
-    const defaultParams = { userId: 1, addonId: 2 };
+    const defaultParams = { username: 'some-user', addonId: 2 };
 
-    it('throws an error when userId is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = { ...defaultParams };
-      delete params.userId;
+      delete params.username;
 
       expect(() => abortAddAddonToCollection(params))
-        .toThrow(/userId is required/);
+        .toThrow(/username is required/);
     });
 
     it('throws an error when addonId is missing', () => {
@@ -538,7 +538,7 @@ describe(__filename, () => {
 
   describe('loadUserCollections', () => {
     const defaultParams = {
-      userId: 4321,
+      username: 'some-user',
       collections: [createFakeCollectionDetail()],
     };
 
@@ -550,19 +550,19 @@ describe(__filename, () => {
         .toThrow(/collections parameter is required/);
     });
 
-    it('throws an error when userId is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = { ...defaultParams };
-      delete params.userId;
+      delete params.username;
 
       expect(() => loadUserCollections(params))
-        .toThrow(/userId parameter is required/);
+        .toThrow(/username parameter is required/);
     });
   });
 
   describe('addonAddedToCollection', () => {
     const defaultParams = {
       addonId: 2221,
-      userId: 4321,
+      username: 'some-user',
       collectionId: 2345,
     };
 
@@ -574,12 +574,12 @@ describe(__filename, () => {
         .toThrow(/collectionId parameter is required/);
     });
 
-    it('throws an error when userId is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = { ...defaultParams };
-      delete params.userId;
+      delete params.username;
 
       expect(() => addonAddedToCollection(params))
-        .toThrow(/userId parameter is required/);
+        .toThrow(/username parameter is required/);
     });
 
     it('throws an error when addonId is missing', () => {
@@ -621,7 +621,7 @@ describe(__filename, () => {
       errorHandlerId: 'some-error-handler-id',
       page: 123,
       slug: 'some-collection-slug',
-      user: 'some-user-id-or-name',
+      username: 'some-user',
     };
 
     it('throws an error when errorHandlerId is missing', () => {
@@ -642,13 +642,13 @@ describe(__filename, () => {
       }).toThrow('slug is required');
     });
 
-    it('throws an error when user is missing', () => {
+    it('throws an error when username is missing', () => {
       const partialParams = { ...defaultParams };
-      delete partialParams.user;
+      delete partialParams.username;
 
       expect(() => {
         fetchCurrentCollectionPage(partialParams);
-      }).toThrow('user is required');
+      }).toThrow('username is required');
     });
 
     it('throws an error when page is missing', () => {

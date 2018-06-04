@@ -55,7 +55,7 @@ export function* fetchCurrentCollection({
     errorHandlerId,
     page,
     slug,
-    user,
+    username,
   },
 }: FetchCurrentCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -68,7 +68,7 @@ export function* fetchCurrentCollection({
     const baseParams = {
       api: state.api,
       slug,
-      user,
+      username,
     };
 
     const detailParams: $Shape<GetCollectionParams> = {
@@ -97,7 +97,7 @@ export function* fetchCurrentCollectionPage({
     errorHandlerId,
     page,
     slug,
-    user,
+    username,
   },
 }: FetchCurrentCollectionPageAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -111,7 +111,7 @@ export function* fetchCurrentCollectionPage({
       api: state.api,
       page,
       slug,
-      user,
+      username,
     };
     const addons = yield call(api.getCollectionAddons, params);
 
@@ -124,7 +124,7 @@ export function* fetchCurrentCollectionPage({
 }
 
 export function* fetchUserCollections({
-  payload: { errorHandlerId, userId },
+  payload: { errorHandlerId, username },
 }: FetchUserCollectionsAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
   yield put(errorHandler.createClearingAction());
@@ -133,21 +133,21 @@ export function* fetchUserCollections({
     const state = yield select(getState);
 
     const params: GetAllUserCollectionsParams = {
-      api: state.api, user: userId,
+      api: state.api, username,
     };
     const collections = yield call(api.getAllUserCollections, params);
 
-    yield put(loadUserCollections({ userId, collections }));
+    yield put(loadUserCollections({ username, collections }));
   } catch (error) {
     log.warn(`Failed to fetch user collections: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortFetchUserCollections({ userId }));
+    yield put(abortFetchUserCollections({ username }));
   }
 }
 
 export function* addAddonToCollection({
   payload: {
-    addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
+    addonId, collectionId, editing, errorHandlerId, notes, page, slug, username,
   },
 }: AddAddonToCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -161,7 +161,7 @@ export function* addAddonToCollection({
       api: state.api,
       slug,
       notes,
-      user: userId,
+      username,
     };
     yield call(api.createCollectionAddon, params);
 
@@ -172,16 +172,16 @@ export function* addAddonToCollection({
         page,
         errorHandlerId: errorHandler.id,
         slug,
-        user: userId,
+        username,
       }));
     }
     yield put(addonAddedToCollection({
-      addonId, userId, collectionId,
+      addonId, username, collectionId,
     }));
   } catch (error) {
     log.warn(`Failed to add add-on to collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
-    yield put(abortAddAddonToCollection({ addonId, userId }));
+    yield put(abortAddAddonToCollection({ addonId, username }));
   }
 }
 
@@ -197,7 +197,7 @@ export function* modifyCollection(
     errorHandlerId,
     name,
     slug,
-    user,
+    username,
   } = payload;
 
   yield put(beginCollectionModification());
@@ -218,7 +218,7 @@ export function* modifyCollection(
       api: state.api,
       defaultLocale,
       description,
-      user,
+      username,
     };
 
     if (creating) {
@@ -247,7 +247,7 @@ export function* modifyCollection(
     invariant(effectiveSlug,
       'Both slug and collectionSlug cannot be empty');
     const newLocation =
-      `/${lang}/${clientApp}/collections/${user}/${effectiveSlug}/`;
+      `/${lang}/${clientApp}/collections/${username}/${effectiveSlug}/`;
 
     if (creating) {
       invariant(response, 'response is required when creating');
@@ -283,7 +283,7 @@ export function* modifyCollection(
 
 export function* removeAddonFromCollection({
   payload: {
-    addonId, errorHandlerId, page, slug, user,
+    addonId, errorHandlerId, page, slug, username,
   },
 }: RemoveAddonFromCollectionAction): Generator<any, any, any> {
   const errorHandler = createErrorHandler(errorHandlerId);
@@ -296,7 +296,7 @@ export function* removeAddonFromCollection({
       addonId,
       api: state.api,
       slug,
-      user,
+      username,
     };
     yield call(api.removeAddonFromCollection, params);
 
@@ -304,7 +304,7 @@ export function* removeAddonFromCollection({
       page,
       errorHandlerId: errorHandler.id,
       slug,
-      user,
+      username,
     }));
   } catch (error) {
     log.warn(`Failed to remove add-on from collection: ${error}`);

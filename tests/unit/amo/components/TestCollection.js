@@ -49,7 +49,7 @@ describe(__filename, () => {
     i18n: fakeI18n(),
     location: fakeRouterLocation(),
     params: {
-      user: defaultUser,
+      username: defaultUser,
       slug: defaultSlug,
     },
     store: dispatchClientMetadata().store,
@@ -146,16 +146,16 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
 
-    renderComponent({ errorHandler, params: { slug, user }, store });
+    renderComponent({ errorHandler, params: { slug, username }, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: undefined,
       slug,
-      user,
+      username,
     }));
   });
 
@@ -182,13 +182,13 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
     const page = 123;
 
     renderComponent({
       errorHandler,
       location: fakeRouterLocation({ query: { page } }),
-      params: { slug, user },
+      params: { slug, username },
       store,
     });
 
@@ -197,7 +197,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page,
       slug,
-      user,
+      username,
     }));
   });
 
@@ -245,12 +245,12 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
 
     store.dispatch(fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       slug,
-      user,
+      username,
     }));
 
     fakeDispatch.reset();
@@ -265,13 +265,13 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
 
     store.dispatch(fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 123,
       slug,
-      user,
+      username,
     }));
 
     fakeDispatch.reset();
@@ -305,24 +305,24 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
     const page = 123;
 
     const location = fakeRouterLocation({
-      pathname: `/collections/${user}/${slug}/`,
+      pathname: `/collections/${username}/${slug}/`,
       query: { page },
     });
 
     const newSlug = 'other-collection';
     const newLocation = {
       ...location,
-      pathname: `/collections/${user}/${newSlug}/`,
+      pathname: `/collections/${username}/${newSlug}/`,
     };
 
     const wrapper = renderComponent({
       errorHandler,
       location,
-      params: { slug, user },
+      params: { slug, username },
       store,
     });
     fakeDispatch.reset();
@@ -330,7 +330,7 @@ describe(__filename, () => {
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({
       location: newLocation,
-      params: { slug: newSlug, user },
+      params: { slug: newSlug, username },
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -338,7 +338,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
-      user,
+      username,
     }));
   });
 
@@ -370,7 +370,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page,
-      user: defaultUser,
+      username: defaultUser,
       slug: defaultSlug,
     }));
   });
@@ -407,7 +407,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 1,
-      user: defaultUser,
+      username: defaultUser,
       slug: defaultSlug,
     }));
   });
@@ -430,7 +430,7 @@ describe(__filename, () => {
 
     const newParams = {
       slug: defaultSlug,
-      user: 'another-user',
+      username: 'another-user',
     };
     wrapper.setProps({ params: newParams });
 
@@ -442,14 +442,14 @@ describe(__filename, () => {
     }));
   });
 
-  it('compares user values in lower case', () => {
-    const user = 'Mozilla';
+  it('compares username values in lower case', () => {
+    const username = 'Mozilla';
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({ authorUsername: user }),
+      detail: createFakeCollectionDetail({ authorUsername: username }),
     }));
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -457,7 +457,7 @@ describe(__filename, () => {
     fakeDispatch.reset();
 
     wrapper.setProps({
-      params: { slug: defaultSlug, user: user.toLowerCase() },
+      params: { slug: defaultSlug, username: username.toLowerCase() },
     });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -481,7 +481,7 @@ describe(__filename, () => {
 
     const newParams = {
       slug: 'some-other-collection-slug',
-      user: defaultUser,
+      username: defaultUser,
     };
     wrapper.setProps({ params: newParams });
 
@@ -559,7 +559,7 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const { slug } = defaultCollectionDetail;
-    const user = defaultUser;
+    const username = defaultUser;
 
     // User loads the collection page.
     store.dispatch(loadCurrentCollection({
@@ -569,7 +569,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      params: { slug, user },
+      params: { slug, username },
       store,
     });
 
@@ -580,7 +580,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page: 2,
       slug,
-      user,
+      username,
     }));
 
     // This is needed because shallowUntilTarget() does not trigger any
@@ -843,7 +843,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page,
       slug: collectionDetail.slug,
-      user: collectionDetail.author.username,
+      username: collectionDetail.author.username,
     }));
   });
 
@@ -882,7 +882,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page: 1,
       slug: collectionDetail.slug,
-      user: collectionDetail.author.username,
+      username: collectionDetail.author.username,
     }));
   });
 
@@ -890,7 +890,7 @@ describe(__filename, () => {
     it('returns a unique ID based on params', () => {
       const props = getProps({
         params: {
-          user: 'foo',
+          username: 'foo',
           slug: 'collection-bar',
         },
         location: fakeRouterLocation(),
@@ -902,7 +902,7 @@ describe(__filename, () => {
     it('adds the page as part of unique ID', () => {
       const props = getProps({
         params: {
-          user: 'foo',
+          username: 'foo',
           slug: 'collection-bar',
         },
         location: fakeRouterLocation({ query: { page: 124 } }),

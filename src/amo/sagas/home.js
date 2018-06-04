@@ -34,7 +34,7 @@ export function* fetchHomeAddons({
         api: state.api,
         page: 1,
         slug: collection.slug,
-        user: collection.user,
+        username: collection.username,
       });
       collections.push(result);
     }
