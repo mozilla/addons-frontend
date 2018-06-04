@@ -126,3 +126,24 @@ $font-size-aside: 10px;
     margin-bottom: 0;
   }
 }
+
+.Overlay-contents .UserProfileEdit-deletion-modal {
+  max-width: 500px;
+
+  .Card-contents {
+    background: $base-color;
+    font-size: $font-size-default;
+
+    h2 {
+      font-size: $font-size-m;
+    }
+
+    p {
+      @include text-align-start();
+    }
+  }
+
+  .UserProfileEdit-buttons-wrapper {
+    margin-top: 2rem;
+  }
+}

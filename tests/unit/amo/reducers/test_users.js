@@ -190,6 +190,20 @@ describe(__filename, () => {
       const state = reducer(initialState, unloadUserAccount({ userId }));
       expect(state.byID[userId]).toBeUndefined();
     });
+
+    it('sets the current user ID to `null` if it is the user to unload', () => {
+      const userId = 12345;
+      const username = 'john';
+
+      const user = createUserAccountResponse({ id: userId, username });
+      const prevState = reducer(initialState, loadCurrentUserAccount({ user }));
+
+      const state = reducer(prevState, unloadUserAccount({ userId }));
+
+      expect(state.byID[userId]).toBeUndefined();
+      expect(state.byUsername[username]).toBeUndefined();
+      expect(state.currentUserID).toEqual(null);
+    });
   });
 
   describe('getCurrentUser selector', () => {

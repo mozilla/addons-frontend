@@ -506,6 +506,10 @@ const reducer = (
 
         delete newState.byID[userId];
         delete newState.byUsername[username];
+
+        if (newState.currentUserID === userId) {
+          newState.currentUserID = null;
+        }
       }
 
       return newState;
