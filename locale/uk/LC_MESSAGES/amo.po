@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-04 17:28+0000\n"
+"PO-Revision-Date: 2018-06-04 17:51+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1047,7 +1047,7 @@ msgstr "Переклад сторінок"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Швидко перекладайте цілі веб-сторінки"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Image Search Options"
@@ -1063,7 +1063,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Зробіть так, щоб Firefox забував локальні дані веб-сайтів і куки"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
@@ -1095,7 +1095,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Підсвічуйте текст на будь-якій веб-сторінці, щоб скористатися зручним меню пошуку"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
@@ -1107,19 +1107,19 @@ msgstr "Переможець змагання розширень для Quantum!
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Веб безпека"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Захист від зловмисних програм і шахрайських даних"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Оновлені вертикальні вкладки"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Впорядкуйте вкладки вертикально"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
@@ -1954,7 +1954,7 @@ msgstr "Сповіщення"
 
 #: src/amo/components/UserProfileEdit/index.js:574
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "Час від часу Mozilla може надсилати вам електронні листи про випуски, що наближаються, та про події додатків. Будь ласка, оберіть теми, які вас цікавлять."
 
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
