@@ -259,7 +259,7 @@ export const createCollection = ({
 type ModifyCollectionAddonBaseParams = {|
   addonId: number,
   api: ApiStateType,
-  collectionSlug: string,
+  slug: string,
   user: string | number,
   _modifyCollectionAddon?: (any) => Promise<void>,
 |};
@@ -283,18 +283,18 @@ type ModifyCollectionAddonParams =
 export const modifyCollectionAddon = (
   params: ModifyCollectionAddonParams,
 ): Promise<void> => {
-  const { action, addonId, api, collectionSlug, user } = params;
+  const { action, addonId, api, slug, user } = params;
 
   invariant(action, 'The action parameter is required');
   invariant(addonId, 'The addonId parameter is required');
   invariant(api, 'The api parameter is required');
-  invariant(collectionSlug, 'The collectionSlug parameter is required');
+  invariant(slug, 'The slug parameter is required');
   invariant(user, 'The user parameter is required');
 
   let method = 'POST';
   const body = { addon: addonId, notes: params.notes };
   let endpoint =
-    `accounts/account/${user}/collections/${collectionSlug}/addons`;
+    `accounts/account/${user}/collections/${slug}/addons`;
 
   if (action === 'update') {
     // TODO: once `notes` can be null, we can check for `undefined` values
@@ -311,26 +311,26 @@ export const modifyCollectionAddon = (
 export const createCollectionAddon = ({
   addonId,
   api,
-  collectionSlug,
+  slug,
   notes,
   user,
   _modifyCollectionAddon = modifyCollectionAddon,
 }: CreateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
-    action: 'create', addonId, api, collectionSlug, notes, user,
+    action: 'create', addonId, api, slug, notes, user,
   });
 };
 
 export const updateCollectionAddon = ({
   addonId,
   api,
-  collectionSlug,
+  slug,
   notes,
   user,
   _modifyCollectionAddon = modifyCollectionAddon,
 }: UpdateCollectionAddonParams): Promise<void> => {
   return _modifyCollectionAddon({
-    action: 'update', addonId, api, collectionSlug, notes, user,
+    action: 'update', addonId, api, slug, notes, user,
   });
 };
 export type RemoveAddonFromCollectionParams = {|

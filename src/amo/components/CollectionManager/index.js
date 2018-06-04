@@ -236,7 +236,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     dispatch(addAddonToCollection({
       addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page: page || 1,
