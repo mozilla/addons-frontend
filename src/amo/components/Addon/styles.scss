@@ -146,6 +146,7 @@
 
   .Addon-persona & {
     height: 100px;
+    object-position: top right;
   }
 
   @include respond-to(extraExtraLarge) {
