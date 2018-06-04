@@ -140,7 +140,7 @@
   border-radius: $border-radius-default;
   display: block;
   height: $theme-height-default;
-  max-width: 680px;
+  max-width: $theme-width-default;
   object-fit: cover;
   object-position: top left;
   width: 100%;
