@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-04 17:51+0000\n"
+"PO-Revision-Date: 2018-06-04 17:59+0000\n"
 "Last-Translator: Artem Polivanchuk <artem@mozilla.org.ua>\n"
 "Language-Team: none\n"
 "Language: uk\n"
@@ -1959,10 +1959,11 @@ msgstr "Час від часу Mozilla може надсилати вам еле
 #: src/amo/components/UserProfileEdit/index.js:578
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Час від часу Mozilla може надсилати електронний лист цьому користувачу про випуски, що наближаються, та про події додатків. Будь ласка, оберіть теми, які можуть бути цікавими для цього користувача."
 
 #: src/amo/components/UserProfileEdit/index.js:589
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla зберігає за собою право звернутись до вас особисто з особливими питаннями щодо розміщених вами додатків."
 
 #: src/amo/components/UserProfileEdit/index.js:606
 msgid "Updating your profile…"
@@ -1982,43 +1983,43 @@ msgstr "Оновити профіль користувача"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "будьте в курсі новин та подій, пов'язаних з розробкою додатків (включно з розсилкою about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla необхідно зв'язатися зі мною з приводу мого індивідуального додатка"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "доступні нові додатки чи можливості Firefox"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "хтось пише відгук до мого додатка"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "розробник додатка відповідає на мій відгук"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "мій додаток перевірений редактором"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "мій додаток на базі SDK не може бути оновлений"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "мій додаток на базі SDK успішно оновлений"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "сумісність мого додатка не може бути оновлена"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "сумісність мого додатка успішно оновлена"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
@@ -2030,11 +2031,11 @@ msgstr "Фотографія профілю"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Оберіть фото..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:76
 msgid "Delete this picture"
-msgstr ""
+msgstr "Видалити це зображення"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
