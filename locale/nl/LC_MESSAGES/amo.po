@@ -102,9 +102,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s door %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Alleen met Firefox - Download Firefox nu!"
+msgstr ""
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -1871,9 +1870,8 @@ msgid "Profile successfully updated"
 msgstr "Profiel bijwerken gelukt"
 
 #: src/amo/components/UserProfileEdit/index.js:167
-#, fuzzy
 msgid "Picture successfully deleted"
-msgstr "Profiel bijwerken gelukt"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:320
 msgid "Log in to edit the profile"

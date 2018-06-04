@@ -367,7 +367,7 @@ describe(__filename, () => {
         action: 'create',
         addonId: 123458,
         api: apiState,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         user: 'user-id-or-username',
         ...params,
       };
@@ -377,13 +377,13 @@ describe(__filename, () => {
       const params = defaultParams({
         action: 'create',
         addonId: 987675,
-        collectionSlug: 'my-collection',
+        slug: 'my-collection',
         user: 'my-user',
       });
 
       const endpoint = oneLineTrim`
         accounts/account/${params.user}/collections/
-        ${params.collectionSlug}/addons
+        ${params.slug}/addons
       `;
       mockApi
         .expects('callApi')
@@ -408,7 +408,7 @@ describe(__filename, () => {
 
       const endpoint = oneLineTrim`
         accounts/account/${params.user}/collections/
-        ${params.collectionSlug}/addons
+        ${params.slug}/addons
       `;
       mockApi
         .expects('callApi')
@@ -429,14 +429,14 @@ describe(__filename, () => {
       const params = defaultParams({
         action: 'update',
         addonId: 987675,
-        collectionSlug: 'my-collection',
+        slug: 'my-collection',
         notes,
         user: 'my-user',
       });
 
       const endpoint = oneLineTrim`
         accounts/account/${params.user}/collections/
-        ${params.collectionSlug}/addons/${params.addonId}
+        ${params.slug}/addons/${params.addonId}
       `;
       mockApi
         .expects('callApi')
@@ -461,7 +461,7 @@ describe(__filename, () => {
 
       const endpoint = oneLineTrim`
         accounts/account/${params.user}/collections/
-        ${params.collectionSlug}/addons/${params.addonId}
+        ${params.slug}/addons/${params.addonId}
       `;
       mockApi
         .expects('callApi')
@@ -483,7 +483,7 @@ describe(__filename, () => {
       const params = {
         addonId: 1122432,
         api: apiState,
-        collectionSlug: 'the-collection',
+        slug: 'the-collection',
         notes: 'Beware of this one weird bug',
         user: 'the-user',
       };
@@ -503,7 +503,7 @@ describe(__filename, () => {
       const params = {
         addonId: 1122432,
         api: apiState,
-        collectionSlug: 'cool-collection',
+        slug: 'cool-collection',
         notes: 'This add-on speaks to my soul',
         user: 'cool-user',
       };

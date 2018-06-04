@@ -291,7 +291,7 @@ describe(__filename, () => {
         addonId,
         userId,
         collectionId: 321,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
@@ -306,7 +306,7 @@ describe(__filename, () => {
         addonId: 1,
         userId: 2,
         collectionId: 3,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
@@ -327,7 +327,7 @@ describe(__filename, () => {
         addonId,
         userId,
         collectionId: 321,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
@@ -345,7 +345,7 @@ describe(__filename, () => {
         addonId,
         userId,
         collectionId: 321,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
@@ -372,7 +372,7 @@ describe(__filename, () => {
         addonId,
         userId,
         collectionId: 321,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
@@ -742,7 +742,7 @@ describe(__filename, () => {
     const getParams = (params = {}) => {
       return {
         addons: createFakeCollectionAddons(),
-        collectionSlug: 'my-collection',
+        slug: 'my-collection',
         ...params,
       };
     };
@@ -764,7 +764,7 @@ describe(__filename, () => {
       });
       state = reducer(state, loadCollectionAddons({
         addons: newAddons,
-        collectionSlug: collectionDetail.slug,
+        slug: collectionDetail.slug,
       }));
 
       expect(state.byId[collectionDetail.id].addons)
@@ -777,7 +777,7 @@ describe(__filename, () => {
         reducer(undefined, loadCollectionAddons({
           addons,
           // This collection has not been loaded into state yet.
-          collectionSlug: 'a-collection',
+          slug: 'a-collection',
         }));
       })
         .toThrow(/Cannot load add-ons for collection/);
@@ -793,10 +793,10 @@ describe(__filename, () => {
 
     it('requires a collectionId parameter', () => {
       const params = getParams();
-      delete params.collectionSlug;
+      delete params.slug;
 
       expect(() => loadCollectionAddons(params))
-        .toThrow(/collectionSlug parameter is required/);
+        .toThrow(/slug parameter is required/);
     });
   });
 

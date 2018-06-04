@@ -4,6 +4,17 @@
 @import "~amo/css/inc/vars";
 
 .CollectionManager {
+  .NoticePlaceholder {
+    margin-top: 16px;
+    min-height: 32px;
+
+    + .AutoSearchInput {
+      .AutoSearchInput-label {
+        padding-top: 4px;
+      }
+    }
+  }
+
   .AutoSearchInput-query {
     border: 1px solid $grey-50;
     border-radius: $border-radius-xs;
@@ -20,7 +31,14 @@
   }
 
   .Notice {
-    margin-top: 24px;
+    &.NoticePlaceholder-transition-appear {
+      opacity: 1;
+    }
+
+    &.NoticePlaceholder-transition-leave-active {
+      opacity: 0;
+      transition: opacity $transition-medium ease-in-out;
+    }
   }
 
   .CollectionManager-collectionName {

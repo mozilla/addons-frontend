@@ -2,6 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import usersSaga from 'amo/sagas/users';
 import usersReducer, {
+  deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
@@ -10,12 +11,14 @@ import usersReducer, {
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
+  unloadUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
 import { setAuthToken } from 'core/actions';
 import apiReducer from 'core/reducers/api';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  createApiResponse,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
@@ -308,6 +311,50 @@ describe(__filename, () => {
       sagaTester.dispatch(fetchUserNotifications({
         errorHandlerId: errorHandler.id,
         username: 'tofumatt',
+      }));
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
+  });
+
+  describe('deleteUserAccount', () => {
+    it('calls the API to delete a profile', async () => {
+      const state = sagaTester.getState();
+      const userId = 123;
+
+      mockApi
+        .expects('deleteUserAccount')
+        .once()
+        .withArgs({
+          api: state.api,
+          userId,
+        })
+        .returns(createApiResponse());
+
+      sagaTester.dispatch(deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId,
+      }));
+
+      const expectedCalledAction = unloadUserAccount({ userId });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      expect(calledAction).toEqual(expectedCalledAction);
+      mockApi.verify();
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('a bad API error');
+      mockApi
+        .expects('deleteUserAccount')
+        .returns(Promise.reject(error));
+
+      sagaTester.dispatch(deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId: 123,
       }));
 
       const errorAction = errorHandler.createErrorAction(error);

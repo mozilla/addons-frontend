@@ -89,3 +89,18 @@ export function deleteUserPicture({ api, userId }: {|
     state: api,
   });
 }
+
+export function deleteUserAccount({ api, userId }: {|
+  api: ApiStateType,
+  userId: UserId,
+|}) {
+  invariant(api, 'api state is required.');
+  invariant(userId, 'userId is required.');
+
+  return callApi({
+    auth: true,
+    endpoint: `accounts/account/${userId}`,
+    method: 'DELETE',
+    state: api,
+  });
+}

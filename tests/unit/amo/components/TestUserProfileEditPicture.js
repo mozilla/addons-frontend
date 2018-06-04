@@ -4,6 +4,7 @@ import UserProfileEditPicture, {
   UserProfileEditPictureBase,
 } from 'amo/components/UserProfileEditPicture';
 import { getCurrentUser } from 'amo/reducers/users';
+import ConfirmButton from 'ui/components/ConfirmButton';
 import UserAvatar from 'ui/components/UserAvatar';
 import {
   dispatchSignInActions,
@@ -101,22 +102,29 @@ describe(__filename, () => {
     sinon.assert.callCount(onSelect, 1);
   });
 
-  it('renders a "delete" button when user has a picture URL', () => {
+  it('renders a "delete" ConfirmButton when user has a picture URL', () => {
     const { state } = dispatchSignInActions({
       userProps: {
         picture_url: 'https://example.org/pp.png',
       },
     });
     const user = getCurrentUser(state.users);
+    const onDelete = sinon.stub();
 
-    const root = render({ user });
+    const root = render({ user, onDelete });
 
-    expect(root.find('.UserProfileEditPicture-delete-button')).toHaveLength(1);
-    expect(root.find('.UserProfileEditPicture-delete-button').children())
+    expect(root.find(ConfirmButton)).toHaveLength(1);
+    expect(root.find(ConfirmButton))
+      .toHaveClassName('UserProfileEditPicture-delete-button');
+    expect(root.find(ConfirmButton))
+      .toHaveProp('message', 'Do you really want to delete this picture?');
+    expect(root.find(ConfirmButton))
+      .toHaveProp('onConfirm', onDelete);
+    expect(root.find(ConfirmButton).children())
       .toHaveText('Delete this picture');
   });
 
-  it('does not render a "delete" button when user has no picture URL', () => {
+  it('does not render a "delete" ConfirmButton when user has no picture URL', () => {
     const { state } = dispatchSignInActions({
       userProps: {
         picture_url: null,
@@ -126,7 +134,7 @@ describe(__filename, () => {
 
     const root = render({ user });
 
-    expect(root.find('.UserProfileEditPicture-delete-button')).toHaveLength(0);
+    expect(root.find(ConfirmButton)).toHaveLength(0);
   });
 
   it('calls the onDelete() prop when a user deletes the picture', () => {
@@ -142,7 +150,9 @@ describe(__filename, () => {
 
     sinon.assert.notCalled(onDelete);
 
-    root.find('.UserProfileEditPicture-delete-button').simulate('click');
+    // We assume the user confirms picture deletion.
+    const onConfirm = root.find(ConfirmButton).prop('onConfirm');
+    onConfirm();
 
     sinon.assert.callCount(onDelete, 1);
   });

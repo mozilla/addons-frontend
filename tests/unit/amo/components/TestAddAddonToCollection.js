@@ -179,7 +179,7 @@ describe(__filename, () => {
         addonId: addon.id,
         userId,
         collectionId: 321,
-        collectionSlug: 'some-collection',
+        slug: 'some-collection',
         errorHandlerId: 'error-handler',
       }));
 
@@ -225,7 +225,7 @@ describe(__filename, () => {
         errorHandlerId: root.instance().props.errorHandler.id,
         addonId: addon.id,
         collectionId: secondCollection.id,
-        collectionSlug: secondCollection.slug,
+        slug: secondCollection.slug,
         userId: authorId,
       }));
     });
