@@ -1102,6 +1102,7 @@ describe(__filename, () => {
     expect(root.find(Notice))
       .toHaveProp('children', 'Picture successfully deleted');
 
+    expect(root).toHaveState('picture', null);
     expect(root).toHaveState('pictureData', null);
   });
 
