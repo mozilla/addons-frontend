@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-04-05 13:33+0000\n"
-"Last-Translator: Imre Kristoffer Eilertsen <imreeil42@gmail.com>\n"
+"PO-Revision-Date: 2018-06-05 09:45+0000\n"
+"Last-Translator: Håvar Henriksen <havar@firefox.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nb_NO\n"
 "MIME-Version: 1.0\n"
@@ -43,9 +43,8 @@ msgid "Add to…"
 msgstr "Legg til i…"
 
 #: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
-#, fuzzy
 msgid "Add to collection"
-msgstr "Bla gjennom alle utvidelser"
+msgstr "Legg til i samling"
 
 #: src/amo/components/Addon/index.js:185
 msgid "Cancel preview"
@@ -89,9 +88,8 @@ msgid "About this language pack"
 msgstr "Logg inn for å vurdere denne språkpakken"
 
 #: src/amo/components/Addon/index.js:297
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Logg inn for å vurdere dette søke-programtillegget"
+msgstr "Om dette søketillegget"
 
 #: src/amo/components/Addon/index.js:300
 #, fuzzy
@@ -149,7 +147,7 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Noen funksjoner kan kreve betaling"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -168,9 +166,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Firefox for iOS støtter ikke utvidelser for øyeblikket."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Denne utvidelsen er ikke kompatibel med din versjon av Firefox."
+msgstr "Denne utvidelsen er ikke tilgjengelig på din plattform."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -197,16 +194,14 @@ msgid "No Users"
 msgstr "Flest brukere"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Ingen vurderinger"
+msgstr "Vurderinger"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Ingen vurderinger"
-msgstr[1] "Ingen vurderinger"
+msgstr[0] "Vurdering"
+msgstr[1] "Vurderinger"
 
 #: src/amo/components/AddonMeta/index.js:48
 #, fuzzy
@@ -282,9 +277,8 @@ msgid "Support Site"
 msgstr "Brukerstøtteside"
 
 #: src/amo/components/AddonMoreInfo/index.js:71
-#, fuzzy
 msgid "Support Email"
-msgstr "Brukerstøtteside"
+msgstr "E-post for brukerstøtte"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
