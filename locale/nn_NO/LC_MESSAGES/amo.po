@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-03 10:55+0000\n"
+"PO-Revision-Date: 2018-06-05 14:51+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -102,9 +102,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sav %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:528
-#, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Berre med Firefox — Få Firefox no!"
+msgstr "Berre med Firefox — Få Firefox no"
 
 #: src/amo/components/Addon/index.js:534
 msgid "Extension Metadata"
@@ -589,14 +588,12 @@ msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Save collection"
 msgstr "Lagre samlinga"
 
 #: src/amo/components/CollectionManager/index.js:263
-#, fuzzy
 msgid "Create collection"
-msgstr "Lag ny samling"
+msgstr "Lag ei samling"
 
 #: src/amo/components/CollectionManager/index.js:275
 msgid "Collection name"
@@ -611,9 +608,8 @@ msgid "Custom URL"
 msgstr "Tilpassa URL"
 
 #: src/amo/components/CollectionManager/index.js:324
-#, fuzzy
 msgid "Added to collection"
-msgstr "Legg til i samling"
+msgstr "Lagt til i samling"
 
 #: src/amo/components/CollectionManager/index.js:331
 msgid "Find an add-on to include in this collection"
@@ -942,34 +938,28 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Endre korleis Firefox ser ut med tema."
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Tame your tabs"
-msgstr "Endre fanene dine"
+msgstr "Tem fanene dine"
 
 #: src/amo/components/Home/index.js:217
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Vis fleire søkjeutvidingar"
+msgstr "Vis fleire faneutvidingar"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Bla i alle utvidingar"
+msgstr "Naudsynte utvidingar"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Vis fleire søkjeutvidingar"
+msgstr "Vis fleir naudsynte utvidingar"
 
 #: src/amo/components/Home/index.js:255
-#, fuzzy
 msgid "Translation tools"
-msgstr "Translate Man"
+msgstr "Omsettingsverktøy"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Vis fleire personvernverktøy"
+msgstr "Vis fleire omsettingsvektøy"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1048,18 +1038,16 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Vis fleire søkjeutvidingar"
+msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -2002,14 +1990,12 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Brukarprofil for %(user)s"
+msgstr "Profilbilde for %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "Profil"
+msgstr "Profilbilde"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
