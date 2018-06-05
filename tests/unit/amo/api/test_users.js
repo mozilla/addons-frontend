@@ -178,6 +178,7 @@ describe(__filename, () => {
       mockApi.expects('callApi')
         .withArgs({
           auth: true,
+          credentials: true,
           endpoint: `accounts/account/${params.userId}`,
           method: 'DELETE',
           state: params.api,
