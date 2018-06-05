@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
-"PO-Revision-Date: 2018-06-02 17:06+0000\n"
-"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+"PO-Revision-Date: 2018-06-05 02:55+0000\n"
+"Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -497,7 +497,7 @@ msgstr "精选扩展"
 
 #: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:201 src/amo/components/LandingPage/index.js:132
 msgid "See more featured extensions"
-msgstr "查看更多精选扩展"
+msgstr "看看更多精选扩展"
 
 #: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
 msgid "Trending extensions"
@@ -505,7 +505,7 @@ msgstr "热门扩展"
 
 #: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
 msgid "See more trending extensions"
-msgstr "查看更多热门扩展"
+msgstr "看看更多热门扩展"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
@@ -513,7 +513,7 @@ msgstr "最受好评的扩展"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
 msgid "See more top rated extensions"
-msgstr "查看更多好评扩展"
+msgstr "看看更多好评扩展"
 
 #: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -525,7 +525,7 @@ msgstr "精选主题"
 
 #: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:230 src/amo/components/LandingPage/index.js:158
 msgid "See more featured themes"
-msgstr "查看更多精选主题"
+msgstr "看看更多精选主题"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
 msgid "Trending themes"
@@ -533,7 +533,7 @@ msgstr "热门主题"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
 msgid "See more trending themes"
-msgstr "查看更多热门主题"
+msgstr "看看更多热门主题"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
 msgid "Top rated themes"
@@ -541,7 +541,7 @@ msgstr "最受好评的主题"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
 msgid "See more top rated themes"
-msgstr "查看更多好评主题"
+msgstr "看看更多好评主题"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -933,7 +933,7 @@ msgstr "轻松管理标签页"
 
 #: src/amo/components/Home/index.js:217
 msgid "See more tab extensions"
-msgstr "查看更多标签页扩展"
+msgstr "看看更多标签页扩展"
 
 #: src/amo/components/Home/index.js:244
 msgid "Essential extensions"
@@ -941,7 +941,7 @@ msgstr "必备扩展"
 
 #: src/amo/components/Home/index.js:245
 msgid "See more essential extensions"
-msgstr "查看更多必备扩展"
+msgstr "看看更多必备扩展"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
@@ -949,7 +949,7 @@ msgstr "翻译工具"
 
 #: src/amo/components/Home/index.js:256
 msgid "See more translation tools"
-msgstr "查看更多翻译工具"
+msgstr "看看更多翻译工具"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1581,7 +1581,7 @@ msgstr "告诉你的朋友和家人，Firefox 是一款快速、安全的浏览�
 
 #: src/amo/components/StaticPages/About.js:138
 msgid "To see more ways you can contribute to the add-on community, please visit our %(startLink)swiki%(endLink)s"
-msgstr "欢迎看看 %(startLink)swiki%(endLink)s，了解您能如何向附加组件社区贡献力量"
+msgstr "欢迎看看 %(startLink)swiki%(endLink)s，了解您能如何为附加组件社区出力"
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
