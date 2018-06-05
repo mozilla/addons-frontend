@@ -121,6 +121,7 @@ export function deleteUserAccount({ api, userId }: {|
 
   return callApi({
     auth: true,
+    credentials: true,
     endpoint: `accounts/account/${userId}`,
     method: 'DELETE',
     state: api,
