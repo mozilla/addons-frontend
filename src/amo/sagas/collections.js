@@ -341,7 +341,7 @@ export function* deleteCollection({
     }));
     // Eventually we will redirect to the user's list of collections,
     // but for now we'll just redirect to the home page.
-    // See:https://github.com/mozilla/addons-frontend/issues/3142
+    // See: https://github.com/mozilla/addons-frontend/issues/3142
     yield put(pushLocation(`/${lang}/${clientApp}`));
   } catch (error) {
     log.warn(`Failed to delete collection: ${error}`);

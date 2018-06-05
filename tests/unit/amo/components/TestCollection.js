@@ -680,16 +680,12 @@ describe(__filename, () => {
     const { onDelete } = wrapper.instance();
     const button = wrapper.find(ConfirmButton);
     expect(button).toHaveLength(1);
-    expect(button)
-      .toHaveClassName('Collection-delete-button');
-    expect(button)
-      .toHaveProp('buttonType', 'cancel');
+    expect(button).toHaveClassName('Collection-delete-button');
+    expect(button).toHaveProp('buttonType', 'cancel');
     expect(button)
       .toHaveProp('message', 'Do you really want to delete this collection?');
-    expect(button)
-      .toHaveProp('onConfirm', onDelete);
-    expect(button.children())
-      .toHaveText('Delete this collection');
+    expect(button).toHaveProp('onConfirm', onDelete);
+    expect(button.children()).toHaveText('Delete this collection');
   });
 
   it('links to a Collection edit page', () => {
@@ -787,7 +783,7 @@ describe(__filename, () => {
     expect(wrapper.find(ConfirmButton)).toHaveLength(1);
   });
 
-  it('Does not render a delete button when user does not have permission', () => {
+  it('does not render a delete button when user does not have permission', () => {
     const authorUserId = 11;
     const { store } = dispatchSignInActions({ userId: authorUserId });
 
@@ -971,7 +967,8 @@ describe(__filename, () => {
     dispatchSpy.reset();
 
     // This emulates a user clicking the delete button and confirming.
-    wrapper.instance().onDelete(
+    const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');
+    onDelete(
       createFakeEvent({ preventDefault: preventDefaultSpy })
     );
 
