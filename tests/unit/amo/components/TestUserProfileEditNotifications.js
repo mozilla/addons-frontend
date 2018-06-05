@@ -22,6 +22,7 @@ describe(__filename, () => {
     return shallowUntilTarget(
       <UserProfileEditNotifications
         i18n={i18n}
+        onChange={null}
         user={null}
         {...props}
       />,
@@ -45,6 +46,7 @@ describe(__filename, () => {
       expect(input).toHaveProp('defaultChecked', false);
       expect(input).toHaveProp('disabled', true);
       expect(input).toHaveProp('name', `loading-notification-${index}`);
+      expect(input).toHaveProp('onChange', undefined);
     });
   });
 
@@ -70,7 +72,9 @@ describe(__filename, () => {
     const { users } = store.getState();
     const user = getCurrentUser(users);
 
-    const root = render({ user });
+    const onChange = sinon.stub();
+
+    const root = render({ onChange, user });
 
     expect(root.find('.UserProfileEditNotification'))
       .toHaveLength(notifications.length);
@@ -84,6 +88,7 @@ describe(__filename, () => {
       expect(input).toHaveProp('defaultChecked', notification.enabled);
       expect(input).toHaveProp('disabled', notification.mandatory);
       expect(input).toHaveProp('name', notification.name);
+      expect(input).toHaveProp('onChange', onChange);
 
       const label = input.parent();
       expect(label.shallow()).toHaveText(

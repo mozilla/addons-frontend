@@ -6,6 +6,7 @@ import {
   deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
+  updateUserNotifications,
   userAccount,
   userNotifications,
 } from 'amo/api/users';
@@ -184,6 +185,33 @@ describe(__filename, () => {
         .returns(createApiResponse());
 
       await deleteUserAccount(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('updateUserNotifications', () => {
+    it('updates the user notifications of a given user', async () => {
+      const state = dispatchSignInActions().store.getState();
+      const userId = getCurrentUser(state.users).id;
+
+      const notifications = { reply: true };
+      const params = { api: state.api, notifications, userId };
+
+      const notificationsResponse = createApiResponse({
+        jsonData: createUserNotificationsResponse(),
+      });
+
+      mockApi.expects('callApi')
+        .withArgs({
+          auth: true,
+          body: params.notifications,
+          endpoint: `accounts/account/${params.userId}/notifications`,
+          method: 'POST',
+          state: params.api,
+        })
+        .returns(notificationsResponse);
+
+      await updateUserNotifications(params);
       mockApi.verify();
     });
   });

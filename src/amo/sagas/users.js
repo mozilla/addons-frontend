@@ -11,14 +11,7 @@ import {
   loadUserNotifications,
   unloadUserAccount,
 } from 'amo/reducers/users';
-import {
-  currentUserAccount as currentUserAccountApi,
-  deleteUserAccount as deleteUserAccountApi,
-  deleteUserPicture as deleteUserPictureApi,
-  editUserAccount as editUserAccountApi,
-  userAccount as userAccountApi,
-  userNotifications as userNotificationsApi,
-} from 'amo/api/users';
+import * as api from 'amo/api/users';
 import { SET_AUTH_TOKEN } from 'core/constants';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
@@ -32,7 +25,7 @@ export function* fetchCurrentUserAccount({ payload }) {
 
   const state = yield select(getState);
 
-  const response = yield call(currentUserAccountApi, {
+  const response = yield call(api.currentUserAccount, {
     api: {
       ...state.api,
       token,
@@ -45,6 +38,7 @@ export function* fetchCurrentUserAccount({ payload }) {
 export function* editUserAccount({
   payload: {
     errorHandlerId,
+    notifications,
     picture,
     userFields,
     userId,
@@ -57,7 +51,7 @@ export function* editUserAccount({
   try {
     const state = yield select(getState);
 
-    const user = yield call(editUserAccountApi, {
+    const user = yield call(api.editUserAccount, {
       api: state.api,
       picture,
       userId,
@@ -65,6 +59,19 @@ export function* editUserAccount({
     });
 
     yield put(loadUserAccount({ user }));
+
+    if (Object.keys(notifications).length) {
+      const allNotifications = yield call(api.updateUserNotifications, {
+        api: state.api,
+        notifications,
+        userId,
+      });
+
+      yield put(loadUserNotifications({
+        notifications: allNotifications,
+        username: user.username,
+      }));
+    }
   } catch (error) {
     log.warn(`Could not edit user account: ${error}`);
     yield put(errorHandler.createErrorAction(error));
@@ -86,7 +93,7 @@ export function* fetchUserAccount({
   try {
     const state = yield select(getState);
 
-    const user = yield call(userAccountApi, {
+    const user = yield call(api.userAccount, {
       api: state.api,
       username,
     });
@@ -111,7 +118,7 @@ export function* fetchUserNotifications({
   try {
     const state = yield select(getState);
 
-    const notifications = yield call(userNotificationsApi, {
+    const notifications = yield call(api.userNotifications, {
       api: state.api,
       username,
     });
@@ -136,7 +143,7 @@ export function* deleteUserPicture({
   try {
     const state = yield select(getState);
 
-    const user = yield call(deleteUserPictureApi, {
+    const user = yield call(api.deleteUserPicture, {
       api: state.api,
       userId,
     });
@@ -161,7 +168,7 @@ export function* deleteUserAccount({
   try {
     const state = yield select(getState);
 
-    yield call(deleteUserAccountApi, {
+    yield call(api.deleteUserAccount, {
       api: state.api,
       userId,
     });

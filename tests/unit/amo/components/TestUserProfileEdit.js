@@ -100,6 +100,7 @@ describe(__filename, () => {
 
   function _editUserAccount({
     store,
+    notifications = {},
     picture = null,
     userFields = {},
     userId = 'user-id',
@@ -107,6 +108,7 @@ describe(__filename, () => {
   }) {
     store.dispatch(editUserAccount({
       errorHandlerId,
+      notifications,
       picture,
       userFields,
       userId,
@@ -474,6 +476,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, editUserAccount({
       errorHandlerId: errorHandler.id,
+      notifications: {},
       picture: null,
       userFields: {
         biography: user.biography,
@@ -585,12 +588,54 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, editUserAccount({
       errorHandlerId: errorHandler.id,
+      notifications: {},
       picture: null,
       userFields: {
         biography: user.biography,
         display_name: user.display_name,
         homepage: user.homepage,
         location,
+        occupation: user.occupation,
+        username: user.username,
+      },
+      userId: user.id,
+    }));
+  });
+
+  it('dispatches editUserAccount action with updated notifications on submit', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const user = getCurrentUser(store.getState().users);
+
+    // The user clicks the `reply` notification to uncheck it.
+    const onChange = root.find(UserProfileEditNotifications).prop('onChange');
+    const stopPropagationSpy = sinon.spy();
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'reply',
+        checked: false,
+      },
+      stopPropagation: stopPropagationSpy,
+    }));
+
+    // The user clicks the "update" button.
+    root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
+
+    sinon.assert.calledWith(dispatchSpy, editUserAccount({
+      errorHandlerId: errorHandler.id,
+      notifications: {
+        reply: false,
+      },
+      picture: null,
+      userFields: {
+        biography: user.biography,
+        display_name: user.display_name,
+        homepage: user.homepage,
+        location: user.location,
         occupation: user.occupation,
         username: user.username,
       },
@@ -631,6 +676,41 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
+  });
+
+  it('fetches the user notifications when user profile has been updated without notification changes', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+
+    const errorHandler = createStubErrorHandler();
+    const user = getCurrentUser(store.getState().users);
+
+    // We do not change anything here, especially not the notifications. When a
+    // notification has changed, the saga will load the updated notifications
+    // but it won't be the case when no notification has been changed.
+    _editUserAccount({
+      store,
+      notifications: {},
+      userFields: {},
+      userId: user.id,
+    });
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+
+    // The user profile has been updated.
+    store.dispatch(finishEditUserAccount());
+
+    dispatchSpy.reset();
+
+    sinon.assert.notCalled(dispatchSpy);
+
+    const { isUpdating } = store.getState().users;
+    root.setProps({ isUpdating });
+
+    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
+      errorHandlerId: errorHandler.id,
+      username: user.username,
+    }));
   });
 
   it('does not change the URL when username has not changed', () => {
@@ -1220,6 +1300,53 @@ describe(__filename, () => {
       const params = { username };
 
       expect(extractId({ params })).toEqual(username);
+    });
+  });
+
+  it('stores updated notifications in state', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const root = renderUserProfileEdit({ store });
+
+    expect(root).toHaveState('notifications', {});
+
+    const onChange = root.find(UserProfileEditNotifications).prop('onChange');
+    const stopPropagationSpy = sinon.spy();
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'reply',
+        checked: false,
+      },
+      stopPropagation: stopPropagationSpy,
+    }));
+
+    sinon.assert.called(stopPropagationSpy);
+
+    expect(root).toHaveState('notifications', { reply: false });
+    expect(root).toHaveState('successMessage', null);
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'new_features',
+        checked: false,
+      },
+    }));
+
+    expect(root).toHaveState('notifications', {
+      new_features: false,
+      reply: false,
+    });
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'reply',
+        checked: true,
+      },
+    }));
+
+    expect(root).toHaveState('notifications', {
+      new_features: false,
+      reply: true,
     });
   });
 });
