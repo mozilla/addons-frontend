@@ -53,12 +53,6 @@
     }
   }
 
-  .Paginate {
-    @include respond-to(large) {
-      grid-column: 2;
-    }
-  }
-
   .SearchResults-message {
     background: $base-color;
     border-bottom-left-radius: $border-radius-default;

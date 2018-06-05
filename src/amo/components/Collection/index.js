@@ -383,6 +383,15 @@ export class CollectionBase extends React.Component<Props> {
     const addons: Array<CollectionAddonType> =
       (collection && collection.addons) || [];
 
+    const paginator = (collection && collection.numberOfAddons > 0) ? (
+      <Paginate
+        LinkComponent={Link}
+        count={collection.numberOfAddons}
+        currentPage={location.query.page}
+        pathname={editing ? this.editUrl() : this.url()}
+      />
+    ) : null;
+
     return (
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
@@ -395,6 +404,7 @@ export class CollectionBase extends React.Component<Props> {
             addons={addons}
             deleteNote={this.deleteNote}
             editing={editing}
+            footer={paginator}
             loading={!collection || loading}
             removeAddon={this.removeAddon}
             saveNote={this.saveNote}
@@ -404,14 +414,6 @@ export class CollectionBase extends React.Component<Props> {
               'Search for extensions and themes to add to your collection.')}
             </p>
           }
-          {collection && collection.numberOfAddons > 0 && (
-            <Paginate
-              LinkComponent={Link}
-              count={collection.numberOfAddons}
-              currentPage={location.query.page}
-              pathname={editing ? this.editUrl() : this.url()}
-            />
-          )}
         </div>
       </div>
     );

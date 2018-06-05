@@ -1,3 +1,4 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import fallbackIcon from 'amo/img/icons/default-64.png';
@@ -530,15 +531,23 @@ describe(__filename, () => {
       dispatchAddon();
       dispatchAddonReviews();
       const root = render();
-      expect(root.find(Paginate))
-        .toHaveProp('pathname', root.instance().url());
+
+      const footer = root.find('.AddonReviewList-reviews').prop('footer');
+      const paginator = shallow(footer);
+
+      expect(paginator.instance()).toBeInstanceOf(Paginate);
+      expect(paginator).toHaveProp('pathname', root.instance().url());
     });
 
     it('configures a paginator with the right Link', () => {
       dispatchAddon();
       dispatchAddonReviews();
+
       const root = render();
-      expect(root.find(Paginate)).toHaveProp('LinkComponent', Link);
+      const footer = root.find('.AddonReviewList-reviews').prop('footer');
+      const paginator = shallow(footer);
+
+      expect(paginator).toHaveProp('LinkComponent', Link);
     });
 
     it('configures a paginator with the right review count', () => {
@@ -549,25 +558,39 @@ describe(__filename, () => {
       ];
       dispatchAddon();
       dispatchAddonReviews({ reviews });
+
       const root = render();
-      expect(root.find(Paginate)).toHaveProp('count', reviews.length);
+      const footer = root.find('.AddonReviewList-reviews').prop('footer');
+      const paginator = shallow(footer);
+
+      expect(paginator).toHaveProp('count', reviews.length);
     });
 
     it('sets the paginator to page 1 without a query', () => {
       dispatchAddon();
       dispatchAddonReviews();
+
       // Render with an empty query string.
       const root = render({ location: fakeRouterLocation() });
-      expect(root.find(Paginate)).toHaveProp('currentPage', 1);
+      const footer = root.find('.AddonReviewList-reviews').prop('footer');
+      const paginator = shallow(footer);
+
+      expect(paginator).toHaveProp('currentPage', 1);
     });
 
     it('sets the paginator to the query string page', () => {
+      const page = 3;
+
       dispatchAddon();
       dispatchAddonReviews();
+
       const root = render({
-        location: fakeRouterLocation({ query: { page: 3 } }),
+        location: fakeRouterLocation({ query: { page } }),
       });
-      expect(root.find(Paginate)).toHaveProp('currentPage', 3);
+      const footer = root.find('.AddonReviewList-reviews').prop('footer');
+      const paginator = shallow(footer);
+
+      expect(paginator).toHaveProp('currentPage', page);
     });
 
     it('renders an HTML title', () => {

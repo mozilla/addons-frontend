@@ -229,10 +229,9 @@ export class SearchBase extends React.Component {
           filters={filters}
           loading={loading}
           pathname={pathname}
+          paginator={paginator}
           results={results}
         />
-
-        {paginator}
       </div>
     );
   }

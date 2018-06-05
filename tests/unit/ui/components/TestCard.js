@@ -1,78 +1,104 @@
+import { shallow } from 'enzyme';
 import * as React from 'react';
-import { renderIntoDocument } from 'react-dom/test-utils';
 
 import Card from 'ui/components/Card';
 
 
-describe('<Card />', () => {
+describe(__filename, () => {
   function render(props = {}) {
-    return renderIntoDocument(<Card {...props} />);
+    return shallow(<Card {...props} />);
   }
 
   it('renders a Card', () => {
     const root = render({ className: 'TofuSection' });
-    expect(root.cardContainer).toBeTruthy();
-    expect(root.cardContainer.tagName).toEqual('SECTION');
-    expect(root.cardContainer.className).toContain('Card');
-    expect(root.cardContainer.className).toContain('TofuSection');
+
+    expect(root.find('section')).toHaveLength(1);
+
+    expect(root).toHaveClassName('Card');
+    expect(root).toHaveClassName('TofuSection');
+
+    expect(root.find('.Card-header')).toHaveLength(0);
+    expect(root.find('.Card-contents')).toHaveLength(0);
+    expect(root.find('.Card-footer')).toHaveLength(0);
   });
 
   it('does not use photon class by default', () => {
     const root = render({ children: 'hello' });
-    expect(root.cardContainer.className).not.toContain('Card--photon');
+    expect(root).not.toHaveClassName('Card--photon');
   });
 
   it('uses photon class if marked', () => {
     const root = render({ children: 'hello', photonStyle: true });
-    expect(root.cardContainer.className).toContain('Card--photon');
+    expect(root).toHaveClassName('Card--photon');
   });
 
   it('shows header if supplied', () => {
     const root = render({ header: 'foo' });
-    expect(root.header).toBeTruthy();
+    expect(root.find('.Card-header')).toHaveLength(1);
+    expect(root.find('.Card-header')).toHaveText('foo');
   });
 
   it('hides header if none supplied', () => {
     const root = render({ children: 'hello' });
-    expect(root.header).toBeFalsy();
-    expect(root.cardContainer.className).toContain('Card--no-header');
+    expect(root.find('.Card-header')).toHaveLength(0);
+    expect(root).toHaveClassName('Card--no-header');
   });
 
   it('shows footer text if supplied', () => {
     const root = render({ footerText: 'foo' });
-    expect(root.footer).toBeTruthy();
-    expect(root.footer.textContent).toEqual('foo');
-    expect(root.footer.className).toEqual('Card-footer-text');
+    expect(root.find('.Card-footer')).toHaveLength(1);
+    expect(root.find('.Card-footer')).toHaveText('foo');
+    expect(root.find('.Card-footer')).toHaveClassName('Card-footer-text');
   });
 
   it('shows a footer link if supplied', () => {
     const root = render({ footerLink: <a href="/some-link">Some link</a> });
-    expect(root.footer).toBeTruthy();
-    expect(root.footer.textContent).toEqual('Some link');
-    expect(root.footer.className).toEqual('Card-footer-link');
+    expect(root.find('.Card-footer')).toHaveLength(1);
+    expect(root.find('.Card-footer')).toHaveText('Some link');
+    expect(root.find('.Card-footer')).toHaveClassName('Card-footer-link');
   });
 
-  it('throws an error if you mix footer content', () => {
-    expect(() => render({
-      footerLink: <a href="/some-link">Some link</a>,
-      footerText: 'something else',
-    })).toThrowError(/cannot specify footerLink and footerText/);
+  it('throws an error both footerLink and footerText props are passed', () => {
+    expect(() => {
+      render({
+        footerLink: <a href="/some-link">Some link</a>,
+        footerText: 'something else',
+      });
+    }).toThrowError(/can only specify exactly one of these props/);
+  });
+
+  it('throws an error both footerLink and footer props are passed', () => {
+    expect(() => {
+      render({
+        footerLink: <a href="/some-link">Some link</a>,
+        footer: 'something else',
+      });
+    }).toThrowError(/can only specify exactly one of these props/);
+  });
+
+  it('throws an error both footer and footerText props are passed', () => {
+    expect(() => {
+      render({
+        footer: <a href="/some-link">Some link</a>,
+        footerText: 'something else',
+      });
+    }).toThrowError(/can only specify exactly one of these props/);
   });
 
   it('hides footer if none supplied', () => {
     const root = render({ children: 'hello' });
-    expect(root.footer).toBeFalsy();
-    expect(root.cardContainer.className).toContain('Card--no-footer');
+    expect(root.find('.Card-footer')).toHaveLength(0);
+    expect(root).toHaveClassName('Card--no-footer');
   });
 
   it('renders children', () => {
     const root = render({ children: 'hello' });
-    expect(root.contents).toBeTruthy();
-    expect(root.contents.textContent).toContain('hello');
+    expect(root.find('.Card-contents')).toHaveLength(1);
+    expect(root.find('.Card-contents')).toHaveText('hello');
   });
 
   it('omits the content div with no children', () => {
     const root = render();
-    expect(root.contents).toBeFalsy();
+    expect(root.find('.Card-contents')).toHaveLength(0);
   });
 });

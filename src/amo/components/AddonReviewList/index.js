@@ -225,6 +225,15 @@ export class AddonReviewListBase extends React.Component<Props> {
     );
     /* eslint-enable jsx-a11y/heading-has-content */
 
+    const paginator = (addon && reviewCount) ? (
+      <Paginate
+        LinkComponent={Link}
+        count={reviewCount}
+        currentPage={this.getCurrentPage()}
+        pathname={this.url()}
+      />
+    ) : null;
+
     return (
       <div className="AddonReviewList">
         {addon && (
@@ -261,6 +270,7 @@ export class AddonReviewListBase extends React.Component<Props> {
 
         <CardList
           className="AddonReviewList-reviews"
+          footer={paginator}
           header={reviewCountHTML}
         >
           <ul>
@@ -276,16 +286,6 @@ export class AddonReviewListBase extends React.Component<Props> {
               );
             })}
           </ul>
-
-          {addon && reviewCount ?
-            <Paginate
-              LinkComponent={Link}
-              count={reviewCount}
-              currentPage={this.getCurrentPage()}
-              pathname={this.url()}
-            />
-            : null
-          }
         </CardList>
       </div>
     );

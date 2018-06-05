@@ -14,6 +14,7 @@ class SearchResults extends React.Component {
     filters: PropTypes.object,
     i18n: PropTypes.object.isRequired,
     loading: PropTypes.bool,
+    paginator: PropTypes.node,
     results: PropTypes.arrayOf(PropTypes.object),
   }
 
@@ -24,7 +25,7 @@ class SearchResults extends React.Component {
   }
 
   render() {
-    const { count, filters, i18n, loading, results } = this.props;
+    const { count, filters, i18n, loading, paginator, results } = this.props;
     const { query } = filters;
 
     let loadingMessage;
@@ -59,6 +60,7 @@ class SearchResults extends React.Component {
         <AddonsCard
           addonInstallSource={INSTALL_SOURCE_SEARCH}
           addons={hasSearchFilters(filters) ? results : null}
+          footer={paginator}
           header={i18n.gettext('Search results')}
           loading={loading}
         >

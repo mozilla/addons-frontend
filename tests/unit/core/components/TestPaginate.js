@@ -7,7 +7,7 @@ import PaginatorLink from 'core/components/PaginatorLink';
 import { fakeI18n, shallowUntilTarget } from 'tests/unit/helpers';
 
 
-describe('<Paginate />', () => {
+describe(__filename, () => {
   const getRenderProps = () => ({
     i18n: fakeI18n(),
     count: 20,
@@ -67,14 +67,18 @@ describe('<Paginate />', () => {
     describe('visiblePages()', () => {
       function getVisiblePages(customProps = {}) {
         const root = renderPaginate(customProps);
-        return root.instance().visiblePages({ pageCount: root.instance().pageCount() });
+
+        return root.instance().visiblePages({
+          pageCount: root.instance().pageCount(),
+        });
       }
 
       describe('with lots of pages', () => {
         const commonParams = { count: 30, perPage: 3, showPages: 5 };
 
-        it('will be 0 by default', () => {
-          expect(getVisiblePages({ count: 30, perPage: 3, currentPage: 1 })).toEqual([]);
+        it('will be 7 by default', () => {
+          expect(getVisiblePages({ count: 30, perPage: 3, currentPage: 1 }))
+            .toEqual([1, 2, 3, 4, 5, 6, 7]);
         });
 
         it('will not be less than 0', () => {
@@ -153,6 +157,31 @@ describe('<Paginate />', () => {
         const root = renderPaginate({ ...commonParams, count: 30 });
 
         expect(root.find('.Paginate')).toHaveLength(1);
+      });
+    });
+
+    describe('getCurrentPage', () => {
+      const getCurrentPage = (customProps = {}) => {
+        const root = renderPaginate(customProps);
+
+        return root.instance().getCurrentPage();
+      };
+
+      it('returns the current page', () => {
+        expect(getCurrentPage({ currentPage: 123 })).toEqual(123);
+      });
+
+      // This happens when passing the value of a query string parameter
+      // directly to the component (hightly probable).
+      it('converts current page as string to number', () => {
+        expect(getCurrentPage({ currentPage: '123' })).toEqual(123);
+      });
+
+      it('returns 1 when current page is invalid', () => {
+        expect(getCurrentPage({ currentPage: 'abc' })).toEqual(1);
+        expect(getCurrentPage({ currentPage: 0 })).toEqual(1);
+        expect(getCurrentPage({ currentPage: null })).toEqual(1);
+        expect(getCurrentPage({ currentPage: undefined })).toEqual(1);
       });
     });
   });

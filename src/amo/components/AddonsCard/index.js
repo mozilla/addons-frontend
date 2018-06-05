@@ -33,6 +33,7 @@ type Props = {|
   showSummary?: boolean,
 
   // These are all passed through to Card.
+  footer?: React.Node,
   footerLink?: Object | string | null,
   footerText?: string,
   header?: React.Node,
@@ -44,8 +45,6 @@ type Props = {|
 |};
 
 export default class AddonsCard extends React.Component<Props> {
-  cardContainer: React.ElementRef<any> | null;
-
   static defaultProps = {
     editing: false,
     loading: false,
@@ -111,11 +110,7 @@ export default class AddonsCard extends React.Component<Props> {
     const allClassNames = makeClassName('AddonsCard', className,
       type && `AddonsCard--${type}`);
     return (
-      <CardList
-        {...otherProps}
-        className={allClassNames}
-        ref={(ref) => { this.cardContainer = ref; }}
-      >
+      <CardList {...otherProps} className={allClassNames}>
         {children}
         {addonElements.length ? (
           <ul className="AddonsCard-list">

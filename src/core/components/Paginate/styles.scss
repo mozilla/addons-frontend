@@ -1,22 +1,72 @@
+@import "~photon-colors/photon-colors";
+
 @import "~core/css/inc/mixins";
 @import "~ui/css/vars";
 
-.Paginate-page-number {
-  font-weight: bold;
-  margin: 0 0 5px;
-  text-align: center;
+.Paginate {
+  padding: $padding-page;
+
+  @include respond-to(large) {
+    background-color: $grey-10;
+    border-radius: $border-radius-default;
+    margin: 0 auto;
+    max-width: 360px;
+  }
 }
 
 .Paginate-links {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.Paginate {
-  margin-bottom: 30px;
-  padding: 0 30px;
+.Paginate .Button.Paginate-item {
+  &,
+  &:link,
+  &:visited {
+    background-color: $grey-20;
+    color: $link-color;
+    display: none;
+    font-weight: normal;
+    min-width: 48%;
+    text-decoration: none;
+
+    &:first-child,
+    &:last-child {
+      color: $black;
+      display: flex;
+    }
+
+    @include respond-to(large) {
+      background-color: transparent;
+      display: flex;
+      min-width: initial;
+    }
+  }
+
+  &:hover,
+  &:active {
+    background-color: $grey-30;
+  }
 }
 
-.Paginate .Paginate-item {
-  min-width: 48%;
+.Paginate .Button.Paginate-item--current-page {
+  color: $black;
+  margin-top: 2px;
+  opacity: 1;
+}
+
+.Paginate-item--previous {
+  @include margin-end(6px);
+}
+
+.Paginate-item--next {
+  @include margin-start(6px);
+}
+
+.Paginate-page-number {
+  @include font-light();
+
+  color: $grey-50;
+  margin: $padding-page 0 0;
+  text-align: center;
 }
