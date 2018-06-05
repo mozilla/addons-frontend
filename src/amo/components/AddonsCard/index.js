@@ -47,7 +47,6 @@ export default class AddonsCard extends React.Component<Props> {
 <<<<<<< HEAD
 =======
   cardContainer: React.ElementRef<any> | null;
-  keyCount: number;
 
 >>>>>>> fixing flow stuff
   static defaultProps = {
@@ -120,7 +119,6 @@ export default class AddonsCard extends React.Component<Props> {
     );
     return (
       <CardList
-        key={addons && addons.length}
         {...otherProps}
         className={allClassNames}
         ref={(ref) => { this.cardContainer = ref; }}
