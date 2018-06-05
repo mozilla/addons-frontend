@@ -15,9 +15,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
-  ADDON_TYPE_STATIC_THEME,
-  ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
+  ADDON_TYPE_THEMES_SEARCH,
 } from 'core/constants';
 import { withErrorHandler } from 'core/errorHandler';
 import translate from 'core/i18n/translate';
@@ -167,8 +165,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
           authorUsernames.length
         );
         break;
-      case ADDON_TYPE_STATIC_THEME:
-      case ADDON_TYPE_THEME:
+      case ADDON_TYPE_THEMES_SEARCH:
         header = showMore ? i18n.ngettext(
           i18n.sprintf(
             i18n.gettext('More themes by %(author)s'),
@@ -204,7 +201,7 @@ export class AddonsByAuthorsCardBase extends React.Component<Props> {
     }
 
     const classnames = makeClassName('AddonsByAuthorsCard', className, {
-      'AddonsByAuthorsCard--theme': ADDON_TYPE_THEMES.includes(addonType),
+      'AddonsByAuthorsCard--theme': addonType === ADDON_TYPE_THEMES_SEARCH,
     });
 
     return (

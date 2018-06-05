@@ -12,4 +12,5 @@ module.exports = {
   trackingEnabled: false,
   enableNewCollectionsUI: true,
   enableUserProfile: true,
+  enableStaticThemes: true,
 };

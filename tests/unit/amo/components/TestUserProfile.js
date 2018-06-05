@@ -16,7 +16,7 @@ import {
 import { createApiError } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_SEARCH,
   USERS_EDIT,
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
@@ -411,7 +411,7 @@ describe(__filename, () => {
     const root = renderUserProfile();
 
     expect(root.find(AddonsByAuthorsCard).at(1))
-      .toHaveProp('addonType', ADDON_TYPE_THEME);
+      .toHaveProp('addonType', ADDON_TYPE_THEMES_SEARCH);
   });
 
   it('renders no AddonsByAuthorsCard if no user found', () => {

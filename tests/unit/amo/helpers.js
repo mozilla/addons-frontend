@@ -12,6 +12,7 @@ import { addon as addonSchema } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES_SEARCH,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   ENABLED,
@@ -111,6 +112,7 @@ export const fakeAddon = Object.freeze({
   support_url: 'http://support.hampsterdance.com/',
   tags: ['chilling'],
   type: ADDON_TYPE_EXTENSION,
+  typeFilter: ADDON_TYPE_EXTENSION,
   url: 'https://addons.m.o/addon/chill-out/',
   weekly_downloads: 900023,
 });
@@ -151,6 +153,7 @@ export const fakeTheme = Object.freeze({
     version: '1.0',
   },
   type: ADDON_TYPE_THEME,
+  typeFilter: ADDON_TYPE_THEMES_SEARCH,
 });
 
 export const fakeInstalledAddon = Object.freeze({

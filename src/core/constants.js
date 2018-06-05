@@ -1,4 +1,5 @@
 /* @flow */
+import config from 'config';
 
 // Addon States.
 export const DISABLED = 'DISABLED';
@@ -48,6 +49,8 @@ export const ADDON_TYPE_LANG = 'language';
 export const ADDON_TYPE_OPENSEARCH = 'search';
 export const ADDON_TYPE_STATIC_THEME = 'statictheme';
 export const ADDON_TYPE_THEME = 'persona';
+export const ADDON_TYPE_THEMES_SEARCH = config.get('enableStaticThemes') ?
+  `${ADDON_TYPE_THEME},${ADDON_TYPE_STATIC_THEME}` : ADDON_TYPE_THEME;
 export const ADDON_TYPE_THEMES = [ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME];
 // TODO: Remove ADDON_TYPE_COMPLETE_THEME once we don't support complete
 // themes.
@@ -60,7 +63,8 @@ export type AddonTypeType =
   | typeof ADDON_TYPE_LANG
   | typeof ADDON_TYPE_OPENSEARCH
   | typeof ADDON_TYPE_STATIC_THEME
-  | typeof ADDON_TYPE_THEME;
+  | typeof ADDON_TYPE_THEME
+  | typeof ADDON_TYPE_THEMES_SEARCH;
 
 export const validAddonTypes = [
   ADDON_TYPE_COMPLETE_THEME,

@@ -1,5 +1,5 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
-import { ADDON_TYPE_THEME, SEARCH_SORT_TRENDING } from 'core/constants';
+import { ADDON_TYPE_THEMES_SEARCH, SEARCH_SORT_TRENDING } from 'core/constants';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   FETCH_ADDONS_BY_AUTHORS,
@@ -19,7 +19,7 @@ export function* fetchAddonsByAuthors({ payload }) {
 
   try {
     const state = yield select(getState);
-    const pageSize = addonType === ADDON_TYPE_THEME ?
+    const pageSize = addonType === ADDON_TYPE_THEMES_SEARCH ?
       THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const response = yield call(searchApi, {
       api: state.api,
