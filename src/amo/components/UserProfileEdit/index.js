@@ -168,6 +168,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
       this.setState({
+        picture: null,
         pictureData: null,
         successMessage: i18n.gettext('Picture successfully deleted'),
       });
