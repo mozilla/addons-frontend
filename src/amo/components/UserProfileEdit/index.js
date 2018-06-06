@@ -20,6 +20,7 @@ import {
   getCurrentUser,
   getUserByUsername,
   hasPermission,
+  isDeveloper,
   logOutUser,
 } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
@@ -662,7 +663,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 user={user}
               />
 
-              {isEditingCurrentUser && (
+              {(isEditingCurrentUser && isDeveloper(user)) && (
                 <p className="UserProfileEdit-notifications--help">
                   {i18n.gettext(`Mozilla reserves the right to contact you
                     individually about specific concerns with your hosted

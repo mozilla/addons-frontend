@@ -1,13 +1,14 @@
 import reducer, {
   LOAD_USER_ACCOUNT,
-  finishEditUserAccount,
   editUserAccount,
+  finishEditUserAccount,
   getCurrentUser,
   getUserById,
   getUserByUsername,
   hasAnyReviewerRelatedPermission,
   hasPermission,
   initialState,
+  isDeveloper,
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
@@ -356,6 +357,34 @@ describe(__filename, () => {
 
       expect(getUserByUsername(state.users, 'tupac'))
         .toEqual(state.users.byID[500]);
+    });
+  });
+
+  describe('isDeveloper', () => {
+    it('returns false when user is null', () => {
+      expect(isDeveloper(null)).toEqual(false);
+    });
+
+    it('returns true when user is an artist', () => {
+      const user = createUserAccountResponse({
+        is_artist: true,
+      });
+
+      expect(isDeveloper(user)).toEqual(true);
+    });
+
+    it('returns true when user is an add-on developer', () => {
+      const user = createUserAccountResponse({
+        is_addon_developer: true,
+      });
+
+      expect(isDeveloper(user)).toEqual(true);
+    });
+
+    it('returns false when user is not a developer', () => {
+      const user = createUserAccountResponse();
+
+      expect(isDeveloper(user)).toEqual(false);
     });
   });
 });
