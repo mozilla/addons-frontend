@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 22:28+0000\n"
+"PO-Revision-Date: 2018-06-06 23:06+0000\n"
 "Last-Translator: manxmensch <manxmensch@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ms\n"
@@ -1992,14 +1992,16 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Jika anda sahkan %(startStrong)s tindakan tidak boleh dibatalkan %(endStrong)s ini, data berikut akan dibuang: gambar profil, butiran profil (termasuk nama pengguna, e-mel, nama paparan, likasi, "
+"laman, biografi, pekerjaan) dan keutamaan notifikasi. Data lain seperti penarafan dan ulasan akan jadi anonimus."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Penting: jika anda memiliki add-ons, anda perlu pindah pemilikan ke pengguna lain atau buang dulu sebelum menghapuskan profil anda."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Penting: profil pengguna hanya boleh dihapuskan jika pengguna tidak memiliki add-on."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
@@ -2147,7 +2149,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Sahkan"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
