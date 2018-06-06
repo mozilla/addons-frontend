@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 19:12+0000\n"
+"PO-Revision-Date: 2018-06-06 20:17+0000\n"
 "Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
@@ -1974,14 +1974,12 @@ msgid "Update user's profile"
 msgstr "Atualizar perfil do utilizador"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Atualizar o meu perfil"
+msgstr "Apagar o meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Atualizar perfil do utilizador"
+msgstr "Apagar o perfil do utilizador"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
@@ -1996,24 +1994,24 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Se confirmar esta %(startStrong)sação irreversível%(endStrong)s, os seguintes dados irão ser removidos: imagem de perfil, detalhes de perfil (incluindo nome de utilizador, email, nome de "
+"apresentação, localização, página inicial, biografia, ocupação) e preferências de notificação. Outros dados como avaliações e análises serão anonimizados."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Importante: se for dono de extras, tem de os transferir para outros utilizadores ou apagá-los antes de apagar o seu perfil."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Importante: um perfil de utilizador apenas pode ser apagado se o utilizador não for dono de nenhum extra."
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Atualizar o meu perfil"
+msgstr "Sim, apagar o meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:755
-#, fuzzy
 msgid "Yes, delete this profile"
-msgstr "Apagar esta imagem"
+msgstr "Sim, apagar este perfil"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2068,9 +2066,8 @@ msgid "Choose photo..."
 msgstr "Escolher foto..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
-#, fuzzy
 msgid "Do you really want to delete this picture?"
-msgstr "Apagar esta imagem"
+msgstr "Pretende mesmo apagar esta imagem?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2154,7 +2151,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
