@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 12:16+0000\n"
-"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
+"PO-Revision-Date: 2018-06-06 14:10+0000\n"
+"Last-Translator: Kim Ludvigsen <kim@kimsside.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -1995,10 +1995,12 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Hvis du bekræfter denne handling, %(startStrong)ssom ikke kan fortrydes%(endStrong)s, vil følgende data blive fjernet: Profilbillede, indstillinger for beskeder og profildetaljer (herunder "
+"brugernavn, mailadresse, vis navn, sted, hjemmeside, biografi og beskæftigelse). Andre informationer, såsom bedømmelser og anmeldelser, vil blive anonymiseret."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Vigtigt: Hvis du ejer tilføjelser, skal du overføre dem til andre brugere eller slette dem, inden du kan slette din profil."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
@@ -2066,7 +2068,7 @@ msgstr "Vælg billede..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Vil du virkelig slette dette billede?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2150,7 +2152,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Bekræft"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
