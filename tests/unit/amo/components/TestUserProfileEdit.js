@@ -53,6 +53,7 @@ describe(__filename, () => {
     display_name: 'Matt MacTofu',
     homepage: 'https://example.org',
     location: 'Earth',
+    num_addons_listed: 0,
     occupation: 'Superman',
     userId: 500,
     username: 'tofumatt',
@@ -1145,7 +1146,29 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
     expect(root.find('.UserProfileEdit-confirm-button').children())
       .toHaveText('Yes, delete my profile');
+    expect(root.find('.UserProfileEdit-confirm-button'))
+      .toHaveProp('disabled', false);
     expect(root.find('.UserProfileEdit-cancel-button')).toHaveLength(1);
+  });
+
+  it('disables the confirm button if user has listed add-ons', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        num_addons_listed: 1,
+      },
+    });
+
+    const root = renderUserProfileEdit({ store });
+
+    // Open the modal.
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    expect(root.find('.UserProfileEdit-confirm-button'))
+      .toHaveProp('disabled', true);
   });
 
   it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
