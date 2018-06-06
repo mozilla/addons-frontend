@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 22:59+0000\n"
+"PO-Revision-Date: 2018-06-06 23:17+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1387,9 +1387,8 @@ msgid "Top rated add-ons"
 msgstr "Isiɣzaf yettwaszemlen aṭas"
 
 #: src/amo/components/Search/index.js:147
-#, fuzzy
 msgid "Popular extensions"
-msgstr "Isiɣzaf yettwasnen aṭas"
+msgstr "Isiɣzaf iɣerfanen"
 
 #: src/amo/components/Search/index.js:150
 msgid "Popular themes"
@@ -1854,22 +1853,18 @@ msgid "View user's profile"
 msgstr "Sken amaɣnu n useqdac"
 
 #: src/amo/components/UserProfileEdit/index.js:446
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Ẓreg amaɣnu"
+msgstr "Ẓreg amaɣnu n useqdac"
 
 #: src/amo/components/UserProfileEdit/index.js:465
-#, fuzzy
 msgid "Account"
-msgstr "Amiḍan-iw"
+msgstr "Amiḍan"
 
 #: src/amo/components/UserProfileEdit/index.js:466
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "%(count)s tiffin i \"%(query)s\""
+msgstr "Amiḍan i %(username)s"
 
 #: src/amo/components/UserProfileEdit/index.js:472
-#, fuzzy
 msgid "Username"
 msgstr "Aseqdac"
 
@@ -1886,9 +1881,8 @@ msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed 
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:517
-#, fuzzy
 msgid "Profile"
-msgstr "Sken amaɣnu"
+msgstr "Amɣnu"
 
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
@@ -1899,9 +1893,8 @@ msgid "Tell users a bit more information about this user. These fields are optio
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:534
-#, fuzzy
 msgid "Display Name"
-msgstr "Urar uraren"
+msgstr "Isem n uskan"
 
 #: src/amo/components/UserProfileEdit/index.js:566
 msgid "This URL will only be visible for users who are developers."
@@ -1940,9 +1933,8 @@ msgid "Mozilla reserves the right to contact you individually about specific con
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:684
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Snifel tiririt"
+msgstr "Aleqqem n umaɣnu-ik…"
 
 #: src/amo/components/UserProfileEdit/index.js:685
 msgid "Update my profile"
