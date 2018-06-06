@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 14:03+0000\n"
-"Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
+"PO-Revision-Date: 2018-06-06 16:03+0000\n"
+"Last-Translator: Andreas Pettersson <az@kth.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
 "MIME-Version: 1.0\n"
@@ -1982,21 +1982,23 @@ msgstr "Ta bort användarprofil"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr "Varning: Du håller på att ta bort din profil, Är du säker?"
+msgstr "Varning: Du håller på att ta bort din profil. Är du säker?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr "Varning: Du håller på att ta bort en profil, Är du säker?"
+msgstr "Varning: Du håller på att ta bort en profil. Är du säker?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Om du bekräftar den här %(startStrong)sirreversibla åtgärden%(endStrong)s, kommer följande data att tas bort: profilbild, profiluppgifter (inklusive användarnamn, e-post, visningsnamn, plats, "
+"hemsida, biografi, yrke) och aviseringsinställningar. Övriga data som betyg och recensioner kommer att anonymiseras."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Viktigt: om du äger tillägg måste du överföra dem till andra användare eller radera dem innan du kan radera din profil."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
@@ -2064,7 +2066,7 @@ msgstr "Välj bild..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
-msgstr "Vill du verkligen ta bort denna bilden?"
+msgstr "Vill du verkligen ta bort den här bilden?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
