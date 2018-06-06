@@ -23,7 +23,7 @@ Never submit security-related bugs through a Github Issue or by email.
 
 ## Requirements
 
-* You need [Node](https://nodejs.org/) 6.x which is the current
+* You need [Node](https://nodejs.org/) 8.x which is the current
   [LTS](https://github.com/nodejs/LTS) (long term support) release.
 * Install [yarn](https://yarnpkg.com/en/) to manage dependencies
   and run scripts.
