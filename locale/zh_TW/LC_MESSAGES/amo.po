@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 13:10+0000\n"
+"PO-Revision-Date: 2018-06-06 13:14+0000\n"
 "Last-Translator: Pin-guang Chen <petercpg@mail.moztw.org>\n"
 "Language-Team: none\n"
 "Language: zh_TW\n"
@@ -1953,15 +1953,15 @@ msgstr "請注意: 即將刪除資料，確定要這樣做嗎？"
 msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
-msgstr ""
+msgstr "若您確認要進行這個%(startStrong)s無法復原的操作%(endStrong)s，將刪除下列資料: 個人資料大頭照、個人資料（包含使用者名稱、E-Mail、顯示名稱、所在地點、首頁、自傳、工作），以及通知偏好設定。評分與評論等其他資料將被匿名化保留。"
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "重要: 若您擁有附加元件，必須要先將其轉移給其他使用者，或先刪除，才能刪除您的帳號。"
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "重要: 使用者帳號僅能在未擁有任何附加元件的情況，才能刪除。"
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
