@@ -610,7 +610,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 id="biography"
                 name="biography"
                 onChange={this.onFieldChange}
-                value={this.state.biography}
+                value={this.state.biography || ''}
               />
               <p className="UserProfileEdit-biography--help">
                 {i18n.sprintf(i18n.gettext(
