@@ -1975,14 +1975,12 @@ msgid "Update user's profile"
 msgstr "Opdater brugers profil"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Opdater min profil"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Opdater brugers profil"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
@@ -2007,14 +2005,12 @@ msgid "Important: a user profile can only be deleted if the user does not own an
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Opdater min profil"
+msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:755
-#, fuzzy
 msgid "Yes, delete this profile"
-msgstr "Slet dette billede"
+msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2069,9 +2065,8 @@ msgid "Choose photo..."
 msgstr "Vælg billede..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
-#, fuzzy
 msgid "Do you really want to delete this picture?"
-msgstr "Slet dette billede"
+msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
