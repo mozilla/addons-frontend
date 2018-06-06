@@ -46,7 +46,7 @@ export default (
       {config.get('enableUserProfile') && (
         <React.Fragment>
           <Route path="users/edit" component={UserProfileEdit} />
-          <Route path="user/:username/edit" component={UserProfileEdit} />
+          <Route path="user/:username/edit/" component={UserProfileEdit} />
           <Route path="user/:username/" component={UserProfile} />
         </React.Fragment>
       )}
