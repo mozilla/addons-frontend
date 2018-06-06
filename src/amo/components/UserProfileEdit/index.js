@@ -176,6 +176,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         pictureData: null,
         successMessage: i18n.gettext('Profile successfully updated'),
       });
+      window.scroll({
+       top: 0, 
+       left: 0, 
+       behavior: 'smooth' 
+      });
     }
 
     if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
@@ -183,6 +188,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         picture: null,
         pictureData: null,
         successMessage: i18n.gettext('Picture successfully deleted'),
+      });
+      window.scroll({
+       top: 0, 
+       left: 0, 
+       behavior: 'smooth' 
       });
     }
 
@@ -408,6 +418,11 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       }
 
       errorMessage = errorHandler.renderError();
+      window.scroll({
+       top: 0, 
+       left: 0, 
+       behavior: 'smooth' 
+      });
     }
 
     if (user && !hasEditPermission) {
