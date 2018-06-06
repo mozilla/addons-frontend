@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 12:30+0000\n"
+"PO-Revision-Date: 2018-06-06 12:35+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
@@ -2001,14 +2001,16 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Po potwierdzeniu tego %(startStrong)snieodwracalnego działania%(endStrong)s, następujące dane zostaną usunięte: obraz profilu, informacje o profilu (w tym nazwa użytkownika, adres e-mail, "
+"wyświetlana nazwa, położenie, strona domowa, notka biograficzna, zawód) oraz preferencje powiadomień. Pozostałe dane, takie jak oceny i recenzje, zostaną oznaczone jako anonimowe."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Ważne: jeśli użytkownik jest właścicielem dodatków, to należy je przekazać innym użytkownikom lub je usunąć, zanim można usunąć jego profil."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Ważne: profil użytkownika może zostać usunięty tylko, jeśli nie jest on właścicielem żadnych dodatków."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
