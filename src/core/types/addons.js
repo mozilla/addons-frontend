@@ -143,7 +143,6 @@ export type ExternalAddonType = {|
   target_locale?: string,
   theme_data?: ThemeData,
   type: AddonTypeType,
-  typeFilter: AddonTypeType,
   url: string,
   weekly_downloads: number,
 |};

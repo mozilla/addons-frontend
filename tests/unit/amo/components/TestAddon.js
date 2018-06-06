@@ -1358,7 +1358,7 @@ describe(__filename, () => {
       expect(root).toHaveProp('authorUsernames',
         addon.authors.map((author) => (author.username))
       );
-      expect(root).toHaveProp('addonType', addon.typeFilter);
+      expect(root).toHaveProp('addonType', addon.type);
       expect(root).toHaveProp('forAddonSlug', addon.slug);
       expect(root).toHaveProp('numberOfAddons', 6);
     });

@@ -1,5 +1,5 @@
 import { call, put, select, takeEvery } from 'redux-saga/effects';
-import { ADDON_TYPE_THEMES_FILTER, SEARCH_SORT_TRENDING } from 'core/constants';
+import { ADDON_TYPE_THEMES, SEARCH_SORT_TRENDING } from 'core/constants';
 import {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
   FETCH_ADDONS_BY_AUTHORS,
@@ -9,6 +9,7 @@ import {
 import { search as searchApi } from 'core/api/search';
 import log from 'core/logger';
 import { createErrorHandler, getState } from 'core/sagas/utils';
+import { getAddonTypeFilter } from 'core/utils';
 
 
 export function* fetchAddonsByAuthors({ payload }) {
@@ -18,13 +19,14 @@ export function* fetchAddonsByAuthors({ payload }) {
   yield put(errorHandler.createClearingAction());
 
   try {
+    const type = getAddonTypeFilter(addonType);
     const state = yield select(getState);
-    const pageSize = addonType === ADDON_TYPE_THEMES_FILTER ?
+    const pageSize = ADDON_TYPE_THEMES.includes(addonType) ?
       THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const response = yield call(searchApi, {
       api: state.api,
       filters: {
-        addonType,
+        addonType: type,
         author: authorUsernames.sort().join(','),
         exclude_addons: forAddonSlug,
         page_size: pageSize,
@@ -38,7 +40,7 @@ export function* fetchAddonsByAuthors({ payload }) {
 
     yield put(loadAddonsByAuthors({
       addons,
-      addonType,
+      addonType: type,
       authorUsernames,
       forAddonSlug,
     }));

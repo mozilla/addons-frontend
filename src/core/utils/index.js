@@ -15,6 +15,8 @@ import {
   ADDON_TYPE_OPENSEARCH,
   ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
+  ADDON_TYPE_THEMES,
+  ADDON_TYPE_THEMES_FILTER,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
   VISIBLE_ADDON_TYPES_MAPPING,
@@ -316,4 +318,13 @@ export function addonHasVersionHistory(addon) {
 export const decodeHtmlEntities = (string) => {
   const entities = new AllHtmlEntities();
   return entities.decode(string);
+};
+
+export const getAddonTypeFilter = (addonType, _config = config) => {
+  const isTheme = ADDON_TYPE_THEMES.includes(addonType);
+  if (!_config.get('enableStaticThemes') || !isTheme) {
+    return addonType;
+  }
+
+  return ADDON_TYPE_THEMES_FILTER;
 };

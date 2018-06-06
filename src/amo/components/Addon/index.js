@@ -389,7 +389,7 @@ export class AddonBase extends React.Component {
 
     return (
       <AddonsByAuthorsCard
-        addonType={addon.typeFilter}
+        addonType={addon.type}
         authorDisplayName={addon.authors[0].name}
         authorUsernames={addon.authors.map((author) => author.username)}
         className="Addon-MoreAddonsCard"

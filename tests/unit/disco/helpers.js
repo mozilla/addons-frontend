@@ -49,6 +49,5 @@ export const fakeDiscoAddon = Object.freeze({
   name: 'Chill Out',
   slug: 'chill-out',
   type: ADDON_TYPE_EXTENSION,
-  typeFilter: ADDON_TYPE_EXTENSION,
   url: 'https://somewhere/url-to-addon-detail/',
 });

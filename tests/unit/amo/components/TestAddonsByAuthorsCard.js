@@ -15,7 +15,8 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_THEMES_FILTER,
+  ADDON_TYPE_STATIC_THEME,
+  ADDON_TYPE_THEME,
 } from 'core/constants';
 import AddonsCard from 'amo/components/AddonsCard';
 import {
@@ -67,7 +68,7 @@ describe(__filename, () => {
   }
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
-    const addonsLength = addonType === ADDON_TYPE_THEMES_FILTER ?
+    const addonsLength = addonType === ADDON_TYPE_THEME ?
       THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
     const addons = [];
@@ -256,12 +257,12 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       authorUsernames: ['test1'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       authorUsernames: ['test1'],
       errorHandlerId: errorHandler.id,
     }));
@@ -271,12 +272,12 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       authorUsernames: ['test2'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
@@ -370,7 +371,7 @@ describe(__filename, () => {
   it('should display at most numberOfAddons themes', () => {
     const numberOfAddons = 3;
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       multipleAuthors: false,
       numberOfAddons,
     });
@@ -378,9 +379,17 @@ describe(__filename, () => {
     expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
-  it('should add a theme class if it is a theme type', () => {
+  it('should add a theme class if it is a lightweight theme', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
+    });
+
+    expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
+  });
+
+  it('should add a theme class if it is a static theme', () => {
+    const root = renderAddonsWithType({
+      addonType: ADDON_TYPE_STATIC_THEME,
     });
 
     expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
@@ -514,7 +523,7 @@ describe(__filename, () => {
 
   it('shows extensions in header for a theme', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       multipleAuthors: false,
     });
 
@@ -524,7 +533,7 @@ describe(__filename, () => {
 
   it('shows extensions in header for a theme without More text', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       showMore: false,
       multipleAuthors: false,
     });
@@ -535,7 +544,7 @@ describe(__filename, () => {
 
   it('shows extensions in header for a theme with multiple authors', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       multipleAuthors: true,
     });
 
@@ -545,7 +554,7 @@ describe(__filename, () => {
 
   it('shows extensions in header for a theme with multiple authors and without More text ', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_FILTER,
+      addonType: ADDON_TYPE_THEME,
       showMore: false,
       multipleAuthors: true,
     });
