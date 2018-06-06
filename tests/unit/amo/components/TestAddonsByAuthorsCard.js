@@ -15,7 +15,7 @@ import {
   ADDON_TYPE_DICT,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_THEMES_SEARCH,
+  ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
 import AddonsCard from 'amo/components/AddonsCard';
 import {
@@ -67,7 +67,7 @@ describe(__filename, () => {
   }
 
   function addonsWithAuthorsOfType({ addonType, multipleAuthors = false }) {
-    const addonsLength = addonType === ADDON_TYPE_THEMES_SEARCH ?
+    const addonsLength = addonType === ADDON_TYPE_THEMES_FILTER ?
       THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
     const addons = [];
@@ -256,12 +256,12 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       authorUsernames: ['test1'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       authorUsernames: ['test1'],
       errorHandlerId: errorHandler.id,
     }));
@@ -271,12 +271,12 @@ describe(__filename, () => {
     dispatchSpy.resetHistory();
 
     root.setProps({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       authorUsernames: ['test2'],
     });
 
     sinon.assert.calledWith(dispatchSpy, fetchAddonsByAuthors({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       authorUsernames: ['test2'],
       errorHandlerId: errorHandler.id,
     }));
@@ -370,7 +370,7 @@ describe(__filename, () => {
   it('should display at most numberOfAddons themes', () => {
     const numberOfAddons = 3;
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       multipleAuthors: false,
       numberOfAddons,
     });
@@ -378,17 +378,9 @@ describe(__filename, () => {
     expect(root.find(AddonsCard).props().addons).toHaveLength(numberOfAddons);
   });
 
-  it('should add a theme class if it is a lightweight theme', () => {
+  it('should add a theme class if it is a theme type', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
-    });
-
-    expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
-  });
-
-  it('should add a theme class if it is a static theme', () => {
-    const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
     });
 
     expect(root).toHaveClassName('AddonsByAuthorsCard--theme');
@@ -520,9 +512,9 @@ describe(__filename, () => {
       .toHaveProp('header', 'Language packs by these translators');
   });
 
-  it('shows extensions in header for ADDON_TYPE_THEMES_SEARCH', () => {
+  it('shows extensions in header for a theme', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       multipleAuthors: false,
     });
 
@@ -530,9 +522,9 @@ describe(__filename, () => {
       .toHaveProp('header', `More themes by ${fakeAuthor.name}`);
   });
 
-  it('shows extensions in header for ADDON_TYPE_THEMES_SEARCH without More text', () => {
+  it('shows extensions in header for a theme without More text', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       showMore: false,
       multipleAuthors: false,
     });
@@ -541,9 +533,9 @@ describe(__filename, () => {
       .toHaveProp('header', `Themes by ${fakeAuthor.name}`);
   });
 
-  it('shows extensions in header for ADDON_TYPE_THEMES_SEARCH with multiple authors', () => {
+  it('shows extensions in header for a theme with multiple authors', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       multipleAuthors: true,
     });
 
@@ -551,9 +543,9 @@ describe(__filename, () => {
       .toHaveProp('header', 'More themes by these artists');
   });
 
-  it('shows extensions in header for ADDON_TYPE_THEMES_SEARCH with multiple authors and without More text ', () => {
+  it('shows extensions in header for a theme with multiple authors and without More text ', () => {
     const root = renderAddonsWithType({
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       showMore: false,
       multipleAuthors: true,
     });

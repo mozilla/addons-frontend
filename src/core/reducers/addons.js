@@ -4,7 +4,7 @@ import { oneLine } from 'common-tags';
 import {
   ADDON_TYPE_THEME,
   ADDON_TYPE_THEMES,
-  ADDON_TYPE_THEMES_SEARCH,
+  ADDON_TYPE_THEMES_FILTER,
 } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
@@ -192,7 +192,7 @@ export function createInternalAddon(
     target_locale: apiAddon.target_locale,
     type: apiAddon.type,
     typeFilter: ADDON_TYPE_THEMES.includes(apiAddon.type) ?
-      ADDON_TYPE_THEMES_SEARCH : apiAddon.type,
+      ADDON_TYPE_THEMES_FILTER : apiAddon.type,
     url: apiAddon.url,
     weekly_downloads: apiAddon.weekly_downloads,
 

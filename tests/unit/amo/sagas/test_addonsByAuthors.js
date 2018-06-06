@@ -8,7 +8,7 @@ import addonsByAuthorsReducer, {
 } from 'amo/reducers/addonsByAuthors';
 import addonsByAuthorsSaga from 'amo/sagas/addonsByAuthors';
 import {
-  ADDON_TYPE_THEMES_SEARCH,
+  ADDON_TYPE_THEMES_FILTER,
   SEARCH_SORT_TRENDING,
 } from 'core/constants';
 import * as searchApi from 'core/api/search';
@@ -56,7 +56,7 @@ describe(__filename, () => {
       .withArgs({
         api: state.api,
         filters: {
-          addonType: ADDON_TYPE_THEMES_SEARCH,
+          addonType: ADDON_TYPE_THEMES_FILTER,
           author: authorUsernames.sort().join(','),
           exclude_addons: undefined, // `callApi` will internally unset this
           page_size: THEMES_BY_AUTHORS_PAGE_SIZE,
@@ -66,11 +66,11 @@ describe(__filename, () => {
       .once()
       .returns(Promise.resolve(createAddonsApiResult(addons)));
 
-    _fetchAddonsByAuthors({ authorUsernames, addonType: ADDON_TYPE_THEMES_SEARCH });
+    _fetchAddonsByAuthors({ authorUsernames, addonType: ADDON_TYPE_THEMES_FILTER });
 
     const expectedLoadAction = loadAddonsByAuthors({
       addons,
-      addonType: ADDON_TYPE_THEMES_SEARCH,
+      addonType: ADDON_TYPE_THEMES_FILTER,
       authorUsernames,
       forAddonSlug: undefined,
     });

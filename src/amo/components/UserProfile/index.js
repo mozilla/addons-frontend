@@ -20,7 +20,7 @@ import {
 } from 'amo/reducers/users';
 import {
   ADDON_TYPE_EXTENSION,
-  ADDON_TYPE_THEMES_SEARCH,
+  ADDON_TYPE_THEMES_FILTER,
   USERS_EDIT,
 } from 'core/constants';
 import { withFixedErrorHandler } from 'core/errorHandler';
@@ -239,7 +239,7 @@ export class UserProfileBase extends React.Component<Props> {
               />
 
               <AddonsByAuthorsCard
-                addonType={ADDON_TYPE_THEMES_SEARCH}
+                addonType={ADDON_TYPE_THEMES_FILTER}
                 authorDisplayName={[user.name]}
                 authorUsernames={[user.username]}
                 numberOfAddons={THEMES_BY_AUTHORS_PAGE_SIZE}

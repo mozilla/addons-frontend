@@ -11,6 +11,6 @@ module.exports = {
   fxaConfig: 'local',
   trackingEnabled: false,
   enableNewCollectionsUI: true,
-  enableUserProfile: true,
   enableStaticThemes: true,
+  enableUserProfile: true,
 };

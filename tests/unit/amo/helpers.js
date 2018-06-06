@@ -12,7 +12,7 @@ import { addon as addonSchema } from 'core/api';
 import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES_SEARCH,
+  ADDON_TYPE_THEMES_FILTER,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
   ENABLED,
@@ -153,7 +153,7 @@ export const fakeTheme = Object.freeze({
     version: '1.0',
   },
   type: ADDON_TYPE_THEME,
-  typeFilter: ADDON_TYPE_THEMES_SEARCH,
+  typeFilter: ADDON_TYPE_THEMES_FILTER,
 });
 
 export const fakeInstalledAddon = Object.freeze({
