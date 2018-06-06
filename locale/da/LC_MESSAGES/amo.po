@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-05-31 18:09+0000\n"
+"PO-Revision-Date: 2018-06-06 12:16+0000\n"
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -45,7 +45,7 @@ msgstr "Føj til samling"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Forhåndsvisning af %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -1976,19 +1976,19 @@ msgstr "Opdater brugers profil"
 
 #: src/amo/components/UserProfileEdit/index.js:700
 msgid "Delete my profile"
-msgstr ""
+msgstr "Slet min profil"
 
 #: src/amo/components/UserProfileEdit/index.js:701
 msgid "Delete user's profile"
-msgstr ""
+msgstr "Slet brugers profil"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "OBS: Du er ved at slette din profil. Er du sikker?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "OBS: Du er ved at slette en profil. Er du sikker?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
@@ -2002,15 +2002,15 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Vigtigt: En brugerprofil kan kun slettes, hvis brugeren ikke ejer nogen tilføjelser."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
-msgstr ""
+msgstr "Ja, slet min profil"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "Ja, slet denne profil"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
