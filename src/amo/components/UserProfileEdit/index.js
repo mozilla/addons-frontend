@@ -170,6 +170,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
+      if (!newUser.notifications) {
+        dispatch(fetchUserNotifications({
+          errorHandlerId: errorHandler.id,
+          username: newUsername,
+        }));
+      }
+
       this.setState({
         picture: null,
         pictureData: null,

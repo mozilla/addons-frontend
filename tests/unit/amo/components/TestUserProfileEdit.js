@@ -1081,6 +1081,39 @@ describe(__filename, () => {
     expect(root).toHaveState('pictureData', null);
   });
 
+  it('fetches the user notifications after having deleted a profile picture', () => {
+    const username = 'tofumatt';
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        picture_url: 'https://example.org/pp.png',
+        username,
+      },
+    });
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const user = getCurrentUser(store.getState().users);
+
+    dispatchSpy.reset();
+    sinon.assert.notCalled(dispatchSpy);
+
+    // The user profile picture has been successfully deleted.
+    root.setProps({
+      user: {
+        ...user,
+        picture_url: null,
+      },
+    });
+
+    sinon.assert.calledOnce(dispatchSpy);
+    sinon.assert.calledWith(dispatchSpy, fetchUserNotifications({
+      errorHandlerId: errorHandler.id,
+      username,
+    }));
+  });
+
   it('displays a modal when user clicks the delete profile button', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const preventDefaultSpy = sinon.spy();
