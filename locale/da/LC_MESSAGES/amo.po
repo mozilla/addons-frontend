@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 14:10+0000\n"
-"Last-Translator: Kim Ludvigsen <kim@kimsside.dk>\n"
+"PO-Revision-Date: 2018-06-06 17:02+0000\n"
+"Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -2000,11 +2000,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr "Vigtigt: Hvis du ejer tilføjelser, skal du overføre dem til andre brugere eller slette dem, inden du kan slette din profil."
+msgstr "Vigtigt: Hvis du er angivet som ejer tilføjelser, skal du overføre dem til andre brugere eller slette dem, inden du kan slette din profil."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr "Vigtigt: En brugerprofil kan kun slettes, hvis brugeren ikke ejer nogen tilføjelser."
+msgstr "Vigtigt: En brugerprofil kan kun slettes, hvis brugeren ikke er angivet som ejer nogen tilføjelser."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
