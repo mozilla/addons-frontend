@@ -360,6 +360,31 @@ describe(__filename, () => {
       forbidden.`
     );
 
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
+  });
+
+  it('renders a help text about add-on notifications for users who are developers', () => {
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        is_addon_developer: true,
+      },
+    });
+
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
+      oneLine`Mozilla reserves the right to contact you individually about
+      specific concerns with your hosted add-ons.`
+    );
+  });
+
+  it('renders a help text about add-on notifications for users who are artists', () => {
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        is_artist: true,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
       oneLine`Mozilla reserves the right to contact you individually about
       specific concerns with your hosted add-ons.`

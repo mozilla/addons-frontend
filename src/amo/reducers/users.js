@@ -359,6 +359,14 @@ export const getCurrentUser = (users: UsersStateType) => {
   return currentUser;
 };
 
+export const isDeveloper = (user: UserType | null): boolean => {
+  if (!user) {
+    return false;
+  }
+
+  return user.is_addon_developer || user.is_artist;
+};
+
 export const hasPermission = (
   state: { users: UsersStateType }, permission: string,
 ): boolean => {
