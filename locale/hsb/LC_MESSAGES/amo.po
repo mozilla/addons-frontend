@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 13:54+0000\n"
+"PO-Revision-Date: 2018-06-06 17:02+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: hsb\n"
@@ -1065,7 +1065,7 @@ msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
-msgstr ""
+msgstr "Přistup na nawopačne pytanje wobrazow w kontekstoweho meniju"
 
 #: src/amo/components/HomeHeroBanner/index.js:209
 msgid "Forget Me Not"
@@ -1073,7 +1073,7 @@ msgstr "Forget Me Not"
 
 #: src/amo/components/HomeHeroBanner/index.js:212
 msgid "Make Firefox forget website data like cookies & local storage"
-msgstr ""
+msgstr "Dajće Firefox daty websydłow kaž placki a lokalny składowak zabyć"
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
@@ -1101,11 +1101,11 @@ msgstr "Haćće Facebook při tym, was přez cyły web slědować"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Wuzběhńće tekst na webstronje, zo byšće praktiski pytanski meni wočinił"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
@@ -1117,19 +1117,19 @@ msgstr "Dobyćer wubědźowanja rozšěrjenjow Quantum! Składujće posedźenja 
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Web Security"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Škit přećiwo škódnej softwarje a pospytam daty kradnyć"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Rjadujće rajtarki wertikalnje"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
@@ -2034,7 +2034,7 @@ msgstr "Haj, mój profil zhašeć"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "Haj, profil zhašeć"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
