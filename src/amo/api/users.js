@@ -35,7 +35,8 @@ export function editUserAccount({ api, picture, userId, ...editableFields }: {|
     const form = new FormData();
     // Add all the editable fields, one by one.
     Object.keys(editableFields).forEach((key: string) => {
-      form.set(key, editableFields[key]);
+      // We cannot send `null` values, only string values.
+      form.set(key, editableFields[key] === null ? '' : editableFields[key]);
     });
     // Add the picture file.
     form.set('picture_upload', picture);
