@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 11:40+0000\n"
+"PO-Revision-Date: 2018-06-06 14:03+0000\n"
 "Last-Translator: Luna Jernberg <bittin@cafe8bitar.se>\n"
 "Language-Team: none\n"
 "Language: sv_SE\n"
@@ -1977,17 +1977,16 @@ msgid "Delete my profile"
 msgstr "Ta bort min profil"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Uppdatera användarprofil"
+msgstr "Ta bort användarprofil"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Varning: Du håller på att ta bort din profil, Är du säker?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Varning: Du håller på att ta bort en profil, Är du säker?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
@@ -2001,7 +2000,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Viktigt: en användarprofil kan bara tas bort om användaren inte äger några tillägg."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
