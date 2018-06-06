@@ -1151,7 +1151,7 @@ describe(__filename, () => {
     expect(root.find('.UserProfileEdit-cancel-button')).toHaveLength(1);
   });
 
-  it('disables the confirm button is user has listed add-ons', () => {
+  it('disables the confirm button if user has listed add-ons', () => {
     const { store } = dispatchSignInActions({
       userProps: {
         ...defaultUserProps,
