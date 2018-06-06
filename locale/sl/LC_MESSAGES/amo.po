@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 18:29+0000\n"
+"PO-Revision-Date: 2018-06-06 18:45+0000\n"
 "Last-Translator: Lan Glad <upwinxp@gmail.com>\n"
 "Language-Team: none\n"
 "Language: sl\n"
@@ -2014,14 +2014,16 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Če potrdite to %(startStrong)snepovratno dejanje%(endStrong)s, bodo naslednji podatki izbrisani: slika profila, podatki o profilu (vključno z uporabniškim imenom, e-poštnim naslovom, prikaznim "
+"imenom, lokacijo, domačo stranjo, življenjepisom, poklicem) in nastavitve obvestil. Ostali podatki, kot so ocene, bodo anonimizirani."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Pomembno: če ste lastnik dodatkov, jih morate pred izbrisom profila prenesti na druge uporabnike ali izbrisati."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Pomembno: uporabniški profil je lahko izbrisan samo, če uporabnik ni lastnik nobenega dodatka."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
