@@ -335,6 +335,9 @@ export function* deleteCollection({
     };
     yield call(api.deleteCollection, params);
 
+    // Unload the collection from state.
+    yield put(deleteCollectionBySlug(slug));
+
     yield put(fetchUserCollectionsAction({
       errorHandlerId: errorHandler.id,
       username,

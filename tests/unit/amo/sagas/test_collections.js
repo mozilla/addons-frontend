@@ -754,6 +754,11 @@ describe(__filename, () => {
 
       _deleteCollection(params);
 
+      const expectedUnloadAction = deleteCollectionBySlug(params.slug);
+
+      const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
+      expect(unloadAction).toEqual(expectedUnloadAction);
+
       const expectedFetchAction = fetchUserCollections({
         errorHandlerId: errorHandler.id,
         username: params.username,
