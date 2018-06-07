@@ -26,9 +26,12 @@
   .SearchResult--theme & {
     flex-grow: 1;
     margin-bottom: 10px;
-    min-height: $theme-height-default;
     overflow: hidden;
     width: calc(100% + 20px);
+
+    @include respond-to(extraLarge) {
+      min-height: $theme-height-default;
+    }
   }
 
   @include respond-to(large) {
@@ -56,15 +59,22 @@
   .SearchResult--theme & {
     border-radius: $border-radius-default;
     display: block;
-    height: $theme-height-default;
+    height: auto;
     object-fit: cover;
     object-position: top left;
     width: 100%;
+
+    @include respond-to(extraLarge) {
+      height: $theme-height-default;
+    }
   }
 
   .SearchResult--persona & {
-    height: 100px;
     object-position: top right;
+
+    @include respond-to(extraLarge) {
+      height: 100px;
+    }
   }
 }
 
