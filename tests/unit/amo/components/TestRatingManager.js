@@ -328,7 +328,7 @@ describe('RatingManager', () => {
       expect(prompt).toContain('search plugin');
     });
 
-    it('renders a login prompt for themes', () => {
+    it('renders a login prompt for lightewight theme', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_THEME);
       expect(prompt).toContain('theme');
     });
