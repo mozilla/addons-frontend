@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
@@ -12,13 +13,16 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
-  editUserAccount,
+  deleteUserAccount,
   deleteUserPicture,
+  editUserAccount,
   fetchUserAccount,
   fetchUserNotifications,
   getCurrentUser,
   getUserByUsername,
   hasPermission,
+  isDeveloper,
+  logOutUser,
 } from 'amo/reducers/users';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import { USERS_EDIT } from 'core/constants';
@@ -29,7 +33,12 @@ import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import Notice from 'ui/components/Notice';
-import type { UsersStateType, UserType } from 'amo/reducers/users';
+import OverlayCard from 'ui/components/OverlayCard';
+import type {
+  NotificationsUpdateType,
+  UsersStateType,
+  UserType,
+} from 'amo/reducers/users';
 import type { ApiStateType } from 'core/reducers/api';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ErrorHandlerType } from 'core/errorHandler';
@@ -40,6 +49,7 @@ import './styles.scss';
 
 
 type Props = {|
+  _window: typeof window | Object,
   clientApp: string,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
@@ -61,6 +71,7 @@ type FormValues = {|
   displayName: string | null,
   homepage: string | null,
   location: string | null,
+  notifications: NotificationsUpdateType,
   occupation: string | null,
   picture: File | null,
   username: string,
@@ -68,6 +79,7 @@ type FormValues = {|
 
 type State = {|
   ...FormValues,
+  showProfileDeletionModal: boolean,
   pictureData: string | null,
   successMessage: string | null,
 |};
@@ -79,10 +91,15 @@ type FileReaderEvent = {|
 |};
 
 export class UserProfileEditBase extends React.Component<Props, State> {
+  static defaultProps = {
+    _window: typeof window !== 'undefined' ? window : {},
+  };
+
   constructor(props: Props) {
     super(props);
 
     this.state = {
+      showProfileDeletionModal: false,
       pictureData: null,
       successMessage: null,
       ...this.getFormValues(props.user),
@@ -155,14 +172,13 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     }
 
     if (wasUpdating && !isUpdating && !errorHandler.hasError()) {
-      this.setState({
-        pictureData: null,
-        successMessage: i18n.gettext('Profile successfully updated'),
-      });
+      router.push(`/${lang}/${clientApp}/user/${newUsername}/`);
+      return;
     }
 
     if (oldUser && oldUser.picture_url && newUser && !newUser.picture_url) {
       this.setState({
+        picture: null,
         pictureData: null,
         successMessage: i18n.gettext('Picture successfully deleted'),
       });
@@ -171,6 +187,46 @@ export class UserProfileEditBase extends React.Component<Props, State> {
     if (params.username && oldUsername !== newUsername) {
       router.push(`/${lang}/${clientApp}/user/${newUsername}/edit/`);
     }
+  }
+
+  onDeleteProfile = (e: SyntheticEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    this.setState({ showProfileDeletionModal: true });
+  }
+
+  onCancelProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    this.setState({ showProfileDeletionModal: false });
+  }
+
+  onConfirmProfileDeletion = (e: SyntheticEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    const {
+      clientApp,
+      currentUser,
+      dispatch,
+      errorHandler,
+      lang,
+      router,
+      user,
+    } = this.props;
+
+    invariant(currentUser, 'currentUser is required');
+    invariant(user, 'user is required');
+
+    dispatch(deleteUserAccount({
+      errorHandlerId: errorHandler.id,
+      userId: user.id,
+    }));
+
+    if (currentUser.id === user.id) {
+      dispatch(logOutUser());
+    }
+
+    router.push(`/${lang}/${clientApp}`);
   }
 
   onPictureLoaded = (e: FileReaderEvent) => {
@@ -192,6 +248,20 @@ export class UserProfileEditBase extends React.Component<Props, State> {
         successMessage: null,
       });
     }
+  }
+
+  onNotificationChange = (event: SyntheticEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+
+    const { name, checked } = event.currentTarget;
+
+    this.setState((prevState) => ({
+      notifications: {
+        ...prevState.notifications,
+        [name]: checked,
+      },
+      successMessage: null,
+    }));
   }
 
   onPictureDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
@@ -227,6 +297,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       displayName,
       homepage,
       location,
+      notifications,
       occupation,
       picture,
       username,
@@ -236,6 +307,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
     dispatch(editUserAccount({
       errorHandlerId: errorHandler.id,
+      notifications,
       picture,
       userFields: {
         biography,
@@ -255,6 +327,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       displayName: '',
       homepage: '',
       location: '',
+      notifications: {},
       occupation: '',
       picture: null,
       username: this.props.username,
@@ -300,6 +373,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
   render() {
     const {
+      _window,
       currentUser,
       errorHandler,
       hasEditPermission,
@@ -333,6 +407,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       }
 
       errorMessage = errorHandler.renderError();
+    }
+
+    if (errorHandler.hasError() || this.state.successMessage) {
+      _window.scroll(0, 0);
     }
 
     if (user && !hasEditPermission) {
@@ -543,7 +621,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 id="biography"
                 name="biography"
                 onChange={this.onFieldChange}
-                value={this.state.biography}
+                value={this.state.biography || ''}
               />
               <p className="UserProfileEdit-biography--help">
                 {i18n.sprintf(i18n.gettext(
@@ -582,9 +660,12 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                 )}
               </p>
 
-              <UserProfileEditNotifications user={user} />
+              <UserProfileEditNotifications
+                onChange={this.onNotificationChange}
+                user={user}
+              />
 
-              {isEditingCurrentUser && (
+              {(isEditingCurrentUser && isDeveloper(user)) && (
                 <p className="UserProfileEdit-notifications--help">
                   {i18n.gettext(`Mozilla reserves the right to contact you
                     individually about specific concerns with your hosted
@@ -610,9 +691,83 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     i18n.gettext("Update user's profile")
                 )}
               </Button>
+              <Button
+                buttonType="neutral"
+                className="UserProfileEdit-button UserProfileEdit-delete-button"
+                disabled={!user}
+                onClick={this.onDeleteProfile}
+                puffy
+                type="button"
+              >
+                {isEditingCurrentUser ?
+                    i18n.gettext('Delete my profile') :
+                    i18n.gettext(`Delete user's profile`)}
+              </Button>
             </div>
           </div>
         </form>
+
+        {this.state.showProfileDeletionModal && (
+          <OverlayCard
+            className="UserProfileEdit-deletion-modal"
+            header={isEditingCurrentUser ? i18n.gettext(
+              `Attention: You are about to delete your profile. Are you sure?`
+            ) : i18n.gettext(
+              `Attention: You are about to delete a profile. Are you sure?`
+            )}
+            onEscapeOverlay={this.onCancelProfileDeletion}
+            visibleOnLoad
+          >
+            <p
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={
+                sanitizeHTML(i18n.sprintf(
+                  i18n.gettext(`If you confirm this
+                    %(startStrong)sirreversible action%(endStrong)s, the
+                    following data will be removed: profile picture,
+                    profile details (including username, email, display
+                    name, location, home page, biography, occupation) and
+                    notification preferences. Other data such as ratings
+                    and reviews will be anonymized.`
+                  ), {
+                    startStrong: '<strong>',
+                    endStrong: '</strong>',
+                  }
+                ), ['strong'])
+              }
+            />
+            <p>
+              {isEditingCurrentUser ? (
+                i18n.gettext(`Important: if you own add-ons, you have to
+                  transfer them to other users or to delete them before you
+                  can delete your profile.`)
+              ) : (
+                i18n.gettext(`Important: a user profile can only be deleted if
+                  the user does not own any add-ons.`)
+              )}
+            </p>
+            <div className="UserProfileEdit-buttons-wrapper">
+              <Button
+                buttonType="alert"
+                className="UserProfileEdit-button UserProfileEdit-confirm-button"
+                disabled={user && user.num_addons_listed > 0}
+                onClick={this.onConfirmProfileDeletion}
+                puffy
+              >
+                {isEditingCurrentUser ?
+                    i18n.gettext('Yes, delete my profile') :
+                    i18n.gettext('Yes, delete this profile')}
+              </Button>
+              <Button
+                buttonType="cancel"
+                className="UserProfileEdit-button UserProfileEdit-cancel-button"
+                onClick={this.onCancelProfileDeletion}
+              >
+                {i18n.gettext('Cancel')}
+              </Button>
+            </div>
+          </OverlayCard>
+        )}
       </div>
     );
   }

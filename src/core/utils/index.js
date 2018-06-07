@@ -13,6 +13,7 @@ import NotFound from 'core/components/ErrorPage/NotFound';
 import {
   ADDON_TYPE_COMPLETE_THEME,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   API_ADDON_TYPES_MAPPING,
   CATEGORY_COLORS,
@@ -304,6 +305,7 @@ export function addonHasVersionHistory(addon) {
   return ![
     ADDON_TYPE_COMPLETE_THEME,
     ADDON_TYPE_OPENSEARCH,
+    ADDON_TYPE_STATIC_THEME,
     ADDON_TYPE_THEME,
   ].includes(addon.type);
 }

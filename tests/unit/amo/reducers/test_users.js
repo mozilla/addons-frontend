@@ -1,17 +1,19 @@
 import reducer, {
   LOAD_USER_ACCOUNT,
-  finishEditUserAccount,
   editUserAccount,
+  finishEditUserAccount,
   getCurrentUser,
   getUserById,
   getUserByUsername,
   hasAnyReviewerRelatedPermission,
   hasPermission,
   initialState,
+  isDeveloper,
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
   logOutUser,
+  unloadUserAccount,
 } from 'amo/reducers/users';
 import {
   ADDONS_POSTREVIEW,
@@ -82,6 +84,8 @@ describe(__filename, () => {
 
       let state = reducer(initialState, editUserAccount({
         errorHandlerId: 'fake-error-id',
+        notifications: {},
+        picture: null,
         userFields,
         userId: user.id,
       }));
@@ -98,6 +102,8 @@ describe(__filename, () => {
 
       const state = reducer(initialState, editUserAccount({
         errorHandlerId: 'fake-error-id',
+        notifications: {},
+        picture: null,
         userFields,
         userId: user.id,
       }));
@@ -160,6 +166,48 @@ describe(__filename, () => {
         ...user,
         notifications,
       });
+    });
+  });
+
+  describe('unloadUserAccount', () => {
+    it('unloads a user from the state given a user ID', () => {
+      const userId = 12345;
+      const username = 'john';
+
+      const user = createUserAccountResponse({ id: userId, username });
+      const prevState = reducer(initialState, loadUserAccount({ user }));
+
+      expect(prevState.byID[userId]).toEqual({
+        ...user,
+        notifications: null,
+      });
+      expect(prevState.byUsername[username]).toEqual(userId);
+
+      const state = reducer(prevState, unloadUserAccount({ userId }));
+
+      expect(state.byID[userId]).toBeUndefined();
+      expect(state.byUsername[username]).toBeUndefined();
+    });
+
+    it('does not do anything if user ID is not found', () => {
+      const userId = 12345;
+
+      const state = reducer(initialState, unloadUserAccount({ userId }));
+      expect(state.byID[userId]).toBeUndefined();
+    });
+
+    it('sets the current user ID to `null` if it is the user to unload', () => {
+      const userId = 12345;
+      const username = 'john';
+
+      const user = createUserAccountResponse({ id: userId, username });
+      const prevState = reducer(initialState, loadCurrentUserAccount({ user }));
+
+      const state = reducer(prevState, unloadUserAccount({ userId }));
+
+      expect(state.byID[userId]).toBeUndefined();
+      expect(state.byUsername[username]).toBeUndefined();
+      expect(state.currentUserID).toEqual(null);
     });
   });
 
@@ -309,6 +357,34 @@ describe(__filename, () => {
 
       expect(getUserByUsername(state.users, 'tupac'))
         .toEqual(state.users.byID[500]);
+    });
+  });
+
+  describe('isDeveloper', () => {
+    it('returns false when user is null', () => {
+      expect(isDeveloper(null)).toEqual(false);
+    });
+
+    it('returns true when user is an artist', () => {
+      const user = createUserAccountResponse({
+        is_artist: true,
+      });
+
+      expect(isDeveloper(user)).toEqual(true);
+    });
+
+    it('returns true when user is an add-on developer', () => {
+      const user = createUserAccountResponse({
+        is_addon_developer: true,
+      });
+
+      expect(isDeveloper(user)).toEqual(true);
+    });
+
+    it('returns false when user is not a developer', () => {
+      const user = createUserAccountResponse();
+
+      expect(isDeveloper(user)).toEqual(false);
     });
   });
 });

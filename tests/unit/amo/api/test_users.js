@@ -3,8 +3,10 @@ import deepEqual from 'deep-eql';
 import * as api from 'core/api';
 import {
   currentUserAccount,
+  deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
+  updateUserNotifications,
   userAccount,
   userNotifications,
 } from 'amo/api/users';
@@ -104,6 +106,32 @@ describe(__filename, () => {
       await editUserAccount(params);
       mockApi.verify();
     });
+
+    it('converts null values to empty strings when sending FormData body', async () => {
+      const editableFields = {
+        biography: null,
+        location: 'some location',
+      };
+      const picture = new File([], 'image.png');
+      const params = getParams({ picture, ...editableFields });
+
+      const expectedBody = new FormData();
+      expectedBody.set('biography', '');
+      expectedBody.set('location', editableFields.location);
+      expectedBody.set('picture_upload', picture);
+
+      mockApi.expects('callApi')
+        .withArgs(sinon.match(({ body }) => {
+          return deepEqual(
+            Array.from(body.entries()),
+            Array.from(expectedBody.entries())
+          );
+        }))
+        .returns(mockResponse());
+
+      await editUserAccount(params);
+      mockApi.verify();
+    });
   });
 
   describe('userAccount', () => {
@@ -163,6 +191,54 @@ describe(__filename, () => {
         .returns(createApiResponse());
 
       await deleteUserPicture(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('deleteUserAccount', () => {
+    it('deletes a user profile', async () => {
+      const state = dispatchSignInActions().store.getState();
+      const userId = getCurrentUser(state.users).id;
+      const params = { api: state.api, userId };
+
+      mockApi.expects('callApi')
+        .withArgs({
+          auth: true,
+          credentials: true,
+          endpoint: `accounts/account/${params.userId}`,
+          method: 'DELETE',
+          state: params.api,
+        })
+        .returns(createApiResponse());
+
+      await deleteUserAccount(params);
+      mockApi.verify();
+    });
+  });
+
+  describe('updateUserNotifications', () => {
+    it('updates the user notifications of a given user', async () => {
+      const state = dispatchSignInActions().store.getState();
+      const userId = getCurrentUser(state.users).id;
+
+      const notifications = { reply: true };
+      const params = { api: state.api, notifications, userId };
+
+      const notificationsResponse = createApiResponse({
+        jsonData: createUserNotificationsResponse(),
+      });
+
+      mockApi.expects('callApi')
+        .withArgs({
+          auth: true,
+          body: params.notifications,
+          endpoint: `accounts/account/${params.userId}/notifications`,
+          method: 'POST',
+          state: params.api,
+        })
+        .returns(notificationsResponse);
+
+      await updateUserNotifications(params);
       mockApi.verify();
     });
   });

@@ -4,8 +4,10 @@ import * as React from 'react';
 import AutoSearchInput from 'amo/components/AutoSearchInput';
 import CollectionManager, {
   ADDON_ADDED_STATUS_PENDING,
-  extractId,
+  ADDON_ADDED_STATUS_SUCCESS,
   CollectionManagerBase,
+  extractId,
+  MESSAGE_RESET_TIME,
 } from 'amo/components/CollectionManager';
 import {
   addAddonToCollection,
@@ -300,7 +302,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -331,7 +333,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -437,7 +439,7 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -520,7 +522,7 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       name: { [lang]: collection.name },
       slug: collection.slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -659,11 +661,11 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
       addonId: suggestion.addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page,
-      userId: signedInUserId,
+      username: signedInUsername,
     }));
   });
 
@@ -687,11 +689,11 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
       addonId: suggestion.addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page: 1,
-      userId: signedInUserId,
+      username: signedInUsername,
     }));
   });
 
@@ -713,8 +715,9 @@ describe(__filename, () => {
     expect(newState.addonAddedStatus).toEqual(ADDON_ADDED_STATUS_PENDING);
   });
 
-  it('displays a notification after an add-on has been added', () => {
-    const root = render({});
+  it('displays a notification for 5 seconds after an add-on has been added', () => {
+    const setTimeoutSpy = sinon.spy();
+    const root = render({ setTimeout: setTimeoutSpy });
 
     expect(root.find(Notice)).toHaveLength(0);
 
@@ -722,6 +725,17 @@ describe(__filename, () => {
 
     expect(root.find(Notice)).toHaveLength(1);
     expect(root.find(Notice).children()).toHaveText('Added to collection');
+
+    expect(root).toHaveState('addonAddedStatus', ADDON_ADDED_STATUS_SUCCESS);
+    sinon.assert.calledWith(setTimeoutSpy, root.instance().resetMessageStatus, MESSAGE_RESET_TIME);
+
+    // Simulate the setTimeout behavior.
+    root.instance().resetMessageStatus();
+    // See: https://github.com/airbnb/enzyme/blob/enzyme%403.3.0/docs/guides/migration-from-2-to-3.md#for-mount-updates-are-sometimes-required-when-they-werent-before
+    root.update();
+
+    expect(root).toHaveState('addonAddedStatus', null);
+    expect(root.find(Notice)).toHaveLength(0);
   });
 
   it('removes the notification after a new add-on has been selected', () => {

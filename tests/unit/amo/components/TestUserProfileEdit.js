@@ -10,6 +10,7 @@ import UserProfileEdit, {
 import UserProfileEditNotifications from 'amo/components/UserProfileEditNotifications';
 import UserProfileEditPicture from 'amo/components/UserProfileEditPicture';
 import {
+  deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
@@ -18,6 +19,7 @@ import {
   getCurrentUser,
   loadUserAccount,
   loadUserNotifications,
+  logOutUser,
 } from 'amo/reducers/users';
 import { createApiError } from 'core/api';
 import {
@@ -47,10 +49,12 @@ describe(__filename, () => {
   let fakeRouter;
 
   const defaultUserProps = {
+    _window: {},
     biography: 'Saved the world, too many times.',
     display_name: 'Matt MacTofu',
     homepage: 'https://example.org',
     location: 'Earth',
+    num_addons_listed: 0,
     occupation: 'Superman',
     userId: 500,
     username: 'tofumatt',
@@ -98,6 +102,7 @@ describe(__filename, () => {
 
   function _editUserAccount({
     store,
+    notifications = {},
     picture = null,
     userFields = {},
     userId = 'user-id',
@@ -105,6 +110,7 @@ describe(__filename, () => {
   }) {
     store.dispatch(editUserAccount({
       errorHandlerId,
+      notifications,
       picture,
       userFields,
       userId,
@@ -132,6 +138,8 @@ describe(__filename, () => {
         upcoming releases and add-on events. Please select the topics you are
         interested in.`);
     expect(root.find(UserProfileEditNotifications)).toHaveLength(1);
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
   });
 
   it('dispatches fetchUserAccount and fetchUserNotifications actions if username is not found', () => {
@@ -354,6 +362,31 @@ describe(__filename, () => {
       forbidden.`
     );
 
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveLength(0);
+  });
+
+  it('renders a help text about add-on notifications for users who are developers', () => {
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        is_addon_developer: true,
+      },
+    });
+
+    expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
+      oneLine`Mozilla reserves the right to contact you individually about
+      specific concerns with your hosted add-ons.`
+    );
+  });
+
+  it('renders a help text about add-on notifications for users who are artists', () => {
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        is_artist: true,
+      },
+    });
+
     expect(root.find('.UserProfileEdit-notifications--help')).toHaveText(
       oneLine`Mozilla reserves the right to contact you individually about
       specific concerns with your hosted add-ons.`
@@ -430,6 +463,20 @@ describe(__filename, () => {
       .toHaveProp('value', biography);
   });
 
+  // See: https://github.com/mozilla/addons-frontend/issues/5212
+  it('sets the biography value to empty string if user has no biography', () => {
+    const biography = null;
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        biography,
+      },
+    });
+
+    expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-biography')).toHaveProp('value', '');
+  });
+
   it('captures input field changes ', () => {
     const fields = [
       'biography',
@@ -470,6 +517,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, editUserAccount({
       errorHandlerId: errorHandler.id,
+      notifications: {},
       picture: null,
       userFields: {
         biography: user.biography,
@@ -492,6 +540,15 @@ describe(__filename, () => {
     expect(button).toHaveProp('disabled', false);
   });
 
+  it('renders a delete profile button', () => {
+    const root = renderUserProfileEdit();
+    const button = root.find('.UserProfileEdit-delete-button');
+
+    expect(button).toHaveLength(1);
+    expect(button.dive()).toHaveText('Delete my profile');
+    expect(button).toHaveProp('disabled', false);
+  });
+
   it('renders a submit button with a different text when user is not the logged-in user', () => {
     const { store } = signInUserWithUsername('tofumatt');
     const params = { username: 'another-user' };
@@ -500,6 +557,16 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button').dive())
       .toHaveText(`Update user's profile`);
+  });
+
+  it('renders a delete button with a different text when user is not the logged-in user', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const params = { username: 'another-user' };
+
+    const root = renderUserProfileEdit({ params, store });
+
+    expect(root.find('.UserProfileEdit-delete-button').dive())
+      .toHaveText(`Delete user's profile`);
   });
 
   it('renders a submit button with a different text when editing', () => {
@@ -562,6 +629,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchSpy, editUserAccount({
       errorHandlerId: errorHandler.id,
+      notifications: {},
       picture: null,
       userFields: {
         biography: user.biography,
@@ -575,8 +643,59 @@ describe(__filename, () => {
     }));
   });
 
-  it('renders a success message when user profile has been updated', () => {
+  it('dispatches editUserAccount action with updated notifications on submit', () => {
     const { store } = signInUserWithUsername('tofumatt');
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, store });
+    const user = getCurrentUser(store.getState().users);
+
+    // The user clicks the `reply` notification to uncheck it.
+    const onChange = root.find(UserProfileEditNotifications).prop('onChange');
+    const stopPropagationSpy = sinon.spy();
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'reply',
+        checked: false,
+      },
+      stopPropagation: stopPropagationSpy,
+    }));
+
+    // The user clicks the "update" button.
+    root.find('.UserProfileEdit-form').simulate('submit', createFakeEvent());
+
+    sinon.assert.calledWith(dispatchSpy, editUserAccount({
+      errorHandlerId: errorHandler.id,
+      notifications: {
+        reply: false,
+      },
+      picture: null,
+      userFields: {
+        biography: user.biography,
+        display_name: user.display_name,
+        homepage: user.homepage,
+        location: user.location,
+        occupation: user.occupation,
+        username: user.username,
+      },
+      userId: user.id,
+    }));
+  });
+
+  it('redirects to user profile page when user profile has been updated', () => {
+    const username = 'tofumatt';
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'en-US';
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userProps: {
+        ...defaultUserProps,
+        username,
+      },
+    });
     const user = getCurrentUser(store.getState().users);
 
     const occupation = 'new occupation';
@@ -601,13 +720,13 @@ describe(__filename, () => {
     const { isUpdating } = store.getState().users;
     root.setProps({ isUpdating });
 
-    expect(root.find(Notice)).toHaveLength(1);
-    expect(root.find(Notice)).toHaveProp('type', 'success');
-    expect(root.find(Notice))
-      .toHaveProp('children', 'Profile successfully updated');
-
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
+
+    sinon.assert.calledWith(
+      fakeRouter.push,
+      `/${lang}/${clientApp}/user/${username}/`
+    );
   });
 
   it('does not change the URL when username has not changed', () => {
@@ -696,7 +815,10 @@ describe(__filename, () => {
       userId: user.id,
     });
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ errorHandler, store, _window });
 
     expect(root.find(Notice)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-submit-button'))
@@ -713,6 +835,8 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
+
+    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('renders a Not Found page when logged-in user cannot edit another user', () => {
@@ -793,9 +917,13 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('unexpected error'));
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ errorHandler, store, _window });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('displays an AuthenticateButton if current user is not logged-in', () => {
@@ -980,8 +1108,10 @@ describe(__filename, () => {
         picture_url: 'https://example.org/pp.png',
       },
     });
-
-    const root = renderUserProfileEdit({ store });
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ store, _window });
     const user = getCurrentUser(store.getState().users);
 
     expect(root.find(Notice)).toHaveLength(0);
@@ -999,7 +1129,220 @@ describe(__filename, () => {
     expect(root.find(Notice))
       .toHaveProp('children', 'Picture successfully deleted');
 
+    expect(root).toHaveState('picture', null);
     expect(root).toHaveState('pictureData', null);
+    sinon.assert.calledWith(_window.scroll, 0, 0);
+  });
+
+  it('displays a modal when user clicks the delete profile button', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const preventDefaultSpy = sinon.spy();
+
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent({ preventDefault: preventDefaultSpy })
+    );
+
+    sinon.assert.called(preventDefaultSpy);
+
+    const modal = root.find('.UserProfileEdit-deletion-modal');
+
+    expect(modal).toHaveLength(1);
+    expect(modal).toHaveProp(
+      'header',
+      'Attention: You are about to delete your profile. Are you sure?'
+    );
+    expect(modal).toHaveProp('visibleOnLoad', true);
+
+    expect(modal.find('p').at(0)).toHaveProp('dangerouslySetInnerHTML', {
+      __html: oneLine`If you confirm this <strong>irreversible action</strong>,
+        the following data will be removed: profile picture, profile details
+        (including username, email, display name, location, home page,
+        biography, occupation) and notification preferences. Other data such as
+        ratings and reviews will be anonymized.`,
+    });
+
+    expect(modal.find('p').at(1)).toHaveText(oneLine`Important: if you own
+      add-ons, you have to transfer them to other users or to delete them
+      before you can delete your profile.`);
+
+    expect(root.find('.UserProfileEdit-confirm-button')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-confirm-button').children())
+      .toHaveText('Yes, delete my profile');
+    expect(root.find('.UserProfileEdit-confirm-button'))
+      .toHaveProp('disabled', false);
+    expect(root.find('.UserProfileEdit-cancel-button')).toHaveLength(1);
+  });
+
+  it('disables the confirm button if user has listed add-ons', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        num_addons_listed: 1,
+      },
+    });
+
+    const root = renderUserProfileEdit({ store });
+
+    // Open the modal.
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    expect(root.find('.UserProfileEdit-confirm-button'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('renders different information in the modal when user to be deleted is not the current logged-in user', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const params = { username: 'another-user' };
+
+    const root = renderUserProfileEdit({ params, store });
+
+    root.find('.UserProfileEdit-delete-button')
+      .simulate('click', createFakeEvent());
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveProp(
+      'header',
+      'Attention: You are about to delete a profile. Are you sure?'
+    );
+
+    expect(root.find('.UserProfileEdit-deletion-modal').find('p').at(1))
+      .toHaveText(oneLine`Important: a user profile can only be deleted if the
+        user does not own any add-ons.`);
+
+    expect(root.find('.UserProfileEdit-confirm-button').children())
+      .toHaveText('Yes, delete this profile');
+  });
+
+  it('closes the modal when user clicks the cancel button', () => {
+    const preventDefaultSpy = sinon.spy();
+
+    const { store } = signInUserWithUsername('tofumatt');
+    const root = renderUserProfileEdit({ store });
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(1);
+
+    sinon.assert.notCalled(preventDefaultSpy);
+
+    root.find('.UserProfileEdit-cancel-button').simulate(
+      'click',
+      createFakeEvent({ preventDefault: preventDefaultSpy })
+    );
+
+    expect(root.find('.UserProfileEdit-deletion-modal')).toHaveLength(0);
+
+    sinon.assert.calledOnce(preventDefaultSpy);
+  });
+
+  it('dispatches deleteUserAccount and logOutUser when current logged-in user confirms account deletion', () => {
+    const clientApp = CLIENT_APP_FIREFOX;
+    const lang = 'fr-FR';
+
+    const userId = 456;
+    const username = 'tofumatt';
+    const params = { username };
+
+    const { store } = dispatchSignInActions({
+      clientApp,
+      lang,
+      userProps: {
+        ...defaultUserProps,
+        id: userId,
+        username,
+      },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const preventDefaultSpy = sinon.spy();
+    const errorHandler = createStubErrorHandler();
+
+    const root = renderUserProfileEdit({ errorHandler, params, store });
+
+    dispatchSpy.reset();
+
+    // User opens the modal.
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.notCalled(dispatchSpy);
+    sinon.assert.notCalled(preventDefaultSpy);
+
+    // User confirms account deletion.
+    root.find('.UserProfileEdit-confirm-button').simulate(
+      'click',
+      createFakeEvent({ preventDefault: preventDefaultSpy })
+    );
+
+    sinon.assert.callCount(dispatchSpy, 2);
+    sinon.assert.calledWith(dispatchSpy, deleteUserAccount({
+      errorHandlerId: errorHandler.id,
+      userId,
+    }));
+    sinon.assert.calledWith(dispatchSpy, logOutUser());
+
+    sinon.assert.calledWith(fakeRouter.push, `/${lang}/${clientApp}`);
+
+    sinon.assert.calledOnce(preventDefaultSpy);
+  });
+
+  it('does not dispatch logOutUser when current logged-in user confirms deletion of another user account', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        username: 'an-admin-user',
+        permissions: [USERS_EDIT],
+      },
+    });
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const errorHandler = createStubErrorHandler();
+
+    // Create a user with another username.
+    const user = createUserAccountResponse({ username: 'willdurand' });
+    store.dispatch(loadUserAccount({ user }));
+
+    const root = renderUserProfileEdit({
+      errorHandler,
+      params: { username: user.username },
+      store,
+    });
+
+    dispatchSpy.reset();
+
+    // User opens the modal.
+    root.find('.UserProfileEdit-delete-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.notCalled(dispatchSpy);
+
+    // User confirms account deletion.
+    root.find('.UserProfileEdit-confirm-button').simulate(
+      'click',
+      createFakeEvent()
+    );
+
+    sinon.assert.callCount(dispatchSpy, 1);
+    sinon.assert.calledWith(dispatchSpy, deleteUserAccount({
+      errorHandlerId: errorHandler.id,
+      userId: user.id,
+    }));
   });
 
   describe('errorHandler - extractId', () => {
@@ -1008,6 +1351,53 @@ describe(__filename, () => {
       const params = { username };
 
       expect(extractId({ params })).toEqual(username);
+    });
+  });
+
+  it('stores updated notifications in state', () => {
+    const { store } = signInUserWithUsername('tofumatt');
+    const root = renderUserProfileEdit({ store });
+
+    expect(root).toHaveState('notifications', {});
+
+    const onChange = root.find(UserProfileEditNotifications).prop('onChange');
+    const stopPropagationSpy = sinon.spy();
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'reply',
+        checked: false,
+      },
+      stopPropagation: stopPropagationSpy,
+    }));
+
+    sinon.assert.called(stopPropagationSpy);
+
+    expect(root).toHaveState('notifications', { reply: false });
+    expect(root).toHaveState('successMessage', null);
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'new_features',
+        checked: false,
+      },
+    }));
+
+    expect(root).toHaveState('notifications', {
+      new_features: false,
+      reply: false,
+    });
+
+    onChange(createFakeEvent({
+      currentTarget: {
+        name: 'reply',
+        checked: true,
+      },
+    }));
+
+    expect(root).toHaveState('notifications', {
+      new_features: false,
+      reply: true,
     });
   });
 });

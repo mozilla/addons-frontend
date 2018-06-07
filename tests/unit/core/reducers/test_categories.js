@@ -4,6 +4,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
   CLIENT_APP_ANDROID,
   CLIENT_APP_FIREFOX,
@@ -202,6 +203,7 @@ describe('categories reducer', () => {
           },
           [ADDON_TYPE_LANG]: {},
           [ADDON_TYPE_OPENSEARCH]: {},
+          [ADDON_TYPE_STATIC_THEME]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
               ...fakeCategory,
@@ -254,6 +256,7 @@ describe('categories reducer', () => {
           },
           [ADDON_TYPE_LANG]: {},
           [ADDON_TYPE_OPENSEARCH]: {},
+          [ADDON_TYPE_STATIC_THEME]: {},
           [ADDON_TYPE_THEME]: {
             anime: {
               ...fakeCategory,

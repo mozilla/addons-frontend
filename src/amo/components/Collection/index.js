@@ -10,6 +10,7 @@ import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
   removeAddonFromCollection,
+  deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   getCurrentCollection,
@@ -28,6 +29,7 @@ import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
+import ConfirmButton from 'ui/components/ConfirmButton';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import type {
@@ -56,7 +58,7 @@ export type Props = {|
   location: ReactRouterLocation,
   params: {|
     slug: string,
-    user: string,
+    username: string,
   |},
 |};
 
@@ -74,6 +76,28 @@ export class CollectionBase extends React.Component<Props> {
 
   componentWillReceiveProps(nextProps: Props) {
     this.loadDataIfNeeded(nextProps);
+  }
+
+  onDelete = (event: SyntheticEvent<HTMLButtonElement>) => {
+    event.preventDefault();
+
+    const { dispatch, errorHandler, collection } = this.props;
+
+    invariant(collection, 'collection is required');
+
+    const {
+      slug,
+      authorUsername: username,
+    } = collection;
+
+    invariant(slug, 'slug is required');
+    invariant(username, 'username is required');
+
+    dispatch(deleteCollection({
+      errorHandlerId: errorHandler.id,
+      slug,
+      username,
+    }));
   }
 
   loadDataIfNeeded(nextProps?: Props) {
@@ -111,7 +135,7 @@ export class CollectionBase extends React.Component<Props> {
 
     if (collection && (
       collection.slug !== params.slug ||
-      collection.authorUsername.toLowerCase() !== params.user.toLowerCase()
+      collection.authorUsername.toLowerCase() !== params.username.toLowerCase()
     )) {
       collectionChanged = true;
     }
@@ -121,7 +145,7 @@ export class CollectionBase extends React.Component<Props> {
         errorHandlerId: errorHandler.id,
         page: location.query.page,
         slug: params.slug,
-        user: params.user,
+        username: params.username,
       }));
 
       return;
@@ -132,7 +156,7 @@ export class CollectionBase extends React.Component<Props> {
         errorHandlerId: errorHandler.id,
         page: location.query.page || 1,
         slug: params.slug,
-        user: params.user,
+        username: params.username,
       }));
     }
   }
@@ -140,7 +164,7 @@ export class CollectionBase extends React.Component<Props> {
   url() {
     const { params } = this.props;
 
-    return `/collections/${params.user}/${params.slug}/`;
+    return `/collections/${params.username}/${params.slug}/`;
   }
 
   editUrl() {
@@ -187,19 +211,19 @@ export class CollectionBase extends React.Component<Props> {
 
     const {
       slug,
-      authorUsername: user,
+      authorUsername: username,
     } = collection;
 
     invariant(query, 'query is required');
     invariant(slug, 'slug is required');
-    invariant(user, 'page is required');
+    invariant(username, 'page is required');
 
     dispatch(removeAddonFromCollection({
       addonId,
       errorHandlerId: errorHandler.id,
       page: query.page || 1,
       slug,
-      user,
+      username,
     }));
   };
 
@@ -263,6 +287,25 @@ export class CollectionBase extends React.Component<Props> {
     /* eslint-enable react/no-danger */
   }
 
+  renderDeleteButton() {
+    const { hasEditPermission, i18n } = this.props;
+
+    if (!hasEditPermission) {
+      return null;
+    }
+
+    return (
+      <ConfirmButton
+        buttonType="cancel"
+        className="Collection-delete-button"
+        message={i18n.gettext('Do you really want to delete this collection?')}
+        onConfirm={this.onDelete}
+      >
+        {i18n.gettext('Delete this collection')}
+      </ConfirmButton>
+    );
+  }
+
   renderCollection() {
     const {
       collection,
@@ -278,6 +321,7 @@ export class CollectionBase extends React.Component<Props> {
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
           {this.renderCardContents()}
+          {this.renderDeleteButton()}
         </Card>
         <div className="Collection-items">
           <AddonsCard
@@ -356,7 +400,7 @@ export const mapStateToProps = (
 
 export const extractId = (ownProps: Props) => {
   return [
-    ownProps.params.user,
+    ownProps.params.username,
     ownProps.params.slug,
     ownProps.location.query.page,
   ].join('/');

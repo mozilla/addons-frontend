@@ -1,9 +1,9 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-03-08 22:45+0000\n"
+"POT-Creation-Date: 2018-06-05 19:01+0000\n"
 "PO-Revision-Date: 2018-04-06 07:57+0000\n"
 "Last-Translator: Fjoerfoks <fryskefirefox@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,10 +19,15 @@ msgid "Server Error"
 msgstr "Serverflater"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Sorry, mar der is in flater bard, en jo oanfraach koe net foltôge wurde. Wy hawwe dizze flater fêstlein en sille him ûndersykje."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Sorry, mar der is in flater bard, en jo oanfraach koe net foltôge wurde. Wy "
+"hawwe dizze flater fêstlein en sille him ûndersykje."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Flaterkoade: %(status)s."
 
@@ -34,11 +39,13 @@ msgstr "Side net fûn"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Sorry, mar wy kinne gjin side op de ynfierde URL fine."
 
-#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
 msgstr "Tema ynstallearje"
 
-#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+#: src/core/components/InstallButton/index.js:262
+#: src/core/components/InstallButton/index.js:275
 msgid "Add to Firefox"
 msgstr "Tafoegje oan Firefox"
 
@@ -52,7 +59,8 @@ msgstr "%(name)s wurdt ynstallearre."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr "%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
+msgstr ""
+"%(name)s is ynstallearre en ynskeakele. Klik om de add-on fuort te smiten."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
@@ -84,7 +92,9 @@ msgstr "OK!"
 
 #: src/disco/components/Addon.js:137
 msgid "Hover to preview or click to install %(name)s"
-msgstr "Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te ynstallearjen"
+msgstr ""
+"Hâld de mûsoanwizer hjir foar in foarbyld of klik om %(name)s te "
+"ynstallearjen"
 
 #: src/disco/components/Addon.js:152
 msgid "Hover over the image to preview"
@@ -148,12 +158,18 @@ msgstr "Personalisearje jo Firefox"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Der binne tûzenen fergese add-ons, makke troch ûntwikkelers fan oer de hiele wrâld, dy't jo ynstallearje kinne om jo Firefox te personalisearjen. Fariearjend fan aardige fisuele tema’s oant krêftige"
-" ark dy't it browsen flugger en feiliger meitsje, meitsje add-ons jo browser persoanlik. Om jo op gong te helpen, binne hjir in pear add-ons dy't wy oanrekommandearre fanwegen harren bjusterbaarlike"
-" prestaasjes en funksjonaliteit."
+"Der binne tûzenen fergese add-ons, makke troch ûntwikkelers fan oer de hiele "
+"wrâld, dy't jo ynstallearje kinne om jo Firefox te personalisearjen. "
+"Fariearjend fan aardige fisuele tema’s oant krêftige ark dy't it browsen "
+"flugger en feiliger meitsje, meitsje add-ons jo browser persoanlik. Om jo op "
+"gong te helpen, binne hjir in pear add-ons dy't wy oanrekommandearre "
+"fanwegen harren bjusterbaarlike prestaasjes en funksjonaliteit."
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"

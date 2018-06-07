@@ -83,7 +83,7 @@
   width: 100%;
   word-wrap: break-word;
 
-  .Addon-persona & {
+  .Addon-theme & {
     margin: $padding-page-l 0;
   }
 
@@ -119,12 +119,16 @@
 
 .Addon-theme-header {
   border-radius: $border-radius-default;
-  max-height: 90px;
-  min-height: 45px;
+  height: $theme-height-default;
+  max-width: $theme-width-default;
   order: -1;
   overflow-y: hidden;
   position: relative;
   width: 100%;
+
+  .Addon-persona & {
+    height: 100px;
+  }
 }
 
 .Addon-theme-header-label {
@@ -134,11 +138,17 @@
 }
 
 .Addon-theme-header-image {
+  border-radius: $border-radius-default;
   display: block;
-  height: 100px;
+  height: $theme-height-default;
   object-fit: cover;
-  object-position: top right;
+  object-position: top left;
   width: 100%;
+
+  .Addon-persona & {
+    height: 100px;
+    object-position: top right;
+  }
 }
 
 .Addon-summary-and-install-button-wrapper {
@@ -180,7 +190,8 @@
   }
 }
 
-.Addon .InstallButton-button {
+.Addon .InstallButton-button,
+.Button--get-firefox {
   width: 100%;
 
   @include respond-to(medium) {

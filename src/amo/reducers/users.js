@@ -22,6 +22,8 @@ export const LOAD_USER_ACCOUNT: 'LOAD_USER_ACCOUNT' = 'LOAD_USER_ACCOUNT';
 export const DELETE_USER_PICTURE: 'DELETE_USER_PICTURE' = 'DELETE_USER_PICTURE';
 export const FETCH_USER_NOTIFICATIONS: 'FETCH_USER_NOTIFICATIONS' = 'FETCH_USER_NOTIFICATIONS';
 export const LOAD_USER_NOTIFICATIONS: 'LOAD_USER_NOTIFICATIONS' = 'LOAD_USER_NOTIFICATIONS';
+export const DELETE_USER_ACCOUNT: 'DELETE_USER_ACCOUNT' = 'DELETE_USER_ACCOUNT';
+export const UNLOAD_USER_ACCOUNT: 'UNLOAD_USER_ACCOUNT' = 'UNLOAD_USER_ACCOUNT';
 
 export type UserId = number;
 
@@ -32,6 +34,8 @@ export type NotificationType = {|
 |};
 
 export type NotificationsType = Array<NotificationType>;
+
+export type NotificationsUpdateType = { [name: string]: boolean };
 
 // Basic user account object fields, returned by the API.
 export type ExternalUserType = {|
@@ -141,7 +145,8 @@ export const finishEditUserAccount = (): FinishEditUserAccountAction => {
 
 type EditUserAccountParams = {|
   errorHandlerId: string,
-  picture?: File | null,
+  notifications: NotificationsUpdateType,
+  picture: File | null,
   userFields: UserEditableFieldsType,
   userId: UserId,
 |};
@@ -152,15 +157,17 @@ type EditUserAccountAction = {|
 |};
 
 export const editUserAccount = ({
-  errorHandlerId, picture, userFields, userId,
+  errorHandlerId, notifications, picture, userFields, userId,
 }: EditUserAccountParams): EditUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(notifications, 'notifications are required');
+  invariant(picture !== undefined, 'picture is required');
   invariant(userFields, 'userFields are required');
   invariant(userId, 'userId is required');
 
   return {
     type: EDIT_USER_ACCOUNT,
-    payload: { errorHandlerId, picture, userFields, userId },
+    payload: { errorHandlerId, notifications, picture, userFields, userId },
   };
 };
 
@@ -201,6 +208,51 @@ export const loadUserAccount = ({
   return {
     type: LOAD_USER_ACCOUNT,
     payload: { user },
+  };
+};
+
+export type DeleteUserAccountParams = {|
+  errorHandlerId: string,
+  userId: UserId,
+|};
+
+type DeleteUserAccountAction = {|
+  type: typeof DELETE_USER_ACCOUNT,
+  payload: DeleteUserAccountParams,
+|};
+
+export const deleteUserAccount = (
+  { errorHandlerId, userId }: DeleteUserAccountParams
+): DeleteUserAccountAction => {
+  invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(userId, 'userId is required');
+
+  return {
+    type: DELETE_USER_ACCOUNT,
+    payload: {
+      errorHandlerId,
+      userId,
+    },
+  };
+};
+
+type UnloadUserAccountParams = {|
+  userId: UserId,
+|};
+
+type UnloadUserAccountAction = {|
+  type: typeof UNLOAD_USER_ACCOUNT,
+  payload: UnloadUserAccountParams,
+|};
+
+export const unloadUserAccount = (
+  { userId }: UnloadUserAccountParams
+): UnloadUserAccountAction => {
+  invariant(userId, 'userId is required');
+
+  return {
+    type: UNLOAD_USER_ACCOUNT,
+    payload: { userId },
   };
 };
 
@@ -305,6 +357,14 @@ export const getCurrentUser = (users: UsersStateType) => {
     'currentUserID is defined but no matching user found in users state.');
 
   return currentUser;
+};
+
+export const isDeveloper = (user: UserType | null): boolean => {
+  if (!user) {
+    return false;
+  }
+
+  return user.is_addon_developer || user.is_artist;
 };
 
 export const hasPermission = (
@@ -449,6 +509,24 @@ const reducer = (
         ...state,
         currentUserID: null,
       };
+    case UNLOAD_USER_ACCOUNT: {
+      const { userId } = action.payload;
+
+      const newState = { ...state };
+
+      if (newState.byID[userId]) {
+        const { username } = newState.byID[userId];
+
+        delete newState.byID[userId];
+        delete newState.byUsername[username];
+
+        if (newState.currentUserID === userId) {
+          newState.currentUserID = null;
+        }
+      }
+
+      return newState;
+    }
     default:
       return state;
   }

@@ -2,6 +2,7 @@ import SagaTester from 'redux-saga-tester';
 
 import usersSaga from 'amo/sagas/users';
 import usersReducer, {
+  deleteUserAccount,
   deleteUserPicture,
   editUserAccount,
   fetchUserAccount,
@@ -10,12 +11,14 @@ import usersReducer, {
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
+  unloadUserAccount,
 } from 'amo/reducers/users';
 import * as api from 'amo/api/users';
 import { setAuthToken } from 'core/actions';
 import apiReducer from 'core/reducers/api';
 import { dispatchClientMetadata } from 'tests/unit/amo/helpers';
 import {
+  createApiResponse,
   createStubErrorHandler,
   createUserAccountResponse,
   createUserNotificationsResponse,
@@ -137,6 +140,8 @@ describe(__filename, () => {
 
       sagaTester.dispatch(editUserAccount({
         errorHandlerId: errorHandler.id,
+        notifications: {},
+        picture: null,
         userFields,
         userId: user.id,
       }));
@@ -162,7 +167,7 @@ describe(__filename, () => {
       expect(calledFinishAction.payload).toEqual({});
     });
 
-    it('optionally takes a picture file', async () => {
+    it('can receive a picture file in payload', async () => {
       const state = sagaTester.getState();
       const user = createUserAccountResponse({ id: 5001 });
 
@@ -185,6 +190,7 @@ describe(__filename, () => {
 
       sagaTester.dispatch(editUserAccount({
         errorHandlerId: errorHandler.id,
+        notifications: {},
         picture,
         userFields,
         userId: user.id,
@@ -198,6 +204,63 @@ describe(__filename, () => {
 
       mockApi.verify();
       expect(calledAction).toEqual(expectedCalledAction);
+    });
+
+    it('can receive a non-empty notifications object (dict) in payload', async () => {
+      const state = sagaTester.getState();
+
+      const username = 'babar';
+      const user = createUserAccountResponse({ id: 5001, username });
+
+      const notifications = {
+        reply: false,
+      };
+      const allNotifications = createUserNotificationsResponse();
+      allNotifications[0].enabled = notifications.reply;
+
+      const userFields = {
+        biography: 'I fell into a burning ring of fire.',
+        location: 'Folsom Prison',
+      };
+
+      mockApi
+        .expects('editUserAccount')
+        .withArgs({
+          api: state.api,
+          picture: null,
+          userId: user.id,
+          ...userFields,
+        })
+        .once()
+        .returns(Promise.resolve({ ...user, ...userFields }));
+
+      mockApi
+        .expects('updateUserNotifications')
+        .withArgs({
+          api: state.api,
+          notifications,
+          userId: user.id,
+        })
+        .once()
+        .returns(Promise.resolve(allNotifications));
+
+      sagaTester.dispatch(editUserAccount({
+        errorHandlerId: errorHandler.id,
+        notifications,
+        picture: null,
+        userFields,
+        userId: user.id,
+      }));
+
+      const expectedCalledAction = loadUserNotifications({
+        notifications: allNotifications,
+        username,
+      });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      expect(calledAction).toEqual(expectedCalledAction);
+      mockApi.verify();
     });
 
     it('cancels the edit and dispatches an error when fails', async () => {
@@ -214,6 +277,8 @@ describe(__filename, () => {
 
       sagaTester.dispatch(editUserAccount({
         errorHandlerId: errorHandler.id,
+        notifications: {},
+        picture: null,
         userFields,
         userId: user.id,
       }));
@@ -276,6 +341,10 @@ describe(__filename, () => {
   describe('fetchUserNotifications', () => {
     it('calls the API to fetch the notifications of a user', async () => {
       const username = 'tofumatt';
+
+      const user = createUserAccountResponse({ username });
+      sagaTester.dispatch(loadCurrentUserAccount({ user }));
+
       const notifications = createUserNotificationsResponse();
 
       mockApi
@@ -308,6 +377,50 @@ describe(__filename, () => {
       sagaTester.dispatch(fetchUserNotifications({
         errorHandlerId: errorHandler.id,
         username: 'tofumatt',
+      }));
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
+  });
+
+  describe('deleteUserAccount', () => {
+    it('calls the API to delete a profile', async () => {
+      const state = sagaTester.getState();
+      const userId = 123;
+
+      mockApi
+        .expects('deleteUserAccount')
+        .once()
+        .withArgs({
+          api: state.api,
+          userId,
+        })
+        .returns(createApiResponse());
+
+      sagaTester.dispatch(deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId,
+      }));
+
+      const expectedCalledAction = unloadUserAccount({ userId });
+
+      const calledAction = await sagaTester.waitFor(expectedCalledAction.type);
+
+      expect(calledAction).toEqual(expectedCalledAction);
+      mockApi.verify();
+    });
+
+    it('dispatches an error', async () => {
+      const error = new Error('a bad API error');
+      mockApi
+        .expects('deleteUserAccount')
+        .returns(Promise.reject(error));
+
+      sagaTester.dispatch(deleteUserAccount({
+        errorHandlerId: errorHandler.id,
+        userId: 123,
       }));
 
       const errorAction = errorHandler.createErrorAction(error);

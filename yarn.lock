@@ -4205,9 +4205,9 @@ hosted-git-info@^2.1.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.0.tgz#23235b29ab230c576aab0d4f13fc046b0b038222"
 
-hot-shots@5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-5.4.1.tgz#60f0a11c3d824257fa35b0769f308761b406296b"
+hot-shots@5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-5.6.1.tgz#e48ba9776d56d45a6aa4f09e66feef0b828b2cea"
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -6042,7 +6042,11 @@ mock-res@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/mock-res/-/mock-res-0.5.0.tgz#98368beb09df753f64f66d94e5536a97b36a2430"
 
-moment@2.22.1, moment@^2.10.6:
+moment@2.22.2:
+  version "2.22.2"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.2.tgz#3c257f9839fc0e93ff53149632239eb90783ff66"
+
+moment@^2.10.6:
   version "2.22.1"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.22.1.tgz#529a2e9bf973f259c9643d237fda84de3a26e8ad"
 
@@ -7416,9 +7420,9 @@ range-parser@^1.0.3, range-parser@^1.2.0, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raven-js@3.25.2:
-  version "3.25.2"
-  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.25.2.tgz#d3ad1c694f70855dda6f705204ee6ab76ba62884"
+raven-js@3.26.1:
+  version "3.26.1"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.26.1.tgz#13f78804f2bed524a7283382e1bca7ab423950a3"
 
 raven@2.6.2:
   version "2.6.2"
@@ -7634,9 +7638,9 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-super-responsive-table@4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.2.2.tgz#0fe6ef30bebcd74c5970cb364e90425858e22a5c"
+react-super-responsive-table@4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.2.4.tgz#03343121c3d4bab655131147ee00c6d453394408"
 
 react-test-renderer@^16.0.0-0:
   version "16.3.2"
@@ -9937,9 +9941,9 @@ webpack-hot-middleware@^2.18.0:
     querystring "^0.2.0"
     strip-ansi "^3.0.0"
 
-webpack-isomorphic-tools@3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/webpack-isomorphic-tools/-/webpack-isomorphic-tools-3.0.5.tgz#60f04dcaf61cfe54c5b6bc771dde1ea3ed9ff3bc"
+webpack-isomorphic-tools@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/webpack-isomorphic-tools/-/webpack-isomorphic-tools-3.0.6.tgz#adb490294428ebd96787bb20cf591d056b6f80a9"
   dependencies:
     babel-runtime "^6.6.1"
     colors "^1.1.2"
