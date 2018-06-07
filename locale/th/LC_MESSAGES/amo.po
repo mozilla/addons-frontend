@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 15:36+0000\n"
+"PO-Revision-Date: 2018-06-07 17:32+0000\n"
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -1974,7 +1974,7 @@ msgstr "ใช่ ลบโปรไฟล์ของฉัน"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "ใช่ ลบโปรไฟล์นี้"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2116,7 +2116,7 @@ msgstr "ตกลง!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "ยืนยัน"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
