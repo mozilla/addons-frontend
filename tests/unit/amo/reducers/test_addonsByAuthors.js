@@ -1,6 +1,7 @@
 import { ADDON_TYPE_EXTENSION, ADDON_TYPE_THEME } from 'core/constants';
 import reducer, {
   EXTENSIONS_BY_AUTHORS_PAGE_SIZE,
+  THEMES_BY_AUTHORS_PAGE_SIZE,
   fetchAddonsByAuthors,
   getAddonsForSlug,
   getAddonsForUsernames,
@@ -85,7 +86,7 @@ describe(__filename, () => {
       });
     });
 
-    it('always ensures the page size is consistent', () => {
+    it("always ensures extensions' page size is consistent", () => {
       const forAddonSlug = 'addon-slug';
       const state = reducer(undefined, loadAddonsByAuthors({
         forAddonSlug,
@@ -95,6 +96,19 @@ describe(__filename, () => {
       }));
       expect(state.byAddonSlug[forAddonSlug])
         .toHaveLength(EXTENSIONS_BY_AUTHORS_PAGE_SIZE);
+    });
+
+    it("always ensures themes' page size is consistent", () => {
+      const forAddonSlug = 'addon-slug';
+      const state = reducer(undefined, loadAddonsByAuthors({
+        forAddonSlug,
+        // This is the case where there are more add-ons loaded than needed.
+        addons: Array(THEMES_BY_AUTHORS_PAGE_SIZE + 2).fill(fakeAddon),
+        authorUsernames: [fakeAddon.authors[0].username],
+        addonType: ADDON_TYPE_THEME,
+      }));
+      expect(state.byAddonSlug[forAddonSlug])
+        .toHaveLength(THEMES_BY_AUTHORS_PAGE_SIZE);
     });
 
     it('returns state if no excluded slug is specified', () => {
