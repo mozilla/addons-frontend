@@ -171,8 +171,10 @@ describe(__filename, () => {
         detail: collectionDetail,
       }));
 
-      const fakeCollectionAddon =
-        createFakeCollectionAddon({ addon: { ...fakeAddon, id: 333 }, notes });
+      const fakeCollectionAddon = createFakeCollectionAddon({
+        addon: { ...fakeAddon, id: 333 },
+        notes,
+      });
       const newAddons = createFakeCollectionAddons({
         addons: [fakeCollectionAddon],
       });
@@ -186,7 +188,7 @@ describe(__filename, () => {
       expect(loadedCollection.addons)
         .toEqual(createInternalAddons(newAddons));
       expect(state.current.loading).toEqual(false);
-      expect(loadedCollection.addons[0].collectionNotes).toEqual(notes);
+      expect(loadedCollection.addons[0].notes).toEqual(notes);
     });
 
     it('resets the current collection when fetching is aborted', () => {
@@ -448,8 +450,7 @@ describe(__filename, () => {
       state = loadCollectionIntoState({ state, collection });
 
       const collectionInState = state.byId[collection.id];
-      expect(collectionInState.addons)
-        .toEqual(createInternalAddons(addons));
+      expect(collectionInState.addons).toEqual(createInternalAddons(addons));
     });
 
     it('loads notes for collection add-ons', () => {
@@ -466,8 +467,7 @@ describe(__filename, () => {
       });
 
       const collectionInState = state.byId[collection.id];
-      expect(collectionInState.addons[0].collectionNotes)
-        .toEqual(notes);
+      expect(collectionInState.addons[0].notes).toEqual(notes);
     });
   });
 
@@ -799,7 +799,7 @@ describe(__filename, () => {
 
       expect(state.byId[collectionDetail.id].addons)
         .toEqual(createInternalAddons(newAddons));
-      expect(state.byId[collectionDetail.id].addons[0].collectionNotes)
+      expect(state.byId[collectionDetail.id].addons[0].notes)
         .toEqual(notes);
     });
 

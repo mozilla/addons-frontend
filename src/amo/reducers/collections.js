@@ -3,7 +3,7 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
 import type { LocalizedString } from 'core/types/api';
 
 export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION'
@@ -47,7 +47,7 @@ export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES'
   = 'DELETE_COLLECTION_ADDON_NOTES';
 
 export type CollectionType = {
-  addons: Array<AddonType> | null,
+  addons: Array<CollectionAddonType> | null,
   authorId: number,
   authorName: string,
   authorUsername: string,
@@ -710,12 +710,12 @@ export const deleteCollectionAddonNotes = ({
 
 export const createInternalAddons = (
   items: ExternalCollectionAddons
-): Array<AddonType> => {
-  return items.map((item) => {
+): Array<CollectionAddonType> => {
+  return items.map(({ addon, notes }) => {
     // This allows to have a consistent way to manipulate addons in the app.
     return {
-      ...createInternalAddon(item.addon),
-      collectionNotes: item.notes,
+      ...createInternalAddon(addon),
+      notes,
     };
   });
 };

@@ -362,10 +362,10 @@ export function createFakeCollectionAddon({
 export const createFakeCollectionAddons = ({
   addons = [createFakeCollectionAddon()],
 } = {}) => {
-  return addons.map((addon) => ({
-    addon: addon.addon,
+  return addons.map(({ addon, notes }) => ({
+    addon,
     downloads: 0,
-    notes: addon.notes,
+    notes,
   }));
 };
 

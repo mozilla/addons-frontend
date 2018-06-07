@@ -36,11 +36,12 @@ import type {
   CollectionsState,
   CollectionType,
 } from 'amo/reducers/collections';
-import type { ErrorHandlerType } from 'core/errorHandler';
 import type { UsersStateType } from 'amo/reducers/users';
+import type { ErrorHandlerType } from 'core/errorHandler';
+import type { CollectionAddonType } from 'core/types/addons';
+import type { I18nType } from 'core/types/i18n';
 import type { DispatchFunc } from 'core/types/redux';
 import type { ReactRouterLocation } from 'core/types/router';
-import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
@@ -315,7 +316,8 @@ export class CollectionBase extends React.Component<Props> {
       i18n,
     } = this.props;
 
-    const addons = collection ? collection.addons : [];
+    const addons: Array<CollectionAddonType> =
+      (collection && collection.addons) || [];
 
     return (
       <div className="Collection-wrapper">

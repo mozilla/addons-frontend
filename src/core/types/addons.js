@@ -173,8 +173,11 @@ export type AddonType = {|
   isRestartRequired: boolean,
   isWebExtension: boolean,
   themeData?: ThemeData,
-  // This is present for collection add-ons
-  collectionNotes?: string | null,
+|};
+
+export type CollectionAddonType = {|
+  ...AddonType,
+  notes: string | null,
 |};
 
 export type SearchResultAddonType = {|
