@@ -174,6 +174,8 @@ const reducer = (
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
+      const { addonType: type } = action.payload;
+      const addonType = getAddonTypeFilter(type);
 
       if (action.payload.forAddonSlug) {
         newState.byAddonSlug = {
@@ -183,17 +185,20 @@ const reducer = (
       }
 
       newState.loadingFor[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType)] = true;
+        action.payload.authorUsernames, addonType)] = true;
+
       newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, action.payload.addonType)] = null;
+        action.payload.authorUsernames, addonType)] = null;
 
       return newState;
     }
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
-      const { addonType } = action.payload;
-      const pageSize = ADDON_TYPE_THEMES.includes(addonType) ||
-        ADDON_TYPE_THEMES_FILTER ? THEMES_BY_AUTHORS_PAGE_SIZE :
+      const { addonType: type } = action.payload;
+
+      const addonType = getAddonTypeFilter(type);
+      const pageSize = ADDON_TYPE_THEMES.includes(type) ||
+        addonType === ADDON_TYPE_THEMES_FILTER ? THEMES_BY_AUTHORS_PAGE_SIZE :
         EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
       if (action.payload.forAddonSlug) {
