@@ -1,5 +1,6 @@
 /* @flow */
 /* global window */
+/* eslint-disable react/sort-comp */
 import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -77,6 +78,8 @@ type State = {|
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
+  timeout: TimeoutID;
+
   static defaultProps = {
     setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
   };
@@ -84,6 +87,7 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = this.propsToState(props);
+    this.timeout; // eslint-disable-line no-unused-expressions
   }
 
   componentWillReceiveProps(props: Props) {
@@ -104,11 +108,15 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }
 
     if (hasAddonBeenAddedNew && hasAddonBeenAddedNew !== hasAddonBeenAdded) {
-      this.props.setTimeout(
+      this.timeout = this.props.setTimeout(
         this.resetMessageStatus,
         MESSAGE_RESET_TIME
       );
     }
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.timeout);
   }
 
   onCancel = (event: SyntheticEvent<any>) => {
