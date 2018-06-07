@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-05 18:45+0000\n"
+"PO-Revision-Date: 2018-06-05 18:39+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -188,16 +188,14 @@ msgid "No Users"
 msgstr "Ei käyttäjiä"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Ei arvioita"
+msgstr "Arviot"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Ei arvioita"
-msgstr[1] "Ei arvioita"
+msgstr[0] "Arvio"
+msgstr[1] ""
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
@@ -324,11 +322,10 @@ msgid "Reviews for %(addonName)s"
 msgstr ""
 
 #: src/amo/components/AddonReviewList/index.js:185
-#, fuzzy
 msgid "%(total)s review for this add-on"
 msgid_plural "%(total)s reviews for this add-on"
-msgstr[0] "%(total)s arvio"
-msgstr[1] "%(total)s arviota"
+msgstr[0] "Tällä lisäosalla on %(total)s arvio"
+msgstr[1] "Tällä lisäosalla on %(total)s arviota"
 
 # Example: by The Author, The Next Author
 #: src/amo/components/AddonReviewList/index.js:213
@@ -388,9 +385,8 @@ msgid "More dictionaries by these translators"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "Oikolukusanastot"
+msgstr "Käyttäjän %(author)s oikolukusanastot"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "Dictionaries by these translators"
@@ -405,14 +401,12 @@ msgid "More extensions by these developers"
 msgstr "Lisää laajennuksia näiltä kehittäjiltä"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "Lisää laajennuksia näiltä kehittäjiltä"
+msgstr "Käyttäjän %(author)s laajennukset"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Lisää laajennuksia näiltä kehittäjiltä"
+msgstr "Näiden käyttäjien laajennukset"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -423,9 +417,8 @@ msgid "More language packs by these translators"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Kielipaketit"
+msgstr "Käyttäjän %(author)s kielipaketit"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"

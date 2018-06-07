@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 19:01+0000\n"
-"PO-Revision-Date: 2018-06-05 18:49+0000\n"
+"PO-Revision-Date: 2018-06-05 18:48+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -20,7 +20,7 @@ msgstr "Palvelinvirhe"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
 msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Olemme pahoillamme, tapahtui virhe, emmekä voi toteuttaa pyyntöäsi. Olemme tallentaneet virheen ja tutkimme sen syytä."
 
 #: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
@@ -52,7 +52,7 @@ msgstr "Asennetaan %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:77
 msgid "%(name)s is installed and enabled. Click to uninstall."
-msgstr ""
+msgstr "%(name)s on asennettu ja käytössä. Poista se napsauttamalla."
 
 #: src/core/components/InstallSwitch/index.js:80
 msgid "%(name)s is disabled. Click to enable."
