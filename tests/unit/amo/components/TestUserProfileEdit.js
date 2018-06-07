@@ -1131,7 +1131,7 @@ describe(__filename, () => {
 
     expect(root).toHaveState('picture', null);
     expect(root).toHaveState('pictureData', null);
-    sinon.assert.calledWith(_window.scroll, (0, 0));
+    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('displays a modal when user clicks the delete profile button', () => {
