@@ -318,9 +318,8 @@ export const loadCurrentCollectionPage = ({
   addons,
   numberOfAddons,
 }: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
-  if (!addons) {
-    throw new Error('addons are required');
-  }
+  invariant(addons, 'The addons parameter is required');
+  invariant(typeof numberOfAddons === 'number', 'The numberOfAddons parameter must be a number');
 
   return {
     type: LOAD_CURRENT_COLLECTION_PAGE,
