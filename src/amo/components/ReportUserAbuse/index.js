@@ -165,7 +165,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
 
 export const mapStateToProps = (
   state: {| userAbuseReports: UserAbuseReportsState |},
-ownProps: Props,
+  ownProps: Props,
 ) => {
   const abuseReport = (
     ownProps.user && state.userAbuseReports.byUserId[ownProps.user.id]
