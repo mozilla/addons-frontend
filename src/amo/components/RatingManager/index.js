@@ -149,7 +149,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
         return i18n.gettext('Log in to rate this extension');
       default:
         if (!validAddonTypes.includes(addonType)) {
-          throw new Error(`Unknown extension type: ${addonType}`);
+          log.warn(`Using generic prompt for unknown extension type: ${addonType}`);
         }
         log.warn(`Using generic prompt for add-on type: ${addonType}`);
         return i18n.gettext('Log in to rate this add-on');
