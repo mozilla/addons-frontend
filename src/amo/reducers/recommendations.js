@@ -14,7 +14,7 @@ export const OUTCOME_CURATED: 'curated' = 'curated';
 export const OUTCOME_RECOMMENDED: 'recommended' = 'recommended';
 export const OUTCOME_RECOMMENDED_FALLBACK: 'recommended_fallback' = 'recommended_fallback';
 
-export type FallbackReasonType = 'no_results' | 'timeout';
+export type FallbackReasonType = 'no_results' | 'timeout' | 'invalid_results';
 export type OutcomeType =
   | typeof OUTCOME_CURATED
   | typeof OUTCOME_RECOMMENDED
