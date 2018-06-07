@@ -289,9 +289,11 @@ export class CollectionBase extends React.Component<Props> {
 
   renderDeleteButton() {
     const { hasEditPermission, i18n } = this.props;
+
     if (!hasEditPermission) {
       return null;
     }
+
     return (
       <ConfirmButton
         buttonType="cancel"
