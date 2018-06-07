@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-05 18:39+0000\n"
-"Last-Translator: Jarmo <jarmo@juslin.me>\n"
+"PO-Revision-Date: 2018-06-07 16:41+0000\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -99,7 +99,7 @@ msgstr "Tietoja tästä lisäosasta"
 
 #: src/amo/components/Addon/index.js:364
 msgid "Release notes for %(addonVersion)s"
-msgstr ""
+msgstr "Version %(addonVersion)s julkaisutiedot"
 
 #: src/amo/components/Addon/index.js:464
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
@@ -378,7 +378,7 @@ msgstr "Vastaa tähän arvioon"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by %(author)s"
-msgstr ""
+msgstr "Lisää sanastoja tekijältä %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:125
 msgid "More dictionaries by these translators"
@@ -394,7 +394,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
-msgstr ""
+msgstr "Lisää laajennuksia tekijältä %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More extensions by these developers"
@@ -410,11 +410,11 @@ msgstr "Näiden käyttäjien laajennukset"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Lisää kielipaketteja tekijältä %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Lisää kielipaketteja näiltä kääntäjiltä"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
 msgid "Language packs by %(author)s"
@@ -422,11 +422,11 @@ msgstr "Käyttäjän %(author)s kielipaketit"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "Kielipaketit näiltä kääntäjiltä"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:174
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Lisää teemoja tekijältä %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:177
 msgid "More themes by these artists"
@@ -434,7 +434,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
 msgid "Themes by %(author)s"
-msgstr ""
+msgstr "Tekijän %(author)s teemat"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:184
 msgid "Themes by these artists"
@@ -450,7 +450,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
 msgid "Add-ons by %(author)s"
-msgstr ""
+msgstr "Tekijän %(author)s lisäosat"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:201
 msgid "Add-ons by these developers"
@@ -593,7 +593,6 @@ msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:289
-#, fuzzy
 msgid "Save collection"
 msgstr "Tallenna kokoelma"
 
@@ -685,7 +684,7 @@ msgstr "Lataa Firefox"
 
 #: src/amo/components/EditableCollectionAddon/index.js:56
 msgid "Remove"
-msgstr ""
+msgstr "Poista"
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
@@ -847,23 +846,23 @@ msgstr "Blogi"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:91
 msgid "Developer Hub"
-msgstr ""
+msgstr "Kehityskeskus"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
-msgstr ""
+msgstr "Keskustelualue"
 
 #: src/amo/components/Footer/index.js:68
 msgid "Report a bug"
-msgstr ""
+msgstr "Ilmoita ongelmasta"
 
 #: src/amo/components/Footer/index.js:75
 msgid "Review Guide"
-msgstr ""
+msgstr "Opas arviointiin"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
-msgstr ""
+msgstr "Sivuston tila"
 
 #: src/amo/components/Footer/index.js:86
 msgid "View classic desktop site"
@@ -887,15 +886,15 @@ msgstr "Muokkaa profiiliani"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
-msgstr ""
+msgstr "Työkalut"
 
 #: src/amo/components/Header/index.js:134
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Lähetä uusi lisäosa"
 
 #: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Lähetä uusi teema"
 
 #: src/amo/components/Header/index.js:152
 msgid "Reviewer Tools"
@@ -943,25 +942,23 @@ msgstr "Muuta Firefoxin ulkoasua teemoilla."
 
 #: src/amo/components/Home/index.js:215
 msgid "Tame your tabs"
-msgstr ""
+msgstr "Kesytä välilehtesi"
 
 #: src/amo/components/Home/index.js:217
 msgid "See more tab extensions"
 msgstr "Näytä lisää välilehtilaajennuksia"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Selaa kaikkia laajennuksia"
+msgstr "Oleellisimmat laajennukset"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Katso lisää nousussa olevia laajennuksia"
+msgstr "Katso lisää oleellisimpia laajennuksia"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
-msgstr ""
+msgstr "Kielityökalut"
 
 #: src/amo/components/Home/index.js:256
 msgid "See more translation tools"
@@ -1005,7 +1002,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Maailmanradio"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
@@ -1029,15 +1026,15 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "Download Manager (S3)"
-msgstr ""
+msgstr "Latausten hallinta (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Hallitse latauksia siististä tilapalkista"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Musta valikko Googlelle"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Easy drop-down menu access to Google services like Search and Translate"
@@ -1045,7 +1042,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:185
 msgid "Page Translate"
-msgstr ""
+msgstr "Sivun kielenkäännös"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
