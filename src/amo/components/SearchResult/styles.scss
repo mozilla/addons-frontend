@@ -195,3 +195,26 @@
   margin: 0;
   padding: 0;
 }
+
+.SearchResult-note {
+  background-color: transparentize($blue-50, 0.95);
+  border-radius: $border-radius-default;
+  color: $type-black;
+  flex-grow: 1;
+  font-weight: normal;
+  margin-top: 12px;
+  padding: 12px;
+  width: 100%;
+
+  @include respond-to(medium) {
+    @include margin-start(12px);
+  }
+}
+
+.SearchResult-note-header {
+  margin: 0 0 6px;
+
+  .Icon-comments-blue {
+    @include margin-end(12px);
+  }
+}
