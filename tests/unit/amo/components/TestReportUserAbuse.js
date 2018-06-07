@@ -94,6 +94,15 @@ describe(__filename, () => {
       Mozilla and not to this user.`);
 
     expect(root.find(DismissibleTextForm)).toHaveLength(1);
+    expect(root.find(DismissibleTextForm)).toHaveProp('isSubmitting', false);
+    expect(root.find(DismissibleTextForm)).toHaveProp(
+      'placeholder',
+      'Explain how this user is violating our policies.'
+    );
+    expect(root.find(DismissibleTextForm))
+      .toHaveProp('submitButtonText', 'Send abuse report');
+    expect(root.find(DismissibleTextForm))
+      .toHaveProp('submitButtonInProgressText', 'Sending abuse report');
   });
 
   it('hides more content when hideReportUI is called', () => {
