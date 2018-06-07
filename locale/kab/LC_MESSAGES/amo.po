@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
@@ -2025,7 +2025,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
-msgstr "Tawlaft n umaɣnu i \"%(query)s\""
+msgstr "Tawlaft n umaɣnu i \"%(name)s\""
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
 msgid "Profile photo"
