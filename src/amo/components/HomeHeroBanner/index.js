@@ -47,13 +47,13 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-3"
-          linkTo="/addon/session-sync/"
+          linkTo="/addon/turbo-download-manager/"
         >
-          <h3>{i18n.gettext('Session Sync')}</h3>
+          <h3>{i18n.gettext('Turbo Download Manager')}</h3>
 
           <p>
-            {i18n.gettext(`Quantum Extensions Challenge winner!
-               Save sessions as bookmarks and access them across devices`)}
+            {i18n.gettext(`Increase download speeds with multi-threading
+              support`)}
           </p>
         </HeroSection>
       ),
@@ -131,37 +131,40 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-10"
-          linkTo="/addon/envify/"
+          linkTo="/addon/tabliss/"
         >
-          <h3>{i18n.gettext('Envify')}</h3>
+          <h3>{i18n.gettext('Tabliss')}</h3>
 
           <p>
-            {i18n.gettext(`Quantum Extensions Challenge winner!
-              Different tab colors for different dev environments`)}
+            {i18n.gettext(`Enjoy a gorgeous new tab page with customizable
+              backgrounds, local weather & more`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-11"
-          linkTo="/addon/the-laser-cat/"
+          linkTo="/addon/share-backported/"
         >
-          <h3>{i18n.gettext('Laser Cat')}</h3>
+          <h3>{i18n.gettext('Share Backported')}</h3>
 
           <p>
-            {i18n.gettext(`For moments on the internet when you need to fire
-              lasers out of a cat`)}
+            {i18n.gettext(`Put a social media ‘Share’ button into Firefox
+              toolbar`)}
           </p>
         </HeroSection>
       ),
       (
         <HeroSection
           key="hero-12"
-          linkTo="/addon/s3download-statusbar/"
+          linkTo="/addon/view-page-archive/"
         >
-          <h3>{i18n.gettext('Download Manager (S3)')}</h3>
+          <h3>{i18n.gettext('View Page Archive & Cache')}</h3>
 
-          <p>{i18n.gettext('Manage downloads from a tidy status bar')}</p>
+          <p>
+            {i18n.gettext(`A powerful way to find archived versions of older
+              web pages`)}
+          </p>
         </HeroSection>
       ),
       (
@@ -217,12 +220,13 @@ export class HomeHeroBannerBase extends React.Component<Props> {
       (
         <HeroSection
           key="hero-17"
-          linkTo="/addon/foxy-gestures/"
+          linkTo="/addon/groupspeeddial/"
         >
-          <h3>{i18n.gettext('FoxyGestures')}</h3>
+          <h3>{i18n.gettext('Group Speed Dial')}</h3>
 
           <p>
-            {i18n.gettext('Customized mouse gestures')}
+            {i18n.gettext(`Visual bookmarks for your favorite places on the
+              web`)}
           </p>
         </HeroSection>
       ),
