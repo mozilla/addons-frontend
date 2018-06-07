@@ -35,6 +35,8 @@ export type NotificationType = {|
 
 export type NotificationsType = Array<NotificationType>;
 
+export type NotificationsUpdateType = { [name: string]: boolean };
+
 // Basic user account object fields, returned by the API.
 export type ExternalUserType = {|
   average_addon_rating: number,
@@ -143,7 +145,8 @@ export const finishEditUserAccount = (): FinishEditUserAccountAction => {
 
 export type EditUserAccountParams = {|
   errorHandlerId: string,
-  picture?: File | null,
+  notifications: NotificationsUpdateType,
+  picture: File | null,
   userFields: UserEditableFieldsType,
   userId: UserId,
 |};
@@ -154,15 +157,17 @@ type EditUserAccountAction = {|
 |};
 
 export const editUserAccount = ({
-  errorHandlerId, picture, userFields, userId,
+  errorHandlerId, notifications, picture, userFields, userId,
 }: EditUserAccountParams): EditUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
+  invariant(notifications, 'notifications are required');
+  invariant(picture !== undefined, 'picture is required');
   invariant(userFields, 'userFields are required');
   invariant(userId, 'userId is required');
 
   return {
     type: EDIT_USER_ACCOUNT,
-    payload: { errorHandlerId, picture, userFields, userId },
+    payload: { errorHandlerId, notifications, picture, userFields, userId },
   };
 };
 
@@ -354,6 +359,14 @@ export const getCurrentUser = (users: UsersStateType) => {
   return currentUser;
 };
 
+export const isDeveloper = (user: UserType | null): boolean => {
+  if (!user) {
+    return false;
+  }
+
+  return user.is_addon_developer || user.is_artist;
+};
+
 export const hasPermission = (
   state: { users: UsersStateType }, permission: string,
 ): boolean => {
@@ -506,6 +519,10 @@ const reducer = (
 
         delete newState.byID[userId];
         delete newState.byUsername[username];
+
+        if (newState.currentUserID === userId) {
+          newState.currentUserID = null;
+        }
       }
 
       return newState;

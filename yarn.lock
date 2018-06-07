@@ -4205,9 +4205,15 @@ hosted-git-info@^2.1.4:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.0.tgz#23235b29ab230c576aab0d4f13fc046b0b038222"
 
+<<<<<<< HEAD
 hot-shots@5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-5.6.0.tgz#c587e066239e7a3cad3b066ece3381f5f8c1c06d"
+=======
+hot-shots@5.6.1:
+  version "5.6.1"
+  resolved "https://registry.yarnpkg.com/hot-shots/-/hot-shots-5.6.1.tgz#e48ba9776d56d45a6aa4f09e66feef0b828b2cea"
+>>>>>>> master
 
 hpack.js@^2.1.6:
   version "2.1.6"
@@ -7420,9 +7426,9 @@ range-parser@^1.0.3, range-parser@^1.2.0, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raven-js@3.25.2:
-  version "3.25.2"
-  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.25.2.tgz#d3ad1c694f70855dda6f705204ee6ab76ba62884"
+raven-js@3.26.1:
+  version "3.26.1"
+  resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.26.1.tgz#13f78804f2bed524a7283382e1bca7ab423950a3"
 
 raven@2.6.2:
   version "2.6.2"
@@ -7638,9 +7644,9 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
-react-super-responsive-table@4.2.2:
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.2.2.tgz#0fe6ef30bebcd74c5970cb364e90425858e22a5c"
+react-super-responsive-table@4.2.4:
+  version "4.2.4"
+  resolved "https://registry.yarnpkg.com/react-super-responsive-table/-/react-super-responsive-table-4.2.4.tgz#03343121c3d4bab655131147ee00c6d453394408"
 
 react-test-renderer@^16.0.0-0:
   version "16.3.2"

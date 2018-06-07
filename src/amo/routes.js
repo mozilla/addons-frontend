@@ -46,15 +46,15 @@ export default (
       {config.get('enableUserProfile') && (
         <React.Fragment>
           <Route path="users/edit" component={UserProfileEdit} />
-          <Route path="user/:username/edit" component={UserProfileEdit} />
+          <Route path="user/:username/edit/" component={UserProfileEdit} />
           <Route path="user/:username/" component={UserProfile} />
         </React.Fragment>
       )}
       <Route
-        path="collections/:user/:slug/edit/"
+        path="collections/:username/:slug/edit/"
         component={CollectionEdit}
       />
-      <Route path="collections/:user/:slug/" component={Collection} />
+      <Route path="collections/:username/:slug/" component={Collection} />
       {config.get('enableNewCollectionsUI') ?
         <Route
           path="collections/add/"

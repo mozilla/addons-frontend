@@ -4,7 +4,7 @@ import * as api from 'core/api';
 import {
   createCollection,
   createCollectionAddon,
-  removeAddonFromCollection,
+  deleteCollection,
   getAllCollectionAddons,
   getAllUserCollections,
   getCollectionAddons,
@@ -12,6 +12,7 @@ import {
   listCollections,
   modifyCollection,
   modifyCollectionAddon,
+  removeAddonFromCollection,
   updateCollection,
   updateCollectionAddon,
 } from 'amo/api/collections';
@@ -33,7 +34,7 @@ describe(__filename, () => {
     return {
       api: apiState,
       slug: 'some-slug',
-      user: 'user-id-or-name',
+      username: 'some-user',
       ...otherParams,
     };
   };
@@ -53,13 +54,13 @@ describe(__filename, () => {
       }).toThrow('slug is required');
     });
 
-    it('throws an error when user is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = getParams();
-      delete params.user;
+      delete params.username;
 
       expect(() => {
         getCollectionDetail(params);
-      }).toThrow('user is required');
+      }).toThrow('username is required');
     });
 
     it('calls the collection detail API', async () => {
@@ -69,7 +70,7 @@ describe(__filename, () => {
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: 'accounts/account/user-id-or-name/collections/some-slug',
+          endpoint: 'accounts/account/some-user/collections/some-slug',
           state: apiState,
         })
         .once()
@@ -90,13 +91,13 @@ describe(__filename, () => {
       }).toThrow('slug is required');
     });
 
-    it('throws an error when user is missing', () => {
+    it('throws an error when username is missing', () => {
       const params = getParams();
-      delete params.user;
+      delete params.username;
 
       expect(() => {
         getCollectionAddons(params);
-      }).toThrow('user is required');
+      }).toThrow('username is required');
     });
 
     it('calls the collection add-ons list API', async () => {
@@ -108,7 +109,7 @@ describe(__filename, () => {
         .withArgs({
           auth: true,
           endpoint:
-            'accounts/account/user-id-or-name/collections/some-slug/addons',
+            'accounts/account/some-user/collections/some-slug/addons',
           params: queryParams,
           state: apiState,
         })
@@ -122,7 +123,7 @@ describe(__filename, () => {
 
   describe('getAllCollectionAddons', () => {
     it('gets all pages of the collection add-ons list API', async () => {
-      const user = 'example-username';
+      const username = 'example-username';
       const slug = 'example-collection-slug';
       const addonResults = createFakeCollectionAddonsListResponse().results;
 
@@ -135,7 +136,7 @@ describe(__filename, () => {
 
       const addons = await getAllCollectionAddons({
         api: apiState,
-        user,
+        username,
         slug,
         _allPages,
         _getCollectionAddons,
@@ -144,7 +145,7 @@ describe(__filename, () => {
       expect(addons).toEqual(addonResults);
       sinon.assert.called(_getCollectionAddons);
       expect(_getCollectionAddons.firstCall.args[0]).toEqual({
-        api: apiState, user, slug, nextURL,
+        api: apiState, username, slug, nextURL,
       });
     });
   });
@@ -153,33 +154,33 @@ describe(__filename, () => {
     const getListParams = (params = {}) => {
       return {
         api: apiState,
-        user: 'user-id-or-string',
+        username: 'some-user',
         ...params,
       };
     };
 
-    it('throws an error when the user parameter is missing', () => {
+    it('throws an error when the username parameter is missing', () => {
       const params = getListParams();
-      delete params.user;
+      delete params.username;
 
       expect(() => listCollections(params))
-        .toThrow(/user parameter is required/);
+        .toThrow(/username parameter is required/);
     });
 
     it('calls the list collections API', async () => {
-      const user = 'some-user-id';
+      const username = 'some-user';
 
       mockApi
         .expects('callApi')
         .withArgs({
           auth: true,
-          endpoint: `accounts/account/${user}/collections`,
+          endpoint: `accounts/account/${username}/collections`,
           state: apiState,
         })
         .once()
         .returns(createApiResponse());
 
-      const params = getListParams({ user });
+      const params = getListParams({ username });
       await listCollections(params);
       mockApi.verify();
     });
@@ -187,7 +188,7 @@ describe(__filename, () => {
 
   describe('getAllUserCollections', () => {
     it('returns collections from multiple pages', async () => {
-      const user = 'some-user-id';
+      const username = 'some-user';
 
       const collectionResults = [
         createFakeCollectionDetail({ slug: 'first' }),
@@ -203,13 +204,13 @@ describe(__filename, () => {
       const _allPages = sinon.spy((nextPage) => nextPage(nextURL));
 
       const collections = await getAllUserCollections({
-        api: apiState, user, _allPages, _listCollections,
+        api: apiState, username, _allPages, _listCollections,
       });
 
       expect(collections).toEqual(collectionResults);
       sinon.assert.called(_listCollections);
       expect(_listCollections.firstCall.args[0]).toEqual({
-        api: apiState, user, nextURL,
+        api: apiState, username, nextURL,
       });
     });
   });
@@ -222,7 +223,7 @@ describe(__filename, () => {
       return {
         api: apiState,
         name,
-        user: 'user-id-or-username',
+        username: 'some-user',
         ...params,
       };
     };
@@ -261,7 +262,7 @@ describe(__filename, () => {
       const params = defaultParams({ slug });
 
       const endpoint =
-        `accounts/account/${params.user}/collections/`;
+        `accounts/account/${params.username}/collections/`;
       mockApi
         .expects('callApi')
         .withArgs({
@@ -288,7 +289,7 @@ describe(__filename, () => {
       const params = defaultParams({ collectionSlug: slug });
 
       const endpoint =
-        `accounts/account/${params.user}/collections/${slug}`;
+        `accounts/account/${params.username}/collections/${slug}`;
       mockApi
         .expects('callApi')
         .withArgs({
@@ -323,7 +324,7 @@ describe(__filename, () => {
         description: undefined,
         name: undefined,
         slug: undefined,
-        user: 'user-id-or-username',
+        username: 'some-user',
         _validateLocalizedString: validator,
       };
       const updateParams = {
@@ -347,7 +348,7 @@ describe(__filename, () => {
         description: undefined,
         name: undefined,
         slug: 'collection-slug',
-        user: 'user-id-or-username',
+        username: 'some-user',
         _validateLocalizedString: validator,
       };
       const createParams = {
@@ -368,7 +369,11 @@ describe(__filename, () => {
         addonId: 123458,
         api: apiState,
         slug: 'some-collection',
+<<<<<<< HEAD
         user: 'user-id-or-username',
+=======
+        username: 'some-user',
+>>>>>>> master
         ...params,
       };
     };
@@ -378,11 +383,19 @@ describe(__filename, () => {
         action: 'create',
         addonId: 987675,
         slug: 'my-collection',
+<<<<<<< HEAD
         user: 'my-user',
       });
 
       const endpoint = oneLineTrim`
         accounts/account/${params.user}/collections/
+=======
+        username: 'some-user',
+      });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons
       `;
       mockApi
@@ -407,7 +420,11 @@ describe(__filename, () => {
       const params = defaultParams({ action: 'create', notes });
 
       const endpoint = oneLineTrim`
+<<<<<<< HEAD
         accounts/account/${params.user}/collections/
+=======
+        accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons
       `;
       mockApi
@@ -431,11 +448,15 @@ describe(__filename, () => {
         addonId: 987675,
         slug: 'my-collection',
         notes,
-        user: 'my-user',
+        username: 'some-user',
       });
 
       const endpoint = oneLineTrim`
+<<<<<<< HEAD
         accounts/account/${params.user}/collections/
+=======
+        accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons/${params.addonId}
       `;
       mockApi
@@ -460,7 +481,11 @@ describe(__filename, () => {
       const params = defaultParams({ action: 'update', notes });
 
       const endpoint = oneLineTrim`
+<<<<<<< HEAD
         accounts/account/${params.user}/collections/
+=======
+        accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons/${params.addonId}
       `;
       mockApi
@@ -485,7 +510,7 @@ describe(__filename, () => {
         api: apiState,
         slug: 'the-collection',
         notes: 'Beware of this one weird bug',
-        user: 'the-user',
+        username: 'some-user',
       };
 
       const modifier = sinon.spy(() => Promise.resolve());
@@ -505,7 +530,7 @@ describe(__filename, () => {
         api: apiState,
         slug: 'cool-collection',
         notes: 'This add-on speaks to my soul',
-        user: 'cool-user',
+        username: 'cool-user',
       };
 
       const modifier = sinon.spy(() => Promise.resolve());
@@ -522,9 +547,9 @@ describe(__filename, () => {
     it('sends a request to remove an add-on from a collection', async () => {
       const addonId = 123;
       const slug = 'my-collection';
-      const user = 'my-user';
+      const username = 'my-user';
 
-      const endpoint = `accounts/account/${user}/collections/${slug}/addons/${addonId}`;
+      const endpoint = `accounts/account/${username}/collections/${slug}/addons/${addonId}`;
 
       mockApi
         .expects('callApi')
@@ -541,7 +566,35 @@ describe(__filename, () => {
         addonId,
         api,
         slug,
-        user,
+        username,
+      });
+
+      mockApi.verify();
+    });
+  });
+
+  describe('deleteCollection', () => {
+    it('sends a request to delete a collection', async () => {
+      const slug = 'my-collection';
+      const username = 'my-user';
+
+      const endpoint = `accounts/account/${username}/collections/${slug}`;
+
+      mockApi
+        .expects('callApi')
+        .withArgs({
+          auth: true,
+          endpoint,
+          method: 'DELETE',
+          state: api,
+        })
+        .once()
+        .returns(Promise.resolve());
+
+      await deleteCollection({
+        api,
+        slug,
+        username,
       });
 
       mockApi.verify();

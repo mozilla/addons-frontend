@@ -120,6 +120,10 @@
 .Addon-theme-header {
   border-radius: $border-radius-default;
   height: $theme-height-default;
+<<<<<<< HEAD
+=======
+  max-width: $theme-width-default;
+>>>>>>> master
   order: -1;
   overflow-y: hidden;
   position: relative;
@@ -148,10 +152,13 @@
     height: 100px;
     object-position: top right;
   }
+<<<<<<< HEAD
 
   @include respond-to(extraExtraLarge) {
     width: auto;
   }
+=======
+>>>>>>> master
 }
 
 .Addon-summary-and-install-button-wrapper {

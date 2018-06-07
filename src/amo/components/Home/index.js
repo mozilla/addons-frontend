@@ -24,9 +24,9 @@ import './styles.scss';
 
 
 export const COLLECTIONS_TO_FETCH = [
-  { slug: 'change-up-your-tabs', user: 'mozilla' },
-  { slug: 'essential-extensions', user: 'mozilla' },
-  { slug: 'translation-tools', user: 'mozilla' },
+  { slug: 'translation-tools', username: 'mozilla' },
+  { slug: 'privacy-matters', username: 'mozilla' },
+  { slug: 'change-up-your-tabs', username: 'mozilla' },
 ];
 
 export class HomeBase extends React.Component {
@@ -212,12 +212,10 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[0]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Tame your tabs')}
-          footerText={
-            i18n.gettext('See more tab extensions')
-          }
+          header={i18n.gettext('Translation tools')}
+          footerText={i18n.gettext('See more translation tools')}
           footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+            `/collections/${COLLECTIONS_TO_FETCH[0].username}/${COLLECTIONS_TO_FETCH[0].slug}/`
           }
           loading={resultsLoaded === false}
         />
@@ -241,10 +239,10 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[1]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Essential extensions')}
-          footerText={i18n.gettext('See more essential extensions')}
+          header={i18n.gettext('Privacy matters')}
+          footerText={i18n.gettext('See more privacy extensions')}
           footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+            `/collections/${COLLECTIONS_TO_FETCH[1].username}/${COLLECTIONS_TO_FETCH[1].slug}/`
           }
           loading={resultsLoaded === false}
         />
@@ -252,10 +250,12 @@ export class HomeBase extends React.Component {
         <LandingAddonsCard
           addons={collections[2]}
           className="Home-FeaturedCollection"
-          header={i18n.gettext('Translation tools')}
-          footerText={i18n.gettext('See more translation tools')}
+          header={i18n.gettext('Tame your tabs')}
+          footerText={
+            i18n.gettext('See more tab extensions')
+          }
           footerLink={
-            `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+            `/collections/${COLLECTIONS_TO_FETCH[2].username}/${COLLECTIONS_TO_FETCH[2].slug}/`
           }
           loading={resultsLoaded === false}
         />

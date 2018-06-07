@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-05-26 11:47+0000\n"
 "Last-Translator: Besnik Bleta <besnik@programeshqip.org>\n"
 "Language-Team: none\n"
@@ -14,104 +14,108 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddAddonToCollection/index.js:167
+#: src/amo/components/AddAddonToCollection/index.js:168
 msgid "Loading…"
 msgstr "Po ngarkohet…"
 
-#: src/amo/components/AddAddonToCollection/index.js:169
+#: src/amo/components/AddAddonToCollection/index.js:170
 msgid "Adding…"
 msgstr "Po shtohet…"
 
-#: src/amo/components/AddAddonToCollection/index.js:185
+#: src/amo/components/AddAddonToCollection/index.js:186
 msgid "Select a collection…"
 msgstr "Përzgjidhni një koleksion…"
 
-#: src/amo/components/AddAddonToCollection/index.js:190
+#: src/amo/components/AddAddonToCollection/index.js:191
 msgid "Create new collection"
 msgstr "Krijoni koleksion të ri"
 
-#: src/amo/components/AddAddonToCollection/index.js:233
+#: src/amo/components/AddAddonToCollection/index.js:234
 msgid "Added to %(collectionName)s"
 msgstr "U shtua te %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:249
+#: src/amo/components/AddAddonToCollection/index.js:250
 msgid "Add to…"
 msgstr "Shtojeni te…"
 
-#: src/amo/components/AddAddonToCollection/index.js:254
-#: src/amo/components/CollectionManager/index.js:335
+#: src/amo/components/AddAddonToCollection/index.js:255
+#: src/amo/components/CollectionManager/index.js:371
 msgid "Add to collection"
 msgstr "Shtojeni në koleksion"
 
-#: src/amo/components/Addon/index.js:185
-msgid "Cancel preview"
-msgstr "Anulojeni paraparjen"
+#: src/amo/components/Addon/index.js:194
+msgid "Preview of %(title)s"
+msgstr ""
 
-#: src/amo/components/Addon/index.js:185
+#: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
 msgstr "Prekeni për paraparje"
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:200
+msgid "Cancel preview"
+msgstr "Anulojeni paraparjen"
+
+#: src/amo/components/Addon/index.js:257
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr ""
 "Kjo shtojcë nuk mund të vlerësohet, ngaqë s’ka versione të saj të publikuar."
 
-#: src/amo/components/Addon/index.js:245
+#: src/amo/components/Addon/index.js:266
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Lexoni %(count)s shqyrtim"
 msgstr[1] "Lexoni krejt %(count)s shqyrtimet"
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:282
 msgid "No reviews yet"
 msgstr "Ende pa shqyrtime"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:291
 msgid "Rate your experience"
 msgstr "Vlerësoni rastin tuaj"
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:309
 msgid "About this dictionary"
 msgstr "Rreth këtij fjalori"
 
-#: src/amo/components/Addon/index.js:291
+#: src/amo/components/Addon/index.js:312
 msgid "About this extension"
 msgstr "Rreth këtij zgjerimi"
 
-#: src/amo/components/Addon/index.js:294
+#: src/amo/components/Addon/index.js:315
 msgid "About this language pack"
 msgstr "Rreth kësaj pakete gjuhësore"
 
-#: src/amo/components/Addon/index.js:297
+#: src/amo/components/Addon/index.js:318
 msgid "About this search plugin"
 msgstr "Rreth kësaj shtojce kërkimesh"
 
-#: src/amo/components/Addon/index.js:300
+#: src/amo/components/Addon/index.js:322
 msgid "About this theme"
 msgstr "Rreth kësaj teme"
 
-#: src/amo/components/Addon/index.js:303
+#: src/amo/components/Addon/index.js:325
 msgid "About this add-on"
 msgstr "Rreth kësaj shtese"
 
-#: src/amo/components/Addon/index.js:342
+#: src/amo/components/Addon/index.js:364
 msgid "Release notes for %(addonVersion)s"
 msgstr "Shënime hedhjeje në qarkullim për %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:440
+#: src/amo/components/Addon/index.js:464
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)snga %(authorList)s%(endSpan)s"
 
-#: src/amo/components/Addon/index.js:528
+#: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
 msgstr ""
 
-#: src/amo/components/Addon/index.js:534
+#: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
 msgstr "Tejtëdhëna Zgjerimi"
 
-#: src/amo/components/Addon/index.js:551
+#: src/amo/components/Addon/index.js:576
 msgid "Screenshots"
 msgstr "Foto ekrani"
 
@@ -275,7 +279,7 @@ msgstr "Më tepër të dhëna"
 
 #: src/amo/components/AddonMoreInfo/index.js:46
 #: src/amo/components/UserProfile/index.js:149
-#: src/amo/components/UserProfileEdit/index.js:479
+#: src/amo/components/UserProfileEdit/index.js:554
 msgid "Homepage"
 msgstr "Faqe hyrëse"
 
@@ -399,83 +403,83 @@ msgstr "Përpuno shqyrtimin tim"
 msgid "Reply to this review"
 msgstr "Përgjigjjuni këtij shqyrtimi"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by %(author)s"
 msgstr "Më tepër fjalorë nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:123
+#: src/amo/components/AddonsByAuthorsCard/index.js:125
 msgid "More dictionaries by these translators"
 msgstr "Më tepër fjalorë nga këta përkthyes"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "Dictionaries by %(author)s"
 msgstr "Fjalorë nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "Dictionaries by these translators"
 msgstr "Fjalorë nga këta përkthyes"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
 msgstr "Më tepër zgjerime nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More extensions by these developers"
 msgstr "Më tepër zgjerime nga këta zhvillues"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:144
+#: src/amo/components/AddonsByAuthorsCard/index.js:146
 msgid "Extensions by %(author)s"
 msgstr "Zgjerime nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "Extensions by these developers"
 msgstr "Zgjerime nga këta zhvillues"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:154
+#: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
 msgstr "Më tepër paketa gjuhësore nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More language packs by these translators"
 msgstr "Më tepër paketa gjuhësore nga këta përkthyes"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:161
+#: src/amo/components/AddonsByAuthorsCard/index.js:163
 msgid "Language packs by %(author)s"
 msgstr "Paketa gjuhësore nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:164
+#: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
 msgstr "Paketa gjuhësore nga këta përkthyes"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:171
+#: src/amo/components/AddonsByAuthorsCard/index.js:174
 msgid "More themes by %(author)s"
 msgstr "Më tepër tema nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:174
+#: src/amo/components/AddonsByAuthorsCard/index.js:177
 msgid "More themes by these artists"
 msgstr "Më tepër tema nga këta artistë"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:178
+#: src/amo/components/AddonsByAuthorsCard/index.js:181
 msgid "Themes by %(author)s"
 msgstr "Tema nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:181
+#: src/amo/components/AddonsByAuthorsCard/index.js:184
 msgid "Themes by these artists"
 msgstr "Tema nga këta artistë"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:188
+#: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
 msgstr "Më tepër shtesa nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:191
+#: src/amo/components/AddonsByAuthorsCard/index.js:194
 msgid "More add-ons by these developers"
 msgstr "Më tepër shtesa nga këta zhvillues"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:195
+#: src/amo/components/AddonsByAuthorsCard/index.js:198
 msgid "Add-ons by %(author)s"
 msgstr "Shtesa nga %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:198
+#: src/amo/components/AddonsByAuthorsCard/index.js:201
 msgid "Add-ons by these developers"
 msgstr "Shtesa nga këta zhvillues"
 
@@ -645,38 +649,40 @@ msgstr "Bëni hyrjen, që të krijoni një koleksion"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:289
 #, fuzzy
 msgid "Save collection"
 msgstr "Ruaje Koleksionin"
 
-#: src/amo/components/CollectionManager/index.js:263
+#: src/amo/components/CollectionManager/index.js:289
 #, fuzzy
 msgid "Create collection"
 msgstr "Krijoni koleksion të ri"
 
-#: src/amo/components/CollectionManager/index.js:275
+#: src/amo/components/CollectionManager/index.js:301
 msgid "Collection name"
 msgstr "Emër koleksioni"
 
-#: src/amo/components/CollectionManager/index.js:287
+#: src/amo/components/CollectionManager/index.js:313
 msgid "Description"
 msgstr "Përshkrim"
 
-#: src/amo/components/CollectionManager/index.js:298
+#: src/amo/components/CollectionManager/index.js:324
 msgid "Custom URL"
 msgstr "URL Vetjake"
 
-#: src/amo/components/CollectionManager/index.js:324
+#: src/amo/components/CollectionManager/index.js:358
 #, fuzzy
 msgid "Added to collection"
 msgstr "Shtojeni në koleksion"
 
-#: src/amo/components/CollectionManager/index.js:331
+#: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
 msgstr "Gjeni një shtesë që ta përfshini te ky koleksion"
 
-#: src/amo/components/CollectionManager/index.js:351
+#: src/amo/components/CollectionManager/index.js:387
+#: src/amo/components/UserProfileEdit/index.js:762
+#: src/ui/components/ConfirmButton/index.js:99
 #: src/ui/components/DismissibleTextForm/index.js:125
 msgid "Cancel"
 msgstr "Anuloje"
@@ -988,12 +994,12 @@ msgid "View My Collections"
 msgstr "Shihni Koleksionet e Mia"
 
 #: src/amo/components/Header/index.js:116
-#: src/amo/components/UserProfileEdit/index.js:363
+#: src/amo/components/UserProfileEdit/index.js:438
 msgid "View My Profile"
 msgstr "Shihni Profilin Tim"
 
 #: src/amo/components/Header/index.js:124
-#: src/amo/components/UserProfileEdit/index.js:370
+#: src/amo/components/UserProfileEdit/index.js:445
 msgid "Edit My Profile"
 msgstr "Përpunim i Profilit Tim"
 
@@ -1728,15 +1734,15 @@ msgstr "Vetëm shtesa të zgjedhura"
 msgid "Go to the add-on page"
 msgstr "Shko te faqja e shtesës"
 
-#: src/amo/components/SearchResult/index.js:122
+#: src/amo/components/SearchResult/index.js:107
+msgid "No theme preview available"
+msgstr "S’ka paraparje teme"
+
+#: src/amo/components/SearchResult/index.js:135
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s përdorues"
 msgstr[1] "%(total)s përdorues"
-
-#: src/amo/components/SearchResult/index.js:94
-msgid "No theme preview available"
-msgstr "S’ka paraparje teme"
 
 #: src/amo/components/SearchResults.js:39
 msgid "Searching…"
@@ -2142,17 +2148,17 @@ msgid "Add-ons Home Page"
 msgstr "Faqe Hyrëse e Shtesës"
 
 #: src/amo/components/UserProfile/index.js:127
-#: src/amo/components/UserProfileEdit/index.js:351
+#: src/amo/components/UserProfileEdit/index.js:426
 msgid "User Profile for %(user)s"
 msgstr "Profil Përdoruesi për %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159
-#: src/amo/components/UserProfileEdit/index.js:496
+#: src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:167
-#: src/amo/components/UserProfileEdit/index.js:508
+#: src/amo/components/UserProfileEdit/index.js:583
 msgid "Occupation"
 msgstr ""
 
@@ -2172,131 +2178,179 @@ msgstr "Vlerësim mesatar për shtesat e programuesit"
 msgid "Edit profile"
 msgstr "Përpunoni profilin"
 
-#: src/amo/components/UserProfileEdit/index.js:160
+#: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:167
+#: src/amo/components/UserProfileEdit/index.js:185
 msgid "Picture successfully deleted"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:320
+#: src/amo/components/UserProfileEdit/index.js:395
 msgid "Log in to edit the profile"
 msgstr "Bëni hyrjen, që të përpunoni profilin"
 
-#: src/amo/components/UserProfileEdit/index.js:364
+#: src/amo/components/UserProfileEdit/index.js:439
 msgid "View user's profile"
 msgstr "Shihni profilin e përdoruesit"
 
-#: src/amo/components/UserProfileEdit/index.js:371
+#: src/amo/components/UserProfileEdit/index.js:446
 msgid "Edit user's profile"
 msgstr "Përpunoni profilin e përdoruesit"
 
-#: src/amo/components/UserProfileEdit/index.js:390
+#: src/amo/components/UserProfileEdit/index.js:465
 msgid "Account"
 msgstr "Llogari"
 
-#: src/amo/components/UserProfileEdit/index.js:391
+#: src/amo/components/UserProfileEdit/index.js:466
 msgid "Account for %(username)s"
 msgstr "Llogari për %(username)s"
 
-#: src/amo/components/UserProfileEdit/index.js:397
+#: src/amo/components/UserProfileEdit/index.js:472
 msgid "Username"
 msgstr "Emër përdoruesi"
 
-#: src/amo/components/UserProfileEdit/index.js:408
+#: src/amo/components/UserProfileEdit/index.js:483
 msgid "Email address cannot be changed here"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:410
+#: src/amo/components/UserProfileEdit/index.js:485
 msgid "Email Address"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:426
+#: src/amo/components/UserProfileEdit/index.js:501
 msgid ""
 "You can change your email address on Firefox Accounts. %(startLink)sNeed "
 "help?%(endLink)s"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:442
+#: src/amo/components/UserProfileEdit/index.js:517
 msgid "Profile"
 msgstr "Profil"
 
-#: src/amo/components/UserProfileEdit/index.js:445
+#: src/amo/components/UserProfileEdit/index.js:520
 msgid ""
 "Tell users a bit more information about yourself. These fields are optional, "
 "but they'll help other users get to know you better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:450
+#: src/amo/components/UserProfileEdit/index.js:525
 msgid ""
 "Tell users a bit more information about this user. These fields are "
 "optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:459
+#: src/amo/components/UserProfileEdit/index.js:534
 msgid "Display Name"
 msgstr "Emër Në Ekran"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:566
 msgid "This URL will only be visible for users who are developers."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:530
+#: src/amo/components/UserProfileEdit/index.js:605
 msgid "Biography"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:533
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "Introduce yourself to the community if you like"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:536
+#: src/amo/components/UserProfileEdit/index.js:611
 msgid "Introduce %(username)s to the community"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:549
+#: src/amo/components/UserProfileEdit/index.js:624
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:571
+#: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:574
+#: src/amo/components/UserProfileEdit/index.js:649
 msgid ""
 "From time to time, Mozilla may send you email about upcoming releases and "
 "add-on events. Please select the topics you are interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:578
+#: src/amo/components/UserProfileEdit/index.js:653
 msgid ""
 "From time to time, Mozilla may send this user email about upcoming releases "
 "and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:589
+#: src/amo/components/UserProfileEdit/index.js:667
 msgid ""
 "Mozilla reserves the right to contact you individually about specific "
 "concerns with your hosted add-ons."
 msgstr ""
 
-#: src/amo/components/UserProfileEdit/index.js:606
+#: src/amo/components/UserProfileEdit/index.js:684
 msgid "Updating your profile…"
 msgstr "Po përditësohet profili juaj…"
 
-#: src/amo/components/UserProfileEdit/index.js:607
+#: src/amo/components/UserProfileEdit/index.js:685
 msgid "Update my profile"
 msgstr "Përditësoje profilin tim"
 
-#: src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfileEdit/index.js:687
 #, fuzzy
 msgid "Updating user's profile…"
 msgstr "Po përditësohet përgjigja"
 
-#: src/amo/components/UserProfileEdit/index.js:610
+#: src/amo/components/UserProfileEdit/index.js:688
 #, fuzzy
 msgid "Update user's profile"
 msgstr "Përditësoni përgjigjen"
+
+#: src/amo/components/UserProfileEdit/index.js:700
+#, fuzzy
+msgid "Delete my profile"
+msgstr "Përditësoje profilin tim"
+
+#: src/amo/components/UserProfileEdit/index.js:701
+#, fuzzy
+msgid "Delete user's profile"
+msgstr "Përditësoni përgjigjen"
+
+#: src/amo/components/UserProfileEdit/index.js:710
+msgid "Attention: You are about to delete your profile. Are you sure?"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:712
+msgid "Attention: You are about to delete a profile. Are you sure?"
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:722
+msgid ""
+"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the "
+"following data will be removed: profile picture, profile details (including "
+"username, email, display name, location, home page, biography, occupation) "
+"and notification preferences. Other data such as ratings and reviews will be "
+"anonymized."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:738
+msgid ""
+"Important: if you own add-ons, you have to transfer them to other users or "
+"to delete them before you can delete your profile."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:742
+msgid ""
+"Important: a user profile can only be deleted if the user does not own any "
+"add-ons."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:754
+#, fuzzy
+msgid "Yes, delete my profile"
+msgstr "Përditësoje profilin tim"
+
+#: src/amo/components/UserProfileEdit/index.js:755
+msgid "Yes, delete this profile"
+msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid ""
@@ -2354,7 +2408,11 @@ msgstr "Profil"
 msgid "Choose photo..."
 msgstr ""
 
-#: src/amo/components/UserProfileEditPicture/index.js:76
+#: src/amo/components/UserProfileEditPicture/index.js:74
+msgid "Do you really want to delete this picture?"
+msgstr ""
+
+#: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
 msgstr ""
 
@@ -2379,12 +2437,13 @@ msgstr "Kod gabimi: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Na ndjeni, por s’gjejmë dot ndonjë gjë te URL-ja që dhatë."
 
-#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
 msgstr "Instaloni Temë"
 
-#: src/core/components/InstallButton/index.js:261
-#: src/core/components/InstallButton/index.js:284
+#: src/core/components/InstallButton/index.js:262
+#: src/core/components/InstallButton/index.js:275
 msgid "Add to Firefox"
 msgstr "Shtoje te Firefox-i"
 
@@ -2440,6 +2499,10 @@ msgstr "Tani mund ta hapni %(name)s që nga paneli."
 #: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "OK!"
+
+#: src/ui/components/ConfirmButton/index.js:92
+msgid "Confirm"
+msgstr ""
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."

@@ -3,8 +3,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-05-30 14:34+0000\n"
 "PO-Revision-Date: 2018-06-02 15:38+0000\n"
+=======
+"POT-Creation-Date: 2018-06-05 18:57+0000\n"
+"PO-Revision-Date: 2018-06-07 12:19+0000\n"
+>>>>>>> master
 "Last-Translator: Alexander Slovesnik <unghost@mozilla-russia.org>\n"
 "Language-Team: none\n"
 "Language: ru\n"
@@ -14,103 +19,115 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Pontoon\n"
 
-#: src/amo/components/AddAddonToCollection/index.js:167
+#: src/amo/components/AddAddonToCollection/index.js:168
 msgid "Loading…"
 msgstr "Загрузка…"
 
-#: src/amo/components/AddAddonToCollection/index.js:169
+#: src/amo/components/AddAddonToCollection/index.js:170
 msgid "Adding…"
 msgstr "Добавление…"
 
-#: src/amo/components/AddAddonToCollection/index.js:185
+#: src/amo/components/AddAddonToCollection/index.js:186
 msgid "Select a collection…"
 msgstr "Выбрать подборку…"
 
-#: src/amo/components/AddAddonToCollection/index.js:190
+#: src/amo/components/AddAddonToCollection/index.js:191
 msgid "Create new collection"
 msgstr "Создать новую подборку"
 
-#: src/amo/components/AddAddonToCollection/index.js:233
+#: src/amo/components/AddAddonToCollection/index.js:234
 msgid "Added to %(collectionName)s"
 msgstr "Добавлено в %(collectionName)s"
 
 # This is a header for a list meaning Add to [some collection name]
-#: src/amo/components/AddAddonToCollection/index.js:249
+#: src/amo/components/AddAddonToCollection/index.js:250
 msgid "Add to…"
 msgstr "Добавить в…"
 
+<<<<<<< HEAD
 #: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
+#: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 msgid "Add to collection"
 msgstr "Добавить в подборку"
 
-#: src/amo/components/Addon/index.js:185
-msgid "Cancel preview"
-msgstr "Отменить предпросмотр"
+#: src/amo/components/Addon/index.js:194
+msgid "Preview of %(title)s"
+msgstr "Предпросмотр %(title)s"
 
-#: src/amo/components/Addon/index.js:185
+#: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
 msgstr "Нажмите для предпросмотра"
 
-#: src/amo/components/Addon/index.js:236
+#: src/amo/components/Addon/index.js:200
+msgid "Cancel preview"
+msgstr "Отменить предпросмотр"
+
+#: src/amo/components/Addon/index.js:257
 msgid "This add-on cannot be rated because no versions have been published."
 msgstr "Это дополнение нельзя оценить, так как оно не имеет опубликованных версий."
 
-#: src/amo/components/Addon/index.js:245
+#: src/amo/components/Addon/index.js:266
 msgid "Read %(count)s review"
 msgid_plural "Read all %(count)s reviews"
 msgstr[0] "Прочитать %(count)s отзыв"
 msgstr[1] "Прочитать %(count)s отзыва"
 msgstr[2] "Прочитать %(count)s отзывов"
 
-#: src/amo/components/Addon/index.js:261
+#: src/amo/components/Addon/index.js:282
 msgid "No reviews yet"
 msgstr "Пока отзывов нет"
 
-#: src/amo/components/Addon/index.js:270
+#: src/amo/components/Addon/index.js:291
 msgid "Rate your experience"
 msgstr "Оцените работу расширения"
 
-#: src/amo/components/Addon/index.js:288
+#: src/amo/components/Addon/index.js:309
 msgid "About this dictionary"
 msgstr "Об этом словаре"
 
-#: src/amo/components/Addon/index.js:291
+#: src/amo/components/Addon/index.js:312
 msgid "About this extension"
 msgstr "Об этом расширении"
 
-#: src/amo/components/Addon/index.js:294
+#: src/amo/components/Addon/index.js:315
 msgid "About this language pack"
 msgstr "Об этом языковом пакете"
 
-#: src/amo/components/Addon/index.js:297
+#: src/amo/components/Addon/index.js:318
 msgid "About this search plugin"
 msgstr "Об этом поисковом плагине"
 
-#: src/amo/components/Addon/index.js:300
+#: src/amo/components/Addon/index.js:322
 msgid "About this theme"
 msgstr "Об этой теме"
 
-#: src/amo/components/Addon/index.js:303
+#: src/amo/components/Addon/index.js:325
 msgid "About this add-on"
 msgstr "Об этом дополнении"
 
-#: src/amo/components/Addon/index.js:342
+#: src/amo/components/Addon/index.js:364
 msgid "Release notes for %(addonVersion)s"
 msgstr "Примечания к выпуску %(addonVersion)s"
 
-#: src/amo/components/Addon/index.js:440
+#: src/amo/components/Addon/index.js:464
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s от %(authorList)s %(endSpan)s"
 
+<<<<<<< HEAD
 #: src/amo/components/Addon/index.js:528
+=======
+#: src/amo/components/Addon/index.js:553
+>>>>>>> master
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Только в Firefox — Загрузить Firefox сейчас"
 
-#: src/amo/components/Addon/index.js:534
+#: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
 msgstr "Метаданные расширения"
 
-#: src/amo/components/Addon/index.js:551
+#: src/amo/components/Addon/index.js:576
 msgid "Screenshots"
 msgstr "Скриншоты"
 
@@ -260,7 +277,11 @@ msgstr "Статистика использования"
 msgid "More information"
 msgstr "Больше информации"
 
+<<<<<<< HEAD
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "Домашняя страница"
 
@@ -375,83 +396,83 @@ msgstr "Редактировать мой отзыв"
 msgid "Reply to this review"
 msgstr "Ответить на отзыв"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:120
+#: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by %(author)s"
 msgstr "Другие словари от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:123
+#: src/amo/components/AddonsByAuthorsCard/index.js:125
 msgid "More dictionaries by these translators"
 msgstr "Другие словари от этих переводчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:127
+#: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "Dictionaries by %(author)s"
 msgstr "Словари от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:130
+#: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "Dictionaries by these translators"
 msgstr "Словари от этих переводчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:137
+#: src/amo/components/AddonsByAuthorsCard/index.js:139
 msgid "More extensions by %(author)s"
 msgstr "Другие расширения от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:140
+#: src/amo/components/AddonsByAuthorsCard/index.js:142
 msgid "More extensions by these developers"
 msgstr "Другие расширения от этих разработчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:144
+#: src/amo/components/AddonsByAuthorsCard/index.js:146
 msgid "Extensions by %(author)s"
 msgstr "Расширения от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:147
+#: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "Extensions by these developers"
 msgstr "Расширения от этих разработчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:154
+#: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
 msgstr "Другие локализации от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:157
+#: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More language packs by these translators"
 msgstr "Другие локализации от этих переводчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:161
+#: src/amo/components/AddonsByAuthorsCard/index.js:163
 msgid "Language packs by %(author)s"
 msgstr "Языковые пакеты от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:164
+#: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
 msgstr "Языковые пакеты от этих переводчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:171
+#: src/amo/components/AddonsByAuthorsCard/index.js:174
 msgid "More themes by %(author)s"
 msgstr "Другие темы от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:174
+#: src/amo/components/AddonsByAuthorsCard/index.js:177
 msgid "More themes by these artists"
 msgstr "Другие темы от этих художников"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:178
+#: src/amo/components/AddonsByAuthorsCard/index.js:181
 msgid "Themes by %(author)s"
 msgstr "Темы от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:181
+#: src/amo/components/AddonsByAuthorsCard/index.js:184
 msgid "Themes by these artists"
 msgstr "Темы от этих художников"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:188
+#: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
 msgstr "Другие дополнения от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:191
+#: src/amo/components/AddonsByAuthorsCard/index.js:194
 msgid "More add-ons by these developers"
 msgstr "Другие дополнения от этих разработчиков"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:195
+#: src/amo/components/AddonsByAuthorsCard/index.js:198
 msgid "Add-ons by %(author)s"
 msgstr "Дополнения от %(author)s"
 
-#: src/amo/components/AddonsByAuthorsCard/index.js:198
+#: src/amo/components/AddonsByAuthorsCard/index.js:201
 msgid "Add-ons by these developers"
 msgstr "Дополнения от этих разработчиков"
 
@@ -591,35 +612,51 @@ msgstr "Войдите, чтобы создать подборку"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Сначала создайте свою подборку, а затем добавляйте в неё расширения и темы."
 
+<<<<<<< HEAD
 #: src/amo/components/CollectionManager/index.js:263
 msgid "Save collection"
 msgstr "Сохранить подборку"
 
 #: src/amo/components/CollectionManager/index.js:263
+=======
+#: src/amo/components/CollectionManager/index.js:289
+msgid "Save collection"
+msgstr "Сохранить подборку"
+
+#: src/amo/components/CollectionManager/index.js:289
+>>>>>>> master
 msgid "Create collection"
 msgstr "Создать подборку"
 
-#: src/amo/components/CollectionManager/index.js:275
+#: src/amo/components/CollectionManager/index.js:301
 msgid "Collection name"
 msgstr "Имя подборки"
 
-#: src/amo/components/CollectionManager/index.js:287
+#: src/amo/components/CollectionManager/index.js:313
 msgid "Description"
 msgstr "Описание"
 
-#: src/amo/components/CollectionManager/index.js:298
+#: src/amo/components/CollectionManager/index.js:324
 msgid "Custom URL"
 msgstr "Пользовательский URL"
 
+<<<<<<< HEAD
 #: src/amo/components/CollectionManager/index.js:324
+=======
+#: src/amo/components/CollectionManager/index.js:358
+>>>>>>> master
 msgid "Added to collection"
 msgstr "Добавлено в подборку"
 
-#: src/amo/components/CollectionManager/index.js:331
+#: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
 msgstr "Найти дополнение для включения в эту подборку"
 
+<<<<<<< HEAD
 #: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
+#: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -879,11 +916,19 @@ msgstr "Моя учётная запись"
 msgid "View My Collections"
 msgstr "Посмотреть мои подборки"
 
+<<<<<<< HEAD
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
 msgid "View My Profile"
 msgstr "Просмотреть мой профиль"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+=======
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
+msgid "View My Profile"
+msgstr "Просмотреть мой профиль"
+
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 msgid "Edit My Profile"
 msgstr "Изменить мой профиль"
 
@@ -1542,16 +1587,16 @@ msgstr "Только избранные дополнения"
 msgid "Go to the add-on page"
 msgstr "Перейти на страницу дополнения"
 
-#: src/amo/components/SearchResult/index.js:122
+#: src/amo/components/SearchResult/index.js:107
+msgid "No theme preview available"
+msgstr "Предпросмотр тем недоступен"
+
+#: src/amo/components/SearchResult/index.js:135
 msgid "%(total)s user"
 msgid_plural "%(total)s users"
 msgstr[0] "%(total)s пользователь"
 msgstr[1] "%(total)s пользователя"
 msgstr[2] "%(total)s пользователей"
-
-#: src/amo/components/SearchResult/index.js:94
-msgid "No theme preview available"
-msgstr "Предпросмотр тем недоступен"
 
 #: src/amo/components/SearchResults.js:39
 msgid "Searching…"
@@ -1844,6 +1889,7 @@ msgstr "Просмотреть все темы"
 msgid "Add-ons Home Page"
 msgstr "Домашняя страница дополнений"
 
+<<<<<<< HEAD
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
 msgid "User Profile for %(user)s"
 msgstr "Профиль пользователя %(user)s"
@@ -1853,6 +1899,17 @@ msgid "Location"
 msgstr "Местоположение"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
+msgid "User Profile for %(user)s"
+msgstr "Профиль пользователя %(user)s"
+
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
+msgid "Location"
+msgstr "Местоположение"
+
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr "Род деятельности"
 
@@ -1872,86 +1929,103 @@ msgstr "Средний рейтинг дополнений разработчи�
 msgid "Edit profile"
 msgstr "Изменить профиль"
 
-#: src/amo/components/UserProfileEdit/index.js:160
+#: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
 msgstr "Профиль успешно обновлен"
 
+<<<<<<< HEAD
 #: src/amo/components/UserProfileEdit/index.js:167
+=======
+#: src/amo/components/UserProfileEdit/index.js:185
+>>>>>>> master
 msgid "Picture successfully deleted"
 msgstr "Изображение успешно удалено"
 
-#: src/amo/components/UserProfileEdit/index.js:320
+#: src/amo/components/UserProfileEdit/index.js:395
 msgid "Log in to edit the profile"
 msgstr "Войдите, чтобы изменить профиль"
 
-#: src/amo/components/UserProfileEdit/index.js:364
+#: src/amo/components/UserProfileEdit/index.js:439
 msgid "View user's profile"
 msgstr "Просмотреть профиль пользователя"
 
-#: src/amo/components/UserProfileEdit/index.js:371
+#: src/amo/components/UserProfileEdit/index.js:446
 msgid "Edit user's profile"
 msgstr "Изменить профиль пользователя"
 
-#: src/amo/components/UserProfileEdit/index.js:390
+#: src/amo/components/UserProfileEdit/index.js:465
 msgid "Account"
 msgstr "Учётная запись"
 
-#: src/amo/components/UserProfileEdit/index.js:391
+#: src/amo/components/UserProfileEdit/index.js:466
 msgid "Account for %(username)s"
 msgstr "Учетная запись для %(username)s"
 
-#: src/amo/components/UserProfileEdit/index.js:397
+#: src/amo/components/UserProfileEdit/index.js:472
 msgid "Username"
 msgstr "Имя пользователя"
 
-#: src/amo/components/UserProfileEdit/index.js:408
+#: src/amo/components/UserProfileEdit/index.js:483
 msgid "Email address cannot be changed here"
 msgstr "Здесь нельзя изменить адрес электронной почты"
 
-#: src/amo/components/UserProfileEdit/index.js:410
+#: src/amo/components/UserProfileEdit/index.js:485
 msgid "Email Address"
 msgstr "Адрес электронной почты"
 
+<<<<<<< HEAD
 #: src/amo/components/UserProfileEdit/index.js:426
+=======
+#: src/amo/components/UserProfileEdit/index.js:501
+>>>>>>> master
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr "Вы можете изменить свой адрес электронной почты в Аккаунте Firefox. %(startLink)sНужна помощь?%(endLink)s"
 
-#: src/amo/components/UserProfileEdit/index.js:442
+#: src/amo/components/UserProfileEdit/index.js:517
 msgid "Profile"
 msgstr "Профиль"
 
+<<<<<<< HEAD
 #: src/amo/components/UserProfileEdit/index.js:445
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr "Расскажите пользователям немного о себе. Эти поля являются необязательными, но они помогут другим пользователям лучше вас узнать."
 
 #: src/amo/components/UserProfileEdit/index.js:450
+=======
+#: src/amo/components/UserProfileEdit/index.js:520
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr "Расскажите пользователям немного о себе. Эти поля являются необязательными, но они помогут другим пользователям лучше вас узнать."
+
+#: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr "Расскажите пользователям немного об этом пользователе. Эти поля являются необязательными, но они помогут другим пользователям лучше узнать %(username)s."
 
-#: src/amo/components/UserProfileEdit/index.js:459
+#: src/amo/components/UserProfileEdit/index.js:534
 msgid "Display Name"
 msgstr "Отображаемое имя"
 
-#: src/amo/components/UserProfileEdit/index.js:491
+#: src/amo/components/UserProfileEdit/index.js:566
 msgid "This URL will only be visible for users who are developers."
 msgstr "Этот URL видим только пользователям, являющимся разработчиками."
 
-#: src/amo/components/UserProfileEdit/index.js:530
+#: src/amo/components/UserProfileEdit/index.js:605
 msgid "Biography"
 msgstr "Биография"
 
-#: src/amo/components/UserProfileEdit/index.js:533
+#: src/amo/components/UserProfileEdit/index.js:608
 msgid "Introduce yourself to the community if you like"
 msgstr "Если хотите, представьте себя сообществу"
 
-#: src/amo/components/UserProfileEdit/index.js:536
+#: src/amo/components/UserProfileEdit/index.js:611
 msgid "Introduce %(username)s to the community"
 msgstr "Представьте %(username)s сообществу"
 
-#: src/amo/components/UserProfileEdit/index.js:549
+#: src/amo/components/UserProfileEdit/index.js:624
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Поддерживаются некоторые теги HTML: %(htmlTags)s. Ссылки запрещены."
 
+<<<<<<< HEAD
 #: src/amo/components/UserProfileEdit/index.js:571
 msgid "Notifications"
 msgstr "Уведомления"
@@ -1961,29 +2035,88 @@ msgid "From time to time, Mozilla may send you email about upcoming releases and
 msgstr "Время от времени Mozilla может посылать вам письма о выходящих вскоре релизах и событиях, касающихся дополнений. Пожалуйста, выберите темы, в которых вы заинтересованы."
 
 #: src/amo/components/UserProfileEdit/index.js:578
+=======
+#: src/amo/components/UserProfileEdit/index.js:646
+msgid "Notifications"
+msgstr "Уведомления"
+
+#: src/amo/components/UserProfileEdit/index.js:649
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "Время от времени Mozilla может посылать вам письма о выходящих вскоре релизах и событиях, касающихся дополнений. Пожалуйста, выберите темы, в которых вы заинтересованы."
+
+#: src/amo/components/UserProfileEdit/index.js:653
+>>>>>>> master
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 "Время от времени Mozilla может посылать этому пользователю письма о выходящих вскоре релизах и событиях, касающихся дополнений. Пожалуйста, выберите темы, в которых он может быть заинтересован."
 
+<<<<<<< HEAD
 #: src/amo/components/UserProfileEdit/index.js:589
+=======
+#: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla оставляет за собой право связаться с вами лично, в случае, если возникнут вопросы по размещенным вами дополнениям."
 
-#: src/amo/components/UserProfileEdit/index.js:606
+#: src/amo/components/UserProfileEdit/index.js:684
 msgid "Updating your profile…"
 msgstr "Обновление вашего профиля…"
 
-#: src/amo/components/UserProfileEdit/index.js:607
+#: src/amo/components/UserProfileEdit/index.js:685
 msgid "Update my profile"
 msgstr "Обновить мой профиль"
 
-#: src/amo/components/UserProfileEdit/index.js:609
+#: src/amo/components/UserProfileEdit/index.js:687
 msgid "Updating user's profile…"
 msgstr "Обновление профиля пользователя…"
 
-#: src/amo/components/UserProfileEdit/index.js:610
+#: src/amo/components/UserProfileEdit/index.js:688
 msgid "Update user's profile"
 msgstr "Обновить профиль пользователя"
+
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEditNotifications/index.js:19
+msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
+msgstr "будьте в курсе новостей и событий, имеющих отношение к разработчикам дополнений (в том числе новостной рассылки about:addons)"
+=======
+#: src/amo/components/UserProfileEdit/index.js:700
+msgid "Delete my profile"
+msgstr "Удалить мой профиль"
+
+#: src/amo/components/UserProfileEdit/index.js:701
+msgid "Delete user's profile"
+msgstr "Удалить профиль пользователя"
+
+#: src/amo/components/UserProfileEdit/index.js:710
+msgid "Attention: You are about to delete your profile. Are you sure?"
+msgstr "Внимание: Вы собираетесь удалить свой профиль. Вы уверены?"
+
+#: src/amo/components/UserProfileEdit/index.js:712
+msgid "Attention: You are about to delete a profile. Are you sure?"
+msgstr "Внимание: Вы собираетесь удалить профиль. Вы уверены?"
+
+#: src/amo/components/UserProfileEdit/index.js:722
+msgid ""
+"If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
+"page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:738
+msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:742
+msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
+msgstr ""
+>>>>>>> master
+
+#: src/amo/components/UserProfileEdit/index.js:754
+msgid "Yes, delete my profile"
+msgstr "Да, удалить мой профиль"
+
+#: src/amo/components/UserProfileEdit/index.js:755
+msgid "Yes, delete this profile"
+msgstr "Да, удалить этот профиль"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2036,8 +2169,15 @@ msgstr "Фото профиля"
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
 msgstr "Выберите фото..."
+<<<<<<< HEAD
+=======
 
-#: src/amo/components/UserProfileEditPicture/index.js:76
+#: src/amo/components/UserProfileEditPicture/index.js:74
+msgid "Do you really want to delete this picture?"
+msgstr "Вы действительно хотите удалить эту картинку?"
+>>>>>>> master
+
+#: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
 msgstr "Удалить это изображение"
 
@@ -2057,11 +2197,15 @@ msgstr "Код ошибки: %(status)s."
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Извините, мы не смогли ничего найти по URL, который вы ввели."
 
-#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:236 src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
 msgstr "Установить тему"
 
+<<<<<<< HEAD
 #: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
+#: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "Добавить в Firefox"
 
@@ -2116,6 +2260,10 @@ msgstr "Теперь вы можете получить доступ к %(name)s
 #: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
 msgstr "ОК!"
+
+#: src/ui/components/ConfirmButton/index.js:92
+msgid "Confirm"
+msgstr "Подтвердить"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."

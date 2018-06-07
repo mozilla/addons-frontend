@@ -64,10 +64,11 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(0);
 
-    expect(shelf).toHaveProp('header', 'Tame your tabs');
-    expect(shelf).toHaveProp('footerText', 'See more tab extensions');
+    expect(shelf).toHaveProp('header', 'Translation tools');
+    expect(shelf).toHaveProp('footerText',
+      'See more translation tools');
     expect(shelf).toHaveProp('footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[0].user}/${COLLECTIONS_TO_FETCH[0].slug}/`
+      `/collections/${COLLECTIONS_TO_FETCH[0].username}/${COLLECTIONS_TO_FETCH[0].slug}/`
     );
     expect(shelf).toHaveProp('loading', true);
   });
@@ -78,11 +79,11 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(1);
 
-    expect(shelf).toHaveProp('header', 'Essential extensions');
+    expect(shelf).toHaveProp('header', 'Privacy matters');
     expect(shelf).toHaveProp('footerText',
-      'See more essential extensions');
+      'See more privacy extensions');
     expect(shelf).toHaveProp('footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[1].user}/${COLLECTIONS_TO_FETCH[1].slug}/`
+      `/collections/${COLLECTIONS_TO_FETCH[1].username}/${COLLECTIONS_TO_FETCH[1].slug}/`
     );
     expect(shelf).toHaveProp('loading', true);
   });
@@ -93,11 +94,10 @@ describe(__filename, () => {
     const shelves = root.find(LandingAddonsCard);
     const shelf = shelves.find('.Home-FeaturedCollection').at(2);
 
-    expect(shelf).toHaveProp('header', 'Translation tools');
-    expect(shelf).toHaveProp('footerText',
-      'See more translation tools');
+    expect(shelf).toHaveProp('header', 'Tame your tabs');
+    expect(shelf).toHaveProp('footerText', 'See more tab extensions');
     expect(shelf).toHaveProp('footerLink',
-      `/collections/${COLLECTIONS_TO_FETCH[2].user}/${COLLECTIONS_TO_FETCH[2].slug}/`
+      `/collections/${COLLECTIONS_TO_FETCH[2].username}/${COLLECTIONS_TO_FETCH[2].slug}/`
     );
     expect(shelf).toHaveProp('loading', true);
   });
