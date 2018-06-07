@@ -11,19 +11,22 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import Button from 'ui/components/Button';
+import ConfirmButton from 'ui/components/ConfirmButton';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
-  removeAddonFromCollection,
+  deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCurrentCollection,
+  removeAddonFromCollection,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
+  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -661,6 +664,30 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
   });
 
+  it('renders a delete button when user has `Collections:Edit` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+    const { onDelete } = wrapper.instance();
+    const button = wrapper.find(ConfirmButton);
+    expect(button).toHaveLength(1);
+    expect(button).toHaveClassName('Collection-delete-button');
+    expect(button).toHaveProp('buttonType', 'cancel');
+    expect(button)
+      .toHaveProp('message', 'Do you really want to delete this collection?');
+    expect(button).toHaveProp('onConfirm', onDelete);
+    expect(button.children()).toHaveText('Delete this collection');
+  });
+
   it('links to a Collection edit page', () => {
     // Turn off the enableNewCollectionsUI feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
@@ -739,6 +766,36 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+  });
+
+  it('renders a delete button when user is the collection owner', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
+      }),
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find(ConfirmButton)).toHaveLength(1);
+  });
+
+  it('does not render a delete button when user does not have permission', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: 99,
+      }),
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find(ConfirmButton)).toHaveLength(0);
   });
 
   it('passes a collection to CollectionManager when editing', () => {
@@ -883,6 +940,44 @@ describe(__filename, () => {
       page: 1,
       slug: collectionDetail.slug,
       username: collectionDetail.author.username,
+    }));
+  });
+
+  it('dispatches deleteCollection when onDelete is called', () => {
+    const authorUserId = 11;
+    const slug = 'some-slug';
+    const username = 'some-username';
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
+        authorUsername: username,
+        slug,
+      }),
+    }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const preventDefaultSpy = sinon.spy();
+    const errorHandler = createStubErrorHandler();
+
+    const wrapper = renderComponent({ errorHandler, store });
+
+    dispatchSpy.reset();
+
+    // This emulates a user clicking the delete button and confirming.
+    const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');
+    onDelete(
+      createFakeEvent({ preventDefault: preventDefaultSpy })
+    );
+
+    sinon.assert.calledOnce(preventDefaultSpy);
+    sinon.assert.callCount(dispatchSpy, 1);
+    sinon.assert.calledWith(dispatchSpy, deleteCollection({
+      errorHandlerId: errorHandler.id,
+      slug,
+      username,
     }));
   });
 

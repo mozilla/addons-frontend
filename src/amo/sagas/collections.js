@@ -326,6 +326,7 @@ export function* deleteCollection({
 
   try {
     const state = yield select(getState);
+    const { lang, clientApp } = state.api;
 
     const params: DeleteCollectionParams = {
       api: state.api,
@@ -334,10 +335,17 @@ export function* deleteCollection({
     };
     yield call(api.deleteCollection, params);
 
+    // Unload the collection from state.
+    yield put(deleteCollectionBySlug(slug));
+
     yield put(fetchUserCollectionsAction({
       errorHandlerId: errorHandler.id,
       username,
     }));
+    // Eventually we will redirect to the user's list of collections,
+    // but for now we'll just redirect to the home page.
+    // See: https://github.com/mozilla/addons-frontend/issues/3142
+    yield put(pushLocation(`/${lang}/${clientApp}`));
   } catch (error) {
     log.warn(`Failed to delete collection: ${error}`);
     yield put(errorHandler.createErrorAction(error));
