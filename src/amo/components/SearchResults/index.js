@@ -1,23 +1,24 @@
+/* @flow */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 
 import AddonsCard from 'amo/components/AddonsCard';
 import { INSTALL_SOURCE_SEARCH } from 'core/constants';
 import translate from 'core/i18n/translate';
 import { hasSearchFilters } from 'core/searchUtils';
+import type { I18nType } from 'core/types/i18n';
 
 
-class SearchResults extends React.Component {
-  static propTypes = {
-    count: PropTypes.number,
-    filters: PropTypes.object,
-    i18n: PropTypes.object.isRequired,
-    loading: PropTypes.bool,
-    paginator: PropTypes.node,
-    results: PropTypes.arrayOf(PropTypes.object),
-  }
+type Props = {|
+  count: number,
+  filters: Object,
+  i18n: I18nType,
+  loading: boolean,
+  paginator?: React.Node,
+  results: Array<Object>,
+|};
 
+export class SearchResultsBase extends React.Component<Props> {
   static defaultProps = {
     count: 0,
     filters: {},
@@ -33,17 +34,16 @@ class SearchResults extends React.Component {
 
     if (loading) {
       loadingMessage = (
-        <div
-          className="visually-hidden"
-          ref={(ref) => { this.loadingText = ref; }}
-        >
+        <div className="visually-hidden">
           {i18n.gettext('Searching…')}
         </div>
       );
     } else if (count === 0 && hasSearchFilters(filters)) {
       if (query) {
-        messageText = i18n.sprintf(
-          i18n.gettext('No results were found for "%(query)s".'), { query });
+        messageText = i18n.sprintf(i18n.gettext(
+          'No results were found for "%(query)s".'),
+        { query }
+        );
       } else {
         // TODO: Add the extension type, if available, so it says
         // "no extensions" found that match your search or something.
@@ -51,11 +51,12 @@ class SearchResults extends React.Component {
       }
     } else if (!hasSearchFilters(filters)) {
       messageText = i18n.gettext(
-        'Please enter a search term to search Firefox Add-ons.');
+        'Please enter a search term to search Firefox Add-ons.'
+      );
     }
 
     return (
-      <div ref={(ref) => { this.container = ref; }} className="SearchResults">
+      <div className="SearchResults">
         {loadingMessage}
         <AddonsCard
           addonInstallSource={INSTALL_SOURCE_SEARCH}
@@ -65,10 +66,7 @@ class SearchResults extends React.Component {
           loading={loading}
         >
           {messageText ? (
-            <p
-              ref={(ref) => { this.message = ref; }}
-              className="SearchResults-message"
-            >
+            <p className="SearchResults-message">
               {messageText}
             </p>
           ) : null}
@@ -79,5 +77,5 @@ class SearchResults extends React.Component {
 }
 
 export default compose(
-  translate({ withRef: true }),
-)(SearchResults);
+  translate(),
+)(SearchResultsBase);
