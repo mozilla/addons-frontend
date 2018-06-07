@@ -11,7 +11,7 @@ import collectionsReducer, {
   beginCollectionModification,
   createCollection,
   deleteCollection,
-  deleteCollectionBySlug,
+  unloadCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
@@ -514,7 +514,7 @@ describe(__filename, () => {
         // For this test, make sure the slug is not getting updated.
         _updateCollection({ collectionSlug, slug: undefined });
 
-        const expectedAction = deleteCollectionBySlug(collectionSlug);
+        const expectedAction = unloadCollectionBySlug(collectionSlug);
 
         const action = await sagaTester.waitFor(expectedAction.type);
         expect(action).toEqual(expectedAction);
@@ -534,10 +534,10 @@ describe(__filename, () => {
         await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
 
-        // Make sure the the collection is not deleted.
+        // Make sure the the collection is not unloaded.
         expect(
           sagaTester.getCalledActions().map((action) => action.type)
-        ).not.toContain(deleteCollectionBySlug(collectionSlug).type);
+        ).not.toContain(unloadCollectionBySlug(collectionSlug).type);
       });
 
       it('redirects to the existing slug after update', async () => {
@@ -754,7 +754,7 @@ describe(__filename, () => {
 
       _deleteCollection(params);
 
-      const expectedUnloadAction = deleteCollectionBySlug(params.slug);
+      const expectedUnloadAction = unloadCollectionBySlug(params.slug);
 
       const unloadAction = await sagaTester.waitFor(expectedUnloadAction.type);
       expect(unloadAction).toEqual(expectedUnloadAction);

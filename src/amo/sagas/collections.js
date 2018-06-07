@@ -21,7 +21,7 @@ import {
   abortFetchUserCollections,
   addonAddedToCollection,
   beginCollectionModification,
-  deleteCollectionBySlug,
+  unloadCollectionBySlug,
   finishCollectionModification,
   fetchCurrentCollectionPage as fetchCurrentCollectionPageAction,
   fetchUserCollections as fetchUserCollectionsAction,
@@ -274,7 +274,7 @@ export function* modifyCollection(
         // Invalidate the stored collection object. This will force each
         // component to re-fetch the collection. This is only necessary
         // when the slug hasn't changed.
-        yield put(deleteCollectionBySlug(effectiveSlug));
+        yield put(unloadCollectionBySlug(effectiveSlug));
       }
     }
   } catch (error) {
@@ -336,7 +336,7 @@ export function* deleteCollection({
     yield call(api.deleteCollection, params);
 
     // Unload the collection from state.
-    yield put(deleteCollectionBySlug(slug));
+    yield put(unloadCollectionBySlug(slug));
 
     yield put(fetchUserCollectionsAction({
       errorHandlerId: errorHandler.id,
