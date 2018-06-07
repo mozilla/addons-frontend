@@ -105,17 +105,19 @@ export class SectionLinksBase extends React.Component<Props> {
             <DropdownMenuItem className="SectionLinks-subheader">
               {forBrowserNameText}
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link
-                className={makeClassName('SectionLinks-dropdownlink', {
-                  'SectionLinks-dropdownlink--active':
-                    viewContext === VIEW_CONTEXT_LANGUAGE_TOOLS,
-                })}
-                to="/language-tools/"
-              >
-                {i18n.gettext('Dictionaries & Language Packs')}
-              </Link>
-            </DropdownMenuItem>
+            {clientApp !== CLIENT_APP_ANDROID &&
+              <DropdownMenuItem>
+                <Link
+                  className={makeClassName('SectionLinks-dropdownlink', {
+                    'SectionLinks-dropdownlink--active': viewContext ===
+                      VIEW_CONTEXT_LANGUAGE_TOOLS,
+                  })}
+                  to="/language-tools/"
+                >
+                  {i18n.gettext('Dictionaries & Language Packs')}
+                </Link>
+              </DropdownMenuItem>
+            }
             <DropdownMenuItem>
               <Link className="SectionLinks-dropdownlink" to="/search-tools/">
                 {i18n.gettext('Search Tools')}

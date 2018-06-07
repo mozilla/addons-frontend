@@ -48,14 +48,22 @@ describe(__filename, () => {
     expect(root.find(DropdownMenu)).toHaveLength(1);
   });
 
-  it('renders a link to the Language Tools page', () => {
+  it('hides link to the Language Tools page on Android', () => {
+    _store.dispatch(setClientApp(CLIENT_APP_ANDROID));
     const root = render({ viewContext: ADDON_TYPE_EXTENSION });
 
-    expect(
-      root.find('.SectionLinks-dropdownlink').findWhere((element) => {
-        return element.prop('to') === '/language-tools/';
-      }),
-    ).toHaveProp('children', 'Dictionaries & Language Packs');
+    expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+      return element.prop('to') === '/language-tools/';
+    })).toHaveLength(0);
+  });
+
+  it('renders a link to the Language Tools page for non Android', () => {
+    _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+    const root = render({ viewContext: ADDON_TYPE_EXTENSION });
+
+    expect(root.find('.SectionLinks-dropdownlink').findWhere((element) => {
+      return element.prop('to') === '/language-tools/';
+    })).toHaveLength(1);
   });
 
   it('renders a link to the Search Tools page', () => {
@@ -104,6 +112,8 @@ describe(__filename, () => {
   });
 
   it('renders Language Tools active when viewContext is languageTools', () => {
+    _store.dispatch(setClientApp(CLIENT_APP_FIREFOX));
+
     _store.dispatch(setViewContext(VIEW_CONTEXT_LANGUAGE_TOOLS));
     const root = render();
 
