@@ -455,8 +455,7 @@ describe(__filename, () => {
 
     it('loads notes for collection add-ons', () => {
       const notes = 'These are some notes.';
-      const fakeCollectionAddon =
-        createFakeCollectionAddon({ notes });
+      const fakeCollectionAddon = createFakeCollectionAddon({ notes });
       const addons = createFakeCollectionAddons({
         addons: [fakeCollectionAddon],
       });
