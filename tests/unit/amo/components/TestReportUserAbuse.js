@@ -1,3 +1,4 @@
+import { oneLine } from 'common-tags';
 import * as React from 'react';
 
 import ReportUserAbuse, {
@@ -69,7 +70,30 @@ describe(__filename, () => {
 
     root.find('.ReportUserAbuse-show-more').simulate('click', createFakeEvent());
 
-    sinon.assert.calledWith(dispatchSpy, showUserAbuseReportUI({ userId: user.id }));
+    sinon.assert.calledWith(dispatchSpy, showUserAbuseReportUI({
+      userId: user.id,
+    }));
+  });
+
+  it('displays information when UI is visible', () => {
+    const root = renderShallow({ uiVisible: true });
+
+    expect(root.find('.ReportUserAbuse-form')).toHaveLength(1);
+
+    expect(root.find('.ReportUserAbuse-header')).toHaveLength(1);
+    expect(root.find('.ReportUserAbuse-header'))
+      .toHaveText('Report this user for abuse');
+
+    expect(root.find('p').at(0)).toHaveHTML(oneLine`<p>If you think this user
+      is violating <a
+      href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">Mozilla"s
+      Add-on Policies</a>, please report this user to Mozilla.</p>`);
+
+    expect(root.find('p').at(1)).toHaveText(oneLine`Please don't use this form
+      to report bugs or contact this user; your report will only be sent to
+      Mozilla and not to this user.`);
+
+    expect(root.find(DismissibleTextForm)).toHaveLength(1);
   });
 
   it('hides more content when hideReportUI is called', () => {
