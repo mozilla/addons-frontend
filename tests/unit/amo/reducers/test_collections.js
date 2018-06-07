@@ -7,7 +7,7 @@ import reducer, {
   beginCollectionModification,
   createInternalAddons,
   createInternalCollection,
-  deleteCollectionBySlug,
+  unloadCollectionBySlug,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   fetchUserCollections,
@@ -816,13 +816,13 @@ describe(__filename, () => {
     });
   });
 
-  describe('deleteCollectionBySlug', () => {
+  describe('unloadCollectionBySlug', () => {
     it('requires a slug', () => {
-      expect(() => deleteCollectionBySlug()).toThrow(/slug is required/);
+      expect(() => unloadCollectionBySlug()).toThrow(/slug is required/);
     });
 
     it('does nothing when no collection exists', () => {
-      const state = reducer(undefined, deleteCollectionBySlug('a-slug'));
+      const state = reducer(undefined, unloadCollectionBySlug('a-slug'));
 
       expect(state.byId).toEqual(initialState.byId);
     });
@@ -836,7 +836,7 @@ describe(__filename, () => {
         detail: collectionDetail,
       }));
 
-      state = reducer(state, deleteCollectionBySlug(collectionDetail.slug));
+      state = reducer(state, unloadCollectionBySlug(collectionDetail.slug));
 
       expect(state.byId[collectionDetail.id]).toBeUndefined();
     });
@@ -858,7 +858,7 @@ describe(__filename, () => {
         detail: collection2Detail,
       }));
 
-      const action = deleteCollectionBySlug(collection2Detail.slug);
+      const action = unloadCollectionBySlug(collection2Detail.slug);
       state = reducer(state, action);
 
       expect(state.byId[collection1Detail.id])

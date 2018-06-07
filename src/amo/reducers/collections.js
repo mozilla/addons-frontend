@@ -573,7 +573,7 @@ type DeleteCollectionBySlugAction = {|
   payload: {| slug: string |},
 |};
 
-export const deleteCollectionBySlug = (
+export const unloadCollectionBySlug = (
   slug: string
 ): DeleteCollectionBySlugAction => {
   if (!slug) {
