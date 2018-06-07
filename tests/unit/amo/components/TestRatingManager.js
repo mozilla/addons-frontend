@@ -343,7 +343,7 @@ describe('RatingManager', () => {
     // See https://github.com/mozilla/addons-frontend/issues/3601.
     it('renders a login prompt for unknown extension types', () => {
       const prompt = getAuthPromptForType('xul');
-        expect(prompt).toContain('add-on');
+      expect(prompt).toContain('add-on');
     });
 
     it('renders a random valid extension type', () => {
