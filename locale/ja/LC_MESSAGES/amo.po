@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 14:08+0000\n"
+"PO-Revision-Date: 2018-06-07 07:47+0000\n"
 "Last-Translator: Kohei Yoshino <kohei.yoshino@gmail.com>\n"
 "Language-Team: none\n"
 "Language: ja\n"
@@ -1943,11 +1943,11 @@ msgstr "ユーザーのプロファイルを削除"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "注意: プロファイルを削除しようとしています。本当によろしいですか？"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "注意: プロファイルを削除しようとしています。本当によろしいですか？"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
@@ -1957,11 +1957,11 @@ msgstr "この操作は %(startStrong)s元に戻せません%(endStrong)s。以�
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "重要: アドオンを提供している場合、プロファイルを削除する前にそれを他のユーザーへ譲渡するか削除してください。"
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "重要: アドオンを提供していない場合のみ、ユーザープロファイルを削除できます。"
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
