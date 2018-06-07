@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 13:04+0000\n"
-"Last-Translator: Ton <tonnes.mb@gmail.com>\n"
+"PO-Revision-Date: 2018-06-07 06:54+0000\n"
+"Last-Translator: Mark Heijl <markh@babelzilla.org>\n"
 "Language-Team: none\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -1971,14 +1971,12 @@ msgid "Update user's profile"
 msgstr "Gebruikersprofiel bijwerken"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Mijn profiel bijwerken"
+msgstr "Mijn profiel verwijderen"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Gebruikersprofiel bijwerken"
+msgstr "Gebruikersprofiel verwijderen"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
@@ -1998,21 +1996,19 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Belangrijk: als u add-ons bezit, moet u deze aan andere gebruikers overdragen of verwijderen voordat u uw profiel kunt verwijderen."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Belangrijk: een gebruikersprofiel kan alleen worden verwijderd als de gebruiker geen add-ons bezit."
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Mijn profiel bijwerken"
+msgstr "Ja, mijn profiel verwijderen"
 
 #: src/amo/components/UserProfileEdit/index.js:755
-#, fuzzy
 msgid "Yes, delete this profile"
-msgstr "Deze afbeelding verwijderen"
+msgstr "Ja, dit profiel verwijderen"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2067,9 +2063,8 @@ msgid "Choose photo..."
 msgstr "Foto kiezen..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
-#, fuzzy
 msgid "Do you really want to delete this picture?"
-msgstr "Deze afbeelding verwijderen"
+msgstr "Wilt u echt deze afbeelding verwijderen?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2153,7 +2148,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Bevestigen"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
