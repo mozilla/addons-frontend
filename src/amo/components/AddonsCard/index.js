@@ -16,7 +16,7 @@ import './styles.scss';
 
 type Props = {|
   addonInstallSource?: string,
-  addons?: Array<AddonType> | Array<CollectionAddonType> | null,
+  addons?: $ReadOnlyArray<AddonType | CollectionAddonType> | null,
   children?: React.Node,
   className?: string,
   editing?: boolean,

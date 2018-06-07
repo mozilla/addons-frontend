@@ -9,6 +9,7 @@
     "$PropertyType": true,
     // These are undocumented utilities that ship with Flow
     // https://github.com/facebook/flow/issues/875
+    "$ReadOnlyArray": true,
     "$Shape": true,
     "$Keys": true,
     // See: https://github.com/facebook/flow/issues/1609
