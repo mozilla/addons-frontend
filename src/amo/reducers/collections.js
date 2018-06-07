@@ -31,8 +31,8 @@ export const ADDON_ADDED_TO_COLLECTION: 'ADDON_ADDED_TO_COLLECTION'
 export const LOAD_COLLECTION_ADDONS: 'LOAD_COLLECTION_ADDONS'
   = 'LOAD_COLLECTION_ADDONS';
 export const UPDATE_COLLECTION: 'UPDATE_COLLECTION' = 'UPDATE_COLLECTION';
-export const DELETE_COLLECTION_BY_SLUG: 'DELETE_COLLECTION_BY_SLUG'
-  = 'DELETE_COLLECTION_BY_SLUG';
+export const UNLOAD_COLLECTION_BY_SLUG: 'UNLOAD_COLLECTION_BY_SLUG'
+  = 'UNLOAD_COLLECTION_BY_SLUG';
 export const CREATE_COLLECTION: 'CREATE_COLLECTION' = 'CREATE_COLLECTION';
 export const BEGIN_COLLECTION_MODIFICATION: 'BEGIN_COLLECTION_MODIFICATION'
   = 'BEGIN_COLLECTION_MODIFICATION';
@@ -568,20 +568,20 @@ export const finishCollectionModification = ():
   };
 };
 
-type DeleteCollectionBySlugAction = {|
-  type: typeof DELETE_COLLECTION_BY_SLUG,
+type UnloadCollectionBySlugAction = {|
+  type: typeof UNLOAD_COLLECTION_BY_SLUG,
   payload: {| slug: string |},
 |};
 
 export const unloadCollectionBySlug = (
   slug: string
-): DeleteCollectionBySlugAction => {
+): UnloadCollectionBySlugAction => {
   if (!slug) {
     throw new Error('A slug is required');
   }
 
   return {
-    type: DELETE_COLLECTION_BY_SLUG,
+    type: UNLOAD_COLLECTION_BY_SLUG,
     payload: { slug },
   };
 };
@@ -799,7 +799,7 @@ type Action =
   | AddAddonToCollectionAction
   | AddonAddedToCollectionAction
   | CreateCollectionAction
-  | DeleteCollectionBySlugAction
+  | UnloadCollectionBySlugAction
   | FetchCurrentCollectionAction
   | FetchCurrentCollectionPageAction
   | FetchUserCollectionsAction
@@ -1049,7 +1049,7 @@ const reducer = (
       };
     }
 
-    case DELETE_COLLECTION_BY_SLUG: {
+    case UNLOAD_COLLECTION_BY_SLUG: {
       const { slug } = action.payload;
       const collectionId = state.bySlug[slug];
 

@@ -534,7 +534,7 @@ describe(__filename, () => {
         await sagaTester.waitFor(expectedAction.type);
         mockApi.verify();
 
-        // Make sure the the collection is not deleted.
+        // Make sure the the collection is not unloaded.
         expect(
           sagaTester.getCalledActions().map((action) => action.type)
         ).not.toContain(unloadCollectionBySlug(collectionSlug).type);
