@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 23:17+0000\n"
+"PO-Revision-Date: 2018-06-07 00:21+0000\n"
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -1362,9 +1362,8 @@ msgid "Explain how this user is violating our policies."
 msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:143
-#, fuzzy
 msgid "You reported this user for abuse"
-msgstr "Tuzneḍ-d yir aseqdec n uzegrir-agi"
+msgstr "Temmliḍ aseqdac-agi ɣef yir asemres"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
@@ -1399,7 +1398,6 @@ msgid "Popular add-ons"
 msgstr "Izegrar iɣerfanen"
 
 #: src/amo/components/Search/index.js:160
-#, fuzzy
 msgid "Search results for \"%(query)s\""
 msgstr "Anadi γef usuter \"%(query)s\""
 
@@ -1522,9 +1520,8 @@ msgid "Operating System"
 msgstr "Anagraw n wammud"
 
 #: src/amo/components/SearchFilters/index.js:215
-#, fuzzy
 msgid "Featured add-ons only"
-msgstr "Izegrar itran"
+msgstr "Izegrrar itran kan"
 
 #: src/amo/components/SearchForm/index.js:60
 msgid "Go to the add-on page"
@@ -2187,14 +2184,12 @@ msgid "There are no ratings yet"
 msgstr ""
 
 #: src/ui/components/Rating/index.js:67
-#, fuzzy
 msgid "Update your rating to %(starRating)s out of 5"
-msgstr "Yettwasezmel %(rating)s ugar n 5"
+msgstr "Beddel tazmilit-ik ar %(starRating)s ɣef 5"
 
 #: src/ui/components/Rating/index.js:71
-#, fuzzy
 msgid "Rate this add-on %(starRating)s out of 5"
-msgstr "Yettwasezmel %(rating)s ugar n 5"
+msgstr "Mudd tazmilt i uzegrir-agi %(starRating)s ɣef 5"
 
 #: src/ui/components/ShowMoreCard/index.js:60
 msgid "<span class=\"visually-hidden\">Expand to</span> Read more"
