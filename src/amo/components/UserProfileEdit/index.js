@@ -1,4 +1,5 @@
 /* @flow */
+/* global window */
 import invariant from 'invariant';
 import * as React from 'react';
 import Textarea from 'react-textarea-autosize';
@@ -48,6 +49,7 @@ import './styles.scss';
 
 
 type Props = {|
+  _window: typeof window | Object,
   clientApp: string,
   currentUser: UserType | null,
   dispatch: DispatchFunc,
@@ -89,6 +91,10 @@ type FileReaderEvent = {|
 |};
 
 export class UserProfileEditBase extends React.Component<Props, State> {
+  static defaultProps = {
+    _window: typeof window !== 'undefined' ? window : {},
+  };
+
   constructor(props: Props) {
     super(props);
 
@@ -367,6 +373,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
 
   render() {
     const {
+      _window,
       currentUser,
       errorHandler,
       hasEditPermission,
@@ -400,6 +407,10 @@ export class UserProfileEditBase extends React.Component<Props, State> {
       }
 
       errorMessage = errorHandler.renderError();
+    }
+
+    if (errorHandler.hasError() || this.state.successMessage) {
+      _window.scroll(0, 0);
     }
 
     if (user && !hasEditPermission) {

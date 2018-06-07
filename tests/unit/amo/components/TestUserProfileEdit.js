@@ -49,6 +49,7 @@ describe(__filename, () => {
   let fakeRouter;
 
   const defaultUserProps = {
+    _window: {},
     biography: 'Saved the world, too many times.',
     display_name: 'Matt MacTofu',
     homepage: 'https://example.org',
@@ -814,7 +815,10 @@ describe(__filename, () => {
       userId: user.id,
     });
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ errorHandler, store, _window });
 
     expect(root.find(Notice)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-submit-button'))
@@ -831,6 +835,8 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
+
+    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('renders a Not Found page when logged-in user cannot edit another user', () => {
@@ -911,9 +917,13 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('unexpected error'));
 
-    const root = renderUserProfileEdit({ errorHandler, store });
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ errorHandler, store, _window });
 
     expect(root.find(ErrorList)).toHaveLength(1);
+    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('displays an AuthenticateButton if current user is not logged-in', () => {
@@ -1098,8 +1108,10 @@ describe(__filename, () => {
         picture_url: 'https://example.org/pp.png',
       },
     });
-
-    const root = renderUserProfileEdit({ store });
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ store, _window });
     const user = getCurrentUser(store.getState().users);
 
     expect(root.find(Notice)).toHaveLength(0);
@@ -1119,6 +1131,7 @@ describe(__filename, () => {
 
     expect(root).toHaveState('picture', null);
     expect(root).toHaveState('pictureData', null);
+    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('displays a modal when user clicks the delete profile button', () => {
