@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 16:56+0000\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@iki.fi>\n"
+"PO-Revision-Date: 2018-06-07 09:55+0000\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -1815,11 +1815,11 @@ msgstr "Käyttäjän %(user)s profiili"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
-msgstr ""
+msgstr "Sijainti"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
 msgid "Occupation"
-msgstr ""
+msgstr "Ammatti"
 
 #: src/amo/components/UserProfile/index.js:174
 msgid "User since"
@@ -1839,7 +1839,7 @@ msgstr "Muokkaa profiilia"
 
 #: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "Profiili päivitetty onnistuneesti"
 
 #: src/amo/components/UserProfileEdit/index.js:185
 msgid "Picture successfully deleted"
@@ -1866,21 +1866,20 @@ msgid "Account for %(username)s"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:472
-#, fuzzy
 msgid "Username"
-msgstr "käyttäjä"
+msgstr "Käyttäjätunnus"
 
 #: src/amo/components/UserProfileEdit/index.js:483
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Sähköpostiosoitetta ei voi vaihtaa täällä"
 
 #: src/amo/components/UserProfileEdit/index.js:485
 msgid "Email Address"
-msgstr ""
+msgstr "Sähköpostiosoite"
 
 #: src/amo/components/UserProfileEdit/index.js:501
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
-msgstr ""
+msgstr "Voit vaihtaa sähköpostiosoitteesi Firefox-tilin kautta. %(startLink)sTarvitsetko apua?%(endLink)s"
 
 #: src/amo/components/UserProfileEdit/index.js:517
 msgid "Profile"
@@ -1888,7 +1887,7 @@ msgstr "Profiili"
 
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
-msgstr ""
+msgstr "Kerro muille tietoja itsestäsi. Nämä kentät ovat valinnaisia, mutta niiden avulla muut oppivat tuntemaan sinut."
 
 #: src/amo/components/UserProfileEdit/index.js:525
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
@@ -1900,7 +1899,7 @@ msgstr "Näyttönimi"
 
 #: src/amo/components/UserProfileEdit/index.js:566
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Tämä osoite on näkyvissä vain käyttäjille, jotka ovat kehittäjiä."
 
 #: src/amo/components/UserProfileEdit/index.js:605
 msgid "Biography"
@@ -1916,11 +1915,11 @@ msgstr "Esittele %(username)s yhteisölle"
 
 #: src/amo/components/UserProfileEdit/index.js:624
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "HTML on osittain tuettu: %(htmlTags)s. Linkit ovat kiellettyjä."
 
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
-msgstr ""
+msgstr "Ilmoitukset"
 
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -1936,16 +1935,15 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:684
 msgid "Updating your profile…"
-msgstr ""
+msgstr "Päivitetään profiiliasi…"
 
 #: src/amo/components/UserProfileEdit/index.js:685
-#, fuzzy
 msgid "Update my profile"
-msgstr "Muokkaa profiilia"
+msgstr "Päivitä profiilisi"
 
 #: src/amo/components/UserProfileEdit/index.js:687
 msgid "Updating user's profile…"
-msgstr ""
+msgstr "Päivitetään käyttäjän profiilia…"
 
 #: src/amo/components/UserProfileEdit/index.js:688
 msgid "Update user's profile"
@@ -1961,11 +1959,11 @@ msgstr "Poista käyttäjän profiili"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Huomio: olet aikeissa poistaa profiilisi. Oletko varma?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Huomio: olet aikeissa poistaa profiilin. Oletko varma?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
@@ -2091,7 +2089,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:83
 msgid "Uninstalling %(name)s."
-msgstr ""
+msgstr "Poistetaan %(name)s."
 
 #: src/core/components/InstallSwitch/index.js:86
 msgid "%(name)s is uninstalled. Click to install."
