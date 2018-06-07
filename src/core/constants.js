@@ -61,8 +61,7 @@ export type AddonTypeType =
   | typeof ADDON_TYPE_LANG
   | typeof ADDON_TYPE_OPENSEARCH
   | typeof ADDON_TYPE_STATIC_THEME
-  | typeof ADDON_TYPE_THEME
-  | typeof ADDON_TYPE_THEMES_FILTER;
+  | typeof ADDON_TYPE_THEME;
 
 export const validAddonTypes = [
   ADDON_TYPE_COMPLETE_THEME,

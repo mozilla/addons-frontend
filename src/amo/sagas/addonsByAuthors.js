@@ -19,14 +19,14 @@ export function* fetchAddonsByAuthors({ payload }) {
   yield put(errorHandler.createClearingAction());
 
   try {
-    const type = getAddonTypeFilter(addonType);
+    const addonTypeFilter = getAddonTypeFilter(addonType);
     const state = yield select(getState);
     const pageSize = ADDON_TYPE_THEMES.includes(addonType) ?
       THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
     const response = yield call(searchApi, {
       api: state.api,
       filters: {
-        addonType: type,
+        addonType: addonTypeFilter,
         author: authorUsernames.sort().join(','),
         exclude_addons: forAddonSlug,
         page_size: pageSize,
@@ -40,7 +40,7 @@ export function* fetchAddonsByAuthors({ payload }) {
 
     yield put(loadAddonsByAuthors({
       addons,
-      addonType: type,
+      addonType,
       authorUsernames,
       forAddonSlug,
     }));
