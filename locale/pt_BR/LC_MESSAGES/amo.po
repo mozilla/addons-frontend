@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-01 23:34+0000\n"
-"Last-Translator: Johnny Lopes <johnnyftlopes@tutanota.com>\n"
+"PO-Revision-Date: 2018-06-07 19:14+0000\n"
+"Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -1949,7 +1949,7 @@ msgstr "Notificações"
 
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "De tempos em tempos, a Mozilla pode enviar e-mails para você sobre novos lançamentos e eventos sobre extensões. Selecione os tópicos nos quais você tem interesse."
 
 #: src/amo/components/UserProfileEdit/index.js:653
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
@@ -1957,7 +1957,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:667
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "A Mozilla reserva para si o direito de entrar em contato com você individualmente sobre possíveis questões com suas extensões hospedadas."
 
 #: src/amo/components/UserProfileEdit/index.js:684
 msgid "Updating your profile…"
@@ -1987,11 +1987,11 @@ msgstr "Atualizar perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Atenção: Você está prestes a excluir o seu perfil. Você tem certeza?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Atenção: você está prestes a excluir um perfil. Você tem certeza?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
@@ -2001,11 +2001,11 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Importante: se você possui suas próprias extensões, você deve transferi-las para outros usuários ou excluí-las antes de poder excluir o seu perfil."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Importante: um perfil de usuário só pode ser excluído se o usuário não possuir nenhuma extensão."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 #, fuzzy
@@ -2023,7 +2023,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "A Mozilla precisa entrar em contato comigo sobre a minha extensão individual"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
@@ -2031,11 +2031,11 @@ msgstr "novas extensões ou recursos do Firefox estão disponíveis"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "alguém escrever uma análise para a minha extensão"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "um desenvolvedor de extensões responder a minha análise"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
@@ -2156,7 +2156,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
