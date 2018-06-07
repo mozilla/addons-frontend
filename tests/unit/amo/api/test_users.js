@@ -106,6 +106,32 @@ describe(__filename, () => {
       await editUserAccount(params);
       mockApi.verify();
     });
+
+    it('converts null values to empty strings when sending FormData body', async () => {
+      const editableFields = {
+        biography: null,
+        location: 'some location',
+      };
+      const picture = new File([], 'image.png');
+      const params = getParams({ picture, ...editableFields });
+
+      const expectedBody = new FormData();
+      expectedBody.set('biography', '');
+      expectedBody.set('location', editableFields.location);
+      expectedBody.set('picture_upload', picture);
+
+      mockApi.expects('callApi')
+        .withArgs(sinon.match(({ body }) => {
+          return deepEqual(
+            Array.from(body.entries()),
+            Array.from(expectedBody.entries())
+          );
+        }))
+        .returns(mockResponse());
+
+      await editUserAccount(params);
+      mockApi.verify();
+    });
   });
 
   describe('userAccount', () => {

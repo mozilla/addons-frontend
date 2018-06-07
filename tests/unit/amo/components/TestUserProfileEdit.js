@@ -462,6 +462,20 @@ describe(__filename, () => {
       .toHaveProp('value', biography);
   });
 
+  // See: https://github.com/mozilla/addons-frontend/issues/5212
+  it('sets the biography value to empty string if user has no biography', () => {
+    const biography = null;
+    const root = renderUserProfileEdit({
+      userProps: {
+        ...defaultUserProps,
+        biography,
+      },
+    });
+
+    expect(root.find('.UserProfileEdit-biography')).toHaveLength(1);
+    expect(root.find('.UserProfileEdit-biography')).toHaveProp('value', '');
+  });
+
   it('captures input field changes ', () => {
     const fields = [
       'biography',
