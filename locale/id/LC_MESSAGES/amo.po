@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 16:11+0000\n"
+"PO-Revision-Date: 2018-06-07 16:16+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -61,7 +61,7 @@ msgstr "Batalkan pratinjau"
 
 #: src/amo/components/Addon/index.js:257
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Pengaya ini tidak dapat dinilai karena tidak ada versi yang telah ditayangkan."
 
 #: src/amo/components/Addon/index.js:266
 msgid "Read %(count)s review"
@@ -364,7 +364,7 @@ msgstr "Perbarui balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
-msgstr "Terbitkan balasan"
+msgstr "Tayangkan balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
@@ -372,7 +372,7 @@ msgstr "Memperbarui balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
-msgstr ""
+msgstr "Menayangkan balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 #, fuzzy
@@ -1735,6 +1735,8 @@ msgid ""
 "The add-ons listed here are created by thousands of developers and theme designers from all over the world, ranging from individual hobbyists to large corporations. Some add-ons listed on AMO have "
 "been automatically published and may be subject to review by a team of editors once publically listed."
 msgstr ""
+"Pengaya yang terdaftar di sini diciptakan oleh ribuan pengembang dan desainer tema dari seluruh dunia, mulai dari peminat pribadi hingga korporasi besar. Sebagian pengaya yang terdaftar di AMO telah"
+" ditayangkan otomatis dan mungkin perlu ditinjau tim penyunting setelah didaftarkan secara publik."
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
