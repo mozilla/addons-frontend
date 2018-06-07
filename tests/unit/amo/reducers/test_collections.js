@@ -156,7 +156,7 @@ describe(__filename, () => {
     it('cannot load collection page without a current collection', () => {
       const addons = createFakeCollectionAddons();
 
-      expect(() => reducer(undefined, loadCurrentCollectionPage({ addons })))
+      expect(() => reducer(undefined, loadCurrentCollectionPage({ addons, numberOfAddons: 5 })))
         .toThrow(/current collection does not exist/);
     });
 
@@ -660,14 +660,6 @@ describe(__filename, () => {
       expect(() => {
         fetchCurrentCollectionPage(partialParams);
       }).toThrow('page is required');
-    });
-  });
-
-  describe('loadCurrentCollectionPage()', () => {
-    it('throws an error when addons are missing', () => {
-      expect(() => {
-        loadCurrentCollectionPage();
-      }).toThrow('addons are required');
     });
   });
 
