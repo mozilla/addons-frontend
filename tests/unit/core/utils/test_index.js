@@ -723,14 +723,14 @@ describe(__filename, () => {
       expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEMES_FILTER);
     });
 
-    it('enabledStaticThemes set to false in config will return ADDON_TYPE_THEMES', () => {
+    it('enabledStaticThemes set to false in config will return ADDON_TYPE_THEME', () => {
       const fakeConfig = getFakeConfig({ enableStaticThemes: false });
       const addon = createInternalAddon({ type: ADDON_TYPE_THEME, config: fakeConfig });
       expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_THEME);
     });
 
-    it("enabledStaticThemes set to true in config will return ADDON_TYPE_EXTENSION if it's not a theme", () => {
-      const fakeConfig = getFakeConfig({ enableStaticThemes: false });
+    it('enabledStaticThemes set to true in config will return ADDON_TYPE_EXTENSION if it is not a theme', () => {
+      const fakeConfig = getFakeConfig({ enableStaticThemes: true });
       const addon = createInternalAddon({ type: ADDON_TYPE_EXTENSION, config: fakeConfig });
       expect(getAddonTypeFilter(addon.type, fakeConfig)).toEqual(ADDON_TYPE_EXTENSION);
     });
