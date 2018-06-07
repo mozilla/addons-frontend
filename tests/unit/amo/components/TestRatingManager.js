@@ -14,7 +14,6 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
-  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
@@ -328,7 +327,7 @@ describe('RatingManager', () => {
       expect(prompt).toContain('search plugin');
     });
 
-    it('renders a login prompt for lightewight theme', () => {
+    it('renders a login prompt for themes', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_THEME);
       expect(prompt).toContain('theme');
     });
