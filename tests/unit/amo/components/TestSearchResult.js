@@ -5,9 +5,9 @@ import * as React from 'react';
 
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { createInternalAddon } from 'core/reducers/addons';
-import { fakeAddon } from 'tests/unit/amo/helpers';
+import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
@@ -146,15 +146,54 @@ describe(__filename, () => {
     expect(root).toHaveClassName('SearchResult--theme');
   });
 
-  it('displays a message if the theme preview image is unavailable', () => {
+  it('displays a message if the lightweight theme preview image is unavailable', () => {
     const addon = createInternalAddon({
       ...fakeAddon,
+      // The 'previews' field is not currently being used by lightweight themes
+      // So here we are just overridding the fakeAddon values to mimic the API
+      // response.
+      previews: [],
+      theme_data: {
+        previewURL: null,
+      },
       type: ADDON_TYPE_THEME,
     });
     const root = render({ addon });
 
     expect(root.find('.SearchResult-notheme'))
       .toIncludeText('No theme preview available');
+  });
+
+  it("does not display a 'no theme preview available' message if the lightweight theme preview image is available", () => {
+    const addon = createInternalAddon({
+      ...fakeTheme,
+      type: ADDON_TYPE_THEME,
+    });
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-result')).not.toIncludeText('No theme preview available');
+  });
+
+  it('displays a message if the static theme preview image is unavailable', () => {
+    const addon = createInternalAddon({
+      ...fakeAddon,
+      previews: [],
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-notheme'))
+      .toIncludeText('No theme preview available');
+  });
+
+  it("does not display a 'no theme preview available' message if the static theme preview image is available", () => {
+    const addon = createInternalAddon({
+      ...fakeTheme,
+      type: ADDON_TYPE_STATIC_THEME,
+    });
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-result')).not.toIncludeText('No theme preview available');
   });
 
   it('renders placeholders without an addon', () => {

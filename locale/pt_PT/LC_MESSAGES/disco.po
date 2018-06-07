@@ -1,11 +1,15 @@
-# 
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
 "POT-Creation-Date: 2018-03-08 22:45+0000\n"
-"PO-Revision-Date: 2017-11-27 18:18+0000\n"
-"Last-Translator: Alberto Castro <albertdcastro@gmail.com>\n"
+=======
+"POT-Creation-Date: 2018-06-05 19:01+0000\n"
+>>>>>>> master
+"PO-Revision-Date: 2018-06-02 12:50+0000\n"
+"Last-Translator: Rodrigo <rodrigo.mcunha@hotmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_PT\n"
 "MIME-Version: 1.0\n"
@@ -19,10 +23,15 @@ msgid "Server Error"
 msgstr "Erro do servidor"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr "Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. Registámos o seu erro e iremos investigá-lo."
+msgid ""
+"Sorry, but there was an error and we couldn't complete your request. We have "
+"logged this error and will investigate it."
+msgstr ""
+"Desculpe, mas ocorreu um erro e não pudemos completar o seu pedido. "
+"Registámos o seu erro e iremos investigá-lo."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34
+#: src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Código de erro: %(status)s."
 
@@ -34,11 +43,13 @@ msgstr "Página não encontrada"
 msgid "Sorry, but we can't find anything at the URL you entered."
 msgstr "Desculpe, mas não conseguimos encontrar nada no URL que introduziu."
 
-#: src/core/components/InstallButton/index.js:235
+#: src/core/components/InstallButton/index.js:236
+#: src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
 msgstr "Instalar tema"
 
-#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+#: src/core/components/InstallButton/index.js:262
+#: src/core/components/InstallButton/index.js:275
 msgid "Add to Firefox"
 msgstr "Adicionar ao Firefox"
 
@@ -148,13 +159,23 @@ msgstr "Personalize o seu Firefox"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
-"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the "
+"world, that you can install to personalize your Firefox. From fun visual "
+"themes to powerful tools that make browsing faster and safer, add-ons make "
+"your browser yours. To help you get started, here are some we recommend for "
+"their stand-out performance and functionality."
 msgstr ""
-"Existem milhares de extras gratuitos, criados por programadores por todo o\n"
-"mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos\n"
-"até poderosas ferramentas que fazem a navegação ser mais rápida e segura, os extras fazem o seu navegador ser seu.\n"
-"Para o ajudar a começar, aqui estão alguns que nós recomendamos pelo seu desempenho e funcionalidade se destacarem."
+<<<<<<< HEAD
+"Existem milhares de extras gratuitos, criados por programadores por todo o mundo, que pode instalar para personalizar o seu Firefox. Desde temas visuais divertidos até poderosas ferramentas que "
+"fazem a navegação ser mais rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a começar, aqui estão alguns que recomendamos pelo seu desempenho e funcionalidade se destacarem."
+=======
+"Existem milhares de extras gratuitos, criados por programadores por todo o "
+"mundo, que pode instalar para personalizar o seu Firefox. Desde temas "
+"visuais divertidos até poderosas ferramentas que fazem a navegação ser mais "
+"rápida e segura, os extras fazem o seu navegador ser seu. Para lhe ajudar a "
+"começar, aqui estão alguns que recomendamos pelo seu desempenho e "
+"funcionalidade se destacarem."
+>>>>>>> master
 
 #: src/disco/containers/DiscoPane.js:147
 msgid "Click to play"

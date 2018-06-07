@@ -381,6 +381,8 @@ export function createUserAccountResponse({
   /* eslint-disable camelcase */
   average_addon_rating = 4.3,
   display_name = null,
+  is_addon_developer = false,
+  is_artist = false,
   num_addons_listed = 1,
   picture_url = `${config.get('amoCDN')}/static/img/zamboni/anon_user.png`,
   picture_type = '',
@@ -397,8 +399,8 @@ export function createUserAccountResponse({
     display_name,
     homepage,
     id,
-    is_addon_developer: false,
-    is_artist: false,
+    is_addon_developer,
+    is_artist,
     location,
     // This is the API behavior.
     // eslint-disable-next-line camelcase

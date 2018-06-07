@@ -59,4 +59,6 @@ export const DISCO_DATA_GUID_IGNORE_LIST = [
   'searchvolmodelextra@mozilla.com', // Search Volume Modeling Extra
   'tls13-rollout-bug1442042@mozilla.org', // TLS 1.3 gradual roll-out
   'tls13-version-fallback-rollout-bug1448176@mozilla.org', // TLS 1.3 gradual roll-out fallback-limit
+  'tls13-version-fallback-rollout-bug1462099@mozilla.org', // TLS 1.3 gradual roll-out fallback-limit
+  'google-code-correction@mozilla.org', // Google Code Correction
 ];

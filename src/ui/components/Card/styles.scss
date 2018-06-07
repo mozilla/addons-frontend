@@ -23,11 +23,6 @@ $footer-padding: 10px;
   font-size: $font-size-s;
   margin: 0;
 
-  @include respond-to(large) {
-    border-bottom-left-radius: $border-radius-default;
-    border-bottom-right-radius: $border-radius-default;
-  }
-
   .Card--no-header & {
     border-top-left-radius: $border-radius-default;
     border-top-right-radius: $border-radius-default;

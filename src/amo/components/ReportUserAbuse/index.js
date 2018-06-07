@@ -32,7 +32,7 @@ type Props = {|
   i18n: I18nType,
   isSubmitting: bool,
   uiVisible: bool,
-  user?: UserType,
+  user ?: UserType,
 |};
 
 export class ReportUserAbuseBase extends React.Component<Props> {
@@ -111,11 +111,11 @@ export class ReportUserAbuseBase extends React.Component<Props> {
                   %(linkTagStart)sMozilla's Add-on Policies%(linkTagEnd)s,
                   please report this user to Mozilla.`
                 ), {
-                  linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy">',
+                  linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
                   linkTagEnd: '</a>',
                 })
               )}
-              /* eslint-enable react/no-danger */
+            /* eslint-enable react/no-danger */
             />
             <p>
               {i18n.gettext(

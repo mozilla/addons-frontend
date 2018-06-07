@@ -6,7 +6,7 @@ import { compose } from 'redux';
 
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
-import { ADDON_TYPE_THEME } from 'core/constants';
+import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
 import { addQueryParams, isAllowedOrigin, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
@@ -35,7 +35,7 @@ export class SearchResultBase extends React.Component<Props> {
 
   addonIsTheme() {
     const { addon } = this.props;
-    return addon && addon.type === ADDON_TYPE_THEME;
+    return addon && ADDON_TYPE_THEMES.includes(addon.type);
   }
 
   renderResult() {
@@ -46,10 +46,23 @@ export class SearchResultBase extends React.Component<Props> {
 
     // Fall-back to default icon if invalid icon url.
     const iconURL = getAddonIconUrl(addon);
-    const themeURL = (addon && addon.themeData &&
-      isAllowedOrigin(addon.themeData.previewURL)) ?
-      addon.themeData.previewURL : null;
-    const imageURL = isTheme ? themeURL : iconURL;
+
+    let imageURL = iconURL;
+
+    if (isTheme) {
+      let themeURL = addon.previews &&
+        addon.previews.length > 0 &&
+        isAllowedOrigin(addon.previews[0].image_url) ?
+        addon.previews[0].image_url : null;
+
+      if (!themeURL && addon.type === ADDON_TYPE_THEME) {
+        themeURL = addon.themeData
+          && isAllowedOrigin(addon.themeData.previewURL)
+          ? addon.themeData.previewURL : null;
+      }
+
+      imageURL = themeURL;
+    }
 
     // Sets classes to handle fallback if theme preview is not available.
     const iconWrapperClassnames = makeClassName('SearchResult-icon-wrapper', {
@@ -136,6 +149,7 @@ export class SearchResultBase extends React.Component<Props> {
     const isTheme = this.addonIsTheme();
     const resultClassnames = makeClassName('SearchResult', {
       'SearchResult--theme': isTheme,
+      'SearchResult--persona': addon && addon.type === ADDON_TYPE_THEME,
     });
 
     let item = result;

@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "engines": {
-    "node": ">=6 <=8"
+    "node": ">=6 <=9"
   },
   "scripts": {
     "build": "bin/build-checks.js && better-npm-run build",
@@ -167,7 +167,7 @@
     "fastclick": "1.0.6",
     "full-icu": "1.2.1",
     "helmet": "3.12.1",
-    "hot-shots": "5.4.1",
+    "hot-shots": "5.6.1",
     "html-entities": "1.2.1",
     "humps": "2.0.1",
     "invariant": "2.2.4",
@@ -178,14 +178,14 @@
     "knuth-shuffle": "1.0.8",
     "localforage": "1.7.1",
     "lodash.debounce": "4.0.8",
-    "moment": "2.22.1",
+    "moment": "2.22.2",
     "mozilla-version-comparator": "1.0.2",
     "normalize.css": "8.0.0",
     "normalizr": "3.2.2",
     "prop-types": "15.6.1",
     "raf": "3.4.0",
     "raven": "2.6.2",
-    "raven-js": "3.25.2",
+    "raven-js": "3.26.1",
     "rc-tooltip": "3.7.2",
     "react": "16.4.0",
     "react-autosuggest": "9.3.4",
@@ -199,7 +199,7 @@
     "react-router": "3.2.0",
     "react-router-redux": "4.0.8",
     "react-router-scroll": "0.4.4",
-    "react-super-responsive-table": "4.2.2",
+    "react-super-responsive-table": "4.2.4",
     "react-textarea-autosize": "6.1.0",
     "react-transition-group": "1.2.0",
     "redux": "3.7.2",
@@ -211,7 +211,7 @@
     "url": "0.11.0",
     "url-loader": "1.0.1",
     "utf8": "3.0.0",
-    "webpack-isomorphic-tools": "3.0.5"
+    "webpack-isomorphic-tools": "3.0.6"
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
@@ -245,7 +245,7 @@
     "eslint-config-amo": "^1.7.0",
     "eslint-plugin-promise": "^3.5.0",
     "file-loader": "^1.1.11",
-    "flow-bin": "^0.73.0",
+    "flow-bin": "^0.74.0",
     "glob": "^7.1.1",
     "http-proxy": "^1.16.2",
     "intl": "^1.2.5",

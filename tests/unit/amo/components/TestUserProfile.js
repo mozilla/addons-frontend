@@ -482,7 +482,7 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfile-edit-link')).toHaveLength(1);
     expect(root.find('.UserProfile-edit-link'))
-      .toHaveProp('to', `/user/${user.username}/edit`);
+      .toHaveProp('to', `/user/${user.username}/edit/`);
   });
 
   it('does not render an edit link if user is not allowed to edit other users', () => {

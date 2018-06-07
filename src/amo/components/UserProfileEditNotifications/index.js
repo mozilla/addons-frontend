@@ -48,6 +48,7 @@ type CreateNotificationParams = {|
   label: React.Element<typeof LoadingText> | string | null,
   mandatory: boolean,
   name: string,
+  onChange?: Function,
 |};
 
 const createNotification = ({
@@ -55,6 +56,7 @@ const createNotification = ({
   label,
   mandatory,
   name,
+  onChange,
 }: CreateNotificationParams): React.Element<any> | null => {
   if (!label) {
     log.warn(oneLine`Not rendering notification "${name}" because there is no
@@ -76,6 +78,7 @@ const createNotification = ({
           disabled={mandatory}
           id={name}
           name={name}
+          onChange={onChange}
           type="checkbox"
         />
         <span className="UserProfileEditNotification-checkbox" />
@@ -87,11 +90,13 @@ const createNotification = ({
 
 type Props = {|
   i18n: I18nType,
+  onChange: Function,
   user: UserType | null,
 |};
 
 export const UserProfileEditNotificationsBase = ({
   i18n,
+  onChange,
   user,
 }: Props) => {
   let notifications = [];
@@ -111,6 +116,7 @@ export const UserProfileEditNotificationsBase = ({
       (notification) => createNotification({
         ...notification,
         label: getLabelText(i18n, notification.name),
+        onChange,
       })
     );
   }

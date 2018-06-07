@@ -11,19 +11,22 @@ import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import Paginate from 'core/components/Paginate';
 import Button from 'ui/components/Button';
+import ConfirmButton from 'ui/components/ConfirmButton';
 import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
-  removeAddonFromCollection,
+  deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCurrentCollection,
+  removeAddonFromCollection,
 } from 'amo/reducers/collections';
 import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
+  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -49,7 +52,7 @@ describe(__filename, () => {
     i18n: fakeI18n(),
     location: fakeRouterLocation(),
     params: {
-      user: defaultUser,
+      username: defaultUser,
       slug: defaultSlug,
     },
     store: dispatchClientMetadata().store,
@@ -146,16 +149,16 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
 
-    renderComponent({ errorHandler, params: { slug, user }, store });
+    renderComponent({ errorHandler, params: { slug, username }, store });
 
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       page: undefined,
       slug,
-      user,
+      username,
     }));
   });
 
@@ -182,13 +185,13 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
     const page = 123;
 
     renderComponent({
       errorHandler,
       location: fakeRouterLocation({ query: { page } }),
-      params: { slug, user },
+      params: { slug, username },
       store,
     });
 
@@ -197,7 +200,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page,
       slug,
-      user,
+      username,
     }));
   });
 
@@ -245,12 +248,12 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
 
     store.dispatch(fetchCurrentCollection({
       errorHandlerId: errorHandler.id,
       slug,
-      user,
+      username,
     }));
 
     fakeDispatch.reset();
@@ -265,13 +268,13 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
 
     store.dispatch(fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 123,
       slug,
-      user,
+      username,
     }));
 
     fakeDispatch.reset();
@@ -305,24 +308,24 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const slug = 'collection-slug';
-    const user = 'some-user';
+    const username = 'some-user';
     const page = 123;
 
     const location = fakeRouterLocation({
-      pathname: `/collections/${user}/${slug}/`,
+      pathname: `/collections/${username}/${slug}/`,
       query: { page },
     });
 
     const newSlug = 'other-collection';
     const newLocation = {
       ...location,
-      pathname: `/collections/${user}/${newSlug}/`,
+      pathname: `/collections/${username}/${newSlug}/`,
     };
 
     const wrapper = renderComponent({
       errorHandler,
       location,
-      params: { slug, user },
+      params: { slug, username },
       store,
     });
     fakeDispatch.reset();
@@ -330,7 +333,7 @@ describe(__filename, () => {
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({
       location: newLocation,
-      params: { slug: newSlug, user },
+      params: { slug: newSlug, username },
     });
 
     sinon.assert.callCount(fakeDispatch, 1);
@@ -338,7 +341,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page,
       slug: newSlug,
-      user,
+      username,
     }));
   });
 
@@ -370,7 +373,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page,
-      user: defaultUser,
+      username: defaultUser,
       slug: defaultSlug,
     }));
   });
@@ -407,7 +410,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(fakeDispatch, fetchCurrentCollectionPage({
       errorHandlerId: errorHandler.id,
       page: 1,
-      user: defaultUser,
+      username: defaultUser,
       slug: defaultSlug,
     }));
   });
@@ -430,7 +433,7 @@ describe(__filename, () => {
 
     const newParams = {
       slug: defaultSlug,
-      user: 'another-user',
+      username: 'another-user',
     };
     wrapper.setProps({ params: newParams });
 
@@ -442,14 +445,14 @@ describe(__filename, () => {
     }));
   });
 
-  it('compares user values in lower case', () => {
-    const user = 'Mozilla';
+  it('compares username values in lower case', () => {
+    const username = 'Mozilla';
     const errorHandler = createStubErrorHandler();
     const { store } = dispatchClientMetadata();
 
     store.dispatch(loadCurrentCollection({
       addons: createFakeCollectionAddons(),
-      detail: createFakeCollectionDetail({ authorUsername: user }),
+      detail: createFakeCollectionDetail({ authorUsername: username }),
     }));
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
@@ -457,7 +460,7 @@ describe(__filename, () => {
     fakeDispatch.reset();
 
     wrapper.setProps({
-      params: { slug: defaultSlug, user: user.toLowerCase() },
+      params: { slug: defaultSlug, username: username.toLowerCase() },
     });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -481,7 +484,7 @@ describe(__filename, () => {
 
     const newParams = {
       slug: 'some-other-collection-slug',
-      user: defaultUser,
+      username: defaultUser,
     };
     wrapper.setProps({ params: newParams });
 
@@ -559,7 +562,7 @@ describe(__filename, () => {
 
     const errorHandler = createStubErrorHandler();
     const { slug } = defaultCollectionDetail;
-    const user = defaultUser;
+    const username = defaultUser;
 
     // User loads the collection page.
     store.dispatch(loadCurrentCollection({
@@ -569,7 +572,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({
       errorHandler,
-      params: { slug, user },
+      params: { slug, username },
       store,
     });
 
@@ -580,7 +583,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page: 2,
       slug,
-      user,
+      username,
     }));
 
     // This is needed because shallowUntilTarget() does not trigger any
@@ -661,6 +664,30 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
   });
 
+  it('renders a delete button when user has `Collections:Edit` permission', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: defaultCollectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+    const { onDelete } = wrapper.instance();
+    const button = wrapper.find(ConfirmButton);
+    expect(button).toHaveLength(1);
+    expect(button).toHaveClassName('Collection-delete-button');
+    expect(button).toHaveProp('buttonType', 'cancel');
+    expect(button)
+      .toHaveProp('message', 'Do you really want to delete this collection?');
+    expect(button).toHaveProp('onConfirm', onDelete);
+    expect(button.children()).toHaveText('Delete this collection');
+  });
+
   it('links to a Collection edit page', () => {
     // Turn off the enableNewCollectionsUI feature so that the component renders a link.
     const fakeConfig = getFakeConfig({ enableNewCollectionsUI: false });
@@ -739,6 +766,36 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
     expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+  });
+
+  it('renders a delete button when user is the collection owner', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
+      }),
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find(ConfirmButton)).toHaveLength(1);
+  });
+
+  it('does not render a delete button when user does not have permission', () => {
+    const authorUserId = 11;
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: 99,
+      }),
+    }));
+
+    const wrapper = renderComponent({ store });
+    expect(wrapper.find(ConfirmButton)).toHaveLength(0);
   });
 
   it('passes a collection to CollectionManager when editing', () => {
@@ -843,7 +900,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page,
       slug: collectionDetail.slug,
-      user: collectionDetail.author.username,
+      username: collectionDetail.author.username,
     }));
   });
 
@@ -882,7 +939,45 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       page: 1,
       slug: collectionDetail.slug,
-      user: collectionDetail.author.username,
+      username: collectionDetail.author.username,
+    }));
+  });
+
+  it('dispatches deleteCollection when onDelete is called', () => {
+    const authorUserId = 11;
+    const slug = 'some-slug';
+    const username = 'some-username';
+    const { store } = dispatchSignInActions({ userId: authorUserId });
+
+    store.dispatch(loadCurrentCollection({
+      addons: createFakeCollectionAddons(),
+      detail: createFakeCollectionDetail({
+        authorId: authorUserId,
+        authorUsername: username,
+        slug,
+      }),
+    }));
+
+    const dispatchSpy = sinon.spy(store, 'dispatch');
+    const preventDefaultSpy = sinon.spy();
+    const errorHandler = createStubErrorHandler();
+
+    const wrapper = renderComponent({ errorHandler, store });
+
+    dispatchSpy.reset();
+
+    // This emulates a user clicking the delete button and confirming.
+    const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');
+    onDelete(
+      createFakeEvent({ preventDefault: preventDefaultSpy })
+    );
+
+    sinon.assert.calledOnce(preventDefaultSpy);
+    sinon.assert.callCount(dispatchSpy, 1);
+    sinon.assert.calledWith(dispatchSpy, deleteCollection({
+      errorHandlerId: errorHandler.id,
+      slug,
+      username,
     }));
   });
 
@@ -890,7 +985,7 @@ describe(__filename, () => {
     it('returns a unique ID based on params', () => {
       const props = getProps({
         params: {
-          user: 'foo',
+          username: 'foo',
           slug: 'collection-bar',
         },
         location: fakeRouterLocation(),
@@ -902,7 +997,7 @@ describe(__filename, () => {
     it('adds the page as part of unique ID', () => {
       const props = getProps({
         params: {
-          user: 'foo',
+          username: 'foo',
           slug: 'collection-bar',
         },
         location: fakeRouterLocation({ query: { page: 124 } }),

@@ -14,6 +14,7 @@ import {
   ADDON_TYPE_EXTENSION,
   ADDON_TYPE_LANG,
   ADDON_TYPE_OPENSEARCH,
+  ADDON_TYPE_STATIC_THEME,
   ADDON_TYPE_THEME,
 } from 'core/constants';
 import I18nProvider from 'core/i18n/Provider';
@@ -329,6 +330,11 @@ describe('RatingManager', () => {
 
     it('renders a login prompt for themes', () => {
       const prompt = getAuthPromptForType(ADDON_TYPE_THEME);
+      expect(prompt).toContain('theme');
+    });
+
+    it('renders a login prompt for static themes', () => {
+      const prompt = getAuthPromptForType(ADDON_TYPE_STATIC_THEME);
       expect(prompt).toContain('theme');
     });
 

@@ -302,7 +302,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -333,7 +333,7 @@ describe(__filename, () => {
       errorHandlerId: errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -439,7 +439,7 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       name: { [lang]: name },
       slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -522,7 +522,7 @@ describe(__filename, () => {
       errorHandlerId: root.instance().props.errorHandler.id,
       name: { [lang]: collection.name },
       slug: collection.slug,
-      user: signedInUsername,
+      username: signedInUsername,
     }));
   });
 
@@ -661,11 +661,11 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
       addonId: suggestion.addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page,
-      userId: signedInUserId,
+      username: signedInUsername,
     }));
   });
 
@@ -689,11 +689,11 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, addAddonToCollection({
       addonId: suggestion.addonId,
       collectionId: collection.id,
-      collectionSlug: collection.slug,
+      slug: collection.slug,
       editing: true,
       errorHandlerId: errorHandler.id,
       page: 1,
-      userId: signedInUserId,
+      username: signedInUsername,
     }));
   });
 

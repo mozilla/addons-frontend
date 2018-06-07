@@ -1,0 +1,17 @@
+@import "~core/css/inc/mixins";
+@import "~ui/css/vars";
+
+.ConfirmButton-buttons {
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+
+  .Button {
+    margin-top: $padding-page;
+  }
+
+  @include respond-to(medium) {
+    flex-flow: row-reverse;
+  }
+}
