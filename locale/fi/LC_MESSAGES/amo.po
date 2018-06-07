@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-05 18:44+0000\n"
+"PO-Revision-Date: 2018-06-05 18:45+0000\n"
 "Last-Translator: Jarmo <jarmo@juslin.me>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -444,9 +444,8 @@ msgid "Themes by %(author)s"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:184
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Tukisivusto"
+msgstr "Näiden käyttäjien teemat"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
@@ -461,9 +460,8 @@ msgid "Add-ons by %(author)s"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:201
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Lisää laajennuksia näiltä kehittäjiltä"
+msgstr "Näiden käyttäjien lisäosat"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -578,9 +576,8 @@ msgid "Edit this collection"
 msgstr "Muokkaa tätä kokoelmaa"
 
 #: src/amo/components/Collection/index.js:217
-#, fuzzy
 msgid "Log in to edit this collection"
-msgstr "Muokkaa tätä kokoelmaa"
+msgstr "Muokkaa tätä kokoelmaa kirjautumalla"
 
 #: src/amo/components/Collection/index.js:246 src/amo/components/Footer/index.js:43
 msgid "Add-ons"
@@ -595,9 +592,8 @@ msgid "Search for extensions and themes to add to your collection."
 msgstr ""
 
 #: src/amo/components/CollectionList/index.js:38
-#, fuzzy
 msgid "Log in to create a collection"
-msgstr "Muokkaa tätä kokoelmaa"
+msgstr "Luo kokoelma kirjautumalla"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
@@ -609,9 +605,8 @@ msgid "Save collection"
 msgstr "Tallenna kokoelma"
 
 #: src/amo/components/CollectionManager/index.js:289
-#, fuzzy
 msgid "Create collection"
-msgstr "Luo uusi kokoelma"
+msgstr "Luo kokoelma"
 
 #: src/amo/components/CollectionManager/index.js:301
 msgid "Collection name"
@@ -626,9 +621,8 @@ msgid "Custom URL"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:358
-#, fuzzy
 msgid "Added to collection"
-msgstr "Lisää kokoelmaan"
+msgstr "Lisätty kokoelmaan"
 
 #: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
@@ -891,14 +885,12 @@ msgid "View My Collections"
 msgstr "Näytä kokoelmani"
 
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
-#, fuzzy
 msgid "View My Profile"
-msgstr "Näytä profiili"
+msgstr "Näytä profiilini"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Muokkaa profiilia"
+msgstr "Muokkaa profiiliani"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -913,9 +905,8 @@ msgid "Submit a New Theme"
 msgstr ""
 
 #: src/amo/components/Header/index.js:152
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Arvioita"
+msgstr "Arvioijan työkalut"
 
 #: src/amo/components/Header/index.js:162 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
@@ -962,9 +953,8 @@ msgid "Tame your tabs"
 msgstr ""
 
 #: src/amo/components/Home/index.js:217
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Katso lisää parhaiten arvioituja laajennuksia"
+msgstr "Näytä lisää välilehtilaajennuksia"
 
 #: src/amo/components/Home/index.js:244
 #, fuzzy
@@ -981,9 +971,8 @@ msgid "Translation tools"
 msgstr ""
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Katso lisää yksityisyystyökaluja"
+msgstr "Näytä lisää käännöstyökaluja"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1868,24 +1857,20 @@ msgid "Picture successfully deleted"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:395
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Muokkaa tätä kokoelmaa"
+msgstr "Muokkaa profiilia kirjautumalla"
 
 #: src/amo/components/UserProfileEdit/index.js:439
-#, fuzzy
 msgid "View user's profile"
-msgstr "Näytä profiili"
+msgstr "Näytä käyttäjän profiili"
 
 #: src/amo/components/UserProfileEdit/index.js:446
-#, fuzzy
 msgid "Edit user's profile"
-msgstr "Muokkaa profiilia"
+msgstr "Muokkaa käyttäjän profiilia"
 
 #: src/amo/components/UserProfileEdit/index.js:465
-#, fuzzy
 msgid "Account"
-msgstr "Oma tili"
+msgstr "Tili"
 
 #: src/amo/components/UserProfileEdit/index.js:466
 msgid "Account for %(username)s"
@@ -2059,9 +2044,8 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Käyttäjän %(user)s profiili"
+msgstr "Käyttäjän %(name)s profiilikuva"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
 #, fuzzy
