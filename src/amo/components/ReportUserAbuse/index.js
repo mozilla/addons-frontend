@@ -113,7 +113,8 @@ export class ReportUserAbuseBase extends React.Component<Props> {
                 ), {
                   linkTagStart: '<a href="https://developer.mozilla.org/en-US/Add-ons/AMO/Policy/Reviews">',
                   linkTagEnd: '</a>',
-                })
+                }),
+                ['a']
               )}
               /* eslint-enable react/no-danger */
             />
