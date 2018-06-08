@@ -815,10 +815,7 @@ describe(__filename, () => {
       userId: user.id,
     });
 
-    const _window = {
-      scroll: sinon.spy(),
-    };
-    const root = renderUserProfileEdit({ errorHandler, store, _window });
+    const root = renderUserProfileEdit({ errorHandler, store });
 
     expect(root.find(Notice)).toHaveLength(0);
     expect(root.find('.UserProfileEdit-submit-button'))
@@ -835,8 +832,6 @@ describe(__filename, () => {
 
     expect(root.find('.UserProfileEdit-submit-button'))
       .toHaveProp('disabled', false);
-
-    sinon.assert.calledWith(_window.scroll, 0, 0);
   });
 
   it('renders a Not Found page when logged-in user cannot edit another user', () => {
@@ -923,7 +918,13 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store, _window });
 
     expect(root.find(ErrorList)).toHaveLength(1);
-    sinon.assert.calledWith(_window.scroll, 0, 0);
+
+    // We do not call `scroll()` here because we mount the component and
+    // `componentDidUpdate()` is not called. It is valid because we only mount
+    // the component when the server processes the request OR the user
+    // navigates to the edit profile page and, in both cases, the scroll will
+    // be at the top of the page.
+    sinon.assert.notCalled(_window.scroll);
   });
 
   it('displays an AuthenticateButton if current user is not logged-in', () => {
@@ -1399,5 +1400,82 @@ describe(__filename, () => {
       new_features: false,
       reply: true,
     });
+  });
+
+  it('scrolls to the top of the page when an error is rendered', () => {
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ _window });
+
+    sinon.assert.notCalled(_window.scroll);
+
+    root.setProps({
+      errorHandler: createStubErrorHandler(new Error('some error')),
+    });
+
+    sinon.assert.calledWith(_window.scroll, 0, 0);
+  });
+
+  it('does not scroll if we already scrolled because of an error', () => {
+    const errorHandler = createStubErrorHandler(new Error('some error'));
+
+    const _window = {
+      scroll: sinon.spy(),
+    };
+    const root = renderUserProfileEdit({ _window, errorHandler });
+
+    sinon.assert.notCalled(_window.scroll);
+
+    // This update will trigger a re-render.
+    root.find(`.UserProfileEdit-biography`).simulate(
+      'change',
+      createFakeEventChange({
+        name: 'biography',
+        value: 'a new bio',
+      })
+    );
+
+    sinon.assert.notCalled(_window.scroll);
+  });
+
+  it('does not scroll if we already scrolled because of a success message', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        ...defaultUserProps,
+        picture_url: 'https://example.org/pp.png',
+      },
+    });
+
+    const _window = {
+      scroll: sinon.spy(),
+    };
+
+    const root = renderUserProfileEdit({ store, _window });
+    const user = getCurrentUser(store.getState().users);
+
+    sinon.assert.notCalled(_window.scroll);
+
+    // The user profile picture has been successfully deleted.
+    root.setProps({
+      user: {
+        ...user,
+        picture_url: null,
+      },
+    });
+
+    sinon.assert.calledWith(_window.scroll, 0, 0);
+    _window.scroll.reset();
+
+    // This update will trigger a re-render.
+    root.find(`.UserProfileEdit-biography`).simulate(
+      'change',
+      createFakeEventChange({
+        name: 'biography',
+        value: 'a new bio',
+      })
+    );
+
+    sinon.assert.notCalled(_window.scroll);
   });
 });
