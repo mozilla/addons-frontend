@@ -9,7 +9,7 @@ import type {
   ExternalUserType,
   NotificationsType,
 } from 'amo/reducers/users';
-import { ApiStateType } from 'core/reducers/api';
+import type { ApiStateType } from 'core/reducers/api';
 
 
 export function currentUserAccount({ api }: {| api: ApiStateType |}): Promise<ExternalUserType> {
