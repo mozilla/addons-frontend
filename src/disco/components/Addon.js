@@ -265,14 +265,15 @@ export class AddonBase extends React.Component {
         {this.getThemeImage()}
         {this.getLogo()}
         <div className="content">
-          <ReactCSSTransitionGroup
-            transitionName="overlay"
-            transitionEnterTimeout={700}
-            transitionLeaveTimeout={300}
-          >
-            {this.getError()}
-            {this.getRestart()}
-          </ReactCSSTransitionGroup>
+          <TransitionGroup>
+            <CSSTransition
+              classNames="overlay"
+              timeout={{ enter: 700, exit: 300 }}
+            >
+              {this.getError()}
+              {this.getRestart()}
+            </CSSTransition>
+          </TransitionGroup>
           <div className="copy">
             <h2
               onClick={this.clickHeadingLink}
