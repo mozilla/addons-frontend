@@ -150,7 +150,7 @@ export class RatingManagerBase extends React.Component<Props, State> {
       default: {
         const validAddonType = validAddonTypes.includes(addonType);
         log.warn(`Using generic prompt for ${validAddonType ?
-          'add-on' : 'unknown extension'} type: ${addonType}`
+          'add-on' : 'unknown add-on'} type: ${addonType}`
         );
         return i18n.gettext('Log in to rate this add-on');
       }
