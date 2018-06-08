@@ -35,7 +35,7 @@
       opacity: 1;
     }
 
-    &.NoticePlaceholder-transition-leave-active {
+    &.NoticePlaceholder-transition-exit-active {
       opacity: 0;
       transition: opacity $transition-medium ease-in-out;
     }

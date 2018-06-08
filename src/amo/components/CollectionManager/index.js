@@ -346,19 +346,21 @@ export class CollectionManagerBase extends React.Component<Props, State> {
           />
         </div>
 
-        <ReactCSSTransitionGroup
+        <TransitionGroup
           className="NoticePlaceholder"
-          component="div"
-          transitionName="NoticePlaceholder-transition"
-          transitionEnterTimeout={MESSAGE_FADEOUT_TIME}
-          transitionLeaveTimeout={MESSAGE_FADEOUT_TIME}
         >
-          {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
+          <CSSTransition
+            component={null}
+            timeout={MESSAGE_FADEOUT_TIME}
+            classNames="NoticePlaceholder-transition"
+          >
+            {this.state.addonAddedStatus === ADDON_ADDED_STATUS_SUCCESS && (
             <Notice type="success">
               {i18n.gettext('Added to collection')}
             </Notice>
-          )}
-        </ReactCSSTransitionGroup>
+            )}
+          </CSSTransition>
+        </TransitionGroup>
 
         {!creating &&
           <AutoSearchInput
