@@ -16,7 +16,6 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
-  deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCurrentCollection,
@@ -26,7 +25,6 @@ import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
-  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -677,7 +675,6 @@ describe(__filename, () => {
     }));
 
     const wrapper = renderComponent({ store });
-    const { onDelete } = wrapper.instance();
     const button = wrapper.find(ConfirmButton);
     expect(button).toHaveLength(0);
   });
@@ -947,10 +944,7 @@ describe(__filename, () => {
     }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const preventDefaultSpy = sinon.spy();
     const errorHandler = createStubErrorHandler();
-
-    const wrapper = renderComponent({ errorHandler, store });
 
     dispatchSpy.reset();
 
