@@ -56,6 +56,7 @@ export type AddonAddedStatusType =
 type Props = {|
   hasAddonBeenAdded: boolean,
   collection: CollectionType | null,
+  clearTimeout: Function,
   clientApp: ?string,
   creating: boolean,
   currentUsername: string,
@@ -82,12 +83,12 @@ export class CollectionManagerBase extends React.Component<Props, State> {
 
   static defaultProps = {
     setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
+    clearTimeout: typeof window !== 'undefined' ? window.clearTimeout.bind(window) : () => {},
   };
 
   constructor(props: Props) {
     super(props);
     this.state = this.propsToState(props);
-    this.timeout; // eslint-disable-line no-unused-expressions
   }
 
   componentWillReceiveProps(props: Props) {
@@ -116,7 +117,9 @@ export class CollectionManagerBase extends React.Component<Props, State> {
   }
 
   componentWillUnmount() {
-    clearTimeout(this.timeout);
+    if (this.timeout) {
+      this.props.clearTimeout(this.timeout);
+    }
   }
 
   onCancel = (event: SyntheticEvent<any>) => {

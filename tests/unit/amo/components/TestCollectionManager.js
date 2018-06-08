@@ -738,6 +738,22 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
+  // TODO: WIP
+  it('clearTimeout is called if necessary on unmount', () => {
+    const clearTimeoutSpy = sinon.spy();
+    const root = render({ clearTimeout: clearTimeoutSpy });
+    const unMountSpy = sinon.spy(root.instance(), 'componentWillUnmount');
+
+    expect(unMountSpy.calledOnce).toEqual(false);
+
+    // TODO: set up test to show clearTimeout is called (if there is this.timeout defined),
+    // on unmount
+    // sinon.assert.calledWith(clearTimeoutSpy, root.instance().props.clearTimeout(undefined));
+    root.unmount();
+
+    expect(unMountSpy.calledOnce).toEqual(true);
+  });
+
   it('removes the notification after a new add-on has been selected', () => {
     const root = render({});
 
