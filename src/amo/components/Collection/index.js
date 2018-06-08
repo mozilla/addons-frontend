@@ -385,10 +385,6 @@ export const mapStateToProps = (
   let hasEditPermission = false;
 
   const collection = getCurrentCollection(state.collections);
-  if (collection && currentUser) {
-    hasEditPermission = collection.authorId === currentUser.id ||
-      hasPermission(state, COLLECTIONS_EDIT);
-  }
 
   return {
     collection,
