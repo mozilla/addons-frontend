@@ -9,14 +9,14 @@ import { DEFAULT_API_PAGE_SIZE } from 'core/api';
 import { ADDON_TYPE_THEMES } from 'core/constants';
 import CardList from 'ui/components/CardList';
 import type { RemoveCollectionAddonFunc } from 'amo/components/Collection';
-import type { AddonType } from 'core/types/addons';
+import type { AddonType, CollectionAddonType } from 'core/types/addons';
 
 import './styles.scss';
 
 
 type Props = {|
   addonInstallSource?: string,
-  addons?: Array<AddonType> | null,
+  addons?: $ReadOnlyArray<AddonType | CollectionAddonType> | null,
   children?: React.Node,
   className?: string,
   editing?: boolean,

@@ -3,7 +3,7 @@ import { oneLine } from 'common-tags';
 import invariant from 'invariant';
 
 import { createInternalAddon } from 'core/reducers/addons';
-import type { AddonType, ExternalAddonType } from 'core/types/addons';
+import type { CollectionAddonType, ExternalAddonType } from 'core/types/addons';
 import type { LocalizedString } from 'core/types/api';
 
 export const ADD_ADDON_TO_COLLECTION: 'ADD_ADDON_TO_COLLECTION'
@@ -41,9 +41,13 @@ export const FINISH_COLLECTION_MODIFICATION: 'FINISH_COLLECTION_MODIFICATION'
 export const REMOVE_ADDON_FROM_COLLECTION: 'REMOVE_ADDON_FROM_COLLECTION'
   = 'REMOVE_ADDON_FROM_COLLECTION';
 export const DELETE_COLLECTION: 'DELETE_COLLECTION' = 'DELETE_COLLECTION';
+export const UPDATE_COLLECTION_ADDON: 'UPDATE_COLLECTION_ADDON'
+  = 'UPDATE_COLLECTION_ADDON';
+export const DELETE_COLLECTION_ADDON_NOTES: 'DELETE_COLLECTION_ADDON_NOTES'
+  = 'DELETE_COLLECTION_ADDON_NOTES';
 
 export type CollectionType = {
-  addons: Array<AddonType> | null,
+  addons: Array<CollectionAddonType> | null,
   authorId: number,
   authorName: string,
   authorUsername: string,
@@ -642,12 +646,77 @@ export const deleteCollection = ({
   };
 };
 
+type UpdateCollectionAddonParams = {|
+  addonId: number,
+  errorHandlerId: string,
+  notes: string,
+  page: number,
+  slug: string,
+  username: string,
+|};
+
+export type UpdateCollectionAddonAction = {|
+  type: typeof UPDATE_COLLECTION_ADDON,
+  payload: UpdateCollectionAddonParams,
+|};
+
+export const updateCollectionAddon = ({
+  addonId, errorHandlerId, notes, page, slug, username,
+}: UpdateCollectionAddonParams = {}): UpdateCollectionAddonAction => {
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(
+    notes !== undefined && notes !== null, 'The notes parameter is required'
+  );
+  invariant(page, 'The page parameter is required');
+  invariant(slug, 'The slug parameter is required');
+  invariant(username, 'The username parameter is required');
+
+  return {
+    type: UPDATE_COLLECTION_ADDON,
+    payload: {
+      addonId, errorHandlerId, notes, page, slug, username,
+    },
+  };
+};
+
+// The DeleteCollectionAddonNotesAction is identical to the
+// UpdateCollectionAddonAction, with the only difference being that
+// we pass '' into the notes field. Therefore we can reuse the
+// UpdateCollectionAddonParams type to describe the payload.
+export type DeleteCollectionAddonNotesAction = {|
+  type: typeof DELETE_COLLECTION_ADDON_NOTES,
+  payload: UpdateCollectionAddonParams,
+|};
+
+export const deleteCollectionAddonNotes = ({
+  addonId, errorHandlerId, page, slug, username,
+}: UpdateCollectionAddonParams = {}): DeleteCollectionAddonNotesAction => {
+  invariant(addonId, 'The addonId parameter is required');
+  invariant(errorHandlerId, 'The errorHandlerId parameter is required');
+  invariant(page, 'The page parameter is required');
+  invariant(slug, 'The slug parameter is required');
+  invariant(username, 'The username parameter is required');
+
+  // For delete we set the notes field to an empty string and call update.
+  // TODO: Use a null instead when https://github.com/mozilla/addons-server/issues/7832 is fixed.
+  return {
+    type: DELETE_COLLECTION_ADDON_NOTES,
+    payload: {
+      addonId, errorHandlerId, notes: '', page, slug, username,
+    },
+  };
+};
+
 export const createInternalAddons = (
   items: ExternalCollectionAddons
-): Array<AddonType> => {
-  return items.map((item) => {
+): Array<CollectionAddonType> => {
+  return items.map(({ addon, notes }) => {
     // This allows to have a consistent way to manipulate addons in the app.
-    return createInternalAddon(item.addon);
+    return {
+      ...createInternalAddon(addon),
+      notes,
+    };
   });
 };
 

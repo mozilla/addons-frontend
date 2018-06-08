@@ -24,6 +24,7 @@ import reducer, {
 } from 'amo/reducers/collections';
 import { createStubErrorHandler } from 'tests/unit/helpers';
 import {
+  createFakeCollectionAddon,
   createFakeCollectionAddons,
   createFakeCollectionDetail,
   fakeAddon,
@@ -161,6 +162,7 @@ describe(__filename, () => {
     });
 
     it('loads a collection page', () => {
+      const notes = 'These are some notes';
       const collectionAddons = createFakeCollectionAddons();
       const collectionDetail = createFakeCollectionDetail();
 
@@ -169,8 +171,12 @@ describe(__filename, () => {
         detail: collectionDetail,
       }));
 
+      const fakeCollectionAddon = createFakeCollectionAddon({
+        addon: { ...fakeAddon, id: 333 },
+        notes,
+      });
       const newAddons = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: 333 }],
+        addons: [fakeCollectionAddon],
       });
       state = reducer(state, loadCurrentCollectionPage({
         addons: newAddons,
@@ -182,6 +188,7 @@ describe(__filename, () => {
       expect(loadedCollection.addons)
         .toEqual(createInternalAddons(newAddons));
       expect(state.current.loading).toEqual(false);
+      expect(loadedCollection.addons[0].notes).toEqual(notes);
     });
 
     it('resets the current collection when fetching is aborted', () => {
@@ -426,8 +433,10 @@ describe(__filename, () => {
 
   describe('loadCollectionIntoState', () => {
     it('preserves existing collection addons', () => {
+      const fakeCollectionAddon =
+        createFakeCollectionAddon({ addon: { ...fakeAddon, id: 1 } });
       const addons = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: 1 }],
+        addons: [fakeCollectionAddon],
       });
       const collection = createFakeCollectionDetail({
         id: 1, addons,
@@ -441,8 +450,23 @@ describe(__filename, () => {
       state = loadCollectionIntoState({ state, collection });
 
       const collectionInState = state.byId[collection.id];
-      expect(collectionInState.addons)
-        .toEqual(createInternalAddons(addons));
+      expect(collectionInState.addons).toEqual(createInternalAddons(addons));
+    });
+
+    it('loads notes for collection add-ons', () => {
+      const notes = 'These are some notes.';
+      const fakeCollectionAddon = createFakeCollectionAddon({ notes });
+      const addons = createFakeCollectionAddons({
+        addons: [fakeCollectionAddon],
+      });
+      const collection = createFakeCollectionDetail({ addons });
+
+      const state = loadCollectionIntoState({
+        state: initialState, collection, addons,
+      });
+
+      const collectionInState = state.byId[collection.id];
+      expect(collectionInState.addons[0].notes).toEqual(notes);
     });
   });
 
@@ -748,8 +772,11 @@ describe(__filename, () => {
     };
 
     it('loads collection add-ons', () => {
+      const notes = 'These are some notes.';
+      const fakeCollectionAddon =
+        createFakeCollectionAddon({ addon: { ...fakeAddon, id: 1 } });
       const addons = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: 1 }],
+        addons: [fakeCollectionAddon],
       });
       const collectionDetail = createFakeCollectionDetail();
 
@@ -759,8 +786,10 @@ describe(__filename, () => {
       }));
 
       // Load new add-ons for the collection.
+      const newFakeCollectionAddon =
+        createFakeCollectionAddon({ addon: { ...fakeAddon, id: 2 }, notes });
       const newAddons = createFakeCollectionAddons({
-        addons: [{ ...fakeAddon, id: 2 }],
+        addons: [newFakeCollectionAddon],
       });
       state = reducer(state, loadCollectionAddons({
         addons: newAddons,
@@ -769,6 +798,8 @@ describe(__filename, () => {
 
       expect(state.byId[collectionDetail.id].addons)
         .toEqual(createInternalAddons(newAddons));
+      expect(state.byId[collectionDetail.id].addons[0].notes)
+        .toEqual(notes);
     });
 
     it('requires a loaded collection first', () => {

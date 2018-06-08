@@ -175,6 +175,11 @@ export type AddonType = {|
   themeData?: ThemeData,
 |};
 
+export type CollectionAddonType = {|
+  ...AddonType,
+  notes: string | null,
+|};
+
 export type SearchResultAddonType = {|
   ...AddonType,
   authors?: PartialAddonAuthorType,

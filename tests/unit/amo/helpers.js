@@ -353,15 +353,25 @@ export const createFakeCollectionDetail = ({
   };
 };
 
-export const createFakeCollectionAddons = ({ addons = [fakeAddon] } = {}) => {
-  return addons.map((addon) => ({
+export function createFakeCollectionAddon({
+  addon = fakeAddon, notes = null,
+} = {}) {
+  return { addon, notes };
+}
+
+export const createFakeCollectionAddons = ({
+  addons = [createFakeCollectionAddon()],
+} = {}) => {
+  return addons.map(({ addon, notes }) => ({
     addon,
     downloads: 0,
-    notes: null,
+    notes,
   }));
 };
 
-export const createFakeCollectionAddonsListResponse = ({ addons = [fakeAddon] } = {}) => {
+export const createFakeCollectionAddonsListResponse = (
+  { addons = [createFakeCollectionAddon()] } = {}
+) => {
   return {
     count: addons.length,
     results: createFakeCollectionAddons({ addons }),
