@@ -6,11 +6,13 @@ import type {
   NotificationsUpdateType,
   UserEditableFieldsType,
   UserId,
+  ExternalUserType,
+  NotificationsType,
 } from 'amo/reducers/users';
-import type { ApiStateType } from 'core/reducers/api';
+import { ApiStateType } from 'core/reducers/api';
 
 
-export function currentUserAccount({ api }: {| api: ApiStateType |}) {
+export function currentUserAccount({ api }: {| api: ApiStateType |}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
 
   return callApi({
@@ -25,7 +27,7 @@ export function editUserAccount({ api, picture, userId, ...editableFields }: {|
   editableFields: UserEditableFieldsType,
   picture?: File | null,
   userId: UserId,
-|}) {
+|}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
   invariant(userId, 'userId is required.');
 
@@ -59,7 +61,7 @@ type UserApiParams = {|
   username: string,
 |};
 
-export function userAccount({ api, username }: UserApiParams) {
+export function userAccount({ api, username }: UserApiParams): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
   invariant(username, 'username is required.');
 
@@ -70,7 +72,7 @@ export function userAccount({ api, username }: UserApiParams) {
   });
 }
 
-export function userNotifications({ api, username }: UserApiParams) {
+export function userNotifications({ api, username }: UserApiParams): Promise<NotificationsType> {
   invariant(api, 'api state is required.');
   invariant(username, 'username is required.');
 
@@ -85,7 +87,7 @@ export function updateUserNotifications({ api, notifications, userId }: {|
   api: ApiStateType,
   notifications: NotificationsUpdateType,
   userId: UserId,
-|}) {
+|}): Promise<NotificationsType> {
   invariant(api, 'api state is required.');
   invariant(userId, 'userId is required.');
   invariant(notifications, 'notifications are required.');
@@ -102,7 +104,7 @@ export function updateUserNotifications({ api, notifications, userId }: {|
 export function deleteUserPicture({ api, userId }: {|
   api: ApiStateType,
   userId: UserId,
-|}) {
+|}): Promise<ExternalUserType> {
   invariant(api, 'api state is required.');
   invariant(userId, 'userId is required.');
 
@@ -117,7 +119,7 @@ export function deleteUserPicture({ api, userId }: {|
 export function deleteUserAccount({ api, userId }: {|
   api: ApiStateType,
   userId: UserId,
-|}) {
+|}): Promise<UserId> {
   invariant(api, 'api state is required.');
   invariant(userId, 'userId is required.');
 
