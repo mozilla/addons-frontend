@@ -272,7 +272,11 @@ describe(__filename, () => {
         addonId: 123,
         collectionId: 5432,
         slug: 'a-collection',
+<<<<<<< HEAD
+        userId: 543,
+=======
         username: 'some-user',
+>>>>>>> master
       };
       const state = sagaTester.getState();
 
@@ -303,7 +307,11 @@ describe(__filename, () => {
         page: 1,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
+<<<<<<< HEAD
+        user: params.userId,
+=======
         username: params.username,
+>>>>>>> master
       });
 
       expect(sagaTester.wasCalled(unexpectedFetchAction.type)).toEqual(false);
@@ -339,7 +347,11 @@ describe(__filename, () => {
         page: params.page,
         errorHandlerId: errorHandler.id,
         slug: params.slug,
+<<<<<<< HEAD
+        user: params.userId,
+=======
         username: params.username,
+>>>>>>> master
       });
 
       const fetchAction = await sagaTester.waitFor(expectedFetchAction.type);

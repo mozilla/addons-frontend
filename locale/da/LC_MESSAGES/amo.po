@@ -3,8 +3,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2018-05-31 18:06+0000\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-06 17:02+0000\n"
+>>>>>>> master
 "Last-Translator: Joergen <joergenr@stofanet.dk>\n"
 "Language-Team: none\n"
 "Language: da\n"
@@ -39,7 +44,11 @@ msgstr "Føjet til %(collectionName)s"
 msgid "Add to…"
 msgstr "Føj til…"
 
+<<<<<<< HEAD
+#: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
 #: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 msgid "Add to collection"
 msgstr "Føj til samling"
 
@@ -105,7 +114,11 @@ msgstr "Udgivelsesnoter for %(addonVersion)s"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s af %(authorList)s%(endSpan)s"
 
+<<<<<<< HEAD
+#: src/amo/components/Addon/index.js:528
+=======
 #: src/amo/components/Addon/index.js:553
+>>>>>>> master
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "Kun med Firefox — Hent Firefox nu"
 
@@ -261,7 +274,11 @@ msgstr "Brugsstatistik"
 msgid "More information"
 msgstr "Mere information"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "Hjemmeside"
 
@@ -591,11 +608,19 @@ msgstr "Log ind for at oprette en samling"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "Opret først din samling. Derefter kan du føje udvidelser og temaer til den."
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:263
+msgid "Save collection"
+msgstr "Gem samling"
+
+#: src/amo/components/CollectionManager/index.js:263
+=======
 #: src/amo/components/CollectionManager/index.js:289
 msgid "Save collection"
 msgstr "Gem samling"
 
 #: src/amo/components/CollectionManager/index.js:289
+>>>>>>> master
 msgid "Create collection"
 msgstr "Opret en samling"
 
@@ -611,7 +636,11 @@ msgstr "Beskrivelse"
 msgid "Custom URL"
 msgstr "Tilpasset URL"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:324
+=======
 #: src/amo/components/CollectionManager/index.js:358
+>>>>>>> master
 msgid "Added to collection"
 msgstr "Føjet til samling"
 
@@ -619,7 +648,11 @@ msgstr "Føjet til samling"
 msgid "Find an add-on to include in this collection"
 msgstr "Find en tilføjelse, der skal medtages i denne samling"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 msgid "Cancel"
 msgstr "Annuller"
 
@@ -875,11 +908,19 @@ msgstr "Min konto"
 msgid "View My Collections"
 msgstr "Vis mine samlinger"
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
+msgid "View My Profile"
+msgstr "Vis min profil"
+
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+=======
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
 msgid "View My Profile"
 msgstr "Vis min profil"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 msgid "Edit My Profile"
 msgstr "Rediger min profil"
 
@@ -1834,6 +1875,17 @@ msgstr "Gennemse alle temaer"
 msgid "Add-ons Home Page"
 msgstr "Tilføjelsens hjemmeside"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
+msgid "User Profile for %(user)s"
+msgstr "Brugerprofil for %(user)s"
+
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:496
+msgid "Location"
+msgstr "Sted"
+
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
 msgid "User Profile for %(user)s"
 msgstr "Brugerprofil for %(user)s"
@@ -1843,6 +1895,7 @@ msgid "Location"
 msgstr "Sted"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr "Beskæftigelse"
 
@@ -1866,11 +1919,19 @@ msgstr "Rediger profil"
 msgid "Profile successfully updated"
 msgstr "Profil opdateret"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:167
+msgid "Picture successfully deleted"
+msgstr "Billede slettet"
+
+#: src/amo/components/UserProfileEdit/index.js:320
+=======
 #: src/amo/components/UserProfileEdit/index.js:185
 msgid "Picture successfully deleted"
 msgstr "Billede slettet"
 
 #: src/amo/components/UserProfileEdit/index.js:395
+>>>>>>> master
 msgid "Log in to edit the profile"
 msgstr "Log ind for at redigere profilen"
 
@@ -1902,7 +1963,11 @@ msgstr "Mailadresse kan ikke ændres her"
 msgid "Email Address"
 msgstr "Mailadresse"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:426
+=======
 #: src/amo/components/UserProfileEdit/index.js:501
+>>>>>>> master
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr "Du kan ændre din mailadresse på din Firefox-konto. %(startLink)sHar du brug for hjælp?%(endLink)s"
 
@@ -1910,11 +1975,19 @@ msgstr "Du kan ændre din mailadresse på din Firefox-konto. %(startLink)sHar du
 msgid "Profile"
 msgstr "Profil"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:445
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr "Fortæl brugerne lidt mere om dig selv. Det er valgfrit, om du vil udfylde felterne, men det vil hjælpe andre brugere med at lære dig bedre at kende."
+
+#: src/amo/components/UserProfileEdit/index.js:450
+=======
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr "Fortæl brugerne lidt mere om dig selv. Det er valgfrit, om du vil udfylde felterne, men det vil hjælpe andre brugere med at lære dig bedre at kende."
 
 #: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr "Fortæl brugerne lidt mere om denne bruger. Det er valgfrit, om du vil udfylde felterne, men det vil hjælpe andre brugere med at lære %(username)s bedre at kende."
 
@@ -1942,6 +2015,21 @@ msgstr "Introducer %(username)s til fællesskabet"
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Noget HTML understøttes: %(htmlTags)s. Links er ikke tilladt."
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:571
+msgid "Notifications"
+msgstr "Beskeder"
+
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "Fra tid til anden kan Mozilla sende dig mail om kommende udgivelser og arrangementer vedrørende tilføjelser. Vælg de emner, du er interesseret i."
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr "Fra tid til anden kan Mozilla sende denne bruger mail om kommende udgivelser og arrangementer vedrørende tilføjelser. Vælg de emner, denne bruger er interesseret i."
+
+#: src/amo/components/UserProfileEdit/index.js:589
+=======
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
 msgstr "Beskeder"
@@ -1955,6 +2043,7 @@ msgid "From time to time, Mozilla may send this user email about upcoming releas
 msgstr "Fra tid til anden kan Mozilla sende denne bruger mail om kommende udgivelser og arrangementer vedrørende tilføjelser. Vælg de emner, denne bruger er interesseret i."
 
 #: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla forbeholder sig retten til at kontakte dig individuelt vedrørende dine tilføjelser, som er hosted her."
 
@@ -1974,6 +2063,8 @@ msgstr "Opdaterer brugers profil…"
 msgid "Update user's profile"
 msgstr "Opdater brugers profil"
 
+<<<<<<< HEAD
+=======
 #: src/amo/components/UserProfileEdit/index.js:700
 msgid "Delete my profile"
 msgstr "Slet min profil"
@@ -2014,6 +2105,7 @@ msgstr "Ja, slet min profil"
 msgid "Yes, delete this profile"
 msgstr "Ja, slet denne profil"
 
+>>>>>>> master
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr ""
@@ -2065,10 +2157,13 @@ msgstr "Profilbillede"
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
 msgstr "Vælg billede..."
+<<<<<<< HEAD
+=======
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
 msgstr "Vil du virkelig slette dette billede?"
+>>>>>>> master
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2094,7 +2189,11 @@ msgstr "Vi beklager, men vi kan ikke finde noget på adressen, du indtastede."
 msgid "Install Theme"
 msgstr "Installer tema"
 
+<<<<<<< HEAD
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
 #: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "Føj til Firefox"
 

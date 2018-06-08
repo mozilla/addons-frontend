@@ -3,9 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2016-11-12 22:53+0000\n"
+"Last-Translator: eljuno <eljunotrie_anggoro@yahoo.co.id>\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-07 16:16+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
+>>>>>>> master
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -42,7 +48,11 @@ msgstr "Ditambahkan ke %(collectionName)s"
 msgid "Add to…"
 msgstr "Tambahkan ke…"
 
+<<<<<<< HEAD
+#: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
 #: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 #, fuzzy
 msgid "Add to collection"
 msgstr "Jelajahi semua ekstensi"
@@ -275,7 +285,11 @@ msgstr "Statistik Penggunaan"
 msgid "More information"
 msgstr "Informasi lebih lanjut"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "Halaman depan"
 
@@ -312,11 +326,19 @@ msgstr "Beritahu kami apa yang Anda sukai dari ekstensi ini. Jelaskan dengan spe
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
+<<<<<<< HEAD
+msgstr ""
+
+#: src/amo/components/AddonReview/index.js:181
+msgid "Tell us about your experience with this extension. Be specific and concise."
+msgstr ""
+=======
 msgstr "Beritahukan pada dunia tentang ekstensi ini. Harap ikuti %(linkStart)spanduan tinjauan%(linkEnd)s kami."
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
 msgstr "Beri tahu kami pengalaman Anda dengan ekstensi ini. Secara spesifik dan ringkas."
+>>>>>>> master
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
@@ -671,7 +693,11 @@ msgstr "Jelajahi semua ekstensi"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 #, fuzzy
 msgid "Cancel"
 msgstr "Batalkan pratinjau"
@@ -937,11 +963,19 @@ msgstr ""
 msgid "View My Collections"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
+msgid "View My Profile"
+msgstr ""
+
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+=======
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
 msgid "View My Profile"
 msgstr ""
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 #, fuzzy
 msgid "Edit My Profile"
 msgstr "Tulis ulasan"
@@ -1905,16 +1939,28 @@ msgstr "Telusuri semua tema"
 msgid "Add-ons Home Page"
 msgstr "Beranda Pengaya"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
+=======
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
+>>>>>>> master
 #, fuzzy
 msgid "User Profile for %(user)s"
 msgstr "Mencari \"%(query)s\""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:496
+msgid "Location"
+msgstr ""
+
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr ""
 
@@ -1978,7 +2024,11 @@ msgstr ""
 msgid "Email Address"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:426
+=======
 #: src/amo/components/UserProfileEdit/index.js:501
+>>>>>>> master
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr ""
 
@@ -1986,11 +2036,19 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:445
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+=======
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
@@ -2023,6 +2081,17 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:589
+=======
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr ""
@@ -2032,6 +2101,7 @@ msgid "From time to time, Mozilla may send this user email about upcoming releas
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr ""
 
@@ -2051,6 +2121,8 @@ msgstr ""
 msgid "Update user's profile"
 msgstr ""
 
+<<<<<<< HEAD
+=======
 #: src/amo/components/UserProfileEdit/index.js:700
 #, fuzzy
 msgid "Delete my profile"
@@ -2090,6 +2162,7 @@ msgstr ""
 msgid "Yes, delete this profile"
 msgstr ""
 
+>>>>>>> master
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr ""
@@ -2171,7 +2244,11 @@ msgstr ""
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
+<<<<<<< HEAD
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
 #: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "Tambah ke Firefox"
 

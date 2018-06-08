@@ -3,8 +3,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2018-06-02 07:33+0000\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-06 15:38+0000\n"
+>>>>>>> master
 "Last-Translator: Georgianizator <georgianization@outlook.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: ka\n"
@@ -39,7 +44,11 @@ msgstr "დაემატა %(collectionName)s კრებულში"
 msgid "Add to…"
 msgstr "დამატება…"
 
+<<<<<<< HEAD
+#: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
 #: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 msgid "Add to collection"
 msgstr "კრებულში დამატება"
 
@@ -105,7 +114,11 @@ msgstr "%(addonVersion)s გამოშვების მონაცემე
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)sავტორი: %(authorList)s %(endSpan)s"
 
+<<<<<<< HEAD
+#: src/amo/components/Addon/index.js:528
+=======
 #: src/amo/components/Addon/index.js:553
+>>>>>>> master
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "მხოლოდ Firefox-თან ერთად — გადმოწერეთ Firefox ახლავე"
 
@@ -262,7 +275,11 @@ msgstr "გამოყენების სტატისტიკა"
 msgid "More information"
 msgstr "დამატებითი მონაცემები"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "მთავარი გვერდი"
 
@@ -594,11 +611,19 @@ msgstr "შედით ანგარიშზე კრებულის შ
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "გთხოვთ, ჯერ შექმნათ თქვენი კრებული. ამის შემდეგ შეგეძლებათ დამატებების შეტანა."
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:263
+msgid "Save collection"
+msgstr "კრებულის შენახვა"
+
+#: src/amo/components/CollectionManager/index.js:263
+=======
 #: src/amo/components/CollectionManager/index.js:289
 msgid "Save collection"
 msgstr "კრებულის შენახვა"
 
 #: src/amo/components/CollectionManager/index.js:289
+>>>>>>> master
 msgid "Create collection"
 msgstr "ახალი კრებულის შექმნა"
 
@@ -614,7 +639,11 @@ msgstr "აღწერილობა"
 msgid "Custom URL"
 msgstr "შერჩეული URL ბმული"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:324
+=======
 #: src/amo/components/CollectionManager/index.js:358
+>>>>>>> master
 msgid "Added to collection"
 msgstr "კრებულში დამატება"
 
@@ -622,7 +651,11 @@ msgstr "კრებულში დამატება"
 msgid "Find an add-on to include in this collection"
 msgstr "დამატების მონახვა ამ კრებულში ჩასამატებლად"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -880,11 +913,19 @@ msgstr "ჩემი ანგარიში"
 msgid "View My Collections"
 msgstr "ჩემი კრებულების ნახვა"
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
+msgid "View My Profile"
+msgstr "პროფილის ნახვა"
+
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+=======
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
 msgid "View My Profile"
 msgstr "პროფილის ნახვა"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 msgid "Edit My Profile"
 msgstr "პროფილის ჩასწორება"
 
@@ -1847,6 +1888,17 @@ msgstr "ყველა თემის ნახვა"
 msgid "Add-ons Home Page"
 msgstr "დამატების მთავარი გვერდი"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
+msgid "User Profile for %(user)s"
+msgstr "მომხმარებლის პროფილი %(user)s"
+
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:496
+msgid "Location"
+msgstr "მდებარეობა"
+
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
 msgid "User Profile for %(user)s"
 msgstr "მომხმარებლის პროფილი %(user)s"
@@ -1856,6 +1908,7 @@ msgid "Location"
 msgstr "მდებარეობა"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr "საქმიანობა"
 
@@ -1879,7 +1932,11 @@ msgstr "პროფილის ჩასწორება"
 msgid "Profile successfully updated"
 msgstr "პროფილი წარმატებით განახლდა"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:167
+=======
 #: src/amo/components/UserProfileEdit/index.js:185
+>>>>>>> master
 msgid "Picture successfully deleted"
 msgstr "სურათი წარმატებით წაიშალა"
 
@@ -1915,7 +1972,11 @@ msgstr "ელფოსტის აქედან შეცვლა, შე�
 msgid "Email Address"
 msgstr "ელფოსტის მისამართი"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:426
+=======
 #: src/amo/components/UserProfileEdit/index.js:501
+>>>>>>> master
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr "ელფოსტის მისამართის შეცვლა შეგიძლიათ Firefox ანგარიშებიდან. %(startLink)sდახმარება გესაჭიროებათ?%(endLink)s"
 
@@ -1923,11 +1984,19 @@ msgstr "ელფოსტის მისამართის შეცვლ�
 msgid "Profile"
 msgstr "პროფილი"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:445
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr "მიაწოდეთ მომხმარებლებს ცოტა უფრო მეტი ინფორმაცია თქვენზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვებს, უკეთ გაგიცნონ."
+
+#: src/amo/components/UserProfileEdit/index.js:450
+=======
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr "მიაწოდეთ მომხმარებლებს ცოტა უფრო მეტი ინფორმაცია თქვენზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვებს, უკეთ გაგიცნონ."
 
 #: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr "მიაწოდეთ ხალხს ცოტა უფრო მეტი ინფორმაცია ამ მომხმარებელზე. ყველა ამ ველის შევსება, არაა სავალდებულო, თუმცა დაეხმარება სხვა მომხმარებლებს, უკეთ გაიცნონ %(username)s."
 
@@ -1955,6 +2024,17 @@ msgstr "წარუდგინეთ %(username)s ჩვენს ერთო
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "მხარდაჭერილია ზოგიერთი HTML ელემენტი: %(htmlTags)s. ბმულის დადება არაა დაშვებული."
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:571
+msgid "Notifications"
+msgstr "შეტყობინებები"
+
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr "დროდადრო, Mozilla-მ შესაძლოა გამოგიგზავნოთ ელფოსტაზე სამომავლო გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც გაინტერესებთ."
+
+#: src/amo/components/UserProfileEdit/index.js:578
+=======
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
 msgstr "შეტყობინებები"
@@ -1964,11 +2044,16 @@ msgid "From time to time, Mozilla may send you email about upcoming releases and
 msgstr "დროდადრო, Mozilla-მ შესაძლოა გამოგიგზავნოთ ელფოსტაზე სამომავლო გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც გაინტერესებთ."
 
 #: src/amo/components/UserProfileEdit/index.js:653
+>>>>>>> master
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
 "დროდადრო, Mozilla-მ შესაძლოა გაუგზავნოს ამ მომხმარებელს ელფოსტაზე სამომავლო გამოშვებებისა და დამატებების შესახებ ცნობები. გთხოვთ მიუთითოთ ის თემები, რომლებიც ამ მომხმარებელს შეიძლება აინტერესებდეს."
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:589
+=======
 #: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr "Mozilla იტოვებს უფლებას, საჭიროებისამებრ პირადად გამოგეხმაუროთ, თქვენს დამატებებთან დაკავშირებულ საკითხებზე."
 
@@ -1988,6 +2073,8 @@ msgstr "მომხმარებლის პროფილი ახლდ�
 msgid "Update user's profile"
 msgstr "მომხმარებლის პროფილის განახლება"
 
+<<<<<<< HEAD
+=======
 #: src/amo/components/UserProfileEdit/index.js:700
 msgid "Delete my profile"
 msgstr "პროფილის წაშლა"
@@ -2028,6 +2115,7 @@ msgstr "დიახ, წაიშალოს ჩემი პროფილ�
 msgid "Yes, delete this profile"
 msgstr "დიახ, წაიშალოს ეს პროფილი"
 
+>>>>>>> master
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr "გაეცანით სიახლეებსა და დამატებების შემმუშავებლებთან დაკავშირებული ღონისძიებების შესახებ ინფორმაციას (მათ შორის about:addons-ის საინფორმაციო ცნობებს)"
@@ -2108,7 +2196,11 @@ msgstr "ვწუხვართ, მაგრამ თქვენ მიე�
 msgid "Install Theme"
 msgstr "თემის ჩადგმა"
 
+<<<<<<< HEAD
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
 #: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "Firefox-ზე დამატება"
 

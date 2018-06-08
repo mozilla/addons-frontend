@@ -195,6 +195,8 @@ describe(__filename, () => {
       const state = reducer(initialState, unloadUserAccount({ userId }));
       expect(state.byID[userId]).toBeUndefined();
     });
+<<<<<<< HEAD
+=======
 
     it('sets the current user ID to `null` if it is the user to unload', () => {
       const userId = 12345;
@@ -209,6 +211,7 @@ describe(__filename, () => {
       expect(state.byUsername[username]).toBeUndefined();
       expect(state.currentUserID).toEqual(null);
     });
+>>>>>>> master
   });
 
   describe('getCurrentUser selector', () => {

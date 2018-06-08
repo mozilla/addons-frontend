@@ -369,7 +369,11 @@ describe(__filename, () => {
         addonId: 123458,
         api: apiState,
         slug: 'some-collection',
+<<<<<<< HEAD
+        user: 'user-id-or-username',
+=======
         username: 'some-user',
+>>>>>>> master
         ...params,
       };
     };
@@ -379,11 +383,19 @@ describe(__filename, () => {
         action: 'create',
         addonId: 987675,
         slug: 'my-collection',
+<<<<<<< HEAD
+        user: 'my-user',
+      });
+
+      const endpoint = oneLineTrim`
+        accounts/account/${params.user}/collections/
+=======
         username: 'some-user',
       });
 
       const endpoint = oneLineTrim`
         accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons
       `;
       mockApi
@@ -408,7 +420,11 @@ describe(__filename, () => {
       const params = defaultParams({ action: 'create', notes });
 
       const endpoint = oneLineTrim`
+<<<<<<< HEAD
+        accounts/account/${params.user}/collections/
+=======
         accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons
       `;
       mockApi
@@ -436,7 +452,11 @@ describe(__filename, () => {
       });
 
       const endpoint = oneLineTrim`
+<<<<<<< HEAD
+        accounts/account/${params.user}/collections/
+=======
         accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons/${params.addonId}
       `;
       mockApi
@@ -461,7 +481,11 @@ describe(__filename, () => {
       const params = defaultParams({ action: 'update', notes });
 
       const endpoint = oneLineTrim`
+<<<<<<< HEAD
+        accounts/account/${params.user}/collections/
+=======
         accounts/account/${params.username}/collections/
+>>>>>>> master
         ${params.slug}/addons/${params.addonId}
       `;
       mockApi

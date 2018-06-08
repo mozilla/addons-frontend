@@ -3,9 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2018-05-02 15:59+0000\n"
+"Last-Translator: Jarmo <jarmo@juslin.me>\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-07 09:55+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
+>>>>>>> master
 "Language-Team: none\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
@@ -39,7 +45,11 @@ msgstr "Lisätty kokoelmaan %(collectionName)s"
 msgid "Add to…"
 msgstr "Lisää kohteeseen…"
 
+<<<<<<< HEAD
+#: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
 #: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 msgid "Add to collection"
 msgstr "Lisää kokoelmaan"
 
@@ -261,7 +271,11 @@ msgstr "Käyttötilastot"
 msgid "More information"
 msgstr "Lisätietoja"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "Kotisivu"
 
@@ -620,7 +634,11 @@ msgstr "Lisätty kokoelmaan"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 msgid "Cancel"
 msgstr "Peruuta"
 
@@ -876,11 +894,21 @@ msgstr "Oma tili"
 msgid "View My Collections"
 msgstr "Näytä kokoelmani"
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
+#, fuzzy
+=======
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
+>>>>>>> master
 msgid "View My Profile"
 msgstr "Näytä profiilini"
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+#, fuzzy
+=======
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 msgid "Edit My Profile"
 msgstr "Muokkaa profiiliani"
 
@@ -1315,7 +1343,11 @@ msgstr "Ilmoitit tämän lisäosan väärinkäytösten vuoksi"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
+<<<<<<< HEAD
+msgstr ""
+=======
 msgstr "Vastaanotimme ilmoituksesi. Kiitos että saatoit tietoomme huolesi tämän lisäosan suhteen."
+>>>>>>> master
 
 #: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:154
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1809,15 +1841,27 @@ msgstr "Selaa kaikkia teemoja"
 msgid "Add-ons Home Page"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
+msgid "User Profile for %(user)s"
+msgstr "Käyttäjän %(user)s profiili"
+
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:496
+=======
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
 msgid "User Profile for %(user)s"
 msgstr "Käyttäjän %(user)s profiili"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
+>>>>>>> master
 msgid "Location"
 msgstr "Sijainti"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr "Ammatti"
 
@@ -1877,19 +1921,33 @@ msgstr "Sähköpostiosoitetta ei voi vaihtaa täällä"
 msgid "Email Address"
 msgstr "Sähköpostiosoite"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:426
+msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
+msgstr ""
+=======
 #: src/amo/components/UserProfileEdit/index.js:501
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr "Voit vaihtaa sähköpostiosoitteesi Firefox-tilin kautta. %(startLink)sTarvitsetko apua?%(endLink)s"
+>>>>>>> master
 
 #: src/amo/components/UserProfileEdit/index.js:517
 msgid "Profile"
 msgstr "Profiili"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:445
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+=======
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr "Kerro muille tietoja itsestäsi. Nämä kentät ovat valinnaisia, mutta niiden avulla muut oppivat tuntemaan sinut."
 
 #: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
@@ -1921,6 +1979,17 @@ msgstr "HTML on osittain tuettu: %(htmlTags)s. Linkit ovat kiellettyjä."
 msgid "Notifications"
 msgstr "Ilmoitukset"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:589
+=======
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr ""
@@ -1930,6 +1999,7 @@ msgid "From time to time, Mozilla may send this user email about upcoming releas
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr ""
 
@@ -2067,7 +2137,11 @@ msgstr ""
 msgid "Install Theme"
 msgstr "Asenna teema"
 
+<<<<<<< HEAD
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
 #: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "Lisää Firefoxiin"
 

@@ -3,8 +3,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2018-06-02 11:46+0000\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-07 17:32+0000\n"
+>>>>>>> master
 "Last-Translator: Top <teerapatxtop@yahoo.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: th\n"
@@ -39,7 +44,11 @@ msgstr "เพิ่มไปยัง %(collectionName)s แล้ว"
 msgid "Add to…"
 msgstr "เพิ่มไปยัง…"
 
+<<<<<<< HEAD
+#: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
 #: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 msgid "Add to collection"
 msgstr "เพิ่มไปยังชุดสะสม"
 
@@ -258,7 +267,11 @@ msgstr "สถิติการใช้งาน"
 msgid "More information"
 msgstr "ข้อมูลเพิ่มเติม"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "หน้าแรก"
 
@@ -587,11 +600,19 @@ msgstr "เข้าสู่ระบบเพื่อสร้างชุด
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:263
+msgid "Save collection"
+msgstr "บันทึกชุดสะสม"
+
+#: src/amo/components/CollectionManager/index.js:263
+=======
 #: src/amo/components/CollectionManager/index.js:289
 msgid "Save collection"
 msgstr "บันทึกชุดสะสม"
 
 #: src/amo/components/CollectionManager/index.js:289
+>>>>>>> master
 msgid "Create collection"
 msgstr "สร้างชุดสะสม"
 
@@ -607,7 +628,11 @@ msgstr "คำอธิบาย"
 msgid "Custom URL"
 msgstr "URL ที่กำหนดเอง"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:324
+=======
 #: src/amo/components/CollectionManager/index.js:358
+>>>>>>> master
 msgid "Added to collection"
 msgstr "เพิ่มไปยังชุดสะสมแล้ว"
 
@@ -615,7 +640,11 @@ msgstr "เพิ่มไปยังชุดสะสมแล้ว"
 msgid "Find an add-on to include in this collection"
 msgstr "ค้นหาส่วนเสริมที่จะรวมไว้ในชุดสะสมนี้"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 msgid "Cancel"
 msgstr "ยกเลิก"
 
@@ -869,11 +898,19 @@ msgstr "บัญชีของฉัน"
 msgid "View My Collections"
 msgstr "ดูชุดสะสมของฉัน"
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
+msgid "View My Profile"
+msgstr "ดูโปรไฟล์ของฉัน"
+
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+=======
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
 msgid "View My Profile"
 msgstr "ดูโปรไฟล์ของฉัน"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 msgid "Edit My Profile"
 msgstr "แก้ไขโปรไฟล์ของฉัน"
 
@@ -1797,6 +1834,17 @@ msgstr "เรียกดูชุดตกแต่งทั้งหมด"
 msgid "Add-ons Home Page"
 msgstr "หน้าแรกส่วนเสริม"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
+msgid "User Profile for %(user)s"
+msgstr "โปรไฟล์ผู้ใช้สำหรับ %(user)s"
+
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:496
+msgid "Location"
+msgstr "ตำแหน่งที่ตั้ง"
+
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
 msgid "User Profile for %(user)s"
 msgstr "โปรไฟล์ผู้ใช้สำหรับ %(user)s"
@@ -1806,6 +1854,7 @@ msgid "Location"
 msgstr "ตำแหน่งที่ตั้ง"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr "อาชีพ"
 
@@ -1866,7 +1915,11 @@ msgstr ""
 msgid "Email Address"
 msgstr "ที่อยู่อีเมล"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:426
+=======
 #: src/amo/components/UserProfileEdit/index.js:501
+>>>>>>> master
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr ""
 
@@ -1874,11 +1927,19 @@ msgstr ""
 msgid "Profile"
 msgstr "โปรไฟล์"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:445
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+=======
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
@@ -1906,6 +1967,21 @@ msgstr ""
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:571
+msgid "Notifications"
+msgstr "การแจ้งเตือน"
+
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:589
+=======
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
 msgstr "การแจ้งเตือน"
@@ -1919,6 +1995,7 @@ msgid "From time to time, Mozilla may send this user email about upcoming releas
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr ""
 
@@ -1938,6 +2015,8 @@ msgstr "กำลังอัปเดตโปรไฟล์ของผู้
 msgid "Update user's profile"
 msgstr "อัปเดตโปรไฟล์ของผู้ใช้"
 
+<<<<<<< HEAD
+=======
 #: src/amo/components/UserProfileEdit/index.js:700
 msgid "Delete my profile"
 msgstr "ลบโปรไฟล์ของฉัน"
@@ -1976,6 +2055,7 @@ msgstr "ใช่ ลบโปรไฟล์ของฉัน"
 msgid "Yes, delete this profile"
 msgstr "ใช่ ลบโปรไฟล์นี้"
 
+>>>>>>> master
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr ""
@@ -2058,7 +2138,11 @@ msgstr ""
 msgid "Install Theme"
 msgstr "ติดตั้งชุดตกแต่ง"
 
+<<<<<<< HEAD
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
 #: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "เพิ่มไปยัง Firefox"
 

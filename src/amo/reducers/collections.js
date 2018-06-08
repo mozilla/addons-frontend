@@ -438,7 +438,11 @@ export type AddAddonToCollectionAction = {|
 |};
 
 export const addAddonToCollection = ({
+<<<<<<< HEAD
+  addonId, collectionId, slug, editing, errorHandlerId, notes, page, userId,
+=======
   addonId, collectionId, editing, errorHandlerId, notes, page, slug, username,
+>>>>>>> master
 }: AddAddonToCollectionParams = {}): AddAddonToCollectionAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(collectionId, 'The collectionId parameter is required');

@@ -3,9 +3,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2018-06-02 17:06+0000\n"
+"Last-Translator: YFdyh000 <yfdyh000@gmail.com>\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-05 02:55+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
+>>>>>>> master
 "Language-Team: none\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -105,7 +111,11 @@ msgstr "%(addonVersion)s 的发布说明"
 msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)s（作者：%(authorList)s）%(endSpan)s"
 
+<<<<<<< HEAD
+#: src/amo/components/Addon/index.js:528
+=======
 #: src/amo/components/Addon/index.js:553
+>>>>>>> master
 msgid "Only with Firefox—Get Firefox Now"
 msgstr "只能用于 Firefox — 获取 Firefox"
 
@@ -641,11 +651,19 @@ msgstr "登录以创建一个收藏集"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr "首先，请创建您的收藏集，然后您可以向其中添加扩展和主题。"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:263
+msgid "Save collection"
+msgstr "保存收藏集"
+
+#: src/amo/components/CollectionManager/index.js:263
+=======
 #: src/amo/components/CollectionManager/index.js:289
 msgid "Save collection"
 msgstr "保存收藏集"
 
 #: src/amo/components/CollectionManager/index.js:289
+>>>>>>> master
 msgid "Create collection"
 msgstr "创建收藏集"
 
@@ -661,7 +679,11 @@ msgstr "描述"
 msgid "Custom URL"
 msgstr "自定义网址"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:324
+=======
 #: src/amo/components/CollectionManager/index.js:358
+>>>>>>> master
 msgid "Added to collection"
 msgstr "已添加至收藏集"
 
@@ -1037,7 +1059,11 @@ msgstr "轻松管理标签页"
 
 #: src/amo/components/Home/index.js:217
 msgid "See more tab extensions"
+<<<<<<< HEAD
+msgstr "查看更多标签页扩展"
+=======
 msgstr "看看更多标签页扩展"
+>>>>>>> master
 
 #: src/amo/components/Home/index.js:244
 msgid "Essential extensions"
@@ -1045,7 +1071,11 @@ msgstr "必备扩展"
 
 #: src/amo/components/Home/index.js:245
 msgid "See more essential extensions"
+<<<<<<< HEAD
+msgstr "查看更多必备扩展"
+=======
 msgstr "看看更多必备扩展"
+>>>>>>> master
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
@@ -1053,7 +1083,11 @@ msgstr "翻译工具"
 
 #: src/amo/components/Home/index.js:256
 msgid "See more translation tools"
+<<<<<<< HEAD
+msgstr "查看更多翻译工具"
+=======
 msgstr "看看更多翻译工具"
+>>>>>>> master
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -2061,7 +2095,11 @@ msgstr "编辑个人资料"
 msgid "Profile successfully updated"
 msgstr "成功更新个人资料"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:167
+=======
 #: src/amo/components/UserProfileEdit/index.js:185
+>>>>>>> master
 msgid "Picture successfully deleted"
 msgstr "照片删除成功"
 
@@ -2148,7 +2186,11 @@ msgstr "介绍 %(username)s 给社区成员认识"
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "支持部分 HTML：%(htmlTags)s。不允许使用链接。"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:571
+=======
 #: src/amo/components/UserProfileEdit/index.js:646
+>>>>>>> master
 msgid "Notifications"
 msgstr "通知"
 
@@ -2288,11 +2330,14 @@ msgstr "个人资料照片"
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
 msgstr "选择照片..."
+<<<<<<< HEAD
+=======
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 #, fuzzy
 msgid "Do you really want to delete this picture?"
 msgstr "删除此图片"
+>>>>>>> master
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"

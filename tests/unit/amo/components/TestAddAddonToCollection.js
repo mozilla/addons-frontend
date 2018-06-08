@@ -231,7 +231,11 @@ describe(__filename, () => {
         addonId: addon.id,
         collectionId: secondCollection.id,
         slug: secondCollection.slug,
+<<<<<<< HEAD
+        userId: authorId,
+=======
         username,
+>>>>>>> master
       }));
     });
 

@@ -129,7 +129,7 @@ export const fetchUserAccount = ({
   };
 };
 
-type FinishEditUserAccountParams = {};
+export type FinishEditUserAccountParams = {};
 
 type FinishEditUserAccountAction = {|
   type: typeof FINISH_EDIT_USER_ACCOUNT,
@@ -143,7 +143,7 @@ export const finishEditUserAccount = (): FinishEditUserAccountAction => {
   };
 };
 
-type EditUserAccountParams = {|
+export type EditUserAccountParams = {|
   errorHandlerId: string,
   notifications: NotificationsUpdateType,
   picture: File | null,
@@ -171,7 +171,7 @@ export const editUserAccount = ({
   };
 };
 
-type LoadCurrentUserAccountParams = {|
+export type LoadCurrentUserAccountParams = {|
   user: ExternalUserType,
 |};
 
@@ -191,7 +191,7 @@ export const loadCurrentUserAccount = ({
   };
 };
 
-type LoadUserAccountParams = {|
+export type LoadUserAccountParams = {|
   user: ExternalUserType,
 |};
 
@@ -236,7 +236,7 @@ export const deleteUserAccount = (
   };
 };
 
-type UnloadUserAccountParams = {|
+export type UnloadUserAccountParams = {|
   userId: UserId,
 |};
 
@@ -290,7 +290,7 @@ export const deleteUserPicture = (
   };
 };
 
-type FetchUserNotificationsParams = {|
+export type FetchUserNotificationsParams = {|
   errorHandlerId: string,
   username: string,
 |};
@@ -313,7 +313,7 @@ export const fetchUserNotifications = ({
   };
 };
 
-type LoadUserNotificationsParams = {|
+export type LoadUserNotificationsParams = {|
   notifications: NotificationsType,
   username: string,
 |};

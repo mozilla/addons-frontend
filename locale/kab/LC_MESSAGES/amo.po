@@ -1,10 +1,15 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+<<<<<<< HEAD
+"POT-Creation-Date: 2018-05-30 14:34+0000\n"
+"PO-Revision-Date: 2018-05-31 19:27+0000\n"
+=======
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
 "PO-Revision-Date: 2018-06-07 00:21+0000\n"
+>>>>>>> master
 "Last-Translator: Muḥend Belqasem <belkacem77@gmail.com>\n"
 "Language-Team: none\n"
 "Language: kab\n"
@@ -39,7 +44,11 @@ msgstr "Ittwarna ɣer %(collectionName)s"
 msgid "Add to…"
 msgstr "Rnu ɣer…"
 
+<<<<<<< HEAD
+#: src/amo/components/AddAddonToCollection/index.js:254 src/amo/components/CollectionManager/index.js:335
+=======
 #: src/amo/components/AddAddonToCollection/index.js:255 src/amo/components/CollectionManager/index.js:371
+>>>>>>> master
 msgid "Add to collection"
 msgstr "Rnu ar tegrumma"
 
@@ -261,7 +270,11 @@ msgstr "Tidaddanin n useqdec"
 msgid "More information"
 msgstr "Ugar n telɣut"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:479
+=======
 #: src/amo/components/AddonMoreInfo/index.js:46 src/amo/components/UserProfile/index.js:149 src/amo/components/UserProfileEdit/index.js:554
+>>>>>>> master
 msgid "Homepage"
 msgstr "Asebter agejdan"
 
@@ -383,11 +396,19 @@ msgstr "Ugar n imawalen sɣur %(author)s"
 msgid "More dictionaries by these translators"
 msgstr "Ugar n imawalen sɣur imsuqal-agi"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonsByAuthorsCard/index.js:127
+msgid "Dictionaries by %(author)s"
+msgstr "Imawalen sɣur %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:130
+=======
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
 msgid "Dictionaries by %(author)s"
 msgstr "Imawalen sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
+>>>>>>> master
 msgid "Dictionaries by these translators"
 msgstr "Imawalen sɣur imsuqal-agi"
 
@@ -399,11 +420,19 @@ msgstr "Ugar n isiɣzaf sɣur %(author)s"
 msgid "More extensions by these developers"
 msgstr "Nadi isiɣzaf sɣur ineflayen-agi"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonsByAuthorsCard/index.js:144
+msgid "Extensions by %(author)s"
+msgstr "Isiɣzaf sɣur %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:147
+=======
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
 msgid "Extensions by %(author)s"
 msgstr "Isiɣzaf sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
+>>>>>>> master
 msgid "Extensions by these developers"
 msgstr "Isiɣzaf sɣur ineflayen-agi"
 
@@ -415,11 +444,19 @@ msgstr "Ugar n ikemmusen utlayanen sɣur %(author)s"
 msgid "More language packs by these translators"
 msgstr "Ugar n ikemmusen utlayanen sɣur imsuqal-agi"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonsByAuthorsCard/index.js:161
+msgid "Language packs by %(author)s"
+msgstr "Ikemmusen utlayanen sɣur %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:164
+=======
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
 msgid "Language packs by %(author)s"
 msgstr "Ikemmusen utlayanen sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
+>>>>>>> master
 msgid "Language packs by these translators"
 msgstr "Ikemmusen utlayanen sɣur imsuqal-agi"
 
@@ -431,11 +468,19 @@ msgstr "Ugar n isental sɣur %(author)s"
 msgid "More themes by these artists"
 msgstr "Ugar n isental sɣur inaẓuren-agi"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonsByAuthorsCard/index.js:178
+msgid "Themes by %(author)s"
+msgstr "Isental sɣur %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:181
+=======
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
 msgid "Themes by %(author)s"
 msgstr "Isental sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:184
+>>>>>>> master
 msgid "Themes by these artists"
 msgstr "Isental sɣur inaẓuren-agi"
 
@@ -447,11 +492,19 @@ msgstr "Ugar n izegrar sɣur %(author)s"
 msgid "More add-ons by these developers"
 msgstr "Nadi n iszegrar squr ineflayen-agi"
 
+<<<<<<< HEAD
+#: src/amo/components/AddonsByAuthorsCard/index.js:195
+msgid "Add-ons by %(author)s"
+msgstr "Izegrar sɣur %(author)s"
+
+#: src/amo/components/AddonsByAuthorsCard/index.js:198
+=======
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
 msgid "Add-ons by %(author)s"
 msgstr "Izegrar sɣur %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:201
+>>>>>>> master
 msgid "Add-ons by these developers"
 msgstr "Izegrar squr ineflayen-agi"
 
@@ -591,11 +644,19 @@ msgstr "Qqen akken ad terniḍ tagrumma"
 msgid "First, create your collection. Then you can add extensions and themes."
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:263
+msgid "Save collection"
+msgstr "Sekles tagrumma"
+
+#: src/amo/components/CollectionManager/index.js:263
+=======
 #: src/amo/components/CollectionManager/index.js:289
 msgid "Save collection"
 msgstr "Sekles tagrumma"
 
 #: src/amo/components/CollectionManager/index.js:289
+>>>>>>> master
 msgid "Create collection"
 msgstr "Rnu tagrumma"
 
@@ -611,7 +672,11 @@ msgstr "Asbadu"
 msgid "Custom URL"
 msgstr "Tansa URL tudmawant"
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:324
+=======
 #: src/amo/components/CollectionManager/index.js:358
+>>>>>>> master
 msgid "Added to collection"
 msgstr "Yerna ar tegrumma"
 
@@ -619,7 +684,11 @@ msgstr "Yerna ar tegrumma"
 msgid "Find an add-on to include in this collection"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/CollectionManager/index.js:351 src/ui/components/DismissibleTextForm/index.js:125
+=======
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
+>>>>>>> master
 msgid "Cancel"
 msgstr "Sefsex"
 
@@ -873,11 +942,19 @@ msgstr "Amiḍan-iw"
 msgid "View My Collections"
 msgstr "Wali Tilkensiyin-iw"
 
+<<<<<<< HEAD
+#: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:363
+msgid "View My Profile"
+msgstr "Sken amaɣnu-iw"
+
+#: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:370
+=======
 #: src/amo/components/Header/index.js:116 src/amo/components/UserProfileEdit/index.js:438
 msgid "View My Profile"
 msgstr "Sken amaɣnu-iw"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
+>>>>>>> master
 msgid "Edit My Profile"
 msgstr "Ẓreg amaɣnu-iw"
 
@@ -1230,6 +1307,10 @@ msgid "Access your location"
 msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:35 src/amo/components/PermissionsCard/permissions.js:47
+<<<<<<< HEAD
+#, fuzzy
+=======
+>>>>>>> master
 msgid "Access browsing history"
 msgstr "Kcem ar umazray n tunigin"
 
@@ -1346,6 +1427,10 @@ msgid "Send abuse report"
 msgstr "Azen n uneqqis n yir aseqdec"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
+<<<<<<< HEAD
+#, fuzzy
+=======
+>>>>>>> master
 msgid "Report this user for abuse"
 msgstr "Mmel-d aseqdec-agi ɣef yir asemres"
 
@@ -1805,15 +1890,28 @@ msgstr "Inig ɣer akk isental"
 msgid "Add-ons Home Page"
 msgstr "Asebter agejdan n uzegrir"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:351
+#, fuzzy
+=======
 #: src/amo/components/UserProfile/index.js:127 src/amo/components/UserProfileEdit/index.js:426
+>>>>>>> master
 msgid "User Profile for %(user)s"
 msgstr "Amaɣnu n useqdac i %(user)s"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:496
+msgid "Location"
+msgstr ""
+
+#: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:508
+=======
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
+>>>>>>> master
 msgid "Occupation"
 msgstr ""
 
@@ -1873,7 +1971,11 @@ msgstr ""
 msgid "Email Address"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:426
+=======
 #: src/amo/components/UserProfileEdit/index.js:501
+>>>>>>> master
 msgid "You can change your email address on Firefox Accounts. %(startLink)sNeed help?%(endLink)s"
 msgstr ""
 
@@ -1881,11 +1983,19 @@ msgstr ""
 msgid "Profile"
 msgstr "Amɣnu"
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:445
+msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:450
+=======
 #: src/amo/components/UserProfileEdit/index.js:520
 msgid "Tell users a bit more information about yourself. These fields are optional, but they'll help other users get to know you better."
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:525
+>>>>>>> master
 msgid "Tell users a bit more information about this user. These fields are optional, but they'll help other users get to know %(username)s better."
 msgstr ""
 
@@ -1917,6 +2027,17 @@ msgstr ""
 msgid "Notifications"
 msgstr ""
 
+<<<<<<< HEAD
+#: src/amo/components/UserProfileEdit/index.js:574
+msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:578
+msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
+msgstr ""
+
+#: src/amo/components/UserProfileEdit/index.js:589
+=======
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
 msgstr ""
@@ -1926,6 +2047,7 @@ msgid "From time to time, Mozilla may send this user email about upcoming releas
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:667
+>>>>>>> master
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
 msgstr ""
 
@@ -1945,6 +2067,8 @@ msgstr "Taẓrigt n umaɣnu n useqdac…"
 msgid "Update user's profile"
 msgstr "Ẓreg amaɣnu n useqdac"
 
+<<<<<<< HEAD
+=======
 #: src/amo/components/UserProfileEdit/index.js:700
 msgid "Delete my profile"
 msgstr "Kkes amaɣnu-iw"
@@ -1983,6 +2107,7 @@ msgstr "Ih, Kkes amaɣnu-iw"
 msgid "Yes, delete this profile"
 msgstr ""
 
+>>>>>>> master
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr ""
@@ -2063,7 +2188,11 @@ msgstr "Suref-aɣ, ur nezmir ara ad d-naf ayen tebɣiḍ di tensa URL i d-mudded
 msgid "Install Theme"
 msgstr "Asebded n usentel"
 
+<<<<<<< HEAD
+#: src/core/components/InstallButton/index.js:261 src/core/components/InstallButton/index.js:284
+=======
 #: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
+>>>>>>> master
 msgid "Add to Firefox"
 msgstr "Rnu ɣer Firefox"
 

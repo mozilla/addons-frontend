@@ -204,7 +204,10 @@ describe(__filename, () => {
       mockApi.expects('callApi')
         .withArgs({
           auth: true,
+<<<<<<< HEAD
+=======
           credentials: true,
+>>>>>>> master
           endpoint: `accounts/account/${params.userId}`,
           method: 'DELETE',
           state: params.api,
@@ -215,6 +218,8 @@ describe(__filename, () => {
       mockApi.verify();
     });
   });
+<<<<<<< HEAD
+=======
 
   describe('updateUserNotifications', () => {
     it('updates the user notifications of a given user', async () => {
@@ -242,4 +247,5 @@ describe(__filename, () => {
       mockApi.verify();
     });
   });
+>>>>>>> master
 });

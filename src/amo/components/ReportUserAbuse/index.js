@@ -32,7 +32,7 @@ type Props = {|
   i18n: I18nType,
   isSubmitting: bool,
   uiVisible: bool,
-  user?: UserType,
+  user ?: UserType,
 |};
 
 export class ReportUserAbuseBase extends React.Component<Props> {
@@ -116,7 +116,7 @@ export class ReportUserAbuseBase extends React.Component<Props> {
                 }),
                 ['a']
               )}
-              /* eslint-enable react/no-danger */
+            /* eslint-enable react/no-danger */
             />
             <p>
               {i18n.gettext(
