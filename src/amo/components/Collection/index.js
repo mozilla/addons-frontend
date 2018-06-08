@@ -19,12 +19,12 @@ import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
 import AuthenticateButton from 'core/components/AuthenticateButton';
 import {
-  INSTALL_SOURCE_COLLECTION,
+  COLLECTIONS_EDIT, INSTALL_SOURCE_COLLECTION,
 } from 'core/constants';
 import Paginate from 'core/components/Paginate';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import log from 'core/logger';
-import { getCurrentUser } from 'amo/reducers/users';
+import { getCurrentUser, hasPermission } from 'amo/reducers/users';
 import translate from 'core/i18n/translate';
 import { sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
@@ -51,6 +51,7 @@ export type Props = {|
   dispatch: DispatchFunc,
   editing: boolean,
   errorHandler: ErrorHandlerType,
+  hasEditPermission: boolean,
   i18n: I18nType,
   isLoggedIn: boolean,
   loading: boolean,
