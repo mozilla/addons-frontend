@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 09:55+0000\n"
+"PO-Revision-Date: 2018-06-08 07:12+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -57,7 +57,7 @@ msgstr "Peruuta esikatselu"
 
 #: src/amo/components/Addon/index.js:257
 msgid "This add-on cannot be rated because no versions have been published."
-msgstr ""
+msgstr "Tätä lisäosaa ei voi arvioida, koska yhtäkään sen versiota ei ole julkaistu."
 
 #: src/amo/components/Addon/index.js:266
 msgid "Read %(count)s review"
@@ -143,7 +143,7 @@ msgstr "Ei ole yhteensopiva Firefox Quantumin kanssa"
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "Jotkin ominaisuudet saattavat vaatia maksua"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -195,7 +195,7 @@ msgstr "Arviot"
 msgid "Rating"
 msgid_plural "Ratings"
 msgstr[0] "Arvio"
-msgstr[1] ""
+msgstr[1] "Arviot"
 
 #: src/amo/components/AddonMeta/index.js:48
 msgid "No Ratings"
@@ -279,7 +279,7 @@ msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:161
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "Muut tätä laajennusta käyttävät asensivat myös"
 
 #: src/amo/components/AddonRecommendations/index.js:162
 msgid "Other popular extensions"
@@ -291,7 +291,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
-msgstr ""
+msgstr "Kerro mitä pidät tästä laajennuksesta. Kirjoita lyhyesti ja ytimekkäästi."
 
 #: src/amo/components/AddonReview/index.js:177
 msgid "Tell the world about this extension. Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
@@ -299,7 +299,7 @@ msgstr ""
 
 #: src/amo/components/AddonReview/index.js:181
 msgid "Tell us about your experience with this extension. Be specific and concise."
-msgstr ""
+msgstr "Kerro kokemuksestasi tämän laajennuksen kanssa. Kirjoita lyhyesti ja ytimekkäästi."
 
 #: src/amo/components/AddonReview/index.js:197
 msgid "Write a review"
@@ -315,11 +315,11 @@ msgstr "Lähetä arvio"
 
 #: src/amo/components/AddonReviewList/index.js:167
 msgid "Add-on icon"
-msgstr ""
+msgstr "Lisäosan kuvake"
 
 #: src/amo/components/AddonReviewList/index.js:173
 msgid "Reviews for %(addonName)s"
-msgstr ""
+msgstr "Arviot lisäosalle %(addonName)s"
 
 #: src/amo/components/AddonReviewList/index.js:185
 msgid "%(total)s review for this add-on"
@@ -342,23 +342,23 @@ msgstr "Kirjoita vastaus tähän arvioon."
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
-msgstr ""
+msgstr "Päivitä vastaus"
 
 #: src/amo/components/AddonReviewListItem/index.js:158
 msgid "Publish reply"
-msgstr ""
+msgstr "Julkaise vastaus"
 
 #: src/amo/components/AddonReviewListItem/index.js:162
 msgid "Updating reply"
-msgstr ""
+msgstr "Päivitetään vastaus"
 
 #: src/amo/components/AddonReviewListItem/index.js:163
 msgid "Publishing reply"
-msgstr ""
+msgstr "Julkaistaan vastaus"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
 msgid "posted %(timestamp)s"
-msgstr ""
+msgstr "lähetetty %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:206
 msgid "by %(authorName)s, %(timestamp)s"
@@ -446,7 +446,7 @@ msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:194
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Lisää lisäosia näiltä kehittäjiltä"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
 msgid "Add-ons by %(author)s"
