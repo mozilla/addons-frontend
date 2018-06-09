@@ -338,9 +338,12 @@ describe('RatingManager', () => {
       expect(prompt).toContain('theme');
     });
 
-    it('cannot render a login prompt for unknown extension types', () => {
-      expect(() => getAuthPromptForType('xul'))
-        .toThrowError(/Unknown extension type: xul/);
+    // Since you can view this page if you're logged in -
+    // to be consistent - we'll do the same if you're logged out.
+    // See: https://github.com/mozilla/addons-frontend/issues/3601.
+    it('renders a login prompt for unknown extension types', () => {
+      const prompt = getAuthPromptForType('xul');
+      expect(prompt).toContain('add-on');
     });
 
     it('renders a random valid extension type', () => {
