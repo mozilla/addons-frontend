@@ -738,18 +738,34 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  // TODO: WIP
-  it('clearTimeout is called if necessary on unmount', () => {
+  it('clearTimeout is called on unmount if timeout is set', () => {
+    const clearTimeoutSpy = sinon.spy();
+    const root = render({ clearTimeout: clearTimeoutSpy });
+    const unMountSpy = sinon.spy(root.instance(), 'componentWillUnmount');
+
+    // Simulates the setTimeout behavior
+    // in which timeout is set.
+    root.instance().timeout = 50;
+
+    expect(unMountSpy.calledOnce).toEqual(false);
+
+    root.unmount();
+
+    expect(clearTimeoutSpy.callCount).toEqual(1);
+
+    expect(unMountSpy.calledOnce).toEqual(true);
+  });
+
+  it('clearTimeout is not called on unmount if timeout is undefined', () => {
     const clearTimeoutSpy = sinon.spy();
     const root = render({ clearTimeout: clearTimeoutSpy });
     const unMountSpy = sinon.spy(root.instance(), 'componentWillUnmount');
 
     expect(unMountSpy.calledOnce).toEqual(false);
 
-    // TODO: set up test to show clearTimeout is called (if there is this.timeout defined),
-    // on unmount
-    // sinon.assert.calledWith(clearTimeoutSpy, root.instance().props.clearTimeout(undefined));
     root.unmount();
+
+    expect(clearTimeoutSpy.callCount).toEqual(0);
 
     expect(unMountSpy.calledOnce).toEqual(true);
   });
