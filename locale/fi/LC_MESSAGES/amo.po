@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 22:52+0000\n"
+"PO-Revision-Date: 2018-06-08 07:10+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -1681,7 +1681,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:38
 msgid "Tips for writing a great review"
-msgstr ""
+msgstr "Vinkkejä sisällöllisesti hyvän arvion kirjoittamiseen"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:39
 msgid "Do:"
@@ -1701,23 +1701,23 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:45
 msgid "Did the add-on work as you expected it to?"
-msgstr ""
+msgstr "Toimiko lisäosa kuten odotit sen toimivan?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "Mistä ominaisuuksista pidit ja mistä et?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
-msgstr ""
+msgstr "Oliko se hyödyllinen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:48
 msgid "Was it easy to use?"
-msgstr ""
+msgstr "Oliko se helppokäyttöinen?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:49
 msgid "Will you continue to use this add-on?"
-msgstr ""
+msgstr "Jatkatko tämän lisäosan käyttämistä?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
@@ -1729,7 +1729,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Lähetä yhden sanan sisältäviä arvioita, kuten \"Hyvä!\" tai \"Surkea\"."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
@@ -1739,7 +1739,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Kirjoita arvioita lisäosista, joita et ole itse käyttänyt."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Use profanity, sexual language or language that can be construed as hateful."
@@ -1747,7 +1747,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Sisällytä HTML:ää, linkkejä, lähdekoodia tai koodipätkiä. Arvioiden on tarkoitus olla sisällöltään vain tekstiä."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Make false statements, disparage add-on authors or personally insult them."
@@ -1791,11 +1791,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:99
 msgid "I'm an add-on author, can I delete unfavorable reviews or ratings?"
-msgstr ""
+msgstr "Olen lisäosan tekijä, voinko poistaa epämieluisat arviot ja arvostelut?"
 
 #: src/amo/components/SuggestedPages/index.js:20
 msgid "Suggested Pages"
-msgstr ""
+msgstr "Ehdotetut sivut"
 
 #: src/amo/components/SuggestedPages/index.js:25
 msgid "Browse all extensions"
@@ -1863,7 +1863,7 @@ msgstr "Tili"
 
 #: src/amo/components/UserProfileEdit/index.js:466
 msgid "Account for %(username)s"
-msgstr ""
+msgstr "Käyttäjän %(username)s tili"
 
 #: src/amo/components/UserProfileEdit/index.js:472
 msgid "Username"
@@ -1997,15 +1997,15 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "uusia lisäosia tai Firefox-ominaisuuksia on saatavilla"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "joku kirjoittaa arvion lisäosastani"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "lisäosan kehittäjä vastaa arviooni"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
@@ -2013,19 +2013,19 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "sdk-pohjaista lisäosaani ei voida päivittää"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "sdk-pohjainen lisäosani on päivitetty onnistuneesti"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "lisäosani yhteensopivuutta ei voida päivittää"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "lisäosani yhteensopivuus on päivitetty onnistuneesti"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
@@ -2061,7 +2061,7 @@ msgstr "Virhekoodi: %(status)s."
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
+msgstr "Valitettavasti kirjoittamastasi osoitteesta ei löytynyt mitään."
 
 #: src/core/components/InstallButton/index.js:236 src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
@@ -2097,7 +2097,7 @@ msgstr ""
 
 #: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Lisäosan %(name)s asennuksen tila on tuntematon."
 
 #: src/core/components/Paginate/index.js:100
 msgid "Page %(pageNumber)s of %(totalPages)s"
@@ -2117,7 +2117,7 @@ msgstr "Lisäosasi on valmis"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
-msgstr ""
+msgstr "%(name)s on nyt käytettävissäsi työkalupalkista."
 
 #: src/core/containers/InfoDialog/index.js:47
 msgid "OK!"
@@ -2125,7 +2125,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Vahvista"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
