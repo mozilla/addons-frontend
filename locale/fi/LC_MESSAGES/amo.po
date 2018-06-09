@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-08 07:12+0000\n"
+"PO-Revision-Date: 2018-06-09 16:00+0000\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: none\n"
 "Language: fi\n"
@@ -275,7 +275,7 @@ msgstr "Sähköpostituki"
 
 #: src/amo/components/AddonMoreInfo/index.js:86
 msgid "Visit stats dashboard"
-msgstr ""
+msgstr "Näytä tilastosivu"
 
 #: src/amo/components/AddonRecommendations/index.js:161
 msgid "Other users with this extension also installed"
@@ -990,7 +990,7 @@ msgstr "Videoiden katselu"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr ""
+msgstr "Suosittu seurantaa estävä laajennus sisältää nyt myös mainoseston"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
@@ -1006,7 +1006,7 @@ msgstr "Maailmanradio"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "Quantum-laajennushaasteen voittaja! Kuuntele radioa suorana ympäri maailman"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
@@ -1050,7 +1050,7 @@ msgstr "Käännä koko sivu parilla napsautuksella"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Image Search Options"
-msgstr ""
+msgstr "Kuvahaun valinnat"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1082,7 +1082,7 @@ msgstr "Estä vakoilevat mainokset ja seurantaohjelmat"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
-msgstr ""
+msgstr "Facebook-säilö"
 
 #: src/amo/components/HomeHeroBanner/index.js:30
 msgid "Prevent Facebook from tracking you around the web"
@@ -1102,7 +1102,7 @@ msgstr "Istuntojen synkronointi"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
-msgstr ""
+msgstr "Quantum-laajennushaasteen voittaja! Tallenna istunnot kirjanmerkeiksi ja käytä niitä eri laitteiden välillä"
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
@@ -1134,11 +1134,11 @@ msgstr ""
 
 #: src/amo/components/LandingPage/index.js:208
 msgid "Change your browser's appearance. Choose from thousands of themes to give Firefox the look you want."
-msgstr ""
+msgstr "Muuta selaimesi ulkoasua. Valitse tuhansista eri teemoista, joiden avulla teet Firefoxista näköisesi."
 
 #: src/amo/components/LandingPage/index.js:210
 msgid "Explore powerful tools and features to customize Firefox and make the browser all your own."
-msgstr ""
+msgstr "Selaa tehokkaita työkaluja ja ominaisuuksia, joiden avulla voit muokata Firefoxista mieleisesi."
 
 #: src/amo/components/LandingPage/index.js:238
 msgid "Explore all categories"
@@ -1158,11 +1158,11 @@ msgstr "Oikolukusanastot ja kielipaketit"
 
 #: src/amo/components/LanguageTools/index.js:157
 msgid "Installing a dictionary add-on will add a new language option to your spell-checker, which checks your spelling as you type in Firefox."
-msgstr ""
+msgstr "Sanastolisäosan asentaminen lisää uuden kielivalinnan oikolukutyökaluun, joka tarkistaa kirjoitusasusi Firefoxissa."
 
 #: src/amo/components/LanguageTools/index.js:162
 msgid "Language packs change your browser's interface language, including menu options and settings."
-msgstr ""
+msgstr "Kielipaketit muuttavat selaimesi käyttöliittymän kieltä, mukaan lukien valikot ja asetukset."
 
 #: src/amo/components/LanguageTools/index.js:168
 msgid "All Locales"
@@ -1206,11 +1206,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Nouda tietoa leikepöydältä"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Vie tietoja leikepöydälle"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
@@ -1307,7 +1307,7 @@ msgstr "Kirjaudu sisään arvostellaksesi tämän lisäosan"
 
 #: src/amo/components/RatingManager/index.js:192
 msgid "How are you enjoying your experience with %(addonName)s?"
-msgstr ""
+msgstr "Mitä pidät lisäosasta %(addonName)s?"
 
 #: src/amo/components/ReportAbuseButton/index.js:109
 msgid "You reported this add-on for abuse"
@@ -1371,7 +1371,7 @@ msgstr "Ilmoitit tämän käyttäjän väärinkäytösten vuoksi"
 
 #: src/amo/components/ReportUserAbuse/index.js:147
 msgid "We have received your report. Thanks for letting us know about your concerns with this user."
-msgstr ""
+msgstr "Vastaanotimme ilmoituksesi. Kiitos että ilmoitit huolesi tämän käyttäjän suhteen."
 
 #: src/amo/components/Search/index.js:105 src/amo/components/SearchResults.js:62
 msgid "Search results"
