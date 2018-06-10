@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-10 01:51+0000\n"
+"PO-Revision-Date: 2018-06-10 02:06+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -581,7 +581,7 @@ msgstr "Créateur"
 
 #: src/amo/components/Collection/index.js:291
 msgid "Search for extensions and themes to add to your collection."
-msgstr ""
+msgstr "Recherchez des extensions et des thèmes à ajouter à votre collection."
 
 #: src/amo/components/CollectionList/index.js:38
 msgid "Log in to create a collection"
@@ -589,15 +589,13 @@ msgstr "Se connecter pour créer une collection"
 
 #: src/amo/components/CollectionList/index.js:58
 msgid "First, create your collection. Then you can add extensions and themes."
-msgstr ""
+msgstr "Créez d’abord votre collection, puis vous pourrez ajouter des extensions et des thèmes."
 
 #: src/amo/components/CollectionManager/index.js:289
-#, fuzzy
 msgid "Save collection"
 msgstr "Enregistrer la collection"
 
 #: src/amo/components/CollectionManager/index.js:289
-#, fuzzy
 msgid "Create collection"
 msgstr "Créer une nouvelle collection"
 
@@ -614,9 +612,8 @@ msgid "Custom URL"
 msgstr "Adresse web personnalisée"
 
 #: src/amo/components/CollectionManager/index.js:358
-#, fuzzy
 msgid "Added to collection"
-msgstr "Ajouter à la collection"
+msgstr "Ajouté à la collection"
 
 #: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
@@ -952,29 +949,24 @@ msgid "Tame your tabs"
 msgstr "Personnalisation des onglets"
 
 #: src/amo/components/Home/index.js:217
-#, fuzzy
 msgid "See more tab extensions"
-msgstr "Voir plus d’extensions de recherche"
+msgstr "Voir plus d’extensions pour les onglets"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Parcourir toutes les extensions"
+msgstr "Extensions indispensables"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Voir plus d’extensions de recherche"
+msgstr "Voir plus d’extensions indispensables"
 
 #: src/amo/components/Home/index.js:255
-#, fuzzy
 msgid "Translation tools"
-msgstr "Translate Man"
+msgstr "Outils de traduction"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Voir plus d’outils de confidentialité"
+msgstr "Voir plus d’outils de traduction"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1053,18 +1045,16 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "Accédez facilement à certains services Google (recherche, traduction) grâce à un menu déroulant"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
 msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Voir plus d’extensions de recherche"
+msgstr "Image Search Options"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1855,7 +1845,7 @@ msgstr "Profil utilisateur de %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
-msgstr ""
+msgstr "Adresse"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
 msgid "Occupation"
@@ -1874,23 +1864,20 @@ msgid "Average rating of developer’s add-ons"
 msgstr "Moyenne des notes des modules du développeur"
 
 #: src/amo/components/UserProfile/index.js:221
-#, fuzzy
 msgid "Edit profile"
-msgstr "Modifier mon profil"
+msgstr "Modifier le profil"
 
 #: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
 msgstr "Profil mis à jour"
 
 #: src/amo/components/UserProfileEdit/index.js:185
-#, fuzzy
 msgid "Picture successfully deleted"
-msgstr "Profil mis à jour"
+msgstr "Image correctement supprimée"
 
 #: src/amo/components/UserProfileEdit/index.js:395
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "Se connecter pour modifier cette collection"
+msgstr "Se connecter pour modifier le profil"
 
 #: src/amo/components/UserProfileEdit/index.js:439
 msgid "View user's profile"
@@ -1942,7 +1929,7 @@ msgstr "Nom à afficher"
 
 #: src/amo/components/UserProfileEdit/index.js:566
 msgid "This URL will only be visible for users who are developers."
-msgstr ""
+msgstr "Cette URL sera uniquement visible pour les utilisateurs étant développeurs."
 
 #: src/amo/components/UserProfileEdit/index.js:605
 msgid "Biography"
@@ -1954,69 +1941,70 @@ msgstr "Présentez-vous à la communauté si vous le souhaitez"
 
 #: src/amo/components/UserProfileEdit/index.js:611
 msgid "Introduce %(username)s to the community"
-msgstr ""
+msgstr "Présentez %(username)s à la communauté"
 
 #: src/amo/components/UserProfileEdit/index.js:624
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Certains éléments HTML autorisés : %(htmlTags)s. Les liens sont interdits."
 
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
-msgstr ""
+msgstr "Notifications"
 
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
-msgstr ""
+msgstr "De temps en temps, Mozilla peut vous envoyer un courriel à propos des sorties à venir et des évènements sur les modules. Merci d’indiquer les sujets qui vous intéressent."
 
 #: src/amo/components/UserProfileEdit/index.js:653
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"De temps en temps, Mozilla peut envoyer un courriel à cet utilisateur à propos des sorties à venir et des évènements sur les modules. Merci d’indiquer les sujets qui pourraient intéresser cet "
+"utilisateur."
 
 #: src/amo/components/UserProfileEdit/index.js:667
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
-msgstr ""
+msgstr "Mozilla se réserve le droit de vous contacter personnellement pour des problèmes particuliers liés à vos modules hébergés."
 
 #: src/amo/components/UserProfileEdit/index.js:684
-#, fuzzy
 msgid "Updating your profile…"
-msgstr "Modifier la réponse"
+msgstr "Actualisation du profil…"
 
 #: src/amo/components/UserProfileEdit/index.js:685
 msgid "Update my profile"
 msgstr "Mettre à jour mon profil"
 
 #: src/amo/components/UserProfileEdit/index.js:687
-#, fuzzy
 msgid "Updating user's profile…"
-msgstr "Modifier la réponse"
+msgstr "Actualisation du profil de l’utilisateur…"
 
 #: src/amo/components/UserProfileEdit/index.js:688
 msgid "Update user's profile"
 msgstr "Mettre à jour le profil de l’utilisateur"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Mettre à jour mon profil"
+msgstr "Supprimer mon profil"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Mettre à jour le profil de l’utilisateur"
+msgstr "Supprimer le profil de l’utilisateur"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Attention, vous êtes sur le point de supprimer votre profil. Voulez-vous vraiment continuer ?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Attention, vous êtes sur le point de supprimer un profil. Voulez-vous vraiment continuer ?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Si vous confirmer cette %(startStrong)saction irréversible%(endStrong)s, les données suivantes seront supprimées : la photo de profil, les détails du profil (y compris le nom d’utilisateur, "
+"l’adresse électronique, le nom affiché, l’emplacement, la page d’accueil, la biographie, la profession) ainsi que les préférences de notification. D’autres données telles que les notes et les "
+"commentaires seront rendus anonymes."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
@@ -2027,75 +2015,73 @@ msgid "Important: a user profile can only be deleted if the user does not own an
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Mettre à jour mon profil"
+msgstr "Oui, supprimer mon profil"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "Oui, supprimer ce profil"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
 msgstr ""
+"rester au courant en recevant des actualités et des informations sur des évènements pour les développeurs de modules complémentaires (et recevoir également la lettre d’information about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
-msgstr ""
+msgstr "Mozilla a besoin de me contacter à propos de mon module"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:25
 msgid "new add-ons or Firefox features are available"
-msgstr ""
+msgstr "de nouveaux modules ou fonctionnalités Firefox sont disponibles"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "quelqu’un a écrit une critique sur mon module"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "un développeur de module a répondu à ma critique"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "mon module est en cours de vérification par un testeur"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "la compatibilité de mon module utilisant le sdk n’a pas pu être mise à jour"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "la compatibilité de mon module utilisant le sdk a été mise à jour avec succès"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "la compatibilité de mon module n’a pas pu être mise à jour"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "la compatibilité de mon module a été mise à jour avec succès"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Profil utilisateur de %(user)s"
+msgstr "Photo de profil pour %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "Profil"
+msgstr "Photo de profil"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Sélectionner une photo…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer cette image ?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
-msgstr ""
+msgstr "Supprimer cette image"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2175,7 +2161,7 @@ msgstr "OK"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
