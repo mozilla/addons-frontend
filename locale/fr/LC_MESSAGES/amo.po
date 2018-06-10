@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-06 11:38+0000\n"
+"PO-Revision-Date: 2018-06-10 01:51+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -45,7 +45,7 @@ msgstr "Ajouter à la collection"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Aperçu de %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
