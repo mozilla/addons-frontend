@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-10 02:06+0000\n"
+"PO-Revision-Date: 2018-06-10 02:28+0000\n"
 "Last-Translator: Théo Chevalier <theo.chevalier11@gmail.com>\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -944,9 +944,8 @@ msgid "Change the way Firefox looks with themes."
 msgstr "Changez le style de Firefox à l’aide de thèmes."
 
 #: src/amo/components/Home/index.js:215
-#, fuzzy
 msgid "Tame your tabs"
-msgstr "Personnalisation des onglets"
+msgstr "Maîtrisez vos onglets"
 
 #: src/amo/components/Home/index.js:217
 msgid "See more tab extensions"
@@ -1026,7 +1025,7 @@ msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "For moments on the internet when you need to fire lasers out of a cat"
-msgstr ""
+msgstr "Pour ces moments pendant votre navigation où vous avez besoin d’un chat qui tire des lasers"
 
 #: src/amo/components/HomeHeroBanner/index.js:162
 msgid "Download Manager (S3)"
@@ -1034,7 +1033,7 @@ msgstr "Download Manager (S3)"
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Gérez vos téléchargements depuis une barre d’état réorganisée"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
@@ -1050,7 +1049,7 @@ msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Traduisez une page web entière en simplement deux clics"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Image Search Options"
@@ -1082,7 +1081,7 @@ msgstr "PrivacyBadger"
 
 #: src/amo/components/HomeHeroBanner/index.js:237
 msgid "Block sneaky spying ads and trackers"
-msgstr ""
+msgstr "Bloquez les publicités et les traqueurs qui vous espionnent"
 
 #: src/amo/components/HomeHeroBanner/index.js:27
 msgid "Facebook Container"
@@ -1094,15 +1093,15 @@ msgstr "Empêche Facebook de vous pister sur le Web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
-msgstr ""
+msgstr "Surlignez le texte de n’importe quelle page web pour ouvrir un menu de recherche très pratique"
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
-msgstr ""
+msgstr "Session Sync"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
@@ -1110,19 +1109,19 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Web Security"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Protégez-vous des logiciels malveillants et des tentatives d’hameçonnage"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
-msgstr ""
+msgstr "Organisez vos onglets à la verticale"
 
 #: src/amo/components/HomeHeroBanner/index.js:87
 msgid "uBlock Origin"
