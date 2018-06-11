@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-11 19:11+0000\n"
+"PO-Revision-Date: 2018-06-11 19:13+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -1891,9 +1891,8 @@ msgid "Profile successfully updated"
 msgstr "Profil jo se wuspěšnje zaktualizěrował"
 
 #: src/amo/components/UserProfileEdit/index.js:185
-#, fuzzy
 msgid "Picture successfully deleted"
-msgstr "Profil jo se wuspěšnje zaktualizěrował"
+msgstr "Wobraz jo se wuspěšnje wulašował"
 
 #: src/amo/components/UserProfileEdit/index.js:395
 msgid "Log in to edit the profile"
@@ -1968,9 +1967,8 @@ msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
 msgstr "Źěl HTML se pódpěra: %(htmlTags)s. Wótkaze su zakazane."
 
 #: src/amo/components/UserProfileEdit/index.js:646
-#, fuzzy
 msgid "Notifications"
-msgstr "Městno"
+msgstr "Powěźeńki"
 
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -2001,14 +1999,12 @@ msgid "Update user's profile"
 msgstr "Profil wužywarja aktualizěrowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Mój profil aktualizěrowaś"
+msgstr "Mój profil wulašowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Profil wužywarja aktualizěrowaś"
+msgstr "Profil wužywarja wulašowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
@@ -2033,9 +2029,8 @@ msgid "Important: a user profile can only be deleted if the user does not own an
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Mój profil aktualizěrowaś"
+msgstr "Jo, mój profil wulašowaś"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
@@ -2082,14 +2077,12 @@ msgid "my add-on's compatibility is upgraded successfully"
 msgstr "Kompatibelnosć mójogo dodanka jo se wuspěšnje pówušiła"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
-#, fuzzy
 msgid "Profile picture for %(name)s"
-msgstr "Wužywarski profil za %(user)s"
+msgstr "Profilowy wobraz za %(name)s"
 
 #: src/amo/components/UserProfileEditPicture/index.js:47
-#, fuzzy
 msgid "Profile photo"
-msgstr "Profil"
+msgstr "Profilowe foto"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
