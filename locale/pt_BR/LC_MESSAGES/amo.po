@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-09 13:07+0000\n"
+"PO-Revision-Date: 2018-06-09 13:09+0000\n"
 "Last-Translator: Fabio M Caldas <fabiomcaldas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -2039,11 +2039,11 @@ msgstr "um desenvolvedor de extensões responder a minha análise"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "minha extensão for revisada"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "minha extensão baseada no SDK não pôde ser atualizada"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
@@ -2051,11 +2051,11 @@ msgstr "minha extensão baseada no SDK foi atualizada com sucesso"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "a compatibilidade da minha extensão não pôde ser atualizada"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "a compatibilidade da minha extensão foi atualizada com sucesso"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
