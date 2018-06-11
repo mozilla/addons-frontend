@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 19:14+0000\n"
-"Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
+"PO-Revision-Date: 2018-06-09 13:07+0000\n"
+"Last-Translator: Fabio M Caldas <fabiomcaldas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -2047,7 +2047,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "minha extensão baseada no SDK foi atualizada com sucesso"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
