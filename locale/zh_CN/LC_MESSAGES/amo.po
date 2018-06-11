@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-11 14:49+0000\n"
+"PO-Revision-Date: 2018-06-11 14:51+0000\n"
 "Last-Translator: xcffl <xcffl@outlook.com>\n"
 "Language-Team: none\n"
 "Language: zh_CN\n"
@@ -2005,11 +2005,11 @@ msgstr "我用 SDK 开发的附加组件升级成功"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "无法升级我的附加组件的兼容性"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "我的附加组件的兼容性升级成功"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
@@ -2024,9 +2024,8 @@ msgid "Choose photo..."
 msgstr "选择照片..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
-#, fuzzy
 msgid "Do you really want to delete this picture?"
-msgstr "删除此图片"
+msgstr "您确实要删除这张照片吗？"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2110,7 +2109,7 @@ msgstr "了解了！"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
