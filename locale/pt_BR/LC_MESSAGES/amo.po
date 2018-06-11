@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-09 13:09+0000\n"
+"PO-Revision-Date: 2018-06-09 12:48+0000\n"
 "Last-Translator: Fabio M Caldas <fabiomcaldas@gmail.com>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -1093,7 +1093,7 @@ msgstr "Previna que o Facebook rastreie você pela web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
@@ -1954,6 +1954,7 @@ msgstr "De tempos em tempos, a Mozilla pode enviar e-mails para você sobre novo
 #: src/amo/components/UserProfileEdit/index.js:653
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Ocasionalmente, a Mozilla poderá enviar um e-mail a este usuário sobre os próximos lançamentos e eventos de extensões. Por favor, selecione os tópicos cujo os quais este usuário possa ter interesse."
 
 #: src/amo/components/UserProfileEdit/index.js:667
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -1998,6 +1999,8 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Caso confirme esta %(startStrong)sação irreversível%(endStrong)s, os seguintes dados serão removidos: imagem de perfil, detalhes de perfil (incluindo nome de usuário, e-mail, nome de exibição, "
+"localização, página inicial, biografia e ocupação) e preferências de notificação. Outros dados, como avaliações e análises, serão convertidos em anônimos."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
@@ -2019,7 +2022,7 @@ msgstr "Apagar esta imagem"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "mantenha-se informado com notícias e eventos indispensáveis a desenvolvedores de extensões (incluindo o boletim Informativo about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
