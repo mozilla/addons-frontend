@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-10 21:48+0000\n"
-"Last-Translator: eljuno <eljunotrie_anggoro@yahoo.co.id>\n"
+"PO-Revision-Date: 2018-06-12 03:31+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Tambahkan ke koleksi"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Pratinjau dari %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -394,7 +394,7 @@ msgstr "Kamus lainnya dari %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:125
 msgid "More dictionaries by these translators"
-msgstr ""
+msgstr "Kamus lainnya oleh para penerjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
 #, fuzzy
@@ -426,11 +426,11 @@ msgstr "Cari pengaya dan tema"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
-msgstr ""
+msgstr "Paket bahasa lainnya oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:159
 msgid "More language packs by these translators"
-msgstr ""
+msgstr "Paket bahasa lainnya oleh para penerjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
 #, fuzzy
@@ -439,15 +439,15 @@ msgstr "Masuk untuk menilai paket bahasa ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
-msgstr ""
+msgstr "Paket bahasa oleh para penerjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:174
 msgid "More themes by %(author)s"
-msgstr ""
+msgstr "Tema lainnya oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:177
 msgid "More themes by these artists"
-msgstr ""
+msgstr "Tema lainnya oleh para kreator ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
 #, fuzzy
@@ -461,11 +461,11 @@ msgstr "Situs Dukungan"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
-msgstr ""
+msgstr "Pengaya lainnya oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:194
 msgid "More add-ons by these developers"
-msgstr ""
+msgstr "Pengaya lainnya oleh para pengembang ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
 #, fuzzy
@@ -639,7 +639,7 @@ msgstr "Deskripsi"
 
 #: src/amo/components/CollectionManager/index.js:324
 msgid "Custom URL"
-msgstr ""
+msgstr "URL Ubahsuai"
 
 #: src/amo/components/CollectionManager/index.js:358
 msgid "Added to collection"
@@ -647,7 +647,7 @@ msgstr "Ditambahkan ke koleksi"
 
 #: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
-msgstr ""
+msgstr "Temukan pengaya untuk disertakan dalam koleksi ini"
 
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
 #, fuzzy
@@ -665,11 +665,11 @@ msgstr "Cari pengaya dan tema"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Pengembang ekstensi ini meminta Anda mendukung pengembangan lebih lanjut dengan memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:43
 msgid "The developers of this extension ask that you help support its continued development by making a small contribution."
-msgstr ""
+msgstr "Para pengembang ekstensi ini meminta Anda mendukung pengembangan lebih lanjut dengan memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:50
 #, fuzzy
@@ -683,11 +683,11 @@ msgstr "Situs Dukungan"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Kreator tema ini meminta Anda mendukung pembuatan lebih lanjut dengan memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:57
 msgid "The artists of this theme ask that you help support its continued creation by making a small contribution."
-msgstr ""
+msgstr "Para kreator tema ini meminta Anda mendukung pembuatan lebih lanjut dengan memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:64
 #, fuzzy
