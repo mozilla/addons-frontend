@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 09:20+0000\n"
+"PO-Revision-Date: 2018-06-12 09:50+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1309,27 +1309,27 @@ msgstr "Mengendalikan setelan proksi peramban"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
-msgstr ""
+msgstr "Baca dan ubah pengaturan privasi"
 
 #: src/amo/components/PermissionsCard/permissions.js:44
 msgid "Access recently closed tabs"
-msgstr ""
+msgstr "Mengakses tab yang baru saja ditutup"
 
 #: src/amo/components/PermissionsCard/permissions.js:45
 msgid "Access browser tabs"
-msgstr ""
+msgstr "Mengakses tab peramban"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Sembunyikan dan tampilkan tab peramban"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
-msgstr ""
+msgstr "Simpan data untuk sisi klien dalam jumlah tak terbatas"
 
 #: src/amo/components/PermissionsCard/permissions.js:49
 msgid "Access browser activity during navigation"
-msgstr ""
+msgstr "Mengakses aktivitas peramban selama navigasi"
 
 #: src/amo/components/RatingManager/index.js:139
 msgid "Log in to rate this dictionary"
