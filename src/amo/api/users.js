@@ -25,7 +25,7 @@ export function currentUserAccount({
   });
 }
 
-export function editUserAccount({
+export function updateUserAccount({
   api,
   picture,
   userId,

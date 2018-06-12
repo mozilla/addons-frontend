@@ -5,7 +5,7 @@ import {
   currentUserAccount,
   deleteUserAccount,
   deleteUserPicture,
-  editUserAccount,
+  updateUserAccount,
   updateUserNotifications,
   userAccount,
   userNotifications,
@@ -51,7 +51,7 @@ describe(__filename, () => {
     });
   });
 
-  describe('editUserAccount', () => {
+  describe('updateUserAccount', () => {
     const getParams = (params = {}) => {
       const state = dispatchSignInActions().store.getState();
       const userId = getCurrentUser(state.users).id;
@@ -59,7 +59,7 @@ describe(__filename, () => {
       return { api: state.api, userId, ...params };
     };
 
-    it('edits a userProfile and returns the new profile', async () => {
+    it('updates a userProfile and returns the new profile', async () => {
       const editableFields = {
         biography: 'I am a cool tester.',
         display_name: 'Super Krupa',
@@ -81,7 +81,7 @@ describe(__filename, () => {
         })
         .returns(mockResponse(editableFields));
 
-      await editUserAccount(params);
+      await updateUserAccount(params);
       mockApi.verify();
     });
 
@@ -108,7 +108,7 @@ describe(__filename, () => {
         )
         .returns(mockResponse());
 
-      await editUserAccount(params);
+      await updateUserAccount(params);
       mockApi.verify();
     });
 
@@ -137,7 +137,7 @@ describe(__filename, () => {
         )
         .returns(mockResponse());
 
-      await editUserAccount(params);
+      await updateUserAccount(params);
       mockApi.verify();
     });
   });

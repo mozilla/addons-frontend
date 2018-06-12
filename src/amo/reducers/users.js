@@ -12,9 +12,9 @@ import {
   THEMES_REVIEW,
 } from 'core/constants';
 
-export const FINISH_EDIT_USER_ACCOUNT: 'FINISH_EDIT_USER_ACCOUNT' =
-  'FINISH_EDIT_USER_ACCOUNT';
-export const EDIT_USER_ACCOUNT: 'EDIT_USER_ACCOUNT' = 'EDIT_USER_ACCOUNT';
+export const FINISH_UPDATE_USER_ACCOUNT: 'FINISH_UPDATE_USER_ACCOUNT' =
+  'FINISH_UPDATE_USER_ACCOUNT';
+export const UPDATE_USER_ACCOUNT: 'UPDATE_USER_ACCOUNT' = 'UPDATE_USER_ACCOUNT';
 export const LOG_OUT_USER: 'LOG_OUT_USER' = 'LOG_OUT_USER';
 export const LOAD_CURRENT_USER_ACCOUNT: 'LOAD_CURRENT_USER_ACCOUNT' =
   'LOAD_CURRENT_USER_ACCOUNT';
@@ -132,21 +132,21 @@ export const fetchUserAccount = ({
   };
 };
 
-type FinishEditUserAccountParams = {};
+type finishUpdateUserAccountParams = {};
 
-type FinishEditUserAccountAction = {|
-  type: typeof FINISH_EDIT_USER_ACCOUNT,
-  payload: FinishEditUserAccountParams,
+type FinishUpdateUserAccountAction = {|
+  type: typeof FINISH_UPDATE_USER_ACCOUNT,
+  payload: finishUpdateUserAccountParams,
 |};
 
-export const finishEditUserAccount = (): FinishEditUserAccountAction => {
+export const finishUpdateUserAccount = (): FinishUpdateUserAccountAction => {
   return {
-    type: FINISH_EDIT_USER_ACCOUNT,
+    type: FINISH_UPDATE_USER_ACCOUNT,
     payload: {},
   };
 };
 
-type EditUserAccountParams = {|
+type UpdateUserAccountParams = {|
   errorHandlerId: string,
   notifications: NotificationsUpdateType,
   picture: File | null,
@@ -154,18 +154,18 @@ type EditUserAccountParams = {|
   userId: UserId,
 |};
 
-type EditUserAccountAction = {|
-  type: typeof EDIT_USER_ACCOUNT,
-  payload: EditUserAccountParams,
+type UpdateUserAccountAction = {|
+  type: typeof UPDATE_USER_ACCOUNT,
+  payload: UpdateUserAccountParams,
 |};
 
-export const editUserAccount = ({
+export const updateUserAccount = ({
   errorHandlerId,
   notifications,
   picture,
   userFields,
   userId,
-}: EditUserAccountParams): EditUserAccountAction => {
+}: UpdateUserAccountParams): UpdateUserAccountAction => {
   invariant(errorHandlerId, 'errorHandlerId is required');
   invariant(notifications, 'notifications are required');
   invariant(picture !== undefined, 'picture is required');
@@ -173,7 +173,7 @@ export const editUserAccount = ({
   invariant(userId, 'userId is required');
 
   return {
-    type: EDIT_USER_ACCOUNT,
+    type: UPDATE_USER_ACCOUNT,
     payload: { errorHandlerId, notifications, picture, userFields, userId },
   };
 };
@@ -467,8 +467,8 @@ export const addUserToState = ({
 type Action =
   | FetchUserAccountAction
   | FetchUserNotificationsAction
-  | FinishEditUserAccountAction
-  | EditUserAccountAction
+  | FinishUpdateUserAccountAction
+  | UpdateUserAccountAction
   | LoadCurrentUserAccountAction
   | LoadUserAccountAction
   | LoadUserNotificationsAction
@@ -479,12 +479,12 @@ const reducer = (
   action: Action,
 ): UsersStateType => {
   switch (action.type) {
-    case EDIT_USER_ACCOUNT:
+    case UPDATE_USER_ACCOUNT:
       return {
         ...state,
         isUpdating: true,
       };
-    case FINISH_EDIT_USER_ACCOUNT:
+    case FINISH_UPDATE_USER_ACCOUNT:
       return {
         ...state,
         isUpdating: false,

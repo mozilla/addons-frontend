@@ -4,10 +4,10 @@ import usersSaga from 'amo/sagas/users';
 import usersReducer, {
   deleteUserAccount,
   deleteUserPicture,
-  editUserAccount,
+  updateUserAccount,
   fetchUserAccount,
   fetchUserNotifications,
-  finishEditUserAccount,
+  finishUpdateUserAccount,
   loadCurrentUserAccount,
   loadUserAccount,
   loadUserNotifications,
@@ -126,8 +126,8 @@ describe(__filename, () => {
     });
   });
 
-  describe('editUserAccount', () => {
-    it('calls the API to edit a user after editUserAccount()', async () => {
+  describe('updateUserAccount', () => {
+    it('calls the API to update a user after updateUserAccount()', async () => {
       const user = createUserAccountResponse({ id: 5001 });
       const userFields = {
         biography: 'I fell into a burning ring of fire.',
@@ -135,12 +135,12 @@ describe(__filename, () => {
       };
 
       mockApi
-        .expects('editUserAccount')
+        .expects('updateUserAccount')
         .once()
         .returns(Promise.resolve({ ...user, ...userFields }));
 
       sagaTester.dispatch(
-        editUserAccount({
+        updateUserAccount({
           errorHandlerId: errorHandler.id,
           notifications: {},
           picture: null,
@@ -165,7 +165,7 @@ describe(__filename, () => {
       expect(calledAction).toEqual(expectedCalledAction);
 
       // Make sure the finish action is also called.
-      const finishAction = finishEditUserAccount();
+      const finishAction = finishUpdateUserAccount();
 
       const calledFinishAction = await sagaTester.waitFor(finishAction.type);
       expect(calledFinishAction.payload).toEqual({});
@@ -182,7 +182,7 @@ describe(__filename, () => {
       };
 
       mockApi
-        .expects('editUserAccount')
+        .expects('updateUserAccount')
         .withArgs({
           api: state.api,
           userId: user.id,
@@ -193,7 +193,7 @@ describe(__filename, () => {
         .returns(Promise.resolve({ ...user, ...userFields }));
 
       sagaTester.dispatch(
-        editUserAccount({
+        updateUserAccount({
           errorHandlerId: errorHandler.id,
           notifications: {},
           picture,
@@ -230,7 +230,7 @@ describe(__filename, () => {
       };
 
       mockApi
-        .expects('editUserAccount')
+        .expects('updateUserAccount')
         .withArgs({
           api: state.api,
           picture: null,
@@ -251,7 +251,7 @@ describe(__filename, () => {
         .returns(Promise.resolve(allNotifications));
 
       sagaTester.dispatch(
-        editUserAccount({
+        updateUserAccount({
           errorHandlerId: errorHandler.id,
           notifications,
           picture: null,
@@ -271,7 +271,7 @@ describe(__filename, () => {
       mockApi.verify();
     });
 
-    it('cancels the edit and dispatches an error when fails', async () => {
+    it('cancels the update and dispatches an error when fails', async () => {
       const user = createUserAccountResponse({ id: 5001 });
       const userFields = {
         biography: 'I fell into a burning ring of fire.',
@@ -279,10 +279,10 @@ describe(__filename, () => {
       };
       const error = new Error('a bad API error');
 
-      mockApi.expects('editUserAccount').returns(Promise.reject(error));
+      mockApi.expects('updateUserAccount').returns(Promise.reject(error));
 
       sagaTester.dispatch(
-        editUserAccount({
+        updateUserAccount({
           errorHandlerId: errorHandler.id,
           notifications: {},
           picture: null,
@@ -291,7 +291,7 @@ describe(__filename, () => {
         }),
       );
 
-      const finishAction = finishEditUserAccount();
+      const finishAction = finishUpdateUserAccount();
 
       const calledFinishAction = await sagaTester.waitFor(finishAction.type);
       expect(calledFinishAction.payload).toEqual({});
