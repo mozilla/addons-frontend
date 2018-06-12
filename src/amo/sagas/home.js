@@ -38,45 +38,39 @@ export function* fetchHomeAddons({
       });
       collections.push(result);
     } catch (error) {
+      log.warn(`Home add-ons failed to load: ${error}`);
       if (error.response.status === 404) {
         // The collection was not found.
         collections.push(null);
       } else {
-        log.warn(`Home add-ons failed to load: ${error}`);
         yield put(errorHandler.createErrorAction(error));
       }
     }
   }
 
-  let featuredExtensions;
-  let featuredThemes;
-
+  let homeAddons;
   try {
-    featuredExtensions = yield call(searchApi, {
-      api: state.api,
-      filters: {
-        addonType: ADDON_TYPE_EXTENSION,
-        featured: true,
-        page_size: LANDING_PAGE_ADDON_COUNT,
-        sort: SEARCH_SORT_RANDOM,
-      },
-      page: 1,
-    });
-  } catch (error) {
-    log.warn(`Home add-ons failed to load: ${error}`);
-    yield put(errorHandler.createErrorAction(error));
-  }
-
-  try {
-    featuredThemes = yield call(searchApi, {
-      api: state.api,
-      filters: {
-        addonType: ADDON_TYPE_THEME,
-        featured: true,
-        page_size: LANDING_PAGE_ADDON_COUNT,
-        sort: SEARCH_SORT_RANDOM,
-      },
-      page: 1,
+    homeAddons = yield all({
+      featuredExtensions: call(searchApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_EXTENSION,
+          featured: true,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_RANDOM,
+        },
+        page: 1,
+      }),
+      featuredThemes: call(searchApi, {
+        api: state.api,
+        filters: {
+          addonType: ADDON_TYPE_THEME,
+          featured: true,
+          page_size: LANDING_PAGE_ADDON_COUNT,
+          sort: SEARCH_SORT_RANDOM,
+        },
+        page: 1,
+      }),
     });
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
@@ -85,8 +79,8 @@ export function* fetchHomeAddons({
 
   yield put(loadHomeAddons({
     collections,
-    featuredExtensions,
-    featuredThemes,
+    featuredExtensions: homeAddons.featuredExtensions,
+    featuredThemes: homeAddons.featuredThemes,
   }));
 }
 
