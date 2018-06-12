@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-11 19:13+0000\n"
+"PO-Revision-Date: 2018-06-12 16:25+0000\n"
 "Last-Translator: Michael Wolf <milupo@sorbzilla.de>\n"
 "Language-Team: none\n"
 "Language: dsb\n"
@@ -2019,14 +2019,16 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Jolic toś tu %(startStrong)sireversibelnu akciju%(endStrong)s wobkšuśujośo, se slědujuce daty wótwónoźiju: profilowy wobraz, profilowe drobnostki (inkluziwnje wužywarske mě, e-mailowu adresu, "
+"zwobraznjeńske mě, městno, startowy bok, biografiju, pówołanje) a nastajenja za powěźeńki. Druge daty ako pógódnośenja a pśeglědanja budu se anonymizěrowaś."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
-msgstr ""
+msgstr "Wažny: Jolic dodanki wobsejźiśo, musyśo je k drugim wužywarjam pśenosowaś abo wulašowaś, nježli až móžośo swój profil wulašowaś."
 
 #: src/amo/components/UserProfileEdit/index.js:742
 msgid "Important: a user profile can only be deleted if the user does not own any add-ons."
-msgstr ""
+msgstr "Wažny: Wužywarski profil dajo se jano wulašowaś, jolic wužywaŕ dodanki njama."
 
 #: src/amo/components/UserProfileEdit/index.js:754
 msgid "Yes, delete my profile"
