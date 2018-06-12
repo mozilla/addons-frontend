@@ -20,3 +20,10 @@
 .Paginate .Paginate-item {
   min-width: 48%;
 }
+
+//Temporary fix for paginate section on addonreviewlist page
+
+.App-content-wrapper .Paginate {
+  padding-right: 60px;
+  padding-left: 385px;
+}

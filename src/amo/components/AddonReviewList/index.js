@@ -276,7 +276,8 @@ export class AddonReviewListBase extends React.Component<Props> {
               );
             })}
           </ul>
-
+        </CardList>
+      </div>
           {addon && reviewCount ?
             <Paginate
               LinkComponent={Link}
@@ -286,8 +287,6 @@ export class AddonReviewListBase extends React.Component<Props> {
             />
             : null
           }
-        </CardList>
-      </div>
     );
   }
 }
