@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 09:50+0000\n"
+"PO-Revision-Date: 2018-06-12 10:10+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1366,7 +1366,7 @@ msgstr "Masuk untuk menilai pengaya ini"
 
 #: src/amo/components/ReportAbuseButton/index.js:113
 msgid "We have received your report. Thanks for letting us know about your concerns with this add-on."
-msgstr ""
+msgstr "Kami telah menerima laporan Anda. Terima kasih untuk memberitahu kami tentang keprihatinan Anda terhadap pengaya ini."
 
 #: src/amo/components/ReportAbuseButton/index.js:120 src/amo/components/ReportUserAbuse/index.js:154
 msgid "We can't respond to every abuse report but we'll look into this issue."
@@ -1383,23 +1383,23 @@ msgstr "Menuju laman pengaya"
 
 #: src/amo/components/ReportAbuseButton/index.js:173
 msgid "Please don't use this form to report bugs or request add-on features; this report will be sent to Mozilla and not to the add-on developer."
-msgstr ""
+msgstr "Jangan gunakan formulir ini untuk melaporkan bug atau meminta fitur pengaya baru; laporan ini akan dikirim kepada Mozilla, bukan pengembang pengaya ini."
 
 #: src/amo/components/ReportAbuseButton/index.js:186
 msgid "Explain how this add-on is violating our policies."
-msgstr ""
+msgstr "Jelaskan bagaimana pengaya ini melanggar ketentuan kami."
 
 #: src/amo/components/ReportAbuseButton/index.js:199
 msgid "Dismiss"
-msgstr ""
+msgstr "Hentikan"
 
 #: src/amo/components/ReportAbuseButton/index.js:209 src/amo/components/ReportUserAbuse/index.js:135
 msgid "Sending abuse report"
-msgstr ""
+msgstr "Mengirim laporan penyalahgunaan"
 
 #: src/amo/components/ReportAbuseButton/index.js:210 src/amo/components/ReportUserAbuse/index.js:134
 msgid "Send abuse report"
-msgstr ""
+msgstr "Kirimkan laporan penyalahgunaan"
 
 #: src/amo/components/ReportUserAbuse/index.js:103 src/amo/components/ReportUserAbuse/index.js:96
 #, fuzzy
@@ -1412,11 +1412,11 @@ msgstr ""
 
 #: src/amo/components/ReportUserAbuse/index.js:121
 msgid "Please don't use this form to report bugs or contact this user; your report will only be sent to Mozilla and not to this user."
-msgstr ""
+msgstr "Jangan gunakan formulir ini untuk melaporkan bug atau menghubungi pengguna ini; laporan Anda hanya akan dikirimkan kepada Mozilla, bukan kepada pengguna ini."
 
 #: src/amo/components/ReportUserAbuse/index.js:131
 msgid "Explain how this user is violating our policies."
-msgstr ""
+msgstr "Jelaskan bagaimana pengguna ini melanggar ketentuan kami."
 
 #: src/amo/components/ReportUserAbuse/index.js:143
 #, fuzzy
@@ -1558,7 +1558,7 @@ msgstr "Baru Dimutakhirkan"
 
 #: src/amo/components/SearchFilters/index.js:128
 msgid "Most Users"
-msgstr ""
+msgstr "Sebagian Besar Pengguna"
 
 #: src/amo/components/SearchFilters/index.js:129
 msgid "Top Rated"
@@ -1566,7 +1566,7 @@ msgstr "Peringkat Teratas"
 
 #: src/amo/components/SearchFilters/index.js:130
 msgid "Trending"
-msgstr ""
+msgstr "Trending"
 
 #: src/amo/components/SearchFilters/index.js:140
 #, fuzzy
@@ -1622,11 +1622,11 @@ msgstr "Silakan masukkan kata pencarian untuk mencari Pengaya Firefox."
 
 #: src/amo/components/SectionLinks/index.js:100
 msgid "More…"
-msgstr ""
+msgstr "Lainnya…"
 
 #: src/amo/components/SectionLinks/index.js:113
 msgid "Dictionaries & Language Packs"
-msgstr ""
+msgstr "Kamus & Paket Bahasa"
 
 #: src/amo/components/SectionLinks/index.js:121
 #, fuzzy
@@ -1635,7 +1635,7 @@ msgstr "Hasil pencarian"
 
 #: src/amo/components/SectionLinks/index.js:126
 msgid "Other Browser Sites"
-msgstr ""
+msgstr "Situs Peramban Lainnya"
 
 #: src/amo/components/SectionLinks/index.js:59
 msgid "for Firefox"
@@ -1647,7 +1647,7 @@ msgstr "untuk Android"
 
 #: src/amo/components/SectionLinks/index.js:73
 msgid "Explore"
-msgstr ""
+msgstr "Jelajahi"
 
 #: src/amo/components/StaticPages/About.js:110
 msgid "If you want to contribute but are not quite as technical, there are still ways to help:"
@@ -1655,7 +1655,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:118
 msgid "Participate in our %(startLink)sforum%(endLink)s."
-msgstr ""
+msgstr "Berpartisipasilah di %(startLink)sforum%(endLink)s kami."
 
 #: src/amo/components/StaticPages/About.js:124
 msgid "Leave feedback for your favorite add-ons. Add-on authors are more likely to improve their add-ons and create new ones when they know people appreciate their work."
@@ -1671,7 +1671,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:146
 msgid "Get support"
-msgstr ""
+msgstr "Dapatkan Dukungan"
 
 #: src/amo/components/StaticPages/About.js:152
 msgid ""
@@ -1695,11 +1695,11 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:44
 msgid "You can also use AMO to find add-ons for Mozilla %(startTBLink)sThunderbird%(endTBLink)s and %(startSMLink)sSeaMonkey%(endSMLink)s."
-msgstr ""
+msgstr "Anda dapat pula menggunakan AMO guna menemukan pengaya untuk Mozilla %(startTBLink)sThunderbird%(endTBLink)s dan %(startSMLink)sSeaMonkey%(endSMLink)s."
 
 #: src/amo/components/StaticPages/About.js:56
 msgid "A community of creators"
-msgstr ""
+msgstr "Sebuah komunitas pencipta"
 
 #: src/amo/components/StaticPages/About.js:58
 msgid ""
@@ -1711,7 +1711,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/About.js:67
 msgid "Get involved"
-msgstr ""
+msgstr "Ikut terlibat"
 
 #: src/amo/components/StaticPages/About.js:69
 msgid ""
@@ -1734,6 +1734,8 @@ msgid ""
 "In general, no. But if the review did not meet the review guidelines outlined above, you can click \"Report this review\" and have it moderated. If a review included a complaint that is no longer "
 "valid due to a new release of your add-on, we may consider deleting the review."
 msgstr ""
+"Secara umum, tidak. Akan tetapi, apabila tinjauan tidak memenuhi panduan di atas, Anda dapat mengeklik \"Laporkan tinjauan ini\" agar tinjauan tersebut dimoderasi. Apabila sebuah tinjauan "
+"menyertakan keluhan yang tidak lagi benar karena adanya keluaran baru pengaya Anda, kami akan mempertimbangkan untuk menghapus tinjauan tersebut."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:24 src/amo/components/StaticPages/ReviewGuide.js:27
 msgid "Review Guidelines"
