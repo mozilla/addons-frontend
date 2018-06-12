@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 03:31+0000\n"
+"PO-Revision-Date: 2018-06-12 06:07+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -705,11 +705,11 @@ msgstr "Pembuat pengaya ini meminta Anda mendukung karya mereka lebih lanjut den
 
 #: src/amo/components/ContributeCard/index.js:71
 msgid "The authors of this add-on ask that you help support its continued work by making a small contribution."
-msgstr ""
+msgstr "Para pembuat pengaya ini meminta Anda mendukung karya mereka lebih lanjut memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:91
 msgid "Contribute now"
-msgstr ""
+msgstr "Berkontribusi sekarang"
 
 #: src/amo/components/DownloadFirefoxButton/index.js:39 src/amo/components/Footer/index.js:97
 msgid "Download Firefox"
@@ -722,6 +722,8 @@ msgstr "Hapus"
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:23
 msgid "If you are signed in and think this message is an error, please <a href=\"%(url)s\">file an issue</a>. Tell us where you came from and what you were trying to access, and we'll fix the issue."
 msgstr ""
+"Jika Anda masuk dan menganggap pesan ini salah, silakan <a href=\"%(url)s\">ajukan keluhan</a>. Beritahu kami dari mana asal Anda dan apa yang ingin Anda akses, dan kami akan memperbaiki masalah "
+"ini."
 
 #: src/amo/components/ErrorPage/NotAuthorized/index.js:36
 msgid "Not Authorized"
