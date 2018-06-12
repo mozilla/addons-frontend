@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 08:08+0000\n"
+"PO-Revision-Date: 2018-06-12 08:29+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -887,7 +887,7 @@ msgstr "Blog"
 
 #: src/amo/components/Footer/index.js:61 src/amo/components/Header/index.js:91
 msgid "Developer Hub"
-msgstr ""
+msgstr "Pusat Pengembang"
 
 #: src/amo/components/Footer/index.js:65
 msgid "Forum"
@@ -929,15 +929,15 @@ msgstr "Tulis ulasan"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
-msgstr ""
+msgstr "Alat"
 
 #: src/amo/components/Header/index.js:134
 msgid "Submit a New Add-on"
-msgstr ""
+msgstr "Ajukan Pengaya Baru"
 
 #: src/amo/components/Header/index.js:142
 msgid "Submit a New Theme"
-msgstr ""
+msgstr "Ajukan Tema Baru"
 
 #: src/amo/components/Header/index.js:152
 #, fuzzy
@@ -958,31 +958,31 @@ msgstr "Abstrak"
 
 #: src/amo/components/Home/index.js:116
 msgid "Nature"
-msgstr ""
+msgstr "Alam"
 
 #: src/amo/components/Home/index.js:121
 msgid "Film & TV"
-msgstr ""
+msgstr "Film & TV"
 
 #: src/amo/components/Home/index.js:126
 msgid "Scenery"
-msgstr ""
+msgstr "Pemandangan"
 
 #: src/amo/components/Home/index.js:131
 msgid "Music"
-msgstr ""
+msgstr "Musik"
 
 #: src/amo/components/Home/index.js:136
 msgid "Seasonal"
-msgstr ""
+msgstr "Musiman"
 
 #: src/amo/components/Home/index.js:166
 msgid "Customize the way Firefox works with extensions. Are you interested in…"
-msgstr ""
+msgstr "Ubah suaikan bagaimana Firefox berfungsi dengan ekstensi. Apakah Anda tertarik dengan…"
 
 #: src/amo/components/Home/index.js:168
 msgid "Change the way Firefox looks with themes."
-msgstr ""
+msgstr "Ubah tampilan Firefox dengan tema."
 
 #: src/amo/components/Home/index.js:215
 msgid "Tame your tabs"
@@ -1005,7 +1005,7 @@ msgstr "Cari ekstensi"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
-msgstr ""
+msgstr "Alat penerjemahan"
 
 #: src/amo/components/Home/index.js:256
 #, fuzzy
@@ -1018,7 +1018,7 @@ msgstr "Markah"
 
 #: src/amo/components/Home/index.js:64
 msgid "Password managers"
-msgstr ""
+msgstr "Pengelola kata sandi"
 
 #: src/amo/components/Home/index.js:68
 msgid "Ad blockers"
@@ -1026,31 +1026,31 @@ msgstr "Pemblokiran iklan"
 
 #: src/amo/components/Home/index.js:72
 msgid "Smarter Shopping"
-msgstr ""
+msgstr "Berbelanja Lebih Cerdas"
 
 #: src/amo/components/Home/index.js:76
 msgid "Productivity"
-msgstr ""
+msgstr "Produktivitas"
 
 #: src/amo/components/Home/index.js:80
 msgid "Watching Videos"
-msgstr ""
+msgstr "Menonton Video"
 
 #: src/amo/components/HomeHeroBanner/index.js:100
 msgid "Popular anti-tracking extension now has ad blocking ability"
-msgstr ""
+msgstr "Ekstensi anti pelacakan populer kini berkemampuan memblokir iklan"
 
 #: src/amo/components/HomeHeroBanner/index.js:110
 msgid "Multi-Account Containers"
-msgstr ""
+msgstr "Kontainer Multiakun"
 
 #: src/amo/components/HomeHeroBanner/index.js:113
 msgid "Keep different parts of your online life—work, personal, etc.—separated by color-coded tabs"
-msgstr ""
+msgstr "Jaga agar berbagai sisi berbeda kehidupan daring Anda—pekerjaan, pribadi, dll.—tetap terpisah dengan tab berkode warna"
 
 #: src/amo/components/HomeHeroBanner/index.js:123
 msgid "Worldwide Radio"
-msgstr ""
+msgstr "Radio Seluruh Dunia"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
@@ -1058,7 +1058,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1066,7 +1066,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:149
 msgid "Laser Cat"
-msgstr ""
+msgstr "Laser Cat"
 
 #: src/amo/components/HomeHeroBanner/index.js:152
 msgid "For moments on the internet when you need to fire lasers out of a cat"
@@ -1079,11 +1079,11 @@ msgstr "Mengunduh %(name)s."
 
 #: src/amo/components/HomeHeroBanner/index.js:164
 msgid "Manage downloads from a tidy status bar"
-msgstr ""
+msgstr "Kelola unduhan dari bilah status yang rapi"
 
 #: src/amo/components/HomeHeroBanner/index.js:172
 msgid "Black Menu for Google"
-msgstr ""
+msgstr "Menu Hitam untuk Google"
 
 #: src/amo/components/HomeHeroBanner/index.js:175
 msgid "Easy drop-down menu access to Google services like Search and Translate"
@@ -1116,7 +1116,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:222
 msgid "FoxyGestures"
-msgstr ""
+msgstr "FoxyGestures"
 
 #: src/amo/components/HomeHeroBanner/index.js:225
 msgid "Customized mouse gestures"
