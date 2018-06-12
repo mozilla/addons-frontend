@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 09:10+0000\n"
+"PO-Revision-Date: 2018-06-12 09:20+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1297,15 +1297,15 @@ msgstr "Bertukar pesan dengan program selain Firefox"
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Menampilkan notifikasi untuk Anda"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
-msgstr ""
+msgstr "Menyediakan layanan autentikasi kriptografis"
 
 #: src/amo/components/PermissionsCard/permissions.js:42
 msgid "Control browser proxy settings"
-msgstr ""
+msgstr "Mengendalikan setelan proksi peramban"
 
 #: src/amo/components/PermissionsCard/permissions.js:43
 msgid "Read and modify privacy settings"
