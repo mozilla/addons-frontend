@@ -125,11 +125,14 @@ const reducer = (
       return {
         ...state,
         collections: collections.map((collection) => {
-          return collection.results
-            .slice(0, LANDING_PAGE_ADDON_COUNT)
-            .map((item) => {
-              return createInternalAddon(item.addon);
-            });
+          if (collection) {
+            return collection.results
+              .slice(0, LANDING_PAGE_ADDON_COUNT)
+              .map((item) => {
+                return createInternalAddon(item.addon);
+              });
+          }
+          return null;
         }),
         featuredExtensions: createInternalAddons(featuredExtensions),
         featuredThemes: createInternalAddons(featuredThemes),

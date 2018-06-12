@@ -25,11 +25,11 @@ export function* fetchHomeAddons({
 
   yield put(errorHandler.createClearingAction());
 
-  try {
-    const state = yield select(getState);
+  const state = yield select(getState);
 
-    const collections = [];
-    for (const collection of collectionsToFetch) {
+  const collections = [];
+  for (const collection of collectionsToFetch) {
+    try {
       const result = yield call(getCollectionAddons, {
         api: state.api,
         page: 1,
@@ -37,43 +37,57 @@ export function* fetchHomeAddons({
         username: collection.username,
       });
       collections.push(result);
+    } catch (error) {
+      if (error.response.status === 404) {
+        // The collection was not found.
+        collections.push(null);
+      } else {
+        log.warn(`Home add-ons failed to load: ${error}`);
+        yield put(errorHandler.createErrorAction(error));
+      }
     }
+  }
 
-    const {
-      featuredExtensions,
-      featuredThemes,
-    } = yield all({
-      featuredExtensions: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_EXTENSION,
-          featured: true,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: 1,
-      }),
-      featuredThemes: call(searchApi, {
-        api: state.api,
-        filters: {
-          addonType: ADDON_TYPE_THEME,
-          featured: true,
-          page_size: LANDING_PAGE_ADDON_COUNT,
-          sort: SEARCH_SORT_RANDOM,
-        },
-        page: 1,
-      }),
+  let featuredExtensions;
+  let featuredThemes;
+
+  try {
+    featuredExtensions = yield call(searchApi, {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_EXTENSION,
+        featured: true,
+        page_size: LANDING_PAGE_ADDON_COUNT,
+        sort: SEARCH_SORT_RANDOM,
+      },
+      page: 1,
     });
-
-    yield put(loadHomeAddons({
-      collections,
-      featuredExtensions,
-      featuredThemes,
-    }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
+
+  try {
+    featuredThemes = yield call(searchApi, {
+      api: state.api,
+      filters: {
+        addonType: ADDON_TYPE_THEME,
+        featured: true,
+        page_size: LANDING_PAGE_ADDON_COUNT,
+        sort: SEARCH_SORT_RANDOM,
+      },
+      page: 1,
+    });
+  } catch (error) {
+    log.warn(`Home add-ons failed to load: ${error}`);
+    yield put(errorHandler.createErrorAction(error));
+  }
+
+  yield put(loadHomeAddons({
+    collections,
+    featuredExtensions,
+    featuredThemes,
+  }));
 }
 
 export default function* homeSaga() {

@@ -25,7 +25,7 @@ import './styles.scss';
 
 export const COLLECTIONS_TO_FETCH = [
   { slug: 'translation-tools', username: 'mozilla' },
-  { slug: 'privacy-matters', username: 'mozilla' },
+  { slug: 'privacy-matters-test', username: 'mozilla' },
   { slug: 'change-up-your-tabs', username: 'mozilla' },
 ];
 
@@ -209,6 +209,7 @@ export class HomeBase extends React.Component {
           loading={resultsLoaded === false}
         />
 
+        {collections[0] &&
         <LandingAddonsCard
           addons={collections[0]}
           className="Home-FeaturedCollection"
@@ -218,7 +219,7 @@ export class HomeBase extends React.Component {
             `/collections/${COLLECTIONS_TO_FETCH[0].username}/${COLLECTIONS_TO_FETCH[0].slug}/`
           }
           loading={resultsLoaded === false}
-        />
+        />}
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
@@ -236,6 +237,7 @@ export class HomeBase extends React.Component {
           loading={resultsLoaded === false}
         />
 
+        {collections[1] &&
         <LandingAddonsCard
           addons={collections[1]}
           className="Home-FeaturedCollection"
@@ -245,8 +247,9 @@ export class HomeBase extends React.Component {
             `/collections/${COLLECTIONS_TO_FETCH[1].username}/${COLLECTIONS_TO_FETCH[1].slug}/`
           }
           loading={resultsLoaded === false}
-        />
+        />}
 
+        {collections[2] &&
         <LandingAddonsCard
           addons={collections[2]}
           className="Home-FeaturedCollection"
@@ -258,7 +261,7 @@ export class HomeBase extends React.Component {
             `/collections/${COLLECTIONS_TO_FETCH[2].username}/${COLLECTIONS_TO_FETCH[2].slug}/`
           }
           loading={resultsLoaded === false}
-        />
+        />}
 
         <Card
           className="Home-SubjectShelf Home-CuratedThemes"
