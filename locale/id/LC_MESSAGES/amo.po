@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 07:47+0000\n"
+"PO-Revision-Date: 2018-06-12 08:08+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -769,27 +769,27 @@ msgstr "Server Bermasalah"
 
 #: src/amo/components/ErrorPage/ServerError/index.js:36
 msgid "Sorry, but there was an error with our server and we couldn't complete your request. We have logged this error and will investigate it."
-msgstr ""
+msgstr "Maaf, tapi ada kesalahan dengan server kami dan kami tidak dapat menyelesaikan permintaan Anda. Kami telah mencatat kesalahan ini dan akan menyelidikinya."
 
 #: src/amo/components/FlagReviewMenu/index.js:111
 msgid "This is a bug report or support request"
-msgstr ""
+msgstr "Ini adalah laporan bug atau permintaan dukungan"
 
 #: src/amo/components/FlagReviewMenu/index.js:114
 msgid "Flagged as a bug report or support request"
-msgstr ""
+msgstr "Ditandai sebagai laporan bug atau permintaan dukungan"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flagged"
-msgstr ""
+msgstr "Ditandai"
 
 #: src/amo/components/FlagReviewMenu/index.js:129
 msgid "Flag"
-msgstr ""
+msgstr "Tandai"
 
 #: src/amo/components/FlagReviewMenu/index.js:132
 msgid "Flag this developer response"
-msgstr ""
+msgstr "Tandai tanggapan pengembang ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:133
 #, fuzzy
@@ -808,27 +808,27 @@ msgstr "Masuk untuk menilai tema ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
-msgstr ""
+msgstr "Anda tidak dapat menandai tanggapan Anda sendiri"
 
 #: src/amo/components/FlagReviewMenu/index.js:69
 msgid "You cannot flag your own review"
-msgstr ""
+msgstr "Anda tidak dapat menandai tinjauan Anda sendiri"
 
 #: src/amo/components/FlagReviewMenu/index.js:82
 msgid "This is spam"
-msgstr ""
+msgstr "Ini adalah spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:83
 msgid "Flagged as spam"
-msgstr ""
+msgstr "Ditandai sebagai spam"
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "Bagian ini mengandung bahasa yang tidak pantas"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
-msgstr ""
+msgstr "Ditandai karena bahasa yang tidak pantas"
 
 #: src/amo/components/Footer/index.js:102
 msgid "Android Browser"
@@ -860,7 +860,7 @@ msgstr "Kuki"
 
 #: src/amo/components/Footer/index.js:148
 msgid "Legal"
-msgstr ""
+msgstr "Legal"
 
 #: src/amo/components/Footer/index.js:149
 #, fuzzy
@@ -875,7 +875,7 @@ msgstr ""
 
 #: src/amo/components/Footer/index.js:23
 msgid "Go to Mozilla's homepage"
-msgstr ""
+msgstr "Ke beranda Mozilla"
 
 #: src/amo/components/Footer/index.js:50
 msgid "About"
