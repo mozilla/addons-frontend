@@ -56,6 +56,30 @@ describe(__filename, () => {
       ]);
     });
 
+    it('loads a null for a missing collection', () => {
+      const { store } = dispatchClientMetadata();
+
+      store.dispatch(loadHomeAddons({
+        collections: [null],
+        featuredExtensions: createAddonsApiResult([fakeAddon]),
+        featuredThemes: createAddonsApiResult([fakeTheme]),
+      }));
+
+      const homeState = store.getState().home;
+
+      expect(homeState.resultsLoaded).toEqual(true);
+      expect(homeState.collections)
+        .toHaveLength(1);
+      expect(homeState.collections[0])
+        .toEqual(null);
+      expect(homeState.featuredExtensions).toEqual([
+        createInternalAddon(fakeAddon),
+      ]);
+      expect(homeState.featuredThemes).toEqual([
+        createInternalAddon(fakeTheme),
+      ]);
+    });
+
     it('sets `resultsLoaded` to `false` when fetching home add-ons', () => {
       const loadedState = { ...initialState, resultsLoaded: true };
 

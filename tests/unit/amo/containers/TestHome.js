@@ -211,6 +211,7 @@ describe(__filename, () => {
     const collections = [
       createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
       createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
+      createFakeCollectionAddonsListResponse({ addons: collectionAddons }),
     ];
     const featuredExtensions = createAddonsApiResult(addons);
     const featuredThemes = createAddonsApiResult(themes);
@@ -248,6 +249,15 @@ describe(__filename, () => {
         collectionAddons.map((addon) => createInternalAddon(addon.addon)),
       );
 
+    const thirdCollectionShelf = shelves.find('.Home-FeaturedCollection')
+      .at(2);
+    expect(thirdCollectionShelf).toHaveProp('loading', false);
+    expect(thirdCollectionShelf)
+      .toHaveProp(
+        'addons',
+        collectionAddons.map((addon) => createInternalAddon(addon.addon)),
+      );
+
     const featuredExtensionsShelf = shelves.find('.Home-FeaturedExtensions');
     expect(featuredExtensionsShelf).toHaveProp('loading', false);
     expect(featuredExtensionsShelf)
@@ -257,6 +267,31 @@ describe(__filename, () => {
     expect(featuredThemesShelf).toHaveProp('loading', false);
     expect(featuredThemesShelf)
       .toHaveProp('addons', themes.map((theme) => createInternalAddon(theme)));
+  });
+
+  it('does not display a collection shelf if there is no collection in state', () => {
+    const { store } = dispatchClientMetadata();
+
+    const addons = [{ ...fakeAddon, slug: 'addon' }];
+    const themes = [{ ...fakeTheme }];
+
+    const collections = [null, null, null];
+    const featuredExtensions = createAddonsApiResult(addons);
+    const featuredThemes = createAddonsApiResult(themes);
+
+    store.dispatch(loadHomeAddons({
+      collections,
+      featuredExtensions,
+      featuredThemes,
+    }));
+
+    const root = render({ store });
+
+    const shelves = root.find(LandingAddonsCard);
+    expect(shelves).toHaveLength(2);
+
+    const collectionShelves = shelves.find('.Home-FeaturedCollection');
+    expect(collectionShelves).toHaveLength(0);
   });
 
   it('displays an error if present', () => {

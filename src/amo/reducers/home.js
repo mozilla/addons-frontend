@@ -9,7 +9,7 @@ export const FETCH_HOME_ADDONS: 'FETCH_HOME_ADDONS' = 'FETCH_HOME_ADDONS';
 export const LOAD_HOME_ADDONS: 'LOAD_HOME_ADDONS' = 'LOAD_HOME_ADDONS';
 
 export type HomeState = {
-  collections: Array<Object>,
+  collections: Array<Object | null>,
   featuredExtensions: Array<AddonType>,
   resultsLoaded: boolean,
   featuredThemes: Array<AddonType>,
