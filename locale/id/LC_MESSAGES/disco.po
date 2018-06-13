@@ -1,11 +1,11 @@
-#
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: disco\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 19:01+0000\n"
-"PO-Revision-Date: 2017-07-24 10:09+0000\n"
-"Last-Translator: Rahmat Subekti <rahmatsubekti@live.com>\n"
+"PO-Revision-Date: 2018-06-13 05:42+0000\n"
+"Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,10 @@ msgid "Server Error"
 msgstr "Galat Server"
 
 #: src/core/components/ErrorPage/GenericError/index.js:28
-msgid ""
-"Sorry, but there was an error and we couldn't complete your request. We have "
-"logged this error and will investigate it."
-msgstr ""
-"Maaf, tetapi terjadi galat dan kami tidak dapat menyelesaikan permintaan "
-"Anda. Kami telah mencatat galat ini dan akan memeriksanya."
+msgid "Sorry, but there was an error and we couldn't complete your request. We have logged this error and will investigate it."
+msgstr "Maaf, tetapi terjadi galat dan kami tidak dapat menyelesaikan permintaan Anda. Kami telah mencatat galat ini dan akan memeriksanya."
 
-#: src/core/components/ErrorPage/GenericError/index.js:34
-#: src/core/components/ErrorPage/NotFound/index.js:33
+#: src/core/components/ErrorPage/GenericError/index.js:34 src/core/components/ErrorPage/NotFound/index.js:33
 msgid "Error code: %(status)s."
 msgstr "Kode galat: %(status)s."
 
@@ -37,16 +32,13 @@ msgstr "Laman tidak ditemukan"
 
 #: src/core/components/ErrorPage/NotFound/index.js:29
 msgid "Sorry, but we can't find anything at the URL you entered."
-msgstr ""
-"Maaf, tetapi kami tidak dapat menemukan apapun pada URL yang Anda masukkan."
+msgstr "Maaf, tetapi kami tidak dapat menemukan apapun pada URL yang Anda masukkan."
 
-#: src/core/components/InstallButton/index.js:236
-#: src/core/components/InstallButton/index.js:275
+#: src/core/components/InstallButton/index.js:236 src/core/components/InstallButton/index.js:275
 msgid "Install Theme"
 msgstr "Pasang Tema"
 
-#: src/core/components/InstallButton/index.js:262
-#: src/core/components/InstallButton/index.js:275
+#: src/core/components/InstallButton/index.js:262 src/core/components/InstallButton/index.js:275
 msgid "Add to Firefox"
 msgstr "Tambahkan ke Firefox"
 
@@ -141,7 +133,7 @@ msgstr "Pengaya ini akan dihapus setelah Anda memulai ulang Firefox."
 
 #: src/disco/components/AddonCompatibilityError/index.js:50
 msgid "This add-on does not support your browser."
-msgstr ""
+msgstr "Pengaya ini tidak mendukung peramban Anda."
 
 #: src/disco/components/Footer/index.js:26
 msgid "Privacy Policy"
@@ -157,19 +149,13 @@ msgstr "Personalisasi Firefox Anda"
 
 #: src/disco/containers/DiscoPane.js:138
 msgid ""
-"There are thousands of free add-ons, created by developers all over the "
-"world, that you can install to personalize your Firefox. From fun visual "
-"themes to powerful tools that make browsing faster and safer, add-ons make "
-"your browser yours. To help you get started, here are some we recommend for "
-"their stand-out performance and functionality."
+"There are thousands of free add-ons, created by developers all over the world, that you can install to personalize your Firefox. From fun visual themes to powerful tools that make browsing faster "
+"and safer, add-ons make your browser yours. To help you get started, here are some we recommend for their stand-out performance and functionality."
 msgstr ""
 "Ada ribuan pengaya yang dibuat oleh para pengembang di seluruh\n"
-"dunia, yang dapat Anda pasang untuk mempersonalisasi Firefox Anda. Mulai "
-"dari tema visual yang menyenangkan\n"
-"sampai peralatan yang kuat membuat penjelajahan lebih cepat dan aman, "
-"pengaya membuat peramban jadi milik Anda.\n"
-"Untuk membantu Anda mulai, berikut adalah beberapa pengaya yang kami "
-"rekomendasikan\n"
+"dunia, yang dapat Anda pasang untuk mempersonalisasi Firefox Anda. Mulai dari tema visual yang menyenangkan\n"
+"sampai peralatan yang kuat membuat penjelajahan lebih cepat dan aman, pengaya membuat peramban jadi milik Anda.\n"
+"Untuk membantu Anda mulai, berikut adalah beberapa pengaya yang kami rekomendasikan\n"
 "atas performa dan kegunaannya yang luar biasa."
 
 #: src/disco/containers/DiscoPane.js:147

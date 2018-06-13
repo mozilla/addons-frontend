@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-13 05:31+0000\n"
+"PO-Revision-Date: 2018-06-13 05:40+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1792,7 +1792,7 @@ msgstr "Masuk untuk menilai pengaya ini"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:52
 msgid "Take a moment to read your review before submitting it to minimize typos."
-msgstr ""
+msgstr "Luangkan waktu untuk membaca tinjauan Anda sebelum mengajukannya untuk meminimalkan salah ketik."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:54
 msgid "Don't:"
@@ -1800,25 +1800,27 @@ msgstr "Jangan Lakukan:"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:56
 msgid "Submit one-word reviews such as \"Great!\", \"wonderful,\" or \"bad\"."
-msgstr ""
+msgstr "Mengirim tinjauan satu kata misalnya \"Hebat!\", \"luar biasa,\" atau \"jelek.\""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:57
 msgid ""
 "Post technical issues, support requests, or feature suggestions. Use the available support options for each add-on, if available. You can find them in the \"More information\" section in the sidebar"
 " on the add-on's detail page."
 msgstr ""
+"Kirimkan isu teknis, permintaan dukungan, atau saran fitur. Gunakan pilihan dukungan yang tersedia untuk tiap pengaya, jika tersedia. Anda bisa menemukannya di bagian \"Keterangan Lebih Lanjut\" "
+"pada bilah samping laman rincian pengaya."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:61
 msgid "Write reviews for add-ons which you have not personally used."
-msgstr ""
+msgstr "Tulis ulasan untuk pengaya yang belum pernah Anda gunakan sendiri."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:62
 msgid "Use profanity, sexual language or language that can be construed as hateful."
-msgstr ""
+msgstr "Menggunakan bahasa kasar, seksual, atau bahasa yang bisa ditafsirkan sebagai kebencian."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:63
 msgid "Include HTML, links, source code or code snippets. Reviews are meant to be text only."
-msgstr ""
+msgstr "Memasukkan HTML, tautan, kode sumber atau potongan kode. Tinjauan dimaksudkan berupa teks saja."
 
 #: src/amo/components/StaticPages/ReviewGuide.js:64
 msgid "Make false statements, disparage add-on authors or personally insult them."
@@ -2019,7 +2021,7 @@ msgstr "Perbarui profil saya"
 
 #: src/amo/components/UserProfileEdit/index.js:687
 msgid "Updating user's profile…"
-msgstr ""
+msgstr "Memperbarui profil pengguna…"
 
 #: src/amo/components/UserProfileEdit/index.js:688
 msgid "Update user's profile"
@@ -2118,7 +2120,7 @@ msgstr "Pilih foto..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Anda benar-benar ingin menghapus gambar ini?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2174,7 +2176,7 @@ msgstr "%(name)s telah dicopot. Klik untuk memasang."
 
 #: src/core/components/InstallSwitch/index.js:89
 msgid "Install state for %(name)s is unknown."
-msgstr ""
+msgstr "Keadaan pemasangan dari %(name)s tak diketahui."
 
 #: src/core/components/Paginate/index.js:100
 #, fuzzy
@@ -2225,7 +2227,7 @@ msgstr "Sesi anda telah berakhir"
 
 #: src/ui/components/ErrorList/index.js:52
 msgid "An unexpected error occurred"
-msgstr ""
+msgstr "Terjadi kesalahan yang tidak diharapkan"
 
 #: src/ui/components/ErrorList/index.js:60
 msgid "Reload To Continue"
@@ -2237,7 +2239,7 @@ msgstr ""
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Mengakses data Anda pada semua situs"
 
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
