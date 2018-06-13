@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-13 10:50+0000\n"
+"PO-Revision-Date: 2018-06-13 11:03+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -1207,11 +1207,11 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:28
 msgid "Get data from the clipboard"
-msgstr ""
+msgstr "Hent data frå utklippstavla"
 
 #: src/amo/components/PermissionsCard/permissions.js:29
 msgid "Input data to the clipboard"
-msgstr ""
+msgstr "Inndata til utklippstavla"
 
 #: src/amo/components/PermissionsCard/permissions.js:30
 msgid "Extend developer tools to access your data in open tabs"
@@ -1223,7 +1223,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:32
 msgid "Open files downloaded to your computer"
-msgstr ""
+msgstr "Opne filer lasta ned til datamaskina di"
 
 #: src/amo/components/PermissionsCard/permissions.js:33
 msgid "Read the text of all open tabs"
@@ -1247,7 +1247,7 @@ msgstr ""
 
 #: src/amo/components/PermissionsCard/permissions.js:40
 msgid "Display notifications to you"
-msgstr ""
+msgstr "Vis meldingar til deg"
 
 #: src/amo/components/PermissionsCard/permissions.js:41
 msgid "Provide cryptographic authentication services"
@@ -1271,7 +1271,7 @@ msgstr "Få tilgang til nettlesarfaner"
 
 #: src/amo/components/PermissionsCard/permissions.js:46
 msgid "Hide and show browser tabs"
-msgstr ""
+msgstr "Gøym og vis nettlesarfaner"
 
 #: src/amo/components/PermissionsCard/permissions.js:48
 msgid "Store unlimited amount of client-side data"
@@ -1819,11 +1819,11 @@ msgstr "Brukarprofil for %(user)s"
 
 #: src/amo/components/UserProfile/index.js:159 src/amo/components/UserProfileEdit/index.js:571
 msgid "Location"
-msgstr ""
+msgstr "Stad"
 
 #: src/amo/components/UserProfile/index.js:167 src/amo/components/UserProfileEdit/index.js:583
 msgid "Occupation"
-msgstr ""
+msgstr "Yrke"
 
 #: src/amo/components/UserProfile/index.js:174
 msgid "User since"
@@ -1843,11 +1843,11 @@ msgstr "Rediger profil"
 
 #: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "Profilen er oppdatert"
 
 #: src/amo/components/UserProfileEdit/index.js:185
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Bildet er sletta"
 
 #: src/amo/components/UserProfileEdit/index.js:395
 msgid "Log in to edit the profile"
@@ -1923,7 +1923,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
-msgstr ""
+msgstr "Varsel"
 
 #: src/amo/components/UserProfileEdit/index.js:649
 msgid "From time to time, Mozilla may send you email about upcoming releases and add-on events. Please select the topics you are interested in."
@@ -1989,7 +1989,7 @@ msgstr "Ja, slett profilen min"
 
 #: src/amo/components/UserProfileEdit/index.js:755
 msgid "Yes, delete this profile"
-msgstr ""
+msgstr "Ja, slett denne profilen"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2005,15 +2005,15 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditNotifications/index.js:27
 msgid "someone writes a review of my add-on"
-msgstr ""
+msgstr "nokon skriv ei vurdering av tillegget mitt"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:29
 msgid "an add-on developer replies to my review"
-msgstr ""
+msgstr "ein tilleggsutviklar svarar på vurderinga mi"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "tillegget mitt er vurdert av ein vurderar"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
@@ -2045,7 +2045,7 @@ msgstr "Vel eit bilde…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
-msgstr ""
+msgstr "Vil du slette dette bildet?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
@@ -2166,12 +2166,12 @@ msgstr "Tilgang tiil dataa dine frå alle nettsider"
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
 msgid_plural "Access your data in %(param)s other domains"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Tilgang til dataa dine på %(param)s anna domene"
+msgstr[1] "Tilgang til dataa dine på %(param)s andre domene"
 
 #: src/ui/components/HostPermissions/index.js:53
 msgid "Access your data for sites in the %(param)s domain"
-msgstr ""
+msgstr "Tilgang til dataa dine for nettsider på domenet %(param)s"
 
 #: src/ui/components/HostPermissions/index.js:58
 msgid "Access your data on %(param)s other site"
@@ -2181,7 +2181,7 @@ msgstr[1] ""
 
 #: src/ui/components/HostPermissions/index.js:65
 msgid "Access your data for %(param)s"
-msgstr ""
+msgstr "Tilgang til dataa dine for %(param)s"
 
 #: src/ui/components/Rating/index.js:60
 msgid "Rated %(rating)s out of 5"
