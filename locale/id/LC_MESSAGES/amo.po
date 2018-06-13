@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-12 10:13+0000\n"
+"PO-Revision-Date: 2018-06-13 05:31+0000\n"
 "Last-Translator: alamanda <dian.ina@gmail.com>\n"
 "Language-Team: none\n"
 "Language: id\n"
@@ -1775,7 +1775,7 @@ msgstr ""
 
 #: src/amo/components/StaticPages/ReviewGuide.js:46
 msgid "What features did you like or dislike?"
-msgstr ""
+msgstr "FItur mana yang Anda suka atau tidak suka?"
 
 #: src/amo/components/StaticPages/ReviewGuide.js:47
 msgid "Was it useful?"
@@ -1912,11 +1912,11 @@ msgstr "Edit profil"
 
 #: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
-msgstr ""
+msgstr "Profil berhasil diperbarui"
 
 #: src/amo/components/UserProfileEdit/index.js:185
 msgid "Picture successfully deleted"
-msgstr ""
+msgstr "Gambar berhasil dihapus"
 
 #: src/amo/components/UserProfileEdit/index.js:395
 #, fuzzy
@@ -1946,7 +1946,7 @@ msgstr "Nama pengguna"
 
 #: src/amo/components/UserProfileEdit/index.js:483
 msgid "Email address cannot be changed here"
-msgstr ""
+msgstr "Alamat surel tidak dapat diubah di sini"
 
 #: src/amo/components/UserProfileEdit/index.js:485
 msgid "Email Address"
@@ -2122,7 +2122,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
-msgstr ""
+msgstr "Hapus gambar ini"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2191,7 +2191,7 @@ msgstr "Selanjutnya"
 
 #: src/core/containers/InfoDialog/index.js:36
 msgid "Your add-on is ready"
-msgstr ""
+msgstr "Pengaya Anda siap digunakan"
 
 #: src/core/containers/InfoDialog/index.js:38
 msgid "Now you can access %(name)s from the toolbar."
@@ -2203,7 +2203,7 @@ msgstr "Oke!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Konfirmasi"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 #, fuzzy
