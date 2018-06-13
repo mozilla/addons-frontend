@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-11 13:01+0000\n"
+"PO-Revision-Date: 2018-06-13 10:50+0000\n"
 "Last-Translator: Bjørn I. <bjorn.svindseth@online.no>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: nn_NO\n"
@@ -45,7 +45,7 @@ msgstr "Legg til i samling"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Førehandsvising %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -1107,7 +1107,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Nettsikkerheit"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
@@ -2041,7 +2041,7 @@ msgstr "Profilbilde"
 
 #: src/amo/components/UserProfileEditPicture/index.js:66
 msgid "Choose photo..."
-msgstr ""
+msgstr "Vel eit bilde…"
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
 msgid "Do you really want to delete this picture?"
@@ -2049,7 +2049,7 @@ msgstr ""
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
-msgstr ""
+msgstr "Slett dette bildet"
 
 #: src/core/components/AuthenticateButton/index.js:77
 msgid "Register or Log in"
@@ -2129,7 +2129,7 @@ msgstr "OK!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Stadfest"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
@@ -2161,7 +2161,7 @@ msgstr "Veksle innhald"
 
 #: src/ui/components/HostPermissions/index.js:43
 msgid "Access your data for all websites"
-msgstr ""
+msgstr "Tilgang tiil dataa dine frå alle nettsider"
 
 #: src/ui/components/HostPermissions/index.js:46
 msgid "Access your data in %(param)s other domain"
