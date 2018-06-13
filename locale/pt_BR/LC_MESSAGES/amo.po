@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-09 12:48+0000\n"
-"Last-Translator: Fabio M Caldas <fabiomcaldas@gmail.com>\n"
+"PO-Revision-Date: 2018-06-13 12:33+0000\n"
+"Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
@@ -45,7 +45,7 @@ msgstr "Adicionar a coleção"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Pré-visualização de %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -106,9 +106,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)spor %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:553
-#, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Apenas com o Firefox — Obter o Firefox agora!"
+msgstr "Apenas com o Firefox—Obtenha o Firefox agora"
 
 #: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
@@ -953,18 +952,16 @@ msgid "Essential extensions"
 msgstr "Extensões essenciais"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Mais extensões de pesquisa"
+msgstr "Veja mais extensões essenciais"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
 msgstr "Ferramentas de tradução"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Mais ferramentas de produtividade"
+msgstr "Veja mais ferramentas de tradução"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1051,9 +1048,8 @@ msgid "Translate an entire web page with a couple clicks"
 msgstr "Traduza uma página web inteira com apenas alguns cliques"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Mais extensões de pesquisa"
+msgstr "Opções de pesquisa de imagem"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1113,11 +1109,11 @@ msgstr "Segurança da Internet"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Proteção contra malware e fraudes de phishing de dados"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
@@ -1977,14 +1973,12 @@ msgid "Update user's profile"
 msgstr "Atualizar perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Atualizar meu perfil"
+msgstr "Excluir meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Atualizar perfil do usuário"
+msgstr "Excluir perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
@@ -2011,14 +2005,12 @@ msgid "Important: a user profile can only be deleted if the user does not own an
 msgstr "Importante: um perfil de usuário só pode ser excluído se o usuário não possuir nenhuma extensão."
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Atualizar meu perfil"
+msgstr "Sim, excluir meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:755
-#, fuzzy
 msgid "Yes, delete this profile"
-msgstr "Apagar esta imagem"
+msgstr "Sim, excluir este perfil"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
@@ -2073,9 +2065,8 @@ msgid "Choose photo..."
 msgstr "Escolher foto..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
-#, fuzzy
 msgid "Do you really want to delete this picture?"
-msgstr "Apagar esta imagem"
+msgstr "Você deseja realmente excluir esta imagem?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"
