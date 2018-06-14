@@ -684,7 +684,6 @@ export const updateCollectionAddon = ({
 type DeleteCollectionAddonNotesParams = {|
   addonId: number,
   errorHandlerId: string,
-  notes?: string,
   page: number,
   slug: string,
   username: string,
@@ -692,7 +691,7 @@ type DeleteCollectionAddonNotesParams = {|
 
 export type DeleteCollectionAddonNotesAction = {|
   type: typeof DELETE_COLLECTION_ADDON_NOTES,
-  payload: DeleteCollectionAddonNotesParams,
+  payload: UpdateCollectionAddonParams,
 |};
 
 export const deleteCollectionAddonNotes = ({

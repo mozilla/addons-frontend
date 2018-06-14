@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import { withFixedErrorHandler } from 'core/errorHandler';
 import { getAddonIconUrl } from 'core/imageUtils';
 import translate from 'core/i18n/translate';
-import { sanitizeHTML } from 'core/utils';
+import { nl2br, sanitizeHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import DismissibleTextForm from 'ui/components/DismissibleTextForm';
 import Icon from 'ui/components/Icon';
@@ -45,15 +45,13 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
     };
   }
 
-  onEditNote = (event: SyntheticEvent<any>) => {
+  onEditNote = (event: SyntheticEvent<HTMLElement>) => {
     event.preventDefault();
     this.setState({ editingNote: true });
   };
 
   onDeleteNote = () => {
     const { addon: { id: addonId }, deleteNote, errorHandler } = this.props;
-
-    invariant(addonId, 'addonId is required');
 
     deleteNote(addonId, errorHandler);
   };
@@ -62,7 +60,7 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
     this.setState({ editingNote: false });
   };
 
-  onRemoveAddon = (event: SyntheticEvent<any>) => {
+  onRemoveAddon = (event: SyntheticEvent<HTMLButtonElement>) => {
     const { addon: { id: addonId }, removeAddon } = this.props;
 
     event.preventDefault();
@@ -96,7 +94,7 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
           <a
             href="#editComment"
             onClick={this.onEditNote}
-            className="EditableCollectionAddon-create-note"
+            className="EditableCollectionAddon-edit-note"
           >
             <Icon name="comments" />
           </a>
@@ -137,7 +135,9 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
                 <span
                   className="EditableCollectionAddon-notes-content"
                   // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={sanitizeHTML(addon.notes)}
+                  dangerouslySetInnerHTML={
+                    sanitizeHTML(nl2br(addon.notes), ['br'])
+                  }
                 />
                 <div className="EditableCollectionAddon-notes-buttons">
                   <Button
@@ -160,7 +160,7 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
 
 export const extractId = (ownProps: Props) => {
   const { addon } = ownProps;
-  return `editable-collection-addon-${addon ? addon.id : ''}`;
+  return `editable-collection-addon-${addon.id}`;
 };
 
 export default compose(

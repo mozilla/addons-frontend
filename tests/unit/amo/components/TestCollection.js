@@ -1018,7 +1018,8 @@ describe(__filename, () => {
 
     // This simulates the user clicking the "Delete" button on the
     // EditableCollectionAddon component's comment form.
-    root.instance().deleteNote(addonId, errorHandler);
+    const deleteNote = root.find(AddonsCard).prop('deleteNote');
+    deleteNote(addonId, errorHandler);
     sinon.assert.callCount(fakeDispatch, 1);
     sinon.assert.calledWith(fakeDispatch, deleteCollectionAddonNotes({
       addonId,

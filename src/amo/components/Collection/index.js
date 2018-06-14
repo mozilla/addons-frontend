@@ -216,7 +216,6 @@ export class CollectionBase extends React.Component<Props> {
       location: { query },
     } = this.props;
 
-    invariant(addonId, 'addonId is required');
     invariant(collection, 'collection is required');
 
     const {
@@ -224,9 +223,8 @@ export class CollectionBase extends React.Component<Props> {
       authorUsername: username,
     } = collection;
 
-    invariant(query, 'query is required');
     invariant(slug, 'slug is required');
-    invariant(username, 'page is required');
+    invariant(username, 'username is required');
 
     dispatch(removeAddonFromCollection({
       addonId,
@@ -246,7 +244,6 @@ export class CollectionBase extends React.Component<Props> {
       location,
     } = this.props;
 
-    invariant(addonId, 'addonId is required');
     invariant(collection, 'collection is required');
 
     const {
