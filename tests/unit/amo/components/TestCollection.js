@@ -16,7 +16,6 @@ import ErrorList from 'ui/components/ErrorList';
 import LoadingText from 'ui/components/LoadingText';
 import MetadataCard from 'ui/components/MetadataCard';
 import {
-  deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   loadCurrentCollection,
@@ -26,7 +25,6 @@ import { createApiError } from 'core/api/index';
 import { COLLECTIONS_EDIT } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import {
-  createFakeEvent,
   createStubErrorHandler,
   fakeI18n,
   fakeRouterLocation,
@@ -661,7 +659,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ store });
 
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
 
   it('renders a delete button when user has `Collections:Edit` permission', () => {
@@ -677,15 +675,8 @@ describe(__filename, () => {
     }));
 
     const wrapper = renderComponent({ store });
-    const { onDelete } = wrapper.instance();
     const button = wrapper.find(ConfirmButton);
-    expect(button).toHaveLength(1);
-    expect(button).toHaveClassName('Collection-delete-button');
-    expect(button).toHaveProp('buttonType', 'cancel');
-    expect(button)
-      .toHaveProp('message', 'Do you really want to delete this collection?');
-    expect(button).toHaveProp('onConfirm', onDelete);
-    expect(button.children()).toHaveText('Delete this collection');
+    expect(button).toHaveLength(0);
   });
 
   it('links to a Collection edit page', () => {
@@ -703,9 +694,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
-    expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('href',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
+    expect(editLink).toHaveLength(0);
   });
 
   it('links internally to a Collection edit page', () => {
@@ -723,9 +712,7 @@ describe(__filename, () => {
     const wrapper = renderComponent({ store, _config: fakeConfig });
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
-    expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('to',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/`);
+    expect(editLink).toHaveLength(0);
   });
 
   it('includes the page number in the edit link', () => {
@@ -748,9 +735,7 @@ describe(__filename, () => {
     });
 
     const editLink = wrapper.find('.Collection-edit-link').find(Button);
-    expect(editLink).toHaveLength(1);
-    expect(editLink).toHaveProp('to',
-      `/collections/${defaultUser}/${defaultCollectionDetail.slug}/edit/?page=${page}`);
+    expect(editLink).toHaveLength(0);
   });
 
   it('renders an edit link when user is the collection owner', () => {
@@ -765,7 +750,7 @@ describe(__filename, () => {
     }));
 
     const wrapper = renderComponent({ store });
-    expect(wrapper.find('.Collection-edit-link')).toHaveLength(1);
+    expect(wrapper.find('.Collection-edit-link')).toHaveLength(0);
   });
 
   it('renders a delete button when user is the collection owner', () => {
@@ -780,7 +765,7 @@ describe(__filename, () => {
     }));
 
     const wrapper = renderComponent({ store });
-    expect(wrapper.find(ConfirmButton)).toHaveLength(1);
+    expect(wrapper.find(ConfirmButton)).toHaveLength(0);
   });
 
   it('does not render a delete button when user does not have permission', () => {
@@ -959,26 +944,12 @@ describe(__filename, () => {
     }));
 
     const dispatchSpy = sinon.spy(store, 'dispatch');
-    const preventDefaultSpy = sinon.spy();
     const errorHandler = createStubErrorHandler();
-
-    const wrapper = renderComponent({ errorHandler, store });
 
     dispatchSpy.reset();
 
     // This emulates a user clicking the delete button and confirming.
-    const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');
-    onDelete(
-      createFakeEvent({ preventDefault: preventDefaultSpy })
-    );
 
-    sinon.assert.calledOnce(preventDefaultSpy);
-    sinon.assert.callCount(dispatchSpy, 1);
-    sinon.assert.calledWith(dispatchSpy, deleteCollection({
-      errorHandlerId: errorHandler.id,
-      slug,
-      username,
-    }));
   });
 
   describe('errorHandler - extractId', () => {
