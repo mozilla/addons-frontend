@@ -113,7 +113,7 @@ describe(__filename, () => {
   });
 
   describe('loadUserAccount', () => {
-    it('sets notifications to `null` when loading a user', () => {
+    it('sets notifications to `null` when loading a new user', () => {
       const user = createUserAccountResponse({ id: 12345, username: 'john' });
       const action = loadUserAccount({ user });
 
@@ -125,6 +125,35 @@ describe(__filename, () => {
       expect(state.byID[user.id]).toEqual({
         ...user,
         notifications: null,
+      });
+    });
+
+    it('does not change the notifications when loading a user who was already in the state', () => {
+      const user = createUserAccountResponse({ id: 12345, username: 'john' });
+      const notifications = createUserNotificationsResponse();
+
+      const prevState = reducer(
+        // 1. load the user
+        reducer(initialState, loadUserAccount({ user })),
+        // 2. load their notifications
+        loadUserNotifications({ notifications, username: user.username })
+      );
+
+      expect(prevState.byID[user.id]).toEqual({
+        ...user,
+        notifications,
+      });
+
+      const updatedUser = {
+        ...user,
+        biography: 'some new biography',
+      };
+
+      const state = reducer(prevState, loadUserAccount({ user: updatedUser }));
+
+      expect(state.byID[user.id]).toEqual({
+        ...updatedUser,
+        notifications,
       });
     });
   });

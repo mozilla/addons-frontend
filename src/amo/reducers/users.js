@@ -428,11 +428,15 @@ export const addUserToState = ({ state, user } : {
 |} => {
   invariant(user, 'user is required');
 
+  const existingUser = getUserById(state, user.id) || {
+    notifications: null,
+  };
+
   const byID = {
     ...state.byID,
     [user.id]: {
+      ...existingUser,
       ...user,
-      notifications: null,
     },
   };
   const byUsername = {
