@@ -1,15 +1,34 @@
+/* @flow */
 import { LOCATION_CHANGE } from 'react-router-redux';
 
-const LOAD_ERROR_PAGE = 'LOAD_ERROR_PAGE';
+const LOAD_ERROR_PAGE: 'LOAD_ERROR_PAGE' = 'LOAD_ERROR_PAGE';
 
-export const initialState = {
+export type ErrorPageState = {|
+  clearOnNext: boolean,
+  error: Object | null,
+  hasError: boolean,
+  statusCode: number | null,
+|};
+
+export const initialState: ErrorPageState = {
   clearOnNext: false,
   error: null,
   hasError: false,
   statusCode: null,
 };
 
-export const loadErrorPage = ({ error } = {}) => {
+type LoadErrorPageParams = {|
+  error: Object,
+|};
+
+type LoadErrorPageAction = {|
+  type: typeof LOAD_ERROR_PAGE,
+  payload: LoadErrorPageParams,
+|};
+
+export const loadErrorPage = (
+  { error }: LoadErrorPageParams = {}
+): LoadErrorPageAction => {
   if (!error) {
     throw new Error('error is required');
   }
@@ -20,7 +39,13 @@ export const loadErrorPage = ({ error } = {}) => {
   };
 };
 
-export default function errorPage(state = initialState, action) {
+type Action =
+  | LoadErrorPageAction;
+
+export default function errorPage(
+  state: ErrorPageState = initialState,
+  action: Action
+) {
   const { payload } = action;
 
   switch (action.type) {

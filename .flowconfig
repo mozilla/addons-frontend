@@ -16,6 +16,7 @@
 # TODO: this can go away after
 # https://github.com/facebook/flow/issues/2801
 ./flow/libs/intl.js.flow
+./flow/libs/raven.js.flow
 
 [options]
 # This maps all Sass/SCSS imports to a dummy Flow file to suppress import

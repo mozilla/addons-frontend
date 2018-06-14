@@ -1,0 +1,23 @@
+// From https://docs.sentry.io/clients/javascript/usage/
+
+declare var Raven: {
+  config: (DSN: string, options?: Object) => void,
+
+  captureMessage: (message: string, options: Object) => void,
+  captureException: (exception: Error, options: Object) => void,
+
+  wrap: (options: Object, callback: Function) => void,
+  context: (options: Object, callback: Function) => void,
+  setTagsContext: (options: Object) => void,
+  setExtraContext: (options: Object) => void,
+  captureBreadcrumb: ({
+    message: string,
+    category: string,
+    data: { [string]: string },
+    level: 'debug' | 'info' | 'warning' | 'error',
+  }) => void,
+
+  lastEventId: Function,
+  showReportDialog: Function,
+  isSetup: Function,
+};

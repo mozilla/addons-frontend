@@ -1,30 +1,40 @@
+/* @flow */
+/* global Raven */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import log from 'core/logger';
 import { getErrorComponent as getErrorComponentDefault } from 'core/utils';
 import { loadErrorPage } from 'core/reducers/errorPage';
+import type { ErrorPageState } from 'core/reducers/errorPage';
+import type { DispatchFunc } from 'core/types/redux';
 
 
-export class ErrorPageBase extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    dispatch: PropTypes.func.isRequired,
-    errorPage: PropTypes.object,
-    getErrorComponent: PropTypes.func,
-  }
+type Props = {|
+  _raven: null | {|captureException: Function |},
+  children: React.Node,
+  dispatch: DispatchFunc,
+  errorPage: Object,
+  getErrorComponent: Function,
+|};
 
+export class ErrorPageBase extends React.Component<Props> {
   static defaultProps = {
+    _raven: typeof Raven !== 'undefined' ? Raven : null,
     errorPage: {},
     getErrorComponent: getErrorComponentDefault,
   }
 
-  componentDidCatch(error, info) {
-    const { dispatch } = this.props;
+  componentDidCatch(error: Error, info: Object) {
+    const { _raven, dispatch } = this.props;
+
     dispatch(loadErrorPage({ error }));
     log.error('Caught application error:', error, info);
+
+    if (_raven) {
+      _raven.captureException(error, { extra: info });
+    }
   }
 
   render() {
@@ -41,8 +51,7 @@ export class ErrorPageBase extends React.Component {
   }
 }
 
-
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = (state: {| errorPage: ErrorPageState |}) => ({
   errorPage: state.errorPage,
 });
 
