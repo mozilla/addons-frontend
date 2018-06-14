@@ -78,4 +78,23 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(dispatchStub, loadErrorPage({ error }));
   });
+
+  it('sends errors to Sentry', () => {
+    const ravenSpy = {
+      captureException: sinon.spy(),
+    };
+
+    const error = new Error('random error');
+    const Content = () => {
+      throw error;
+    };
+
+    renderAndMount({
+      _raven: ravenSpy,
+      children: <Content />,
+    });
+
+    sinon.assert.calledOnce(ravenSpy.captureException);
+    sinon.assert.calledWith(ravenSpy.captureException, error);
+  });
 });
