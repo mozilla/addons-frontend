@@ -14,6 +14,7 @@ import './styles.scss';
 
 
 type State = {|
+  initialText: string,
   text: string,
 |};
 
@@ -56,7 +57,8 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { text: props.text || '' };
+    const initialText = props.text || '';
+    this.state = { initialText, text: initialText };
   }
 
   componentDidMount() {
@@ -100,7 +102,10 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
       submitButtonInProgressText,
     } = this.props;
 
-    const submitButtonIsDisabled = isSubmitting || !this.state.text.trim();
+    const submitButtonIsDisabled =
+      isSubmitting ||
+      !this.state.text.trim() ||
+      this.state.initialText === this.state.text;
     const deleteButtonIsDisabled = !this.state.text.trim();
 
     const text = {

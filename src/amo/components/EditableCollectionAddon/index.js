@@ -122,7 +122,7 @@ export class EditableCollectionAddonBase extends React.Component<Props, State> {
                 <DismissibleTextForm
                   className="EditableCollectionAddon-notes-form"
                   microButtons
-                  onDelete={this.onDeleteNote}
+                  onDelete={addon.notes && this.onDeleteNote}
                   onDismiss={this.onDismissNoteForm}
                   onSubmit={this.onSaveNote}
                   placeholder={i18n.gettext('Add a comment about this add-on.')}

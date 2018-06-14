@@ -143,7 +143,7 @@ describe(__filename, () => {
       const notesForm = root.find('.EditableCollectionAddon-notes-form');
       expect(notesForm).toHaveLength(1);
       expect(notesForm).toHaveProp('microButtons', true);
-      expect(notesForm).toHaveProp('onDelete', root.instance().onDeleteNote);
+      expect(notesForm).toHaveProp('onDelete', null);
       expect(notesForm).toHaveProp('onDismiss', root.instance().onDismissNoteForm);
       expect(notesForm).toHaveProp('onSubmit', root.instance().onSaveNote);
       expect(notesForm).toHaveProp('placeholder', 'Add a comment about this add-on.');

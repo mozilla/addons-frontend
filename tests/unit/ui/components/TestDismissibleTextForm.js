@@ -165,6 +165,13 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('disables submit button before the text has changed', () => {
+    const root = shallowRender({ text: 'Some text' });
+
+    expect(root.find('.DismissibleTextForm-submit'))
+      .toHaveProp('disabled', true);
+  });
+
   it('disables the dismiss button while submitting the form', () => {
     const root = shallowRender({ isSubmitting: true });
 
