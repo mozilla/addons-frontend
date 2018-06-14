@@ -1,28 +1,35 @@
+/* @flow */
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 
 import log from 'core/logger';
 import { getErrorComponent as getErrorComponentDefault } from 'core/utils';
 import { loadErrorPage } from 'core/reducers/errorPage';
+import type { ErrorPageState } from 'core/reducers/errorPage';
+import type { DispatchFunc } from 'core/types/redux';
 
 
-export class ErrorPageBase extends React.Component {
-  static propTypes = {
-    children: PropTypes.node.isRequired,
-    dispatch: PropTypes.func.isRequired,
-    errorPage: PropTypes.object,
-    getErrorComponent: PropTypes.func,
-  }
+type Props = {|
+  children: React.Node,
+  dispatch: DispatchFunc,
+  errorPage: {
+    error: Error,
+    hasError: boolean,
+    statusCode: number,
+  },
+  getErrorComponent: Function,
+|};
 
+export class ErrorPageBase extends React.Component<Props> {
   static defaultProps = {
     errorPage: {},
     getErrorComponent: getErrorComponentDefault,
   }
 
-  componentDidCatch(error, info) {
+  componentDidCatch(error: Error, info: Object) {
     const { dispatch } = this.props;
+
     dispatch(loadErrorPage({ error }));
     log.error('Caught application error:', error, info);
   }
@@ -41,8 +48,7 @@ export class ErrorPageBase extends React.Component {
   }
 }
 
-
-export const mapStateToProps = (state) => ({
+export const mapStateToProps = (state: {| errorPage: ErrorPageState |}) => ({
   errorPage: state.errorPage,
 });
 
