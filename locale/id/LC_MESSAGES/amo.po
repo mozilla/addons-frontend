@@ -4,8 +4,8 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-14 18:55+0000\n"
-"Last-Translator: eljuno <eljunotrie_anggoro@yahoo.co.id>\n"
+"PO-Revision-Date: 2018-06-14 22:43+0000\n"
+"Last-Translator: Fauzan Alfi <fauzanalfi@mozilla.web.id>\n"
 "Language-Team: none\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
@@ -73,24 +73,20 @@ msgid "Rate your experience"
 msgstr "Beri peringkat"
 
 #: src/amo/components/Addon/index.js:309
-#, fuzzy
 msgid "About this dictionary"
-msgstr "Masuk untuk menilai kamus ini"
+msgstr "Tentang kamus ini"
 
 #: src/amo/components/Addon/index.js:312
-#, fuzzy
 msgid "About this extension"
-msgstr "Masuk untuk menilai ekstensi ini"
+msgstr "Tentang ekstensi ini"
 
 #: src/amo/components/Addon/index.js:315
-#, fuzzy
 msgid "About this language pack"
-msgstr "Masuk untuk menilai paket bahasa ini"
+msgstr "Tentang paket bahasa ini"
 
 #: src/amo/components/Addon/index.js:318
-#, fuzzy
 msgid "About this search plugin"
-msgstr "Masuk untuk menilai plugin pencari ini"
+msgstr "Tentang plugin pencari ini"
 
 #: src/amo/components/Addon/index.js:322
 msgid "About this theme"
@@ -165,9 +161,8 @@ msgid "Firefox for iOS does not currently support add-ons."
 msgstr "Saat ini, Firefox untuk iOS belum mendukung pengaya."
 
 #: src/amo/components/AddonCompatibilityError/index.js:76
-#, fuzzy
 msgid "This add-on is not available on your platform."
-msgstr "Pengaya ini tidak kompatibel dengan versi {0} Anda."
+msgstr "Pengaya ini belum tersedia untuk platform Anda."
 
 #: src/amo/components/AddonCompatibilityError/index.js:79
 msgid "This add-on requires a <a href=\"%(downloadUrl)s\">newer version of Firefox</a> (at least version %(minVersion)s). You are using Firefox %(yourVersion)s."
@@ -191,18 +186,15 @@ msgid "No Users"
 msgstr "Tak ada pengguna"
 
 #: src/amo/components/AddonMeta/index.js:43
-#, fuzzy
 msgid "Ratings"
-msgstr "Tidak ada peringkat"
+msgstr "Peringkat"
 
 #: src/amo/components/AddonMeta/index.js:46
-#, fuzzy
 msgid "Rating"
 msgid_plural "Ratings"
-msgstr[0] "Tidak ada peringkat"
+msgstr[0] "Peringkat"
 
 #: src/amo/components/AddonMeta/index.js:48
-#, fuzzy
 msgid "No Ratings"
 msgstr "Tidak ada peringkat"
 
@@ -287,14 +279,12 @@ msgid "Other users with this extension also installed"
 msgstr "Pengguna lain dengan ekstensi ini juga memasang"
 
 #: src/amo/components/AddonRecommendations/index.js:162
-#, fuzzy
 msgid "Other popular extensions"
-msgstr "Extensi populer lainnya"
+msgstr "Ekstensi populer lainnya"
 
 #: src/amo/components/AddonReview/index.js:169
-#, fuzzy
 msgid "Tell the world why you think this extension is fantastic! Please follow our %(linkStart)sreview guidelines%(linkEnd)s."
-msgstr "Katakan pada dunia mengapa Anda anggap ekstensi ini luar biasa!"
+msgstr "Beritahukan kepada dunia mengapa Anda anggap ekstensi ini luar biasa! Harap ikuti %(linkStart)spanduan ulasan%(linkEnd)s kami."
 
 #: src/amo/components/AddonReview/index.js:173
 msgid "Tell us what you love about this extension. Be specific and concise."
@@ -334,18 +324,16 @@ msgid_plural "%(total)s reviews for this add-on"
 msgstr[0] "%(total)s ulasan untuk pengaya ini"
 
 #: src/amo/components/AddonReviewList/index.js:213
-#, fuzzy
 msgid "by %(authorList)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "berdasarkan %(authorList)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:146
 msgid "Developer response"
 msgstr "Balasan pengembang"
 
 #: src/amo/components/AddonReviewListItem/index.js:154
-#, fuzzy
 msgid "Write a reply to this review."
-msgstr "Tulis ulasan"
+msgstr "Balas ulasan ini."
 
 #: src/amo/components/AddonReviewListItem/index.js:157
 msgid "Update reply"
@@ -364,29 +352,24 @@ msgid "Publishing reply"
 msgstr "Menayangkan balasan"
 
 #: src/amo/components/AddonReviewListItem/index.js:202
-#, fuzzy
 msgid "posted %(timestamp)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "dikirim pada %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:206
-#, fuzzy
 msgid "by %(authorName)s, %(timestamp)s"
 msgstr "dari %(authorName)s, %(timestamp)s"
 
 #: src/amo/components/AddonReviewListItem/index.js:259
-#, fuzzy
 msgid "Edit my reply"
-msgstr "Tulis ulasan"
+msgstr "Sunting balasan saya"
 
 #: src/amo/components/AddonReviewListItem/index.js:260
-#, fuzzy
 msgid "Edit my review"
-msgstr "Tulis ulasan"
+msgstr "Sunting ulasan saya"
 
 #: src/amo/components/AddonReviewListItem/index.js:278
-#, fuzzy
 msgid "Reply to this review"
-msgstr "Ketuk untuk pratinjau"
+msgstr "Balas ulasan ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:122
 msgid "More dictionaries by %(author)s"
@@ -397,9 +380,8 @@ msgid "More dictionaries by these translators"
 msgstr "Kamus lainnya oleh para penerjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "Kamus oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "Dictionaries by these translators"
@@ -410,19 +392,16 @@ msgid "More extensions by %(author)s"
 msgstr "Ekstensi lain dari %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:142
-#, fuzzy
 msgid "More extensions by these developers"
-msgstr "Cari pengaya dan tema"
+msgstr "Ekstensi lainnya dari para pengembang ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "Ekstensi oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
-#, fuzzy
 msgid "Extensions by these developers"
-msgstr "Cari pengaya dan tema"
+msgstr "Cari ekstensi oleh pengembang ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:156
 msgid "More language packs by %(author)s"
@@ -433,9 +412,8 @@ msgid "More language packs by these translators"
 msgstr "Paket bahasa lainnya oleh para penerjemah ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "Masuk untuk menilai paket bahasa ini"
+msgstr "Paket bahasa oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
@@ -450,14 +428,12 @@ msgid "More themes by these artists"
 msgstr "Tema lainnya oleh para kreator ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "Tema oleh %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:184
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "Situs Dukungan"
+msgstr "Tema oleh para kreator ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
@@ -468,14 +444,12 @@ msgid "More add-ons by these developers"
 msgstr "Pengaya lainnya oleh para pengembang ini"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "dari %(authorName)s, %(timestamp)s"
+msgstr "Pengaya dari %(author)s"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:201
-#, fuzzy
 msgid "Add-ons by these developers"
-msgstr "Cari pengaya dan tema"
+msgstr "Pengaya oleh pengembang ini"
 
 #: src/amo/components/App/index.js:203 src/amo/components/SectionLinks/index.js:150
 msgid "Add-ons for Firefox"
@@ -526,28 +500,24 @@ msgid "Featured extensions"
 msgstr "Ekstensi pilihan"
 
 #: src/amo/components/Category/index.js:141 src/amo/components/Home/index.js:201 src/amo/components/LandingPage/index.js:132
-#, fuzzy
 msgid "See more featured extensions"
-msgstr "Ekstensi pilihan lainnya"
+msgstr "Lihat ekstensi pilihan lainnya"
 
 #: src/amo/components/Category/index.js:142 src/amo/components/LandingPage/index.js:133 src/amo/components/Search/index.js:123
-#, fuzzy
 msgid "Trending extensions"
-msgstr "Ekstensi peringkat teratas"
+msgstr "Ekstensi yang sedang populer"
 
 #: src/amo/components/Category/index.js:151 src/amo/components/LandingPage/index.js:138
-#, fuzzy
 msgid "See more trending extensions"
-msgstr "Ekstensi pilihan lainnya"
+msgstr "Temukan ekstensi yang sedang populer lainnya"
 
 #: src/amo/components/Category/index.js:152 src/amo/components/LandingPage/index.js:139 src/amo/components/Search/index.js:135
 msgid "Top rated extensions"
 msgstr "Ekstensi peringkat teratas"
 
 #: src/amo/components/Category/index.js:161 src/amo/components/LandingPage/index.js:147
-#, fuzzy
 msgid "See more top rated extensions"
-msgstr "Ekstensi peringkat teratas"
+msgstr "Lihat ekstensi peringkat teratas lainnya"
 
 #: src/amo/components/Category/index.js:164 src/amo/components/LandingPage/index.js:204 src/amo/components/SectionLinks/index.js:94
 msgid "Themes"
@@ -558,28 +528,24 @@ msgid "Featured themes"
 msgstr "Tema pilihan"
 
 #: src/amo/components/Category/index.js:174 src/amo/components/Home/index.js:230 src/amo/components/LandingPage/index.js:158
-#, fuzzy
 msgid "See more featured themes"
-msgstr "Tema pilihan lainnya"
+msgstr "Lihat tema pilihan lainnya"
 
 #: src/amo/components/Category/index.js:175 src/amo/components/LandingPage/index.js:159 src/amo/components/Search/index.js:126
-#, fuzzy
 msgid "Trending themes"
-msgstr "Tema peringkat teratas"
+msgstr "Tema yang sedang populer"
 
 #: src/amo/components/Category/index.js:184 src/amo/components/LandingPage/index.js:164
-#, fuzzy
 msgid "See more trending themes"
-msgstr "Tema pilihan lainnya"
+msgstr "Lihat tema yang sedang populer lainnya"
 
 #: src/amo/components/Category/index.js:185 src/amo/components/LandingPage/index.js:165 src/amo/components/Search/index.js:138
 msgid "Top rated themes"
 msgstr "Tema peringkat teratas"
 
 #: src/amo/components/Category/index.js:194 src/amo/components/LandingPage/index.js:170
-#, fuzzy
 msgid "See more top rated themes"
-msgstr "Tema peringkat teratas"
+msgstr "Lihat tema peringkat teratas lainnya"
 
 #: src/amo/components/CategoryHeader/index.js:42
 msgid "Browse all add-ons in this category."
@@ -650,18 +616,16 @@ msgid "Find an add-on to include in this collection"
 msgstr "Temukan pengaya untuk disertakan dalam koleksi ini"
 
 #: src/amo/components/CollectionManager/index.js:387 src/amo/components/UserProfileEdit/index.js:762 src/ui/components/ConfirmButton/index.js:99 src/ui/components/DismissibleTextForm/index.js:125
-#, fuzzy
 msgid "Cancel"
-msgstr "Batalkan pratinjau"
+msgstr "Batalkan"
 
 #: src/amo/components/ContributeCard/index.js:36
 msgid "Support this developer"
 msgstr "Dukung pengembang ini"
 
 #: src/amo/components/ContributeCard/index.js:37
-#, fuzzy
 msgid "Support these developers"
-msgstr "Cari pengaya dan tema"
+msgstr "Dukung para pengembang ini"
 
 #: src/amo/components/ContributeCard/index.js:41
 msgid "The developer of this extension asks that you help support its continued development by making a small contribution."
@@ -672,14 +636,12 @@ msgid "The developers of this extension ask that you help support its continued 
 msgstr "Para pengembang ekstensi ini meminta Anda mendukung pengembangan lebih lanjut dengan memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:50
-#, fuzzy
 msgid "Support this artist"
-msgstr "Situs Dukungan"
+msgstr "Dukung kreator ini"
 
 #: src/amo/components/ContributeCard/index.js:51
-#, fuzzy
 msgid "Support these artists"
-msgstr "Situs Dukungan"
+msgstr "Dukung para kreator ini"
 
 #: src/amo/components/ContributeCard/index.js:55
 msgid "The artist of this theme asks that you help support its continued creation by making a small contribution."
@@ -690,14 +652,12 @@ msgid "The artists of this theme ask that you help support its continued creatio
 msgstr "Para kreator tema ini meminta Anda mendukung pembuatan lebih lanjut dengan memberi sedikit kontribusi."
 
 #: src/amo/components/ContributeCard/index.js:64
-#, fuzzy
 msgid "Support this author"
-msgstr "Situs Dukungan"
+msgstr "Dukung penulis ini"
 
 #: src/amo/components/ContributeCard/index.js:65
-#, fuzzy
 msgid "Support these authors"
-msgstr "Situs Dukungan"
+msgstr "Dukung para penulis ini"
 
 #: src/amo/components/ContributeCard/index.js:69
 msgid "The author of this add-on asks that you help support its continued work by making a small contribution."
@@ -743,9 +703,8 @@ msgid "This add-on has been removed by its author."
 msgstr "Pengaya ini telah dihapus oleh pembuatnya."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:37
-#, fuzzy
 msgid "This add-on has been disabled by an administrator."
-msgstr "Pengaya ini tidak kompatibel dengan versi {0} Anda."
+msgstr "Pengaya ini telah dinonaktifkan oleh administrator."
 
 #: src/amo/components/ErrorPage/NotFound/index.js:40
 msgid "Sorry, but we can't find anything at the address you entered."
@@ -792,19 +751,16 @@ msgid "Flag this developer response"
 msgstr "Tandai tanggapan pengembang ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:133
-#, fuzzy
 msgid "Flag this review"
-msgstr "Ketuk untuk pratinjau"
+msgstr "Laporkan ulasan ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:58
-#, fuzzy
 msgid "Log in to flag this response"
-msgstr "Masuk untuk menilai ekstensi ini"
+msgstr "Masuk untuk menandai tanggapan ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:59
-#, fuzzy
 msgid "Log in to flag this review"
-msgstr "Masuk untuk menilai tema ini"
+msgstr "Masuk untuk menandai ulasan ini"
 
 #: src/amo/components/FlagReviewMenu/index.js:68
 msgid "You cannot flag your own response"
@@ -863,9 +819,8 @@ msgid "Legal"
 msgstr "Legal"
 
 #: src/amo/components/Footer/index.js:149
-#, fuzzy
 msgid "Report Trademark Abuse"
-msgstr "Laporkan kutu"
+msgstr "Laporkan Penyalahgunaan Merek Dagang"
 
 #: src/amo/components/Footer/index.js:158
 msgid ""
@@ -898,9 +853,8 @@ msgid "Report a bug"
 msgstr "Laporkan kutu"
 
 #: src/amo/components/Footer/index.js:75
-#, fuzzy
 msgid "Review Guide"
-msgstr "Teks ulasan"
+msgstr "Panduan Ulasan"
 
 #: src/amo/components/Footer/index.js:78
 msgid "Site Status"
@@ -923,9 +877,8 @@ msgid "View My Profile"
 msgstr "Lihat Profil Saya"
 
 #: src/amo/components/Header/index.js:124 src/amo/components/UserProfileEdit/index.js:445
-#, fuzzy
 msgid "Edit My Profile"
-msgstr "Tulis ulasan"
+msgstr "Edit Profil Saya"
 
 #: src/amo/components/Header/index.js:128
 msgid "Tools"
@@ -940,9 +893,8 @@ msgid "Submit a New Theme"
 msgstr "Ajukan Tema Baru"
 
 #: src/amo/components/Header/index.js:152
-#, fuzzy
 msgid "Reviewer Tools"
-msgstr "Tidak ada ulasan"
+msgstr "Perangkat untuk Pengulas"
 
 #: src/amo/components/Header/index.js:162 src/core/components/AuthenticateButton/index.js:76
 msgid "Log out"
@@ -993,9 +945,8 @@ msgid "See more tab extensions"
 msgstr "Lihat lebih banyak ekstensi tab"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "Jelajahi semua ekstensi"
+msgstr "Ekstensi penting"
 
 #: src/amo/components/Home/index.js:245
 #, fuzzy
