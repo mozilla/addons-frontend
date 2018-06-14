@@ -7,7 +7,7 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
-import { addQueryParams, isAllowedOrigin, sanitizeHTML } from 'core/utils';
+import { addQueryParams, isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
@@ -137,7 +137,9 @@ export class SearchResultBase extends React.Component<Props> {
               <div
                 className="SearchResult-note-content"
                 // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={sanitizeHTML(addon.notes)}
+                dangerouslySetInnerHTML={
+                  sanitizeHTML(nl2br(addon.notes), ['br'])
+                }
               />
             </div>
           )}

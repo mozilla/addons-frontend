@@ -246,6 +246,24 @@ describe(__filename, () => {
       .toHaveProp('dangerouslySetInnerHTML', sanitizeHTML(notes));
   });
 
+  it('renders newlines in notes', () => {
+    const notes = 'Some\nnotes.';
+    const addon = {
+      ...fakeAddon,
+      notes,
+    };
+    const root = render({ addon });
+
+    const note = root.find('.SearchResult-note');
+    expect(note).toHaveLength(1);
+    expect(note.find(Icon)).toHaveProp('name', 'comments-blue');
+    expect(note.find('.SearchResult-note-header'))
+      .toIncludeText('Add-on note');
+    const expectedHTML =
+      '<div class="SearchResult-note-content">Some<br>notes.</div>';
+    expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
+  });
+
   it('does not display a note if the addon has no notes', () => {
     const addon = {
       ...fakeAddon,
