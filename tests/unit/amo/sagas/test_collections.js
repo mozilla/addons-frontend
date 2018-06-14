@@ -159,6 +159,7 @@ describe(__filename, () => {
 
       const expectedLoadAction = loadCurrentCollectionPage({
         addons: collectionAddons.results,
+        numberOfAddons: collectionAddons.count,
       });
 
       const loadAction = await sagaTester.waitFor(expectedLoadAction.type);
