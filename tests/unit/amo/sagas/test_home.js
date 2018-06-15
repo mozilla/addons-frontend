@@ -7,6 +7,7 @@ import homeReducer, {
   loadHomeAddons,
 } from 'amo/reducers/home';
 import homeSaga from 'amo/sagas/home';
+import { createApiError } from 'core/api';
 import * as searchApi from 'core/api/search';
 import {
   ADDON_TYPE_EXTENSION,
@@ -140,6 +141,74 @@ describe(__filename, () => {
       expect(loadAction).toEqual(expectedLoadAction);
     });
 
+    it('loads a null for a collection that cannot be fetched', async () => {
+      const state = sagaTester.getState();
+
+      const error = createApiError({ response: { status: 404 } });
+
+      const firstCollectionSlug = 'collection-slug';
+      const firstCollectionUser = 'user-id-or-name';
+
+      const baseArgs = { api: state.api };
+      const baseFilters = {
+        page_size: LANDING_PAGE_ADDON_COUNT,
+      };
+
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .returns(Promise.reject(error));
+
+      const collections = [null];
+
+      const featuredExtensions = createAddonsApiResult([fakeAddon]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_EXTENSION,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(featuredExtensions));
+
+      const featuredThemes = createAddonsApiResult([fakeTheme]);
+      mockSearchApi
+        .expects('search')
+        .withArgs({
+          ...baseArgs,
+          filters: {
+            ...baseFilters,
+            addonType: ADDON_TYPE_THEME,
+            featured: true,
+            sort: SEARCH_SORT_RANDOM,
+          },
+          page: 1,
+        })
+        .returns(Promise.resolve(featuredThemes));
+
+      _fetchHomeAddons({
+        collectionsToFetch: [
+          { slug: firstCollectionSlug, username: firstCollectionUser },
+        ],
+      });
+
+      const expectedLoadAction = loadHomeAddons({
+        collections,
+        featuredExtensions,
+        featuredThemes,
+      });
+
+      await sagaTester.waitFor(expectedLoadAction.type);
+
+      const calledActions = sagaTester.getCalledActions();
+      const loadAction = calledActions[2];
+      expect(loadAction).toEqual(expectedLoadAction);
+    });
+
     it('clears the error handler', async () => {
       _fetchHomeAddons();
 
@@ -150,15 +219,47 @@ describe(__filename, () => {
         .toEqual(errorHandler.createClearingAction());
     });
 
-    it('dispatches an error', async () => {
-      const error = new Error('some API error maybe');
+    it('dispatches an error for a failed collection fetch', async () => {
+      const error = createApiError({ response: { status: 500 } });
 
       mockCollectionsApi
         .expects('getCollectionAddons')
-        .exactly(2)
         .returns(Promise.reject(error));
 
       _fetchHomeAddons();
+
+      const errorAction = errorHandler.createErrorAction(error);
+      await sagaTester.waitFor(errorAction.type);
+      expect(sagaTester.getCalledActions()[2]).toEqual(errorAction);
+    });
+
+    it('dispatches an error for a failed search fetch', async () => {
+      const state = sagaTester.getState();
+
+      const slug = 'collection-slug';
+      const username = 'user-id-or-name';
+
+      const baseArgs = { api: state.api };
+
+      const firstCollection = createFakeCollectionAddonsListResponse();
+      mockCollectionsApi
+        .expects('getCollectionAddons')
+        .withArgs({
+          ...baseArgs,
+          page: 1,
+          slug,
+          username,
+        })
+        .returns(Promise.resolve(firstCollection));
+
+      const error = new Error('some API error maybe');
+
+      mockSearchApi
+        .expects('search')
+        .exactly(2)
+        .returns(Promise.reject(error));
+
+      _fetchHomeAddons({ collectionsToFetch: [{ slug, username }] });
 
       const errorAction = errorHandler.createErrorAction(error);
       await sagaTester.waitFor(errorAction.type);

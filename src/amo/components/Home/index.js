@@ -168,6 +168,8 @@ export class HomeBase extends React.Component {
     const themesHeader = i18n.gettext(`Change the way Firefox looks with
       themes.`);
 
+    const loading = resultsLoaded === false;
+
     return (
       <div className="Home">
         <span
@@ -206,9 +208,10 @@ export class HomeBase extends React.Component {
               featured: true,
             },
           }}
-          loading={resultsLoaded === false}
+          loading={loading}
         />
 
+        {(loading || collections[0]) &&
         <LandingAddonsCard
           addons={collections[0]}
           className="Home-FeaturedCollection"
@@ -217,8 +220,8 @@ export class HomeBase extends React.Component {
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[0].username}/${COLLECTIONS_TO_FETCH[0].slug}/`
           }
-          loading={resultsLoaded === false}
-        />
+          loading={loading}
+        />}
 
         <LandingAddonsCard
           addonInstallSource={INSTALL_SOURCE_FEATURED}
@@ -233,9 +236,10 @@ export class HomeBase extends React.Component {
               featured: true,
             },
           }}
-          loading={resultsLoaded === false}
+          loading={loading}
         />
 
+        {(loading || collections[1]) &&
         <LandingAddonsCard
           addons={collections[1]}
           className="Home-FeaturedCollection"
@@ -244,9 +248,10 @@ export class HomeBase extends React.Component {
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[1].username}/${COLLECTIONS_TO_FETCH[1].slug}/`
           }
-          loading={resultsLoaded === false}
-        />
+          loading={loading}
+        />}
 
+        {(loading || collections[2]) &&
         <LandingAddonsCard
           addons={collections[2]}
           className="Home-FeaturedCollection"
@@ -257,8 +262,8 @@ export class HomeBase extends React.Component {
           footerLink={
             `/collections/${COLLECTIONS_TO_FETCH[2].username}/${COLLECTIONS_TO_FETCH[2].slug}/`
           }
-          loading={resultsLoaded === false}
-        />
+          loading={loading}
+        />}
 
         <Card
           className="Home-SubjectShelf Home-CuratedThemes"
