@@ -68,10 +68,8 @@ describe(__filename, () => {
       const homeState = store.getState().home;
 
       expect(homeState.resultsLoaded).toEqual(true);
-      expect(homeState.collections)
-        .toHaveLength(1);
-      expect(homeState.collections[0])
-        .toEqual(null);
+      expect(homeState.collections).toHaveLength(1);
+      expect(homeState.collections[0]).toEqual(null);
       expect(homeState.featuredExtensions).toEqual([
         createInternalAddon(fakeAddon),
       ]);

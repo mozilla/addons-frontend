@@ -1,3 +1,5 @@
+import { oneLine } from 'common-tags';
+
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { getCollectionAddons } from 'amo/api/collections';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
@@ -38,7 +40,9 @@ export function* fetchHomeAddons({
       });
       collections.push(result);
     } catch (error) {
-      log.warn(`Home add-ons failed to load: ${error}`);
+      log.warn(
+        oneLine`Home collection: ${collection.username}/${collection.slug}
+          failed to load: ${error}`);
       if (error.response.status === 404) {
         // The collection was not found.
         collections.push(null);
