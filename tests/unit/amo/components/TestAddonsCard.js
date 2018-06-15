@@ -55,14 +55,20 @@ describe(__filename, () => {
     expect(list.children().map((c) => c.prop('addon'))).toEqual(addons);
   });
 
-  it('passes a removeAddon function to editable add-ons', () => {
+  it('passes expected functions to editable add-ons', () => {
+    const deleteNote = sinon.stub();
     const removeAddon = sinon.stub();
-    const root = render({ addons, editing: true, removeAddon });
+    const saveNote = sinon.stub();
+    const root = render({
+      addons, deleteNote, editing: true, removeAddon, saveNote,
+    });
     const list = root.childAt(0);
 
-    expect.assertions(list.children().length);
+    expect.assertions(list.children().length * 3);
     list.children().forEach((editableCollectionAddon) => {
+      expect(editableCollectionAddon).toHaveProp('deleteNote', deleteNote);
       expect(editableCollectionAddon).toHaveProp('removeAddon', removeAddon);
+      expect(editableCollectionAddon).toHaveProp('saveNote', saveNote);
     });
   });
 

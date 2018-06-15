@@ -200,6 +200,10 @@
   @include icon($name: "comments");
 }
 
+.Icon-comments-blue {
+  @include icon($name: "comments-blue");
+}
+
 .Icon-permission-bookmarks {
   @include permission-icon($name: "bookmarks");
 }

@@ -17,6 +17,7 @@ describe(__filename, () => {
   const renderProps = (customProps = {}) => {
     return {
       i18n: fakeI18n(),
+      onDelete: null,
       onDismiss: sinon.stub(),
       onSubmit: sinon.stub(),
       store,
@@ -164,6 +165,13 @@ describe(__filename, () => {
       .toHaveProp('disabled', true);
   });
 
+  it('disables submit button before the text has changed', () => {
+    const root = shallowRender({ text: 'Some text' });
+
+    expect(root.find('.DismissibleTextForm-submit'))
+      .toHaveProp('disabled', true);
+  });
+
   it('disables the dismiss button while submitting the form', () => {
     const root = shallowRender({ isSubmitting: true });
 
@@ -199,5 +207,65 @@ describe(__filename, () => {
 
     expect(root.find('.DismissibleTextForm-textarea'))
       .toHaveProp('disabled', false);
+  });
+
+  it('hides the delete button when onDelete is empty', () => {
+    const root = shallowRender({ onDelete: null });
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveLength(0);
+  });
+
+  it('displays the delete button when onDelete is provided', () => {
+    const root = shallowRender({ onDelete: sinon.stub() });
+
+    const deleteButton = root.find('.DismissibleTextForm-delete');
+    expect(deleteButton).toHaveLength(1);
+    expect(deleteButton).toHaveProp('buttonType', 'alert');
+    expect(deleteButton.childAt(0)).toHaveText('Delete');
+  });
+
+  it('creates micro buttons when requested', () => {
+    const root = shallowRender({ onDelete: sinon.stub(), microButtons: true });
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', true);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', true);
+  });
+
+  it('creates non-micro buttons by default', () => {
+    const root = shallowRender({ onDelete: sinon.stub() });
+
+    expect(root.find('.DismissibleTextForm-delete')).toHaveProp('micro', false);
+    expect(root.find('.DismissibleTextForm-submit')).toHaveProp('micro', false);
+  });
+
+  it('disables the delete button when there is no text', () => {
+    const root = shallowRender({ onDelete: sinon.stub(), text: '' });
+
+    expect(root.find('.DismissibleTextForm-delete'))
+      .toHaveProp('disabled', true);
+  });
+
+  it('enables the delete button after text has been entered', () => {
+    const root = shallowRender({ onDelete: sinon.stub(), text: '' });
+
+    typeSomeText({ root, text: 'Typing some text...' });
+
+    expect(root.find('.DismissibleTextForm-delete'))
+      .toHaveProp('disabled', false);
+  });
+
+  it('calls back when clicking the delete button', () => {
+    const onDelete = sinon.stub();
+    const root = shallowRender({ onDelete });
+    const enteredText = 'Some review text';
+
+    typeSomeText({ root, text: enteredText });
+
+    // Submit the form.
+    const event = createFakeEvent();
+    root.find('.DismissibleTextForm-delete').simulate('click', event);
+
+    sinon.assert.called(event.preventDefault);
+    sinon.assert.called(onDelete);
   });
 });

@@ -9,11 +9,13 @@ import { compose } from 'redux';
 import AddonsCard from 'amo/components/AddonsCard';
 import Link from 'amo/components/Link';
 import {
+  deleteCollectionAddonNotes,
   removeAddonFromCollection,
   deleteCollection,
   fetchCurrentCollection,
   fetchCurrentCollectionPage,
   getCurrentCollection,
+  updateCollectionAddon,
 } from 'amo/reducers/collections';
 import CollectionManager from 'amo/components/CollectionManager';
 import NotFound from 'amo/components/ErrorPage/NotFound';
@@ -64,6 +66,12 @@ export type Props = {|
 |};
 
 export type RemoveCollectionAddonFunc = (addonId: number) => void;
+export type DeleteAddonNoteFunc = (
+  addonId: number, errorHandler: ErrorHandlerType
+) => void;
+export type SaveAddonNoteFunc = (
+  addonId: number, errorHandler: ErrorHandlerType, notes: string
+) => void;
 
 export class CollectionBase extends React.Component<Props> {
   static defaultProps = {
@@ -215,14 +223,70 @@ export class CollectionBase extends React.Component<Props> {
       authorUsername: username,
     } = collection;
 
-    invariant(query, 'query is required');
     invariant(slug, 'slug is required');
-    invariant(username, 'page is required');
+    invariant(username, 'username is required');
 
     dispatch(removeAddonFromCollection({
       addonId,
       errorHandlerId: errorHandler.id,
       page: query.page || 1,
+      slug,
+      username,
+    }));
+  };
+
+  deleteNote: DeleteAddonNoteFunc = (
+    addonId: number, errorHandler: ErrorHandlerType
+  ) => {
+    const {
+      collection,
+      dispatch,
+      location,
+    } = this.props;
+
+    invariant(collection, 'collection is required');
+
+    const {
+      slug,
+      authorUsername: username,
+    } = collection;
+
+    invariant(slug, 'slug is required');
+    invariant(username, 'username is required');
+
+    dispatch(deleteCollectionAddonNotes({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      page: location.query.page || 1,
+      slug,
+      username,
+    }));
+  };
+
+  saveNote: SaveAddonNoteFunc = (
+    addonId: number, errorHandler: ErrorHandlerType, notes: string
+  ) => {
+    const {
+      collection,
+      dispatch,
+      location,
+    } = this.props;
+
+    invariant(collection, 'collection is required');
+
+    const {
+      slug,
+      authorUsername: username,
+    } = collection;
+
+    invariant(slug, 'slug is required');
+    invariant(username, 'username is required');
+
+    dispatch(updateCollectionAddon({
+      addonId,
+      errorHandlerId: errorHandler.id,
+      notes,
+      page: location.query.page || 1,
       slug,
       username,
     }));
@@ -329,9 +393,11 @@ export class CollectionBase extends React.Component<Props> {
           <AddonsCard
             addonInstallSource={INSTALL_SOURCE_COLLECTION}
             addons={addons}
+            deleteNote={this.deleteNote}
             editing={editing}
             loading={!collection || loading}
             removeAddon={this.removeAddon}
+            saveNote={this.saveNote}
           />
           {!loading && addons && addons.length === 0 &&
             <p className="Collection-placeholder">{ i18n.gettext(
