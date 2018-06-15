@@ -6,7 +6,6 @@ import * as React from 'react';
 import { SearchResultBase } from 'amo/components/SearchResult';
 import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
-import { sanitizeHTML } from 'core/utils';
 import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
 import Icon from 'ui/components/Icon';
@@ -242,8 +241,9 @@ describe(__filename, () => {
     expect(note.find(Icon)).toHaveProp('name', 'comments-blue');
     expect(note.find('.SearchResult-note-header'))
       .toIncludeText('Add-on note');
-    expect(note.find('.SearchResult-note-content'))
-      .toHaveProp('dangerouslySetInnerHTML', sanitizeHTML(notes));
+    const expectedHTML =
+      `<p class="SearchResult-note-content">${notes}</p>`;
+    expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
   });
 
   it('renders newlines in notes', () => {
@@ -260,7 +260,7 @@ describe(__filename, () => {
     expect(note.find('.SearchResult-note-header'))
       .toIncludeText('Add-on note');
     const expectedHTML =
-      '<div class="SearchResult-note-content">Some<br>notes.</div>';
+      '<p class="SearchResult-note-content">Some<br>notes.</p>';
     expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
   });
 

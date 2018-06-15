@@ -134,7 +134,7 @@ export class SearchResultBase extends React.Component<Props> {
                 <Icon name="comments-blue" />
                 {i18n.gettext('Add-on note')}
               </h4>
-              <div
+              <p
                 className="SearchResult-note-content"
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={
