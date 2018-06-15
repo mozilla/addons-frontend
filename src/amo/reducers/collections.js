@@ -311,6 +311,7 @@ export const loadCurrentCollection = ({
 
 type LoadCurrentCollectionPageParams = {|
   addons: ExternalCollectionAddons,
+  numberOfAddons: number,
 |};
 
 type LoadCurrentCollectionPageAction = {|
@@ -320,14 +321,14 @@ type LoadCurrentCollectionPageAction = {|
 
 export const loadCurrentCollectionPage = ({
   addons,
+  numberOfAddons,
 }: LoadCurrentCollectionPageParams = {}): LoadCurrentCollectionPageAction => {
-  if (!addons) {
-    throw new Error('addons are required');
-  }
+  invariant(addons, 'The addons parameter is required');
+  invariant(typeof numberOfAddons === 'number', 'The numberOfAddons parameter must be a number');
 
   return {
     type: LOAD_CURRENT_COLLECTION_PAGE,
-    payload: { addons },
+    payload: { addons, numberOfAddons },
   };
 };
 
@@ -680,10 +681,14 @@ export const updateCollectionAddon = ({
   };
 };
 
-// The DeleteCollectionAddonNotesAction is identical to the
-// UpdateCollectionAddonAction, with the only difference being that
-// we pass '' into the notes field. Therefore we can reuse the
-// UpdateCollectionAddonParams type to describe the payload.
+type DeleteCollectionAddonNotesParams = {|
+  addonId: number,
+  errorHandlerId: string,
+  page: number,
+  slug: string,
+  username: string,
+|};
+
 export type DeleteCollectionAddonNotesAction = {|
   type: typeof DELETE_COLLECTION_ADDON_NOTES,
   payload: UpdateCollectionAddonParams,
@@ -691,7 +696,7 @@ export type DeleteCollectionAddonNotesAction = {|
 
 export const deleteCollectionAddonNotes = ({
   addonId, errorHandlerId, page, slug, username,
-}: UpdateCollectionAddonParams = {}): DeleteCollectionAddonNotesAction => {
+}: DeleteCollectionAddonNotesParams = {}): DeleteCollectionAddonNotesAction => {
   invariant(addonId, 'The addonId parameter is required');
   invariant(errorHandlerId, 'The errorHandlerId parameter is required');
   invariant(page, 'The page parameter is required');
@@ -935,7 +940,7 @@ const reducer = (
     }
 
     case LOAD_CURRENT_COLLECTION_PAGE: {
-      const { addons } = action.payload;
+      const { addons, numberOfAddons } = action.payload;
 
       const currentCollection = getCurrentCollection(state);
       if (!currentCollection) {
@@ -950,6 +955,7 @@ const reducer = (
           [currentCollection.id]: {
             ...currentCollection,
             addons: createInternalAddons(addons),
+            numberOfAddons,
           },
         },
         current: {

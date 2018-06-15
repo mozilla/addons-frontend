@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 19:14+0000\n"
+"PO-Revision-Date: 2018-06-13 12:33+0000\n"
 "Last-Translator: Maykon Chagas <mchagas@riseup.net>\n"
 "Language-Team: none\n"
 "Language: pt_BR\n"
@@ -45,7 +45,7 @@ msgstr "Adicionar a coleção"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Pré-visualização de %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -106,9 +106,8 @@ msgid "%(addonName)s %(startSpan)sby %(authorList)s%(endSpan)s"
 msgstr "%(addonName)s %(startSpan)spor %(authorList)s%(endSpan)s"
 
 #: src/amo/components/Addon/index.js:553
-#, fuzzy
 msgid "Only with Firefox—Get Firefox Now"
-msgstr "Apenas com o Firefox — Obter o Firefox agora!"
+msgstr "Apenas com o Firefox—Obtenha o Firefox agora"
 
 #: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
@@ -953,18 +952,16 @@ msgid "Essential extensions"
 msgstr "Extensões essenciais"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "Mais extensões de pesquisa"
+msgstr "Veja mais extensões essenciais"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
 msgstr "Ferramentas de tradução"
 
 #: src/amo/components/Home/index.js:256
-#, fuzzy
 msgid "See more translation tools"
-msgstr "Mais ferramentas de produtividade"
+msgstr "Veja mais ferramentas de tradução"
 
 #: src/amo/components/Home/index.js:60
 msgid "Bookmarks"
@@ -1051,9 +1048,8 @@ msgid "Translate an entire web page with a couple clicks"
 msgstr "Traduza uma página web inteira com apenas alguns cliques"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
-#, fuzzy
 msgid "Image Search Options"
-msgstr "Mais extensões de pesquisa"
+msgstr "Opções de pesquisa de imagem"
 
 #: src/amo/components/HomeHeroBanner/index.js:200
 msgid "Access reverse image search options in a context menu"
@@ -1093,7 +1089,7 @@ msgstr "Previna que o Facebook rastreie você pela web"
 
 #: src/amo/components/HomeHeroBanner/index.js:39
 msgid "Swift Selection Search"
-msgstr ""
+msgstr "Swift Selection Search"
 
 #: src/amo/components/HomeHeroBanner/index.js:42
 msgid "Highlight text on any web page to pull up a handy search menu"
@@ -1113,11 +1109,11 @@ msgstr "Segurança da Internet"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Proteção contra malware e fraudes de phishing de dados"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
-msgstr ""
+msgstr "Vertical Tabs Reloaded"
 
 #: src/amo/components/HomeHeroBanner/index.js:78
 msgid "Arrange tabs in a vertical fashion"
@@ -1954,6 +1950,7 @@ msgstr "De tempos em tempos, a Mozilla pode enviar e-mails para você sobre novo
 #: src/amo/components/UserProfileEdit/index.js:653
 msgid "From time to time, Mozilla may send this user email about upcoming releases and add-on events. Please select the topics this user may be interested in."
 msgstr ""
+"Ocasionalmente, a Mozilla poderá enviar um e-mail a este usuário sobre os próximos lançamentos e eventos de extensões. Por favor, selecione os tópicos cujo os quais este usuário possa ter interesse."
 
 #: src/amo/components/UserProfileEdit/index.js:667
 msgid "Mozilla reserves the right to contact you individually about specific concerns with your hosted add-ons."
@@ -1976,14 +1973,12 @@ msgid "Update user's profile"
 msgstr "Atualizar perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:700
-#, fuzzy
 msgid "Delete my profile"
-msgstr "Atualizar meu perfil"
+msgstr "Excluir meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:701
-#, fuzzy
 msgid "Delete user's profile"
-msgstr "Atualizar perfil do usuário"
+msgstr "Excluir perfil do usuário"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
@@ -1998,6 +1993,8 @@ msgid ""
 "If you confirm this %(startStrong)sirreversible action%(endStrong)s, the following data will be removed: profile picture, profile details (including username, email, display name, location, home "
 "page, biography, occupation) and notification preferences. Other data such as ratings and reviews will be anonymized."
 msgstr ""
+"Caso confirme esta %(startStrong)sação irreversível%(endStrong)s, os seguintes dados serão removidos: imagem de perfil, detalhes de perfil (incluindo nome de usuário, e-mail, nome de exibição, "
+"localização, página inicial, biografia e ocupação) e preferências de notificação. Outros dados, como avaliações e análises, serão convertidos em anônimos."
 
 #: src/amo/components/UserProfileEdit/index.js:738
 msgid "Important: if you own add-ons, you have to transfer them to other users or to delete them before you can delete your profile."
@@ -2008,18 +2005,16 @@ msgid "Important: a user profile can only be deleted if the user does not own an
 msgstr "Importante: um perfil de usuário só pode ser excluído se o usuário não possuir nenhuma extensão."
 
 #: src/amo/components/UserProfileEdit/index.js:754
-#, fuzzy
 msgid "Yes, delete my profile"
-msgstr "Atualizar meu perfil"
+msgstr "Sim, excluir meu perfil"
 
 #: src/amo/components/UserProfileEdit/index.js:755
-#, fuzzy
 msgid "Yes, delete this profile"
-msgstr "Apagar esta imagem"
+msgstr "Sim, excluir este perfil"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:19
 msgid "stay up-to-date with news and events relevant to add-on developers (including the about:addons newsletter)"
-msgstr ""
+msgstr "mantenha-se informado com notícias e eventos indispensáveis a desenvolvedores de extensões (incluindo o boletim Informativo about:addons)"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:22
 msgid "Mozilla needs to contact me about my individual add-on"
@@ -2039,23 +2034,23 @@ msgstr "um desenvolvedor de extensões responder a minha análise"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:31
 msgid "my add-on is reviewed by a reviewer"
-msgstr ""
+msgstr "minha extensão for revisada"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:33
 msgid "my sdk-based add-on cannot be upgraded"
-msgstr ""
+msgstr "minha extensão baseada no SDK não pôde ser atualizada"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:35
 msgid "my sdk-based add-on is upgraded successfully"
-msgstr ""
+msgstr "minha extensão baseada no SDK foi atualizada com sucesso"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:37
 msgid "my add-on's compatibility cannot be upgraded"
-msgstr ""
+msgstr "a compatibilidade da minha extensão não pôde ser atualizada"
 
 #: src/amo/components/UserProfileEditNotifications/index.js:39
 msgid "my add-on's compatibility is upgraded successfully"
-msgstr ""
+msgstr "a compatibilidade da minha extensão foi atualizada com sucesso"
 
 #: src/amo/components/UserProfileEditPicture/index.js:33
 msgid "Profile picture for %(name)s"
@@ -2070,9 +2065,8 @@ msgid "Choose photo..."
 msgstr "Escolher foto..."
 
 #: src/amo/components/UserProfileEditPicture/index.js:74
-#, fuzzy
 msgid "Do you really want to delete this picture?"
-msgstr "Apagar esta imagem"
+msgstr "Você deseja realmente excluir esta imagem?"
 
 #: src/amo/components/UserProfileEditPicture/index.js:77
 msgid "Delete this picture"

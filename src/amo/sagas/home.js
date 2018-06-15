@@ -1,3 +1,5 @@
+import { oneLine } from 'common-tags';
+
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 import { getCollectionAddons } from 'amo/api/collections';
 import { LANDING_PAGE_ADDON_COUNT } from 'amo/constants';
@@ -25,11 +27,11 @@ export function* fetchHomeAddons({
 
   yield put(errorHandler.createClearingAction());
 
-  try {
-    const state = yield select(getState);
+  const state = yield select(getState);
 
-    const collections = [];
-    for (const collection of collectionsToFetch) {
+  const collections = [];
+  for (const collection of collectionsToFetch) {
+    try {
       const result = yield call(getCollectionAddons, {
         api: state.api,
         page: 1,
@@ -37,12 +39,22 @@ export function* fetchHomeAddons({
         username: collection.username,
       });
       collections.push(result);
+    } catch (error) {
+      log.warn(
+        oneLine`Home collection: ${collection.username}/${collection.slug}
+          failed to load: ${error}`);
+      if (error.response.status === 404) {
+        // The collection was not found.
+        collections.push(null);
+      } else {
+        yield put(errorHandler.createErrorAction(error));
+      }
     }
+  }
 
-    const {
-      featuredExtensions,
-      featuredThemes,
-    } = yield all({
+  let homeAddons;
+  try {
+    homeAddons = yield all({
       featuredExtensions: call(searchApi, {
         api: state.api,
         filters: {
@@ -64,16 +76,16 @@ export function* fetchHomeAddons({
         page: 1,
       }),
     });
-
-    yield put(loadHomeAddons({
-      collections,
-      featuredExtensions,
-      featuredThemes,
-    }));
   } catch (error) {
     log.warn(`Home add-ons failed to load: ${error}`);
     yield put(errorHandler.createErrorAction(error));
   }
+
+  yield put(loadHomeAddons({
+    collections,
+    featuredExtensions: homeAddons.featuredExtensions,
+    featuredThemes: homeAddons.featuredThemes,
+  }));
 }
 
 export default function* homeSaga() {

@@ -14,6 +14,7 @@ import './styles.scss';
 
 
 type State = {|
+  initialText: string,
   text: string,
 |};
 
@@ -24,10 +25,12 @@ export type OnSubmitParams = {|
 
 type Props = {|
   className?: string,
+  onDelete: () => void,
   onDismiss: () => void,
   onSubmit: (params: OnSubmitParams) => void,
   i18n: I18nType,
   isSubmitting?: boolean,
+  microButtons?: boolean,
   placeholder?: string,
   submitButtonClassName?: string,
   submitButtonText?: string,
@@ -37,7 +40,8 @@ type Props = {|
 
 /*
  * This renders a form with an auto-resizing textarea,
- * a submit button, and a link to dismiss the form.
+ * a submit button, a link to dismiss the form, and optionally
+ * a delete button.
  *
  * The parent component is responsible for controlling
  * the form. The main use case is that this form would
@@ -53,13 +57,20 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
 
   constructor(props: Props) {
     super(props);
-    this.state = { text: props.text || '' };
+    const initialText = props.text || '';
+    this.state = { initialText, text: initialText };
   }
 
   componentDidMount() {
     if (this.textarea) {
       this.textarea.focus();
     }
+  }
+
+  onDelete = (event: SyntheticEvent<any>) => {
+    event.preventDefault();
+
+    this.props.onDelete();
   }
 
   onDismiss = (event: SyntheticEvent<any>) => {
@@ -83,13 +94,19 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
       className,
       i18n,
       isSubmitting,
+      microButtons,
+      onDelete,
       placeholder,
       submitButtonClassName,
       submitButtonText,
       submitButtonInProgressText,
     } = this.props;
 
-    const submitButtonIsDisabled = isSubmitting || !this.state.text.trim();
+    const submitButtonIsDisabled =
+      isSubmitting ||
+      !this.state.text.trim() ||
+      this.state.initialText === this.state.text;
+    const deleteButtonIsDisabled = !this.state.text.trim();
 
     const text = {
       placeholder: placeholder || i18n.gettext('Enter text.'),
@@ -124,20 +141,35 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
           >
             {i18n.gettext('Cancel')}
           </Button>
-          <Button
-            buttonType="action"
-            className={makeClassName(
-              'DismissibleTextForm-submit',
-              submitButtonClassName,
+          <span className="DismissibleTextForm-delete-submit-buttons">
+            {onDelete && (
+              <Button
+                buttonType="alert"
+                className="DismissibleTextForm-delete"
+                disabled={deleteButtonIsDisabled}
+                href="#delete"
+                onClick={this.onDelete}
+                micro={microButtons}
+              >
+                {i18n.gettext('Delete')}
+              </Button>
             )}
-            disabled={submitButtonIsDisabled}
-            href="#submit"
-            onClick={this.onSubmit}
-          >
-            {isSubmitting ?
-              text.submitButtonInProgressText : text.submitButtonText
-            }
-          </Button>
+            <Button
+              buttonType="action"
+              className={makeClassName(
+                'DismissibleTextForm-submit',
+                submitButtonClassName,
+              )}
+              disabled={submitButtonIsDisabled}
+              href="#submit"
+              onClick={this.onSubmit}
+              micro={microButtons}
+            >
+              {isSubmitting ?
+                text.submitButtonInProgressText : text.submitButtonText
+              }
+            </Button>
+          </span>
         </div>
       </form>
     );
