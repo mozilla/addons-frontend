@@ -41,6 +41,8 @@ describe(__filename, () => {
       display_name: 'Matt MacTofu',
       userId: 500,
       username: 'tofumatt',
+      is_addon_developer: true,
+      is_artist: true,
       ...props,
     };
   }
@@ -144,6 +146,14 @@ describe(__filename, () => {
     const header = getHeaderPropComponent(root);
 
     expect(header.find('.UserProfile-name')).toHaveText('Matt MacTofu');
+  });
+
+  it("renders the user's type", () => {
+    const root = renderUserProfile();
+    const header = getHeaderPropComponent(root);
+
+    expect(header.find('.UserProfile-developer')).toHaveLength(1);
+    expect(header.find('.UserProfile-artist')).toHaveLength(1);
   });
 
   it('renders LoadingText when user name is not ready', () => {

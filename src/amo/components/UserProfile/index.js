@@ -115,13 +115,29 @@ export class UserProfileBase extends React.Component<Props> {
     }
 
     const userProfileHeader = (
-      <React.Fragment>
+      <div className="UserProfile-head">
         <UserAvatar className="UserProfile-avatar" user={user} />
 
+        <div className="UserProfile-tags">
+          {
+            user && user.is_addon_developer &&
+            <div className="UserProfile-developer">
+              {i18n.gettext('Add-ons developer')}
+              <i className="developer" />
+            </div>
+          }
+          {
+            user && user.is_artist &&
+            <div className="UserProfile-artist">
+              {i18n.gettext('Theme artist')}
+              <i className="artist" />
+            </div>
+          }
+        </div>
         <h1 className="UserProfile-name">
           {user ? user.name : <LoadingText />}
         </h1>
-      </React.Fragment>
+      </div>
     );
     const userProfileTitle = i18n.sprintf(
       i18n.gettext('User Profile for %(user)s'), {

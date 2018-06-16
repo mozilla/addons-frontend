@@ -28,6 +28,11 @@ $avatar-size: 64px;
   }
 }
 
+.UserProfile-head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .UserProfile-avatar {
   height: $avatar-size;
   margin: 0 0 12px;
@@ -40,10 +45,32 @@ $avatar-size: 64px;
   width: $avatar-size;
 }
 
+.UserProfile-tags {
+  font-weight: normal;
+  text-align: right;
+
+  i {
+    display: inline-block;
+    height: 16px;
+    margin: 0 0 5px 10px;
+    vertical-align: middle;
+    width: 16px;
+
+    &.developer {
+      background-image: url("./icons/developer.svg");
+    }
+
+    &.artist {
+      background-image: url("./icons/artist.svg");
+    }
+  }
+}
+
 .UserProfile-name {
   @include font-regular();
 
   font-size: $font-size-l;
+  grid-column: 1 / span 2;
   margin: 0;
 
   @include respond-to(medium) {
