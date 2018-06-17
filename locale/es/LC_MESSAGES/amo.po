@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 18:07+0000\n"
+"PO-Revision-Date: 2018-06-17 11:44+0000\n"
 "Last-Translator: avelper <avelper@mozilla-hispano.org>\n"
 "Language-Team: none\n"
 "Language: es\n"
@@ -45,7 +45,7 @@ msgstr "Añadir a la colección"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "Vista previa de %(title)s"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -1007,11 +1007,11 @@ msgstr "Radio mundial"
 
 #: src/amo/components/HomeHeroBanner/index.js:126
 msgid "Quantum Extensions Challenge winner! Listen to live radio from around the world"
-msgstr ""
+msgstr "¡Ganador del Reto de extensiones Quantum! Escucha en directo la radio de cualquier parte del mundo"
 
 #: src/amo/components/HomeHeroBanner/index.js:136
 msgid "Envify"
-msgstr ""
+msgstr "Envify"
 
 #: src/amo/components/HomeHeroBanner/index.js:139
 msgid "Quantum Extensions Challenge winner! Different tab colors for different dev environments"
@@ -1047,7 +1047,7 @@ msgstr "Traductor de páginas"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Traduce una página web completa con un par de clics"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 msgid "Image Search Options"
@@ -1099,7 +1099,7 @@ msgstr ""
 
 #: src/amo/components/HomeHeroBanner/index.js:52
 msgid "Session Sync"
-msgstr ""
+msgstr "Sincronización de sesiones"
 
 #: src/amo/components/HomeHeroBanner/index.js:55
 msgid "Quantum Extensions Challenge winner! Save sessions as bookmarks and access them across devices"
@@ -1937,7 +1937,7 @@ msgstr "Introduce a %(username)s en la comunidad"
 
 #: src/amo/components/UserProfileEdit/index.js:624
 msgid "Some HTML supported: %(htmlTags)s. Links are forbidden."
-msgstr ""
+msgstr "Es compatible con algún HTML: %(htmlTags)s. Los enlaces están prohibidos."
 
 #: src/amo/components/UserProfileEdit/index.js:646
 msgid "Notifications"
