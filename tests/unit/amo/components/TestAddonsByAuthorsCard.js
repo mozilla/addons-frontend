@@ -254,7 +254,7 @@ describe(__filename, () => {
       store,
     });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({
       addonType: ADDON_TYPE_THEME,
@@ -269,7 +269,7 @@ describe(__filename, () => {
 
     // Make sure an authorUsernames update even with the same addonType dispatches
     // a fetch action.
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({
       addonType: ADDON_TYPE_THEME,
@@ -295,7 +295,7 @@ describe(__filename, () => {
       store,
     });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({
       addonType: ADDON_TYPE_OPENSEARCH,
@@ -321,7 +321,7 @@ describe(__filename, () => {
       store,
     });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({
       forAddonSlug: 'testing',
@@ -347,7 +347,7 @@ describe(__filename, () => {
       store,
     });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({
       addonType: ADDON_TYPE_EXTENSION,

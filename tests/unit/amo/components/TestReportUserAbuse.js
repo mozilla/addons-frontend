@@ -112,7 +112,7 @@ describe(__filename, () => {
     const root = renderShallow({ store, user });
 
     root.find('.ReportUserAbuse-show-more').simulate('click', createFakeEvent());
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     const dismiss = root.find(DismissibleTextForm).prop('onDismiss');
     dismiss();
