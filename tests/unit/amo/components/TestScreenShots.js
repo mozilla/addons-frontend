@@ -4,10 +4,11 @@ import { renderIntoDocument } from 'react-dom/test-utils';
 import { PhotoSwipeGallery } from 'react-photoswipe';
 
 import ScreenShots, {
-  HEIGHT,
-  WIDTH,
   thumbnailContent,
 } from 'amo/components/ScreenShots';
+
+const HEIGHT = 400;
+const WIDTH = 200;
 
 describe('<ScreenShots />', () => {
   const previews = [
@@ -15,11 +16,15 @@ describe('<ScreenShots />', () => {
       caption: 'A screenshot',
       image_url: 'http://img.com/one',
       thumbnail_url: 'http://img.com/1',
+      image_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH, HEIGHT],
     },
     {
       caption: 'Another screenshot',
       image_url: 'http://img.com/two',
       thumbnail_url: 'http://img.com/2',
+      image_size: [WIDTH, HEIGHT],
+      thumbnail_size: [WIDTH, HEIGHT],
     },
   ];
 
@@ -49,7 +54,7 @@ describe('<ScreenShots />', () => {
   });
 
   it('renders custom thumbnail', () => {
-    const item = { src: 'https://foo.com/img.png', title: 'test title' };
+    const item = { src: 'https://foo.com/img.png', title: 'test title', h: HEIGHT, w: WIDTH };
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');

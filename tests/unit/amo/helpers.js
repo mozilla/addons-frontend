@@ -95,6 +95,8 @@ export const fakeAddon = Object.freeze({
     caption: 'Chill out control panel',
     image_url: 'https://addons.cdn.mozilla.net/123/image.png',
     thumbnail_url: 'https://addons.cdn.mozilla.net/7123/image.png',
+    image_size: [400, 200],
+    thumbnail_size: [200, 100],
   }],
   public_stats: true,
   ratings: {

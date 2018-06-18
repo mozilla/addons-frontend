@@ -7,8 +7,14 @@ $screenshot-height: 220px;
 $image-height: $screenshot-height - 20px;
 $screenshot-width: 320px;
 
-.ScreenShots .pswp-thumbnails {
-  line-height: 0;
+.ScreenShots {
+  .pswp-thumbnails {
+    line-height: 0;
+  }
+
+  .pswp__caption__center {
+    text-align: center;
+  }
 }
 
 .ScreenShots-viewport {
@@ -51,3 +57,4 @@ $screenshot-width: 320px;
 .ScreenShots-list .pswp__caption {
   overflow-wrap: break-word;
 }
+
