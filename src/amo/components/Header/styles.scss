@@ -7,7 +7,7 @@
 .Header {
   background: $ink-90;
   display: grid;
-  grid-template-columns: min-content auto;
+  grid-template-columns: auto min-content;
   min-height: 112px;
   padding: 0 12px;
 
@@ -132,7 +132,13 @@
 }
 
 .Header-authenticate-button {
-  @include margin-start(12px);
+  .DropdownMenu-button {
+    padding: 0;
+  }
+
+  @include respond-to(medium) {
+    @include margin-start(12px);
+  }
 }
 
 .Header-SectionLinks {
