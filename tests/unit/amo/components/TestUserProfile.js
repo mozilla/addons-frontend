@@ -100,7 +100,7 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({ params: { username: 'killmonger' } });
 
@@ -116,7 +116,7 @@ describe(__filename, () => {
 
     const root = renderUserProfile({ params, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({ params });
 
@@ -532,7 +532,7 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('unexpected error'));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     renderUserProfile({ errorHandler, store });
 

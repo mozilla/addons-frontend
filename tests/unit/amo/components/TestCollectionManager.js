@@ -429,7 +429,7 @@ describe(__filename, () => {
     typeInput({ root, name: 'name', text: `  ${name}   ` });
     typeInput({ root, name: 'slug', text: `  ${slug}   ` });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
     simulateSubmit(root);
 
     sinon.assert.calledWith(dispatchSpy, updateCollection({
@@ -512,7 +512,7 @@ describe(__filename, () => {
     // Enter in a blank collection description.
     typeInput({ root, name: 'description', text: '' });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
     simulateSubmit(root);
 
     sinon.assert.calledWith(dispatchSpy, updateCollection({

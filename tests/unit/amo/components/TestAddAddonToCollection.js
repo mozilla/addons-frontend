@@ -99,7 +99,7 @@ describe(__filename, () => {
       dispatchSignInActions({ store, userProps: { username: 'user-one' } });
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const root = render();
-      dispatchSpy.reset();
+      dispatchSpy.resetHistory();
 
       const username = 'user-two';
       dispatchSignInActions({ store, userProps: { username } });
@@ -131,7 +131,7 @@ describe(__filename, () => {
 
       const dispatchSpy = sinon.spy(store, 'dispatch');
       const root = render();
-      dispatchSpy.reset();
+      dispatchSpy.resetHistory();
 
       // Pretend this is updating some unrelated props.
       root.setProps({});

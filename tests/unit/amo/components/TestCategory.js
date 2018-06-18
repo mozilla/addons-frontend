@@ -192,7 +192,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
 
     const root = render();
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This will trigger the componentWillReceiveProps() method.
     root.setProps();
@@ -207,7 +207,7 @@ describe(__filename, () => {
     const customErrorHandler = root.instance().props.errorHandler;
     customErrorHandler.captureError(new Error('an unexpected error'));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     root.setProps({ errorHandler: customErrorHandler });
 
     sinon.assert.notCalled(fakeDispatch);

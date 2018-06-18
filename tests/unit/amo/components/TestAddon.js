@@ -162,7 +162,7 @@ describe(__filename, () => {
   it('dispatches setViewContext on update', () => {
     const fakeDispatch = sinon.stub();
     const root = shallowRender({ dispatch: fakeDispatch });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     root.setProps({
       addon: createInternalAddon({ ...fakeAddon, type: ADDON_TYPE_THEME }),
     });
@@ -177,7 +177,7 @@ describe(__filename, () => {
     const root = shallowRender({
       addon: null, dispatch: fakeDispatch, params: { slug: 'some-slug' },
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     // Update with a new addon
     root.setProps({ addon: createInternalAddon(fakeAddon) });
 
@@ -188,7 +188,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub();
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon, dispatch: fakeDispatch });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     // Update with the same addon (this apparently happens in real usage).
     root.setProps({ addon });
     // The view context should not be dispatched.
@@ -198,7 +198,7 @@ describe(__filename, () => {
   it('does not update view context unless there is an addon', () => {
     const fakeDispatch = sinon.stub();
     const root = shallowRender({ dispatch: fakeDispatch });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     root.setProps({});
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -279,7 +279,7 @@ describe(__filename, () => {
     const addon = createInternalAddon(fakeAddon);
     const root = shallowRender({ addon, errorHandler, dispatch: fakeDispatch });
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     // Update with the same slug.
     root.setProps({ params: { slug: addon.slug } });
 
@@ -292,7 +292,7 @@ describe(__filename, () => {
     const root = shallowRender({ errorHandler, dispatch: fakeDispatch });
     const slug = 'some-new-slug';
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     // Update with a new slug.
     root.setProps({ params: { slug } });
 
