@@ -211,7 +211,7 @@ describe(__filename, () => {
 
     const root = render({ addon, errorHandler, randomizer });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     const newAddon = createInternalAddon({
       ...fakeAddon,
@@ -233,7 +233,7 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({ addon });
 
@@ -246,7 +246,7 @@ describe(__filename, () => {
 
     const root = render({ addon });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({ addon: null });
 

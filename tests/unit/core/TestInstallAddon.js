@@ -612,7 +612,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
       });
       const { setCurrentStatus } = root.instance().props;
 
-      dispatch.reset();
+      dispatch.resetHistory();
       return setCurrentStatus(addon)
         .then(() => {
           sinon.assert.calledWith(
@@ -1120,7 +1120,7 @@ describe(`${__filename}: withInstallHelpers`, () => {
           expect(arg.type).toEqual(SHOW_INFO);
 
           // Test that close action dispatches.
-          dispatch.reset();
+          dispatch.resetHistory();
           arg.payload.closeAction();
           sinon.assert.calledWith(dispatch, {
             type: CLOSE_INFO,

@@ -77,7 +77,7 @@ describe(__filename, () => {
 
     sinon.assert.calledWith(fakeDispatch, setViewContext(ADDON_TYPE_EXTENSION));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     root.setProps({
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
     });
@@ -112,7 +112,7 @@ describe(__filename, () => {
       params: { visibleAddonType: visibleAddonType(ADDON_TYPE_THEME) },
       store,
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // Now we request extension add-ons.
     root.setProps({
@@ -138,7 +138,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ errorHandler, params, store });
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // We request extension add-ons again.
     root.setProps({ params });
@@ -375,7 +375,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.stub(store, 'dispatch');
     const root = render({ errorHandler, params, store });
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     root.setProps({ params });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -397,7 +397,7 @@ describe(__filename, () => {
 
     const { context } = store.getState().viewContext;
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     root.setProps({ context });
 
     sinon.assert.notCalled(fakeDispatch);

@@ -215,7 +215,7 @@ describe('Do Not Track', () => {
     sinon.assert.calledWith(fakeLog.log, 'Do Not Track is enabled');
 
     // Check with `window.doNotTrack` as well, just for completeness.
-    fakeLog.log.reset();
+    fakeLog.log.resetHistory();
     isDoNotTrackEnabled({
       _log: fakeLog,
       _navigator: {},
