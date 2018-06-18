@@ -30,6 +30,7 @@ import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
@@ -123,14 +124,20 @@ export class UserProfileBase extends React.Component<Props> {
             user && user.is_addon_developer &&
             <div className="UserProfile-developer">
               {i18n.gettext('Add-ons developer')}
-              <i className="developer" />
+              <Icon
+                className="UserProfile-tag-developer"
+                name="developer"
+              />
             </div>
           }
           {
             user && user.is_artist &&
             <div className="UserProfile-artist">
               {i18n.gettext('Theme artist')}
-              <i className="artist" />
+              <Icon
+                className="UserProfile-tag-artist"
+                name="artist"
+              />
             </div>
           }
         </div>

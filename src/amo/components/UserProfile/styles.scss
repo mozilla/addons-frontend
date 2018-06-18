@@ -49,18 +49,18 @@ $avatar-size: 64px;
   font-weight: normal;
   text-align: right;
 
-  i {
+  span {
     display: inline-block;
     height: 16px;
     margin: 0 0 5px 10px;
     vertical-align: middle;
     width: 16px;
 
-    &.developer {
+    &.UserProfile-tag-developer {
       background-image: url("./icons/developer.svg");
     }
 
-    &.artist {
+    &.UserProfile-tag-artist {
       background-image: url("./icons/artist.svg");
     }
   }
