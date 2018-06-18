@@ -512,6 +512,7 @@ export class UserProfileEditBase extends React.Component<Props, State> {
                     }
                   />
                 )}
+                <label className="UserProfilesEdit--manage" htmlFor="email"><a href="https://accounts.firefox.com/settings">Manage Firefox Account...</a></label>
               </div>
             </Card>
 
