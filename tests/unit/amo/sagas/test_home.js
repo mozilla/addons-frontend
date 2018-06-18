@@ -141,73 +141,76 @@ describe(__filename, () => {
       expect(loadAction).toEqual(expectedLoadAction);
     });
 
-    it('loads a null for a collection that cannot be fetched', async () => {
-      const state = sagaTester.getState();
+    it.each([401, 404])(
+      'loads a null for a collection that returns a %i',
+      async (status) => {
+        const state = sagaTester.getState();
 
-      const error = createApiError({ response: { status: 404 } });
+        const error = createApiError({ response: { status } });
 
-      const firstCollectionSlug = 'collection-slug';
-      const firstCollectionUser = 'user-id-or-name';
+        const firstCollectionSlug = 'collection-slug';
+        const firstCollectionUser = 'user-id-or-name';
 
-      const baseArgs = { api: state.api };
-      const baseFilters = {
-        page_size: LANDING_PAGE_ADDON_COUNT,
-      };
+        const baseArgs = { api: state.api };
+        const baseFilters = {
+          page_size: LANDING_PAGE_ADDON_COUNT,
+        };
 
-      mockCollectionsApi
-        .expects('getCollectionAddons')
-        .returns(Promise.reject(error));
+        mockCollectionsApi
+          .expects('getCollectionAddons')
+          .returns(Promise.reject(error));
 
-      const collections = [null];
+        const collections = [null];
 
-      const featuredExtensions = createAddonsApiResult([fakeAddon]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            addonType: ADDON_TYPE_EXTENSION,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(featuredExtensions));
+        const featuredExtensions = createAddonsApiResult([fakeAddon]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              addonType: ADDON_TYPE_EXTENSION,
+              featured: true,
+              sort: SEARCH_SORT_RANDOM,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(featuredExtensions));
 
-      const featuredThemes = createAddonsApiResult([fakeTheme]);
-      mockSearchApi
-        .expects('search')
-        .withArgs({
-          ...baseArgs,
-          filters: {
-            ...baseFilters,
-            addonType: ADDON_TYPE_THEME,
-            featured: true,
-            sort: SEARCH_SORT_RANDOM,
-          },
-          page: 1,
-        })
-        .returns(Promise.resolve(featuredThemes));
+        const featuredThemes = createAddonsApiResult([fakeTheme]);
+        mockSearchApi
+          .expects('search')
+          .withArgs({
+            ...baseArgs,
+            filters: {
+              ...baseFilters,
+              addonType: ADDON_TYPE_THEME,
+              featured: true,
+              sort: SEARCH_SORT_RANDOM,
+            },
+            page: 1,
+          })
+          .returns(Promise.resolve(featuredThemes));
 
-      _fetchHomeAddons({
-        collectionsToFetch: [
-          { slug: firstCollectionSlug, username: firstCollectionUser },
-        ],
-      });
+        _fetchHomeAddons({
+          collectionsToFetch: [
+            { slug: firstCollectionSlug, username: firstCollectionUser },
+          ],
+        });
 
-      const expectedLoadAction = loadHomeAddons({
-        collections,
-        featuredExtensions,
-        featuredThemes,
-      });
+        const expectedLoadAction = loadHomeAddons({
+          collections,
+          featuredExtensions,
+          featuredThemes,
+        });
 
-      await sagaTester.waitFor(expectedLoadAction.type);
+        await sagaTester.waitFor(expectedLoadAction.type);
 
-      const calledActions = sagaTester.getCalledActions();
-      const loadAction = calledActions[2];
-      expect(loadAction).toEqual(expectedLoadAction);
-    });
+        const calledActions = sagaTester.getCalledActions();
+        const loadAction = calledActions[2];
+        expect(loadAction).toEqual(expectedLoadAction);
+      }
+    );
 
     it('clears the error handler', async () => {
       _fetchHomeAddons();

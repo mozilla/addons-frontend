@@ -43,8 +43,8 @@ export function* fetchHomeAddons({
       log.warn(
         oneLine`Home collection: ${collection.username}/${collection.slug}
           failed to load: ${error}`);
-      if (error.response.status === 404) {
-        // The collection was not found.
+      if ([401, 404].includes(error.response.status)) {
+        // The collection was not found or is marked private.
         collections.push(null);
       } else {
         yield put(errorHandler.createErrorAction(error));
