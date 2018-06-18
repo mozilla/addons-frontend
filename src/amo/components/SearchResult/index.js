@@ -7,18 +7,18 @@ import { compose } from 'redux';
 import Link from 'amo/components/Link';
 import translate from 'core/i18n/translate';
 import { ADDON_TYPE_THEME, ADDON_TYPE_THEMES } from 'core/constants';
-import { addQueryParams, isAllowedOrigin, sanitizeHTML } from 'core/utils';
+import { addQueryParams, isAllowedOrigin, nl2br, sanitizeHTML } from 'core/utils';
 import { getAddonIconUrl } from 'core/imageUtils';
 import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
-import type { AddonType } from 'core/types/addons';
+import type { AddonType, CollectionAddonType } from 'core/types/addons';
 import type { I18nType } from 'core/types/i18n';
 
 import './styles.scss';
 
 type Props = {|
-  addon: AddonType,
+  addon: AddonType | CollectionAddonType,
   addonInstallSource?: string,
   i18n: I18nType,
   showMetadata?: boolean,
@@ -127,6 +127,22 @@ export class SearchResultBase extends React.Component<Props> {
               {addonAuthors}
             </div>
           ) : null}
+
+          {addon && addon.notes && (
+            <div className="SearchResult-note">
+              <h4 className="SearchResult-note-header">
+                <Icon name="comments-blue" />
+                {i18n.gettext('Add-on note')}
+              </h4>
+              <p
+                className="SearchResult-note-content"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={
+                  sanitizeHTML(nl2br(addon.notes), ['br'])
+                }
+              />
+            </div>
+          )}
         </div>
 
         <h3 className="SearchResult-users SearchResult--meta-section">

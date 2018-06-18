@@ -4,10 +4,11 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 
 import { SearchResultBase } from 'amo/components/SearchResult';
+import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
 import { createInternalAddon } from 'core/reducers/addons';
 import { fakeAddon, fakeTheme } from 'tests/unit/amo/helpers';
 import { fakeI18n } from 'tests/unit/helpers';
-import { ADDON_TYPE_STATIC_THEME, ADDON_TYPE_THEME } from 'core/constants';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 
@@ -225,5 +226,51 @@ describe(__filename, () => {
     const root = render({ showMetadata: false });
 
     expect(root.find('.SearchResult-metadata')).toHaveLength(0);
+  });
+
+  it('displays a note if the addon has a note', () => {
+    const notes = 'Some notes.';
+    const addon = {
+      ...fakeAddon,
+      notes,
+    };
+    const root = render({ addon });
+
+    const note = root.find('.SearchResult-note');
+    expect(note).toHaveLength(1);
+    expect(note.find(Icon)).toHaveProp('name', 'comments-blue');
+    expect(note.find('.SearchResult-note-header'))
+      .toIncludeText('Add-on note');
+    const expectedHTML =
+      `<p class="SearchResult-note-content">${notes}</p>`;
+    expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
+  });
+
+  it('renders newlines in notes', () => {
+    const notes = 'Some\nnotes.';
+    const addon = {
+      ...fakeAddon,
+      notes,
+    };
+    const root = render({ addon });
+
+    const note = root.find('.SearchResult-note');
+    expect(note).toHaveLength(1);
+    expect(note.find(Icon)).toHaveProp('name', 'comments-blue');
+    expect(note.find('.SearchResult-note-header'))
+      .toIncludeText('Add-on note');
+    const expectedHTML =
+      '<p class="SearchResult-note-content">Some<br>notes.</p>';
+    expect(note.find('.SearchResult-note-content')).toHaveHTML(expectedHTML);
+  });
+
+  it('does not display a note if the addon has no notes', () => {
+    const addon = {
+      ...fakeAddon,
+      notes: null,
+    };
+    const root = render({ addon });
+
+    expect(root.find('.SearchResult-note')).toHaveLength(0);
   });
 });
