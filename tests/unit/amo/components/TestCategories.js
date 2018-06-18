@@ -102,7 +102,7 @@ describe('<Categories />', () => {
     sinon.assert.calledWith(dispatch, setViewContext(ADDON_TYPE_EXTENSION));
     sinon.assert.calledTwice(dispatch);
 
-    dispatch.reset();
+    dispatch.resetHistory();
     root.setProps();
 
     // Dispatch should not be called again because no new props were set.

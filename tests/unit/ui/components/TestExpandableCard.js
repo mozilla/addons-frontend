@@ -46,7 +46,7 @@ describe(__filename, () => {
     expect(card()).toHaveClassName('ExpandableCard--expanded');
 
     // Clicking on the toggle again should set the card to be unexpanded.
-    fakeEvent.preventDefault.reset();
+    fakeEvent.preventDefault.resetHistory();
     root.find('.ExpandableCard-ToggleLink').simulate('click', fakeEvent);
 
     sinon.assert.called(fakeEvent.preventDefault);

@@ -463,7 +463,7 @@ describe(__filename, () => {
       label: addon.name,
     });
 
-    _tracking.sendEvent.reset();
+    _tracking.sendEvent.resetHistory();
     // Simulate the InstallTrigger callback.
     const successStatus = 0;
     onInstalled(url, successStatus);

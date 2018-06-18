@@ -172,7 +172,7 @@ describe(__filename, () => {
       detail: defaultCollectionDetail,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     renderComponent({ editing: true, errorHandler, store });
 
@@ -214,7 +214,7 @@ describe(__filename, () => {
     }));
 
     const wrapper = renderComponent({ store });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps();
@@ -234,7 +234,7 @@ describe(__filename, () => {
     const location = fakeRouterLocation();
 
     const wrapper = renderComponent({ location, store });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({ location });
@@ -256,7 +256,7 @@ describe(__filename, () => {
       username,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     renderComponent({ store });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -277,7 +277,7 @@ describe(__filename, () => {
       username,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     renderComponent({ store });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -291,7 +291,7 @@ describe(__filename, () => {
     const { errorHandler } = wrapper.instance().props;
     errorHandler.captureError(new Error('an unexpected error'));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
     wrapper.setProps({ collection: null, errorHandler });
 
     sinon.assert.notCalled(fakeDispatch);
@@ -328,7 +328,7 @@ describe(__filename, () => {
       params: { slug, username },
       store,
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({
@@ -364,7 +364,7 @@ describe(__filename, () => {
       location,
       store,
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({ location: newLocation });
@@ -401,7 +401,7 @@ describe(__filename, () => {
       location,
       store,
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This will trigger the componentWillReceiveProps() method.
     wrapper.setProps({ location: newLocation });
@@ -429,7 +429,7 @@ describe(__filename, () => {
       errorHandler,
       store,
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     const newParams = {
       slug: defaultSlug,
@@ -457,7 +457,7 @@ describe(__filename, () => {
     const fakeDispatch = sinon.spy(store, 'dispatch');
 
     const wrapper = renderComponent({ errorHandler, store });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     wrapper.setProps({
       params: { slug: defaultSlug, username: username.toLowerCase() },
@@ -480,7 +480,7 @@ describe(__filename, () => {
       errorHandler,
       store,
     });
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     const newParams = {
       slug: 'some-other-collection-slug',
@@ -889,7 +889,7 @@ describe(__filename, () => {
       store,
     });
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This simulates the user clicking the "Remove" button on the
     // EditableCollectionAddon component.
@@ -928,7 +928,7 @@ describe(__filename, () => {
       store,
     });
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     // This simulates the user clicking the "Remove" button on the
     // EditableCollectionAddon component.
@@ -964,7 +964,7 @@ describe(__filename, () => {
 
     const wrapper = renderComponent({ errorHandler, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // This emulates a user clicking the delete button and confirming.
     const onDelete = wrapper.find(ConfirmButton).prop('onConfirm');

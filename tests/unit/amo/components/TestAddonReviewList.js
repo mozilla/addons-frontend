@@ -184,7 +184,7 @@ describe(__filename, () => {
         params: { addonSlug: addon.slug },
       });
 
-      dispatch.reset();
+      dispatch.resetHistory();
       // Simulate how a redux state change will introduce an addon.
       root.setProps({ addon });
 
@@ -244,7 +244,7 @@ describe(__filename, () => {
         location: fakeRouterLocation({ query: { page: 2 } }),
         params: { addonSlug },
       });
-      dispatch.reset();
+      dispatch.resetHistory();
       root.setProps({
         location: fakeRouterLocation({ query: { page: 3 } }),
       });
@@ -298,7 +298,7 @@ describe(__filename, () => {
       const dispatch = sinon.stub(store, 'dispatch');
       const root = render();
 
-      dispatch.reset();
+      dispatch.resetHistory();
       // Update the component with a different addon having the same type.
       root.setProps({
         addon: createInternalAddon({ ...addon1, id: 345 }),
@@ -315,7 +315,7 @@ describe(__filename, () => {
       const dispatch = sinon.stub(store, 'dispatch');
       const root = render();
 
-      dispatch.reset();
+      dispatch.resetHistory();
       root.setProps({ addon: createInternalAddon(addon2) });
 
       sinon.assert.calledWith(dispatch, setViewContext(addon2.type));

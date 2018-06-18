@@ -230,7 +230,7 @@ describe(__filename, () => {
     sinon.assert.calledWith(dispatchSpy, enableAbuseButtonUI({ addon }));
 
     // Ensure `enableAbuseButtonUI()` isn't called again.
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // This simulates entering text into the textarea.
     textarea.instance().value = 'Opera did it first! Adding some text!';
@@ -304,8 +304,8 @@ describe(__filename, () => {
     // We enable the button with an empty textarea; this never happens
     // normally but we can force it here for testing.
     store.dispatch(enableAbuseButtonUI({ addon }));
-    dispatchSpy.reset();
-    fakeEvent.preventDefault.reset();
+    dispatchSpy.resetHistory();
+    fakeEvent.preventDefault.resetHistory();
 
     const root = renderMount({ addon, store });
 
