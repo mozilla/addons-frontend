@@ -10,7 +10,6 @@ import CategoriesPage from 'amo/components/CategoriesPage';
 import Category from 'amo/components/Category';
 import Collection from 'amo/components/Collection';
 import CollectionEdit from 'amo/components/CollectionEdit';
-import CollectionList from 'amo/components/CollectionList';
 import Home from 'amo/components/Home';
 import LandingPage from 'amo/components/LandingPage';
 import LanguageTools from 'amo/components/LanguageTools';
@@ -50,17 +49,19 @@ export default (
           <Route path="user/:username/" component={UserProfile} />
         </React.Fragment>
       )}
-      <Route
-        path="collections/:username/:slug/edit/"
-        component={CollectionEdit}
-      />
       <Route path="collections/:username/:slug/" component={Collection} />
-      {config.get('enableNewCollectionsUI') ?
-        <Route
-          path="collections/add/"
-          component={(props) => <CollectionList {...props} creating />}
-        /> : null
-      }
+      {config.get('enableNewCollectionsUI') && (
+        <React.Fragment>
+          <Route
+            path="collections/add/"
+            component={(props) => <Collection {...props} creating />}
+          />
+          <Route
+            path="collections/:username/:slug/edit/"
+            component={CollectionEdit}
+          />
+        </React.Fragment>
+      )}
       <Route path=":visibleAddonType/categories/" component={CategoriesPage} />
       <Route path=":visibleAddonType/:slug/" component={Category} />
       <Route path="language-tools/" component={LanguageTools} />
