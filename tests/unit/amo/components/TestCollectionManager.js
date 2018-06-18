@@ -738,36 +738,25 @@ describe(__filename, () => {
     expect(root.find(Notice)).toHaveLength(0);
   });
 
-  it('clearTimeout is called on unmount if timeout is set', () => {
+  it('calls clearTimeout when unmounting and timeout is set', () => {
     const clearTimeoutSpy = sinon.spy();
     const root = render({ clearTimeout: clearTimeoutSpy });
-    const unMountSpy = sinon.spy(root.instance(), 'componentWillUnmount');
 
-    // Simulates the setTimeout behavior
-    // in which timeout is set.
+    // Simulates the setTimeout behavior in which timeout is set.
     root.instance().timeout = 50;
-
-    expect(unMountSpy.calledOnce).toEqual(false);
 
     root.unmount();
 
     expect(clearTimeoutSpy.callCount).toEqual(1);
-
-    expect(unMountSpy.calledOnce).toEqual(true);
   });
 
-  it('clearTimeout is not called on unmount if timeout is undefined', () => {
+  it('does not call clearTimeout when unmounting and there is no timeout set', () => {
     const clearTimeoutSpy = sinon.spy();
     const root = render({ clearTimeout: clearTimeoutSpy });
-    const unMountSpy = sinon.spy(root.instance(), 'componentWillUnmount');
-
-    expect(unMountSpy.calledOnce).toEqual(false);
 
     root.unmount();
 
     expect(clearTimeoutSpy.callCount).toEqual(0);
-
-    expect(unMountSpy.calledOnce).toEqual(true);
   });
 
   it('removes the notification after a new add-on has been selected', () => {
