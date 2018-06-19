@@ -1,14 +1,12 @@
 import * as React from 'react';
-import { findDOMNode } from 'react-dom';
-import {
-  Simulate,
-  renderIntoDocument,
-} from 'react-dom/test-utils';
 
-import { SimulateClientErrorBase } from
-  'core/containers/error-simulation/SimulateClientError';
+import SimulateClientError, {
+  SimulateClientErrorBase,
+} from 'core/containers/error-simulation/SimulateClientError';
+import { shallowUntilTarget } from 'tests/unit/helpers';
 
-describe('SimulateClientError', () => {
+
+describe(__filename, () => {
   let clock;
 
   beforeEach(() => {
@@ -20,27 +18,52 @@ describe('SimulateClientError', () => {
   });
 
   function render(props = {}) {
-    return findDOMNode(
-      renderIntoDocument(<SimulateClientErrorBase {...props} />));
+    return shallowUntilTarget(
+      <SimulateClientError {...props} />,
+      SimulateClientErrorBase
+    );
   }
 
   it('lets you trigger an error', () => {
     const root = render();
-    const button = root.querySelector('button');
-    expect(() => Simulate.click(button)).toThrowError(/simulated client error/);
+
+    expect(() => {
+      root.find('.SimulateClientError-error').simulate('click');
+    }).toThrowError(/simulated client error/);
   });
 
   it('toggles the trigger prompt', () => {
     const root = render();
-    const button = root.querySelector('button');
-    const triggerPrompt = '💣 Go ahead, trigger an error';
 
-    expect(button.textContent).toEqual(triggerPrompt);
-    expect(() => Simulate.click(button)).toThrowError();
-    expect(button.textContent).toEqual('Nice! Check Sentry');
+    const triggerPrompt = '💣 Go ahead, trigger an error';
+    expect(root.find('.SimulateClientError-error').children())
+      .toHaveText(triggerPrompt);
+
+    expect(() => {
+      root.find('.SimulateClientError-error').simulate('click');
+    }).toThrow();
+
+    root.update();
+    expect(root.find('.SimulateClientError-error').children())
+      .toHaveText('Nice! Check Sentry');
 
     // Trigger the setTimeout() callback:
     clock.tick(3000);
-    expect(button.textContent).toEqual(triggerPrompt);
+    root.update();
+
+    expect(root.find('.SimulateClientError-error').children())
+      .toHaveText(triggerPrompt);
+  });
+
+  it('can throw a render error', () => {
+    const root = render();
+
+    expect(root).toHaveState('throwRenderError', false);
+
+    expect(() => {
+      root.find('.SimulateClientError-render-error').simulate('click');
+    }).toThrowError(/simulated client render error/);
+
+    expect(root).toHaveState('throwRenderError', true);
   });
 });
