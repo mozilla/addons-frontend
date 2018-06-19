@@ -193,7 +193,7 @@ describe(__filename, () => {
       notifications: createUserNotificationsResponse(),
     }));
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // This happens when loading the user edit profile page of the current
     // logged-in user (e.g., page refresh).
@@ -212,7 +212,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ errorHandler, params, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // We set `user` to `null` because that's what `mapStateToProps()` would do
     // because the user is not loaded yet.
@@ -249,7 +249,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store });
     const user = getCurrentUser(store.getState().users);
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // We pass the `user` to simulate the case where the user data are already
     // present in the store.
@@ -270,7 +270,7 @@ describe(__filename, () => {
     const root = renderUserProfileEdit({ errorHandler, store });
     const user = getCurrentUser(store.getState().users);
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // We pass the `user` to simulate the case where the user data are already
     // present in the store.
@@ -291,7 +291,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ params, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     root.setProps({ params });
 
@@ -959,7 +959,7 @@ describe(__filename, () => {
     // The user edits their profile.
     const root = renderUserProfileEdit({ params: {}, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // The user logs out.
     root.setProps({
@@ -995,7 +995,7 @@ describe(__filename, () => {
     const params = { username: user.username };
     const root = renderUserProfileEdit({ params, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // The user logs out.
     root.setProps({ currentUser: null, params });
@@ -1032,7 +1032,7 @@ describe(__filename, () => {
     });
     errorHandler.handle(new Error('unexpected error'));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     renderUserProfileEdit({ errorHandler, store });
 
@@ -1048,7 +1048,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ errorHandler, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     const onDelete = root.find(UserProfileEditPicture).prop('onDelete');
 
@@ -1272,7 +1272,7 @@ describe(__filename, () => {
 
     const root = renderUserProfileEdit({ errorHandler, params, store });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // User opens the modal.
     root.find('.UserProfileEdit-delete-button').simulate(
@@ -1323,7 +1323,7 @@ describe(__filename, () => {
       store,
     });
 
-    dispatchSpy.reset();
+    dispatchSpy.resetHistory();
 
     // User opens the modal.
     root.find('.UserProfileEdit-delete-button').simulate(
@@ -1468,7 +1468,7 @@ describe(__filename, () => {
     });
 
     sinon.assert.calledWith(_window.scroll, 0, 0);
-    _window.scroll.reset();
+    _window.scroll.resetHistory();
 
     // This update will trigger a re-render.
     root.find(`.UserProfileEdit-biography`).simulate(
