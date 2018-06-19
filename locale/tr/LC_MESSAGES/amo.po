@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-14 18:29+0000\n"
+"PO-Revision-Date: 2018-06-19 18:58+0000\n"
 "Last-Translator: Selim Şumlu <selim@sum.lu>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: tr\n"
@@ -45,7 +45,7 @@ msgstr "Koleksiyona ekle"
 
 #: src/amo/components/Addon/index.js:194
 msgid "Preview of %(title)s"
-msgstr ""
+msgstr "%(title)s ön izlemesi"
 
 #: src/amo/components/Addon/index.js:200
 msgid "Tap to preview"
@@ -1042,13 +1042,12 @@ msgid "Easy drop-down menu access to Google services like Search and Translate"
 msgstr "Arama ve Çeviri gibi Google hizmetlerine kolayca erişebileceğiniz bir açılır menü"
 
 #: src/amo/components/HomeHeroBanner/index.js:185
-#, fuzzy
 msgid "Page Translate"
-msgstr "Translate Man"
+msgstr "Page Translate"
 
 #: src/amo/components/HomeHeroBanner/index.js:188
 msgid "Translate an entire web page with a couple clicks"
-msgstr ""
+msgstr "Tüm web sayfalarını birkaç tıklamayla dilinize çevirin"
 
 #: src/amo/components/HomeHeroBanner/index.js:197
 #, fuzzy
@@ -1109,11 +1108,11 @@ msgstr "Quantum Eklentiler Mücadelesi kazananı! Oturumları yer imi olarak kay
 
 #: src/amo/components/HomeHeroBanner/index.js:65
 msgid "Web Security"
-msgstr ""
+msgstr "Web Security"
 
 #: src/amo/components/HomeHeroBanner/index.js:67
 msgid "Protection against malware and data phishing scams"
-msgstr ""
+msgstr "Kötü amaçlı yazılımlara ve kimlik avı dolandırıcılığına karşı koruma"
 
 #: src/amo/components/HomeHeroBanner/index.js:76
 msgid "Vertical Tabs Reloaded"
@@ -1984,11 +1983,11 @@ msgstr "Kullanıcının profilini sil"
 
 #: src/amo/components/UserProfileEdit/index.js:710
 msgid "Attention: You are about to delete your profile. Are you sure?"
-msgstr ""
+msgstr "Dikkat: Profilinizi silmek üzeresiniz. Emin misiniz?"
 
 #: src/amo/components/UserProfileEdit/index.js:712
 msgid "Attention: You are about to delete a profile. Are you sure?"
-msgstr ""
+msgstr "Dikkat: Bir profili silmek üzeresiniz. Emin misiniz?"
 
 #: src/amo/components/UserProfileEdit/index.js:722
 msgid ""
@@ -2150,7 +2149,7 @@ msgstr "Tamam!"
 
 #: src/ui/components/ConfirmButton/index.js:92
 msgid "Confirm"
-msgstr ""
+msgstr "Onayla"
 
 #: src/ui/components/DismissibleTextForm/index.js:95
 msgid "Enter text."
