@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-07 11:01+0000\n"
+"PO-Revision-Date: 2018-06-19 11:17+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -107,7 +107,7 @@ msgstr "%(authorList)s%(endSpan)s చేత %(addonName)s %(startSpan)s"
 
 #: src/amo/components/Addon/index.js:553
 msgid "Only with Firefox—Get Firefox Now"
-msgstr ""
+msgstr "Firefoxతో మాత్రమే—ఇప్పుడే Firefoxని పొందండి"
 
 #: src/amo/components/Addon/index.js:559
 msgid "Extension Metadata"
@@ -144,7 +144,7 @@ msgstr ""
 
 #: src/amo/components/AddonBadges/index.js:70
 msgid "Some features may require payment"
-msgstr ""
+msgstr "కొన్ని సౌలభ్యాలకు చెల్లించాల్సిరావచ్చు"
 
 #: src/amo/components/AddonCompatibilityError/index.js:62
 msgid "You need to <a href=\"%(downloadUrl)s\">download Firefox</a> to install this add-on."
@@ -280,7 +280,7 @@ msgstr ""
 
 #: src/amo/components/AddonRecommendations/index.js:161
 msgid "Other users with this extension also installed"
-msgstr ""
+msgstr "ఈ పొడగింత ఉన్న వాడుకరులు వీటిని కూడా స్థాపించుకున్నారు"
 
 #: src/amo/components/AddonRecommendations/index.js:162
 msgid "Other popular extensions"
@@ -802,7 +802,7 @@ msgstr ""
 
 #: src/amo/components/FlagReviewMenu/index.js:93
 msgid "This contains inappropriate language"
-msgstr ""
+msgstr "దీనిలో అనుచితమైన భాష ఉంది"
 
 #: src/amo/components/FlagReviewMenu/index.js:96
 msgid "Flagged for inappropriate language"
@@ -981,7 +981,7 @@ msgstr "అత్యధికంగా జనాదరణ పొందిన ప
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
-msgstr ""
+msgstr "అనువాద పనిముట్లు"
 
 #: src/amo/components/Home/index.js:256
 msgid "See more translation tools"
