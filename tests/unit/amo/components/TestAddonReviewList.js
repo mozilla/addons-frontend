@@ -545,9 +545,8 @@ describe(__filename, () => {
 
       const root = render();
       const footer = root.find('.AddonReviewList-reviews').prop('footer');
-      const paginator = shallow(footer);
-
-      expect(paginator).toHaveProp('LinkComponent', Link);
+      // `footer` contains a paginator
+      expect(shallow(footer)).toHaveProp('LinkComponent', Link);
     });
 
     it('configures a paginator with the right review count', () => {
@@ -561,9 +560,8 @@ describe(__filename, () => {
 
       const root = render();
       const footer = root.find('.AddonReviewList-reviews').prop('footer');
-      const paginator = shallow(footer);
-
-      expect(paginator).toHaveProp('count', reviews.length);
+      // `footer` contains a paginator
+      expect(shallow(footer)).toHaveProp('count', reviews.length);
     });
 
     it('sets the paginator to page 1 without a query', () => {
@@ -573,9 +571,8 @@ describe(__filename, () => {
       // Render with an empty query string.
       const root = render({ location: fakeRouterLocation() });
       const footer = root.find('.AddonReviewList-reviews').prop('footer');
-      const paginator = shallow(footer);
-
-      expect(paginator).toHaveProp('currentPage', 1);
+      // `footer` contains a paginator
+      expect(shallow(footer)).toHaveProp('currentPage', 1);
     });
 
     it('sets the paginator to the query string page', () => {
@@ -588,9 +585,8 @@ describe(__filename, () => {
         location: fakeRouterLocation({ query: { page } }),
       });
       const footer = root.find('.AddonReviewList-reviews').prop('footer');
-      const paginator = shallow(footer);
-
-      expect(paginator).toHaveProp('currentPage', page);
+      // `footer` contains a paginator
+      expect(shallow(footer)).toHaveProp('currentPage', page);
     });
 
     it('renders an HTML title', () => {

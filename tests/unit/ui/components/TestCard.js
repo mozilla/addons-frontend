@@ -58,7 +58,7 @@ describe(__filename, () => {
     expect(root.find('.Card-footer')).toHaveClassName('Card-footer-link');
   });
 
-  it('throws an error both footerLink and footerText props are passed', () => {
+  it('throws an error if both footerLink and footerText props are passed', () => {
     expect(() => {
       render({
         footerLink: <a href="/some-link">Some link</a>,
@@ -67,7 +67,7 @@ describe(__filename, () => {
     }).toThrowError(/can only specify exactly one of these props/);
   });
 
-  it('throws an error both footerLink and footer props are passed', () => {
+  it('throws an error if both footerLink and footer props are passed', () => {
     expect(() => {
       render({
         footerLink: <a href="/some-link">Some link</a>,
@@ -76,7 +76,7 @@ describe(__filename, () => {
     }).toThrowError(/can only specify exactly one of these props/);
   });
 
-  it('throws an error both footer and footerText props are passed', () => {
+  it('throws an error if both footer and footerText props are passed', () => {
     expect(() => {
       render({
         footer: <a href="/some-link">Some link</a>,

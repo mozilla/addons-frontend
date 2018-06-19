@@ -172,7 +172,7 @@ describe(__filename, () => {
       });
 
       // This happens when passing the value of a query string parameter
-      // directly to the component (hightly probable).
+      // directly to the component (highly probable).
       it('converts current page as string to number', () => {
         expect(getCurrentPage({ currentPage: '123' })).toEqual(123);
       });
