@@ -78,7 +78,7 @@ describe(__filename, () => {
       username,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     renderComponent({ store });
 
@@ -95,7 +95,7 @@ describe(__filename, () => {
       username,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     renderComponent({ store });
 
@@ -148,7 +148,7 @@ describe(__filename, () => {
       username,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     const root = renderComponent({ store });
 
@@ -178,7 +178,7 @@ describe(__filename, () => {
       username,
     }));
 
-    fakeDispatch.reset();
+    fakeDispatch.resetHistory();
 
     const root = renderComponent({ store });
 
