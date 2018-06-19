@@ -1418,14 +1418,17 @@ describe(__filename, () => {
   });
 
   it('does not scroll if we already scrolled because of an error', () => {
-    const errorHandler = createStubErrorHandler(new Error('some error'));
-
     const _window = {
       scroll: sinon.spy(),
     };
-    const root = renderUserProfileEdit({ _window, errorHandler });
+    const root = renderUserProfileEdit({ _window });
 
-    sinon.assert.notCalled(_window.scroll);
+    root.setProps({
+      errorHandler: createStubErrorHandler(new Error('some error')),
+    });
+
+    sinon.assert.calledWith(_window.scroll, 0, 0);
+    _window.scroll.resetHistory();
 
     // This update will trigger a re-render.
     root.find(`.UserProfileEdit-biography`).simulate(
