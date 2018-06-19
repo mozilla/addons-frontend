@@ -7,7 +7,7 @@
 .Header {
   background: $ink-90;
   display: grid;
-  grid-template-columns: auto auto auto min-content;
+  grid-template-columns: repeat(3, auto) min-content;
   min-height: 112px;
   padding: 0 12px;
 
