@@ -53,13 +53,16 @@ describe(__filename, () => {
   });
 
   it('renders custom thumbnail', () => {
-    const item = { src: 'https://foo.com/img.png', title: 'test title', h: 123, w: 1234 };
+    const h = 123;
+    const w = 1234;
+
+    const item = { src: 'https://foo.com/img.png', title: 'test title', h, w };
     const thumbnail = shallow(thumbnailContent(item));
 
     expect(thumbnail.type()).toEqual('img');
     expect(thumbnail.prop('src')).toEqual('https://foo.com/img.png');
-    expect(thumbnail.prop('height')).toEqual(123);
-    expect(thumbnail.prop('width')).toEqual(1234);
+    expect(thumbnail.prop('height')).toEqual(h);
+    expect(thumbnail.prop('width')).toEqual(w);
     expect(thumbnail.prop('alt')).toEqual('test title');
     expect(thumbnail.prop('title')).toEqual('test title');
   });
