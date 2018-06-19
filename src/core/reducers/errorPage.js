@@ -3,9 +3,17 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 
 const LOAD_ERROR_PAGE: 'LOAD_ERROR_PAGE' = 'LOAD_ERROR_PAGE';
 
+export type ErrorType = Error & {
+  apiURL?: string,
+  response?: {
+    status?: number,
+  },
+  jsonResponse?: Object,
+};
+
 export type ErrorPageState = {|
   clearOnNext: boolean,
-  error: Object | null,
+  error: ErrorType | null,
   hasError: boolean,
   statusCode: number | null,
 |};
@@ -18,11 +26,7 @@ export const initialState: ErrorPageState = {
 };
 
 type LoadErrorPageParams = {|
-  error: Error | {
-    response?: {
-      status?: number,
-    },
-  },
+  error: ErrorType,
 |};
 
 type LoadErrorPageAction = {|
