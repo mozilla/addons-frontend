@@ -17,6 +17,7 @@ import {
   getCurrentUser,
   getUserByUsername,
   hasPermission,
+  isDeveloper,
 } from 'amo/reducers/users';
 import {
   ADDON_TYPE_EXTENSION,
@@ -30,6 +31,7 @@ import { removeProtocolFromURL, sanitizeUserHTML } from 'core/utils';
 import Button from 'ui/components/Button';
 import Card from 'ui/components/Card';
 import DefinitionList, { Definition } from 'ui/components/DefinitionList';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
@@ -115,13 +117,30 @@ export class UserProfileBase extends React.Component<Props> {
     }
 
     const userProfileHeader = (
-      <React.Fragment>
+      <div className="UserProfile-header">
         <UserAvatar className="UserProfile-avatar" user={user} />
+
+        {user && isDeveloper(user) && (
+          <div className="UserProfile-tags">
+            {user.is_addon_developer && (
+              <p className="UserProfile-developer">
+                {i18n.gettext('Add-ons developer')}
+                <Icon name="developer" />
+              </p>
+            )}
+            {user.is_artist && (
+              <p className="UserProfile-artist">
+                {i18n.gettext('Theme artist')}
+                <Icon name="artist" />
+              </p>
+            )}
+          </div>
+        )}
 
         <h1 className="UserProfile-name">
           {user ? user.name : <LoadingText />}
         </h1>
-      </React.Fragment>
+      </div>
     );
     const userProfileTitle = i18n.sprintf(
       i18n.gettext('User Profile for %(user)s'), {

@@ -28,6 +28,11 @@ $avatar-size: 64px;
   }
 }
 
+.UserProfile-header {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
 .UserProfile-avatar {
   height: $avatar-size;
   margin: 0 0 12px;
@@ -40,10 +45,28 @@ $avatar-size: 64px;
   width: $avatar-size;
 }
 
+.UserProfile-tags {
+  @include font-regular();
+  @include text-align-end();
+
+  .UserProfile-artist,
+  .UserProfile-developer {
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
+
+  .Icon {
+    @include margin-start(6px);
+
+    margin-bottom: -2px;
+  }
+}
+
 .UserProfile-name {
   @include font-regular();
 
   font-size: $font-size-l;
+  grid-column: 1 / span 3;
   margin: 0;
 
   @include respond-to(medium) {

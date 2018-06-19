@@ -21,6 +21,7 @@ import {
 } from 'core/constants';
 import { ErrorHandler } from 'core/errorHandler';
 import ErrorList from 'ui/components/ErrorList';
+import Icon from 'ui/components/Icon';
 import LoadingText from 'ui/components/LoadingText';
 import Rating from 'ui/components/Rating';
 import UserAvatar from 'ui/components/UserAvatar';
@@ -144,6 +145,50 @@ describe(__filename, () => {
     const header = getHeaderPropComponent(root);
 
     expect(header.find('.UserProfile-name')).toHaveText('Matt MacTofu');
+  });
+
+  it('does not render any tag if user is not a developer or artist', () => {
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({
+        is_addon_developer: false,
+        is_artist: false,
+      }),
+    });
+    const root = renderUserProfile({ store });
+    const header = getHeaderPropComponent(root);
+
+    expect(header.find('.UserProfile-tags')).toHaveLength(0);
+  });
+
+  it('renders the add-ons developer tag if user is a developer', () => {
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({ is_addon_developer: true }),
+    });
+    const root = renderUserProfile({ store });
+    const header = getHeaderPropComponent(root);
+
+    expect(header.find('.UserProfile-tags')).toHaveLength(1);
+
+    expect(header.find('.UserProfile-developer')).toHaveLength(1);
+    expect(header.find('.UserProfile-developer'))
+      .toIncludeText('Add-ons developer');
+    expect(header.find(Icon)).toHaveLength(1);
+    expect(header.find(Icon)).toHaveProp('name', 'developer');
+  });
+
+  it('renders the theme artist tag if user is an artist', () => {
+    const { store } = dispatchSignInActions({
+      userProps: defaultUserProps({ is_artist: true }),
+    });
+    const root = renderUserProfile({ store });
+    const header = getHeaderPropComponent(root);
+
+    expect(header.find('.UserProfile-tags')).toHaveLength(1);
+
+    expect(header.find('.UserProfile-artist')).toHaveLength(1);
+    expect(header.find('.UserProfile-artist')).toIncludeText('Theme artist');
+    expect(header.find(Icon)).toHaveLength(1);
+    expect(header.find(Icon)).toHaveProp('name', 'artist');
   });
 
   it('renders LoadingText when user name is not ready', () => {
