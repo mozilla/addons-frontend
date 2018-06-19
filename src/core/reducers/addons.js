@@ -1,10 +1,7 @@
 /* @flow */
 import { oneLine } from 'common-tags';
 
-import {
-  ADDON_TYPE_THEME,
-  ADDON_TYPE_THEMES,
-} from 'core/constants';
+import { ADDON_TYPE_THEME } from 'core/constants';
 import type { ErrorHandlerType } from 'core/errorHandler';
 import log from 'core/logger';
 import type {
@@ -97,7 +94,7 @@ export function loadAddonResults(
 }
 
 export function getGuid(addon: ExternalAddonType): string {
-  if (ADDON_TYPE_THEMES.includes(addon.type)) {
+  if (addon.type === ADDON_TYPE_THEME) {
     // This mimics how Firefox appends @personas.mozilla.org internally.
     // It's needed to look up themes in mozAddonManager.
     return `${addon.id}@personas.mozilla.org`;

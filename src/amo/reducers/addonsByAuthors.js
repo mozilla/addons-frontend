@@ -174,33 +174,33 @@ const reducer = (
   switch (action.type) {
     case FETCH_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
-      const { addonType } = action.payload;
+      const { addonType, authorUsernames, forAddonSlug } = action.payload;
 
-      if (action.payload.forAddonSlug) {
+      if (forAddonSlug) {
         newState.byAddonSlug = {
           ...newState.byAddonSlug,
-          [action.payload.forAddonSlug]: undefined,
+          [forAddonSlug]: undefined,
         };
       }
 
       newState.loadingFor[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, addonType)] = true;
+        authorUsernames, addonType)] = true;
 
       newState.byAuthorNamesAndAddonType[joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, addonType)] = null;
+        authorUsernames, addonType)] = null;
 
       return newState;
     }
     case LOAD_ADDONS_BY_AUTHORS: {
       const newState = deepcopy(state);
-      const { addonType } = action.payload;
+      const { addonType, authorUsernames, forAddonSlug } = action.payload;
 
       const pageSize = ADDON_TYPE_THEMES.includes(addonType) ?
         THEMES_BY_AUTHORS_PAGE_SIZE : EXTENSIONS_BY_AUTHORS_PAGE_SIZE;
 
-      if (action.payload.forAddonSlug) {
+      if (forAddonSlug) {
         newState.byAddonSlug = {
-          [action.payload.forAddonSlug]: action.payload.addons
+          [forAddonSlug]: action.payload.addons
             .slice(0, pageSize)
             .map((addon) => addon.id),
         };
@@ -210,7 +210,7 @@ const reducer = (
         .map((addon) => createInternalAddon(addon));
 
       const authorNamesWithAddonType = joinAuthorNamesAndAddonType(
-        action.payload.authorUsernames, addonType);
+        authorUsernames, addonType);
 
       newState.byAuthorNamesAndAddonType[authorNamesWithAddonType] = [];
       newState.loadingFor[authorNamesWithAddonType] = false;
