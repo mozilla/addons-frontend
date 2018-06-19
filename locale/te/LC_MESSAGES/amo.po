@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: amo\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2018-06-05 18:57+0000\n"
-"PO-Revision-Date: 2018-06-19 11:17+0000\n"
+"PO-Revision-Date: 2018-06-19 13:39+0000\n"
 "Last-Translator: వీవెన్ <veeven@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: te\n"
@@ -387,9 +387,8 @@ msgid "More dictionaries by these translators"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:129
-#, fuzzy
 msgid "Dictionaries by %(author)s"
-msgstr "నిఘంటువులు"
+msgstr "%(author)s నిఘంటువులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:132
 msgid "Dictionaries by these translators"
@@ -404,9 +403,8 @@ msgid "More extensions by these developers"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:146
-#, fuzzy
 msgid "Extensions by %(author)s"
-msgstr "%(authorList)s చే"
+msgstr "%(author)s పొడగింతలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:149
 msgid "Extensions by these developers"
@@ -421,9 +419,8 @@ msgid "More language packs by these translators"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:163
-#, fuzzy
 msgid "Language packs by %(author)s"
-msgstr "భాషా ప్యాకులు"
+msgstr "%(author)s భాషా ప్యాకులు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:166
 msgid "Language packs by these translators"
@@ -438,14 +435,12 @@ msgid "More themes by these artists"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:181
-#, fuzzy
 msgid "Themes by %(author)s"
-msgstr "%(authorList)s చే"
+msgstr "%(author)s అలంకారాలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:184
-#, fuzzy
 msgid "Themes by these artists"
-msgstr "ఈ కళాకారులకు మద్దతు ఇవ్వండి"
+msgstr "ఈ కళాకారుల అలంకారాలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:191
 msgid "More add-ons by %(author)s"
@@ -456,9 +451,8 @@ msgid "More add-ons by these developers"
 msgstr ""
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:198
-#, fuzzy
 msgid "Add-ons by %(author)s"
-msgstr "%(authorList)s చే"
+msgstr "%(author)s పొడగింతలు"
 
 #: src/amo/components/AddonsByAuthorsCard/index.js:201
 #, fuzzy
@@ -631,9 +625,8 @@ msgid "Custom URL"
 msgstr ""
 
 #: src/amo/components/CollectionManager/index.js:358
-#, fuzzy
 msgid "Added to collection"
-msgstr "సేకరణకు జోడించు"
+msgstr "సేకరణకు చేర్చబడింది"
 
 #: src/amo/components/CollectionManager/index.js:367
 msgid "Find an add-on to include in this collection"
@@ -970,14 +963,12 @@ msgid "See more tab extensions"
 msgstr "మరిన్ని ట్యాబు పొడిగింతలు చూడండి"
 
 #: src/amo/components/Home/index.js:244
-#, fuzzy
 msgid "Essential extensions"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "ఆవశ్యక పొడగింతలు"
 
 #: src/amo/components/Home/index.js:245
-#, fuzzy
 msgid "See more essential extensions"
-msgstr "అత్యధికంగా జనాదరణ పొందిన పొడిగింతలు"
+msgstr "మరిన్ని ఆవశ్యక పొడగింతలను చూడండి"
 
 #: src/amo/components/Home/index.js:255
 msgid "Translation tools"
@@ -1865,9 +1856,8 @@ msgid "Average rating of developer’s add-ons"
 msgstr ""
 
 #: src/amo/components/UserProfile/index.js:221
-#, fuzzy
 msgid "Edit profile"
-msgstr "ప్రొఫైల్‌ను సవరించు"
+msgstr "ప్రొఫైలును సవరించు"
 
 #: src/amo/components/UserProfileEdit/index.js:177
 msgid "Profile successfully updated"
@@ -1878,9 +1868,8 @@ msgid "Picture successfully deleted"
 msgstr ""
 
 #: src/amo/components/UserProfileEdit/index.js:395
-#, fuzzy
 msgid "Log in to edit the profile"
-msgstr "అన్ని పొడగింతలను అన్వేషించు"
+msgstr "ప్రొఫైలును సవరించడానికి ప్రవేశించండి"
 
 #: src/amo/components/UserProfileEdit/index.js:439
 msgid "View user's profile"
@@ -1896,9 +1885,8 @@ msgid "Account"
 msgstr "ఖాతా"
 
 #: src/amo/components/UserProfileEdit/index.js:466
-#, fuzzy
 msgid "Account for %(username)s"
-msgstr "%(site)s కోసం మీ డేటాను పొందండి"
+msgstr "%(username)s కొరకు ఖాతా"
 
 #: src/amo/components/UserProfileEdit/index.js:472
 msgid "Username"
