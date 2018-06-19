@@ -1,6 +1,5 @@
 /* @flow */
 /* global window */
-/* eslint-disable react/sort-comp */
 import { oneLineTrim } from 'common-tags';
 import invariant from 'invariant';
 import * as React from 'react';
@@ -79,8 +78,6 @@ type State = {|
 |};
 
 export class CollectionManagerBase extends React.Component<Props, State> {
-  timeout: TimeoutID;
-
   static defaultProps = {
     setTimeout: typeof window !== 'undefined' ? window.setTimeout.bind(window) : () => {},
     clearTimeout: typeof window !== 'undefined' ? window.clearTimeout.bind(window) : () => {},
@@ -256,6 +253,8 @@ export class CollectionManagerBase extends React.Component<Props, State> {
     }));
     this.setState({ addonAddedStatus: ADDON_ADDED_STATUS_PENDING });
   };
+
+  timeout: TimeoutID;
 
   resetMessageStatus = () => {
     this.setState({
