@@ -141,13 +141,14 @@ describe(__filename, () => {
   });
 
   it('hides placeholder text when creating a collection if not logged in', () => {
-    const wrapper = renderComponent({ creating: true });
+    const { store } = dispatchClientMetadata();
+    const wrapper = renderComponent({ creating: true, store });
 
     expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
   });
 
   it('hides placeholder text if there are add-ons', () => {
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchSignInActions();
 
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
@@ -162,7 +163,7 @@ describe(__filename, () => {
     expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
   });
 
-  it('hides placeholder text if the user is not logged in', () => {
+  it('hides placeholder text when viewing a collection if the user is not logged in', () => {
     const { store } = dispatchClientMetadata();
 
     const collectionDetail = createFakeCollectionDetail();
@@ -934,6 +935,8 @@ describe(__filename, () => {
 
     const authButton = root.find(AuthenticateButton);
     expect(authButton).toHaveProp('location', location);
+    expect(authButton)
+      .toHaveProp('logInText', 'Log in to create a collection');
 
     // Make sure these were not rendered.
     expect(root.find(CollectionManager)).toHaveLength(0);
@@ -951,6 +954,8 @@ describe(__filename, () => {
 
     const authButton = root.find(AuthenticateButton);
     expect(authButton).toHaveProp('location', location);
+    expect(authButton)
+      .toHaveProp('logInText', 'Log in to edit this collection');
 
     // Make sure these were not rendered.
     expect(root.find(CollectionManager)).toHaveLength(0);

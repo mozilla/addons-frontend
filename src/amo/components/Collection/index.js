@@ -432,7 +432,7 @@ export class CollectionBase extends React.Component<Props> {
             />
           }
           {placeholderText &&
-            <p className="Collection-placeholder">{ placeholderText }</p>
+            <p className="Collection-placeholder">{placeholderText}</p>
           }
         </div>
       </div>
