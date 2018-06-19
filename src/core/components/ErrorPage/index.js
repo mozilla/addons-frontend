@@ -13,12 +13,8 @@ import type { DispatchFunc } from 'core/types/redux';
 type Props = {|
   children: React.Node,
   dispatch: DispatchFunc,
-  errorPage: {
-    error: Error,
-    hasError: boolean,
-    statusCode: number,
-  },
-  getErrorComponent: Function,
+  errorPage: ErrorPageState,
+  getErrorComponent: typeof getErrorComponentDefault,
 |};
 
 export class ErrorPageBase extends React.Component<Props> {
