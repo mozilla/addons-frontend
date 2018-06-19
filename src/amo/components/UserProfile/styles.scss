@@ -28,9 +28,9 @@ $avatar-size: 64px;
   }
 }
 
-.UserProfile-head {
+.UserProfile-header {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
 }
 
 .UserProfile-avatar {
@@ -46,23 +46,19 @@ $avatar-size: 64px;
 }
 
 .UserProfile-tags {
-  font-weight: normal;
-  text-align: right;
+  @include font-regular();
+  @include text-align-end();
 
-  span {
-    display: inline-block;
-    height: 16px;
-    margin: 0 0 5px 10px;
-    vertical-align: middle;
-    width: 16px;
+  .UserProfile-artist,
+  .UserProfile-developer {
+    margin-bottom: 8px;
+    margin-top: 0;
+  }
 
-    &.UserProfile-tag-developer {
-      background-image: url("./icons/developer.svg");
-    }
+  .Icon {
+    @include margin-start(6px);
 
-    &.UserProfile-tag-artist {
-      background-image: url("./icons/artist.svg");
-    }
+    margin-bottom: -2px;
   }
 }
 
@@ -70,7 +66,7 @@ $avatar-size: 64px;
   @include font-regular();
 
   font-size: $font-size-l;
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 3;
   margin: 0;
 
   @include respond-to(medium) {

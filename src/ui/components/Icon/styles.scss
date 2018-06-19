@@ -281,3 +281,11 @@
 .Icon-permission-webNavigation {
   @include permission-icon($name: "navigation");
 }
+
+.Icon-developer {
+  @include icon($name: "developer");
+}
+
+.Icon-artist {
+  @include icon($name: "artist");
+}

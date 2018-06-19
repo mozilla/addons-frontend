@@ -17,6 +17,7 @@ import {
   getCurrentUser,
   getUserByUsername,
   hasPermission,
+  isDeveloper,
 } from 'amo/reducers/users';
 import {
   ADDON_TYPE_EXTENSION,
@@ -116,31 +117,26 @@ export class UserProfileBase extends React.Component<Props> {
     }
 
     const userProfileHeader = (
-      <div className="UserProfile-head">
+      <div className="UserProfile-header">
         <UserAvatar className="UserProfile-avatar" user={user} />
 
-        <div className="UserProfile-tags">
-          {
-            user && user.is_addon_developer &&
-            <div className="UserProfile-developer">
-              {i18n.gettext('Add-ons developer')}
-              <Icon
-                className="UserProfile-tag-developer"
-                name="developer"
-              />
-            </div>
-          }
-          {
-            user && user.is_artist &&
-            <div className="UserProfile-artist">
-              {i18n.gettext('Theme artist')}
-              <Icon
-                className="UserProfile-tag-artist"
-                name="artist"
-              />
-            </div>
-          }
-        </div>
+        {user && isDeveloper(user) && (
+          <div className="UserProfile-tags">
+            {user.is_addon_developer && (
+              <p className="UserProfile-developer">
+                {i18n.gettext('Add-ons developer')}
+                <Icon name="developer" />
+              </p>
+            )}
+            {user.is_artist && (
+              <p className="UserProfile-artist">
+                {i18n.gettext('Theme artist')}
+                <Icon name="artist" />
+              </p>
+            )}
+          </div>
+        )}
+
         <h1 className="UserProfile-name">
           {user ? user.name : <LoadingText />}
         </h1>
