@@ -115,7 +115,7 @@ describe(__filename, () => {
   });
 
   it('renders placeholder text if there are no add-ons', () => {
-    const { store } = dispatchClientMetadata();
+    const { store } = dispatchSignInActions();
     const collectionDetail = createFakeCollectionDetail();
 
     store.dispatch(loadCurrentCollection({
@@ -130,14 +130,46 @@ describe(__filename, () => {
       .text()).toEqual('Search for extensions and themes to add to your collection.');
   });
 
-  it('hides placeholder text if there are add-ons', () => {
+  it('renders placeholder text when creating a collection', () => {
+    const { store } = dispatchSignInActions();
+
+    const wrapper = renderComponent({ creating: true, store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(1);
+    expect(wrapper.find('.Collection-placeholder').text()).toEqual(
+      'First, create your collection. Then you can add extensions and themes.');
+  });
+
+  it('hides placeholder text when creating a collection if not logged in', () => {
     const { store } = dispatchClientMetadata();
+    const wrapper = renderComponent({ creating: true, store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+  });
+
+  it('hides placeholder text if there are add-ons', () => {
+    const { store } = dispatchSignInActions();
 
     const collectionAddons = createFakeCollectionAddons();
     const collectionDetail = createFakeCollectionDetail();
 
     store.dispatch(loadCurrentCollection({
       addons: collectionAddons,
+      detail: collectionDetail,
+    }));
+
+    const wrapper = renderComponent({ store });
+
+    expect(wrapper.find('.Collection-placeholder')).toHaveLength(0);
+  });
+
+  it('hides placeholder text when viewing a collection if the user is not logged in', () => {
+    const { store } = dispatchClientMetadata();
+
+    const collectionDetail = createFakeCollectionDetail();
+
+    store.dispatch(loadCurrentCollection({
+      addons: [],
       detail: collectionDetail,
     }));
 
@@ -178,6 +210,15 @@ describe(__filename, () => {
     fakeDispatch.resetHistory();
 
     renderComponent({ editing: true, errorHandler, store });
+
+    sinon.assert.notCalled(fakeDispatch);
+  });
+
+  it('does not dispatch any fetches when creating a collection', () => {
+    const { store } = dispatchClientMetadata();
+    const fakeDispatch = sinon.spy(store, 'dispatch');
+
+    renderComponent({ creating: true, store });
 
     sinon.assert.notCalled(fakeDispatch);
   });
@@ -539,20 +580,40 @@ describe(__filename, () => {
     const wrapper = renderComponent({ editing: true, store });
 
     expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
-    expect(wrapper.find(AddonsCard))
-      .toHaveProp('editing', true);
+    expect(wrapper.find(AddonsCard)).toHaveProp('editing', true);
 
     const footer = wrapper.find(AddonsCard).prop('footer');
     const paginator = shallow(footer);
     expect(paginator).toHaveProp('pathname', pathname);
 
     expect(wrapper.find(CollectionManager)).toHaveLength(1);
+    expect(wrapper.find(CollectionManager)).toHaveProp('creating', false);
     expect(wrapper.find(AddonsCard))
       .toHaveProp('deleteNote', wrapper.instance().deleteNote);
     expect(wrapper.find(AddonsCard))
       .toHaveProp('removeAddon', wrapper.instance().removeAddon);
     expect(wrapper.find(AddonsCard))
       .toHaveProp('saveNote', wrapper.instance().saveNote);
+
+    // Make sure these were not rendered.
+    expect(wrapper.find('.Collection-title')).toHaveLength(0);
+    expect(wrapper.find('.Collection-description')).toHaveLength(0);
+    expect(wrapper.find(MetadataCard)).toHaveLength(0);
+  });
+
+  it('renders a create collection page', () => {
+    const { store } = dispatchSignInActions({
+      userProps: {
+        permissions: [COLLECTIONS_EDIT],
+      },
+    });
+
+    const wrapper = renderComponent({ creating: true, store });
+
+    expect(wrapper.find('.Collection-wrapper')).toHaveLength(1);
+    expect(wrapper.find(AddonsCard)).toHaveLength(0);
+    expect(wrapper.find(CollectionManager)).toHaveLength(1);
+    expect(wrapper.find(CollectionManager)).toHaveProp('creating', true);
 
     // Make sure these were not rendered.
     expect(wrapper.find('.Collection-title')).toHaveLength(0);
@@ -865,6 +926,25 @@ describe(__filename, () => {
     expect(manager).toHaveProp('collection', null);
   });
 
+  it('renders AuthenticateButton when creating and not signed in', () => {
+    const { store } = dispatchClientMetadata();
+    const location = fakeRouterLocation({
+      pathname: '/create/url/',
+    });
+    const root = renderComponent({ store, creating: true, location });
+
+    const authButton = root.find(AuthenticateButton);
+    expect(authButton).toHaveProp('location', location);
+    expect(authButton)
+      .toHaveProp('logInText', 'Log in to create a collection');
+
+    // Make sure these were not rendered.
+    expect(root.find(CollectionManager)).toHaveLength(0);
+    expect(root.find('.Collection-title')).toHaveLength(0);
+    expect(root.find('.Collection-description')).toHaveLength(0);
+    expect(root.find(MetadataCard)).toHaveLength(0);
+  });
+
   it('renders AuthenticateButton when editing and not signed in', () => {
     const { store } = dispatchClientMetadata();
     const location = fakeRouterLocation({
@@ -874,6 +954,8 @@ describe(__filename, () => {
 
     const authButton = root.find(AuthenticateButton);
     expect(authButton).toHaveProp('location', location);
+    expect(authButton)
+      .toHaveProp('logInText', 'Log in to edit this collection');
 
     // Make sure these were not rendered.
     expect(root.find(CollectionManager)).toHaveLength(0);

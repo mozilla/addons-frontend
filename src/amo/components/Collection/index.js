@@ -51,6 +51,7 @@ import './styles.scss';
 export type Props = {|
   _config: typeof config,
   collection: CollectionType | null,
+  creating: boolean,
   dispatch: DispatchFunc,
   editing: boolean,
   errorHandler: ErrorHandlerType,
@@ -76,6 +77,7 @@ export type SaveAddonNoteFunc = (
 export class CollectionBase extends React.Component<Props> {
   static defaultProps = {
     _config: config,
+    creating: false,
     editing: false,
   };
 
@@ -110,7 +112,7 @@ export class CollectionBase extends React.Component<Props> {
   }
 
   loadDataIfNeeded(nextProps?: Props) {
-    const { collection, errorHandler, loading, params } = {
+    const { collection, creating, errorHandler, loading, params } = {
       ...this.props,
       ...nextProps,
     };
@@ -120,7 +122,7 @@ export class CollectionBase extends React.Component<Props> {
       return;
     }
 
-    if (loading) {
+    if (creating || loading) {
       return;
     }
 
@@ -294,22 +296,27 @@ export class CollectionBase extends React.Component<Props> {
 
   renderCardContents() {
     const {
-      collection, editing, hasEditPermission, i18n, isLoggedIn, location,
+      collection, creating, editing, hasEditPermission, i18n, isLoggedIn, location,
     } = this.props;
 
-    if (editing) {
+    if (creating || editing) {
       if (!isLoggedIn) {
+        const logInText = creating ?
+          i18n.gettext('Log in to create a collection') :
+          i18n.gettext('Log in to edit this collection');
+
         return (
           <AuthenticateButton
             noIcon
             location={location}
-            logInText={i18n.gettext('Log in to edit this collection')}
+            logInText={logInText}
           />
         );
       }
       return (
         <CollectionManager
           collection={collection}
+          creating={creating}
           page={location.query.page}
         />
       );
@@ -374,7 +381,9 @@ export class CollectionBase extends React.Component<Props> {
   renderCollection() {
     const {
       collection,
+      creating,
       editing,
+      isLoggedIn,
       loading,
       location,
       i18n,
@@ -392,6 +401,17 @@ export class CollectionBase extends React.Component<Props> {
       />
     ) : null;
 
+    let placeholderText;
+    if (isLoggedIn && (creating || (!loading && addons.length === 0))) {
+      placeholderText = creating ?
+        i18n.gettext(
+          'First, create your collection. Then you can add extensions and themes.'
+        ) :
+        i18n.gettext(
+          'Search for extensions and themes to add to your collection.'
+        );
+    }
+
     return (
       <div className="Collection-wrapper">
         <Card className="Collection-detail">
@@ -399,20 +419,20 @@ export class CollectionBase extends React.Component<Props> {
           {this.renderDeleteButton()}
         </Card>
         <div className="Collection-items">
-          <AddonsCard
-            addonInstallSource={INSTALL_SOURCE_COLLECTION}
-            addons={addons}
-            deleteNote={this.deleteNote}
-            editing={editing}
-            footer={paginator}
-            loading={!collection || loading}
-            removeAddon={this.removeAddon}
-            saveNote={this.saveNote}
-          />
-          {!loading && addons && addons.length === 0 &&
-            <p className="Collection-placeholder">{ i18n.gettext(
-              'Search for extensions and themes to add to your collection.')}
-            </p>
+          {!creating &&
+            <AddonsCard
+              addonInstallSource={INSTALL_SOURCE_COLLECTION}
+              addons={addons}
+              deleteNote={this.deleteNote}
+              editing={editing}
+              footer={paginator}
+              loading={!collection || loading}
+              removeAddon={this.removeAddon}
+              saveNote={this.saveNote}
+            />
+          }
+          {placeholderText &&
+            <p className="Collection-placeholder">{placeholderText}</p>
           }
         </div>
       </div>
